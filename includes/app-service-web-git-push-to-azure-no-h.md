@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 026540290710d039dbc06c394ab538ebe2d7c12f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: aa6f18d4f667862687083c5db3679ce9d8e188cd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344667"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213014"
 ---
 De retour dans la _fenêtre du terminal local_, ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _&lt;deploymentLocalGitUrl-from-create-step>_ par l’URL du Git distant que vous avez enregistrée à la section [Créer une app web](#create-a-web-app).
 
@@ -21,7 +21,7 @@ De retour dans la _fenêtre du terminal local_, ajoutez un référentiel distant
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Quand Git Credential Manager vous invite à entrer vos informations d’identification, veillez à entrer celles que vous avez créées dans la section [Configurer un utilisateur de déploiement](#configure-a-deployment-user), et non pas celles vous permettant de vous connecter au portail Azure.
+Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Quand Git Credential Manager vous invite à entrer vos informations d’identification, veillez à entrer celles que vous avez créées dans la section Configurer un utilisateur de déploiement, et non pas celles vous permettant de vous connecter au portail Azure.
 
 ```bash
 git push azure master

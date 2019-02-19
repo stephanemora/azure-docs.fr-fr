@@ -12,16 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: f75ea7bd728b16c91122119c3e14da2a1e123d45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452309"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895725"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Démarrage rapide : Restaurer une base de données sur une instance managée 
 
-Dans ce guide de démarrage rapide, vous utilisez SQL Server Management Studio (SSMS) pour restaurer une base de données (le fichier de sauvegarde standard Wide World Importers) à partir du stockage blob Azure dans une [instance managée](sql-database-managed-instance.md) Azure SQL Database. 
+Dans ce guide de démarrage rapide, vous utilisez SQL Server Management Studio (SSMS) pour restaurer une base de données (le fichier de sauvegarde standard Wide World Importers) à partir du stockage Blob Azure dans une [instance managée](sql-database-managed-instance.md) Azure SQL Database. 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
@@ -40,11 +40,11 @@ Dans ce guide de démarrage rapide :
   - [Configurer une connexion point à site à une instance managée Azure SQL Database à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
-> Pour plus d’informations sur la sauvegarde et la restauration d’une base de données SQL Server à l’aide du Stockage Blob Azure et d’une [clé de signature d’accès partagé](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consultez [Sauvegarde SQL Server vers une URL](sql-database-managed-instance-get-started-restore.md).
+> Pour plus d’informations sur la sauvegarde et la restauration d’une base de données SQL Server à l’aide du stockage Blob Azure et d’une [clé de signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consultez [Sauvegarde SQL Server vers une URL](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Restaurer la base de données à partir d’un fichier de sauvegarde
 
-Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Importers vers votre instance managée. Le fichier de sauvegarde de base de données est stocké dans un compte de stockage blob Azure préconfiguré.
+Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Importers vers votre instance managée. Le fichier de sauvegarde de base de données est stocké dans un compte de stockage Blob Azure préconfiguré.
 
 1. Ouvrez SMSS et connectez-vous à votre instance managée.
 2. Dans le menu de gauche, cliquez avec le bouton droit sur votre instance managée et sélectionnez **Nouvelle requête** pour ouvrir une nouvelle fenêtre de requête.

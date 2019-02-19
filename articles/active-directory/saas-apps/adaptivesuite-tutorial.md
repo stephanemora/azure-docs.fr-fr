@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Adaptive Insights | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Adaptive Insights | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adaptive Insights.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430287"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166519"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Didacticiel : intégration d’Azure Active Directory à Adaptive Insights
+# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutoriel : Intégration d’Azure Active Directory à Adaptive Insights
 
 Dans ce didacticiel, vous allez apprendre à intégrer Adaptive Insights dans Azure Active Directory (Azure AD).
 

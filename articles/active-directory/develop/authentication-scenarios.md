@@ -17,12 +17,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: db642fea6dbf1bd1ebc53f5066d01dc4f9a5490f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095631"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244553"
 ---
 # <a name="what-is-authentication"></a>Qu’est-ce que l’authentification ?
 
@@ -47,7 +48,7 @@ Voici ce que vous devez savoir sur les divers composants du diagramme :
 
 * Azure AD est le fournisseur d'identité. Le fournisseur d’identité est responsable de la vérification de l’identité des utilisateurs et applications de l’annuaire d’une organisation et de l’émission des jetons de sécurité après que ces utilisateurs et applications sont correctement authentifiés.
 * Une application qui souhaite externaliser l’authentification pour la confier à Azure AD doit être inscrite dans Azure AD. Azure AD enregistre et identifie de façon unique l’application dans le répertoire.
-* Les développeurs peuvent utiliser les bibliothèques d’authentification open source d’Azure AD pour simplifier l’authentification en gérant les détails du protocole pour vous. Pour plus d’informations, consultez les articles sur les [bibliothèques d’authentification v2.0](reference-v2-libraries.md) et les [bibliothèques d’authentification v1.0](active-directory-authentication-libraries.md) Azure AD.
+* Les développeurs peuvent utiliser les bibliothèques d’authentification open source d’Azure AD pour simplifier l’authentification en gérant les détails du protocole pour vous. Pour plus d’informations, consultez les articles sur les [bibliothèques d’authentification v2.0](reference-v2-libraries.md) et les [bibliothèques d’authentification v1.0](active-directory-authentication-libraries.md) Azure AD.
 * Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi. Des guides de démarrage rapide, des didacticiels et des exemples de code dans plusieurs langages et infrastructures sont disponibles afin d’illustrer le comportement de l’application.
   * Pour générer une application rapidement et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur (entre autres), consultez les **guides de démarrage rapide** de la documentation.
   * Pour obtenir des procédures détaillées, basées sur des scénarios et appliquées aux principales tâches de développement de l’authentification, telles que l’obtention de jetons d’accès et leur utilisation dans les appels à l’API Microsoft Graph ou à d’autres API, l’implémentation de la connexion Microsoft avec une application web traditionnelle basée sur navigateur à l’aide d’OpenID Connect, et bien d’autres, consultez les **didacticiels** de la documentation.
@@ -121,7 +122,7 @@ Une brève description de chaque type de revendication émise par Azure AD est 
 | Émis à | Enregistre l’heure à laquelle le jeton a été émis, souvent utilisée pour l’actualisation du jeton. |
 | Émetteur | Identifie le service d’émission de jeton de sécurité qui a émis le jeton, ainsi que le client Azure AD. |
 | Nom | Fournit le nom de l’utilisateur tel qu’il est défini dans Azure AD. |
-| NOM | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. |
+| Nom | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. |
 | ID objet | Contient un identificateur unique non modifiable du sujet dans Azure AD. |
 | contrôleur | Contient les noms conviviaux des rôles d’application Azure AD qui ont été affectés à l’utilisateur. |
 | Étendue | Indique les autorisations accordées à l’application cliente. |

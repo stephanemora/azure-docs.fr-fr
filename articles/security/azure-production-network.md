@@ -4,7 +4,7 @@ description: Cet article fournit une description générale du réseau de produc
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114026"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116930"
 ---
 # <a name="the-azure-production-network"></a>Réseau de production Azure
 Les utilisateurs du réseau de production Azure peuvent être des clients externes qui accèdent à leurs propres applications Azure ou des membres du personnel interne de support Azure qui gèrent le réseau de production. Cet article décrit les méthodes d’accès de sécurité et les mécanismes de protection pour l’établissement de connexions au réseau de production Azure.
@@ -54,18 +54,18 @@ Azure implémente des fonctionnalités robustes de sécurité logicielle et de p
 ### <a name="azure-security-features"></a>Fonctionnalités de sécurité Azure
 Azure implémente des pare-feu logiciels basés sur l’hôte à l’intérieur du réseau de production. Plusieurs fonctionnalités de sécurité principale et de pare-feu résident dans l’environnement principal Azure. Ces fonctionnalités de sécurité reflètent une stratégie de défense en profondeur dans l’environnement Azure. Les données du client dans Azure sont protégées par les pare-feu suivants :
 
-**Pare-feu hyperviseur (filtre de paquets)**  : ce pare-feu est implémenté dans l’hyperviseur et configuré par l’agent du contrôleur de structure. Ce pare-feu protège le client en cours d’exécution à l’intérieur de la machine virtuelle contre tout accès non autorisé. Par défaut, quand une machine virtuelle est créée, tout le trafic est bloqué. Ensuite, l’agent du contrôleur de structure ajoute au filtre des règles et exceptions afin de permettre le trafic autorisé.
+**Pare-feu hyperviseur (filtre de paquets)**  : Ce pare-feu est implémenté dans l’hyperviseur et configuré par l’agent du contrôleur de structure. Ce pare-feu protège le client en cours d’exécution à l’intérieur de la machine virtuelle contre tout accès non autorisé. Par défaut, quand une machine virtuelle est créée, tout le trafic est bloqué. Ensuite, l’agent du contrôleur de structure ajoute au filtre des règles et exceptions afin de permettre le trafic autorisé.
 
 Deux catégories de règles sont programmées ici :
 
-- **Règles de configuration de machine ou d’infrastructure** : par défaut, toutes les communications sont bloquées. Il existe des exceptions qui permettent à une machine virtuelle d’envoyer et de recevoir des communications DHCP et des informations DNS, ainsi que d’acheminer du trafic vers l’Internet « public », à destination d’autres machines virtuelles dans le cluster du contrôleur de structure et le serveur d’activation du système d’exploitation. Étant donné que la liste autorisée de destinations sortantes des machines virtuelles n’inclut pas les sous-réseaux de routeur Azure et d’autres propriétés de Microsoft, les règles font office de couche défensive pour ceux-ci.
-- **Règles de fichier de configuration de rôle** : définissent les listes de contrôle d’accès entrant en fonction du modèle de service des clients. Par exemple, si un client dispose d’un serveur web frontal sur le port 80 d’une machine virtuelle, le port 80 est ouvert à toutes les adresses IP. Si la machine virtuelle a un rôle de travail en cours d’exécution, celui-ci est ouvert uniquement à la machine virtuelle au sein du même client.
+- **Règles de configuration de la machine ou de l’infrastructure** : Par défaut, toutes les communications sont bloquées. Il existe des exceptions qui permettent à une machine virtuelle d’envoyer et de recevoir des communications DHCP et des informations DNS, ainsi que d’acheminer du trafic vers l’Internet « public », à destination d’autres machines virtuelles dans le cluster du contrôleur de structure et le serveur d’activation du système d’exploitation. Étant donné que la liste autorisée de destinations sortantes des machines virtuelles n’inclut pas les sous-réseaux de routeur Azure et d’autres propriétés de Microsoft, les règles font office de couche défensive pour ceux-ci.
+- **Règles du fichier de configuration de rôle** : Ceci définit les listes de contrôle d’accès entrant en fonction du modèle de service des locataires. Par exemple, si un client dispose d’un serveur web frontal sur le port 80 d’une machine virtuelle, le port 80 est ouvert à toutes les adresses IP. Si la machine virtuelle a un rôle de travail en cours d’exécution, celui-ci est ouvert uniquement à la machine virtuelle au sein du même client.
 
 **Pare-feu d’hôte natif** : Azure Service Fabric et le Stockage Azure s’exécutent sur un système d’exploitation natif dépourvu d’hyperviseur. Par conséquent, le Pare-feu Windows est configuré avec les deux ensembles de règles précédents.
 
-**Pare-feu d’hôte** : le pare-feu d’hôte sert à protéger la partition hôte qui exécute l’hyperviseur. Les règles sont programmées pour autoriser uniquement le contrôleur de structure et les « jump boxes » à communiquer avec la partition hôte sur un port spécifique. Les autres exceptions sont d’autoriser la réponse DHCP et les réponses DNS. Azure utilise un fichier de configuration des machines qui contient le modèle de règles de pare-feu pour la partition hôte. Il existe également une exception de pare-feu d’hôte qui permet aux machines virtuelles de communiquer avec les composants, le serveur de réseau et le serveur de métadonnées de l’hôte, via un protocole et des ports spécifiques.
+**Pare-feu d’hôte** : Le pare-feu d’hôte sert à protéger la partition hôte qui exécute l’hyperviseur. Les règles sont programmées pour autoriser uniquement le contrôleur de structure et les « jump boxes » à communiquer avec la partition hôte sur un port spécifique. Les autres exceptions sont d’autoriser la réponse DHCP et les réponses DNS. Azure utilise un fichier de configuration des machines qui contient le modèle de règles de pare-feu pour la partition hôte. Il existe également une exception de pare-feu d’hôte qui permet aux machines virtuelles de communiquer avec les composants, le serveur de réseau et le serveur de métadonnées de l’hôte, via un protocole et des ports spécifiques.
 
-**Pare-feu d’invité** : élément de pare-feu Windows du système d’exploitation invité, configurable par le client sur ses machines virtuelles et son stockage.
+**Pare-feu invité** : Élément de pare-feu Windows du système d’exploitation invité, configurable par le client sur ses machines virtuelles et son stockage.
 
 Autres fonctionnalités de sécurité intégrées aux fonctionnalités Azure :
 

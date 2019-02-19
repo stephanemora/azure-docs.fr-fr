@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Concevoir votre première base de données unique dans Azure SQL Database avec SSMS | Microsoft Docs'
-description: Apprenez à concevoir votre première base de données SQL Azure avec SQL Server Management Studio.
+title: 'Tutoriel : Concevoir votre première base de données relationnelle dans Azure SQL Database avec SSMS | Microsoft Docs'
+description: Apprenez à concevoir votre première base de données relationnelle dans une base de données unique dans Azure SQL Database à l’aide de SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,30 +9,30 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459534"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990477"
 ---
-# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutoriel : Concevoir votre première base de données SQL Azure à l’aide de SSMS
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Didacticiel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database avec SSMS
 
-Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (Azure). Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) pour :
+Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (Azure). Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure et [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) pour :
 
 > [!div class="checklist"]
-> * Créer une base de données dans le portail Azure*
-> * Configurer une règle de pare-feu au niveau du serveur dans le portail Azure
-> * Connexion à la base de données avec SSMS
-> * Créer des tables avec SSMS
-> * Charger en masse des données avec BCP
-> * Interroger des données avec SSMS
+> - Créer une base de données unique à l’aide du portail Azure*
+> - Configurer une règle de pare-feu IP au niveau du serveur à l’aide du portail Azure
+> - Connexion à la base de données avec SSMS
+> - Créer des tables avec SSMS
+> - Charger en masse des données avec BCP
+> - Interroger des données avec SSMS
 
 *Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!NOTE]
-> Pour les besoins de ce didacticiel, nous utilisons le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), mais vous avez la possibilité de choisir le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).
+> Pour les besoins de ce tutoriel, nous utilisons une base de données unique. Vous pouvez également utiliser une base de données située dans un pool élastique ou une base de données située dans une instance gérée. Pour la connexion à une instance gérée, consultez ces guides de démarrage rapide des instances gérées : [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) et [Démarrage rapide : Configurer une connexion point à site sur Azure SQL Database Managed Instance à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,90 +45,84 @@ Pour suivre ce tutoriel, vérifiez que les éléments suivants sont installés 
 
 Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-database"></a>Créer une base de données vide
+## <a name="create-a-blank-single-database"></a>créer une base de données unique vide.
 
-Une base de données SQL Azure est créée avec un ensemble défini de [ressources de calcul et de stockage](sql-database-service-tiers-dtu.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et sur un [serveur Azure SQL Database](sql-database-features.md).
+Une base de données unique dans Azure SQL Database est créée avec un ensemble défini de ressources de calcul et de stockage. Cette base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et elle est gérée à l’aide d’un [serveur de base de données](sql-database-servers.md).
 
-Pour créer une base de données SQL vide, suivez la procédure suivante.
+Suivez ces étapes pour créer une base de données unique vide.
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
-
-1. Dans la page **Nouveau**, sélectionnez **Bases de données** dans la section Place de marché Azure, puis cliquez sur **SQL Database** dans la section **Sélection**.
+2. Dans la page **Nouveau**, sélectionnez **Bases de données** dans la section Place de marché Azure, puis cliquez sur **SQL Database** dans la section **Sélection**.
 
    ![créer une base de données vide](./media/sql-database-design-first-database/create-empty-database.png)
 
-   1. Remplissez le formulaire **Base de données SQL** avec les informations suivantes, comme indiqué dans l’illustration précédente :
+3. Remplissez le formulaire **Base de données SQL** avec les informations suivantes, comme indiqué dans l’illustration précédente :
 
-      | Paramètre       | Valeur suggérée | DESCRIPTION |
-      | ------------ | ------------------ | ------------------------------------------------- |
-      | **Nom de la base de données** | *yourDatabase* | Pour connaître les noms de bases de données valides, consultez [Identificateurs de base de données](/sql/relational-databases/databases/database-identifiers). |
-      | **Abonnement** | *yourSubscription*  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
-      | **Groupe de ressources** | *yourResourceGroup* | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
-      | **Sélectionner une source** | Base de données vide | Indique qu’une base de données vide doit être créée. |
+    | Paramètre       | Valeur suggérée | DESCRIPTION |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **Nom de la base de données** | *yourDatabase* | Pour connaître les noms de bases de données valides, consultez [Identificateurs de base de données](/sql/relational-databases/databases/database-identifiers). |
+    | **Abonnement** | *yourSubscription*  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
+    | **Groupe de ressources** | *yourResourceGroup* | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
+    | **Sélectionner une source** | Base de données vide | Indique qu’une base de données vide doit être créée. |
 
-   1. Cliquez sur **Serveur** pour utiliser un serveur existant ou créer et configurer un nouveau serveur pour votre base de données. Sélectionnez le serveur ou cliquez sur **Créer un serveur** et remplissez le formulaire **Nouveau serveur** avec les informations suivantes :
+4. Cliquez sur **Serveur** pour utiliser un serveur de base de données existant ou créez et configurez-en un. Sélectionnez un serveur existant ou cliquez sur **Créer un serveur** et remplissez le formulaire **Nouveau serveur** avec les informations suivantes :
 
-      | Paramètre       | Valeur suggérée | DESCRIPTION |
-      | ------------ | ------------------ | ------------------------------------------------- |
-      | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
-      | **Connexion d’administrateur du serveur** | Nom valide | Pour connaître les noms de connexions valides, consultez [Identificateurs de base de données](/sql/relational-databases/databases/database-identifiers). |
-      | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins huit caractères et contenir des caractères appartenant à trois des catégories suivantes : majuscules, minuscules, chiffres et caractères non alphanumériques. |
-      | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
+    | Paramètre       | Valeur suggérée | DESCRIPTION |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
+    | **Connexion d’administrateur du serveur** | Nom valide | Pour connaître les noms de connexions valides, consultez [Identificateurs de base de données](/sql/relational-databases/databases/database-identifiers). |
+    | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins huit caractères et contenir des caractères appartenant à trois des catégories suivantes : majuscules, minuscules, chiffres et caractères non alphanumériques. |
+    | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
 
-      ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
+    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
-      Cliquez sur **Sélectionner**.
+5. Cliquez sur **Sélectionner**.
+6. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage. Vous pouvez explorer les options concernant le nombre de DTU/vCore et le stockage disponible pour chaque niveau de service.
 
-   1. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage. Vous pouvez explorer les options concernant le nombre de DTU/vCore et le stockage disponible pour chaque niveau de service. Par défaut, le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) **Standard** est sélectionné, mais vous avez la possibilité de choisir le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).
+    Après avoir sélectionné le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage, cliquez sur **Appliquer**.
 
-      > [!IMPORTANT]
-      > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Royaume-Uni Nord, USA Centre-Ouest, Royaume-Uni Sud 2, Chine Est, USDoDCentral, Allemagne Centre, USDoDEast, US Gov Sud-Ouest, US Gov Centre-Sud, Allemagne Nord-Est, Chine Nord, US Gov Est. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+7. Entrez un **Classement** pour la base de données vide (pour ce tutoriel, utilisez la valeur par défaut). Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations)
 
-      Après avoir sélectionné le niveau de service, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.
+8. Maintenant que vous avez rempli le formulaire **SQL Database**, cliquez sur **Créer** pour provisionner la base de données unique. Cette étape peut prendre quelques minutes.
 
-   1. Entrez un **Classement** pour la base de données vide (pour ce tutoriel, utilisez la valeur par défaut). Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations)
+9. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
 
-1. Maintenant que vous avez rempli le formulaire **SQL Database**, cliquez sur **Créer** pour provisionner la base de données. Cette étape peut prendre quelques minutes.
+   ![notification](./media/sql-database-design-first-database/notification.png)
 
-1. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
+## <a name="create-a-server-level-ip-firewall-rule"></a>Créer une règle de pare-feu IP au niveau du serveur
 
-     ![notification](./media/sql-database-design-first-database/notification.png)
+Le service SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu empêche les applications et outils externes de se connecter au serveur et à toutes les bases de données sur ce serveur, sauf si une règle de pare-feu autorise leur adresse IP à traverser le pare-feu. Pour activer la connectivité externe à votre base de données unique, vous devez d’abord ajouter une règle de pare-feu IP pour votre adresse IP (ou plage d’adresses IP). Suivez ces étapes pour créer une [règle de pare-feu IP au niveau du serveur SQL Database](sql-database-firewall-configure.md).
 
-## <a name="create-a-firewall-rule"></a>Créer une règle de pare-feu
-
-Le service de base de données SQL crée un pare-feu au niveau du serveur. Le pare-feu empêche les outils et les applications externes de se connecter au serveur et aux bases de données sur le serveur. Pour activer la connectivité externe à votre base de données, vous devez d’abord ajouter une règle pour votre adresse IP au pare-feu. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur SQL Database](sql-database-firewall-configure.md).
-
-> [!NOTE]
-> La base de données SQL communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre administrateur ouvre le port 1433.
+> [!IMPORTANT]
+> Le service SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à ce service à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre base de données unique, sauf si votre administrateur ouvre le port 1433.
 
 1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur *yourDatabase* dans la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le **nom complet du serveur** (par exemple, *yourserver.database.windows.net*) et fournit des options pour poursuivre la configuration.
 
-1. Copiez le nom complet du serveur pour vous connecter à votre serveur et aux bases de données à partir de SQL Server Management Studio.
+2. Copiez le nom complet du serveur pour vous connecter à votre serveur et aux bases de données à partir de SQL Server Management Studio.
 
    ![nom du serveur](./media/sql-database-design-first-database/server-name.png)
 
-1. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre.
+3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre.
 
-   ![règle de pare-feu de serveur](./media/sql-database-design-first-database/server-firewall-rule.png)
+   ![règle de pare-feu IP au niveau du serveur](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-   1. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
+4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP. Une règle de pare-feu IP peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-   1. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
+5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
 
-   1. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
+6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
-Votre adresse IP peut désormais traverser le pare-feu. Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de données avec SQL Server Management Studio ou un autre outil de votre choix. Veillez à utiliser le compte d’administrateur de serveur que vous avez créé précédemment.
+Votre adresse IP peut désormais traverser le pare-feu IP. Vous pouvez maintenant vous connecter à votre base de données unique à l’aide de SQL Server Management Studio ou tout autre outil de votre choix. Veillez à utiliser le compte d’administrateur de serveur que vous avez créé précédemment.
 
 > [!IMPORTANT]
-> Par défaut, l’accès par le biais du pare-feu de base de données SQL est activé pour tous les services Azure. Cliquez sur **ÉTEINT** sur cette page pour le désactiver pour tous les services Azure.
+> Par défaut, l’accès par le biais du pare-feu IP SQL Database est activé pour tous les services Azure. Cliquez sur **ÉTEINT** sur cette page pour le désactiver pour tous les services Azure.
 
 ## <a name="connect-to-the-database"></a>Se connecter à la base de données
 
-Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) pour établir une connexion à votre serveur Azure SQL Database.
+Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) pour établir une connexion à votre base de données unique.
 
 1. Ouvrez SQL Server Management Studio.
-
-1. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
+2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
    | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -140,17 +134,17 @@ Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-s
 
    ![connect to server](./media/sql-database-design-first-database/connect.png)
 
-   1. Cliquez sur **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans la section **Se connecter à la base de données**, entrez *yourDatabase* pour vous connecter à cette base de données.
+3. Cliquez sur **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans la section **Se connecter à la base de données**, entrez *yourDatabase* pour vous connecter à cette base de données.
 
-      ![connexion à la base de données sur le serveur](./media/sql-database-design-first-database/options-connect-to-db.png)  
+    ![connexion à la base de données sur le serveur](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-   1. Cliquez sur **Connecter**. La fenêtre **Explorateur d’objets** s’ouvre dans SSMS.
+4. Cliquez sur **Connecter**. La fenêtre **Explorateur d’objets** s’ouvre dans SSMS.
 
-1. Dans l’**Explorateur d’objets**, développez **Bases de données**, puis *yourDatabase* pour afficher les objets dans l’exemple de base de données.
+5. Dans l’**Explorateur d’objets**, développez **Bases de données**, puis *yourDatabase* pour afficher les objets dans l’exemple de base de données.
 
    ![objets de base de données](./media/sql-database-design-first-database/connected.png)  
 
-## <a name="create-tables-in-the-database"></a>Créer des tables dans la base de données
+## <a name="create-tables-in-your-database"></a>Créer des tables dans votre base de données
 
 Créez un schéma de base de données avec quatre tables qui modélisent un système de gestion des étudiants pour les universités à l’aide de [Transact-SQL](/sql/t-sql/language-reference) :
 
@@ -168,7 +162,7 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur *yourDatabase* et sélectionnez **Nouvelle requête**. Une fenêtre de requête vide connectée à votre base de données s’ouvre.
 
-1. Dans la fenêtre de requête, exécutez la requête suivante pour créer quatre tables dans votre base de données :
+2. Dans la fenêtre de requête, exécutez la requête suivante pour créer quatre tables dans votre base de données :
 
    ```sql
    -- Create Person table
@@ -213,7 +207,7 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 
    ![créez des tables](./media/sql-database-design-first-database/create-tables.png)
 
-1. Développez le nœud **Tables** sous *yourDatabase* dans l’**Explorateur d’objets** pour afficher les tables que vous avez créées.
+3. Développez le nœud **Tables** sous *yourDatabase* dans l’**Explorateur d’objets** pour afficher les tables que vous avez créées.
 
    ![tables ssms-créées](./media/sql-database-design-first-database/ssms-tables-created.png)
 
@@ -221,17 +215,17 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 
 1. Créez un dossier nommé *sampleData* dans le dossier Téléchargements pour y stocker les exemples de données pour votre base de données.
 
-1. Cliquez avec le bouton droit sur les liens suivants et enregistrez-les dans le dossier *sampleData*.
+2. Cliquez avec le bouton droit sur les liens suivants et enregistrez-les dans le dossier *sampleData*.
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-1. Ouvrez une fenêtre d’invite de commandes et accédez au dossier *sampleData*.
+3. Ouvrez une fenêtre d’invite de commandes et accédez au dossier *sampleData*.
 
-1. Exécutez les commandes suivantes pour insérer des exemples de données dans les tables, en remplaçant les valeurs de *server*, *database*, *user* et *password* par les valeurs correspondant à votre environnement.
-  
+4. Exécutez les commandes suivantes pour insérer des exemples de données dans les tables, en remplaçant les valeurs de *server*, *database*, *user* et *password* par les valeurs correspondant à votre environnement.
+
    ```cmd
    bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
@@ -258,7 +252,7 @@ Exécutez les requêtes suivantes pour récupérer des informations à partir de
        AND Grade > 75
    ```
 
-1. Dans la fenêtre de requête, exécutez la requête suivante :
+2. Dans la fenêtre de requête, exécutez la requête suivante :
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
@@ -276,14 +270,14 @@ Exécutez les requêtes suivantes pour récupérer des informations à partir de
 Dans ce tutoriel, vous avez découvert de nombreuses tâches de base de données élémentaires. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer une base de données
-> * Configurer une règle de pare-feu
-> * Vous connecter à la base de données avec [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
-> * créez des tables
-> * Charger des données en bloc
-> * Interroger ces données
+> - Créer une base de données unique
+> - Configurer une règle de pare-feu IP au niveau du serveur
+> - Vous connecter à la base de données avec [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)
+> - créez des tables
+> - Charger des données en bloc
+> - Interroger ces données
 
 Passez au didacticiel suivant pour en savoir plus sur la conception d’une base de données à l’aide de Visual Studio et C#.
 
 > [!div class="nextstepaction"]
-> [Concevoir une base de données SQL Azure et se connecter avec C# et ADO.NET](sql-database-design-first-database-csharp.md)
+> [Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database en C# avec ADO.NET](sql-database-design-first-database-csharp.md)

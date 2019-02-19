@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
-ms.openlocfilehash: bd76d8a7f3f41a8aa6b2e614d37f361a98ac4efd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e47c2af353a7f365534ba4cf9ce574c16a0ea4ca
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53281312"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233137"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Tutoriel : Activer l’intégration des réseaux virtuels et des pare-feu sur l’espace de noms Event Hubs
 
@@ -30,9 +30,9 @@ Dans ce tutoriel, vous allez découvrir comment :
 > * Configurer le pare-feu (filtrage IP) avec votre espace de noms Event Hubs.
 
 >[!WARNING]
-> L’implémentation de l’intégration de réseaux virtuels peut empêcher d’autres services Azure d’interagir avec Service Bus.
+> L’implémentation de l’intégration de réseaux virtuels peut empêcher d’autres services Azure d’interagir avec Event Hubs.
 >
-> Les intégrations tierces ne sont pas prises en charge quand les réseaux virtuels sont activés. Elles le seront prochainement.
+> Les intégrations internes ne sont pas prises en charge quand les réseaux virtuels sont activés.
 > Scénarios Azure courants qui ne fonctionnent pas avec les réseaux virtuels -
 > * Azure Diagnostics et journalisation
 > * Azure Stream Analytics
@@ -51,7 +51,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de
 
 Nous utiliserons un espace de noms Event Hubs existant. Vérifiez donc que vous en avez un à votre disposition. Si ce n’est pas le cas, consultez [ce tutoriel](./event-hubs-create.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Se connecter au portail Azure
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Tout d’abord, accédez au [portail Azure][Azure portal] et connectez-vous à l’aide de votre abonnement Azure.
 

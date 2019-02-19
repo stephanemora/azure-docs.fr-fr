@@ -4,7 +4,7 @@ description: Découvrez les bonnes pratiques de sécurité du stockage Azure pou
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451865"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108923"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Bonnes pratiques pour la sécurisation des applications mobiles et web PaaS avec le Stockage Azure
 Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité du Stockage Azure pour protéger vos applications mobiles et web PaaS (Platform-as-a-Service). Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
 
 Azure permet de déployer et d’utiliser le stockage plus aisément que dans le cadre d’une configuration locale. Grâce au stockage Azure, vous pouvez atteindre des niveaux élevés de scalabilité et de disponibilité avec relativement peu d’effort. En plus de constituer la base des machines virtuelles Windows et Linux Azure, le Stockage Azure peut prendre en charge les grandes applications distribuées.
 
-Le Stockage Azure offre les quatre services suivants : Stockage Blob, Stockage Table, Stockage File d’attente et Stockage Fichier. Pour en savoir plus, consultez [Présentation du stockage Microsoft Azure](../storage/storage-introduction.md).
+Le stockage Azure fournit les quatre services suivants : Stockage Blob, Stockage Table, Stockage Fichier et Stockage File d’attente. Pour en savoir plus, consultez [Présentation du stockage Microsoft Azure](../storage/storage-introduction.md).
 
 Le [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md) constitue une source précieuse pour obtenir plus d’informations sur la sécurité et le Stockage Azure. Cet article relatif aux bonnes pratiques traite de façon générale certains concepts abordés dans le guide de sécurité et propose des liens vers ce dernier, ainsi que vers d’autres sources, pour obtenir des informations supplémentaires.
 
@@ -63,7 +63,7 @@ Les organisations qui n’appliquent aucun contrôle d’accès aux données en 
 
 Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez :
 
-- [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md)
+- [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)
 - [Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md)
 - [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md) 
 

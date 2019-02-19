@@ -13,19 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: b5f851fe5c8aebba441903ccc004b7dbd0029ba3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411460"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984764"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erreurs de démarrage BitLocker dans une machine virtuelle Azure
 
  Cet article décrit les erreurs BitLocker que vous pouvez rencontrer lorsque vous démarrez une machine virtuelle Windows dans Microsoft Azure.
 
-> [!NOTE] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements au lieu du modèle de déploiement classique.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
  ## <a name="symptom"></a>Symptôme
 
@@ -33,7 +32,7 @@ ms.locfileid: "47411460"
 
 - Connectez le pilote USB qui contient la clé BitLocker.
 
-- Votre compte est verrouillé. Entrez la clé de récupération pour poursuivre (disposition du clavier : américain) Le nombre maximal de tentatives de connexion a été atteint. Votre PC a été verrouillé pour des raisons de sécurité. Pour récupérer la clé de récupération, accédez à http://windows.microsoft.com/recoverykeyfaq à partir d’un autre PC ou appareil mobile. Si vous en avez besoin, voici l’ID de la clé : XXXXXXX. Vous pouvez aussi réinitialiser votre PC.
+- Votre compte est verrouillé. Entrez la clé de récupération pour poursuivre (disposition du clavier : américain) Le nombre maximal de tentatives de connexion a été atteint. Votre PC a été verrouillé pour des raisons de sécurité. Pour récupérer la clé de récupération, accédez à http://windows.microsoft.com/recoverykeyfaq à partir d’un autre PC ou appareil mobile. Si vous en avez besoin, voici l’ID de la clé : XXXXXXX. Vous pouvez aussi réinitialiser votre PC.
 
 - Entrez le mot de passe pour déverrouiller le lecteur [] Appuyez sur la touche Insertion pour afficher le mot de passe à mesure que vous le tapez.
 - Entrez votre clé de récupération. Chargez votre clé de récupération à partir d’un périphérique USB.
@@ -57,17 +56,17 @@ Si cette méthode ne résout pas le problème, effectuez les étapes suivantes p
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
 
-    New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
+    New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
     $recoveryVMRG = "RecoveryVMRG" 
-    $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
+    $OSDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
-    $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
+    $vm = get-AzVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
-    Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
+    Add-AzVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
-    Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
+    Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
      Vous ne pouvez pas attacher un disque managé à une machine virtuelle qui a été restaurée à partir d’une image d’objet blob.
 
@@ -76,7 +75,7 @@ Si cette méthode ne résout pas le problème, effectuez les étapes suivantes p
 4. Ouvrez une session Azure PowerShell avec élévation de privilèges (Exécuter en tant qu’administrateur). Pour vous connecter à l’abonnement Azure, exécutez les commandes suivantes :
 
     ```Powershell
-    Add-AzureRMAccount -SubscriptionID [SubscriptionID]
+    Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
 5. Exécutez le script suivant pour vérifier le nom du fichier BEK :

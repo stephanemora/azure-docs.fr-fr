@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249878"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108753"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Didacticiel : Transférer des données avec Azure Data Box Gateway (préversion)
 
@@ -121,13 +121,13 @@ Effectuez ces étapes sur votre client Linux connecté à votre Data Box Edge.
 
 2. Une fois le client NFS installé, utilisez la commande suivante pour monter le partage NFS que vous avez créé sur votre appareil Data Box Gateway :
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     Avant de configurer les montages, assurez-vous que les répertoires qui agiront comme points de montage sur votre ordinateur local sont déjà créés et ne contiennent pas de fichiers ou de sous-dossiers.
 
     L’exemple suivant montre comment se connecter à un partage sur l’appareil Gateway via NFS. L’IP de l’appareil virtuel est `10.10.10.60`, le partage `mylinuxshare2` est monté sur la machine virtuelle ubuntu, le point de montage étant `/home/databoxubuntuhost/gateway`.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
 > Les mises en garde suivantes s’appliquent à la préversion :

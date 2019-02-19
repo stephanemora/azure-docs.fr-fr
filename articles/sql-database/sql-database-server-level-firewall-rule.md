@@ -1,6 +1,6 @@
 ---
 title: Créer une règle de pare-feu au niveau du serveur - Azure SQL Database| Microsoft Docs
-description: Créer une règle de pare-feu au niveau du serveur SQL Database pour une base de données unique ou mise en pool
+description: Créez une règle de pare-feu au niveau du serveur SQL Database pour des bases de données uniques et des bases de données en pool
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,17 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2374707d3fdf4d389a7c96c18767d3c52a9efb2f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/11/2019
+ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757198"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108957"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>Démarrage rapide : créer une règle de pare-feu au niveau du serveur dans Azure SQL Database à l’aide du portail Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Démarrage rapide : Créer une règle de pare-feu au niveau du serveur pour des bases de données uniques et en pool à l’aide du portail Azure
 
-Ce guide de démarrage rapide décrit pas à pas comment créer une règle de pare-feu au niveau du serveur dans Azure SQL Database à l’aide du portail Azure pour pouvoir vous connecter à cette règle à partir d’une ressource locale.
+Ce guide de démarrage rapide vous montre comment créer une [règle de pare-feu au niveau du serveur](sql-database-firewall-configure.md) pour des bases de données uniques ou en pool dans Azure SQL Database à l’aide du portail Azure. Cette règle vous permet de vous connecter à des serveurs de base de données, à des bases de données uniques ainsi qu’à des bases de données dans des pools élastiques. Vous avez besoin d’une règle de pare-feu pour vous connecter à partir d’autres ressources Azure et des ressources locales.
 
 ## <a name="prerequisites"></a>Prérequis
 

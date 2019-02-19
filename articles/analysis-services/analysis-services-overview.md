@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/08/2019
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189477"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243852"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -140,19 +140,21 @@ Le mode DirectQuery* tire profit de la base de données relationnelle principale
 
 \* La disponibilité des fonctionnalités dépend du niveau.
 
-## <a name="supported-datasources"></a>Sources de données prises en charge
+## <a name="supported-data-sources"></a>Sources de données prises en charge
 
 Les modèles tabulaires dans Azure Analysis Services prennent en charge une grande variété de sources de données allant des fichiers texte simples à Big Data dans Azure Data Lake Store. Pour plus d’informations, consultez les [Sources de données prises en charge par Azure Analysis Services](analysis-services-datasource.md).
 
 ## <a name="your-data-is-secure"></a>Sécuriser vos données
 
-Azure Analysis Services protège vos données sensibles à plusieurs niveaux. Au niveau du serveur : pare-feu, authentification Azure, rôles d'administrateur de serveur et chiffrement côté serveur. Et au niveau du modèle de données, les rôles utilisateur, la sécurité au niveau des lignes et des objets garantissent la protection de vos données et qu’elles ne sont visibles que pour les utilisateurs censés pouvoir les afficher.
+Azure Analysis Services protège vos données sensibles à plusieurs niveaux. Comme tout service Azure, Analysis Services fournit automatiquement le niveau de protection DDoS **De base** qui est intégré à la plateforme Azure. Pour en savoir plus, consultez [Vue d’ensemble du service Protection DDos Standard Azure](../virtual-network/ddos-protection-overview.md). 
+
+Au niveau du serveur, Analysis Services fournit un pare-feu, l’authentification Azure, les rôles administrateur de serveur et le chiffrement côté serveur. Au niveau du modèle de données, les rôles utilisateur ainsi que la sécurité au niveau des lignes et des objets garantissent que vos données sont protégées et qu’elles ne sont visibles que par les utilisateurs ayant les autorisations appropriées.
 
 ### <a name="firewall"></a>Pare-feu
 
-Le pare-feu Azure Analysis Services bloque toutes les connexions clients autres que les adresses IP spécifiées dans les règles. Configurez des règles spécifiant des adresses IP autorisées par adresses IP clients individuelles ou par plage. Les connexions Power BI (service) peuvent également être autorisées ou bloquées. Configurez le pare-feu et les règles dans le portail ou à l’aide de PowerShell. Pour en savoir plus, consultez [Configuration d’un pare-feu de serveur](analysis-services-qs-firewall.md).
+Le pare-feu Azure Analysis Services bloque toutes les connexions clients autres que les adresses IP spécifiées dans les règles. Par défaut, la protection par pare-feu n’est pas activée sur les nouveaux serveurs. Il est recommandé d’activer la protection par pare-feu et de configurer les règles dans un script de provisionnement du serveur, ou dans le portail juste après avoir créé le serveur. Configurez des règles spécifiant des adresses IP autorisées par adresses IP clients individuelles ou par plage. Les connexions Power BI (service) peuvent également être autorisées ou bloquées. Configurez le pare-feu et les règles dans le portail ou à l’aide de PowerShell. Pour en savoir plus, consultez [Configuration d’un pare-feu de serveur](analysis-services-qs-firewall.md).
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 L’authentification utilisateur est gérée par [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Lors de la connexion, les utilisateurs utilisent une identité de compte d’organisation avec accès en fonction du rôle à la base de données. Les identités utilisateur doivent être des membres de l’Azure Active Directory par défaut pour l’abonnement dans lequel se trouve le serveur. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
 

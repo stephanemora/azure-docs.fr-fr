@@ -10,18 +10,21 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 637cdb338496764e64c18a887673808ef4e8415a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fa48d3825b5b942497b1eabd19a1eeb7e0141058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203451"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003140"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Sélectionner un contrat de page dans Azure Active Directory B2C à l’aide de stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Vous pouvez sélectionner un contrat de page dans Azure Active Directory (Azure AD) B2C en le configurant dans une [stratégie personnalisée](active-directory-b2c-overview-custom.md). Un contrat de page désigne une association d’éléments qu’Azure AD B2C fournit et du contenu que vous fournissez. Si vous prévoyez d’utiliser [JavaScript](javascript-samples.md), vous devez définir une version de contrat de page pour l’ensemble de vos définitions de contenu dans votre stratégie personnalisée.
+Vous pouvez activer le code JavaScript côté client dans vos stratégies Azure Active Directory (Azure AD) B2C si vous utilisez des flux d’utilisateurs ou des stratégies personnalisées. Cet article traite de la sélection d’un contrat de page dans Azure AD B2C en configurant celui-ci dans une [stratégie personnalisée](active-directory-b2c-overview-custom.md). Un contrat de page désigne une association d’éléments qu’Azure AD B2C fournit et du contenu que vous fournissez. Si vous prévoyez d’utiliser [JavaScript](javascript-samples.md), vous devez définir une version de contrat de page pour l’ensemble de vos définitions de contenu dans votre stratégie personnalisée.
+
+> [!NOTE]
+> Si vous voulez activer JavaScript pour les flux utilisateur, consultez [À propos de l’utilisation de JavaScript et des versions de contrat de page dans un flux utilisateur](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>Remplacer les valeurs DataUri
 

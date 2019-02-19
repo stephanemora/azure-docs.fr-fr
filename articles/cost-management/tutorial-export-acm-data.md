@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766404"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100686"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -71,7 +71,7 @@ Il existe trois types d’options d’exportation :
 
 **Exportation quotidienne des coûts en cumul mensuel à ce jour** : l’exportation initiale s’exécute immédiatement. Les exportations suivantes s’exécutent le lendemain à la même heure que l’exportation initiale. Les dernières données sont ajoutées aux exportations quotidiennes précédentes.
 
-**Coûts hebdomadaire des sept derniers jours** : l’exportation initiale s’exécute immédiatement. Les exportations suivantes s’exécutent à la même heure et le même jour que l’exportation initiale. Les coûts correspondent aux sept derniers jours.
+**Exportation hebdomadaire des coûts pour les 7 derniers jours** : l’exportation initiale s’exécute immédiatement. Les exportations suivantes s’exécutent à la même heure et le même jour que l’exportation initiale. Les coûts correspondent aux sept derniers jours.
 
 **Personnalisé** : permet de planifier des exportations hebdomadaires et mensuelles avec des options de cumul hebdomadaire ou mensuel à ce jour. *L’exportation initiale s’exécute immédiatement.*
 

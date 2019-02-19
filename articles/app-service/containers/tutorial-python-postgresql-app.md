@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 161778c921026547c532b05474a60dd0d3e9fa7a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975387"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237798"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Créer une application Python et PostgreSQL dans Azure App Service
 
@@ -33,6 +33,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déploiement de l’application dans Azure
 > * Afficher les journaux de diagnostic
 > * Gérer l’application dans le portail Azure
+
+> [!NOTE]
+> Avant de créer une instance d’Azure Database pour PostgreSQL, [cliquez ici](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) pour savoir quelle génération de calcul est disponible dans votre région.
 
 Vous pouvez suivre les étapes de cet article sur MacOS. Les instructions pour Linux et Windows sont identiques dans la plupart des cas, mais les différences ne sont pas détaillées dans ce didacticiel.
 
@@ -428,7 +431,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Afficher les journaux de diagnostic
 > * Gérer l’application dans le portail Azure
 
-Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
+Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-domain.md)

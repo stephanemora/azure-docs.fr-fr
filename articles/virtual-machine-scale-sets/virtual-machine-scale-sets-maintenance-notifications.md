@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546859"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981415"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
+
 
 Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte des machines virtuelles. Les mises à jour peuvent inclure la mise à jour corrective de l’environnement d’hébergement ou la mise à niveau et la désactivation de matériel. La plupart des mises à jour n’affectent pas les machines virtuelles hébergées. Toutefois, les mises à jour affectent les machines virtuelles dans les scénarios suivants :
 
@@ -38,10 +39,8 @@ La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. 
 
 L’objectif de ces deux fenêtres est de vous donner suffisamment de temps pour commencer la maintenance et redémarrer votre machine virtuelle tout en sachant à quel moment Azure démarrera automatiquement la maintenance.
 
-
 Vous pouvez utiliser le portail Azure, PowerShell, les API REST et l’interface de ligne de commande Azure pour demander les fenêtres de maintenance pour vos machines virtuelles de groupes de machines virtuelles identiques et démarrer la maintenance en libre-service.
 
-  
 ## <a name="should-you-start-maintenance-during-the-self-service-window"></a>Devez-vous démarrer la maintenance pendant la fenêtre de libre-service ?  
 
 Les instructions suivantes vous aideront à déterminer si vous devez démarrer vous-même la maintenance au moment qui vous convient le mieux.
@@ -89,7 +88,7 @@ La colonne **Maintenance en libre-service** s’affiche désormais dans la liste
 
 | Valeur | Description |
 |-------|-------------|
-| Oui | Au moins une machine virtuelle dans votre groupe de machines virtuelles identiques est dans une fenêtre de libre-service. Vous pouvez démarrer la maintenance à tout moment pendant cette fenêtre de libre-service. | 
+| OUI | Au moins une machine virtuelle dans votre groupe de machines virtuelles identiques est dans une fenêtre de libre-service. Vous pouvez démarrer la maintenance à tout moment pendant cette fenêtre de libre-service. | 
 | Non  | Il n’y a aucune machine virtuelle définie dans une fenêtre de libre-service dans le groupe de machines virtuelles identiques affecté. | 
 | - | Vos groupes de machines virtuelles identiques ne font pas partie d’un cycle de maintenance planifiée.| 
 
@@ -118,12 +117,12 @@ Lorsque vous démarrez la maintenance, les machines virtuelles affectées dans v
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Vérifier l’état de maintenance à l’aide de PowerShell
 
-Vous pouvez utiliser Azure PowerShell pour voir quand les machines virtuelles dans vos groupes de machines virtuelles identiques sont planifiées pour la maintenance. Les informations de maintenance planifiée sont disponibles via la cmdlet [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) lorsque vous utilisez le paramètre `-InstanceView`.
+Vous pouvez utiliser Azure PowerShell pour voir quand les machines virtuelles dans vos groupes de machines virtuelles identiques sont planifiées pour la maintenance. Les informations de maintenance planifiée sont disponibles via la cmdlet [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) lorsque vous utilisez le paramètre `-InstanceView`.
  
 Les informations de maintenance sont retournées uniquement en cas de maintenance planifiée. Si aucune maintenance planifiée n’affecte l’instance de machine virtuelle, la cmdlet ne retourne pas d’informations de maintenance. 
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** : 
@@ -140,10 +139,10 @@ Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** :
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Démarrer la maintenance sur votre instance de machine virtuelle à l’aide de PowerShell
 
-Vous pouvez démarrer la maintenance sur une machine virtuelle si **IsCustomerInitiatedMaintenanceAllowed** est défini sur **true**. Utilisez la cmdlet [Set-AzureRmVmss](/powershell/module/azurerm.compute/set-azurermvmss) avec le paramètre `-PerformMaintenance`.
+Vous pouvez démarrer la maintenance sur une machine virtuelle si **IsCustomerInitiatedMaintenanceAllowed** est défini sur **true**. Utilisez la cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) avec le paramètre `-PerformMaintenance`.
 
 ```powershell
-Set-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Vérifier l’état de maintenance à l’aide d’interface de ligne de commande

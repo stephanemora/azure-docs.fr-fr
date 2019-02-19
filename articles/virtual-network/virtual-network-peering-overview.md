@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169312"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175725"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -78,7 +78,7 @@ Vous pouvez également essayer le [Utilitaire de dépannage pour les problèmes 
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes
 
 Lorsque des réseaux virtuels sont homologués à l’échelle mondiale, les contraintes ci-après s’appliquent :
-- Les réseaux virtuels peuvent se trouver dans n’importe quelle région de clouds publics Azure, mais pas dans les clouds nationaux Azure.
+- Les réseaux virtuels peuvent exister dans toutes les régions de cloud public Azure et de cloud Azure Chine, mais pas dans les clouds Azure Government.
 - Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans le réseau virtuel homologué à l’échelle mondiale. L’équilibreur de charge et les ressources qui communiquent avec lui doivent se trouver dans la même région.
 - Vous ne pouvez pas utiliser de passerelles distantes ni autoriser de transit via une passerelle. Pour utiliser des passerelles distantes ou autoriser un transit par passerelle, les réseaux virtuels homologués doivent appartenir à la même région.
 

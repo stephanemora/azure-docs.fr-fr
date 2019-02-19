@@ -4,7 +4,7 @@ description: Cet article détaille les meilleures pratiques en matière de sécu
 services: security
 documentationcenter: na
 author: TomShinder
-manager: mbaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: TomSh
-ms.openlocfilehash: d89972ff0f7e3035fa20f8d9ee2863b68fa52e9f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 86246d3d580737837ec07ccdc89ed82914cde209
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124063"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118409"
 ---
 # <a name="azure-network-security-best-practices"></a>Meilleures pratiques en matière de sécurité réseau - Azure
 Vous pouvez connecter des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/) et des appliances à d’autres appareils en réseau, en les plaçant sur des [réseaux virtuels Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Autrement dit, vous pouvez connecter des cartes d’interface réseau virtuel à un réseau virtuel afin de permettre des communications TCP/IP entre les appareils en réseau. Les machines virtuelles connectées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel, sur des réseaux virtuels différents, sur Internet ou sur vos réseaux locaux.
@@ -43,11 +43,11 @@ Les réseaux virtuels Azure sont similaires à des réseaux LAN au sein de votre
 
 Meilleures pratiques pour segmenter logiquement les sous-réseaux :
 
-**Meilleure pratique**  : segmentez l’espace d’adressage plus volumineux en sous-réseaux.   
-**Détail** : pour créer vos sous-réseaux, utilisez les principes de création de sous-réseau reposant sur [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+**Bonne pratique** : Segmentez l’espace d’adressage plus volumineux en sous-réseaux.   
+**Détail** : Pour créer vos sous-réseaux, utilisez les principes de création de sous-réseau reposant sur [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-**Meilleure pratique** : créez des contrôles d’accès réseau entre les sous-réseaux. Le routage entre les sous-réseaux se produit automatiquement. Il est donc inutile de configurer manuellement des tables de routage. Par défaut, il n’y a aucun contrôle d’accès réseau entre les sous-réseaux que vous créez sur le réseau virtuel Azure.   
-**Détail** : utilisez un [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) (NSG). Un groupe de sécurité réseau est un simple appareil d’inspection des paquets, avec état, qui applique la méthode basée sur les 5 tuples (adresse IP source, port source, adresse IP de destination, port de destination et protocole de couche 4) pour créer des règles visant à autoriser ou refuser le trafic réseau. Vous pouvez autoriser ou refuser le trafic vers et depuis une ou plusieurs adresses IP, ou entre des sous-réseaux entiers, dans les deux directions.
+**Bonne pratique** : Créez des contrôles d’accès réseau entre les sous-réseaux. Le routage entre les sous-réseaux se produit automatiquement. Il est donc inutile de configurer manuellement des tables de routage. Par défaut, il n’y a aucun contrôle d’accès réseau entre les sous-réseaux que vous créez sur le réseau virtuel Azure.   
+**Détail** : Utilisez un [groupe de sécurité réseau ](../virtual-network/virtual-networks-nsg.md) (NSG). Un groupe de sécurité réseau est un simple appareil d’inspection des paquets, avec état, qui applique la méthode basée sur les 5 tuples (adresse IP source, port source, adresse IP de destination, port de destination et protocole de couche 4) pour créer des règles visant à autoriser ou refuser le trafic réseau. Vous pouvez autoriser ou refuser le trafic vers et depuis une ou plusieurs adresses IP, ou entre des sous-réseaux entiers, dans les deux directions.
 
 Lorsque vous utilisez des groupes de sécurité réseau pour le contrôle d’accès réseau entre les sous-réseaux, vous pouvez placer des ressources appartenant au même rôle ou à la même zone de sécurité dans leurs propres sous-réseaux.
 
@@ -103,8 +103,8 @@ De nombreuses organisations ont opté pour l’informatique hybride. Dans un env
 
 Un scénario hybride propose généralement un certain type de connectivité entre locaux. La connectivité entre locaux permet à l’entreprise de relier ses réseaux locaux aux réseaux virtuels Azure. Deux solutions de connectivité entre locaux sont disponibles :
 
-* **VPN de site à site** : il s’agit d’une technologie établie, fiable et approuvée, mais la connexion s’effectue via Internet. La bande passante est limitée à un maximum d’environ 200 Mbits/s. L’option VPN de site à site est souhaitable dans certains scénarios. Elle est décrite ultérieurement dans la section [Désactivation de l’accès RDP/SSH aux machines virtuelles](#disable-rdpssh-access-to-virtual-machines).
-* **Azure ExpressRoute** : nous vous recommandons d’utiliser [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) pour la connectivité entre locaux. ExpressRoute représente une liaison réseau étendu dédiée entre le site local et un fournisseur d’hébergement Exchange. Comme il s’agit d’une connexion de télécommunications, vos données ne transitent pas par Internet et ne sont donc pas exposées aux risques potentiels inhérents aux communications Internet.
+* **VPN de site à site** : Il s’agit d’une technologie établie, fiable et approuvée, mais la connexion s’effectue via Internet. La bande passante est limitée à un maximum d’environ 200 Mbits/s. L’option VPN de site à site est souhaitable dans certains scénarios. Elle est décrite ultérieurement dans la section [Désactivation de l’accès RDP/SSH aux machines virtuelles](#disable-rdpssh-access-to-virtual-machines).
+* **Azure ExpressRoute** : Nous vous recommandons d’utiliser [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) pour la connectivité entre locaux. ExpressRoute représente une liaison réseau étendu dédiée entre le site local et un fournisseur d’hébergement Exchange. Comme il s’agit d’une connexion de télécommunications, vos données ne transitent pas par Internet et ne sont donc pas exposées aux risques potentiels inhérents aux communications Internet.
 
 ## <a name="optimize-uptime-and-performance"></a>Optimisation de la durée active et des performances
 Si un service est défaillant, les informations sont inaccessibles. Si les performances sont tellement médiocres que les données en sont inutilisables, vous pouvez considérer que ces dernières sont inaccessibles. Du point de vue de la sécurité, vous devez faire tout ce qui est en votre pouvoir pour garantir des performances et une durée de fonctionnement optimales pour vos services.
@@ -115,30 +115,30 @@ La répartition du trafic permet d’augmenter la disponibilité. En effet, si l
 
 Nous vous recommandons de tirer parti aussi souvent que possible de l’équilibrage de charge, selon les besoins de vos services. Voici des scénarios au niveau du réseau virtuel Azure et au niveau global, ainsi que des options d’équilibrage de charge pour chacun.
 
-**Scénario** : vous disposez d’une application qui :
+**Scénario** : Vous disposez d’une application qui :
 
 - Requiert des requêtes provenant d’une même session utilisateur/client pour atteindre la même machine virtuelle principale. Exemples : applications de panier d’achat et serveurs de courrier.
 - Accepte uniquement une connexion sécurisée. La communication non chiffrée vers le serveur n’est donc pas une option acceptable.
 - Exige le routage ou l’équilibrage de charge sur différents serveurs principaux des multiples requêtes HTTP sur une même connexion TCP de longue durée.
 
-**Option de l’équilibrage de charge** : utilisez [Azure Application Gateway](../application-gateway/application-gateway-introduction.md), un équilibreur de charge de trafic web HTTP. Application Gateway prend en charge le chiffrement SSL de bout en bout et la [terminaison SSL](../application-gateway/application-gateway-introduction.md) au niveau de la passerelle. Les serveurs web peuvent ensuite être libérés du traitement du chiffrement et du déchiffrement, et du trafic du contenu non chiffré vers les serveurs principaux.
+**Option d’équilibrage de charge** : Utilisez [Azure Application Gateway](../application-gateway/application-gateway-introduction.md), un équilibreur de charge de trafic web HTTP. Application Gateway prend en charge le chiffrement SSL de bout en bout et la [terminaison SSL](../application-gateway/application-gateway-introduction.md) au niveau de la passerelle. Les serveurs web peuvent ensuite être libérés du traitement du chiffrement et du déchiffrement, et du trafic du contenu non chiffré vers les serveurs principaux.
 
-**Scénario** : vous devez équilibrer la charge des connexions entrantes en provenance d’Internet entre vos serveurs situés au sein d’un réseau virtuel Azure. Ce sont les scénarios que vous rencontrez lorsque vous :
+**Scénario** : Vous devez équilibrer la charge des connexions entrantes en provenance d’Internet entre vos serveurs situés au sein d’un réseau virtuel Azure. Ce sont les scénarios que vous rencontrez lorsque vous :
 
 - Disposez d’applications sans état qui acceptent les demandes entrantes provenant d’Internet.
 - N’exigez pas de sessions permanentes ni de déchargement SSL. Ces sessions correspondent à une méthode utilisée avec l’équilibrage de charge des applications pour obtenir l’affinité de serveur.
 
-**Option de l’équilibrage de charge** : utilisez le portail Azure pour [créer un équilibreur de charge externe](../load-balancer/quickstart-create-basic-load-balancer-portal.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
+**Option d’équilibrage de charge** : Utilisez le portail Azure pour [créer un équilibreur de charge externe](../load-balancer/quickstart-create-basic-load-balancer-portal.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
 
-**Scénario** : vous devez équilibrer la charge des connexions des machines virtuelles qui ne sont pas sur Internet. Dans la plupart des cas, les connexions qui sont acceptées pour l’équilibrage de charge sont initiées par les appareils figurant sur un réseau virtuel Azure, par exemple des instances SQL Server ou des serveurs web internes.   
-**Option de l’équilibrage de charge** : utilisez le portail Azure pour [créer un équilibreur de charge interne](../load-balancer/quickstart-create-basic-load-balancer-powershell.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
+**Scénario** : Vous devez équilibrer la charge des connexions des machines virtuelles qui ne sont pas sur Internet. Dans la plupart des cas, les connexions qui sont acceptées pour l’équilibrage de charge sont initiées par les appareils figurant sur un réseau virtuel Azure, par exemple des instances SQL Server ou des serveurs web internes.   
+**Option d’équilibrage de charge** : Utilisez le portail Azure pour [créer un équilibreur de charge interne](../load-balancer/quickstart-create-basic-load-balancer-powershell.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
 
-**Scénario** : vous recherchez un équilibrage de charge global, car vous :
+**Scénario** : Vous recherchez un équilibrage de charge global, car vous :
 
 - Disposez d’une solution cloud qui est largement distribuée dans plusieurs régions et qui nécessite le plus haut niveau de durée de fonctionnement (disponibilité) possible.
 - Avez besoin du niveau de disponibilité le plus élevé possible pour vous assurer que votre service est disponible même si tout un centre de données ne l’est pas.
 
-**Option de l’équilibrage de charge** : utilisez Azure Traffic Manager. Grâce à ce service, vous pouvez équilibrer la charge des connexions vers vos services en fonction de l’emplacement de l’utilisateur.
+**Option d’équilibrage de charge** : Utilisez Azure Traffic Manager. Grâce à ce service, vous pouvez équilibrer la charge des connexions vers vos services en fonction de l’emplacement de l’utilisateur.
 
 Par exemple, si l’utilisateur qui envoie une requête à votre service se trouve dans un pays de l’Union européenne, la connexion est dirigée vers vos services qui se trouvent au sein d’un centre de données de cette zone. Cette étape de l’équilibrage de charge global assuré par Traffic Manager permet d’optimiser les performances, car la connexion au centre de données le plus proche est plus rapide que dans le cas de centres de données éloignés.
 
@@ -149,16 +149,16 @@ Cependant, ils peuvent être sources de problèmes de sécurité quand ils sont 
 
 Nous vous recommandons de désactiver l’accès direct des protocoles RDP et SSH à vos machines virtuelles Azure depuis Internet. Cela fait, vous disposez d’autres options vous permettant d’accéder à ces machines virtuelles à des fins de gestion à distance.
 
-**Scénario** : autorisez un utilisateur unique à se connecter à un réseau virtuel Azure via Internet.   
-**Option** : l’expression [VPN point à site](../vpn-gateway/vpn-gateway-point-to-site-create.md) est synonyme de connexion du client/serveur VPN pour un accès à distance. Une fois la connexion point à site établie, l’utilisateur peut avoir recours au protocole RDP ou SSH pour se connecter aux machines virtuelles situées sur le réseau virtuel Azure auquel cet utilisateur est connecté via le VPN point à site. Cela suppose que l’utilisateur dispose des autorisations requises pour atteindre ces machines virtuelles.
+**Scénario** : Autorisez un utilisateur unique à se connecter à un réseau virtuel Azure via Internet.   
+**Option** : L’expression [VPN de point à site](../vpn-gateway/vpn-gateway-point-to-site-create.md) est synonyme de connexion du client/serveur VPN pour un accès à distance. Une fois la connexion point à site établie, l’utilisateur peut avoir recours au protocole RDP ou SSH pour se connecter aux machines virtuelles situées sur le réseau virtuel Azure auquel cet utilisateur est connecté via le VPN point à site. Cela suppose que l’utilisateur dispose des autorisations requises pour atteindre ces machines virtuelles.
 
 Le VPN point à site est plus sécurisé qu’une connexion RDP ou SSH directe, car l’utilisateur doit s’authentifier deux fois pour pouvoir se connecter à une machine virtuelle. L’utilisateur doit d’abord s’authentifier (et être autorisé) pour établir la connexion VPN point à site. Il doit ensuite s’authentifier (et être autorisé) pour établir la session RDP ou SSH.
 
-**Scénario** : permettez aux utilisateurs de votre réseau local de se connecter aux machines virtuelles de votre réseau virtuel Azure.   
-**Option** : un [VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md) connecte un réseau entier à un autre réseau par le biais d’Internet. Vous pouvez utiliser un VPN de site à site pour connecter votre réseau local à un réseau virtuel Azure. Les utilisateurs de votre réseau local se connectent à l’aide du protocole RDP ou SSH via la connexion VPN de site à site. Vous n’avez pas à autoriser un accès RDP ou SSH direct via Internet.
+**Scénario** : Permettez aux utilisateurs de votre réseau local de se connecter aux machines virtuelles de votre réseau virtuel Azure.   
+**Option** : Un [VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md) connecte un réseau dans son ensemble à un autre réseau, par le biais d’Internet. Vous pouvez utiliser un VPN de site à site pour connecter votre réseau local à un réseau virtuel Azure. Les utilisateurs de votre réseau local se connectent à l’aide du protocole RDP ou SSH via la connexion VPN de site à site. Vous n’avez pas à autoriser un accès RDP ou SSH direct via Internet.
 
-**Scénario** : pour proposer une fonctionnalité similaire à la connexion VPN de site à site, utilisez une liaison réseau étendu dédiée.   
-**Option** : utilisez [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Ce service fournit des fonctionnalités similaires au VPN de site à site. Les principales différences entre ces deux architectures sont les suivantes :
+**Scénario** : Pour proposer une fonctionnalité similaire à la connexion VPN de site à site, utilisez une liaison réseau étendu dédiée.   
+**Option** : Utilisez [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Ce service fournit des fonctionnalités similaires au VPN de site à site. Les principales différences entre ces deux architectures sont les suivantes :
 
 - La liaison WAN dédiée ne traverse pas Internet.
 - Les liaisons WAN dédiées sont généralement plus stables et plus performantes.
@@ -168,14 +168,14 @@ Utilisez des points de terminaison de service de réseau virtuel pour étendre v
 
 Les points de terminaison de service fournissent les avantages suivants :
 
-- **Sécurité améliorée pour vos ressources de service Azure** : avec les points de terminaison de service, les ressources de service Azure peuvent être sécurisées pour votre réseau virtuel. La sécurisation des ressources du service pour un réseau virtuel renforce la sécurité grâce à la suppression complète de l’accès Internet public aux ressources et à l’autorisation du trafic seul à partir de votre réseau virtuel.
-- **Routage optimal pour le trafic de service Azure à partir de votre réseau virtuel** : tous les itinéraires dans votre réseau virtuel qui forcent le trafic Internet vers vos appliances locales et/ou virtuelles, aussi appelé tunneling forcé, forcent également le trafic de service Azure à prendre le même itinéraire que le trafic Internet. Les points de terminaison de service fournissent un routage optimal pour le trafic Azure.
+- **Sécurité améliorée de vos ressources de service Azure** : Avec les points de terminaison de service, les ressources de service Azure peuvent être sécurisées pour votre réseau virtuel. La sécurisation des ressources du service pour un réseau virtuel renforce la sécurité grâce à la suppression complète de l’accès Internet public aux ressources et à l’autorisation du trafic seul à partir de votre réseau virtuel.
+- **Routage optimal pour le trafic de service Azure à partir de votre réseau virtuel** : Tous les itinéraires dans votre réseau virtuel qui forcent le trafic Internet vers vos appliances locales et/ou virtuelles, aussi appelé tunneling forcé, forcent également le trafic de service Azure à prendre le même itinéraire que le trafic Internet. Les points de terminaison de service fournissent un routage optimal pour le trafic Azure.
 
   Les points de terminaison acheminent toujours le trafic de service directement à partir de votre réseau virtuel vers le service sur le réseau principal d’Azure. La conservation du trafic sur le réseau principal d’Azure vous permet de continuer l’audit et la surveillance du trafic Internet sortant à partir de vos réseaux virtuels, via le tunneling forcé, sans affecter le trafic de service. Découvrez d’autres informations sur les [itinéraires définis par l’utilisateur et le tunneling forcé](../virtual-network/virtual-networks-udr-overview.md).
 
-- **Une configuration simple et un temps de gestion réduit** : vous n’avez plus besoin d’adresses IP publiques réservées dans vos réseaux virtuels pour sécuriser les ressources Azure via un pare-feu IP. Aucun NAT ou appareil de passerelle n’est requis pour configurer les points de terminaison de service. Les points de terminaison de service peuvent être configurés par un simple clic sur un sous-réseau. La conservation des points de terminaison ne requiert aucun traitement supplémentaire.
+- **Une configuration simple et un temps de gestion réduit** : Les adresses IP publiques réservées dans vos réseaux virtuels ne sont désormais plus nécessaires pour sécuriser les ressources Azure via le pare-feu IP. Aucun NAT ou appareil de passerelle n’est requis pour configurer les points de terminaison de service. Les points de terminaison de service peuvent être configurés par un simple clic sur un sous-réseau. La conservation des points de terminaison ne requiert aucun traitement supplémentaire.
 
 Pour en savoir plus sur les points de terminaison de service et sur les services et régions Azure pour lesquels ces points de terminaison sont disponibles, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="next-step"></a>Étape suivante
-Consultez [Meilleures pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.
+Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.

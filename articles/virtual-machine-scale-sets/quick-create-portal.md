@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ed17d7cd887df6d8bd749ba4426d1a791b58d457
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885147"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171228"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans ce guide de démarrage rapide, vous créez un groupe de machines virtuelles identiques dans le portail Azure.
@@ -46,11 +46,12 @@ Vous pouvez déployer un groupe identique avec une image Windows Server ou une i
     - Un **mot de passe** doit comporter au moins 12 caractères, avec au moins trois des quatre caractères suivants : une minuscule, une majuscule, un chiffre et un caractère spécial. Pour plus d’informations, consultez les [critères de nom d’utilisateur et de mot de passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
     - Si vous sélectionnez une image de disque du système d’exploitation Linux, vous pouvez choisir à la place **Clé publique SSH**. Entrez uniquement votre clé publique, comme *~/.ssh/id_rsa.pub*. Vous pouvez utiliser Azure Cloud Shell à partir du portail pour [créer et utiliser des clés SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-7. Entrez un **nom d’adresse IP publique**, tel que *myPublicIP*.
-8. Entrez une valeur unique dans **Étiquette du nom de domaine** , par exemple, *myuniquedns*. Cette étiquette DNS constitue la base du nom de domaine complet (FQDN) pour l’équilibreur de charge placé devant le groupe identique.
-9. Pour confirmer les options du groupe identique, sélectionnez **Créer**.
+    ![Détails de base pour créer un groupe de machines virtuelles identiques dans le portail Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. Sélectionnez une option d’équilibrage de charge, comme *Équilibreur de charge*, sous **Choisir les options d’équilibrage de charge**. Entrez les autres détails pour l’option d’équilibrage de charge choisie. Par exemple, pour l’option *Équilibreur de charge*, entrez le **Nom de l’adresse IP publique** et l’**Étiquette du nom de domaine**.
+1. Entrez les détails des réseaux virtuels sous **Configurer les réseaux virtuels**. Par exemple, créez un réseau virtuel (*myVirtualNetwork*) et un sous-réseau (*default*).
+1. Pour confirmer les options du groupe identique, sélectionnez **Créer**.
+    ![Détails des réseaux pour créer un groupe de machines virtuelles identiques dans le portail Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![Créer un groupe de machines virtuelles identiques dans le portail Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Se connecter à une machine virtuelle dans le jeu de mise à l’échelle

@@ -1,6 +1,6 @@
 ---
-title: Didacticiel d’ajout de la saisie semi-automatique à votre zone de recherche - Recherche Azure
-description: Exemples d’améliorer de l’expérience utilisateur vis-à-vis de vos applications centrées sur les données avec la saisie automatique de Recherche Azure et les suggestions d’API.
+title: Tutoriel sur l’ajout de l’autocomplétion à votre zone de recherche - Recherche Azure
+description: Exemples de manières d’améliorer l’expérience utilisateur final dans vos applications centrées sur les données avec les API d’autocomplétion et de suggestions de Recherche Azure.
 manager: pablocas
 author: mrcarter8
 services: search
@@ -10,18 +10,23 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: a0b4301177fa1307244a784031ec890b9a20f01a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: de48f3129beba31f80f5bd4d0c131b28f2b1c91a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099106"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997160"
 ---
-# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Didacticiel : Ajouter la saisie automatique à votre zone de recherche avec Recherche Azure
+# <a name="tutorial-add-autocomplete-to-your-search-box-using-azure-search"></a>Tutoriel : Ajouter l’autocomplétion à votre zone de recherche avec Recherche Azure
 
-Dans ce didacticiel, vous allez apprendre à utiliser les [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), la [saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete) et les [facettes](search-faceted-navigation.md) dans l’[API REST Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/) et le [kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) afin de créer une zone de recherche puissante. Les *suggestions* fournissent des recommandations de résultats réels, selon ce que l’utilisateur a saisi jusqu'à présent. La *saisie semi-automatique*, [nouvelle fonctionnalité en préversion](search-api-preview.md) dans Recherche Azure, fournit des termes de l’index afin de compléter la saisie de l’utilisateur. Nous allons comparer plusieurs techniques pour améliorer la productivité de l’utilisateur pour qu’ils trouvent rapidement et facilement ce qu’ils cherchent, en leur offrant la richesse d’une recherche lors de la saisie.
+Dans ce tutoriel, vous allez apprendre à utiliser les [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), l’[autocomplétion](https://docs.microsoft.com/rest/api/searchservice/autocomplete) et les [facettes](search-faceted-navigation.md) dans l’[API REST Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/) et le [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) pour créer une zone de recherche efficace. 
 
-Ce didacticiel vous aide à gérer une application ASP.NET MVC qui utilise C# pour appeler les [bibliothèques client .NET Recherche Azure](https://aka.ms/search-sdk) et JavaScript pour appeler l’API REST Recherche Azure directement. L’application dans ce didacticiel cible un index rempli via l’exemple de données [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Vous pouvez utiliser l’index déjà configuré dans la démonstration NYCJobs, ou remplir votre propre index à l’aide d’un chargeur de données dans l’exemple de solution NYCJobs. L’exemple utilise les bibliothèques client JavaScript de l’[interface utilisateur jQuery](https://jqueryui.com/autocomplete/) et [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) pour créer une zone de recherche qui prend en charge la saisie semi-automatique. Avec ces composants, ainsi que Recherche Azure, vous allez voir plusieurs exemples de prise en charge de la saisie semi-automatique avec la saisie en avance dans votre zone de recherche.
++ Les *suggestions* fournissent des recommandations de résultats réels, selon ce que l’utilisateur a saisi jusqu'à présent. 
++ L’*autocomplétion*, [nouvelle fonctionnalité d’évaluation](search-api-preview.md) dans Recherche Azure, fournit des termes de l’index afin de compléter la saisie de l’utilisateur. 
+
+Nous allons comparer plusieurs techniques pour améliorer la productivité de l’utilisateur en proposant directement la richesse de la recherche à l’utilisateur lors de la frappe.
+
+Ce didacticiel vous aide à gérer une application ASP.NET MVC qui utilise C# pour appeler les [bibliothèques client .NET Recherche Azure](https://aka.ms/search-sdk) et JavaScript pour appeler l’API REST Recherche Azure directement. L’application dans ce didacticiel cible un index rempli via l’exemple de données [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Vous pouvez utiliser l’index déjà configuré dans la démonstration NYCJobs, ou remplir votre propre index à l’aide d’un chargeur de données dans l’exemple de solution NYCJobs. L’exemple utilise les bibliothèques JavaScript de l’[interface utilisateur jQuery](https://jqueryui.com/autocomplete/) et [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) pour créer une zone de recherche qui prend en charge l’autocomplétion. Avec ces composants, ainsi que Recherche Azure, vous allez voir plusieurs exemples de prise en charge de l’autocomplétion avec la saisie en avance dans votre zone de recherche.
 
 Vous allez effectuer les tâches suivantes :
 
@@ -29,8 +34,8 @@ Vous allez effectuer les tâches suivantes :
 > * Télécharger et configurer la solution
 > * Ajouter des informations de service de recherche aux paramètres d’application
 > * Implémenter une zone de recherche
-> * Ajouter la prise en charge d’une liste de saisie semi-automatique qui extrait des informations depuis une source distante 
-> * Récupérer des suggestions et la saisie semi-automatique à l’aide du kit de développement logiciel (SDK) .NET et de l’API REST
+> * Ajouter la prise en charge d’une liste d’autocomplétion qui extrait des informations auprès d’une source distante 
+> * Récupérer des suggestions et l’autocomplétion à l’aide du SDK .NET et de l’API REST
 > * Prise en charge de mise en cache client pour améliorer les performances 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -60,7 +65,7 @@ Suivez les étapes dans cette section si vous souhaitez importer les données de
 
 ### <a name="running-the-sample"></a>Exécution de l’exemple
 
-Vous êtes maintenant prêt à exécuter l’exemple d'application du didacticiel.  Ouvrez le fichier de solution AutocompleteTutorial.sln dans Visual Studio pour exécuter le didacticiel.  La solution contient un projet ASP.NET MVC.  Appuyez sur F5 pour exécuter le projet et charger la page dans le navigateur de votre choix.  En haut, vous verrez une option qui vous donne le choix entre C# ou JavaScript.  L’option C# effectue un appel dans HomeController à partir du navigateur et utilise le kit de développement logiciel (SDK) .NET Recherche Azure pour récupérer les résultats.  L’option JavaScript appelle l’API REST Recherche Azure directement depuis le navigateur.  Cette option offre généralement de bien meilleures performances car elle extrait le contrôleur du flux.  Vous pouvez choisir l’option qui répond à vos besoins et à vos préférences de langue.  Il y a plusieurs exemples de saisie semi-automatique sur la page, avec des conseils pour chacun.  Chaque exemple comprend des exemples de texte recommandés que vous pouvez essayer.  Essayez de saisir quelques lettres dans chaque zone de recherche pour voir ce qu’il se passe.
+Vous êtes maintenant prêt à exécuter l’exemple d'application du didacticiel.  Ouvrez le fichier de solution AutocompleteTutorial.sln dans Visual Studio pour exécuter le didacticiel.  La solution contient un projet ASP.NET MVC.  Appuyez sur F5 pour exécuter le projet et charger la page dans le navigateur de votre choix.  En haut, vous verrez une option qui vous donne le choix entre C# ou JavaScript.  L’option C# effectue un appel dans HomeController à partir du navigateur et utilise le kit de développement logiciel (SDK) .NET Recherche Azure pour récupérer les résultats.  L’option JavaScript appelle l’API REST Recherche Azure directement depuis le navigateur.  Cette option offre généralement de bien meilleures performances car elle extrait le contrôleur du flux.  Vous pouvez choisir l’option qui répond à vos besoins et à vos préférences de langue.  Il y a plusieurs exemples d’autocomplétion dans la page, avec des conseils pour chacun.  Chaque exemple comprend des exemples de texte recommandés que vous pouvez essayer.  Essayez de saisir quelques lettres dans chaque zone de recherche pour voir ce qu’il se passe.
 
 ## <a name="how-this-works-in-code"></a>Fonctionnement du code
 
@@ -78,7 +83,7 @@ Il s’agit d’une zone de texte banale avec une classe pour le style, un ID à
 
 ### <a name="javascript-code-c"></a>Code JavaScript (C#)
 
-L’exemple de langage C# utilise JavaScript dans le fichier Index.cshtml pour exploiter la bibliothèque de saisie semi-automatique de l’interface utilisateur.  Cette bibliothèque ajoute l’expérience de saisie semi-automatique à la zone de recherche en effectuant des appels asynchrones vers le contrôleur MVC afin de récupérer les recommandations.  Nous allons examiner le code JavaScript du premier exemple :
+L’exemple de langage C# utilise JavaScript dans le fichier Index.cshtml pour exploiter la bibliothèque de saisie semi-automatique de l’interface utilisateur.  Cette bibliothèque ajoute l’expérience d’autocomplétion à la zone de recherche en effectuant des appels asynchrones au contrôleur MVC afin de récupérer les recommandations.  Nous allons examiner le code JavaScript du premier exemple :
 
 ```javascript
 $(function () {
@@ -93,13 +98,13 @@ $(function () {
 });
 ```
 
-Ce code s’exécute dans le navigateur au chargement d’une page pour configurer la saisie semi-automatique de la zone de texte « example1a ».  `minLength: 3` garantit que les recommandations ne sont affichées que lorsque plus de trois caractères sont saisis dans la zone de recherche.  La valeur source est importante :
+Ce code s’exécute dans le navigateur au chargement d’une page pour configurer l’autocomplétion de la zone de texte « example1a ».  `minLength: 3` garantit que les recommandations ne sont affichées que lorsque plus de trois caractères sont saisis dans la zone de recherche.  La valeur source est importante :
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-Cette ligne indique à l’API de saisie semi-automatique où récupérer la liste des éléments à afficher sous la zone de recherche.  Comme il s’agit d’un projet MVC, la fonction Suggest appelée dans le fichier HomeController.cs.  Nous examinerons cela de plus près dans la section suivante.  Elle transmet également quelques paramètres pour contrôler la mise en surbrillance, les correspondances approximatives et les termes.  L’API JavaScript de saisie semi-automatique ajoute le paramètre de terme.
+Cette ligne indique à l’API d’autocomplétion où récupérer la liste des éléments à afficher sous la zone de recherche.  Comme il s’agit d’un projet MVC, la fonction Suggest appelée dans le fichier HomeController.cs.  Nous examinerons cela de plus près dans la section suivante.  Elle transmet également quelques paramètres pour contrôler la mise en surbrillance, les correspondances approximatives et les termes.  L’API JavaScript d’autocomplétion ajoute le paramètre de terme.
 
 #### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Développement de l’exemple pour la prise en charge des correspondances approximatives
 
@@ -164,7 +169,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 La fonction Suggest prend deux paramètres qui déterminent si les meilleurs résultats sont renvoyés ou si la correspondance approximative est utilisée en plus de la recherche de terme.  La méthode crée un objet SuggestParameters, qui est ensuite envoyé à l’API Suggest. Le résultat est ensuite converti en JSON pour être visible par le client.
 Ajoutez un point d'arrêt au début de la fonction Suggest et examinez le code (facultatif).  Observez la réponse renvoyée par le kit de développement logiciel (SDK) et comment elle est convertie en résultat renvoyé par la méthode.
 
-Les autres exemples sur la page suivent le même schéma pour ajouter la mise en surbrillance, la saisie en avance pour les recommandations de saisie semi-automatique et les facettes pour prendre en charge la mise en cache client des résultats de la saisie semi-automatique.  Examinez chaque exemple pour comprendre leur fonctionnement et comment les exploiter dans votre expérience de recherche.
+Les autres exemples dans la page suivent le même schéma pour ajouter la mise en surbrillance, la saisie en avance pour les recommandations d’autocomplétion et les facettes pour prendre en charge la mise en cache côté client des résultats de l’autocomplétion.  Examinez chaque exemple pour comprendre leur fonctionnement et comment les exploiter dans votre expérience de recherche.
 
 ### <a name="javascript-language-example"></a>Exemple de langage JavaScript
 
@@ -204,15 +209,15 @@ $(function () {
 });
 ```
 
-En le comparant à l’exemple ci-dessus, qui appelle le fichier HomeController, vous pouvez remarquer plusieurs similarités.  La configuration de la saisie semi-automatique de `minLength` et `position` est exactement la même.  La différence importante se trouve dans la source.  Au lieu d’appeler la méthode Suggest dans le fichier HomeController, une requête REST est créée dans une fonction JavaScript et exécutée via ajax.  La réponse est ensuite traitée dans « success » et utilisée comme source.
+En le comparant à l’exemple ci-dessus, qui appelle le fichier HomeController, vous pouvez remarquer plusieurs similarités.  La configuration de l’autocomplétion de `minLength` et `position` est exactement la même.  La différence importante se trouve dans la source.  Au lieu d’appeler la méthode Suggest dans le fichier HomeController, une requête REST est créée dans une fonction JavaScript et exécutée via ajax.  La réponse est ensuite traitée dans « success » et utilisée comme source.
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
-Ce didacticiel décrit les étapes de base pour créer une zone de recherche qui prend en charge la saisie semi-automatique et les suggestions.  Vous avez vu comment créer une application ASP.NET MVC et utiliser le kit de développement logiciel (SDK) .NET ou l’API REST Recherche Azure pour récupérer les suggestions.
+Ce tutoriel décrit les étapes de base pour créer une zone de recherche qui prend en charge l’autocomplétion et les suggestions.  Vous avez vu comment créer une application ASP.NET MVC et utiliser le kit de développement logiciel (SDK) .NET ou l’API REST Recherche Azure pour récupérer les suggestions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Intégrez des suggestions et la saisie semi-automatique à votre expérience de recherche.  Pensez à l’aide offerte aux utilisateurs par l’utilisation directe du kit de développement logiciel (SDK) .NET ou de l’API REST, pour qu’ils profitent pleinement de Recherche Azure lors de leurs saisies et ainsi améliorer leur productivité.
+Intégrez des suggestions et l’autocomplétion à votre expérience de recherche.  Pensez à l’aide offerte aux utilisateurs par l’utilisation directe du kit de développement logiciel (SDK) .NET ou de l’API REST, pour qu’ils profitent pleinement de Recherche Azure lors de leurs saisies et ainsi améliorer leur productivité.
 
 > [!div class="nextstepaction"]
 > [API REST de saisie semi-automatique ](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099156"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117746"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Didacticiel : Provisionner Azure Data Box Gateway dans VMware (préversion)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutoriel : Provisionner Azure Data Box Gateway dans VMware (préversion)
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -66,7 +66,7 @@ Avant de déployer un appareil virtuel, assurez-vous que :
 
 Avant de commencer :
 
-- Passez en revue les exigences de mise en réseau pour déployer Data Box Gateway et configurer le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez la [Configuration requise du réseau pour Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
+- Passez en revue les exigences de mise en réseau pour déployer Data Box Gateway et configurer le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez la [Configuration requise du réseau pour Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour un fonctionnement optimal de l’appareil.
 
 ## <a name="check-the-host-system"></a>Vérifier le système hôte
@@ -77,7 +77,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
  
   * Un minimum de 4 cœurs.
   * Au moins 8 Go de RAM. 
-  * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet. 
+  * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet.
   * Un disque de système d’exploitation de 250 Go.
   * Un disque virtuel de 2 To pour les données.
 * Un client VMware vSphere sur votre système pour gérer l'hôte ESXi.
@@ -89,7 +89,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 1. Copiez l'image de l’appareil virtuel sur votre système. Vous avez téléchargé cette image virtuelle (deux fichiers) via le portail Azure. Prenez note de l’emplacement où vous avez copié l’image car vous l’utiliserez plus loin dans la procédure.
 
-2. Connectez-vous au serveur ESXi à l’aide du client web vSphere. Vous devez disposer de privilèges d’administrateur pour créer une machine virtuelle.
+2. Connectez-vous au serveur ESXi via un navigateur à l’URL suivante : `https://<IP address of the ESXi server>`. Vous devez disposer de privilèges d’administrateur pour créer une machine virtuelle.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -149,20 +149,24 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
-    Défilez vers le bas jusqu'à voir le **Nouveau disque dur** et développez-le pour afficher les paramètres. Définissez le **Nœud d’appareil virtuel** sur **contrôleur IDE 0**. Cliquez sur **Suivant**.
+    Défilez vers le bas jusqu'à voir le **Nouveau disque dur** et développez-le pour afficher les paramètres. Définissez le **Nœud d’appareil virtuel** sur **contrôleur IDE 0**.
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-27. Sur la page **Prêt à finaliser** , passez en revue tous les paramètres associés à la nouvelle machine virtuelle. Vérifiez que le processeur est configuré sur 4, la mémoire sur 8192 Mo, l’interface réseau sur 1 et que le disque dur 2 possède un contrôleur IDE 0. Cliquez sur **Terminer**. 
+17. (Facultatif) *Effectuez cette étape uniquement si vous exécutez VMware ESXi Server 6.7*. Dans la page **Customize settings** (Personnaliser les paramètres), cliquez sur **VM options** (Options de machine virtuelle). Accédez à **Boot options > Firmware**  (Options de démarrage > Microprogramme), puis remplacez la valeur existante par **BIOS**. Par défaut, la valeur est EFI. Cliquez sur **Suivant**.
+
+    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+
+18. Sur la page **Prêt à finaliser** , passez en revue tous les paramètres associés à la nouvelle machine virtuelle. Vérifiez que le processeur est configuré sur 4, la mémoire sur 8192 Mo, l’interface réseau sur 1 et que le disque dur 2 possède un contrôleur IDE 0. Cliquez sur **Terminer**.
    
     ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-Votre machine virtuelle est désormais configurée. Vous voyez une notification et la machine virtuelle est ajoutée à la liste des machines virtuelles. 
+Votre machine virtuelle est désormais configurée. Vous voyez une notification et la machine virtuelle est ajoutée à la liste des machines virtuelles.
 
 ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-L'étape suivante consiste à mettre cette machine sous tension et à obtenir l'adresse IP.
+L’étape suivante consiste à mettre cette machine virtuelle sous tension et à obtenir l’adresse IP.
 
 > [!NOTE]
 > Nous vous recommandons de ne pas installer les outils VMware sur votre appareil virtuel (configuré plus haut). Cette configuration avec les outils VMware installés n’est pas prise en charge.

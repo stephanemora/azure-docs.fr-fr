@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082610"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106459"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Activer la journalisation des diagnostics dans Azure Traffic Manager
 
@@ -26,29 +26,31 @@ Les journaux de diagnostic Azure Traffic Manager peuvent donner un insight du co
 
 ## <a name="enable-diagnostic-logging"></a>Activer la journalisation des diagnostics
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous avez besoin du module PowerShell *AzureRM* version 6.13.1 ou ultérieure. Vous pouvez exécuter `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Login-AzureRmAccount` pour vous connecter à Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous avez besoin du module Azure PowerShell version 1.0.0 ou ultérieure. Vous pouvez exécuter `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Login-AzAccount` pour vous connecter à Azure.
 
 1. **Récupérez le profil Traffic Manager :**
 
-    Pour activer la journalisation des diagnostics, vous avez besoin de l’ID d’un profil Traffic Manager. Récupérez le profil Traffic Manager pour lequel vous voulez activer la journalisation des diagnostics avec [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). La sortie inclut les informations d’ID du profil Traffic Manager.
+    Pour activer la journalisation des diagnostics, vous avez besoin de l’ID d’un profil Traffic Manager. Récupérez le profil Traffic Manager pour lequel vous voulez activer la journalisation des diagnostics avec [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). La sortie inclut les informations d’ID du profil Traffic Manager.
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **Activez la journalisation des diagnostics pour le profil Traffic Manager :**
 
-    Activez la journalisation des diagnostics pour le profil Traffic Manager à l’aide de l’ID obtenu à l’étape précédente avec [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). La commande suivante stocke les journaux détaillés du profil Traffic Manager dans un compte de stockage Azure spécifié. 
+    Activez la journalisation des diagnostics pour le profil Traffic Manager à l’aide de l’ID obtenu à l’étape précédente avec [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). La commande suivante stocke les journaux détaillés du profil Traffic Manager dans un compte de stockage Azure spécifié. 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Vérifiez les paramètres de diagnostic :**
 
-      Vérifiez les paramètres de diagnostic pour le profil Traffic Manager à l’aide de [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). La commande suivante affiche les catégories journalisées pour une ressource.
+      Vérifiez les paramètres de diagnostic pour le profil Traffic Manager à l’aide de [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). La commande suivante affiche les catégories journalisées pour une ressource.
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       Veillez à ce que toutes les catégories de journaux activées associées à la ressource de profil Traffic Manager s’affichent correctement. Vérifiez aussi que le compte de stockage est correctement configuré.
 

@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fecd5cf3b5a6aac1133f94b4dc220eec826392f6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056371"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993416"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Créer des rapports interactifs avec les classeurs Azure Monitor
 
@@ -77,7 +77,7 @@ Les sections de requête sont extrêmement flexibles et peuvent être utilisées
 
 * Combien d’exceptions votre site a levé au cours de la même période en tant que refus d’utilisation ?
 * Quelle était la répartition des temps de chargement de page pour les utilisateurs affichant une page ?
-* Combien d’utilisateurs ont affiché certaines pages de votre site en particulier ? Il peut être utile de savoir si des groupes d’utilisateurs utilisent différents sous-ensembles de fonctionnalités de votre site (utilisez l’opérateur `join` avec le modificateur `kind=leftanti` dans le langage de requête Log Analytics).
+* Combien d’utilisateurs ont affiché certaines pages de votre site en particulier ? Il peut être utile de savoir si des groupes d’utilisateurs utilisent différents sous-ensembles de fonctionnalités de votre site (utilisez l’opérateur `join` avec le modificateur `kind=leftanti` dans le langage de requête Data Explorer).
 
 Vous pouvez également formuler des requêtes concernant d’autres applications que celle à partir de laquelle vous avez lancé le classeur. Vous pouvez lancer des requêtes sur plusieurs applications surveillées via Application Insights, ainsi que sur des espaces de travail Log Analytics, à condition de disposer d’une autorisation d’accès à ces ressources.
 

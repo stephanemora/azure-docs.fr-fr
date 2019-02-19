@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095751"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998516"
 ---
-# <a name="tutorial-set-up-a-classroom-lab"></a>Didacticiel : Configurer un laboratoire de salle de classe 
+# <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer un laboratoire de classe
-> * Configurer le laboratoire de classe
+> * Ajouter des utilisateurs au laboratoire
 > * Envoyer un lien d’inscription aux étudiants
 
 ## <a name="prerequisites"></a>Prérequis
@@ -43,13 +43,12 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 2. Sélectionnez **Se connecter** et entrez vos informations d’identification. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft. 
 3. Dans la fenêtre **New Lab** (Nouveau laboratoire), effectuez les actions suivantes : 
     1. Spécifiez un **nom** pour votre laboratoire. 
-    2. Spécifiez le **nombre d’utilisateurs** maximal autorisé dans le laboratoire. 
+    2. Spécifiez le **nombre de machines virtuelles** maximal dans le laboratoire. Vous pouvez augmenter ou diminuer le nombre de machines virtuelles après avoir créé un lab ou dans un lab existant. Pour plus d’informations, consultez [Mettre à jour le nombre de machines virtuelles d’un lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Sélectionnez **Enregistrer**.
 
         ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Sur la page **Select virtual machine specifications** (sélectionner les spécifications de machine virtuelle), procédez aux étapes suivantes :
     1. Sélectionnez une **taille** pour les machines virtuelles (VM) créées dans le laboratoire. 
-    2. Sélectionnez la **région** dans laquelle vous souhaitez créer les VM. 
     3. Sélectionnez l'**image de machine virtuelle** à utiliser pour créer des VM dans le laboratoire. 
     4. Sélectionnez **Suivant**.
 
@@ -69,17 +68,15 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 7. Une fois la configuration du modèle terminée, la page suivante s’affiche : 
 
     ![Page Configurer le modèle une fois terminé](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. Les étapes suivantes sont facultatives dans ce didacticiel : 
+8. Dans la page **Configurer le modèle**, effectuez les étapes suivantes : Ces étapes sont **facultatives** pour le tutoriel.
     1. Démarrez le modèle de machine virtuelle en sélectionnant **Démarrer**.
     2. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. 
     3. Installez et configurez des logiciels sur votre modèle de machine virtuelle. 
     4. **Arrêtez** la machine virtuelle.  
     5. Entrez une **description** pour le modèle
-
-        ![Suivant sur la page Configurer le modèle](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. Sélectionnez **Suivant** sur la page du modèle. 
 10. Sur la page **Publier le modèle**, effectuez les actions suivantes. 
-    1. Pour publier le modèle immédiatement, cochez la case *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour* (Je comprends que je ne peux pas modifier le modèle après publication. Ce processus ne peut être fait qu’une fois et cela peut prendre jusqu’à une heure), puis sélectionnez **Publier**.  
+    1. Pour publier le modèle immédiatement, sélectionnez **Publier**.  
 
         > [!WARNING]
         > Une fois que vous publiez, vous ne pouvez pas annuler la publication. 
@@ -103,7 +100,9 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 
 1. Sélectionnez **Utilisateurs** dans le menu de gauche. Par défaut, l’option **Restreindre l’accès** est activée. Lorsque ce paramètre est activé, l’utilisateur ne peut pas s’inscrire au laboratoire, même s’il dispose du lien d’inscription. Il ne pourra s’inscrire que s’il figure dans la liste des utilisateurs. Seuls les utilisateurs de la liste peuvent s’inscrire au laboratoire à l’aide du lien d’inscription que vous envoyez. Dans cette procédure, vous allez ajouter des utilisateurs à la liste. Vous pouvez également désactiver l’option **Restreindre l’accès** afin de permettre aux utilisateurs disposant du lien d’inscription de s’inscrire au laboratoire. 
 2. Sélectionnez **Ajouter des utilisateurs** dans la barre d’outils. 
-3. Dans la page **Ajouter des utilisateurs**, entrez les adresses e-mail des utilisateurs sur des lignes distinctes, ou sur une seule ligne en les séparant par des points-virgules. 
+
+    ![Bouton Ajouter des utilisateurs](../media/how-to-configure-student-usage/add-users-button.png)
+1. Dans la page **Ajouter des utilisateurs**, entrez les adresses e-mail des utilisateurs sur des lignes distinctes, ou sur une seule ligne en les séparant par des points-virgules. 
 
     ![Ajouter les adresses e-mail des utilisateurs](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Sélectionnez **Enregistrer**. Dans la liste, vous voyez les adresses e-mail des utilisateurs et leur état (inscrits ou non). 

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: be78c91a4fb5c1e79e7b58620f65c9f17bfb4bae
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 14678ed789b611c0226d98fe11b3c9bacb993208
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226483"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991478"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Créer une application Python dans Azure App Service sur Linux (préversion)
 
@@ -39,7 +39,7 @@ Pour suivre ce guide de démarrage rapide :
 * <a href="https://www.python.org/downloads/" target="_blank">Installez Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Installez Git</a>
 
-## <a name="download-the-sample"></a>Télécharger l’exemple
+## <a name="download-the-sample-locally"></a>Téléchargez l’exemple localement
 
 Dans une fenêtre de terminal, exécutez les commandes suivantes pour cloner l’exemple d’application sur votre machine locale, puis accédez au répertoire avec l’exemple de code.
 
@@ -79,49 +79,80 @@ Dans la fenêtre de terminal, appuyez sur **Ctrl + C** pour quitter le serveur
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
+Dans Cloud Shell, créez un répertoire de démarrage rapide, puis utilisez-le.
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Exécutez ensuite la commande suivante pour cloner le référentiel de l’exemple d’application sur votre répertoire de démarrage rapide.
+
+```bash
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
+
+Pendant son exécution, des informations semblables à ce qui suit s’affichent :
+
+```bash
+Cloning into 'python-docs-hello-world'...
+remote: Enumerating objects: 43, done.
+remote: Total 43 (delta 0), reused 0 (delta 0), pack-reused 43
+Unpacking objects: 100% (43/43), done.
+Checking connectivity... done.
+```
 
 ## <a name="create-a-web-app"></a>Créer une application web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+Passez au répertoire qui contient l’exemple de code et exécutez la commande `az webapp up`.
 
-Accédez au site pour voir votre nouvelle application avec une image intégrée. Remplacez _&lt;app name>_ par le nom de votre application.
+Dans l’exemple suivant, remplacez <nom de l’application> par un nom d’application unique.
 
 ```bash
-http://<app_name>.azurewebsites.net
+cd python-docs-hello-world
+
+az webapp up -n <app_name>
 ```
 
-Voici à quoi doit ressembler votre nouvelle application :
+L’exécution de cette commande peut prendre quelques minutes. Pendant son exécution, des informations semblables à ce qui suit s’affichent :
 
-![Page d’application vide](media/quickstart-php/app-service-web-service-created.png)
+```json
+The behavior of this command has been altered by the following extension: webapp
+Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Resource group creation complete
+Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+App service plan creation complete
+Creating app '<app_name>' ....
+Webapp creation complete
+Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
+Preparing to deploy contents to app.
+All done.
+{
+  "app_url": "https:/<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Linux",
+  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
+  "serverfarm": "appsvc_asp_Linux_CentralUS",
+  "sku": "BASIC",
+  "src_path": "/home/username/quickstart/python-docs-hello-world ",
+  "version_detected": "-",
+  "version_to_create": "python|3.7"
+}
+```
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+La commande `az webapp up` exécute les actions suivantes :
 
-```bash
-Counting objects: 42, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (39/39), done.
-Writing objects: 100% (42/42), 9.43 KiB | 0 bytes/s, done.
-Total 42 (delta 15), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'c40efbb40e'.
-remote: Generating deployment script.
-remote: Generating deployment script for python Web Site
-.
-.
-.
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
-To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
- * [new branch]      master -> master
- ```
+- Créer un groupe de ressources par défaut
+
+- Créer un plan App Service par défaut
+
+- Créer une application avec le nom spécifié
+
+- [Déployez les fichiers zip](https://docs.microsoft.com/azure/app-service/deploy-zip) à partir du répertoire de travail actif sur l’application web.
 
 ## <a name="browse-to-the-app"></a>Accéder à l’application
 
@@ -139,17 +170,22 @@ L’exemple de code Python s’exécute dans App Service sur Linux avec une imag
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Mettre à jour localement et redéployer le code
 
-Dans le dépôt local, ouvrez le fichier `application.py` et apportez un changement mineur au texte contenu dans la dernière ligne :
+Dans Cloud Shell, tapez `code application.py` pour ouvrir l’éditeur Cloud Shell.
+
+![Code application.py](media/quickstart-python/code-applicationpy.png)
+
+ Apportez une petite modification au texte de l’appel pour `return` :
 
 ```python
 return "Hello Azure!"
 ```
 
-Validez vos modifications dans Git, puis envoyez les modifications de code à Azure.
+Enregistrez vos modifications et quittez l’éditeur. Utilisez la commande `^S` pour enregistrer et `^Q` pour quitter.
+
+Vous allez maintenant redéployer l’application. Remplacez `<app_name>` par votre application.
 
 ```bash
-git commit -am "updated output"
-git push azure master
+az webapp up -n <app_name>
 ```
 
 Une fois le déploiement terminé, revenez à la fenêtre du navigateur que vous avez ouverte à l’étape **Accéder à l’application**, puis actualisez la page.

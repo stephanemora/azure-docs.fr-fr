@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84ca8aff053fdcd7e085392ecf28ca687803a8f9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 108fd47eea88e4fe0bd8e3eb22cb03e1a092a29e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230214"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999145"
 ---
-# <a name="set-up-your-media-services-development-environment"></a>Configurer votre environnement de développement Media Services
+# <a name="set-up-your-media-services-development-environment"></a>Configurer votre environnement de développement Media Services  
 
 Les étapes suivantes décrivent les conditions requises pour le développement d’applications avec Azure Media Services.
 
@@ -44,7 +44,7 @@ Pour vous connecter à l’API Azure Media Services, consultez [Accéder à l’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous trouverez plusieurs exemples de code dans la galerie **Azure Code Samples** : [exemples de code Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Découvrez plusieurs exemples de code dans la galerie **Exemples de code Azure** : [Exemples de code Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

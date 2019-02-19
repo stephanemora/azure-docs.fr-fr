@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478064"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165329"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gérer des serveurs inscrits avec Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -165,7 +165,10 @@ Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEac
 > La définition de limites trop faibles aura un impact sur les performances de synchronisation et de rappel d’Azure File Sync.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Définir des limites réseau d’Azure File Sync
-Vous pouvez limiter l’utilisation du réseau d’Azure File Sync en utilisant les cmdlets `StorageSyncNetworkLimit`. 
+Vous pouvez limiter l’utilisation du réseau d’Azure File Sync en utilisant les cmdlets `StorageSyncNetworkLimit`.
+
+> [!Note]  
+> Les limites du réseau ne s’appliquent pas lorsqu’on accède à un fichier hiérarchisé ou lorsque l’applet de commande Invoke-StorageSyncFileRecall est utilisée.
 
 Par exemple, créez une nouvelle limite pour vous assurer qu’Azure File Sync n’utilise pas plus de 10 Mbits/s entre 9h et 17h en semaine : 
 

@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0aa4b8fd606c45f2dea702140c34fc93bcd4c5a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 10fc55886e4c91a2d468704d13d3b206f4a9cf51
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885369"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980243"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure PowerShell
+
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -35,16 +36,17 @@ Un groupe de machines virtuelles identiques vous permet de déployer et de gére
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel requiert le module Azure PowerShell version 6.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure. 
 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant le groupe de machines virtuelles identiques. Créez un groupe de ressources avec la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Dans cet exemple, un groupe de ressources nommé *myResourceGroup* est créé dans la région *EastUS*. 
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant le groupe de machines virtuelles identiques. Créez un groupe de ressources avec la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Dans cet exemple, un groupe de ressources nommé *myResourceGroup* est créé dans la région *EastUS*. 
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 Le nom du groupe de ressources est spécifié lorsque vous créez ou modifiez un groupe identique dans ce didacticiel.
 
@@ -56,10 +58,10 @@ Tout d’abord, définissez un nom d’utilisateur administrateur et un mot de p
 $cred = Get-Credential
 ```
 
-À présent, créez un groupe de machines virtuelles identiques avec [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Pour distribuer le trafic aux différentes instances de machine virtuelle, un équilibreur de charge est également créé. L’équilibreur de charge inclut des règles pour distribuer le trafic sur le port TCP 80, ainsi que pour autoriser le trafic Bureau à distance sur le port TCP 3389 et le trafic Accès distant PowerShell sur le port TCP 5985 :
+À présent, créez un groupe de machines virtuelles identiques avec [New-AzVmss](/powershell/module/az.compute/new-azvmss). Pour distribuer le trafic aux différentes instances de machine virtuelle, un équilibreur de charge est également créé. L’équilibreur de charge inclut des règles pour distribuer le trafic sur le port TCP 80, ainsi que pour autoriser le trafic Bureau à distance sur le port TCP 3389 et le trafic Accès distant PowerShell sur le port TCP 5985 :
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
   -Location "EastUS" `
@@ -74,13 +76,13 @@ La création et la configuration de l’ensemble des ressources et des instances
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Afficher les instances de machine virtuelle dans un groupe identique
-Pour afficher une liste d’instances de machine virtuelle dans un groupe identique, utilisez [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) comme suit :
+Pour afficher la liste des instances de machine virtuelle dans un groupe identique, utilisez [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) comme suit :
 
 ```azurepowershell-interactive
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-L’exemple suivant illustre deux instances de machine virtuelle dans le groupe identique :
+L’exemple suivant montre deux instances de machine virtuelle dans le groupe identique :
 
 ```powershell
 ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
@@ -89,24 +91,25 @@ MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succe
 MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-Pour afficher des informations supplémentaires sur une instance spécifique de la machine virtuelle, ajoutez le paramètre `-InstanceId` à [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). L’exemple suivant présente des informations sur l’instance de machine virtuelle *1* :
+Pour afficher des informations supplémentaires sur une instance spécifique de la machine virtuelle, ajoutez le paramètre `-InstanceId` à [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). L’exemple suivant présente des informations sur l’instance de machine virtuelle *1* :
 
 ```azurepowershell-interactive
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 
 ## <a name="list-connection-information"></a>Obtenir les informations de connexion
-Une adresse IP publique est assignée à l’équilibreur de charge qui achemine le trafic vers les instances de machine virtuelle individuelles. Par défaut, des règles de traduction d’adresses réseau (NAT) sont ajoutées à l’équilibreur de charge Azure qui transfère le trafic de connexion distant vers chaque machine virtuelle sur un port donné. Pour vous connecter aux instances de machine virtuelle d’un groupe identique, vous créez une connexion distante à une adresse IP publique et à un numéro de port assignés.
+Une adresse IP publique est assignée à l’équilibreur de charge qui achemine le trafic vers les instances de machine virtuelle individuelles. Par défaut, des règles de traduction d’adresses réseau (NAT) sont ajoutées à l’équilibreur de charge Azure qui transfère le trafic de connexion distant vers chaque machine virtuelle sur un port donné. Pour vous connecter aux instances de machine virtuelle d’un groupe identique, vous devez créer une connexion distante vers une adresse IP publique et un numéro de port assignés.
 
-Pour répertorier les ports NAT permettant une connexion à des instances de machine virtuelle dans un groupe identique, obtenez tout d’abord l’objet d’équilibrage de charge avec [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Affichez ensuite les règles NAT entrantes avec [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig) :
+Pour lister les ports NAT permettant une connexion à des instances de machine virtuelle dans un groupe identique, obtenez tout d’abord l’objet d’équilibrage de charge avec [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Affichez ensuite les règles NAT de trafic entrant avec [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig) :
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
-$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+$lb = Get-AzLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
 
 # View the list of inbound NAT rules
-Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 ```
 
 L’exemple de sortie suivant affiche le nom de l’instance, l’adresse IP publique de l’équilibreur de charge et le numéro de port où les règles NAT transfèrent le trafic :
@@ -120,12 +123,13 @@ myScaleSet3389.1 Tcp             50002        3389
 myScaleSet5985.1 Tcp             51002        5985
 ```
 
-Le *nom* de la règle s’aligne avec le nom de l’instance de machine virtuelle indiqué dans une commande [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) précédente. Par exemple, pour vous connecter à une instance de machine virtuelle *0*, vous utilisez *myScaleSet3389.0* et vous vous connectez au port *50001*. Pour vous connecter à une instance de machine virtuelle *1*, utilisez la valeur tirée de *myScaleSet3389.1* et connectez-vous au port *50002*. Pour utiliser la communication à distance PowerShell, vous vous connectez à la règle d’instance de machine virtuelle appropriée pour le port *TCP* *5985*.
+Le *nom* de la règle s’aligne avec celui de l’instance de machine virtuelle indiqué dans une commande [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) précédente. Par exemple, pour vous connecter à une instance de machine virtuelle *0*, vous utilisez *myScaleSet3389.0* et vous vous connectez au port *50001*. Pour vous connecter à une instance de machine virtuelle *1*, utilisez la valeur tirée de *myScaleSet3389.1* et connectez-vous au port *50002*. Pour utiliser la communication à distance PowerShell, vous vous connectez à la règle d’instance de machine virtuelle appropriée pour le port *TCP* *5985*.
 
-Affichez l’adresse IP publique de l’équilibreur de charge avec [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) :
+Affichez l’adresse IP publique de l’équilibreur de charge avec [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) :
+
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name "myPublicIPAddress" | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name "myPublicIPAddress" | Select IpAddress
 ```
 
 Exemple de sortie :
@@ -146,16 +150,16 @@ Une fois connecté à l’instance de machine virtuelle, vous pouvez effectuer c
 
 
 ## <a name="understand-vm-instance-images"></a>Comprendre les images d’instance de machine virtuelle
-La Place de marché Azure comprend de nombreuses images qui permettent de créer des instances de machine virtuelle. Pour voir la liste des serveurs de publication disponibles, utilisez la commande [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
+La Place de marché Azure comprend de nombreuses images qui permettent de créer des instances de machine virtuelle. Pour voir la liste des serveurs de publication disponibles, utilisez la commande [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher).
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "EastUS"
+Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Pour afficher une liste d’images pour un serveur de publication donné, utilisez [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). Vous pouvez également utiliser `-PublisherName` ou `–Offer` pour filtrer la liste d’images. Dans l’exemple suivant, la liste est filtrée pour toutes les images avec le nom du serveur de publication de *MicrosoftWindowsServer* et une offre qui correspond à *WindowsServer* :
+Pour afficher la liste des images pour un serveur de publication donné, utilisez [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). Vous pouvez également utiliser `-PublisherName` ou `–Offer` pour filtrer la liste d’images. Dans l’exemple suivant, la liste est filtrée pour toutes les images avec le nom du serveur de publication de *MicrosoftWindowsServer* et une offre qui correspond à *WindowsServer* :
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
 ```
 
 L’exemple de sortie suivant illustre toutes les images Windows Server disponibles :
@@ -178,10 +182,10 @@ Skus                                  Offer         PublisherName          Locat
 2016-Nano-Server                      WindowsServer MicrosoftWindowsServer eastus
 ```
 
-Lorsque vous avez créé un groupe identique au début de ce didacticiel, une image de machine virtuelle par défaut de *Windows Server 2016 DataCenter* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une image de machine virtuelle différente en fonction de la sortie de [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). L’exemple suivant créerait un groupe identique avec le paramètre `-ImageName` pour spécifier une image de machine virtuelle de *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, vous n’avez pas à déployer le groupe identique suivant :
+Lorsque vous avez créé un groupe identique au début de ce didacticiel, une image de machine virtuelle par défaut de *Windows Server 2016 DataCenter* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une image de machine virtuelle différente en fonction de la sortie de [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). L’exemple suivant créerait un groupe identique avec le paramètre `-ImageName` pour spécifier une image de machine virtuelle de *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, vous n’avez pas à déployer le groupe identique suivant :
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup2" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet2" `
@@ -211,10 +215,10 @@ Le tableau suivant classe les tailles courantes de machine virtuelle en fonction
 | [Hautes performances](../virtual-machines/windows/sizes-hpc.md) | H, A8-11          | Nos machines virtuelles dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). 
 
 ### <a name="find-available-vm-instance-sizes"></a>Rechercher des tailles d’instance de machine virtuelle disponibles
-Pour afficher la liste des tailles d’instances de machine virtuelle disponibles dans une région particulière, utilisez la commande [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). 
+Pour afficher la liste des tailles d’instances de machine virtuelle disponibles dans une région particulière, utilisez la commande [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize). 
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "EastUS"
+Get-AzVMSize -Location "EastUS"
 ```
 
 La sortie est semblable à l’exemple condensé suivant qui présente les ressources assignées à chaque taille de machine virtuelle :
@@ -235,10 +239,10 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-Lorsque vous avez créé un groupe identique au début de ce didacticiel, une référence SKU de machine virtuelle par défaut *Standard_DS1_v2* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une taille d’instance de machine virtuelle différente en fonction de la sortie de [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). L’exemple suivant crée un groupe identique avec le paramètre `-VmSize` afin de spécifier une taille d’instance de machine virtuelle *Standard_F1*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, il est inutile de déployer le groupe identique suivant :
+Lorsque vous avez créé un groupe identique au début de ce didacticiel, une référence SKU de machine virtuelle par défaut *Standard_DS1_v2* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une taille d’instance de machine virtuelle différente en fonction de la sortie de [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize). L’exemple suivant crée un groupe identique avec le paramètre `-VmSize` afin de spécifier une taille d’instance de machine virtuelle *Standard_F1*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, il est inutile de déployer le groupe identique suivant :
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup3" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet3" `
@@ -255,21 +259,21 @@ New-AzureRmVmss `
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modifier la capacité d’un groupe identique
 Lorsque vous avez créé un groupe identique, vous avez demandé de deux instances de machine virtuelle. Pour augmenter ou diminuer le nombre d’instances dans le groupe identique, vous pouvez modifier manuellement la capacité. Le groupe identique crée ou supprime le nombre requis d’instances de machine virtuelle, puis configure l’équilibreur de charge pour distribuer le trafic.
 
-Commencez par créer un objet de groupe identique avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss), puis spécifiez une nouvelle valeur pour `sku.capacity`. Pour appliquer la modification de la capacité, utilisez [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). L’exemple suivant fixe le nombre d’instances de machine virtuelle présentes dans votre groupe identique à *3* :
+Commencez par créer un objet de groupe identique avec [Get-AzVmss](/powershell/module/az.compute/get-azvmss), puis spécifiez une nouvelle valeur pour `sku.capacity`. Pour appliquer la modification de la capacité, utilisez [Update-AzVmss](/powershell/module/az.compute/update-azvmss). L’exemple suivant fixe le nombre d’instances de machine virtuelle présentes dans votre groupe identique à *3* :
 
 ```azurepowershell-interactive
 # Get current scale set
-$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 3
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
-Quelques minutes sont nécessaires pour mettre à jour la capacité de votre groupe identique. Pour afficher le nombre d’instances désormais présentes dans le groupe identique, utilisez [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) :
+Quelques minutes sont nécessaires pour mettre à jour la capacité de votre groupe identique. Pour afficher le nombre d’instances désormais présentes dans le groupe identique, utilisez [Get-AzVmss](/powershell/module/az.compute/get-azvmss) :
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 L’exemple de sortie suivant montre que la capacité du groupe identique est désormais *3* :
@@ -286,26 +290,26 @@ Sku        :
 Vous pouvez à présent créer un groupe identique, obtenir les informations de connexion et vous connecter aux instances de machine virtuelle. Vous avez appris à utiliser une autre image de système d’exploitation pour vos instances de machine virtuelle, sélectionner une autre taille de machine virtuelle et modifier manuellement le nombre d’instances. Dans le cadre de la gestion quotidienne, vous devrez peut-être arrêter, démarrer ou redémarrer les instances de machine virtuelle dans votre groupe identique.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Arrêter et libérer des instances de machine virtuelle dans un groupe identique
-Pour arrêter une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont arrêtées. L’exemple suivant présente l’arrêt de l’instance *1* :
+Pour arrêter une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont arrêtées. L’exemple suivant présente l’arrêt de l’instance *1* :
 
 ```azurepowershell-interactive
-Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 Par défaut, les machines virtuelles arrêtées sont libérées et n’entraînent pas de frais de calcul. Si vous souhaitez que la machine virtuelle reste dans un état configuré lors de l’arrêt, ajoutez le paramètre `-StayProvisioned` à la commande précédente. Les machines virtuelles arrêtées qui conservent leur configuration peuvent occasionner des frais de calcul standard.
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Démarrer les instances de machine virtuelle dans un groupe identique
-Pour démarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à démarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont démarrées. L’exemple suivant montre le démarrage de l’instance *1* :
+Pour démarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Start-AzVmss](/powershell/module/az.compute/start-azvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à démarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont démarrées. L’exemple suivant montre le démarrage de l’instance *1* :
 
 ```azurepowershell-interactive
-Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Redémarrer les instances de machine virtuelle dans un groupe identique
-Pour redémarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à redémarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont redémarrées. L’exemple suivant présente le redémarrage de l’instance *1* :
+Pour redémarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à redémarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont redémarrées. L’exemple suivant présente le redémarrage de l’instance *1* :
 
 ```azurepowershell-interactive
-Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 
@@ -313,7 +317,7 @@ Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScal
 Lorsque vous supprimez un groupe de ressources, toutes les ressources qu’il contient, comme les instances de machine virtuelle, le réseau virtuel et les disques, sont également supprimées. Le paramètre `-Force` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin. Le paramètre `-AsJob` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

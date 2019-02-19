@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c907af8e91a7463c74e0bb14b0d8e0862c4e0fa3
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3727d2db375847c8df0a96d5721ea3135584eeec
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887255"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976246"
 ---
-# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Exemples Azure PowerShell Azure pour les groupes de machines virtuelles identiques
+# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Exemples Azure PowerShell Azure pour les groupes de machines virtuelles identiques.
 
 Le tableau suivant contient des liens vers des scripts Bash créés à l’aide d’Azure PowerShell.
 
@@ -41,3 +41,6 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Créer un groupe identique sur une zone unique](scripts/powershell-sample-single-availability-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un groupe de machines virtuelles identiques qui utilise une zone de disponibilité unique. |
 | [Créer un groupe identique redondant interzone](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un groupe de machines virtuelles identiques sur plusieurs zones de disponibilité. |
 | | |
+
+
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    

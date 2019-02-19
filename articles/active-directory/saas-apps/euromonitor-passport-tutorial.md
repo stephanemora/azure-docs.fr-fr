@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Euromonitor Passport | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Euromonitor Passport | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Euromonitor Passport.
 services: active-directory
 documentationCenter: na
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bdc3b88109a8d8c46f0a6a09297b0ca197165
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab9439cbf46fd77a24aa07cab1884e4e50720e43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478914"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Tutoriel : Intégration d’Azure Active Directory à Euromonitor Passport
 
@@ -66,7 +67,7 @@ Pour configurer l’intégration d’Euromonitor Passport dans Azure AD, vous de
 
 4. Dans la zone de recherche, tapez **Euromonitor Passport**, sélectionnez **Euromonitor Passport** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Euromonitor Passport dans la liste des résultats](common/search-new-app.png)
+    ![Euromonitor Passport dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -104,19 +105,19 @@ Pour configurer l’authentification unique Azure AD auprès d’Euromonitor Pa
 
     ![Informations d’authentification unique dans Domaine et URL Euromonitor Passport](common/preintegrated.png)
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+5. Si vous souhaitez configurer l’application en mode lancée par le **fournisseur de services**, vous devez contacter l’[équipe du support technique Euromonitor Passport](mailto:passport.support@euromonitor.com) afin d’obtenir l’URL de connexion. Une fois que vous aurez obtenu l’URL de connexion, cliquez sur **Définir des URL supplémentaires**  et effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Euromonitor Passport](common/metadata-upload-additional-signon.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL : `https://portal.euromonitor.com`
+    Collez la valeur d’URL de connexion fournie par l’équipe de support Euromonitor Passport dans la zone de texte URL de connexion.
 
 6. L’application Euromonitor Passport attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
     ![image](./media/euromonitor-passport-tutorial/attribute1.png)
 
-7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
+7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | ---------------| --------- |
     | Valeur de nom d’identificateur | user.userprincipalname |
     | emailaddress | user.mail |

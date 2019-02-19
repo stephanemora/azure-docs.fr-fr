@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885845"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001969"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 
@@ -40,7 +40,9 @@ Voici ce que vous pouvez faire avec les journaux de diagnostic :
 
 * Enregistrez-les dans un [**compte de stockage**](../../azure-monitor/platform/archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **paramètres de diagnostic des ressources**.
 * [Diffusez-les en streaming sur **Event Hubs**](diagnostic-logs-stream-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
-* Analysez-les avec [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md), les données sont écrites immédiatement dans Log Analytics, et il est inutile d’écrire les données dans le stockage avant.  
+* Analysez-les avec [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md), les données sont écrites immédiatement dans Azure Monitor, et il est inutile d’écrire les données dans le stockage avant.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
 
@@ -56,7 +58,7 @@ Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n
 
 Les journaux de diagnostic des ressources sont configurés à l’aide des paramètres de diagnostic des ressources. Les journaux de diagnostic des locataires sont configurés à l’aide des paramètres de diagnostic des locataires. **Paramètres de diagnostic** pour un contrôle de service :
 
-* Où les journaux de diagnostic et les métriques sont envoyés (compte de stockage, Event Hubs et/ou Log Analytics).
+* Où les journaux de diagnostic et les métriques sont envoyés (compte de stockage, Event Hubs et/ou Azure Monitor).
 * Les catégories de journal envoyées et les données de mesure également envoyées.
 * La durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage
     - Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
@@ -235,5 +237,4 @@ L’ajout d’un paramètre de diagnostic permet d’afficher le panneau Paramè
 
 * [Diffuser en continu les journaux de diagnostic des ressources vers **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
 * [Modifier les paramètres de diagnostic des ressources via l’API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/)
-* [Analyser les journaux du stockage Azure avec Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Analyser les journaux du stockage Azure avec Azure Monitor](collect-azure-metrics-logs.md)

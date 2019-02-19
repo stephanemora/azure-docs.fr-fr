@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7c35961894cbc8fb33f15b36910021f8ad38fac8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976390"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112697"
 ---
 # <a name="read-nsg-flow-logs"></a>Lire des journaux de flux NSG
 
@@ -185,6 +185,6 @@ Ce scénario est un exemple montrant comment lire les entrées dans les journaux
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Visiter [visualiser les journaux de flux de NSG de l’Observateur réseau Azure à l’aide d’outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) pour en savoir plus sur d’autres moyens pour afficher les journaux de flux NSG.
+Visitez [Utiliser Elasic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Utiliser Grafana](network-watcher-nsg-grafana.md) et [Utiliser Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) pour en savoir plus sur les façons de visualiser les journaux de flux NSG. Une approche Azure Function Open permettant de consommer directement les blobs et d'émettre vers les différents consommateurs Log Analytics est décrite ici : [Connecteur des journaux de flux de groupe de sécurité réseau Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Pour en savoir plus sur les objets blob de stockage, visitez : [Liaisons de stockage Blob Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824511"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112544"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -33,7 +33,7 @@ Ce document décrit les différents scénarios de déplacement des machines virt
 Les clients déplacent les machines virtuelles pour les raisons suivantes :
 
 - Si vous aviez déjà effectué un déploiement dans une région et qu’une nouvelle région plus proche des utilisateurs finaux de votre application ou service devenait prise en charge, vous pourriez avoir envie de **déplacer vos machines virtuelles en l’état vers cette nouvelle région** pour des questions de réduction de latence. Vous adopteriez la même approche si vous vouliez regrouper des abonnements ou si des règles de gouvernance/de l’organisation vous obligeaient à effectuer un tel déplacement. 
-- Si votre machine virtuelle était déployée en tant qu’instance unique ou dans le cadre d’un groupe à haute disponibilité, vous pourriez, pour augmenter la disponibilité, **la déplacer vers un groupe à haute disponibilité**. 
+- Si votre machine virtuelle était déployée en tant qu’instance unique ou dans le cadre d’un groupe à haute disponibilité, vous pourriez, pour augmenter les SLA de disponibilité, **la déplacer vers une zone de disponibilité**. 
 
 ## <a name="how-to-move-azure-vms"></a>Comment déplacer des machines virtuelles Azure ?
 Déplacer des machines virtuelles implique les étapes suivantes :
@@ -97,7 +97,7 @@ Selon les [architectures](#typical-architectures-for-a-multi-tier-deployment) me
 
 2. **Machines virtuelles de chaque couche déployées dans un groupe à haute disponibilité** : vous pouvez choisir de placer vos machines virtuelles incluses dans un groupe à haute disponibilité dans des zones de disponibilité distinctes, quand vous choisissez d’activer la réplication de vos machines virtuelles à l’aide d’Azure Site Recovery. Le contrat de niveau de service (SLA) s’élèvera à 99,9 % de disponibilité quand vous aurez terminé l’opération de déplacement.
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

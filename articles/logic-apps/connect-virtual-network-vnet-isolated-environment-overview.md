@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 02/12/2019
+ms.openlocfilehash: 204138e7b8b3846e2d50607b3c5ec0836abefe24
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061021"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162371"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
 > [!NOTE]
-> Cette fonctionnalité est disponible en *préversion privée*. Pour demander l’accès, [créez votre demande de participation ici](https://aka.ms/iseprivatepreview).
+> Cette fonctionnalité est disponible en *préversion privée*. Pour vous inscrire à la préversion privée, [créez votre demande ici](https://aka.ms/iseprivatepreview).
 
-Parfois, vos applications logiques et vos comptes d’intégration doivent accéder à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services, dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Pour configurer cet accès, vous pouvez [créer un *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) pour exécuter vos applications logiques et vos comptes d’intégration. 
+Parfois, vos applications logiques et vos comptes d’intégration doivent accéder à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services, dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Pour configurer cet accès, vous pouvez [créer un *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) pour exécuter vos applications logiques et vos comptes d’intégration.
 
 ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
@@ -33,10 +33,10 @@ Cette vue d’ensemble explique comment un environnement de service d’intégra
 
 ## <a name="isolated-versus-global"></a>Isolé ou global
 
-Quand vous créez un environnement de service d’intégration dans Azure, vous sélectionnez un réseau virtuel Azure où vous souhaitez *injecter* votre environnement. Azure déploie une instance privée du service Logic Apps dans votre réseau virtuel. Cette action crée un environnement isolé où vous pouvez créer et exécuter vos applications logiques sur des ressources dédiées. Quand vous créez une application logique, vous sélectionnez cet environnement comme emplacement pour votre application, ce qui donne à votre application logique un accès direct aux ressources de votre réseau virtuel. 
+Quand vous créez un environnement de service d’intégration dans Azure, vous sélectionnez un réseau virtuel Azure où vous souhaitez *injecter* votre environnement. Azure déploie une instance privée du service Logic Apps dans votre réseau virtuel. Cette action crée un environnement isolé où vous pouvez créer et exécuter vos applications logiques sur des ressources dédiées. Quand vous créez une application logique, vous sélectionnez cet environnement comme emplacement pour votre application, ce qui donne à votre application logique un accès direct aux ressources de votre réseau virtuel.
 
 Les applications logiques d’un ISE fournissent les mêmes expériences d’utilisateur avec des fonctionnalités similaires que le service Logic Apps global. Vous pouvez non seulement utiliser les actions et connecteurs intégrés dans le service Logic Apps mondial, mais aussi des connecteurs spécifiques à l’environnement de service d’intégration. Voici, par exemple, quelques connecteurs standard offrant des versions qui s’exécutent dans un ISE :
- 
+
 * Stockage Fichier, stockage Table et stockage Blob Azure
 * Files d’attente Azure, Azure Service Bus, Azure Event Hubs et IBM MQ
 * FTP et SFTP-SSH
@@ -45,15 +45,15 @@ Les applications logiques d’un ISE fournissent les mêmes expériences d’uti
 
 La différence entre les connecteurs d’environnement de service d’intégration et les autres connecteurs réside dans les emplacements où s’exécutent les déclencheurs et les actions :
 
-* Dans votre ISE, les déclencheurs et les actions intégrés, comme HTTP, s’exécutent toujours dans le même environnement de service d’intégration que votre application logique. 
+* Dans votre ISE, les déclencheurs et les actions intégrés, comme HTTP, s’exécutent toujours dans le même environnement de service d’intégration que votre application logique.
 
 * Pour les connecteurs qui offrent deux versions : une des versions s’exécute dans un ISE tandis que l’autre s’exécute dans le service Logic Apps mondial.  
 
-  Les connecteurs qui portent le libellé **ISE** s’exécutent toujours dans le même ISE que votre application logique. Les connecteurs ne présentant pas le libellé **ISE** s’exécutent dans le service Logic Apps global. 
+  Les connecteurs qui portent le libellé **ISE** s’exécutent toujours dans le même ISE que votre application logique. Les connecteurs ne présentant pas le libellé **ISE** s’exécutent dans le service Logic Apps global.
 
   ![Sélection de connecteurs ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
-* Les connecteurs qui s’exécutent dans un ISE sont également disponibles dans le service Logic Apps mondial. 
+* Les connecteurs qui s’exécutent dans un ISE sont également disponibles dans le service Logic Apps mondial.
 
 > [!IMPORTANT]
 > Les applications logiques, les actions intégrées et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan tarifaire que le tarif de facturation à l’utilisation. Pour plus d’informations, consultez [Tarifs Logic Apps](../logic-apps/logic-apps-pricing.md).
@@ -62,13 +62,13 @@ La différence entre les connecteurs d’environnement de service d’intégrati
 
 ## <a name="permissions-for-virtual-network-access"></a>Autorisations d’accès au réseau virtuel
 
-Quand vous créez un environnement de service d’intégration, vous pouvez sélectionner un réseau virtuel Azure dans lequel vous *injectez* votre environnement. L’injection déploie une instance privée du service Logic Apps dans votre réseau virtuel. Cette action aboutit à un environnement isolé, où vous pouvez créer et exécuter vos applications logiques sur des ressources dédiées. Quand vous créez vos applications logiques sélectionnez votre ISE comme emplacement pour vos applications. Ces applications logiques peuvent alors accéder directement à votre réseau virtuel et se connecter aux ressources de ce réseau. 
+Quand vous créez un environnement de service d’intégration, vous pouvez sélectionner un réseau virtuel Azure dans lequel vous *injectez* votre environnement. L’injection déploie une instance privée du service Logic Apps dans votre réseau virtuel. Cette action aboutit à un environnement isolé, où vous pouvez créer et exécuter vos applications logiques sur des ressources dédiées. Quand vous créez vos applications logiques sélectionnez votre ISE comme emplacement pour vos applications. Ces applications logiques peuvent alors accéder directement à votre réseau virtuel et se connecter aux ressources de ce réseau.
 
-Pour les systèmes qui sont connectés à un réseau virtuel, vous pouvez injecter un environnement de service d’intégration dans ce réseau virtuel, pour que vos applications logiques puissent accéder directement à ces systèmes en utilisant un de ces éléments : 
+Pour les systèmes qui sont connectés à un réseau virtuel, vous pouvez injecter un environnement de service d’intégration dans ce réseau virtuel, pour que vos applications logiques puissent accéder directement à ces systèmes en utilisant un de ces éléments :
 
 * Connecteur ISE pour ce système, par exemple, SQL Server
 
-* Action HTTP 
+* Action HTTP
 
 * Connecteur personnalisé
 

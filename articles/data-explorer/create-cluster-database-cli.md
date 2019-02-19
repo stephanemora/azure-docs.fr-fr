@@ -1,52 +1,55 @@
 ---
-title: Créer un cluster et une base de données Azure Data Explorer à l’aide de CLI
-description: Cet article montre comment créer un cluster et une base de données pour Azure Data Explorer à l’aide d’Azure CLI
+title: 'Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer à l’aide de CLI'
+description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster et une base de données Azure Data Explorer à l’aide d’Azure CLI
 services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
-ms.topic: howto
-ms.date: 1/31/2019
-ms.openlocfilehash: a4c9156ef80f05e247b1cfef0acd56b601a2db65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: quickstart
+ms.date: 2/4/2019
+ms.openlocfilehash: 9e0ae547df34594674dc03702310a1537717a4ed
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812682"
+ms.locfileid: "55881114"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-a-database-using-cli"></a>Créer un cluster et une base de données Azure Data Explorer à l’aide de CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-using-cli"></a>Créer un cluster et une base de données Azure Data Explorer à l’aide de CLI
 
-Cet article montre comment créer un cluster et une base de données pour Azure Data Explorer à l’aide d’Azure CLI.
+Ce guide de démarrage rapide montre comment créer un cluster et une base de données Azure Data Explorer à l’aide d’Azure CLI.
 
-## <a name="whats-the-difference-between-the-management-plane-and-data-plane-apis"></a>Différence entre les API de plan de gestion et de plan de données
+## <a name="prerequisites"></a>Prérequis
 
-Il existe deux bibliothèques d’API différentes : les API de gestion et de plan de données.
-Les API de gestion servent à gérer les ressources, par exemple créer un cluster, créer une base de données, supprimer une connexion de données, modifier le nombre d’instances, etc. Les API de plan de données sont utilisées pour interagir avec les données, exécuter des requêtes, recevoir des données, etc.
+Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser Azure CLI en local, ce guide de démarrage rapide nécessite Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour vérifier votre version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="configure-the-cli-parameters"></a>Configurer les paramètres CLI
 
-Se connecter à son compte
+Les étapes suivantes ne sont pas obligatoires si vous exécutez des commandes dans Cloud Shell. Si vous utilisez l’interface CLI localement, effectuez les étapes suivantes pour vous connecter à Azure et définir votre abonnement actuel :
 
-```Bash
-az login
-```
+1. Exécutez la commande ci-après pour vous connecter à Azure :
 
-Définissez l’abonnement dans lequel vous souhaitez créer le cluster.
+    ```azurecli-interactive
+    az login
+    ```
 
-```Bash
-az account set --subscription "your_subscription"
-```
+2. Définissez l’abonnement dans lequel vous souhaitez créer le cluster. Remplacez `MyAzureSub` par le nom de l’abonnement Azure que vous souhaitez utiliser :
+
+    ```azurecli-interactive
+    az account set --subscription MyAzureSub
+    ```
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Créer le cluster Azure Data Explorer
 
-Créez votre cluster avec la commande suivante.
+1. Créez votre cluster avec la commande suivante :
 
-```Bash
-az kusto cluster create --name azureclitest --sku D11_v2 --resource-group testrg
-```
-
-Renseignez les valeurs suivantes :
+    ```azurecli-interactive
+    az kusto cluster create --name azureclitest --sku D11_v2 --resource-group testrg
+    ```
 
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
    |---|---|---|
@@ -54,53 +57,50 @@ Renseignez les valeurs suivantes :
    | sku | *D13_v2* | Référence SKU utilisée pour votre cluster. |
    | resource-group | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
 
-Si vous le souhaitez, il existe plusieurs paramètres facultatifs que vous pouvez utiliser, tels que la capacité du cluster, etc.
+    Vous pouvez définir d’autres paramètres facultatifs, comme la capacité du cluster.
 
-Pour vérifier si votre cluster a été créé avec succès, vous pouvez exécuter
+2. Exécutez la commande suivante pour vérifier si votre cluster a bien été créé :
 
-```Bash
-az kusto cluster show --name azureclitest --resource-group testrg
-```
+    ```azurecli-interactive
+    az kusto cluster show --name azureclitest --resource-group testrg
+    ```
 
-Si le résultat contient « provisioningState » avec la valeur Succeeded (Réussi), cela signifie que le cluster a été créé avec succès.
+Si le résultat contient « provisioningState » avec la valeur « Succeeded » (Réussi), le cluster a bien été créé.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Créer la base de données dans le cluster Azure Data Explorer
 
-Créez votre base de données avec la commande suivante.
+1. Créez votre base de données avec la commande suivante :
 
-```Bash
-az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
-```
-
-Renseignez les valeurs suivantes :
+    ```azurecli-interactive
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    ```
 
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
    |---|---|---|
-   | cluster-name | *azureclitest* | Nom de votre cluster dans lequel la base de données doit être créée.|
+   | cluster-name | *azureclitest* | Nom du cluster dans lequel la base de données doit être créée.|
    | Nom | *clidatabase* | Nom souhaité de votre base de données.|
    | resource-group | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
    | soft-delete-period | *3650:00:00:00* | Durée pendant laquelle les données doivent être conservées afin qu’elles soient disponibles et puissent être interrogées. |
    | hot-cache-period | *3650:00:00:00* | Durée pendant laquelle les données doivent être conservées dans le cache. |
 
-Vous pouvez voir la base de données que vous avez créé en exécutant
+2. Exécutez la commande suivante pour voir votre nouvelle base de données :
 
-```Bash
-az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
-```
+    ```azurecli-interactive
+    az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
+    ```
 
-Voilà, vous disposez maintenant d’un cluster et d’une base de données.
+Vous disposez maintenant d’un cluster et d’une base de données.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous envisagez de suivre nos autres tutoriels et guides de démarrage rapide, gardez les ressources que vous avez créées.
+* Si vous envisagez de suivre nos autres tutoriels et guides de démarrage rapide, gardez les ressources que vous avez créées.
+* Pour nettoyer les ressources, supprimez le cluster. Lorsque vous supprimez un cluster, cela supprime également toutes les bases de données qu’il contient. Utilisez la commande ci-dessous pour supprimer votre cluster :
 
-Lorsque vous supprimez un cluster, cela supprime également toutes les bases de données qu’il contient. Utilisez la commande ci-dessous pour supprimer votre cluster.
-
-```Bash
-az kusto cluster delete --name azureclitest --resource-group testrg
-```
+    ```azurecli-interactive
+    az kusto cluster delete --name azureclitest --resource-group testrg
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
+> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python d’Azure Data Explorer](python-ingest-data.md)

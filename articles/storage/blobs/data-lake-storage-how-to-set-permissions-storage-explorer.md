@@ -1,6 +1,6 @@
 ---
 title: Définir des autorisations pour Data Lake Storage Gen2 avec l’Explorateur de stockage Azure
-description: Dans cette procédure, vous allez apprendre à définir des autorisations avec l’Explorateur de stockage Azure sur des fichiers et des répertoires à l’intérieur de votre compte de stockage compatible Azure Data Lake Storage Gen2 (préversion).
+description: Dans cette procédure, vous allez apprendre à définir des autorisations avec l’Explorateur Stockage Azure sur des fichiers et des répertoires à l’intérieur de votre compte de stockage compatible Azure Data Lake Storage Gen2.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: fd4ca3946ed4c32a8fd2f08c1c242c33dbca2aaf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238311"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867050"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Définir des autorisations au niveau de fichiers et de répertoires à l’aide de l’Explorateur de stockage Azure avec Azure Data Lake Storage Gen2 (préversion)
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Définir des autorisations au niveau de fichiers et de répertoires à l’aide de l’Explorateur Stockage Azure avec Azure Data Lake Storage Gen2
 
-Les fichiers stockés dans Azure Data Lake Storage Gen2 (préversion) prennent en charge les autorisations de granularité fine et la gestion de la liste de contrôle d’accès (ACL). Ensemble, les autorisations de granularité fine et la gestion ACL vous permettent de gérer l’accès à vos données à un niveau très précis.
+Les fichiers stockés dans Azure Data Lake Storage Gen2 prennent en charge les autorisations de granularité fine et la gestion de la liste de contrôle d’accès (ACL). Ensemble, les autorisations de granularité fine et la gestion ACL vous permettent de gérer l’accès à vos données à un niveau très précis.
 
 Dans cet article, vous apprenez à utiliser l’Explorateur de stockage Azure pour :
 

@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602645"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098883"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Démarrage rapide : Essayer une solution cloud pour gérer mes appareils IoT industriels
 
@@ -42,7 +42,7 @@ Dans la page **Créer une solution Usine connectée**, entrez un **Nom de soluti
 
 Sélectionnez l’**Abonnement** et la **Région** à utiliser pour déployer l’accélérateur de solution. En général, vous choisissez la région la plus proche. Pour ce démarrage rapide, nous allons utiliser **Visual Studio Enterprise** et **USA Est**. Vous devez être [administrateur général ou utilisateur](iot-accelerators-permissions.md) dans l’abonnement.
 
-Cliquez sur **Créer une solution** pour démarrer le déploiement. L’exécution de ce processus prend au moins cinq minutes :
+Cliquez sur **Créer** pour commencer votre déploiement. L’exécution de ce processus prend au moins cinq minutes :
 
 ![Détails de la solution Usine connectée](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ Dans la page **Solutions approvisionnées**, cliquez sur votre nouvel accéléra
 
 ![Choisir la nouvelle solution](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-Vous pouvez consulter les informations relatives à votre accélérateur de solution Usine connectée dans le panneau qui s’affiche. Choisissez **Tableau de bord des solutions** pour afficher votre accélérateur de solution Usine connectée :
+Vous pouvez consulter les informations relatives à votre accélérateur de solution Usine connectée dans la page qui s’affiche. Choisissez **Accéder à votre accélérateur de solution** pour afficher votre accélérateur de solution Usine connectée :
 
 ![Panneau de solutions](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 

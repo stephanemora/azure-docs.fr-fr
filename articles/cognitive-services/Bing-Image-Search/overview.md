@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: L’API Recherche d’images Bing vous permet d’utiliser les fonctionnalités Bing de recherche cognitive d’images dans votre application. En envoyant des requêtes de recherche utilisateur avec cette API, vous pouvez obtenir et afficher des images pertinentes et de haute qualité comparables aux Images Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 10/11/2017
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765644"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237312"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Qu'est-ce que l'API Recherche d’images Bing ?
 
-L’API Recherche d’images Bing vous permet d’utiliser les fonctionnalités Bing de recherche cognitive d’images dans votre application. En envoyant des requêtes de recherche utilisateur avec cette API, vous pouvez obtenir et afficher des images pertinentes et de haute qualité comparables aux [Images Bing](https://www.bing.com/images).
+L’API Recherche d’images Bing vous permet d’utiliser les fonctionnalités Bing de recherche d’images dans votre application. En envoyant des requêtes de recherche à l’API, vous pouvez obtenir des images de haute qualité comparables à celles de [bing.com/images](https://www.bing.com/images).
 
-N’oubliez pas que l’API Recherche d’images Bing renvoie uniquement des images dans les résultats de la recherche. Pour rechercher d’autres types de contenus web, utilisez [l’API Recherche Web Bing](../bing-web-search/search-the-web.md), [l’API Recherche de vidéos Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) et [l’API Recherche d’actualités Bing](https://review.docs.microsoft.com/azure/cognitive-services/bing-news-search).
+Alors que l’API Recherche d’images Bing fournit seulement des images dans les résultats de recherche, vous pouvez combiner ou utiliser les autres [API Recherche Bing](../bing-web-search/bing-api-comparison.md) disponibles pour rechercher de nombreux types de contenu sur le web.
 
 ## <a name="bing-image-search-features"></a>Fonctionnalités de recherche d’images Bing
-
-Bien que le service Recherche d’images Bing recherche et renvoie principalement des images pertinentes pour une requête de recherche, il offre également plusieurs fonctionnalités supplémentaires en matière de récupération d’images sur le web intelligente et ciblée.
-
 
 | Fonctionnalité                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,7 +48,7 @@ L’API Recherche d’images Bing est un service web RESTful et peut donc être 
 Commencez par essayer la [démonstration interactive](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) de l’API Recherche d’images Bing.
 Cette démonstration vous explique comment personnaliser rapidement une requête de recherche et parcourir le web à la recherche d’images.
 
-Lorsque vous êtes prêt à appeler l’API, créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitement.
+Quand vous êtes prêt à appeler l’API, créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitement.
 
 Pour exécuter rapidement votre première requête d’API, vous pouvez apprendre à effectuer les opérations suivantes :
 
@@ -60,7 +57,9 @@ Pour exécuter rapidement votre première requête d’API, vous pouvez apprendr
 
 ## <a name="see-also"></a>Voir aussi
 
-* La section de référence concernant [l’API Recherche d’images Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) contient des définitions et des informations sur les points de terminaison, en-têtes, réponses d’API et paramètres de requête que vous pouvez utiliser pour demander des résultats de recherche sous forme d’images.
+* [Détail des prix](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) des API Recherche Bing. 
+
+* La section de référence de l’[API Recherche d’images Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) contient des informations sur les points de terminaison, les en-têtes, les réponses et les paramètres de requête de l’API.
 
 * L’article [Conditions d’utilisation et d’affichage de l’API Recherche Bing](./useanddisplayrequirements.md) spécifie les utilisations acceptables du contenu et des informations obtenus par le biais des API Recherche Bing.
 

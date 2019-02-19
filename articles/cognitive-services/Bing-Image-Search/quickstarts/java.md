@@ -5,32 +5,29 @@ description: Utilisez ce guide de démarrage rapide pour envoyer des requêtes d
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 13edea67a93ecf2d2b53dcc04a2c1d49b864952e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e00179f0fe3bf079cde672c9c8e3579f8c957b7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203281"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238298"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et Java
 
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. Cette application Java simple envoie une requête de recherche à l’API et affiche les résultats bruts.
+Utilisez ce guide de démarrage rapide pour commencer à envoyer des demandes de recherche à l’API Recherche d’images Bing. Cette application Java envoie une requête de recherche à l’API et affiche l’URL de la première image dans les résultats. Bien que cette application soit écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
-Alors que cette application est écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
-
-Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) avec une gestion des erreurs supplémentaire et des annotations de code.
+Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) avec une gestion des erreurs supplémentaire et des annotations.
 
 ## <a name="prerequisites"></a>Prérequis
-* Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous **Recherche**.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-* Le [JDK (Java Development Kit) 7 ou 8](https://aka.ms/azure-jdks)
+* Le [JDK (Java Development Kit)](https://aka.ms/azure-jdks)
 
 * La [bibliothèque Gson](https://github.com/google/gson)
 
@@ -62,7 +59,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 
 ## <a name="construct-the-search-request-and-query"></a>Construire la requête de recherche et la demande
 
-1. Utilisez les variables de la dernière étape pour mettre en forme une URL de recherche pour la requête d’API. Notez que votre terme de recherche doit être encodé sous forme d’URL avant d’être ajouté à la requête.
+1. Utilisez les variables de la dernière étape pour mettre en forme une URL de recherche pour la requête d’API. Le terme de recherche doit être encodé sous forme d’URL avant d’être ajouté à la demande.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -108,7 +105,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
 
-## <a name="json-response"></a>Réponse JSON
+## <a name="example-json-response"></a>Exemple de réponse JSON
 
 Les réponses de l’API Recherche d’images Bing sont retournées au format JSON. Cet exemple de réponse a été tronqué pour afficher un résultat unique.
 
@@ -152,7 +149,7 @@ Les réponses de l’API Recherche d’images Bing sont retournées au format JS
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -164,7 +161,8 @@ Les réponses de l’API Recherche d’images Bing sont retournées au format JS
 ## <a name="see-also"></a>Voir aussi
 
 * [Qu’est-ce que la Recherche d’images Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Essayez une démonstration interactive en ligne](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Essayez une démonstration interactive en ligne](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Détail des prix](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) des API Recherche Bing. 
 * [Obtenir une clé d’accès Cognitive Services gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

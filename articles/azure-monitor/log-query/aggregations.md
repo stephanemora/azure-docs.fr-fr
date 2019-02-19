@@ -1,6 +1,6 @@
 ---
-title: Agrégations dans des requêtes Azure Log Analytics | Microsoft Docs
-description: Décrit les fonctions d’agrégation dans des requêtes Log Analytics qui proposent des méthodes utiles pour analyser vos données.
+title: Agrégations dans des requêtes Azure Monitor | Microsoft Docs
+description: Décrit les fonctions d’agrégation dans des requêtes Azure Monitor qui proposent des méthodes utiles pour analyser vos données.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185747"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000845"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Agrégations dans des requêtes Log Analytics
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Agrégations dans des requêtes Azure Monitor | Microsoft Docs
 
 > [!NOTE]
 > Vous devez suivre [Bien démarrer avec le portail Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Cet article décrit les fonctions d’agrégation dans des requêtes Log Analytics qui proposent des méthodes utiles pour analyser vos données. Ces fonctions opèrent toutes avec l’opérateur `summarize` qui génère une table avec les résultats agrégés de la table d’entrée.
+Cet article décrit les fonctions d’agrégation dans des requêtes de journaux Azure Monitor qui proposent des méthodes utiles pour analyser vos données. Ces fonctions opèrent toutes avec l’opérateur `summarize` qui génère une table avec les résultats agrégés de la table d’entrée.
 
 ## <a name="counts"></a>Nombres
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Consultez d’autres leçons pour l’utilisation du langage de requête Log Analytics :
+Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête de Data Explorer](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

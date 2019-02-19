@@ -6,34 +6,34 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4df8a12581b5d71a76964ca1e3d40c6c53185f67
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477323"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860318"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionner du débit sur un conteneur Azure Cosmos
 
-Cet article explique comment approvisionner le débit d’un conteneur (collection, graphique, table) dans Azure Cosmos DB. Vous pouvez approvisionner le débit d’un seul conteneur ou [d’une base de données](how-to-provision-database-throughput.md) et le partager entre les conteneurs au sein de la base de données. Vous pouvez approvisionner le débit d’un conteneur à l’aide du portail Azure, d’Azure CLI ou des kits de développement logiciel (SDK) CosmosDB.
+Cet article explique comment provisionner le débit d’un conteneur (collection, graphe ou table) dans Azure Cosmos DB. Vous pouvez provisionner le débit d’un seul conteneur ou d’une [base de données](how-to-provision-database-throughput.md), et le partager entre les conteneurs de la base de données. Vous pouvez provisionner le débit d’un conteneur à l’aide du Portail Azure, d’Azure CLI ou des kits SDK Azure Cosmos DB.
 
-## <a name="provision-throughput-using-azure-portal"></a>Approvisionner le débit à l’aide du portail Azure
+## <a name="provision-throughput-by-using-azure-portal"></a>Approvisionner le débit à l’aide du portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-1. [Créez un nouveau compte Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
+1. [Créez un compte Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account), ou sélectionnez un compte existant.
 
-1. Ouvrez le volet **Explorateur de données** et sélectionnez **Nouvelle collection**. Ensuite, renseignez le formulaire avec les informations suivantes :
+1. Ouvrez le volet **Explorateur de données**, puis sélectionnez **Nouvelle collection**. Fournissez ensuite les détails suivants :
 
-   * Créez une nouvelle base de données ou utilisez-en une existante.
-   * Saisissez un ID de collection (ou de table ou de graphique).
-   * Entrez une valeur de clé de partition, par exemple `/userid`.
-   * Entrez un débit, par exemple 1 000 unités de requête.
+   * Indiquez si vous créez une base de données ou si vous utilisez une base de données existante.
+   * Entrez un ID de collection (ou de table ou de graphe).
+   * Entrez une valeur de clé de partition (par exemple `/userid`).
+   * Entrez un débit, par exemple 1 000 RU.
    * Sélectionnez **OK**.
 
-![Approvisionner le débit d’un conteneur d’API SQL](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+![Capture d’écran de l’Explorateur de données, avec l’option Nouvelle collection mise en surbrillance](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli"></a>Approvisionner le débit à l’aide d’Azure CLI
+## <a name="provision-throughput-by-using-azure-cli"></a>Provisionner le débit à l’aide d’Azure CLI
 
 ```azurecli-interactive
 # Create a container with a partition key and provision throughput of 1000 RU/s
@@ -46,9 +46,9 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-Si vous approvisionnez le débit d’un compte Cosmos configuré avec l’API Azure Cosmos DB pour MongoDB, utilisez '/myShardKey' comme chemin d’accès à la clé de partition. Si vous approvisionnez le débit d’un compte Cosmos configuré pour l’API Cassandra, utilisez '/myPrimaryKey' comme chemin d’accès à la clé de partition.
+Si vous provisionnez le débit d’un compte Azure Cosmos DB configuré avec l’API Azure Cosmos DB pour MongoDB, utilisez `/myShardKey` pour le chemin de clé de partition. Si vous provisionnez le débit d’un compte Azure Cosmos DB configuré pour l’API Cassandra, utilisez `/myPrimaryKey` pour le chemin de clé de partition.
 
-## <a name="provision-throughput-using-net-sdk"></a>Approvisionner le débit à l’aide du Kit de développement logiciel (SDK) .NET
+## <a name="provision-throughput-by-using-net-sdk"></a>Provisionner le débit à l’aide du kit SDK .NET
 
 > [!Note]
 > Utilisez l’API SQL pour approvisionner le débit de toutes les API, à l’exception de l’API Cassandra.
@@ -79,7 +79,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les articles suivants pour en savoir plus sur l’approvisionnement de débit dans Cosmos DB :
+Consultez les articles suivants pour en savoir plus sur le provisionnement du débit dans Azure Cosmos DB :
 
 * [Comment approvisionner le débit d’une base de données](how-to-provision-database-throughput.md)
 * [Unités de requête et débit dans Azure Cosmos DB](request-units.md)

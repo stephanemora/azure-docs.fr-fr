@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2add42e56f939dbfeb33ac2774d404411b1fefb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497670"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997249"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio : Déploiement et consommation
 Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. Les services web, RESTful, peuvent être appelés avec divers langages et plateformes de programmation, notamment Java, .NET et des applications comme Excel.
@@ -31,10 +31,10 @@ Les liens suivants fournissent des informations générales sur le processus de 
 
 * Pour une vue d’ensemble du déploiement d’un nouveau service web basé sur Azure Resource Manager, consultez [Déployer un nouveau service web](publish-a-machine-learning-web-service.md).
 * Pour une présentation du déploiement d’un service web, consultez [Déployer un service web Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Pour une présentation complète de la création et du déploiement d’un service web, consultez [Étape 1 du didacticiel pas à pas : créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md).
+* Pour une présentation complète de la création et du déploiement d’un service web, consultez [Tutoriel 1 : Prédire le risque de crédit](tutorial-part1-credit-risk.md).
 * Pour des exemples spécifiques de déploiement d’un service web, consultez :
 
-  * [Étape 5 du didacticiel pas à pas : déployer le service web Azure Machine Learning](walkthrough-5-publish-web-service.md)
+  * [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md)
   * [Comment déployer un service web dans plusieurs régions](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Avec les API du fournisseur de ressources des services web (API Azure Resource Manager)
@@ -84,7 +84,7 @@ Vous pouvez tester votre service web sur le portail de services web Azure Machin
 
 * [Déployer comme un nouveau service web](publish-a-machine-learning-web-service.md)
 * [Déploiement d’un service web Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* [Étape 5 du didacticiel pas à pas : déployer le service web Azure Machine Learning](walkthrough-5-publish-web-service.md)
+* [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>À partir d’Excel
 Vous pouvez télécharger un modèle Excel qui consomme le service web :

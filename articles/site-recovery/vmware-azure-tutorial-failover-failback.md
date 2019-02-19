@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 783f8006ba19622761beef0ff931bcbb80edde46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822474"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115893"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués vers Azure
 
@@ -56,7 +56,7 @@ Vérifiez les propriétés de la machine virtuelle et que la machine virtuelle e
 
 2. Dans le volet **Élément répliqué**, vous voyez un récapitulatif des informations de la machine virtuelle, son état d’intégrité et ses derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.
 
-3. Dans **Calcul et réseau**, vous pouvez modifier le nom Azure, le groupe de ressources, la taille cible, le [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) ainsi que les paramètres de disque managé.
+3. Dans **Calcul et réseau**, vous pouvez modifier le nom Azure, le groupe de ressources, la taille cible, le [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) ainsi que les paramètres de disque managé
 
 4. Vous pouvez afficher et modifier les paramètres réseau, notamment le réseau/sous-réseau dans lequel la machine virtuelle Azure se trouvera après le basculement et l’adresse IP à lui affecter.
 
@@ -98,7 +98,7 @@ Suivez les étapes décrites [ici](site-recovery-failover-to-azure-troubleshoot.
 > [!IMPORTANT]
 > Si vous disposez d’une connexion VPN entre votre environnement local et Azure, vous devez configurer une machine virtuelle Azure en tant que serveur de processus pour la reprotection et la restauration automatique. Pour configurer un serveur de processus dans Azure, suivez les instructions de [cet article](vmware-azure-set-up-process-server-azure.md).
 
-Pour plus d’informations concernant les conditions préalables à la reprotection et la restauration automatique, reportez-vous à cette [section] (vmware-azure-reprotect.md##before-you-begin). 
+Pour plus d’informations sur les prérequis de la reprotection et de la restauration automatique, reportez-vous à cette [section](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configurer le serveur cible maître
 

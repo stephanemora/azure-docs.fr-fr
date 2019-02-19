@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754371"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860471"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 
@@ -21,7 +21,7 @@ ms.locfileid: "53754371"
 
 Le cycle de développement « en boucle interne » est le processus itératif d’écriture de code, de création et de test de votre application avant de procéder au contrôle de code source. La tâche rapide étend votre boucle interne sur le cloud, en prenant en charge la validation de l’exécution des builds et la transmission automatique des images générées à votre registre de conteneurs. Vos images sont générées de manière native dans le cloud, à proximité de votre registre, pour un déploiement plus rapide.
 
-La totalité de votre expertise Dockerfile est directement transférable à ACR Tasks. Vous n’avez aucune obligation de modifier vos fichiers Dockerfiles pour générer dans le cloud avec ACR Tasks, vous devez simplement modifier la commande que vous exécutez.
+La totalité de votre expertise Dockerfile est directement transférable à ACR Tasks. Vous n’avez aucune obligation de modifier vos fichiers Dockerfiles pour générer dans le cloud avec ACR Tasks, vous devez simplement modifier la commande que vous exécutez. 
 
 Ce didacticiel est la première partie d’une série d’étapes :
 
@@ -30,7 +30,7 @@ Ce didacticiel est la première partie d’une série d’étapes :
 > * Générer une image de conteneur dans Azure
 > * Déployer un conteneur sur Azure Container Instances
 
-Dans les didacticiels suivants, vous apprendrez comment utiliser ACR Tasks pour les générations automatisées d’images conteneur lors de la validation du code et la mise à jour des images de base.
+Dans les didacticiels suivants, vous apprendrez comment utiliser ACR Tasks pour les générations automatisées d’images conteneur lors de la validation du code et la mise à jour des images de base. ACR Tasks peut également exécuter des [tâches multiétapes](container-registry-tasks-multi-step.md) (en préversion) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer et éventuellement de tester plusieurs conteneurs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

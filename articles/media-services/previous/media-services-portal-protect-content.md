@@ -4,7 +4,7 @@ description: Cet article explique comment utiliser le portail Azure pour configu
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423537"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996935"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurer des stratégies de protection du contenu à l’aide du portail Azure
  Avec Azure Media Services, vous pouvez sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à la remise, en passant par le stockage et le traitement. Vous pouvez utiliser Media Services pour délivrer du contenu chiffré de manière dynamique avec la norme AES (Advanced Encryption Standard) à l’aide de clés de chiffrement 128 bits. Vous pouvez aussi l’utiliser avec le chiffrement commun (CENC) à l’aide de la gestion des droits numériques (DRM) PlayReady et/ou Widevine et Apple FairPlay. 
@@ -90,10 +90,10 @@ Pour afficher touts vos éléments multimédias, sélectionnez **Paramètres** >
 ![Option de ressources](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
 ### <a name="encrypt-with-aes-or-drm"></a>Chiffrer avec AES ou DRM
-Quand vous sélectionnez **Chiffrer** pour une ressource, deux choix s’offrent à vous : **AES** et **DRM**. 
+Quand vous sélectionnez **Chiffrer** pour une ressource, deux choix s’offrent à vous : **AES** et **DRM**. 
 
 #### <a name="aes"></a>AES
-Le chiffrement de clé en clair AES est activé sur tous les protocoles de streaming : Smooth Streaming, HLS et MPEG-DASH.
+Le chiffrement de clé en clair AES est activé sur tous les protocoles de streaming : Smooth Streaming, HLS et MPEG-DASH.
 
 ![Configuration du chiffrement](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 90a94612248dead5b57ebff67562dda083d8669f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247280"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996132"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Encoder un actif multimédia à l’aide de Media Encoder Standard dans le portail Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "50247280"
 > 
 > 
 
-Parmi les scénarios Azure Media Services les plus courants figure l’offre d’une technologie de streaming à débit adaptatif à vos clients. Media Services prend en charge les technologies de streaming à débit adaptatif suivantes : Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). Pour préparer vos vidéos au streaming à débit adaptatif, vous devez encoder votre vidéo source sous la forme de fichiers multidébits. Vous pouvez utiliser Azure Media Encoder Standard pour encoder vos vidéos.  
+Parmi les scénarios Azure Media Services les plus courants figure l’offre d’une technologie de streaming à débit adaptatif à vos clients. Media Services prend en charge les technologies de streaming à débit adaptatif suivantes : Nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). Pour préparer vos vidéos au streaming à débit adaptatif, vous devez encoder votre vidéo source sous la forme de fichiers multidébits. Vous pouvez utiliser Azure Media Encoder Standard pour encoder vos vidéos.  
 
 Media Services fournit l’empaquetage dynamique. Avec l’empaquetage dynamique, vous pouvez distribuer vos fichiers MP4 multidébits dans TLS, Smooth Streaming et MPEG-DASH, sans qu’un nouvel empaquetage soit nécessaire. L’empaquetage dynamique vous permet de stocker et de payer les fichiers dans un format de stockage unique. Media Services crée et fournit la réponse appropriée à la demande du client.
 

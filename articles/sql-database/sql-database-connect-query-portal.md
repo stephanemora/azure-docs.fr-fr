@@ -12,13 +12,13 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: d00909eed037e4d2d414ef3121ce11f5ca489736
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/12/2019
+ms.openlocfilehash: e16d68f8c30b54c24e091d1b0c7317bf74aadeba
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564763"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234575"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Démarrage rapide : Utiliser l’éditeur de requête SQL du portail Azure pour se connecter et interroger des données
 
@@ -28,7 +28,15 @@ L’éditeur de requête SQL est un outil de navigateur du portail Azure qui off
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+
+  || Base de données unique |
+  |:--- |:--- |
+  | Créer| [Portal](sql-database-single-database-get-started.md) | 
+  || [INTERFACE DE LIGNE DE COMMANDE](scripts/sql-database-create-and-configure-database-cli.md) | 
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
+  | Configuration | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)| 
+  |||
 
 > [!NOTE]
 > Vérifiez que l’option **Autoriser l’accès aux services Azure** est définie sur **ACTIVÉ** dans les paramètres du pare-feu de votre serveur SQL. Cette option permet à l’éditeur de requête SQL d’accéder à vos bases de données et à vos entrepôts de données.

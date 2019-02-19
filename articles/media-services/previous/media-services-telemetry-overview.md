@@ -4,7 +4,7 @@ description: Cet article donne une vue d’ensemble des données de télémétri
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 97df0876afd8b7258f985ab375b14f4aabde6e22
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48b88aed833b0cd15f47195c67be80fe75fe153f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786138"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005180"
 ---
-# <a name="azure-media-services-telemetry"></a>Télémétrie Azure Media Services
+# <a name="azure-media-services-telemetry"></a>Télémétrie Azure Media Services  
 
 Azure Media Services (AMS) vous permet d’accéder aux données de télémétrie/mesure pour ses services. La version actuelle de AMS vous permet de collecter les données de télémétrie pour les entités en temps réel **Channel**, **StreamingEndpoint** et **Archive**. 
 
@@ -75,8 +75,8 @@ Propriété|Valeur|Exemples/notes
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L’ID de compte est inclus dans la clé de partition afin de simplifier les workflows dans lesquels plusieurs comptes Media Services écrivent sur le même compte de stockage.
 RowKey|{secondes avant minuit}_{valeur aléatoire}|01688_00199<br/><br/>La clé de ligne commence par le nombre de secondes avant minuit pour autoriser les requêtes supérieures de style n au sein d’une partition. Pour plus d’informations, consultez [cet](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) article. 
 Timestamp|Date/Heure|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
-type|Le type de l’entité offrant les données de télémétrie|Channel/StreamingEndpoint/Archive<br/><br/>Le type d’événement est simplement une valeur de chaîne.
-NOM|Le nom de l’événement de télémétrie|ChannelHeartbeat/StreamingEndpointRequestLog
+Type|Le type de l’entité offrant les données de télémétrie|Channel/StreamingEndpoint/Archive<br/><br/>Le type d’événement est simplement une valeur de chaîne.
+Nom|Le nom de l’événement de télémétrie|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|L’heure à laquelle l’événement de télémétrie est survenu (UTC)|2016-09-09T22:42:36.924Z<br/><br/>L’heure observée est fournie par l’entité envoyant les données de télémétrie (par exemple, un canal). Il peut y avoir des problèmes de synchronisation de l’heure entre les composants, cette valeur est donc approximative
 ServiceID|{ID de service}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Propriétés spécifiques à une entité|Comme définies par l’événement|StreamName: stream1, Bitrate 10123, …<br/><br/>Les propriétés restantes sont définies pour le type d’événement donné. Le contenu de la table Azure est constitué de paires clé / valeur.  (Autrement dit, différentes lignes de la table possèdent différents ensembles de propriétés.)
@@ -85,9 +85,9 @@ Propriétés spécifiques à une entité|Comme définies par l’événement|Str
 
 Il existe trois types d’entrées de données télémétriques spécifiques à une entité, chacune envoyée selon la fréquence suivante :
 
-- Points de terminaison de diffusion en continu : toutes les 30 secondes
-- Canaux en temps réel : toutes les minutes
-- Archive en temps réel : toutes les minutes
+- Points de terminaison de streaming : Toutes les 30 secondes
+- Canaux en direct : Chaque minute
+- Archive en temps réel : Chaque minute
 
 **Point de terminaison de diffusion en continu**
 
@@ -96,8 +96,8 @@ Propriété|Valeur|Exemples
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
-type|type|StreamingEndpoint
-NOM|NOM|StreamingEndpointRequestLog
+Type|Type|StreamingEndpoint
+Nom|Nom|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID de service|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 HostName|Nom d’hôte du point de terminaison|builddemoserver.origin.mediaservices.windows.net
@@ -115,8 +115,8 @@ Propriété|Valeur|Exemples/notes
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
-type|type|Canal
-NOM|NOM|ChannelHeartbeat
+Type|Type|Canal
+Nom|Nom|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID de service|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Type de piste vidéo/audio/texte|vidéo/audio
@@ -140,8 +140,8 @@ Propriété|Valeur|Exemples/notes
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
-type|type|Archivage
-NOM|NOM|ArchiveHeartbeat
+Type|Type|Archivage
+Nom|Nom|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID de service|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|URL du programme|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
@@ -159,7 +159,7 @@ Les données de mesures sont stockées comme une série de tables Azure dans le 
 
 - Kit de développement logiciel (SDK) AMS
 - L’explorateur de stockage Microsoft Azure (prend en charge l’exportation vers un format CSV et traité dans Excel)
-- de l’API REST
+- API REST
 
 ### <a name="how-to-find-average-bandwidth-consumption"></a>Comment trouver l’utilisation moyenne de bande passante ?
 
@@ -168,7 +168,7 @@ L’utilisation moyenne bande passante est la moyenne des octets envoyés sur un
 ### <a name="how-to-define-streaming-unit-count"></a>Comment définir le nombre d’unités de diffusion en continu ?
 
 Le nombre d’unités de diffusion en continu peut être défini comme le débit maximal à partir des points de terminaison de streaming du service divisé par le débit maximal d’un point de terminaison. Le débit utilisable maximal d’un point de terminaison est de 160 Mbits/s.
-Par exemple, supposons que le débit maximal du service d’un client est de 40 Mbits/s (la valeur maximale d’octets envoyés sur un intervalle de temps). Le nombre d’unités de diffusion en continu est égal à (40 Mbits/s) * (8 bits/octet) /(160 Mbits/s) = 2 unités de diffusion en continu.
+Par exemple, supposons que le débit maximal du service d’un client est de 40 Mbits/s (la valeur maximale d’octets envoyés sur un intervalle de temps). Le nombre d’unités de diffusion en continu est égal à (40 Mbits/s) x (8 bits/octet) /(160 Mbits/s) = 2 unités de diffusion en continu.
 
 ### <a name="how-to-find-average-requestssecond"></a>Comment trouver des demandes/seconde moyennes ?
 

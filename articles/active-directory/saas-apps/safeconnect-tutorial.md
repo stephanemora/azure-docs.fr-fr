@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory avec SafeConnect | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec SafeConnect | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SafeConnect.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: f011b9ef7229ba1e588e488be8b4fc5b098ee5ac
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024674"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183800"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Didacticiel : intégration d’Azure Active Directory avec SafeConnect
+# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Tutoriel : Intégration d’Azure Active Directory avec SafeConnect
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer SafeConnect à Azure Active Directory (Azure AD).
 
@@ -153,7 +154,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-safeconnect-test-user"></a>Créer un utilisateur de test SafeConnect
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SafeConnect. Collaborez avec l’[équipe de support SafeConnect](mailto:support@impulse.com) pour ajouter des utilisateurs dans la plateforme SafeConnect. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SafeConnect. Collaborez avec l’ [équipe de support SafeConnect](mailto:support@impulse.com) pour ajouter des utilisateurs dans la plateforme SafeConnect. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

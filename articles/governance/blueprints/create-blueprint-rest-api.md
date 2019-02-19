@@ -4,17 +4,17 @@ description: Utilisez des blueprints Azure pour créer, définir et déployer de
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566954"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989964"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
 
@@ -329,6 +329,12 @@ La valeur de `{BlueprintVersion}` est une chaîne de lettres, de chiffres et de 
 
 Une fois qu’un blueprint a été publié à l’aide de l’API REST, il peut être affecté à un abonnement. Affectez le blueprint que vous avez créé à l’un des abonnements sous votre hiérarchie de groupes d’administration. Si le blueprint est enregistré dans un abonnement, il ne peut être attribué qu’à cet abonnement. Le **corps de la requête** spécifie le blueprint à affecter, fournit le nom et l’emplacement des groupes de ressources dans la définition de blueprint, et fournit tous les paramètres définis sur le blueprint et utilisés par un ou plusieurs artefacts attachés.
 
+Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
+
+- Remplacer `{tenantId}` par l’ID de votre locataire
+- Remplacer `{YourMG}` par l’ID de votre groupe d’administration
+- Remplacer `{subscriptionId}` par votre ID d’abonnement
+
 1. Octroyez au principal de service Azure Blueprint le rôle **Propriétaire** sur l’abonnement cible. L’AppId est statique (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mais l’ID de principal de service varie en fonction du locataire. Vous pouvez demander les détails de votre locataire à l’aide de l’API REST suivante. Elle utilise [l’API Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) qui a une autorisation différente.
 
    - URI de l’API REST
@@ -387,6 +393,25 @@ Une fois qu’un blueprint a été publié à l’aide de l’API REST, il peut 
          "location": "westus"
      }
      ```
+
+   - Identité managée affectée par l’utilisateur
+
+     Une affectation de blueprint peut également utiliser une [identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/overview.md). Dans ce cas, la partie **identité** du corps de la requête change de la façon suivante.  Remplacez `{yourRG}` et `{userIdentity}` par le nom de votre groupe de ressources et le nom de votre identité managée affectée par l’utilisateur, respectivement.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     L’**identité managée affectée par l’utilisateur** peut être dans n’importe quels abonnement et groupe de ressources pour lesquels l’utilisateur qui affecte le blueprint a les autorisations nécessaires.
+
+     > [!IMPORTANT]
+     > Les blueprints ne gèrent pas l’identité managée affectée par l’utilisateur. Les utilisateurs doivent attribuer des rôles et autorisations suffisants. À défaut, l’affectation du blueprint échouera.
 
 ## <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
 

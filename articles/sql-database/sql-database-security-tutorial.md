@@ -1,6 +1,6 @@
 ---
-title: Sécuriser une base de données autonome ou en pool dans Azure SQL Database | Microsoft Docs
-description: Découvrez les techniques et les fonctionnalités à utiliser pour sécuriser une base de données autonome ou en pool dans Azure SQL Database.
+title: Sécuriser une base de données unique ou en pool dans Azure SQL Database | Microsoft Docs
+description: Découvrez les techniques et les fonctionnalités permettant de sécuriser une base de données unique ou en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752515"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004579"
 ---
-# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutoriel : Sécuriser une base de données autonome ou en pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutoriel : Sécuriser une base de données unique ou en pool
 
-Azure SQL Database sécurise les données dans une base de données autonome ou en pool en vous permettant de :
+Azure SQL Database sécurise les données dans une base de données unique ou en pool en vous permettant de :
 
 - Limiter l’accès à l’aide de règles de pare-feu
 - Utiliser des mécanismes d’authentification qui nécessitent une identité

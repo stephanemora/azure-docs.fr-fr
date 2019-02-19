@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a8134e2350b650f7dfe0b3a1d58d107e42493223
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766501"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895056"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
 
@@ -67,7 +67,7 @@ Il peut être parfois nécessaire de récupérer un compte supprimé.
 
 Dans Azure Stack, il existe un moyen simple de le faire :
 
-1. Accédez à la liste de comptes de stockage. Pour plus d’informations, consultez [Rechercher un compte de stockage](#find) dans cet article.
+1. Accédez à la liste de comptes de stockage. Pour plus d’informations, consultez Rechercher un compte de stockage dans cet article.
 2. Localisez ce compte particulier dans la liste. Il peut être nécessaire de filtrer.
 3. Vérifiez l’*état* du compte. Il doit être **Supprimé**.
 4. Sélectionnez le compte pour ouvrir le volet des détails du compte.
@@ -113,7 +113,7 @@ Un des effets secondaires de la période de conservation est qu’un compte supp
 Vous pouvez récupérer de la capacité en utilisant le portail ou PowerShell.
 
 **Pour récupérer de la capacité en utilisant le portail :**
-1. Accédez au volet des comptes de stockage. Consultez [Rechercher un compte de stockage](#find).
+1. Accédez au volet des comptes de stockage. Consultez Rechercher un compte de stockage.
 2. Sélectionnez **Récupérer de l’espace** en haut du volet.
 3. Lisez le message, puis sélectionnez **OK**.
 

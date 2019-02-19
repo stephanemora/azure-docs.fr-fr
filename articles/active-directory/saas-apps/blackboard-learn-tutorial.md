@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 30c13b511fdc4c348cb7356ccc2fb64c40239fc4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811568"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169851"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Didacticiel : Intégration d’Azure Active Directory à Blackboard Learn
+# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Tutoriel : Intégration d’Azure Active Directory à Blackboard Learn
 
 Dans ce didacticiel, vous allez apprendre à intégrer Blackboard Learn à Azure Active Directory (Azure AD).
 L’intégration de Blackboard Learn dans Azure AD vous offre les avantages suivants :
@@ -118,7 +119,7 @@ Pour configurer l’authentification unique Azure AD avec Blackboard Learn, eff
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image et effectuez les étapes suivantes. Nous avons mappé Userprincipalname comme seul attribut utilisateur ici, mais vous pouvez le mapper à la valeur appropriée qui identifie de façon unique l’utilisateur dans l’organisation et se mappe avec le champ de nom d’utilisateur Blackboard Learn.
 
-    | NOM | Attribut source|
+    | Nom | Attribut source|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
 
@@ -211,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-blackboard-learn-test-user"></a>Créer un utilisateur de test Blackboard Learn
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Blackboard Learn. L'application Blackboard Learn prend en charge la configuration de l'utilisateur au moment opportun. Vérifiez que vous avez configuré les revendications comme décrit dans la section **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)**.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Blackboard Learn. L'application Blackboard Learn prend en charge la configuration de l'utilisateur au moment opportun. Vérifiez que vous avez configuré les revendications comme décrit dans la section **Configuration de l’authentification unique Azure AD**.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

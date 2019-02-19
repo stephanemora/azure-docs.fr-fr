@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7ae3886db6391836cd8d281e44c95c5253cc8dd5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323801"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985418"
 ---
 Chaque ordinateur client que vous connectez à un réseau virtuel avec une connexion point à site doit avoir un certificat client installé. Ce certificat doit être généré à partir du certificat racine, puis installé sur chaque ordinateur client. Si vous n’installez pas de certificat client valide, l’authentification échoue lorsque le client essaie de se connecter au réseau virtuel.
 
@@ -31,4 +31,8 @@ Vous pouvez générer des certificats clients à l’aide des méthodes suivante
   * [Instructions pour MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) : Utilisez MakeCert si vous n’avez pas accès à un ordinateur Windows 10 pour générer des certificats. Même si MakeCert est déconseillé, vous pouvez toujours l’utiliser pour générer des certificats. Vous pouvez installer les certificats générés sur n’importe quel client P2S pris en charge.
   * [Instructions Linux](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
-  Lorsque vous générez un certificat client à partir d’un certificat racine auto-signé, ce certificat est automatiquement installé sur l’ordinateur que vous avez utilisé pour le générer. Si vous souhaitez installer un certificat client sur un autre ordinateur client, exportez-le en tant que fichier .pfx, avec l’intégralité de la chaîne du certificat. Cette opération crée un fichier .pfx contenant les informations de certificat racine requises pour l’authentification du client. Pour savoir comment exporter un certificat, consultez l’article [Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
+  Lorsque vous générez un certificat client à partir d’un certificat racine auto-signé, ce certificat est automatiquement installé sur l’ordinateur que vous avez utilisé pour le générer. Si vous souhaitez installer un certificat client sur un autre ordinateur client, exportez-le en tant que fichier .pfx, avec l’intégralité de la chaîne du certificat. Cette opération crée un fichier .pfx contenant les informations de certificat racine requises pour l’authentification du client. 
+
+**Pour exporter le certificat**
+
+Pour savoir comment exporter un certificat, consultez l’article [Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).

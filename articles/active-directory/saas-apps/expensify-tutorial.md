@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b31d22990b79cb37ea5b3b89c699b9511f8d87cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453891"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutoriel : Intégration d’Azure Active Directory à Expensify
 
@@ -104,9 +105,12 @@ Pour configurer l’authentification unique Azure AD auprès d’Expensify, eff
 
     ![Informations d’authentification unique dans Domaine et URL Expensify](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://www.expensify.com/authentication/saml/login`
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL au format suivant : `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://www.expensify.com`
+
+    > [!NOTE]
+    > La valeur d’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique Expensify](mailto:help@expensify.com).
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -125,18 +129,18 @@ Pour configurer l’authentification unique Azure AD auprès d’Expensify, eff
 ### <a name="configure-expensify-single-sign-on"></a>Configurer l’authentification unique Expensify
 
 Pour activer l’authentification unique dans Expensify, vous devez d’abord activer le **contrôle de domaine** dans l’application. Vous pouvez activer le contrôle de domaine dans l’application via la procédure répertoriée [ici](https://help.expensify.com/domain-control). Pour une assistance supplémentaire, travaillez avec [l’équipe de support technique Expensify](mailto:help@expensify.com). Une fois que le contrôle de domaine est activé, suivez les étapes ci-dessous :
-   
+
 ![Configurer l'authentification unique](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. Connectez-vous à votre application Expensify.
-    
+
 2. Dans le panneau gauche, cliquez sur **Paramètres** et accédez à **SAML**.
-    
+
 3. Paramétrez l’option **Connexion SAML** sur **Activée**.
-    
+
 4. Dans le Bloc-notes, ouvrez les métadonnées de fédération téléchargées à partir d’Azure AD, copiez le contenu et collez-le dans la zone de texte **Identity Provider Metadata** (Métadonnées du fournisseur d’identité).
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
@@ -191,7 +195,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Expensify. Travaillez avec [l’équipe de support technique Expensify](mailto:help@expensify.com) pour ajouter les utilisateurs à la plateforme Expensify.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -204,4 +208,3 @@ Quand vous cliquez sur la vignette Expensify dans le volet d’accès, vous deve
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

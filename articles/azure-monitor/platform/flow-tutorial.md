@@ -1,5 +1,5 @@
 ---
-title: Automatiser les processus Azure Log Analytics avec Microsoft Flow
+title: Automatiser les processus de journal Azure Monitor avec Microsoft Flow
 description: Découvrez comment utiliser Microsoft Flow pour automatiser rapidement les processus récurrents en utilisant le connecteur Azure Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -11,22 +11,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 441064d6cbb5b3b2fae77caef3125c8db3467553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187447"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993773"
 ---
-# <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus Log Analytics avec le connecteur Microsoft Flow
-[Microsoft Flow](https://ms.flow.microsoft.com) vous permet de créer des flux de travail automatisés à l’aide de centaines d’actions issues d’une grande variété de services. La sortie d’une action peut être utilisée en tant qu’entrée dans un autre service. Ainsi, vous pouvez créer une intégration entre différents services.  Le connecteur Azure Log Analytics pour Microsoft Flow permet de créer des flux de travail comprenant des données récupérées lors des recherches effectuées dans les journaux avec Log Analytics.
+# <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus de journal Azure Monitor avec le connecteur Microsoft Flow
+[Microsoft Flow](https://ms.flow.microsoft.com) vous permet de créer des flux de travail automatisés à l’aide de centaines d’actions issues d’une grande variété de services. La sortie d’une action peut être utilisée en tant qu’entrée dans un autre service. Ainsi, vous pouvez créer une intégration entre différents services.  Le connecteur Azure Log Analytics pour Microsoft Flow permet de créer des flux de travail comprenant des données récupérées par des requêtes de journal à partir d’un espace de travail Log Analytics dans Azure Monitor.
 
-Par exemple, Microsoft Flow peut vous permettre d’utiliser les données Log Analytics dans une notification par e-mail Office 365, de créer un bogue dans Azure DevOps ou de publier un message Slack.  Vous pouvez déclencher un flux de travail à l’aide d’un calendrier ou d’une action d’un service connecté, telle que la réception d’un e-mail ou d’un tweet.  
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Le didacticiel de cet article vous montre comment créer un flux qui envoie automatiquement par e-mail les résultats d’une recherche effectuée dans les journaux avec Log Analytics, ce qui ne constitue qu’un exemple de ce que vous pouvez faire avec Log Analytics dans Microsoft Flow. 
+Par exemple, Microsoft Flow peut vous permettre d’utiliser les données de journal Azure Monitor dans une notification par e-mail Office 365, de créer un bogue dans Azure DevOps ou de publier un message Slack.  Vous pouvez déclencher un flux de travail à l’aide d’un calendrier ou d’une action d’un service connecté, telle que la réception d’un e-mail ou d’un tweet.  
+
+Le didacticiel de cet article vous montre comment créer un flux qui envoie automatiquement par e-mail les résultats d’une requête de journal Azure Monitor, ce qui ne constitue qu’un exemple de ce que vous pouvez faire avec le connecteur Log Analytics dans Microsoft Flow. 
 
 
-## <a name="step-1-create-a-flow"></a>Étape 1 : Créer un flux
+## <a name="step-1-create-a-flow"></a>Étape 1 : Créer un flux
 1. Connectez-vous à [Microsoft Flow](https://flow.microsoft.com), puis sélectionnez **Mes flux**.
 2. Cliquez sur **+ Créer entièrement**.
 
@@ -45,7 +47,7 @@ Le didacticiel de cet article vous montre comment créer un flux qui envoie auto
 ## <a name="step-4-configure-the-log-analytics-action"></a>Étape 4 : Configurer l’action Log Analytics
 
 1. Spécifiez les détails de votre espace de travail, y compris l’ID d’abonnement, le groupe de ressources et le nom de l’espace de travail.
-2. Dans la zone **Requête**, ajoutez la requête Log Analytics suivante :  Ceci est un exemple de requête. Vous pouvez donc la remplacer par n’importe quelle autre requête retournant des données.
+2. Dans la zone **Requête**, ajoutez la requête de journal suivante.  Ceci est un exemple de requête. Vous pouvez donc la remplacer par n’importe quelle autre requête retournant des données.
 ```
     Event
     | where EventLevelName == "Error" 
@@ -77,7 +79,7 @@ Le didacticiel de cet article vous montre comment créer un flux qui envoie auto
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [recherches dans les journaux avec Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+- En savoir plus sur les [requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md).
 - Découvrez [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

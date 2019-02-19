@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9cfa06dfd0b38aa288502afbee30fb48ee7dd4e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 489ef2c472cb9622e83a04428ec9c5958e5a5003
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247661"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983370"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Qu’est-ce que le Kit de développement Azure Stack ?
 Les [systèmes intégrés Microsoft Azure Stack](../azure-stack-poc.md) présentent une taille comprise entre 4 et 16 nœuds et sont pris en charge conjointement par un fournisseur de matériel partenaire et Microsoft. Utilisez des systèmes intégrés Azure Stack pour autoriser de nouveaux scénarios pour vos charges de travail de production. Si vous êtes un opérateur Azure Stack gérant l’infrastructure de systèmes intégrés et proposant des offres, consultez la [documentation destinée à l’opérateur](https://docs.microsoft.com/azure/azure-stack).
@@ -50,7 +50,7 @@ Les déploiements ASDK à nœud unique et les déploiements Azure Stack à plusi
 |-----|-----|-----|
 |**Mettre à l'échelle**|Tous les composants sont installés sur un ordinateur serveur à nœud unique.|Peuvent comprendre entre 4 et 16 nœuds.|
 |**Résilience**|La configuration à un seul nœud ne fournit pas la haute disponibilité|Les fonctionnalités de [haute disponibilité](../azure-stack-key-features.md#high-availability-for-azure-stack) sont prises en charge.|
-|**Mise en réseau**|L’ASDK utilise une machine virtuelle nommée AzS-BGPNAT01 pour acheminer tout le trafic réseau ASDK. Il n’existe aucune exigence supplémentaire en matière de commutateur.|La machine virtuelle AzS-BGPNAT01 n’existe pas dans les déploiements à plusieurs nœuds. Une [infrastructure de routage réseau](../azure-stack-network.md#network-infrastructure) plus complexe est nécessaire : commutateurs TOR (Top-Of-Rack), Baseboard Management Controller (BMC) et commutateurs limite (réseau de centre de données).|
+|**Mise en réseau**|L’hôte ASDK route tout le trafic réseau ASDK. Il n’existe aucune exigence supplémentaire en matière de commutateur.|Une [infrastructure de routage réseau](../azure-stack-network.md#network-infrastructure) plus complexe est nécessaire dans les déploiements à plusieurs nœuds°: commutateurs TOR (Top-Of-Rack), Baseboard Management Controller (BMC) et commutateurs limite (réseau de centre de données).|
 |**Processus de correctif et mise à jour**|Pour passer à une nouvelle version de l’ASDK, vous devez redéployer l’ASDK sur l’ordinateur hôte du Kit de développement.|Le processus de [correctif et mise à jour](../azure-stack-updates.md) utilisé pour mettre à jour la version d’Azure Stack installée.|
 |**Support**|Forum MSDN Azure Stack. Le Support technique et Service clientèle de Microsoft (CSS) n’est *pas* disponible pour les environnements hors production.|[Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) et support CSS complet.|
 | | |

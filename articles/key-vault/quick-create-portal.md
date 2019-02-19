@@ -3,7 +3,7 @@ title: Démarrage rapide Azure - Définir et récupérer un secret depuis Key Va
 description: Ce guide de démarrage rapide vous montre comment définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure.
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078386"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117100"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
@@ -58,14 +58,14 @@ Notez les deux propriétés ci-dessous :
 
 ## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret dans Key Vault
 
-Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. Dans ce cas, nous ajoutons un mot de passe qu’une application est susceptible d’utiliser. Le mot de passe est appelé **ExamplePassword** et nous y stockons la valeur **Pa$$w0rd**.
+Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. Dans ce cas, nous ajoutons un mot de passe qu’une application est susceptible d’utiliser. Le mot de passe est appelé **ExamplePassword** et nous y stockons la valeur **hVFkk965BuUv**.
 
 1. Dans les pages des propriétés du coffre de clés, sélectionnez **Secrets**.
 2. Cliquez sur **Generate/Import (Générer/Importer)**.
 3. Dans l’écran **Create a secret (Créer un secret)**, choisissez les valeurs suivantes :
     - **Options de chargement** : Manuel.
     - **Nom** : ExamplePassword.
-    - **Valeur** : Pa$$w0rd.
+    - **Valeur** : hVFkk965BuUv
     - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
 
 Lorsque vous recevez le message confirmant la création du secret, cliquez dessus dans la liste. Certaines propriétés s’affichent. Si vous cliquez sur la version actuelle, vous voyez la valeur que vous avez spécifiée à l’étape précédente.

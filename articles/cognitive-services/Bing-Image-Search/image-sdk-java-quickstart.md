@@ -4,19 +4,19 @@ description: Utilisez ce guide de démarrage rapide pour effectuer votre premiè
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7603895d623bba9d5023379643b5ea9752344a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195588"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238128"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Démarrage rapide : Rechercher des images à l’aide du SDK Recherche d’images Bing pour Java
 
@@ -45,7 +45,7 @@ Installez les dépendances du Kit de développement logiciel (SDK) pour Recherch
 
 ## <a name="create-and-initialize-the-application"></a>Créer et initialiser l’application
 
-1. Créez un projet Java dans votre éditeur ou IDE favori, puis ajoutez les importations suivantes à votre implémentation de classe :
+1. Créez un projet Java dans votre éditeur ou IDE favori, et ajoutez les importations suivantes à votre implémentation de classe :
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -63,9 +63,10 @@ Installez les dépendances du Kit de développement logiciel (SDK) pour Recherch
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Envoyer une requête de recherche à l’API Recherche d’images Bing
+## <a name="send-a-search-request-to-the-api"></a>Envoyer une demande de recherche à l’API
 
 1. À l’aide de `bingImages().search()`, envoyer la requête HTTP contenant la requête de recherche. Enregistrer la réponse sous la forme d’un `ImagesModel`.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
@@ -76,7 +77,7 @@ Installez les dépendances du Kit de développement logiciel (SDK) pour Recherch
 ## <a name="parse-and-view-the-result"></a>Analyser et afficher le résultat
 
 Analysez les résultats d’image retournés par la réponse.
-Si la réponse contient des résultats de recherche, stockez le premier résultat et imprimez ses détails, tels qu’une URL de miniature, l’URL d’origine, ainsi que le nombre total d’images retournées.  
+Si la réponse contient des résultats de recherche, stockez le premier résultat et imprimez ses détails, comme l’URL d’une miniature, l’URL d’origine, ainsi que le nombre total d’images retournées.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {

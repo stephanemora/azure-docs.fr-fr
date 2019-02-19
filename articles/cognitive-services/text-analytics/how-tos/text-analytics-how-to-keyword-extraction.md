@@ -1,22 +1,22 @@
 ---
-title: Guide pratique pour extraire des expressions clés dans l’API REST Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
-description: Explique comment extraire des expressions clés à l’aide de l’API REST Analyse de texte dans Microsoft Cognitive Services sur Azure dans ce didacticiel pas à pas.
+title: Extraction de phrases clés à l’aide de l’API REST Analyse de texte | Microsoft Docs
+description: Comment extraire des phrases clés à l’aide de l’API REST Analyse de texte d’Azure Cognitive Services.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216742"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245607"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemple : Guide pratique pour extraire des expressions clés dans Analyse de texte
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemple : Comment extraire des phrases clés avec l’Analyse de texte
 
 L’[API Extraction de phrases clés](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) évalue un texte non structuré puis, pour chaque document JSON, retourne une liste d’expressions clés. 
 
@@ -29,13 +29,13 @@ Actuellement, l’API Extraction de phrases clés prend en charge l’anglais, l
 
 ## <a name="preparation"></a>Préparation
 
-L’extraction d’expressions clés fonctionne mieux quand vous lui fournissez de grands segments de texte à traiter. Ceci est l’opposé de l’analyse des sentiments, qui fonctionne mieux sur de petits blocs de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
+L’extraction de phrases clés fonctionne mieux avec une plus grande quantité de texte. Contrairement à l’analyse des sentiments, qui fonctionne mieux sur des petites quantités de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
 
 Vous devez disposer des documents JSON dans le format : id, texte, langue
 
 La taille des documents doit être inférieure à 5 000 caractères par document et vous pouvez avoir jusqu'à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. L’exemple suivant illustre le contenu qui peut être soumis pour extraction d’expressions clés.
 
-```
+```json
     {
         "documents": [
             {
@@ -94,9 +94,9 @@ Toutes les demandes POST retournent une réponse au format JSON avec les ID et l
 
 La sortie est retournée immédiatement. Vous pouvez diffuser en continu les résultats dans une application qui accepte le code JSON ou enregistrer la sortie dans un fichier sur le système local, puis l’importer dans une application qui vous permet de trier, rechercher et manipuler les données.
 
-Voici un exemple de la sortie pour l’extraction d’expressions clés :
+Voici un exemple de sortie pour l’extraction de phrases clés :
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [
