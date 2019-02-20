@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbf614f9749039b054e1134df31334a6248e2b78
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816235"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981398"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -117,12 +117,12 @@ Quelques minutes sont nécessaires pour créer et configurer l’ensemble des re
 
 ## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
 
-Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge. Ajoutez le paramètre `-Zone` à la commande [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*).
+Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge. Ajoutez le paramètre `-Zone` à la commande [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*).
 
 L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *USA Est 2*, zone *1*. Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `
@@ -139,7 +139,7 @@ New-AzureRmVmss `
 Pour créer un groupe identique redondant interzone, spécifiez des zones multiples à l’aide du paramètre `-Zone`. Dans l’exemple suivant, un groupe identique redondant interzone, nommé *myScaleSet*, est créé dans la région *USA Est 2*, zones *1, 2, 3*. Les ressources réseau Azure redondantes interzone pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créés. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `

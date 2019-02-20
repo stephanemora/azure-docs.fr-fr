@@ -36,7 +36,7 @@ Dans le tableau de bord du portail Azure, sélectionnez votre compte Content Mod
 Pour utiliser votre clé Azure avec les API de révision, copiez l’ID de la ressource affiché dans l’écran **Propriétés** (voir capture d’écran ci-dessous). Lorsque vous êtes invité à saisir vos informations d’identification dans l’outil de révision, collez cet ID dans le champ **ID de ressource approuvée**, comme illustré ci-dessous dans la section **ID de ressource**. 
 
 > [!NOTE]
-> Votre abonnement Content Moderator et l’équipe de révision doivent être associés à la même région afin que l’outil reconnaisse votre équipe et accède aux données. Par exemple, dans les images de cette page, la région **USA Ouest****(4)** contient l’abonnement Azure Content Moderator et votre équipe de révision.
+> Votre abonnement Content Moderator et l’équipe de révision doivent être associés à la même région afin que l’outil reconnaisse votre équipe et accède aux données. Par exemple, dans les images de cette page, la région **USA Ouest** **(4)** contient l’abonnement Azure Content Moderator et votre équipe de révision.
 >
 > Une fois que vous avez indiqué la clé et l’ID de ressource de votre abonnement Azure à ces deux emplacements dans l’outil de révision, la clé d’évaluation **Trial Ocp-Apim-Subscription-Key** qui est affichée dans l’écran des informations d’identification devient obsolète, mais reste disponible.
 > Avec la clé d’évaluation, vous ne pouvez pas dépasser plus de 5 000 transactions par mois, à raison d’une requête par seconde (RPS).
