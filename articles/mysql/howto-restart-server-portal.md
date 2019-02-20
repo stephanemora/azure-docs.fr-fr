@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/16/2018
-ms.openlocfilehash: 83e862aea5b1f2de5a3f80970c2331fc9d81704e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 2/7/2019
+ms.openlocfilehash: cd9275e9e112d24d9dbb3d1d5a60c871d7d8ae5c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540244"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890452"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Redémarrer un serveur Azure Database pour MySQL à l’aide du portail Azure
 Cette rubrique explique comment redémarrer un serveur Azure Database pour MySQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.
@@ -34,7 +34,7 @@ Les étapes suivantes redémarrent le serveur MySQL :
 
    ![Azure Database pour MySQL - Vue d’ensemble - Bouton Redémarrer](./media/howto-restart-server-portal/2-server.png)
 
-3. Cliquez sur **Oui** pour confirmer le redémarrage du serveur. 
+3. Cliquez sur **Oui** pour confirmer le redémarrage du serveur.
 
    ![Azure Database pour MySQL - Confirmation du redémarrage ](./media/howto-restart-server-portal/3-restart-confirm.png)
 

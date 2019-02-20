@@ -6,24 +6,25 @@ keywords: clip;sous-clip;encodage;média
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 510176331a1b79a1069b42afabb63b6b326951cc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782788"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992310"
 ---
-# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Créer des clips avec Azure Media Clipper dans le portail
+# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Créer des clips avec Azure Media Clipper dans le portail  
+
 Vous pouvez utiliser Azure Media Clipper dans le portail pour créer des clips à partir d’éléments multimédias dans vos comptes de services de média. Pour commencer, accédez à votre compte de services de média dans le portail. Sélectionnez ensuite l’onglet **Sous-clip**.
 
 Dans l’onglet **Sous-clip**, vous pouvez commencer la composition de clips. Dans le portail, le Clipper charge des MP4 à débit unique, des MP4 multidébits et des archives dynamiques qui sont publiés avec un localisateur de diffusion en continu valide. Les éléments multimédias non publiés ne sont pas chargés.
 
 Clipper est actuellement disponible en préversion publique. Pour accéder à Clipper dans le portail Azure, accédez à la [page de préversion publique](https://portal.azure.com/?feature.subclipper=true).
 
-L’image suivante illustre la page d’accueil Clipper dans votre compte de services de média : ![Azure Media Clipper dans le portail Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
+L’image suivante illustre la page d’accueil de Clipper dans votre compte media services : ![Azure Media Clipper dans le portail Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
 
 ## <a name="producing-clips"></a>Production de clips
 Pour créer un clip, faites glisser et déposez un élément multimédia sur l’interface de clip. Si vous connaissez les heures de marquage, vous pouvez les entrer manuellement dans l’interface. Sinon, lisez l’élément multimédia ou déplacez la tête de lecture pour rechercher les heures de marquage de début et de fin souhaitées. Si une heure de marquage de début ou de fin n’est pas indiquée, le clip commence au début ou continue jusqu’à la fin de l’élément multimédia d’entrée, respectivement.
@@ -35,7 +36,7 @@ Les [filtres de manifeste dynamique](https://azure.microsoft.com/blog/dynamic-ma
 
 Pour créer un filtre de manifeste dynamique, accédez à l’onglet **Ressources** et sélectionnez la ressource requise. Sélectionnez le bouton **Sous-clip** dans le menu supérieur. Sélectionnez le filtre de manifeste dynamique comme mode de découpage dans le menu des paramètres avancés. Vous pouvez ensuite suivre le processus de production d’un clip rendu pour créer le filtre. Les filtres ne peuvent être produits qu’à partir d’un seul élément multimédia.
 
-L’image suivante illustre Clipper dans le mode de filtre de manifeste dynamique dans le portail Azure : ![Azure Media Clipper en mode de filtre de manifeste dynamique dans le portail Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+L’image suivante illustre Clipper en mode filtre de manifeste dynamique dans le portail Azure : ![Azure Media Clipper en mode filtre de manifeste dynamique dans le portail Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## <a name="submitting-clipping-jobs"></a>Envoi des travaux de découpage
 Une fois la composition du clip terminée, sélectionnez le bouton d’envoi du travail pour lancer le travail de découpage correspondant ou l’appel de manifeste dynamique.

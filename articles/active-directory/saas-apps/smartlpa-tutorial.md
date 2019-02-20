@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à SmartLPA | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à SmartLPA | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SmartLPA.
 services: active-directory
 documentationCenter: na
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jeedes
-ms.openlocfilehash: eedec7de74f3bdd7ae43d1b1eb0decd5fe83ebf6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 01d8a52d18bb3b6317f843eb6c30061e730ee3ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075314"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161079"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Tutoriel : Intégration d’Azure Active Directory à SmartLPA
+# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Didacticiel : Intégration d’Azure Active Directory à SmartLPA
 
-L’objectif de ce tutoriel est de vous apprendre à intégrer SmartLPA à Azure Active Directory (Azure AD).
+L’objectif de ce didacticiel est de vous apprendre à intégrer SmartLPA à Azure Active Directory (Azure AD).
 
 L’intégration de SmartLPA à Azure AD vous offre les avantages suivants :
 
@@ -162,7 +163,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-smartlpa-test-user"></a>Créer un utilisateur de test SmartLPA
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SmartLPA. Demandez l’aide de [l’équipe du support technique SmartLPA](mailto:support@smartlpa.com) pour ajouter des utilisateurs dans la plateforme SmartLPA. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SmartLPA. Demandez l’aide de  [l’équipe du support technique SmartLPA](mailto:support@smartlpa.com) pour ajouter des utilisateurs dans la plateforme SmartLPA. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

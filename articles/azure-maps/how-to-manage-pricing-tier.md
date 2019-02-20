@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f08f4cc74c37ccbbcab071b82f67f912e9fd9fd1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b87fa166f82e4302b5430064d41c293731c60470
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065322"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107699"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gérer le niveau tarifaire de votre compte Azure Maps
 
@@ -34,7 +34,7 @@ Après avoir créé votre compte Azure Maps, vous pouvez passer à un niveau tar
 ![Modifier un niveau tarifaire](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> Vous n’avez pas à générer de nouvelles clés d’abonnement pour modifier le niveau tarifaire de votre compte Azure Maps.
+> Vous n’avez pas à générer de nouvelles clés d’abonnement ou de nouveaux ID client (pour l’authentification Azure Active Directory) pour modifier le niveau tarifaire de votre compte Azure Maps.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

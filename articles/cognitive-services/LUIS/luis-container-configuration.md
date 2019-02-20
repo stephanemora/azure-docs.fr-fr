@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: L’environnement d’exécution de conteneur LUIS est configuré à l’aide des arguments de la commande `docker run`. LUIS a plusieurs paramètres obligatoires et quelques paramètres facultatifs.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294721"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983261"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurer les conteneurs Docker Language Understanding 
 
@@ -30,14 +30,14 @@ Ce conteneur a les paramètres de configuration suivants :
 
 |Obligatoire|Paramètre|Objectif|
 |--|--|--|
-|Oui|[ApiKey](#apikey-setting)|Utilisé pour le suivi des informations de facturation.|
+|OUI|[ApiKey](#apikey-setting)|Utilisé pour le suivi des informations de facturation.|
 |Non |[ApplicationInsights](#applicationinsights-setting)|Vous permet d’ajouter la prise en charge de la télémétrie [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) à votre conteneur.|
-|Oui|[Billing](#billing-setting)|Spécifie l’URI de point de terminaison de la ressource de service sur Azure.|
-|Oui|[Eula](#eula-setting)| Indique que vous avez accepté la licence pour le conteneur.|
+|OUI|[Billing](#billing-setting)|Spécifie l’URI de point de terminaison de la ressource de service sur Azure.|
+|OUI|[Eula](#eula-setting)| Indique que vous avez accepté la licence pour le conteneur.|
 |Non |[Fluentd](#fluentd-settings)|Écrire les données des journaux et, éventuellement, des métriques, sur un serveur Fluentd.|
 |Non |[Proxy HTTP](#http-proxy-credentials-settings)|Configurer un proxy HTTP pour effectuer des requêtes sortantes.|
 |Non |[Logging](#logging-settings)|Fournit la prise en charge de la journalisation ASP.NET Core pour votre conteneur. |
-|Oui|[Mounts](#mount-settings)|Lire et écrire des données de l’ordinateur hôte sur le conteneur, et du conteneur sur l’ordinateur hôte.|
+|OUI|[Mounts](#mount-settings)|Lire et écrire des données de l’ordinateur hôte sur le conteneur, et du conteneur sur l’ordinateur hôte.|
 
 > [!IMPORTANT]
 > Les paramètres [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) et [`Eula`](#eula-setting) sont utilisés conjointement, et vous devez fournir des valeurs valides pour les trois ; à défaut, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](luis-container-howto.md#billing).
@@ -59,16 +59,16 @@ N’utilisez pas la clé de démarrage ou la clé de création.
 
 ## <a name="billing-setting"></a>Paramètre Billing
 
-Le paramètre `Billing` spécifie l’URI du point de terminaison de la ressource _Language Understanding_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez attribuer une valeur à ce paramètre de configuration, et il doit s’agir d’un URI de point de terminaison valide pour une ressource _Language Understanding_ sur Azure.
+Le paramètre `Billing` spécifie l’URI du point de terminaison de la ressource _Language Understanding_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez attribuer une valeur à ce paramètre de configuration, et il doit s’agir d’un URI de point de terminaison valide pour une ressource _Language Understanding_ sur Azure. Le conteneur crée des rapports sur l’utilisation toutes les 10 à 15 minutes.
 
 Vous trouverez ce paramètre aux emplacements suivants :
 
 * Portail Azure : Vue d’ensemble de **Language Understanding**, étiquetée `Endpoint`
 * Portail LUIS : Page **Keys and Endpoint settings** (Paramètres des clés et du point de terminaison), dans le cadre de l’URI de point de terminaison.
 
-|Obligatoire| NOM | Type de données | Description |
+|Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -98,9 +98,9 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 
 Le tableau suivant décrit les paramètres pris en charge.
 
-|Obligatoire| NOM | Type de données | Description |
+|Obligatoire| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
-|Oui| `Input` | Chaîne | Cible du montage d’entrée. La valeur par défaut est `/input`. Il s’agit de l’emplacement des fichiers de package LUIS. <br><br>Exemple :<br>`--mount type=bind,src=c:\input,target=/input`|
+|OUI| `Input` | Chaîne | Cible du montage d’entrée. La valeur par défaut est `/input`. Il s’agit de l’emplacement des fichiers de package LUIS. <br><br>Exemple :<br>`--mount type=bind,src=c:\input,target=/input`|
 |Non | `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Cela comprend les journaux de requêtes LUIS et les journaux de conteneur. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="hierarchical-settings"></a>Paramètres hiérarchiques

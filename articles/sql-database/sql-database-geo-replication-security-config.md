@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1430bc4a9de863c25e40a2655f0a1cd7a75ae0f7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561383"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858278"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement
 
@@ -32,6 +32,9 @@ L’inconvénient principal est que la gestion du processus de récupération d�
 ## <a name="how-to-configure-logins-and-users"></a>Configuration des identifiants de connexion et des utilisateurs
 
 Si vous utilisez des identifiants de connexion et des utilisateurs (et non des utilisateurs contenus), vous devez prendre des mesures supplémentaires pour vous assurer que les mêmes identifiants de connexion existent dans la base de données primaire. Les sections suivantes décrivent les étapes impliquées et d’autres considérations relatives.
+
+  >[!NOTE]
+  > Il est également possible d’utiliser des ID de connexion d’Azure Active Directory (AAD) pour gérer vos bases de données. Pour plus d’informations, voir [ID de connexions et utilisateurs Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configurer l’accès utilisateur à une base de données secondaire ou restaurée
 

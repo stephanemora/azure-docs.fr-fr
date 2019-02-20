@@ -12,14 +12,15 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241666"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209742"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
 > [!NOTE]
 > Cette fonctionnalité remplace la [personnalisation des revendications](active-directory-saml-claims-customization.md) offerte au moyen du portail aujourd'hui. Sur la même application, si vous personnalisez des revendications à l’aide du portail en plus de la méthode Graph/PowerShell détaillée dans ce document, les jetons émis pour cette application ignorent la configuration définie dans le portail. Les configurations effectuées au moyen des méthodes décrites dans ce document n’apparaissent pas dans le portail.
@@ -49,7 +50,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | Ensemble de revendications de base | Inclut les revendications émises par défaut pour les jetons (en plus de l’ensemble de revendications principal). Vous pouvez omettre ou modifier des revendications de base à l’aide de stratégies de mappage de revendications. |
 | Ensemble de revendications restreint | Ne peut pas être modifié à l’aide d’une stratégie. La source de données ne peut pas être modifiée, et aucune transformation n’est appliquée lors de la génération de ces revendications. |
 
-### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tableau 1 : ensemble de revendications restreint JSON Web Token (JWT)
+### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tableau 1 : Ensemble de revendications restreint JSON Web Token (JWT)
 
 |Type de revendication (nom)|
 | ----- |
@@ -243,9 +244,9 @@ Pour contrôler les revendications émises et l’origine des données, utilisez
 
 **Chaîne :** IncludeBasicClaimSet
 
-**Type de données :** valeur booléenne (True ou False)
+**Type de données :** Booléen (True ou False)
 
-**Résumé :** cette propriété détermine si l’ensemble de revendications de base est inclus dans les jetons affectés par cette stratégie. 
+**Résumé :** Cette propriété détermine si l’ensemble de revendications de base est inclus dans les jetons affectés par cette stratégie. 
 
 - Si la valeur est True, toutes les revendications de l’ensemble de revendications de base sont émises dans les jetons affectés par la stratégie. 
 - Si la valeur est False, les revendications de l’ensemble de revendications de base ne figurent pas dans les jetons, sauf si elles sont ajoutées individuellement à la propriété de schéma de revendications de la même stratégie.
@@ -257,31 +258,31 @@ Pour contrôler les revendications émises et l’origine des données, utilisez
 
 **Chaîne :** ClaimsSchema
 
-**Type de données :** objet blob JSON avec une ou plusieurs entrées de schéma de revendication
+**Type de données :** Objet blob JSON avec une ou plusieurs entrées de schéma de revendication
 
-**Résumé :** cette propriété définit les revendications présentes dans les jetons affectés par la stratégie, en plus de l’ensemble de revendications de base et de l’ensemble de revendications principal.
+**Résumé :** Cette propriété définit les revendications présentes dans les jetons affectés par la stratégie, en plus de l’ensemble de revendications de base et de l’ensemble de revendications principal.
 Pour chaque entrée de schéma de revendication définie dans cette propriété, certaines informations sont requises. Spécifiez l’origine des données (**Value** ou **Paire Source/ID**), et la revendication à laquelle les données ont trait (**Type de revendication**).
 
 ### <a name="claim-schema-entry-elements"></a>Éléments d’entrée du schéma de revendication
 
-**Value :** l’élément Value définit une valeur statique en tant que données à émettre dans la revendication.
+**Value :** L’élément Value définit une valeur statique en tant que données à émettre dans la revendication.
 
-**Paire Source/ID :** les éléments Source et ID définissent la provenance des données de la revendication. 
+**Paire Source/ID :** Les éléments Source et ID définissent la provenance des données de la revendication. 
 
 Définissez l’élément Source sur l’une des valeurs suivantes : 
 
-- « user » : les données de la revendication sont une propriété définie sur l’objet User. 
-- « application » : les données de la revendication sont une propriété définie sur le principal du service de l’application (client). 
-- « resource » : les données de la revendication sont une propriété définie sur le principal du service de la ressource.
-- « audience » : les données de la revendication sont une propriété définie sur le principal du service qui est l’audience du jeton (principal du service du client ou de la ressource ).
-- « company » : les données de la revendication sont une propriété définie sur l’objet Company du client de la ressource.
-- « transformation » : les données de la revendication proviennent d’une transformation de revendications (voir la section « Transformation de revendications » plus loin dans cet article).
+- « user » : Les données de la revendication sont une propriété définie sur l’objet User. 
+- « application » : Les données de la revendication sont une propriété définie sur le principal du service de l’application (client). 
+- « resource » : Les données de la revendication sont une propriété définie sur le principal du service de la ressource.
+- « audience » : Les données de la revendication sont une propriété définie sur le principal du service qui est l’audience du jeton (principal du service du client ou de la ressource ).
+- « company » : Les données de la revendication sont une propriété définie sur l’objet Company du client de la ressource.
+- « transformation » : Les données de la revendication proviennent d’une transformation de revendications (voir la section « Transformation de revendications » plus loin dans cet article).
 
 Si la source est une transformation, l’élément **TransformationID** doit également être inclus dans cette définition de revendication.
 
 L’élément ID identifie la propriété définie sur la source qui fournit la valeur de la revendication. Le tableau suivant répertorie les valeurs d’ID valides pour chaque valeur de Source.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tableau 3 : valeurs d’ID valides par source
+#### <a name="table-3-valid-id-values-per-source"></a>Tableau 3 : Valeurs d’ID valides par source
 
 |Source|ID|Description|
 |-----|-----|-----|
@@ -329,11 +330,11 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 |application, ressource, audience|tags|Balise de principal du service|
 |Company|tenantcountry|Pays du locataire|
 
-**TransformationID :** l’élément TransformationID doit être fourni uniquement si l’élément Source est défini sur « transformation ».
+**TransformationID :** L’élément TransformationID doit être fourni uniquement si l’élément Source est défini sur « transformation ».
 
 - Cet élément doit correspondre à l’élément d’ID de l’entrée de transformation dans la propriété **ClaimsTransformation** qui définit la façon dont les données de cette revendication sont générées.
 
-**Type de revendication :** les éléments **JwtClaimType** et **SamlClaimType** définissent la revendication à laquelle cette entrée de schéma de revendication fait référence.
+**Type de revendication :** Les éléments **JwtClaimType** et **SamlClaimType** définissent la revendication à laquelle cette entrée de schéma de revendication fait référence.
 
 - L’élément JwtClaimType doit contenir le nom de la revendication que les jetons JWT doivent émettre.
 - L’élément SamlClaimType doit contenir l’URI de la revendication que les jetons SAML doivent émettre.
@@ -345,43 +346,43 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 **Chaîne :** ClaimsTransformation
 
-**Type de données :** blob JSON avec une ou plusieurs entrées de transformation 
+**Type de données :** Blob JSON avec une ou plusieurs entrées de transformation 
 
-**Résumé :** cette propriété permet d’appliquer des transformations communes à des données sources afin de générer les données de sortie pour les revendications spécifiées dans le schéma de revendications.
+**Résumé :** Cette propriété permet d’appliquer des transformations communes à des données sources afin de générer les données de sortie pour les revendications spécifiées dans le schéma de revendications.
 
-**ID :** l’élément ID permet de faire référence à cette entrée de transformation dans l’entrée de schéma de revendication TransformationID. Cette valeur doit être unique pour chaque entrée de transformation au sein de cette stratégie.
+**ID :** L’élément ID permet de faire référence à cette entrée de transformation dans l’entrée de schéma de revendication TransformationID. Cette valeur doit être unique pour chaque entrée de transformation au sein de cette stratégie.
 
-**TransformationMethod :** l’élément TransformationMethod identifie l’opération effectuée pour générer les données de la revendication.
+**TransformationMethod :** L’élément TransformationMethod identifie l’opération effectuée pour générer les données de la revendication.
 
 Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Définissez les entrées et sorties à l’aide des éléments **InputClaims**, **InputParameters** et **OutputClaims**.
 
-#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tableau 4 : méthodes de transformation et entrées et sorties attendues
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tableau 4 : Méthodes de transformation et entrées et sorties attendues
 
 |Méthode de transformation|Entrée attendue|Sortie attendue|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, séparateur|outputClaim|Joint les chaînes d’entrée à l’aide d’un séparateur. Par exemple : string1:"foo@bar.com", string2:"sandbox", separator:"." produit outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun symbole \@ n’est présent, la chaîne d’entrée d’origine est retournée telle quelle.|
 
-**InputClaims :** un élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il possède deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
+**InputClaims :** L’élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
 
 - L’attribut **ClaimTypeReferenceId** est joint à l’élément ID de l’entrée de schéma de revendication pour rechercher la revendication d’entrée appropriée. 
 - L’attribut **TransformationClaimType** est utilisé pour donner un nom unique à cette entrée. Ce nom doit correspondre à l’une des entrées attendues pour la méthode de transformation.
 
-**InputParameters :** un élément InputParameters permet de transmettre une valeur constante à une transformation. Il possède deux attributs : **Value** et **ID**.
+**InputParameters :** Un élément InputParameters permet de transmettre une valeur constante à une transformation. Il utilise deux attributs : **Value** et **ID**.
 
 - L’attribut **Value** est la valeur de constante réelle à transmettre.
 - L’attribut **ID** est utilisé pour donner un nom unique à l’entrée. Le nom doit correspondre à l’une des entrées attendues pour la méthode de transformation.
 
-**OutputClaims :** un élément OutputClaims permet conserver les données générées par une transformation, et de les lier à une entrée de schéma de revendication. Il possède deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
+**OutputClaims :** Un élément OutputClaims permet conserver les données générées par une transformation, et de les lier à une entrée de schéma de revendication. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
 
 - L’attribut **ClaimTypeReferenceId** est joint à l’élément ID de l’entrée de schéma de revendication pour rechercher la revendication de sortie appropriée.
 - L’attribut **TransformationClaimType** est utilisé pour donner un nom unique à la sortie. Le nom doit correspondre à l’une des sorties attendues pour la méthode de transformation.
 
 ### <a name="exceptions-and-restrictions"></a>Exceptions et restrictions
 
-**NameID et UPN SAML :** les attributs à partir desquels vous obtenez les valeurs NameID et UPN ainsi que les transformations de revendications autorisées sont limités. Consultez les tableaux 5 et 6 pour voir les valeurs autorisées.
+**NameID et UPN SAML :** Les attributs à partir desquels vous obtenez les valeurs NameID et UPN ainsi que les transformations de revendications autorisées sont limités. Consultez les tableaux 5 et 6 pour voir les valeurs autorisées.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tableau 5 : attributs autorisés en tant que sources de données pour NameID SAML
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tableau 5 : Attributs autorisés en tant que sources de données pour NameID SAML
 
 |Source|ID|Description|
 |-----|-----|-----|
@@ -405,7 +406,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 |Utilisateur|extensionattribute14|Attribut d’extension 14|
 |Utilisateur|extensionattribute15|Attribut d’extension 15|
 
-#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tableau 6 : méthodes de transformation autorisées pour NameID SAML
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tableau 6 : Méthodes de transformation autorisées pour NameID SAML
 
 |Méthode de transformation|Restrictions|
 | ----- | ----- |
@@ -447,7 +448,7 @@ Pour commencer, suivez les étapes ci-dessous :
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemple : créer et attribuer une stratégie pour omettre les revendications de base des jetons émis pour un principal du service.
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour omettre les revendications de base des jetons émis pour un principal du service.
 Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revendications de base des jetons émis pour des principaux du service liés.
 
 1. Créez une stratégie de mappage de revendications. Cette stratégie, liée à des principaux du service spécifiques, supprime l’ensemble de revendications de base des jetons.
@@ -469,7 +470,7 @@ Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revend
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemple : créer et attribuer une stratégie pour inclure EmployeeID et TenantCountry en tant que revendications dans des jetons émis pour un principal du service
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour inclure EmployeeID et TenantCountry en tant que revendications dans des jetons émis pour un principal du service
 
 Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCountry à des jetons émis pour des principaux du service liés. EmployeeID est émis en tant que type de revendication de nom dans les jetons SAML et JWT. TenantCountry est émis en tant que type de revendication de pays dans les jetons SAML et JWT. Dans cet exemple, nous continuons à inclure les ensembles de revendications de base dans les jetons.
 
@@ -493,7 +494,7 @@ Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCoun
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemple : créer et attribuer une stratégie qui utilise une transformation de revendications dans des jetons émis pour un principal du service
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie qui utilise une transformation de revendications dans des jetons émis pour un principal du service
 
 Dans cet exemple, vous créez une stratégie qui émet une revendication personnalisée « JoinedData » pour des jetons JWT émis pour des principaux du service liés. Cette revendication contient une valeur créée en joignant les données stockées dans l’attribut extensionattribute1 sur l’objet utilisateur avec « .sandbox ». Dans cet exemple, nous excluons l’ensemble de revendications de base des jetons.
 

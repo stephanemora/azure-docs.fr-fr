@@ -1,6 +1,6 @@
 ---
-title: Utilisation de chaînes dans des requêtes Azure Log Analytics | Microsoft Docs
-description: Cet article fournit un tutoriel qui explique comment écrire des requêtes dans Log Analytics à l’aide du portail Analytics.
+title: Utilisation de chaînes dans des requêtes de journal dans Azure Monitor | Microsoft Docs
+description: Cet article constitue un didacticiel pour l’utilisation de la fonctionnalité d’analytique des journaux d’Azure Monitor dans le portail Azure pour interroger et analyser des données de journal dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263881"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993722"
 ---
-# <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Utilisation de JSON et de structures de données dans des requêtes Log Analytics
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Utilisation de JSON et de structures de données dans des requêtes de journal dans Azure Monitor
 
 > [!NOTE]
-> Vous devez suivre [Bien démarrer avec le portail Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
+> Avant de suivre ce didacticiel, vous devez avoir suivi les didacticiels [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes de journal Azure Monitor](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -131,7 +131,7 @@ print hosts_object
 ![Générer le schéma](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez d’autres leçons pour l’utilisation du langage de requête Log Analytics :
+Voir d’autres leçons pour utiliser des requêtes de journal dans Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

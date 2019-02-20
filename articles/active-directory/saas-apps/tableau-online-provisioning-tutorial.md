@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d’utilisateur sur Tableau Online.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345860"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194867"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Didacticiel : configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Didacticiel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Tableau Online et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l’approvisionnement et le déprovisionnement automatiques d’utilisateurs et/ou de groupes sur Tableau Online.
 
@@ -117,7 +118,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     *   Le **domaine** de votre compte Tableau Online peut être copié à partir de cette partie de l’URL : ![Approvisionnement de Tableau Online](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
 
-    *   L’**URL du contenu** de votre compte Tableau Online peut être copié à partir de cette section, et est une valeur définie pendant la configuration du compte. Dans cet exemple, la valeur est « contoso » : ![Approvisionnement de Tableau Online](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+    *   L’**URL du contenu** de votre compte Tableau Online peut être copié à partir de cette section, et est une valeur définie pendant la configuration du compte. Dans cet exemple, la valeur est « contoso » : ![Approvisionnement de Tableau Online](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
         > Votre **domaine** peut être différente de celui illustré ici. 

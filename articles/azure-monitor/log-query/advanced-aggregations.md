@@ -1,6 +1,6 @@
 ---
-title: Agrégations avancées dans des requêtes Azure Log Analytics | Microsoft Docs
-description: Décrit certaines des options d’agrégation les plus avancées disponibles pour les requêtes Log Analytics.
+title: Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
+description: Décrit certaines des options d’agrégation les plus avancées disponibles pour les requêtes de journal Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186359"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005418"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Agrégations avancées dans des requêtes Log Analytics
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 
 > [!NOTE]
-> Vous devez suivre [Agrégations dans des requêtes Log Analytics](./aggregations.md) avant d’effectuer cette leçon.
+> Avant de suivre cette leçon, vous devriez suivre la leçon [Agrégations dans des requêtes Azure Monitor](./aggregations.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Cet article décrit certaines des options d’agrégation les plus avancées disponibles pour les requêtes Log Analytics.
+Cet article décrit certaines des options d’agrégation les plus avancées disponibles pour les requêtes Azure Monitor.
 
 ## <a name="generating-lists-and-sets"></a>Génération de listes et d’ensembles
 Vous pouvez utiliser `makelist` pour déplacer des données selon l’ordre des valeurs dans une colonne particulière. Par exemple, vous voulez explorer l’ordre le plus courant dans lequel les événements se produisent sur vos ordinateurs. Vous pouvez avant tout déplacer les données selon l’ordre des EventID sur chaque ordinateur. 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez d’autres leçons pour l’utilisation du langage de requête Log Analytics :
+Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête de Data Explorer](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

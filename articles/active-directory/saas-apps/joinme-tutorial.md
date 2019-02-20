@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: dc393b8701bd72ea7f9de543de33116ea3cb5653
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f61520994bdeeab75b6d26731dee9af15b4ccda6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48872114"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Didacticiel : Intégration d’Azure AD à join.me
 
@@ -111,7 +112,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![image](./media/joinme-tutorial/b1-domains_and_urlsedit.png)
 
-5. Dans la section **Configuration SAML de base**, l’utilisateur n’aura à effectuer aucune étape, car l’application est déjà intégrée à Azure.
+5. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
 
      ![image](./media/joinme-tutorial/tutorial_joinme_url.png)
  
@@ -125,7 +126,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![image](./media/joinme-tutorial/d_users_and_groups.png)
 
@@ -133,22 +134,22 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![image](./media/joinme-tutorial/d_adduser.png)
 
-3. Dans les propriétés de l’utilisateur, procédez comme suit.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
     ![image](./media/joinme-tutorial/d_userproperties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le type de champ **Nom d’utilisateur****brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
-    c. Sélectionnez **Propriétés**, puis cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
+    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Sélectionnez **Créer**.
   
 ### <a name="create-a-joinme-test-user"></a>Créer un utilisateur de test join.me
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans join.me. Collaborez avec l’[équipe du support technique join.me](https://help.join.me/s/?language) pour ajouter des utilisateurs dans la plate-forme join.me. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans join.me. Collaborez avec l’ [équipe du support technique join.me](https://help.join.me/s/?language) pour ajouter des utilisateurs dans la plateforme join.me. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -166,7 +167,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![image](./media/joinme-tutorial/d_leftpaneusers.png)
 
-4. Sélectionnez le bouton **Ajouter**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+4. Sélectionnez le bouton **Ajouter**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![image](./media/joinme-tutorial/d_assign_user.png)
 

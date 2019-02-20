@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729504"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001883"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Détection des menaces sur Azure SQL Database
 
@@ -77,9 +77,9 @@ Cliquez sur **Threat detection alert** (Alerte de détection des menaces) pour o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la [détection des menaces dans les bases de données autonomes et regroupées](sql-database-threat-detection.md).
-- En savoir plus sur la [détection des menaces dans des instances gérées](sql-database-managed-instance-threat-detection.md).
+- En savoir plus sur la [détection des menaces dans les bases de données uniques et regroupées](sql-database-threat-detection.md).
+- En savoir plus sur la [détection des menaces dans une instance gérée](sql-database-managed-instance-threat-detection.md)
 - En savoir plus sur [Advanced Data Security](sql-database-advanced-data-security.md).
 - En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)
 - En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Pour plus d’informations sur la tarification, consultez la [page de tarification SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Pour plus d'informations sur la tarification, consultez la [page de tarification SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  

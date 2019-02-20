@@ -1,6 +1,6 @@
 ---
-title: Exemples de requêtes Log Analytics Azure Monitor | Microsoft Docs
-description: Exemples de requêtes dans Log Analytics à l’aide du langage Kusto.
+title: Exemples de requêtes de journal dans Azure Monitor | Microsoft Docs
+description: Exemples de requêtes de journal dans Azure Monitor utilisant le langage de requête de Data Explorer.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885043"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993195"
 ---
-# <a name="log-analytics-query-examples"></a>Exemples de requêtes Log Analytics
-Cet article inclut divers exemples de [requêtes](../../azure-monitor/log-query/log-query-overview.md) en [langage Kusto](https://docs.microsoft.com/azure/kusto/query/) pour récupérer les différents types de données de Log Analytics. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
+# <a name="azure-monitor-log-query-examples"></a>Exemples de requêtes de journal dans Azure Monitor
+Cet article inclut divers exemples de [requêtes](log-query-overview.md) utilisant le [langage de requête de Data Explorer](https://docs.microsoft.com/azure/kusto/query/) pour récupérer différents types de données d’Azure Monitor. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
 
-Consultez les [informations de référence sur le langage Kusto](https://docs.microsoft.com/azure/kusto/query/) pour plus de détails sur les différents mots clés utilisés dans ces exemples. Lisez une [leçon sur la création de requêtes](get-started-queries.md) si vous ne connaissez pas Log Analytics.
+Consultez les [informations de référence sur le langage Kusto](https://docs.microsoft.com/azure/kusto/query/) pour plus de détails sur les différents mots clés utilisés dans ces exemples. Si vous ne connaissez pas Azure Monitor, lisez une [leçon sur la création de requêtes](get-started-queries.md).
 
 ## <a name="events"></a>Événements
 
@@ -440,4 +440,4 @@ Update
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Reportez-vous aux [informations de référence sur le langage Kusto](/azure/kusto/query) pour en savoir plus.
-- Lisez une [leçon sur l’écriture de requêtes dans Log Analytics](get-started-queries.md).
+- Suivez une [leçon sur l’écriture de requêtes de journal dans Azure Monitor](get-started-queries.md).

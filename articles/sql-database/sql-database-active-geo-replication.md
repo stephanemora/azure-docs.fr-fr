@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468272"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995052"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Créer des bases de données secondaires accessibles en lecture à l’aide de la géoréplication active
 
@@ -46,6 +46,14 @@ Vous pouvez gérer la réplication et le basculement d’une base de données in
 Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 
 La géoréplication active tire parti de la technologie [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server pour répliquer de manière asynchrone les transactions validées sur la base de données primaire vers une base de données secondaire à l’aide de l’isolement de capture instantanée. Les groupes de basculement automatique fournissent la sémantique de groupe en plus de la géo-réplication active. Cependant, le même mécanisme de réplication asynchrone est utilisé. À un moment donné, la base de données secondaire peut être légèrement en retard sur la base de données primaire, mais les données secondaire ne peuvent jamais contenir de transactions partielles. Grâce à la redondance entre régions, les applications peuvent récupérer rapidement d’une perte permanente de tout ou partie d’un centre de données résultant de catastrophes naturelles, de graves erreurs humaines ou d’actes de malveillance. Vous trouverez les données d’objectif de point de récupération dans [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
+
+> [!NOTE]
+> En cas de défaillance du réseau entre deux régions, nous tentons de rétablir les connexions toutes les 10 secondes.
+> [!IMPORTANT]
+> Pour garantir qu’une modification critique de la base de données primaire est répliquée sur la base de données secondaire avant le basculement, vous pouvez forcer la synchronisation pour vous assurer que les modifications critiques (par exemple, les mises à jour de mot de passe) sont répliquées. La synchronisation forcée a un impact sur les performances, car elle bloque le thread appelant jusqu’à ce que toutes les transactions validées soient répliquées. Pour plus d’informations, consultez [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Pour superviser le décalage de réplication entre la base de données primaire et la base de données géosecondaire, voir [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+
+
+
 
 La figure suivante présente un exemple de géo-réplication active configurée avec une base de données primaire située dans la région nord du centre des États-Unis, ainsi qu’une base de données secondaire située dans la région sud du centre des États-Unis.
 
@@ -94,7 +102,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Taille de calcul configurable de la base de données secondaire**
 
-  Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCore) que la base de données primaire. Une base de données secondaire avec une taille de calcul inférieure à celle de la base de données primaire risque de subir un plus grand décalage de réplication, une indisponibilité potentielle et, par conséquent, une importante perte de données après un basculement. Par conséquent, un RPO publié de 5 s ne peut pas être garanti. L’autre risque est qu’après le basculement, les performances de l’application soient impactées en raison de la capacité de calcul insuffisante de la nouvelle base de données primaire, qui doit donc être mise à niveau vers une taille de calcul supérieure. La durée de la mise à niveau dépend de la taille de la base de données. De plus, une telle mise à niveau nécessite que les bases de données primaires et secondaires soient en ligne. Elle ne peut donc pas être effectuée tant que la panne n’a pas été résolue. Si vous décidez de créer une base de données secondaire avec une taille de calcul inférieure, vous pouvez utiliser le graphique de pourcentage d’E/S du journal sur le portail Azure pour estimer la taille de calcul minimale de la base de données secondaire qui est nécessaire pour supporter la charge de réplication. Par exemple, si votre base de données primaire est P6 (1 000 DTU) et si son pourcentage d’E/S du journal est de 50 %, la base de données secondaire doit être au moins P4 (500 DTU). Vous pouvez également récupérer les données d’E/S du journal à l’aide des vues de base de données [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](sql-database-service-tiers.md).
+  Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCore) que la base de données primaire. Une base de données secondaire avec une taille de calcul inférieure à celle de la base de données primaire risque de subir un plus grand décalage de réplication, une indisponibilité potentielle et, par conséquent, une importante perte de données après un basculement. Par conséquent, un RPO publié de 5 s ne peut pas être garanti. L’autre risque est qu’après le basculement, les performances de l’application soient impactées en raison de la capacité de calcul insuffisante de la nouvelle base de données primaire, qui doit donc être mise à niveau vers une taille de calcul supérieure. La durée de la mise à niveau dépend de la taille de la base de données. De plus, une telle mise à niveau nécessite que les bases de données primaires et secondaires soient en ligne. Elle ne peut donc pas être effectuée tant que la panne n’a pas été résolue. Si vous décidez de créer une base de données secondaire avec une taille de calcul inférieure, vous pouvez utiliser le graphique de pourcentage d’E/S du journal sur le portail Azure pour estimer la taille de calcul minimale de la base de données secondaire qui est nécessaire pour supporter la charge de réplication. Par exemple, si votre base de données primaire est P6 (1 000 DTU) et si son pourcentage d’E/S du journal est de 50 %, la base de données secondaire doit être au moins P4 (500 DTU). Vous pouvez également récupérer les données d’E/S du journal à l’aide des vues de base de données [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](sql-database-purchase-models.md).
 
 - **Basculement et restauration automatique contrôlés par l’utilisateur**
 
@@ -122,7 +130,7 @@ En raison de la latence élevée des réseaux étendus, la copie continue utilis
 
 Comme indiqué plus haut, la géoréplication active peut aussi être gérée par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles. La géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment [l’API REST Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) et les [applets de commande Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL : Gérer le basculement des bases de données autonomes et regroupées
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL : gérer le basculement des bases de données uniques et en pool
 
 > [!IMPORTANT]
 > Ces commandes Transact-SQL s’appliquent uniquement à la géoréplication active et ne s’appliquent pas aux groupes de basculement. Par conséquent, elles ne s’appliquent pas non plus aux instances managées, car elles prennent uniquement en charge les groupes de basculement.
@@ -138,7 +146,7 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |oblige l’application à attendre que toutes les transactions validées sont répliquées et acceptées par la base de données secondaire active. |
 |  | |
 
-### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell : Gérer le basculement des bases de données autonomes et regroupées
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell : gérer le basculement des bases de données uniques et en pool
 
 | Applet de commande | Description |
 | --- | --- |
@@ -152,7 +160,7 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 > [!IMPORTANT]
 > Pour plus d’exemples de scripts, consultez [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) et [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>API REST : Gérer le basculement des bases de données autonomes et regroupées
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST : gérer le basculement des bases de données uniques et en pool
 
 | API | Description |
 | --- | --- |

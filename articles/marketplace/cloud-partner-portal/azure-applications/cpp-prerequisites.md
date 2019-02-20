@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195501"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097788"
 ---
 # <a name="azure-application-prerequisites"></a>Conditions préalables à Azure Application
 
-Cet article décrit les conditions techniques et métier préalables à la publication d’une offre d’application managée sur la Place de marché Azure.
+Cet article décrit les conditions techniques et métier préalables à la publication d’une offre d’application managée sur la Place de marché Azure.  Si ce n’est déjà fait, visionnez la vidéo [Création de modèles de solution et d’applications managées pour la Place de marché Azure](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+
 
 ## <a name="technical-requirements"></a>Exigences techniques
 
@@ -36,6 +37,7 @@ La configuration technique requise inclut les éléments suivants :
   * [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Ce référentiel contient tous les modèles Azure Resource Manager disponibles actuellement et distribués par la communauté. Un index de modèles pouvant faire l’objet de recherches est conservé sur https://azure.microsoft.com/en-us/documentation/templates/.
 * Créer des définitions d’interface utilisateur<br>
 Pour plus d’informations, consultez [Créer une interface utilisateur de portail Azure pour votre application managée](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Cet article présente les concepts de base du fichier createUiDefinition.json. Le portail Azure utilise ce fichier pour générer l’interface utilisateur permettant de créer une application managée.
+
 
 ## <a name="business-requirements"></a>Exigences commerciales
 
@@ -52,7 +54,8 @@ Les exigences de l’entreprise incluent des obligations procédurales, contract
 * Il vous incombe de gérer les licences de vos logiciels et de toutes les dépendances de logiciels tiers.
 * Vous devez fournir un contenu conforme aux critères définis pour que votre offre soit répertoriée sur la Place de marché Microsoft Azure et sur le portail Azure.
 * Vous devez accepter les termes de la Stratégie de participation de la Place de marché Microsoft Azure et du Contrat d’éditeur.
-* Vous devez vous engager à respecter les Conditions d’utilisation du site Web Microsoft Azure, la Déclaration de confidentialité Microsoft et le Contrat relatif au programme Microsoft Azure Certified.
+* Vous devez vous engager à respecter les Conditions d’utilisation du site web Microsoft Azure, la Déclaration de confidentialité Microsoft et le Contrat relatif au programme Microsoft Azure Certified.
+
 
 ## <a name="publishing-requirements"></a>Exigences de publication
 
@@ -62,10 +65,12 @@ Pour publier une offre Azure Application, vous devez respecter les conditions pr
   * Un titre
   * Une description (au format HTML)
   * Une image de logo (au format PNG), dans les tailles d’image fixes suivantes : 40 x 40 pixels, 90 x 90 pixels, 115 x 115 pixels et 255 x 115 pixels.
-* Des conditions d’utilisation et une politique de confidentialité
+* Des *conditions d’utilisation* et une *politique de confidentialité*
 * Documentation
 * Contacts du support
 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer une offre Azure Application](./cpp-create-offer.md) 
+Une fois toutes les conditions requises remplies, vous êtes prêt à [créer une offre d’application Azure](./cpp-create-offer.md). 
+ 

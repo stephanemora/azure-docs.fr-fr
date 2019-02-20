@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246481"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207413"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
 *S’applique à : systèmes intégrés Azure Stack.*
 
-Azure Stack exécute des services Azure dans votre centre de données. Azure Stack peut s’exécuter sur des environnements aussi petits que quatre nœuds installés dans un seul rack. En revanche, Azure s’exécute dans plusieurs centres de données et zones situés dans plus de 40 régions. Les ressources de l’utilisateur peuvent s’étendre sur plusieurs serveurs, racks, centres de données et régions. Actuellement, Azure Stack vous permet uniquement de déployer l’ensemble de votre cloud sur un rack unique. Cela expose votre cloud au risque d’événements catastrophiques pouvant survenir dans votre centre de données ou de défaillances dues à des bogues de produits importants. Lorsqu’un incident survient, l’instance Azure Stack est mise hors connexion. Toutes les données sont potentiellement irrécupérables.
+Azure Stack exécute des services Azure dans votre centre de données et peut s’exécuter sur des environnements aussi petits que quatre nœuds installés dans un seul rack. En revanche, Azure s’exécute dans plusieurs centres de données et zones situés dans plus de 40 régions. Les ressources de l’utilisateur peuvent s’étendre sur plusieurs serveurs, racks, centres de données et régions. Actuellement, Azure Stack vous permet uniquement de déployer l’ensemble de votre cloud sur un rack unique. Cela expose votre cloud au risque d’événements catastrophiques pouvant survenir dans votre centre de données ou de défaillances dues à des bogues de produits importants. Lorsqu’un incident survient, l’instance Azure Stack est mise hors connexion. Toutes les données sont potentiellement irrécupérables.
 
 Selon la cause racine de la perte de données, vous devrez peut-être réparer un seul service d’infrastructure ou restaurer l’intégralité de l’instance Azure Stack. Vous devrez peut-être même effectuer la restauration sur un autre matériel situé au même endroit ou dans un lieu différent.
 

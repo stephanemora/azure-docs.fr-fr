@@ -4,7 +4,7 @@ description: Cet article fournit une description générale de l’architecture 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186474"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118137"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Composants et limites du système d’informations Azure
 Cet article offre une description générale de l’architecture et de la gestion Azure. L’environnement du système Azure se compose des réseaux suivants :
@@ -54,9 +54,9 @@ L’équipe du système d’exploitation fournit des images sous la forme de dis
 
 Il existe trois types d’images de système d’exploitation gérées par Fabric :
 
-- Hôte : système d’exploitation personnalisé qui s’exécute sur les machines virtuelles hôtes.
-- Natif : système d’exploitation natif qui s’exécute sur les locataires (par exemple, le stockage Azure). Ce système d’exploitation n’a pas d’hyperviseur.
-- Invité : système d’exploitation invité qui s’exécute sur des machines virtuelles invitées.
+- Hôte : Système d’exploitation personnalisé qui s’exécute sur des machines virtuelles hôtes.
+- Natif : Système d’exploitation natif qui s’exécute sur les locataires (par exemple, le stockage Azure). Ce système d’exploitation n’a pas d’hyperviseur.
+- Invité : Système d’exploitation invité qui s’exécute sur des machines virtuelles invitées.
 
 Les systèmes d’exploitation hôtes et natifs gérés par un contrôleur de structure sont conçus pour une utilisation dans le cloud et ne sont pas accessibles publiquement.
 
@@ -81,7 +81,7 @@ Les équipes de service sont les suivantes :
 - Azure Compute
 - Azure Net
 - Cloud Engineering Services
-- ISSD: Security
+- ISSD : Sécurité
 - Multifactor Authentication
 - SQL Database
 - Storage

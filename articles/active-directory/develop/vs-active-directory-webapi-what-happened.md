@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 04732d6541fd6132360d4c235b35979c70772922
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144329"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161930"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio)
 
@@ -33,7 +34,7 @@ Pour plus d’informations sur l’utilisation du service connecté, consultez [
 
 Affecte les références *.NET du fichier projet et `packages.config` (références NuGet).
 
-| type | Informations de référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.Owin |
 | .NET ; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -46,7 +47,7 @@ Affecte les références *.NET du fichier projet et `packages.config` (référen
 
 Références supplémentaires si l’option **Lire les données d’annuaire** est sélectionnée :
 
-| type | Informations de référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 uniquement) |
@@ -60,7 +61,7 @@ Références supplémentaires si l’option **Lire les données d’annuaire** e
 
 Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme dans Visual Studio 2015) :
 
-| type | Informations de référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET ; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -74,7 +75,7 @@ Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme
 
 ## <a name="webconfig-or-appconfig-changes"></a>Modifications apportées à web.config ou à app.config
 
-- Vous avez ajouté les entrées de configuration suivantes :
+- Ajout des entrées de configuration suivantes :
 
     ```xml
     <appSettings>
@@ -84,7 +85,7 @@ Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme
     </appSettings>
     ```
 
-- Visual Studio 2017 uniquement : vous avez également ajouté l’entrée suivante sous `<appSettings>` »
+- Visual Studio 2017 uniquement : Vous avez également ajouté l’entrée suivante sous `<appSettings>` »
 
     ```xml
     <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />

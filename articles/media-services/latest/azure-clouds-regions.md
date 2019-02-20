@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a5a4205c97e4db25d5d0a92472610364d912b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767450"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963435"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Clouds et régions dans lesquels Azure Media Services v3 existe
 
@@ -40,7 +40,7 @@ Azure Media Services v3 est disponible via le manifeste Azure Resource Manager d
 * [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="region-code-name"></a>Nom de code de la région 
+### <a name="region-code-name"></a>Nom de code de la région 
 
 S'il vous faut fournir le paramètre **location**, vous devez fournir le nom de code de la région comme valeur **location**. Pour obtenir le nom de code de la région dans laquelle se trouve votre compte et vers laquelle votre appel doit être routé, vous pouvez exécuter la ligne suivante dans l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -62,6 +62,42 @@ Par exemple, pour la région Azure West US 2 (USA Ouest 2) affichée ci-dessou
       "subscriptionId": null
     }
 ```
+
+## <a name="endpoints"></a>Points de terminaison  
+
+Il est important de connaître les points de terminaison suivants lors de la connexion à des comptes Media Services à partir de différents clouds Azure nationaux.
+
+### <a name="global-azure"></a>Azure global
+
+|Points de terminaison ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| Audience du jeton | `https://management.core.windows.net/` |
+
+### <a name="azure-government"></a>Azure Government
+
+|Points de terminaison||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| Audience du jeton | `https://management.core.usgovcloudapi.net/` |
+
+### <a name="azure-germany"></a>Azure Germany
+
+| Points de terminaison ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Audience du jeton | `https://management.core.cloudapi.de/`|
+
+### <a name="azure-china-21vianet"></a>Azure China 21Vianet
+
+|Points de terminaison||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Audience du jeton |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

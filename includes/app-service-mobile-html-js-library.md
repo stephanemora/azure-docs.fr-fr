@@ -4,24 +4,24 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 32d09722e8c396a64451018ac92fbc7bc072f461
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132965"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905144"
 ---
 ## <a name="create-client"></a>Créer une connexion cliente
 Créez une connexion cliente en créant un objet `WindowsAzure.MobileServiceClient` .  Remplacez `appUrl` par l’URL de votre application mobile.
 
-```
+```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>Utilisation des tables
 Pour accéder aux données ou les mettre à jour, créez une référence à la table principale. Remplacez `tableName` par le nom de votre table.
 
-```
+```javascript
 var table = client.getTable(tableName);
 ```
 
@@ -35,11 +35,11 @@ Une fois que vous disposez d’une référence de table, vous pouvez continuer �
 * [Modification des données](#modifying)
 * [Suppression de données](#deleting)
 
-### <a name="querying"></a>Procédure : interrogation d’une référence de table
+### <a name="querying"></a>Procédure : Interrogation d’une référence de table
 Une fois que vous disposez d’une référence de table, vous pouvez l’utiliser pour rechercher des données sur le serveur.  Les requêtes sont effectuées dans un langage de type LINQ.
 Pour retourner toutes les données de la table, utilisez le code suivant :
 
-```
+```javascript
 /**
  * Process the results that are received by a call to table.read()
  *
@@ -72,7 +72,7 @@ Pour plus d’informations sur la syntaxe de requête, consultez la [documentati
 #### <a name="table-filter"></a>Filtrage des données sur le serveur
 Vous pouvez utiliser une clause `where` sur la référence de table :
 
-```
+```javascript
 table
     .where({ userId: user.userId, complete: false })
     .read()
@@ -81,7 +81,7 @@ table
 
 Vous pouvez également utiliser une fonction qui filtre l’objet.  Dans ce cas, la variable `this` est affectée à l’objet en cours de filtrage.  Le code suivant est équivalent à l’exemple précédent sur le plan fonctionnel :
 
-```
+```javascript
 function filterByUserId(currentUserId) {
     return this.userId === currentUserId && this.complete === false;
 }
@@ -95,7 +95,7 @@ table
 #### <a name="table-paging"></a>Pagination des données
 Utilisez les méthodes `take()` et `skip()`.  Par exemple, si vous souhaitez fractionner la table en enregistrements de 100 lignes :
 
-```
+```javascript
 var totalCount = 0, pages = 0;
 
 // Step 1 - get the total number of records
@@ -120,10 +120,10 @@ La méthode `.includeTotalCount()` est utilisée pour ajouter un champ totalCoun
 
 Vous pouvez ensuite utiliser la variable pages et des boutons d’interface utilisateur pour fournir une liste de pages ; utilisez `loadPage()` pour charger les nouveaux enregistrements pour chaque page.  Implémentez la mise en cache pour accélérer l’accès aux enregistrements qui ont déjà été chargés.
 
-#### <a name="sorting-data"></a>Procédure : renvoi de données triées
+#### <a name="sorting-data"></a>Procédure : Renvoi de données triées
 Utilisez les méthodes de requête `.orderBy()` ou `.orderByDescending()` :
 
-```
+```javascript
 table
     .orderBy('name')
     .read()
@@ -132,7 +132,7 @@ table
 
 Pour plus d’informations sur l’objet Query, consultez la [documentation de l’objet Query].
 
-### <a name="inserting"></a>Procédure : insertion de données
+### <a name="inserting"></a>Procédure : Insertion des données
 Créez un objet JavaScript avec la date appropriée et appelez `table.insert()` de façon asynchrone :
 
 ```javascript
@@ -152,7 +152,7 @@ Une fois l’insertion correctement effectuée, l’élément inséré est retou
 
 Le Kit de développement logiciel (SDK) de serveur Node.js Azure Mobile Apps prend en charge le schéma dynamique à des fins de développement.  Le schéma dynamique vous permet d’ajouter des colonnes à la table en les spécifiant dans une opération d’insertion ou de mise à jour.  Nous vous recommandons de désactiver le schéma dynamique avant de déplacer votre application vers un environnement de production.
 
-### <a name="modifying"></a>Procédure : modification des données
+### <a name="modifying"></a>Procédure : Modifier des données
 Comme dans le cas de la méthode `.insert()`, vous devez créer un objet de mise à jour, puis appeler `.update()`.  L’objet de mise à jour doit contenir l’ID de l’enregistrement à mettre à jour, obtenu au moment de la lecture de l’enregistrement ou de l’appel de `.insert()`.
 
 ```javascript
@@ -168,10 +168,10 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Procédure : suppression de données
+### <a name="deleting"></a>Procédure : Suppression de données
 Pour supprimer un enregistrement, appelez la méthode `.del()`.  Transmettez l’ID d’une référence d’objet :
 
-```
+```javascript
 table
     .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
     .done(function () {

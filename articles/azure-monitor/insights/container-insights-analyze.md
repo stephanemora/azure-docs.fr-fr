@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: f0f929e7caece9bea10dbe09e237bc987ad93d44
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159653"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233998"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs 
 Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de performances et l’état d’intégrité pour surveiller la charge de travail de vos clusters Azure Kubernetes Service (AKS) selon deux perspectives, directement à partir d’un cluster AKS ou tous les clusters AKS d’un abonnement à partir d’Azure Monitor. L’affichage d’ACI (Azure Container Instances) est également possible lorsque vous surveillez un cluster ACS spécifique.
@@ -275,5 +275,5 @@ Il est souvent utile de créer des requêtes en commençant par un exemple ou de
 | Sélectionnez l’option d’affichage de graphique **Courbes** :<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Processeur du conteneur | 
 | Sélectionnez l’option d’affichage de graphique **Courbes** :<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Mémoire du conteneur |
 
-## <a name="alerting"></a>Génération d’alertes
-Azure Monitor pour les conteneurs n’inclut pas d’ensemble prédéfini d’alertes que vous pouvez copier et modifier en fonction de vos processus et procédures de prise en charge. En attendant, lisez l’article [Créer des alertes de journal avec Azure Monitor](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json) et découvrez comment créer votre propre ensemble d’alertes.  
+## <a name="next-steps"></a>Étapes suivantes
+Azure Monitor pour les conteneurs n’inclut pas d’ensemble prédéfini d’alertes à copier et modifier en fonction de vos processus et procédures de prise en charge. Pour apprendre à créer les alertes recommandées pour une utilisation élevée du processeur et de la mémoire, voir [Créer des alertes de performances avec Azure Monitor pour conteneurs](container-insights-alerts.md).  

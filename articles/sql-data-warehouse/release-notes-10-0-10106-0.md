@@ -1,52 +1,50 @@
 ---
-title: Notes de publication Azure SQL Data Warehouse - Décembre 2018 | Microsoft Docs
+title: Notes de publication Azure SQL Data Warehouse | Microsoft Docs
 description: Notes de publication pour Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
-manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/12/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: 8e82e352ebea4634b1b99864245adcf606352657
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/09/2019
+author: mlee3gsd
+ms.author: anumjs
+ms.reviewer: jrasnick
+manager: craigg
+ms.openlocfilehash: 51932ebf7d5bdc6830098ce7136a3eee7255ffe1
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469332"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245505"
 ---
-# <a name="whats-new-in-azure-sql-data-warehouse-version---100101060"></a>Nouveautés d’Azure SQL Data Warehouse version 10.0.10106.0
-Azure SQL Data Warehouse (SQL DW) est en constante évolution. Cet article décrit les nouvelles fonctionnalités et les changements introduits dans SQL DW version 10.0.10106.0.
+# <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
+Cet article résume les nouvelles fonctionnalités et les améliorations présentes dans les versions récentes de [SQL Server sur des machines virtuelles Azure](sql-data-warehouse-overview-what-is.md). Il répertorie également les mises à jour de contenu importantes qui ne sont pas directement associées à la version, mais qui ont été publiées en même temps. Pour connaître les améliorations apportées aux autres services Azure, consultez [Mises à jour des services](https://azure.microsoft.com/updates)
 
-## <a name="query-restartability---ctas-and-insertselect"></a>Capacité de redémarrage des requêtes - CTAS et Insert/Select
-Dans de rares cas (problèmes de connexion réseau intermittents, échecs liés aux nœuds), des requêtes exécutées dans Azure SQL DW peuvent échouer. Les instructions de plus longue durée, telles que les opérations [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) et INSERT-SELECT, sont davantage exposées à ce problème potentiel. Avec cette version, Azure SQL DW implémente la logique de nouvelle tentative pour les instructions CTAS et INSERT-SELECT (en plus des instructions SELECT annoncées précédemment), permettant ainsi au système de gérer de manière transparente ces problèmes transitoires et d’empêcher les requêtes d’échouer. Le nombre de nouvelles tentatives et la liste des erreurs transitoires gérées sont configurés par le système.
+## <a name="sql-data-warehouse-version-100101060-january"></a>SQL Data Warehouse Version 10.0.10106.0 (janvier)
 
-## <a name="return-order-by-optimization"></a>Ordre de retour par optimisation
-Les requêtes SELECT…ORDER BY bénéficient d’un meilleur niveau de performance dans cette version.  Avant, le moteur d’exécution des requêtes ordonnait les résultats sur chaque nœud de calcul et les diffusait en continu au nœud de contrôle, lequel les fusionnait. Avec cette amélioration, tous les nœuds de calcul envoient désormais leurs résultats à un seul nœud de calcul, qui les fusionne et retourne les résultats triés à l’utilisateur par le biais du nœud de calcul.  Cela aboutit à un gain de performances significatif quand le jeu de résultats de la requête contient un grand nombre de lignes.
+### <a name="service-improvements"></a>Améliorations du service
 
-## <a name="data-movement-enhancements-for-partitionmove-and-broadcastmove"></a>Améliorations apportées au déplacement des données pour PartitionMove et BroadcastMove
-Dans Azure SQL Data Warehouse Gen2, les étapes de déplacement des données de type ShuffleMove exploitent les techniques de déplacement instantané des données décrites dans le [blog sur l’amélioration des performances](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/).  Avec cette version, les types de déplacement des données PartitionMove et BroadcastMove bénéficient désormais des mêmes techniques de déplacement instantané des données.  Les requêtes utilisateur qui utilisent ces types d’étapes de déplacement des données voient leurs performances augmenter.  Aucun changement de code n’est nécessaire pour tirer parti de ces gains de performances.
+| Améliorations du service | Détails |
+| --- | --- |
+| **Capacité de redémarrage des requêtes – CTAS et Insert/Select** | Dans de rares cas (problèmes de connexion réseau intermittents, échecs liés aux nœuds), une requête exécutée dans Azure SQL DW peut échouer. Les instructions de plus longue durée, telles que les opérations [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) et INSERT-SELECT, sont davantage exposées à ce problème potentiel. Avec cette mise en production, Azure SQL Data Warehouse implémente une logique de nouvelle tentative pour les instructions CTAS et INSERT-SELECT, en plus des instructions SELECT annoncées précédemment. Les modifications permettent au service de gérer des problèmes temporaires en toute transparence et de prévenir les échecs de requêtes. Le nombre de nouvelles tentatives et la liste des erreurs transitoires gérées sont configurés par le système.|
+|**Ordre de retour par optimisation**|Les requêtes SELECT…ORDER BY bénéficient d’un meilleur niveau de performance dans cette version.   Désormais, tous les nœuds de calcul envoient leurs résultats à un seul nœud de calcul, qui fusionne et trie les résultats qui sont renvoyés à l’utilisateur via le nœud de calcul.  Fusion par un seul nœud de calcul aboutit à un gain de performances significatif quand le jeu de résultats de la requête contient un grand nombre de lignes. Avant, le moteur d’exécution des requêtes ordonnait les résultats sur chaque nœud de calcul et les diffusait en continu au nœud de contrôle, lequel les fusionnait.|
+|**Améliorations apportées au déplacement des données pour PartitionMove et BroadcastMove**|Dans Azure SQL Data Warehouse Gen2, les étapes de déplacement des données de type ShuffleMove exploitent les techniques de déplacement instantané des données décrites dans le [blog sur l’amélioration des performances](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/). Avec cette version, les types de déplacement des données PartitionMove et BroadcastMove bénéficient désormais des mêmes techniques de déplacement instantané des données. Les performances d’exécution des requêtes utilisateur qui utilisent ces types d’étapes de déplacement des données sont améliorées. Aucun changement de code n’est nécessaire pour tirer parti de ces gains de performances.|
+
+### <a name="documentation-improvements"></a>Améliorations de la documentation
+
+| Améliorations de la documentation | Détails |
+| --- | --- |
+|Aucun | |
+| | |
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un entrepôt SQL Data Warehouse][create a SQL Data Warehouse]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  
+[Créer une base de données SQL Data Warehouse](./create-data-warehouse-portal.md)
 
-* [Témoignages de clients]
-* [Blogs]
-* [Demandes de fonctionnalités]
-* [Vidéos]
-* [Blogs de l’équipe de conseil clientèle]
-* [Forum Stack Overflow]
-* [Twitter]
-
-
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Blogs de l’équipe de conseil clientèle]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Témoignages de clients]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
-[Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
+## <a name="more-information"></a>Plus d’informations
+- [Blog – Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- [Blogs de l’équipe de conseil clientèle](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Témoignages de clients](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+- [Forum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Twitter](https://twitter.com/hashtag/SQLDW)
+- [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- [Glossaire Azure](../azure-glossary-cloud-terminology.md)

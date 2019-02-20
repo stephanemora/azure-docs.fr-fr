@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 60c4b22fb34a66a0ff68db26030be0e0ea3c0066
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470240"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113768"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Configuration système Azure Data Box Edge (Préversion)
 
@@ -47,13 +47,15 @@ La configuration système requise pour Data Box Edge inclut ce qui suit :
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="port-configuration-for-data-box-edge"></a>Configuration du port pour Data Box Edge
+## <a name="networking-port-requirements"></a>Configuration requise du port réseau
+
+### <a name="port-requirements-for-data-box-edge"></a>Configuration requise du port pour Data Box Edge
 
 Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les requêtes clientes entrantes accèdent à votre appareil. *Sortie* ou *sortant* représente la direction vers laquelle votre appareil Data Box Edge envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-## <a name="port-configuration-for-iot-edge"></a>Configuration du port pour IoT Edge
+### <a name="port-requirements-for-iot-edge"></a>Configuration requise du port pour IoT Edge
 
 Azure IoT Edge permet les communications sortantes entre un appareil Edge local et le cloud Azure au moyen des protocoles IoT Hub pris en charge. Les communications entrantes sont uniquement requises pour des scénarios spécifiques où Azure IoT Hub a besoin d’envoyer (push) des messages à l’appareil Azure IoT Edge (par exemple, messagerie cloud vers appareil).
 
@@ -61,8 +63,8 @@ Utilisez le tableau suivant pour configurer les ports des serveurs hébergeant l
 
 | N° de port | Entrant ou sortant | Étendue de ports | Obligatoire | Assistance |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| Sortie       | WAN        | Oui      | Protocole de communication par défaut pour IoT Edge. Doit être ouvert si Azure IoT Edge n’est pas configuré pour les autres protocoles pris en charge ou si AMQP est le protocole de communication souhaité. <br>5672 pour AMQP n’est pas pris en charge par IoT Edge. <br>Bloquez ce port quand Azure IoT Edge utilise un autre protocole IoT Hub pris en charge. |
-| TCP 443 (HTTPS)| Sortie       | WAN        | Oui      | Sortie ouverte pour le déploiement de IoT Edge. Si vous disposez d’une passerelle transparente avec des appareils de nœud terminal pouvant envoyer des requêtes de méthode. Dans ce cas, le port 443 n’a pas besoin d’être ouvert aux réseaux externes pour se connecter à IoTHub ou fournir des services IoTHub via Azure IoT Edge. La règle entrante peut donc être limitée uniquement à l’ouverture du trafic entrant en provenance du réseau interne. |
+| TCP 5671 (AMQP)| Sortie       | WAN        | OUI      | Protocole de communication par défaut pour IoT Edge. Doit être ouvert si Azure IoT Edge n’est pas configuré pour les autres protocoles pris en charge ou si AMQP est le protocole de communication souhaité. <br>5672 pour AMQP n’est pas pris en charge par IoT Edge. <br>Bloquez ce port quand Azure IoT Edge utilise un autre protocole IoT Hub pris en charge. |
+| TCP 443 (HTTPS)| Sortie       | WAN        | OUI      | Sortie ouverte pour le déploiement de IoT Edge. Si vous disposez d’une passerelle transparente avec des appareils de nœud terminal pouvant envoyer des requêtes de méthode. Dans ce cas, le port 443 n’a pas besoin d’être ouvert aux réseaux externes pour se connecter à IoTHub ou fournir des services IoTHub via Azure IoT Edge. La règle entrante peut donc être limitée uniquement à l’ouverture du trafic entrant en provenance du réseau interne. |
 | TCP 5671 (AMQP) | Dans        |            | Non        | Les connexions entrantes doivent être bloquées.|
 | TCP 443 (HTTPS) | Dans        |            | Dans certains cas, consultez les commentaires. | Les connexions entrantes ne peuvent être ouvertes que dans certaines situations uniquement. Si les protocoles non HTTP tels que AMQP, MQTT ne peuvent pas être configurés, les messages peuvent être envoyés sur WebSockets via le port 443. |
 
@@ -80,18 +82,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 ### <a name="url-patterns-for-gateway-feature"></a>Modèles d’URL pour la fonctionnalité de passerelle
 
-|    Modèle d’URL                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Composant ou fonctionnalité                                                                           |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Service Azure Data Box Edge<br>Azure Service Bus<br>Service d’authentification                           |
-|    http://\*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                                |    Activation d’appareil                                                                                    |
-|    http://crl.microsoft.com/pki/\*<br>http://www.microsoft.com/pki/\*                                                                                                                                                                                                                                                                                                                                                                                                  |    Révocation de certificat                                                                               |
-|    https://\*.core.windows.net/\*<br>https://\*.data.microsoft.com<br>http://\*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                            |    Comptes de stockage Azure et surveillance                                                                |
-|    http://windowsupdate.microsoft.com<br>http://\*.windowsupdate.microsoft.com<br>https://\*.windowsupdate.microsoft.com<br>http://\*.update.microsoft.com<br>https://\*.update.microsoft.com<br>http://\*.windowsupdate.com<br>http://download.microsoft.com<br>http://\*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*.ws.microsoft.com<br>https://\*.ws.microsoft.com<br>http://\*.mp.microsoft.com |    Serveurs Microsoft Update                                                                             |
-|    http://\*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    CDN Akamai                                                                                           |
-|    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Package de prise en charge                                                                                      |
-|    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Service de télémétrie dans Windows, consultez la mise à jour de l’expérience client et de la télémétrie de diagnostic      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### <a name="url-patterns-for-compute-feature"></a>Modèles d’URL pour la fonctionnalité de calcul
 
@@ -107,4 +98,4 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 ## <a name="next-step"></a>Étape suivante
 
-* [Déployer votre solution Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [Déployer votre solution Azure Data Box Edge](data-box-Edge-deploy-prep.md)

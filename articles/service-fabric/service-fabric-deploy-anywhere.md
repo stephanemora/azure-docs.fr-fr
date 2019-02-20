@@ -1,6 +1,6 @@
 ---
-title: Créer des clusters Service Fabric sur Windows Server et Linux | Microsoft Docs
-description: Les clusters Service Fabric peuvent être exécutés sous Windows Server et Linux, ce qui vous permet de déployer et d’héberger des applications Service Fabric partout où vous pouvez exécuter Windows Server ou Linux.
+title: Vue d’ensemble d’Azure et des clusters Service Fabric autonomes | Microsoft Docs
+description: Vous pouvez créer des cluster Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans tout environnement dans lequel vous avez des ordinateurs Windows Server ou Linux interconnectés, que ce soit en local sur Microsoft Azure ou à l’aide d’un fournisseur de cloud.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,65 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2018
+ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: e4540076b29cf3cd51f03239a1868e18a41781d9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: cf16a01ef1003b73740c05ff45f703a65aaf0acc
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726523"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961180"
 ---
-# <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Créer des clusters Service Fabric sur un système Windows Server ou Linux
+# <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparaison entre Azure et des clusters Service Fabric autonomes sur Windows Server et Linux
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Les clusters peuvent être mis à l’échelle pour des milliers de nœuds. Si vous ajoutez des nœuds au cluster, Service Fabric rééquilibre les réplicas de partition du service et les instances sur le nombre de nœuds augmenté. Les performances globales de l’application s’améliorent tandis que le conflit d’accès à la mémoire diminue. Si les nœuds du cluster ne sont pas utilisés efficacement, vous pouvez diminuer le nombre de nœuds dans le cluster. Service Fabric rééquilibre à nouveau les réplicas de partition et les instances sur le nombre réduit de nœuds afin de mieux utiliser le matériel sur chaque nœud.
 
-Service Fabric permet la création de clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement dans lequel des ordinateurs Windows Server ou Linux sont interconnectés, que ce soit en local, sur Microsoft Azure ou via un autre fournisseur cloud.
+Service Fabric permet la création de clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement dans lequel des ordinateurs Windows Server ou Linux sont interconnectés, que ce soit en local, sur Microsoft Azure ou avec n’importe quel fournisseur de cloud.
 
-## <a name="create-service-fabric-clusters-on-azure"></a>Créer des clusters Service Fabric sur Azure
-La création d’un cluster dans Azure est effectuée via un modèle Resource Manager ou via le [portail Azure](https://portal.azure.com). Pour en savoir plus, voir [Créer un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) ou [Créer un cluster Service Fabric à partir du portail Azure](service-fabric-cluster-creation-via-portal.md).
-
-## <a name="supported-operating-systems-for-clusters-on-azure"></a>Systèmes d’exploitation pris en charge pour les clusters dans Azure
-Vous pouvez créer des clusters sur des machines virtuelles qui exécutent ces systèmes d’exploitation :
-
-* Windows Server 2012 R2
-* Windows Server 2016 
-* Windows Server 1709
-* Windows Server 1803
-* Linux Ubuntu 16.04
-* Red Hat Enterprise Linux 7.4 (support de la préversion)
-
-> [!NOTE]
-> Si vous décidez de déployer Service Fabric sur Windows Server 1709, notez que (1) ce n’est pas une branche destinée à des services à long terme, ce qui vous obligera probablement à changer de versions à l’avenir, et (2) si vous déployez des conteneurs, les conteneurs reposant sur Windows Server 2016 ne fonctionnent pas sur Windows Server 1709, et vice versa (vous devez les régénérer pour les déployer).
->
-
-## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Créer des clusters Service Fabric autonomes locaux ou avec n’importe quel fournisseur cloud
-Service Fabric fournit un package d’installation vous permettant de créer des clusters Service Fabric sur site ou sur n’importe que fournisseur cloud.
-
-Pour en savoir plus sur la configuration de clusters Service Fabric autonomes sur Windows Server, consultez [Création d’un cluster Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-
-  > [!NOTE]
-  > Les clusters autonomes ne sont actuellement pas pris en charge pour Linux. Linux est pris en charge avec les clusters à boîtier unique pour le développement et les clusters de plusieurs ordinateurs Azure Linux.
-  >
-
-### <a name="any-cloud-deployments-vs-on-premises-deployments"></a>Déploiements cloud ou en local
-Le processus de création d’un cluster Service Fabric en local est similaire au processus de création d’un cluster sur un cloud de votre choix avec un ensemble de machines virtuelles. Les étapes initiales d’approvisionnement des machines virtuelles sont régies par le fournisseur de cloud ou l’environnement local que vous utilisez. Une fois que vous avez un ensemble de machines virtuelles avec une connectivité réseau activée entre elles, les étapes suivantes pour configurer le package Service Fabric, modifier les paramètres du cluster et exécuter les scripts de création et de gestion du cluster sont identiques. Cela garantit que vos connaissances et votre expérience en matière d’exploitation et de gestion des clusters Service Fabric peuvent être transférées lorsque vous choisissez de cibler de nouveaux environnements d’hébergement.
-
-### <a name="benefits-of-creating-standalone-service-fabric-clusters"></a>Avantages de la création de clusters Service Fabric autonomes
-* Vous pouvez choisir n’importe quel fournisseur de cloud pour héberger votre cluster.
-* Une fois écrites, les applications Service Fabric peuvent être exécutées dans plusieurs environnements d’hébergement sans modification ou avec des modifications minimales.
-* Les connaissances en matière de génération d’applications Service Fabric s’appliquent d’un environnement d’hébergement à un autre.
-* L’expérience opérationnelle d’exécution et de gestion de clusters Service Fabric s’applique d’un environnement à un autre.
-* Ciblage étendu en termes de clientèle sans contrainte d’environnement d’hébergement.
-* Une couche supplémentaire de fiabilité et de protection contre les pannes répandues existe, car vous pouvez déplacer les services vers un autre environnement de déploiement si un centre de données ou le fournisseur de services cloud est confronté à une panne d’électricité.
-
-## <a name="supported-operating-systems-for-standalone-clusters"></a>Systèmes d’exploitation pris en charge pour les clusters autonomes
-Vous pouvez créer des clusters sur des machines virtuelles ou des ordinateurs qui exécutent ces systèmes d’exploitation (Linux n’est pas encore pris en charge) :
-
-* Windows Server 2012 R2
-* Windows Server 2016 
-
-## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>Avantages des clusters Service Fabric sur Azure par rapport aux clusters Service Fabric créés en local
-L’exécution de clusters Service Fabric sur Azure offre des avantages par rapport à l’option locale. Par conséquent, si vous n’avez pas d’exigences spécifiques concernant l’emplacement où vous exécutez vos clusters, nous vous suggérons de les exécuter en tant que clusters hébergés par Azure. Dans Azure, nous intégrons d’autres fonctionnalités et services Azure qui rendent l’exploitation et la gestion du cluster plus simple et plus fiable.
+## <a name="benefits-of-clusters-on-azure"></a>Avantages des clusters sur Azure
+Dans Azure, nous intégrons d’autres fonctionnalités et services Azure qui rendent l’exploitation et la gestion du cluster plus simple et plus fiable.
 
 * **Portail Azure :** facilite la création et la gestion de clusters.
 * **Azure Resource Manager :** l’utilisation d’Azure Resource Manager permet de faciliter la gestion de toutes les ressources utilisées par le cluster en tant qu’unité et de simplifier le suivi des coûts et la facturation.
@@ -79,9 +36,16 @@ L’exécution de clusters Service Fabric sur Azure offre des avantages par rapp
 * **Diagnostics :** dans Azure, nous proposons l’intégration d’Azure Diagnostics et de Log Analytics.
 * **Mise à l’échelle automatique :** pour les clusters sur Azure, nous fournissons une fonctionnalité de mise à l’échelle automatique intégrée en raison de la présence de groupes de machines virtuelles identiques. Dans des environnements locaux ou d’autres environnements cloud, vous devez créer votre propre fonctionnalité de mise à l’échelle automatique ou mettre à l’échelle manuellement à l’aide des API que Service Fabric expose pour la mise à l’échelle des clusters.
 
+## <a name="benefits-of-standalone-clusters"></a>Avantages des clusters autonomes
+* Vous pouvez choisir n’importe quel fournisseur de cloud pour héberger votre cluster.
+* Une fois écrites, les applications Service Fabric peuvent être exécutées dans plusieurs environnements d’hébergement sans modification ou avec des modifications minimales.
+* Les connaissances en matière de génération d’applications Service Fabric s’appliquent d’un environnement d’hébergement à un autre.
+* L’expérience opérationnelle d’exécution et de gestion de clusters Service Fabric s’applique d’un environnement à un autre.
+* Ciblage étendu en termes de clientèle sans contrainte d’environnement d’hébergement.
+* Une couche supplémentaire de fiabilité et de protection contre les pannes répandues existe, car vous pouvez déplacer les services vers un autre environnement de déploiement si un centre de données ou le fournisseur de services cloud est confronté à une panne d’électricité.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Windows Server : [Création de clusters Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Linux : [Créer un cluster Linux](service-fabric-cluster-creation-via-portal.md)
+* Lire la présentation des [clusters Service Fabric sur Azure](service-fabric-azure-clusters-overview.md)
+* Lire la présentation des [clusters Service Fabric autonomes](service-fabric-standalone-clusters-overview.md)
 * En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
-

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567272"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002355"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -66,7 +66,7 @@ Dans le portail web Video Indexer, vous pouvez charger un fichier multimédia pa
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Combien de temps faut-il à Video Indexer pour extraire des insights à partir d’un fichier multimédia ?
 
-Le temps nécessaire pour indexer un fichier vidéo ou audio, que ce soit à l’aide de l’API Video Indexer ou de l’interface web Video Indexer, dépend de plusieurs paramètres, tels que la longueur et la qualité du fichier, le nombre d’insights trouvés dans le fichier, le nombre d’[unités réservées](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponibles et l’activation ou non du [point de terminaison de streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview). Pour la plupart des types de contenu, en supposant que 10 unités réservées de type S3 soient activées, nous estimons que l’indexation prend entre 35 % et 50 % de la durée du fichier audio ou vidéo (par exemple, une vidéo source de 10 minutes prend entre 3,5 et 5 minutes). Toutefois, nous vous recommandons d’exécuter quelques fichiers de test avec votre propre contenu et de prendre une moyenne pour obtenir une meilleure idée.
+Le temps nécessaire pour indexer un fichier vidéo ou audio, que ce soit à l’aide de l’API Video Indexer ou de l’interface web Video Indexer, dépend de plusieurs paramètres, tels que la longueur et la qualité du fichier, le nombre d’insights trouvés dans le fichier, le nombre d’[unités réservées](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponibles et l’activation ou non du [point de terminaison de streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview). Nous vous recommandons d’exécuter quelques fichiers de test avec votre propre contenu et de prendre une moyenne pour obtenir une meilleure idée.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Puis-je créer des workflows personnalisés pour automatiser des processus avec Video Indexer ?
 
@@ -130,7 +130,7 @@ Il n’y a aucun kit SDK client disponible actuellement. L’équipe de Video In
 
 ### <a name="how-do-i-get-started-with-video-indexers-api"></a>Comment bien démarrer avec l’API Video Indexer ?
 
-Suivez le [tutoriel sur la prise en main de l’API Video Indexer](video-indexer-use-apis.md).
+Suivez le [didacticiel sur la prise en main de l’API Video Indexer](video-indexer-use-apis.md).
 
 ### <a name="what-is-the-difference-between-the-video-indexer-api-and-the-azure-media-service-v3-api"></a>Quelle différence y a-t-il entre l’API Video Indexer et l’API Azure Media Services v3 ?
 

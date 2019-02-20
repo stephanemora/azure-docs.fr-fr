@@ -1,22 +1,21 @@
 ---
-title: Présentation du Stockage File d’attente Azure | Microsoft Docs
-description: Présentation du Stockage File d’attente Azure
+title: Présentation de Files d’attente Azure | Microsoft Docs
+description: Présentation de Files d’attente Azure
 services: storage
 author: tamram
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/06/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: b173934db17b8c3ac5a48e599b75478fb214c240
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ae0d3993df54e1c9e5a9bf93619e8f9faa8a917
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458395"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873595"
 ---
-# <a name="introduction-to-queues"></a>Présentation des files d’attente
+# <a name="what-are-azure-queues"></a>Que sont les files d’attente Azure ?
 
 Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage.
 

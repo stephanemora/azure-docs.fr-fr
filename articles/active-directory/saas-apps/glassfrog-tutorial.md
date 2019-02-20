@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à GlassFrog | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec GlassFrog | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GlassFrog.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fdd1e8acf446ba3e409e2ff0bf9ca18f581c299
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d6bdc9f2214f8a23ffd1a126905faf00f2fc4264
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432650"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199629"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Didacticiel : Intégration d’Azure Active Directory à GlassFrog
+# <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Didacticiel : Intégration d’Azure Active Directory avec GlassFrog
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer GlassFrog à Azure Active Directory (Azure AD).
 
@@ -126,7 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![image](./media/glassfrog-tutorial/d_users_and_groups.png)
 
@@ -149,7 +150,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-glassfrog-test-user"></a>Créer un utilisateur de test GlassFrog
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans GlassFrog. Collaborez avec l’[équipe du support technique GlassFrog](https://support.glassfrog.com/support/solutions/9000107654) pour ajouter des utilisateurs dans la plate-forme GlassFrog. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans GlassFrog. Collaborez avec l’ [équipe du support technique GlassFrog](https://support.glassfrog.com/support/solutions/9000107654) pour ajouter des utilisateurs dans la plateforme GlassFrog. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
