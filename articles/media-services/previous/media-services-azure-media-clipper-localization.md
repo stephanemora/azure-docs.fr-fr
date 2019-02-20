@@ -6,17 +6,18 @@ keywords: clip;sous-clip;encodage;média
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: def72c1bb42d083c38640f7c6165c305a5820c75
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448664"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003276"
 ---
-# <a name="configure-localization"></a>Configurer la localisation
+# <a name="configure-localization-legacy"></a>Configurer la localisation (hérité)
+
 Azure Media Clipper est disponible dans 18 langues. Pour définir la langue du widget, vous devez définir le paramètre `language` lors de l’initialisation. Passez la chaîne de code de langue parmi celles de la liste suivante :
 - Chinois (simplifié) : zh-hans
 - Chinois (traditionnel) : zh-hant

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 9973eaa7e930d38e78289219e726b5934d82ee86
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf53df30dfccb76a6f33621038ba7f031a69f6de
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945381"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979691"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Dépannage des échecs d’extension de machine virtuelle Windows dans Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -32,7 +32,7 @@ Voici un exemple :
 
 Azure PowerShell :
 
-      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Voici l'exemple de sortie :
 
@@ -62,10 +62,10 @@ Voici l'exemple de sortie :
 ## <a name="troubleshooting-extension-failures"></a>Dépannage des échecs d’extension
 ### <a name="rerun-the-extension-on-the-vm"></a>Réexécuter l’extension sur la machine virtuelle
 Si vous exécutez des scripts sur la machine virtuelle à l’aide de l’extension de script personnalisé, cela peut générer une erreur indiquant que la machine virtuelle a été créée avec succès mais que le script a échoué. Dans ces conditions, la méthode recommandée pour corriger cette erreur consiste à supprimer l'extension et exécuter le modèle à nouveau.
-Remarque : à l'avenir, cette fonctionnalité sera améliorée pour supprimer le besoin de désinstaller l'extension.
+Remarque : cette fonctionnalité sera ultérieurement améliorée de manière à ne plus devoir désinstaller l'extension.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Suppression de l’extension d’Azure PowerShell
-    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 

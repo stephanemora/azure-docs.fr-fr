@@ -16,12 +16,12 @@ ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: c9f6ad48f6c2e3b2ed60833f0cba111cc96a8a54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 924befd2ec1949973123acc9b7c7d1b89e707e3e
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240758"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245624"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -89,7 +89,7 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 | ![Conteneur Linux par CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux de CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux est une distribution Linux moderne et minime, facilitant l’exécution des conteneurs, la gestion des clusters et la mise à jour homogène de vos serveurs, en fait tous les composants qui rendent possible le calcul à l’échelle de l’entrepôt. | CoreOS |
 | ![Serveur Ubuntu](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Serveur Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server est le Linux le plus populaire au monde pour les environnements cloud. | Canonical |
 | ![Debian 8 Jessie](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux est l’une des distributions Linux les plus populaires. | credativ |
-| ![CentOS-based 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Cette distribution de Linux est basée sur CentOS et fournie par Rogue Wave Software. | Rogue Wave Software (anciennement OpenLogic)  |
+| ![Basé sur CentOS 6.8](media/azure-stack-marketplace-azure-items/roguewave.png) | [Basé sur CentOS 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | Cette distribution de Linux est basée sur CentOS et fournie par Rogue Wave Software. | Rogue Wave Software (anciennement OpenLogic)  |
 | ![CentOS-based 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Cette distribution de Linux est basée sur CentOS et fournie par Rogue Wave Software. | Rogue Wave Software (anciennement OpenLogic)  |
 | ![Basé sur CentOS 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | Cette distribution de Linux est basée sur CentOS et fournie par Rogue Wave Software. | Rogue Wave Software (anciennement OpenLogic) |
 | ![CentOS-based 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Cette distribution de Linux est basée sur CentOS et fournie par Rogue Wave Software. | Rogue Wave Software (anciennement OpenLogic) |

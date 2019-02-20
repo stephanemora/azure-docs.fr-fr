@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: cb9f03ab87079ba33135840e3e7599d2e8cc95e9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 7be31a9390dfb0d663b27979a42fffe6f7a0afca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42144203"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977525"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Commandes PowerShell courantes permettant de créer et de gérer des machines virtuelles Azure
 
 Cet article présente certaines des commandes Azure PowerShell que vous pouvez utiliser pour créer et gérer des machines virtuelles dans votre abonnement Azure.  Pour en savoir plus sur les commutateurs et options de ligne de commande spécifiques, vous pouvez utiliser la **commande** *Get-Help*.
 
-Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 Ces variables peuvent être utiles si vous utilisez plusieurs des commandes de cet article :
 
-- $location : l’emplacement de la machine virtuelle. Vous pouvez utiliser [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) pour rechercher une [région géographique](https://azure.microsoft.com/regions/) qui vous convient.
+- $location : l’emplacement de la machine virtuelle. Vous pouvez utiliser [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) pour rechercher une [région géographique](https://azure.microsoft.com/regions/) qui vous convient.
 - $myResourceGroup - Le nom du groupe de ressources qui contient les machines virtuelles.
 - $myVM - Le nom de la machine virtuelle.
 
@@ -38,8 +38,8 @@ Ces variables peuvent être utiles si vous utilisez plusieurs des commandes de c
 
 | Tâche | Commande |
 | ---- | ------- |
-| Créer une machine virtuelle simple | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) -Name $myVM <BR></BR><BR></BR> New-AzureRMVM contient un ensemble de paramètres *simplifiés*, nécessitant uniquement un nom unique. La valeur de -Name sera utilisée comme nom de toutes les ressources requises pour la création d’une nouvelle machine virtuelle. Vous pouvez en spécifier davantage, mais ce n’est pas obligatoire.|
-| Créer une machine virtuelle à partir d’une image personnalisée | New-AzureRmVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>Vous devez avoir déjà créé votre propre [image managée](capture-image-resource.md). Vous pouvez utiliser une image pour rendre plusieurs machines virtuelles identiques. |
+| Créer une machine virtuelle simple | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) -Name $myVM <BR></BR><BR></BR> New-AzVM contient un ensemble de paramètres *simplifiés*, nécessitant uniquement un nom unique. La valeur de -Name sera utilisée comme nom de toutes les ressources requises pour la création d’une nouvelle machine virtuelle. Vous pouvez en spécifier davantage, mais ce n’est pas obligatoire.|
+| Créer une machine virtuelle à partir d’une image personnalisée | New-AzVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>Vous devez avoir déjà créé votre propre [image managée](capture-image-resource.md). Vous pouvez utiliser une image pour rendre plusieurs machines virtuelles identiques. |
 
 
 
@@ -47,28 +47,28 @@ Ces variables peuvent être utiles si vous utilisez plusieurs des commandes de c
 
 | Tâche | Commande |
 | ---- | ------- |
-| Créer une configuration de machine virtuelle |$vm = [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) -VMName $myVM -VMSize "Standard_D1_v1"<BR></BR><BR></BR>La configuration de machine virtuelle est utilisée pour définir ou mettre à jour les paramètres d’une machine virtuelle. La configuration est initialisée avec le nom de la machine virtuelle et sa [taille](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| Ajouter des paramètres de configuration |$vm = [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) -VM $vm -Windows -ComputerName $myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>Les paramètres de système d’exploitation, y compris les [informations d’identification](https://technet.microsoft.com/library/hh849815.aspx), sont ajoutés à l’objet de configuration que vous avez créé précédemment à l’aide de New-AzureRmVMConfig. |
-| Ajouter une interface réseau |$vm = [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/Add-AzureRmVMNetworkInterface) -VM $vm -Id $nic.Id<BR></BR><BR></BR>Une machine virtuelle doit être associée à une [interface réseau](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour pouvoir communiquer au sein d’un réseau virtuel. Vous pouvez également utiliser la commande [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) pour récupérer un objet d’interface réseau existant. |
-| Spécifier une image de plateforme |$vm = [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) -VM $vm -PublisherName "publisher_name" -Offer "publisher_offer" -Skus "product_sku" -Version "latest"<BR></BR><BR></BR>[Des informations sur l’image](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sont ajoutées à l’objet de configuration que vous avez créé, via New-AzureRmVMConfig. L’objet renvoyé par cette commande est utilisé uniquement lorsque vous définissez le disque du système d’exploitation pour l’utilisation d’une image de plateforme. |
-| Créer une machine virtuelle |[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) -ResourceGroupName $myResourceGroup -Location $location -VM $vm<BR></BR><BR></BR>Toutes les ressources sont créées dans un [groupe de ressources](../../azure-resource-manager/powershell-azure-resource-manager.md). Avant d’exécuter cette commande, exécutez les commandes New-AzureRmVMConfig, Set-AzureRmVMOperatingSystem, Set-AzureRmVMSourceImage, Add-AzureRmVMNetworkInterface et Set-AzureRmVMOSDisk. |
-| Mettre à jour une machine virtuelle |[Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Obtenez la configuration de machine virtuelle actuelle à l’aide de la commande Get-AzureRmVM, modifiez les paramètres de configuration sur l’objet de machine virtuelle, puis exécutez cette commande. |
+| Créer une configuration de machine virtuelle |$vm = [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) -VMName $myVM -VMSize "Standard_D1_v1"<BR></BR><BR></BR>La configuration de machine virtuelle est utilisée pour définir ou mettre à jour les paramètres d’une machine virtuelle. La configuration est initialisée avec le nom de la machine virtuelle et sa [taille](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Ajouter des paramètres de configuration |$vm = [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) -VM $vm -Windows -ComputerName $myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>Les paramètres de système d’exploitation, y compris les [informations d’identification](https://technet.microsoft.com/library/hh849815.aspx), sont ajoutés à l’objet de configuration que vous avez créé précédemment à l’aide de New-AzVMConfig. |
+| Ajouter une interface réseau |$vm = [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMNetworkInterface) -VM $vm -Id $nic.Id<BR></BR><BR></BR>Une machine virtuelle doit être associée à une [interface réseau](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour pouvoir communiquer au sein d’un réseau virtuel. Vous pouvez également utiliser la commande [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) pour récupérer un objet d’interface réseau existant. |
+| Spécifier une image de plateforme |$vm = [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) -VM $vm -PublisherName "publisher_name" -Offer "publisher_offer" -Skus "product_sku" -Version "latest"<BR></BR><BR></BR>[Des informations sur l’image](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sont ajoutées à l’objet de configuration que vous avez créé, via New-AzVMConfig. L’objet renvoyé par cette commande est utilisé uniquement lorsque vous définissez le disque du système d’exploitation pour l’utilisation d’une image de plateforme. |
+| Créer une machine virtuelle |[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) -ResourceGroupName $myResourceGroup -Location $location -VM $vm<BR></BR><BR></BR>Toutes les ressources sont créées dans un [groupe de ressources](../../azure-resource-manager/powershell-azure-resource-manager.md). Avant d’exécuter cette commande, exécutez les commandes New-AzVMConfig, Set-AzVMOperatingSystem, Set-AzVMSourceImage, Add-AzVMNetworkInterface et Set-AzVMOSDisk. |
+| Mettre à jour une machine virtuelle |[Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Obtenez la configuration de machine virtuelle actuelle à l’aide de la commande Get-AzVM, modifiez les paramètres de configuration sur l’objet de machine virtuelle, puis exécutez cette commande. |
 
 ## <a name="get-information-about-vms"></a>Obtenir des informations sur les machines virtuelles
 
 | Tâche | Commande |
 | ---- | ------- |
-| Répertorier les machines virtuelles au sein d’un abonnement |[Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) |
-| Répertorier les machines virtuelles au sein d’un groupe de ressources |Get-AzureRmVM -ResourceGroupName $myResourceGroup<BR></BR><BR></BR>Pour obtenir une liste de groupes de ressources dans votre abonnement, utilisez la commande [Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup). |
-| Obtenir des informations sur une machine virtuelle |Get-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM |
+| Répertorier les machines virtuelles au sein d’un abonnement |[Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) |
+| Répertorier les machines virtuelles au sein d’un groupe de ressources |Get-AzVM -ResourceGroupName $myResourceGroup<BR></BR><BR></BR>Pour obtenir une liste de groupes de ressources dans votre abonnement, utilisez la commande [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup). |
+| Obtenir des informations sur une machine virtuelle |Get-AzVM -ResourceGroupName $myResourceGroup -Name $myVM |
 
 ## <a name="manage-vms"></a>Gérer les machines virtuelles
 | Tâche | Commande |
 | --- | --- |
-| Démarrer une machine virtuelle |[Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
-| Arrêter une machine virtuelle |[Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
-| Redémarrer une machine virtuelle en cours d’exécution |[Restart-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/restart-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
-| Supprimer une machine virtuelle |[Remove-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
+| Démarrer une machine virtuelle |[Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) -ResourceGroupName $myResourceGroup -Name $myVM |
+| Arrêter une machine virtuelle |[Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) -ResourceGroupName $myResourceGroup -Name $myVM |
+| Redémarrer une machine virtuelle en cours d’exécution |[Restart-AzVM](https://docs.microsoft.com/powershell/module/az.compute/restart-azvm) -ResourceGroupName $myResourceGroup -Name $myVM |
+| Supprimer une machine virtuelle |[Remove-AzVM](https://docs.microsoft.com/powershell/module/az.compute/remove-azvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

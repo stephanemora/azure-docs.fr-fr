@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec GetThere | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à GetThere | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GetThere.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: bcefa3966a6c854f02ce7b3a75306b3d1c888ecd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b132da4a763490fa6c7a73c80f8e2e3a11b42e9b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432595"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173128"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Didacticiel : Intégration d’Azure Active Directory à GetThere
+# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutoriel : Intégration d’Azure Active Directory à GetThere
 
 Dans ce didacticiel, vous allez apprendre à intégrer GetThere à Azure Active Directory (Azure AD).
 
@@ -131,7 +132,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
-    | NOM |  Attribut source |  Espace de noms |
+    | Nom |  Attribut source |  Espace de noms |
     | ---------------| --------------- | --------------- |
     | SiteName | « Indiquez la valeur conformément à votre organisation » | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Nom d’utilisateur |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
@@ -162,7 +163,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. URL de connexion
 
-    b. Identificateur Azure Active Directory
+    b. Identificateur Azure AD
 
     c. URL de déconnexion
 
@@ -197,7 +198,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-getthere-test-user"></a>Créer un utilisateur de test GetThere
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans GetThere. Collaborez avec l’[équipe du support du client GetThere](mailto:dataintegration@sabre.com) pour ajouter des utilisateurs dans la plateforme GetThere. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans GetThere. Collaborez avec l’ [équipe du support du client GetThere](mailto:dataintegration@sabre.com) pour ajouter des utilisateurs dans la plateforme GetThere. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

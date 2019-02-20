@@ -4,19 +4,19 @@ titlesuffix: Text Analytics - Azure Cognitive Services
 description: Analyse de texte fournit pour chaque conteneur une infrastructure de configuration commune qui vous permettre de configurer et de gérer facilement les paramètres de stockage, de journalisation, de télémétrie et de sécurité de vos conteneurs.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 2360cb56f40bf899cec5d4a5fb6637eaac59f4d1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 53ebb8ce51527adbd67310b19dccd6c7cbabf37f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224324"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977517"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurer les conteneurs Docker Analyse de texte
 
@@ -43,15 +43,15 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le paramètre `Billing` permet de spécifier l’URI du point de terminaison de la ressource _Analyse de texte_ sur Azure servant à contrôler les informations de facturation du conteneur. Vous devez attribuer une valeur à ce paramètre de configuration, et cette valeur doit être un URI de point de terminaison valide pour une ressource __Analyse de texte_ sur Azure.
+Le paramètre `Billing` permet de spécifier l’URI du point de terminaison de la ressource _Analyse de texte_ sur Azure servant à contrôler les informations de facturation du conteneur. Vous devez attribuer une valeur à ce paramètre de configuration, et cette valeur doit être un URI de point de terminaison valide pour une ressource __Analyse de texte_ sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
 * Portail Azure : Vue d’ensemble d’**Analyse de texte**, intitulée `Endpoint`
 
-|Obligatoire| NOM | Type de données | Description |
+|Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -77,7 +77,7 @@ Les conteneurs Analyse de texte n’utilisent pas de montage d’entrée ou de s
 
 La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](how-tos/text-analytics-how-to-install-containers.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service docker et les autorisations de l’emplacement de montage de l’hôte. 
 
-|Facultatif| NOM | Type de données | Description |
+|Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
 |Non autorisé| `Input` | Chaîne | Les conteneurs Analyse de texte n’utilisent pas cet élément.|
 |Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Les journaux de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -110,19 +110,19 @@ Les exemples Docker suivants s’appliquent au conteneur Extraction de phrases c
 
 ### <a name="basic-example"></a>Exemple de base 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
 ### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
   ```
 
 ### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
   ```
@@ -133,19 +133,19 @@ Les exemples Docker suivants s’appliquent au conteneur Détection de langue.
 
 ### <a name="basic-example"></a>Exemple de base
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
   ```
 
 ### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
   ```
 
 ### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
   ```
@@ -156,19 +156,19 @@ Les exemples Docker suivants s’appliquent au conteneur Analyse des sentiments.
 
 ### <a name="basic-example"></a>Exemple de base
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
   ```
 
 ### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
   ```
 
 ### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
   ```

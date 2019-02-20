@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: db5482fe17b9181097e13d446937bc489c3db8fe
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462825"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109161"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware
 
@@ -161,6 +161,63 @@ Mettez à niveau le serveur comme suit :
 
 7. Cliquez sur **Terminer** pour fermer le programme d’installation.
 8. Pour mettre à niveau le reste des composants Site Recovery, reportez-vous à nos [conseils de mise à niveau](https://aka.ms/asr_vmware_upgrades).
+
+## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>Mettre à niveau le serveur de configuration/serveur de traitement à partir de la ligne de commande
+
+Exécutez le fichier d’installation de la manière suivante :
+
+  ```
+  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+  ```
+
+### <a name="sample-usage"></a>Exemple d’utilisation
+  ```
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
+  cd C:\Temp\Extracted
+  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
+  ```
+
+
+### <a name="parameters"></a>parameters
+
+|Nom du paramètre| Type | Description| Valeurs|
+|-|-|-|-|
+| /ServerMode|Obligatoire|Spécifie si les serveurs de configuration et de processus doivent être installés ou si seul le serveur de processus doit être installé|CS<br>PS|
+|/InstallLocation|Obligatoire|Dossier d’installation des composants| N’importe quel dossier sur l’ordinateur|
+|/MySQLCredsFilePath|Obligatoire|Chemin d’accès du fichier où sont stockées les informations d’identification du serveur MySQL|Le fichier doit être au format spécifié ci-dessous|
+|/VaultCredsFilePath|Obligatoire|Chemin d’accès du fichier d’informations d’identification du coffre|Chemin d’accès valide du fichier|
+|/EnvType|Obligatoire|Type d’environnement que vous souhaitez protéger |VMware<br>NonVMware|
+|/PSIP|Obligatoire|Adresse IP de la carte réseau à utiliser pour le transfert de données de réplication| Une adresse IP valide|
+|/CSIP|Obligatoire|Adresse IP de la carte réseau sur laquelle le serveur de configuration écoute| Une adresse IP valide|
+|/PassphraseFilePath|Obligatoire|Chemin d’accès complet vers l’emplacement du fichier de phrase secrète|Chemin d’accès valide du fichier|
+|/BypassProxy|Facultatif|Indique que le serveur de configuration se connecte à Azure sans proxy|Pour obtenir cette valeur de Venu|
+|/ProxySettingsFilePath|Facultatif|Paramètres de proxy (Le proxy par défaut nécessite une authentification, sinon il faut un proxy personnalisé)|Le fichier doit être au format spécifié ci-dessous|
+|DataTransferSecurePort|Facultatif|Numéro de port sur le PSIP à utiliser pour les données de réplication| Numéro de port valide (valeur par défaut : 9433)|
+|/SkipSpaceCheck|Facultatif|Ignorer la vérification des espaces pour le disque du cache| |
+|/AcceptThirdpartyEULA|Obligatoire|Cet indicateur implique l’acceptation du CLUF tiers| |
+|/ShowThirdpartyEULA|Facultatif|Affiche le CLUF tiers. S’il est fourni en entrée, tous les autres paramètres sont ignorés| |
+
+
+
+### <a name="create-file-input-for-mysqlcredsfilepath"></a>Créer le fichier d’entrée pour MYSQLCredsFilePath
+
+Le paramètre MySQLCredsFilePath accepte un fichier comme entrée. Créez le fichier au format suivant et transmettez-le comme paramètre MySQLCredsFilePath d’entrée.
+```ini
+[MySQLCredentials]
+MySQLRootPassword = "Password>"
+MySQLUserPassword = "Password"
+```
+### <a name="create-file-input-for-proxysettingsfilepath"></a>Créer le fichier d’entrée pour ProxySettingsFilePath
+Le paramètre ProxySettingsFilePath prend un fichier en tant qu’entrée. Créez le fichier au format suivant et transmettez-le comme paramètre ProxySettingsFilePath d’entrée.
+
+```ini
+[ProxySettings]
+ProxyAuthentication = "Yes/No"
+Proxy IP = "IP Address"
+ProxyPort = "Port"
+ProxyUserName="UserName"
+ProxyPassword="Password"
+```
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Supprimer un serveur de configuration ou annuler son inscription
 

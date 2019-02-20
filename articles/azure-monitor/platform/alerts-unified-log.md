@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745706"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106401"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
-Cet article fournit des informations sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les [Alertes Azure](../../azure-monitor/platform/alerts-overview.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes.
+Cet article fournit des informations sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les [Alertes Azure](../platform/alerts-overview.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes.
 
-Une alerte de journal consiste en des règles de recherche dans les journaux créées pour [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Pour en savoir plus sur son utilisation, voir [Création d’alertes de journal dans Azure](../../azure-monitor/platform/alerts-log.md)
+Une alerte de journal comprend des règles de requête de journal pour [Azure Monitor](../learn/tutorial-viewdata.md) ou [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Pour en savoir plus sur son utilisation, voir [Création d’alertes de journal dans Azure](../platform/alerts-log.md)
 
 > [!NOTE]
-> Les données de journal populaires d’[Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sont désormais également disponibles sur la plateforme de métrique dans Azure Monitor. Pour en savoir plus, voir [Alerte de métrique pour les journaux](../../azure-monitor/platform/alerts-metric-logs.md)
+> Les données de journal populaires d’[Azure Monitor](../learn/tutorial-viewdata.md) sont désormais également disponibles sur la plateforme de métrique dans Azure Monitor. Pour en savoir plus, voir [Alerte de métrique pour les journaux](../platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Règle d’alerte de recherche dans les journaux - Définition et types
@@ -41,7 +41,7 @@ Les règles de recherche dans les journaux sont définies par les détails suiva
 
 - **Seuil**.  Les résultats de la recherche dans les journaux sont évalués pour déterminer si une alerte doit être créée.  Le seuil diffère selon le type de règle d’alerte de recherche dans les journaux.
 
-Les règles de recherche dans les journaux, qu’il s’agisse d’[Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou d’[Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), peuvent être de deux types. Chacun de ces types est décrit en détail dans les sections suivantes.
+Les règles de requête de journal, qu’il s’agisse d’[Azure Monitor](../learn/tutorial-viewdata.md) ou d’[Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), peuvent être de deux types. Chacun de ces types est décrit en détail dans les sections suivantes.
 
 - **[Nombre de résultats](#number-of-results-alert-rules)**. Alerte unique créée lorsque le nombre d’enregistrements renvoyés par la recherche dans les journaux dépasse un nombre spécifié.
 - **[Mesure métrique](#metric-measurement-alert-rules)**.  Alerte créée pour chaque objet des résultats de la recherche dans les journaux dont les valeurs dépassent le seuil spécifié.
@@ -99,14 +99,28 @@ Prenons le scénario suivant : vous souhaitez créer une alerte si le taux d’
 - **Requête :** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **Période :** 30 minutes<br>
 - **Fréquence des alertes :** 5 minutes<br>
-- **Valeur de l’agrégat :** Supérieur à 90<br>
+- **Logique d'alerte - Condition et seuil :** Supérieur à 90<br>
+- **Champ de groupe (Aggregate-on) :** Ordinateur
 - **Déclencher l’alerte selon :** nombre total de violations supérieur à 2<br>
 
-La requête créerait une valeur moyenne pour chaque ordinateur à intervalles de 5 minutes.  Cette requête serait exécutée toutes les 5 minutes pour les données collectées au cours des 30 minutes précédentes.  Des exemples de données sont indiqués ci-dessous pour trois ordinateurs.
+La requête créerait une valeur moyenne pour chaque ordinateur à intervalles de 5 minutes.  Cette requête serait exécutée toutes les 5 minutes pour les données collectées au cours des 30 minutes précédentes. Le champ de groupe choisi (Aggregate-on) correspondant à la colonne « Ordinateur », la valeur AggregatedValue est fractionnée pour différentes valeurs « Ordinateur » et l'utilisation moyenne du processeur de chaque ordinateur est déterminée pour une période de 5 minutes.  À titre d'exemple, le résultat de la requête pour trois ordinateurs se présenterait comme suit.
+
+
+|TimeGenerated [UTC] |Ordinateur  |AggregatedValue  |
+|---------|---------|---------|
+|20XX-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20XX-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20XX-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+Si le résultat de la requête devait être tracé, il se présenterait comme suit.
 
 ![Résultats de l’exemple de requête](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-Dans cet exemple, des alertes distinctes seraient créées pour srv02 et srv03 dans la mesure où le seuil de 90 % a été dépassé trois fois au cours de la période.  Si le **déclencheur d’alerte** était remplacé par **Consécutif**, une alerte serait créée uniquement pour srv03, car il a dépassé le seuil sur 3 échantillons consécutifs.
+Dans cet exemple, nous voyons, par période de 5 minutes pour chacun des trois ordinateurs - utilisation moyenne du processeur telle que calculée pour 5 minutes. Seuil de 90 violé par srv01 une seule fois à 1:25. En comparaison, srv02 dépasse le seuil de 90 à 1:10, 1:15 et 1:25, alors que srv03 le dépasse de 90 à 1:10, 1:15, 1:20 et 1:30. L'alerte étant configurée pour se déclencher au-delà de deux violations, nous constatons que seuls srv02 et srv03 répondent aux critères. Ainsi, des alertes distinctes seraient créées pour srv02 et srv03 dans la mesure où le seuil de 90 % a été dépassé deux fois au cours de plusieurs périodes.  Si le paramètre *Déclencher l'alerte selon :* était configuré pour l'option *Violations continues*, une alerte serait déclenchée **uniquement** pour srv03, car il a dépassé le seuil lors de trois périodes consécutives entre 1:10 et 1:20. Et **non** pour srv02, car il a dépassé le seuil lors de deux périodes entre 1:10 et 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Règle d’alerte Recherche dans les journaux - déclenchement et état
 
@@ -114,11 +128,11 @@ La règle d’alerte Recherche dans les journaux s’applique sur la logique ind
 
 Imaginons maintenant que nous disposions d’une règle d’alerte de journal appelée *Contoso-Log-Alert*, conformément à la configuration utilisée dans l’[exemple fourni pour l’alerte de journal de type Nombre de résultats](#example-of-number-of-records-type-log-alert). 
 - À 13 h 05, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a généré 0 enregistrement. Ce résultat est inférieur au seuil et ne déclenche donc pas d’alerte. 
-- Lors de l’itération suivante, à 13 h10, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 5 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](../../azure-monitor/platform/action-groups.md) associé. 
-- À 13 h15, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 2 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](../../azure-monitor/platform/action-groups.md) associé.
+- Lors de l’itération suivante, à 13 h10, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 5 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](../platform/action-groups.md) associé. 
+- À 13 h15, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 2 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](../platform/action-groups.md) associé.
 - À 13 h 20, lorsque Contoso-Log-Alert a été exécutée par l’alerte Azure, le résultat de la recherche dans les journaux a généré à nouveau 0 enregistrement. Ce résultat est inférieur au seuil et ne déclenche donc pas d’alerte.
 
-Mais dans ce scénario, à 13 h 15, les alertes Azure ne peuvent pas déterminer si les problèmes sous-jacents observés à 13 h 10 persistent et qu’il n’y a pas de nouvelles pannes. Comme la requête fournie par l’utilisateur est susceptible de prendre en compte des enregistrements antérieurs, les alertes Azure ne sont pas fiables. Pour plus de prudence, Contoso-Log-Alert se déclenche à nouveau à 13 h 15 par le biais du [groupe d’actions](../../azure-monitor/platform/action-groups.md) configuré. Enfin, à 13 h 20, lorsque aucun enregistrement n’est visible, les alertes Azure ne peuvent pas avoir l’assurance que la cause des enregistrements a été résolue. Par conséquent, Contoso-Log-Alert ne va pas passer à l’état Résolu dans le tableau de bord Azure Alert et/ou les notifications envoyées indiquant la résolution de l’alerte.
+Mais dans ce scénario, à 13 h 15, les alertes Azure ne peuvent pas déterminer si les problèmes sous-jacents observés à 13 h 10 persistent et qu’il n’y a pas de nouvelles pannes. Comme la requête fournie par l’utilisateur est susceptible de prendre en compte des enregistrements antérieurs, les alertes Azure ne sont pas fiables. Pour plus de prudence, Contoso-Log-Alert se déclenche à nouveau à 13 h 15 par le biais du [groupe d’actions](../platform/action-groups.md) configuré. Enfin, à 13 h 20, lorsque aucun enregistrement n’est visible, les alertes Azure ne peuvent pas avoir l’assurance que la cause des enregistrements a été résolue. Par conséquent, Contoso-Log-Alert ne va pas passer à l’état Résolu dans le tableau de bord Azure Alert et/ou les notifications envoyées indiquant la résolution de l’alerte.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Tarification et facturation des alertes de journal
@@ -133,9 +147,8 @@ La tarification applicable aux alertes de journal est présentée à la page [Ta
     > Si des caractères non valides tels que `<, >, %, &, \, ?, /` sont présents, ils sont remplacés par `_` sur la facture. Pour supprimer les ressources scheduleQueryRules créées pour la facturation des règles d’alerte à l’aide de l’[API Log Analytics héritée](api-alerts.md), l’utilisateur doit supprimer la planification et l’action d’alerte d’origine avec l’[API Log Analytics héritée](api-alerts.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur la [création d’alertes de journal dans Azure](../../azure-monitor/platform/alerts-log.md).
+* En savoir plus sur la [création d’alertes de journal dans Azure](../platform/alerts-log.md).
 * Comprendre les [webhooks dans les alertes de journal dans Azure](alerts-log-webhook.md).
-* En savoir plus sur [Alertes Azure](../../azure-monitor/platform/alerts-overview.md).
-* En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md).
-* En savoir plus sur [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
-
+* En savoir plus sur [Alertes Azure](../platform/alerts-overview.md).
+* En savoir plus sur [Application Insights](../app/analytics.md).
+* En savoir plus sur les [requêtes dans les journaux Azure Monitor](../log-query/log-query-overview.md).    

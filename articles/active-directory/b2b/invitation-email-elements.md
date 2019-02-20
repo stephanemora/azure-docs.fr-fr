@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079968"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163000"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -66,6 +67,14 @@ Le pied de page contient la marque de la société Microsoft et permet au destin
 
   ![quand le destinataire n’a pas besoin de réclamer l’invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## <a name="how-the-language-is-determined"></a>Comment la langue est-elle déterminée ?
+Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue. 
+- Propriété **messageLanguage** de l'objet [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) si l'API Créer une invitation est utilisée
+-   Propriété **preferredLanguage** spécifiée dans l'[objet utilisateur](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) de l'invité
+-   **Langue de notification** définie dans les propriétés du client de base de l'utilisateur invité (pour les clients Azure AD uniquement)
+-   **Langue de Notification** définie dans les propriétés du client de la ressource
+
+Si aucun de ces paramètres n'est configuré, l'anglais (États-Unis) est la langue par défaut.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

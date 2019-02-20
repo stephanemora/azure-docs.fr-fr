@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/28/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94171da3c60de3efc4e2a234494816899c3d2f05
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511851"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246032"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -177,9 +177,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
-| Agents Windows |Oui |La solution collecte des informations sur les mises à jour système auprès des agents Windows et lance l’installation des mises à jour obligatoires. |
-| Agents Linux |Oui |La solution collecte des informations sur les mises à jour système auprès des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
-| Groupe d’administration d’Operations Manager |Oui |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br/>Une connexion directe entre l’agent Operations Manager et Log Analytics n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
+| Agents Windows |OUI |La solution collecte des informations sur les mises à jour système auprès des agents Windows et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |OUI |La solution collecte des informations sur les mises à jour système auprès des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
+| Groupe d’administration d’Operations Manager |OUI |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br/>Une connexion directe entre l’agent Operations Manager et Log Analytics n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
 
@@ -600,6 +600,13 @@ Toutefois, Update Management peut quand même signaler que cet ordinateur n’es
 
 Le déploiement de mises à jour par classification ne fonctionne pas directement sur CentOS. Pour déployer correctement les mises à jour pour CentOS, sélectionnez toutes les classifications pour garantir que les mises à jour sont appliquées. Pour SUSE, sélectionner *uniquement* « Autres mises à jour » en tant que classification peut entraîner l’installation de certaines mises à jour de sécurité si les mises à jour de sécurité associées à zypper (gestionnaire de package) ou ses dépendances sont requises en premier. Il s’agit d’une limitation de zypper. Dans certains cas, vous devrez peut-être réexécuter le déploiement des mises à jour. Pour savoir si cela est nécessaire, consultez le journal des mises à jour.
 
+## <a name="remove-a-vm-for-update-management"></a>Supprimer une machine virtuelle pour Update Management
+
+Pour supprimer une machine virtuelle de Update Management :
+
+* Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la rechercher enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
+* Supprimez l’agent [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+  
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
 Pour savoir comment résoudre les problèmes de Update Management, consultez [Résolution des problèmes de Update Management](troubleshoot/update-management.md).

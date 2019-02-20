@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847813"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210592"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
 
@@ -83,6 +83,9 @@ Microsoft se réserve le droit de désactiver un compte client ayant dépassé s
 Les services de messagerie Service Bus (files d’attente et rubriques/abonnements) permettent à l'application d'envoyer des messages dont la taille peut aller jusqu'à 256 Ko (niveau standard) ou 1 Mo (niveau Premium). En présence de messages de taille supérieure à 1 Mo, utilisez le modèle de vérification des requêtes décrit dans [ce billet de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Pourquoi ne suis-je pas en mesure de créer un espace de noms après l'avoir supprimé d'un autre abonnement ? 
+Lorsque vous supprimez un espace de noms d’un abonnement, patientez pendant 4 heures avant de le recréer avec le même nom dans un autre abonnement. Sinon, le message d’erreur suivant peut s’afficher : `Namespace already exists`. 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quelles sont les exceptions générées par les API Azure Service Bus et les actions recommandées ?
 Pour obtenir la liste des exceptions Service Bus potentielles, consultez la page [Vue d’ensemble des exceptions][Exceptions overview].
 

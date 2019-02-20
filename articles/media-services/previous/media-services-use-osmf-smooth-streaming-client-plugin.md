@@ -4,7 +4,7 @@ description: Apprenez à utiliser le plug-in Smooth Streaming d'Azure Media Serv
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cfabc068e801c610c9e393eea50213a3c5ad26ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229626"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000095"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Utilisation du plug-in Microsoft Smooth Streaming pour Adobe Open Source Media Framework
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Utilisation du plug-in Microsoft Smooth Streaming pour Adobe Open Source Media Framework  
 ## <a name="overview"></a>Vue d’ensemble
 Le plug-in Microsoft Smooth Streaming pour Open Source Media Framework 2.0 (SS pour OSMF) étend les capacités par défaut d'OSMF et ajoute la lecture de contenu Microsoft Smooth Streaming aux lecteurs OSMF, qu'ils soient nouveaux ou existants. Il ajoute également la fonction de lecture Smooth Streaming à Strobe Media Playback (SMP).
 

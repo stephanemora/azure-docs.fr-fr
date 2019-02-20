@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0c7e0e539ca884739f5bf633946a4704d29b132b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448226"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112595"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les [alertes de métriques plus récentes](../../azure-monitor/platform/alerts-metric-near-real-time.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de métrique plus récentes sont disponibles pour [cet ensemble de types de ressources](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Le modèle Resource Manager spécifié pour l’alerte de métrique ne fonctionne pas pour le type de ressource Microsoft.operationalinsights/Workspaces puisque la prise en charge des métriques à partir de Log Analytics est en préversion. Les utilisateurs qui veulent utiliser la fonctionnalité en préversion avec le modèle de ressource peuvent contacter l’équipe [Azure Alerts Feedback](mailto:azurealertsfeedback@microsoft.com)
+> Modèle de ressource pour créer des alertes de métrique pour le type de ressource : Espace de travail Azure Log Analytics (notamment) `Microsoft.OperationalInsights/workspaces`, nécessite des étapes supplémentaires. Pour plus d’informations, consultez l’article [Alerte de métrique pour les journaux - Modèle de ressource](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Procédure de base :
 

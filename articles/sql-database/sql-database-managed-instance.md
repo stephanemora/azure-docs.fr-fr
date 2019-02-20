@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751546"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964149"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utiliser Advanced Data Security pour SQL Database avec des réseaux virtuels et une compatibilité de presque 100 %
 
@@ -54,15 +54,15 @@ Les fonctionnalités clés des instances managées figurent dans le tableau suiv
 |Fonctionnalité | Description|
 |---|---|
 | Version/Build de SQL Server | Moteur de base de données SQL Server (dernière version stable) |
-| Sauvegardes automatisées gérées | Oui |
-| Analyse et métriques des instances et bases de données intégrées | Oui |
-| Mise à jour corrective automatique des logiciels | Oui |
-| Les dernières fonctionnalités du moteur de base de données | Oui |
+| Sauvegardes automatisées gérées | OUI |
+| Analyse et métriques des instances et bases de données intégrées | OUI |
+| Mise à jour corrective automatique des logiciels | OUI |
+| Les dernières fonctionnalités du moteur de base de données | OUI |
 | Nombre de fichiers de données (ROWS) par base de données | Multiple |
 | Nombre de fichiers journaux (LOG) par base de données | 1 |
-| Réseau virtuel - Déploiement Azure Resource Manager | Oui |
+| Réseau virtuel - Déploiement Azure Resource Manager | OUI |
 | Réseau virtuel - Modèle de déploiement classique | Non  |
-| Prise en charge du portail | Oui|
+| Prise en charge du portail | OUI|
 | Integration Services (SSIS) intégré | Non : SSIS fait partie de la [plateforme PaaS Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) intégré | Non : SSAS est une [plateforme PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distincte |
 | Reporting Services (SSRS) intégré | Non : utilisez Power BI ou l’infrastructure IaaS SSRS |
@@ -93,8 +93,8 @@ Les deux niveaux de service garantissent une disponibilité de 99,99 % et vous p
 La liste suivante décrit les principales caractéristiques du niveau de service Usage général :
 
 - Concevoir pour la majorité des applications métier avec des exigences de performances standard
-- Stockage Azure Premium à hautes performances (8 To)
-- [Haute disponibilité](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) intégrée basée sur un Stockage Premium Azure fiable et [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Stockage Blob Azure à hautes performances (8 To)
+- [Haute disponibilité](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) intégrée basée sur un Stockage Blob Azure fiable et [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 Pour plus d’informations, consultez [storage layer in general purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) et [Storage performance best practices and considerations for managed instances (general purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -107,7 +107,7 @@ Le niveau de service Critique pour l’entreprise est conçu pour les applicatio
 La liste suivante décrit les principales caractéristiques du niveau de service Critique pour l’entreprise :
 
 - Conçu pour les applications d’entreprise avec les exigences les plus hautes en matière de performances et de disponibilité
-- Fourni avec un stockage SSD extrêmement rapide (jusqu’à 1 To sur Gen 4, jusqu’à 4 To sur Gen 5)
+- Fourni avec un stockage SSD local extrêmement rapide (jusqu’à 1 To sur Gen4, jusqu’à 4 To sur Gen5)
 - [Haute disponibilité](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) intégrée basée sur les [groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) et [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Un [réplica de base de données en lecture seule](sql-database-read-scale-out.md) intégré supplémentaire qui peut être utilisé pour les rapports et d’autres charges de travail en lecture seule
 - [OLTP en mémoire](sql-database-in-memory.md), qui peut être utilisé pour les charges de travail avec des exigences de hautes performances  

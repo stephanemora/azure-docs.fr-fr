@@ -1,28 +1,30 @@
 ---
 title: Guide pratique pour administrer le Cache Azure pour Redis | Microsoft Docs
 description: Découvrez comment effectuer des tâches d’administration comme le redémarrage et la planification de mises à jour pour le Cache Azure pour Redis.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: wesmc
-ms.openlocfilehash: 0f86bd807bf7bf0d00ad659f86b6e1170f31074c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.author: yegu
+ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021284"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232379"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Guide pratique pour administrer le Cache Azure pour Redis
 Cette rubrique explique comment effectuer des tâches d’administration comme le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Azure pour Redis.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="reboot"></a>Reboot
 Le panneau **Redémarrer** vous permet de redémarrer un ou plusieurs nœuds de votre cache. Cette fonctionnalité de redémarrage vous permet de tester votre application pour garantir la résilience en cas de panne d’un nœud de cache.
@@ -92,7 +94,7 @@ Le panneau **Planification de mises à jour** vous permet de désigner une fenê
 
 Pour spécifier une fenêtre de maintenance, vérifiez les jours choisis et spécifiez l’heure de début de la fenêtre de maintenance pour chaque jour, puis cliquez sur **OK**. Notez que l’heure de la maintenance est au format UTC. 
 
-La fenêtre de maintenance minimale et par défaut pour les mises à jour est de cinq heures. Cette valeur n’est pas configurable à partir du portail Azure, mais vous pouvez la configure dans PowerShell à l’aide du paramètre `MaintenanceWindow` de l’applet de commande [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) . Pour plus d’informations, voir [Puis-je gérer les mises à jour planifiées à l’aide de PowerShell, de l’interface de ligne de commande ou de tout autre outil de gestion ?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+La fenêtre de maintenance minimale et par défaut pour les mises à jour est de cinq heures. Cette valeur n’est pas configurable à partir du portail Azure, mais vous pouvez la configure dans PowerShell à l’aide du paramètre `MaintenanceWindow` de la cmdlet [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) . Pour plus d’informations, voir [Puis-je gérer les mises à jour planifiées à l’aide de PowerShell, de l’interface de ligne de commande ou de tout autre outil de gestion ?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 
 ## <a name="schedule-updates-faq"></a>Forum aux questions de la planification des mises à jour
@@ -110,10 +112,10 @@ Seules les mises à jour du serveur Redis sont exécutées au cours de la fenêt
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Puis-je gérer les mises à jour planifiées à l’aide de PowerShell, de l’interface de ligne de commande ou de tout autre outil de gestion ?
 Oui. Vous pouvez gérer vos mises à jour planifiées à l’aide des cmdlets de commande PowerShell suivantes :
 
-* [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+* [Get-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/get-azrediscachepatchschedule)
+* [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
+* [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
+* [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Quels niveaux tarifaires peuvent utiliser la fonctionnalité de planification des mises à jour ?
 La fonction **Planifier les mises à jour** n’est disponible que dans le niveau tarifaire Premium.

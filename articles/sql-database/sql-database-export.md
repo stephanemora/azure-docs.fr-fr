@@ -7,17 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 050da5e71fd804055d0a2ece1150b79b3922170f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463750"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100582"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exporter une base de données SQL Azure dans un fichier BACPAC
 
@@ -100,5 +100,5 @@ $exportStatus
 - Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Server, consultez [Importer un fichier BACPAC dans une base de données SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
 - Pour en savoir plus sur l’exportation d’un fichier BACPAC à partir d’une base de données SQL Server, consultez [Exporter une application de la couche Données](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Pour en savoir plus sur l’utilisation du service de migration de données afin de migrer une base de données, consultez [Migrer SQL Server vers Azure SQL Database hors connexion à l’aide de DMS](../dms/tutorial-sql-server-to-azure-sql.md).
-- Si vous exportez depuis SQL Server avant de procéder à la migration vers Azure SQL Database, consultez [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
+- Si vous exportez depuis SQL Server avant de procéder à la migration vers Azure SQL Database, consultez [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-single-database-migrate.md).
 - Pour savoir comment gérer et partager de façon sécurisée les clés de stockage et les signatures d’accès partagé, consultez le [Guide de sécurité de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

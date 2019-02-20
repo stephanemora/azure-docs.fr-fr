@@ -11,19 +11,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/31/2018
+ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b7b362cf711cc6424d1eb3daa19701ee22249741
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a458f62ec38503e401b3fb810dc7edc8059a7715
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151513"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245573"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Approuver ou rejeter les demandes de rôles de ressources Azure dans PIM
 
-Avec Azure AD Privileged Identity Management (PIM), vous pouvez configurer des rôles afin d’exiger une approbation pour les activations. Vous pouvez également choisir un ou plusieurs utilisateurs ou groupes en tant qu’approbateurs délégués. Suivez les étapes décrites dans cet article pour approuver ou refuser des demandes de rôles de ressources Azure.
+Avec Azure AD Privileged Identity Management (PIM), vous pouvez configurer des rôles afin d’exiger une approbation pour les activations. Vous pouvez également choisir un ou plusieurs utilisateurs ou groupes en tant qu’approbateurs délégués. Les approbateurs délégués ont 24 heures pour approuver les demandes. Si une demande n’est pas approuvée sous 24 heures, l’utilisateur éligible doit soumettre une nouvelle demande. Le délai d'approbation de 24 heures n’est pas configurable.
+
+Suivez les étapes décrites dans cet article pour approuver ou refuser des demandes de rôles de ressources Azure.
 
 ## <a name="view-pending-requests"></a>Afficher les demandes en attente
 

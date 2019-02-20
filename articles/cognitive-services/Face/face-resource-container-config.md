@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: Paramètres de configuration des conteneurs.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 218343db4d8ac7e35f58951ee177f5c288aed3d9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a70c200f0260d87d35eae8728ed1f908e7061f32
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476415"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979103"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
 
@@ -45,15 +45,15 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Visage_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur correspondant à un URI de point de terminaison valide pour une ressource _Visage_ sur Azure.
+Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Visage_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur correspondant à un URI de point de terminaison valide pour une ressource _Visage_ sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
 * Portail Azure : Vue d’ensemble de **Visage**, étiqueté `Endpoint`
 
-|Obligatoire| NOM | Type de données | Description |
+|Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -79,7 +79,7 @@ Les conteneurs Visage n’utilisent pas de montage d’entrée ou de sortie pour
 
 La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](face-how-to-install-containers.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service Docker et les autorisations de l’emplacement de montage de l’hôte. 
 
-|Facultatif| NOM | Type de données | Description |
+|Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
 |Non autorisé| `Input` | Chaîne | Les conteneurs Visage n’utilisent pas cet élément.|
 |Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Les journaux de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -112,7 +112,7 @@ Les exemples Docker suivants s’appliquent au conteneur Visage.
 
 ### <a name="basic-example"></a>Exemple de base 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
@@ -122,7 +122,7 @@ Les exemples Docker suivants s’appliquent au conteneur Visage.
 
 ### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
@@ -131,7 +131,7 @@ Les exemples Docker suivants s’appliquent au conteneur Visage.
 
 ### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \

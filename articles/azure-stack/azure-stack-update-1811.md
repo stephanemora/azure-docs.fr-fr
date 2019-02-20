@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766093"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099137"
 ---
 # <a name="azure-stack-1811-update"></a>Mise à jour 1811 d’Azure Stack
 
@@ -118,6 +118,18 @@ Cette mise à jour inclut les nouvelles fonctionnalités et améliorations suiva
 - Les disques managés sont désormais activé par défaut lors de la création de machines virtuelles via le portail Azure Stack. Pour connaître les étapes supplémentaires requises pour les disques managés afin d’éviter des échecs de création de machine virtuelle, voir la section [Problèmes connus](#known-issues-post-installation).
 
 - Cette publication introduit des actions d’alerte de type **Réparer** pour l’opérateur Azure Stack. Certaines alertes dans 1811 incluent un bouton **Réparer** que vous pouvez actionner pour résoudre le problème. Pour plus d’informations, voir [Surveiller l’intégrité et les alertes dans Azure Stack](azure-stack-monitor-health.md).
+
+- Nouvelle expérience de mise à jour dans Azure Stack. Voici quelques-unes des améliorations de la mise à jour : 
+    - Onglets scindant les mises à jour de l'historique des mises à jour pour mieux suivre les mises à jour en cours et terminées.
+    - Visualisations améliorées des états dans la section des Essentials avec de nouvelles icônes et une nouvelle présentation pour les versions actuelles et OEM, ainsi que la date de la dernière mise à jour.
+    - Le lien **Afficher** de la colonne Notes de publication permet à l'utilisateur d'accéder directement à la documentation spécifique à la mise à jour, et non à la page de mise à jour générique.
+    - L'onglet **Historique des mises à jour** permet de déterminer le temps d'exécution de chaque mise à jour et propose des fonctionnalités de filtrage améliorées.  
+    - Les unités d'échelle Azure Stack connectées reçoivent automatiquement la **Mise à jour disponible**.
+    - Les unités d’échelle Azure Stack non connectées peuvent importer les mises à jour comme précédemment. 
+    - Le processus de téléchargement des journaux JSON à partir du portail reste inchangé. Les opérateurs Azure Stack pourront suivre la progression des différentes étapes.
+
+    Pour plus d’informations, consultez [Effectuer des mises à jour dans Azure Stack](azure-stack-apply-updates.md).
+
 
 ## <a name="fixed-issues"></a>Problèmes résolus
 

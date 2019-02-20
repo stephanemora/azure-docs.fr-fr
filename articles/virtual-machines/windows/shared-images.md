@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 07912369179a1d1226c750a8e86837fdc6887922
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305148"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984169"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Aperçu : Créer une galerie d’images partagées avec Azure PowerShell 
 
@@ -40,6 +40,7 @@ La fonctionnalité Galerie d’images partagées présente plusieurs types de re
 | **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
 | **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -49,12 +50,12 @@ Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vou
  
 ## <a name="create-vms-from-an-image"></a>Créer des machines virtuelles à partir d’une image
 
-Une fois que la version de l’image est complète, vous pouvez créer une ou plusieurs nouvelles machines virtuelles. À l’aide du paramètre simplifié défini pour la cmdlet [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm), vous devez simplement fournir l’ID de l’image de la version de l’image. 
+Une fois que la version de l’image est complète, vous pouvez créer une ou plusieurs nouvelles machines virtuelles. À l’aide du paramètre simplifié défini pour la cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), vous devez simplement fournir l’ID de l’image de la version de l’image. 
 
 Cet exemple crée une machine virtuelle nommée *myVMfromImage*, dans le groupe *myResourceGroup* dans le centre de données *USA Est*.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
    -ResourceGroupName "myResourceGroup" `
    -Name "myVMfromImage" `
    -Image $imageVersion.Id `
@@ -70,10 +71,10 @@ New-AzureRmVm `
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées :
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées :
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myGalleryRG
+Remove-AzResourceGroup -Name myGalleryRG
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

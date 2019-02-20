@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 2ac8bd29b617e305d19f30590b8ec9720e9acdd3
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7e67e7836b1d80e623a11e552c81750bc6133205
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192758"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981636"
 ---
 # <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Aperçu : Créer et utiliser des images partagées pour les groupe de machines virtuelles identiques avec Azure PowerShell
 
@@ -31,18 +31,18 @@ La galerie d’images partagées vous permet de partager vos images de machine v
 
 La galerie est une ressource de niveau supérieur qui fournit le contrôle d’accès en fonction du rôle (RBAC) complet. Les versions des images peuvent être gérées, et vous pouvez choisir de répliquer chaque version d’image vers un autre ensemble de régions Azure. La galerie fonctionne uniquement avec les images managées. 
 
-La fonctionnalité Galerie d’images partagées a plusieurs types de ressources. Dans cet article, nous allons utiliser ou générer ce qui suit :
+La fonctionnalité Galerie d’images partagées présente plusieurs types de ressources. Dans cet article, nous allons utiliser ou générer ce qui suit :
 
 | Ressource | Description|
 |----------|------------|
-| **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images gérés sont créés à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisée pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
+| **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
-| **Définition d’image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
+| **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
 | **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -55,10 +55,10 @@ Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vou
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Créer un groupe identique à partir de la version d’image personnalisée
 
-Créez un groupe identique de machines virtuelles avec [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). L'exemple suivant crée un groupe identique à partir de la nouvelle version d’image dans le centre de données USA Ouest. Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Quand vous y êtes invité, définissez vos propres informations d’identification d’administration pour les instances de machine virtuelle du groupe identique :
+Créez un groupe de machines virtuelles identiques avec [New-AzVmss](/powershell/module/az.compute/new-azvmss). L'exemple suivant crée un groupe identique à partir de la nouvelle version d’image dans le centre de données USA Ouest. Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Quand vous y êtes invité, définissez vos propres informations d’identification d’administration pour les instances de machine virtuelle du groupe identique :
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName myVMSSRG `
   -Location 'South Central US' `
   -VMScaleSetName 'myScaleSet' `
@@ -77,11 +77,11 @@ La création et la configuration des l’ensemble des ressources et des machines
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées :
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées :
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myGalleryRG
-Remove-AzureRmResourceGroup -Name myVMSSRG
+Remove-AzResourceGroup -Name myGalleryRG
+Remove-AzResourceGroup -Name myVMSSRG
 ```
 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025903"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980465"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -75,12 +75,12 @@ L’agent invité Windows ne prend pas en charge un serveur proxy vous permettan
 
 ## <a name="discover-vm-extensions"></a>Détecter les extensions de machine virtuelle
 
-De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Pour en obtenir la liste complète, utilisez la commande [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). L’exemple ci-après répertorie toutes les extensions disponibles à l’emplacement *WestUS* :
+De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Pour en obtenir la liste complète, utilisez la commande [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). L’exemple ci-après répertorie toutes les extensions disponibles à l’emplacement *WestUS* :
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location "WestUS" | `
-Get-AzureRmVMExtensionImageType | `
-Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location "WestUS" | `
+Get-AzVMExtensionImageType | `
+Get-AzVMExtensionImage | Select Type, Version
 ```
 
 ## <a name="run-vm-extensions"></a>Exécuter les extensions de machine virtuelle
@@ -91,10 +91,10 @@ Vous pouvez exécuter une extension sur une machine virtuelle existante à l’a
 
 ### <a name="powershell"></a>PowerShell
 
-Il existe plusieurs commandes PowerShell pour l’exécution des extensions. Pour en obtenir la liste, utilisez la commande [Get-Command](/powershell/module/microsoft.powershell.core/get-command) et appliquez aux données le filtre *Extension* :
+Il existe plusieurs commandes PowerShell pour l’exécution des extensions. Pour en obtenir la liste, utilisez la commande [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) et appliquez aux données le filtre *Extension* :
 
 ```powershell
-Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module AzureRM.Compute
 ```
 
 Vous générez ainsi des informations qui ressemblent à ce qui suit :
@@ -102,25 +102,25 @@ Vous générez ainsi des informations qui ressemblent à ce qui suit :
 ```powershell
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Set-AzureRmVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
 L’exemple suivant utilise l’extension de script personnalisé pour télécharger un script sur la machine virtuelle cible depuis un dépôt GitHub, puis pour exécuter le script. Pour plus d’informations sur l’extension de script personnalisé, consultez [Vue d’ensemble de l’extension de script personnalisé](custom-script-windows.md).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
     -Run "Create-File.ps1" -Location "West US"
@@ -131,12 +131,12 @@ Dans l’exemple ci-après, l’extension d’accès aux machines virtuelles (VM
 ```powershell
 $cred=Get-Credential
 
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
+Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
     -Location WestUS -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Vous pouvez utiliser la commande `Set-AzureRmVMExtension` pour démarrer n’importe quelle extension de machine virtuelle. Pour plus d’informations, consultez [Référence Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension).
+Vous pouvez utiliser la commande `Set-AzVMExtension` pour démarrer n’importe quelle extension de machine virtuelle. Pour plus d’informations, consultez [Référence Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Portail Azure
@@ -269,7 +269,7 @@ Les dates de publication de mises à jour par les éditeurs varient selon les r�
 #### <a name="listing-extensions-deployed-to-a-vm"></a>Liste des extensions déployées sur une machine virtuelle
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
 $vm.Extensions | select Publisher, VirtualMachineExtensionType, TypeHandlerVersion
 ```
 
@@ -310,14 +310,14 @@ Si vous souhaitez obtenir les dernières corrections de bogues des versions mine
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Vérification si l’extension est définie avec la propriété autoUpgradeMinorVersion sur une machine virtuelle
 
-Le modèle de machine virtuelle vous permet de déterminer si l’extension a été approvisionnée avec la propriété "autoUpgradeMinorVersion". Pour vérifier ce point, utilisez la commande [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) et indiquez le groupe de ressources et le nom de machine virtuelle comme suit :
+Le modèle de machine virtuelle vous permet de déterminer si l’extension a été provisionnée avec la propriété "autoUpgradeMinorVersion". Pour vérifier ce point, utilisez la commande [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) et indiquez le groupe de ressources et le nom de machine virtuelle comme suit :
 
 ```powerShell
- $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
+ $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
-L’exemple de résultat ci-après indique que la propriété *autoUpgradeMinorVersion* est définie sur la valeur *true* :
+La sortie de l’exemple suivant indique que la propriété *autoUpgradeMinorVersion* est définie sur la valeur *true* :
 
 ```powershell
 ForceUpdateTag              :
@@ -366,10 +366,10 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 ### <a name="view-extension-status"></a>Afficher l’état de l’extension
 
-Une fois qu’une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez la commande [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) pour récupérer l’état de l’extension. L’état *Substatuses[0]* indique que l’approvisionnement de l’extension s’est correctement déroulé, autrement dit que l’extension a été déployée sur la machine virtuelle, mais l’état *Substatuses[1]* signale que l’exécution de l’extension dans la machine virtuelle a échoué.
+Une fois qu’une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez la commande [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) pour récupérer l’état de l’extension. L’état *Substatuses[0]* indique que l’approvisionnement de l’extension s’est correctement déroulé, autrement dit que l’extension a été déployée sur la machine virtuelle, mais l’état *Substatuses[1]* signale que l’exécution de l’extension dans la machine virtuelle a échoué.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
+Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
 Le résultat obtenu ressemble à l’exemple de sortie suivant :
@@ -402,10 +402,10 @@ L’état d’exécution de l’extension est également visible dans le portail
 
 ### <a name="rerun-vm-extensions"></a>Réexécuter les extensions de machine virtuelle
 
-Dans certains cas, vous pouvez avoir besoin de réexécuter une extension de machine virtuelle. Pour ce faire, supprimez-la, puis réexécutez-la avec la méthode d’exécution de votre choix. Pour supprimer une extension, utilisez la commande [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) comme suit :
+Dans certains cas, vous pouvez avoir besoin de réexécuter une extension de machine virtuelle. Pour ce faire, supprimez-la, puis réexécutez-la avec la méthode d’exécution de votre choix. Pour supprimer une extension, utilisez la commande [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) comme suit :
 
 ```powershell
-Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
+Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
 Vous pouvez également supprimer une extension dans le portail Azure en procédant comme suit :

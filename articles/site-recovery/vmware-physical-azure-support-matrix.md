@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 02/13/2019
 ms.author: raynew
-ms.openlocfilehash: 202f3fea2445c50398b6ac228b2e58553c9b1076
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8115065afcbd81da1527e09c07ca89ce89100d7d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767581"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236989"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -64,7 +64,7 @@ Site Recovery assure la réplication de toutes les charges de travail exécutée
 --- | ---
 Paramètres de la machine | Les ordinateurs qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
 Charge de travail de machine | Site Recovery assure la réplication de toutes les charges de travail exécutées (par exemple, Active Directory, SQL Server, etc.) sur une machine prise en charge. Cliquez [ici](https://aka.ms/asr_workload) pour en savoir plus.
-Système d’exploitation Windows | Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. </br></br>  [Windows Server 2008 avec au moins SP2 - 32 bits et 64 bits](migrate-tutorial-windows-server-2008.md) (migration uniquement). </br></br> Windows 2016 Nano Server n’est pas pris en charge.
+Système d’exploitation Windows | Windows Server 2019 64 bits, Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. </br></br>  [Windows Server 2008 avec au moins SP2 - 32 bits et 64 bits](migrate-tutorial-windows-server-2008.md) (migration uniquement). </br></br> Windows 2016 Nano Server n’est pas pris en charge.
 Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11<b>\*\*</b>, 6.1 à 6.10<b>\*\*</b>, 7.0 à 7.6 <br/><br/>CentOS : 5.2 à 5.11<b>\*\*</b>, 6.1 à 6.10<b>\*\*</b>, 7.0 à 7.6 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versions du noyau prises en charge)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>-La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication et réactiver-la après la mise à niveau.</br></br> - [En savoir plus](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sur la prise en charge de Linux et des technologies open source dans Azure. Site Recovery orchestre le basculement pour exécuter des serveurs Linux dans Azure. Toutefois, les fournisseurs Linux peuvent limiter la prise en charge aux versions de distribution qui n’ont pas atteint leur fin de vie.<br/><br/> -Sur les distributions Linux, seuls les noyaux de stockage qui font partie de la version/mise à jour mineure de distribution sont pris en charge.<br/><br/> -La mise à niveau des machines protégées sur des versions de distribution majeures Linux n’est pas prise en charge. Pour effectuer la mettre à niveau, désactivez la réplication, mettez à niveau le système d’exploitation, puis réactivez la réplication.<br/><br/> Les serveurs exécutant Red Hat Enterprise Linux 5.2 à 5.11 ou CentOS 5.2 à 5.11 doivent avoir les [composants Linux Integration Services(LIS)](https://www.microsoft.com/download/details.aspx?id=55106) installés pour que les machines démarrent dans Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Version du noyau Ubuntu
@@ -159,6 +159,7 @@ Mise en réseau accélérée | Non
 **Composant** | **Pris en charge**
 --- | ---
 Disque dynamique | Le disque du système d’exploitation doit être un disque de base. <br/><br/>Les disques de données peuvent être des disques dynamiques
+Configuration des disques Docker | Non 
 Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques
 Hôte SAN (iSCSI/FC) | OUI
 vSAN hôte | Oui pour VMware<br/><br/> N/A pour les serveurs physiques

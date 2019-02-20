@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Silverback | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Silverback | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Silverback.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123845"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172705"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Didacticiel : Intégration d’Azure Active Directory à Silverback
+# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutoriel : Intégration d’Azure Active Directory à Silverback
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer Silverback à Azure Active Directory (Azure AD).
 

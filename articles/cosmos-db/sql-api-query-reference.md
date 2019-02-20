@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 457f64b9ae9101628df5347c921bfa057a7cb754
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475184"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991427"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Référence sur le langage SQL pour Azure Cosmos DB 
 
@@ -493,7 +493,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**Opérateurs arithmétiques**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Soustraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
 |**Opérateurs au niveau du bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Opérateur OR au niveau du bit.<br /><br /> Opérateur AND au niveau du bit.<br /><br /> XOR au niveau du bit.<br /><br /> Décalage vers la gauche.<br /><br /> Décalage vers la droite.<br /><br /> Décalage vers la droite avec remplissage de zéros.|  
-|**Opérateurs logiques**|**AND**<br /><br /> **OR**|Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.<br /><br /> Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.|  
+|**Opérateurs logiques**|**AND**<br /><br /> **OR**|Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.<br /><br /> Disjonction logique. Retourne **true** si un des arguments est **true**, retourne **false** dans le cas contraire.|  
 |**Opérateurs de comparaison**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Égal à. Retourne **true** si les arguments sont égaux, **false** dans le cas contraire.<br /><br /> Non égal à. Retourne **true** si les arguments ne sont pas égaux, **false** dans le cas contraire.<br /><br /> Supérieur à. Retourne **true** si le premier argument est supérieur au second, **false** dans le cas contraire.<br /><br /> Supérieur ou égal à. Retourne **true** si le premier argument est supérieur ou égal au second, **false** dans le cas contraire.<br /><br /> Inférieur à. Retourne **true** si le premier argument est inférieur au second, **false** dans le cas contraire.<br /><br /> Inférieur ou égal à. Retourne **true** si le premier argument est inférieur ou égal au second, **false** dans le cas contraire.<br /><br /> Coalesce. Retourne le deuxième argument si le premier argument est une valeur **Undefined**.|  
 |**Chaîne**|**&#124;&#124;**|Concaténation. Renvoie une concaténation de deux arguments.|  
   
@@ -620,7 +620,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apostrophe (')|U+0027|  
 |\\"|guillemet (")|U+0022|  
-|\\\|barre oblique inverse (\\)|U+005C|  
+|\\\ |barre oblique inversée (\\)|U+005C|  
 |\\/|barre oblique (/)|U+002F|  
 |\b|retour arrière|U+0008|  
 |\f|saut de page|U+000C|  

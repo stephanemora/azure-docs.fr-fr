@@ -14,45 +14,45 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 47f02c008a0498492af3503d90fda8ff6e2eefa8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: cc4fb07874015112791ef2eaf9c39b31b690006c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140676"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978661"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Créer et gérer une machine virtuelle Windows équipée de plusieurs cartes d’interface réseau
 Les machines virtuelles (VM) dans Azure peuvent être équipées de plusieurs cartes d’interface réseau (NIC) virtuelles. Un scénario courant consiste à disposer de sous-réseaux différents pour les connectivités frontale et principale. Vous pouvez associer plusieurs cartes d’interface réseau d’une machine virtuelle à différents sous-réseaux, mais ces sous-réseaux doivent tous résider dans le même réseau virtuel. Cet article explique comment créer une machine virtuelle équipée de plusieurs cartes d’interface réseau. Il explique également comment ajouter ou supprimer des cartes d’interface réseau d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
 
 ## <a name="prerequisites"></a>Prérequis
-Vérifiez que vous disposez de la [dernière version d’Azure PowerShell installée et configurée](/powershell/azure/overview).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myVnet* et *myVM*.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-vm-with-multiple-nics"></a>Créer une machine virtuelle avec plusieurs cartes d’interface réseau
 Créez d’abord un groupe de ressources. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *EastUs*:
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
 ### <a name="create-virtual-network-and-subnets"></a>Créer un réseau virtuel et des sous-réseaux
 Un scénario courant pour un réseau virtuel consiste à avoir deux sous-réseaux ou plus. Un sous-réseau peut être dédié au trafic frontal, et l’autre au trafic principal. Pour connecter les deux sous-réseaux, vous utilisez ensuite plusieurs cartes d’interface réseau sur votre machine virtuelle.
 
-1. Définissez deux sous-réseaux de réseau virtuel avec la commande [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). L’exemple suivant définit les sous-réseaux pour *mySubnetFrontEnd* et *mySubnetBackEnd* :
+1. Définissez deux sous-réseaux de réseau virtuel avec la commande [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig). L’exemple suivant définit les sous-réseaux pour *mySubnetFrontEnd* et *mySubnetBackEnd* :
 
     ```powershell
-    $mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
+    $mySubnetFrontEnd = New-AzVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
         -AddressPrefix "192.168.1.0/24"
-    $mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
+    $mySubnetBackEnd = New-AzVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
         -AddressPrefix "192.168.2.0/24"
     ```
 
-2. Créez votre réseau virtuel et vos sous-réseaux avec la commande [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). L’exemple suivant crée un réseau virtuel nommé *myVnet* :
+2. Créez votre réseau virtuel et vos sous-réseaux avec la commande [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). L’exemple suivant crée un réseau virtuel nommé *myVnet* :
 
     ```powershell
-    $myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+    $myVnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
         -Location "EastUs" `
         -Name "myVnet" `
         -AddressPrefix "192.168.0.0/16" `
@@ -61,17 +61,17 @@ Un scénario courant pour un réseau virtuel consiste à avoir deux sous-réseau
 
 
 ### <a name="create-multiple-nics"></a>Créer plusieurs cartes réseau
-Créez deux cartes d’interface réseau avec la commande [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Associez une carte d’interface réseau au sous-réseau frontal et l’autre au sous-réseau principal. L’exemple suivant crée des cartes d’interface réseau nommées *myNic1* et *myNic2* :
+Créez deux cartes d’interface réseau avec la commande [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). Associez une carte d’interface réseau au sous-réseau frontal et l’autre au sous-réseau principal. L’exemple suivant crée des cartes d’interface réseau nommées *myNic1* et *myNic2* :
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
-$myNic1 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+$myNic1 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic1" `
     -Location "EastUs" `
     -SubnetId $frontEnd.Id
 
 $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
-$myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+$myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic2" `
     -Location "EastUs" `
     -SubnetId $backEnd.Id
@@ -88,39 +88,39 @@ Maintenant, commencez à élaborer la configuration de votre machine virtuelle. 
     $cred = Get-Credential
     ```
 
-2. Définissez votre machine virtuelle avec la commande [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). L’exemple suivant définit une machine virtuelle nommée *myVM* et utilise une taille de machine virtuelle qui prend en charge plus de deux cartes d’interface réseau (*Standard_DS3_v2*) :
+2. Définissez votre machine virtuelle avec la commande [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig). L’exemple suivant définit une machine virtuelle nommée *myVM* et utilise une taille de machine virtuelle qui prend en charge plus de deux cartes d’interface réseau (*Standard_DS3_v2*) :
 
     ```powershell
-    $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
+    $vmConfig = New-AzVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
     ```
 
-3. Créez le reste de la configuration de votre machine virtuelle avec les commandes [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) et [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). L’exemple suivant crée une machine virtuelle Windows Server 2016 R2 :
+3. Créez le reste de la configuration de votre machine virtuelle avec les commandes [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) et [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage). L’exemple suivant crée une machine virtuelle Windows Server 2016 R2 :
 
     ```powershell
-    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig `
+    $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
         -Windows `
         -ComputerName "myVM" `
         -Credential $cred `
         -ProvisionVMAgent `
         -EnableAutoUpdate
-    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig `
+    $vmConfig = Set-AzVMSourceImage -VM $vmConfig `
         -PublisherName "MicrosoftWindowsServer" `
         -Offer "WindowsServer" `
         -Skus "2016-Datacenter" `
         -Version "latest"
    ```
 
-4. Associez les deux cartes d’interface réseau que vous avez créées précédemment à l’aide de la commande [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) :
+4. Associez les deux cartes d’interface réseau que vous avez créées précédemment à l’aide de la commande [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) :
 
     ```powershell
-    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
-    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
+    $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
+    $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Créez votre machine virtuelle avec la commande [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) :
+5. Créez votre machine virtuelle avec [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) :
 
     ```powershell
-    New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
+    New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
 
 6. Ajoutez des itinéraires pour les cartes réseau secondaires au système d’exploitation en suivant les étapes décrites dans [Configurer le système d’exploitation pour plusieurs cartes réseau](#configure-guest-os-for-multiple-nics).
@@ -128,34 +128,34 @@ Maintenant, commencez à élaborer la configuration de votre machine virtuelle. 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Ajouter une carte réseau à une machine virtuelle existante
 Pour ajouter une carte d’interface réseau virtuelle à une machine virtuelle existante, désallouez la machine virtuelle, ajoutez la carte d’interface réseau virtuelle, puis démarrez la machine virtuelle. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence. Si nécessaire, vous pouvez [redimensionner une machine virtuelle](resize-vm.md).
 
-1. Désallouez la machine virtuelle avec la commande [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). L’exemple suivant désalloue la machine virtuelle nommée *myVM* dans *myResourceGroup*:
+1. Libérez la machine virtuelle avec la commande [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). L’exemple suivant désalloue la machine virtuelle nommée *myVM* dans *myResourceGroup*:
 
     ```powershell
-    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Obtenez la configuration existante de la machine virtuelle avec commande [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). L’exemple suivant récupère des informations sur la machine virtuelle nommée *myVM* dans *myResourceGroup* :
+2. Obtenez la configuration existante de la machine virtuelle avec commande [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). L’exemple suivant récupère des informations sur la machine virtuelle nommée *myVM* dans *myResourceGroup* :
 
     ```powershell
-    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. L’exemple suivant crée une carte d’interface réseau virtuelle avec la commande [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface), nommée *myNic3*, et associée à *mySubnetBackEnd*. La carte d’interface réseau virtuelle est ensuite associée à la machine virtuelle nommée *myVM* dans *myResourceGroup* avec la commande [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) :
+3. L’exemple suivant crée une carte d’interface réseau virtuelle avec la commande [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface), nommée *myNic3*, et associée à *mySubnetBackEnd*. La carte d’interface réseau virtuelle est ensuite associée à la machine virtuelle nommée *myVM* dans *myResourceGroup* avec la commande [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) :
 
     ```powershell
     # Get info for the back end subnet
-    $myVnet = Get-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
+    $myVnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
     $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 
     # Create a virtual NIC
-    $myNic3 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+    $myNic3 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
         -Name "myNic3" `
         -Location "EastUs" `
         -SubnetId $backEnd.Id
 
     # Get the ID of the new virtual NIC and add to VM
-    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
-    Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+    Add-AzVMNetworkInterface -VM $vm -Id $nicId | Update-AzVm -ResourceGroupName "myResourceGroup"
     ```
 
     ### <a name="primary-virtual-nics"></a>Cartes d’interface réseau virtuelles principales
@@ -170,13 +170,13 @@ Pour ajouter une carte d’interface réseau virtuelle à une machine virtuelle 
     $vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
     
     # Update the VM state in Azure
-    Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+    Update-AzVM -VM $vm -ResourceGroupName "myResourceGroup"
     ```
 
-4. Démarrez la machine virtuelle avec la commande [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm) :
+4. Démarrez la machine virtuelle avec la commande [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) :
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+    Start-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
 5. Ajoutez des itinéraires pour les cartes réseau secondaires au système d’exploitation en suivant les étapes décrites dans [Configurer le système d’exploitation pour plusieurs cartes réseau](#configure-guest-os-for-multiple-nics).
@@ -184,38 +184,38 @@ Pour ajouter une carte d’interface réseau virtuelle à une machine virtuelle 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Supprimer une carte réseau d’une machine virtuelle existante
 Pour supprimer une carte d’interface réseau virtuelle à partir d’une machine virtuelle existante, désallouez la machine virtuelle, supprimez la carte d’interface réseau virtuelle, puis démarrez la machine virtuelle.
 
-1. Désallouez la machine virtuelle avec la commande [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). L’exemple suivant désalloue la machine virtuelle nommée *myVM* dans *myResourceGroup*:
+1. Libérez la machine virtuelle avec la commande [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). L’exemple suivant désalloue la machine virtuelle nommée *myVM* dans *myResourceGroup*:
 
     ```powershell
-    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Obtenez la configuration existante de la machine virtuelle avec commande [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). L’exemple suivant récupère des informations sur la machine virtuelle nommée *myVM* dans *myResourceGroup* :
+2. Obtenez la configuration existante de la machine virtuelle avec commande [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). L’exemple suivant récupère des informations sur la machine virtuelle nommée *myVM* dans *myResourceGroup* :
 
     ```powershell
-    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. Obtenez des informations sur la suppression de la carte d’interface réseau avec la commande [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). L’exemple suivant obtient des informations sur la carte *myNic3* :
+3. Obtenez des informations sur la suppression de la carte d’interface réseau avec la commande [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface). L’exemple suivant obtient des informations sur la carte *myNic3* :
 
     ```powershell
     # List existing NICs on the VM if you need to determine NIC name
     $vm.NetworkProfile.NetworkInterfaces
 
-    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
+    $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. Supprimez la carte d’interface réseau avec la commande [Remove-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface), puis mettez à jour la machine virtuelle avec la commande [Update-AzureRmVm](/powershell/module/azurerm.compute/update-azurermvm). L’exemple suivant supprime la carte *myNic3* obtenue par `$nicId` à l’étape précédente :
+4. Supprimez la carte d’interface réseau avec la commande [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface), puis mettez à jour la machine virtuelle avec la commande [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). L’exemple suivant supprime la carte *myNic3* obtenue par `$nicId` à l’étape précédente :
 
     ```powershell
-    Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
-        Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
+        Update-AzVm -ResourceGroupName "myResourceGroup"
     ```   
 
-5. Démarrez la machine virtuelle avec la commande [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm) :
+5. Démarrez la machine virtuelle avec la commande [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) :
 
     ```powershell
-    Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    Start-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```   
 
 ## <a name="create-multiple-nics-with-templates"></a>Créer plusieurs cartes d’interface réseau avec des modèles

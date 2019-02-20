@@ -7,19 +7,19 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 6e25c0970a48674e157dac5f51c9508596ff6ea1
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461337"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097080"
 ---
-# <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copier une copie d’une base de données SQL Azure cohérente du point de vue transactionnel
+# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d'une base de données Azure SQL Database
 
 Azure SQL Database fournit plusieurs méthodes pour créer une copie cohérente au niveau transactionnel de la base de données SQL Azure existante sur le même serveur ou sur un autre serveur. Vous pouvez copier une base de données SQL à l’aide du portail Azure, de PowerShell ou de T-SQL. 
 
@@ -68,6 +68,7 @@ Connectez-vous à la base de données maître à l’aide de la connexion princi
 Démarrez la copie de la base de données source avec l’instruction [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) . L'exécution de cette instruction initie le processus de copie de la base de données. Étant donné que la copie d'une base de données est un processus asynchrone, l'instruction CREATE DATABASE est retournée avant la fin de la copie de la base de données.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>Copie d'une base de données SQL sur le même serveur
+
 Connectez-vous à la base de données maître à l’aide de la connexion principale niveau serveur ou la connexion qui a créé la base de données que vous souhaitez copier. Pour que la copie de la base de données réussisse, les connexions autres que la connexion principale niveau serveur doivent être membres du rôle dbmanager.
 
 Cette commande copie Database1 dans une nouvelle base de données nommée Database2 sur le même serveur. Selon la taille de votre base de données, l'opération de copie peut prendre plus ou moins longtemps.
@@ -86,6 +87,9 @@ Cette commande copie Database1 sur server1 dans une nouvelle base de données no
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## <a name="to-move-a-database-between-subscriptions"></a>Pour déplacer une base de données entre des abonnements
+
+Dans le [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, puis sélectionnez le serveur qui héberge votre base de données dans la liste. Cliquez sur **Déplacer**, puis sélectionnez les ressources à déplacer et l’abonnement cible.
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Contrôle de la progression de l’opération de copie
 
@@ -96,7 +100,6 @@ Contrôlez le processus de copie en interrogeant les vues sys.databases et sys.d
 
 > [!NOTE]
 > Si vous décidez d’annuler la copie pendant qu’elle est en cours, exécutez l’instruction [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) sur la nouvelle base de données. Vous pouvez également exécuter l'instruction DROP DATABASE sur la base de données source pour annuler le processus de copie.
-> 
 
 ## <a name="resolve-logins"></a>Résolution des connexions
 

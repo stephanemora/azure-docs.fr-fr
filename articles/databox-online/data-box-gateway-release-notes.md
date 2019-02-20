@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302119"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883132"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notes de publication de préversion d’Azure Data Box Gateway
 
@@ -52,9 +52,8 @@ Le tableau suivant résume les problèmes connus pour Data Box Gateway exécutan
 | **7.** |Actualiser | Les autorisations et les listes de contrôle d’accès (ACL) ne sont pas conservées lors d’une opération d’actualisation.  | |
 | **8.** |Copier | Échec de la copie des données avec l’erreur :  Impossible de terminer l’opération demandée du fait d’une limitation du système de fichiers.  |Cette erreur se produit lorsque le flux de données alternatif (ADS) associé au fichier dépasse 128 Ko (limite maximale pour ReFS).  |
 | **9.** |Liens symboliques |Les liens symboliques ne sont pas pris en charge.  |Si des liens symboliques existent vers des répertoires, ces derniers ne sont jamais marqués hors connexion. Par conséquent, vous pouvez ne pas voir la croix grise sur les répertoires, qui indique qu’ils sont hors connexion et que tout le contenu associé a été complètement chargé vers Azure. |
-| **10.** |Aide en ligne |Les liens d’aide dans le portail Azure peuvent ne pas diriger vers la documentation.|Les liens d’aide fonctionneront dans la version en disponibilité générale. |
-
-
+| **10.** |Partages |Actualiser un conteneur existant avec des objets blob de pages vers un partage d'objets blob de blocs (ou inversement) entraîne des échecs de chargement sur la modification de fichier.  |Ce comportement est observé lors des étapes suivantes : <li> Créer un partage d'objets blob de blocs sur l'appareil. </li><li> Associer le partage avec un conteneur cloud existant présentant des objets blob de pages.</li><li>Actualiser ce partage. </li><li>Modifier plusieurs fichiers actualisés déjà stockés en tant qu'objets blob de pages dans le cloud.</li> Des échecs de chargement sont observés. |
+| **11.** |Aide en ligne |Les liens d’aide dans le portail Azure peuvent ne pas diriger vers la documentation.|Les liens d’aide fonctionneront dans la version en disponibilité générale. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

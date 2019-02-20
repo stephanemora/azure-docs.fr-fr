@@ -4,7 +4,7 @@ description: Cet article fournit une vue d’ensemble des fonctionnalités de s�
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584772"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116318"
 ---
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
 
@@ -110,12 +110,12 @@ La protection des données commence avec le contrôle de l’accès à celles-ci
 
 Le service Azure SQL Database n’est disponible que via le port TCP 1433. Pour accéder à une base de données SQL depuis votre ordinateur, vérifiez que le pare-feu du client autorise les communications TCP sortantes sur le port 1433. Si les connexions entrantes ne sont pas nécessaires aux autres applications, bloquez-les sur le port TCP 1433.
 
-#### <a name="authentication"></a>Authentification
+#### <a name="authentication"></a>Authentication
 
 Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. Une base de données SQL prend en charge deux types d’authentification :
 
--   **Authentification SQL Server :** un seul compte de connexion est créé lors de la création d’une instance SQL logique. Il est appelé compte abonné SQL Database. Ce compte se connecte en utilisant l’[authentification SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nom d’utilisateur et mot de passe). Ce compte est un administrateur sur l’instance de serveur logique et sur toutes les bases de données utilisateur associées à cette instance. Les autorisations du compte abonné ne peuvent pas être restreintes. Un seul de ces comptes peut exister.
--   **Authentification Azure Active Directory** : l’[authentification Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permet de se connecter à Azure SQL Database et Azure SQL Data Warehouse à l’aide des identités disponibles dans Azure AD. Vous pouvez l’utiliser pour centraliser la gestion des identités des utilisateurs de base de données.
+-   **Authentification SQL Server** : Un seul compte de connexion est créé lorsqu’une instance SQL logique est créée, appelé compte abonné à la base de données SQL Azure. Ce compte se connecte en utilisant l’[authentification SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nom d’utilisateur et mot de passe). Ce compte est un administrateur sur l’instance de serveur logique et sur toutes les bases de données utilisateur associées à cette instance. Les autorisations du compte abonné ne peuvent pas être restreintes. Un seul de ces comptes peut exister.
+-   **Authentification Azure Active Directory** : [L’authentification Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) est un mécanisme de connexion aux services Azure SQL Database et Azure SQL Data Warehouse à l’aide d’identités dans Azure AD. Vous pouvez l’utiliser pour centraliser la gestion des identités des utilisateurs de base de données.
 
 ![Authentification Azure AD avec SQL Database](./media/azure-databse-security-overview/azure-database-fig2.png)
 
@@ -176,8 +176,8 @@ Vous pouvez utiliser l’audit SQL Database pour :
 
 Il existe deux méthodes d’audit :
 
--   **Audit d’objets blob** : les journaux sont écrits dans le Stockage Blob Azure. Cette méthode d’audit est récente. Elle est plus performante, prend en charge l’audit avec une granularité plus élevée au niveau des objets et est plus économique.
--   **Audit des tables** : les journaux sont écrits dans Stockage Table Azure.
+-   **Audit d’objets blob** : Les journaux sont écrits dans le Stockage Blob Azure. Cette méthode d’audit est récente. Elle est plus performante, prend en charge l’audit avec une granularité plus élevée au niveau des objets et est plus économique.
+-   **Audit de table** : Les journaux sont écrits dans le Stockage Table Azure.
 
 ### <a name="threat-detection"></a>Détection de menaces
 

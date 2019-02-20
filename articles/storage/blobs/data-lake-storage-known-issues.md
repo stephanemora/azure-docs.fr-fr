@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 02/07/2018
 ms.author: normesta
-ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731544"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895531"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Cet article contient les problèmes connus et les limitations temporaires avec A
 
 Les API Stockage Blob et Azure Data Lake Gen2 APIs ne sont pas interopérables.
 
-Si vous disposez d’outils, d’applications ou de scripts personnalisés qui utilisent des API Blob et que vous souhaitez les utiliser pour travailler avec tout le contenu que vous téléchargez sur votre compte, n’activez pas les espaces de noms hiérarchiques sur votre compte de stockage Blob avant que les API Blob deviennent interopérables avec les API Azure Data Lake Gen2. L’utilisation d’un compte de stockage sans l’espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités spécifiques de Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au système de fichiers.
+Si vous disposez d’outils, d’applications, de services ou de scripts qui utilisent des API Blob et que vous souhaitez les utiliser pour travailler avec tout le contenu que vous téléchargez sur votre compte, n’activez pas les espaces de noms hiérarchiques sur votre compte de stockage Blob avant que les API Blob deviennent interopérables avec les API Azure Data Lake Gen2. L’utilisation d’un compte de stockage sans espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités spécifiques de Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au système de fichiers.
 
 ## <a name="blob-storage-apis"></a>API Stockage Blob
 
@@ -43,13 +43,13 @@ Si vous avez utilisé ces API pour charger des données avant leur désactivatio
 
 Dans ces circonstances, nous pouvons restaurer l’accès à l’API Blob pour une période limitée afin que vous puissiez copier ces données dans un compte de stockage pour lequel les espaces de noms hiérarchiques sont désactivés.
 
-Les disques de machines virtuelles non managés dépendent des API de Stockage Blob désactivées. Par conséquent, si vous souhaitez activer les espaces de noms hiérarchiques sur un compte de stockage, placez les disques de machines virtuelles non managés dans un compte de stockage pour lequel les espaces de noms hiérarchiques ne sont pas activés.
+Les disques de machines virtuelles non managés dépendent des API de Stockage Blob désactivées. Par conséquent, si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machines virtuelles non managés dans un compte de stockage pour lequel la fonctionnalité d'espace de noms hiérarchique n'est pas activée.
 
 ## <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 
 Pour afficher ou gérer des comptes Data Lake Storage Gen2 à l’aide de l’Explorateur Stockage Azure, vous devez avoir au moins la version `1.6.0` de l’outil qui est disponible en tant que [téléchargement gratuit](https://azure.microsoft.com/features/storage-explorer/).
 
-Notez qu’actuellement la version de l’Explorateur Stockage qui se trouve dans le portail Azure ne prend pas en charge l’affichage ou la gestion des comptes Data Lake Storage Gen2 avec des espaces de noms hiérarchiques activés.
+Notez qu’actuellement la version de l’Explorateur Stockage qui se trouve dans le portail Azure ne prend pas en charge l’affichage ou la gestion des comptes Data Lake Storage Gen2 avec la fonctionnalité d'espace de noms hiérarchique activée.
 
 ## <a name="blob-viewing-tool"></a>Outil d’affichage Blob
 
@@ -75,17 +75,17 @@ AzCopy version 8 ne prend pas en charge Azure Data Lake Storage Gen2.
 
 Les captures instantanées et la suppression réversible ne sont pas disponibles pour les comptes Azure Data Lake Storage Gen2.
 
-Toutes les fonctionnalités de gestion des versions, notamment les [captures instantanées](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) et la [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) ne sont pas encore disponibles pour les comptes de stockage pour lesquels les espaces de noms hiérarchiques sont activés.
+Toutes les fonctionnalités de gestion des versions, notamment les [captures instantanées](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) et la [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) ne sont pas encore disponibles pour les comptes de stockage pour lesquels la fonctionnalité d'espace de noms hiérarchique est activée.
 
 ## <a name="object-level-storage-tiers"></a>Niveaux de stockage au niveau objet
 
-Les niveaux de stockage au niveau objet (chaud, froid et archive) ne sont pas encore disponibles pour les comptes Azure Data Lake Storage Gen 2, mais ils sont disponibles pour les comptes de stockage où les espaces de noms hiérarchiques ne sont pas activés.
+Les niveaux de stockage au niveau objet (chaud, froid et archive) ne sont pas encore disponibles pour les comptes Azure Data Lake Storage Gen 2, mais ils sont disponibles pour les comptes de stockage où la fonctionnalité d'espace de noms hiérarchique n'est pas activée.
 
-## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Stratégies de gestion (préversion) du cycle de vie du Stockage Blob Azure
+## <a name="azure-blob-storage-lifecycle-management-policies"></a>Stratégies de gestion du cycle de vie du Stockage Blob Azure
 
-Les stratégies de gestion (préversion) du cycle de vie du Stockage Blob Azure ne sont pas encore disponibles pour les comptes Azure Data Lake Storage Gen2.
+Les stratégies de gestion du cycle de vie du Stockage Blob Azure ne sont pas encore disponibles pour les comptes Azure Data Lake Storage Gen2.
 
-Ces stratégies sont disponibles pour les comptes de stockage qui où les espaces de noms hiérarchiques ne sont pas activés.
+Ces stratégies sont disponibles pour les comptes de stockage dont la fonctionnalité d'espace de noms hiérarchique n'est pas activée.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 

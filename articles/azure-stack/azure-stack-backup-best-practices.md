@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241150"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993875"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
 
@@ -43,9 +43,18 @@ La chaîne UNC (convention d’affectation des noms) du chemin d’accès doit u
 
 ### <a name="encryption"></a>Chiffrement
 
+#### <a name="version-1901-and-newer"></a>Version 1901 ou ultérieure
+
+Le certificat de chiffrement est utilisé pour chiffrer les données de sauvegarde exportées vers le stockage externe. Il peut s'agir d'un certificat auto-signé dans la mesure où il est uniquement utilisé pour transporter les clés. Pour plus d’informations sur la création d’un certificat, consultez New-SelfSignedCertificate.  
+La clé doit être stockée dans un emplacement sécurisé (par exemple, certificat global Azure Key Vault). Le format CER du certificat est utilisé pour chiffrer les données. Le format PFX doit être utilisé au cours du déploiement de récupération cloud d’Azure Stack pour déchiffrer les données de sauvegarde.
+
+![Le certificat est stocké dans un emplacement sécurisé.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>Version 1811 ou antérieure
+
 La clé de chiffrement est utilisée pour chiffrer les données de sauvegarde exportées vers le stockage externe. La clé est générée dans le cadre de [l’activation de la sauvegarde pour Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-La clé doit être stockée dans un emplacement sécurisé (par exemple, un secret Azure Key Vault public). Cette clé doit être utilisée au cours du redéploiement d’Azure Stack. 
+La clé doit être stockée dans un emplacement sécurisé (par exemple, secret global Azure Key Vault). Cette clé doit être utilisée au cours du redéploiement d’Azure Stack. 
 
 ![Stockez la clé dans un emplacement sécurisé.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -95,6 +104,6 @@ Les alertes suivantes sont prises en charge par le système :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez en revue la documentation de référence pour le [service de sauvegarde de l’infrastructure](azure-stack-backup-reference.md).
+Passer en revue la documentation de référence pour le [service Infrastructure Backup](azure-stack-backup-reference.md)
 
-Activez le [service de sauvegarde de l’infrastructure](azure-stack-backup-enable-backup-console.md).
+Activer le [service Infrastructure Backup](azure-stack-backup-enable-backup-console.md)

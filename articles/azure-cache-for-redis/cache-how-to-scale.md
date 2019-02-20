@@ -1,25 +1,25 @@
 ---
 title: Mise à l’échelle du cache Azure pour Redis | Microsoft Docs
 description: Apprenez comment mettre à l’échelle vos instances du cache Azure pour Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: wesmc
-ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105200"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235570"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Mise à l’échelle du cache Azure pour Redis
 Le cache Azure pour Redis offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Après la création d’un cache, vous pouvez mettre à l’échelle la taille et le niveau de tarification du cache si les exigences de votre application changent. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.
@@ -69,9 +69,12 @@ En plus de la mise à l’échelle de vos instances de cache dans le portail Azu
 * [Mise à l’échelle à l’aide de MAML](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>Mise à l’échelle à l’aide de PowerShell
-Vous pouvez mettre à l’échelle vos instances de cache Azure pour Redis avec PowerShell à l’aide de l’applet de commande [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) lorsque les propriétés `Size`, `Sku` ou `ShardCount` sont modifiées. L’exemple suivant montre comment mettre à l’échelle un cache nommé `myCache` vers un cache de 2,5 Go. 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Vous pouvez mettre à l’échelle vos instances de cache Azure pour Redis avec PowerShell à l’aide de la cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) lorsque les propriétés `Size`, `Sku` ou `ShardCount` sont modifiées. L’exemple suivant montre comment mettre à l’échelle un cache nommé `myCache` vers un cache de 2,5 Go. 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 Pour plus d’informations sur la mise à l’échelle avec PowerShell, consultez [Pour mettre à l’échelle un cache Azure pour Redis à l’aide de PowerShell](cache-howto-manage-redis-cache-powershell.md#scale).
 

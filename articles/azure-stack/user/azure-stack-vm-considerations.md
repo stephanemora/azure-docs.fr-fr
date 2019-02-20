@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245955"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962245"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considérations relatives à l’utilisation des machines virtuelles dans Azure Stack
 
@@ -41,8 +41,9 @@ Les machines virtuelles Azure Stack fournissent des ressources de calcul scalabl
 | Performances des disques de machines virtuelles | Dépendent de la taille et du type de disque. | Dépendent de la taille de la machine virtuelle à laquelle sont attachés les disques. Pour en savoir plus, consultez l’article [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md).
 | Versions d’API | Azure utilise toujours les dernières versions d’API pour toutes les fonctionnalités de machine virtuelle. | Azure Stack prend en charge certains services Azure et des versions d’API spécifiques pour ces services. Pour obtenir la liste des versions d’API prises en charge, consultez la section [Versions d’API](#api-versions) dans cet article. |
 | Service de métadonnées d’instance Azure | Le service de métadonnées d’instance Azure fournit des informations sur les instances de machine virtuelle en cours d’exécution qui peuvent être utilisées pour gérer et configurer vos machines virtuelles.  | Le service de métadonnées d’Instance n’est pas pris en charge sur Azure Stack. |
-|Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour<br>Prise en charge des disques managés|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour (20 max.)<br>Pas de prise en charge des disques managés|
-|Groupes identiques de machines virtuelles |Mise à l’échelle automatique prise en charge|Mise à l’échelle automatique non prise en charge.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell.
+| Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour (20 max.)|
+| Groupes identiques de machines virtuelles |Mise à l’échelle automatique prise en charge|Mise à l’échelle automatique non prise en charge.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell. |
+| Diagnostics de machine virtuelle | Diagnostics de machine virtuelle Linux | Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic.
 
 ## <a name="virtual-machine-sizes"></a>Tailles de machines virtuelles
 
@@ -71,7 +72,7 @@ Les tailles de machine virtuelle et les quantités de ressources associées sont
 
 ## <a name="virtual-machine-extensions"></a>Extensions de machine virtuelle
 
- Azure Stack inclut un petit ensemble d’extensions. Des mises à jour et des extensions supplémentaires sont disponibles par le biais de la syndication de Place de marché.
+Azure Stack inclut un petit ensemble d’extensions. Des mises à jour et des extensions supplémentaires sont disponibles par le biais de la syndication de Place de marché.
 
 Utilisez le script PowerShell suivant pour obtenir la liste des extensions de machine virtuelle qui sont disponibles dans votre environnement Azure Stack :
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+Si l’approvisionnement d’une extension sur un déploiement de machine virtuelle prend trop de temps, laissez expirer le délai d’attente de l’approvisionnement au lieu d’essayer d’arrêter le processus pour désallouer ou supprimer la machine virtuelle.
 
 ## <a name="api-versions"></a>Versions d’API
 

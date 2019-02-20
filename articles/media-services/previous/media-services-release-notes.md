@@ -11,22 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631666"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182984"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
+
 Ces notes de publication pour Azure Media Services récapitulent les modifications par rapport aux précédentes versions et les problèmes connus.
 
 > [!NOTE]
-> Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la résolution des problèmes que vous rencontrez. Pour signaler un problème ou poser des questions, publiez un billet sur le [Forum MSDN sur Azure Media Services].
-> 
-> 
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. 
+
+Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la résolution des problèmes que vous rencontrez. Pour signaler un problème ou poser des questions, publiez un billet sur le [Forum MSDN sur Azure Media Services]. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problèmes actuellement connus
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problèmes généraux concernant Media Services
@@ -72,7 +73,7 @@ La dernière version du service comprend des changements mineurs de mise en form
 > Media Services déprécie la prise en charge des clés d’authentification Azure Access Control Service. Le 22 juin 2018, vous ne pourrez plus vous authentifier auprès du backend Media Services par le biais de code, à l’aide de clés Access Control Service. Vous devez mettre à jour votre code pour utiliser Azure Active Directory (Azure AD) comme l’indique l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Surveillez les avertissements relatifs à ce changement dans le portail Azure.
 
 ### <a name="updates-for-october-2017"></a>Mises à jour d’octobre 2017
-#### <a name="sdks"></a>Kits de développement logiciel (SDK)
+#### <a name="sdks"></a>Kits SDK
 * Le SDK .NET a été mis à jour pour prendre en charge l’authentification Azure AD. La prise en charge de l’authentification Access Control Service a été supprimée dans la dernière version du SDK .NET sur Nuget.org afin d’accélérer la migration vers Azure AD. 
 * Le SDK Java a mis à jour pour prendre en charge l’authentification Azure AD. La prise en charge de l’authentification Azure AD a été ajoutée au SDK Java. Pour plus d’informations sur la façon d’utiliser le SDK Java avec Media Services, consultez [Prise en main du Kit de développement logiciel du client Java pour Azure Media Services](media-services-java-how-to-use.md).
 

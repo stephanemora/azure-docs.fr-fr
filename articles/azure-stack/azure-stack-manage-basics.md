@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239670"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164020"
 ---
 # <a name="azure-stack-administration-basics"></a>Principes de bases de l’administration d’Azure Stack
-Si vous débutez avec l’administration d’Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide fournit une vue d’ensemble de votre rôle en tant qu’opérateur Azure Stack, et explique ce que vous devez dire à vos utilisateurs pour qu’ils deviennent rapidement productifs.
+Si vous débutez avec l’administration d’Azure Stack, vous devez prendre connaissance de plusieurs choses. Cet article fournit une vue d’ensemble de votre rôle en tant qu’opérateur Azure Stack, et explique ce que vous devez dire à vos utilisateurs pour qu’ils deviennent rapidement productifs.
 
 ## <a name="understand-the-builds"></a>Comprendre les builds
 
 ### <a name="integrated-systems"></a>Systèmes intégrés
 
-Si vous utilisez un système Azure Stack intégré, les versions mises à jour d’Azure Stack sont distribuées via des packages de mise à jour. Vous pouvez importer ces packages et les appliquer en utilisant la vignette Mises à jour dans le portail d’administration.
+Si vous utilisez un système Azure Stack intégré, les versions mises à jour d’Azure Stack sont distribuées via des packages de mise à jour. Vous pouvez importer ces packages et les appliquer en utilisant la vignette Mises à jour dans le portail d’administration. La mise à jour des installations ASDK n'est pas prise en charge. 
  
 ### <a name="development-kit"></a>Kit de développement
 

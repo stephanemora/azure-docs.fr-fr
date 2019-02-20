@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188590"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175402"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -713,7 +714,7 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
 
 3. Cette opération permet de lancer la synchronisation initiale, dont la durée dépendra du nombre d'utilisateurs du locataire Workday. 
 
-4. À tout moment, consultez l’onglet **Journaux d’audit** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit répertorient tous les événements de synchronisation individuels effectués par le service d’approvisionnement, tels que les utilisateurs lus dans Workday et par la suite ajoutés ou mis à jour dans Active Directory. Reportez-vous à la section [Résolution des problèmes](#troubleshooting-provisioning-issues) pour savoir comment consulter les journaux d'audit et corriger les erreurs d'approvisionnement.
+4. À tout moment, consultez l’onglet **Journaux d’audit** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit répertorient tous les événements de synchronisation individuels effectués par le service d’approvisionnement, tels que les utilisateurs lus dans Workday et par la suite ajoutés ou mis à jour dans Active Directory. Reportez-vous à la section Résolution des problèmes pour savoir comment consulter les journaux d’audit et corriger les erreurs d’approvisionnement.
 
 5. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement**, comme illustré ci-dessous.
 

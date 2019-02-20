@@ -14,61 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 26e902cb31a77ffb1516f084bb71b5a99a89fba9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 520211f3499931281d3ac86a1da1144564a8bb48
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188641"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980752"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows
 
-Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostics pour collecter des données de diagnostic telles que les journaux des applications ou les compteurs de performances à partir d'une machine virtuelle Azure exécutant Windows. Cet article décrit comment utiliser Windows PowerShell activer l’extension de diagnostics pour une machine virtuelle. Consultez [Installer et configurer Azure PowerShell Azure](/powershell/azure/overview) pour connaître les conditions requises pour cet article.
+Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostics pour collecter des données de diagnostic telles que les journaux des applications ou les compteurs de performances à partir d'une machine virtuelle Azure exécutant Windows. 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Activer l'extension de diagnostics si vous utilisez le modèle de déploiement Resource Manager
 Vous pouvez activer l'extension de diagnostics lors de la création d'une machine virtuelle Windows avec le modèle de déploiement Azure Resource Manager en ajoutant la configuration de l'extension au modèle Resource Manager. Consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](diagnostics-template.md).
 
-Pour activer l'extension de diagnostics sur une machine virtuelle existante qui a été créée avec le modèle de déploiement Resource Manager, vous pouvez utiliser l'applet de commande PowerShell [Set-AzureRMVMDiagnosticsExtension](/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) comme indiqué ci-dessous.
+Pour activer l'extension de diagnostics sur une machine virtuelle existante qui a été créée avec le modèle de déploiement Resource Manager, vous pouvez utiliser la cmdlet PowerShell [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiagnosticsextension) comme indiqué ci-dessous.
 
     $vm_resourcegroup = "myvmresourcegroup"
     $vm_name = "myvm"
     $diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
 
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path
+    Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path
 
 
 *$diagnosticsconfig_path* est le chemin d'accès au fichier contenant la configuration des diagnostics dans XML, comme décrit dans l'[exemple](#sample-diagnostics-configuration) ci-dessous.  
 
-Si le fichier de configuration des diagnostics spécifie un élément **StorageAccount** avec un nom de compte de stockage, le script *Set-AzureRMVMDiagnosticsExtension* définit automatiquement l'extension de diagnostics pour envoyer des données de diagnostic à ce compte de stockage. Pour que cela fonctionne, le compte de stockage doit appartenir au même abonnement que la machine virtuelle.
+Si le fichier de configuration des diagnostics spécifie un élément **StorageAccount** avec un nom de compte de stockage, le script *Set-AzVMDiagnosticsExtension* définit automatiquement l'extension de diagnostics pour envoyer des données de diagnostic à ce compte de stockage. Pour que cela fonctionne, le compte de stockage doit appartenir au même abonnement que la machine virtuelle.
 
 Si aucun **StorageAccount** n’a été spécifié dans la configuration des diagnostics, vous devez transmettre le paramètre *StorageAccountName* à l’applet de commande. Si le paramètre *StorageAccountName* est spécifié, l’applet de commande utilise toujours le compte de stockage spécifié dans le paramètre et non celui spécifié dans le fichier de configuration des diagnostics.
 
 Si le compte de stockage de diagnostics appartient à un autre abonnement que celui de la machine virtuelle, vous devez transmettre explicitement les paramètres *StorageAccountName* et *StorageAccountKey* à l’applet de commande. Le paramètre *StorageAccountKey* n’est pas nécessaire lorsque le compte de stockage de diagnostics appartient au même abonnement si l’applet de commande peut interroger et définir automatiquement la valeur clé lors de l’activation de l’extension de diagnostics. Toutefois, si le compte de stockage de diagnostics appartient à un autre abonnement, l’applet de commande n’est peut-être pas en mesure d’obtenir automatiquement la clé, et vous devez explicitement spécifier celle-ci par le biais du paramètre *StorageAccountKey* .  
 
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
+    Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
-Une fois que l'extension de diagnostics est activée sur une machine virtuelle, vous pouvez obtenir les paramètres actuels à l'aide de l'applet de commande [Get-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/get-azurermvmdiagnosticsextension) .
+Une fois que l'extension de diagnostics est activée sur une machine virtuelle, vous pouvez obtenir les paramètres actuels à l'aide de la cmdlet [Get-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiagnosticsextension) .
 
-    Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
+    Get-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
 L'applet de commande renvoie *PublicSettings*, qui contient la configuration des diagnostics. Deux types de configuration sont prises en charge, WadCfg et xmlCfg. WadCfg est une configuration JSON et xmlCfg est une configuration XML dans un format codé en base64. Pour lire le code CXML, vous devez le décoder.
 
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
 
-L’applet de commande [Remove-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/remove-azurermvmdiagnosticsextension) peut être utilisé pour supprimer l’extension de diagnostics à partir de la machine virtuelle.  
+La cmdlet [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdiagnosticsextension) peut être utilisée pour supprimer l’extension de diagnostics à partir de la machine virtuelle.  
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Activer l'extension de diagnostics si vous utilisez le modèle de déploiement classique
-Vous pouvez utiliser l'applet de commande [Set-AzureVMDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) pour activer une extension de diagnostics sur une machine virtuelle créée à l'aide du modèle de déploiement classique. L'exemple suivant indique comment créer une machine virtuelle à l'aide du modèle de déploiement classique avec l'extension de diagnostics activée.
+Vous pouvez utiliser l'applet de commande [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) pour activer une extension de diagnostics sur une machine virtuelle créée à l'aide du modèle de déploiement classique. L'exemple suivant indique comment créer une machine virtuelle à l'aide du modèle de déploiement classique avec l'extension de diagnostics activée.
 
     $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
     $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-Pour activer l'extension de diagnostics sur une machine virtuelle existante créée avec le modèle de déploiement classique, utilisez d'abord l'applet de commande [Get-AzureVM](/powershell/module/servicemanagement/azure/get-azurevm) pour obtenir la configuration de la machine virtuelle. Mettez ensuite à jour la configuration de la machine virtuelle afin d'inclure l'extension de diagnostics à l'aide de l'applet de commande [Set-AzureVMDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) . Pour finir, appliquez la configuration mise à jour à la machine virtuelle à l'aide de [Update-AzureVM](/powershell/module/servicemanagement/azure/update-azurevm).
+Pour activer l'extension de diagnostics sur une machine virtuelle existante créée avec le modèle de déploiement classique, utilisez d'abord l'applet de commande [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) pour obtenir la configuration de la machine virtuelle. Mettez ensuite à jour la configuration de la machine virtuelle afin d'inclure l'extension de diagnostics à l'aide de l'applet de commande [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) . Pour finir, appliquez la configuration mise à jour à la machine virtuelle à l'aide de [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
 
     $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context

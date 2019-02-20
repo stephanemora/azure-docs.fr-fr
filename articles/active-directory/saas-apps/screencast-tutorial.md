@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à Screencast-O-Matic | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Screencast-O-Matic | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Screencast-O-Matic.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 20c0acebde232bd50e6e5befed0facc96ee11b4d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040947"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190821"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Tutoriel : intégration d’Azure Active Directory à Screencast-O-Matic
+# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Tutoriel : Intégration d’Azure Active Directory à Screencast-O-Matic
 
 Dans ce tutoriel, vous allez apprendre à intégrer Screencast-O-Matic à Azure Active Directory (Azure AD).
 
@@ -181,7 +182,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Screencast-O-Matic. Screencast-O-Matic prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Screencast-O-Matic s’il n’existe pas déjà.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support client Screencast-O-Matic](mailto:support@screencast-o-matic.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe de support client Screencast-O-Matic](mailto:support@screencast-o-matic.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

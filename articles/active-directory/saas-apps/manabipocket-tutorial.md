@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Manabi Pocket | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Manabi Pocket | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Manabi Pocket.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0116cac7d0e44efee0112d57aedd4f5ee02833b3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3f5dd7012d280580dca76e50290bc2de4322d55c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430713"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198410"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutoriel : Intégration d’Azure Active Directory à Manabi Pocket
+# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutoriel : Intégration d’Azure Active Directory à Manabi Pocket
 
 Dans ce tutoriel, vous allez apprendre à intégrer Manabi Pocket à Azure Active Directory (Azure AD).
 
@@ -158,7 +159,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-manabi-pocket-test-user"></a>Créer un utilisateur de test Manabi Pocket
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Manabi Pocket. Contactez l’[équipe de support technique Manabi Pocket](mailto:info-ed-cl@ntt.com) pour ajouter les utilisateurs à la plateforme Manabi Pocket. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Manabi Pocket. Contactez l’ [équipe de support technique Manabi Pocket](mailto:info-ed-cl@ntt.com) pour ajouter les utilisateurs à la plateforme Manabi Pocket. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

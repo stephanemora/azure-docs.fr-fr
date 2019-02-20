@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à ZenQMS | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ZenQMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ZenQMS.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 57a8c698133b2b5516a1f5d352f28148afe6f3d2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447314"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204863"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutoriel : Intégration d’Azure Active Directory à ZenQMS
+# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Didacticiel : Intégration d’Azure Active Directory à ZenQMS
 
 Dans ce tutoriel, vous allez apprendre à intégrer ZenQMS à Azure Active Directory (Azure AD).
 
@@ -172,7 +173,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-zenqms-test-user"></a>Créer un utilisateur de test ZenQMS
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ZenQMS. Collaborez avec [l’équipe du support technique ZenQMS](mailto:help@zenqms.com) pour ajouter les utilisateurs à la plateforme ZenQMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ZenQMS. Collaborez avec  [l’équipe du support technique ZenQMS](mailto:help@zenqms.com) pour ajouter les utilisateurs à la plateforme ZenQMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

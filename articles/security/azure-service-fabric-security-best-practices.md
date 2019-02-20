@@ -4,7 +4,7 @@ description: Cet article fournit un ensemble de bonnes pratiques pour la sécuri
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391228"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114703"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
@@ -173,7 +173,7 @@ Il existe deux étapes de base pour configurer un coffre de clés :
 
     Le coffre de clés doit être activé pour le déploiement. Le fournisseur de ressources de calcul peut ensuite obtenir les certificats du coffre et les installer sur les instances de machine virtuelle.
 
-Pour plus d’informations sur la configuration d’un coffre de clés, consultez [Bien démarrer avec Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+Pour plus d’informations sur la configuration d’un coffre de clés, consultez [Présentation d'Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## <a name="assign-users-to-roles"></a>Affecter des utilisateurs aux rôles
 Une fois que vous avez créé les applications pour représenter votre cluster, affectez les utilisateurs aux rôles qui sont pris en charge par Service Fabric : lecture seule et administrateur. Vous pouvez assigner ces rôles à l’aide du portail Azure.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 059c90df16a46c2575635d7c729ec563ef1130c6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459721"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980854"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané
 
@@ -42,9 +42,9 @@ Si vous prévoyez d’utiliser la capture instantanée pour créer une machine v
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
 
-Les étapes suivantes expliquent comment copier le disque dur virtuel, créer la configuration de capture instantanée et prendre une capture instantanée du disque avec l’applet de commande [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
+Les étapes suivantes expliquent comment copier le disque dur virtuel, créer la configuration de capture instantanée et prendre une capture instantanée du disque avec la cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
-Avant de commencer, veillez à avoir la dernière version du module PowerShell AzureRM.Compute, qui doit être la version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell localement, exécutez [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) pour créer une connexion à Azure.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 1. Définissez certains paramètres : 
 
@@ -58,7 +58,7 @@ $snapshotName = 'mySnapshot'
 2. Obtenez la machine virtuelle :
 
  ```azurepowershell-interactive
-$vm = get-azurermvm `
+$vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
 ```
@@ -66,7 +66,7 @@ $vm = get-azurermvm `
 3. Créez la configuration de capture instantanée. Pour cet exemple, la capture instantanée est celle du disque de système d’exploitation :
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig 
+$snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
@@ -78,7 +78,7 @@ $snapshot =  New-AzureRmSnapshotConfig
 4. Prenez la capture instantanée :
 
  ```azurepowershell-interactive
-New-AzureRmSnapshot 
+New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 

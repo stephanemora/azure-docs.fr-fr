@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 02/07/2019
+ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970283"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895786"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.
@@ -52,6 +52,7 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 ### <a name="unsupported"></a>Non pris en charge
 - Rôle d’administrateur de base de données : plusieurs paramètres de serveur peuvent dégrader de façon inattendue les performances du serveur ou nier les propriétés ACID du système de gestion de base de données. Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée.
 - Privilège de superutilisateur : de la même façon, les [privilèges de superutilisateur](https://mariadb.com/kb/en/library/grant/#global-privileges) sont eux aussi limités.
+- DEFINER : requiert des privilèges de superutilisateur pour créer et est limité. Si vous importez des données à l'aide d'une sauvegarde, supprimez les commandes `CREATE DEFINER` manuellement ou à l'aide de la commande `--skip-definer` lors de l'exécution de mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Prise en charge des instructions de manipulation des données
 
@@ -76,6 +77,9 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 
 ### <a name="subscription-management"></a>Gestion des abonnements
 - Le déplacement dynamique de serveurs créés au préalable entre les groupes de ressources et d’abonnements n’est pas pris en charge pour le moment.
+
+### <a name="vnet-service-endpoints"></a>Points de terminaison de service VNet
+- Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 
 ## <a name="current-known-issues"></a>Problèmes connus
 - L’instance de serveur MariaDB affiche la version de serveur incorrecte une fois la connexion établie. Pour obtenir la version de moteur correcte de l’instance de serveur, utilisez la commande `select version();`.

@@ -1,6 +1,6 @@
 ---
-title: Espace de noms hiérarchique d’Azure Data Lake Storage Gen2 Preview
-description: Décrit le concept d’espace de noms hiérarchique pour Azure Data Lake Storage Gen2 Preview
+title: Espace de noms hiérarchique d’Azure Data Lake Storage Gen2
+description: Décrit le concept d’espace de noms hiérarchique pour Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 967e24ae6e004fe6ce2b1c0aa6c039f46be2598c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b423d40884dd9132312e79ba0cbff00b8771b207
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244502"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877029"
 ---
-# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Espace de noms hiérarchique d’Azure Data Lake Storage Gen2 Preview
+# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espace de noms hiérarchique d’Azure Data Lake Storage Gen2
 
-**L’espace de noms hiérarchique** est un mécanisme clé d’Azure Data Lake Storage Gen2 Preview qui permet d’optimiser les performances de système de fichiers en termes de mise à l’échelle et de prix du stockage d’objets. La collection d’objets/de fichiers dans un compte peut alors être organisée en une hiérarchie de répertoires et sous-répertoires imbriqués, de la même façon que le système de fichiers sur votre ordinateur. Quand vous activez l’espace de noms hiérarchique, le compte de stockage peut fournir l’extensibilité et la rentabilité du stockage d’objets en plus de la sémantique de système de fichiers standard des moteurs et infrastructures d’analyse.
+**L’espace de noms hiérarchique** est un mécanisme clé d’Azure Data Lake Storage Gen2 qui permet d’optimiser les performances de système de fichiers en termes de mise à l’échelle et de prix du stockage d’objets. La collection d’objets/de fichiers dans un compte peut alors être organisée en une hiérarchie de répertoires et sous-répertoires imbriqués, de la même façon que le système de fichiers sur votre ordinateur. Quand vous activez l’espace de noms hiérarchique, le compte de stockage peut fournir l’extensibilité et la rentabilité du stockage d’objets en plus de la sémantique de système de fichiers standard des moteurs et infrastructures d’analyse.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Avantages de l’espace de noms hiérarchique
 
@@ -39,8 +39,7 @@ Les raisons de l’activation de l’espace de noms hiérarchique sont détermin
 
 ## <a name="when-to-disable-the-hierarchical-namespace"></a>Quand désactiver l’espace de noms hiérarchique
 
-Certaines charges de travail de magasin d’objets peuvent ne pas tirer profit de l’activation de l’espace de noms hiérarchique. Ces charges de travail sont, par exemple, les sauvegardes, le stockage d’images et d’autres applications où l’organisation des objets est stockées séparément des objets eux-mêmes (*par ex.*, dans une base de données séparée).
-
+Certaines charges de travail de magasin d’objets peuvent ne pas tirer profit de l’activation de l’espace de noms hiérarchique. Ces charges de travail sont, par exemple, les sauvegardes, le stockage d’images et d’autres applications où l’organisation des objets est stockées séparément des objets eux-mêmes (dans une base de données distincte, par exemple).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Apprenez-en plus sur les types de réponses et sur les réponses utilisées par l’API Recherche Web Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188624"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232890"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Types et structure de la réponse de l’API Recherche Web Bing  
 
@@ -91,7 +91,7 @@ La réponse de type [images](https://docs.microsoft.com/rest/api/cognitiveservic
 }, ...
 ```
 
-Selon l’appareil de l’utilisateur, vous allez généralement afficher un sous-ensemble des miniatures et offrir à l’utilisateur la possibilité d’afficher les images restantes.
+Selon l’appareil de l’utilisateur, vous allez généralement afficher un sous-ensemble des miniatures et offrir à l’utilisateur la possibilité de [parcourir](paging-webpages.md) les images restantes.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -314,7 +314,7 @@ Une expression mathématique peut contenir les fonctions suivantes :
 
 |Symbole|Description|
 |------------|-----------------|
-|Sqrt|Racine carrée|
+|Trier|Racine carrée|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Fonctions trigonométriques (avec arguments en radians)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Fonctions trigonométriques inverses (donnant les résultats en radians)|
 |Exp[x], E^x|Fonction exponentielle|
@@ -428,6 +428,48 @@ Si Bing détermine que l’utilisateur rechercherait peut-être autre chose, la 
     }]
 }, ...
 ```
+
+L’exemple suivant montre comment Bing utilise la suggestion orthographique.
+
+![Exemple de suggestion orthographique de Bing](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="response-headers"></a>En-têtes de réponse
+
+Les réponses de l’API Recherche Web Bing peuvent contenir les en-têtes suivants :
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|L’ID unique que Bing a affecté à l’utilisateur|
+|`BingAPIs-Market`|Le marché qui a été utilisé pour répondre à la requête|
+|`BingAPIs-TraceId`|L’entrée du journal sur le serveur de l’API Bing pour cette requête (pour la prise en charge)|
+
+Il est particulièrement important de conserver l’identifiant du client et de le renvoyer avec les requêtes suivantes. Lorsque vous effectuez cette opération, la recherche utilise un contexte passé pour classer les résultats de la recherche et propose également une expérience utilisateur cohérente.
+
+Toutefois, lorsque vous appelez l’API Recherche Web Bing depuis JavaScript, les fonctionnalités de sécurité intégrées de votre navigateur (CORS) peuvent vous empêcher d’accéder aux valeurs de ces en-têtes.
+
+Pour accéder aux en-têtes, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend disponibles pour JavaScript.
+
+Il est facile d’installer un proxy CORS pour autoriser [l’application du didacticiel](tutorial-bing-web-search-single-page-app.md) à accéder aux en-têtes clients facultatifs. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Entrez ensuite la commande suivante à l’invite de commandes.
+
+    npm install -g cors-proxy-server
+
+Ensuite, remplacez le point de terminaison de l’API Recherche Web Bing dans le fichier HTML par :
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+Enfin, démarrez le proxy CORS avec la commande suivante :
+
+    cors-proxy-server
+
+Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
+
+## <a name="response-headers-in-production"></a>En-têtes de réponse en production
+
+L’approche du proxy CORS décrite dans la réponse précédente est appropriée pour le développement, le test et l’apprentissage.
+
+Dans un environnement de production, vous devez héberger un script côté serveur dans le même domaine que la page web qui utilise l’API Recherche Web Bing. Ce script doit effectuer les appels d’API à la demande à partir de la page web JavaScript et transmettre tous les résultats, y compris les en-têtes, au client. Étant donné que les deux ressources (la page et le script) partagent une origine, le CORS n'est pas utilisé et les en-têtes spéciaux sont accessibles pour JavaScript dans la page web.
+
+Cette approche protège également votre clé API de l’exposition au public, étant donné que seul le script côté serveur en a besoin. Le script peut utiliser une autre méthode pour s’assurer que la demande est autorisée.
 
 L’exemple suivant montre comment Bing utilise la suggestion orthographique.
 

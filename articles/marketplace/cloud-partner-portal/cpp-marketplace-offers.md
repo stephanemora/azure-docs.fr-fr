@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658706"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100881"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offres des places de marché Azure et AppSource
 
@@ -32,6 +32,18 @@ La vidéo suivante présente les différentes fonctionnalités et les différent
 **Génération d’applications et de services pour la Place de marché Microsoft Azure et AppSource - Build 2018**
 
 Pour plus d’informations sur ces places de marché, consultez le [Guide de publication sur AppSource et la Place de marché Azure](../marketplace-publishers-guide.md).
+
+
+## <a name="common-offer-operations"></a>Opérations courantes sur les offres
+
+Le processus de création d’une nouvelle offre diffère considérablement entre les types d’offre, par exemple entre une [offre d’application Azure](./azure-applications/cpp-azure-app-offer.md) et une [offre de service de conseil](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  En revanche, les autres opérations que vous effectuez sur une offre dans le[Portail Cloud Partner](https://cloudpartner.azure.com) sont, en grande partie, standardisées entre les types d’offres.  Ces opérations courantes (publier, afficher l'état, mettre à jour et supprimer, notamment) sont traitées dans la section [Gérer les offres](./manage-offers/cpp-manage-offers.md).
+
+
+## <a name="test-drive"></a>Version d’évaluation
+
+*Version d’évaluation* est une fonctionnalité de la place de marché qui propose aux clients une option de démonstration avec essai avant achat pour chaque offre ainsi activée.  La fonctionnalité Version d'évaluation est limitée au sous-ensemble de types d'offre suivant : [applications Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 pour la finance et les opérations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ applications SaaS](./saas-app/cpp-saas-offer.md), et [machines virtuelles](./virtual-machine/cpp-virtual-machine-offer.md).  Cette fonctionnalité implique que l'éditeur crée un modèle Version d'évaluation personnalisé pour son offre.  Pour plus d’informations, consultez la section [Version d'évaluation](../cloud-partner-portal-orig/what-is-test-drive.md).
+
+Vous pouvez parcourir les offres de la place de marché proposant des démonstrations Version d'évaluation en appliquant le [filtre version d'évaluation](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Types d’offre de la Place de marché Microsoft Azure et d’AppSource

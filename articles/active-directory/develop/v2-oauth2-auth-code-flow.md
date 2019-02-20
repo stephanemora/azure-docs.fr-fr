@@ -17,12 +17,13 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 25b2e90c6293b93a15aeae2fbf08b70cb191cef0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6e2115ad1a88c819e0ee1da34d9d332a0b013b96
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098712"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174348"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
 
@@ -53,13 +54,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
-&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345
 ```
 
 > [!TIP]
 > Cliquez sur le lien ci-dessous pour exécuter cette requête ! Une fois que vous êtes connecté, votre navigateur doit être redirigé vers `https://localhost/myapp/` avec une valeur `code` dans la barre d’adresse.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> 
+> 
 
 | Paramètre    | Obligatoire ou facultatif | Description |
 |--------------|-------------|--------------|
@@ -138,7 +141,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
@@ -168,7 +171,7 @@ Une réponse de jeton réussie se présente ainsi :
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
@@ -239,7 +242,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Les jetons d’accès présentent une durée de vie courte. Après leur expiration, vous devez les actualiser afin de pouvoir continuer à accéder aux ressources. Pour ce faire, envoyez une nouvelle requête `POST` au point de terminaison `/token`, en fournissant l’élément `refresh_token` au lieu de l’élément `code`.  Les jetons d’actualisation sont valides pour toutes les autorisations pour lesquelles votre client a déjà reçu un consentement. Par conséquent, un jeton d’actualisation émis pour une requête de `scope=mail.read` peut être utilisé pour demander un nouveau jeton d’accès pour `scope=api://contoso.com/api/UseResource`.  
 
-Les jetons d’actualisation n’ont pas de durée de vie spécifiée. En règle générale, leur durée de vie est relativement longue. Toutefois, dans certains cas, les jetons d’actualisation expirent, sont révoqués ou ne disposent pas de privilèges suffisants pour l’action souhaitée. Votre application doit envisager et gérer correctement les [erreurs retournées par le point de terminaison d’émission de jeton](#error-codes-for-token-endpoint-errors). 
+Les jetons d’actualisation n’ont pas de durée de vie spécifiée. En règle générale, leur durée de vie est relativement longue. Toutefois, dans certains cas, les jetons d’actualisation expirent, sont révoqués ou ne disposent pas de privilèges suffisants pour l’action souhaitée. Votre application doit envisager et gérer correctement les [erreurs retournées par le point de terminaison d’émission de jeton](#error-codes-for-token-endpoint-errors).  Notez que les jetons d’actualisation ne sont pas révoqués lorsqu'ils sont utilisés pour acquérir de nouveaux jetons d’accès. 
 
 ```
 // Line breaks for legibility only
@@ -249,7 +252,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=refresh_token
@@ -280,7 +283,7 @@ Une réponse de jeton réussie se présente ainsi :
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751478"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990443"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
@@ -106,8 +106,7 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
     Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
 
-Les utilisateurs peuvent également finaliser leur requête d’analyse dans la [page Log Analytics du portail Azure](../../azure-monitor/log-query/portals.md#log-analytics-page
-), l’envoyer (push) afin de créer une alerte à l’aide du bouton « + Nouvelle règle d’alerte », puis suivre les instructions à partir de l’étape 6 du tutoriel ci-dessus.
+Les utilisateurs peuvent également finaliser leur requête d’analyse dans [Log Analytics](../log-query/portals.md), l’envoyer (push) afin de créer une alerte à l’aide du bouton « Définir l’alerte », puis suivre les instructions à partir de l’étape 6 du didacticiel ci-dessus.
 
  ![Log Analytics - Définir l’alerte](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -317,12 +316,12 @@ L’[API Azure Monitor - Règles de requêtes planifiées](https://docs.microsof
 > Les alertes de journal pour Log Analytics peuvent également être gérées à l’aide de l’[API d’alerte Log Analytics](../../azure-monitor/platform/api-alerts.md) existante et des modèles existants des [alertes et recherches Log Analytics enregistrées](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Pour plus d’informations sur l’utilisation par défaut de la nouvelle API ScheduledQueryRules détaillée ici, consultez [Opter pour la nouvelle API des alertes Log Analytics](alerts-log-api-switch.md).
 
 
-Les alertes de journal n’ont pas de commandes PowerShell ou CLI dédiées, mais comme illustré ci-dessous, elles peuvent être utilisées par le biais de l’applet de commande Azure Resource Manager PowerShell pour l’exemple de modèle de ressource présenté plus haut (sampleScheduledQueryRule.json) dans la [section Modèle de ressource](#azure-resource-template-for-application-insights) :
+Les alertes de journal n’ont pas de commandes PowerShell ou CLI dédiées, mais comme illustré ci-dessous, elles peuvent être utilisées par le biais de la cmdlet Azure Resource Manager PowerShell pour l’exemple de modèle de ressource présenté plus haut (sampleScheduledQueryRule.json) dans la section Modèle de ressource :
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-Vous trouverez ci-dessous une illustration de l’utilisation par le biais de la commande Azure Resource Manager dans Azure CLI pour l’exemple de modèle de ressource présenté plus haut (sampleScheduledQueryRule.json) dans la [section Modèle de ressource](#azure-resource-template-for-application-insights) :
+Vous trouverez ci-dessous une illustration de l’utilisation par le biais de la commande Azure Resource Manager dans Azure CLI pour l’exemple de modèle de ressource présenté plus haut (sampleScheduledQueryRule.json) dans la section Modèle de ressource :
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

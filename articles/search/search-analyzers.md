@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 008a24fe9822ca51b81e1f6979a3731d794a8867
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631938"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964336"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
 
@@ -92,7 +92,7 @@ Si nous suivons cet exemple :
 * Les analyseurs sont une propriété de la classe d’un champ pouvant faire l’objet d’une recherche.
 * Un analyseur personnalisé fait partie d’une définition d’index. Il peut faire l’objet d’une légère personnalisation (par exemple, la personnalisation d’une option d’un filtre) ou d’une personnalisation à plusieurs endroits.
 * Dans ce cas, l’analyseur personnalisé est « my_analyzer », qui utilise alors le générateur de jetons standard personnalisé « my_standard_tokenizer », et deux filtres de jetons : le filtre « lowercase » et le filtre asciifolding personnalisé « my_asciifolding ».
-* Il définit également le filtre de caractères personnalisé « map_dash » pour remplacer tous les tirets par des traits de soulignement avant la segmentation du texte en unités lexicales (les tirets provoquent l’arrêt du générateur de jetons, mais pas les traits de soulignement).
+* Il définit également les deux filtres de caractères personnalisés « map_dash » et « remove_whitespace ». Le premier remplace tous les tirets par des traits de soulignement et le second supprime tous les espaces. Les espaces doivent être encodés en UTF-8 dans les règles de mappage. Les filtres de caractères sont appliqués avant la segmentation du texte en unités lexicales et affectent les jetons qui en résultent (les tirets et les espaces provoquent l'arrêt du générateur de jetons, mais pas les traits de soulignement).
 
 ~~~~
   {
@@ -116,7 +116,8 @@ Si nous suivons cet exemple :
            "name":"my_analyzer",
            "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
            "charFilters":[
-              "map_dash"
+              "map_dash",
+              "remove_whitespace"
            ],
            "tokenizer":"my_standard_tokenizer",
            "tokenFilters":[
@@ -130,6 +131,11 @@ Si nous suivons cet exemple :
            "name":"map_dash",
            "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
            "mappings":["-=>_"]
+        },
+        {
+           "name":"remove_whitespace",
+           "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
+           "mappings":["\\u0020=>"]
         }
      ],
      "tokenizers":[

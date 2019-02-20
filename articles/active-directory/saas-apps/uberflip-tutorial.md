@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: bb1f53895fcd91a9474302fcf8c9e0040fe91961
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 28add36dedcd942150a96d32508246ee03da60f1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920288"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182576"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutoriel : Intégration d’Azure Active Directory à Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Didacticiel : Intégration d’Azure Active Directory à Uberflip
 
 Dans ce tutoriel, vous allez apprendre à intégrer Uberflip à Azure Active Directory (Azure AD).
 

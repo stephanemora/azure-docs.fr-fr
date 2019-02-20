@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Azure à l'aide d'Azure Key Vault | Microsoft Docs"
+title: "Didacticiel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Azure à l'aide d'Azure Key Vault | Microsoft Docs"
 description: Comment chiffrer et déchiffrer un objet blob en utilisant le chiffrement côté client pour le service Stockage Microsoft Azure avec Azure Key Vault.
 services: storage
 author: tamram
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 09bb74ead0ff52cc7a70170357ddc54a91bf00d9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239405"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116097"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutoriel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Microsoft Azure à l'aide d'Azure Key Vault
 ## <a name="introduction"></a>Introduction
@@ -43,7 +43,7 @@ Voici une brève description du fonctionnement du chiffrement côté client :
 4. Les données chiffrées sont ensuite téléchargées sur le service Azure Storage.
 
 ## <a name="set-up-your-azure-key-vault"></a>Configurer votre coffre de clés Azure
-Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes qui sont décrites dans le didacticiel [Prise en main d’Azure Key Vault](../../key-vault/key-vault-get-started.md) :
+Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes qui sont décrites dans le didacticiel [Présentation d’Azure Key Vault](../../key-vault/key-vault-overview.md) :
 
 * Création d’un coffre de clés
 * Ajout d’une clé ou d’un secret au coffre de clés

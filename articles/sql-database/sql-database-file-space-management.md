@@ -1,6 +1,6 @@
 ---
-title: Gestion de l’espace du fichier de la base de données SQL Azure | Microsoft Docs
-description: Cette page explique comment gérer l’espace de fichier avec Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données, ainsi que pour effectuer une opération de réduction de base de données.
+title: Gestion de l’espace de fichier avec bases de données uniques/en pool dans Azure SQL Database | Microsoft Docs
+description: Cette page explique comment gérer l’espace de fichier avec bases de données uniques et en pool dans Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données unique ou en pool, ainsi que pour effectuer une opération de réduction de base de données.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,20 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468629"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110147"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>Gérer l’espace du fichier de la base de données SQL Azure
-Cet article décrit les différents types d’espace de stockage dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gérer l’espace de fichier des bases de données uniques et en pool dans Azure SQL Database
+
+Cet article décrit les différents types d’espace de stockage des bases de données uniques et en pool dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
+
+> [!NOTE]
+> Cet article ne s’applique à l'option de déploiement d'instance géré dans Azure SQL Database.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
+Avec des bases de données uniques et en pool dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
 
 La surveillance de l’utilisation de l’espace de fichiers et la réduction des fichiers de données peuvent être nécessaires dans les scénarios suivants :
 
@@ -33,17 +37,20 @@ La surveillance de l’utilisation de l’espace de fichiers et la réduction de
 - Autoriser la modification d’une base de données unique ou d’un pool élastique pour les faire passer à un niveau de service ou à un niveau de performance avec une taille maximale inférieure.
 
 ### <a name="monitoring-file-space-usage"></a>Surveillance de l’utilisation de l’espace de fichiers
+
 La plupart des métriques d’espace de stockage affichées dans le portail Azure et les API suivantes mesurent seulement la taille des pages de données utilisées :
+
 - API de métriques basées sur Azure Resource Manager dont l’API [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) PowerShell
 - T-SQL : [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Cependant, les API suivantes mesurent aussi la taille de l’espace alloué pour les bases de données et les pools élastiques :
+
 - T-SQL : [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL : [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Réduction des fichiers de données
 
-Le service SQL DB ne réduit pas automatiquement les fichiers de données pour récupérer l’espace alloué inutilisé en raison de l’impact potentiel sur les performances de la base de données.  Toutefois, les clients peuvent réduire les fichiers de données en libre service lorsqu’ils le souhaitent en suivant les étapes décrites à la rubrique [Récupérer l’espace alloué non utilisé](#reclaim-unused-allocated-space). 
+Le service SQL Database ne réduit pas automatiquement les fichiers de données pour récupérer l’espace alloué inutilisé en raison de l’impact potentiel sur les performances de la base de données.  Toutefois, les clients peuvent réduire les fichiers de données en libre service lorsqu’ils le souhaitent en suivant les étapes décrites à la rubrique [Récupérer l’espace alloué non utilisé](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > Contrairement aux fichiers de données, le service SQL Database réduit automatiquement les fichiers journaux dans la mesure où cette opération n’affecte pas les performances de la base de données. 
@@ -62,13 +69,14 @@ Il est essentiel d’appréhender les quantités d’espace de stockage suivante
 
 Le schéma suivant illustre la relation entre les différents types d’espace de stockage d’une base de données.
 
-![relations et types d’espace de stockage](./media/sql-database-file-space-management/storage-types.png) 
+![relations et types d’espace de stockage](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>Interroger une base de données pour des informations relatives à l’espace de stockage
+## <a name="query-a-single-database-for-storage-space-information"></a>Interroger une base de données unique pour des informations relatives à l’espace de stockage
 
-Les requêtes suivantes peuvent être utilisées pour déterminer les quantités d’espace de stockage d’une base de données.  
+Les requêtes suivantes peuvent être utilisées pour déterminer les quantités d’espace de stockage d’une base de données unique.  
 
 ### <a name="database-data-space-used"></a>Espace de données de base de données utilisé
+
 Modifiez la requête suivante pour retourner la quantité d’espace de données de base de données utilisée.  Le résultat de la requête est exprimé en Mo.
 
 ```sql
@@ -81,6 +89,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espace de données alloué et espace alloué non utilisé de la base de données
+
 Utilisez la requête suivante pour retourner la quantité d’espace de données allouée de la base de données et la quantité d’espace alloué non utilisé.  Le résultat de la requête est exprimé en Mo.
 
 ```sql
@@ -94,6 +103,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>Taille maximale des données de la base de données
+
 Modifiez la requête suivante pour retourner la taille maximale des données de la base de données.  Le résultat de la requête est exprimé en octets.
 
 ```sql
@@ -137,7 +147,7 @@ Modifiez le script PowerShell suivant pour retourner une table répertoriant l�
 
 Les résultats de requête permettant de déterminer l’espace alloué à chaque base de données dans le pool peuvent être cumulés pour déterminer l’espace total alloué au pool élastique. L’espace de pool élastique alloué ne doit pas dépasser la taille maximale du pool élastique.  
 
-Le script PowerShell nécessite le module SQL Server PowerShell. Pour l’installer, consultez [Télécharger le module PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017).
+Le script PowerShell nécessite le module SQL Server PowerShell. Pour l’installer, consultez [Télécharger le module PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
 
 ```powershell
 # Resource group name
@@ -218,7 +228,7 @@ Pour plus d’informations sur cette commande, consultez [SHRINKDATABASE](https:
 
 ### <a name="auto-shrink"></a>Réduction automatique
 
-Vous pouvez aussi activer la réduction automatique pour une base de données.  La réduction automatique réduit la complexité de la gestion des fichiers, et elle a moins d’impact sur les performances des bases de données que SHRINKDATABASE ou SHRINKFILE.  La réduction automatique peut s’avérer particulièrement utile pour la gestion des pools élastiques avec de nombreuses bases de données.  Cependant, elle peut être moins efficace pour récupérer de l’espace de fichiers que SHRINKDATABASE et SHRINKFILE.
+Vous pouvez aussi activer la réduction automatique pour une base de données.  La réduction automatique réduit la complexité de la gestion des fichiers, et elle a moins d’impact sur les performances des bases de données que `SHRINKDATABASE` ou `SHRINKFILE`.  La réduction automatique peut s’avérer particulièrement utile pour la gestion des pools élastiques avec de nombreuses bases de données.  Cependant, elle peut être moins efficace pour récupérer de l’espace de fichiers que `SHRINKDATABASE` et `SHRINKFILE`.
 Pour activer la réduction automatique, changez le nom de la base de données dans la commande suivante.
 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8774792879443cb39238285b0fdc63ca1097dbea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cef6f47b62a500737e5b01865f73253f18fa470c
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191174"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960596"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -83,7 +83,7 @@ Vous pouvez utiliser l’API Graph Azure AD pour écrire l’outil de migration.
 Le flux d’utilisateur de mot de passe Azure AD B2C pour les comptes locaux est basé sur la stratégie pour Azure AD. Les flux d’utilisateur de réinitialisation du mot de passe, d’inscription ou de connexion et d’inscription Azure AD B2C utilisent des mots de passe « forts » et qui n’expirent pas. Pour plus d’informations, consultez [Stratégie de mot de passe dans Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) . Pour plus d’informations sur les verrouillages de compte et mots de passe, voir l’article sur la [gestion les menaces pesant sur les ressources et données dans Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Puis-je utiliser Azure AD Connect pour migrer les identités de clients stockées dans mon répertoire Active Directory local vers Azure AD B2C ?
-Non, Azure AD Connect n'est pas conçu pour fonctionner avec Azure AD B2C. Utilisez l’[API Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) pour la migration des utilisateurs.  Consultez le [guide de migration des utilisateurs](active-directory-b2c-user-migration.md) pour plus d’informations.
+Non, Azure AD Connect n'est pas conçu pour fonctionner avec Azure AD B2C. Utilisez l’[API Graph Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) pour la migration des utilisateurs.  Consultez le [guide de migration des utilisateurs](active-directory-b2c-user-migration.md) pour plus d’informations.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Mon application peut-elle ouvrir des pages Azure Active Directory B2C dans un iFrame ?
 Non, pour des raisons de sécurité, les pages Azure AD B2C ne peuvent pas être ouvertes dans un iFrame.  Notre service communique avec le navigateur pour interdire les iFrames.  La communauté de sécurité en général et la spécification OAUTH2 déconseillent d’utiliser des iFrames pour les expériences d’identité en raison du risque d’attaques par détournement de clics.
@@ -105,7 +105,7 @@ Non, Azure AD B2C ne prend pas en charge le même ensemble de rapports qu'Azure 
 * Les **rapports d’utilisation** comprennent le nombre d’utilisateurs, le nombre de connexions et le volume de MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Puis-je localiser l'interface utilisateur des pages présentées par Azure AD B2C ? Quelles sont les langues prises en charge ?
- Oui.  Découvrez la [personnalisation linguistique](active-directory-b2c-reference-language-customization.md), qui est en préversion publique.  Nous fournissons des traductions en 36 langues, et vous pouvez remplacer n’importe quelle chaîne pour l’adapter à vos besoins.
+Oui.  Découvrez la [personnalisation linguistique](active-directory-b2c-reference-language-customization.md), qui est en préversion publique.  Nous fournissons des traductions en 36 langues, et vous pouvez remplacer n’importe quelle chaîne pour l’adapter à vos besoins.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Puis-je utiliser mes propres URL dans les pages d’inscription et de connexion présentées par Azure AD B2C ? Par exemple, puis-je remplacer l’URL login.microsoftonline.com par login.contoso.com ?
 Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La vérification de votre domaine sous l’onglet **Domaines** sur le portail Azure ne remplit pas cet objectif.

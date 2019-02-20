@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488541"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997003"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpréter les résultats de modèle dans Azure Machine Learning Studio
 Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio. Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
@@ -74,7 +74,7 @@ La table des résultats est constituée de six colonnes. Les quatre colonnes de
 
 **Publication du service web**
 
-Une fois que les résultats de prédiction ont été compris et considérés comme pertinents, l’expérience peut être publiée en tant que service web pour vous permettre de la déployer sur différentes applications et être sollicitée pour obtenir des prédictions de classe sur n’importe quelle nouvelle fleur d’iris. Pour découvrir comment convertir une expérience de formation en expérience de notation et la publier sous forme de service web, consultez la rubrique [Publication du service web Azure Machine Learning](walkthrough-5-publish-web-service.md). Cette procédure vous permet de bénéficier d’une expérience de notation, comme indiqué dans la Figure 3.
+Une fois que les résultats de prédiction ont été compris et considérés comme pertinents, l’expérience peut être publiée en tant que service web pour vous permettre de la déployer sur différentes applications et être sollicitée pour obtenir des prédictions de classe sur n’importe quelle nouvelle fleur d’iris. Pour découvrir comment convertir une expérience de formation en expérience de notation et la publier sous forme de service web, consultez [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md). Cette procédure vous permet de bénéficier d’une expérience de notation, comme indiqué dans la Figure 3.
 
 ![Capture d’écran de l’expérience de notation](./media/interpret-model-results/3.png)
 

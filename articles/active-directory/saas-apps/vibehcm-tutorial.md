@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Vibe HCM | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Vibe HCM | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Vibe HCM.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 395f99c986e0a51e8dd2c440d258724e862f275c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 79787045f0379e6b672350206740297000f298c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020609"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185568"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Didacticiel : Intégration d’Azure Active Directory à Vibe HCM
+# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Didacticiel : Intégration d’Azure Active Directory à Vibe HCM
 
 Dans ce didacticiel, vous allez apprendre à intégrer Vibe HCM à Azure Active Directory (Azure AD).
 
@@ -160,7 +161,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-vibe-hcm-test-user"></a>Créer un utilisateur de test Vibe HCM
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Vibe HCM. Collaborez avec l’[équipe du support technique Vibe HCM](mailto:support@vibehcm.com) pour ajouter des utilisateurs à la plateforme Vibe HCM. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Vibe HCM. Collaborez avec l’ [équipe du support technique Vibe HCM](mailto:support@vibehcm.com) pour ajouter des utilisateurs à la plateforme Vibe HCM. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
