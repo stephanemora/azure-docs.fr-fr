@@ -4,7 +4,7 @@ description: Cette spécification décrit le protocole et le format requis pour 
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228876"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984832"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services (hérité)
+
 Cette spécification décrit le protocole et le format requis pour l’ingestion de streaming en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Media Services fournit le service de streaming en direct que les clients peuvent utiliser pour diffuser en continu des événements en direct et diffuser du contenu en temps réel en utilisant Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées pour créer des mécanismes d’ingestion en direct extrêmement redondants et robustes.
 
 ## <a name="1-conformance-notation"></a>1. Notation de conformité
@@ -82,17 +83,17 @@ Vidéo : 3000 Kbits/s, 1500 Kbits/s, 750 Kbits/s
 
 Audio : 128 Kbits/s
 
-### <a name="option-1-all-tracks-in-one-stream"></a>Option 1 : toutes les pistes dans un seul flux
+### <a name="option-1-all-tracks-in-one-stream"></a>Option 1 : toutes les pistes dans un seul flux
 Dans cette option, un encodeur unique génère toutes les pistes audio/vidéo et les regroupe dans un flux binaire MP4 fragmenté. Le flux binaire MP4 fragmenté est ensuite envoyé via une connexion HTTP POST. Dans cet exemple, il existe un seul flux pour cette présentation en direct.
 
 ![Flux : une piste][image2]
 
-### <a name="option-2-each-track-in-a-separate-stream"></a>Option 2 : chaque piste dans un flux distinct
+### <a name="option-2-each-track-in-a-separate-stream"></a>Option 2 : chaque piste dans un flux distinct
 Dans cette option, l’encodeur met une piste dans chaque flux binaire MP4 fragmenté, puis publie tous les flux sur des connexions HTTP distinctes. Cette option est réalisable avec un seul encodeur ou plusieurs. Du point de vue de l’ingestion en direct, cette présentation en direct se compose de quatre flux.
 
 ![Flux : pistes distinctes][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Option 3 : regrouper la piste audio et la piste vidéo au débit binaire le plus bas dans un seul flux
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Option 3 : regrouper la piste audio et la piste vidéo au débit binaire le plus bas dans un seul flux
 Dans cette option, le client choisit de regrouper la piste audio avec la piste vidéo au débit binaire le plus bas dans un seul flux binaire MP4 fragmenté et de laisser les deux autres pistes vidéo en tant que flux distincts. 
 
 ![Flux : pistes audio et vidéo][image4]

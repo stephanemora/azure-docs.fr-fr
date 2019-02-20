@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455097"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868110"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Mettre à l’échelle un pool élastique dans Azure SQL Database
 
@@ -27,8 +27,8 @@ Cet article décrit comment faire évoluer les ressources de calcul et de stocka
 
 - Le stockage peut être approvisionné jusqu’à la limite de taille maximale :
 
-  - Pour le stockage Standard, augmentez ou diminuez la taille par incréments de 10 Go
-  - Pour le stockage Premium, augmentez ou diminuez la taille par incréments de 250 Go
+  - Pour le stockage aux niveaux de service Standard et Usage général, augmentez ou diminuez la taille par incréments de 10 Go.
+  - Pour le stockage aux niveaux de service Premium et Critique pour l'entreprise, augmentez ou diminuez la taille par incréments de 250 Go.
 - Le stockage pour un pool élastique peut être configuré en augmentant ou diminuant sa taille maximale.
 - Le prix du stockage pour un pool élastique est égal au volume de stockage multiplié par le prix unitaire du stockage pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 

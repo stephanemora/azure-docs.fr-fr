@@ -1,6 +1,6 @@
 ---
-title: Expression workspace() dans une requête Azure Log Analytics | Microsoft Docs
-description: L’expression workspace est utilisée dans une requête Log Analytics dans le but de récupérer des données à partir d’un espace de travail spécifique du même groupe de ressources, d’un autre groupe de ressources ou d’un autre abonnement.
+title: Expression workspace() dans la requête de journal Azure Monitor | Microsoft Docs
+description: L’expression workspace est utilisée dans une requête de journal Azure Monitor dans le but de récupérer des données à partir d’un espace de travail spécifique du même groupe de ressources, d’un autre groupe de ressources ou d’un autre abonnement.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 24a737a728b0a249fda76cbff481bea284ac24aa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182942"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992979"
 ---
-# <a name="workspace-expression-in-log-analytics-query"></a>Expression workspace() dans une requête Log Analytics
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>Expression workspace() dans la requête de journal Azure Monitor
 
-L’expression `workspace` est utilisée dans une requête Log Analytics dans le but de récupérer des données à partir d’un espace de travail spécifique du même groupe de ressources, d’un autre groupe de ressources ou d’un autre abonnement. Elle est particulièrement utile pour inclure des données de journal dans une requête Application Insights et pour interroger des données de plusieurs espaces de travail dans une requête de journal.
+L’expression `workspace` est utilisée dans une requête Azure Monitor dans le but de récupérer des données à partir d’un espace de travail spécifique du même groupe de ressources, d’un autre groupe de ressources ou d’un autre abonnement. Elle est particulièrement utile pour inclure des données de journal dans une requête Application Insights et pour interroger des données de plusieurs espaces de travail dans une requête de journal.
 
 
 ## <a name="syntax"></a>Syntaxe
@@ -71,5 +71,6 @@ union
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez l’article relatif à l’[expression app](workspace-expression.md) pour en savoir plus sur l’application Application Insights.
-- En savoir plus sur le stockage des [données Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+- Consultez l’article relatif à l’[expression app](app-expression.md) pour en savoir plus sur l’application Application Insights.
+- Découvrez-en plus sur le stockage des [données Azure Monitor](log-query-overview.md).
+- Accédez à la documentation complète sur le [langage de requête Data Explorer](/azure/kusto/query/).

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2016
+ms.date: 02/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: c284236af64c3981a5d15570bcd2705bb7d6a99b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121052"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962109"
 ---
 # <a name="smart-detection-in-application-insights"></a>Détection intelligente dans Application Insights
  La détection intelligente vous informe automatiquement des éventuels problèmes de performances dans votre application web. Elle effectue une analyse proactive des données de télémétrie que votre application envoie à [Application Insights](../../azure-monitor/app/app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
@@ -46,6 +46,14 @@ Il existe trois types de détection :
 * [Détection intelligente - Dépannage de problèmes de service cloud Azure](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Vous recevez des alertes si votre application est hébergée dans Azure Cloud Services et qu’une instance de rôle présente des échecs de démarrage, un recyclage fréquent ou des erreurs d’exécution.
 
 (Les liens d’aide dans chaque notification vous renvoient vers les articles pertinents.)
+
+## <a name="smart-detection-email-notifications"></a>Notifications par e-mail de détection intelligente
+
+Toutes les règles de détection intelligente, à l’exception des règles marquées en tant que préversion, sont configurées par défaut pour envoyer des notifications par e-mail en cas de détection.
+
+La configuration de notifications par e-mail pour une règle de détection intelligente spécifique peut être effectuée en ouvrant le panneau **Paramètres** de détection intelligente et en sélectionnant la règle, ce qui ouvre le panneau **Modifier une règle**.
+
+Vous pouvez également utiliser les modèles Azure Resource Manager pour modifier la configuration. Pour plus d'informations, consultez [Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
 
 ## <a name="video"></a>Vidéo
 

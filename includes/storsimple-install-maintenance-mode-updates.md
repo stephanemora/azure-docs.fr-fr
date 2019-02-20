@@ -4,22 +4,20 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 01612b32e6c1b363df8a5c70405d0c709210328e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164208"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889014"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Pour installer les mises à jour en mode Maintenance via Windows PowerShell pour StorSimple
 1. Si vous ne l’avez pas déjà fait, accédez à la console série de l’appareil et sélectionnez l’option 1, **Ouvrir une session avec un accès total**. 
 2. Saisissez le mot de passe. Le mot de passe par défaut est **Password1**.
 3.  À l’invite de commandes, tapez :
    
      `Get-HcsUpdateAvailability` 
-4. Le système vous indique si des mises à jour sont disponibles et si elles risquent ou non de provoquer une interruption de service. Pour appliquer les mises à jour sans interruption, vous devez mettre l’appareil en mode Maintenance. Pour obtenir des instructions, consultez l’[Étape 2 : passage en mode Maintenance](../articles/storsimple/storsimple-update-device.md#step2).
+4. Le système vous indique si des mises à jour sont disponibles et si elles risquent ou non de provoquer une interruption de service. Pour appliquer les mises à jour sans interruption, vous devez mettre l’appareil en mode Maintenance. Consultez [Étape 2 : Quitter le mode Maintenance](../articles/storsimple/storsimple-update-device.md#step2) pour obtenir des instructions.
 5. Lorsque votre périphérique est en mode Maintenance, à l’invite de commandes, tapez : `Start-HcsUpdate`
 6. Vous êtes invité à confirmer l’opération. Une fois que vous les avez confirmées, les mises à jour sont installées sur le contrôleur auquel vous êtes connecté. Après l’installation des mises à jour, le contrôleur redémarre. 
 7. Surveillez l’état des mises à jour. Tapez :
@@ -28,5 +26,5 @@ ms.locfileid: "50164208"
    
     Si le `RunInProgress` est `True`, la mise à jour est toujours en cours. Si le `RunInProgress` est `False`, cela veut dire que la mise à jour est terminée.  
 8. Lorsque la mise à jour est installée sur le contrôleur actuel et que celui-ci a redémarré, connectez-vous à l’autre contrôleur et menez les étapes 1 à 6.
-9. Après la mise à jour des deux contrôleurs, quittez le mode Maintenance. Pour obtenir des instructions, consultez l’[Étape 4 : quitter le mode Maintenance](../articles/storsimple/storsimple-update-device.md#step4).
+9. Après la mise à jour des deux contrôleurs, quittez le mode Maintenance. Consultez [Étape 4 : Quitter le mode Maintenance](../articles/storsimple/storsimple-update-device.md#step4) pour obtenir des instructions.
 

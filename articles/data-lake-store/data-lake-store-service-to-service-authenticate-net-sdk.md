@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 58d8cfdbd2ad5d7e727decfa3e3cfdd7151b0048
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3075f515b8095451a873727fef696fd523664d0a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250198"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891706"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Dans cet article, vous allez apprendre à utiliser le Kit de développement logi
    | --- | --- |
    | Catégorie |Modèles/Visual C#/Windows |
    | Modèle |Application console |
-   | NOM |CreateADLApplication |
+   | Nom |CreateADLApplication |
 4. Cliquez sur **OK** pour créer le projet.
 
 5. Ajoutez les packages NuGet à votre projet.
@@ -63,57 +63,62 @@ Dans cet article, vous allez apprendre à utiliser le Kit de développement logi
 
 6. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+
+using Microsoft.Rest;
+using Microsoft.Rest.Azure.Authentication;
+using Microsoft.Azure.Management.DataLake.Store;
+using Microsoft.Azure.Management.DataLake.Store.Models;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>Authentification de service à service avec une clé secrète client
 Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les valeurs d’espace réservé par les valeurs récupérées à partir d’une application web Azure AD (répertoriée comme condition préalable).  Cet extrait de code permet d’authentifier votre application **de façon non interactive** auprès de Data Lake Storage Gen1 à l’aide de la clé secrète client/clé de l’application web Azure AD. 
 
-    private static void Main(string[] args)
-    {    
-        // Service principal / appplication authentication with client secret / key
-        // Use the client ID of an existing AAD "Web App" application.
-        string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
-        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
-        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
-        string secret_key = "<AAD_WEB_APP_SECRET_KEY>";
-        var armCreds = GetCreds_SPI_SecretKey(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, secret_key);
-        var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
-    }
+```csharp
+private static void Main(string[] args)
+{    
+    // Service principal / application authentication with client secret / key
+    // Use the client ID of an existing AAD "Web App" application.
+    string TENANT = "<AAD-directory-domain>";
+    string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+    System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+    System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+    string secret_key = "<AAD_WEB_APP_SECRET_KEY>";
+    var armCreds = GetCreds_SPI_SecretKey(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, secret_key);
+    var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
+}
+```
 
-L’extrait de code précédent utilise une fonction d’assistance `GetCreds_SPI_SecretKey`. Le code de cette fonction d’assistance est disponible [ici sur GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+L’extrait de code précédent utilise la fonction d’assistance `GetCreds_SPI_SecretKey`. Le code de cette fonction d’assistance est disponible [ici sur GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Authentification de service à service avec un certificat
 
 Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les valeurs d’espace réservé par les valeurs récupérées à partir d’une application web Azure AD (répertoriée comme condition préalable). Cet extrait de code permet d’authentifier votre application **de façon non interactive** auprès de Data Lake Storage Gen1 à l’aide du certificat d’une application web Azure AD. Pour plus d’informations sur la création d’une application Azure AD, consultez [Créer un principal du service avec un certificat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
-    
-    private static void Main(string[] args)
-    {
-        // Service principal / application authentication with certificate
-        // Use the client ID and certificate of an existing AAD "Web App" application.
-        string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
-        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
-        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
-        var cert = new X509Certificate2(@"d:\cert.pfx", "<certpassword>");
-        var armCreds = GetCreds_SPI_Cert(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, cert);
-        var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
-    }
+```csharp
+private static void Main(string[] args)
+{
+    // Service principal / application authentication with certificate
+    // Use the client ID and certificate of an existing AAD "Web App" application.
+    string TENANT = "<AAD-directory-domain>";
+    string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+    System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+    System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+    var cert = new X509Certificate2(@"d:\cert.pfx", "<certpassword>");
+    var armCreds = GetCreds_SPI_Cert(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, cert);
+    var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
+}
+```
 
-L’extrait de code précédent utilise une fonction d’assistance `GetCreds_SPI_Cert`. Le code de cette fonction d’assistance est disponible [ici sur GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+L’extrait de code précédent utilise la fonction d’assistance `GetCreds_SPI_Cert`. Le code de cette fonction d’assistance est disponible [ici sur GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification de service à service auprès d’Azure Data Lake Storage Gen1 avec le Kit de développement logiciel (SDK) .NET. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser le Kit de développement logiciel (SDK) .NET pour travailler avec Data Lake Storage Gen1.

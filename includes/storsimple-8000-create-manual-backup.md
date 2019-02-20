@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50c0c781e7e1c95896a22f0cd71ed20bbad4c2b3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888598"
 ---
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### <a name="to-create-a-manual-backup"></a>Création d’une sauvegarde manuelle
 
 1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans la liste tabulaire des appareils, sélectionnez votre appareil. Accédez à **Paramètres > Gérer > Stratégies de sauvegarde**.
@@ -23,7 +21,7 @@ ms.locfileid: "50165034"
 
 3. Dans le panneau **Back up now** (Sauvegarder maintenant), procédez comme suit :
 
-    1. Dans la liste déroulante, choisissez le **type d’instantané** : **Local** ou **Cloud**. Sélectionnez une capture instantanée locale pour les restaurations ou sauvegardes rapides et une capture instantanée cloud pour la résilience des données.
+    1. Dans la liste déroulante, sélectionnez le **Type d'instantané** qui convient : instantané **Local** ou instantané **Cloud**. Sélectionnez une capture instantanée locale pour les restaurations ou sauvegardes rapides et une capture instantanée cloud pour la résilience des données.
 
         ![Création d’une sauvegarde manuelle](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
