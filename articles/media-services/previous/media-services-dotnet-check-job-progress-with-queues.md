@@ -4,7 +4,7 @@ description: Découvrez comment utiliser Azure Queue Storage pour surveiller les
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 5b0e3155023cb8ac4d359e440b561ae5c61a9195
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783418"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994944"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Queue Storage pour surveiller les notifications de travaux Media Services avec .NET
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Utiliser Stockage File d’attente Azure pour surveiller les notifications de travaux Media Services avec .NET (hérité)
+
 Lorsque vous exécutez des travaux d’encodage, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez configurer Media Services pour transmettre des notifications à [Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md). Vous pouvez vérifier la progression des tâches en obtenant des notifications à partir de Queue Storage. 
 
 Les messages transmis au stockage de files d’attente sont accessibles n’importe où dans le monde. L’architecture de messagerie de Stockage File d’attente est hautement évolutive. L’interrogation du Stockage File d’attente pour les messages est préférable aux autres méthodes.
@@ -338,7 +339,7 @@ namespace JobNotification
 }
 ```
 
-L’exemple précédent produit le résultat suivant : vos valeurs peuvent varier.
+L’exemple ci-dessus produit le résultat suivant : Vos valeurs varieront.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4
@@ -366,8 +367,7 @@ L’exemple précédent produit le résultat suivant : vos valeurs peuvent varie
     State: Finished
 
 
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: f41d54f97861a4df7d50cb3b4f0f99970de354cc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4a1ea364180d389ffdbfc7cedd740a0e493070b3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121496"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998992"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -104,7 +104,7 @@ Dans le portail, cliquez sur n’importe quelle mosaïque ou n’importe quel gr
 ## <a name="step-4-publish-your-app"></a>Étape 4 : Publier votre application
 Publiez votre application sur votre serveur IIS ou sur Azure. Vérifiez [Live Metrics Stream (Flux continu de mesures)](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) pour vous assurer que tout fonctionne correctement.
 
-Vos données de télémétrie s’affichent dans le portail Application Insights, où vous pouvez surveiller les mesures, effectuer une recherche dans vos données de télémétrie et configurer les [tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md). Vous pouvez également utiliser le puissant [langage de requête Log Analytics](https://aka.ms/LogAnalyticsLanguage) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
+Vos données de télémétrie s’affichent dans le portail Application Insights, où vous pouvez surveiller les mesures, effectuer une recherche dans vos données de télémétrie et configurer les [tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md). Vous pouvez également utiliser le puissant [langage de requête Data Explorer](https://aka.ms/LogAnalyticsLanguage) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
 
 Vous pouvez également continuer à analyser vos données de télémétrie dans [Visual Studio](../../azure-monitor/app/visual-studio.md) à l’aide d’outils comme la recherche de diagnostic et les [tendances](../../azure-monitor/app/visual-studio-trends.md).
 

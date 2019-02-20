@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881594"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962228"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
@@ -31,6 +31,7 @@ Vous pouvez configurer les paramètres suivants pour une règle de détection in
 - Si la règle est activée (la valeur par défaut est **true**.)
 - Si des messages doivent être envoyés aux propriétaires d’abonnement, contributeurs et lecteurs quand une détection est trouvée (la valeur par défaut est **true**.)
 - Les destinataires d’e-mails supplémentaires qui doivent recevoir une notification lorsqu’une détection est trouvée.
+- * La configuration des e-mails n’est pas disponible pour les règles de détection intelligente indiquant _Préversion_.
 
 Pour autoriser la configuration des paramètres de règle via Azure Resource Manager, la configuration de règle de détection intelligente est désormais disponible en tant que ressource interne au sein de la ressource Application Insights, nommée **ProactiveDetectionConfigs**.
 Pour une flexibilité maximale, chaque règle de détection intelligente peut être configurée avec les paramètres de notification unique.

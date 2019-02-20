@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820128"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176235"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -102,9 +102,17 @@ Une autre fonctionnalité d’entrée courante est l’arrêt SSL/TLS. Sur les g
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 
-Un groupe de sécurité réseau filtre le trafic pour des machines virtuelles, telles que les nœuds AKS. Quand vous créez des services, tels qu’un équilibreur de charge, la plateforme Azure configure automatiquement toutes les règles de groupe de sécurité réseau nécessaires. Ne configurez pas manuellement des règles de groupe de sécurité réseau pour filtrer le trafic des pods dans un cluster AKS. Définissez les ports et le transfert requis dans le cadre de vos manifestes de services Kubernetes et laissez la plateforme Azure créer ou mettre à jour les règles appropriées.
+Un groupe de sécurité réseau filtre le trafic pour des machines virtuelles, par exemple les nœuds AKS. Quand vous créez des services, tels qu’un équilibreur de charge, la plateforme Azure configure automatiquement toutes les règles de groupe de sécurité réseau nécessaires. Ne configurez pas manuellement des règles de groupe de sécurité réseau pour filtrer le trafic des pods dans un cluster AKS. Définissez les ports et le transfert requis dans le cadre de vos manifestes de services Kubernetes et laissez la plateforme Azure créer ou mettre à jour les règles appropriées. Vous pouvez également utiliser des stratégies réseau, comme l’explique la section suivante, puis appliquer automatiquement des règles de filtrage de trafic aux pods.
 
 Il existe des règles de groupe de sécurité réseau par défaut pour le trafic, tel que le trafic SSH. Ces règles par défaut concernent la gestion du cluster et la résolution des problèmes d’accès. La suppression de ces règles par défaut peut entraîner des problèmes liés à la gestion d’AKS et rompt l’objectif de niveau de service.
+
+## <a name="network-policies"></a>Stratégies réseau
+
+Par défaut, tous les pods d’un cluster AKS peuvent envoyer et recevoir du trafic sans limitations. Pour une sécurité accrue, vous pouvez définir des règles qui contrôlent le flux de trafic. Les applications principales sont souvent exposées uniquement aux services frontaux obligatoires, ou les composants de base de données sont uniquement accessibles aux couches d’application qui s’y connectent.
+
+L’utilisation de stratégies réseau est une fonctionnalité Kubernetes qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser le trafic selon des paramètres tels que les étiquettes attribuées, l’espace de noms ou le port de trafic. Les groupes de sécurité réseau sont plus adaptés aux nœuds AKS qu’aux pods. L’utilisation de stratégies réseau est un moyen plus adapté et natif du cloud de contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement.
+
+Pour plus d’informations, consultez [Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)][use-network-policies].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -139,3 +147,4 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[use-network-policies]: use-network-policies.md

@@ -4,23 +4,25 @@ description: Utilisez les informations présentes dans cette rubrique pour plani
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693882"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238111"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Génération et transfert de clés HSM protégées pour Azure clé de coffre
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Pour une meilleure garantie, lorsque vous utilisez le coffre de clés Azure, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Ce scénario est souvent appelé *Apportez votre propre clé*ou désigné par l’acronyme BYOK. Les modules HSM bénéficient d’une validation FIPS 140-2 de niveau 2. Le coffre de clés Azure utilise la famille nShield de modules HSM de Thales pour protéger vos clés.
 
@@ -30,7 +32,7 @@ Cette fonctionnalité n’est pas disponible pour Azure en Chine.
 
 > [!NOTE]
 > Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](key-vault-whatis.md)  
-> Pour voir un didacticiel de mise en route incluant un coffre de clés pour les clés protégées par HSM, consultez la section [Prise en main du coffre de clés Azure](key-vault-get-started.md).
+> Pour voir un didacticiel de mise en route incluant un coffre de clés pour les clés protégées par HSM, consultez la section [ Présentation d’Azure Key Vault](key-vault-overview.md).
 
 Plus d’informations sur la génération et le transfert d’une clé protégée par HSM sur Internet :
 
@@ -60,7 +62,7 @@ Consultez le tableau qui suit pour connaître les conditions requises pour appor
 | Abonnement à Azure |Pour créer un coffre de clés Azure, vous avez besoin d’un abonnement Azure : [Inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/) |
 | Niveau de service Premium d’Azure Key Vault pour prendre en charge les clés protégées par HSM |Pour plus d’informations sur les niveaux de service et les capacités du coffre de clés Azure, consultez le site web [Tarifs du coffre de clés Azure](https://azure.microsoft.com/pricing/details/key-vault/) . |
 | Modules de sécurité matérielle, cartes à puces et logiciel d’assistance de Thales |Vous devez disposer d’un accès au module de sécurité matérielle Thales et quelques notions sur les modules de sécurité matérielle d’HSM. Voir [Modules de sécurité matérielle Thales](https://www.thales-esecurity.com/msrms/buy) pour obtenir une liste des modèles compatibles ou acheter un module de sécurité matérielle si vous n’en n’avez pas encore. |
-| Les matériels et le logiciel suivants :<ol><li>Une station de travail x64 hors connexion avec le système d’exploitation Windows 7 ou version ultérieure, et le logiciel Thales nShield version 11.50 ou ultérieure.<br/><br/>Si cette station de travail exécute Windows 7, vous devez [installer Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet et dotée du système d’exploitation Windows 7 et d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **version 1.1.0 ou ultérieure**.</li><li>Un lecteur USB ou tout autre appareil de stockage portable offrant au moins 16 Mo d’espace libre.</li></ol> |Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Toutefois, cette recommandation n’est pas appliquée par programmation.<br/><br/>Dans les instructions qui suivent, cette station de travail est désignée en tant que station de travail déconnectée.</p></blockquote><br/>De plus, si votre clé de locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger l’ensemble d’outils et charger la clé de locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Dans les instructions qui suivent, cette deuxième station de travail est désignée en tant que station de travail connectée à Internet.</p></blockquote><br/> |
+| Les matériels et le logiciel suivants :<ol><li>Une station de travail x64 hors connexion avec le système d’exploitation Windows 7 ou version ultérieure, et le logiciel Thales nShield version 11.50 ou ultérieure.<br/><br/>Si cette station de travail exécute Windows 7, vous devez [installer Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet et dotée du système d’exploitation Windows 7 et d’[Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **version 1.1.0 ou ultérieure**.</li><li>Un lecteur USB ou tout autre appareil de stockage portable offrant au moins 16 Mo d’espace libre.</li></ol> |Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Toutefois, cette recommandation n’est pas appliquée par programmation.<br/><br/>Dans les instructions qui suivent, cette station de travail est désignée en tant que station de travail déconnectée.</p></blockquote><br/>De plus, si votre clé de locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger l’ensemble d’outils et charger la clé de locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Dans les instructions qui suivent, cette deuxième station de travail est désignée en tant que station de travail connectée à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Générez et transférez votre clé sur le module de sécurité matériel du coffre de clés Azure
 
@@ -78,21 +80,19 @@ Pour cette première étape, exécutez les procédures qui suivent sur la statio
 
 ### <a name="step-11-install-azure-powershell"></a>Étape 1.1 : Installation d’Azure PowerShell
 
-Depuis la station de travail connectée à Internet, téléchargez et installez le module Azure PowerShell qui inclut les applets de commande servant à gérer le coffre de clés Azure. Cela nécessite au moins la version 0.8.13.
-
-Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+Depuis la station de travail connectée à Internet, téléchargez et installez le module Azure PowerShell qui inclut les applets de commande servant à gérer le coffre de clés Azure. Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Étape 1.2 : Obtenir votre ID d’abonnement Azure
 
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure en utilisant la commande suivante :
 
 ```Powershell
-   Add-AzureRMAccount
+   Connect-AzAccount
 ```
-Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Utilisez ensuite la commande [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) :
+Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Utilisez ensuite la commande [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) :
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 Dans le résultat, recherchez l’ID de l’abonnement que vous utiliserez pour le coffre de clés Azure. Vous aurez besoin cet ID d’abonnement ultérieurement.
 
@@ -246,7 +246,6 @@ Copiez le package d’outils BYOK de la clé USB ou de l’autre support de stoc
 
 Pour cette troisième étape, procédez comme suit sur la station de travail déconnectée. Pour que vous puissiez mener à bien cette étape, votre HSM doit être en mode d’initialisation. 
 
-
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Étape 3.1 : Définir le mode du HSM sur « I »
 
 Si vous utilisez Thales nShield Edge, pour changer le mode : 1. Utilisez le bouton Mode pour mettre le mode requis en surbrillance. 2. Dans un délai de quelques secondes, maintenez le bouton Clear (Effacer) enfoncé pendant deux à trois secondes. Si le mode est modifié, la LED du nouveau mode cesse de clignoter et reste allumée. La LED d’état peut clignoter de façon irrégulière pendant quelques secondes, puis clignoter régulièrement lorsque l’appareil est prêt. Sinon, l’appareil reste dans le mode actuel, avec la LED du mode approprié allumée.
@@ -256,13 +255,13 @@ Si vous utilisez Thales nShield Edge, pour changer le mode : 1. Utilisez le bou
 Démarrez une invite de commande et exécutez le programme de nouveau monde Thales.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 Ce programme crée un fichier **Security World** à l’emplacement %NFAST_KMDATA%\local\world, qui correspond au dossier C:\ProgramData\nCipher\Key Management Data\local. Vous pouvez utiliser des valeurs différentes pour le quorum, mais dans notre exemple, vous êtes invité à entrer trois cartes vierges et codes confidentiels pour chacune d’elles. Par la suite, chacune des deux cartes offre un accès total au monde de sécurité. Ces cartes constituent l’ **ensemble de cartes administrateur** pour le nouveau monde de sécurité.
 
 > [!NOTE]
-> Si votre HSM prend en charge la suite de chiffrement DLf3072s256mRijndael la plus récente, vous pouvez remplacer --cipher-suite=DLf1024s160mRijndael par --cipher-suite=DLf3072s256mRijndael
+> Si votre HSM ne prend pas en charge la suite de chiffrement DLf3072s256mRijndael la plus récente, vous pouvez remplacer --cipher-suite=DLf3072s256mRijndael par --cipher-suite=DLf1024s160mRijndael
 
 Faites ensuite ce qui suit :
 
@@ -493,14 +492,14 @@ Utilisez une clé USB ou un autre dispositif de stockage portable pour copier le
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Étape 5 : Transférer votre clé vers Azure Key Vault
 
-Pour l’opération finale, sur la station de travail connectée à Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) pour télécharger le package de transfert de clé copié à partir de la station de travail de la station de travail non connectée vers le module de sécurité matériel (HSM) d’Azure Key Vault :
+Pour l’opération finale, sur la station de travail connectée à Internet, utilisez l’applet de commande [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) pour télécharger le package de transfert de clé copié à partir de la station de travail non connectée vers le module de sécurité matériel (HSM) d’Azure Key Vault :
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 Si le téléchargement réussit, les propriétés de la clé que vous venez de créer s’afficheront.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, voir la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main du coffre de clés Azure](key-vault-get-started.md) .
+Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, voir la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main du coffre de clés Azure](key-vault-overview.md) .

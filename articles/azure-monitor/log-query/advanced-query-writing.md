@@ -1,6 +1,6 @@
 ---
-title: Requêtes avancées dans Azure Log Analytics | Microsoft Docs
-description: Cet article fournit un tutoriel qui explique comment écrire des requêtes dans Log Analytics à l’aide du portail Analytics.
+title: Requêtes avancées dans Azure Monitor | Microsoft Docs
+description: Cet article fournit un tutoriel qui explique comment écrire des requêtes dans Azure Monitor à l’aide du portail Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191544"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993212"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Écriture de requêtes avancées dans Log Analytics
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Écriture de requêtes avancées dans Azure Monitor
 
 > [!NOTE]
-> Vous devez suivre [Bien démarrer avec le portail Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
+> Vous devez suivre [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez d’autres leçons pour l’utilisation du langage de requête Log Analytics :
+Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête de Data Explorer](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

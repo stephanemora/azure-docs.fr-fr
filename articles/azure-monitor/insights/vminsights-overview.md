@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856373"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004993"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles (préversion) ?
 
@@ -41,7 +41,7 @@ Ces fonctionnalités sont organisées selon trois perspectives :
 >[!NOTE]
 >À l’heure actuelle, la fonctionnalité Intégrité est exclusivement proposée pour les machines virtuelles et les groupes identiques de machines virtuelles Azure. Les fonctionnalités Performances et Mappage prennent en charge les machines virtuelles Azure et celles qui sont hébergées dans votre environnement ou auprès d’autres fournisseurs de cloud.
 
-L’intégration avec Log Analytics offre de puissantes fonctionnalités d’agrégation et de filtrage, ainsi que la possibilité d’analyser les tendances des données au fil du temps. Pris individuellement, Azure Monitor, Service Map et Log Analytics ne sont pas suffisants pour effectuer un monitoring aussi complet des charges de travail.  
+L’intégration avec les journaux Azure Monitor offre de puissantes fonctionnalités d’agrégation et de filtrage, ainsi que la possibilité d’analyser les tendances des données au fil du temps. Pris individuellement, Azure Monitor ou Service Map ne sont pas suffisants pour effectuer un monitoring aussi complet des charges de travail.  
 
 Vous pouvez afficher directement ces données sur une seule machine virtuelle, ou bien utiliser Azure Monitor pour avoir une vue d’ensemble de vos machines virtuelles. Ce mode d’affichage dépend de la perspective des différentes fonctionnalités :
 

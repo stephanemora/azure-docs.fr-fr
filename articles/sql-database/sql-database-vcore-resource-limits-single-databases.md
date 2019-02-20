@@ -3,7 +3,7 @@ title: Limites de ressources par vCore d’Azure SQL Database – base de donné
 description: Cette page décrit certaines des limites de ressources courantes par vCore pour une base de données unique dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/01/2019
-ms.openlocfilehash: 494b9b5d8be804842406aac98d3b328c7848570d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/08/2019
+ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663976"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998110"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique
 
@@ -254,11 +254,15 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|2|2|2|2|2|2|2|2|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|Oui|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus (limité pour la préversion)|7|7|7|7|7|7|7|7|
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obtenir des réponses aux questions fréquemment posées.
+- Pour connaître les limites de ressources DTU des bases de données uniques, consultez l’article sur les [limites de ressources pour les bases de données uniques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-single-databases.md)
+- Pour connaître les limites de ressources de vCore des pools élastiques, consultez l’article sur les [limites de ressources pour les pools élastiques suivant le modèle d’achat vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Pour connaître les limites de ressources DTU des pools élastiques, consultez l’article sur les [limites de ressources pour les pools élastiques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-elastic-pools.md)
+- Pour connaître les limites de ressources des instances gérées, consultez l’article sur les [limites de ressources des instances gérées](sql-database-managed-instance-resource-limits.md).
 - Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+- Pour plus d’informations sur les limites de ressources au niveau du serveur de base de données et de l’abonnement, consultez l’article [Vue d’ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).

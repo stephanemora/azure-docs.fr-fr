@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734604"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894307"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL d’instance gérée Azure SQL Database par rapport à SQL Server
 
@@ -27,7 +27,7 @@ L’option de déploiement d’instance gérée est hautement compatible avec le
 
 Comme il existe toujours des différences de syntaxe et de comportement, cet article résume et explique ces différences. <a name="Differences"></a>
 - [Disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et [Sauvegardes](#backup),
-- [Sécurité](#security) incluant les différences dans [audit](#auditing), [Certificats](#certificates), [Informations d’identification](#credentials), [Fournisseurs de chiffrement](#cryptographic-providers), [Connexions/utilisateurs](#logins--users), [Clé de service et clé principale du service](#service-key-and-service-master-key),
+- [Sécurité](#security) incluant les différences dans [audit](#auditing), [Certificats](#certificates), [Informations d’identification](#credential), [Fournisseurs de chiffrement](#cryptographic-providers), [Connexions/utilisateurs](#logins--users), [Clé de service et clé principale du service](#service-key-and-service-master-key),
 - [Configuration](#configuration) incluant les différences dans [Extension du pool de mémoires tampons](#buffer-pool-extension), [Classement](#collation), [Niveaux de compatibilité](#compatibility-levels), [Mise en miroir de bases de données](#database-mirroring), [Options de base de données](#database-options), [SQL Server Agent](#sql-server-agent), [Options de Table](#tables),
 - [Fonctionnalités](#functionalities) incluant [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transactions distribuées](#distributed-transactions), [Événements étendus](#extended-events), [Bibliothèques externes](#external-libraries), [FileStream et FileTable](#filestream-and-filetable), [Recherche sémantique de texte intégral](#full-text-semantic-search), [Serveurs liés](#linked-servers), [Polybase](#polybase), [Réplication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Procédures, fonctions et déclencheurs stockés](#stored-procedures-functions-triggers),
 - [Fonctionnalités qui se comportent différemment dans les instances gérées](#Changes)
@@ -74,13 +74,13 @@ Pour plus d’informations sur les sauvegardes à l’aide de T-SQL, consultez [
 
 Les principales différences entre l’audit des bases de données dans Azure SQL Database et des bases de données dans SQL Server sont les suivantes :
 
-- Avec l’option de déploiement d’instance gérée dans Azure SQL Database, l’audit s’effectue au niveau du serveur et stocke les fichiers journaux `.xel` sur le compte Stockage Blob Azure.
+- Avec l’option de déploiement d’instance gérée dans Azure SQL Database, l’audit s’effectue au niveau du serveur et stocke les fichiers journaux `.xel` dans Stockage Blob Azure.
 - Avec les options de déploiement de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
 - Dans SQL Server (en local ou sur machines virtuelles), l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
   
 L’audit XEvent d’une instance gérée prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont pas pris en charge.
 
-Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azures sont :
+Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azure sont :
 
 - Une nouvelle syntaxe `TO URL` est fournie et vous permet de spécifier l’URL du conteneur du Stockage Blob Azure où les fichiers `.xel` seront placés
 - La syntaxe `TO FILE` n’est pas prise en charge, car une instance gérée ne peut pas accéder à des partages de fichiers Windows.
@@ -170,7 +170,7 @@ Pour plus d’informations, consultez [ALTER DATABASE SET PARTNER AND SET WITNES
 - Les objets en mémoire ne sont pas pris en charge dans le niveau de service usage général.  
 - Il existe une limite de 280 fichiers par instance, ce qui implique un maximum de 280 fichiers par base de données. Les fichiers de données et de journaux sont comptabilisés dans cette limite.  
 - La base de données ne peut pas contenir de groupes de fichiers contenant des données flux de fichier.  La restauration échoue si le fichier.bak contient des données `FILESTREAM`.  
-- Chaque fichier est placé dans Azure Stockage Premium. L’E/S et le débit par fichier dépendent de la taille de chaque fichier, comme pour les disques Azure Stockage Premium. Consultez [Performances du disque Premium Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Chaque fichier est placé dans Stockage Blob Azure. L’E/S et le débit par fichier dépendent de la taille de chaque fichier.  
 
 #### <a name="create-database-statement"></a>Instruction CREATE DATABASE
 
@@ -275,10 +275,10 @@ Pour plus d’informations sur la création et modification des tables, consulte
 
 ### <a name="bulk-insert--openrowset"></a>Insertion en bloc/openrowset
 
-Une instance gérée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les fichiers doivent être importés à partir du Stockage Blob Azure :
+Une instance gérée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les fichiers doivent être importés à partir du Stockage Blob Azure :
 
 - `DATASOURCE` est requis dans la commande `BULK INSERT` lors de l’importation des fichiers depuis le Stockage Blob Azure. Consultez [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` est requis dans la fonction `OPENROWSET`lorsque vous lisez le contenu d’un fichier à partir du Stockage Blob Azure. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` est requis dans la fonction `OPENROWSET` lorsque vous lisez le contenu d’un fichier à partir du Stockage Blob Azure. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
@@ -305,7 +305,7 @@ Actuellement, ni MSDTC, ni les [Transactions élastiques](sql-database-elastic-t
 
 Certaines cibles spécifiques de Windows pour les événements XEvent ne sont pas prises en charge :
 
-- `etw_classic_sync target` n’est pas pris en charge. Stockez les fichiers `.xel` sur le Stockage Blob Azure. Consultez [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- `etw_classic_sync target` n’est pas pris en charge. Stockez les fichiers `.xel` sur le Stockage Blob Azure. Consultez [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - `event_file target`n’est pas pris en charge. Stockez les fichiers `.xel` sur le Stockage Blob Azure. Consultez [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliothèques externes
@@ -347,7 +347,7 @@ Opérations
 
 ### <a name="polybase"></a>Polybase
 
-Les tables externes référençant les fichiers dans HDFS ou le Stockage Blob Azure ne sont pas prises en charge. Pour plus d’informations sur Polybase, consultez [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+Les tables externes faisant référence aux fichiers dans HDFS ou au Stockage Blob Azure ne sont pas prises en charge. Pour plus d’informations sur Polybase, consultez [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Réplication
 

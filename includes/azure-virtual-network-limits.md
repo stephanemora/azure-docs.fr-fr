@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513995"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905261"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -76,11 +76,12 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md)
 
 | Ressource | Limite par défaut |
-| --- | --- | --- |
+| --- | --- |
 | Équilibreurs de charge | 1 000 | 
 | Règles par ressource, De base | 250 |
 | Règles par ressource, Standard | 1 500 | 
 | Règles par configuration IP | 299 |
+| Règles par groupe de sécurité réseau | 500 |
 | Configurations d’adresses IP frontales, De base | 200 |
 | Configurations d’adresses IP frontales, Standard | 600 |
 | Pool principal, De base | 100, un seul groupe à haute disponibilité |
@@ -88,7 +89,5 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Ressources backend par équilibreur de charge, Standard* | 150 |
 | Ports à haute disponibilité, Standard | 1 par serveur frontal interne |
 
-** Jusqu’à 150 ressources, toute combinaison de machines virtuelles autonomes, groupes à haute disponibilité et groupes de machines virtuelles identiques.
-
-Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
+** Jusqu’à 150 ressources, toute combinaison de ressources de machines virtuelles autonomes, ressources de groupes à haute disponibilité et ressources de groupes de machines virtuelles identiques.
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7b5dc6d892741f63596589a48ad5d45891b14c21
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7801b5ea73cf94439ae2974f91d2032f9bf8a3b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040403"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutoriel : Intégration d’Azure Active Directory à Nimblex
 
@@ -148,7 +149,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     a. Dans la zone de texte **Description**, tapez le nom de votre instance.
 
-    b. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé dans le portail Azure, copiez son contenu, puis collez-le dans la zone **Certificat**.
+    b. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé dans le portail Azure, copiez son contenu, puis collez-le dans la zone **Certificat** .
 
     c. Dans la zone de texte **URL SSO cible du fournisseur d’identité**, collez la valeur de **l’URL du service d’authentification unique SAML** copiée dans le portail Azure.
 
@@ -191,7 +192,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Nimblex. Nimblex prend en charge le provisionnement juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé pendant la tentative d’accès à Nimblex, s’il n’existe pas déjà.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique du client Nimblex](mailto:support@ebms.com.au).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique du client Nimblex](mailto:support@ebms.com.au).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2111fe6a70f45559faeb3e0f8096548dcc7b48bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 40394409dfafa3ad6b3d6685f5c944fc78df813f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238939"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172214"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Résolution des problèmes liés au Kit de développement Microsoft Azure Stack (ASDK)
-Ce document fournit des informations permettant de résoudre les problèmes courants liés au kit ASDK. Si vous rencontrez un problème qui n’est pas documenté, consultez le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) pour obtenir de l’aide et des informations supplémentaires.  
+Cet article fournit des informations permettant de résoudre les problèmes courants liés au kit ASDK. Si vous rencontrez un problème qui n’est pas documenté, consultez le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) pour obtenir de l’aide et des informations supplémentaires.  
 
 > [!IMPORTANT]
 > Le kit de développement étant un environnement d’évaluation, aucune prise en charge officielle n’est proposée par les services de support technique Microsoft.

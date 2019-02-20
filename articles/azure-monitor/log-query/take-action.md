@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809627"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005350"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Utilisation d’un runbook Automation sur un résultat de recherche dans les journaux Log Analytics
 
-À partir d’un résultat de recherche de journal dans Azure Log Analytics, vous pouvez maintenant sélectionner **Agir** pour exécuter un runbook Automation. Le runbook peut être utilisé pour résoudre le problème ou effectuer une autre action telle que la collecte d’informations de résolution de problèmes, l’envoi d’un e-mail ou la création d’une demande de service. 
+> [!NOTE]
+> Le démarrage d’un runbook à partir des résultats de la recherche est une fonctionnalité du portail de recherche dans les journaux classique qui sera déconseillée le 15 février 2019. Vous pouvez configurer un groupe d’actions capable de démarrer un runbook en plus d'autres actions à partir d’une [règle d’alerte](../platform/alerts-log.md) dans Azure Monitor.
+
+À partir d’un résultat de recherche de journal dans Azure Log Analytics, vous pouvez maintenant sélectionner **Agir** pour exécuter un runbook Automation.  Le runbook peut être utilisé pour résoudre le problème ou effectuer une autre action telle que la collecte d’informations de résolution de problèmes, l’envoi d’un e-mail ou la création d’une demande de service. 
+
 
 ## <a name="components-and-features-used"></a>Composants et fonctionnalités utilisés
 * [Compte Azure Automation](../../automation/automation-quickstart-create-account.md)

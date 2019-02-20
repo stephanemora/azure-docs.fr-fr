@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Leapsome | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Leapsome | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Leapsome.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824000"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191229"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutoriel : Intégration d’Azure Active Directory à Leapsome
 

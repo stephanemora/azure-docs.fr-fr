@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247797"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211442"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestion du cycle de vie de Stockage Blob Azure (préversion)
 
@@ -37,7 +37,7 @@ La stratégie de gestion du cycle de vie est disponible avec les comptes v2 univ
 La fonctionnalité de gestion du cycle de vie est gratuite dans la préversion. Les clients sont facturés le coût de fonctionnement normal pour les appels d’API [Répertorier les objets blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) et [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>S’inscrire pour la préversion 
-Pour vous inscrire à la préversion publique, vous devez envoyer une demande afin d’enregistrer cette fonctionnalité dans votre abonnement. Les demandes sont généralement approuvées dans les deux semaines. Une fois votre demande acceptée, tous les comptes Stockage Blob ou GPv2 nouveaux et existants dans les régions suivantes incluent la fonctionnalité : USA Ouest 2, USA Centre-Ouest, USA Est 2 et Europe Ouest. La préversion prend uniquement en charge les objets blob de blocs. Comme avec la plupart des préversions, vous ne devez pas utiliser cette fonctionnalité pour les charges de production avant qu’elle ne soit en disponibilité générale.
+Pour vous inscrire à la préversion publique, vous devez envoyer une demande afin d’enregistrer cette fonctionnalité dans votre abonnement. Les demandes sont généralement approuvées dans les 72 heures. Une fois votre demande acceptée, tous les comptes Stockage Blob ou GPv2 nouveaux et existants dans les régions suivantes incluent la fonctionnalité : USA Ouest 2, USA Centre-Ouest, USA Est 2 et Europe Ouest. La préversion prend uniquement en charge les objets blob de blocs. Comme avec la plupart des préversions, vous ne devez pas utiliser cette fonctionnalité pour les charges de production avant qu’elle ne soit en disponibilité générale.
 
 Pour soumettre une requête, exécutez les commandes PowerShell ou CLI suivantes.
 
@@ -136,7 +136,7 @@ Chaque règle au sein de la stratégie nécessite trois paramètres :
 
 | Nom du paramètre | Type de paramètre | Notes |
 |----------------|----------------|-------|
-| NOM           | Chaîne | Un nom de règle peut inclure n’importe quelle combinaison de caractères alphanumériques. Les noms de règle respectent la casse. Ils doivent être uniques dans la stratégie. |
+| Nom           | Chaîne | Un nom de règle peut inclure n’importe quelle combinaison de caractères alphanumériques. Les noms de règle respectent la casse. Ils doivent être uniques dans la stratégie. |
 | Type           | Une valeur enum | La valeur valide pour la préversion est `Lifecycle`. |
 | Définition     | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. |
 
@@ -189,7 +189,7 @@ Lors de la version d’évaluation, les filtres valides sont les suivants :
 
 | Nom du filtre | Type de filtre | Notes | Est obligatoire |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Un ensemble de valeurs enum prédéfinies. | La préversion prend uniquement en charge `blockBlob`. | Oui |
+| blobTypes   | Un ensemble de valeurs enum prédéfinies. | La préversion prend uniquement en charge `blockBlob`. | OUI |
 | prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous « https://myaccount.blob.core.windows.net/container1/foo/... » pour une règle, le prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, les règles s’appliquent à tous les objets blob dans le compte. | Non  |
 
 ### <a name="rule-actions"></a>Actions de règle

@@ -4,7 +4,7 @@ description: Cet article décrit comment vous pouvez utiliser Azure Media Servic
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services
@@ -12,32 +12,34 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 02/08/2019
 ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: aff5b94840e63176358d64a535c9cc0dd9ec617a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b3d8759f13f48e5fa95ff709fa283ed41e0ea25
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783188"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003208"
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
+
 Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences **castLabs** .
 
-Pour lire un contenu en streaming protégé par CENC (PlayReady et/ou Widevine), vous pouvez utiliser [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Pour plus d’informations, consultez le [document AMP](http://amp.azure.net/libs/amp/latest/docs/) .
+Pour lire un contenu en streaming protégé par CENC (PlayReady et/ou Widevine), vous pouvez utiliser le [Lecteur multimédia Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Pour plus d’informations, consultez le [document AMP](http://amp.azure.net/libs/amp/latest/docs/) .
 
 Le diagramme suivant représente une architecture qui intègre Azure Media Services et castLabs.
 
 ![intégration](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ## <a name="typical-system-set-up"></a>Configuration système classique
+
 * Le contenu multimédia est stocké dans AMS.
 * Les ID des clés de contenu sont stockées à la fois dans castLabs et AMS.
 * castLabs et AMS intègrent une authentification par jeton. Les sections suivantes décrivent les jetons d'authentification. 
@@ -46,9 +48,11 @@ Le diagramme suivant représente une architecture qui intègre Azure Media Servi
 * Media Player détermine automatiquement quelles licences récupérer en fonction de la capacité de la plateforme client. 
 
 ## <a name="authentication-token-generation-for-getting-a-license"></a>Génération de jetons d'authentification pour l'obtention d'une licence
+
 AMS et castLabs prennent en charge le format de jeton JWT (jeton web JSON) utilisé pour autoriser une licence. 
 
 ### <a name="jwt-token-in-ams"></a>Jeton JWT dans AMS
+
 Le tableau suivant décrit le jeton JWT dans AMS. 
 
 | Émetteur | Chaîne d'émetteur issue du service de jeton sécurisé (STS) choisi |
@@ -60,16 +64,18 @@ Le tableau suivant décrit le jeton JWT dans AMS.
 | SigningCredentials |Clé partagée entre le serveur de licences PlayReady, le serveur de licences castLabs et le STS. Elle peut être symétrique ou asymétrique. |
 
 ### <a name="jwt-token-in-castlabs"></a>Jeton JWT dans castLabs
+
 Le tableau suivant décrit le jeton JWT dans castLabs. 
 
-| NOM | Description |
+| Nom | Description |
 | --- | --- |
 | optData |Chaîne JSON contenant des informations sur vous. |
 | crt |Chaîne JSON contenant des informations sur l'élément multimédia, ses informations de licence et ses droits de lecture. |
 | iat |Date/heure actuelle de l'époque. |
 | jti |Identificateur unique relatif à ce jeton (chaque jeton peut être utilisé une seule fois dans le système castLabs). |
 
-## <a name="sample-solution-set-up"></a>Exemple de configuration de solution
+## <a name="sample-solution-setup"></a>Exemple de configuration de solution
+
 L' [exemple de solution](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) se compose de deux projets :
 
 * Une application console qui peut être utilisée pour définir des restrictions DRM sur un élément multimédia déjà ingéré, à la fois pour PlayReady et Widevine.
@@ -94,7 +100,8 @@ Pour utiliser l'application web (STS) :
 3. Accédez au site web.
 
 ## <a name="playing-back-a-video"></a>Lecture d'une vidéo
-Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine), vous pouvez utiliser [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Pendant l'exécution de l'application console, l'ID de la clé de contenu et l'URL du manifeste sont renvoyés.
+
+Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine), vous pouvez utiliser le [Lecteur multimédia Azure ](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Pendant l'exécution de l'application console, l'ID de la clé de contenu et l'URL du manifeste sont renvoyés.
 
 1. Ouvrez un nouvel onglet et lancez votre STS : http://[nom_sts].azurewebsites.net/api/token/assetid/[id_élément_multimédia_castlabs]/contentkeyid/[id_clé_contenu].
 2. Accédez à [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).

@@ -4,23 +4,23 @@ titleSuffix: Azure Cognitive Services
 description: Découvrez comment filtrer et afficher les résultats de recherche obtenus avec l’API Recherche Web Bing.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: c59cb173480fbeefa890317fb4804f07b9f58f76
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158177"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199491"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrage des correspondances contenues dans la réponse de recherche  
 
-Quand vous interrogez le web, Bing retourne tout le contenu qu’il juge pertinent par rapport à la recherche. Par exemple, si la requête de recherche est « sailing+dinghies », la réponse peut contenir les correspondances suivantes :
+Lorsque vous interrogez le web, Bing renvoie tout le contenu qu’il juge pertinent pour la recherche. Par exemple, si la requête de recherche est « sailing+dinghies », la réponse peut contenir les correspondances suivantes :
 
 ```json
 {
@@ -44,8 +44,16 @@ Quand vous interrogez le web, Bing retourne tout le contenu qu’il juge pertine
     }
 }    
 ```
+Vous pouvez filtrer les types de contenu que vous recevez (images, vidéos, actualités, par exemple) à l’aide du paramètre de requête [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Bing renvoie le contenu qu’il juge pertinent pour les réponses spécifiées. Le filtre de réponse est une liste de correspondances séparées par des virgules. 
 
-Si vous êtes intéressé par des types spécifiques de contenu tels que des images, des vidéos et des actualités, vous pouvez demander seulement ces réponses à l’aide du paramètre de requête [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Bing retourne le contenu qu’il trouve pertinent pour les réponses spécifiées. Le filtre de réponse est une liste de correspondances séparées par des virgules. Le code suivant montre comment utiliser `responseFilter` pour demander des images, des vidéos et des actualités sur les dériveurs. Quand vous encodez la chaîne de requête, les virgules sont remplacées par %2C.  
+Pour exclure de la réponse certains types de contenu, tels que des images, vous pouvez ajouter un caractère `-` au début de la valeur `responseFilter`. Vous pouvez séparer les types de contenu exclus par une virgule (`,`). Par exemple : 
+
+```
+&responseFilter=-images,-videos
+```
+
+
+Le code suivant montre comment utiliser `responseFilter` pour demander des images, des vidéos et des actualités sur les dériveurs. Quand vous encodez la chaîne de requête, les virgules sont remplacées par %2C.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -57,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Le code suivant affiche la réponse à la requête précédente. Comme vous pouvez le voir, Bing n’ayant pas trouvé de résultats pertinents en matière de vidéos et d’actualités, la réponse ne les inclut pas.
+Le code suivant affiche la réponse à la requête précédente. Bing n’ayant pas trouvé de résultats pertinents en matière de vidéos et d’actualités, la réponse ne les inclut pas.
 
 ```json
 {
@@ -80,12 +88,6 @@ Le code suivant affiche la réponse à la requête précédente. Comme vous pouv
         }
     }
 }
-```
-
-Si vous souhaitez exclure des types de contenu spécifiques de la réponse (des images, par exemple), vous pouvez ajouter un trait d’union (moins) en tant que préfixe à la valeur responseFilter. Séparez les types de contenu exclus par une virgule :
-
-```
-&responseFilter=-images,-videos
 ```
 
 Même si Bing n’a pas retourné de résultats en matière de vidéos et d’actualités dans la réponse précédente, cela ne signifie pas que ce contenu n’existe pas. Cela signifie simplement que la page ne contient pas ces résultats. Toutefois, si vous [parcourez](./paging-webpages.md) plus de résultats, il est probable qu’ils s’affichent dans les pages suivantes. En outre, si vous appelez directement les points de terminaison [d’API Recherche de vidéos](../bing-video-search/search-the-web.md) et [d’API Recherche d’actualités](../bing-news-search/search-the-web.md), la réponse contient probablement les résultats.

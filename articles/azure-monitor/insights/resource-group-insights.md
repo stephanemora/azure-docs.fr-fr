@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587408"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997020"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Surveiller les groupes de ressources avec Azure Monitor (préversion)
 
@@ -93,9 +93,9 @@ Des zones d’édition **Modifier** s’affichent à proximité des différents 
 
 ![Capture d’écran des zones d’édition](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Cela fait apparaître la requête Log Analytics sous-jacente qui dirige la visualisation du tableau.
+Cela fait apparaître la requête de journal sous-jacente qui dirige la visualisation du tableau.
 
- ![Capture d’écran de la fenêtre de requête de Log Analytics](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Capture d’écran de la fenêtre de requête de journal](./media/resource-group-insights/0010-failure-edit-query.png)
 
 Vous pouvez modifier la requête directement. Vous pouvez également l’utiliser comme référence et vous en servir lorsque vous concevez votre propre classeur paramétrable personnalisé.
 

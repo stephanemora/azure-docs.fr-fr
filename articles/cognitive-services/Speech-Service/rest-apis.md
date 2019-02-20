@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser les API REST de reconnaissance vocale et de synthèse vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247440"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998935"
 ---
 # <a name="speech-service-rest-apis"></a>API REST du service Speech
 
@@ -27,14 +27,14 @@ Avant d’utiliser les API REST, tenez compte des éléments suivants :
 * L’API REST de reconnaissance vocale retourne uniquement les résultats finaux. Les résultats partiels ne sont pas fournis.
 * L’API REST de synthèse vocale nécessite un en-tête d’autorisation. Cela signifie que vous devez échanger un jeton pour accéder au service. Pour en savoir plus, consultez [Authentification](#authentication).
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Chaque demande à l’API REST de reconnaissance vocale ou de synthèse vocale nécessite un en-tête d’autorisation. Ce tableau présente les en-têtes pris en charge pour chaque service :
 
 | En-têtes d'autorisation pris en charge | Reconnaissance vocale | Synthèse vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Oui | Non  |
-| Autorisation : Support | Oui | Oui |
+| Ocp-Apim-Subscription-Key | OUI | Non  |
+| Autorisation : Support | OUI | OUI |
 
 Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Par exemple : 
 
@@ -66,7 +66,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-Le corps de la réponse contient le jeton d’accès au format Java Web Token (JWT).
+Le corps de la réponse contient le jeton d’accès au format JSON Web Token (JWT).
 
 #### <a name="powershell-sample"></a>Exemple de code PowerShell
 

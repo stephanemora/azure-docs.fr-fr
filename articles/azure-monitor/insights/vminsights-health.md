@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563335"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961259"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles (préversion)
 Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous puissiez surveiller différentes conditions à l’aide de Log Analytics ou d’Azure Monitor, ils n’ont pas été conçus pour modéliser et représenter l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  
@@ -44,7 +44,7 @@ Pour plus d’informations sur la configuration d’Azure Monitor pour les machi
 >
 >Il n’existe aucune régression des fonctionnalités fournies actuellement avec le composant Intégrité d’Azure Monitor pour machines virtuelles.
 
->Suite à cette modification, l’historique de service et d’intégrité sera interrompu pendant une courte période. Les deux expériences des diagnostics d’intégrité sont affectées : l’historique des modifications d’état est réinitialisé et les changements d’état précédents des critères d’intégrité ne sont pas disponibles pour la révision dans la colonne Changement d’état de la page Diagnostics d’intégrité. Si vous êtes intéressé par les données d’historique d’une machine virtuelle stratégique, vous pouvez alors effectuer une capture d’écran des données de critères d’intégrité et des modifications d’état correspondantes à titre de référence. 
+>Suite à cette modification, les deux expériences des diagnostics d’intégrité sont affectées : l’historique des changements d’état est réinitialisé et les changements d’état précédents des critères d’intégrité ne sont pas disponibles pour la révision dans la colonne Changement d’état de la page Diagnostics d’intégrité. Si vous êtes intéressé par les données d’historique d’une machine virtuelle stratégique, vous pouvez alors effectuer une capture d’écran des données de critères d’intégrité et des modifications d’état correspondantes à titre de référence. 
 
 ## <a name="monitoring-configuration-details"></a>Supervision des détails de configuration
 Cette section décrit les critères d’intégrité par défaut définis pour surveiller les machines virtuelles Azure Windows et Linux. Tous les critères d’intégrité sont préconfigurés pour générer une alerte quand la condition de défectuosité est remplie. 
@@ -106,7 +106,7 @@ Pour afficher l’intégrité d’une machine virtuelle Azure, sélectionnez **I
 
 ![Vue d’ensemble de l’intégrité des machines virtuelles Azure Monitor pour une machine virtuelle Azure donnée](./media/vminsights-health/vminsights-directvm-health.png)
 
-Dans l’onglet **Intégrité**, sous la section **Intégrité de la machine virtuelle invitée**, le tableau affiche l’état d’intégrité actuel de votre machine virtuelle et le nombre total d’alertes d’intégrité de la machine virtuelle déclenchées par un composant défectueux. Pour plus d’informations sur l’expérience d’alerte, voir la section [Alertes](#alerting-and-alert-management).  
+Dans l’onglet **Intégrité**, sous la section **Intégrité de la machine virtuelle invitée**, le tableau affiche l’état d’intégrité actuel de votre machine virtuelle et le nombre total d’alertes d’intégrité de la machine virtuelle déclenchées par un composant défectueux. Pour plus d’informations sur l’expérience d’alerte, voir la section Alertes.  
 
 Les états d’intégrité définis pour une machine virtuelle sont décrits dans le tableau suivant : 
 

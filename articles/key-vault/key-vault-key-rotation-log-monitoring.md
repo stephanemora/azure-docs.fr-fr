@@ -4,7 +4,7 @@ description: Utilisez cette procédure pour configurer la rotation des clés et 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077706"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106118"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit
 
 ## <a name="introduction"></a>Introduction
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Une fois que vous avez un coffre de clés, vous pouvez commencer à l’utiliser pour stocker les clés et les secrets. Vos applications ne doivent plus nécessairement conserver vos clés et secrets, mais peuvent les demander au coffre en cas de besoin. Cela vous permet de mettre à jour les clés et les secrets sans affecter le comportement de votre application, et de disposer ainsi de toute une multitude de possibilités de gestion des clés et secrets.
 
@@ -36,7 +38,7 @@ Cet article vous guide tout au long des procédures suivantes :
 - Il démontre comment contrôler les journaux d’audit du coffre de clés et déclencher des alertes en cas de requêtes inattendues.
 
 > [!NOTE]
-> Ce didacticiel n’a pas pour vocation d’expliquer en détail la configuration initiale de votre coffre de clés. Pour plus d’informations, consultez [Prise en main d’Azure Key Vault](key-vault-get-started.md). Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](key-vault-manage-with-cli2.md).
+> Ce didacticiel n’a pas pour vocation d’expliquer en détail la configuration initiale de votre coffre de clés. Pour en savoir plus, consultez la page [Qu’est-ce qu’Azure Key Vault ?](key-vault-overview.md) Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](key-vault-manage-with-cli2.md).
 >
 >
 
@@ -45,7 +47,7 @@ Cet article vous guide tout au long des procédures suivantes :
 Pour qu’une application puisse récupérer un secret dans Key Vault, vous devez tout d’abord créer le secret et le télécharger dans votre coffre. Procédez en démarrant une session Azure PowerShell et en vous connectant à votre compte Azure avec la commande suivante :
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. PowerShell obtient alors tous les abonnements associés à ce compte. PowerShell utilise le premier par défaut.
@@ -53,19 +55,19 @@ Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisat
 Si vous disposez de plusieurs abonnements, vous devrez peut-être spécifier celui qui a été utilisé pour créer votre coffre de clés. Entrez la commande suivante pour afficher les abonnements de votre compte :
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Pour spécifier l’abonnement associé au coffre de clés que vous allez consigner, entrez :
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 Cet article présentant le stockage d’une clé de compte de stockage sous la forme d’un secret, vous devez obtenir cette clé de compte de stockage.
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 Une fois votre secret récupéré (votre clé de compte de stockage dans notre exemple), vous devez le convertir en une chaîne sécurisée, puis créer un secret avec cette valeur dans votre coffre de clés.
@@ -73,13 +75,13 @@ Une fois votre secret récupéré (votre clé de compte de stockage dans notre e
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 Ensuite, obtenez l’URI pour le secret que vous avez créé. Il sera utilisé dans une étape ultérieure lorsque vous appellerez le coffre de clés pour récupérer votre secret. Exécutez la commande PowerShell suivante et notez la valeur de l’ID, qui correspond à l’URI du secret :
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Configurer d’application
@@ -110,7 +112,7 @@ Ensuite, générez une clé pour votre application afin qu’elle puisse interag
 Avant de créer des appels de votre coffre de clés par votre application, vous devez fournir au coffre de clés des informations sur votre application et ses autorisations. La commande suivante récupère le nom du coffre et l’ID de l’application dans votre application Azure Active Directory et accorde à l’application un accès **Get** à votre coffre de clés.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 À ce stade, vous êtes prêt à créer vos appels d’application. Dans votre application, vous devez installer les packages NuGet nécessaires pour interagir avec Azure Key Vault et Azure Active Directory. Entrez les commandes suivantes dans la console du gestionnaire de package Visual Studio. Au moment de la rédaction de cet article, la version du package Azure Active Directory est la version 3.10.305231913. Nous vous conseillons donc de vérifier que vous disposez de la dernière version et de mettre à jour si nécessaire.
@@ -188,7 +190,7 @@ Dans **Actifs**, choisissez **Modules**. Sous **Modules**, sélectionnez **Galer
 Une fois que vous avez récupéré l’ID d’application pour votre connexion Azure Automation, vous devez indiquer à votre coffre de clés que cette application est autorisée à accéder aux secrets dans votre coffre pour les mettre à jour. Cela peut être effectué avec la commande PowerShell suivante :
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 Sélectionnez ensuite **Runbooks** sous votre instance Azure Automation, puis **Ajouter un runbook**. Sélectionnez **Création rapide**. Donnez un nom à votre runbook et sélectionnez **PowerShell** comme type de runbook. Vous avez la possibilité d’ajouter une description. Pour finir, cliquez sur **Créer**.
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Dans le volet de l’éditeur, choisissez le volet **Test** pour tester votre script. Une fois le script exécutez sans erreur, vous pouvez sélectionner **Publier**, puis appliquer une planification du runbook dans le volet de configuration du runbook.
@@ -246,9 +248,9 @@ Lorsque vous configurez un coffre de clés, vous pouvez activer la fonction d’
 Vous devez tout d’abord activer la journalisation sur votre coffre de clés. Vous pouvez utiliser pour cela les commandes PowerShell suivantes (pour plus de détails, consultez [key-vault-logging](key-vault-logging.md)) :
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 Une fois cette option activée, les journaux d’audit commencent la collecte dans le compte de stockage spécifié. Ces journaux contiennent des événements indiquant la méthode et la date/l’heure d’accès à vos coffres de clés, et qui y a accédé.
@@ -269,7 +271,7 @@ Ensuite, [créez une fonction Azure](../azure-functions/functions-create-first-a
 
 Pour créer une fonction Azure, choisissez **Créer une ressource**, recherchez _Function App_ sur la Place de Marché, puis cliquez sur **Créer**. Lors de la création, vous pouvez utiliser un plan d’hébergement existant ou en créer un nouveau. Vous pouvez également opter pour un hébergement dynamique. Vous trouverez plus d’informations sur les options d’hébergement de fonction dans la rubrique [Mise à l’échelle d’Azure Functions](../azure-functions/functions-scale.md).
 
-Une fois la fonction Azure créée, accédez-y, choisissez une fonction de minuteur et C\#. Cliquez ensuite sur **Créer cette fonction.
+Une fois la fonction Azure créée, accédez-y, choisissez une fonction de minuteur et C\#. Cliquez ensuite sur **Créer cette fonction**.
 
 ![Panneau d’accueil d’Azure Functions](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 

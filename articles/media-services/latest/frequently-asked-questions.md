@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756578"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875489"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure Media Services v3
 
@@ -36,17 +36,7 @@ Nous vous recommandons de soumettre des travaux en utilisant une URL HTTP(s) poi
 
 ### <a name="how-does-pagination-work"></a>Comment fonctionne la pagination ?
 
-Media Services prend en charge $top pour les ressources qui prennent en charge OData, mais la valeur passée à $top doit être inférieur à 1 000 (par exemple, la taille de page pour la pagination).
-
-Ceci vous permet d’obtenir un petit échantillon d’éléments en utilisant $top (par exemple les 100 éléments les plus récents) ou de paginer dans tous les éléments à l’aide de la pagination. 
-
-Media Services ne prend pas en charge la pagination dans des données avec une taille de page spécifiée par l’utilisateur.
-
-Pour plus d’informations, consultez [Filtrage, tri, pagination](entities-overview.md).
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Comment récupérer une entité dans Media Services v3 ?
-
-v3 est basée sur une surface d’API unifiée qui expose les fonctionnalités de gestion et de fonctionnement reposant sur **Azure Resource Manager**. Conformément à **Azure Resource Manager**, les noms des ressources sont toujours uniques. Ainsi, vous pouvez utiliser n’importe quelle chaîne d’identificateur unique (par exemple des GUID) pour vos ressources.
+Lors de l’utilisation de la pagination, vous devez toujours utiliser le lien suivant pour énumérer la collection et ne pas dépendre d’une taille de page particulière. Pour voir des détails et des exemples, consultez [Filtrage, tri, pagination](entities-overview.md).
 
 ## <a name="live-streaming"></a>Vidéo en flux continu 
 

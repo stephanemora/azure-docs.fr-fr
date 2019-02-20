@@ -1,6 +1,6 @@
 ---
-title: Requêtes de recherche dans Log Analytics | Microsoft Docs
-description: Cet article fournit un tutoriel pour commencer à écrire des requêtes de recherche dans Log Analytics.
+title: Requêtes de recherche dans les journaux Azure Monitor | Microsoft Docs
+description: Cet article fournit un didacticiel pour commencer à utiliser la recherche dans des requêtes de journal Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 1f3131585a8f6581690eda777b8ffc96768b3cc6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884773"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004449"
 ---
-# <a name="search-queries-in-log-analytics"></a>Requêtes de recherche dans Log Analytics
+# <a name="search-queries-in-azure-monitor-logs"></a>Requêtes de recherche dans les journaux Azure Monitor
 
 > [!NOTE]
-> Vous devez suivre le tutoriel [Bien démarrer avec les requêtes dans Log Analytics](get-started-queries.md) avant de suivre cette leçon.
+> Vous devez suivre le didacticiel [Prise en main des requêtes de journal Azure Monitor](get-started-queries.md) pour terminer ce cours.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Les requêtes Azure Log Analytics peuvent commencer par un nom de table ou une commande search. Ce tutoriel couvre les requêtes basées sur la recherche. Chaque méthode présente des avantages.
+Les requêtes de journal Azure Monitor peuvent commencer par un nom de table ou une commande de recherche. Ce tutoriel couvre les requêtes basées sur la recherche. Chaque méthode présente des avantages.
 
 Les requêtes basées sur une table commencent par définir l’étendue de la requête, et ont donc tendance à être plus efficaces que les requêtes de recherche. Les requêtes de recherche étant moins structurées, elles constituent le meilleur choix pour rechercher une valeur spécifique dans des colonnes ou tables. La commande **search** peut rechercher la valeur spécifiée dans toutes les colonnes d’une table donnée ou de toutes les tables. La quantité de données traitées pouvant être énorme, ces requêtes peuvent prendre plus de temps et retourner des jeux de résultats très longs.
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez plus de tutoriels sur le [site de langage de requête Log Analytics](https://aka.ms/LogAnalyticsLanguage).
+- Découvrez plus de didacticiels sur le [site consacré au langage de requête Data Explorer](/azure/kusto/query/).

@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816354"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117272"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
 
@@ -38,11 +38,11 @@ Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requ
 |Point de terminaison (VIP)|Enregistrement A d’hôte DNS|Protocole|Ports|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portail (administrateur)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Portail (administrateur)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (administrateur)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|Portail (utilisateur)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (utilisateur)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure Resource Manager (administrateur)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portail (utilisateur)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (utilisateur)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Liste de révocation de certificat|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP et UDP|53|
@@ -66,7 +66,7 @@ Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requ
 Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports suivants pour les communications sortantes :
 
 > [!Note]  
-> Azure Stack ne prend pas en charge l'utilisation d'Express Route pour joindre les services Azure répertoriés dans le tableau suivant.
+> Azure Stack ne prend pas en charge l’utilisation d’ExpressRoute pour joindre les services Azure répertoriés dans le tableau suivant.
 
 |Objectif|URL de destination|Protocole|Ports|Réseau source|
 |---------|---------|---------|---------|---------|
@@ -75,11 +75,10 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 |Correctif et mise à jour|https://&#42;.azureedge.net|HTTPS|443|Adresse IP virtuelle publique - /27|
 |Inscription|https://management.azure.com|HTTPS|443|Adresse IP virtuelle publique - /27|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Adresse IP virtuelle publique - /27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
 |NTP|(IP du serveur NTP fourni pour le déploiement)|UDP|123|Adresse IP virtuelle publique - /27|
 |DNS|(IP du serveur DNS fourni pour le déploiement)|TCP<br>UDP|53|Adresse IP virtuelle publique - /27|
 |CRL|URL (sous Points de distribution CRL sur votre certificat)|HTTP|80|Adresse IP virtuelle publique - /27|
-|Infrastructure Backup|(Adresse IP ou nom de domaine complet du serveur de fichiers cible externe)|SMB|445|Réseau d'infrastructure publique|
 |LDAP|Forêt Active Directory fournie pour l'intégration Graph|TCP<br>UDP|389|Adresse IP virtuelle publique - /27|
 |LDAP SSL|Forêt Active Directory fournie pour l'intégration Graph|TCP|636|Adresse IP virtuelle publique - /27|
 |LDAP GC|Forêt Active Directory fournie pour l'intégration Graph|TCP|3268|Adresse IP virtuelle publique - /27|
@@ -89,9 +88,6 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 
 > [!Note]  
 > Les URL sortantes sont équilibrées en charge à l’aide d’Azure Traffic Manager pour offrir la meilleure connectivité possible en fonction de l’emplacement géographique. Avec des URL équilibrées en charge, Microsoft peut mettre à jour et modifier des points de terminaison de backend sans impact sur les clients. Microsoft ne partage pas la liste des adresses IP pour les URL équilibrées en charge. Vous devez utiliser un appareil qui prend en charge le filtrage par URL plutôt que par adresse IP.
-
-> [!Note]  
-> Dans la version 1809, le service Infrastructure Backup communique avec le serveur de fichiers externe à partir du réseau d’adresses IP virtuelles publiques. Avant la version 1809, le service communiquait sur le réseau d’infrastructure publique. Si votre environnement n’autorise pas l’accès aux ressources d’infrastructure à partir du réseau d’adresses IP virtuelles publiques, appliquez le dernier [correctif 1809](azure-stack-update-1809.md#post-update-steps) pour Azure Stack. Ce correctif logiciel redéplacera le service Infrastructure Backup vers le réseau d’infrastructure publique. Dans la version 1811, si vous appliquez le correctif logiciel 1809, le service Infrastructure Backup reste sur le réseau d’infrastructure publique. Si vous n’appliquez pas le correctif logiciel, la mise à jour redéplace le service vers le réseau d’infrastructure publique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

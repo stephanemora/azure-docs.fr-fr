@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273493"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232601"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Event Hubs
 
@@ -29,7 +29,7 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 >[!WARNING]
 > L’implémentation de l’intégration de réseaux virtuels peut empêcher d’autres services Azure d’interagir avec Event Hubs.
 >
-> Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés. Ils le seront prochainement.
+> Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés.
 >
 > Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
 > - Azure Monitor

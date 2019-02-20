@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Spotinst | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Spotinst | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Spotinst.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 7edf1cbc5cc351e25a9ae7b319768376ea9968a3
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267049"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173655"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutoriel : Intégration d’Azure Active Directory à Spotinst
+# <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Didacticiel : Intégration d’Azure Active Directory à Spotinst
 
 L’objectif de ce tutoriel est de vous montrer comment intégrer Spotinst à Azure Active Directory (Azure AD).
 

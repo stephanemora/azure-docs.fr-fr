@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658384"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979647"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -209,7 +209,7 @@ Le tableau suivant répertorie les variables créées dans votre compte Automati
 |External_AutoStop_TimeAggregationOperator | Opérateur d’agrégation de temps appliqué à la taille de la fenêtre sélectionnée pour évaluer la condition. Les valeurs admises sont **Average** (moyen), **Minimum**, **Maximum**, **Total** et **Last** (dernier).|
 |External_AutoStop_TimeWindow | Taille de la fenêtre durant laquelle Azure analyse la métrique sélectionnée pour déclencher une alerte. Ce paramètre accepte une entrée au format d’un intervalle de temps. Les valeurs possibles sont comprises entre 5 minutes et 6 heures.|
 |External_EnableClassicVMs| Spécifie si les machines virtuelles classiques sont ciblées par la solution. La valeur par défaut est True. Il doit être défini sur False pour les abonnements CSP.|
-|External_ExcludeVMNames | Saisissez les noms des machines virtuelles à exclure, en séparant les noms par une virgule et sans espace.|
+|External_ExcludeVMNames | Saisissez les noms des machines virtuelles à exclure, en séparant les noms par une virgule et sans espace. Le nombre de machines virtuelles est limité à 140. Si vous ajoutez plus de 140 machines virtuelles, les machines virtuelles censées être exclues peuvent être démarrées ou arrêtées par inadvertance.|
 |External_Start_ResourceGroupNames | Spécifie un ou plusieurs groupes de ressources (avec les valeurs séparées par une virgule) ciblés pour les actions de démarrage.|
 |External_Stop_ResourceGroupNames | Spécifie un ou plusieurs groupes de ressources (avec les valeurs séparées par une virgule) ciblés pour les actions d’arrêt.|
 |Internal_AutomationAccountName | Spécifie le nom du compte Automation.|
@@ -333,7 +333,7 @@ Il existe quelques options que vous pouvez utiliser pour vous assurer qu’une m
 
 ### <a name="exclude-a-vm"></a>Exclure une machine virtuelle
 
-Pour exclure une machine virtuelle de la solution, vous pouvez l’ajouter à la variable **External_ExcludeVMNames**. Cette variable est une liste séparée par des virgules de machines virtuelles spécifiques à exclure de la solution Start/Stop.
+Pour exclure une machine virtuelle de la solution, vous pouvez l’ajouter à la variable **External_ExcludeVMNames**. Cette variable est une liste séparée par des virgules de machines virtuelles spécifiques à exclure de la solution Start/Stop. Le nombre de machines virtuelles est limité à 140. Si vous ajoutez plus de 140 machines virtuelles à cette liste séparée par des virgules, les machines virtuelles définies comme exclues peuvent être démarrées ou arrêtées par inadvertance.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modifier les planifications de démarrage et d’arrêt
 

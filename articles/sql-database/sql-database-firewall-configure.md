@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: e4b217ada2aae159680b113b6ddcb41c9d121f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753059"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894698"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et SQL Data Warehouse
 
@@ -92,7 +92,7 @@ Pour améliorer les performances, les règles de pare-feu IP au niveau du serveu
 > [!TIP]
 > Vous pouvez utiliser l’[Audit Azure SQL Database](sql-database-auditing.md) pour vérifier des modifications de pare-feu au niveau serveur et au niveau base de données.
 
-## <a name="manage-ip-firewall-rules-using-the-azure-portal"></a>Gérer les règles de pare-feu IP à l’aide du portail Azure
+## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>Gérer les règles de pare-feu IP au niveau du serveur avec le portail Azure
 
 Pour définir une règle de pare-feu IP au niveau du serveur dans le portail Azure, vous pouvez accéder à la page Vue d’ensemble de votre base de données SQL Azure ou de votre serveur SQL Database.
 
@@ -196,7 +196,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Supprimer une règle de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Serveur |Supprime des règles de pare-feu IP au niveau du serveur |
 | [Obtenir les règles de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Serveur | Obtient les règles de pare-feu IP au niveau du serveur |
 
-## <a name="server-level-ip-firewall-rule-versus-a-database-level-ip-firewall-rule"></a>Comparaison d’une règle de pare-feu IP au niveau du serveur et d’une règle de pare-feu IP au niveau de la base de données
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Règles de pare-feu IP au niveau du serveur et au niveau de la base de données
 
 Q. Les utilisateurs d’une base de données doivent-ils être totalement isolés d’une autre base de données ?
 Si oui, accordez l’accès à l’aide de règles de pare-feu IP au niveau de la base de données. Cela évite d’utiliser des règles de pare-feu IP au niveau du serveur, qui autorisent l’accès à travers le pare-feu à toutes les bases de données et réduit le champ de vos défenses.

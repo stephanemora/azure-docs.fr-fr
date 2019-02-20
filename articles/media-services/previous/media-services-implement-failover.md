@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811738"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989063"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>Implémentation d’un basculement de diffusion en continu avec Azure Media Services
+# <a name="implement-failover-streaming-with-media-services-legacy"></a>Implémentation d’une diffusion en continu de basculement avec Media Services (hérité)
 
 Cette procédure pas à pas montre comment copier le contenu (objets blob) d'une ressource à une autre afin de gérer la redondance dans le cadre d’une diffusion en continu à la demande. Ce scénario est utile si vous souhaitez configurer le réseau de distribution de contenu Azure pour effectuer un basculement entre deux centres de données dans l’éventualité où une panne se produirait dans l’un d’eux. Cette procédure pas à pas utilise le SDK Microsoft Azure Media Services, l’API REST Microsoft Azure Media Services et le SDK Azure Storage pour effectuer les tâches suivantes :
 

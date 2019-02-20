@@ -3,8 +3,8 @@ title: Création de rapports sur l’approvisionnement automatique de comptes d�
 description: Découvrez comment vérifier l’état des tâches d’approvisionnement automatique de comptes d’utilisateur et comment résoudre les problèmes d’approvisionnement d’utilisateurs individuels.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,17 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203910"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206988"
 ---
-# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
+# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutoriel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
 
 
 Azure Active Directory comprend un [service d’approvisionnement de comptes d’utilisateur](user-provisioning.md) qui permet d’automatiser l’approvisionnement ou la suppression de comptes d’utilisateur dans des applications SaaS et d’autres systèmes, pour gérer le cycle de vie des identités de bout en bout. Azure AD prend en charge des connecteurs préintégrés d’approvisionnement d’utilisateur pour l’ensemble des applications et systèmes dans la section « Suggestions » de la [Galerie d’applications Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
@@ -58,7 +59,7 @@ Pour obtenir des informations de rapport d’approvisionnement pour une applicat
 
 Le rapport de synthèse sur l’approvisionnement est visible sous l’onglet **Approvisionnement** pour une application données. Il figure dans la section **Détails de la synchronisation** sous **Paramètres**, et fournit les informations suivantes :
 
-* Le nombre total d’utilisateurs et de groupes qui ont été synchronisés et qui doivent être provisionnés entre le système source et le système cible
+* Le nombre total d’utilisateurs et de groupes qui ont été synchronisés et figurent actuellement dans l’étendue pour l’approvisionnement entre le système source et le système cible.
 
 * La dernière exécution de la synchronisation. Les synchronisations se produisent généralement toutes les 20 à 40 minutes après la [synchronisation initiale](user-provisioning.md#what-happens-during-provisioning).
 
@@ -79,7 +80,7 @@ Toutes les activités effectuées par le service d’approvisionnement sont enre
 
 * **Événements d’exportation** : un événement d’exportation est enregistré chaque fois que service d’approvisionnement Azure AD écrit un objet groupe ou compte d’utilisateur dans un système cible. Ces événements enregistrent l’ensemble des attributs et de leurs valeurs qui ont été écrits par le service d’approvisionnement Azure AD au moment de l’événement. Si une erreur s’est produite lors de l’écriture de l’objet groupe ou compte d’utilisateur dans le système cible, elle s’affiche ici.
 
-* **Événements de traitement d’escrow** : un événement de traitement d’escrow se produit quand le service d’approvisionnement rencontre un échec lors d’une tentative d’exécution d’une opération et commence à retenter celle-ci durant un intervalle de temps d’interruption. Un événement escrow est enregistré à chaque abandon d’une opération d’approvisionnement.
+* **Événements de traitement d’escrow** : un événement de traitement d’escrow se produit quand le service d’approvisionnement rencontre un échec lors d’une tentative d’exécution d’une opération et commence à retenter celle-ci durant un intervalle de temps d’interruption. Un événement escrow est enregistré chaque fois qu'une opération d’approvisionnement est retentée.
 
 Lors de l’examen d’événements d’approvisionnement pour un utilisateur, les événements se produisent généralement dans l’ordre suivant :
 

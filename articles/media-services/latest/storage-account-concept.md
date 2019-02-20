@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4668ff23710121e5495395d71902b9ffa4c01238
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 90e01f39fa6b31095d76d0dfae2f700b4fa2ca3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220346"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182865"
 ---
 # <a name="storage-accounts"></a>Comptes de stockage
 
@@ -29,7 +29,7 @@ Vous devez disposer d’un compte de stockage **principal** et vous pouvez avoir
 
 Nous vous recommandons d’utiliser GPv2 pour pouvoir choisir entre des niveaux de stockage chaud ou froid. Pour plus d’informations sur les comptes de stockage, consultez la [présentation générale du compte de stockage Azure](../../storage/common/storage-account-overview.md). 
 
-Le compte Media Services et tous les comptes de stockage associés doivent appartenir au même abonnement Azure. Il est recommandé d'utiliser les comptes de stockage au même emplacement que le compte Media Services.
+Le compte Media Services et tous les comptes de stockage associés doivent être faire partie du même abonnement Azure. Il est fortement recommandé d’utiliser des comptes de stockage situés au même emplacement que le compte Media Services afin d’éviter des frais supplémentaires de sortie des données et une importante latence.
 
 ## <a name="assets-in-a-storage-account"></a>Ressources d’un compte de stockage
 

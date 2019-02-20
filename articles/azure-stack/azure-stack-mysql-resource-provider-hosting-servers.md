@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 3a80e3a95252b60dd39ad4ce20878922aeee5730
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246880"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165023"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources MySQL
 
-Vous pouvez héberger une instance MySQL sur une machine virtuelle dans [Azure Stack](azure-stack-poc.md), ou sur une machine virtuelle à l’extérieur de votre environnement Azure Stack, à condition que le fournisseur de ressources MySQL puisse se connecter à l’instance.
+Vous pouvez héberger une instance de serveur d'hébergement MySQL sur une machine virtuelle dans [Azure Stack](azure-stack-poc.md), ou sur une machine virtuelle à l’extérieur de votre environnement Azure Stack, à condition que le fournisseur de ressources MySQL puisse se connecter à l’instance.
 
 > [!NOTE]
-> Les bases de données MySQL doivent être créées sur le serveur du fournisseur de ressources MySQL. Le fournisseur de ressources MySQL doit être créé dans l’abonnement fournisseur par défaut, alors que les serveurs d’hébergement MySQL doivent être créés dans un abonnement utilisateur facturable. Le serveur du fournisseur de ressources ne doit pas héberger de bases de données utilisateur.
+> Le fournisseur de ressources MySQL doit être créé dans l’abonnement fournisseur par défaut, alors que les serveurs d’hébergement MySQL doivent être créés dans des abonnements utilisateur facturables. Le serveur du fournisseur de ressources ne doit pas héberger de bases de données utilisateur.
 
 Vous pouvez utiliser les versions de MySQL 5.6, 5.7 et 8.0 pour vos serveurs d’hébergement. Le fournisseur de ressources MySQL ne prend pas en charge l’authentification caching_sha2_password ; celle-ci sera ajoutée dans la prochaine version. Les serveurs MySQL 8.0 doivent être configurés pour utiliser mysql_native_password. MariaDB est également pris en charge.
 

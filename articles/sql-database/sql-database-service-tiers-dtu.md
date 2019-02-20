@@ -1,6 +1,6 @@
 ---
-title: Niveaux de service Azure SQL Database - DTU | Microsoft Docs
-description: Découvrez les niveaux de service des bases de données uniques et mises en pool pour la fourniture de tailles de calcul et de tailles de stockage.
+title: Niveaux de service Azure SQL Database - Modèle d'achat DTU | Microsoft Docs
+description: Découvrez les niveaux de service du modèle d'achat DTU des bases de données uniques et mises en pool pour la fourniture de tailles de calcul et de tailles de stockage.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507652"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993596"
 ---
-# <a name="dtu-based-service-tiers"></a>Niveaux de service basés sur des unités DTU
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 
-Les niveaux de service basés sur des unités DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service permettent de changer de taille de calcul, sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
+Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service du modèle d'achat DTU permettent de changer de taille de calcul, sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
 
 > [!IMPORTANT]
-> SQL Database Managed Instance, qui est actuellement en préversion publique, ne prend pas en charge le modèle d’achat DTU. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> SQL Database Managed Instance ne prend pas en charge le modèle d’achat DTU. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > [!NOTE]
-> Pour plus d’informations sur les niveaux de service basés sur vCore, voir [Niveaux de service basés sur des vCore](sql-database-service-tiers-vcore.md). Pour plus d’informations sur ce qui différencie les niveaux de service basés sur des unités DTU et les niveaux de service basés sur vCore, voir [Modèles d’achat d’Azure SQL Database](sql-database-service-tiers.md).
+> Pour plus d’informations sur les niveaux de service basés sur vCore, voir [Niveaux de service basés sur des vCore](sql-database-service-tiers-vcore.md). Pour plus d’informations sur ce qui différencie les niveaux de service basés sur des unités DTU et les niveaux de service basés sur vCore, voir [Modèles d’achat d’Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>Comparer les niveaux de service basés sur des unités DTU
 
@@ -34,8 +34,8 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 ||De base|standard|Premium|
 | :-- | --: |--:| --:| --:|
-|Charge de travail cible|Développement et production|Développement et production|Développement et production||
-|Contrat SLA de durée de fonctionnement|99,99 %|99,99 %|99,99 %|N/A pendant la version préliminaire|
+|Charge de travail cible|Développement et production|Développement et production|Développement et production|
+|Contrat SLA de durée de fonctionnement|99,99 %|99,99 %|99,99 %|
 |Rétention des sauvegardes|7 jours|35 jours|35 jours|
 |UC|Faible|Faible, moyen, élevé|Faible, élevé|
 |Débit d’E/S (approximatif) |2,5 IOPS par DTU| 2,5 IOPS par DTU | 48 IOPS par DTU|
@@ -49,12 +49,12 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Limites de stockage et unités DTU d’une base de données unique
 
-Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, voir [Modèle d’achat basé sur des unités DTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
+Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, voir [Modèle d’achat basé sur des unités DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||De base|standard|Premium|
 | :-- | --: | --: | --: | --: |
 | Taille de stockage maximale | 2 Go | 1 To | 4 To  |
-| DTU maximales | 5. | 3000 | 4000 | |
+| DTU maximales | 5. | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 ||||||
 
 > [!IMPORTANT]
-> Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : USA Centre-Ouest, Chine Est, USDoDCentral, Allemagne Centre, USDoDEast, US Gov Sud-Ouest, US Gov Iowa, Allemagne Nord-Est, Chine Nord. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : USA Centre-Ouest, Chine Est, USDoDCentral, Allemagne Centre, USDoDEast, US Gov Sud-Ouest, US Gov Iowa, Allemagne Nord-Est, Chine Nord. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
@@ -88,7 +88,7 @@ Le test d’évaluation et sa méthodologie sont décrits plus en détail ci-des
 
 ### <a name="benchmark-summary"></a>Résumé du test d’évaluation
 
-Le test ASDB mesure les performances d’une série d’opérations de base de données basiques que l’on rencontre le plus fréquemment dans les charges de travail de traitement transactionnel en ligne (OLTP). Bien qu’il ait été conçu pour les environnements cloud, le schéma de base de données, le remplissage des données et les transactions ont été formulés pour représenter les éléments de base couramment utilisés dans les charges de travail OLTP.
+Le test d'évaluation mesure les performances d’une série d’opérations de base de données basiques que l’on rencontre le plus fréquemment dans les charges de travail de traitement transactionnel en ligne (OLTP). Bien qu’il ait été conçu pour les environnements cloud, le schéma de base de données, le remplissage des données et les transactions ont été formulés pour représenter les éléments de base couramment utilisés dans les charges de travail OLTP.
 
 ### <a name="schema"></a>Schéma
 

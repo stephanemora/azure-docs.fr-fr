@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754300"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892760"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 Cet article vous explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement.
@@ -73,10 +73,10 @@ Le résultat ressemble à l’exemple suivant :
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Ici, *sdc* est le disque que nous recherchons. Partitionnez le disque avec `parted` si la taille du disque est de 2 tébioctets (Tio) ou plus, alors vous devez utiliser le partitionnement GPT, si elle est inférieure à 2 Tio, alors vous pouvez utiliser le partitionnement MBR ou GPT. Faites-en le disque principal sur la partition 1 et acceptez les autres valeurs par défaut. L’exemple suivant démarre le processus `parted` sur */dev/sdc* :
+Ici, *sdc* est le disque que nous recherchons. Partitionnez le disque avec `parted`. Si la taille du disque est supérieure ou égale à 2 tébioctets (Tio), vous devez utiliser le partitionnement GPT. Si elle est inférieure à 2 Tio, vous pouvez utiliser le partitionnement MBR ou GPT. Si vous utilisez le partitionnement MBR, vous pouvez utiliser `fdisk`. Faites-en le disque principal sur la partition 1 et acceptez les autres valeurs par défaut. L’exemple suivant démarre le processus `fdisk` sur */dev/sdc* :
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Utilisez la commande `n` pour ajouter une nouvelle partition. Dans cet exemple, nous avons également choisi `p` comme partition principale et accepté le reste des valeurs par défaut. Vous devez obtenir un résultat semblable à l’exemple qui suit :

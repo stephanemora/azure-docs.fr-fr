@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: c20f455a0a325dadd3eeeb77dea7026de4834c56
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4522914f249413300ffa5bb1545d840711777bff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757321"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235910"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Ajouter une application d'API web à votre locataire Azure Active Directory B2C
 
@@ -38,20 +38,20 @@ Les étendues permettent de gérer l'accès aux ressources protégées. Elles so
 
 1. Sélectionnez **Applications**, puis *webapi1*.
 2. Sélectionnez **Étendues publiées**.
-3. Pour **Étendue**, entrez `Hello.Read`, puis pour la description, entrez `Read access to hello`.
-4. Pour **Étendue**, entrez `Hello.Write`, puis pour la description, entrez `Write access to hello`.
+3. Pour **Étendue**, entrez `Read`, puis pour la description, entrez `Read access to the application`.
+4. Pour **Étendue**, entrez `Write`, puis pour la description, entrez `Write access to the application`.
 5. Cliquez sur **Enregistrer**.
 
 Les étendues publiées peuvent être utilisées pour accorder à une application cliente l'autorisation d'accéder à l'API web.
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
-Pour appeler une API web protégée à partir d'une application, vous devez accorder à cette application les autorisations d'accès à l'API. Dans le cadre du tutoriel de prérequis, vous avez créé dans Azure AD B2C une application web nommée *webapp1*. Vous allez utiliser cette application pour appeler l'API web.
+Pour appeler une API web protégée à partir d'une application, vous devez accorder à cette application les autorisations d'accès à l'API. Par exemple, dans [Tutoriel : Inscrire une application dans Azure Active Directory B2C](tutorial-register-applications.md), une application web est créée dans Azure AD B2C nommée *webapp1*. Vous pouvez utiliser cette application pour appeler l'API web.
 
 1. Sélectionnez **Applications**, puis votre application web.
 2. Sélectionnez **Accès aux API**, puis **Ajouter**.
 3. Dans la liste déroulante **Sélectionner une API**, sélectionnez *webapi1*.
-4. Dans la liste déroulante **Sélectionnez des étendues**, sélectionnez les étendues **Hello.Read** et **Hello.Write** que vous avez définies précédemment.
+4. Dans la liste déroulante **Sélectionner des étendues**, sélectionnez les étendues **Lecture** et **Écriture** que vous avez définies précédemment.
 5. Cliquez sur **OK**.
 
 Votre application est inscrite pour appeler l'API web protégée. Un utilisateur s'authentifie auprès d'Azure AD B2C pour utiliser l'application. L'application obtient d'Azure AD B2C l'autorisation d'accéder à l'API web protégée.

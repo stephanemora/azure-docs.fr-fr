@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091525"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894715"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ Dans un navigateur, accédez au [portail Azure](http://portal.azure.com) et conn
   ![Configurer le niveau de référence (SKU) et la limitation des données](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **niveau** détermine si ExpressRoute standard ou un module complémentaire ExpressRoute Premium est activé. Vous pouvez spécifier **Standard** pour obtenir la référence (SKU) standard ou **Premium** pour le module complémentaire Premium.
-  * **Limitation des données** détermine le type de facturation. Vous pouvez spécifier **Limité** pour un forfait de données limité, et **Illimité** pour un forfait de données illimité. Notez que vous pouvez changer le type de facturation de **Limité** en **Illimité**, mais que vous ne pouvez pas le changer de **Illimité** en **Limité**.
+  * **Limitation des données** détermine le type de facturation. Vous pouvez spécifier **Limité** pour un forfait de données limité, et **Illimité** pour un forfait de données illimité. Notez que vous pouvez modifier le type de facturation de **Limité** à **Illimité**.
+    > [!IMPORTANT] En revanche, vous ne pouvez pas modifier le type de facturation de **Illimité** à **Limité**.
   * L’**Emplacement d’homologation** est l’emplacement physique où vous vous homologuez auprès de Microsoft.
 
     > [!IMPORTANT]
@@ -117,10 +118,11 @@ Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affec
 Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 
 * Activer ou désactiver un module complémentaire ExpressRoute Premium pour votre circuit ExpressRoute.
-* Augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette. La rétrogradation de la bande passante d'un circuit n'est pas prise en charge. 
-* Modifiez le plan de mesure de *Données limitées* en *Données illimitées*. La modification du plan de limitation de Données illimitées à Données limitées n’est pas prise en charge.
+* Augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette.
+  > [!IMPORTANT] La rétrogradation de la bande passante d'un circuit n'est pas prise en charge. 
+* Modifiez le plan de mesure de *Données limitées* en *Données illimitées*.
+  > [!IMPORTANT] La modification du plan de limitation de Données illimitées à Données limitées n’est pas prise en charge.
 * Vous pouvez activer et désactiver *Autoriser les opérations classiques*.
-
 > [!IMPORTANT]
 > Vous devrez peut-être recréer le circuit ExpressRoute si la capacité sur le port existant est inappropriée. Vous ne pouvez pas mettre le circuit à niveau si aucune capacité supplémentaire n’est disponible à cet emplacement.
 >

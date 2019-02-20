@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Configurer des paramètres différents pour les conteneurs Reconnaître le texte dans Vision par ordinateur.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: f29bb4ec8154c1d17eef18310037c42426d1522f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b6aaf7f7eaeb6d011fc29457a1b58584d6af8ec9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458650"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984560"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configurer des conteneurs Docker Reconnaître le texte
 
@@ -45,15 +45,15 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Vision par ordinateur_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur correspondant à un URI de point de terminaison valide pour une ressource _Vision par ordinateur_ sur Azure.
+Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Vision par ordinateur_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur correspondant à un URI de point de terminaison valide pour une ressource _Vision par ordinateur_ sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
 * Portail Azure : Vue d'ensemble de la **Vision par ordinateur**, étiquetée `Endpoint`
 
-|Obligatoire| NOM | Type de données | Description |
+|Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -79,7 +79,7 @@ Les conteneurs Vision par ordinateur n’utilisent pas de montage d’entrée ou
 
 La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](computer-vision-how-to-install-containers.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service Docker et les autorisations de l’emplacement de montage de l’hôte. 
 
-|Facultatif| NOM | Type de données | Description |
+|Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
 |Non autorisé| `Input` | Chaîne | Les conteneurs Vision par ordinateur n’utilisent pas cet élément.|
 |Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Les journaux de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -92,7 +92,7 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 
 Les exemples suivants utilisent les paramètres de configuration pour illustrer comment écrire et utiliser des commandes `docker run`.  Une fois en cours d’exécution, le conteneur continue à s’exécuter jusqu’à ce que vous l’[arrêtiez](computer-vision-how-to-install-containers.md#stop-the-container).
 
-* **Caractère de continuation de ligne** : les commandes Docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte. 
+* **Caractère de continuation de ligne** : Les commandes Docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte. 
 * **Ordre des arguments** : Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs Docker.
 
 Remplacez {_argument_name_} par vos propres valeurs :
@@ -112,7 +112,7 @@ Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte.
 
 ### <a name="basic-example"></a>Exemple de base 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -122,7 +122,7 @@ Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte.
 
 ### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -133,7 +133,7 @@ Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte.
 
 ### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \

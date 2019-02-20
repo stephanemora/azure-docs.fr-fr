@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535267"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238145"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtenir une chaîne de connexion Event Hubs
 
@@ -51,13 +51,16 @@ Vous pouvez ajouter une nouvelle stratégie SAS et obtenir la chaîne de connexi
 ![Obtenir la chaîne de connexion Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Obtention de la chaîne de connexion avec Azure PowerShell
-Vous pouvez utiliser Get-AzureRmEventHubNamespaceKey pour obtenir la chaîne de connexion pour la stratégie ou le nom de règle spécifié, comme indiqué ci-dessous :
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Vous pouvez utiliser Get-AzEventHubNamespaceKey pour obtenir la chaîne de connexion pour la stratégie ou le nom de règle spécifié, comme indiqué ci-dessous :
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
-Reportez-vous à [Module PowerShell Azure Event Hubs](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey) pour plus d’informations.
+Reportez-vous à [Module PowerShell Azure Event Hubs](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) pour plus d’informations.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Obtention de la chaîne de connexion avec Azure CLI
 Vous pouvez utiliser ce qui suit pour obtenir la chaîne de connexion de l’espace de noms :

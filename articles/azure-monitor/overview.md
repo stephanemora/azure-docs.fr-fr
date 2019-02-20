@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098028"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001967"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -28,6 +28,7 @@ Azure Monitor optimise la disponibilité et les performances de vos applications
 ## <a name="overview"></a>Vue d’ensemble
 Le diagramme suivant donne une vue d’ensemble d’Azure Monitor. Au centre du diagramme se trouvent les magasins de données pour les métriques et les journaux, qui sont les deux types fondamentaux d’utilisation des données par Azure Monitor. Sur la gauche se trouvent les [sources de données de supervision](platform/data-sources.md) qui remplissent ces [magasins de données](platform/data-collection.md). Sur la droite se trouvent les différentes actions qu’Azure Monitor effectue avec les données collectées (analyse, alerte et diffusion en continu sur des systèmes externes).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Vue d’ensemble d’Azure Monitor](media/overview/overview.png)
 
@@ -35,11 +36,11 @@ Le diagramme suivant donne une vue d’ensemble d’Azure Monitor. Au centre du 
 ## <a name="monitoring-data-platform"></a>Plateforme de données de surveillance
 Toutes les données collectées par Azure Monitor font partie d’un des deux types fondamentaux, [les métriques et les journaux](platform/data-collection.md). Les [métriques](platform/data-collection.md#metrics) sont des valeurs numériques décrivant un aspect d’un système à un moment précis dans le temps. Elles sont légères et capables de prendre en charge des scénarios en quasi temps réel. Les [journaux](platform/data-collection.md#logs) contiennent différents types de données organisées en enregistrements, avec différents jeux de propriétés pour chaque type. Les données de télémétrie, comme les événements et les traces, sont stockées sous forme de journaux en plus des données de performances, afin qu’elles puissent être toutes combinées pour analyse.
 
-Pour de nombreuses ressources Azure, vous verrez les données collectées par Azure Monitor directement sur la page Vue d’ensemble correspondante sur le portail Azure. Par exemple, jetez un œil à toutes les machines virtuelles pour voir plusieurs graphiques affichant les mesures de performances. Cliquez sur un des graphiques pour ouvrir les données dans [Metrics Explorer](platform/metrics-charts.md) sur le portail Azure, ce qui vous permet de représenter les valeurs de plusieurs métriques dans un graphique au fil du temps.  Vous pouvez afficher les graphiques de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations.
+Pour de nombreuses ressources Azure, vous verrez les données collectées par Azure Monitor directement sur la page Vue d’ensemble correspondante sur le portail Azure. Par exemple, jetez un œil à toutes les machines virtuelles pour voir plusieurs graphiques affichant les mesures de performances. Cliquez sur l’un des graphiques pour ouvrir les données dans [Metrics Explorer](platform/metrics-charts.md) sur le portail Azure, ce qui vous permet de représenter les valeurs de plusieurs métriques dans un graphique au fil du temps.  Vous pouvez afficher les graphiques de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations.
 
 ![Mesures](media/overview/metrics.png)
 
-Les données de journal collectées par Azure Monitor sont stockées dans Log Analytics, qui inclut un [langage de requête riche](log-query/log-query-overview.md) pour rapidement récupérer, consolider et analyser les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de la [page Log Analytics](log-query/portals.md) du portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](visualizations.md) ou les [règles d’alerte](platform/alerts-overview.md).
+Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](log-query/log-query-overview.md) qui permettent de récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](log-query/portals.md) dans le Portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](visualizations.md) ou les [règles d’alerte](platform/alerts-overview.md).
 
 Azure Monitor utilise une version du [langage de requête Data Explorer](/azure/kusto/query/) qui est adapté aux requêtes simples dans les journaux, mais inclut également des fonctionnalités avancées telles que les agrégations, les jointures et les analyses intelligentes. Il existe [plusieurs leçons](log-query/get-started-queries.md) pour vous aider à apprendre le langage de requête.  Des conseils particuliers sont fournis aux utilisateurs qui connaissent déjà [SQL](log-query/sql-cheatsheet.md) et [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -54,7 +55,7 @@ Azure Monitor peut recueillir des données de diverses sources. Vous pouvez envi
 - **Données de surveillance de l’abonnement Azure** : données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. 
 - **Données de surveillance du locataire Azure** : données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory.
 
-Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](platform/activity-logs-overview.md) enregistrent la création et la modification des ressources. Les [métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
+Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](platform/activity-logs-overview.md) enregistrent la création et la modification des ressources. Les [métriques](platform/data-collection.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
 
 Augmentez le champ des données que vous collectez dans le fonctionnement actuel des ressources en [activant les diagnostics](platform/diagnostic-logs-overview.md) et en [ajoutant un agent](platform/agent-windows.md) aux ressources de calcul. Vous recueillerez ainsi les données de télémétrie pour le fonctionnement interne de la ressource et pourrez configurer différentes [sources de données](platform/agent-data-sources.md) afin de collecter les journaux et les métriques à partir du système d’exploitation invité Windows et Linux. 
 

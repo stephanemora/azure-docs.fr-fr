@@ -3,9 +3,8 @@ title: Gérer l’accès aux applications à l’aide d’Azure AD | Microsoft D
 description: Décrit comment Azure Active Directory permet aux organisations de spécifier les applications auxquelles chaque utilisateur a accès.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: barbkess
-ms.openlocfilehash: 0c8450523890430587bedebbcd77ceddd8a03e42
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 14957a94dbe8330553a4090e22d80d6cc2ee06eb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183388"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217324"
 ---
 # <a name="managing-access-to-apps"></a>Gestion de l’accès aux applications
 La gestion de l’accès, l’évaluation de l’utilisation et la création de rapports en continu demeurent un défi quand une application vient d’être intégrée au système d’identité de votre organisation. Dans de nombreux cas, les administrateurs informatiques ou le support technique doivent en permanence jouer un rôle actif dans la gestion de l’accès à vos applications. Parfois, l’affectation est effectuée par une équipe informatique générale ou rattachée à une division. Souvent, il revient au décideur d’entreprise de décider d’une affectation, que l’équipe informatique ne pourra mettre en œuvre qu’avec son approbation.  D’autres organisations investissent dans l’intégration à un système automatisé de gestion des identités et des accès, tel que le contrôle d’accès en fonction du rôle (RBAC) ou le contrôle d’accès en fonction de l’attribut (ABAC). L’intégration et le développement de règles ont tous deux tendance à être spécialisés et coûteux. Quelle que soit la méthode de gestion, l’analyse ou la création de rapports suppose un investissement distinct, coûteux et complexe.
@@ -39,7 +39,7 @@ Grâce à ces deux modes d’affectation, les administrateurs peuvent mettre en 
 Avec Azure AD, la création de rapports d’utilisation et d’affectation est entièrement intégrée, permettant aux administrateurs de créer facilement des rapports sur l’état des affectations, les erreurs d’affectation et même sur l’utilisation.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Affectation d’application complexe avec Azure AD
-Considérez une application comme Salesforce. Dans de nombreuses organisations, Salesforce est principalement utilisé par des équipes de ventes et marketing. Souvent, les membres de l’équipe marketing disposent d’un accès hautement privilégié à Salesforce, contrairement aux membres de l’équipe de ventes. Dans de nombreux cas, la majorité des travailleurs de l’information n’a qu’un accès limité à l’application. Les exceptions à ces règles compliquent les choses. C’est souvent la prérogative des équipes de direction marketing ou de ventes d’accorder un accès à un utilisateur ou de modifier son rôle indépendamment de ces règles génériques.
+Considérez une application comme Salesforce. Dans de nombreuses organisations, Salesforce est principalement utilisé par des équipes commerciales et marketing. Souvent, les membres de l’équipe marketing disposent d’un accès hautement privilégié à Salesforce, contrairement aux membres de l’équipe de ventes. Dans de nombreux cas, la majorité des travailleurs de l’information n’a qu’un accès limité à l’application. Les exceptions à ces règles compliquent les choses. C’est souvent la prérogative des équipes de direction marketing ou de ventes d’accorder un accès à un utilisateur ou de modifier son rôle indépendamment de ces règles génériques.
 
 Avec Azure AD, les applications telles que Salesforce peuvent être préconfigurées pour l’authentification unique (SSO) et l’automatisation de l’approvisionnement. Dès que l’application est configurée, un administrateur peut créer et affecter des groupes appropriés une bonne fois pour toutes. Dans cet exemple, un administrateur peut exécuter les affectations suivantes :
 

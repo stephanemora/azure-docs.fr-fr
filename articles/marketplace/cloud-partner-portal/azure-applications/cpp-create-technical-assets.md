@@ -14,18 +14,23 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6050ad98c87dbe38516a6ee3c4862495ad868031
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 78aa65614920d093b6ba0b8fa43614fd7f3c5176
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414349"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100429"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Préparer les ressources techniques de votre application Azure
 
 Cet article décrit les ressources nécessaires à la préparation des ressources techniques pour votre offre d’application Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
+
+Regardez la vidéo suivante, [Création de modèles de solutions et d’applications managées pour la Place de marché Azure](https://channel9.msdn.com/Events/Build/2018/BRK3603), un aperçu de la façon de créer un modèle Azure Resource Manager pour définir une solution d'application Azure, puis de publier l'offre d'application sur la Place de marché Azure Marketplace.
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
+
 
 Examinez la documentation suivante relative aux applications Azure, qui fournit des démarrages rapides, des tutoriels et des exemples.
 
@@ -38,7 +43,7 @@ Examinez la documentation suivante relative aux applications Azure, qui fournit 
   - [Déployer une application de catalogue de services](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
   
-- Didacticiels :
+- Tutoriels :
 
   - [Créer les fichiers de définition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Publier l’application de la Place de marché](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)

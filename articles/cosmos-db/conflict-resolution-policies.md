@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 31e6fa596bb053ee8cd19f641349f02ee169b6eb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6b168efc2314e21f381d55f6ac79cda8b426e66d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472335"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110300"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Types de conflits et stratégies de résolution
 
@@ -50,6 +50,7 @@ Azure Cosmos DB offre un mécanisme souple, piloté par les stratégies, pour r�
 
 Découvrez comment configurer des stratégies de résolution de conflits. Consultez les articles suivants :
 
+* [Guide pratique pour configurer les fonctionnalités multimaîtres dans vos applications](how-to-multi-master.md)
 * [Utiliser la stratégie de résolution de conflits LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Utiliser la stratégie personnalisée de résolution de conflits](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Utiliser le flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed)

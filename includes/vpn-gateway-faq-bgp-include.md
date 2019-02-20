@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/14/2019
+ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306877"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56246849"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Le protocole BGP est-il pris en charge sur toutes les références de passerelle VPN Azure ?
 Non, le protocole BGP est pris en charge sur les passerelles VPN Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** et **HighPerformance**. La référence **De base** N’EST PAS prise en charge.
@@ -49,6 +49,9 @@ La passerelle VPN Azure publiera les itinéraires suivants pour vos périphériq
 * préfixes d’adresse de votre réseau virtuel ;
 * préfixes d’adresse de chaque passerelle de réseau local connectée à la passerelle VPN Azure ;
 * itinéraires obtenus à partir d’autres sessions d’homologation BGP connectées à la passerelle VPN Azure, **à l’exception de l’itinéraire par défaut ou des itinéraires se chevauchant avec un préfixe de réseau virtuel**.
+
+### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Combien de préfixes puis-je publier sur la passerelle VPN Azure ?
+Nous prenons en charge jusqu’à 4 000 préfixes. La session BGP s’arrête si le nombre de préfixes dépasse la limite.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Puis-je publier l’itinéraire par défaut (0.0.0.0/0) vers les passerelles VPN Azure ?
 Oui.

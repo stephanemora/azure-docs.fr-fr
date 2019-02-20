@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231732"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993740"
 ---
 # <a name="add-html-markers-to-the-map"></a>Ajouter des marqueurs HTML à une carte
 
@@ -68,20 +68,11 @@ Cet exemple montre comment rendre un marqueur HTML déplaçable. Les marqueurs�
 
 ## <a name="add-mouse-events-to-html-markers"></a>Ajouter des événements de souris aux marqueurs HTML
 
-Ces exemples montrent comment ajouter des événements de souris à un marqueur HTML en ajoutant des événements JavaScript standard au contenu HTML du marqueur. 
-
-Si le `htmlContent` du marqueur est un élément DOM (div, img...), vous pouvez y ajouter des événements directement. 
+Ces exemples montrent comment ajouter des événements de souris et de glisser à un marqueur HTML.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Ajout d’événements de souris aux marqueurs HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>Adding Mouse Events to HTML Markers</a> (Ajout d’événements de souris aux marqueurs HTML) Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Si le `htmlContent` est une chaîne (c’est-à-dire la valeur par défaut), vous pouvez créer un élément DOM et ajouter la chaîne en tant qu’innerHTML à celui-ci, puis ajouter l’élément DOM en tant que htmlContent. Si le `htmlContent` est une chaîne basée sur un modèle, vous devrez d’abord rechercher/remplacer les valeurs `{text}` et `{color}` dans la chaîne.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Ajout d’événements de souris au marqueur HTML par défaut' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>Adding Mouse Events to default HTML Marker</a> (Ajout d’événements de souris au marqueur HTML par défaut) Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -2,21 +2,22 @@
 title: S’authentifier avec l’authentification unique auprès des applications - Azure Active Directory | Microsoft Docs
 description: Découvrez comment choisir une méthode d’authentification unique lors de la configuration d’applications dans Azure Active Directory (Azure AD). Utilisez l’authentification unique pour éviter aux utilisateurs de devoir mémoriser des mots de passe pour chaque application et pour simplifier l’administration de la gestion des comptes.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664027"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163068"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 L’authentification unique (SSO) est plus sûre et plus pratique quand les utilisateurs s’authentifient auprès d’applications dans Azure Active Directory (Azure AD). Cet article décrit les différentes méthodes d’authentification unique et vous aide à choisir la méthode SSO la plus appropriée lors de la configuration de vos applications.
@@ -85,7 +86,7 @@ Choisissez l’authentification unique par mot de passe quand :
 L’authentification unique par mot de passe est prise en charge pour toutes les applications cloud qui ont une page de connexion HTML. L’utilisateur peut utiliser un des navigateurs suivants :
 
 - Internet Explorer 11 sur Windows 7 ou ultérieur
-- Microsoft Edge sur Windows 10 Édition anniversaire ou version ultérieure 
+- Microsoft Edge sur Windows 10 Édition anniversaire ou version ultérieure
 - Chrome sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure
 - Firefox 26.0 ou version ultérieure sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408100"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201718"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utiliser le client Apache Beeline avec Apache Hive
 
@@ -25,6 +25,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
 * __Utilisation de Beeline à partir d’une connexion SSH vers un nœud principal ou un nœud de périphérie__ : `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __Utilisation de Beeline sur un client, se connectant à HDInsight sur un réseau virtuel Azure__ :`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Utilisation de Beeline sur un client, se connectant à un cluster Pack Sécurité Entreprise HDInsight sur un réseau virtuel Azure__ : `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __Utilisation de Beeline sur un client, se connectant à HDInsight sur l’internet public__ :`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -35,6 +36,8 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 > Remplacez `clustername` par le nom de votre cluster HDInsight :
 >
 > Lors de la connexion au cluster via un réseau virtuel, remplacez `<headnode-FQDN>` par le nom de domaine complet d’un nœud principal de cluster.
+>
+> Lors de la connexion à un cluster Pack Sécurité Entreprise, remplacez `<AAD-Domain>` par le nom de l'instance Azure Active Directory (AAD) à laquelle le cluster est joint. Remplacez `<username>` par le nom d’un compte de domaine autorisé à accéder au cluster.
 
 ## <a id="prereq"></a>Configuration requise
 
@@ -67,6 +70,12 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * Lors de la connexion à un cluster Pack Sécurité Entreprise joint à Azure Active Directory (AAD), vous devez également spécifier le nom de domaine `<AAD-Domain>` et le nom d’un compte d’utilisateur de domaine autorisé à accéder au cluster `<username>` :
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Les commandes Beeline commencent par un caractère `!`. Par exemple, `!help` affiche l’aide. Toutefois, `!` peut être omis pour certaines commandes. Par exemple, `help` fonctionne également.
@@ -271,10 +280,7 @@ Pour plus d’informations sur les autres façons de travailler avec Hadoop sur 
 * [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
 * [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-Si vous utilisez Tez avec Hive, consultez les documents suivants :
-
-* [Utiliser l’interface utilisateur Apache Tez sur HDInsight Windows](../hdinsight-debug-tez-ui.md)
-* [Utiliser la vue Tez Apache Ambari sur HDInsight Linux](../hdinsight-debug-ambari-tez-view.md)
+Si vous utilisez Tez avec Hive, consultez le document suivant : [Utiliser la vue Tez Apache Ambari sur HDInsight Linux](../hdinsight-debug-ambari-tez-view.md).
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

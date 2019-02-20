@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243179"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175385"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement connecté à Azure pour les systèmes intégrés Azure Stack
-Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
+Une fois que vous avez décidé [comment intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
 
 Un déploiement connecté de Azure Stack à Azure signifie que vous pouvez sélectionner Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS) comme magasin d’identités. Vous pouvez également choisir entre un modèle de facturation à l’utilisation ou un modèle de facturation selon la capacité. Le déploiement connecté constitue l’option par défaut car il permet aux clients de tirer le meilleur parti de Azure Stack, en particulier pour les scénarios de cloud hybride impliquant à la fois Azure et Azure Stack. 
 

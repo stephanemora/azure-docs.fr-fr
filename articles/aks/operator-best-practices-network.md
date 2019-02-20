@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699123"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175453"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -120,6 +120,34 @@ Un pare-feu d’applications web (WAF) ajoute une couche de sécurité suppléme
 
 Les ressources d’équilibrage de charge ou d’entrée continuent de s’exécuter dans le cluster AKS pour affiner davantage la distribution du trafic. App Gateway peut être géré de manière centralisée comme contrôleur d’entrée avec une définition de ressource. Pour commencer, voir [Créer un contrôleur d’entrée Application Gateway][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>Contrôler le flux de trafic avec des stratégies réseau
+
+**Bonnes pratiques** - Utilisez des stratégies réseau pour autoriser ou refuser le trafic vers les pods. Par défaut, tout le trafic est autorisé entre les pods au sein d’un cluster. Pour une sécurité accrue, définissez des règles qui limitent la communication des pods.
+
+L’utilisation de stratégies réseau est une fonctionnalité Kubernetes qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser le trafic selon des paramètres tels que les étiquettes attribuées, l’espace de noms ou le port de trafic. L’utilisation de stratégies réseau offre une méthode native du cloud pour contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement. N’utilisez pas des groupes de sécurité réseau Azure pour contrôler le trafic de pod à pod, mais plutôt des stratégies réseau.
+
+Pour utiliser une stratégie réseau, la fonctionnalité doit être activée lorsque vous créez un cluster AKS. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. Prévoyez le temps nécessaire pour vérifier que vous activez la stratégie réseau sur les clusters et que vous pouvez les utiliser selon vos besoins.
+
+Une stratégie réseau est créée en tant que ressource Kubernetes à l’aide d’un manifeste YAML. Les stratégies sont appliquées à des pods définis, puis des règles d’entrée ou de sortie définissent la circulation du trafic. L’exemple suivant applique une stratégie réseau à des pods dotés de l’étiquette *app: backend*. La règle d’entrée autorise ensuite uniquement le trafic provenant des pods dotés de l’étiquette *app: frontend* :
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+Pour commencer à utiliser des stratégies, consultez [Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)][use-network-policies].
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Se connecter en toute sécurité aux nœuds à travers un hôte bastion
 
 **Meilleures pratiques** : n’exposez pas de connectivité à distance sur vos nœuds AKS. Créez un hôte bastion, ou une jumpbox, dans un réseau virtuel de gestion. Utilisez l’hôte bastion pour acheminer le trafic en toute sécurité dans votre cluster AKS aux tâches de gestion à distance.
@@ -155,5 +183,6 @@ Cet article porte sur la sécurité et la connectivité réseau. Pour plus d’i
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

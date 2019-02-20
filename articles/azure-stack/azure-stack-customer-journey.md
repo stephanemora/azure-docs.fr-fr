@@ -12,22 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f900fa5105f42dac57b392d41a8cd888850fc648
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249489"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189206"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Intégration du centre de données Azure Stack
 
-Cet article décrit l’expérience utilisateur Azure Stack de bout en bout, de l’achat d’une solution intégrée jusqu’au déploiement local par un fournisseur de solutions. Utilisez ces informations pour faciliter votre parcours et aider à identifier ce à quoi vous (en tant que client Azure Stack) pouvez vous attendre lors de l’intégration d’Azure Stack dans votre centre de données.
+Cet article décrit l’expérience utilisateur Azure Stack de bout en bout, de l’achat d’un système intégré jusqu’au déploiement local par un fournisseur de solutions. Utilisez ces informations pour préparer votre parcours et définir des objectifs pour vous, client Azure Stack.
 
-En tant que client Azure Stack, vous devez anticiper les phases d’intégration de centre de données suivantes :
+En tant que client Azure Stack, vous devez anticiper les phases suivantes :
 
 |     |Phase de planification|Processus de commande|Prédéploiement|Processus en usine|Livraison de matériel|Déploiement local|
 |-----|-----|-----|-----|-----|-----|-----|
@@ -63,7 +63,7 @@ Pendant cette phase, vous devez décider comment vous souhaitez intégrer Azure 
 L’article [Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack](azure-stack-datacenter-integration.md) fournit des informations qui vous aideront à terminer le modèle, appelé Feuille de calcul de déploiement. 
 
 > [!IMPORTANT]
-> Durant cette étape, il est important d’examiner et de prendre une décision concernant tous les prérequis. Sachez que cette étape prend du temps et nécessite une coordination et une collecte de données à partir de plusieurs disciplines au sein de votre organisation. 
+> Durant cette étape, il est important d’examiner et de prendre une décision concernant tous les prérequis. Sachez que cette étape prend du temps et nécessite une coordination et une collecte de données à partir de plusieurs disciplines au sein de votre organisation. Des informations incorrectes ou incomplètes peuvent allonger le temps de déploiement. 
 
 Durant la phase de prédéploiement, vous devrez déterminer les éléments suivants :
 
@@ -90,7 +90,7 @@ Il est **essentiel** que toutes les données prérequises soient verrouillées e
 
 -   Tous les certificats doivent avoir été achetés et être prêts.
 
--   Le nom de domaine doit être choisi.
+-   Le nom de région doit être choisi.
 
 -   Tous les paramètres d’intégration réseau sont finalisés et correspondent à ce que vous avez partagé avec votre fournisseur de solutions.
 
@@ -102,16 +102,16 @@ Pour déployer Azure Stack, un ingénieur sur site envoyé par votre fournisseur
 
 L’ingénieur sur site devrait normalement vérifier les points suivants durant l’expérience de déploiement :
 
-- Vérification du câblage et de la connectivité de frontières pour s’assurer que la solution est correctement mise en place et répond à vos besoins
-- Configuration de la solution HLH (Hardware Lifecycle Host)
+- Vérification du câblage et de la connectivité de frontières pour s’assurer que la solution est correctement mise en place et répond à vos besoins.
+- Configuration de la solution HLH (Hardware Lifecycle Host), le cas échéant.
 - Vérification que tous les paramètres BMC, BIOS et réseau sont corrects
-- Vérification que le microprogramme de tous les composants est à la dernière version approuvée par la solution
-- Démarrage du déploiement
+- Vérification que la version du microprogramme de tous les composants est la dernière version approuvée par la solution.
+- Démarrage du déploiement.
 
 > [!NOTE]
 > Une procédure de déploiement par le technicien sur site peut nécessiter environ une semaine de travail.
 
-## <a name="post-integration-phase"></a>Phase post-intégration
+## <a name="post-deployment-phase"></a>Phase de post-déploiement
 Le partenaire doit effectuer plusieurs étapes avant que la solution soit remise au client durant la phase de post-intégration. Lors de cette phase, la validation est importante afin de s’assurer que le système est déployé et fonctionne correctement. 
 
 Les actions qui doivent être effectuées par le partenaire OEM sont les suivantes :
@@ -122,13 +122,13 @@ Les actions qui doivent être effectuées par le partenaire OEM sont les suivant
 
 -   [Syndication de la Place de marché](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Sauvegarde des fichiers de configuration de commutateur
+-   Sauvegarde des fichiers de configuration de commutateur et des fichiers de configuration HLH
 
 -   Suppression de DVM
 
 -   Préparation d’une synthèse client pour le déploiement
 
--   [Vérification des mises à jour pour s’assurer que le logiciel de la solution est mis à jour vers la dernière version](azure-stack-updates.md)
+-   [Vérification des mises à jour pour s’assurer que le logiciel de la solution est mis à jour vers la dernière version](.\azure-stack-updates.md)
 
 Plusieurs étapes peuvent être obligatoires ou facultatives, en fonction du type d’installation.
 

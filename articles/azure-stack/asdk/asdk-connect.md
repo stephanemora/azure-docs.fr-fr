@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 44f12c72716e98e2f28796359467685e0af579dd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 42b67ae9b715670f1a0c6e0fed004487a52817d3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238244"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206465"
 ---
 # <a name="connect-to-the-asdk"></a>Se connecter à l’ASDK
 
 Pour gérer des ressources, vous devez d’abord vous connecter au Kit de développement Azure Stack (ADSK). Dans cet article, nous décrivons les étapes à suivre pour se connecter à ce Kit de développement en utilisant les options de connexion suivantes :
 
 * [Connexion Bureau à distance (RDP)](#connect-with-rdp). Lorsque vous vous connectez à l’aide de la connexion Bureau à distance, un seul utilisateur peut se connecter rapidement au kit de développement.
-* [Réseau privé virtuel (VPN)](#connect-with-vpn). Lorsque vous vous connectez à l’aide d’un VPN, plusieurs utilisateurs peuvent se connecter simultanément à partir de clients en dehors de l’infrastructure Azure Stack. Une connexion VPN nécessite une configuration.
+* [Réseau privé virtuel (VPN)](#connect-with-vpn). Lorsque vous vous connectez à l’aide d’un VPN, plusieurs utilisateurs peuvent se connecter simultanément aux portails Azure Stack à partir de clients situés en dehors de l’infrastructure Azure Stack. Une connexion VPN nécessite une configuration.
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>Se connecter à Azure Stack avec RDP

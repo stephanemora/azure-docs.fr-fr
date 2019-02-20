@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: ce1e3818edea6e0fdaedd33b6ec0c3214f475340
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048554"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892233"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
 
@@ -35,7 +35,7 @@ Pour tirer parti de la fonction RLS, il est important de comprendre trois concep
 
 ### <a name="example"></a>Exemples
 
-Pour le reste de cet article, nous fournissons un exemple de création RLS et d’utilisation au sein d’une application intégrée. Notre exemple utilise le fichier PBIX [Exemple d’analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547) .
+Pour le reste de cet article, nous fournissons un exemple de création RLS et d’utilisation au sein d’une application intégrée. Notre exemple utilise le fichier PBIX [Exemple d’analyse des données de vente](https://go.microsoft.com/fwlink/?LinkID=780547) .
 
 ![Exemple de rapport de ventes](media/row-level-security/scenario-2.png)
 
@@ -48,7 +48,7 @@ RLS est créé dans Power BI Desktop. Lorsque le jeu de données et les rapports
 Voici quelques points à noter concernant ce schéma :
 
 * Toutes les mesures, comme **Total Sales**, sont stockées dans la table de faits **Sales**.
-* Il existe quatre tables de dimension connexes supplémentaires : **Item**, **Time**, **Store** et **District**.
+* Il existe quatre tables de dimension connexes supplémentaires : **Item**, **Time**, **Store** et **District**.
 * Les flèches sur les lignes de relation indiquent de quelle façon les filtres peuvent circuler d’une table à l’autre. Par exemple, si un filtre est placé sur **Time[Date]**, dans le schéma actuel, il filtre uniquement sur les valeurs de la table **Sales**. Aucune autre table n’est affectée par ce filtre, car tous les flèches sur les lignes de relation pointent vers la table des ventes (et pas en direction opposée).
 * La table **Région** indique qui est le directeur pour chaque région :
   
@@ -87,14 +87,14 @@ Cela n’est peut-être pas problématique dans le cadre de notre recherche actu
 1. **Fichier** -> **Options et paramètres** -> **Fonctionnalités en préversion** -> **Activer le filtrage croisé dans les deux directions pour DirectQuery**.
 2. **Fichier** -> **Options et paramètres** -> **DirectQuery** -> **Autoriser la mesure sans restriction en mode DirectQuery**.
 
-Pour en savoir plus sur le filtrage croisé bidirectionnel, téléchargez le livre blanc [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx).
+Pour en savoir plus sur le filtrage croisé bidirectionnel, téléchargez le livre blanc [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx).
 
 Cela conclut le travail qui doit être fait dans Power BI Desktop, mais plusieurs autres tâches doivent encore être effectuées pour que les règles RLS définies puissent fonctionner dans Power BI Embedded. Les utilisateurs sont authentifiés et autorisés par votre application, et les jetons d’application sont utilisés pour accorder l’accès utilisateur à un rapport Power BI Embedded spécifique. Power BI Embedded ne dispose pas d’informations spécifiques relatives à l’utilisateur. Pour que RLS fonctionne, vous devez transmettre des informations supplémentaires dans le cadre du jeton d’application :
 
 * **username** (facultatif) : utilisé avec la fonction RLS, ceci est une chaîne qui peut aider à identifier l’utilisateur lors de l’application des règles RLS. Voir Utilisation de la sécurité au niveau des lignes avec Power BI Embedded
 * **roles** : chaîne contenant les rôles à sélectionner lors de l’application des règles de sécurité au niveau des lignes. Si vous transmettez plusieurs rôles, ils doivent l’être en tant que table de chaînes.
 
-Vous créez le jeton à l’aide de la méthode [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__). Si la propriété de nom d’utilisateur est présente, vous devez également transmettre au moins une valeur dans les rôles.
+Vous créez le jeton à l’aide de la méthode [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN). Si la propriété de nom d’utilisateur est présente, vous devez également transmettre au moins une valeur dans les rôles.
 
 Par exemple, vous pouvez modifier EmbedSample. La ligne 55 de DashboardController peut être changée, de
 
@@ -114,7 +114,7 @@ Avec tous ces éléments, quand un utilisateur se connecte à notre application 
 
 ## <a name="see-also"></a>Voir aussi
 
-[Sécurité au niveau des lignes (RLS) avec Power BI](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
+[Sécurité au niveau des lignes (RLS) avec Power](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452817"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994012"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervision continue avec Azure Monitor
 
@@ -64,7 +64,7 @@ L’intégration continue / le déploiement continu vous donne la possibilité d
 
 - Utilisez [Azure Pipelines](/azure/devops/pipelines) pour implémenter un déploiement continu et automatiser votre processus en entier, de la validation de code à la production, selon vos tests CI/CD.
 - Utilisez [Quality Gates](/azure/devops/pipelines/release/approvals/gates) pour intégrer la supervision à votre prédéploiement ou post-déploiement. Vous êtes ainsi assuré de respecter les métriques d’intégrité/de performances clés (KPI) tandis que vos applications passent du développement en production, et qu’aucune différence dans la mise à l’échelle ou l’environnement d’infrastructure n’a d’impact négatif sur vos KPI.
-- [Tenez à jour des instances de supervision distinctes](../azure-monitor/app/separate-resources.md) entre vos différents environnements de déploiement, tels que le développement, les tests, le contrôle de validité et la production. Les données collectées sont ainsi pertinentes sur l’ensemble de l’infrastructure et des applications associées. Si vous devez mettre en corrélation des données entre différents environnements, vous pouvez utiliser des [graphiques multi-ressources dans Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou créer des [requêtes inter-ressources dans Log Analytics](log-query/cross-workspace-query.md).
+- [Tenez à jour des instances de supervision distinctes](../azure-monitor/app/separate-resources.md) entre vos différents environnements de déploiement, tels que le développement, les tests, le contrôle de validité et la production. Les données collectées sont ainsi pertinentes sur l’ensemble de l’infrastructure et des applications associées. Si vous devez mettre en corrélation des données entre différents environnements, vous pouvez utiliser des [graphiques multi-ressources dans Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou créer des [requêtes inter-ressources dans Azure Monitor](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Créer des alertes actionnables avec des actions

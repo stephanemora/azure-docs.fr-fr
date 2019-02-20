@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814535"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981925"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Créer un cluster WSFC, un écouteur, puis configurer un équilibreur de charge interne pour un groupe de disponibilité Always On sur une machine virtuelle SQL Server à l’aide d’un modèle de démarrage rapide Azure
 Cet article décrit comment utiliser les modèles de démarrage rapide Azure pour automatiser partiellement le déploiement d’une configuration de groupe de disponibilité Always On pour des machines virtuelles SQL Server dans Azure. Deux modèles de démarrage rapide Azure sont utilisés dans ce processus. 
@@ -153,8 +153,8 @@ L’extrait de code suivant supprime l’écouteur de groupe de disponibilité S
 
 ```PowerShell
 # Remove the AG listener
-# example: Remove-AzureRmResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
-Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
+# example: Remove-AzResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
+Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
 ```
  
 ## <a name="common-errors"></a>Erreurs courantes
@@ -166,7 +166,7 @@ Le groupe de disponibilité sélectionné utilisé dans le modèle de démarrage
 ### <a name="connection-only-works-from-primary-replica"></a>La connexion fonctionne uniquement à partir du réplica principal
 Ce comportement vient probablement d’échec de déploiement du modèle **101-sql-vm-aglistener-setup** qui a laissé la configuration de l’équilibreur de charge interne dans un état incohérent. Vérifiez que le pool back-end liste le groupe à haute disponibilité et qu’il existe des règles pour la sonde d’intégrité et l’équilibreur de charge. S’il manque quelque chose, alors la configuration de l’équilibreur de charge interne est un état incohérent. 
 
-Pour corriger ce comportement, supprimez l’écouteur à l’aide de [PowerShell](#remove-availability-group-listener), supprimez l’équilibreur de charge interne par le biais du portail Azure et recommencez à l’[étape 3](#step-3---manually-create-the-internal-load-balanced-ilb). 
+Pour corriger ce comportement, supprimez l’écouteur à l’aide de [PowerShell](#remove-availability-group-listener), supprimez l’équilibreur de charge interne par le biais du portail Azure et recommencez à l’étape 3. 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest : seule la liste des machines virtuelles SQL peut être mise à jour
 Cette erreur peut se produire lorsque vous déployez le modèle **101-sql-vm-aglistener-setup** si l’écouteur a été supprimé par le biais de SQL Server Management Studio (SSMS), mais qu’il n’a pas été supprimé du fournisseur de ressources de machine virtuelle SQL. La suppression de l’écouteur par le biais de SSMS ne supprime pas les métadonnées de l’écouteur dans le fournisseur de ressources de machine virtuelle SQL. Vous devez supprimer l’écouteur du fournisseur de ressources à l’aide de [PowerShell](#remove-availability-group-listener). 

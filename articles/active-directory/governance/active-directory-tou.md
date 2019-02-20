@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 02/09/2019
 ms.author: rolyon
-ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822508"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163765"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.
@@ -257,10 +258,10 @@ Voici une liste des plateformes et des logiciels pris en charge.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Autres |
 > | --- | --- | --- | --- | --- |
-> | **Application native** | Oui | OUI | Oui |  |
-> | **Microsoft Edge** | Oui | OUI | Oui |  |
-> | **Internet Explorer** | Oui | OUI | Oui |  |
-> | **Chrome (avec extension)** | Oui | OUI | Oui |  |
+> | **Application native** | OUI | OUI | OUI |  |
+> | **Microsoft Edge** | OUI | OUI | OUI |  |
+> | **Internet Explorer** | OUI | OUI | OUI |  |
+> | **Chrome (avec extension)** | OUI | OUI | OUI |  |
 
 Les conditions d’utilisation par appareil ont les contraintes suivantes :
 
@@ -333,6 +334,9 @@ Vous pouvez configurer une stratégie d’accès conditionnel pour l’applicati
 Vous pouvez configurer une stratégie d’accès conditionnel pour l’application d’inscription à Microsoft Intune et exiger l’affichage de conditions d’utilisation avant l’inscription d’un appareil dans Intune. Pour plus d’informations, consultez le [billet de blog sur le choix des conditions appropriées pour votre organisation](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ![Application cloud de Microsoft Intune](./media/active-directory-tou/cloud-app-intune.png)
+
+> [!NOTE]
+> L’application d’inscription à Intune n’est pas prise en charge pour [Conditions d’utilisation par appareil](#per-device-terms-of-use).
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 

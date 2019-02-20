@@ -1,6 +1,6 @@
 ---
 title: Solution de gestion Office 365 dans Azure | Microsoft Docs
-description: Cet article donne des informations sur la configuration et l’utilisation de la solution Office 365 dans Azure.  Il inclut une description détaillée des enregistrements d’Office 365 créés dans le Log Analytics.
+description: Cet article donne des informations sur la configuration et l’utilisation de la solution Office 365 dans Azure.  Il inclut une description détaillée des enregistrements d’Office 365 créés dans Azure Monitor.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216610"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999298"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
 ![Logo Office 365](media/solution-office-365/icon.png)
 
-La solution de gestion Office 365 vous permet d’effectuer le monitoring de votre environnement Office 365 dans Log Analytics.
+La solution de gestion Office 365 vous permet d’effectuer le monitoring de votre environnement Office 365 dans Azure Monitor.
 
 - Surveillez les activités des utilisateurs dans vos comptes Office 365 pour analyser les modèles d’utilisation ainsi que pour identifier les tendances de comportement. Par exemple, vous pouvez extraire des scénarios d’utilisation spécifiques, tels que les fichiers partagés en dehors de votre organisation ou les sites SharePoint les plus populaires.
 - Analysez les activités d’administrateur pour effectuer le suivi des modifications de configuration ou d’opérations de privilèges élevés.
 - Détectez et analysez le comportement des utilisateurs indésirables, qui peut être personnalisé pour les besoins de votre organisation.
 - Présentation d’audit et de conformité. Par exemple, vous pouvez surveiller les opérations d’accès aux fichiers sur des fichiers confidentiels, ce qui peut vous aider dans le processus d’audit et de conformité.
-- Effectuez un dépannage opérationnel à l’aide des [Recherches dans les journaux](../log-query/log-query-overview.md) en haut des données d’activité Office 365 de votre organisation.
+- Effectuez un dépannage opérationnel à l’aide des [requêtes dans les journaux](../log-query/log-query-overview.md) en haut des données d’activité Office 365 de votre organisation.
 
 ## <a name="prerequisites"></a>Prérequis
 Les conditions suivantes sont requises avant l’installation et la configuration de cette solution.
@@ -43,7 +43,7 @@ Les conditions suivantes sont requises avant l’installation et la configuratio
 Cette solution n’installe aucun pack d’administration dans les [groupes d’administration connectés](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installer et configurer
-Commencez par ajouter la [solution Office 365 à votre abonnement](solutions.md#install-a-management-solution). Ensuite, suivez les étapes de configuration de cette section pour lui donner accès à votre abonnement Office 365.
+Commencez par ajouter la [solution Office 365 à votre abonnement](solutions.md#install-a-monitoring-solution). Ensuite, suivez les étapes de configuration de cette section pour lui donner accès à votre abonnement Office 365.
 
 ### <a name="required-information"></a>Informations requises
 Avant de commencer cette procédure, rassemblez les informations suivantes.
@@ -375,7 +375,7 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Désinstaller l’interface
-Vous pouvez supprimer la solution de gestion Office 365 suivant le processus décrit dans [Supprimer une solution de gestion](solutions.md#remove-a-management-solution). Néanmoins, cela n’empêchera pas la collecte des données d’Office 365 dans Log Analytics. Suivez la procédure ci-dessous pour vous désabonner d’Office 365 et arrêter la collecte de données.
+Vous pouvez supprimer la solution de gestion Office 365 suivant le processus décrit dans [Supprimer une solution de gestion](solutions.md#remove-a-monitoring-solution). Néanmoins, cela n’empêchera pas la collecte des données d’Office 365 dans Azure Monitor. Suivez la procédure ci-dessous pour vous désabonner d’Office 365 et arrêter la collecte de données.
 
 1. Enregistrez le script suivant sous le nom *office365_unsubscribe.ps1*.
 
@@ -479,9 +479,12 @@ Vous pouvez supprimer la solution de gestion Office 365 suivant le processus dé
 La solution Office 365 ne récupère pas de données des [agents Log Analytics](../platform/agent-data-sources.md).  Il récupère les données directement à partir d’Office 365.
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
-La collecte initiale des données peut prendre quelques heures. Dès qu’elle a commencé, Office 365 envoie une [notification Webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) avec des données détaillées à Log Analytics à chaque fois qu’un enregistrement est créé. Cet enregistrement est disponible dans Log Analytics quelques minutes après sa réception.
+La collecte initiale des données peut prendre quelques heures. Dès qu’elle a commencé, Office 365 envoie une [notification Webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) avec des données détaillées à Azure Monitor chaque fois qu’un enregistrement est créé. Cet enregistrement est disponible dans Azure Monitor quelques minutes après sa réception.
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 Quand vous ajoutez la solution Office 365 à votre espace de travail Log Analytics, la vignette **Office 365** est ajoutée à votre tableau de bord. Cette mosaïque affiche une valeur et une représentation graphique du nombre d’ordinateurs de votre environnement et leur conformité de mise à jour.<br><br>
 ![Vignette de résumé Office 365](media/solution-office-365/tile.png)  
 
@@ -501,9 +504,9 @@ Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaqu
 
 
 
-## <a name="log-analytics-records"></a>Enregistrements Log Analytics
+## <a name="azure-monitor-log-records"></a>Enregistrements de journaux Azure Monitor
 
-Tous les enregistrements créés dans l’espace de travail Log Analytics par la solution Office 365 ont un **Type** de **OfficeActivity**.  La propriété **OfficeWorkload** détermine le service Office 365 auquel fait référence l’enregistrement : Exchange, AzureActiveDirectory, SharePoint ou OneDrive.  La propriété **RecordType** spécifie le type d’opération.  Les propriétés varient pour chaque type d’opération et sont affichées dans les tables ci-dessous.
+Tous les enregistrements créés dans l’espace de travail Log Analytics dans Azure Monitor par la solution Office 365 ont un **Type** de **OfficeActivity**.  La propriété **OfficeWorkload** détermine le service Office 365 auquel fait référence l’enregistrement : Exchange, AzureActiveDirectory, SharePoint ou OneDrive.  La propriété **RecordType** spécifie le type d’opération.  Les propriétés varient pour chaque type d’opération et sont affichées dans les tables ci-dessous.
 
 ### <a name="common-properties"></a>Propriétés communes
 Les propriétés suivantes sont communes à tous les enregistrements d’Office 365.
@@ -708,6 +711,6 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les recherches de journaux de [Log Analytics](../log-query/log-query-overview.md) pour afficher des données détaillées sur les mises à jour.
+* Utilisez les [requêtes de journaux dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des données détaillées sur les mises à jour.
 * [Créez vos propres tableaux de bord](../learn/tutorial-logs-dashboards.md) pour afficher vos requêtes de recherche favoris Office 365.
 * [Créez des alertes](../platform/alerts-overview.md) pour être informé de façon proactive des activités importantes Office 365.  

@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: bc3b96ee55ccd28cce89b1f37494b836851977f1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 18cb4aae9470766b75c3c6519473660ac24ad4f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259245"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003803"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Créer un espace de travail Log Analytics avec Azure CLI 2.0
 
-Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide de démarrage rapide vous montre comment utiliser Azure CLI 2.0 pour déployer dans Azure un espace de travail Log Analytics, environnement unique doté de ses propres référentiel de données, sources de données et solutions.  Vous devez suivre les étapes décrites dans cet article si vous souhaitez collecter des données à partir des sources suivantes :
+Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce démarrage rapide vous montre comment utiliser l’interface de ligne de commande Azure 2.0 pour déployer un espace de travail Log Analytics dans Azure Monitor. Un espace de travail Log Analytics est un environnement unique pour les données de journal Azure Monitor. Chaque espace de travail dispose d’un référentiel de données et d’une configuration propres. Les sources de données et les solutions sont configurées de façon à stocker leurs données dans un espace de travail particulier. Vous devez avoir un espace de travail Log Analytics si vous souhaitez collecter des données à partir des sources suivantes :
 
 * Ressources Azure dans votre abonnement  
 * Ordinateurs locaux surveillés par System Center Operations Manager  
@@ -31,8 +31,8 @@ Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir
  
 Pour les autres sources, telles que les machines virtuelles Azure et les machines virtuelles Windows ou Linux dans votre environnement, consultez les rubriques suivantes :
 
-* [Collect data from Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md) (Collecter des données à partir de machines virtuelles Azure)
-* [Collect data from hybrid Linux computer](../../azure-monitor/learn/quick-collect-linux-computer.md) (Collecter des données à partir d’un ordinateur Linux hybride)
+* [Collect data from Azure virtual machines](../learn/quick-collect-azurevm.md) (Collecter des données à partir de machines virtuelles Azure)
+* [Collect data from hybrid Linux computer](../learn/quick-collect-linux-computer.md) (Collecter des données à partir d’un ordinateur Linux hybride)
 * [Collect data from hybrid Windows computer](quick-collect-windows-computer.md) (Collecter des données à partir d’un ordinateur Windows hybride)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -126,7 +126,7 @@ Le déploiement peut prendre plusieurs minutes. Lorsqu’il est terminé, vous v
 ## <a name="next-steps"></a>Étapes suivantes
 Disposant à présent d’un espace de travail, vous pouvez configurer la collecte des données de télémétrie de surveillance, exécuter des recherches dans les journaux pour analyser ces données et ajouter une solution de gestion pour fournir des données et insights analytiques supplémentaires.  
 
-* Pour activer la collecte de données à partir de ressources Azure avec Azure Diagnostics ou le stockage Azure, consultez [Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
-* Ajoutez [System Center Operations Manager comme source de données](../../azure-monitor/platform/om-agents.md) pour collecter des données à partir des agents rattachés à votre groupe d’administration Operations Manager et les stocker dans votre espace de travail Log Analytics.  
-* Connectez [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) pour importer des ordinateurs qui sont membres de collections dans la hiérarchie.  
-* Examinez les [solutions de gestion](../../azure-monitor/insights/solutions.md) disponibles et la façon d’ajouter ou de supprimer une solution dans votre espace de travail.
+* Pour activer la collecte de données à partir de ressources Azure avec Azure Diagnostics ou le stockage Azure, consultez [Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Ajoutez [System Center Operations Manager comme source de données](../platform/om-agents.md) pour collecter des données à partir des agents rattachés à votre groupe d’administration Operations Manager et les stocker dans votre espace de travail Log Analytics.  
+* Connectez [Configuration Manager](../platform/collect-sccm.md) pour importer des ordinateurs qui sont membres de collections dans la hiérarchie.  
+* Examinez les [solutions de surveillance](../insights/solutions.md) disponibles et la façon d’ajouter ou de supprimer une solution dans votre espace de travail.

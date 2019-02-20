@@ -1,6 +1,6 @@
 ---
-title: Charger des données dans Azure Data Lake Storage Gen2 (Preview) avec Azure Data Factory
-description: Utiliser Azure Data Factory pour copier des données dans Azure Data Lake Storage Gen2 (Preview)
+title: Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory
+description: Utiliser Azure Data Factory pour copier des données dans Azure Data Lake Storage Gen2
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6b03e08200c4d20a64fad329abda71c5c7edab26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680852"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876077"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen2 (Preview) avec Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory
 
-Azure Data Lake Storage Gen2 (préversion) est un ensemble de fonctionnalités dédié à l’analytique du Big Data, et intégré au [stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
+Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l'analytique du Big Data et intégrées au service [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
 
 Azure Data Factory est un service informatique d’intégration de données informatique intégralement managé. Vous pouvez utiliser le service pour remplir le lac avec des données provenant d’un ensemble étendu de banques de données locales et cloud lors de la création de vos solutions d’analytique. Pour une liste détaillée des connecteurs pris en charge, consultez le tableau de [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -92,7 +92,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
     ![Spécification du dossier de sortie](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. Dans la page **Banque de données de destination**, cliquez sur **+ Créer une connexion**, puis sélectionnez **Azure Data Lake Storage Gen2 (Preview)** et sélectionnez **Continuer**  :
+7. Sur la page **Banque de données de destination**, cliquez sur **+ Créer une connexion**, puis sélectionnez **Azure Data Lake Storage Gen2** et sélectionnez **Continuer** :
 
     ![Page Magasin de données de destination](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 
@@ -130,7 +130,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 16. Vérifiez que les données sont copiées dans votre compte Azure Data Lake Store Gen2 :
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 Quand vous copiez un grand volume de données à partir de la banque de données de type fichiers, nous vous recommandons de :
 

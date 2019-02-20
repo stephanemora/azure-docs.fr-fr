@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232734"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235493"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
 Vous pouvez utiliser des [modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
@@ -54,9 +54,9 @@ Les paramètres suivants sont définis comme une valeur par défaut :
 * Emplacement : par défaut, USA Est
 * Référence (SKU) : la valeur par défaut est le nouveau niveau de tarification par Go publié dans le modèle de tarification d’avril 2018
 
->[!WARNING]
->Lors de la création ou de la configuration d’un espace de travail Log Analytics dans un abonnement pour lequel le nouveau modèle de tarification d’avril 2018 a été choisi, le seul niveau tarifaire Log Analytics valide est **PerGB2018**. 
->
+> [!NOTE]
+>Lors de la création ou de la configuration d’un espace de travail Log Analytics dans un abonnement pour lequel le nouveau modèle de tarification d’avril 2018 a été choisi, le seul niveau tarifaire Log Analytics valide est **PerGB2018**.  
+>Si vous disposez d'abonnements dans le (modèle de tarification antérieur à avril 2018) [https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], vous pouvez spécifier le niveau tarifaire **Autonome**, qui fonctionne pour les inscriptions du modèle de tarification antérieur à avril 2018, ainsi que pour les inscriptions de la nouvelle tarification. Pour les espaces de travail dans des abonnements qui ont adopté le nouveau modèle de tarification, le niveau tarifaire est défini sur **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Créer et déployer un modèle
 

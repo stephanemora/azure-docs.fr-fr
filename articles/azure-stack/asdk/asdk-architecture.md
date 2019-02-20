@@ -12,33 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2cee4d75a111f56012782228d8070bb728720aca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9157acc7517aea56f087a3dbff0fe7114f8b4c87
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238334"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958803"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Architecture du Kit de développement Microsoft Azure Stack
-Le Kit de développement Azure Stack (ASDK) est un déploiement à nœud unique d’Azure Stack. Tous les composants sont installés sur des machines virtuelles exécutées sur un ordinateur hôte unique. 
+Le Kit de développement Azure Stack (ASDK) est un déploiement à nœud unique d’Azure Stack qui s'exécute sur un seul ordinateur hôte. Des composants de routage Edge sont installés sur l’ordinateur hôte afin de fournir des fonctionnalités NAT et VPN pour Azure Stack. Les rôles d’infrastructure Azure Stack s’exécutent dans la couche Hyper-V de l’ordinateur hôte physique.
 
-## <a name="logical-architecture-diagram"></a>Schéma de l’architecture logique
-Le schéma suivant illustre l’architecture logique de l’ASDK et de ses composants.
-
-![Architecture de l’ASDK](media/asdk-architecture/image1.png)
 
 ## <a name="virtual-machine-roles"></a>Rôles de machine virtuelle
 L’ASDK propose des services à l’aide des machines virtuelles suivantes qui sont hébergées sur l’ordinateur hôte du Kit de développement :
 
-| NOM | Description |
+| Nom | Description |
 | ----- | ----- |
 | **AzS-ACS01** | Services de stockage Azure Stack.|
 | **AzS-ADFS01** | Services de fédération Active Directory (ADFS).  |
-| **AzS-BGPNAT01** | Routeur Edge et fournit des capacités NAT et VPN pour Azure Stack. |
 | **AzS-CA01** | Services d’autorité de certification pour les services de rôle Azure Stack.|
 | **AzS-DC01** | Services Active Directory, DNS et DHCP pour Microsoft Azure Stack.|
 | **AzS-ERCS01** | Machine virtuelle la console de récupération d’urgence. |

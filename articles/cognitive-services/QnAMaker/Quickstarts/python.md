@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Obtenez des informations et des exemples de code Python pour vous aider à commencer rapidement à utiliser l’API de traduction de texte Translator Text Microsoft dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ca0d8bcbf2d4b050560d1575ef690205eacca830
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222165"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244638"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Guide pratique pour utiliser l’API REST QnA Maker avec Python
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 - [Supprimer une base de connaissances](#Delete)
 - [Obtenir les clés du point de terminaison actuel](#GetKeys)
 - [Régénérer les clés du point de terminaison actuel](#PutKeys)
-- [Obtenir l’ensemble actuel d’altérations de mot](#GetAlterations)
-- [Remplacer l’ensemble actuel d’altérations de mot](#PutAlterations)
+- [Obtenir l’ensemble actuel d’altérations de mots sensibles à la casse](#GetAlterations)
+- [Remplacer l’ensemble actuel d’altérations de mots sensibles à la casse](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

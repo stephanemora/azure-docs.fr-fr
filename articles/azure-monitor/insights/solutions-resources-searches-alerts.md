@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901188"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980106"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
+
+> [!IMPORTANT]
+> Les détails présentés ici pour la création d’une alerte à l’aide d’un modèle Resource Manager sont obsolètes en raison du fait que les [alertes Log Analytics ont été étendues à Azure Monitor](../platform/alerts-extend.md). Pour plus d’informations sur la création d’une alerte de journal avec un modèle Resource Manager, consultez [Gestion des alertes de journal à l’aide du modèle de ressource Azure](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
 
 > [!NOTE]
 > Il s’agit d’une documentation préliminaire pour la création de solutions de gestion actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.
@@ -122,9 +125,9 @@ Les propriétés des ressources de planification sont décrites dans le tableau 
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Activé       | Oui | Spécifie si l’alerte est activée lors de sa création. |
-| interval      | Oui | La fréquence d’exécution de la requête (en minutes). |
-| queryTimeSpan | Oui | Durée sur laquelle les résultats sont évalués (en minutes). |
+| Activé       | OUI | Spécifie si l’alerte est activée lors de sa création. |
+| interval      | OUI | La fréquence d’exécution de la requête (en minutes). |
+| queryTimeSpan | OUI | Durée sur laquelle les résultats sont évalués (en minutes). |
 
 La ressource de planification doit dépendre de la recherche enregistrée, de sorte qu’elle soit créée avant la planification.
 
@@ -180,10 +183,10 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Type | Oui | Type de l’action.  **Alert** pour les actions d’alerte. |
-| NOM | Oui | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
+| Type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
+| Nom | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
 | Description | Non  | La description facultative de l’alerte. |
-| Severity | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
+| Severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Seuil
@@ -191,8 +194,8 @@ Cette section est obligatoire. Elle définit les propriétés du seuil d’alert
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Operator | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | Oui | La valeur par rapport à laquelle les résultats doivent être comparés. |
+| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| Valeur | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Cette section est facultative. Vous devez l’inclure pour une alerte relative aux mesures métriques.
@@ -202,9 +205,9 @@ Cette section est facultative. Vous devez l’inclure pour une alerte relative a
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| TriggerCondition | Oui | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
-| Operator | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | Oui | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
+| TriggerCondition | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
+| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| Valeur | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
 
 
 #### <a name="throttling"></a>Limitation
@@ -221,7 +224,7 @@ Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planificatio
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| AzNsNotification | Oui | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
+| AzNsNotification | OUI | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
 | CustomEmailSubject | Non  | Ligne d’objet personnalisée de l’e-mail envoyé à toutes les adresses spécifiées dans le groupe d’actions associé. |
 | CustomWebhookPayload | Non  | Charge utile personnalisée à envoyer à tous les points de terminaison Webhook définis dans le groupe d’actions associé. Le format dépend de ce qu’attend le Webhook, et doit être un JSON sérialisé valide. |
 
@@ -237,8 +240,8 @@ Chaque planification est associée à une action **Alert**. Ceci définit les d�
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Destinataires | Oui | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Objet | Oui | La ligne d’objet du message. |
+| Destinataires | OUI | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Objet | OUI | La ligne d’objet du message. |
 | Pièce jointe | Non  | Actuellement, les pièces jointes ne sont pas prises en charge. Si cet élément est inclus, il doit avoir la valeur **None**. |
 
 ##### <a name="remediation"></a>Correction
@@ -246,8 +249,8 @@ Cette section est facultative. Insérez-la si vous souhaitez qu’un runbook dé
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| RunbookName | Oui | Le nom du runbook à démarrer. |
-| WebhookUri | Oui | L’URI du webhook pour le runbook. |
+| RunbookName | OUI | Le nom du runbook à démarrer. |
+| WebhookUri | OUI | L’URI du webhook pour le runbook. |
 | Expiry | Non  | La date et l’heure d’expiration de la correction. |
 
 ##### <a name="webhook-actions"></a>Actions de webhook
@@ -276,9 +279,9 @@ Les propriétés des ressources d’action Webhook sont décrites dans les table
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Type | Oui | Type de l’action. **Webhook** pour les actions de webhook. |
-| Nom | Oui | Le nom d’affichage de l’action. Il n’est pas affiché dans la console. |
-| webhookUri | Oui | L’URI du webhook. |
+| Type | OUI | Type de l’action. **Webhook** pour les actions de webhook. |
+| Nom | OUI | Le nom d’affichage de l’action. Il n’est pas affiché dans la console. |
+| webhookUri | OUI | L’URI du webhook. |
 | customPayload | Non  | Charge utile personnalisée à envoyer au webhook. Le format dépend de ce que le webhook attend. |
 
 ## <a name="sample"></a>Exemple

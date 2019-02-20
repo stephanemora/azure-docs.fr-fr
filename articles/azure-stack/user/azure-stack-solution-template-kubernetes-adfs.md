@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: df84562c3ff95ac6fef65ea7c9911d5e12e558ef
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: c2ef0d34897171e04d0982405909183634ebb696
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744961"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115400"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Active Directory Federation Services
 
@@ -43,13 +43,19 @@ Pour commencer, assurez-vous que vous disposez des autorisations appropriées et
 
     Vous ne pouvez pas déployer le cluster sur un abonnement **Administrateur** Azure Stack. Vous devez utiliser un abonnement **Utilisateur**. 
 
-1. Si Cluster Kubernetes ne figure pas dans votre Place de marché, contactez votre administrateur Azure Stack.
+1. Vous aurez besoin du service Key Vault dans votre abonnement Azure Stack.
+
+1. Vous aurez besoin du cluster Kubernetes dans votre marketplace. 
+
+Si vous ne disposez pas du service Key Vault et de l'élément de marketplace de cluster Kubernetes, contactez votre administrateur Azure Stack.
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
 Vous devez travailler avec votre administrateur Azure Stack pour configurer votre principal du service si vous utilisez AD FS comme solution de gestion des identités. Le principal du service permet à votre application d’accéder aux ressources Azure Stack.
 
-1. Votre administrateur Azure Stack vous fournit un certificat ainsi que les informations relatives au principal du service. Ces informations se présentent comme ceci :
+1. Votre administrateur Azure Stack vous fournit un certificat ainsi que les informations relatives au principal du service.
+
+    - Les informations du principal de service doivent se présenter comme suit :
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -60,9 +66,11 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. Attribuez à votre nouveau principal de service un rôle de contributeur à votre abonnement. Pour obtenir des instructions, consultez [Attribuer un rôle](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
+    - Votre certificat se présentera sous forme de fichier portant l'extension `.pfx`. Vous stockerez votre certificat en tant que secret dans un coffre de clés.
 
-3. Créez un coffre de clés destiné à stocker votre certificat pour le déploiement.
+2. Attribuez à votre nouveau principal de service un rôle de contributeur à votre abonnement. Pour obtenir des instructions, consultez [Attribuer un rôle](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
+
+3. Créez un coffre de clés destiné à stocker votre certificat pour le déploiement. Utilisez les scripts PowerShell suivants plutôt que le portail.
 
     - Vous avez besoin des informations suivantes :
 
@@ -70,12 +78,12 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
         | ---   | ---         |
         | Point de terminaison Azure Resource Manager | Microsoft Azure Resource Manager est une infrastructure de gestion qui permet aux administrateurs de déployer, gérer et superviser les ressources Azure. Azure Resource Manager peut gérer ces tâches en groupe, plutôt qu’individuellement, dans une seule opération.<br>Le point de terminaison dans le Kit de développement Azure Stack (ASDK) est : `https://management.local.azurestack.external/`.<br>Le point de terminaison dans les systèmes intégrés est : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Votre ID d’abonnement | [L’ID d’abonnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) correspond à la façon dont vous accédez à des offres dans Azure Stack. |
-        | Votre nom d’utilisateur | Votre nom d’utilisateur. |
+        | Votre nom d’utilisateur | Utilisez votre nom d’utilisateur plutôt que votre nom de domaine et le nom d’utilisateur, comme `username` plutôt que `azurestack\username`. |
         | Nom du groupe de ressources  | Entrez le nom d’un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Le nom de la ressource doit être alphanumérique et en minuscules. |
         | Nom du coffre de clés | Nom du coffre.<br> Modèle d’expression régulière : `^[a-zA-Z0-9-]{3,24}$` |
         | Emplacement du groupe de ressources | Emplacement du groupe de ressources. Il s’agit de la région que vous avez choisie pour votre installation Azure Stack. |
 
-    - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges. Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
+    - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et [connectez-vous à Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
 
     ```PowerShell  
         $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -111,12 +119,12 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
         | ---   | ---         |
         | Chemin du certificat | FQDN ou chemin du fichier vers le certificat. |
         | Mot de passe du certificat | Mot de passe du certificat. |
-        | Nom du secret | Secret généré à l’étape précédente. |
-        | Nom du coffre de clés | Nom du coffre de clés créé à l’étape précédente. |
+        | Nom du secret | Le nom secret utilisé pour référencer le certificat stocké dans le coffre. |
+        | Nom du coffre de clés | Le nom du coffre de clés créé à l’étape précédente. |
         | Point de terminaison Azure Resource Manager | Le point de terminaison dans le Kit de développement Azure Stack (ASDK) est : `https://management.local.azurestack.external/`.<br>Le point de terminaison dans les systèmes intégrés est : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Votre ID d’abonnement | [L’ID d’abonnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) correspond à la façon dont vous accédez à des offres dans Azure Stack. |
 
-    - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges. Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
+    - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et [connectez-vous à Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
 
     ```PowerShell  
         
@@ -124,7 +132,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
     $tempPFXFilePath = "<certificate path>"
     $password = "<certificate password>"
     $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<keyvault name>"
+    $keyVaultName = "<key vault name>"
     $armEndpoint="<Azure Resource Manager Endpoint>"
     $subscriptionId="<Your Subscription ID>"
     # Login Azure Stack Environment
@@ -194,11 +202,11 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
 
 1. Entrez **l’ID client du principal de service**. Celui-ci est utilisé par le fournisseur cloud d’Azure Kubernetes. ID de client identifié comme ID d’application quand votre administrateur Azure Stack a créé le principal du service.
 
-1. Entrez le **groupe de ressources du coffre de clés**. 
+1. Entrez le **groupe de ressources Key Vault** d'où provient le coffre de clés contenant votre certificat.
 
-1. Entrez le **nom du coffre de clés**.
+1. Entrez le **nom du coffre de clés** contenant votre certificat comme secret. 
 
-1. Entrez le **secret du coffre de clés**.
+1. Entrez le **secret du coffre de clés**. Le nom du secret fait référence à votre certificat.
 
 1. Entrez la **version du fournisseur cloud d’Azure Kubernetes**. Il s’agit de la version du fournisseur d’Azure Kubernetes. Azure Stack publie une build Kubernetes personnalisée pour chaque version d’Azure Stack.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Sauce Labs - Mobile and Web Testing | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Sauce Labs - Mobile and Web Testing | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sauce Labs - Mobile and Web Testing.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 55d84256f408e80600308ede22dbaa903b070d90
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266884"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207005"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutoriel : Intégration d’Azure Active Directory à Sauce Labs - Mobile and Web Testing
+# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Didacticiel : Intégration d’Azure Active Directory à Sauce Labs - Mobile and Web Testing
 
 Dans ce tutoriel, découvrez comment intégrer Sauce Labs - Mobile and Web Testing à Azure Active Directory (Azure AD).
 
@@ -175,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing prend en charge l’approvisionnement juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Sauce Labs - Mobile and Web Testing s’il n’en existe pas encore.
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support de Sauce Labs - Mobile and Web Testing](mailto:support@saucelabs.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe de support de Sauce Labs - Mobile and Web Testing](mailto:support@saucelabs.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

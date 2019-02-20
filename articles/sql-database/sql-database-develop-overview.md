@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820349"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964795"
 ---
 # <a name="sql-database-application-development-overview"></a>Vue d’ensemble du développement de base de données SQL
 
 Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à la base de données SQL Azure. Cet article s’applique à tous les modèles de déploiement d’Azure SQL Database (base de données unique, pools élastiques, instance gérée).
 
 > [!TIP]
-> Recherchez [Base de données unique](sql-database-single-database-quickstart-guide.md) et [Instance gérée](sql-database-managed-instance-quickstart-guide.md) dans les guides de prise en main si vous devez configurer Azure SQL Database.
+> Recherchez [Bases de données uniques](sql-database-single-database-quickstart-guide.md) et [Instances gérées](sql-database-managed-instance-quickstart-guide.md) dans les guides de prise en main si vous devez configurer votre base de données Azure SQL.
 >
 
 ## <a name="language-and-platform"></a>Langage et plateforme
@@ -49,14 +49,16 @@ Si vous utilisez un [pool de connexions](https://msdn.microsoft.com/library/8xx3
 
 ## <a name="resiliency"></a>Résilience
 
-Azure SQL Database est un service cloud où vous pouvez attendre des erreurs temporaires qui se produisent dans l’infrastructure sous-jacente ou dans la communication entre les entités du cloud.
-Bien qu’Azure SQL Database résiste aux échecs d’infrastructure transitive, ces échecs peuvent affecter votre connectivité. Lorsqu’une erreur temporaire se produit au moment de la connexion à SQL Database, votre code doit effectuer une [nouvelle tentative d’appel](sql-database-connectivity-issues.md). Nous vous recommandons d’utiliser une logique de nouvelle tentative basée sur une logique d’interruption, afin d’éviter que la base de données SQL ne soit inondée de tentatives simultanées de plusieurs clients. La logique de nouvelle tentative dépend des [messages d’erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md).
+Azure SQL Database est un service cloud où vous pouvez attendre des erreurs temporaires qui se produisent dans l’infrastructure sous-jacente ou dans la communication entre les entités du cloud. Bien qu’Azure SQL Database résiste aux échecs d’infrastructure transitive, ces échecs peuvent affecter votre connectivité. Lorsqu’une erreur temporaire se produit au moment de la connexion à SQL Database, votre code doit effectuer une [nouvelle tentative d’appel](sql-database-connectivity-issues.md). Nous vous recommandons d’utiliser une logique de nouvelle tentative basée sur une logique d’interruption, afin d’éviter que la base de données SQL ne soit inondée de tentatives simultanées de plusieurs clients. La logique de nouvelle tentative dépend des [messages d’erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md).
+
+Pour plus d’informations sur la préparation aux événements de maintenance planifiés sur votre base de données Azure SQL, consultez [Planification des événements de maintenance Azure dans Azure SQL Database](sql-database-planned-maintenance.md).
 
 ## <a name="network-considerations"></a>Considérations relatives au réseau
 
 - Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.  Plus d’informations : [Règles de pare-feu Azure SQL Database et SQL Data Warehouse](sql-database-configure-firewall-settings.md).
 - Si votre programme client se connecte à la base de données SQL pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir certaines plages de ports sur la machine virtuelle. Plus d’informations : [Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Parfois, les connexions clientes à Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md) (Architecture de connectivité d’Azure SQL Database) et [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Pour la configuration réseau d’une instance gérée, consultez [Configuration réseau des instances gérées](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 5f111fea8fa1ef9f6e07c01f507e487c992729d5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233529"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177442"
 ---
-# <a name="media-services-development-with-net"></a>Développement Media Services avec .NET
+# <a name="media-services-development-with-net"></a>Développement Media Services avec .NET 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 Cet article explique comment commencer à développer des applications Media Services à l’aide de .NET.
@@ -30,7 +30,7 @@ La bibliothèque du **Kit de développement logiciel (SDK) Azure Media Services 
 
 ## <a name="prerequisites"></a>Prérequis
 * Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez l’article [Création d’un compte Media Services](media-services-portal-create-account.md).
-* Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
+* Systèmes d'exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou ultérieur.
 * Visual Studio.
 

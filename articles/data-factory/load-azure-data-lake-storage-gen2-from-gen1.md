@@ -1,6 +1,6 @@
 ---
-title: Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 (Préversion) avec Azure Data Factory
-description: Utiliser Azure Data Factory pour copier des données depuis Azure Data Lake Storage Gen1 vers Gen2 (Préversion)
+title: Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
+description: Utiliser Azure Data Factory pour copier des données depuis Azure Data Lake Storage Gen1 vers Gen2
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: da42e0bf86aca571fb26367f18bbf07f90f5531b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679356"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884611"
 ---
-# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 (Préversion) avec Azure Data Factory
+# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
 
-Azure Data Lake Storage Gen2 (préversion) est un ensemble de fonctionnalités dédié à l’analytique du Big Data, et intégré au [stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
+Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l'analytique du Big Data et intégrées au service [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
 
 Si vous utilisez actuellement Azure Data Lake Storage Gen1, vous pouvez évaluer les nouvelles capacités de Gen2 en copiant les données à partir de Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory.
 
@@ -92,7 +92,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
     ![Spécification du dossier de sortie](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-7. Dans la page **Banque de données de destination**, cliquez sur **+ Créer une connexion**, puis sélectionnez **Azure Data Lake Storage Gen2 (Preview)** et sélectionnez **Continuer**  :
+7. Sur la page **Banque de données de destination**, cliquez sur **+ Créer une connexion**, puis sélectionnez **Azure Data Lake Storage Gen2** et sélectionnez **Continuer** :
 
     ![Page Magasin de données de destination](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 
@@ -129,7 +129,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 16. Vérifiez que les données sont copiées dans votre compte Azure Data Lake Store Gen2 :
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 Quand vous copiez un grand volume de données à partir de la banque de données de type fichiers, nous vous recommandons de :
 

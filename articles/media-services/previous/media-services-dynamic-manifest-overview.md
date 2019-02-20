@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/25/2018
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312967"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000005"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
 
@@ -80,7 +80,7 @@ Il existe des [scénarios](media-services-dynamic-manifest-overview.md#scenarios
 * Découpez le début d'une vidéo (« découpage d'une vidéo »).
 * Ajustez la fenêtre de présentation (DVR) afin de fournir une longueur limitée de la fenêtre du DVR dans le lecteur (« ajustement de la fenêtre de présentation »).
 
-Pour obtenir cette flexibilité, Media Services propose des **manifestes dynamiques** basés sur des [filtres](media-services-dynamic-manifest-overview.md#filters)prédéfinis.  Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Les filtres peuvent s’appliquer aux protocoles de streaming à débit adaptatif par [empaquetage dynamique](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH et Smooth Streaming. Par exemple : 
+Pour obtenir cette flexibilité, Media Services propose des **manifestes dynamiques** basés sur des [filtres](media-services-dynamic-manifest-overview.md#filters)prédéfinis.  Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Les filtres peuvent s’appliquer aux protocoles de streaming à débit adaptatif par [empaquetage dynamique](media-services-dynamic-packaging-overview.md) : HLS, MPEG-DASH et Smooth Streaming. Par exemple : 
 
 URL MPEG DASH avec filtre
 
@@ -130,7 +130,7 @@ Vos éléments multimédias peuvent inclure plusieurs langues audio telles que l
 ![Filtrage des pistes de langue][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Découpage du début d'un élément multimédia
-Pour la plupart des événements de diffusion en continu en direct, les opérateurs exécutent des tests avant l'événement réel. Par exemple, ils peuvent inclure une ardoise comme celle-ci avant le début de l'événement : « Le programme va commencer dans un instant. Si le programme est en cours d’archivage, le test et les données d’ardoise sont également archivés et donc inclus dans la présentation. Toutefois, ces informations ne doivent pas être montrées aux clients. Avec un manifeste dynamique, vous pouvez créer un filtre sur l'heure de début et supprimer les données indésirables du manifeste.
+Pour la plupart des événements de diffusion en continu en direct, les opérateurs exécutent des tests avant l'événement réel. Par exemple, ils peuvent inclure une ardoise comme celle-ci avant le début de l’événement : « Le programme va commencer dans un instant ». Si le programme est en cours d’archivage, le test et les données d’ardoise sont également archivés et donc inclus dans la présentation. Toutefois, ces informations ne doivent pas être montrées aux clients. Avec un manifeste dynamique, vous pouvez créer un filtre sur l'heure de début et supprimer les données indésirables du manifeste.
 
 ![Découpage du début][trim_filter]
 

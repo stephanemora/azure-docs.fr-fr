@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Obtenez des informations REST Go et des exemples de code pour commencer rapidement à utiliser l’API de traduction de texte Translator Text Microsoft dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 67654e11f3f5b883c587a4fdc0bb7a25f56cd48b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f16909a9504b2868c1eecf849b9a1fd537cd6048
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220023"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244256"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Guide pratique pour utiliser l’API REST QnA Maker avec Go 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 - [Supprimer une base de connaissances](#Delete)
 - [Obtenir les clés du point de terminaison actuel](#GetKeys)
 - [Régénérer les clés du point de terminaison actuel](#PutKeys)
-- [Obtenir l’ensemble actuel d’altérations de mot](#GetAlterations)
-- [Remplacer l’ensemble actuel d’altérations de mot](#PutAlterations)
+- [Obtenir l’ensemble actuel d’altérations de mots sensibles à la casse](#GetAlterations)
+- [Remplacer l’ensemble actuel d’altérations de mots sensibles à la casse](#PutAlterations)
 
 ## <a name="prerequisites"></a>Prérequis
 

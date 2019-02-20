@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 9689854d9a28debbfbcf908391806fffac6a2006
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450173"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005516"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
-Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de métriques de la plateforme, de [métriques personnalisés](../../azure-monitor/platform/metrics-custom-overview.md), de [journaux courants de Log Analytics convertis en métriques](../../azure-monitor/platform/alerts-metric-logs.md) ou de métriques standard d’Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
+Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de métriques de la plateforme, de [métriques personnalisées](../../azure-monitor/platform/metrics-custom-overview.md), de [journaux courants d’Azure Monitor convertis en métriques](../../azure-monitor/platform/alerts-metric-logs.md) ou de métriques standard d’Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
 
 ## <a name="how-do-metric-alerts-work"></a>Fonctionnement des alertes de métrique
 
@@ -147,34 +147,34 @@ Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à 
 
 |Type de ressource pris en charge par les alertes de métrique classiques | Pris en charge par les alertes de métrique |
 |-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Oui |
-| Microsoft.Batch/batchAccounts| Oui|
-|Microsoft.Cache/redis| Oui
+| Microsoft.ApiManagement/service | OUI |
+| Microsoft.Batch/batchAccounts| OUI|
+|Microsoft.Cache/redis| OUI
 |Microsoft.ClassicCompute/virtualMachines | Non  |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Non |
 |Microsoft.CognitiveServices/accounts | Non  |
-|Microsoft.Compute/virtualMachines | Oui|
-|Microsoft.Compute/virtualMachineScaleSets| Oui|
+|Microsoft.Compute/virtualMachines | OUI|
+|Microsoft.Compute/virtualMachineScaleSets| OUI|
 |Microsoft.ClassicStorage/storageAccounts| Non  |
-|Microsoft.DataFactory/datafactories | Oui|
-|Microsoft.DBforMySQL/servers| Oui|
-|Microsoft.DBforPostgreSQL/servers| Oui|
+|Microsoft.DataFactory/datafactories | OUI|
+|Microsoft.DBforMySQL/servers| OUI|
+|Microsoft.DBforPostgreSQL/servers| OUI|
 |Microsoft.Devices/IotHubs | Non |
 |Microsoft.DocumentDB/databaseAccounts| Non |
-|Microsoft.EventHub/namespaces | Oui|
-|Microsoft.Logic/workflows | Oui|
-|Microsoft.Network/loadBalancers |Oui|
-|Microsoft.Network/publicIPAddresses| Oui|
-|Microsoft.Network/applicationGateways| Oui|
-|Microsoft.Network/expressRouteCircuits| Oui|
-|Microsoft.Network/trafficManagerProfiles | Oui|
+|Microsoft.EventHub/namespaces | OUI|
+|Microsoft.Logic/workflows | OUI|
+|Microsoft.Network/loadBalancers |OUI|
+|Microsoft.Network/publicIPAddresses| OUI|
+|Microsoft.Network/applicationGateways| OUI|
+|Microsoft.Network/expressRouteCircuits| OUI|
+|Microsoft.Network/trafficManagerProfiles | OUI|
 |Microsoft.Search/searchServices | Non |
 |Microsoft.ServiceBus/namespaces| Non |
-|Microsoft.Storage/storageAccounts | Oui|
-|Microsoft.StreamAnalytics/streamingjobs| Oui|
-|Microsoft.TimeSeriesInsights/environments | Oui|
-|Microsoft. Web/serverfarms | Oui |
-|Microsoft. Web/sites (à l’exclusion de Functions) | Oui|
+|Microsoft.Storage/storageAccounts | OUI|
+|Microsoft.StreamAnalytics/streamingjobs| OUI|
+|Microsoft.TimeSeriesInsights/environments | OUI|
+|Microsoft. Web/serverfarms | OUI |
+|Microsoft. Web/sites (à l’exclusion de Functions) | OUI|
 |Microsoft. Web/hostingEnvironments/multiRolePools | Non |
 |Microsoft. Web/hostingEnvironments/workerPools| Non 
 |Microsoft.SQL/Servers | Non |

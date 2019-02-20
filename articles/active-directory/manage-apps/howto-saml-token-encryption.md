@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
-ms.openlocfilehash: 0e2b6e29e159970784ab8c321bbc8c16e96b60e3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d3a2c79fd46b9c14f1bbb2794581746f6ff45cd6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757340"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179618"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Activation Configurer le chiffrement des jetons SAML Azure AD (préversion)
 
@@ -33,19 +34,19 @@ Le chiffrement des assertions SAML entre Azure AD et l’application fournit un
 
 Même sans le chiffrement des jetons, les jetons SAML Azure AD ne sont jamais transmis en clair sur le réseau. Azure AD exige que les échanges de demande/réponse de jeton s’effectuent via des canaux chiffrés HTTPS/TLS afin que les communications entre le fournisseur d’identité, le navigateur et l’application se déroulent sur des liaisons chiffrées. Considérons la valeur de chiffrement des jetons dans votre situation par rapport à la surcharge de gestion de certificats supplémentaires.   
 
-Pour configurer le chiffrement des jetons, vous devez charger un fichier de certificat X509 qui contient la clé publique dans l’objet d’application Azure AD qui représente l’application. Pour obtenir le certificat X509, vous pouvez le télécharger à partir de l’application elle-même ou l’obtenir auprès du fournisseur de l’application dans les cas où ce dernier fournit des clés de chiffrement. Dans les cas où l’application s’attend à ce que vous fournissiez une clé privée, il peut être créé à l’aide d’outils de chiffrement, la partie clé privée étant chargée dans le magasin de clés de l’application et le certificat de clé publique correspondant étant chargé dans Azure AD.
+Pour configurer le chiffrement des jetons, vous devez charger un fichier de certificat X.509 qui contient la clé publique dans l’objet d’application Azure AD qui représente l’application. Pour obtenir le certificat X.509, vous pouvez le télécharger à partir de l’application elle-même ou l’obtenir auprès du fournisseur de l’application dans les cas où ce dernier fournit des clés de chiffrement. Dans les cas où l’application s’attend à ce que vous fournissiez une clé privée, il peut être créé à l’aide d’outils de chiffrement, la partie clé privée étant chargée dans le magasin de clés de l’application et le certificat de clé publique correspondant étant chargé dans Azure AD.
 
 Azure AD utilise AES-256 pour chiffrer les données d’assertion SAML.
 
 ## <a name="configure-saml-token-encryption"></a>Configurer le chiffrement des jetons SAML
 
-Pour configurer le chiffrement des jetons SAML, effectuez les étapes suivantes.
+Pour configurer le chiffrement des jetons SAML, procédez comme suit :
 
 1. Obtenez un certificat de clé publique correspondant à une clé privée qui est configurée dans l’application.
 
-    Créez une paire de clés asymétriques à utiliser pour le chiffrement. Par ailleurs, si l’application fournit une clé publique à utiliser pour le chiffrement, suivez les instructions de l’application pour télécharger le certificat X509.
+    Créez une paire de clés asymétriques à utiliser pour le chiffrement. Par ailleurs, si l’application fournit une clé publique à utiliser pour le chiffrement, suivez les instructions de l’application pour télécharger le certificat X.509.
 
-    La clé publique doit être stockée dans un fichier de certificat X509 au format .cer.
+    La clé publique doit être stockée dans un fichier de certificat X.509 au format .cer.
 
     Si l’application utilise une clé que vous créez pour votre instance, suivez les instructions fournies par votre application pour l’installation de la clé privée que l’application utilisera pour déchiffrer les jetons à partir de votre locataire Azure AD.
 
@@ -66,9 +67,9 @@ Vous pouvez ajouter le certificat public à la configuration de votre applicatio
     > [!NOTE]
     > L’option **Chiffrement des jetons** est disponible uniquement pour les applications SAML qui ont été configurées à partir du panneau **Applications d’entreprise** dans le portail Azure, à partir de la Galerie d’applications ou d’une application hors galerie. Pour les autres applications, cette option de menu est désactivée. Pour les applications inscrites par le biais de l’expérience **Inscriptions d’applications** dans le portail Azure, vous pouvez configurer le chiffrement pour les jetons SAML avec le manifeste d’application à l’aide de Microsoft Graph ou de PowerShell.
 
-1. Dans la page **Chiffrement des jetons**, sélectionnez **Importer un certificat** pour importer le fichier .cer qui contient votre certificat public X509.
+1. Sur la page **Chiffrement des jetons**, sélectionnez **Importer un certificat** pour importer le fichier .cer qui contient votre certificat public X.509.
 
-    ![Importer le fichier .cer qui contient le certificat X509](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Importer le fichier .cer qui contient le certificat X.509](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Une fois le certificat importé et la clé privée configurée pour une utilisation côté application, activez le chiffrement en sélectionnant les points de suspension (**...**) en regard de l’état de l’empreinte numérique, puis sélectionnez **Activer le chiffrement des jetons** dans les options du menu déroulant.
 
@@ -94,7 +95,7 @@ Quand vous configurez une valeur keyCredential à l’aide de Graph, de PowerShe
 
 ### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Pour configurer le chiffrement des jetons à l’aide de Microsoft Graph
 
-1. Mettez à jour la valeur `keyCredentials` de l’application avec un certificat X509 pour le chiffrement. L’exemple suivant vous montre comment procéder.
+1. Mettez à jour la valeur `keyCredentials` de l’application avec un certificat X.509 pour le chiffrement. L’exemple suivant vous montre comment procéder.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>

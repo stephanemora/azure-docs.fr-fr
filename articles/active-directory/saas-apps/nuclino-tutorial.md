@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Nuclino | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Nuclino | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Nuclino.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145577"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189551"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Didacticiel : Intégration d’Azure AD à Nuclino
+# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Tutoriel : Intégration d’Azure Active Directory à Nuclino
 
 Dans ce didacticiel, vous allez apprendre à intégrer Nuclino à Azure Active Directory (Azure AD).
 
@@ -229,7 +230,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans Nuclino. Nuclino prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un utilisateur est créé lors d’une tentative d’accès à Nuclino.
 
 > [!Note]
-> Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support Nuclino](mailto:contact@nuclino.com).
+> Si vous devez créer un utilisateur manuellement, contactez  [l’équipe de support technique Nuclino](mailto:contact@nuclino.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

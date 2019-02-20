@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239466"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210524"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
-Vous pouvez héberger une instance SQL sur une machine virtuelle dans [Azure Stack](azure-stack-poc.md), ou sur une machine virtuelle à l’extérieur de votre environnement Azure Stack, à condition que le fournisseur de ressources SQL puisse se connecter à l’instance.
+Vous pouvez créer une base de données SQL Server hébergeant des serveurs sur une machine virtuelle dans [Azure Stack](azure-stack-poc.md), ou sur une machine virtuelle à l’extérieur de votre environnement Azure Stack, à condition que le fournisseur de ressources SQL puisse se connecter à l’instance.
 
 > [!NOTE]
-> Les bases de données SQL doivent être créées sur le serveur du fournisseur de ressources SQL. Le fournisseur de ressources SQL doit être créé dans l’abonnement fournisseur par défaut, alors que les serveurs d’hébergement SQL doivent être créés dans un abonnement utilisateur facturable. Le serveur du fournisseur de ressources ne doit pas héberger de bases de données utilisateur.
+> Le fournisseur de ressources SQL doit être créé dans l’abonnement fournisseur par défaut, alors que les serveurs d’hébergement SQL doivent être créés dans un abonnement utilisateur facturable. Le serveur du fournisseur de ressources ne doit pas héberger de bases de données utilisateur.
 
 ## <a name="overview"></a>Vue d’ensemble
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 3e3d31f146fb49fdab8d955754572e4ea74dd3f6
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198386"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100259"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
@@ -71,7 +71,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 
 ### <a name="properties"></a>properties
 
-| NOM | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | chaîne |
@@ -82,10 +82,10 @@ Le JSON suivant illustre le schéma pour l’extension.
 
 Tous les paramètres sont facultatifs. Le comportement par défaut consiste à ne pas mettre à jour le noyau si cela n’est pas requis pour l’installation du pilote et à installer le dernier pilote pris en charge ainsi que le kit de ressources CUDA (le cas échéant).
 
-| NOM | Description | Valeur par défaut | Valeurs valides | Type de données |
+| Nom | Description | Valeur par défaut | Valeurs valides | Type de données |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Mettre à jour le noyau, même si cela n’est pas requis pour l’installation du pilote | false | true, false | booléenne |
-| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | le plus récent | GRILLE : "410.71", "390.75", "390.57", "390.42"<br> CUDA : "10.0.130", "9.2.88", "9.1.85" | chaîne |
+| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | le plus récent | GRILLE : "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA : "10.0.130", "9.2.88", "9.1.85" | chaîne |
 | installCUDA | Installer le kit de ressources CUDA. S’applique uniquement aux machines virtuelles de la série NC/ND. | true | true, false | booléenne |
 
 
@@ -123,7 +123,7 @@ L’exemple suivant suppose que l’extension est imbriquée dans la ressource d
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -159,7 +159,7 @@ az vm extension set `
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure, ainsi qu’à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

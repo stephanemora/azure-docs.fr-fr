@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Shuccho Navi | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Shuccho Navi | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Shuccho Navi.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f90af5b57fcb9ed7f02bba0a184dacb17570136b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1709abdf1d5e90cb253e67b29c0e48f6aa29a712
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311937"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209674"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutoriel : Intégration d’Azure Active Directory à Shuccho Navi
+# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Didacticiel : Intégration d’Azure Active Directory à Shuccho Navi
 
 Dans ce tutoriel, vous allez apprendre à intégrer Shuccho Navi à Azure Active Directory (Azure AD).
 
@@ -126,7 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![image](./media/shucchonavi-tutorial/d_users_and_groups.png)
 
@@ -149,7 +150,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-shuccho-navi-test-user"></a>Créer un utilisateur de test Shuccho Navi
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Shuccho Navi. Collaborez avec [l’équipe du support technique Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) pour ajouter les utilisateurs dans la plateforme Shuccho Navi. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Shuccho Navi. Contactez  [l’équipe du support technique Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) pour ajouter les utilisateurs dans la plateforme Shuccho Navi. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

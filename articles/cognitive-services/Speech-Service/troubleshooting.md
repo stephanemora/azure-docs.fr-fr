@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit de développement logiciel (SDK) du service Speech.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217153"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859315"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Résoudre les problèmes rencontrés avec le kit de développement logiciel du service Speech
 
@@ -67,6 +67,8 @@ Vous pouvez vérifier que vous disposez d’une clé d’abonnement valide en ex
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+Si vous avez entré une clé d’abonnement valide, la commande renvoie un jeton d’autorisation, voire une erreur dans le cas contraire.
+
 ### <a name="validate-an-authorization-token"></a>Valider un jeton d’autorisation
 
 Si vous utilisez un jeton d’autorisation pour l’authentification, exécutez l’une des commandes suivantes pour vérifier que le jeton d’autorisation est toujours valide. Les jetons sont valides pendant 10 minutes.
@@ -101,6 +103,8 @@ Si vous utilisez un jeton d’autorisation pour l’authentification, exécutez 
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+Si vous avez entré une jeton d'autorisation valide, la commande renvoie la transcription de votre fichier audio, voire une erreur dans le cas contraire.
 
 ---
 

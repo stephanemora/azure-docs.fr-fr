@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250774"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244877"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Scale up de votre infrastructure Azure DevTest Labs
 Avant d’implémenter DevTest Labs à l’échelle de l’entreprise, plusieurs points de décision clés sont à examiner. La compréhension de ces points de décision à un niveau hiérarchique élevé éclaire les décisions de conception à venir de l’organisation. Toutefois, ces points ne doivent pas retenir une organisation de démarrer une preuve de concept. Les trois domaines les plus importants en matière de planification initiale de scale-up sont :
@@ -66,4 +67,4 @@ Une preuve de concept DevTest Labs comporte trois rôles principaux avec des res
 - **Utilisateur DevTest Labs** : l’utilisateur DevTest Labs peut créer et consommer les machines virtuelles dans le laboratoire. Ces personnes disposent de pouvoirs d’administration minimum sur les machines virtuelles qu’ils créent (démarrer/arrêter/supprimer/configurer leurs machines virtuelles). Les utilisateurs ne peuvent pas gérer les machines virtuelles d’autres utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article suivant de cette série : [Orchestrer l’implémentation d’Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+Voir l’article suivant de cette série : [Orchestrer l’implémentation d’Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
