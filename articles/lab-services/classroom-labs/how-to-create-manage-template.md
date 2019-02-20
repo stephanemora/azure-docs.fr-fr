@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815242"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960188"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Créer et gérer un modèle de laboratoire de classe dans Azure Lab Services
 Le modèle de laboratoire est une image de machine virtuelle de base, à partir de laquelle toutes les machines virtuelles des utilisateurs sont créées. Configurez la machine virtuelle du modèle de façon qu’elle propose exactement ce que vous souhaitez fournir aux utilisateurs du laboratoire. Vous pouvez indiquer le nom et la description du modèle que voient les utilisateurs du laboratoire. Ensuite, publiez le modèle pour rendre les instances du modèle de machine virtuelle accessibles aux utilisateurs de votre laboratoire. Quand vous publiez un modèle, Azure Lab Services crée les machines virtuelles dans le laboratoire à l’aide du modèle. Le nombre de machines virtuelles créées dans ce processus est identique au nombre maximal d’utilisateurs autorisés dans le laboratoire, que vous pouvez définir dans la politique d’utilisation du laboratoire. Toutes les machines virtuelles ont la même configuration que le modèle.
@@ -103,7 +103,12 @@ Effectuez les étapes suivantes pour définir un titre et une description pour l
 1. Lisez l’avertissement, puis sélectionnez **Démarrer**. 
 
     ![Démarrer le modèle - avertissement](../media/how-to-create-manage-template/start-template-warning.png)
+2. Le statut de la vignette du labo s’affiche dans la section **Modèle**.
+
+    ![Démarrer le modèle - statut](../media/how-to-create-manage-template/template-start-status.png)
 1. Une fois le modèle démarré, pour vous connecter à la machine virtuelle, sélectionnez **Se connecter**, puis suivez les instructions. 
+
+    ![Se connecter au modèle de machine virtuelle ou l’arrêter](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. Installez les logiciels nécessaires pour que les étudiants puissent travailler en laboratoire (par exemple Visual Studio, l’Explorateur Stockage Azure, et ainsi de suite). 
 2. Déconnectez-vous (fermez votre session Bureau à distance) du modèle de machine virtuelle. 
 3. **Arrêtez** le modèle de machine virtuelle en sélectionnant **Arrêter**. 

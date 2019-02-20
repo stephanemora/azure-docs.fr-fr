@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821471"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236105"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gérer l’utilisation et les coûts de Log Analytics
 
@@ -116,6 +116,9 @@ Si vous souhaitez déplacer votre espace de travail vers le niveau tarifaire act
 
 > [!NOTE]
 > Si votre espace de travail est lié à un compte Automation, avant de pouvoir sélectionner le niveau tarifaire *Autonome (par Go)*, vous devez supprimer les solutions **Automation and Control** et annuler la liaison avec le compte Automation. Dans le panneau Espace de travail sous **Général**, cliquez sur **Solutions** pour afficher et supprimer des solutions. Pour annuler la liaison avec le compte Automation, cliquez sur le nom du compte Automation dans le panneau **Niveau tarifaire**.
+
+> [!NOTE]
+> Vous pouvez en savoir plus sur (définir le niveau tarifaire via ARM) [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] et sur la manière de s’assurer du succès de votre déploiement ARM, peu importe si l’abonnement est hérité ou dans le nouveau modèle de tarification. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Dépannage si Log Analytics ne collecte plus de données

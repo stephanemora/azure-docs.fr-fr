@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018706"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998618"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
 
@@ -27,7 +27,7 @@ En plus d’utiliser la surveillance par sonde d’intégrité par défaut, vous
 
 Une passerelle d’application configure automatiquement une sonde d’intégrité par défaut lorsque vous ne définissez pas de configuration de sonde personnalisée. Le comportement d’analyse par défaut consiste à lancer une requête HTTP aux adresses IP configurées pour le pool principal. En ce qui concerne les sondes par défaut, si les paramètres HTTP du serveur principal sont configurés pour HTTPS, la sonde utilise également HTTPS pour tester l’intégrité des serveurs principaux.
 
-Par exemple : vous configurez votre passerelle d’application pour utiliser les serveurs principaux A, B et C, qui recevront le trafic réseau HTTP sur le port 80. Les contrôles de défaillance par défaut testent les trois serveurs toutes les 30 secondes pour obtenir une réponse HTTP correcte. Le [code d’état](https://msdn.microsoft.com/library/aa287675.aspx) d’une réponse HTTP correcte est compris entre 200 et 399.
+Par exemple :  Vous configurez votre passerelle d’application de manière à utiliser les serveurs principaux A, B et C, qui recevront le trafic réseau HTTP sur le port 80. Les contrôles de défaillance par défaut testent les trois serveurs toutes les 30 secondes pour obtenir une réponse HTTP correcte. Le [code d’état](https://msdn.microsoft.com/library/aa287675.aspx) d’une réponse HTTP correcte est compris entre 200 et 399.
 
 Si l’analyse de la sonde par défaut échoue pour le serveur A, la passerelle d’application le retire de son pool principal et le trafic réseau cesse de passer par ce serveur. La sonde par défaut continue de contrôler le serveur A toutes les 30 secondes. Dès que le serveur A répond avec succès à une requête de la sonde d’intégrité par défaut, il est réintroduit dans le pool principal en tant que serveur intègre et le trafic vers celui-ci reprend.
 
@@ -44,7 +44,7 @@ Les critères de correspondance peuvent être spécifiés à l’aide de la cmdl
 
 Par exemple : 
 
-```
+```powershell
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
@@ -80,7 +80,7 @@ Le tableau suivant fournit des définitions pour les propriétés d’une sonde 
 
 | Propriétés de la sonde | Description |
 | --- | --- |
-| NOM |Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
+| Nom |Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
 | Protocole |Protocole utilisé pour envoyer la sonde. La sonde utilise le protocole défini dans les paramètres HTTP du serveur principal |
 | Host |Nom d’hôte pour l’envoi de la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle. |
 | path |Chemin relatif de la sonde. Le chemin valide commence par « / ». |

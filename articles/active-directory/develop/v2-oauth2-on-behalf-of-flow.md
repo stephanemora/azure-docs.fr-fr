@@ -12,51 +12,52 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e7c393f1eb654d30c5e06869f404c8523c56a21e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e0b1e784d4ca92f0da0e37d4afc1efcf09282cb4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093149"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162864"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 et flux Pour le compte de OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Le flux Pour le compte de OAuth 2.0 sert quand une application appelle un service/API web, qui à son tour doit appeler un autre service/API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.
+Le flux On-Behalf-Of (OBO) OAuth 2.0 répond au cas d’usage dans le cadre duquel une application appelle un service/une API web qui, à son tour, doit appeler un autre service/une autre API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.
 
 > [!NOTE]
-> Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
->
+> Le point de terminaison v2.0 ne prend pas en charge tous les scénarios et fonctionnalités d’Azure AD. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md). Plus précisément, les applications clientes connues ne sont pas prises en charge pour les applications avec un compte Microsoft (MSA) et des audiences Azure AD. Par conséquent, un modèle de consentement commun pour OBO ne fonctionne pas pour les clients qui connectent à la fois des comptes personnels et professionnels ou scolaires. Pour en savoir plus sur la gestion de cette étape du flux, consultez [Obtention du consentement pour l’application de niveau intermédiaire](#gaining-consent-for-the-middle-tier-application).
+
 
 > [!IMPORTANT]
-> Depuis mai 2018, il n’est pas possible d’utiliser `id_token` pour le flux Pour le compte de. Les SPA doivent transmettre leur jeton d’**accès** à un client confidentiel de couche intermédiaire pour effectuer les flux OBO. Consultez les [limitations](#client-limitations) pour plus d’informations sur les clients pouvant effectuer des appels On-Behalf-Of.
+> Depuis mai 2018, il n’est pas possible d’utiliser un jeton `id_token` dérivé du flux implicite pour le flux OBO. Les applications à une seule page doivent passer un jeton d’**accès** à un client confidentiel de niveau intermédiaire pour effectuer des flux OBO à la place. Pour plus d’informations sur les clients pouvant effectuer des appels OBO, consultez [Limitations](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
+
 Supposons que l’utilisateur a été authentifié sur une application à l’aide du [flux d’octroi de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md). À ce stade, l’application a un jeton d’accès *pour l’API A* (jeton A) avec les revendications et le consentement de l’utilisateur pour accéder à l’API web de niveau intermédiaire (API A). L’API A doit maintenant faire une demande authentifiée à l’API web en aval (API B).
 
-Les étapes qui suivent constituent le flux Pour le compte de et sont décrites à l’aide du diagramme suivant.
+Les étapes qui suivent constituent le flux OBO et sont décrites à l’aide du diagramme suivant.
 
-![Flux Pour le compte de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![Flux On-Behalf-Of OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
-
-1. L’application cliente fait une demande à l’API A avec le jeton A (avec une revendication d’API A `aud`).
-2. L’API A s’authentifie auprès du point de terminaison d’émission de jeton Azure AD et demande un jeton pour accéder à l’API B.
-3. Le point de terminaison d’émission de jeton Azure AD valide les informations d’identification de l’API A avec le jeton A et émet le jeton d’accès pour l’API B (jeton B).
-4. Le jeton B est défini dans l’en-tête d’autorisation de la demande adressée à l’API B.
-5. Les données de la ressource sécurisée sont retournées par l’API B.
+1. L’application cliente adresse une demande à l’API A avec le jeton A (avec une revendication d’API A `aud`).
+1. L’API A s’authentifie auprès du point de terminaison d’émission de jeton Azure AD et demande un jeton pour accéder à l’API B.
+1. Le point de terminaison d’émission de jeton Azure AD valide les informations d’identification de l’API A avec le jeton A et émet le jeton d’accès pour l’API B (jeton B).
+1. Le jeton B est défini dans l’en-tête d’autorisation de la demande adressée à l’API B.
+1. Les données de la ressource sécurisée sont retournées par l’API B.
 
 > [!NOTE]
-> Dans ce scénario, le service de niveau intermédiaire n’a aucune interaction utilisateur pour obtenir le consentement de l’utilisateur pour accéder à l’API en aval. Par conséquent, l’option d’accorder l’accès à l’API en aval est présentée au préalable lors de l’étape de consentement pendant l’authentification.
->
+> Dans ce scénario, le service de niveau intermédiaire n’a aucune interaction utilisateur pour obtenir le consentement de l’utilisateur pour accéder à l’API en aval. Par conséquent, l’option d’accorder l’accès à l’API en aval est présentée au préalable lors de l’étape de consentement pendant l’authentification. Pour savoir comment effectuer cette configuration pour votre application, consultez [Obtention du consentement pour l’application de niveau intermédiaire](#gaining-consent-for-the-middle-tier-application). 
 
 ## <a name="service-to-service-access-token-request"></a>Demande de jeton d’accès de service à service
-Pour demander un jeton d’accès, faites une demande HTTP POST au point de terminaison Azure AD v2.0 spécifique au locataire avec les paramètres suivants.
+
+Pour demander un jeton d’accès, adressez une requête HTTP POST au point de terminaison du jeton v2.0 spécifique au locataire, avec les paramètres suivants.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -65,18 +66,20 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 Deux cas de figure se présentent, selon que l’application cliente choisit d’être sécurisée par un secret partagé ou un certificat.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : Requête de jeton d’accès avec un secret partagé
+
 Lorsque l’application utilise un secret partagé, la demande de jeton d’accès de service à service contient les paramètres suivants :
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| grant_type |required | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| client_id |required | ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
-| client_secret |required | Secret de l’application que vous avez généré pour votre application dans le portail d’inscription des applications. |
-| assertion |required | Valeur du jeton utilisé dans la demande. |
-| scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md).|
-| requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
+| `grant_type` | Obligatoire | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obligatoire | ID d’application (client) que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou le nouveau [portail des inscriptions d’applications (préversion)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) a attribué à votre application. |
+| `client_secret` | Obligatoire | Secret d’application que vous avez généré pour votre application dans le portail utilisé pour inscrire votre application. |
+| `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande. |
+| `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md). |
+| `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
 
 #### <a name="example"></a>Exemples
+
 La requête HTTP POST suivante demande un jeton d’accès et un jeton d’actualisation avec l’étendue `user.read` pour l’API web https://graph.microsoft.com.
 
 ```
@@ -95,21 +98,23 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 ```
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : Requête de jeton d’accès avec un certificat
+
 Une demande de jeton d’accès de service à service avec un certificat contient les paramètres suivants :
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| grant_type |required | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| client_id |required | L’ID d’application que le [portail d'inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
-| client_assertion_type |required |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion |required | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la rubrique traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
-| assertion |required | Valeur du jeton utilisé dans la demande. |
-| requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
-| scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md).|
+| `grant_type` | Obligatoire | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obligatoire | ID d’application (client) que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou le nouveau [portail des inscriptions d’applications (préversion)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) a attribué à votre application. |
+| `client_assertion_type` | Obligatoire | La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obligatoire | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). |
+| `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande. |
+| `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
+| `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md).|
 
-Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
+Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre `client_secret` est remplacé par deux paramètres : `client_assertion_type` et `client_assertion`.
 
 #### <a name="example"></a>Exemples
+
 La requête HTTP POST suivante demande un jeton d’accès avec l’étendue `user.read` pour l’API web https://graph.microsoft.com avec un certificat.
 
 ```
@@ -129,17 +134,19 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ## <a name="service-to-service-access-token-response"></a>Réponse de jeton d’accès de service à service
+
 Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec les paramètres suivants.
 
 | Paramètre | Description |
 | --- | --- |
-| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| scope |Étendue de l’accès accordé dans le jeton. |
-| expires_in |Durée de validité du jeton d’accès (en secondes). |
-| access_token |Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service destinataire. |
-| refresh_token |Jeton d’actualisation pour le jeton d’accès demandé. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration du jeton d’accès actuel. Le jeton d’actualisation est uniquement fourni si l’étendue `offline_access` a été demandée.|
+| `token_type` | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est `Bearer`. Pour plus d’informations sur les jetons du porteur, consultez [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| `scope` | Étendue de l’accès accordé dans le jeton. |
+| `expires_in` | Durée de validité, en secondes, du jeton d’accès. |
+| `access_token` | Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service destinataire. |
+| `refresh_token` | Jeton d’actualisation pour le jeton d’accès demandé. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration du jeton d’accès actuel. Le jeton d’actualisation est uniquement fourni si l’étendue `offline_access` a été demandée. |
 
 ### <a name="success-response-example"></a>Exemple de réponse correspondant à une réussite
+
 L’exemple suivant illustre une réponse affirmative à une demande de jeton d’accès pour l’API web https://graph.microsoft.com.
 
 ```
@@ -154,11 +161,11 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 ```
 
 > [!NOTE]
-> Notez que le jeton d’accès ci-dessus est un jeton au format V1. C’est le cas parce que ce jeton est fourni en fonction de la ressource sollicitée. Microsoft Graph demande des jetons V1, et donc Azure AD génère des jetons d’accès V1 lorsqu’un client demande des jetons pour Microsoft Graph. Seules les applications consulter les jetons d’accès ; Les clients n’ont pas besoin de les examiner. 
-
+> Le jeton d’accès ci-dessus est un jeton au format v1.0. C’est le cas parce que ce jeton est fourni en fonction de la ressource sollicitée. Comme Microsoft Graph demande des jetons v1.0, Azure AD génère des jetons d’accès v1.0 quand un client demande des jetons pour Microsoft Graph. Seules les applications doivent examiner les jetons d’accès. Les clients n’ont pas besoin de les inspecter. 
 
 ### <a name="error-response-example"></a>Exemple de réponse d’erreur
-Une réponse d’erreur est retournée par le point de terminaison du jeton Azure AD lors de la tentative d’acquérir un jeton d’accès pour l’API en aval si une stratégie d’accès conditionnel comme l’authentification multifacteur est définie sur cette API. Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
+
+Une réponse d’erreur est retournée par le point de terminaison du jeton lors de la tentative d’acquisition d’un jeton d’accès pour l’API en aval si une stratégie d’accès conditionnel comme l’authentification multifacteur est définie sur cette API. Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
 
 ```
 {
@@ -173,19 +180,53 @@ Une réponse d’erreur est retournée par le point de terminaison du jeton Azur
 ```
 
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>Utiliser le jeton d’accès pour accéder à la ressource sécurisée
+
 Le service de niveau intermédiaire peut maintenant utiliser le jeton obtenu ci-dessus pour faire des demandes authentifiées à l’API web en aval, en définissant le jeton dans l’en-tête `Authorization`.
 
 ### <a name="example"></a>Exemples
+
 ```
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
 
+## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtention du consentement pour l’application de niveau intermédiaire
+
+En fonction de l’audience de votre application, vous pouvez envisager différentes stratégies pour garantir la réussite du flux OBO. Dans tous les cas, l’objectif ultime est de garantir qu’un consentement approprié est donné. La façon dont cela se déroule dépend toutefois des utilisateurs pris en charge par votre application. 
+
+### <a name="consent-for-azure-ad-only-applications"></a>Consentement pour les applications Azure AD uniquement
+
+#### <a name="default-and-combined-consent"></a>Étendue /.default et consentement combiné
+
+Pour les applications qui doivent uniquement connecter des comptes professionnels ou scolaires, l’approche « Applications clientes connues » classique est suffisante. L’application de niveau intermédiaire ajoute le client à la liste des applications clientes connues dans son manifeste et le client peut alors déclencher un flux de consentement combiné pour lui-même et l’application de niveau intermédiaire. Sur le point de terminaison v2.0, cette opération est effectuée à l’aide de l’[étendue `/.default`](v2-permissions-and-consent.md#the-default-scope). Lors du déclenchement d’un écran de consentement à l’aide des applications clientes connues et de `/.default`, l’écran de consentement affiche les autorisations pour le client et l’API de niveau intermédiaire, et demande également toutes les autorisations requises par l’API de niveau intermédiaire. L’utilisateur fournit le consentement pour les deux applications et le flux OBO fonctionne ensuite. 
+
+À ce stade, le système de comptes Microsoft personnels ne prend pas en charge le consentement combiné et, par conséquent, cette approche ne fonctionne pas pour les applications qui souhaitent connecter spécifiquement des comptes personnels. Les comptes Microsoft personnels utilisés en tant que comptes d’invité dans un locataire sont gérés à l’aide du système Azure AD et peuvent passer par un consentement combiné. 
+
+#### <a name="pre-authorized-applications"></a>Applications préalablement autorisées
+
+Les « applications préalablement autorisées » représentent une nouvelle fonctionnalité du portail d’applications en préversion. De cette façon, une ressource peut indiquer qu’une application donnée a toujours l’autorisation de recevoir certaines étendues. Cela est particulièrement utile pour rendre les connexions entre un client front-end et une ressource back-end plus fluides. Une ressource peut déclarer plusieurs applications préalablement autorisées : n’importe quelle application de ce type peut demander ces autorisations dans un flux OBO et les recevoir sans que l’utilisateur ne fournisse un consentement.
+
+#### <a name="admin-consent"></a>Consentement de l’administrateur
+
+Un administrateur de locataire peut garantir que les applications ont l’autorisation d’appeler leurs API requises en fournissant le consentement de l’administrateur pour l’application de niveau intermédiaire. Pour ce faire, l’administrateur peut trouver l’application de niveau intermédiaire dans son locataire, ouvrir la page des autorisations nécessaires et choisir d’accorder l’autorisation pour l’application. Pour en savoir plus sur le consentement de l’administrateur, consultez la [documentation sur le consentement et les autorisations](v2-permissions-and-consent.md). 
+
+### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Consentement pour les applications de compte Microsoft + Azure AD
+
+En raison de restrictions dans le modèle d’autorisations pour les comptes personnels et l’absence d’un locataire directeur, les exigences de consentement pour les comptes personnels sont légèrement différentes d’Azure AD. Il n’existe aucun locataire pour donner un consentement à l’échelle du locataire et il n’est pas possible de procéder à un consentement combiné. Par conséquent, d’autres stratégies se présentent : notez que celles-ci fonctionnent pour les applications qui doivent aussi uniquement prendre en charge des comptes Azure AD. 
+
+#### <a name="use-of-a-single-application"></a>Utilisation d’une application unique
+
+Dans certains scénarios, vous pouvez avoir uniquement une seule association d’un client de niveau intermédiaire et d’un client front-end. Dans ce scénario, il peut s’avérer plus facile d’en faire une seule application, annulant ainsi complètement la nécessité d’une application de niveau intermédiaire. Pour l’authentification entre le front-end et l’API web, vous pouvez utiliser des cookies, un jeton id_token ou un jeton d’accès demandé pour l’application elle-même. Demandez ensuite le consentement dans cette application unique à la ressource back-end. 
+
 ## <a name="client-limitations"></a>Limitations du client
+
 Si un client utilise le flux implicite pour obtenir un id_token, et que ce client a également des caractères génériques dans une URL de réponse, id_token ne peut pas être utilisé pour un flux OBO.  Toutefois, les jetons d’accès obtenus via le flux d’octroi implicite peuvent toujours être échangés par un client confidentiel même si le client d’origine a une URL de réponse générique inscrite. 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Découvrez plus d’informations sur le protocole OAuth 2.0 et une autre méthode pour effectuer l’authentification de service à service à l’aide des informations d’identification du client.
+
 * [Octroi d’informations d’identification du client OAuth 2.0 dans Azure AD v2.0](v2-oauth2-client-creds-grant-flow.md)
-* [OAuth 2.0 dans Azure AD v2.0](v2-oauth2-auth-code-flow.md)
+* [Flux de code OAuth 2.0 dans Azure AD v2.0](v2-oauth2-auth-code-flow.md)
+* [Utilisation de l’étendue `/.default`](v2-permissions-and-consent.md#the-default-scope) 

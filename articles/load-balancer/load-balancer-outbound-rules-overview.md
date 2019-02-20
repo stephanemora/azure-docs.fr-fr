@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439100"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243601"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
 
@@ -34,7 +34,7 @@ Les règles de trafic sortant vous permettent de déterminer :
 - quelles machines virtuelles doivent être traduites vers quelles adresses IP publiques, 
 - le mode d’allocation des [ports SNAT sortants](load-balancer-outbound-connections.md#snat),
 - les protocoles qui fournissent la traduction sortante,
-- la durée à utiliser comme délai d’inactivité des connexions sortantes,
+- la durée à utiliser comme délai d’inactivité des connexions sortantes (de 4 à 120 minutes),
 - la réinitialisation TCP au terme du délai d’inactivité (préversion publique). 
 
 Les règles de trafic sortant étendent le [scénario 2](load-balancer-outbound-connections.md#lb) décrit dans l’article sur les [connexions sortantes](load-balancer-outbound-connections.md), mais la priorité du scénario reste la même.
@@ -90,7 +90,7 @@ Vous pouvez revenir à une [allocation de ports SNAT automatique en fonction de 
 
 ### <a name="idletimeout"></a> Contrôler le délai d’inactivité des flux sortants
 
-Les règles de trafic sortant ont un paramètre de configuration qui permet de contrôler le délai d’inactivité des flux sortants et de l’ajuster en fonction des besoins de votre application.  Le délai d’inactivité des flux sortants est de 4 minutes par défaut.  Le paramètre peut être défini à une valeur comprise entre 4 et 66, selon le nombre de minutes du délai d’inactivité nécessaire pour les flux auxquels s’applique cette règle particulière.
+Les règles de trafic sortant ont un paramètre de configuration qui permet de contrôler le délai d’inactivité des flux sortants et de l’ajuster en fonction des besoins de votre application.  Le délai d’inactivité des flux sortants est de 4 minutes par défaut.  Le paramètre peut être défini sur une valeur comprise entre 4 et 120, selon le nombre de minutes du délai d’inactivité nécessaire pour les flux auxquels cette règle particulière s’applique.
 
 Pour définir le délai d’inactivité des flux sortants à une (1) heure, utilisez le paramètre suivant :
 
@@ -205,7 +205,7 @@ Lorsque vous utilisez un équilibreur de charge standard interne, la NAT de traf
 ## <a name="limitations"></a>Limites
 
 - Le nombre maximal de ports éphémères utilisables par adresse IP de serveur frontal est de 51 200.
-- Le délai d’inactivité défini pour un flux sortant doit être compris entre 4 et 66 minutes (240 à 4 000 secondes).
+- Le délai d’inactivité défini pour un flux sortant doit être compris entre 4 et 120 minutes (240 à 7 200 secondes).
 - L’équilibreur de charge ne prend pas en charge ICMP pour la NAT de trafic sortant.
 - Le portail ne permet pas de configurer ni d’afficher les règles de trafic sortant.  Utilisez plutôt des modèles, l’API REST, Az CLI 2.0 ou PowerShell.
 - Les règles de trafic sortant peuvent uniquement être appliquées à la configuration de la carte réseau principale et de l’adresse IP principale.

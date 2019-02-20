@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/07/2019
+ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297682"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234660"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -41,9 +41,9 @@ Vous pouvez utiliser l’audit de bases de données SQL pour :
 - **L'analyse** des rapports. Vous pouvez repérer les événements suspects, les activités inhabituelles et les tendances.
 
 > [!IMPORTANT]
-> Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure.
+> Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage blob Azure avec votre abonnement Azure.
 >
-> - **Stockage Premium** n’est actuellement  **pas pris en charge** par l’ajout d’objets blob.
+> - **Stockage Premium** n’est actuellement **pas pris en charge** par l’ajout d’objets blob.
 > - Le **stockage dans un réseau virtuel** n’est actuellement **pas pris en charge**.
 
 ## <a id="subheading-8"></a>Définir une stratégie d’audit au niveau du serveur ou au niveau de la base de données
@@ -125,6 +125,7 @@ Si vous avez choisi d’écrire les journaux d’audit dans Log Analytics :
 Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événements :
 
 - Pour utiliser les données des journaux d’audit à partir d’un hub d’événements, vous devez configurer un flux de données destiné à consommer les événements et à les écrire dans une cible. Pour plus d’informations, consultez la [documentation Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+- Les journaux d’audit d’Event Hub sont capturés dans le corps d’événements [Apache Avro](http://avro.apache.org/) et stockés en format JSON avec l’encodage UTF-8. Pour lire les journaux d’audit, vous pouvez utiliser les [outils Avro](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou des outils similaires qui traitent ce format.
 
 Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage Azure, plusieurs méthodes existent pour afficher les journaux :
 
@@ -251,7 +252,7 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 
 Vous pouvez gérer l’audit de base de données SQL Azure à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
 
-- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Déployer un serveur Azure SQL Server avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 

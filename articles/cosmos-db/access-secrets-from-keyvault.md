@@ -1,24 +1,24 @@
 ---
 title: Utiliser Key Vault pour stocker des clés Azure Cosmos DB et y accéder
-description: Utilisez Azure Key Vault pour stocker une chaîne de connexion, des clés et des URI Azure Cosmos DB et y accéder.
-author: rafats
+description: Utilisez Azure Key Vault pour stocker une chaîne de connexion, des clés et des points de terminaison Azure Cosmos DB et y accéder.
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: rafats
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 36b0a2f18cf2917251a87405456980811af1bc3d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463308"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242190"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Sécuriser les clés Azure Cosmos à l’aide d’Azure Key Vault 
 
-Quand vous utilisez Azure Cosmos DB pour vos applications, vous pouvez accéder à la base de données, aux collections et aux documents à l’aide de l’URI de point de terminaison et de la clé dans le fichier de configuration de l’application.  Toutefois, il est déconseillé de placer les clés et l’URI directement dans le code d’application, car ils sont en texte clair pour tous les utilisateurs. Vous voulez vous assurer que l’URI et les clés sont disponibles, mais par le biais d’un mécanisme sécurisé. C’est ici qu’Azure Key Vault entre en jeu, en vous permettant de stocker et de gérer les secrets d’application de manière sécurisée.
+Quand vous utilisez Azure Cosmos DB pour vos applications, vous pouvez accéder à la base de données, aux collections et aux documents à l’aide du point de terminaison et de la clé dans le fichier de configuration de l’application.  Toutefois, il est déconseillé de placer les clés et l’URI directement dans le code d’application, car ils sont en texte clair pour tous les utilisateurs. Vous voulez vous assurer que le point de terminaison et les clés sont disponibles, mais par le biais d’un mécanisme sécurisé. C’est ici qu’Azure Key Vault entre en jeu, en vous permettant de stocker et de gérer les secrets d’application de manière sécurisée.
 
 Les étapes suivantes sont nécessaires pour stocker et lire les clés d’accès Azure Cosmos DB à partir de Key Vault :
 

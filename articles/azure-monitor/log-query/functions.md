@@ -1,6 +1,6 @@
 ---
-title: Fonctions dans Azure Log Analytics | Microsoft Docs
-description: Cet article décrit comment utiliser des fonctions pour appeler une requête à partir d’une autre requête dans Log Analytics.
+title: Utilisation de fonctions dans les requêtes de journal Azure Monitor | Microsoft Docs
+description: Cet article décrit l’utilisation des fonctions pour appeler une requête à partir d’une autre requête de journal dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 8f2855ed56d298ec4c6abee02dd59ce9471f0d2e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884791"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005095"
 ---
-# <a name="using-functions-in-azure-monitor-log-analytics"></a>Utilisation de fonctions dans Azure Monitor Log Analytics
+# <a name="using-functions-in-azure-monitor-log-queries"></a>Utilisation de fonctions dans les requêtes de journal Azure Monitor
 
 > [!NOTE]
 > Vous devez suivre [Bien démarrer avec le portail Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
@@ -28,24 +28,24 @@ ms.locfileid: "52884791"
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 
-Pour utiliser une requête Log Analytics avec une autre requête, vous pouvez l’enregistrer en tant que fonction. Cela vous permet de simplifier les requêtes complexes en les divisant en plusieurs parties et de réutiliser le code commun avec plusieurs requêtes.
+Pour utiliser une requête de journal avec une autre requête, vous pouvez l’enregistrer en tant que fonction. Cela vous permet de simplifier les requêtes complexes en les divisant en plusieurs parties et de réutiliser le code commun avec plusieurs requêtes.
 
 ## <a name="create-a-function"></a>Créer une fonction
 
-Créez une fonction dans le portail Azure en cliquant sur **Enregistrer**, puis en fournissant les informations indiquées dans le tableau suivant.
+Pour créer une fonction dans Log Analytics sur le portail Azure, cliquez sur **Enregistrer**, puis fournissez les informations indiquées dans le tableau suivant.
 
 | Paramètre | Description |
 |:---|:---|
-| NOM           | Nom d’affichage de la requête dans l’**Explorateur de requêtes**. |
+| Nom           | Nom d’affichage de la requête dans l’**Explorateur de requêtes**. |
 | Enregistrer sous        | Fonction |
 | Alias de fonction | Nom court pour utiliser la fonction dans d’autres requêtes. Ne peut pas contenir d’espaces et doit être unique. |
 | Catégorie       | Catégorie pour organiser les fonctions et les requêtes enregistrées dans l’**Explorateur de requêtes**. |
 
 > [!NOTE]
-> Une fonction dans Log Analytics ne peut pas contenir une autre fonction.
+> Une fonction dans Azure Monitor ne peut pas contenir une autre fonction.
 
 > [!NOTE]
-> L’enregistrement d’une fonction est possible dans les requêtes Log Analytics, mais pas dans les requêtes Application Insights pour l’instant.
+> L’enregistrement d’une fonction est possible dans les requêtes de journal Azure Monitor, mais pas dans les requêtes Application Insights pour l’instant.
 
 
 
@@ -69,7 +69,7 @@ security_updates_last_day | where Title contains "SQL"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez d’autres leçons pour l’utilisation du langage de requête Log Analytics :
+Reportez-vous à d'autres leçons pour écrire des requêtes de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

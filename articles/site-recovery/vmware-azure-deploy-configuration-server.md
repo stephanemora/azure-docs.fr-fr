@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 1d5c2dccabbc2acdddec6176d9b52681d4a18e68
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744090"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235884"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -130,38 +130,42 @@ Pour éviter toute interruption d’une réplication continue, assurez-vous que 
 
 ## <a name="faq"></a>Forum Aux Questions
 
-1. Puis-je utiliser la machine virtuelle sur laquelle le serveur de configuration est installé à des fins différentes ?
+1. Pendant combien de temps la licence fournie sur le serveur de configuration déployé via OVF est-elle valide ? Que se passe-t-il si je ne réactive pas la licence ?
+
+    La licence fournie avec le modèle OVA est une licence d’évaluation valide pendant 180 jours. Avant l’expiration, vous devez activer la licence. Sinon, cela peut entraîner un arrêt fréquent du serveur de configuration, et donc constituer une entrave aux activités de réplication.
+
+2. Puis-je utiliser la machine virtuelle sur laquelle le serveur de configuration est installé à des fins différentes ?
 
     **Non**. Nous vous recommandons d’utiliser la machine virtuelle pour le seul usage de serveur de configuration. Veillez à suivre toutes les spécifications mentionnées dans [Conditions préalables](#prerequisites) pour une gestion efficace de la récupération d’urgence.
-2. Peut-on remplacer le coffre déjà inscrit dans le serveur de configuration par un nouveau ?
+3. Peut-on remplacer le coffre déjà inscrit dans le serveur de configuration par un nouveau ?
 
     **Non**. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable.
-3. Peut-on utiliser le même serveur de configuration pour protéger à la fois des machines physiques et des machines virtuelles ?
+4. Peut-on utiliser le même serveur de configuration pour protéger à la fois des machines physiques et des machines virtuelles ?
 
     **Oui**. Le même serveur de configuration peut être utilisé pour répliquer des machines physiques et virtuelles. Toutefois, une machine physique ne peut être restaurée automatiquement que vers une machine virtuelle VMware.
-4. Quel est le rôle d’un serveur de configuration et où est-il utilisé ?
+5. Quel est le rôle d’un serveur de configuration et où est-il utilisé ?
 
     Pour plus d’informations sur le serveur de configuration et ses fonctionnalités, voir [Architecture de la réplication VMware vers Azure](vmware-azure-architecture.md).
-5. Où peut-on trouver la dernière version du serveur de configuration ?
+6. Où peut-on trouver la dernière version du serveur de configuration ?
 
     Pour savoir comment mettre à niveau le serveur de configuration via le portail, voir [Mettre à niveau le serveur de configuration](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Pour obtenir des instructions détaillées sur la mise à niveau de tous les composants Site Recovery, voir [ici](https://aka.ms/asr_how_to_upgrade).
-6. Où puis-je télécharger la phrase secrète du serveur de configuration ?
+7. Où puis-je télécharger la phrase secrète du serveur de configuration ?
 
     Reportez-vous à [cet article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) pour télécharger la phrase secrète.
-7. Puis-je modifier la phrase secrète ?
+8. Puis-je modifier la phrase secrète ?
 
     **Non**, il vous est **fortement déconseillé de modifier la phrase secrète** d'un serveur de configuration. Modifier la phrase secrète arrête la réplication des machines protégées et entraîne un état d’intégrité critique.
-8. Où puis-je télécharger les clés d’inscription du coffre ?
+9. Où puis-je télécharger les clés d’inscription du coffre ?
 
     Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans Serveurs, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
-9. Puis-je cloner un serveur de configuration existant et l’utiliser pour l’orchestration de la réplication ?
+10. Puis-je cloner un serveur de configuration existant et l’utiliser pour l’orchestration de la réplication ?
 
     **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge.
 
-10. Puis-je changer l’adresse IP du serveur de configuration ?
+11. Puis-je changer l’adresse IP du serveur de configuration ?
 
     **Non**, il est fortement recommandé de ne pas changer l’adresse IP d’un serveur de configuration. Vérifiez que toutes les adresses IP affectées au serveur de configuration sont des adresses IP statiques et pas des adresses IP DHCP.
-11. Puis-je configurer le serveur de configuration sur Azure ?
+12. Puis-je configurer le serveur de configuration sur Azure ?
 
     Il est conseillé de configurer le serveur de configuration sur l’environnement local moyennant une ligne de vue directe avec v-Center, et de réduire les latences de transfert de données. Vous pouvez procéder à des sauvegardes planifiées du serveur de configuration [à des fins de restauration automatique](vmware-azure-manage-configuration-server.md#failback-requirements).
 

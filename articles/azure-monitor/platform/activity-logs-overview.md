@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883770"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002098"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 
@@ -83,7 +83,7 @@ Dans le portail Azure, vous pouvez filtrer le journal d’activités à l’aide
 
 Après avoir défini un ensemble de filtres, vous pouvez épingler une requête à votre tableau de bord Azure afin de toujours avoir un œil sur certains événements.
 
-Pour encore plus de puissance, vous pouvez cliquer sur l’icône **Journaux** pour afficher les données du journal d’activité dans la [solution Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md). Le panneau Journal d’activité offre des fonctionnalités de base pour filtrer et parcourir les journaux, tandis que Log Analytics vous permet d’interroger et de visualiser vos données, ainsi que d’ajouter un tableau croisé dynamique.
+Pour encore plus de puissance, vous pouvez cliquer sur l’icône **Journaux** pour afficher les données du journal d’activité dans la [solution Collecter et analyser les journaux d’activités](../../azure-monitor/platform/collect-activity-logs.md). Le panneau Journal d’activité offre des fonctionnalités de base pour filtrer et parcourir les journaux, tandis que la fonctionnalité des journaux Azure Monitor vous permet d’interroger et de visualiser vos données, ainsi que d’ajouter un tableau croisé dynamique.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exporter le journal d’activité avec un profil de journal
 Un **profil de journal** contrôle comment votre journal d’activité est exporté. À l’aide d’un profil de journal, vous pouvez configurer :
@@ -142,11 +142,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
-| Name |Oui |Nom de votre profil de journal. |
+| Name |OUI |Nom de votre profil de journal. |
 | StorageAccountId |Non  |ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
 | serviceBusRuleId |Non  |ID de règle Service Bus pour l’espace de noms Service Bus dans lequel vous souhaitez que des concentrateurs d’événements soient créés. Est une chaîne au format suivant : `{service bus resource ID}/authorizationrules/{key name}`. |
-| Lieu |Oui |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
-| RetentionInDays |Oui |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
+| Lieu |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
+| RetentionInDays |OUI |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
 | Catégorie |Non  |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 #### <a name="remove-a-log-profile"></a>Supprimer un profil de journal

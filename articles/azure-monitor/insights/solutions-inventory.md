@@ -13,34 +13,36 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 48f1789d4909a1c3af9e9ca01d0b9d0a8e6e09f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: aac58cc0887c566c7377edf08f5a86e2d12cdf28
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299638"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993230"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Détails sur la collecte de données pour les solutions de gestion dans Azure
-Cet article fournit la liste des [solutions de gestion](solutions.md) disponibles auprès de Microsoft avec des liens vers leur documentation détaillée.  Il fournit également des informations sur leur méthode et leur fréquence de collecte de données dans Log Analytics.  Vous pouvez utiliser les informations de cet article pour identifier les différentes solutions disponibles et comprendre leurs exigences en termes de flux de données et de connexion. 
+Cet article fournit la liste des [solutions de gestion](solutions.md) disponibles auprès de Microsoft avec des liens vers leur documentation détaillée.  Il fournit également des informations sur leur méthode et leur fréquence de collecte de données dans Azure Monitor.  Vous pouvez utiliser les informations de cet article pour identifier les différentes solutions disponibles et comprendre leurs exigences en termes de flux de données et de connexion. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="list-of-management-solutions"></a>Liste des solutions de gestion
 
-Le tableau suivant répertorie les [solutions de gestion](solutions.md) dans Azure fournies par Microsoft. Une entrée dans la colonne signifie que la solution collecte des données dans Log Analytics à l’aide de cette méthode.  Si une solution n’a aucune colonne sélectionnée, elle écrit directement dans Log Analytics depuis un autre service Azure. Pour plus d’informations, suivez le lien de chacune d’elles afin d’accéder à leur documentation détaillée.
+Le tableau suivant répertorie les [solutions de gestion](solutions.md) dans Azure fournies par Microsoft. Une entrée dans la colonne signifie que la solution collecte des données dans Azure Monitor à l’aide de cette méthode.  Si une solution n’a aucune colonne sélectionnée, elle écrit directement dans Azure Monitor depuis un autre service Azure. Pour plus d’informations, suivez le lien de chacune d’elles afin d’accéder à leur documentation détaillée.
 
 Les explications des colonnes sont les suivantes :
 
-- **Microsoft Monitoring Agent** : agent utilisé sous Windows et Linux pour exécuter le pack d’administration à partir de SCOM et les solutions de gestion à partir d’Azure. Dans cette configuration, l’agent est connecté directement à Log Analytics, sans être connecté à un groupe d’administration Operations Manager. 
-- **Operations Manager** : agent identique à Microsoft Monitoring Agent. Dans cette configuration, il est [connecté à un groupe d’administration Operations Manager](../../azure-monitor/platform/om-agents.md) qui est connecté à Log Analytics. 
+- **Microsoft Monitoring Agent** : agent utilisé sous Windows et Linux pour exécuter le pack d’administration à partir de SCOM et les solutions de gestion à partir d’Azure. Dans cette configuration, l’agent est connecté directement à Azure Monitor, sans être connecté à un groupe d’administration Operations Manager. 
+- **Operations Manager** : agent identique à Microsoft Monitoring Agent. Dans cette configuration, il est [connecté à un groupe d’administration Operations Manager](../../azure-monitor/platform/om-agents.md) qui est connecté à Azure Monitor. 
 -  **Azure Storage** : solution collectant les données à partir d’un compte de stockage Azure. 
 - **Operations Manager requis ?** : un groupe d’administration Operations Manager connecté est requis pour la collecte de données par la solution de gestion. 
-- **Données de l’agent Operations Manager envoyées via le groupe d’administration** : si l’agent est [connecté à un groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md), les données sont envoyées depuis le serveur d’administration à Log Analytics. Dans ce cas, l’agent n’a pas besoin de se connecter directement à Log Analytics. Si cette case n’est pas cochée, les données sont envoyées directement par l’agent à Log Analytics, même si l’agent est connecté à un groupe d’administration SCOM. Il doit pouvoir communiquer avec Log Analytics via la [passerelle Log Analytics](../../azure-monitor/platform/gateway.md).
+- **Données de l’agent Operations Manager envoyées via le groupe d’administration** : si l’agent est [connecté à un groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md), les données sont envoyées depuis le serveur d’administration à Azure Monitor. Dans ce cas, l’agent n’a pas besoin de se connecter directement à Azure Monitor. Si cette case n’est pas cochée, les données sont envoyées directement par l’agent à Azure Monitor, même si l’agent est connecté à un groupe d’administration SCOM. Il doit pouvoir communiquer avec Azure Monitor via la [passerelle Log Analytics](../../azure-monitor/platform/gateway.md).
 - **Fréquence de collecte** : spécifie la fréquence de collecte des données par la solution de gestion. 
 
 
 
 | **Solution de gestion** | **Plateforme** | **Microsoft Monitoring Agent** | **Agent Operations Manager** | **Azure Storage** | **Operations Manager requis ?** | **Données de l’agent Operations Manager envoyées via un groupe d’administration** | **Fréquence de collecte** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | sur notification |
+| [Analyse Log Analytics des activités](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | sur notification |
 | [Évaluation d'AD](../../azure-monitor/insights/ad-assessment.md) | Windows |&#8226; |&#8226; | | |&#8226; |7 jours |
 | [État de la réplication AD](../../azure-monitor/insights/ad-replication-status.md) | Windows |&#8226; |&#8226; | | |&#8226; |5 jours |
 | [Agent Health](solution-agenthealth.md) | Windows et Linux | &#8226; | &#8226; | | | &#8226; | 1 minute |

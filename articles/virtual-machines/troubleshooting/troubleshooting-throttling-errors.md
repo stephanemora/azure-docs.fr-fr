@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741111"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977811"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Résolution des erreurs de limitation d’API 
 
@@ -79,8 +79,8 @@ Comme illustré ci-dessus, chaque erreur de limitation inclut l’en-tête `Retr
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Taux d’appel d’API et analyseur d’erreur de limitation
 Une préversion d’une fonctionnalité de résolution des problèmes est disponible pour l’API du fournisseur de ressources de calcul. Ces applets de commande PowerShell fournissent des statistiques sur le taux de requête d’API par intervalle de temps par opération et sur les violations de limitation par groupe d’opération (stratégie) :
--   [Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
--   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
 
 Les statistiques d’appels d’API peuvent fournir de précieuses informations sur le comportement des clients d’un abonnement, et faciliter l’identification des modèles d’appels qui provoquent la limitation.
 
@@ -89,7 +89,7 @@ Les statistiques d’appels d’API peuvent fournir de précieuses informations 
 Les applets de commande PowerShell utilisent une API de service REST, qui peut être facilement appelée directement par les clients (mais sans aucune prise en charge formelle pour le moment). Pour afficher le format de requête HTTP, exécutez les applets de commande avec le commutateur -Debug ou surveillez leur exécution avec Fiddler.
 
 
-## <a name="best-practices"></a>Meilleures pratiques 
+## <a name="best-practices"></a>Bonnes pratiques 
 
 - Ne retentez pas les erreurs d’API du service Azure de manière inconditionnelle et/ou immédiate. Une occurrence courante pour le code client est d’entrer dans une boucle de nouvelle tentative rapide quand il rencontre une erreur qui n’est pas renouvelable. Les nouvelles tentatives vont finalement dépasser la limite des appels autorisée pour le groupe d’opérations cible et avoir un impact sur d’autres clients de l’abonnement. 
 - Dans les cas d’automation d’API de volumes importants, envisagez d’implémenter une limitation automatique côté client proactif quand le nombre d’appels disponible pour un groupe d’opérations cible descend en dessous du seuil minimum. 

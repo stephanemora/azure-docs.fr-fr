@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230622"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994099"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD  
  
 L’API Azure Media Services est une API RESTful. Vous pouvez l’utiliser pour effectuer des opérations sur les ressources médias à l’aide d’une API REST ou à l’aide de Kits de développement logiciel (SDK) clients disponibles. Azure Media Services propose un Kit de développement logiciel (SDK) client Media Services pour Microsoft .NET. Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. 
 
@@ -136,11 +136,11 @@ Pour plus d’informations sur l’utilisation de l’authentification Azure AD 
 
 Si vous n’utilisez pas le Kit de développement logiciel (SDK) client Media Services .NET, vous devez créer manuellement une demande de jeton Azure AD en utilisant les paramètres décrits à l’étape 1. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/develop/active-directory-authentication-libraries.md).
 
-## <a name="troubleshooting"></a>résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
-Exception : « Le serveur distant a retourné une erreur : 401 - Non autorisé ».
+Exception : « Le serveur distant a retourné une erreur : (401) Non autorisé. »
 
-Solution : pour que la requête Azure Media REST réussisse, l’utilisateur appelant doit avoir un rôle Collaborateur ou Propriétaire pour le compte Media Services auquel il tente d’accéder. Pour plus d’informations, consultez la section [Contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+Solution : Pour que la requête Media Services REST réussisse, l’utilisateur appelant doit avoir un rôle Contributeur ou Propriétaire pour le compte Media Services auquel il tente d’accéder. Pour plus d’informations, consultez la section [Contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
 ## <a name="resources"></a>Ressources
 

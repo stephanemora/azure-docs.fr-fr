@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435972"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245726"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
 
@@ -60,7 +60,7 @@ Cette erreur se produit quand le service ne parvient pas à lire les données de
 
 ## <a name="vcenter-discovery-failures"></a>Échec de découverte de vCenter
 
-Pour résoudre les échecs de découverte de vCenter, vérifiez que le serveur vCenter est ajouté aux paramètres du proxy de la liste byPass. Pour effectuer cette activité :
+Pour résoudre les échecs de découverte de vCenter, ajoutez le serveur vCenter aux paramètres de proxy de la liste de contournement. 
 
 - Téléchargez l’outil PsExec [ici](https://aka.ms/PsExec) pour accéder au contenu de l’utilisateur système.
 - Ouvrez Internet Explorer dans le contenu de l’utilisateur système en exécutant la ligne de commande suivante : psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
@@ -80,6 +80,11 @@ Pour éviter cette erreur, vérifiez que l’heure de votre système ne diffère
 
 Un certificat requis pour l’authentification de Site Recovery ne peut pas être créé. Recommencez la configuration après vous être assuré que vous opérez en tant qu’administrateur local.
 
+## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Échec de l’activation de la Licence Windows de Server Standard Evaluation vers Server Standard
+
+1. Dans le cadre du déploiement du serveur de configuration par la biais du modèle OVF, une licence d’évaluation qui est valide pendant 180 jours est utilisée. Vous devez activer cette licence avant l’expiration de ce délai. Sinon, cela peut entraîner un arrêt fréquent du serveur de configuration, et donc constituer une entrave aux activités de réplication.
+2. Si vous ne parvenez pas à activer la licence Windows, contactez l’[équipe de support technique Windows](https://aka.ms/Windows_Support) pour résoudre le problème.
+
 ## <a name="register-source-machine-with-configuration-server"></a>Inscrire l'ordinateur source auprès du serveur de configuration
 
 ### <a name="if-the-source-machine-runs-windows"></a>Si la machine source exécute Windows
@@ -89,7 +94,7 @@ Exécutez la commande suivante sur la machine source :
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
-  ```
+```
 
 Paramètre | Détails
 --- | ---
@@ -112,3 +117,140 @@ Usage | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <adr
 -i | Paramètre obligatoire. Spécifie l’adresse IP du serveur de configuration. Utilisez une adresse IP valide.
 -P |  Obligatoire. Chemin d’accès complet du fichier dans lequel la phrase secrète est enregistrée. Utilisez n’importe quel dossier valide.
 
+## <a name="unable-to-configure-the-configuration-server"></a>Impossible de configurer le serveur de configuration
+
+Si vous installez des applications autres que le serveur de configuration sur la machine virtuelle, vous risquez de ne pas pouvoir configurer le serveur cible maître. 
+
+Le serveur de configuration doit être un serveur à usage unique et il n’est pas possible de l’utiliser comme serveur partagé. 
+
+Pour plus d’informations, consultez les questions fréquentes (FAQ) relatives à la configuration dans [Déployer un serveur de configuration](vmware-azure-deploy-configuration-server.md#faq). 
+
+## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>Supprimer les entrées obsolètes des éléments protégés de la base de données du serveur de configuration 
+
+Pour supprimer une machine protégée obsolète sur le serveur de configuration, utilisez les étapes suivantes. 
+ 
+1. Pour déterminer la machine source et l’adresse IP de l’entrée obsolète : 
+
+    1. Ouvrez la ligne de commande MYSQL en mode administrateur. 
+    2. Exécutez les commandes suivantes. 
+   
+        ```
+        mysql> use svsdb1;
+        mysql> select id as hostid, name, ipaddress, ostype as operatingsystem, from_unixtime(lasthostupdatetime) as heartbeat from hosts where name!='InMageProfiler'\G;
+        ```
+
+        Cette opération retourne la liste des machines inscrites, ainsi que leurs adresses IP et la dernière pulsation. Recherchez l’hôte qui comporte les paires de réplication obsolètes.
+
+2. Ouvrez une invite de commandes avec élévation de privilèges, puis accédez à C:\ProgramData\ASR\home\svsystems\bin. 
+4. Pour supprimer les détails des hôtes inscrits et les informations des entrée obsolète du serveur de configuration, exécutez la commande suivante à l’aide de la machine source et l’adresse IP de l’entrée obsolète. 
+   
+    `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
+ 
+    Si vous avez une entrée de serveur source « OnPrem VM01 » avec l’adresse IP 10.0.0.4, utilisez la commande suivante à la place.
+ 
+    `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
+ 
+5. Redémarrez les services suivants sur la machine source pour réinscrire le serveur de configuration. 
+ 
+    - Service d’application InMage Scout
+    - InMage Scout VX Agent - Sentinel/Outpost
+
+## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>Échec de la mise à niveau quand l’arrêt des services échoue
+
+La mise à niveau du serveur de configuration échoue quand certains services ne s’arrêtent pas. 
+
+Pour identifier le problème, accédez à C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile sur le serveur de configuration. Si vous rencontrez les erreurs suivantes, utilisez les étapes ci-dessous pour résoudre le problème : 
+
+    2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+    2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+    2018-06-28 14:28:12.944   Stopping svagents service.
+    2018-06-28 14:31:32.949   Unable to stop svagents service.
+    2018-06-28 14:31:32.949   Stopping svagents service.
+    2018-06-28 14:34:52.960   Unable to stop svagents service.
+    2018-06-28 14:34:52.960   Stopping svagents service.
+    2018-06-28 14:38:12.971   Unable to stop svagents service.
+    2018-06-28 14:38:12.971   Rolling back the install changes.
+    2018-06-28 14:38:12.971   Upgrade has failed.
+
+Pour résoudre le problème :
+
+Arrêtez manuellement les services suivants :
+
+- cxprocessserver
+- InMage Scout VX Agent - Sentinel/Outpost, 
+- Agent Microsoft Azure Recovery Services, 
+- Service Microsoft Azure Site Recovery, 
+- tmansvc
+  
+Pour mettre à jour le serveur de configuration, réexécutez l’[installation unifiée](service-updates-how-to.md#links-to-currently-supported-update-rollups).
+
+## <a name="azure-active-directory-application-creation-failure"></a>Échec de la création d’application Azure Active Directory
+
+Vos autorisations sont insuffisantes pour créer une application dans Azure Active Directory (AAD) à l’aide du modèle [OVA (Open Virtualization Application)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+).
+
+Pour résoudre ce problème, connectez-vous au portail Azure, puis effectuez l’une des opérations suivantes :
+
+- Demandez le rôle Développeur d’applications dans AAD. Pour plus d’informations sur le rôle Développeur d’applications, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Vérifiez que l’indicateur **L’utilisateur peut créer une application** a la valeur *true* dans AAD. Pour plus d’informations, consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+
+## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Le serveur de processus/le serveur cible maître ne sont pas en mesure de communiquer avec le serveur de configuration 
+
+Le serveur de processus (PS) et le serveur cible maître (MT) ne peuvent pas communiquer avec le serveur de configuration (CS) et leur état indique qu’ils ne sont pas connectés au portail Azure.
+
+En général, cela est dû à une erreur avec le port 443. Utilisez les étapes suivantes pour débloquer le port et réactiver la communication avec le serveur CS.
+
+**Vérifier que l’agent MARS est appelé par l’agent du serveur cible maître**
+
+Pour vérifier que l’agent du serveur cible maître peut créer une session TCP pour l’adresse IP du serveur de configuration, recherchez une trace semblable à ce qui suit dans les journaux de l’agent du serveur cible maître :
+
+TCP <Replace IP with CS IP here>:52739 <Replace IP with CS IP here>:443 SYN_SENT 
+
+TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Remplacer l’adresse IP par l’adresse IP du serveur CS ici
+
+Si vous trouvez des traces similaires à ce qui suit dans les journaux de l’agent du serveur cible maître, l’agent du serveur cible maître signale les erreurs sur le port 443 :
+
+    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+ 
+Cette erreur peut se produire quand d’autres applications utilisent également le port 443 ou en raison d’un paramètre de pare-feu qui bloque le port.
+
+Pour résoudre le problème :
+
+- Vérifiez que le port 443 n’est pas bloqué par votre pare-feu.
+- Si le port est inaccessible en raison d’une autre application qui utilise ce port, arrêtez et désinstallez l’application.
+  - Si l’arrêt de l’application n’est pas possible, configurez un nouveau serveur CS propre.
+- Redémarrez le serveur de configuration.
+- Redémarrez le service IIS.
+
+### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>Le serveur de configuration n’est pas connecté en raison d’entrées d’UUID incorrectes
+
+Cette erreur peut se produire quand il y a plusieurs entrées d’UUID d’instance de serveur de configuration (CS) dans la base de données. Le problème se produit souvent quand vous clonez la machine virtuelle du serveur de configuration.
+
+Pour résoudre le problème :
+
+1. Supprimez la machine virtuelle obsolète/ancienne du serveur CS du serveur vCenter. Pour plus d’informations, consultez [Supprimer des serveurs et désactiver la protection](site-recovery-manage-registration-and-protection.md).
+2. Connectez-vous à la machine virtuelle du serveur de configuration et à la base de données MySQL svsdb1. 
+3. Exécutez la requête suivante :
+
+    > [!IMPORTANT]
+    >
+    > Vérifiez que vous avez entré les détails d’UUID du serveur de configuration cloné ou l’entrée obsolète du serveur de configuration qui n’est plus utilisé pour protéger les machines virtuelles. Le fait d’entrer un UUID incorrect entraîne la perte des informations relatives à tous les éléments protégés existants.
+   
+    ```
+        MySQL> use svsdb1;
+        MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
+        MySQL> commit; 
+    ```
+4. Actualisez la page du portail.
+
+## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>Une boucle de connexion infinie se produit quand vous entrez vos informations d’identification
+
+Après avoir entré le nom d’utilisateur et le mot de passe corrects sur le modèle OVF du serveur de configuration, la connexion à Azure continue à demander les informations d’identification correctes.
+
+Ce problème peut se produire quand l’heure système est incorrecte.
+
+Pour résoudre le problème :
+
+Définissez l’heure correcte sur l’ordinateur, puis réessayez la connexion. 
+ 

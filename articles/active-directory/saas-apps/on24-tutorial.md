@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory avec ON24 Virtual Environment SAML Connection | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à ON24 Virtual Environment SAML Connection | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ON24 Virtual Environment SAML Connection.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ec18f0013a7fa640395a8b8bedd9df8b0924c3a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0827895d58b0b7633ee4543495014c62b5394312
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070942"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209487"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Didacticiel : intégration d’Azure Active Directory avec ON24 Virtual Environment SAML Connection
+# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutoriel : Intégration d’Azure Active Directory à ON24 Virtual Environment SAML Connection
 
 Dans ce didacticiel, vous allez apprendre à intégrer ON24 Virtual Environment SAML Connection à Azure Active Directory (Azure AD).
 
@@ -161,7 +162,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Si vous souhaitez configurer l’application en mode initié par **IDP**, dans la zone de texte**URL d’authentification**, saisissez l’URL : `https://vshow.on24.com/vshow/<INSTANCENAME>`
 
-6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le certificat correspondant à vos besoins et enregistrez-le sur votre ordinateur.
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le certificat approprié en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![image](./media/on24-tutorial/tutorial_on24_certificate.png) 
 
@@ -171,7 +172,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![image](./media/on24-tutorial/d_users_and_groups.png)
 
@@ -194,7 +195,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-an-on24-virtual-environment-saml-connection-test-user"></a>Créer un utilisateur de test ON24 Virtual Environment SAML Connection
 
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans ON24 Virtual Environment SAML Connection. Travaillez avec l’[équipe du support technique ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) pour ajouter des utilisateurs à la plateforme ON24 Virtual Environment SAML Connection. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé Britta Simon dans ON24 Virtual Environment SAML Connection. Travaillez avec l’ [équipe du support technique ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) pour ajouter des utilisateurs à la plateforme ON24 Virtual Environment SAML Connection. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

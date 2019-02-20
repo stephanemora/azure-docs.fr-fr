@@ -14,12 +14,13 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: 708ec047a1c9883e34f2e255cd7a0f1237ded2bf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096872"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238060"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Activation Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -136,7 +137,7 @@ Vous devez avoir les autorisations nécessaires pour inscrire une application au
 
    ![Afficher les inscriptions d’applications](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les [administrateurs généraux](../users-groups-roles/directory-assign-admin-roles.md) peuvent inscrire des applications. Si le rôle Utilisateur est assigné à votre compte mais que le paramètre d’inscription d’applications est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous assigner le rôle Administrateur général ou d’autoriser les utilisateurs à inscrire des applications.
+Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les utilisateurs ayant un rôle d’administrateur peuvent inscrire ces types d’applications. Reportez-vous aux [rôles disponibles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) et aux [autorisations de rôle](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) pour en savoir plus sur les rôles administrateur disponibles et les autorisations spécifiques dans Azure AD qui sont attribuées à chaque rôle. Si le rôle Utilisateur est assigné à votre compte mais que le paramètre d’inscription d’applications est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous assigner l’un des rôles Administrateur pouvant créer et gérer tous les aspects des inscriptions d’application ou autoriser les utilisateurs à inscrire des applications.
 
 ### <a name="check-azure-subscription-permissions"></a>Vérifier les autorisations d’abonnement Azure
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299042"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893729"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -23,19 +23,20 @@ Les sources de données et connecteurs affichés dans Obtenir des données ou l�
 
 |Source de données  |En mémoire  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Oui      |    Oui      |
-|Azure SQL Data Warehouse     |   Oui      |   Oui       |
-|Stockage Blob Azure<sup>[1](#tab1400a)</sup>     |   Oui       |    Non       |
-|Stockage Table Azure<sup>[1](#tab1400a)</sup>    |   Oui       |    Non       |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Oui        |  Non         |
-|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   Oui       |    Non       |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Oui     |   Non        |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Oui       |   Non        |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   OUI      |    OUI      |
+|Azure SQL Data Warehouse     |   OUI      |   OUI       |
+|Stockage Blob Azure<sup>[1](#tab1400a)</sup>     |   OUI       |    Non       |
+|Stockage Table Azure<sup>[1](#tab1400a)</sup>    |   OUI       |    Non       |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  OUI        |  Non         |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   OUI       |    Non       |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     OUI     |   Non        |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   OUI       |   Non        |
 ||||
 
-<a name="tab1400a">1</a> Modèles tabulaires 1400 ou supérieurs uniquement.   
-<a name="azsqlmanaged">2</a> Azure SQL Database Managed Instance est pris en charge. Une instance gérée s'exécutant au sein du réseau virtuel Azure avec une adresse IP privée, une passerelle de données locale est requise.   
-<a name="databricks">3</a> Azure Databricks connecteur Spark n’est actuellement pas pris en charge.
+<a name="tab1400a">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.   
+<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance est pris en charge. Une instance gérée s'exécutant au sein du réseau virtuel Azure avec une adresse IP privée, une passerelle de données locale est requise.   
+<a name="databricks">3</a> - Azure Databricks avec connecteur Spark n’est actuellement pas pris en charge.   
+<a name="gen2">4</a> - ADLS Gen2 n’est actuellement pas pris en charge.
 
 
 **Fournisseur**   

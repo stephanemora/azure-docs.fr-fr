@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 26268c892b0e900c410cd669454b8b6f02ee8886
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211837"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102011"
 ---
 # <a name="azure-managed-disks-overview"></a>Vue d’ensemble d’Azure Managed Disks
 
@@ -63,7 +63,7 @@ Lorsque vous utilisez Managed Disks, les considérations de facturation suivant
 
 Examinons ces options de plus près.
 
-**Type de stockage** : Managed Disks propose 3 niveaux de performances : [HDD Standard](../articles/virtual-machines/windows/standard-storage.md), [SSD Standard](../articles/virtual-machines/windows/disks-standard-ssd.md) et [Premium](../articles/virtual-machines/windows/premium-storage.md). La facturation d’un disque managé dépend du type de stockage sélectionné.
+**Type de stockage** : Managed Disks propose 3 niveaux de performances : [HDD Standard](../articles/virtual-machines/windows/standard-storage.md), [SSD Standard](../articles/virtual-machines/windows/standard-storage.md) et [Premium](../articles/virtual-machines/windows/premium-storage.md). La facturation d’un disque managé dépend du type de stockage sélectionné.
 
 **Taille de disque** : la facturation des disques managés dépend de la taille configurée. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille approvisionnée de 200 Go, vous êtes facturé selon la tarification du type de disque S15.
 
@@ -75,9 +75,9 @@ Voici les tailles de disque disponibles pour un disque managé premium ; les ta
 
 Voici les tailles de disque disponibles pour un disque managé SSD standard ; les tailles signalées par un astérisque sont actuellement en préversion :
 
-| **Type de disque managé <br>SSD Standard** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
-|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Taille du disque        | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 8 192 Gio (8 Tio) | 16 384 Gio (16 Tio) | 32 767 Gio (32 Tio) |
+| **Type de disque managé <br>SSD Standard** | **E4** | **E6** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Taille du disque        | 32 Gio | 64 Gio | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 8 192 Gio (8 Tio) | 16 384 Gio (16 Tio) | 32 767 Gio (32 Tio) |
 
 Voici les tailles de disque disponibles pour un disque managé HDD standard ; les tailles signalées par un astérisque sont actuellement en préversion :
 

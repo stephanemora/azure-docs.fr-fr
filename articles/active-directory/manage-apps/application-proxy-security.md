@@ -3,8 +3,8 @@ title: Considérations de sécurité pour le proxy d’application Azure AD | M
 description: Couvre les considérations de sécurité lors de l’utilisation du proxy d’application Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813821"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207226"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -147,7 +148,7 @@ Si vous avez configuré l’application pour une préauthentification avec Azure
 
 2. Une fois toutes les vérifications réussies, Azure AD STS émet un jeton signé pour l’application et redirige l’utilisateur vers le service de proxy d’application.
 
-3. Le proxy d’application vérifie que le jeton a été émis pour corriger l’application. Il effectue également d’autres vérifications : il vérifie par exemple que le jeton a bien été signé par Azure AD et qu’il est toujours dans la plage d’utilisation valide.
+3. Le proxy d’application vérifie que le jeton a été émis pour l’application correcte. Il effectue également d’autres vérifications : il vérifie par exemple que le jeton a bien été signé par Azure AD et qu’il est toujours dans la plage d’utilisation valide.
 
 4. Le proxy d’application définit un cookie d’authentification chiffré pour indiquer que l’authentification à l’application a eu lieu. Le cookie contient un horodatage d’expiration basé sur le jeton d’Azure AD et d’autres données, comme le nom d’utilisateur sur lequel l’authentification est basée. Le cookie est chiffré à l’aide d’une clé privée connue uniquement du service de proxy d’application.
 

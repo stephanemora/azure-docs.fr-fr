@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816592"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962126"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -34,7 +34,7 @@ Managed Instance a des caractéristiques et des limites de ressources qui dépen
 
 Azure SQL Database Managed Instance peut être déployé sur deux générations du matériel (Gen4 et Gen5). Les générations du matériel ont des caractéristiques spécifiques qui sont décrites dans le tableau suivant :
 
-|   | **Gen 4** | **Gen 5** |
+|   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Matériel | Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché, vCore = 1 PP (cœur physique) | Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, disque SSD fast NVMe, vCore = 1 LP (hyperthread) |
 | Calcul | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
@@ -51,7 +51,7 @@ Managed Instance propose deux niveaux de service : Usage général et Critique 
 | --- | --- | --- |
 | Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24, 32 <br/> Gen5 : 8, 16, 24, 32, 40, 64, 80 |
 | Mémoire | Gen4 : 56 Go- 168 Go<br/>Gen5 : 40,8 Go - 408 Go<br/>\*Proportionnel au nombre de vCores | Gen4 : 56 Go- 168 Go <br/> Gen5 : 40,8 Go - 408 Go<br/>\*Proportionnel au nombre de vCores |
-| Taille de stockage maximale | 8 To | Gen 4 : 1 To <br/> Gen 5 : <br/>- 1 To pour 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
+| Taille de stockage maximale | 8 To | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
 | Espace de stockage maximal par base de données | Déterminé par la taille de stockage maximale par instance | Déterminé par la taille de stockage maximale par instance |
 | Nombre maximal de bases de données par instance | 100 | 100 |
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | 32 767 fichiers par base de données |

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: cd129ea68315223516ac1cd3e7577b5ee4bf92e5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386442"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005112"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Utiliser Azure Log Analytics pour surveiller les clusters HDInsight
 
@@ -46,9 +46,19 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Cette section vous explique comment configurer un cluster Hadoop HDInsight existant pour utiliser un espace de travail Azure Log Analytics pour surveiller les travaux, les journaux de débogage, etc.
 
-1. Ouvrez un cluster HDInsight dans le portail Azure.
-2. Dans le volet de gauche, sélectionnez **Surveillance**.
-3. Dans le volet de droite, cliquez sur **Activer**, sélectionnez un espace de travail Log Analytics, puis cliquez sur **Enregistrer**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+
+2. Dans le menu de gauche, sélectionnez **Tous les services**.
+
+3. Sous **ANALYTIQUE**, sélectionnez **Clusters HDInsight**.
+
+4. À partir de la gauche, sous **Supervision**, sélectionnez **Operations Management Suite**.
+
+5. À partir de la vue principale, sous **Supervision OMS**, sélectionnez **Activer**.
+
+6. Dans la liste déroulante **Sélectionner un espace de travail**, sélectionnez un espace de travail Log Analytics existant.
+
+7. Sélectionnez **Enregistrer**.
 
     ![Activer la surveillance des clusters HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Activer la surveillance des clusters HDInsight")
 
@@ -91,7 +101,7 @@ Voici les solutions HDInsight disponibles :
 * HDInsight Spark Monitoring
 * HDInsight Storm Monitoring
 
-Pour obtenir des instructions sur l’installation d’une solution de gestion, consultez la rubrique sur les [solutions de gestion dans Azure](../azure-monitor/insights/solutions.md#install-a-management-solution). Pour faire des essais, installez une solution HDInsight Hadoop Monotiring. Vous voyez alors une vignette **HDInsightHadoop** sous **Résumé**. Sélectionnez la vignette **HDInsightHadoop**. La solution HDInsightHadoop ressemble à ceci :
+Pour obtenir des instructions sur l’installation d’une solution de gestion, consultez la rubrique sur les [solutions de gestion dans Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Pour faire des essais, installez une solution HDInsight Hadoop Monotiring. Vous voyez alors une vignette **HDInsightHadoop** sous **Résumé**. Sélectionnez la vignette **HDInsightHadoop**. La solution HDInsightHadoop ressemble à ceci :
 
 ![Vue de la solution de surveillance HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

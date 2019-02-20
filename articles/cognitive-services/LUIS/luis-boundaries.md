@@ -4,25 +4,27 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Cet article liste les limites connues d’Azure Cognitive Services Language Understanding (LUIS). LUIS comporte plusieurs domaines limites. La limite de modèle contrôle les intentions, les entités et les caractéristiques dans LUIS. La limite de quota dépend du type de clé. La combinaison de touches contrôle le site web de LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c9c88a2d77aea203b4ef19d2e5188caa5c99b46c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219129"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237550"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
 
 
 ## <a name="model-boundaries"></a>Limites du modèle
+
+Si votre application dépasse les limites du modèle LUIS, envisagez d’utiliser une application de [distribution LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) ou un [conteneur LUIS](luis-container-howto.md). 
 
 |Domaine|Limite|
 |--|:--|--|
@@ -48,7 +50,7 @@ LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](
 ## <a name="intent-and-entity-naming"></a>Attribution de noms aux intentions et aux entités
 N’utilisez pas les caractères suivants dans les noms des intentions et des entités :
 
-|Caractère|NOM|
+|Caractère|Nom|
 |--|--|
 |`{`|Accolade gauche|
 |`}`|Accolade droite|

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Déplacez une base de connaissances créée avec QnA Maker dans une nouvelle base de connaissances.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809740"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245913"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 
@@ -56,7 +56,7 @@ La migration d’une base de connaissances nécessite l’exportation d’une ba
     À ce stade, tout le contenu de la base de connaissances (questions, réponses et métadonnées, ainsi que le nom des fichiers sources et les URL) est importé dans la nouvelle base de connaissances. 
 
 ## <a name="chat-logs-and-alterations"></a>Conversations et modifications
-Les modifications (synonymes) ne sont pas importées automatiquement. Utilisez les [API V2](https://aka.ms/qnamaker-v2-apis) pour exporter les modifications des anciennes connaissances et les [API V4](https://aka.ms/qnamaker-v4-apis) pour les déplacer dans la nouvelle base de connaissances.
+Les modifications qui ne respectent pas la casse (synonymes) ne sont pas importées automatiquement. Utilisez les [API V2](https://aka.ms/qnamaker-v2-apis) pour exporter les modifications des anciennes connaissances et les [API V4](https://aka.ms/qnamaker-v4-apis) pour les déplacer dans la nouvelle base de connaissances.
 
 Il n’existe aucun moyen de migrer les conversations, étant donné que la nouvelle base de connaissances utilise Application Insights pour le stockage des conversations. 
 

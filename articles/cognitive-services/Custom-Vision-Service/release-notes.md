@@ -3,21 +3,23 @@ title: Notes de publication du service Vision personnalisée
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: bba65a495963142e8b3201a026dc13a8cfff8e70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b712f47fe9272e0ae6ccb9ab9847462729434698
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207358"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894409"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notes de publication du service Vision personnalisée
 
+## <a name="january-22-2019"></a>22 janvier 2019
+- Prise en charge ajoutée pour de nouvelles régions Azure : USA Ouest 2, USA Est, USA Est 2, Europe Ouest, Europe Nord, Asie Sud-Est, Australie Est, Inde Centre, Royaume-Uni Sud, Japon Est et USA Centre Nord. Prise en charge continue pour USA Centre Sud. 
 
 ## <a name="december-12-2018"></a>12 décembre 2018
 - Prise en charge de l’exportation pour les modèles de détection d’objets (introduction du domaine compact de détection d’objets).

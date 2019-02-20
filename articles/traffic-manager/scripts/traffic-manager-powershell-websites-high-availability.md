@@ -15,22 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
-ms.openlocfilehash: 13c24c31606d99f27ed2607fec71b381160624dd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4991be7ecb252001245a0bcde8551d8432b0794b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313182"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998499"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Acheminer le trafic pour la haute disponibilité des applications à l’aide d’Azure PowerShell
 
 Ce script crée un groupe de ressources, deux plans App Service, deux applications web, un profil Traffic Manager et deux points de terminaison Traffic Manager. Traffic Manager dirige le trafic vers l’application d’une région considérée comme région principale et d’une région secondaire lorsque l’application de la région principale n’est pas disponible. Avant d’exécuter le script, veillez à modifier les valeurs MyWebApp, MyWebAppL1 et MyWebAppL2 pour leur attribuer des valeurs uniques dans Azure. Après avoir exécuté le script, vous pouvez accéder à l’application de la région principale avec l’URL mywebapp.trafficmanager.net.
 
-Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), puis exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure), puis exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Exemple de script
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.ps1 "Route traffic for high availability")]
 
@@ -38,8 +40,8 @@ Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup1
-Remove-AzureRmResourceGroup -Name myResourceGroup2
+Remove-AzResourceGroup -Name myResourceGroup1
+Remove-AzResourceGroup -Name myResourceGroup2
 ```
 
 
@@ -49,12 +51,12 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)  | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Crée un plan App Service. Cela équivaut à une batterie de serveurs pour votre application web Azure. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Crée une application web Azure dans le plan App Service. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Crée une application web Azure dans le plan App Service. |
-| [New-AzureRmTrafficManagerProfile](/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile) | Crée un profil Azure Traffic Manager. |
-| [New-AzureRmTrafficManagerEndpoint](/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerendpoint) | Ajoute un point de terminaison à un profil Azure Traffic Manager. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Crée un plan App Service. Cela équivaut à une batterie de serveurs pour votre application web Azure. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crée une application web Azure dans le plan App Service. |
+| [Set-AzResource](/powershell/module/az.resources/new-azresource) | Crée une application web Azure dans le plan App Service. |
+| [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Crée un profil Azure Traffic Manager. |
+| [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Ajoute un point de terminaison à un profil Azure Traffic Manager. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,7 +4,7 @@ description: Cet article fournit une vue d’ensemble de la sécurité Azure Ser
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 629b6fba9ced5fa2ccf22f473fe25c87d1cc4818
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436808"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116218"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Vue d’ensemble de la sécurité Azure Service Fabric
-[Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables. Service Fabric gère les difficultés du développement et de la gestion des applications cloud. C’est pourquoi les développeurs et administrateurs peuvent éviter les problèmes d’infrastructure complexes et se concentrer sur l’implémentation de charges de travail stratégiques et astreignantes qui sont scalables et fiables.
+[Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric gère les difficultés du développement et de la gestion des applications cloud. C’est pourquoi les développeurs et administrateurs peuvent éviter les problèmes d’infrastructure complexes et se concentrer sur l’implémentation de charges de travail stratégiques et astreignantes qui sont scalables et fiables.
 
 Cet article est une vue d’ensemble des aspects de la sécurité d’un déploiement de Service Fabric.
 
@@ -47,7 +47,7 @@ Configurez la sécurité client à nœud à l’aide d’identités client. Pour
 
 Service Fabric prend en charge deux types de contrôle d’accès pour les clients qui sont connectés à un cluster Service Fabric :
 
--   **Administrateur** : Accès total aux fonctions de gestion, notamment les fonctionnalités de lecture/écriture.
+-   **Administrateur** : Accès total aux fonctions de gestion, notamment les fonctionnalités de lecture/écriture.
 -   **Utilisateur** : Accès uniquement en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête) et capacité à résoudre les applications et les services.
 
 En utilisant le contrôle d’accès, les administrateurs de cluster peuvent limiter l’accès à certains types d’opérations de cluster. Cela rend le cluster plus sécurisé.
@@ -83,11 +83,11 @@ Du point de vue de la sécurité, les principaux objectifs de la surveillance et
 
 Le flux de travail de la surveillance et des diagnostics se compose de trois étapes :
 
-1.  **Génération d’événements** : La génération d’événements inclut les événements (journaux, traces, événements personnalisés) au niveau de l’infrastructure (cluster) et au niveau de l’application/du service. Pour comprendre ce qui est fourni et comment ajouter une instrumentation, vous pouvez poursuivre votre lecture sur les [événements de niveau infrastructure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) et les [événements de niveau application](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app).
+1.  **Génération d’événements** : La génération d’événements inclut les événements (journaux, traces, événements personnalisés) au niveau de l’infrastructure (cluster) et au niveau de l’application/du service. Pour comprendre ce qui est fourni et comment ajouter une instrumentation, vous pouvez poursuivre votre lecture sur les [événements de niveau infrastructure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) et les [événements de niveau application](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app).
 
-2.  **Agrégation d’événements** : Les événements générés doivent être collectés et agrégés pour pouvoir être affichés. En général, nous recommandons d’utiliser [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similaire à la collecte de journaux basée sur un agent) ou [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (collecte de journaux in-process).
+2.  **Agrégation d’événements** : Les événements générés doivent être collectés et agrégés pour pouvoir être affichés. En général, nous recommandons d’utiliser [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similaire à la collecte de journaux basée sur un agent) ou [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (collecte de journaux in-process).
 
-3.  **Analyse** : Les événements doivent être visualisés et accessibles dans un certain format pour pouvoir les analyser les afficher. Il existe plusieurs plateformes pour l’analyse et la visualisation des données de surveillance et de diagnostics. Nous recommandons [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) et [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) car ils s’intègrent bien avec Service Fabric.
+3.  **Analyse** : Les événements doivent être visualisés et accessibles dans un certain format pour pouvoir être analysés et affichés. Il existe plusieurs plateformes pour l’analyse et la visualisation des données de surveillance et de diagnostics. Nous recommandons [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) et [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) car ils s’intègrent bien avec Service Fabric.
 
 Vous pouvez également utiliser [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) pour surveiller un grand nombre des ressources Azure sur lesquelles repose un cluster Service Fabric.
 
@@ -147,7 +147,7 @@ Les tâches de configuration des stratégies de sécurité sont les suivantes :
 
 -   Configuration de la stratégie pour un point d’entrée de configuration de service
 -   Lancement des commandes PowerShell à partir d’un point d’entrée de configuration
--   Utilisation de la console de redirection pour le débogage local
+-   À l’aide de la console de redirection pour le débogage local
 -   Configuration d’une stratégie pour les packages de code de service
 -   Attribution d’une stratégie d’accès de sécurité pour les points de terminaison HTTP et HTTPS
 

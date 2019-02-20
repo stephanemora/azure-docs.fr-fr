@@ -81,28 +81,49 @@ items:
     - name: Contrôle d’accès en fonction du rôle Azure
       displayName: RBAC
       href: automation-role-based-access-control.md
-  - name: Création de runbooks
+  - name: Runbooks
     items:
+    - name: Gérer des runbooks
+      href: manage-runbooks.md
     - name: Types de runbook
       displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
-    - name: Créer et importer des runbooks
-      href: automation-creating-importing-runbook.md
-    - name: Créer un runbook graphique
-      href: automation-first-runbook-graphical.md
-    - name: Créer un runbook PowerShell
-      href: automation-first-runbook-textual-powershell.md
-    - name: Créer un runbook PowerShell Workflow
-      href: automation-first-runbook-textual.md
-    - name: Créer un runbook Python
-      href: automation-first-runbook-textual-python2.md
-    - name: Modifier des runbooks textuels
-      displayName: powershell
-      href: automation-edit-textual-runbook.md
-    - name: Modifier des runbooks graphiques
-      href: automation-graphical-authoring-intro.md
-    - name: Tester un runbook
-      href: automation-testing-runbook.md
+    - name: Création de runbooks
+      items:
+      - name: Runbook graphique
+        href: automation-first-runbook-graphical.md
+      - name: Runbook PowerShell
+        href: automation-first-runbook-textual-powershell.md
+      - name: Runbook PowerShell Workflow
+        href: automation-first-runbook-textual.md
+      - name: Runbook Python
+        href: automation-first-runbook-textual-python2.md
+      - name: Créer des runbooks avec le Kit de développement logiciel (SDK) de runbooks graphiques
+        href: graphical-runbook-sdk.md
+    - name: Modifier des runbooks
+      items:
+      - name: Modifier des runbooks textuels
+        displayName: powershell
+        href: automation-edit-textual-runbook.md
+      - name: Modifier des runbooks graphiques
+        href: automation-graphical-authoring-intro.md
+    - name: Démarrer un runbook
+      href: start-runbooks.md
+    - name: Démarrer un runbook depuis un Webhook
+      href: automation-webhooks.md
+    - name: Paramètres d’entrée de Runbook
+      displayName: input,json
+      href: runbook-input-parameters.md
+    - name: Gestion des erreurs dans les runbooks graphiques
+      href: automation-runbook-graphical-error-handling.md
+    - name: Suivre une tâche de Runbook
+      displayName: fair share, activity log
+      href: automation-runbook-execution.md
+    - name: Gestion des données Azure Automation
+      displayName: backup
+      href: automation-managing-data.md
+    - name: Gérer les packages Python 2
+      href: python-packages.md
     - name: Apprentissage du workflow PowerShell
       href: automation-powershell-workflow.md
     - name: Runbooks enfants
@@ -116,28 +137,6 @@ items:
     - name: Intégration du contrôle de code source (hérité)
       href: automation-source-control-integration-legacy.md
       displayname: github
-    - name: Créer des runbooks avec le Kit de développement logiciel (SDK) de runbooks graphiques
-      href: graphical-runbook-sdk.md
-  - name: Automatisation
-    items:
-    - name: Démarrer un runbook
-      href: automation-starting-a-runbook.md
-    - name: Démarrer un runbook depuis un Webhook
-      href: automation-webhooks.md
-    - name: Configurer les paramètres d’entrée de runbook
-      href: automation-runbook-input-parameters.md
-    - name: Gestion des erreurs dans les runbooks graphiques
-      href: automation-runbook-graphical-error-handling.md
-    - name: Suivre une tâche de Runbook
-      displayName: fair share, activity log
-      href: automation-runbook-execution.md
-    - name: Gestion des données Azure Automation
-      displayName: backup
-      href: automation-managing-data.md
-    - name: Passer un objet JSON dans un runbook Azure Automation
-      href: automation-pass-json-string.md
-    - name: Gérer les packages Python 2
-      href: python-packages.md
   - name: Runbook Worker hybride
     items:
     - name: Vue d’ensemble des Runbook Worker hybrides
@@ -205,12 +204,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: Créer une machine virtuelle Amazon Web Service
       href: automation-scenario-aws-deployment.md
-    - name: Intégration du contrôle de code source avec GitHub Enterprise
-      displayName: CI, runbooks
-      href: automation-scenario-source-control-integration-with-github-ent.md
-    - name: Intégration du contrôle de code source avec Azure DevOps
-      displayName: VSTS, CI, runbooks
-      href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Déployer un modèle Azure Resource Manager dans un runbook PowerShell Azure Automation
       href: automation-deploy-template-runbook.md
     - name: Intégrer Azure Automation à Event Grid et Microsoft Teams
@@ -292,9 +285,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: a5886c5af9db6945fe33efd8198b5527f580d297
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e35c51bb1d82f2c5eda708ab8bce71c2bf5b69b7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004569"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417021"

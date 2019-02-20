@@ -1,6 +1,6 @@
 ---
-title: Collecter les journaux personnalisés dans Log Analytics | Microsoft Docs
-description: Log Analytics peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans Log Analytics.
+title: Collecter des journaux personnalisés dans Azure Monitor | Microsoft Docs
+description: Azure Monitor peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198777"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234790"
 ---
-# <a name="custom-logs-in-log-analytics"></a>Journaux personnalisés dans Log Analytics
-La source de données Journaux personnalisés de Log Analytics vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
+# <a name="custom-logs-in-azure-monitor"></a>Journaux personnalisés dans Azure Monitor
+La source de données Journaux personnalisés d’Azure Monitor vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
 
 ![Collecte de journaux personnalisés](media/data-sources-custom-logs/overview.png)
 
@@ -35,11 +35,19 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 - Le fichier journal doit utiliser l’encodage ASCII ou UTF-8.  Les autres formats, par exemple UTF-16, ne sont pas pris en charge.
 
 >[!NOTE]
->Si le fichier journal contient des entrées dupliquées, Log Analytics les collecte.  Toutefois, les résultats de la requête sont incohérents dans les cas où les résultats du filtre affichent un nombre d’événements supérieur au nombre de résultats.  Il est important de valider le journal pour déterminer si l’application qui le crée cause ce comportement et résoudre, si possible, le problème avant la création de la définition de collection de journal personnalisée.  
+>Si le fichier journal contient des entrées dupliquées, Azure Monitor les collecte.  Toutefois, les résultats de la requête sont incohérents dans les cas où les résultats du filtre affichent un nombre d’événements supérieur au nombre de résultats.  Il est important de valider le journal pour déterminer si l’application qui le crée cause ce comportement et résoudre, si possible, le problème avant la création de la définition de collection de journal personnalisée.  
 >
   
 >[!NOTE]
 > Si votre application crée un fichier journal tous les jours ou qu’elle atteint une taille spécifique, l’agent Log Analytics pour Linux ne découvre pas ces fichiers tant qu’il n’a pas été redémarré. Ceci est dû au fait que l’agent énumère et supervise uniquement les modèles avec les journaux spécifiés au démarrage ; par conséquent, vous devez en tenir compte en automatisant le redémarrage de l’agent.  Cette limitation n’existe pas dans le cas de l’agent Log Analytics pour Windows.  
+>
+
+>[!NOTE]
+> Chaque espace de travail Log Analytics prend en charge les limites suivantes :
+> 
+> * Seuls 500 journaux personnalisés peuvent être créés.
+> * Une table ne prend en charge que jusqu'à 500 colonnes. 
+> * Le nombre maximal de caractères pour le nom de colonne est 500. 
 >
 
 ## <a name="defining-a-custom-log"></a>Définition d’un journal personnalisé
@@ -48,17 +56,17 @@ Utilisez la procédure suivante pour définir un fichier journal personnalisé. 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Étape 1. Ouvrir l’Assistant Journal personnalisé
 L’Assistant Journal personnalisé s’exécute dans le portail Azure et vous permet de définir un nouveau journal personnalisé de collecte.
 
-1. Dans le portail Azure, sélectionnez **Log Analytics** > votre espace de travail > **Paramètres avancés**.
+1. Dans le portail Azure, sélectionnez l’**espace de travail Log Analytics** > votre espace de travail > **Paramètres avancés**.
 2. Cliquez sur **Données** > **Journaux personnalisés**.
 3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents.  Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.  Si vous souhaitez modifier ce fichier manuellement sur chaque agent Linux, décochez la case *Appliquer la configuration ci-dessous à mes machines Linux*.
 4. Cliquez sur **Ajouter+** pour ouvrir l’Assistant Journal personnalisé.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Étape 2. Télécharger et analyser un exemple de journal
-Commencez par télécharger un exemple du journal personnalisé.  L’assistant analyse et affiche les entrées de ce fichier afin que vous les validiez.  Log Analytics utilise le délimiteur que vous spécifiez pour identifier chaque enregistrement.
+Commencez par télécharger un exemple du journal personnalisé.  L’assistant analyse et affiche les entrées de ce fichier afin que vous les validiez.  Azure Monitor utilise le délimiteur que vous spécifiez pour identifier chaque enregistrement.
 
 **Nouvelle ligne** .  Si la ligne commence par un horodatage dans un des formats disponibles, vous pouvez spécifier un délimiteur **Horodatage** prenant en charge les entrées qui s’étendent sur plusieurs lignes.
 
-Si un délimiteur Horodatage est utilisé, la propriété TimeGenerated de chaque enregistrement stocké dans Log Analytics contiendra la date et l’heure spécifiées pour cette entrée dans le fichier journal.  Si un délimiteur Nouvelle ligne est utilisé, la propriété TimeGenerated est renseignée avec la date et l’heure auxquelles Log Analytics a collecté l’entrée.
+Si un délimiteur Timestamp est utilisé, la propriété TimeGenerated de chaque enregistrement stocké dans Azure Monitor contient la date et l’heure spécifiées pour cette entrée dans le fichier journal.  Si un délimiteur Nouvelle ligne est utilisé, la propriété TimeGenerated est renseignée avec la date et l’heure auxquelles Azure Monitor a collecté l’entrée.
 
 
 1. Cliquez sur **Parcourir** et accédez à un exemple de fichier.  Notez que ce bouton peut s’appeler **Choisir un fichier** dans certains navigateurs.
@@ -97,16 +105,16 @@ Le nom que vous spécifiez sera utilisé pour le type de journal, comme indiqué
 3. Cliquez sur **Suivant** pour enregistrer la définition du journal personnalisé.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Étape 5. Vérifier que les journaux personnalisés sont collectés
-Il faut parfois une heure pour que les données initiales d’un nouveau journal personnalisé apparaissent dans Log Analytics.  La collecte des entrées commence par les journaux situés à l’emplacement spécifié, à partir du moment où vous avez défini le journal personnalisé.  Log Analytics ne conserve pas les entrées que vous avez téléchargées lors de la création du journal personnalisé, mais celles figurant dans les fichiers journaux qu’il trouve.
+Il faut parfois une heure pour que les données initiales d’un nouveau journal personnalisé apparaissent dans Azure Monitor.  La collecte des entrées commence par les journaux situés à l’emplacement spécifié, à partir du moment où vous avez défini le journal personnalisé.  Log Analytics ne conserve pas les entrées que vous avez téléchargées lors de la création du journal personnalisé, mais celles figurant dans les fichiers journaux qu’il trouve.
 
-Lorsque Log Analytics commence la collecte du journal personnalisé, ses enregistrements sont accessibles au moyen d’une requête de journal.  Utilisez le nom que vous avez donné au journal personnalisé, comme le **Type** dans votre requête.
+Lorsque Azure Monitor commence la collecte du journal personnalisé, ses enregistrements sont accessibles par le biais d’une requête de journal.  Utilisez le nom que vous avez donné au journal personnalisé, comme le **Type** dans votre requête.
 
 > [!NOTE]
 > Si la propriété RawData est manquante dans la requête, vous devrez peut-être fermer et rouvrir votre navigateur.
 
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Étape 6. Analyser les entrées du journal personnalisé
-L’entrée de journal est stockée dans une propriété unique appelée **RawData**.  Vous souhaiterez certainement séparer les différents éléments d’information de chaque entrée dans des propriétés distinctes pour chaque enregistrement. Consultez [Analyser des données de texte dans Log Analytics](../log-query/parse-text.md) pour prendre connaissance des options d’analyse **RawData** dans plusieurs propriétés.
+L’entrée de journal est stockée dans une propriété unique appelée **RawData**.  Vous souhaiterez certainement séparer les différents éléments d’information de chaque entrée dans des propriétés distinctes pour chaque enregistrement. Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des options d’analyse **RawData** dans plusieurs propriétés.
 
 ## <a name="removing-a-custom-log"></a>Suppression d’un journal personnalisé
 Pour supprimer un journal personnalisé que vous avez défini précédemment, procédez comme suit dans le portail Azure.
@@ -116,16 +124,16 @@ Pour supprimer un journal personnalisé que vous avez défini précédemment, pr
 
 
 ## <a name="data-collection"></a>Collecte des données
-Log Analytics collecte les nouvelles entrées de chaque journal personnalisé toutes les 5 minutes environ.  L’agent enregistre sa place dans chaque fichier journal dont il la collecte.  Si l’agent est hors connexion pendant un moment, Log Analytics collecte les entrées à partir de là où il s’était arrêté, même si ces entrées ont été créées lorsque l’agent était hors connexion.
+Azure Monitor collecte les nouvelles entrées de chaque journal personnalisé toutes les 5 minutes environ.  L’agent enregistre sa place dans chaque fichier journal dont il la collecte.  Si l’agent est hors connexion pendant un moment, Azure Monitor collecte les entrées à partir du point d’interruption, même si ces entrées ont été créées lorsque l’agent était hors connexion.
 
-L’entrée de journal est intégralement inscrite dans une propriété unique appelée **RawData**.  Consultez [Analyser des données de texte dans Log Analytics](../log-query/parse-text.md) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.
+L’entrée de journal est intégralement inscrite dans une propriété unique appelée **RawData**.  Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.
 
 ## <a name="custom-log-record-properties"></a>Propriétés d’enregistrement de journal personnalisé
 Les enregistrements de journal personnalisé sont caractérisés par le nom du journal que vous fournissez et les propriétés dans le tableau suivant.
 
 | Propriété | Description |
 |:--- |:--- |
-| TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Log Analytics.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
+| TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Azure Monitor.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
 | SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br>  Linux – Tous les agents Linux |
 | RawData |Texte complet de l’entrée collectée. Vous souhaiterez probablement [analyser ces données dans des propriétés individuelles](../log-query/parse-text.md). |
 | ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manage  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
@@ -174,9 +182,9 @@ Les journaux personnalisés sont très utiles lorsque vos données sont conforme
 
 Lorsque vos données ne peuvent pas être collectées à l'aide des journaux personnalisés, vous pouvez avoir recours aux stratégies alternatives suivantes :
 
-- Utilisez un script personnalisé ou une autre méthode pour écrire les données dans [Événements Windows](data-sources-windows-events.md) ou [Syslog](data-sources-syslog.md). Elles seront alors collectées par Log Analytics. 
-- Envoyez directement les données à Log Analytics à l'aide de l'[API Collecte de données HTTP](data-collector-api.md). Un exemple illustrant l'utilisation de runbooks dans Azure Automation est disponible dans l'article [Collecter des données dans Log Analytics avec un runbook Azure Automation](runbook-datacollect.md).
+- Utilisez un script personnalisé ou une autre méthode pour écrire les données dans [Événements Windows](data-sources-windows-events.md) ou [Syslog](data-sources-syslog.md). Elles seront alors collectées par Azure Monitor. 
+- Envoyez directement les données à Azure Monitor à l'aide de l'[API Collecteur de données HTTP](data-collector-api.md). Un exemple illustrant l'utilisation de runbooks dans Azure Automation est disponible dans [Collecter des données dans Azure Monitor avec un runbook Azure Automation](runbook-datacollect.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez [Analyser des données de texte dans Log Analytics](../log-query/parse-text.md) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.
+* Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.
 * Découvrez les [requêtes dans les journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.

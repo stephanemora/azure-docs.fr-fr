@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580941"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984577"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Collecter les journaux d’activité Azure de différents abonnements dans Log Analytics
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Collecter les journaux d’activité Azure de différents abonnements dans Log Analytics dans différents locataires Azure Active Directory
 
-Cet article décrit une méthode permettant de collecter les journaux d’activité Azure dans un espace de travail Log Analytics à l’aide du connecteur Azure Log Analytics Data Collector pour Logic Apps. Utilisez la procédure de cet article lorsque vous devez envoyer des journaux à un espace de travail situé dans un autre répertoire Azure Active Directory. Par exemple, si vous êtes un fournisseur de service managé, vous pouvez collecter les journaux d’activité de l’abonnement d’un client et les stocker dans un espace de travail Log Analytics de votre propre abonnement.
+Cet article décrit une méthode permettant de collecter les journaux d’activité Azure dans un espace de travail Log Analytics à l’aide du connecteur Azure Log Analytics Data Collector pour Logic Apps. Utilisez la procédure de cet article lorsque vous devez envoyer des journaux à un espace de travail situé dans un autre locataire Azure Active Directory. Par exemple, si vous êtes un fournisseur de service managé, vous pouvez collecter les journaux d’activité de l’abonnement d’un client et les stocker dans un espace de travail Log Analytics de votre propre abonnement.
 
 Si l’espace de travail Log Analytics est situé dans le même abonnement Azure, ou dans un autre abonnement mais au sein du même répertoire Azure Active Directory, utilisez la procédure décrite dans la [solution de journal d’activité Azure](collect-activity-logs.md) pour collecter les journaux d’activité Azure.
 
@@ -128,7 +128,7 @@ Pour obtenir le nom et la chaîne de connexion de l’Event Hub, procédez comme
 
    |Paramètre | Description  |
    |:---|:---|
-   | NOM           | Nom unique de l’application logique. |
+   | Nom           | Nom unique de l’application logique. |
    | Abonnement   | Sélectionnez l’abonnement Azure qui contiendra l’application logique. |
    | Groupe de ressources | Sélectionnez un groupe de ressources Azure existant ou créez-en un pour l’application logique. |
    | Lieu       | Sélectionnez la région du centre de données où déployer votre application logique. |

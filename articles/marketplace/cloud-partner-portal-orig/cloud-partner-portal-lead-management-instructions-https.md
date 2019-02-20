@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0d14b2eeb90bd360b71b315d7b4f4459f17f5672
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073761"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964251"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuration de la gestion des prospects à l’aide d’un point de terminaison HTTPS
 
@@ -65,7 +65,7 @@ Vous pouvez utiliser un point de terminaison HTTPS pour gérer les prospects Pla
 
     ![Sélection de prospects](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Flow affiche un formulaire dans lequel fournir des informations sur les prospects. Vous pouvez mapper des éléments de la demande d’entrée en choisissant d’ajouter du contenu dynamique. La capture d’écran suivante présente **LeadTitle** comme exemple.
+4. Flow affiche un formulaire dans lequel fournir des informations sur les prospects. Vous pouvez mapper des éléments de la demande d’entrée en choisissant d’ajouter du contenu dynamique. La capture d’écran suivante présente **OfferTitle** comme exemple.
 
     ![Ajout de contenu dynamique](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Dossier | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Dossier | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dossier.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 932a832d4717a788f2d9adfd98ce1ba0c4ca07a1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dd69616fa544c1d13e14eb8eebb92adb6350d9e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507510"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217528"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutoriel : Intégration d’Azure Active Directory à Dossier
+# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutoriel : Intégration d’Azure Active Directory à Dossier
 
 Dans ce tutoriel, vous allez apprendre à intégrer Dossier à Azure Active Directory (Azure AD).
 
@@ -31,7 +32,7 @@ L’intégration de Dossier à Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Dossier (à l’aide de l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -176,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-dossier-test-user"></a>Créer un utilisateur de test Dossier
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Dossier. Collaborez avec l’[équipe du support technique Dossier](mailto:support@intellimedia.ca) pour ajouter des utilisateurs à la plateforme Dossier. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Dossier. Collaborez avec l’ [équipe du support technique Dossier](mailto:support@intellimedia.ca)  pour ajouter des utilisateurs à la plateforme Dossier. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

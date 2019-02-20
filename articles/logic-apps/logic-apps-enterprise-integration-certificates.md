@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140269"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244927"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Sécuriser les messages B2B à l’aide de certificats
 
@@ -30,6 +30,8 @@ Vous pouvez utiliser ces certificats dans vos applications Enterprise Integratio
 * [Certificats publics](https://en.wikipedia.org/wiki/Public_key_certificate), que vous devez acheter auprès d’une [autorité de certification (AC)](https://en.wikipedia.org/wiki/Certificate_authority), mais qui ne nécessite pas de clé. 
 
 * Certificats privés ou [*certificats auto-signés*](https://en.wikipedia.org/wiki/Self-signed_certificate), que vous créez et émettez vous-même, mais qui nécessitent aussi des clés privées. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upload-a-public-certificate"></a>Téléchargement d’un certificat public
 
@@ -47,7 +49,7 @@ Pour utiliser un *certificat public* dans vos applications logiques avec fonctio
 
    | Propriété | Valeur | Description | 
    |----------|-------|-------------|
-   | **Name** | <*certificate-name*> | Le nom de votre certificat, « publicCert » dans cet exemple | 
+   | **Nom** | <*certificate-name*> | Le nom de votre certificat, « publicCert » dans cet exemple | 
    | **Type de certificat** | Public | Le type de votre certificat |
    | **Certificate** | <*certificate-file-name*> | Pour trouver et sélectionner le fichier de certificat que vous souhaitez télécharger, cliquez sur l’icône de dossier en regard de la case **Certificat**. |
    ||||
@@ -67,11 +69,11 @@ Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-e
 > [!NOTE]
 > Pour les certificats privés, n’oubliez pas d’ajouter un certificat public correspondant qui apparaît dans les paramètres **Envoyer et Recevoir** du [contrat AS2](logic-apps-enterprise-integration-as2.md) pour la signature et le chiffrement des messages.
 
-1. [Ajoutez votre clé privée dans Azure Key Vault](../key-vault/key-vault-get-started.md#add) et indiquez un **nom de clé**.
+1. [Ajoutez votre clé privée dans Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) et indiquez un **nom de clé**.
    
-2. Vous devez autoriser Azure Logic Apps à effectuer des opérations sur Azure Key Vault. Pour accorder l’accès au principal du service Logic Apps, utilisez la commande PowerShell, [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), par exemple :
+2. Vous devez autoriser Azure Logic Apps à effectuer des opérations sur Azure Key Vault. Pour accorder l’accès au principal de service Logic Apps, utilisez la commande PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), par exemple :
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu principal Azure, sélectionnez **Toutes les ressources**. Dans la zone de recherche, saisissez le nom de votre compte d’intégration, puis sélectionnez le compte d’intégration de votre choix.
@@ -86,7 +88,7 @@ Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-e
 
    | Propriété | Valeur | Description | 
    |----------|-------|-------------|
-   | **Name** | <*certificate-name*> | Le nom de votre certificat, « privateCert » dans cet exemple | 
+   | **Nom** | <*certificate-name*> | Le nom de votre certificat, « privateCert » dans cet exemple | 
    | **Type de certificat** | Privé | Le type de votre certificat |
    | **Certificate** | <*certificate-file-name*> | Pour trouver et sélectionner le fichier de certificat que vous souhaitez télécharger, cliquez sur l’icône de dossier en regard de la case **Certificat**. | 
    | **Groupe de ressources** | <*integration-account-resource-group*> | Le groupe de ressources de votre compte d’intégration, « MyResourceGroup » dans cet exemple | 

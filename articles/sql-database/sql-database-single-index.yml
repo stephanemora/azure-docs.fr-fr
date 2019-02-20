@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3a404c9f7abae979a4f4d54c6ff502a33edc9b7f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6dfa2cf9d5d7a4fb10c04207341915aebbf1808e
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814399"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235459"
 documentType: LandingData
 title: 'Azure SQL Database : Base de données unique'
 metadata:
@@ -16,6 +16,7 @@ metadata:
   manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
+  ms.subservice: single-database
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
@@ -80,6 +81,7 @@ sections:
     - html: (Préversion) Nouvelles fonctionnalités de <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">traitement intelligent des requêtes</a> SQL Server 2019, notamment une <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">compilation différée des variables de table</a>, un <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">mode batch sur les tables rowstore</a> et une <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json">incorporation de la fonction scalaire définie par l'utilisateur</a>.
     - html: (Préversion) Nouvelles fonctionnalités de langage Transact-SQL, notamment <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">l’agrégat APPROX_COUNT_DISTINCT</a> et l’<a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">importation en bloc à partir d’Azure Blob Storage</a>.
     - html: (Préversion) Nouvelle <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">build</a> SQL Server 2019 Online et reconstruction des opérations d’index columstore en cluster.
+    - html: (Préversion) Nouveaux <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Machine Learning Services (avec R) dans Azure SQL Database</a>.
 - title: Démarrages rapides en cinq minutes
   items:
   - type: paragraph

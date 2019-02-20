@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181892"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112494"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Résoudre les problèmes de configuration de mise en réseau non valide pour votre domaine géré
 Cet article vous aide à dépanner et résoudre les erreurs liées à la configuration réseau qui produisent le message d’alerte suivant :
@@ -36,7 +36,7 @@ Les configurations de groupe de sécurité réseau non valides sont la cause la 
 2. À partir de la table, choisissez le groupe de sécurité réseau associé au sous-réseau dans lequel votre domaine géré est activé.
 3. Sous **Paramètres** dans le panneau gauche, cliquez sur **Règles de sécurité entrantes**
 4. Passez en revue les règles en place et identifiez celles qui bloquent l’accès à [ces ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
-5. Modifiez le groupe de sécurité réseau pour assurer la conformité en supprimant la règle, en ajoutant une règle ou en créant entièrement un nouveau groupe de sécurité réseau. Les étapes pour [ajouter une règle](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou [créer un groupe de sécurité réseau conforme](#create-a-nsg-for-azure-ad-domain-services-using-powershell) sont présentées ci-dessous.
+5. Modifiez le groupe de sécurité réseau pour assurer la conformité en supprimant la règle, en ajoutant une règle ou en créant entièrement un nouveau groupe de sécurité réseau. Les étapes pour [ajouter une règle](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou créer un groupe de sécurité réseau conforme sont présentées ci-dessous
 
 ## <a name="sample-nsg"></a>Exemple de groupe de sécurité réseau
 Le tableau suivant illustre un exemple de groupe de sécurité réseau qui sécuriserait votre domaine géré tout en permettant à Microsoft de surveiller, gérer et mettre à jour ses informations.

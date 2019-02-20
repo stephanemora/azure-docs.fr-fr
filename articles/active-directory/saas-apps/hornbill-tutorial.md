@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Hornbill | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Hornbill | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hornbill.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 30fdb55758d5fbac41452236ebaa9f96ab9bba6b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f23a1520175827f775553e1ba949c62567cf83
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163623"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201922"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Didacticiel : Intégration d’Azure Active Directory à Hornbill
+# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Didacticiel : Intégration d’Azure Active Directory à Hornbill
 
 Dans ce didacticiel, vous allez apprendre à intégrer Hornbill à Azure Active Directory (Azure AD).
 
@@ -195,7 +196,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Hornbill. Hornbill prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, l’utilisateur est créé lors de la tentative d’accès à Hornbill.
 
 > [!Note]
-> Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique du client Hornbill](https://www.hornbill.com/support/?request/).
+> Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique du client Hornbill](https://www.hornbill.com/support/?request/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

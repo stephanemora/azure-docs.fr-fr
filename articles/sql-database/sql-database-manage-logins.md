@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754011"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164615"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 
@@ -37,11 +37,14 @@ Il existe deux comptes d’administration (**Administrateur de serveur** et **Ad
 
 - **Administrateur de serveur**
 
-Lorsque vous créez un serveur SQL Azure, vous devez désigner une **connexion d’administrateur de serveur**. Le serveur SQL crée ce compte comme une connexion dans la base de données MASTER. Ce compte se connecte à l’aide de l’authentification SQL Server (nom d’utilisateur et mot de passe). Un seul de ces comptes peut exister.   
+  Lorsque vous créez un serveur SQL Azure, vous devez désigner une **connexion d’administrateur de serveur**. Le serveur SQL crée ce compte comme une connexion dans la base de données MASTER. Ce compte se connecte à l’aide de l’authentification SQL Server (nom d’utilisateur et mot de passe). Un seul de ces comptes peut exister.
 
-- **Administrateur Azure Active Directory**   
+  > [!NOTE]
+  > Pour réinitialiser le mot de passe pour l’administrateur du serveur, accédez au [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, sélectionnez le serveur dans la liste, puis cliquez sur **Réinitialiser le mot de passe**.
 
-Un compte Azure Active Directory individuel ou de groupe de sécurité peut également être configuré en tant qu’administrateur. La configuration d’un administrateur Azure AD est facultative, mais un administrateur Azure AD **doit** être configuré si vous voulez utiliser les comptes Azure AD pour vous connecter à SQL Database. Pour plus d’informations sur la configuration de l’accès à Azure Active Directory, voir [Connexion à SQL Database ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) et [Prise en charge de SSMS pour Azure AD MFA avec SQL Database et SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+- **Administrateur Azure Active Directory**
+
+  Un compte Azure Active Directory individuel ou de groupe de sécurité peut également être configuré en tant qu’administrateur. La configuration d’un administrateur Azure AD est facultative, mais un administrateur Azure AD **doit** être configuré si vous voulez utiliser les comptes Azure AD pour vous connecter à SQL Database. Pour plus d’informations sur la configuration de l’accès à Azure Active Directory, voir [Connexion à SQL Database ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) et [Prise en charge de SSMS pour Azure AD MFA avec SQL Database et SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 Les comptes d’**administrateur de serveur** et d’**administrateur Azure AD** présentent les caractéristiques suivantes :
 
@@ -72,7 +75,6 @@ Pour savoir comment créer un serveur, une base de données, des règles de pare
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-
 ## <a name="additional-server-level-administrative-roles"></a>Rôles d’administration au niveau du serveur supplémentaires
 
 >[!IMPORTANT]
@@ -85,7 +87,7 @@ Outre les rôles d’administration au niveau du serveur abordés précédemment
 L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres de ce rôle peuvent créer des bases de données. Pour l’utiliser, vous créez un utilisateur dans la base de données `master`, puis vous ajoutez l’utilisateur au rôle de base de données **dbmanager**. Pour créer une base de données, l’utilisateur doit être un utilisateur basé sur une connexion SQL Server dans la base de données master, ou un utilisateur de base de données autonome basé sur un utilisateur Azure Active Directory.
 
 1. À l’aide d’un compte d’administrateur, connectez-vous à la base de données MASTER.
-2. Étape facultative : créer une connexion d’authentification SQL Server à l’aide de l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemple d’instruction :
+2. créer une connexion d’authentification SQL Server à l’aide de l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemple d’instruction :
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';

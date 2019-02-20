@@ -4,17 +4,17 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698290"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237415"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -90,8 +90,20 @@ Les paramètres fonctionnent de manière identique durant la création de strat�
 > [!NOTE]
 > Des paramètres peuvent être ajoutés à une définition existante et attribuée. Le nouveau paramètre doit inclure la propriété **defaultValue**. Cela empêche les affectations de stratégie ou d’initiative déjà existantes d’être indirectement invalidées.
 
-Par exemple, vous pouvez définir une stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées.
-Vous déclarez les paramètres suivants quand vous créez votre stratégie :
+### <a name="parameter-properties"></a>Propriétés du paramètre
+
+Un paramètre possède les propriétés suivantes qui sont utilisées dans la définition de la stratégie :
+
+- **nom** : Nom de votre paramètre. Utilisé par la fonction de déploiement `parameters` dans le cadre de la règle de stratégie. Pour plus d’informations, consultez [Utilisation d’une valeur de paramètre](#using-a-parameter-value).
+- `type`: Détermine si le paramètre est une **chaîne** ou un **tableau**.
+- `metadata`: Définit les sous-propriétés utilisées principalement par le portail Azure pour afficher des informations conviviales :
+  - `description`: Explication du rôle du paramètre. Utilisable pour fournir des exemples de valeurs acceptables.
+  - `displayName`: Nom convivial du paramètre visible dans le portail.
+  - `strongType`: (Facultatif) Utilisé lors de l’affectation de la définition de stratégie via le portail. Fournit une liste prenant en compte le contexte. Pour plus d’informations, voir [strongType](#strongtype).
+- `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie. Obligatoire lors de la mise à jour d’une définition de stratégie existante qui est affectée.
+- `allowedValues`: (Facultatif) Fournit la liste des valeurs que le paramètre accepte pendant l’affectation.
+
+Par exemple, vous pouvez définir une définition de stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées. Le paramètre **allowedLocations** pourrait s’appliquer à cette définition de stratégie. Ce paramètre serait utilisé par chaque affectation de la définition de la stratégie pour limiter les valeurs acceptées. L’utilisation de **strongType** permet d’améliorer l’expérience lors de l’affectation via le portail :
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Vous déclarez les paramètres suivants quand vous créez votre stratégie :
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-Le type d’un paramètre peut être une chaîne ou un tableau. La propriété de métadonnées est utilisée pour des outils comme le portail Azure pour afficher des informations conviviales.
-
-Dans la propriété de métadonnées, vous pouvez utiliser **strongType** pour fournir une liste à choix multiple des options dans le portail Azure. Les valeurs autorisées pour **strongType** incluent actuellement :
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>Utiliser une valeur de paramètre
 
 Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe suivante de valeur de déploiement `parameters` :
 
@@ -126,6 +134,19 @@ Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe 
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+Cet exemple fait référence au paramètre **allowedLocations** autorisé qui a été démontré dans les [propriétés du paramètre](#parameter-properties).
+
+### <a name="strongtype"></a>strongType
+
+Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste à choix multiple des options dans le portail Azure. Les valeurs autorisées pour **strongType** incluent actuellement :
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>Emplacement de la définition
 
@@ -187,7 +208,7 @@ Vous pouvez imbriquer des opérateurs logiques. L’exemple suivant illustre une
 
 ### <a name="conditions"></a>Conditions
 
-Une condition évalue si un champ (**field**) répond à certains critères. Les conditions prises en charge sont les suivantes :
+Une condition évalue si un **champ** ou un accesseur de **valeur** répond à certains critères. Les conditions prises en charge sont les suivantes :
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -231,7 +252,53 @@ Les champs suivants sont pris en charge :
   - Cette syntaxe entre crochets accepte les noms d’étiquette comportant des points.
   - Où **\<tagName\>** est le nom de l’étiquette pour laquelle vérifier la condition.
   - Exemple : `tags[Acct.CostCenter]` où **Acct.CostCenter** est le nom de l’étiquette.
+
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
+
+### <a name="value"></a>Valeur
+
+Les conditions peuvent également être formées à l’aide de **valeur**. **valeur** vérifie les conditions selon les [paramètres](#parameters), les [fonctions de modèle supportées](#policy-functions) ou des littéraux.
+**valeur** est associée à n’importe quelle [condition](#conditions) prise en charge.
+
+#### <a name="value-examples"></a>Exemples de valeur
+
+Cet exemple de règle de stratégie utilise **valeur** pour comparer le résultat de la fonction `resourceGroup()` et la propriété **nom** renvoyée à une condition **like** de `*netrg`. La règle refuse toute ressource qui n’est pas du `Microsoft.Network/*` **type** dans tout groupe de ressources dont le nom se termine par `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Cet exemple de règle de stratégie utilise **valeur** pour vérifier si le résultat de plusieurs fonctions imbriquées **est égal à** `true`. La règle refuse toute ressource qui n’a pas au moins trois balises.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>Résultat
 
@@ -274,12 +341,15 @@ Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les prop
 
 ### <a name="policy-functions"></a>Fonctions de stratégie
 
-Plusieurs [fonctions du modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) peuvent être utilisées dans une règle de stratégie. Les fonctions prises en charge sont les suivantes :
+A l’exception des fonctions de déploiement et de ressources suivantes, toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) sont utilisables dans le cadre d’une règle de stratégie :
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [abonnement](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 

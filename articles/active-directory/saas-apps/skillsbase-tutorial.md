@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8bc0353453cf5fe689eec398f6a7d73fb356b178
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205372"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190838"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutoriel : Intégration d’Azure Active Directory à Skills Base
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutoriel : Intégration d'Azure Active Directory à Skills Base
 
 L’objectif de ce tutoriel est de vous apprendre à intégrer Skills Base à Azure Active Directory (Azure AD).
 

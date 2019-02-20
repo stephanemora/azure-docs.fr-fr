@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ec099e0f210fc267a0a34f76136a517e0ae6ccc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744515"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234539"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Résoudre les problèmes liés aux Runbooks Workers hybrides
 
@@ -187,6 +187,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>Scénario : Vous ne pouvez pas ajouter un Runbook Worker hybride
+
+#### <a name="issue"></a>Problème
+
+Le message suivant s’affiche lorsque vous tentez d’ajouter un Runbook Worker hybride à l’aide de la cmdlet `Add-HybridRunbookWorker`.
+
+```
+Machine is already registered to a different account
+```
+
+#### <a name="cause"></a>Cause :
+
+L’ordinateur est peut-être déjà inscrit avec un autre compte Automation ou vous essayez peut-être de rajouter un Runbook Worker hybride après l’avoir supprimé d’un ordinateur.
+
+#### <a name="resolution"></a>Résolution :
+
+Pour résoudre ce problème, supprimez la clé de Registre suivante et réessayez la cmdlet `Add-HybridRunbookWorker` :
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

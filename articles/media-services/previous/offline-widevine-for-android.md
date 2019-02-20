@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786048"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002083"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android
+# <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android  
 
 Outre la protection de contenu pour la diffusion en continu en ligne, les services d’abonnement et de location du contenu multimédia offrent un contenu téléchargeable qui fonctionne lorsque vous n’êtes pas connecté à internet. Vous devrez peut-être télécharger le contenu sur votre téléphone ou tablette pour une lecture en mode avion, lorsque vous êtes en vol et déconnecté du réseau. Scénarios supplémentaires, dans lesquels vous pouvez souhaiter télécharger du contenu :
 
@@ -45,7 +45,7 @@ Avant de mettre en œuvre la DRM hors connexion pour Widevine sur des appareils 
 
 - Vous familiariser avec les concepts présentés pour la protection du contenu en ligne à l’aide de la DRM de Widevine. Vous trouverez toutes les informations nécessaires dans les documents/exemples suivants :
     - [Utiliser Azure Media Services pour fournir des licences DRM ou des clés AES](media-services-deliver-keys-and-licenses.md)
-    - [CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+    - [CENC avec multi-DRM et Access Control : conception et implémentation de référence sur Azure et Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
     - [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine avec .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/)
     - [Utiliser Azure Media Services pour fournir des licences PlayReady et/ou Widevine avec .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/)
 - Vous familiariser avec le kit de développement logiciel (SDK) Google ExoPlayer pour Android, un kit de développement logiciel (SDK) de lecteur vidéo open source capable de prendre en charge la lecture de la DRM de Widevine hors connexion. 
@@ -149,8 +149,8 @@ Si vous mettez à niveau votre navigateur Chrome mobile sur la v62 (ou version u
 
 L’application PWA open source ci-dessus a été créée dans Node.js. Si vous souhaitez héberger votre propre version sur un serveur Ubuntu, tenez compte des problèmes fréquemment rencontrés suivants qui peuvent empêcher la lecture :
 
-1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : https://biograf-155113.appspot.com (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, le message d’erreur HTTP suivant s’affiche : impossible de charger https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: aucun en-tête « Access-Control-Allow-Origin » n’est présent sur la ressource demandée. L’accès à « https://13.85.80.81:8080 » d’origine n’est donc pas autorisé. Si une réponse opaque répond à vos besoins, définissez le mode de la requête sur « no-cors » pour extraire la ressource avec CORS désactivé.
-2. Problème de certificat : à partir de Chrome v 58, EME pour Widevine nécessite HTTPS. Par conséquent, vous devez héberger l’exemple d’application via le protocole HTTPS avec un certificat X509. Un certificat de test habituel ne fonctionne pas en raison des exigences suivantes : vous devez obtenir un certificat répondant aux exigences minimales suivantes :
+1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : https://biograf-155113.appspot.com (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l’erreur HTTP suivante : Impossible de charger https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: Aucun en-tête « Access-Control-Allow-Origin » n’est présent sur la ressource demandée. L’accès à « https://13.85.80.81:8080 » d’origine n’est donc pas autorisé. Si une réponse opaque répond à vos besoins, définissez le mode de la requête sur « no-cors » pour extraire la ressource avec CORS désactivé.
+2. Problème de certificat : À partir de Chrome v58, EME pour Widevine nécessite HTTPS. Par conséquent, vous devez héberger l’exemple d’application via le protocole HTTPS avec un certificat X509. Les certificats de test habituels ne fonctionnent pas en raison des exigences suivantes : Vous devez obtenir un certificat répondant aux exigences minimales suivantes :
     - Chrome et Firefox exige que le paramètre Nom alternatif de l’objet SAN existe dans le certificat
     - Le certificat doit avoir une certification approuvée et un certificat auto-signé de développement ne fonctionne pas
     - Le certificat doit avoir un CN correspondant au nom DNS de la passerelle ou du serveur web
@@ -180,7 +180,7 @@ Pour les niveaux de sécurité Widevine dans la documentation [doc Vue d’ensem
 Dans la [Vue d’ensemble de l’architecture DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) de Google, il définit les trois niveaux de sécurité suivants :
 
 1.  Niveau de sécurité 1 : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de la sécurité peut être effectué dans différentes puces.
-2.  Niveau de sécurité 2 : effectue le chiffrement (mais pas le traitement vidéo) dans l’environnement TEE : les mémoires tampons déchiffrées sont renvoyées au domaine d’application et traitées par le biais d’un matériel ou d’un logiciel vidéo distinct. Au niveau 2, toutefois, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.
+2.  Niveau de sécurité 2 : effectue le chiffrement (mais pas le traitement vidéo) dans l’environnement TEE : les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par le biais d’un matériel ou d’un logiciel vidéo distinct. Au niveau 2, toutefois, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.
 3.  Le niveau de sécurité 3 n’a pas d’environnement TEE sur l’appareil. Les mesures appropriées peuvent être prises pour protéger les informations de chiffrement et le contenu déchiffré sur le système d’exploitation hôte. Une mise en œuvre de niveau 3 peut également inclure un moteur de chiffrement matériel, mais qui améliore seulement la performance, pas la sécurité.
 
 Dans le même temps, dans [Documentation Azure Media Services sur le modèle de licence Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), la propriété security_level de content_key_specs peut avoir les cinq différentes valeurs suivantes (exigences de robustesse client pour la lecture) :
@@ -195,9 +195,9 @@ Les deux niveaux de sécurité sont définis par Google Widevine. La différence
 
 | **Niveaux de sécurité définis dans l’architecture de Widevine** |**Niveaux de sécurité utilisés dans l’API de Widevine**|
 |---|---| 
-| **Niveau de sécurité 1** : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de la sécurité peut être effectué dans différentes puces.|**security_level=5** : le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement TEE soutenu par le matériel.<br/><br/>**security_level=4** : le chiffrement et le décodage du contenu doivent être effectués dans un environnement TEE soutenu par le matériel.|
-**Niveau de sécurité 2** : effectue le chiffrement (mais pas le traitement vidéo) dans l’environnement TEE : les mémoires tampons déchiffrées sont renvoyées au domaine d’application et traitées par le biais d’un matériel ou d’un logiciel vidéo distinct. Au niveau 2, toutefois, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.| **security_level=3** : les opérations de matériel clé et de chiffrement doivent être effectués dans un environnement TEE soutenu par le matériel. |
-| **Niveau de sécurité 3** : n’a pas d’environnement TEE sur l’appareil. Les mesures appropriées peuvent être prises pour protéger les informations de chiffrement et le contenu déchiffré sur le système d’exploitation hôte. Une mise en œuvre de niveau 3 peut également inclure un moteur de chiffrement matériel, mais qui améliore seulement la performance, pas la sécurité. | **security_level=2** : le chiffrement logiciel et un décodeur masqué sont requis.<br/><br/>**security_level=1** : le chiffrement whitebox basé sur le logiciel est requis.|
+| **Niveau de sécurité 1** : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de la sécurité peut être effectué dans différentes puces.|**security_level=5** : Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement TEE soutenu par le matériel.<br/><br/>**security_level=4** : Le chiffrement et le décodage du contenu doivent être effectués dans un environnement TEE soutenu par le matériel.|
+**Niveau de sécurité 2** : effectue le chiffrement (mais pas le traitement vidéo) dans l’environnement TEE : les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par le biais d’un matériel ou d’un logiciel vidéo distinct. Au niveau 2, toutefois, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.| **security_level=3** : Les opérations de matériel clé et de chiffrement doivent être effectuées dans un environnement TEE soutenu par le matériel. |
+| **Niveau de sécurité 3** : l’environnement TEE ne se trouve pas sur l’appareil. Les mesures appropriées peuvent être prises pour protéger les informations de chiffrement et le contenu déchiffré sur le système d’exploitation hôte. Une mise en œuvre de niveau 3 peut également inclure un moteur de chiffrement matériel, mais qui améliore seulement la performance, pas la sécurité. | **security_level=2** : Le chiffrement logiciel et un décodeur masqué sont requis.<br/><br/>**security_level=1** : Le chiffrement whitebox basé sur le logiciel est requis.|
 
 ### <a name="question"></a>Question
 

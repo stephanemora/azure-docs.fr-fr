@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247644"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172397"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack
 
 Les opérateurs Azure Stack peuvent augmenter la capacité globale d’une unité d’échelle existante en ajoutant un nouveau calculateur physique. Le calculateur physique s’appelle aussi un nœud d’unité d’échelle. Chaque nouveau nœud d’unité d’échelle que vous ajoutez doit être homogène en termes de type de CPU, de mémoire, de numéro de disque et de taille avec les nœuds déjà présents dans l’unité d’échelle.
-
-> [!NOTE]  
-Pour ajouter de nouveaux nœuds d’unités d’échelle, vous devez exécuter Azure Stack 1807 ou une version ultérieure.
 
 Pour ajouter un nœud d’unité d’échelle, vous devez intervenir dans Azure Stack et exécuter les outils de votre fabricant OEM. Les outils du fabricant OEM s’exécutent sur l’hôte du cycle de vie matériel (HLH) pour s’assurer que le nouveau calculateur physique correspond au même niveau de microprogramme que les nœuds existants.
 

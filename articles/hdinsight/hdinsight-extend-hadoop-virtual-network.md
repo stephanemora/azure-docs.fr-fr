@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821573"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169970"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -253,11 +253,11 @@ Le tunneling forcé est une configuration d’itinéraire défini par l’utilis
 >
 > Si vous n’utilisez pas de groupes de sécurité réseau ou d’itinéraires définis par l’utilisateur pour contrôler le trafic, vous pouvez ignorer cette section.
 
-Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur, vous devez autoriser le trafic provenant des services de gestion et d’intégrité Azure à se diriger vers HDInsight. Vous devez également autoriser le trafic entre les machines virtuelles à l’intérieur du sous-réseau. Pour trouver les adresses IP qui doivent être autorisées, effectuez les opérations suivantes :
+Si vous utilisez des groupes de sécurité réseau, vous devez autoriser le trafic provenant des services de gestion et d’intégrité Azure à se diriger vers les clusters HDInsight sur le port 443. Vous devez également autoriser le trafic entre les machines virtuelles à l’intérieur du sous-réseau. Pour trouver les adresses IP qui doivent être autorisées, effectuez les opérations suivantes :
 
 1. Vous devez toujours autoriser le trafic à partir des adresses IP suivantes :
 
-    | Adresse IP | Port autorisé | Direction |
+    | Adresse IP source | Port de destination | Direction |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Trafic entrant |
     | 23.99.5.239 | 443 | Trafic entrant |
@@ -269,7 +269,7 @@ Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis 
     > [!IMPORTANT]  
     > Si la région Azure que vous utilisez n’est pas répertoriée, utilisez uniquement les quatre adresses IP de l’étape 1.
 
-    | Pays | Région | Adresses IP autorisées | Port autorisé | Direction |
+    | Pays | Région | Adresses IP sources autorisées | Port de destination autorisé | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Asie | Asie Est | 23.102.235.122</br>52.175.38.134 | 443 | Trafic entrant |
     | &nbsp; | Asie Sud-Est | 13.76.245.160</br>13.76.136.249 | 443 | Trafic entrant |
@@ -306,15 +306,13 @@ Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis 
 
 Pour plus d’informations, voir la section [Contrôler le trafic réseau](#networktraffic).
 
+Pour les règles de groupe de sécurité réseau sortantes, autorisez le trafic de n’importe quelle source interne au réseau virtuel à atteindre les adresses ci-dessus en tant qu’« Adresses IP de destination ».
+
+Si vous utilisez des itinéraires définis par l’utilisateur, vous devez spécifier un itinéraire et autoriser le trafic sortant du réseau virtuel vers les adresses IP ci-dessus avec le tronçon suivant défini sur « Internet ».
+    
 ## <a id="hdinsight-ports"></a> Ports requis
 
-Si vous prévoyez d’utiliser un **pare-feu** pour sécuriser le réseau virtuel et accéder au cluster sur certains ports, vous devez autoriser le trafic sur les ports appropriés pour votre scénario. Par défaut, vous n’avez pas besoin d’autoriser ces ports :
-
-* 53
-* 443
-* 1433
-* 11000-11999
-* 14000-14999
+Si vous prévoyez d’utiliser un **pare-feu** et d’accéder au cluster depuis l’extérieur sur certains ports, vous devez autoriser le trafic sur ces ports nécessaires à votre scénario. Par défaut, aucune liste verte spéciale de ports n’est nécessaire tant que le trafic de gestion azure expliqué dans la section précédente est autorisé à atteindre le cluster sur le port 443.
 
 Pour obtenir la liste des ports utilisés pour des services spécifiques, voir le document [Ports utilisés par les services Apache Hadoop sur HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 

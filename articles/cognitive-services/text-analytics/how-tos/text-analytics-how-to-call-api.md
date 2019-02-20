@@ -3,19 +3,19 @@ title: Appeler l’API Text Analytics
 titlesuffix: Azure Cognitive Services
 description: Découvrez comment appeler l’API REST Analyse de texte.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 579040c3a1466d431a9ae2105edbf02fa41570b6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211585"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244026"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -30,9 +30,7 @@ Rappelez-vous qu’Analyse de texte étant sans état, il y a pas de ressources 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API Analyse de texte**. 
-
-Vous devez avoir la [clé du point de terminaison et la clé d’accès](text-analytics-how-to-access-key.md) générées lorsque vous vous inscrivez à Cognitive Services. 
+Vous devez avoir un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’API Analyse de texte, ainsi que la [clé du point de terminaison et la clé d’accès](text-analytics-how-to-access-key.md) générées lorsque vous vous inscrivez à Cognitive Services. 
 
 <a name="json-schema"></a>
 
