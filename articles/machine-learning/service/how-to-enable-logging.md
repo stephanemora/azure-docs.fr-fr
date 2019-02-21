@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/11/2019
-ms.openlocfilehash: bff0feab7ce062c9e2515fa038d249838a809591
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/20/2019
+ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101360"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447529"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Activer la journalisation dans Azure Machine Learning service
 
@@ -112,7 +112,7 @@ logs = service.get_logs()
 Vous pouvez également consigner les appels de procédure personnalisés de votre service web en activant Application Insights, qui permet d’effectuer le monitoring des temps de requête/réponse, des taux de défaillance et des exceptions. Appelez la fonction `update()` sur un service web existant pour activer Application Insights.
 
 ```python
-service..update(enable_app_insights=True)
+service.update(enable_app_insights=True)
 ```
 
 Pour plus d’informations sur l’utilisation d’Application Insights sur le Portail Azure., voir le [guide pratique](how-to-enable-app-insights.md#enable-and-disable-in-the-portal).
