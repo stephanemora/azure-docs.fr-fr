@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ca8066caf77852c3ec1a8bd7cb534e8d74704bf2
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295166"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447274"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -22,6 +22,8 @@ En plus de l’audit et de la [correction](../how-to/remediate-resources.md) des
 
 > [!IMPORTANT]
 > Actuellement, seules les stratégies **intégrées** sont prises en charge avec la configuration d’invité.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="extension-and-client"></a>Extension et client
 
@@ -77,7 +79,7 @@ Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la ma
 
 Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
 
-|Publisher|NOM|Versions|
+|Publisher|Nom|Versions|
 |-|-|-|
 |Canonical|Serveur Ubuntu|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|

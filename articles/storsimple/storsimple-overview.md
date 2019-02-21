@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038213"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326923"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple série 8000 : une solution de stockage de cloud hybride
 ## <a name="overview"></a>Vue d’ensemble
@@ -29,7 +29,7 @@ StorSimple utilise la [hiérarchisation du stockage](#automatic-storage-tiering)
 
 Outre la gestion du stockage, les fonctionnalités de protection des données StorSimple permettent de créer des sauvegardes à la demande et planifiées, puis de les stocker localement ou dans le cloud. Les sauvegardes sont effectuées sous la forme d’instantanés incrémentiels, ce qui signifie qu’elles peuvent être créés et restaurés rapidement. Les instantanés cloud peuvent être d’une importance critique dans les scénarios de récupération d’urgence, car ils remplacent les systèmes de stockage secondaire (comme la sauvegarde sur bande) et vous permettent de restaurer des données sur votre centre de données ou sur d’autres sites si nécessaire.
 
-![icône de vidéo](./media/storsimple-overview/video_icon.png) Regardez la vidéo de présentation générale de Microsoft Azure StorSimple.
+![icône de vidéo](./media/storsimple-overview/video_icon.png)  Regardez la vidéo de présentation générale de Microsoft Azure StorSimple.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
@@ -92,7 +92,7 @@ L’appliance cloud présente les caractéristiques suivantes :
 * Vous pouvez créer un nombre illimité d’appliances cloud dans le cloud, et les activer/désactiver selon vos besoins.
 * Il peut aider à simuler les environnements locaux dans les scénarios de test et de développement ou de récupération d’urgence, tout en facilitant la récupération au niveau des éléments à partir de sauvegardes.
 
-StorSimple Cloud Appliance est disponible en deux modèles : l’appareil 8010 (anciennement modèle 1100) et l’appareil 8020. L’appareil 8010 possède une capacité maximale de 30 To. L’appareil 8020, qui tire parti d’Azure Premium Storage, possède une capacité maximale de 64 To. (Dans des niveaux locaux, Azure Premium Storage stocke les données sur des disques SSD, alors que les données sont stockées sur des disques durs avec un stockage standard.) Notez que vous devez disposer d'un compte Azure Premium Storage pour utiliser le stockage premium. Pour plus d’informations sur le stockage premium, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../virtual-machines/windows/premium-storage.md).
+StorSimple Cloud Appliance est disponible en deux modèles : l’appareil 8010 (anciennement modèle 1100) et l’appareil 8020. L’appareil 8010 possède une capacité maximale de 30 To. L’appareil 8020, qui tire parti d’Azure Premium Storage, possède une capacité maximale de 64 To. (Dans des niveaux locaux, Azure Premium Storage stocke les données sur des disques SSD, alors que les données sont stockées sur des disques durs avec un stockage standard.) Notez que vous devez disposer d'un compte Azure Premium Storage pour utiliser le stockage premium.
 
 Pour plus d’informations sur StorSimple Cloud Appliance, consultez la page [Déployer et gérer une appliance cloud StorSimple dans Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -207,10 +207,10 @@ Voici un tableau résumant les charges de travail StorSimple prises en charge.
 
 | Scénario | Charge de travail | Pris en charge | Restrictions | Version |
 | --- | --- | --- | --- | --- |
-| Collaboration |Partage de fichiers |Oui | |Toutes les versions |
-| Collaboration |Partage de fichiers distribués |Oui | |Toutes les versions |
+| Collaboration |Partage de fichiers |OUI | |Toutes les versions |
+| Collaboration |Partage de fichiers distribués |OUI | |Toutes les versions |
 | Collaboration |SharePoint |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
-| Archivage |Archivage de fichiers simple |Oui | |Toutes les versions |
+| Archivage |Archivage de fichiers simple |OUI | |Toutes les versions |
 | Virtualisation |Machines virtuelles |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
 | Base de données |SQL |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
 | Surveillance vidéo |Surveillance vidéo |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 2 et versions ultérieures |
@@ -234,11 +234,11 @@ Voici une liste des composants d’infrastructure pris en charge par StorSimple.
 
 | Scénario | Charge de travail | Pris en charge | Restrictions | Version |
 | --- | --- | --- | --- | --- |
-| Généralités |ExpressRoute |Oui | |Toutes les versions |
+| Généralités |ExpressRoute |OUI | |Toutes les versions |
 | Généralités |DataCore FC |Oui* |Prise en charge avec DataCore SANsymphony |Toutes les versions |
 | Généralités |DFSR |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Toutes les versions |
 | Généralités |Indexation |Oui* |Pour les volumes hiérarchisés, seule l’indexation des métadonnées est prise en charge (aucune donnée).<br>Pour les volumes épinglés localement, l’indexation complète est prise en charge. |Toutes les versions |
-| Généralités |Protection contre les virus |Oui* |Pour les volumes hiérarchisés, seule l’analyse des ouvertures et des fermetures est prise en charge.<br> Pour les volumes épinglés localement, l’analyse complète est prise en charge. |Toutes les versions |
+| Généralités |Protection contre les virus |Oui* |Pour les volumes hiérarchisés, seule l’analyse des ouvertures et des fermetures est prise en charge.<br>  Pour les volumes épinglés localement, l’analyse complète est prise en charge. |Toutes les versions |
 
 *Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 

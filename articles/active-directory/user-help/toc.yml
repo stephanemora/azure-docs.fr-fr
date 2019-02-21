@@ -23,26 +23,6 @@ items:
     href: active-directory-passwords-reset-register.md
   - name: Réinitialiser votre mot de passe
     href: user-help-reset-password.md
-- name: Aide relative aux informations de sécurité (préversion)
-  items:
-  - name: Vue d’ensemble
-    href: user-help-security-info-overview.md
-  - name: Configurer une application d’authentification
-    href: security-info-setup-auth-app.md
-  - name: Configurer la messagerie texte
-    href: security-info-setup-text-msg.md
-  - name: Configurer les appels téléphoniques
-    href: security-info-setup-phone-number.md
-  - name: Configurer la messagerie
-    href: security-info-setup-email.md
-  - name: Régler les questions de sécurité
-    href: security-info-setup-questions.md
-  - name: Gérer les mots de passe d’application
-    href: security-info-app-passwords.md
-  - name: Gérer vos informations de sécurité
-    href: security-info-manage-settings.md
-  - name: Comment se connecter
-    href: user-help-sign-in.md?toc=./toc.json
 - name: Aide relative à l’application Microsoft Authenticator
   items:
   - name: Vue d’ensemble
@@ -60,21 +40,49 @@ items:
       href: user-help-auth-app-add-non-ms-account.md
     - name: Ajouter manuellement un compte
       href: user-help-auth-app-add-account-manual.md
-    expanded: true
   - name: Se connecter à l’aide de l’application Microsoft Authenticator
     href: user-help-auth-app-sign-in.md
   - name: Sauvegarder et récupérer vos comptes
     href: user-help-auth-app-backup-recovery.md
   - name: Forum Aux Questions
     href: user-help-auth-app-faq.md
-- name: Aide du portail MyApps
+- name: Aide du portail Mon profil (préversion)
   items:
   - name: Vue d’ensemble
-    href: user-help-my-apps-overview.md
-  - name: Qu’est-ce que le portail MyApps ?
-    href: active-directory-saas-access-panel-introduction.md
-  - name: Problèmes de dépannage
-    href: active-directory-saas-access-panel-user-help.md
+    href: myprofile-portal-overview.md
+  - name: Gérer vos informations de sécurité
+    href: user-help-security-info-overview.md
+  - name: Afficher votre activité de connexion
+    href: myprofile-portal-recent-activity-page.md
+  - name: Gérer vos organisations
+    href: myprofile-portal-organizations-page.md
+  - name: Gérer vos appareils connectés
+    href: myprofile-portal-devices-page.md
+  - name: Afficher vos informations de confidentialité
+    href: myprofile-portal-privacy-page.md
+- name: Aide relative aux informations de sécurité (préversion)
+  items:
+  - name: Vue d’ensemble
+    href: user-help-security-info-overview.md
+  - name: Ajouter des informations de sécurité pendant la connexion
+    href: security-info-setup-signin.md
+  - name: Vue d’ensemble des méthodes d’ajout ou de mise à jour des informations de sécurité
+    href: security-info-add-update-methods-overview.md
+    items:
+    - name: Configurer une application d’authentification
+      href: security-info-setup-auth-app.md
+    - name: Configurer la messagerie texte
+      href: security-info-setup-text-msg.md
+    - name: Configurer les appels téléphoniques
+      href: security-info-setup-phone-number.md
+    - name: Configurer la messagerie
+      href: security-info-setup-email.md
+    - name: Régler les questions de sécurité
+      href: security-info-setup-questions.md
+  - name: Gérer les mots de passe d’application
+    href: security-info-app-passwords.md
+  - name: Comment se connecter
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Aide relative à la gestion des appareils
   items:
   - name: Vue d’ensemble
@@ -85,9 +93,17 @@ items:
     href: user-help-register-device-on-network.md
   - name: Résoudre les problèmes liés au message « Vous ne pouvez pas y accéder »
     href: user-help-device-remediation.md
-ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+- name: Aide du portail MyApps
+  items:
+  - name: Vue d’ensemble
+    href: user-help-my-apps-overview.md
+  - name: Qu’est-ce que le portail MyApps ?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Problèmes de dépannage
+    href: active-directory-saas-access-panel-user-help.md
+ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816048"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452572"

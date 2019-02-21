@@ -1,24 +1,19 @@
 ---
 layout: LandingPage
 title: Documentation sur la facturation et la gestion des coûts Azure | Microsoft Docs
-description: Apprenez à comprendre votre facturation Azure, à gérer et analyser l’utilisation et les coûts ainsi qu’à gérer votre compte et vos abonnements.
+description: 'Apprenez à comprendre votre facturation Azure, à gérer et analyser l’utilisation et les coûts ainsi qu’à gérer votre compte et vos abonnements.'
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: ''
+ms.assetid: null
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/24/2018
-ms.author: cwatson
-ms.openlocfilehash: ed792b03a79d2dcbb77142a51ae2641c8d0bd3ad
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583321"
+ms.date: 02/19/2019
+ms.author: banders
 ---
+
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentation sur la facturation et la gestion des coûts Azure
 
 Apprenez à comprendre votre facturation Azure, à analyser l’utilisation et les coûts ainsi qu’à gérer votre compte et vos abonnements.
@@ -50,9 +45,9 @@ Apprenez à comprendre votre facturation Azure, à analyser l’utilisation et l
                         <p>
                         <a href="/azure/billing/billing-getting-started">Éliminer les coûts imprévus</a><br/>
                         <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Utiliser des balises de ressource</a><br/>
-                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Démarrer l’analyse des coûts - EA uniquement</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Créer et gérer des budgets - EA uniquement</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Suggestions pour l’optimisation - EA uniquement</a>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Démarrer l’analyse des coûts</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Créer et gérer des budgets</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Suggestions pour l’optimisation</a>
                         </p>
                     </div>
                 </div>
@@ -184,5 +179,5 @@ Apprenez à comprendre votre facturation Azure, à analyser l’utilisation et l
             </div>
         </div>
     </li>
-    
+
 </ul>
