@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492281"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310964"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 
@@ -31,7 +31,7 @@ Si le coffre Recovery Services est déjà ouvert, passez à la deuxième étape.
 
    ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   La liste des coffres Recovery Services est affichée. 
+   La liste des coffres Recovery Services est affichée.
 
    ![choisir le coffre à partir de la liste](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Si le coffre Recovery Services est déjà ouvert, passez à la deuxième étape.
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Forcer la suppression du coffre Recovery Services
 
-Vous pouvez utiliser PowerShell pour forcer la suppression d’un coffre Recovery Services. Forcer la suppression signifie que le coffre Recovery Services, et toutes les données de sauvegarde associées, sont supprimés de manière permanente. 
+Vous pouvez utiliser PowerShell pour forcer la suppression d’un coffre Recovery Services. Forcer la suppression signifie que le coffre Recovery Services, et toutes les données de sauvegarde associées, sont supprimés de manière permanente.
 
 > [!Warning]
 > Si vous utilisez PowerShell pour supprimer un coffre Recovery Services, soyez sûr que vous voulez supprimer de manière permanente toutes les données de sauvegarde dans le coffre.
@@ -95,7 +95,7 @@ Pour supprimer un coffre Recovery Services :
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Connectez-vous à votre abonnement sur le portail Azure et vérifiez que le coffre est supprimé.
 
 
@@ -106,7 +106,6 @@ Pour supprimer manuellement les dépendances du coffre, supprimez la configurati
 * Sauvegardes Stockage Azure (Azure Files)
 * SQL Server dans les sauvegardes de machines virtuelles Azure
 * Sauvegardes de machines virtuelles Azure
-* Sauvegardes de l’agent Microsoft Azure Recovery Services
 
 Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
 
@@ -125,7 +124,7 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
 
 1. Pour tous les éléments dans la liste, cliquez dessus avec le bouton droit, puis à partir du menu contextuel, sélectionnez **Arrêter la sauvegarde**.
 
-    ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     Le menu Arrêter la sauvegarde s’ouvre.
 
@@ -154,9 +153,9 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Supprimer le serveur de sauvegarde Azure ou DPM
 
-1. Dans le menu du tableau de bord du coffre, faites défiler jusqu’à la section Gérer, puis cliquez sur **Infrastructure de sauvegarde**. 
+1. Dans le menu du tableau de bord du coffre, faites défiler jusqu’à la section Gérer, puis cliquez sur **Infrastructure de sauvegarde**.
 
-1. Dans le sous-menu, cliquez sur **Gérer les serveurs de sauvegarde** pour afficher les serveurs de sauvegarde Azure et le serveur System Center DPM. Vous pouvez arrêter et supprimer des serveurs Azure Files, des serveurs SQL Server dans une machine virtuelle Azure et des machines virtuelles Azure. 
+1. Dans le sous-menu, cliquez sur **Gérer les serveurs de sauvegarde** pour afficher les serveurs de sauvegarde Azure et le serveur System Center DPM. Vous pouvez arrêter et supprimer des serveurs Azure Files, des serveurs SQL Server dans une machine virtuelle Azure et des machines virtuelles Azure.
 
     ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

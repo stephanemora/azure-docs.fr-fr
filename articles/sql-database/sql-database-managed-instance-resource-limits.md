@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962126"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339309"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -40,7 +40,7 @@ Azure SQL Database Managed Instance peut être déployé sur deux générations 
 | Calcul | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Mémoire | 7 Go par vCore | 5,1 Go par vCore |
 | OLTP en mémoire | 3 Go par vCore | 2,6 Go par vCore |
-| Espace de stockage maximal (usage général) |  8 To | 1 To |
+| Espace de stockage maximal (usage général) |  8 To | 8 To |
 | Espace de stockage maximal (Critique pour l’entreprise) | 1 To | 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 
 ### <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service

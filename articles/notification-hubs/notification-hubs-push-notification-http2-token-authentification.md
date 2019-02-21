@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 012/13/2019
 ms.author: jowargo
-ms.openlocfilehash: d0d181afd9bb8f1d387ce8e33f50a78dae3a11ec
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6fc44e432b9614eb6270b6ef4862cc0240df8206
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961429"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266932"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
 
@@ -68,7 +68,7 @@ L’identificateur de l’application est disponible via la page des détails de
 
 ### <a name="authentication-token"></a>Jeton d’authentification
 
-Le jeton d’authentification peut être téléchargé après avoir généré un jeton pour votre application. Pour plus d’informations sur la façon de générer ce jeton, reportez-vous à la [documentation du développeur Apple](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65).
+Le jeton d’authentification peut être téléchargé après avoir généré un jeton pour votre application. Pour plus d’informations sur la façon de générer ce jeton, reportez-vous à la [documentation du développeur Apple](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1).
 
 ## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>Configuration de votre hub de notification pour utiliser l’authentification basée sur un jeton
 

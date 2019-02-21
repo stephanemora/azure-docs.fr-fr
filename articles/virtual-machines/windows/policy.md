@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987456"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343253"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Appliquer des stratégies aux machines virtuelles Windows avec Azure Resource Manager
 Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous expliquons comment utiliser les stratégies d’Azure Resource Manager afin de définir le comportement souhaité pour les machines virtuelles de votre entreprise.
 
-Pour une introduction aux stratégies, consultez la page [Qu’est-ce qu’Azure Policy ?](../../azure-policy/azure-policy-introduction.md).
+Pour une introduction aux stratégies, consultez la page [Qu’est-ce qu’Azure Policy ?](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Machines virtuelles autorisées
 Pour vous assurer que les machines virtuelles de votre entreprise sont compatibles avec une application, vous pouvez limiter les systèmes d’exploitation autorisés. Dans l’exemple de stratégie suivant, vous autorisez uniquement la création de machines virtuelles Windows Server 2012 R2 Datacenter :
@@ -251,6 +251,6 @@ Quand vous disposez d’une licence locale, vous pouvez enregistrer les frais de
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Après avoir défini une règle de stratégie (comme le montrent les exemples précédents), vous devez créer la définition de stratégie et l’attribuer à une étendue. L’étendue peut être un abonnement, un groupe de ressources ou une ressource. Pour assigner des stratégies, consultez [Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources](../../azure-policy/assign-policy-definition.md), [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant PowerShell](../../azure-policy/assign-policy-definition-ps.md) et [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant l’interface de ligne de commande Azure](../../azure-policy/assign-policy-definition-cli.md).
-* Pour une introduction aux stratégies de ressources, consultez la page [Qu’est-ce qu’Azure Policy ?](../../azure-policy/azure-policy-introduction.md).
+* Après avoir défini une règle de stratégie (comme le montrent les exemples précédents), vous devez créer la définition de stratégie et l’attribuer à une étendue. L’étendue peut être un abonnement, un groupe de ressources ou une ressource. Pour assigner des stratégies, consultez [Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources](../../governance/policy/assign-policy-portal.md), [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant PowerShell](../../governance/policy/assign-policy-powershell.md) et [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant l’interface de ligne de commande Azure](../../governance/policy/assign-policy-azurecli.md).
+* Pour une introduction aux stratégies de ressources, consultez la page [Qu’est-ce qu’Azure Policy ?](../../governance/policy/overview.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 154e0dcefab6d5bcdfc9532ba4258d09593f0970
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296542"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311130"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -129,12 +129,12 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type d’une activité de copie doit être définie sur : **Copy** | Oui |
-| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | Oui |
-| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | Oui |
-| typeProperties | Groupe de propriétés pour configurer l’activité de copie. | Oui |
-| source | Spécifiez le type de source de la copie et les propriétés correspondantes concernant la façon d’extraire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
-| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes concernant la manière d’écrire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
+| Type | La propriété type d’une activité de copie doit être définie sur : **Copy** | OUI |
+| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
+| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | OUI |
+| typeProperties | Groupe de propriétés pour configurer l’activité de copie. | OUI |
+| source | Spécifiez le type de source de la copie et les propriétés correspondantes concernant la façon d’extraire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
+| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes concernant la manière d’écrire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
 | translator | Spécifiez des mappages de colonnes explicites de la source au récepteur. S’applique lorsque le comportement de copie par défaut ne peut pas répondre à vos besoins.<br/><br/>Découvrez plus de détails sur le [Mappage de schéma et de type de données](copy-activity-schema-and-type-mapping.md). | Non  |
 | dataIntegrationUnits | Spécifiez la puissance du [runtime d’intégration Azure](concepts-integration-runtime.md) pour dynamiser la copie des données. Anciennement appelé Unités de déplacement de données cloud. <br/><br/>Plus d’informations, consultez [unités d’intégration de données](copy-activity-performance.md#data-integration-units). | Non  |
 | parallelCopies | Spécifiez le parallélisme que l’activité de copie doit utiliser lors de la lecture des données de la source et l’écriture des données sur le récepteur.<br/><br/>Découvrez plus de détails sur la [Copie parallèle](copy-activity-performance.md#parallel-copy). | Non  |
@@ -236,11 +236,11 @@ Par défaut, l’activité de copie arrête la copie de données et retourne une
 
 Consultez [Guide des performances et de l’optimisation de l’activité de copie](copy-activity-performance.md), qui décrit les facteurs clés affectant les performances du déplacement de données dans Azure Data Factory (activité de copie). Il répertorie également les performances observées lors des tests internes, et présente les différentes manières d’optimiser les performances de l’activité de copie.
 
-Dans certains cas, lorsque vous exécutez une activité de copie dans ADF, vous voyez directement « **Conseils pour le réglage des performances** » en haut de la [page de surveillance de l’activité de copie](#monitor-visually) comme indiqué dans l’exemple suivant. En plus de vous indiquer le goulot d’étranglement identifié pour l’exécution de la copie, il vous guide sur les modifications à apporter pour accélérer le débit de copie. Actuellement, les conseils pour le réglage des performances offrent des suggestions : par exemple, utiliser PolyBase lors de la copie de données dans Azure SQL Data Warehouse, augmenter l’unité de requête Azure Cosmos DB ou l’unité de transaction de base de données Azure SQL Database quand la ressource côté magasin de données est le goulot d’étranglement, supprimer la copie intermédiaire non nécessaire, etc. Les règles de réglage des performances seront également enrichies de façon progressive.
+Dans certains cas, lorsque vous exécutez une activité de copie dans ADF, vous voyez directement « **Conseils pour le réglage des performances** » en haut de la [page de surveillance de l’activité de copie](#monitor-visually) comme indiqué dans l’exemple suivant. En plus de vous indiquer le goulot d’étranglement identifié pour l’exécution de la copie, il vous guide sur les modifications à apporter pour accélérer le débit de copie. Actuellement, les conseils pour le réglage des performances offrent des suggestions : par exemple, utiliser PolyBase lors de la copie de données dans Azure SQL Data Warehouse, augmenter l’unité de requête Azure Cosmos DB ou l’unité de transaction de base de données Azure SQL Database quand la ressource côté magasin de données est le goulot d’étranglement, supprimer la copie intermédiaire non nécessaire, etc. Les règles d'optimisation des performances seront également enrichies de façon progressive.
 
-**Exemple : copier dans Azure SQL Database avec des conseils pour le réglage des performances**
+**Exemple : copier dans Azure SQL Database avec des conseils pour le réglage des performances**
 
-Dans cet exemple, l’exécution de la copie, ADF remarque que l’instance Azure SQL DB de réception atteint une utilisation d’unités de transaction de base de données élevée qui ralentit les opérations d’écriture. La suggestion est d’augmenter le niveau Azure SQL DB avec plus de DTU. 
+Dans cet exemple, lors l’exécution de la copie, ADF remarque que l’instance Azure SQL DB de réception atteint une utilisation d’unités de transaction de base de données élevée qui ralentit les opérations d’écriture. La suggestion est d’augmenter le niveau Azure SQL DB avec plus de DTU. 
 
 ![Surveillance de la copie avec des conseils pour le réglage des performances](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820791"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339514"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
@@ -113,7 +113,7 @@ Azure utilise le [contrôle d’accès en fonction du rôle](../role-based-acces
 
 Azure Policy vous permet de créer, d’assigner et de gérer des définitions de stratégie. Les définitions de stratégie appliquent différentes règles sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’organisation. Azure Policy exécute une évaluation de vos ressources, en analysant les ressources qui ne sont pas conformes avec les définitions de stratégie dont vous disposez. Par exemple, vous pouvez définir et appliquer une stratégie qui autorise la création de réseaux virtuels dans seulement une région ou un groupe de ressources spécifique. Une autre stratégie peut exiger qu’un groupe de sécurité réseau soit associé à chaque sous-réseau. Les stratégies sont alors évaluées lors de la création et de la mise à jour des ressources.
 
-Les stratégies sont appliquées à la hiérarchie suivante : Abonnement, groupe d’administration et groupe de ressources. En savoir plus sur [Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou déployez des exemples de [modèle de stratégie](policy-samples.md) de réseau virtuel.
+Les stratégies sont appliquées à la hiérarchie suivante : Abonnement, groupe d’administration et groupe de ressources. En savoir plus sur [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou déployez des exemples de [modèle de stratégie](policy-samples.md) de réseau virtuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

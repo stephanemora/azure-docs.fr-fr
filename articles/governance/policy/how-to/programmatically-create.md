@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510824"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340142"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
 
@@ -139,7 +139,7 @@ Pour créer une définition de stratégie, procédez comme suit.
 
 1. Créez la définition de stratégie à l’aide de l’un des appels suivants :
 
-   ```
+   ```console
    # For defining a policy in a subscription
    armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
 
@@ -169,7 +169,7 @@ Utilisez la procédure suivante pour créer une attribution de stratégie et ass
 
 1. Créez l’attribution de stratégie à l’aide de l’appel suivant :
 
-   ```
+   ```console
    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
    ```
 
@@ -239,7 +239,7 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 L’ID de définition de stratégie pour la définition de stratégie que vous avez créée doit ressembler à ce qui suit :
 
-```
+```output
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 

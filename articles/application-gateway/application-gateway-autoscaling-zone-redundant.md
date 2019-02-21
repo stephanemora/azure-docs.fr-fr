@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743648"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446509"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)
 
@@ -45,7 +45,7 @@ Pendant la préversion, aucuns frais ne s’appliquent. Vous êtes facturé pour
 |Problème|Détails|
 |--|--|
 |Certificat d’authentification|Non pris en charge.<br>Pour plus d’informations, consultez [Présentation du chiffrement SSL de bout en bout sur la passerelle Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Combinaison de Standard_v2 et Standard Application Gateway sur le même sous-réseau|Non pris en charge.<br>De plus, si la mise à l’échelle automatique est activée, un sous-réseau ne peut avoir qu’une seule passerelle d’application.|
+|Combinaison de Standard_v2 et Standard Application Gateway sur le même sous-réseau|Non pris en charge|
 |Route définie par l’utilisateur sur le sous-réseau d’Application Gateway|Non pris en charge|
 |Groupe de sécurité réseau pour plage de ports entrants| - 65 200 à 65 535 pour référence (SKU) Standard_v2<br>- 65 503 à 65 534 pour référence (SKU) Standard<br>Pour plus d’informations, visitez le [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Journaux de performances dans les diagnostics Azure|Non pris en charge.<br>Les métriques Azure doivent être utilisées.|

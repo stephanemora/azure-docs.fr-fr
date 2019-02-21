@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b821c5cfa0dd9ea605d0d0a73e0b98a64a7502b7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191964"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268649"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Démarrer et arrêter le Kit de développement Azure Stack (ASDK)
 Il n’est pas recommandé de simplement redémarrer l’ordinateur hôte ASDK. Au lieu de cela, suivez les procédures décrites dans cet article pour arrêter et redémarrer correctement les services ASDK. 
@@ -29,7 +29,7 @@ Il n’est pas recommandé de simplement redémarrer l’ordinateur hôte ASDK. 
 ## <a name="stop-azure-stack"></a>Arrêter Azure Stack 
 Pour arrêter correctement les services Azure Stack et l’ordinateur hôte ADSK, exécutez les commandes PowerShell suivantes :
 
-1. Connectez-vous en tant qu’AzureStack\CloudAdmin sur l’ordinateur hôte du kit ASDK.
+1. Connectez-vous en tant qu’AzureStack\AzureStackAdmin sur l’ordinateur hôte du kit ASDK.
 2. Ouvrez PowerShell en tant qu’administrateur (et non PowerShell ISE).
 3. Exécutez les commandes suivantes afin d’établir une session de point de terminaison privilégié (PEP) : 
 
@@ -49,7 +49,7 @@ Les services ASDK doivent démarrer automatiquement après le démarrage de l’
 Indépendamment de la manière dont les services ASDK ont été arrêtés, vous devez suivre la procédure suivante pour vous assurer que l’ensemble des services Azure Stack ont été redémarrés et sont pleinement opérationnels une fois l’ordinateur hôte mis sous tension : 
 
 1. Mettez sous tension l’ordinateur hôte ASDK. 
-2. Connectez-vous en tant qu’AzureStack\CloudAdmin sur l’ordinateur hôte du kit ASDK.
+2. Connectez-vous en tant qu’AzureStack\AzureStackAdmin sur l’ordinateur hôte du kit ASDK.
 3. Ouvrez PowerShell en tant qu’administrateur (et non PowerShell ISE).
 4. Exécutez les commandes suivantes afin d’établir une session de point de terminaison privilégié (PEP) :
 
@@ -68,7 +68,7 @@ Pour en savoir plus sur les procédures recommandées d’arrêt et de redémarr
 ## <a name="troubleshoot-startup-and-shutdown"></a>Résoudre les problèmes de démarrage et d’arrêt 
 Exécutez ces étapes si les services Azure Stack ne démarrent pas correctement dans les 2 heures suivant la mise sous tension de votre ordinateur hôte ASDK :
 
-1. Connectez-vous en tant qu’AzureStack\CloudAdmin sur l’ordinateur hôte du kit ASDK.
+1. Connectez-vous en tant qu’AzureStack\AzureStackAdmin sur l’ordinateur hôte du kit ASDK.
 2. Ouvrez PowerShell en tant qu’administrateur (et non PowerShell ISE).
 3. Exécutez les commandes suivantes afin d’établir une session de point de terminaison privilégié (PEP) :
 

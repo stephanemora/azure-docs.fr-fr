@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84a1fd3efb9eac30e70fea9622716a54769369e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78fc7441b109c87f1ab9ff5b56ed8e055c152d10
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184123"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456059"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Forum aux questions sur l’application Microsoft Authenticator
 
@@ -49,7 +49,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 |Pourquoi l’application complémentaire Microsoft Authenticator pour Apple Watch ne se synchronise-t-elle pas ou n’apparaît-elle pas sur mon Apple Watch ?|Si l’application n’apparaît pas sur votre Apple Watch, procédez comme suit : <ol><li>Assurez-vous que votre Apple Watch fonctionne sous watchOS 4.0 ou une version ultérieure.</li><li>Synchronisez de nouveau votre Apple Watch.</li></ol>|
 |Mon application complémentaire Apple Watch a planté. Puis-je envoyer vous mes journaux d’incident afin que vous puissiez l’examiner ? |Vous devez d’abord vous assurer que vous avez choisi de partager avec nous vos journaux d’analyse. Si vous êtes un utilisateur de TestFlight, vous êtes déjà automatiquement inscrit. Sinon, accédez à **Paramètres > Confidentialité > Analytique** et sélectionnez les options **Partager l’analyse de l’iPhone et de Watch** et **Partager avec les développeurs d’applications**.<br><br>Une fois inscrit, vous pouvez essayer de reproduire l’incident pour que vos journaux d’incident nous soient automatiquement envoyés pour examen. Toutefois, si vous ne pouvez pas reproduire l’incident, vous pouvez copier manuellement vos fichiers journaux et nous les envoyer.<ol><li>Ouvrez l’application Watch sur votre téléphone, accédez à **Paramètres > Général**, puis cliquez sur **Copy Watch Analytics** (Copier l’analyse de Watch).</li><li>Recherchez l’incident correspondant sous **Paramètres > Confidentialité > Analyse > Données d’analyse**, puis copiez manuellement l’intégralité du texte.</li><li>Ouvrez l’application Microsoft Authenticator sur votre téléphone et collez le texte copié dans la zone de texte **Partage avec les développeurs d’applications** sur la page **Envoyer des journaux**.</li></ol>|
 |Qu'est-ce que la fonctionnalité Verrou d'application et en quoi m'offre-t-elle plus de sécurité ?|Pour sécuriser les codes secrets à usage unique, les informations et les paramètres d'application, vous pouvez activer la fonctionnalité Verrou d'application dans l'application Microsoft Authenticator. Si vous activez Verrou d'application à partir de l'écran **Paramètres** de l'application Microsoft Authenticator, vous serez invité à vous authentifier à l'aide de votre code PIN ou verrou biométrique chaque fois que vous ouvrirez l'application Microsoft Authenticator. Cette fonctionnalité offre une protection supplémentaire ; la façon dont vous approuvez vos notifications dans l'application Microsoft Authenticator ne change pas.<br><br>**Remarque :**<br>si vous revenez à l'application Microsoft Authenticator exécutée sur un appareil Android dans un délai inférieur à 30 secondes, vous ne serez pas invité à vous réauthentifier.|
-|Pourquoi est-ce que je reçois des notifications sur l’activité de mon compte ?|Pour vous aider à connaître l’activité actuelle de votre compte personnel Microsoft, nous envoyons des notifications d’activité à votre application Microsoft Authenticator. Ces notifications apparaissent dès qu’un événement se produit, ce qui contribue à surveiller le compte en permanence à des fins de sécurité. Précédemment, nous envoyions ces notifications par e-mail et SMS, et nous avons maintenant élargi la surveillance à l’application. Pour plus d’informations sur ces notifications d’activité, voir [Que se passe-t-il en cas de connexion inhabituelle à votre compte](https://support.microsoft.com/en-us/help/13967/microsoft-account-unusual-sign-in). Pour choisir un nouvel emplacement de réception de vos notifications, connectez-vous à https://account.live.com/SecurityNotifications/Update.|
+|Pourquoi est-ce que je reçois des notifications sur l’activité de mon compte ?|Pour vous aider à connaître l’activité actuelle de votre compte personnel Microsoft, nous envoyons des notifications d’activité à votre application Microsoft Authenticator. Ces notifications apparaissent dès qu’un événement se produit, ce qui contribue à surveiller le compte en permanence à des fins de sécurité. Précédemment, nous envoyions ces notifications par e-mail et SMS, et nous avons maintenant élargi la surveillance à l’application. Pour plus d’informations sur ces notifications d’activité, voir [Que se passe-t-il en cas de connexion inhabituelle à votre compte](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Pour choisir un nouvel emplacement de réception de vos notifications, connectez-vous à https://account.live.com/SecurityNotifications/Update.|
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -58,4 +58,4 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 -   Pour plus d’informations sur les informations de sécurité, consultez [Gérer vos informations de sécurité](security-info-manage-settings.md).
 
-- Si vous n’avez pas trouvé la réponse à votre question ici, rendez-vous sur le [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) pour publier votre question et obtenir de l’aide de la part de la communauté ou laissez un commentaire sur cette page.
+- Si vous n’avez pas trouvé la réponse à votre question ici, rendez-vous sur le [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-us/home?forum=MicrosoftAuthenticatorApp) pour publier votre question et obtenir de l’aide de la part de la communauté ou laissez un commentaire sur cette page.

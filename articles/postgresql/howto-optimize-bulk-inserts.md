@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810236"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310289"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Optimiser les insertions en bloc et utiliser les données temporaires sur un serveur Azure Database pour PostgreSQL 
 Cet article explique comment vous pouvez optimiser des insertions en bloc et utiliser les données temporaires dans un serveur Azure Database pour PostgreSQL.
@@ -25,9 +25,9 @@ L’insertion dans une table non journalisée signifie que PostgreSQL effectue d
 
 Utilisez les options suivantes pour créer une table non journalisée :
 - Créez une nouvelle table non journalisée en utilisant la syntaxe `CREATE UNLOGGED TABLE <tableName>`.
-- Convertissez une table journalisée existante en table non journalisée en utilisant la syntaxe `ALTER <tableName> SET UNLOGGED`.  
+- Convertissez une table journalisée existante en table non journalisée en utilisant la syntaxe `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-Pour inverser le processus, utilisez la syntaxe `ALTER <tableName> SET LOGGED`.
+Pour inverser le processus, utilisez la syntaxe `ALTER TABLE <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Compromis de table non journalisée
 Les tables non journalisées ne sont pas sécurisées en cas d’incident. Une table non journalisée est automatiquement tronquée après un incident ou un arrêt brutal. Le contenu d’une table non journalisée n’est pas non plus répliqué vers les serveurs de secours. Tous les index créés sur une table non journalisée ne sont pas journalisés automatiquement non plus. Une fois l’opération d’insertion terminée, convertissez la table en table journalisée pour que l’insertion soit durable.

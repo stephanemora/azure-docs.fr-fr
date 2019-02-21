@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001695"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455107"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Guide pratique : préparer un modèle au déploiement dans Azure Machine Learning Studio
 
@@ -50,11 +50,11 @@ Après avoir exécuté votre expérience (cliquez sur **EXÉCUTER** en bas du ca
 
 Par exemple, l’expérience suivante effectue l’apprentissage d’un modèle d’arborescence de décision augmenté incluant deux classes, au moyen des données de recensement :
 
-![expérience de formation][figure1]
+![expérience de formation](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 Les modules de cette expérience effectuent quatre fonctions de base :
 
-![Fonctions du module][figure2]
+![Fonctions du module](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 Lorsque vous convertissez cette expérience de formation en une expérience prédictive, certains de ces modules ne sont plus nécessaires ou sont à présent utilisés à une autre fin :
 
@@ -70,7 +70,7 @@ Lorsque vous convertissez cette expérience de formation en une expérience pré
 
 Voici comment notre exemple apparaît une fois que vous avez cliqué sur **Définir un service Web**:
 
-![Expérience prédictive convertie][figure3]
+![Expérience prédictive convertie](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 Le travail effectué par **Configurer le service web** peut être suffisant pour préparer votre expérience à être déployée en tant que service web. Toutefois, certaines tâches supplémentaires, spécifiques à votre expérience, seront peut-être à prévoir.
 
@@ -79,7 +79,7 @@ Dans votre expérience d’apprentissage, vous avez utilisé un ensemble de donn
 
 Par exemple, le bouton **Définir un service web** place par défaut le module **Web service input** en haut de votre flux de données, comme l’indique la figure ci-dessus. Mais nous pouvons positionner manuellement le module **Web service input** au-delà des modules de traitement des données :
 
-![Déplacement de l’entrée du service web][figure4]
+![Déplacement de l’entrée du service web](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 Les données d’entrée fournies via le service web accéderont directement au module Score Model, sans être soumises à un traitement préalable.
 
@@ -88,14 +88,14 @@ Toutefois, si vous préférez renvoyer quelque chose de différent, vous pouvez 
 
 Par exemple, pour renvoyer uniquement les résultats de la notation et non la totalité du vecteur de données d’entrée, ajoutez un module [Select Columns in Dataset][select-columns] pour exclure toutes les colonnes, sauf les résultats de la notation. Ensuite, déplacez le module **Web service output** vers la sortie du module [Select Columns in Dataset][select-columns]. L’expérience se présente ainsi :
 
-![Déplacement de la sortie du service web][figure5]
+![Déplacement de la sortie du service web](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Ajouter ou supprimer des modules de traitement des données supplémentaires
 Si votre expérience inclut un plus grand nombre de modules que nécessaire pour le calcul de la notation, vous pouvez en supprimer. Par exemple, étant donné que nous avons déplacé le module **Web service input** vers un point situé après les modules de traitement des données, nous pouvons supprimer le module [Clean Missing Data][clean-missing-data] de l’expérience prédictive.
 
 Notre expérience de notation ressemble à présent à ce qui suit :
 
-![Suppression du module supplémentaire][figure6]
+![Suppression du module supplémentaire](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>Ajouter des paramètres de service web facultatifs
@@ -116,16 +116,6 @@ Maintenant que l’expérience prédictive est correctement préparée, vous pou
 Pour en savoir plus sur le processus de déploiement complet, consultez la page [Déploiement d’un service web Machine Learning Azure][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

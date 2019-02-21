@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: ee7ebb151653b611c652c072b8cb4c07754d9b68
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5e5a6f32eeac674a6527d333b981bbdac20a9958
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269700"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309759"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 
@@ -39,7 +39,7 @@ Par défaut, le serveur de sauvegarde Azure communique avec les serveurs VMware 
 
 ### <a name="before-you-start"></a>Avant de commencer
 
-- Si vous ne souhaitez pas utiliser le protocole HTTPS, vous pouvez [désactiver le paramètre par défaut](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol).
+- Si vous ne souhaitez pas utiliser le protocole HTTPS, vous pouvez [désactiver le paramètre par défaut](backup-azure-backup-server-vmware.md).
 - En général, vous vous connectez au serveur vCenter/ESXi depuis un navigateur sur le serveur de sauvegarde Azure via le client web vSphere. La première fois, la connexion n’est pas sécurisée et le message suivant s’affiche.
 - Il est important de comprendre comment le serveur de sauvegarde Azure gère les sauvegardes.
     - Dans un premier temps, le serveur de sauvegarde Azure sauvegarde les données dans le stockage sur disque local. Le serveur de sauvegarde Azure utilise un pool de stockage, un ensemble de disques et de volumes sur lequel il stocke les points de récupération de disque pour ses données protégées. Il peut s’agir d’un stockage en attachement direct (DAS), un SAN Fibre Channel, ou un appareil de stockage ou SAN iSCSI. Il est important de s’assurer que vous disposez de suffisamment de stockage pour la sauvegarde locale de vos données de machines virtuelles VMware.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169970"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447415"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -221,8 +221,6 @@ Le trafic réseau dans les réseaux virtuels Azure peut être contrôlé à l’
 
 En tant que service managé, HDInsight doit avoir un accès illimité aux services d’intégrité et de gestion de HDinsight, pour le trafic entrant et sortant du réseau virtuel. Lorsque vous utilisez des groupes de sécurité réseau et des itinéraires définis par l’utilisateur, vous devez vous assurer que ces services peuvent toujours communiquer avec le cluster HDInsight.
 
-HDInsight expose des services sur plusieurs ports. Lorsque vous utilisez un pare-feu d’appliance virtuelle, vous devez autoriser le trafic sur les ports utilisés pour ces services. Pour plus d’informations, voir la section [Ports requis].
-
 ### <a id="hdinsight-ip"></a> HDInsight avec des groupes de sécurité réseau et des itinéraires définis par l’utilisateur
 
 Si vous prévoyez d’utiliser des **groupes de sécurité réseau** ou des **itinéraires définis par l’utilisateur** pour contrôler le trafic réseau, effectuez les actions suivantes avant d’installer HDInsight :
@@ -305,8 +303,6 @@ Si vous utilisez des groupes de sécurité réseau, vous devez autoriser le traf
 3. Vous devez également autoriser l’accès depuis l’adresse IP __168.63.129.16__. Cette adresse est celle d’un programme de résolution récursive d’Azure. Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Pour plus d’informations, voir la section [Contrôler le trafic réseau](#networktraffic).
-
-Pour les règles de groupe de sécurité réseau sortantes, autorisez le trafic de n’importe quelle source interne au réseau virtuel à atteindre les adresses ci-dessus en tant qu’« Adresses IP de destination ».
 
 Si vous utilisez des itinéraires définis par l’utilisateur, vous devez spécifier un itinéraire et autoriser le trafic sortant du réseau virtuel vers les adresses IP ci-dessus avec le tronçon suivant défini sur « Internet ».
     

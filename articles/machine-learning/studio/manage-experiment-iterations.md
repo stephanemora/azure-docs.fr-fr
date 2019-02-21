@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e41a669e3dcd14952077cbd21e7387184546de80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488429"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454282"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gestion des itérations d'expériences dans Azure Machine Learning Studio
 Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.
@@ -48,7 +48,7 @@ Supposons par exemple que vous créez une expérience à l’aide du module [Ré
 
 Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, une liste de toutes ces exécutions apparaîtra :
 
-![Exemple d'historique d'exécution][runhistory]
+![Exemple d'historique d'exécution](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
 Cliquez sur une de ces exécutions pour afficher un instantané de l'expérience lorsque vous l'exécutiez. La configuration, les valeurs de paramètre, les commentaires et les résultats sont tous conservés pour vous fournir un enregistrement complet de l'exécution de votre expérience.
 
@@ -73,10 +73,6 @@ Supposons par exemple que l'historique d'exécution d'une expérience est indiqu
 5. Cliquez sur **EXÉCUTER**.
 
 Vous pouvez maintenant continuer à modifier et exécuter cette version de votre expérience, en créant un nouvel historique d'exécution pour enregistrer votre travail.
-
-<!-- Images -->
-[runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg
-
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

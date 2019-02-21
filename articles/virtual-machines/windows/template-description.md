@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113241"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327763"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
@@ -290,7 +290,7 @@ Plusieurs éléments de profil sont utilisés lors de la définition d’une res
 
 ## <a name="disks-and-images"></a>Disques et images
    
-Dans Azure, les fichiers de disque dur virtuel peuvent représenter [des disques ou des images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quand le système d’exploitation d’un fichier vhd est spécialisé pour être une machine virtuelle spécifique, il est appelé disque. Quand le système d’exploitation d’un fichier vhd est généralisé pour permettre la création de plusieurs machines virtuelles, il est appelé image.   
+Dans Azure, les fichiers de disque dur virtuel peuvent représenter [des disques ou des images](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quand le système d’exploitation d’un fichier vhd est spécialisé pour être une machine virtuelle spécifique, il est appelé disque. Quand le système d’exploitation d’un fichier vhd est généralisé pour permettre la création de plusieurs machines virtuelles, il est appelé image.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Créer des machines virtuelles et des disques à partir d’une image de plateforme
 

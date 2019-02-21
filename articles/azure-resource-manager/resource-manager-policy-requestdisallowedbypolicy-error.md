@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8eea14703a7a4ed6fad56dc0bed981b84266e2db
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d05ec1835bc04be0ca0fc12f41322c14b5420213
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112612"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337814"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Erreur RequestDisallowedByPolicy avec une stratégie de ressource Azure
 
 Cet article décrit la cause de l’erreur RequestDisallowedByPolicy. Il fournit également des solutions pour la résoudre.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Symptôme
 
@@ -68,5 +66,5 @@ Pour résoudre ce problème, passez en revue les stratégies liées aux ressourc
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Présentation d’Azure Policy](../azure-policy/azure-policy-introduction.md)
-- [Créer et gérer des stratégies pour assurer la conformité](../azure-policy/create-manage-policy.md)
+- [Présentation d’Azure Policy](../governance/policy/overview.md)
+- [Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fdede1308ac2c4c036d835a7be28b0e5ee180d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207073"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268428"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -202,8 +202,8 @@ Supprimer tous les mots de passe d’application existants qui ont été génér
 Désactiver MFA | Administrateur général | 
 Activer la MFA | Administrateur général | 
 Gérer les paramètres du service MFA | Administrateur général | 
-Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact | Administrateur général | 
-Restaurer l’authentification multifacteur pour tous les appareils mémorisés  | Administrateur général | 
+Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact | Administrateur d’authentification | 
+Restaurer l’authentification multifacteur pour tous les appareils mémorisés  | Administrateur d’authentification | 
 
 ## <a name="mfa-server"></a>Serveur MFA
 

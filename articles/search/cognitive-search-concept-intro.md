@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808196"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447325"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Qu’est-ce que la « recherche cognitive » dans Recherche Azure ?
 
@@ -32,7 +32,7 @@ Les compétences cognitives du service Recherche Azure sont basées sur les mod�
 Le traitement en langage naturel et le traitement d’image sont appliqués pendant la phase d’ingestion des données, et les résultats sont intégrés à la composition d’un document sous la forme d’un index consultable dans la Recherche Azure. Les données sont fournies en tant que jeu de données Azure, puis transmises via un pipeline d’indexation à l’aide des [compétences intégrées](cognitive-search-predefined-skills.md) dont vous avez besoin. L’architecture est extensible. Par conséquent, si les compétences intégrées ne sont pas suffisantes, vous pouvez créer et attacher des [compétences personnalisées](cognitive-search-create-custom-skill-example.md) pour intégrer un traitement personnalisé. Par exemple, il peut s’agir d’un module d’entité ou d’un classifieur de documents ciblant un domaine spécifique comme la finance, les publications scientifiques ou la médecine.
 
 > [!NOTE]
-> Depuis le 21 décembre 2018, vous pouvez [lier une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) à des compétences du service Recherche Azure. Cela nous permet de commencer à facturer l'exécution des compétences. Ce jour-là, nous avons également commencé à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents est toujours offerte sans frais supplémentaires.
+> Depuis le 21 décembre 2018, vous pouvez [lier une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) à des compétences du service Recherche Azure. Cela nous permet de commencer à facturer l’exécution de l’ensemble de compétences. Ce jour-là, nous avons également commencé à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents est toujours offerte sans frais supplémentaires.
 >
 > L'exécution de compétences intégrées est facturée au prix actuel du [paiement à l'utilisation](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services. Les tarifs de l'extraction d'images sont ceux de la préversion, comme décrit sur la [page Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -96,18 +96,24 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 + USA Centre-Ouest
 + USA Centre Sud
++ USA Centre Nord
 + USA Est
 + USA Est 2
 + USA Ouest
 + USA Ouest 2
++ USA Centre
 + Centre du Canada
 + Europe Ouest
-+ Sud du Royaume-Uni
 + Europe Nord
++ Sud du Royaume-Uni
++ France Centre
 + Brésil Sud
 + Asie Est
 + Asie Sud-Est
 + Inde Centre
++ Japon Ouest
++ Japon Est
++ Centre de la Corée
 + Australie Est
 
 **Étape 2 : Exercice pratique pour maîtriser le workflow**

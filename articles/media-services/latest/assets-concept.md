@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745994"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447308"
 ---
 # <a name="assets"></a>Éléments multimédias
 
@@ -48,8 +48,7 @@ L’un des workflows Media Services courants consiste à charger, à encoder et 
 4. Utilisez des API Media Services v3 pour créer une transformation et un travail afin de traiter votre actif multimédia « d’entrée ». Pour plus d’informations, consultez [Transformations et travaux](transform-concept.md).
 5. Diffusez en continu le contenu à partir de l’actif multimédia de « sortie ».
 
-> [!TIP]
-> Pour obtenir un exemple .NET complet qui montre comment créer l’actif multimédia, obtenir une URL SAS accessible en écriture vers le conteneur de l’actif multimédia dans le stockage et charger le fichier dans le conteneur de stockage à l’aide de l’URL SAS, consultez [Créer une entrée de travail à partir d’un fichier local](job-input-from-local-file-how-to.md).
+Pour obtenir un exemple .NET complet qui montre comment créer l’actif multimédia, obtenir une URL SAS accessible en écriture vers le conteneur de l’actif multimédia dans le stockage et charger le fichier dans le conteneur de stockage à l’aide de l’URL SAS, consultez [Créer une entrée de travail à partir d’un fichier local](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Créer un actif multimédia
 

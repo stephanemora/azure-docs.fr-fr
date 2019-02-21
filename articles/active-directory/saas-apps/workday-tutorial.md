@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184531"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Didacticiel : Intégration d’Azure Active Directory à Workday
 
@@ -113,7 +113,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Informations d’authentification unique dans Domaine et URL Workday](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. Dans la zone de texte **Identificateur**, tapez une URL : `https://www.workday.com`
 
@@ -166,7 +166,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     >[!NOTE]
     > La valeur de l’attribut Environment est liée à celle de l’URL du client :  
-    >- Si le nom de domaine de l’URL du locataire Workday commence par impl (par exemple: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), l’attribut **Environment** doit être défini sur Implementation.  
+    >- Si le nom de domaine de l’URL du locataire Workday commence par impl (par exemple: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), l’attribut **Environment** doit être défini sur Implementation.  
     >- Si le nom de domaine commence par autre chose, vous devez contacter l’[équipe de support technique de Workday](https://www.workday.com/en-us/partners-services/services/support.html) pour obtenir la valeur correspondante de l’attribut **Environment**.
 
 12. Dans la section **SAML Setup** , procédez comme suit :

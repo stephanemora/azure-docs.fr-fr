@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989421"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453118"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Utilisation d’un service web Azure Machine Learning Studio depuis Excel
 
@@ -34,7 +34,7 @@ Quand vous disposez d’un service web, cliquez sur la section **WEB SERVICES**
 
 1. Sur l’onglet **TABLEAU DE BORD** du service web figure une ligne pour le service **REQUÊTE/RÉPONSE**. Si ce service produit une sortie unique, le lien **Télécharger un classeur Excel** doit apparaître sur cette ligne.
    
-    ![][1]
+    ![](./media/consuming-from-excel/excellink.png)
 2. Cliquez sur **Télécharger un classeur Excel**.
 
 **Nouveau service web**
@@ -47,13 +47,13 @@ Quand vous disposez d’un service web, cliquez sur la section **WEB SERVICES**
 1. Ouvrez le classeur.
 2. Un avertissement de sécurité s’affiche. Cliquez sur le bouton **Activer la modification**.
    
-    ![][2]
+    ![](./media/consuming-from-excel/enableeditting.png)
 3. Un avertissement de sécurité apparaît. Cliquez sur le bouton **Activer le contenu** pour pouvoir exécuter des macros sur votre feuille de calcul.
    
-    ![][3]
+    ![](./media/consuming-from-excel/enablecontent.png)
 4. Une fois les macros activées, une table est générée. Les valeurs des colonnes en bleu sont requises en tant qu’entrées dans le service web RRS (Request/Response Service), ou en tant que **PARAMÈTRES**. Notez la sortie du service RRS, appelée **VALEURS PRÉDITES** et affichée en vert. Lorsque toutes les colonnes d’une ligne donnée sont remplies, le classeur appelle automatiquement l’API de notation et affiche les notes résultantes.
    
-    ![][4]
+    ![](./media/consuming-from-excel/sampletable.png)
 5. Pour noter plusieurs lignes, remplissez la deuxième ligne avec les données ; des valeurs prédites sont produites. Vous pouvez même coller plusieurs lignes à la fois.
 
 Vous pouvez utiliser toutes les fonctionnalités de Microsoft Excel (graphiques, Power Map, mise en forme conditionnelle, etc.) avec les valeurs prédites pour visualiser les données.    
@@ -66,8 +66,3 @@ Un appel RRS est initié dans les deux cas suivants :
 
 1. la première fois que du contenu apparaît dans l’ensemble des **PARAMÈTRES**
 2. chaque fois que l’un ou l’autre des **PARAMÈTRES** change dans une ligne dont l’ensemble des **PARAMÈTRES** a été entré.
-
-[1]: ./media/consuming-from-excel/excellink.png
-[2]: ./media/consuming-from-excel/enableeditting.png
-[3]: ./media/consuming-from-excel/enablecontent.png
-[4]: ./media/consuming-from-excel/sampletable.png

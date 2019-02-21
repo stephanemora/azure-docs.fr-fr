@@ -1,7 +1,7 @@
 ---
 title: Résoudre les problèmes liés au kit SDK Speech - Services Speech
 titleSuffix: Azure Cognitive Services
-description: Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit de développement logiciel (SDK) du service Speech.
+description: Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du Kit de développement logiciel (SDK) Speech.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859315"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446526"
 ---
-# <a name="troubleshoot-the-speech-service-sdk"></a>Résoudre les problèmes rencontrés avec le kit de développement logiciel du service Speech
+# <a name="troubleshoot-the-speech-sdk"></a>Résoudre les problèmes avec le Kit de développement logiciel (SDK) Speech
 
-Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit de développement logiciel (SDK) du service Speech.
+Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du Kit de développement logiciel (SDK) Speech.
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Error: Échec de la mise à niveau de WebSocket avec une erreur d’authentification (403)
 

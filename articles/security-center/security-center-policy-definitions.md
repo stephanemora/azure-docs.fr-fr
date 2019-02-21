@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbc9fa5586b848de79c52142f75b22b744fdae38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e83ff9f3bf02a134919d497662744028e1b9acda
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105948"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343015"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Stratégie de sécurité Azure surveillées par Azure Security Center
 Cet article vous fournit une liste de définitions de stratégies Azure Policy qui peuvent être surveillées dans Security Center. Pour plus d’informations sur les stratégies de sécurité, consultez [Utilisation des stratégies de sécurité](tutorial-security-policy.md).
@@ -96,4 +96,4 @@ Dans cet article, vous avez appris à configurer des stratégies de sécurité d
 * [FAQ sur Azure Security Center](security-center-faq.md) : Obtenez des réponses aux questions fréquentes concernant l’utilisation du service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
-Pour en savoir plus sur Azure, consultez [Présentation d’Azure Policy](../azure-policy/azure-policy-introduction.md).
+Pour en savoir plus sur Azure, consultez [Présentation d’Azure Policy](../governance/policy/overview.md).

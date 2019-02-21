@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255862"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268721"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sauvegarder l’état du système Windows dans un déploiement Resource Manager
 Cet article explique comment sauvegarder l’état du système Windows Server vers Azure. Il s’agit d’un didacticiel destiné à vous présenter les notions de base.
 
-Si vous souhaitez en savoir plus sur Sauvegarde Azure, lisez cette [présentation](backup-introduction-to-azure-backup.md).
+Si vous souhaitez en savoir plus sur Sauvegarde Azure, lisez cette [présentation](backup-overview.md).
 
 Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) pour accéder à n’importe quel service Azure.
 
@@ -131,7 +131,7 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 
     ![Fin du téléchargement des informations d’identification du coffre](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> Les informations d’identification du coffre doivent être enregistrées uniquement à un emplacement proche du serveur Windows sur lequel vous souhaitez utiliser l’agent. 
+> Les informations d’identification du coffre doivent être enregistrées uniquement à un emplacement proche du serveur Windows sur lequel vous souhaitez utiliser l’agent.
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -163,7 +163,7 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 
 L’agent est désormais installé et votre ordinateur est inscrit dans le coffre. Vous êtes prêt à configurer et à planifier votre sauvegarde.
 
-## <a name="back-up-windows-server-system-state"></a>Sauvegarder l’état du système Windows Server 
+## <a name="back-up-windows-server-system-state"></a>Sauvegarder l’état du système Windows Server
 La sauvegarde initiale comprend deux tâches :
 
 * Planifier la sauvegarde
@@ -194,7 +194,7 @@ Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Reco
 
 6. Cliquez sur **Suivant**.
 
-7. Sélectionnez la fréquence de sauvegarde requise et la stratégie de rétention pour les sauvegardes de l’état du système dans les pages suivantes. 
+7. Sélectionnez la fréquence de sauvegarde requise et la stratégie de rétention pour les sauvegardes de l’état du système dans les pages suivantes.
 
 8. Sur la page Confirmation, passez en revue les informations, puis cliquez sur **Terminer**.
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751920"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341712"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Recommandations relatives à l’initiative Trusted Internet Connections
 
@@ -198,7 +198,7 @@ Azure fournit des outils natifs pour s’assurer que vous ayez la conscience sit
 
 ### <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](https://azure.microsoft.com/services/azure-policy/) est un service Azure qui permet à votre organisation de mieux auditer et appliquer des initiatives de conformité. Azure Policy est actuellement disponible en préversion publique dans les services Azure disponibles commercialement. Azure Policy n’est pas encore disponible dans Azure Government. Les clients peuvent planifier et tester leurs règles Azure Policy maintenant pour s’assurer de la conformité future à TIC. 
+[Azure Policy](../../governance/policy/overview.md) est un service Azure qui permet à votre organisation de mieux auditer et appliquer des initiatives de conformité. Les clients peuvent planifier et tester leurs règles Azure Policy maintenant pour s’assurer de la conformité future à TIC.
 
 Azure Policy est ciblé au niveau d’abonnement. Le service fournit une interface centralisée dans laquelle vous pouvez effectuer les tâches de conformité suivantes :
 - Gérer des initiatives
@@ -213,13 +213,13 @@ Les exemples de stratégies suivants peuvent être utiles pour des scénarios de
 
 |Stratégie  |Exemple de scénario  |Modèle  |
 |---------|---------|---------|
-|Appliquez une table d’itinéraires définie par l’utilisateur. | Vérifiez que l’itinéraire par défaut sur tous les réseaux virtuels pointe vers une passerelle de réseau virtuel approuvée pour le routage local.    | Commencez à utiliser ce [modèle](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Effectuez un audit pour vérifier si Network Watcher n’est pas activé pour une région.  | Assurez-vous que Network Watcher est activé pour toutes les régions utilisées.  | Commencez à utiliser ce [modèle](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|Groupe de sécurité réseau x sur chaque sous-réseau.  | Assurez-vous qu’un groupe de sécurité réseau (ou un ensemble de groupes de sécurité réseau approuvés) avec trafic Internet bloqué est appliqué à tous les sous-réseaux de chaque réseau virtuel. | Commencez à utiliser ce [modèle](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|Groupe de sécurité réseau x sur chaque NIC. | Assurez-vous qu’un groupe de sécurité réseau avec trafic Internet bloqué est appliqué à tous les NIC sur toutes les machines virtuelles. | Commencez à utiliser ce [modèle](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Utilisez un réseau virtuel approuvé pour les interfaces réseau de machine virtuelle.  | Assurez-vous que tous les NIC se trouvent sur un réseau virtuel approuvé. | Commencez à utiliser ce [modèle](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|Emplacements autorisés. | Assurez-vous que toutes les ressources sont déployées dans des régions avec une configuration de réseaux virtuels et de Network Watcher conforme.  | Commencez à utiliser ce [modèle](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Types de ressources non autorisés, tels que **PublicIPs**. | Interdisez le déploiement de types de ressources qui n’ont pas de plan de conformité. Utilisez cette stratégie pour interdire le déploiement de ressources d’adresses IP publiques. Bien que les règles de groupe de sécurité réseau puissent servir à bloquer efficacement le trafic Internet entrant, empêcher l’utilisation d’adresses IP publiques réduit davantage la surface d’attaque.   | Commencez à utiliser ce [modèle](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Appliquez une table d’itinéraires définie par l’utilisateur. | Vérifiez que l’itinéraire par défaut sur tous les réseaux virtuels pointe vers une passerelle de réseau virtuel approuvée pour le routage local.    | Commencez à utiliser ce [modèle](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Effectuez un audit pour vérifier si Network Watcher n’est pas activé pour une région.  | Assurez-vous que Network Watcher est activé pour toutes les régions utilisées.  | Commencez à utiliser ce [modèle](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|Groupe de sécurité réseau x sur chaque sous-réseau.  | Assurez-vous qu’un groupe de sécurité réseau (ou un ensemble de groupes de sécurité réseau approuvés) avec trafic Internet bloqué est appliqué à tous les sous-réseaux de chaque réseau virtuel. | Commencez à utiliser ce [modèle](../../governance/policy/samples/nsg-on-subnet.md). |
+|Groupe de sécurité réseau x sur chaque NIC. | Assurez-vous qu’un groupe de sécurité réseau avec trafic Internet bloqué est appliqué à tous les NIC sur toutes les machines virtuelles. | Commencez à utiliser ce [modèle](../../governance/policy/samples/nsg-on-nic.md). |
+|Utilisez un réseau virtuel approuvé pour les interfaces réseau de machine virtuelle.  | Assurez-vous que tous les NIC se trouvent sur un réseau virtuel approuvé. | Commencez à utiliser ce [modèle](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|Emplacements autorisés. | Assurez-vous que toutes les ressources sont déployées dans des régions avec une configuration de réseaux virtuels et de Network Watcher conforme.  | Commencez à utiliser ce [modèle](../../governance/policy/samples/allowed-locations.md). |
+|Types de ressources non autorisés, tels que **PublicIPs**. | Interdisez le déploiement de types de ressources qui n’ont pas de plan de conformité. Utilisez cette stratégie pour interdire le déploiement de ressources d’adresses IP publiques. Bien que les règles de groupe de sécurité réseau puissent servir à bloquer efficacement le trafic Internet entrant, empêcher l’utilisation d’adresses IP publiques réduit davantage la surface d’attaque.   | Commencez à utiliser ce [modèle](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### <a name="network-watcher-traffic-analytics"></a>Analyse du trafic par Network Watcher
 
@@ -249,25 +249,25 @@ Vous pouvez aisément configurer l’accès pour Microsoft Azure, Office 365 et
 
 | Catégorie | Charge de travail | IaaS | PaaS dédié / Injection de réseau virtuel  | Points de terminaison de service  |
 |---------|---------|---------|---------|--------|
-| Calcul | Machines virtuelles Linux Azure | Oui | | |
-| Calcul | Machines virtuelles Windows Azure | Oui | | |
-| Calcul | Groupes identiques de machines virtuelles  | Oui | | |
+| Calcul | Machines virtuelles Linux Azure | OUI | | |
+| Calcul | Machines virtuelles Windows Azure | OUI | | |
+| Calcul | Groupes identiques de machines virtuelles  | OUI | | |
 | Calcul | Azure Functions | | Environnement App Service | |
 | Web et mobile | Application web interne | | Environnement App Service| |
 | Web et mobile | Application mobile interne | | Environnement App Service | |
 | Web et mobile | Applications API | | Environnement App Service | |
-| Containers | Azure Container Service | | | Oui |
-| Containers | Azure Kubernetes Service (AKS) \* | | | Oui |
+| Containers | Azure Container Service | | | OUI |
+| Containers | Azure Kubernetes Service (AKS) \* | | | OUI |
 | Base de données | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
-| Base de données | Azure Database pour MySQL | | | Oui |
-| Base de données | Azure Database pour PostgreSQL | | | Oui |
-| Base de données | Azure SQL Data Warehouse | | | Oui |
-| Base de données | Azure Cosmos DB | | | Oui |
-| Base de données | Cache Azure pour Redis | | Oui | |
-| Stockage | Stockage d'objets blob Azure | Oui | | |
-| Stockage | Azure Files | Oui | | |
-| Stockage | Stockage File d’attente Azure | Oui | | |
-| Stockage | Stockage de tables Azure | Oui | | |
-| Stockage | Stockage sur disque Azure | Oui | | |
+| Base de données | Azure Database pour MySQL | | | OUI |
+| Base de données | Azure Database pour PostgreSQL | | | OUI |
+| Base de données | Azure SQL Data Warehouse | | | OUI |
+| Base de données | Azure Cosmos DB | | | OUI |
+| Base de données | Cache Azure pour Redis | | OUI | |
+| Stockage | Stockage d'objets blob Azure | OUI | | |
+| Stockage | Azure Files | OUI | | |
+| Stockage | Stockage File d’attente Azure | OUI | | |
+| Stockage | Stockage de tables Azure | OUI | | |
+| Stockage | Stockage sur disque Azure | OUI | | |
 
 \* Préversion publique dans Azure Government, mai 2018.

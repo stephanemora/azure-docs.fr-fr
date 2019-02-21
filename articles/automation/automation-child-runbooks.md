@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422966"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417429"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks enfants dans Azure Automation
 
@@ -28,7 +28,7 @@ Lorsque vous appelez un Runbook en ligne, il est exécuté dans la même tâche 
 
 Lorsqu’un Runbook est publié, les Runbooks enfants qu’il appelle doivent déjà être publiés. En effet, Azure Automation crée une association avec tous les Runbooks enfants lorsqu’un Runbook est compilé. Si ce n’est pas le cas, la publication du runbook parent semble correcte, mais le runbook génère une exception au démarrage. Dans ce cas, vous pouvez republier le runbook parent pour référencer correctement les runbooks enfants. Il est inutile de republier le runbook parent après la modification des runbooks enfants, car l’association a déjà été créée.
 
-Les paramètres d’un runbook enfant appelé en ligne peuvent être n’importe quel type de données, y compris des objets complexes. Il n’y a pas de [sérialisation JSON](automation-starting-a-runbook.md#runbook-parameters) comme c’est le cas quand vous démarrez le runbook à partir du portail Azure ou à l’aide de l’applet de commande Start-AzureRmAutomationRunbook.
+Les paramètres d’un runbook enfant appelé en ligne peuvent être n’importe quel type de données, y compris des objets complexes. Il n’y a pas de [sérialisation JSON](start-runbooks.md#runbook-parameters) comme c’est le cas quand vous démarrez le runbook à partir du portail Azure ou à l’aide de l’applet de commande Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Types de runbook
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Si vous appelez un runbook enfant à l’aide de l’applet de commande `Start-AzureRmAutomationRunbook` incluant le commutateur `-Wait`, et que le résultat du runbook enfant est un objet, des erreurs peuvent se produire. Pour résoudre le problème, consultez [Runbooks enfants avec une sortie objet](troubleshoot/runbooks.md#child-runbook-object) afin de savoir comment implémenter la logique pour interroger les résultats et utiliser [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-Vous pouvez utiliser l’applet de commande [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) pour démarrer un runbook, comme décrit dans [Démarrage d’un Runbook avec Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Il existe deux modes d’utilisation pour cette applet de commande.  Dans un mode, l’applet de commande retourne l’ID du travail enfant qui est créé pour le runbook enfant.  Dans l’autre mode, que vous activez en spécifiant le paramètre **-wait**, l’applet de commande attend que le travail enfant se termine et retourne la sortie du runbook enfant.
+Vous pouvez utiliser l’applet de commande [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) pour démarrer un runbook, comme décrit dans [Démarrage d’un Runbook avec Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Il existe deux modes d’utilisation pour cette applet de commande.  Dans un mode, l’applet de commande retourne l’ID du travail enfant qui est créé pour le runbook enfant.  Dans l’autre mode, que vous activez en spécifiant le paramètre **-wait**, l’applet de commande attend que le travail enfant se termine et retourne la sortie du runbook enfant.
 
 Le travail d’un runbook enfant démarré avec une applet de commande s’exécute dans un travail distinct du runbook parent. Ce comportement génère davantage de travaux que le démarrage de runbook en ligne et rend leur suivi plus complexe. Le parent peut démarrer plusieurs runbooks enfants de façon asynchrone, sans attendre la fin de leur exécution. Pour ce même type d’exécution en parallèle avec appel des runbooks enfants en ligne, le runbook parent doit utiliser le [mot clé parallèle](automation-powershell-workflow.md#parallel-processing).
 
@@ -73,7 +73,7 @@ La sortie des runbooks enfants n’est pas retournée au runbook parent de mani�
 
 Si vous ne voulez pas que le runbook parent se bloque durant l’attente, vous pouvez démarrer le runbook enfant à l’aide de l’applet de commande `Start-AzureRmAutomationRunbook`, mais sans utiliser le commutateur `-Wait`. Vous devez ensuite utiliser `Get-AzureRmAutomationJob` pour attendre la fin du travail, ainsi que `Get-AzureRmAutomationJobOutput` et `Get-AzureRmAutomationJobOutputRecord` pour récupérer les résultats.
 
-Les paramètres d’un runbook enfant démarré avec une applet de commande sont fournis sous forme de table de hachage, comme décrit dans [Paramètres du runbook](automation-starting-a-runbook.md#runbook-parameters). Seuls les types de données simples peuvent être utilisés. Si le Runbook possède un paramètre avec un type de données complexe, il doit être appelé en ligne.
+Les paramètres d’un runbook enfant démarré avec une applet de commande sont fournis sous forme de table de hachage, comme décrit dans [Paramètres du runbook](start-runbooks.md#runbook-parameters). Seuls les types de données simples peuvent être utilisés. Si le Runbook possède un paramètre avec un type de données complexe, il doit être appelé en ligne.
 
 Le contexte d’abonnement peut être perdu quand vous démarrez les runbooks enfants comme des travaux distincts. Pour que le runbook enfant exécute des applets de commande Azure RM sur l’abonnement Azure spécifique, il doit s’authentifier dans cet abonnement indépendamment du runbook parent.
 
@@ -120,6 +120,6 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
+* [Démarrage d'un Runbook dans Azure Automation](start-runbooks.md)
 * [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 

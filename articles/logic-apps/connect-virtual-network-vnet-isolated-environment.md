@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176201"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311900"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -67,9 +67,10 @@ Pour contrôler le trafic entrant et sortant des sous-réseaux du réseau virtue
 | Communication vers Azure Logic Apps <br>Communication depuis Azure Logic Apps | Trafic entrant <br>Règle de trafic sortant | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
 | Azure Active Directory | Règle de trafic sortant | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Dépendance du Stockage Azure | Règle de trafic sortant | * <br>80 & 443 | VIRTUAL_NETWORK <br>Stockage |
+| Historique des exécutions de votre application logique | Trafic entrant | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
 | Gestion des connexions | Règle de trafic sortant | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
 | Publier des journaux de diagnostic et métriques | Règle de trafic sortant | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Concepteur Logic Apps - Propriétés dynamiques <br>Historique des exécutions de votre application logique <br>Déploiement du connecteur <br>Point de terminaison du déclencheur de requête | Trafic entrant | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Concepteur Logic Apps - Propriétés dynamiques <br>Déploiement du connecteur <br>Point de terminaison du déclencheur de requête | Trafic entrant | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
 | Dépendance de gestion App Service | Trafic entrant | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | Gestion des API - Point de terminaison de gestion | Trafic entrant | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | * <br>5672 | VIRTUAL_NETWORK <br>Event Hub |

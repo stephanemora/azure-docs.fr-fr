@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5242f31ff35e367211d48157fd4953751d1bb148
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103313"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416290"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
 > [!div class="op_single_selector"]
@@ -81,9 +81,9 @@ Vous avez le choix entre deux ensembles de procédures. La procédure de configu
 ## <a name="new"></a>Créer un réseau virtuel et des connexions qui coexistent
 Cette procédure vous guide dans la création d’un réseau virtuel et de connexions de site à site et ExpressRoute appelées à coexister.
 
-1. Installez la version la plus récente des cmdlets PowerShell. Pour plus d’informations sur l’installation de ces cmdlets, voir [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Les cmdlets que vous utilisez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions.
+1. Installez la version la plus récente des cmdlets PowerShell. Pour plus d’informations sur l’installation de ces cmdlets, voir [Installation et configuration d’Azure PowerShell](/powershell/azure/azurerm/overview). Les cmdlets que vous utilisez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions.
 
-2. Connectez-vous à votre compte et configurez l’environnement.
+1. Connectez-vous à votre compte et configurez l’environnement.
 
   ```powershell
   Connect-AzureRmAccount
