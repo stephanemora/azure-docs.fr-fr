@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 63d22aaa402c77b55591a15745b258cdd6f0ef0a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244349"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430248"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
@@ -281,7 +281,7 @@ Pour créer une connexion au service avec un principal du service existant, suiv
 
 Vous pouvez créer une connexion de service en utilisant le mappage suivant :
 
-| NOM | Exemples | Description |
+| Nom | Exemples | Description |
 | --- | --- | --- |
 | Nom de connexion | Azure Stack Azure AD | Le nom de la connexion. |
 | Environnement | AzureStack | Le nom de votre environnement. |
@@ -306,7 +306,7 @@ La dernière mise à jour d’Azure DevOps permet de créer une connexion de ser
 
 Vous pouvez créer une connexion de service en utilisant le mappage suivant :
 
-| NOM | Exemples | Description |
+| Nom | Exemples | Description |
 | --- | --- | --- |
 | Nom de connexion | Azure Stack ADFS | Le nom de la connexion. |
 | Environnement | AzureStack | Le nom de votre environnement. |
