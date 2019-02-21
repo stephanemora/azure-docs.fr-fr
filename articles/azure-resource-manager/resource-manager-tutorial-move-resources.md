@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107818"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267698"
 ---
-# <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Tutoriel : Déplacer des ressources Azure vers un autre groupe de ressources ou un autre abonnement
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+# <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Didacticiel : Déplacer des ressources Azure vers un autre groupe de ressources ou un autre abonnement
 
 Découvrez comment déplacer des ressources d’un groupe de ressources vers un autre. Vous pouvez également déplacer des ressources Azure d’un abonnement Azure vers un autre. Dans ce didacticiel, vous allez utiliser un modèle Resource Manager pour déployer deux groupes de ressources et un compte de stockage. Vous déplacerez ensuite le compte de stockage d’un groupe de ressources à l’autre.
 
@@ -37,8 +35,6 @@ Ce tutoriel décrit les tâches suivantes :
 > * Supprimer des ressources.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>Préparer les ressources
 
@@ -98,6 +94,8 @@ L’opération de validation du déplacement vous permet de tester votre scénar
 ## <a name="move-the-resource"></a>Déplacer la ressource
 
 Le compte de stockage se trouve à l’intérieur du groupe de ressources source (rg1). Exécutez le script PowerShell suivant pour déplacer la ressource vers le groupe de ressources de destination (rg2). Veillez à utiliser le même nom de projet que celui utilisé lors du déploiement des ressources.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"

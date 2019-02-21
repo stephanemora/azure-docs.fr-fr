@@ -3,19 +3,19 @@ title: Charger, télécharger, lister et supprimer des objets blob à l’aide d
 description: Créer, charger et supprimer des objets blob et des conteneurs avec Node.js et le stockage Azure
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 431f75143a118d369ac45fa273f8f16d17bf6785
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: f5f6e6dc1e8c0df88d69f9edbbdaf6e3421548df
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695421"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428940"
 ---
-# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Démarrage rapide : Charger, télécharger, lister et supprimer des objets blob à l’aide du kit SDK Azure Storage v10 pour JavaScript (préversion)
+# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Démarrage rapide : Charger, télécharger, lister et supprimer des objets blob à l’aide du kit SDK Azure Storage v10 pour JavaScript
 
 Dans ce guide de démarrage rapide, vous apprenez à utiliser le [kit SDK Azure Storage v10 pour JavaScript](https://github.com/Azure/azure-storage-js) avec Node.js pour charger, télécharger, lister et supprimer des objets blob, et gérer des conteneurs.
 
