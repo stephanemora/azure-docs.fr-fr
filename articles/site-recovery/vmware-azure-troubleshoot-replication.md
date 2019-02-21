@@ -1,22 +1,61 @@
 ---
 title: Résoudre des problèmes de réplication durant la récupération d’urgence de serveurs physiques et de machines virtuelles VMware sur Azure avec Azure Site Recovery | Microsoft Docs
 description: Cet article fournit des informations sur la résolution de problèmes de réplication durant la récupération d’urgence de serveurs physiques et de machines virtuelles VMware sur Azure avec Azure Site Recovery.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
-ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/7/2019
+ms.author: mayg
+ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411473"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964771"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
 Il se peut que vous receviez un message d’erreur spécifique lorsque vous protégez vos serveurs physiques ou machines virtuelles VMware avec Azure Site Recovery. Cet article décrit certains problèmes courants que vous pouvez rencontrer lors de la réplication de serveurs physiques et machines virtuelles VMware locaux sur Azure avec [Azure Site Recovery](site-recovery-overview.md).
+
+## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>Analyser le fonctionnement du serveur de processus pour éviter les problèmes de réplication
+
+Il est recommandé d’analyser le fonctionnement du serveur de processus sur le portail de sorte que la réplication progresse pour les machines sources associées. Dans le coffre, accédez à Gérer > Infrastructure Site Recovery > Serveurs de configuration. Dans le panneau Serveur de configuration, cliquez sur le serveur de processus sous Serveurs associés. Le panneau Serveur de processus s’ouvre sur ses statistiques d’intégrité. Vous pouvez suivre l’utilisation du processeur, l’utilisation de la mémoire, l’état des services du serveur de processus nécessaire à la réplication, la date d’expiration du certificat et l’espace libre. L’état de toutes les statistiques doit être vert. 
+
+**Il est recommandé de maintenir une utilisation de la mémoire et du processeur inférieure à 70 % et un espace libre supérieur à 25 %**. L’espace libre correspond à l’espace disque de cache du serveur de processus utilisé pour stocker les données de réplication des machines sources avant de les charger sur Azure. S’il passe au-dessous de 20 %, la réplication sera limitée pour toutes les machines sources associées. Suivez [l’aide relative à la capacité](./site-recovery-plan-capacity-vmware.md#capacity-considerations) afin de comprendre la configuration requise pour répliquer les ordinateurs sources.
+
+Vérifiez que les services suivants s’exécutent sur l’ordinateur du serveur de processus. Démarrez ou redémarrez tout service qui n’est pas en cours d’exécution.
+
+**Serveur de processus prédéfini**
+
+* cxprocessserver
+* Installation Push InMage
+* Service de chargement de journaux (LogUpload)
+* Service d’application InMage Scout
+* Agent Microsoft Azure Recovery Services (obengine)
+* Agent VX InMage Scout – Sentinel/Outpost (svagents)
+* tmansvc
+* Service de publication World Wide Web (W3SVC)
+* MySQL
+* Service Microsoft Azure Site Recovery (dra)
+
+**Serveur de processus avec montée en charge**
+
+* cxprocessserver
+* Installation Push InMage
+* Service de chargement de journaux (LogUpload)
+* Service d’application InMage Scout
+* Agent Microsoft Azure Recovery Services (obengine)
+* Agent VX InMage Scout – Sentinel/Outpost (svagents)
+* tmansvc
+
+**Serveur de processus dans Azure pour la restauration automatique**
+
+* cxprocessserver
+* Installation Push InMage
+* Service de chargement de journaux (LogUpload)
+
+Vérifiez que le type de démarrage de tous les services est défini sur **Automatique ou Automatique (démarrage différé)**. Il n’est pas nécessaire de définir ainsi le type de démarrage du service d’agent Microsoft Azure Recovery Services (obengine).
 
 ## <a name="initial-replication-issues"></a>Problèmes de réplication initiale
 
@@ -26,7 +65,7 @@ Les défaillances de réplication initiales résultent souvent de problèmes de 
 
 La liste suivante répertorie les manières dont vous pouvez vérifier la machine source :
 
-*  Dans la ligne de commande sur le serveur source, utilisez Telnet pour effectuer un test ping du serveur de processus via le port HTTPS (par défaut, le port 9443) en exécutant la commande suivante. La commande vérifie la présence de problèmes de connectivité réseau et de problèmes qui bloquent le port du pare-feu.
+*  En ligne de commande, sur le serveur source, utilisez Telnet pour effectuer un test ping du serveur de processus via le port HTTPS en exécutant la commande suivante. Le port HTTPS 9443 est le port utilisé par défaut par le serveur de processus pour envoyer et recevoir le trafic de réplication. Vous pouvez modifier ce port au moment de l’inscription. La commande suivante vérifie la présence de problèmes de connectivité réseau et de problèmes qui bloquent le port du pare-feu.
 
 
    `telnet <process server IP address> <port>`
@@ -35,13 +74,42 @@ La liste suivante répertorie les manières dont vous pouvez vérifier la machin
    > [!NOTE]
    > Utilisez Telnet pour tester la connectivité. N’utilisez pas `ping`. Si Telnet n’est pas installé, procédez de la manière décrite dans [Installer le client Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
+   Si telnet parvient à se connecter au port du serveur de processus, un écran vide apparaît.
+
    Si vous ne pouvez pas vous connecter au serveur de processus, autorisez la porte d’entrée 9443 sur celui-ci. Par exemple, vous pouvez être amené à autoriser le port d’entrée 9443 sur le serveur de processus si votre réseau dispose d’un réseau de périmètre ou d’un sous-réseau filtré. Ensuite, vérifiez si le problème persiste.
 
-*  Vérifiez l’état du service **InMage Scout VX Agent – Sentinel/OutpostStart**. Si le service ne s’exécute pas, démarrez-le, puis vérifiez si le problème persiste.   
+*  Si telnet réussit, mais que l’ordinateur source signale qu’il ne parvient pas à atteindre le serveur de processus, ouvrez le navigateur web sur l’ordinateur source et vérifiez que l’adresse https://<IP_serveur_processus>:<port_données_serveur_processus>/ est accessible.
+
+    L’erreur de certificat HTTPS est attendue lors de l’accès à cette adresse. Si vous poursuivez en ignorant l’erreur de certificat, vous obtiendrez l’erreur 400 – Demande incorrecte, ce qui signifie que le serveur ne peut pas traiter la demande du navigateur et que la connexion HTTPS standard au serveur fonctionne bien.
+
+    En cas d’échec, des informations sur le message d’erreur sont fournies par le navigateur. Par exemple, si l’authentification du proxy est incorrecte, le serveur proxy retourne 407 – Authentification du proxy requise, ainsi que les actions requises, dans le message d’erreur. 
+
+*  Dans les journaux suivants, sur la machine virtuelle source, vérifiez la présence d’erreurs liées à des échecs du chargement réseau :
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### <a name="check-the-process-server"></a>Vérifier le serveur de processus
 
 La liste suivante répertorie les manières dont vous pouvez vérifier le serveur de processus :
+
+> [!NOTE]
+> Le serveur de processus doit avoir une adresse IPv4 statique sans adresse IP NAT configurée dessus.
+
+* **Vérifier la connectivité entre les ordinateurs sources et le serveur de processus**
+1. Si vous parvenez à établir une connexion telnet à partir de la machine source, mais que le serveur de processus n’est pas accessible à partir de la source, vérifiez la connexion de bout en bout avec cxprocessserver à partir de la machine virtuelle source en exécutant l’outil cxpsclient sur la machine :
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    Consultez les journaux générés sur le serveur de processus dans les répertoires suivants pour en savoir plus sur les erreurs correspondantes :
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. Consultez les journaux suivants sur le serveur de processus au cas où il n’y aurait aucune pulsation du serveur de processus :
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **Vérifiez si le serveur de processus transmet activement des données à Azure**.
 

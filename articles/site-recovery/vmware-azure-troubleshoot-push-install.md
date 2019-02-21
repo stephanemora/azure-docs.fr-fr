@@ -6,23 +6,29 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
-ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/07/2019
+ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411745"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895684"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
 L’installation du service Mobilité est une étape clé de l’activation de la réplication. La réussite de cette étape dépend uniquement de la satisfaction des conditions préalables et de l’utilisation des configurations prises en charge. Les erreurs les plus courantes que vous rencontrez au cours de l’installation du service Mobilité sont dues aux :
 
-* Erreurs d’informations d’identification/de privilèges
-* Échecs de connexion
-* Erreurs de connectivité
-* Systèmes d’exploitation non pris en charge
-* Échecs d’installation VSS
+* [Erreurs d’informations d’identification/de privilèges](#credentials-check-errorid-95107--95108)
+* [Échecs de connexion](#login-failures-errorid-95519-95520-95521-95522)
+* [Erreurs de connectivité](#connectivity-failure-errorid-95117--97118)
+* [Erreurs de partage de fichiers et d’imprimantes](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [Échecs WMI](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [Systèmes d’exploitation non pris en charge](#unsupported-operating-systems)
+* [Configurations de démarrage non prises en charge](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [Échecs d’installation VSS](#vss-installation-failures)
+* [Nom de l’appareil dans la configuration GRUB au lieu de l’UUID d’appareil](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [Volume LVM](#lvm-support-from-920-version)
+* [Avertissements de redémarrage](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 Lorsque vous activez la réplication, Azure Site Recovery tente une installation Push de l’agent du service Mobilité sur votre machine virtuelle. Dans le cadre de cette installation, le serveur de configuration essaie de se connecter à la machine virtuelle et de copier l’agent. Pour réussir l’installation, suivez les instructions de dépannage étape par étape ci-dessous.
 
@@ -56,12 +62,14 @@ Si l’établissement d’une relation d’approbation de domaine entre le domai
 
 Si vous souhaitez modifier les informations d’identification du compte d’utilisateur choisi, suivez les instructions fournies [ici](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="login-failure-errorid-95519"></a>Échec de connexion (ErrorID : 95519)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>Échecs de connexion (ID d’erreur : 95519, 95520, 95521, 95522)
+
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>Les informations d’identification du compte d’utilisateur ont été désactivées (ID d’erreur : 95519)
 
 Le compte d’utilisateur choisi au cours de Activer la réplication est désactivé. Pour activer le compte utilisateur, reportez-vous à l’article [ici](https://aka.ms/enable_login_user) ou exécutez la commande suivante en remplaçant le texte *username* par le nom d’utilisateur réel.
 `net user 'username' /active:yes`
 
-## <a name="login-failure-errorid-95520"></a>Échec de connexion (ErrorID : 95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>Les informations d’identification ont été verrouillées en raison de l’échec de plusieurs tentatives de connexion (ID d’erreur : 95520)
 
 Plusieurs échecs de nouvelles tentatives d’accès à la machine ont pour effet de verrouiller le compte d’utilisateur. L’échec peut être dû à ce qui suit :
 
@@ -70,11 +78,11 @@ Plusieurs échecs de nouvelles tentatives d’accès à la machine ont pour effe
 
 Par conséquent, modifiez les informations d’identification choisies en suivant les instructions fournies [ici](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) et recommencez l’opération un peu plus tard.
 
-## <a name="login-failure-errorid-95521"></a>Échec de connexion (ErrorID : 95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Les serveurs d’ouverture de session ne sont pas disponibles sur la machine source (ID d’erreur : 95521)
 
 Cette erreur se produit lorsque les serveurs d’ouverture de session ne sont pas disponibles sur la machine source. L’indisponibilité des serveurs d’ouverture de session entraînera l’échec de la demande de connexion et l’agent de mobilité ne pourra donc pas être installé. Pour vous connecter, vérifiez que les serveurs d’ouverture de session sont disponibles sur la machine source et démarrez le service d’ouverture de session. Pour obtenir des instructions détaillées, cliquez [ici](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
-## <a name="login-failure-errorid-95522"></a>Échec de connexion (ErrorID : 95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Le service d’ouverture de session ne s’exécute pas sur l’ordinateur source (ID d’erreur : 95522)
 
 Le service de connexion n’est pas en cours d’exécution sur votre ordinateur source et a provoqué l’échec de la demande de connexion. Par conséquent, l’agent de mobilité ne peut pas être installé. Pour résoudre le problème, assurez-vous que le service d’ouverture de session fonctionne sur la machine source de sorte que la connexion réussisse. Pour démarrer le service d’ouverture de session, exécutez la commande « net start Logon » à partir de l’invite de commandes ou démarrez le service « NetLogon » à partir du Gestionnaire des tâches.
 
@@ -138,15 +146,17 @@ Vous pouvez trouver d’autres articles concernant la résolution des problèmes
 Un échec peut aussi être dû à un système d’exploitation non pris en charge. Vérifiez que vous êtes sur la version du noyau/du système d’exploitation prise en charge pour réussir l’installation du service Mobilité. Évitez l’utilisation des correctifs privés.
 Pour voir la liste des systèmes d’exploitation et versions du noyau pris en charge par Azure Site Recovery, reportez-vous à notre [document avec la matrice de prise en charge](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Les partitions / volumes de démarrage et système ne sont pas le même disque (ErrorID : 95309)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>Configurations de disque de démarrage non prises en charge (ID d’erreur : 95309, 95310, 95311)
+
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Les partitions / volumes de démarrage et système ne sont pas le même disque (ErrorID : 95309)
 
 Avant la version 9.20, les volumes/partitions de démarrage et système résidant sur des disques n’étaient pas pris en charge. À partir de la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), cette configuration est prise en charge. Utilisez la dernière version de ce support.
 
-## <a name="boot-disk-not-found-errorid-95310"></a>Disque de démarrage introuvable (ErrorID : 95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>Le disque de démarrage n’est pas disponible (ID d’erreur : 95310)
 
 Une machine virtuelle sans disque de démarrage ne peut pas être protégée. L’objectif est de garantir une récupération fluide de la machine virtuelle durant une opération de basculement. L’absence de disque de démarrage occasionne l’échec du démarrage de la machine après le basculement. Vérifiez que la machine virtuelle contient un disque de démarrage et recommencez l’opération. Notez également que les machines comprenant plusieurs disques de démarrage ne sont pas prises en charge.
 
-## <a name="multiple-boot-disks-found-errorid-95311"></a>Plusieurs disques de démarrage trouvés (ErrorID : 95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>Plusieurs disques de démarrage sont présents sur l’ordinateur source (ID d’erreur : 95311)
 
 Une machine virtuelle dotée de plusieurs disques de démarrage ne constitue pas une [configuration prise en charge](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
@@ -154,9 +164,45 @@ Une machine virtuelle dotée de plusieurs disques de démarrage ne constitue pas
 
 Avant la version 9.20, le logiciel ne prenait pas en charge la partition racine ou un volume placé sur plusieurs disques. À partir de la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), cette configuration est prise en charge. Utilisez la dernière version de ce support.
 
-## <a name="grub-uuid-failure-errorid-95320"></a>GRUB UUID failure (ErrorID: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>L'activation de la protection a échoué, car le nom de l'appareil est mentionné dans la configuration GRUB au lieu de l'UUID (ID d'erreur : 95320)
 
-Si le GRUB de la machine source utilise le nom de l’appareil au lieu de l’UUID, l’installation de l’agent de mobilité échoue. Adressez-vous à l’administrateur système pour qu’il apporte les modifications nécessaires au fichier GRUB.
+**Cause possible :** </br>
+Les fichiers de configuration GRUB (« /boot/grub/menu.lst », « /boot/grub/grub.cfg », « /boot/grub2/grub.cfg » ou « /etc/default/grub ») peuvent contenir la valeur des paramètres **root** et **resume** en tant que noms d'appareils en lieu et place de l'UUID. Site Recovery impose l'approche UUID car le nom de l'appareil peut changer lors du redémarrage de la machine virtuelle. Et si la machine virtuelle n'apparaît pas sous le même nom lors du basculement, des problèmes peuvent survenir. Par exemple :  </br>
+
+
+- La ligne suivante provient du fichier GRUB **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- La ligne suivante provient du fichier GRUB **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+Si vous observez la chaîne en gras ci-dessus, cela signifie que GRUB dispose du nom réel des appareils comme paramètres « root » et « resume » au lieu de l'UUID.
+ 
+**Procédure de résolution :**<br>
+Le nom de chaque appareil doit être remplacé par l'UUID correspondante.<br>
+
+
+1. Recherchez l'UUID de l'appareil en exécutant la commande « blkid <device name> ». Par exemple : <br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. Maintenant, remplacez le nom de l’appareil par son UUID dans un format du type « root=UUID=<UUID> ». Par exemple, si l’on remplace le nom des appareils par l’UUID pour les paramètres root et resume mentionnés plus haut dans les fichiers « /boot/grub2/grub.cfg », « /boot/grub2/grub.cfg » or « /etc/default/grub », les lignes des fichiers se présentent ainsi : <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+3. Redémarrez à nouveau la protection.
+
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Installation du service Mobilité terminée avec avertissement de redémarrage (ID d’erreur : 95265, 95266)
+
+Le service Mobilité Site Recovery a de nombreux composants, et notamment le pilote de filtre. Le pilote de filtre ne se charge dans la mémoire système qu’au moment du redémarrage du système. Cela signifie que seul le chargement d’un nouveau pilote de filtre, qui se produit seulement lors du redémarrage système, permet d’apporter des correctifs au pilote de filtre.
+
+**Veuillez noter** qu’il s’agit d’un avertissement ; la réplication existante fonctionnera toujours après la nouvelle mise à jour de l’agent. Vous pouvez choisir de redémarrer chaque fois que vous souhaitez profiter des avantages du nouveau pilote de filtre ; en l’absence de redémarrage, l’ancien pilote de filtre continue également de fonctionner. Après une mise à jour sans redémarrage, hormis le pilote de filtre, **les autres améliorations et correctifs du service Mobilité offrent donc tous leurs avantages**. Par conséquent, il est recommandé mais non obligatoire de redémarrer après chaque mise à niveau. Pour plus d’informations sur les redémarrages obligatoires, cliquez [ici](https://aka.ms/v2a_asr_reboot).
+
+> [!TIP]
+>Pour connaître les meilleures pratiques de planification de mises à niveau sur la fenêtre de maintenance, cliquez [ici](https://aka.ms/v2a_asr_upgrade_practice).
 
 ## <a name="lvm-support-from-920-version"></a>Prise en charge de LVM à partir de la version 9.20
 

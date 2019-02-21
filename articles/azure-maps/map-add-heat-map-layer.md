@@ -9,27 +9,27 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 957ce60b8519ccb1e3287232f7a5459a56b25bb7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995148"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960613"
 ---
 # <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 
-Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données utilisé pour représenter la densité de données à l’aide d’une palette de couleurs. Elles sont souvent utilisées pour afficher des « points chauds » sur une carte et sont idéales pour restituer de grands jeux de données de points.  Par exemple, le rendu de dizaines de milliers de points sous la forme de symboles prendrait quasiment tout l’espace sur une carte, avec des symboles qui se chevaucheraient, rendant les informations illisibles et l’obtention d’insights difficile. Toutefois, la visualisation de ce même jeu de données sous forme de carte thermique permet de voir plus facilement où les points de données sont les plus denses ainsi que la densité relative des autres zones. Il existe de nombreux scénarios dans lesquels les cartes thermiques sont utilisées. En voici quelques exemples :
+Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données utilisé pour représenter la densité de données à l’aide d’une palette de couleurs. Souvent utilisées pour afficher les « points chauds » des données sur une carte, elles sont idéales pour restituer de grands jeux de données de points.  Par exemple, le rendu de dizaines de milliers de points sous la forme de symboles prend quasiment tout l’espace sur une carte : les symboles se chevaucheraient, ce qui rendrait les informations illisibles. Toutefois, la visualisation de ce même jeu de données sous forme de carte thermique permet de voir plus facilement où les points de données sont les plus denses ainsi que la densité relative des autres zones. Il existe de nombreux scénarios dans lesquels les cartes thermiques sont utilisées. En voici quelques exemples :
 
 * Les données de température sont couramment affichées dans une carte thermique, car celle-ci fournit une estimation de la température située entre deux points de données.
-* Le rendu des données de capteurs de bruit sous forme de carte thermique permet non seulement de montrer l’intensité du bruit là où se trouve le capteur, mais également de fournir des insights sur la dissipation du bruit avec la distance. Sur un site, le niveau de bruit peut ne pas être élevé, toutefois, si les zones de couverture de plusieurs capteurs se chevauchent, il est possible que la zone de chevauchement obtienne des niveaux de bruit plus élevés, qui seraient alors visibles sur la carte thermique.
-* La visualisation d’une trace GPS de suivi de la vitesse sous forme de carte poids-hauteur, où l’intensité de chaque point de données est basée sur la vitesse, est un excellent moyen de voir rapidement où un véhicule a accéléré.
+* Le rendu des données de capteurs de bruit sous forme de carte thermique permet non seulement de montrer l’intensité du bruit là où se trouve le capteur, mais également de fournir des insights sur la dissipation du bruit avec la distance. Si les zones de couverture du bruit de plusieurs capteurs se chevauchent, il est possible que la zone de chevauchement obtienne des niveaux de bruit plus élevés, qui seraient alors visibles sur la carte thermique, et ce, même si le niveau de bruit n’est pas élevé sur un site en particulier.
+* La visualisation d’une trace GPS de suivi de la vitesse sous forme de carte de hauteur pondérée, où l’intensité de chaque point de données dépend de la vitesse, est un excellent moyen de voir rapidement où le véhicule a accéléré.
 
 > [!TIP]
-> Les couches de bulles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', '$type', 'Point']`.
+> Les couches par défaut de la carte thermique restituent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', '$type', 'Point']`.
 
 ## <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 
-Pour afficher une source de données de points sous forme de carte thermique, il vous suffit de passer votre source de données à une instance de la classe HeatMapLayer et de l’ajouter à la carte, comme illustré ici.
+Pour restituer une source de données de points sous forme de carte thermique, transmettez cette source à une instance de la classe `HeatMapLayer` et ajoutez-la à la carte, comme illustré ici.
 
 <br/>
 
@@ -42,8 +42,8 @@ Dans cet exemple, chaque point de température a un rayon de 10 pixels, à tous
 
 Dans l’exemple précédent, la carte thermique a été personnalisée à l’aide des options de rayon et d’opacité. La couche de carte thermique offre plusieurs options de personnalisation :
 
-* `radius`: définit un rayon de pixels dans lequel restituer chaque point de données. Le rayon peut être défini en tant que nombre fixe ou expression. Le fait de définir le rayon en tant qu’expression qui définit le rayon en fonction du niveau de zoom peut avoir pour résultat des cartes thermiques dont le rayon représente une zone cohérente sur la carte.
-* `color`: spécifie la façon dont la carte thermique est colorisée. Une palette de dégradés de couleurs est souvent utilisée pour les cartes thermiques. Cela dit, les palettes d’échelles de couleurs peuvent également vous être utiles si vous souhaitez donner à votre carte thermique un aspect de carte de contours. Ces palettes de couleurs permettent de définir une couleur pour toutes les valeurs comprises entre la valeur minimale et la valeur maximale de densité. Les valeurs de couleurs des cartes thermiques sont spécifiées comme expressions de valeur `heatmap-density`. La couleur de l’index 0 dans une expression de dégradé ou la couleur par défaut d’une couleur d’échelle définit la couleur d’une zone où il n’existe aucune donnée ou couleur d’arrière-plan. La plupart des utilisateurs préfèrent définir cette valeur sur une couleur noire transparente ou semi-transparente. Voici des exemples d’expressions de couleurs :
+* `radius`: définit un rayon de pixels dans lequel restituer chaque point de données. Le rayon peut être défini en tant que nombre fixe ou expression. Il est possible, avec une expression, d’adapter le rayon en fonction du niveau de zoom, pour représenter une zone spatiale cohérente sur la carte (par exemple, un rayon de 5 miles).
+* `color`: spécifie la façon dont la carte thermique est colorisée. Une palette de dégradés de couleurs est souvent utilisée pour les cartes thermiques. Cela dit, les palettes d’échelles de couleurs peuvent également vous être utiles si vous souhaitez donner à votre carte thermique un aspect de carte de contours. Ces palettes de couleurs permettent de définir une couleur pour toutes les valeurs comprises entre la valeur minimale et la valeur maximale de densité. Les valeurs de couleurs des cartes thermiques sont spécifiées comme expressions de valeur `heatmap-density`. La couleur de l’index 0 dans une expression de dégradé ou la couleur par défaut d’une étape définit la couleur des zones dans lesquelles il n’existe aucune donnée, qui peut être utilisée comme couleur d’arrière-plan. La plupart des utilisateurs préfèrent définir cette valeur sur une couleur noire transparente ou semi-transparente. Voici des exemples d’expressions de couleurs :
 
 | Expression de dégradé de couleurs | Expression d’échelle de couleurs | 
 |---------------------------|--------------------------|
@@ -51,8 +51,8 @@ Dans l’exemple précédent, la carte thermique a été personnalisée à l’a
 
 * `opacity`: spécifie le niveau d’opacité ou de transparence de la couche de carte thermique.
 * `intensity`: applique un multiplicateur à l’épaisseur de chaque point de données pour augmenter l’intensité globale de la carte thermique. Cela permet de distinguer plus facilement les différences d’épaisseur des points de données.
-* `weight`: par défaut, tous les points de données ont une épaisseur de 1, ils ont donc tous la même épaisseur. L’option d’épaisseur fait office de multiplicateur et peut être définie en tant que nombre ou expression. Si un nombre est défini comme nombre, par exemple 2, cela équivaut à placer deux fois chaque point de données sur la carte, doublant ainsi leur densité. Le fait de définir l’option d’épaisseur sur un nombre permet d’afficher la carte thermique comme vous le feriez à l’aide d’une option d’intensité. Toutefois, si une expression est utilisée, l’épaisseur de chaque point de données peut être basée sur une métrique des propriétés du point. Prenons comme exemple les données relatives aux tremblements de terre. Chaque point de données représente un tremblement de terre, et l’une des métriques importantes associées aux tremblements de terre est leur magnitude. Des tremblements de terre se produisent constamment, mais la plupart d’entre eux ont une magnitude faible et ne peuvent pas être ressentis. L’utilisation d’une valeur de magnitude dans une expression dans le but d’affecter l’option d’épaisseur permet aux tremblements de terre majeurs d’être mieux représentés sur la carte thermique.
-* En plus des options de couche de base (zoom min/max, visibilité et filtrage), il existe également une option `source` qui permet de mettre à jour la source de données, et l’option `source-layer` que vous pouvez utiliser si votre source de données est une source de mosaïques vectorielles.
+* `weight`: par défaut, tous les points de données ont une épaisseur de 1, ils ont donc tous la même épaisseur. L’option d’épaisseur fait office de multiplicateur et peut être définie en tant que nombre ou expression. Si un nombre est défini comme poids, par exemple 2, cela équivaut à placer deux fois chaque point de données sur la carte, doublant ainsi la densité. Le fait de définir l’option d’épaisseur sur un nombre permet d’afficher la carte thermique comme vous le feriez à l’aide d’une option d’intensité. Toutefois, si une expression est utilisée, le poids de chaque point de données peut être basé sur une métrique de ses propriétés. Prenons l’exemple de données sur des tremblements de terre : chaque point de données représente un tremblement de terre et correspond à une valeur de magnitude, qui constitue un indicateur important. Des tremblements de terre se produisent constamment, mais la plupart d’entre eux ont une magnitude faible et ne peuvent pas être ressentis. Le fait d’utiliser la valeur de magnitude dans une expression dans le but d’affecter un poids à chaque point de données permet de mieux représenter les tremblements de terre majeurs sur la carte thermique.
+* En plus des options de couche de base (zoom min/max, visibilité et filtre), il existe également une option `source` qui permet de mettre à jour la source de données et une option `source-layer`, utile si la source de données est une source de vignettes vectorielles.
 
 Voici un outil permettant de tester les options de couche de carte thermique.
 
@@ -62,7 +62,7 @@ Voici un outil permettant de tester les options de couche de carte thermique.
 </iframe>
 
 > [!TIP]
-> Quand vous activez l’agrégation dans la source de données, les points qui sont proches les uns des autres sont regroupés pour former un point agrégé. Le nombre de points dont est constitué chaque point agrégé peut être utilisé comme une expression d’épaisseur dans la carte thermique, et réduire ainsi considérablement le nombre de points à restituer. Le nombre de points d’un point agrégé est stocké dans une propriété point_count de la fonctionnalité de point, comme indiqué ci-dessous. 
+> Quand vous activez l’agrégation dans la source de données, les points qui sont proches les uns des autres sont regroupés pour former un point agrégé. Le nombre de points dont est constitué chaque point agrégé peut être utilisé comme une expression d’épaisseur dans la carte thermique, et réduire ainsi considérablement le nombre de points à restituer. Le nombre de points d’un cluster est stocké dans une `point_count property` de la fonctionnalité de point, comme indiqué ci-dessous. 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']

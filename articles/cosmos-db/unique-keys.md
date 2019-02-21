@@ -1,26 +1,30 @@
 ---
 title: Utiliser des clés uniques dans Azure Cosmos DB
-description: Apprenez à utiliser des clés uniques dans votre base de données Azure Cosmos DB
+description: Apprenez à utiliser des clés uniques dans votre base de données Azure Cosmos.
 author: aliuy
 ms.author: andrl
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3a7133d9c092ab8ad8a4bc585e3b0df2b8ca1234
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475871"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999264"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 
-Les clés uniques vous permettent d'ajouter une couche d'intégrité des données à un conteneur Cosmos. Vous créez une stratégie de clé unique lors de la création d'un conteneur Cosmos. Avec les clés uniques, vous garantissez l'unicité d'une ou plusieurs valeurs au sein d'une partition logique (vous pouvez garantir l'unicité par [clé de partition](partition-data.md)). Une fois qu'un conteneur a été créé avec une stratégie de clé unique, il empêche la création (ou la mise à jour) de doublons au sein d'une partition logique, comme spécifié par la contrainte de clé unique. La clé de partition associée à la clé unique garantit l'unicité d'un élément au sein d'un conteneur.
+Les clés uniques renforcent l’intégrité des données dans un conteneur Azure Cosmos. Les stratégies de clé unique s’établissent lors de la création d'un conteneur Azure Cosmos. Les clés uniques permettent de certifier qu’une ou plusieurs valeurs d’une partition logique sont uniques. Vous pouvez également garantir l’unicité par [clé de partition](partition-data.md). 
 
-Penons l'exemple d'un conteneur Cosmos avec une adresse e-mail en guise de contrainte de clé unique et `CompanyID` en guise de clé de partition. En configurant l'adresse e-mail de l'utilisateur comme clé unique, vous veillez à ce que chaque élément possède une adresse e-mail unique dans un `CompanyID` donné. Il est impossible de créer deux éléments avec des adresses e-mail en double et avec la même valeur de clé de partition.  
+Une fois qu'un conteneur a été généré avec une stratégie de clé unique, la création et la mise à jour de doublons au sein d'une partition logique sont impossibles, conformément à la contrainte de clé unique. La combinaison clé de partition-clé unique garantit l'unicité d'un élément à l’échelle d'un conteneur.
 
-Si vous souhaitez permettre aux utilisateurs de créer plusieurs éléments avec la même adresse e-mail, mais pas avec la même combinaison de prénom, nom et adresse e-mail, vous pouvez ajouter d’autres chemins d’accès à la stratégie de clé unique. Au lieu de créer une clé unique basée sur l'adresse e-mail, vous pouvez créer une clé unique combinant à la fois le prénom, le nom et l’adresse e-mail (clé unique composite). Dans ce cas, chaque combinaison unique des trois valeurs est autorisée dans un `CompanyID` donné. Par exemple, le conteneur peut inclure des éléments présentant les valeurs suivantes, chaque élément respectant la contrainte de clé unique.
+Prenons l'exemple d'un conteneur Azure Cosmos dont la contrainte de clé unique porte sur l’adresse e-mail et la clé de partition correspond à `CompanyID`. Dès lors que l'adresse e-mail de l'utilisateur est configurée avec une clé unique, chaque élément possède une adresse e-mail unique dans un `CompanyID` donné. Il est impossible de créer deux éléments avec des adresses e-mail en double et avec la même valeur de clé de partition. 
+
+Pour créer des éléments comportant la même adresse e-mail, mais un prénom, un nom et une adresse e-mail différents, ajoutez d’autres chemins d’accès à la stratégie de clé unique. Au lieu de créer une clé unique basée sur l'adresse e-mail, vous pouvez en créer une qui combine à la fois le prénom, le nom et l’adresse e-mail. Cette clé est appelée clé unique composite. Dans ce cas, chaque combinaison unique des trois valeurs est autorisée dans un `CompanyID` donné. 
+
+Par exemple, le conteneur peut inclure des éléments présentant les valeurs suivantes, chacun respectant la contrainte de clé unique.
 
 |CompanyID|Prénom|Nom|Adresse de messagerie|
 |---|---|---|---|
@@ -31,24 +35,24 @@ Si vous souhaitez permettre aux utilisateurs de créer plusieurs éléments avec
 |Fabrikam|   |Duperre|gaby@fabraikam.com|
 |Fabrikam|   |   |gaby@fabraikam.com|
 
-Si vous tentez d’ajouter un autre élément avec les combinaisons répertoriées dans le tableau ci-dessus, vous recevrez une erreur indiquant que la contrainte de clé unique n’est pas respectée. L'un de messages suivants s'affichera : « Une ressource existante possède déjà l'ID ou le nom spécifié » ou « Une ressource existante possède déjà l'ID, le nom ou l'index unique spécifié ».  
+Si vous tentez d’insérer un autre élément présentant une des combinaisons du tableau précédent, vous recevez une erreur indiquant que la contrainte de clé unique n’a pas été remplie. L'un des messages suivants s'affiche : « Il existe déjà une ressource possédant l'ID ou le nom spécifié » ou « Il existe déjà une ressource possédant l'ID, le nom ou l'index unique spécifié ». 
 
-## <a name="defining-a-unique-key"></a>Définir une clé unique
+## <a name="define-a-unique-key"></a>Définir une clé unique
 
-Les clés uniques ne peuvent être définies qu'au moment de la création d'un conteneur Cosmos. Une clé unique est associée à une partition logique. Dans l'exemple précédent, si vous partitionnez le conteneur en fonction du code postal, vous aurez des doublons dans chaque partition logique. Lors de la création de clés uniques, tenez compte des propriétés suivantes :
+Les clés uniques ne peuvent être définies qu'au moment de la création d'un conteneur Azure Cosmos. Une clé unique est associée à une partition logique. Dans l'exemple précédent, si vous partitionnez le conteneur en fonction du code postal, vous obtenez des doublons dans chaque partition logique. Lorsque vous créez des clés uniques, tenez compte des propriétés suivantes :
 
-* Vous ne pouvez pas mettre à jour un conteneur existant pour qu'il utilise une autre clé unique. Autrement dit, une fois qu'un conteneur a été créé avec une stratégie de clé unique, la stratégie n'est pas modifiable.
+* Il n’est pas possible de mettre à jour un conteneur existant pour qu'il utilise une autre clé unique. Autrement dit, une fois qu'un conteneur a été créé avec une stratégie de clé unique, celle-ci n'est pas modifiable.
 
-* Si vous souhaitez définir une clé unique pour un conteneur existant, vous devez créer un nouveau conteneur avec la contrainte de clé unique et utiliser l'outil de migration de données approprié pour déplacer les données du conteneur existant vers le nouveau conteneur. Sur les conteneurs SQL, utilisez l'[outil de migration de données](import-data.md) pour déplacer des données. Sur les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) pour déplacer des données.
+* Pour définir la clé unique d’un conteneur existant, créez un nouveau conteneur avec la contrainte de clé unique. Utilisez un outil de migration des données adapté pour déplacer les données du conteneur existant vers le nouveau. Avec les conteneurs SQL, utilisez [l'Outil de migration de données ](import-data.md) pour déplacer des données. Sur les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) pour déplacer des données.
 
-* Une stratégie de clé unique peut inclure un maximum de 16 valeurs de chemin d’accès (par exemple : /firstName, /lastName, /address/zipCode). Chaque stratégie de clé unique peut inclure jusqu’à 10 contraintes ou combinaisons de clé unique, et les chemins d’accès combinés de chaque contrainte d’index unique ne doivent pas dépasser 60 octets. Dans l’exemple précédent, la combinaison prénom, nom et adresse e-mail représente une seule contrainte et utilise trois des 16 chemins d’accès possibles.
+* Une stratégie de clé unique peut comporter au maximum 16 valeurs de chemin d’accès, par exemple, firstName, /lastName et /address/zipCode. Chaque stratégie de clé unique peut contenir un maximum de 10 combinaisons ou contraintes de clé unique. Les chemins d’accès combinés de chaque contrainte d’index unique ne doivent pas dépasser 60 octets. Dans l’exemple précédent, la combinaison du prénom, du nom et de l’adresse e-mail représente une seule contrainte, qui utilise 3 des 16 chemins possibles.
 
-* Lorsqu'un conteneur dispose d'une stratégie de clé unique, le coût en unités de requête de la création, de la mise à jour et de la suppression d'un élément est légèrement supérieur.
+* Lorsqu'un conteneur dispose d'une stratégie de clé unique, le coût en unités de requête (RU) de la création, de la mise à jour et de la suppression d'un élément est légèrement supérieur.
 
-* Les clés uniques partiellement allouées ne sont pas prises en charge. Si les valeurs de certains chemins d’accès uniques sont manquantes, ces dernières sont traitées comme des valeurs null, qui font partie intégrante de la contrainte d’unicité. Par conséquent, il ne peut y avoir qu'un seul élément avec une valeur null pour satisfaire cette contrainte.
+* Les clés uniques partiellement allouées ne sont pas prises en charge. S’il manque les valeurs de certains chemins d’accès uniques, elles sont traitées comme des valeurs Null, qui font partie intégrante de la contrainte d’unicité. C’est pourquoi il ne peut y avoir qu'un seul élément comportant une valeur Null pour satisfaire à cette contrainte.
 
-* Les noms de clés uniques sont sensibles à la casse. Prenons l'exemple d'un conteneur doté d'une contrainte de clé unique définie sur /address/zipcode. Si vos données comportent un champ intitulé ZipCode, Cosmos DB insère « null » comme clé unique car « zipcode » n’est pas identique à « ZipCode ». En raison de ce respect de la casse, aucun autre enregistrement contenant ZipCode ne peut être inséré car la valeur « null » dupliquée violera la contrainte de clé unique.
+* Les noms de clés uniques sont sensibles à la casse. Prenons l'exemple d'un conteneur doté d'une contrainte de clé unique définie sur /address/zipcode. Si vos données comportent un champ intitulé ZipCode, Azure Cosmos DB insère « null » comme clé unique, car « zipcode » n’est pas identique à « ZipCode ». En raison de ce respect de la casse, aucun autre enregistrement contenant ZipCode ne peut être inséré ; en effet, un doublon sur la valeur « null » violerait la contrainte de clé unique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [partitions logiques](partition-data.md)
+* Découvrez les [partitions logiques](partition-data.md).

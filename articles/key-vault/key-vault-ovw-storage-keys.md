@@ -7,14 +7,14 @@ services: key-vault
 ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
-manager: mbaldwin
+manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814841"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118052"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Compte de stockage managé Azure Key Vault – CLI
 
@@ -44,6 +44,12 @@ ms.locfileid: "55814841"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Instructions étape par étape sur la façon d'utiliser Key Vault pour gérer les clés du compte de stockage
 --------------------------------------------------------------------------------
+Sur le plan conceptuel, la liste des étapes à suivre est
+- Nous commençons par obtenir un compte de stockage (préexistant)
+- Nous récupérons ensuite un coffre de clés (préexistant)
+- Puis, nous ajoutons un compte de stockage géré par Key Vault au coffre, en définissant Key1 en tant que clé active et avec une période de régénération de 180 jours
+- Enfin, nous définissons un contexte de stockage pour le compte de stockage spécifié, avec Key1
+
 Dans les instructions ci-dessous, nous attribuons au service Key Vault des autorisations d’opérateur sur votre compte de stockage.
 
 > [!NOTE]
@@ -62,7 +68,7 @@ Dans les instructions ci-dessous, nous attribuons au service Key Vault des autor
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    Si l'exécution de cette commande aboutit, recherchez l'ID d'objet dans le résultat
+    Si l'exécution de cette commande aboutit, recherchez l'ID d'objet dans le résultat :
     ```console
         {
             ...
@@ -85,9 +91,41 @@ Dans les instructions ci-dessous, nous attribuons au service Key Vault des autor
     ```
     Si l’utilisateur n’a pas créé le compte de stockage et ne dispose pas des autorisations sur le compte de stockage, les étapes ci-dessous définissent les autorisations sur votre compte pour être sûr de pouvoir gérer toutes les autorisations de stockage dans le coffre de clés.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Instructions étape par étape sur la façon d'utiliser Key Vault pour créer et générer des jetons SAS
+--------------------------------------------------------------------------------
+Vous pouvez également demander à Key Vault de générer des jetons SAS (Shared Access Signature, signature d'accès partagé). Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder aux clients l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. C’est tout l’intérêt d’utiliser des signatures d’accès partagé dans vos applications : une SAP est un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
+
+Une fois que vous avez terminé les étapes répertoriées ci-dessus, vous pouvez exécuter les commandes suivantes pour demander à Key Vault de générer des jetons SAS pour vous. 
+
+Voici les choses qui peuvent être accomplies avec les étapes ci-dessous
+- Configure une définition de compte SAS nommé « <YourSASDefinitionName> » sur un compte de stockage géré par KeyVault « <YourStorageAccountName> » dans    votre coffre « <VaultName> ». 
+- Crée un jeton SAS de compte pour les services Blob, Fichier, Table et File d’attente, pour les types de ressources Service, Conteneur et Objet, avec toutes les autorisations, via le protocole https et avec les dates de début et de fin spécifiées
+- Configure une définition SAQ de stockage géré par KeyVault dans le coffre, avec l’URI de modèle en tant que le jeton SAS créé ci-dessus, avec un « compte » de type SAS et une validité de N jours
+- Récupère le jeton d’accès réel à partir du secret KeyVault correspondant à la définition SAS
+
+1. Dans cette étape, nous allons créer une définition SAS. Une fois que cette définition SAS est créée, vous pouvez demander à Key Vault de générer plus de jetons SAS pour vous. Cette opération nécessite l’autorisation storage/setsas.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+Vous trouverez [ici](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) plus d’aide sur l’opération ci-dessus
+
+Lorsque cette opération s’exécute correctement, vous devriez voir une sortie similaire à celle ci-dessous. Copiez cela
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. Dans cette étape, nous allons utiliser la sortie ($sasToken) générée ci-dessus pour créer une définition SAS. Pour plus d’informations, lisez [ceci](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > Si l’utilisateur ne dispose pas des autorisations sur le compte de stockage, nous commençons par obtenir l’ID d’objet de l’utilisateur.
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ Dans les instructions ci-dessous, nous attribuons au service Key Vault des autor
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Comment accéder à votre compte de stockage avec des jetons SAS
+## <a name="fetch-sas-tokens-in-code"></a>Récupérer des jetons SAS dans le code
 
 Dans cette section, nous allons étudier comment vous pouvez effectuer des opérations sur votre compte de stockage en extrayant des [jetons SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) à partir de Key Vault
 
-Dans la section ci-dessous, nous montrons comment extraire la clé de votre compte de stockage qui est stockée dans Key Vault et l’utiliser pour créer une définition SAS (signature d’accès partagé) pour votre compte de stockage.
+Dans la section ci-dessous, nous montrons comment récupérer des jetons SAS après la création d’une définition SAS comme indiqué ci-dessus.
 
 > [!NOTE] 
   Il existe 3 façons de s’authentifier sur Key Vault comme vous pouvez le lire dans les [concepts de base](key-vault-whatis.md#basic-concepts)
@@ -132,19 +170,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### <a name="relevant-azure-cli-commands"></a>Commandes Azure CLI pertinentes
 
-### <a name="relavant-azure-cli-cmdlets"></a>Applets de commande Azure CLI correspondantes
-[Applets de commande de stockage Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### <a name="relevant-powershell-cmdlets"></a>Cmdlets PowerShell appropriées
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Commandes de stockage Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -1,38 +1,40 @@
 ---
-title: Modifier l’inscription dans les stratégies personnalisées et configurer le fournisseur autodéclaré | Microsoft Docs
-description: Une procédure pas à pas sur l’ajout de revendications pour inscrire et configurer la saisie utilisateur
+title: Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées – Azure Active Directory B2C | Microsoft Docs
+description: Découvrez comment personnaliser l’entrée utilisateur et ajouter des revendications au parcours d’inscription ou de connexion dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2017
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2989af12407bdddf6e55e8967a0a574fff690208
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e48ce4adc64f434b80210ff8aa36a983ba88c26
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179206"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894919"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C : Modifier l'inscription pour ajouter de nouvelles revendications et configurer la saisie utilisateur.
+#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dans cet article, vous allez ajouter une nouvelle entrée fournie par l’utilisateur (une revendication) à votre parcours utilisateur d’inscription.  Vous allez configurer l’entrée en tant que liste déroulante et définir si elle est nécessaire.
+Dans le cadre de cet article, vous allez ajouter une nouvelle entrée fournie par l’utilisateur (une revendication) à votre parcours utilisateur d’inscription dans Azure Active Directory (Azure AD) B2C.  Vous allez configurer l’entrée sous forme de liste déroulante et définir si elle est requise.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivez les étapes de l’article [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).  Testez le parcours utilisateur d’inscription/de connexion pour inscrire un nouveau compte local avant de continuer.
+Suivez les étapes de l’article [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md). Testez le parcours utilisateur d’inscription ou de connexion pour inscrire un nouveau compte local avant de continuer.
+
+## <a name="add-claims"></a>Ajouter des revendications
+
+La collecte initiale de données auprès des utilisateurs se fait par le biais du parcours utilisateur d’inscription ou de connexion. Des revendications supplémentaires peuvent être collectées par la suite au moyen des parcours utilisateur de modification de profil. Chaque fois qu’Azure AD B2C rassemble de manière interactive des informations provenant directement de l’utilisateur, Identity Experience Framework utilise son fournisseur autodéclaré.
 
 
-La collecte des données initiales de vos utilisateurs est obtenue via l’inscription/la connexion.  Des revendications supplémentaires peuvent être collectées ultérieurement via des parcours utilisateur de modification de profil. Chaque fois qu’Azure AD B2C rassemble des informations directement à partir de l’utilisateur de manière interactive, l’infrastructure d’expérience d’identité utilise son `selfasserted provider`. Les étapes ci-dessous s’appliquent à chaque fois que ce fournisseur est utilisé.
+### <a name="define-the-claim"></a>Définir la revendication
 
-
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Définir la revendication, son nom d’affichage et le type de saisie utilisateur
-Demandons à l’utilisateur la ville où il vit.  Ajoutez l’élément suivant à l’élément `<ClaimsSchema>` dans le fichier de stratégie TrustFrameworkBase :
+Demandons à l’utilisateur la ville où il vit. Ajoutez l’élément suivant à l’élément **ClaimsSchema** dans le fichier de stratégie TrustFrameworkBase :
 
 ```xml
 <ClaimType Id="city">
@@ -42,14 +44,15 @@ Demandons à l’utilisateur la ville où il vit.  Ajoutez l’élément suivant
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-Vous pouvez sélectionner d’autres choix pour personnaliser la revendication.  Pour un schéma complet, reportez-vous au **guide de référence technique sur l’infrastructure d’expérience d’identité**.  Ce guide sera bientôt publié dans la section de référence.
 
-* `<DisplayName>` est une chaîne qui définit *l’étiquette* orientée utilisateur.
+Les éléments suivants sont utilisés pour définir la revendication :
 
-* `<UserHelpText>` permet à l’utilisateur de comprendre ce qui est nécessaire.
+- **DisplayName** : chaîne qui définit l’étiquette orientée utilisateur.
+- **UserHelpText** : texte permettant à l’utilisateur de comprendre ce qui est requis.
+- **UserInputType** : zone de texte, case de sélection, liste déroulante ou sélection multiple.
 
-* `<UserInputType>` comprend les quatre options suivantes mises en surbrillance ci-dessous :
-    * `TextBox`
+#### <a name="textbox"></a>Zone de texte
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -59,7 +62,8 @@ Vous pouvez sélectionner d’autres choix pour personnaliser la revendication. 
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration` - Applique une seule sélection.
+#### <a name="radiosingleselect"></a>RadioSingleSelect
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -73,10 +77,9 @@ Vous pouvez sélectionner d’autres choix pour personnaliser la revendication. 
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect` - Permet la sélection d’une valeur valide uniquement.
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 ![Capture d’écran de l’option de liste déroulante](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -91,11 +94,9 @@ Vous pouvez sélectionner d’autres choix pour personnaliser la revendication. 
 </ClaimType>
 ```
 
-
-* `CheckboxMultiSelect` Permet la sélection d’une ou de plusieurs valeurs.
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 ![Capture d’écran de l’option de sélection multiple](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -110,142 +111,169 @@ Vous pouvez sélectionner d’autres choix pour personnaliser la revendication. 
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Ajouter la revendication pour le parcours utilisateur d’inscription/de connexion
+### <a name="add-the-claim-to-the-user-journey"></a>Ajouter la revendication au parcours utilisateur
 
-1. Ajoutez la revendication en tant que `<OutputClaim ClaimTypeReferenceId="city"/>` à `LocalAccountSignUpWithLogonEmail` de TechnicalProfile (trouvé dans le fichier de stratégie TrustFrameworkBase).  Notez que ce TechnicalProfile utilise le SelfAssertedAttributeProvider.
+1. Ajoutez la revendication comme `<OutputClaim ClaimTypeReferenceId="city"/>` au profil technique `LocalAccountSignUpWithLogonEmail` qui se trouve dans le fichier de stratégie TrustFrameworkBase. Ce profil technique utilise SelfAssertedAttributeProvider.
 
-  ```xml
-  <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-    <DisplayName>Email signup</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-      <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-      <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-      <Item Key="language.button_continue">Create</Item>
-    </Metadata>
-    <CryptographicKeys>
-      <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-    </CryptographicKeys>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" />
-    </InputClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-      <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
-      <OutputClaim ClaimTypeReferenceId="givenName" />
-      <OutputClaim ClaimTypeReferenceId="surName" />
-      <OutputClaim ClaimTypeReferenceId="city"/>
-    </OutputClaims>
-    <ValidationTechnicalProfiles>
-      <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-    </ValidationTechnicalProfiles>
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-2. Ajoutez la revendication à l’AAD-UserWriteUsingLogonEmail en tant que `<PersistedClaim ClaimTypeReferenceId="city" />` pour écrire la revendication dans le répertoire AAD après sa collecte auprès de l’utilisateur. Vous pouvez ignorer cette étape si vous préférez ne pas conserver la revendication dans le répertoire pour une utilisation ultérieure.
-
-  ```xml
-  <!-- Technical profiles for local accounts -->
-  <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-    <Metadata>
-      <Item Key="Operation">Write</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
-    </InputClaims>
-    <PersistedClaims>
-      <!-- Required claims -->
-      <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
-      <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
-      <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-      <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
-      <!-- Optional claims. -->
-      <PersistedClaim ClaimTypeReferenceId="givenName" />
-      <PersistedClaim ClaimTypeReferenceId="surname" />
-      <PersistedClaim ClaimTypeReferenceId="city" />
-    </PersistedClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-3. Ajouter la revendication au TechnicalProfile qui lit à partir du répertoire lorsqu’un utilisateur se connecte en tant que `<OutputClaim ClaimTypeReferenceId="city" />`
-
-  ```xml
-  <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-    <Metadata>
-      <Item Key="Operation">Read</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
-    </InputClaims>
-    <OutputClaims>
-      <!-- Required claims -->
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <!-- Optional claims -->
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="displayName" />
-      <OutputClaim ClaimTypeReferenceId="otherMails" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-  </TechnicalProfile>
-  ```
-
-4. Ajoutez `<OutputClaim ClaimTypeReferenceId="city" />` au fichier de stratégie de partie de confiance SignUporSignIn.xml pour que cette revendication soit envoyée à l’application dans le jeton après un parcours utilisateur réussi.
-
-  ```xml
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
+    ```xml
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+      <DisplayName>Email signup</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
+        <Item Key="language.button_continue">Create</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
+      </CryptographicKeys>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" />
+      </InputClaims>
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+        <OutputClaim ClaimTypeReferenceId="newUser" />
+        <!-- Optional claims, to be collected from the user -->
         <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="surName" />
+        <OutputClaim ClaimTypeReferenceId="city"/>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
+        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+      </ValidationTechnicalProfiles>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+2. Ajoutez la revendication au profil technique AAD-UserWriteUsingLogonEmail comme `<PersistedClaim ClaimTypeReferenceId="city" />` pour écrire cette revendication dans le répertoire AAD après sa collecte auprès de l’utilisateur. Vous pouvez ignorer cette étape si vous préférez ne pas conserver la revendication dans le répertoire pour une utilisation ultérieure.
+
+    ```xml
+    <!-- Technical profiles for local accounts -->
+    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+      <Metadata>
+        <Item Key="Operation">Write</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
+      </InputClaims>
+      <PersistedClaims>
+        <!-- Required claims -->
+        <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
+        <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
+        <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
+        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+        <!-- Optional claims. -->
+        <PersistedClaim ClaimTypeReferenceId="givenName" />
+        <PersistedClaim ClaimTypeReferenceId="surname" />
+        <PersistedClaim ClaimTypeReferenceId="city" />
+      </PersistedClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+3. Ajoutez la revendication `<OutputClaim ClaimTypeReferenceId="city" />` aux profils techniques qui lisent le contenu du répertoire lorsqu’un utilisateur se connecte.
+
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+        <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Required claims -->
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
-  </RelyingParty>
-  ```
+    ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>Testez la stratégie personnalisée à l’aide de « Exécuter maintenant »
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    </TechnicalProfile>
+    ```
+   
+4. Ajoutez la revendication `<OutputClaim ClaimTypeReferenceId="city" />` au fichier SignUporSignIn.xml pour qu’elle soit envoyée à l’application dans le jeton après un parcours utilisateur réussi.
 
-1. Ouvrez le **panneau Azure AD B2C** et accédez à **Infrastructure d’expérience d’identité > Stratégies personnalisées**.
-2. Sélectionnez la stratégie personnalisée que vous avez téléchargée, puis cliquez sur le bouton **Exécuter maintenant**.
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+          <OutputClaim ClaimTypeReferenceId="city" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+## <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Veillez à utiliser le répertoire contenant votre locataire Azure AD en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant le répertoire en question.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
+4. Sélectionnez **Identity Experience Framework (préversion)**.
+5. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les deux fichiers de stratégie que vous avez modifiés.
+2. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant**.
 3. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.
 
-L’écran d’inscription en mode test doit ressembler à ceci :
+L’écran d’inscription se présente ainsi :
 
 ![Capture d’écran de l’option d’inscription modifiée](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  Le jeton qui est renvoyé à vote application inclut désormais la revendication `city` comme illustré ci-dessous.
+Le jeton envoyé à votre application inclut la revendication `city`.
+
 ```json
 {
   "exp": 1493596822,
@@ -266,19 +294,16 @@ L’écran d’inscription en mode test doit ressembler à ceci :
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>Facultatif : Supprimer la vérification de l'adresse e-mail du parcours d'inscription
+## <a name="optional-remove-email-verification"></a>Facultatif : Supprimer la vérification de l’adresse e-mail
 
-Pour ignorer la vérification de l’adresse e-mail, l’auteur de la stratégie peut choisir de supprimer `PartnerClaimType="Verified.Email"`. L’adresse e-mail sera requise mais pas vérifiée, sauf si « Requis » = true est supprimé.  Réfléchissez bien pour savoir si cette option peut vous être utile !
+Pour ignorer la vérification de l’adresse e-mail, vous pouvez choisir de supprimer `PartnerClaimType="Verified.Email"`. Dans ce cas, l’adresse e-mail est requise mais pas vérifiée, sauf si “Required” = true est supprimé.  Prenez le temps de déterminer si cette option est adaptée à vos cas d’usage.
 
-La vérification de l’adresse e-mail est activée par défaut dans `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">`, dans le fichier de stratégie TrustFrameworkBase du pack de démarrage :
+La vérification de l’adresse e-mail est activée par défaut dans `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">`, dans le fichier de stratégie TrustFrameworkBase :
+
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre stratégie appuie les comptes sociaux, ajoutez la nouvelle revendication aux flux des connexions aux comptes sociaux en modifiant les profils techniques répertoriés ci-dessous. Ces revendications sont utilisées par les connexions de compte social pour collecter et écrire des données à partir de l’utilisateur.
-
-1. Recherchez le profil technique **SelfAsserted-Social** et ajoutez la revendication de sortie. L’ordre des revendications dans **OutputClaims** détermine l’ordre dans lequel Azure AD B2C affiche les revendications à l’écran. Par exemple : `<OutputClaim ClaimTypeReferenceId="city" />`.
-2. Recherchez le profil technique **AAD-UserWriteUsingAlternativeSecurityId** et ajoutez la revendication de persistance. Par exemple : `<PersistedClaim ClaimTypeReferenceId="city" />`.
-3. Recherchez le profil technique **AAD-UserReadUsingAlternativeSecurityId** et ajoutez la revendication de sortie. Par exemple : `<OutputClaim ClaimTypeReferenceId="city" />`.
+Découvrez comment [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).

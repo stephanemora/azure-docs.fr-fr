@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c81701dff8d7eebf08aa6b16c61e6915a905c729
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172712"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996097"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>À propos de la personnalisation de l’interface utilisateur dans Azure Active Directory B2C
 
@@ -24,17 +24,19 @@ La possibilité de personnaliser l’interface utilisateur présentée par Azure
 Vous personnalisez l’interface utilisateur de votre application de différentes manières en fonction de vos besoins relatifs à ces expériences. Par exemple : 
 
 - Si vous utilisez des [flux d’utilisateur](active-directory-b2c-reference-policies.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, vous utilisez le [portail Azure pour personnaliser l’interface utilisateur](tutorial-customize-ui.md).
+- Si vous utilisez un flux utilisateur v2, vous pouvez utiliser un [modèle de disposition de page](#page-layout-templates) pour modifier l’apparence de vos pages de flux utilisateur sans davantage de personnalisation. Par exemple, vous pouvez appliquer un thème Bleu océan ou Gris ardoise à toutes les pages dans votre flux utilisateur.
 - Si vous fournissez uniquement une expérience de connexion, la page de réinitialisation du mot de passe associée et des e-mails de vérification, vous utilisez les mêmes étapes de personnalisation que celles utilisées pour une [page de connexion Azure AD](../active-directory/fundamentals/customize-branding.md).
 - Si les clients tentent de modifier leur profil avant de se connecter, ils sont redirigés vers une page que vous personnalisez à l’aide de la même procédure que celle utilisée pour la personnalisation de la page de connexion Azure AD.
 - Si vous utilisez des [stratégies personnalisées](active-directory-b2c-overview-custom.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, vous utilisez des [fichiers de stratégie pour personnaliser l’interface utilisateur](active-directory-b2c-ui-customization-custom.md).
 - Si vous avez besoin de fournir du contenu dynamique basé sur la décision d’un client, vous utilisez des [stratégies personnalisées qui peuvent changer le contenu de la page](active-directory-b2c-ui-customization-custom-dynamic.md) en fonction d’un paramètre qui est envoyé dans une chaîne de requête. Par exemple, l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C change en fonction d’un paramètre que vous transmettez à partir de votre application web ou mobile.
+- Vous pouvez activer le code JavaScript côté client dans vos [flux utilisateur](user-flow-javascript-overview.md) ou [stratégies personnalisées](page-contract.md) Azure AD B2C.
 
 Azure AD B2C exécute le code dans le navigateur de votre client et adopte une approche moderne appelée [Partage des ressources cross-origin (CORS)](https://www.w3.org/TR/cors/). Au moment de l’exécution, le contenu est chargé depuis une URL que vous spécifiez dans un flux d’utilisateur. Vous spécifiez différentes URL pour différentes pages. Une fois le contenu chargé à partir de votre URL, il est fusionné avec un fragment HTML inséré à partir d’Azure AD B2C, puis présenté à votre client.
 
-Avant de commencer, passez en revue les instructions suivantes :
+Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’interface utilisateur, passez en revue les conseils suivants avant de commencer :
 
 - Azure AD B2C fusionne le contenu HTML dans vos pages. Ne copiez pas et n’essayez pas de modifier le contenu par défaut fourni par Azure AD B2C. Il est préférable de créer votre contenu HTML à partir de zéro et d’utiliser le contenu par défaut comme référence.
-- Pour des raisons de sécurité, vous n’êtes pas autorisé à inclure du code JavaScript dans votre contenu.
+- JavaScript peut désormais être inclus dans votre contenu personnalisé.
 - Les versions de navigateur prises en charge sont les suivantes : 
     - Internet Explorer 11, 10 et Microsoft Edge
     - Prise en charge limitée pour Internet Explorer 9 et 8
@@ -42,9 +44,23 @@ Avant de commencer, passez en revue les instructions suivantes :
     - Mozilla Firefox 38.0 et ultérieur
 - Veillez à ne pas inclure de balises de formulaire dans votre HTML, car cela interfère avec les opérations POST générées par le HTML injecté à partir d’Azure AD B2C.
 
+## <a name="page-layout-templates"></a>Modèles de mise en page
+
+Pour les flux utilisateur v2, vous pouvez choisir un modèle prédéfini qui donne un meilleur aspect à vos pages par défaut et constitue un bon point de départ pour votre propre personnalisation.
+
+Dans le menu de gauche, sous **Personnaliser**, sélectionnez **Mises en page**. Puis sélectionnez **Modèle (préversion)**.
+
+![Choisir un modèle de mise en page](media/customize-ui-overview/template.png)
+
+Sélectionnez un modèle dans la liste. Par exemple, le modèle **Bleu océan** applique la mise en page suivante à vos pages de flux utilisateur :
+
+![Modèle Bleu océan](media/customize-ui-overview/ocean-blue.png)
+
+Lorsque vous choisissez un modèle, la mise en page sélectionnée est appliquée à toutes les pages dans votre flux utilisateur et l’URI de chaque page est visible dans le champ **URI de la page personnalisée**.
+
 ## <a name="where-do-i-store-ui-content"></a>Où stocker le contenu de l’interface utilisateur ?
 
-Vous pouvez héberger le contenu de votre interface utilisateur n’importe où, par exemple dans le [stockage d’objets blob Azure](../storage/blobs/storage-blobs-introduction.md), sur des serveurs web, des CDN, AWS S3 ou des systèmes de partage de fichiers. Le point important est que vous hébergez le contenu sur un point de terminaison HTTPS disponible publiquement avec CORS activé. Vous devez utiliser une URL absolue quand vous le spécifiez dans votre contenu.
+Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’IU, vous pouvez héberger le contenu de votre interface utilisateur n’importe où, par exemple dans le [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md), sur des serveurs web, des CDN, AWS S3 ou des systèmes de partage de fichiers. Le point important est que vous hébergez le contenu sur un point de terminaison HTTPS disponible publiquement avec CORS activé. Vous devez utiliser une URL absolue quand vous le spécifiez dans votre contenu.
 
 ## <a name="how-do-i-get-started"></a>Comment faire pour démarrer ?
 

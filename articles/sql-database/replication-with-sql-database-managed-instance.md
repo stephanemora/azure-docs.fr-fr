@@ -1,6 +1,6 @@
 ---
-title: Configurer la réplication dans Azure SQL Database Managed Instance | Microsoft Docs
-description: Familiarisez-vous avec la configuration de la réplication transactionnelle dans Azure SQL Database Managed Instance
+title: Configurer la réplication dans une base de données d’instances managées Azure SQL Database | Microsoft Docs
+description: Familiarisez-vous avec la configuration de la réplication transactionnelle dans une base de données d’instances managées Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,61 +11,58 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467661"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893009"
 ---
-# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurer la réplication dans Azure SQL Database Managed Instance
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurer la réplication dans une base de données d’instances managées Azure SQL Database
 
-La réplication transactionnelle vous permet de répliquer les données des bases de données SQL Server ou Azure SQL Database Managed Instance dans Managed Instance, ou d’envoyer (push) les modifications apportées à vos bases de données dans Managed Instance vers d’autres bases de données uniques ou pools élastiques SQL Server, SQL Database ou d’autres instances de Managed Instance. La réplication est disponible en préversion publique dans [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Reportez-vous à [Configurations de réplication transactionnelle](sql-database-managed-instance-transactional-replication.md#common-configurations) pour connaître les configurations disponibles.
+La réplication transactionnelle vous permet de répliquer des données dans une base de données d’instances managées Azure SQL Database à partir d’une base de données SQL Server ou d’une autre base de données d’instances. Vous pouvez également utiliser la réplication transactionnelle pour envoyer (push) les modifications apportées à une base de données d’instances dans une instance managée Azure SQL Database à une base de données SQL Server, une base de données unique dans Azure SQL Database, une base de données regroupée dans un pool élastique Azure SQL Database. La réplication transactionnelle est disponible en préversion publique dans une [instance managée Azure SQL Database](sql-database-managed-instance.md). Une instance managée peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Consultez [Configurations de réplication transactionnelle](sql-database-managed-instance-transactional-replication.md#common-configurations) pour connaître les configurations disponibles.
 
 ## <a name="requirements"></a>Configuration requise
 
-Le serveur de publication et le serveur de distribution sur Azure SQL Database nécessitent ce qui suit :
+La configuration d’une instance managée pour fonctionner en tant qu’éditeur ou distributeur nécessite :
 
-- Azure SQL Database Managed Instance sans configuration de géo-reprise d'activité.
+- Que l’instance managée ne participe pas actuellement à une relation de géoréplication.
 
    >[!NOTE]
-   >Les bases de données SQL Azure qui ne sont pas configurées avec Managed Instance peuvent seulement être des abonnés.
+   >Les bases de données uniques et les bases de données regroupées dans Azure SQL Database ne peuvent être que des abonnés.
 
-- Toutes les instances de SQL Server doivent se trouver sur le même réseau virtuel.
+- Toutes les instances managées doivent se trouver sur le même réseau virtuel.
 
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication.
 
 - Un partage de compte de stockage Azure pour le répertoire de travail de réplication.
 
-- Le port 445 (TCP sortant) doit être ouvert dans les règles de sécurité du sous-réseau Managed Instance pour accéder au partage de fichiers Azure
+- Le port 445 (TCP sortant) doit être ouvert dans les règles de sécurité du sous-réseau de l’instance managée pour accéder au partage de fichiers Azure
 
 ## <a name="features"></a>Caractéristiques
 
 Prend en charge :
 
-- La réplication transactionnelle et de capture instantanée pour un mélange d’instances locales et d’instances Azure SQL Database Managed Instance.
-
-- Les abonnés peuvent être des bases de données uniques locales dans Azure SQL Database, ou des bases de données regroupées dans des pools élastiques Azure SQL Database.
-
+- La réplication transactionnelle et de capture instantanée pour un mélange d’instances SQL Server locales et d’instances managées Azure SQL Database.
+- Les abonnés peuvent être des bases de données SQL Server locales, des bases de données uniques dans Azure SQL Database, ou des bases de données mises en pool dans des pools élastiques Azure SQL Database.
 - La réplication unidirectionnelle ou bidirectionnelle.
 
-Les fonctionnalités suivantes ne sont pas prises en charge :
+Les fonctionnalités suivantes ne sont pas prises en charge dans une instance managée d’Azure SQL Database :
 
 - Abonnements modifiables.
-
 - Géoréplication active.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Exemple de configuration d’un serveur de publication et d’un serveur de distribution
 
-1. [Créez une instance Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) dans le portail.
+1. [Créez une instance managée Azure SQL Database](sql-database-managed-instance-create-tutorial-portal.md) dans le portail.
 2. [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) pour le répertoire de travail.
 
    Veillez à copier les clés de stockage. Consultez [Afficher et copier les clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Créez une base de données pour le serveur de publication.
+3. Créez une base de données d’instances pour le serveur de publication.
 
-   Dans les exemples de scripts ci-dessous, remplacez `<Publishing_DB>` par le nom de cette base de données.
+   Dans les exemples de scripts ci-dessous, remplacez `<Publishing_DB>` par le nom de cette base de données d’instances.
 
 4. Créez un utilisateur de base de données avec l’authentification SQL pour le serveur de distribution. Utilisez un mot de passe sécurisé.
 
