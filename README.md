@@ -1,8 +1,10 @@
 # <a name="microsoft-azure-documentation"></a>Documentation Microsoft Azure
 
+> Entre le 5 mars et le 9 mars 2019, le dépôt MicrosoftDocs/azure-docs fera l’objet d’une migration au cours de laquelle son moteur Markdown actuel sera remplacé par le moteur [Markdig](https://github.com/lunet-io/markdig). Pour mener à bien la migration, nous désactiverons la possibilité de suspendre la fusion des demandes de tirage (pull requests) publiques pendant cette période.
+
 Bienvenue dans la [documentation](https://docs.microsoft.com/azure) open source de [Microsoft Azure](https://azure.microsoft.com). Veuillez consulter ce fichier README pour comprendre comment contribuer à la documentation de Microsoft Azure.
 
-## <a name="getting-started"></a>Bien démarrer
+## <a name="getting-started"></a>Mise en route
 
 Le fait de contribuer à la documentation open source ne se résume pas à des mises à jour, il s’agit aussi de nous informer de problèmes éventuels. Pour en savoir plus, lisez notre [guide de contribution](.github/CONTRIBUTING.md).
 
@@ -12,7 +14,7 @@ Vous avez décidé d’offrir votre contribution, bravo ! Pour contribuer à la
 
 Vous devez avoir un compte GitHub. Si vous n’avez pas de compte, suivez les instructions pour [configurer un compte GitHub](https://docs.microsoft.com/contribute/get-started-setup-github) dans notre guide du contributeur.
 
-#### <a name="download"></a>Télécharger
+#### <a name="download"></a>Téléchargement
 
 Installez les outils suivants :
 
