@@ -9,7 +9,7 @@ items:
   items:
   - name: Configurer la réinitialisation du mot de passe
     href: quickstart-sspr.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 Activer l’authentification multifacteur (MFA) pour les applications
     href: tutorial-mfa-applications.md
@@ -25,8 +25,8 @@ items:
   items:
   - name: Méthodes d’authentification
     href: concept-authentication-methods.md
-  - name: Inscription convergée
-    href: concept-registration-mfa-sspr-converged.md
+  - name: Inscription combinée
+    href: concept-registration-mfa-sspr-combined.md
   - name: Réinitialisation de mot de passe
     items:
     - name: Fonctionnement de la réinitialisation des mots de passe
@@ -64,7 +64,7 @@ items:
   - name: Contrôles d’accès résilients
     href: concept-resilient-controls.md
   expanded: true
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Réinitialisation de mot de passe libre-service
     items:
@@ -104,6 +104,12 @@ items:
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
+  - name: Inscription combinée
+    items:
+    - name: Activer une inscription combinée
+      href: howto-registration-mfa-sspr-combined.md
+    - name: Résoudre les problèmes d’inscription combinée
+      href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Protection de mot de passe Azure AD
     items:
     - name: Configurer la liste des mots de passe interdits
@@ -191,8 +197,6 @@ items:
         href: howto-mfa-nps-extension-errors.md
   - name: Résolution des problèmes
     items:
-    - name: Désactiver l’inscription convergée
-      href: howto-registration-mfa-sspr-converged-troubleshoot.md
     - name: Résoudre les problèmes SSPR
       href: active-directory-passwords-troubleshoot.md
     - name: FAQ sur SSPR
@@ -221,13 +225,13 @@ items:
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Mises à jour de service
     href: ../fundamentals/whats-new.md
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: d834bcd12f4f8af44c467233230744571dd9b23c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 99d21cd59b7281dbb6a34c2e3cdc9026c9955622
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660049"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585982"
