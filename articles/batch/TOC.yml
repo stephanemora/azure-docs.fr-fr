@@ -16,7 +16,7 @@ items:
   - name: Exécuter un travail Batch - Python
     href: quick-run-python.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Traitement parallèle de fichiers - .NET
     href: tutorial-parallel-dotnet.md
@@ -50,7 +50,7 @@ items:
     href: batch-pool-vm-sizes.md
   - name: Haute disponibilité et récupération d’urgence
     href: high-availability-disaster-recovery.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Gestion des comptes Batch
     items:
@@ -160,7 +160,7 @@ items:
   - name: Azure CLI
     href: /cli/azure/batch
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.batch
+    href: /powershell/module/az.batch
   - name: .NET
     href: /dotnet/api/overview/azure/batch
   - name: Java
@@ -218,13 +218,13 @@ items:
     href: /azure/templates/microsoft.batch/batchaccounts
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-batch
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch
-ms.openlocfilehash: 58e7990d0d25ca3b85c199e30f88f7e3d9635144
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 52f663620afe5a2e36e37dca14778a9737aadacd
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241098"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594404"

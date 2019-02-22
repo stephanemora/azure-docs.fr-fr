@@ -105,7 +105,7 @@ items:
         href: quickstart-python-sentences.md
       - name: Ruby, REST
         href: quickstart-ruby-sentences.md
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: Créer une application WPF pour l’API de traduction de texte Translator Text
       href: tutorial-wpf-translation-csharp.md
@@ -115,7 +115,7 @@ items:
       href: customization.md
     - name: Comment l’API compte le nombre de caractères
       href: character-counts.md
-  - name: Procédures
+  - name: Guides pratiques
     items:
     - name: Inscrivez-vous à l’API de traduction de texte Translator Text
       href: translator-text-how-to-signup.md
@@ -136,13 +136,13 @@ items:
     - name: Référence de l’API Translator Text v3
       href: reference/v3-0-reference.md
       items:
-      - name: Langues
+      - name: Languages
         href: reference/v3-0-languages.md
       - name: Translate
         href: reference/v3-0-translate.md
       - name: Transliterate
         href: reference/v3-0-transliterate.md
-      - name: Détection
+      - name: Detect
         href: reference/v3-0-detect.md
       - name: BreakSentence
         href: reference/v3-0-break-sentence.md
@@ -175,7 +175,7 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Limites de requête
       href: request-limits.md
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/forums/558796-translator
@@ -207,7 +207,7 @@ items:
       href: custom-translator/training-and-model.md
     - name: Score BLEU
       href: custom-translator/what-is-bleu-score.md
-  - name: Procédures
+  - name: Guides pratiques
     items:
     - name: Création d’un projet
       href: custom-translator/how-to-create-project.md
@@ -230,20 +230,20 @@ items:
   - name: Ressources
     items:
     - name: Prise en charge des langages
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
     - name: Glossaire
       href: custom-translator/glossary.md
     - name: Forum Aux Questions
       href: custom-translator/faq.md
     - name: Tarifs
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
-ms.openlocfilehash: d1e1ed12b863f37a2a0d8e5ebefd456131509737
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 72fc95b92d8e93e3cf56d614de8a1967d2752f96
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159976"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585268"
