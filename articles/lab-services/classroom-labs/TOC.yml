@@ -7,7 +7,7 @@ items:
     href: classroom-labs-overview.md
   - name: Comparer des types de laboratoires
     href: ../compare-lab-types.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1. Configurer un compte de laboratoire
     href: tutorial-setup-lab-account.md
@@ -17,7 +17,7 @@ items:
     href: tutorial-connect-virtual-machine-classroom-lab.md
   - name: 4. Suivre l’utilisation d’un laboratoire de classe
     href: tutorial-track-usage.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Gérer les comptes de laboratoire
     href: how-to-manage-lab-accounts.md
@@ -36,7 +36,7 @@ items:
   - name: Interface de ligne de commande
     href: /cli/azure/lab
   - name: PowerShell
-    href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+    href: /powershell/module/az.devtestlabs/#devtest_labs
   - name: API REST
     href: https://docs.microsoft.com/rest/api/dtl/
 - name: Ressources
@@ -53,13 +53,13 @@ items:
     href: https://blogs.msdn.microsoft.com/devtestlab/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-devtest-labs
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: 2779d73172d9f995894aa4ff62f441204d891cc6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 61eab54ecf3e7055cfdfc62f9790a715a1e2dd39
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489425"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738485"
