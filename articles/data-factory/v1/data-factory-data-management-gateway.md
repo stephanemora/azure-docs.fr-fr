@@ -151,7 +151,7 @@ Au niveau du pare-feu Windows, ces ports de sortie sont normalement activés. Si
 
 > [!NOTE]
 > 1. Selon votre source/vos récepteurs, vous devrez peut-être ajouter des domaines et des ports de sortie supplémentaires à la liste verte de votre pare-feu d’entreprise/Windows.
-> 2. Pour certaines bases de données cloud (par exemple : [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), vous aurez besoin d’ajouter sur liste blanche l’adresse IP de la machine passerelle dans la configuration de pare-feu.
+> 2. Pour certaines bases de données cloud (par exemple : [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), vous aurez besoin d’ajouter sur liste verte l’adresse IP de la machine passerelle dans la configuration de pare-feu.
 >
 >
 
