@@ -14,7 +14,7 @@ items:
   - name: Gérer le trafic web - Azure CLI
     href: quick-create-cli.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Gérer le trafic web
     href: tutorial-manage-web-traffic-cli.md
@@ -40,8 +40,10 @@ items:
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Protocole SSL de bout en bout
-    href: ssl-overview.md
+  - name: Fonctionnement d’Application Gateway
+    href: how-application-gateway-works.md
+  - name: Composants d’Application Gateway
+    href: application-gateway-components.md
   - name: Vue d’ensemble des stratégies SSL
     href: application-gateway-ssl-policy-overview.md
   - name: Pare-feu d’application web
@@ -66,7 +68,7 @@ items:
     href: application-gateway-websocket.md
   - name: Forum Aux Questions
     href: application-gateway-faq.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Gérer le trafic web
     items:
@@ -198,11 +200,11 @@ items:
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 3eb1167d496a5b509eec923564c072142bce3c91
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ee7ccecec8784298759543d15bf326c507dc560c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382982"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674789"

@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: b797502343d1cc3af0eb5db0732da3815986c676
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c50ea038220e1c8eafbdfe077fddaf2466fd11bd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318195"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740853"
 ---
-### <a name="express-route"></a>ExpressRoute
+### <a name="expressroute"></a>ExpressRoute
 
 |  |  |
 |---------|---------|
-| [Bande passante d’Express Route autorisée](../articles/governance/policy/samples/allowed-express-route-bandwidth.md) | Exige que les itinéraires express utilisent un ensemble spécifié de bandes passantes. Spécifiez un tableau de références SKU qui peuvent être spécifiées pour Express Route. |
-| [Références SKU d’Express Route autorisées](../articles/governance/policy/samples/allowed-express-route-skus.md) | Exige que les routes express utilisent une référence SKU approuvée. Spécifiez un tableau de références SKU autorisées. |
-| [Emplacements d’appairage Express Route autorisés](../articles/governance/policy/samples/allowed-express-route-peering.md) | Exige que les routes express utilisent des emplacements d’appairage spécifiés. Spécifiez un tableau d’emplacements d’appairage autorisés. |
+| [Bande passante ExpressRoute autorisée](../articles/governance/policy/samples/allowed-express-route-bandwidth.md) | Exige qu’ExpressRoute utilise un ensemble spécifié de bandes passantes. Spécifiez un tableau de références SKU qui peuvent être spécifiées pour ExpressRoute. |
+| [Références SKU ExpressRoute autorisées](../articles/governance/policy/samples/allowed-express-route-skus.md) | Exige qu’ExpressRoute utilise une référence SKU approuvée. Spécifiez un tableau de références SKU autorisées. |
+| [Emplacements d’appairage ExpressRoute autorisés](../articles/governance/policy/samples/allowed-express-route-peering.md) | Exige qu’ExpressRoute utilise des emplacements d’appairage spécifiés. Spécifiez un tableau d’emplacements d’appairage autorisés. |
