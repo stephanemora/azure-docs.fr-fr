@@ -1707,7 +1707,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/">
+                                            <a href="https://docs.microsoft.com/azure/azure-portal/">
                                                 <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
                                                 <p>Portail Microsoft Azure</p>
                                             </a>
