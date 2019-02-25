@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002268"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269958"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analyser les données de journal dans Azure Monitor
 
-Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, qui est basé sur [Azure Data Explorer](/azure/data-explorer). Il collecte des données de télémétrie à partir de diverses sources et utilise le [langage de requête de Data Explorer](/azure/kusto/query) pour récupérer et analyser les données.
+Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, qui est basé sur [Azure Data Explorer](/azure/data-explorer). La fonctionnalité collecte des données de télémétrie à partir de diverses sources et exploite le [langage de requête de Kusto](/azure/kusto/query) utilisé par Data Explorer pour récupérer et analyser les données.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,7 +47,7 @@ Voici plusieurs façons d'utiliser les requêtes de journal dans Azure Monitor 
 ![Recherches dans les journaux](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Écrivez votre requête.
-Azure Monitor utilise [une version du langage de requête de Data Explorer](get-started-queries.md) pour récupérer et analyser les données de journal de différentes façons.  Vous commencerez généralement par des requêtes de base, puis vous passerez à des fonctions plus avancées à mesure que vos exigences deviendront plus complexes.
+Azure Monitor utilise [une version du langage de requête de Kusto](get-started-queries.md) pour récupérer et analyser les données de journal de différentes façons.  Vous commencerez généralement par des requêtes de base, puis vous passerez à des fonctions plus avancées à mesure que vos exigences deviendront plus complexes.
 
 La structure de base d’une requête est une table source suivie d’une série d’opérateurs séparés par une barre verticale `|`.  Vous pouvez chaîner plusieurs opérateurs pour affiner les données et effectuer des fonctions avancées.
 

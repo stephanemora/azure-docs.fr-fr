@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820782"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446747"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
-Ce tutoriel vous montre comment sécuriser votre application web en créant (en achetant) un certificat App Service dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), puis comment lier ce certificat à une application App Service.
+Ce tutoriel vous montre comment sécuriser votre [application App Service](https://docs.microsoft.com/azure/app-service/) ou votre [Function App](https://docs.microsoft.com/azure/azure-functions/) en créant (en achetant) un certificat App Service dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), puis comment lier ce certificat à une application App Service.
 
 > [!TIP]
 > Les certificats App Service peuvent être utilisés pour n’importe quel service Azure ou non Azure et ne sont pas limités aux App Services. Pour cela, vous devez créer une copie PFX locale d’un certificat App Service afin de pouvoir l’utiliser où vous voulez. Pour plus d’informations, consultez [Création d’une copie PFX locale d’un certificat App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment sécuriser votre application web en créant (en 
 Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
 - [Création d’une application App Service](/azure/app-service/)
-- [Mapper un nom de domaine à votre application web](app-service-web-tutorial-custom-domain.md) ou [acheter et configurer un nom de domaine dans Azure](manage-custom-dns-buy-domain.md)
+- [Mapper un nom de domaine à votre application](app-service-web-tutorial-custom-domain.md) ou [acheter et configurer un nom de domaine dans Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -49,7 +49,7 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 
 | Paramètre | Description |
 |-|-|
-| NOM | Nom convivial de votre certificat App Service. |
+| Nom | Nom convivial de votre certificat App Service. |
 | Nom d’hôte de domaine nu | Si vous spécifiez ici le domaine racine, vous obtenez un certificat qui sécurise *à la fois* le domaine racine et le sous-domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`). |
 | Abonnement | Centre de données dans lequel l’application web est hébergée. |
 | Groupe de ressources | Groupe de ressources qui contient le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
@@ -70,7 +70,7 @@ Dans la page **État de Key Vault**, cliquez sur **Référentiel Key Vault** pou
 
 | Paramètre | Description |
 |-|-|
-| NOM | Nom unique composé de caractères alphanumériques et de tirets. |
+| Nom | Nom unique composé de caractères alphanumériques et de tirets. |
 | Groupe de ressources | Nous vous conseillons de choisir le même groupe de ressources que votre certificat App Service. |
 | Lieu | Choisissez le même emplacement que votre application App Service. |
 | Niveau tarifaire | Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |

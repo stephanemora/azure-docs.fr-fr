@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639155"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327304"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problèmes courants lors de la création d’un disque dur virtuel (FAQ)
 
@@ -27,7 +27,7 @@ Le forum aux questions (FAQ) suivant traite des problèmes courants rencontrés 
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Comment créer une machine virtuelle à partir du Portail Azure à l’aide du disque dur virtuel qui est chargé vers le stockage Premium ?
 
-Pour le moment, Place de marché Microsoft Azure ne prend pas en charge la création d’offres de machine virtuelle à partir d’images résidant sur le stockage géré ou depuis le Stockage Premium Azure.  Pour plus d’informations sur ces options de stockage, consultez [Vue d’ensemble d’Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) et [Stockage Premium hautes performances et disques gérés pour machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+Pour le moment, Place de marché Microsoft Azure ne prend pas en charge la création d’offres de machine virtuelle à partir d’images résidant sur le stockage géré ou depuis le Stockage Premium Azure.  Pour plus d’informations sur ces options de stockage, voir la page [Vue d’ensemble d’Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>Peut-on utiliser des machines virtuelles de 2e génération pour les offres ?
@@ -73,7 +73,7 @@ Oui, si elles sont hébergées sur Azure.  Azure attribue un identificateur uniq
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Dans une machine virtuelle, comment gérer l’extension de script personnalisé lors de la tâche de démarrage ?
 
-L’article suivant explique en détail l’utilisation de l’extension de script personnalisé à l’aide du module Azure PowerShell, des modèles Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Windows : [Extension de script personnalisé pour Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+L’article suivant explique en détail l’utilisation de l’extension de script personnalisé à l’aide du module Azure PowerShell, des modèles Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Windows : [Extension de script personnalisé pour Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Les services ou les applications 32 bits sont-ils pris en charge dans Place de marché Microsoft Azure ?

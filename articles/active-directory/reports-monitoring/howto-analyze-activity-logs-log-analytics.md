@@ -1,6 +1,6 @@
 ---
-title: Analyser les journaux d’activité Azure Active Directory avec Log Analytics (préversion) | Microsoft Docs
-description: Découvrez comment analyser les journaux d’activité Azure Active Directory avec Log Analytics (préversion)
+title: Analyser les journaux d’activité Azure Active Directory avec les journaux Azure Monitor (préversion) | Microsoft Docs
+description: Découvrez comment analyser les journaux d’activité Azure Active Directory avec les journaux Azure Monitor (préversion)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea13d08af924427b9e7dc5def72c19d560525b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188254"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454756"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analyser les journaux d’activité Azure AD avec Log Analytics (préversion)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analyser les journaux d’activité Azure AD avec les journaux Azure Monitor (préversion)
 
-Après avoir [intégré les journaux d’activité Azure AD à Log Analytics](howto-integrate-activity-logs-with-log-analytics.md), vous pouvez exploiter la puissance de Log Analytics pour obtenir des insights sur votre environnement. Vous pouvez également installer les [vues Log Analytics pour les journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). Vous avez ainsi accès à différents rapports prédéfinis qui affichent des événements d’audit et de connexion qui se produisent dans votre environnement.
+Après avoir [intégré les journaux d’activité Azure AD aux journaux Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), vous pouvez exploiter la puissance des journaux Azure Monitor pour obtenir des insights sur votre environnement. Vous pouvez également installer les [vues Log Analytics pour les journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). Vous avez ainsi accès à différents rapports prédéfinis qui affichent des événements d’audit et de connexion qui se produisent dans votre environnement.
 
 Cet article vous montre comment analyser les journaux d’activité Azure AD dans votre espace de travail Log Analytics. 
 
@@ -78,10 +78,12 @@ AuditLogs
 
 Vous pouvez également définir des alertes sur votre requête. Par exemple, pour définir une alerte qui se déclenche quand plus de dix applications ont été utilisées au cours de la semaine dernière :
 
-1. Dans l’espace de travail, sélectionnez **Définir une alerte** pour ouvrir la page **Créer une règle**. 
+1. Dans l’espace de travail, sélectionnez **Définir une alerte** pour ouvrir la page **Créer une règle**.
+
     ![Définir une alerte](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
-2. Sélectionnez les **critères d’alerte** par défaut créés dans l’alerte et changez la valeur **Seuil** de la métrique par défaut à 10. 
+2. Sélectionnez les **critères d’alerte** par défaut créés dans l’alerte et changez la valeur **Seuil** de la métrique par défaut à 10.
+
     ![Critères d’alerte](./media/howto-analyze-activity-logs-log-analytics/alertcriteria.png)
 
 3. Entrez un nom et une description pour l’alerte, et choisissez le niveau de gravité. Dans notre exemple, nous pourrions choisir le niveau **Information**.
@@ -98,11 +100,11 @@ Vous pouvez également télécharger les vues Log Analytics prédéfinies pour l
 * **Événements de connexion** : Cette vue affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion, par exemple, les connexions par application, utilisateur et appareil, ainsi qu’un récapitulatif de l’ensemble des connexions effectuées.
 * **Consentement des utilisateurs** : Cette vue affiche les rapports relatifs au consentement des utilisateurs, comme le consentement donné par utilisateur, les connexions par les utilisateurs qui ont donné leur consentement ainsi que les connexions par application pour toutes les applications basées sur le consentement. 
 
-Découvrez comment [installer et utiliser les vues Log Analytics des journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). 
+Découvrez comment [installer et utiliser les affichages Log Analytics des journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Bien démarrer avec les requêtes dans Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+* [Bien démarrer avec les requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Créer et gérer des groupes d’alertes dans le portail Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Installer et utiliser les vues Log Analytics pour Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Installer et utiliser les affichages Log Analytics pour Azure Active Directory](howto-install-use-log-analytics-views.md)

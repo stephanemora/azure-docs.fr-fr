@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bb13e507e7992f4cd4d767a7a18850739b8dccf2
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301065"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270196"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
-Cet article explique comment préparer les sauvegardes de System Center Data Protection Manager (DPM) sur Azure avec le service Sauvegarde Azure. 
+Cet article explique comment préparer les sauvegardes de System Center Data Protection Manager (DPM) sur Azure avec le service Sauvegarde Azure.
 
 Cet article contient :
 
@@ -25,7 +25,7 @@ Cet article contient :
 - Les conditions préalables et les limitations d’utilisation de Sauvegarde Azure avec DPM.
 - Les étapes de préparation d’Azure, y compris la configuration d’un coffre de sauvegarde Recovery Services et éventuellement la modification du type de stockage Azure pour le coffre.
 - Les étapes de préparation du le serveur DPM, y compris le téléchargement des informations d’identification du coffre, l’installation de l’agent Sauvegarde Azure et l’inscription du serveur DPM dans le coffre.
-- Conseils de résolution des erreurs courantes. 
+- Conseils de résolution des erreurs courantes.
 
 
 ## <a name="why-back-up-dpm-to-azure"></a>Pourquoi sauvegarder DPM sur Azure ?
@@ -42,11 +42,11 @@ La sauvegarde de serveurs DPM dans Azure présente les avantages commerciaux sui
 
 ## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
 
-**Paramètre** | **Prérequis** 
+**Paramètre** | **Prérequis**
 --- | ---
 DPM sur une machine virtuelle Azure | System Center 2012 R2 avec correctif cumulatif 3 pour DPM 2012 R2 ou version ultérieure.
-DPM sur un serveur physique | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2. 
-DPM sur une machine virtuelle Hyper-V | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2. 
+DPM sur un serveur physique | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2.
+DPM sur une machine virtuelle Hyper-V | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2.
 DPM sur une machine virtuelle VMware | System Center 2012 R2 avec correctif cumulatif 5 ou version ultérieure.
 Composants | Windows PowerShell et .Net Framework 4.5 doivent être installés sur le serveur DPM.
 Applications prises en charge | [En savoir plus](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) sur ce que DPM peut sauvegarder.
@@ -54,7 +54,7 @@ Types de fichiers pris en charge | Ces types de fichiers peuvent être sauvegard
 Types de fichiers non pris en charge | Serveurs sur des systèmes de fichiers respectant la casse, liens physiques (ignorés), points d’analyse (ignorés), chiffrés et compressés (ignorés), chiffrés et partiellement alloués (ignorés), flux compressés, flux partiellement alloués.
 Stockage local | Chaque machine que vous voulez sauvegarder doit disposer d’un espace de stockage d’au moins 5 % de la taille des données sauvegardées.  Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 5 Go d'espace libre dans l'emplacement temporaire.
 Stockage dans le coffre | Il n’existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Sauvegarde Azure, mais la taille d’une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54400 Go.
-Agent Azure Backup | Si DPM est en cours d’exécution sur System Center 2012 SP1, installez le correctif cumulatif 2 ou version ultérieure pour DPM SP1. Il est nécessaire pour l’installation de l’agent.<br/><br/> Cet article décrit comment déployer la dernière version de l’agent Sauvegarde Azure, également appelé agent Microsoft Azure Recovery Service (MARS). Si une version antérieure est déployée, mettez-la à jour vers la dernière version pour vous assurer que la sauvegarde fonctionne comme prévu. 
+Agent Azure Backup | Si DPM est en cours d’exécution sur System Center 2012 SP1, installez le correctif cumulatif 2 ou version ultérieure pour DPM SP1. Il est nécessaire pour l’installation de l’agent.<br/><br/> Cet article décrit comment déployer la dernière version de l’agent Sauvegarde Azure, également appelé agent Microsoft Azure Recovery Service (MARS). Si une version antérieure est déployée, mettez-la à jour vers la dernière version pour vous assurer que la sauvegarde fonctionne comme prévu.
 
 
 Avant de commencer, vous devez disposer d’un compte Azure avec la fonctionnalité Sauvegarde Azure activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -85,14 +85,14 @@ Pour modifier le paramètre de réplication du stockage :
 
 ## <a name="download-vault-credentials"></a>Télécharger les informations d'identification de coffre
 
-Vous utilisez les informations d’identification du coffre lorsque vous inscrivez le serveur DPM dans le coffre. 
+Vous utilisez les informations d’identification du coffre lorsque vous inscrivez le serveur DPM dans le coffre.
 
 - Le fichier d’informations d’identification de coffre est un certificat qui est généré par le portail pour chaque archivage de sauvegarde.
 - Le portail télécharge ensuite la clé publique pour le Service de contrôle d’accès (ACS).
 - Pendant l’inscription de la machine, la clé privée du certificat devient accessible à l’utilisateur, qui authentifie la machine.
 - En fonction de l’authentification, le service Sauvegarde Azure envoie des données vers le coffre identifié.
 
- ### <a name="best-practices-for-vault-credentials"></a>Meilleures pratiques pour les informations d’identification des coffres
+### <a name="best-practices-for-vault-credentials"></a>Meilleures pratiques pour les informations d’identification des coffres
 
 Pour obtenir les informations d’identification, téléchargez le fichier d’informations d’identification du coffre via un canal sécurisé depuis le portail Azure :
 
@@ -102,7 +102,7 @@ Pour obtenir les informations d’identification, téléchargez le fichier d’i
     - Toutefois, les données de sauvegarde sont chiffrées à l’aide d’une phrase secrète qui appartient au client. De fait, les données de sauvegarde existantes ne peuvent pas être compromises.
 - Vérifiez que le fichier est enregistré dans un emplacement accessible à partir de votre serveur DPM. Si elles sont stockées dans un partage de fichiers/SMB, vérifiez les autorisations d’accès.
 - Les informations d’identification du coffre expirent au bout de 48 heures. Vous pouvez télécharger de nouvelles informations d’identification de coffre aussi souvent que nécessaire. Cependant, seul le dernier fichier de d’informations d’identification de coffre peut être utilisé pendant l’inscription.
-- Le service Sauvegarde Azure ne connaît pas la clé privée du certificat. De plus, cette clé n’est disponible ni dans le portail, ni dans le service. 
+- Le service Sauvegarde Azure ne connaît pas la clé privée du certificat. De plus, cette clé n’est disponible ni dans le portail, ni dans le service.
 
 Pour télécharger les informations d’identification de coffre sur un ordinateur local, procédez comme suit :
 
@@ -114,7 +114,7 @@ Pour télécharger les informations d’identification de coffre sur un ordinate
 
 4. Dans **propriétés** > **Sauvegarder les informations d’identification**, cliquez sur **Télécharger**. Le portail génère le fichier d’informations d’identification de coffre à partir de la combinaison du nom du coffre et de la date actuelle et le rend disponible pour téléchargement.
 
-    ![Download](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Téléchargement](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 5. Cliquez sur **Enregistrer** pour télécharger les informations d’identification de coffre dans le dossier ou cliquez **Enregistrer sous** et spécifiez un emplacement. La création du fichier peut prendre jusqu’à une minute.
 
@@ -129,10 +129,10 @@ Toutes les machines sauvegardées par Sauvegarde Azure doivent disposer de l’a
     ![Ouvrir le menu du coffre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Sur la page **Propriétés**, téléchargez l’agent Sauvegarde Azure.
 
-    ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Téléchargement](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 
-4. Après l’avoir téléchargé, exécutez MARSAgentInstaller.exe. Pour installer l’agent sur la machine DPM. 
+4. Après l’avoir téléchargé, exécutez MARSAgentInstaller.exe. Pour installer l’agent sur la machine DPM.
 5. Sélectionnez un dossier d’installation et le dossier du cache de l’agent. L’espace disponible dans l’emplacement du cache doit être d’au moins 5 % des données sauvegardées.
 6. Si vous utilisez un serveur proxy pour vous connecter à Internet, dans l’écran **Configuration du proxy** , entrez les détails du serveur proxy. Si vous utilisez un proxy authentifié, entrez les informations de nom d’utilisateur et mot de passe dans cet écran.
 7. L’agent Sauvegarde Azure installe .NET Framework 4.5 et Windows PowerShell (s’ils ne sont pas déjà installés) pour terminer l’installation.
@@ -151,7 +151,7 @@ Toutes les machines sauvegardées par Sauvegarde Azure doivent disposer de l’a
 
     ![Informations d’identification du coffre](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-10. Dans **Paramètre de limitation**, vous pouvez éventuellement activer la limitation de bande passante pour les sauvegardes. Vous pouvez définir les limites de vitesse pour certains jours et certaines heures de travail. 
+10. Dans **Paramètre de limitation**, vous pouvez éventuellement activer la limitation de bande passante pour les sauvegardes. Vous pouvez définir les limites de vitesse pour certains jours et certaines heures de travail.
 
     ![Paramètre de limitation](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
 
@@ -168,12 +168,12 @@ Toutes les machines sauvegardées par Sauvegarde Azure doivent disposer de l’a
     - La phrase secrète est utilisée pour chiffrer les sauvegardes vers le cloud.
     - Vous devez indiquer 16 caractères au minimum.
     - Enregistrez le fichier dans un emplacement sécurisé, car il est nécessaire pour la récupération.
-    
+
     ![Chiffrement](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
     > Vous êtes seul détenteur de la phrase secrète de chiffrement et Microsoft n’a aucune visibilité sur cette information.
-    > Si la phrase secrète est perdue ou oubliée, Microsoft ne peut pas vous aider à récupérer les données de sauvegarde. 
+    > Si la phrase secrète est perdue ou oubliée, Microsoft ne peut pas vous aider à récupérer les données de sauvegarde.
 
 13. Cliquez sur **Inscrire** pour inscrire le serveur DPM dans le coffre.  
 

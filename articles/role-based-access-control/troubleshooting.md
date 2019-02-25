@@ -1,6 +1,6 @@
 ---
-title: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle dans Azure | Microsoft Docs
-description: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle Azure.
+title: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure | Microsoft Docs
+description: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411235"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342471"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle dans Azure
+# <a name="troubleshoot-rbac-for-azure-resources"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure
 
-Cet article répond aux questions fréquentes sur le contrôle d’accès en fonction du rôle, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès.
+Cet article répond aux questions fréquentes sur le contrôle d’accès en fonction du rôle pour les ressources Azure, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès.
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problèmes liés aux attributions de rôle RBAC
 
@@ -119,6 +119,6 @@ Certaines fonctionnalités de [Azure Functions](../azure-functions/functions-ove
 Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis cliquez sur **Tous les paramètres** pour afficher certains paramètres liés à une application de fonction (semblable à une application Web), mais il ne peut pas modifier ces paramètres.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Manage access using RBAC and the Azure portal](role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)
-* [Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle](change-history-report.md)
+* [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)
+* [Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle pour les ressources Azure](change-history-report.md)
 

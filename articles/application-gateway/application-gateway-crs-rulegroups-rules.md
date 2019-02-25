@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320099"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302031"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Liste des règles et groupes de règles CRS de pare-feu d’applications web proposées
 
@@ -27,6 +27,11 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">Généralités</p>
+
+|ID de la règle|Description|
+|---|---|
+|200004|Possible limite multipart sans correspondance.|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -239,6 +244,8 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |941290|Filtre XSS IE - Attaque détectée.|
 |941300|Filtre XSS IE - Attaque détectée.|
 |941310|Filtre XSS d’encodage incorrectement formé US-ASCII - Attaque détectée.|
+|941330|Filtre XSS IE - Attaque détectée.|
+|941340|Filtre XSS IE - Attaque détectée.|
 |941350|XSS IE d’encodage UTF-7 - Attaque détectée.|
 |941013|Règle 941013|
 |941014|Règle 941014|
@@ -255,18 +262,29 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |942011|Règle 942011|
 |942012|Règle 942012|
 |942100|Attaque par injection de code SQL détectée via libinjection|
+|942110|Attaque par injection de code SQL : Test d’injection commune détecté|
+|942130|Attaque par injection de code SQL : Tautologie SQL détectée.|
 |942140|Attaque par injection de code SQL = Noms de base de données courants détectés|
 |942160|Détecte des tests sqli à l’aveugle à l’aide de la méthode sleep() ou benchmarch().|
 |942170|Détecte les tentatives d’injection par les méthodes benchmark (test d’évaluation) et sleep (mise en veille), y compris les requêtes conditionnelles|
+|942190|Détecte les tentatives de collecte d’informations et de d’exécution de code MSSQL|
+|942200|Détecte les injections MySQL de type comment-/space-obfuscated et d’accent grave|
 |942230|Détecte des tentatives d’injection de code SQL conditionnel|
+|942260|Détecte les tentatives de contournement d’authentification SQL de base 2/3|
 |942270|Recherche d’injection de code SQL de base. Chaîne d’attaque courante pour mysql oracle entre autres.|
 |942290|Recherche de tentatives d’injection de code SQL MongoDB de base|
+|942300|Détecte les commentaires MySQL, les conditions et les injections de ch(a)r|
 |942320|Détecte des injections de fonctions/procédures stockées MySQL et PostgresSQL|
+|942330|Détecte les sondes d’injection SQL classiques 1/2|
+|942340|Détecte les tentatives de contournement d’authentification SQL de base 3/3|
 |942350|Détecte l’injection de code UDF MySQL et autres tentatives de manipulation de données/structures|
+|942360|Détecte l’injection SQL de base concaténée et les tentatives SQLLFI|
+|942370|Détecte les sondes d’injection SQL classiques 2/2|
 |942013|Règle 942013|
 |942014|Règle 942014|
 |942150|Attaque par injection de code SQL|
 |942410|Attaque par injection de code SQL|
+|942430|Détection restreinte d’anomalies de caractères SQL (args) : nombre de caractères spéciaux dépassés (12)|
 |942440|Séquence de commentaire SQL détectée.|
 |942450|Encodage hexadécimal SQL identifié|
 |942015|Règle 942015|
@@ -550,6 +568,6 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment désactiver des règles WAF, voir [Personnaliser des règles WAF](application-gateway-customize-waf-rules-portal.md)
+Pour découvrir comment désactiver des règles WAF, consultez : [Personnaliser les règles de pare-feu d’application web](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

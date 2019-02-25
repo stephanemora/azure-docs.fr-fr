@@ -4,14 +4,14 @@ description: Répond aux questions fréquemment posées sur Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746310"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416188"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -117,6 +117,10 @@ Nous avons introduit le profilage continu des données de performances (en prév
 Les données collectées par l’appliance sont stockées à l’emplacement Azure que vous spécifiez lors de la création du projet de migration. Les données sont stockées de façon sécurisée dans un abonnement Microsoft et sont supprimées quand l’utilisateur supprime le projet Azure Migrate.
 
 Pour la visualisation des dépendances, si vous installez des agents sur les machines virtuelles, les données collectées par ces agents sont stockées aux États-Unis dans un espace de travail Log Analytics créé dans l’abonnement de l’utilisateur. Ces données sont supprimées lorsque vous supprimez l’espace de travail Log Analytics de votre abonnement. [Plus d’informations](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)
+
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Quel est le volume de données téléchargées par Azure Migrate en cas de profilage continu ?
+
+Le volume de données qui est envoyé à Azure Migrate varie en fonction de plusieurs paramètres. Pour donner un nombre indicatif, un projet ayant dix machines (chacune dotée d’un disque et d’une carte réseau), enverrait environ 50 Mo par jour. Il s’agit d’une valeur approximative qui changerait en fonction du nombre de points de données pour les cartes réseau et les disques (les données envoyées seraient non linéaires si le nombre de machines, de cartes réseau ou de disques augmentait). 
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Les données sont-elles chiffrées au repos et en transit ?
 

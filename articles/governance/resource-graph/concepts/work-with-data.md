@@ -1,6 +1,6 @@
 ---
 title: Utiliser de grands jeux de données
-description: Découvrez comment récupérer des jeux de données volumineux à partir d’Azure Resource Graph.
+description: Découvrez comment récupérer et contrôler des jeux de données volumineux lors de l’utilisation d’Azure Resource Graph.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ab24e2045dabf045f1879dd76e599f5ab344f07b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 8808f42cdd6fb547b70695278993faa0f52cdb61
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513194"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338391"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -55,7 +55,7 @@ Search-AzGraph -Query "project name | order by name asc" -Skip 10
 
 Dans l’[API REST](/rest/api/azureresourcegraph/resources/resources), le contrôle est **$skip** et fait partie de **QueryRequestOptions**.
 
-## <a name="paging-results"></a>Pagination des résultats
+## <a name="paging-results"></a>Résultats de pagination
 
 S’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements plus petits à des fins de traitement ou parce que le jeu de résultats dépasse la valeur maximale autorisée de _5 000_ enregistrements retournés, utilisez une pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**.
 La valeur **resultTruncated** est une valeur booléenne qui informe l’utilisateur de l’existence d’enregistrements supplémentaires non retournés dans la réponse. Cette condition peut également être identifiée lorsque la valeur de la propriété **count** est inférieure à celle de la propriété **totalRecords**. La valeur **totalRecords** définit le nombre d’enregistrements correspondant à la requête.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468833"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327555"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -34,7 +34,11 @@ Le nombre maximal de pods par nœud est 110 par défaut si vous déployez un clu
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>J’obtiens un erreur insufficientSubnetSize quand je déploie un cluster AKS avec des fonctionnalités réseau avancées. Que dois-je faire ?
 
-Dans l’option Réseau virtuel Azure personnalisée pour la mise en réseau lors de la création d’AKS, l’Interface de réseau de conteneur (CNI) Azure est utilisée pour la gestion des adresses IP (IPAM). Le nombre de nœuds dans un cluster AKS peut être compris entre 1 et 100. Sur la base de la section précédente, la taille de sous-réseau devrait être supérieure au produit du nombre de nœuds et du nombre maximal de pods par nœud. La relation peut être exprimée comme suit : taille de sous-réseau > nombre de nœuds du cluster * nombre maximal de pods par nœud.
+En cas d’utilisation d’Azure CNI (mise en réseau avancée), AKS préalloue les adresses IP en fonction des « max-pods » par nœud configuré. Le nombre de nœuds dans un cluster AKS peut être compris entre 1 et 110. Sur la base du nombre maximal de pods configurés, la taille de sous-réseau devrait être supérieure au « produit du nombre de nœuds et du nombre maximal de pods par nœud ». L’équation de base suivante en donne un aperçu :
+
+Taille du sous-réseau > nombre de nœuds dans le cluster (en tenant compte des besoins futurs de mise à l’échelle) * nombre maximum de pods par nœud.
+
+Pour plus d’informations, consultez [Planifier l’adressage IP pour votre cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mon pod est bloqué en mode CrashLoopBackOff. Que dois-je faire ?
 
