@@ -1,6 +1,6 @@
 ---
-title: Sécurité des instances managées Azure SQL Database à l’aide de connexions Azure AD | Microsoft Docs
-description: Découvrez les techniques et fonctionnalités permettant de sécuriser une instance managée dans Azure SQL Database à l’aide de connexions Azure AD.
+title: Sécurité des instances managées Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD | Microsoft Docs
+description: Découvrir les techniques et fonctionnalités permettant de sécuriser une instance managée dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,15 +9,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/20/2019
+ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984509"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456926"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Tutoriel : Sécurité des instances managées dans Azure SQL Database à l’aide de connexions Azure AD
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutoriel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
 
 Une instance managée offre quasiment toutes les fonctionnalités de sécurité du dernier moteur de base de données SQL Server (Édition Entreprise) local :
 
@@ -29,16 +29,16 @@ Une instance managée offre quasiment toutes les fonctionnalités de sécurité 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> - Créer une connexion Azure AD (Active Directory) pour une instance managée
-> - Accorder des autorisations aux connexions Azure AD dans une instance managée
-> - Créer des utilisateurs Azure AD à partir de connexions Azure AD
+> - Créer un principal de serveur (connexion) Azure AD (Active Directory) pour une instance managée
+> - Accorder des autorisations aux principaux de serveur (connexions) Azure AD dans une instance managée
+> - Créer des utilisateurs Azure AD à partir de principaux de serveur (connexions) Azure AD
 > - Affecter des autorisations aux utilisateurs Azure AD pour gérer la sécurité des bases de données
 > - Utiliser l’emprunt d’identité avec des utilisateurs Azure AD
 > - Utiliser des requêtes de bases de données croisées avec des utilisateurs Azure AD
 > - Découvrir les fonctionnalités de sécurité, notamment la protection contre les menaces, l’audit, le masquage des données et le chiffrement
 
 > [!NOTE]
-> Les connexions AD Azure pour les instances managées sont en **préversion publique**.
+> Les principaux de serveur (connexions) Azure AD pour les instances managées sont en **préversion publique**.
 
 Pour en savoir plus, consultez les articles sur la [vue d’ensemble des instances managées Azure SQL Database](sql-database-managed-instance-index.yml) et leurs [fonctionnalités](sql-database-managed-instance.md).
 
@@ -61,15 +61,15 @@ Les instances managées sont accessibles uniquement par le biais d’une adresse
 > [!NOTE] 
 > Dans la mesure où les instances managées sont accessibles uniquement au sein de leur réseau virtuel, les [règles de pare-feu SQL Database](sql-database-firewall-configure.md) ne s’appliquent pas. Une instance managée a son propre [pare-feu intégré](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Créer une connexion Azure AD pour une instance managée à l’aide de SSMS
+## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Créer un principal de serveur (connexion) Azure AD pour une instance managée à l’aide de SSMS
 
-La première connexion Azure AD doit être créée par le compte SQL Server standard (non Azure AD) de type `sysadmin`. Consultez les articles suivants pour obtenir des exemples de connexion à votre instance managée :
+Le premier principal de serveur (connexion) Azure AD doit être créé par le compte SQL Server standard (non-Azure AD) de type `sysadmin`. Consultez les articles suivants pour obtenir des exemples de connexion à votre instance managée :
 
 - [Démarrage rapide : Configurer une machine virtuelle Azure pour se connecter à une instance managée](sql-database-managed-instance-configure-vm.md)
 - [Démarrage rapide : Configurer une connexion point à site à une instance managée en local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer une connexion Azure AD au sein de l’instance managée. Vous devez créer la première connexion Azure AD à l’aide d’un compte SQL Server `sysadmin`. Il s’agit d’une limitation temporaire qui sera levée une fois que les connexions Azure AD deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte Administrateur Azure AD pour créer la connexion : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer un principal de serveur (connexion) Azure AD au sein de l’instance managée. Vous devez créer le premier principal de serveur (connexion) Azure AD à l’aide d’un compte SQL Server `sysadmin`. Il s’agit d’une limitation temporaire qui sera levée une fois que les principaux de serveur (connexions) Azure AD deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte Administrateur Azure AD pour créer la connexion : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte SQL Server standard (non-Azure AD) de type `sysadmin`, à l’aide de [SQL Server Management Studio ](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
@@ -109,7 +109,7 @@ Pour plus d’informations, consultez [CREATE LOGIN](/sql/t-sql/statements/creat
 
 ## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Octroi d’autorisations pour permettre la création de connexions d’instances managées
 
-Pour créer d’autres connexions Azure AD, des rôles ou des autorisations SQL Server doivent être accordés au principal (SQL ou Azure AD).
+Pour créer d’autres principaux de serveur (connexions) Azure AD, des rôles ou des autorisations SQL Server doivent être accordés au principal (SQL ou Azure AD).
 
 ### <a name="sql-authentication"></a>Authentification SQL
 
@@ -117,10 +117,10 @@ Pour créer d’autres connexions Azure AD, des rôles ou des autorisations SQL 
 
 ### <a name="azure-ad-authentication"></a>Authentification Azure AD
 
-- Pour permettre à la connexion Azure AD créée de créer d’autres connexions pour d’autres utilisateurs, groupes ou applications Azure AD, attribuez le rôle serveur `sysadmin` ou `securityadmin` à la connexion. 
-- Au minimum, l’autorisation **ALTER ANY LOGIN** doit être octroyée à la connexion Azure AD pour permettre la création d’autres connexions Azure AD. 
-- Par défaut, l’autorisation standard accordée aux connexions Azure AD créées dans la base de données MASTER est la suivante : **CONNECT SQL** et **VIEW ANY DATABASE**.
-- Le rôle serveur `sysadmin` peut être attribué à de nombreuses connexions Azure AD au sein d’une instance managée.
+- Pour permettre au principal de serveur (connexion) Azure AD créé de créer d’autres connexions pour d’autres utilisateurs, groupes ou applications Azure AD, attribuez le rôle serveur `sysadmin` ou `securityadmin` à la connexion. 
+- Au minimum, l’autorisation **ALTER ANY LOGIN** doit être octroyée au principal de serveur (connexion) Azure AD pour permettre la création d’autres principaux de serveur (connexions) Azure AD. 
+- Par défaut, l’autorisation standard accordée aux principaux de serveur (connexions) Azure AD créés dans la base de données MASTER est la suivante : **CONNECT SQL** et **VIEW ANY DATABASE**.
+- Le rôle serveur `sysadmin` peut être attribué à de nombreux principaux de serveur (connexions) Azure AD au sein d’une instance managée.
 
 Pour ajouter la connexion au rôle serveur `sysadmin` :
 
@@ -128,7 +128,7 @@ Pour ajouter la connexion au rôle serveur `sysadmin` :
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
-1. Attribuez le rôle serveur `sysadmin` à la connexion Azure AD à l’aide de la syntaxe T-SQL suivante :
+1. Attribuez le rôle serveur `sysadmin` au principal de serveur (connexion) Azure AD à l’aide de la syntaxe T-SQL suivante :
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
@@ -142,11 +142,11 @@ Pour ajouter la connexion au rôle serveur `sysadmin` :
     GO
     ```
 
-## <a name="create-additional-azure-ad-logins-using-ssms"></a>Créer des connexions Azure AD supplémentaires à l’aide de SSMS
+## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Créer des principaux de serveur (connexions) Azure AD supplémentaires à l’aide de SSMS
 
-Une fois la connexion Azure AD créée et dotée des privilèges `sysadmin`, elle peut créer des connexions supplémentaires à l’aide de la clause **FROM EXTERNAL PROVIDER** et de **CREATE LOGIN**.
+Une fois le principal de serveur (connexion) Azure AD créé et doté des privilèges `sysadmin`, il peut créer des connexions supplémentaires à l’aide de la clause **FROM EXTERNAL PROVIDER** et de **CREATE LOGIN**.
 
-1. Connectez-vous à l’instance managée avec la connexion Azure AD, à l’aide de SQL Server Management Studio. Entrez le nom d’hôte de votre instance managée. Pour l’authentification dans SSMS, vous avez le choix entre trois options quand vous vous connectez avec un compte Azure AD :
+1. Connectez-vous à l’instance managée avec le principal de serveur (connexion) Azure AD, à l’aide de SQL Server Management Studio. Entrez le nom d’hôte de votre instance managée. Pour l’authentification dans SSMS, vous avez le choix entre trois options quand vous vous connectez avec un compte Azure AD :
 
     - Active Directory - Authentification universelle avec MFA
     - Active Directory - Authentification par mot de passe
@@ -205,7 +205,7 @@ Une fois la connexion Azure AD créée et dotée des privilèges `sysadmin`, ell
 
 1. À des fins de test, connectez-vous à l’instance managée à l’aide de la connexion ou du groupe que vous venez de créer. Ouvrez une nouvelle connexion à l’instance managée, puis utilisez le nouveau nom de connexion au moment de l’authentification.
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** pour la nouvelle connexion.
-1. Consultez les autorisations du serveur pour la connexion Azure AD créée en exécutant la commande suivante :
+1. Consultez les autorisations du serveur pour le principal de serveur (connexion) Azure AD créé en exécutant la commande suivante :
 
     ```sql
     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
@@ -215,7 +215,7 @@ Une fois la connexion Azure AD créée et dotée des privilèges `sysadmin`, ell
 > [!NOTE]
 > Les utilisateurs invités Azure AD sont pris en charge pour les connexions d’instances managée uniquement quand ils sont ajoutés en tant que membres d’un groupe Azure AD. Un utilisateur invité Azure AD est un compte invité dans le domaine Azure AD auquel appartient l’instance managée, à partir d’un autre domaine Azure AD. Par exemple, joe@contoso.com (compte Azure AD) ou steve@outlook.com (compte MSA) peuvent être ajoutés à un groupe dans le domaine Azure AD aadsqlmi. Une fois les utilisateurs ajoutés à un groupe, vous pouvez créer une connexion dans la base de données **MASTER** de l’instance managée pour le groupe à l’aide de la syntaxe **CREATE LOGIN**. Les utilisateurs invités membres de ce groupe peuvent se connecter à l’instance managée à l’aide de leurs connexions actuelles (par exemple joe@contoso.com ou steve@outlook.com).
 
-## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Créer un utilisateur Azure AD à partir de la connexion Azure AD et accorder des autorisations
+## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>Créer un utilisateur Azure AD à partir du principal de serveur (connexion) Azure AD et accorder des autorisations
 
 L’octroi d’autorisations pour des bases de données individuelles fonctionne sensiblement de la même façon dans une instance managée que dans une instance SQL Server locale. Vous pouvez créer un utilisateur à partir d’une connexion existante dans une base de données, et lui octroyer des autorisations pour cette base de données, ou l’ajouter à un rôle de base de données.
 
@@ -229,7 +229,7 @@ Pour plus d’informations sur l’octroi d’autorisations de base de données,
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
-1. Dans la fenêtre de requête, utilisez la syntaxe suivante pour créer un utilisateur Azure AD à partir d’une connexion Azure AD :
+1. Dans la fenêtre de requête, utilisez la syntaxe suivante pour créer un utilisateur Azure AD à partir d’un principal de serveur (connexion) Azure AD :
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -247,7 +247,7 @@ Pour plus d’informations sur l’octroi d’autorisations de base de données,
     GO
     ```
 
-1. Il permet également de créer un utilisateur Azure AD à partir d’une connexion Azure AD représentant un groupe.
+1. Il permet également de créer un utilisateur Azure AD à partir d’un principal de serveur (connexion) Azure AD représentant un groupe.
 
     L’exemple suivant permet de créer une connexion pour le groupe Azure AD _mygroup_ présent dans votre domaine Azure AD.
 
@@ -261,7 +261,7 @@ Pour plus d’informations sur l’octroi d’autorisations de base de données,
     Tous les utilisateurs appartenant à **mygroup** peuvent accéder à la base de données **MyMITestDB**.
 
     > [!IMPORTANT]
-    > Quand vous créez un **USER** à partir d’une connexion Azure AD, spécifiez le même user_name que le login_name à partir de **LOGIN**.
+    > Quand vous créez un **USER** à partir d’un principal de serveur (connexion) Azure AD, spécifiez le même user_name que le login_name à partir de **LOGIN**.
 
     Pour plus d’informations, consultez [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -383,7 +383,7 @@ Une instance managée prend en charge l’emprunt d’identité des principaux a
 
 ## <a name="using-cross-database-queries-in-managed-instances"></a>Utilisation de requêtes de bases de données croisées dans des instances managées
 
-Les requêtes de bases de données croisées sont prises en charge pour les comptes Azure AD avec des connexions Azure AD. Pour tester une requête de base de données croisée avec un groupe Azure AD, nous devons créer une autre base de données et une autre table. Vous pouvez ignorer la création d’une autre base de données et d’une autre table, si elles existent déjà.
+Les requêtes de bases de données croisées sont prises en charge pour les comptes Azure AD avec des principaux de serveur (connexions) Azure AD. Pour tester une requête de base de données croisée avec un groupe Azure AD, nous devons créer une autre base de données et une autre table. Vous pouvez ignorer la création d’une autre base de données et d’une autre table, si elles existent déjà.
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
@@ -424,15 +424,15 @@ Les requêtes de bases de données croisées sont prises en charge pour les comp
 
     Vous devez voir les résultats de la table dans **TestTable2**.
 
-## <a name="additional-scenarios-supported-for-azure-ad-logins-public-preview"></a>Scénarios supplémentaires pris en charge pour les connexions Azure AD (préversion publique) 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Scénarios supplémentaires pris en charge pour les principaux de serveur (connexions) Azure AD (préversion publique) 
 
-- La gestion et les exécutions de travaux SQL Agent sont prises en charge pour les connexions Azure AD.
-- Les opérations de sauvegarde et de restauration de base de données peuvent être exécutées par les connexions Azure AD.
-- [Audit](sql-database-managed-instance-auditing.md) de toutes les instructions liées aux connexions et aux événements d’authentification Azure AD.
-- Connexion administrateur dédiée pour les connexions Azure AD membres du rôle serveur `sysadmin`.
-- Les connexions Azure AD sont prises en charge par l’[utilitaire sqlcmd](/sql/tools/sqlcmd-utility) et l’outil [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
-- Les déclencheurs d’ouverture de session sont pris en charge pour les événements d’ouverture de session provenant de connexions Azure AD.
-- Vous pouvez configurer Service Broker et Database Mail à l’aide de connexions Azure AD.
+- La gestion et les exécutions de travaux SQL Agent sont prises en charge pour les principaux de serveur (connexions) Azure AD.
+- Les opérations de sauvegarde et de restauration de base de données peuvent être exécutées par les principaux de serveur (connexions) Azure AD.
+- [Audit](sql-database-managed-instance-auditing.md) de toutes les instructions liées aux principaux de serveur (connexions) Azure AD et aux événements d’authentification Azure AD.
+- Connexion administrateur dédiée pour les principaux de serveur (connexions) Azure AD membres du rôle serveur `sysadmin`.
+- Les principaux de serveur (connexions) Azure AD sont pris en charge par l’[utilitaire sqlcmd](/sql/tools/sqlcmd-utility) et l’outil [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+- Les déclencheurs d’ouverture de session sont pris en charge pour les événements d’ouverture de session provenant de principaux de serveur (connexions) Azure AD.
+- Vous pouvez configurer Service Broker et Database Mail à l’aide de principaux de serveur (connexions) Azure AD.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

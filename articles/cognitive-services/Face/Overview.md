@@ -2,33 +2,36 @@
 title: Qu’est ce que le l’API Visage ?
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser le service Visage pour détecter et analyser les visages dans les images.
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 10/29/2018
-ms.author: sbowles
-ms.openlocfilehash: 655234bfec650ef027e325ff8df23fe91eecfd43
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861050"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455974"
 ---
 # <a name="what-is-the-azure-face-api"></a>Qu’est ce que le l’API Visage Azure ?
 
 L’API Visage Azure est un service cognitif qui fournit des algorithmes de détection, de reconnaissance et d’analyse des visages humains dans les images. Pouvoir traiter les informations des visages humains est important pour de nombreux domaines logiciels, notamment la sécurité, l’interface utilisateur naturelle, l’analyse et la gestion du contenu de l’image, les applications mobiles et la robotique.
 
-L’API Visage fournit plusieurs fonctions différentes, chacune décrite dans les sections suivantes. Poursuivez votre lecture pour en savoir plus sur chacune d’elles et déterminer si elle répond à vos besoins.
+L’API Visage fournit plusieurs fonctions différentes, chacune décrite dans les sections suivantes. Lisez la suite pour en savoir plus sur chacune de ces fonctions.
 
 ## <a name="face-detection"></a>Détection des visages
 
-L’API Visage peut détecter les visages humains dans une image et renvoyer les coordonnées du rectangle de leur emplacement. La détection faciale peut également permettre d’extraire un ensemble d’attributs associés au visage tels que la pose, le sexe, l’âge, la position de la tête, la pilosité du visage et les lunettes.
+L’API Visage peut détecter les visages humains dans une image et renvoyer les coordonnées du rectangle de leur emplacement. La détection des visages peut également permettre d’extraire un ensemble d’attributs associés au visage tels que la pose, la posture de la tête, le sexe, l’âge, l’émotion, la pilosité du visage et les lunettes.
 
 ![Une image d’une femme et d’un homme, avec des rectangles dessinés autour de leur visage, et un âge et un sexe affichés](./Images/Face.detection.jpg)
 
-La fonctionnalité de détection de visage est également disponible via l’[API Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), mais si vous souhaitez effectuer des opérations supplémentaires avec les données de visage, utilisez l’API Visage (le présent service). Pour plus d’informations sur la détection de visage, consultez la section [API de détection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+> [!NOTE] 
+> La fonctionnalité de détection de visage est également disponible via l’[API Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), mais si vous souhaitez effectuer des opérations supplémentaires avec les données de visage, utilisez l’API Visage (le présent service). 
+
+Pour plus d’informations sur la détection de visage, consultez la section [API de détection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-verification"></a>Vérification faciale
 

@@ -1,6 +1,6 @@
 ---
 title: Exemple - Auditer le paramètre d’audit au niveau du serveur SQL Server
-description: Cet exemple de stratégie audite les paramètres d’audit de SQL Server pour déterminer si ces paramètres ne correspondent pas à un paramétrage spécifié.
+description: Cet exemple de définition de stratégie permet d’auditer les paramètres d’audit des serveurs SQL, si ces derniers ne correspondent pas au paramètre spécifié.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f23fd349a5e7c1016cc18f79cff408aefaa3fd35
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 90f91e46db9d25571bc34256ab1db737445ce3e6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244162"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337473"
 ---
-# <a name="audit-sql-server-level-audit-setting"></a>Auditer le paramètre d’audit de niveau de SQL Server
+# <a name="sample---audit-sql-server-level-audit-setting"></a>Exemple - Auditer le paramètre d’audit au niveau du serveur SQL Server
 
 Cette stratégie audite les paramètres d’audit de SQL Server pour déterminer si ces paramètres ne correspondent pas à un paramétrage spécifié. Spécifiez une valeur qui indique si les paramètres d’audit doivent être activés ou désactivés.
 

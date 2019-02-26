@@ -1,6 +1,6 @@
 ---
 title: 'Exemple : Initiative de la stratégie de facturation en fonction de balises'
-description: Cet exemple de stratégie exige des valeurs d’étiquette spécifiées pour le nom de produit et le centre de coûts.
+description: Cet exemple de définition de stratégie exige des valeurs d’étiquette spécifiées pour le nom de produit et le centre de coûts.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4592ac63561a59bfc0e4351cc5ad83f138955370
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242853"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337595"
 ---
-# <a name="billing-tags-policy-initiative"></a>Initiative de la stratégie de facturation en fonction d’étiquettes
+# <a name="sample---billing-tags-policy-initiative"></a>Exemple : Initiative de la stratégie de facturation en fonction de balises
 
 Cette stratégie exige des valeurs d’étiquette spécifiées pour le nom de produit et le centre de coûts. Utilise des stratégies intégrées pour appliquer les étiquettes nécessaires. Spécifiez les valeurs nécessaires pour les balises.
 

@@ -1,6 +1,6 @@
 ---
 title: Exemple - Groupe de sécurité réseau x sur chaque sous-réseau
-description: Pour cet exemple de stratégie, un groupe de sécurité réseau spécifique doit être utilisé avec chaque sous-réseau virtuel.
+description: Pour cet exemple de définition de stratégie, un groupe de sécurité réseau doit être utilisé avec chaque sous-réseau virtuel.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: bf02e0df860b677ed1766e083834f894251f6b63
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1183a403c81dd71f123406991755157a4a4a1d26
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242836"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338544"
 ---
-# <a name="nsg-x-on-every-subnet"></a>NSG x sur chaque sous-réseau
+# <a name="sample---network-security-group-x-on-every-subnet"></a>Exemple - Groupe de sécurité réseau x sur chaque sous-réseau
 
 Cette stratégie exige qu’un groupe de sécurité réseau spécifique soit utilisé avec chaque sous-réseau virtuel. Spécifiez l’identifiant du groupe de sécurité réseau à utiliser.
 

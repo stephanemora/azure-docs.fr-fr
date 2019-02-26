@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443115"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454802"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -40,8 +40,8 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 ## <a name="prerequisites"></a>Prérequis
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-+ Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -124,7 +124,7 @@ Pour configurer les journaux de diagnostic :
 
     ![journaux de diagnostic](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Cliquez sur **Activer les diagnostics**. Vous pouvez archiver les journaux de diagnostic et les mesures dans un compte de stockage, les transmettre en continu à un hub d’événement ou les envoyer à Log Analytics. 
+3. Cliquez sur **Activer les diagnostics**. Vous pouvez archiver les journaux de diagnostic avec les mesures dans un compte de stockage, les transmettre en continu à un hub d’événement ou les envoyer aux journaux Azure Monitor. 
 
 Le service Gestion des API fournit actuellement des journaux de diagnostic (par lot toutes les heures) concernant chaque requête d’API. Chaque entrée a le schéma suivant :
 
@@ -173,7 +173,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 }  
 ```
 
-| Propriété  | type | Description |
+| Propriété  | Type | Description |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | booléenne | True si la requête HTTP a échoué avec le code d’état de réponse dans la plage 2xx ou 3xx |
 | time | date-time | Timestamp de réception de la requête HTTP par la passerelle |
@@ -183,7 +183,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | callerIpAddress | chaîne | Adresse IP de l’appelant de passerelle immédiat (peut être un intermédiaire) |
 | correlationId | chaîne | Identificateur de requête http unique assigné par le service Gestion des API |
 | location | chaîne | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
-| httpStatusCodeCategory | chaîne | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
+| httpStatusCodeCategory | chaîne | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
 | ResourceId | chaîne | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | properties | objet | Propriétés de la requête actuelle |
 | method | chaîne | Méthode HTTP de la requête entrante |

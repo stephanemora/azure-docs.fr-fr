@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359933"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328550"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -180,7 +180,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
    | SQL Server | 1433 | Port normal pour les instances par défaut de SQL Server. Si vous avez utilisé une image de la galerie, ce port s’ouvre automatiquement.
    | Sonde d’intégrité | 59999 | Tout port TCP ouvert. Dans une étape ultérieure, configurez la [sonde d’intégrité](#probe) de l’équilibrage de charge et le cluster pour qu’ils utilisent ce port.  
 
-1. Ajoutez du stockage à la machine virtuelle. Pour plus d’informations, consultez [Ajouter du stockage](../premium-storage.md).
+1. Ajoutez du stockage à la machine virtuelle. Pour plus d’informations, consultez [Ajouter du stockage](../disks-types.md).
 
    Les deux machines virtuelles ont besoin d’au moins deux disques de données.
 
@@ -188,7 +188,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
       >[!NOTE]
       >Si vous attachez des disques au format NTFS, vous pouvez uniquement activer la technologie S2D sans vérification d’éligibilité de disque.  
 
-   Attachez au moins deux instances de stockage Premium (disques SSD) à chaque machine virtuelle. Nous vous recommandons d’utiliser au minimum des disques P30 (1 To).
+   Attachez au moins deux disques SSD premium à chaque machine virtuelle. Nous vous recommandons d’utiliser au minimum des disques P30 (1 To).
 
    Définissez la mise en cache de l’hôte sur **Lecture seule**.
 

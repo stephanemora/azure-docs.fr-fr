@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487878"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447359"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -33,7 +33,7 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 
 * Le stockage localement redondant (LRS) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage dans un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
 
-* Le stockage géo-redondant (GRS) est l’option de réplication recommandée par défaut. Le stockage géo-redondant réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
+* Le stockage géo-redondant (GRS) est l’option de réplication recommandée par défaut. Le stockage géoredondant réplique vos données vers une région secondaire, qui est une [région Azure appairée](../best-practices-availability-paired-regions.md) (distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources). Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
 
 **Transfert de données illimité** : Azure Backup ne limite pas la quantité de données entrantes ou sortantes transférées. Par ailleurs, les données transférées ne sont pas facturées par Azure Backup. Toutefois, si vous utilisez le service Azure Import/Export pour importer de grandes quantités de données, les données entrantes ont un coût. Pour plus d’informations sur ce coût, consultez [Flux de travail de la sauvegarde hors connexion dans Azure Backup](backup-azure-backup-import-export.md). Les données sortantes sont les données transférées à partir d’un coffre Recovery Services pendant une opération de restauration.
 
@@ -44,7 +44,7 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 **Rétention à long terme** : vous pouvez utiliser les coffres de Recovery Services pour la conservation de données à court terme et à long terme. Azure ne limite pas la durée de conservation des données dans un coffre Recovery Services. Vous pouvez conserver des données dans un coffre aussi longtemps que vous le souhaitez. Azure Backup est limité à 9 999 points de récupération par instance protégée. Consultez la section [Sauvegarde et rétention](backup-introduction-to-azure-backup.md#backup-and-retention) dans cet article pour savoir comment cette limite peut avoir un impact sur vos besoins de sauvegarde.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Quels composants Azure Backup dois-je utiliser ?
-Consultez le tableau suivant qui explique ce que vous pouvez protéger avec chaque composant de Sauvegarde Microsoft Azure. 
+Consultez le tableau suivant qui explique ce que vous pouvez protéger avec chaque composant de Sauvegarde Microsoft Azure.
 
 | Composant | Avantages | limites | Qu’est-ce qui est protégé ? | Où sont stockées les sauvegardes ? |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Consultez le tableau suivant qui explique ce que vous pouvez protéger avec chaq
 | Sauvegarde des machines virtuelles IaaS Azure |<p>**Oui**</p><p>Partie de la structure Azure</p><p>Spécialisé dans la [sauvegarde des machines virtuelles Azure IaaS (infrastructure en tant que service)](backup-azure-vms-introduction.md).</p> |<p>**Non**</p> <p>Utilisez System Center DPM pour sauvegarder des machines virtuelles dans votre centre de données.</p> |<p>Coffre Recovery Services</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Quelles applications et charges de travail est-il possible de sauvegarder ?
-Le tableau suivant fournit une matrice des données et des charges de travail pouvant être protégées à l’aide d’Azure Backup. La colonne Solution Azure Backup contient des liens vers la documentation de déploiement de cette solution. 
+Le tableau suivant fournit une matrice des données et des charges de travail pouvant être protégées à l’aide d’Azure Backup. La colonne Solution Azure Backup contient des liens vers la documentation de déploiement de cette solution.
 
 | Données ou charge de travail | Environnement source | Solution Azure Backup |
 | --- | --- | --- |
@@ -81,24 +81,24 @@ Le tableau suivant fournit une matrice des données et des charges de travail po
 Le tableau suivant montre les composants de Sauvegarde Azure pris en charge pour Linux.  
 
 **Composant** | **Linux (approuvé par Azure)**
---- | --- 
-Agent Azure Backup (MARS) | Aucun (agent Windows uniquement) 
+--- | ---
+Agent Azure Backup (MARS) | Aucun (agent Windows uniquement)
 System Center DPM | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure
-Azure Backup Server | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure 
+Azure Backup Server | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure
 Sauvegarde des machines virtuelles IaaS Azure | Sauvegarde cohérente au niveau application à l’aide du [framework de préscript et postscript](backup-azure-linux-app-consistent.md)<br/><br/> [Récupération au niveau du fichier](backup-azure-restore-files-from-vm.md)<br/><br/> [Créer une machine virtuelle à partir d’un disque restauré](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Créer une machine virtuelle à partir d’un point de récupération](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
-## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilisation des machines virtuelles Premium Storage avec Azure Backup
-Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, consultez l’article [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../virtual-machines/windows/premium-storage.md).
+## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilisation de machines virtuelles Stockage Premium avec Sauvegarde Azure
+Sauvegarde Azure protège les machines virtuelles Stockage Premium. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail avec des E/S intensives. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur Stockage Premium et d’autres types de disques, consultez l’article [Sélectionner un type de disque](../virtual-machines/windows/disks-types.md).
 
-### <a name="back-up-premium-storage-vms"></a>Sauvegarder des machines virtuelles Premium Storage
-Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération. Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+### <a name="back-up-premium-storage-vms"></a>Sauvegarder des machines virtuelles Stockage Premium
+Lors de la sauvegarde de machines virtuelles Stockage Premium, le service Sauvegarde crée un emplacement temporaire intermédiaire nommé « AzureBackup- » dans le compte Stockage Premium. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération. Veillez à ce que le compte de stockage Premium dispose d’un espace libre suffisant pour cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Objectifs de scalabilité de Stockage Azure](../storage/common/storage-scalability-targets.md). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../virtual-machines/windows/disks-types.md).
 
 > [!NOTE]
 > Évitez de modifier l'emplacement intermédiaire.
 >
 >
 
-### <a name="restore-premium-storage-vms"></a>Restaurer des machines virtuelles Premium Storage
+### <a name="restore-premium-storage-vms"></a>Restaurer des machines virtuelles Stockage Premium
 Les machines virtuelles Stockage Premium peuvent être restaurées vers Stockage Premium ou Stockage Standard. La restauration d’un point de récupération de machines virtuelles Stockage Premium dans Stockage Premium est le processus classique. Toutefois, il peut être rentable de restaurer un point de récupération de machines virtuelles Stockage Premium vers Stockage Standard si vous avez besoin d’un sous-ensemble de fichiers de la machine virtuelle.
 
 ## <a name="using-managed-disk-vms-with-azure-backup"></a>Utilisation des machines virtuelles de disque géré avec Azure Backup
@@ -116,11 +116,11 @@ Les sections suivantes comportent des tableaux qui résument la disponibilité o
 ### <a name="storage"></a>Stockage
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Coffre Recovery Services |![Oui][green] |![OUI][green] |![OUI][green] |![Oui][green] |
-| Stockage sur disque | |![Oui][green] |![Oui][green] | |
-| Stockage sur bande | |![Oui][green] | | |
-| Compression <br/>(dans un coffre Recovery Services) |![Oui][green] |![OUI][green] |![Oui][green] | |
-| Sauvegarde incrémentielle |![Oui][green] |![OUI][green] |![OUI][green] |![Oui][green] |
+| Coffre Recovery Services |![OUI][green] |![OUI][green] |![OUI][green] |![OUI][green] |
+| Stockage sur disque | |![OUI][green] |![OUI][green] | |
+| Stockage sur bande | |![OUI][green] | | |
+| Compression <br/>(dans un coffre Recovery Services) |![OUI][green] |![OUI][green] |![OUI][green] | |
+| Sauvegarde incrémentielle |![OUI][green] |![OUI][green] |![OUI][green] |![OUI][green] |
 | Déduplication de disque | |![Partiellement][yellow] |![Partiellement][yellow] | | |
 
 ![clé de table](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -157,8 +157,8 @@ La **sauvegarde incrémentielle** permet d’obtenir une efficacité élevée en
 ### <a name="security"></a>Sécurité
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Sécurité du réseau<br/> (vers Azure) |![Oui][green] |![OUI][green] |![OUI][green] |![Oui][green] |
-| Sécurité des données<br/> (dans Azure) |![Oui][green] |![OUI][green] |![OUI][green] |![Oui][green] |
+| Sécurité du réseau<br/> (vers Azure) |![OUI][green] |![OUI][green] |![OUI][green] |![OUI][green] |
+| Sécurité des données<br/> (dans Azure) |![OUI][green] |![OUI][green] |![OUI][green] |![OUI][green] |
 
 ![clé de table](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -176,8 +176,8 @@ La sauvegarde des machines virtuelles Azure exige la configuration du chiffremen
 ### <a name="network"></a>Réseau
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Compression réseau <br/>(vers le **serveur de sauvegarde**) | |![Oui][green] |![Oui][green] | |
-| Compression réseau <br/>(vers le **coffre Recovery Services**) |![Oui][green] |![OUI][green] |![Oui][green] | |
+| Compression réseau <br/>(vers le **serveur de sauvegarde**) | |![OUI][green] |![OUI][green] | |
+| Compression réseau <br/>(vers le **coffre Recovery Services**) |![OUI][green] |![OUI][green] |![OUI][green] | |
 | Protocole réseau <br/>(vers le **serveur de sauvegarde**) | |TCP |TCP | |
 | Protocole réseau <br/>(vers le **coffre Recovery Services**) |HTTPS |HTTPS |HTTPS |HTTPS |
 

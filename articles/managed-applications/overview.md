@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800942"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341947"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -73,11 +73,11 @@ Quand le consommateur supprime l’application managée, le groupe de ressources
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Vous pouvez appliquer une stratégie [Azure Policy](../azure-policy/azure-policy-introduction.md) à votre application managée. Vous appliquez des stratégies pour vous assurer que les instances déployées de votre application managée sont conformes aux exigences en matière de sécurité et de données. Si votre application interagit avec des données sensibles, assurez-vous que vous avez évalué comment il convient de la protéger. Par exemple, si votre application interagit avec des données d’Office 365, appliquez une stratégie pour vous assurer que le chiffrement des données est activé.
+Vous pouvez appliquer une stratégie [Azure Policy](../governance/policy/overview.md) à votre application managée. Vous appliquez des stratégies pour vous assurer que les instances déployées de votre application managée sont conformes aux exigences en matière de sécurité et de données. Si votre application interagit avec des données sensibles, assurez-vous que vous avez évalué comment il convient de la protéger. Par exemple, si votre application interagit avec des données d’Office 365, appliquez une stratégie pour vous assurer que le chiffrement des données est activé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez pris connaissance des avantages de l’utilisation des applications managées. Consultez l’article suivant pour créer une définition d’application managée.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : publier une définition d’application managée Azure](publish-managed-app-definition-quickstart.md)
+> [Démarrage rapide : Publier une définition d’application managée Azure](publish-managed-app-definition-quickstart.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509131"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327008"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
 Microsoft Azure propose plusieurs fonctionnalités dans le stockage Azure pour stocker vos données dans le cloud et y accéder. Cet article traite des fichiers, des objets BLOB et des disques Azure, afin de vous aider à choisir entre ces fonctionnalités.
@@ -54,7 +54,7 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 |-|-|-|  
 |**Attribut**|**Disques Azure**|**Azure Files**|  
 |Étendue|Exclusif à une seule machine virtuelle|Accès partagé entre plusieurs machines virtuelles|  
-|Captures instantanées et copie|Oui|Oui|  
+|Captures instantanées et copie|OUI|OUI|  
 |Configuration|Connexion au démarrage de la machine virtuelle|Connexion après le démarrage de la machine virtuelle|  
 |Authentication|Intégration|Configuration avec net use|  
 |Accès à l’aide de REST|Les fichiers du disque dur virtuel ne sont pas accessibles|Les fichiers stockés dans un partage sont accessibles|  
@@ -67,4 +67,4 @@ Lors des décisions concernant le stockage et l’accès de vos données, vous d
   
 Certaines fonctionnalités SMB ne sont pas applicables au cloud. Pour plus d’informations, consultez [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Fonctionnalités non prises en charge par le service Azure File).
   
-Pour plus d’informations sur les disques, consultez [Managing disks and image](../../virtual-machines/windows/about-disks-and-vhds.md) (Gestion des disques et des images) et [Comment attacher un disque de données à une machine virtuelle Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).
+Pour plus d’informations sur les disques, consultez notre [Introduction aux disques managés](../../virtual-machines/windows/managed-disks-overview.md) et l’article [Comment attacher un disque de données à une machine virtuelle Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 228d54f1b2b438c05779b96025d3ad03a7757beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 961f7bf85ed8bb67c8284edea1846e96895d7f46
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165091"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452846"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>En quoi consiste la surveillance d’Azure Active Directory ? (préversion)
 
@@ -57,14 +57,14 @@ Si vous acheminez les journaux vers un compte de stockage Azure, vous pouvez les
 
 L’acheminement des journaux vers un Azure Event Hub vous permet d’intégrer des outils SIEM tiers comme Sumologic et Splunk. Cette intégration vous permet d’associer les données du journal d’activité d’Azure AD à d’autres données gérées par votre SIEM pour offrir des insights plus fournis sur votre environnement. Découvrez comment [transmettre les journaux à un Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-## <a name="send-logs-to-log-analytics"></a>Envoyer des journaux à Log Analytics
+## <a name="send-logs-to-azure-monitor-logs"></a>Envoyer des journaux aux journaux Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est une solution qui regroupe les données de surveillance provenant de différentes sources et fournit un langage de requête et le moteur analytique vous donne des informations sur le fonctionnement de vos applications et de vos ressources. Si vous envoyez les journaux d’activité d’Azure AD à Log Analytics, vous pouvez rapidement récupérer, surveiller et signaler les données recueillies. Découvrez comment [envoyer des données à Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+La solution des [journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) regroupe les données de supervision provenant de différentes sources et fournit un langage de requête et un moteur d’analytique offrant des insights sur le fonctionnement de vos applications et de vos ressources. Si vous envoyez les journaux d’activité Azure AD aux journaux Azure Monitor, vous pouvez rapidement récupérer, superviser et signaler les données collectées. Découvrez comment [envoyer des données aux journaux Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
-Vous pouvez également installer les vues prédéfinies des journaux d’activité d’Azure AD afin de surveiller les scénarios courants qui entraînent des connexions et des événements d’audit. Découvrez comment [installer et utiliser les vues Log Analytics des journaux d’activité Azure AD](howto-install-use-log-analytics-views.md).
+Vous pouvez également installer les vues prédéfinies des journaux d’activité d’Azure AD afin de surveiller les scénarios courants qui entraînent des connexions et des événements d’audit. Découvrez comment [installer et utiliser les vues Log Analytics des journaux d’activité Azure AD](howto-install-use-log-analytics-views.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Journaux d’activité dans Azure Monitor](concept-activity-logs-azure-monitor.md)
 * [Transmettre en continu des journaux vers un Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Envoyer des journaux à Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
+* [Envoyer des journaux aux journaux Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

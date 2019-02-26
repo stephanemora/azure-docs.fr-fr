@@ -2,16 +2,17 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 11/08/2018
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ab9da996226b3f26fd30db1cd012c80253a85a5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333754"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306874"
 ---
-La configuration suivante s’applique à la bande passante Internet requise pour vos appareils.
+Les appareils sont conçus pour continuer de fonctionner lorsque votre connexion Internet est lente ou est interrompue. En fonctionnement normal, nous vous recommandons d’utiliser : 
 
-- Votre appareil est doté d’une bande passante Internet dédiée de 20 Mbits/s (ou plus) disponible à tout moment. La bande passante ne doit pas être partagée avec d’autres applications.
-- Votre appareil a une bande passante Internet dédiée de 64 Mbits/s (ou plus) lorsque vous utilisez la limitation de bande passante.
+- Une bande passante de chargement de minimum 10 Mbits/s pour s’assurer que l’appareil reste à jour.
+- Une bande passante de chargement et de téléchargement de minimum 20 Mbits/s dédiée pour transférer des fichiers.
+

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413670"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417328"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformer et protéger votre API 
 
@@ -39,10 +39,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Connaître la [Terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Comprendre le [concept des stratégies dans la Gestion des API Azure](api-management-howto-policies.md).
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-+ Effectuez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
++ Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
++ Comprendre le [concept des stratégies dans Gestion des API Azure](api-management-howto-policies.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -74,7 +74,7 @@ La réponse originale est de ce type :
 1. Sélectionnez **API de conférence de démonstration**.
 2. Sélectionnez l’onglet **Conception** en haut de l’écran.
 3. Sélectionnez **Toutes les opérations**.
-4. Dans le **Traitement sortant** , cliquez sur l’icône **</>**.
+4. Dans le **Traitement sortant**, cliquez sur l’icône **</>**.
 5. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
 6. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez deux fois sur **+ Set HTTP header** (afin d’insérer deux extraits de stratégie).
 
@@ -126,9 +126,10 @@ Cette section vous montre comment ajouter une protection pour votre API principa
 1. Sélectionnez **API de conférence de démonstration**.
 2. Sélectionnez **Toutes les opérations**.
 3. Sélectionnez l’onglet **Conception** en haut de l’écran.
-4. Dans le **Traitement entrant**, cliquez sur l’icône **</>**. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
-5. Dans la fenêtre de droite, sous **Accès aux stratégies de restriction**, cliquez sur **+ Limit call rate per key**.
-6. Remplacez votre code **rate-limit-by-key** (dans l’élément **\<inbound\>**) par le code suivant :
+4. Dans la section **Traitement entrant**, cliquez sur l’icône **</>**.
+5. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
+6. Dans la fenêtre de droite, sous **Accès aux stratégies de restriction**, cliquez sur **+ Limit call rate per key**.
+7. Remplacez votre code **rate-limit-by-key** (dans l’élément **\<inbound\>**) par le code suivant :
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

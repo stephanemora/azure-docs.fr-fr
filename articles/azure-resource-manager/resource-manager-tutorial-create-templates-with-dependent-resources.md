@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dc9d72afd14547a091acf64cea2c8f0bad75914
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234405"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267527"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes
 
@@ -34,8 +34,6 @@ Ce tutoriel décrit les tâches suivantes :
 > * Déployer le modèle
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -156,6 +154,9 @@ Il existe de nombreuses méthodes pour déployer des modèles.  Dans ce didactic
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
+    > [!NOTE]
+    > Un problème d’E/S existe avec l’utilisation d’Azure PowerShell dans Cloud shell.  Le message d’erreur est *Impossible de récupérer les paramètres dynamiques pour l’applet de commande. Chemin « Azure:/azuredeploy.json » introuvable, car il n’existe pas.*  Une solution de contournement temporaire consiste à ne pas inclure le commutateur **-TemplateFile** dans la commande `New-AzResourceGroupDeploy`. La commande vous invite ensuite à entrer le nom du fichier.
 
 8. Exécutez la commande PowerShell suivante pour lister les machines virtuelles nouvellement créées :
 

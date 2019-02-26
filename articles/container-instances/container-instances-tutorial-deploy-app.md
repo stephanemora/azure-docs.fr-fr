@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191090"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326737"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutoriel : Déployer une application conteneur sur Azure Container Instances
 
@@ -36,26 +36,20 @@ Dans cette section, vous utilisez l’interface Azure CLI pour déployer l’ima
 
 ### <a name="get-registry-credentials"></a>Obtenir les informations d’identification du registre
 
-Lorsque vous déployez une image qui est hébergée dans un registre de conteneurs privé, tel que celui créé dans le [deuxième didacticiel](container-instances-tutorial-prepare-acr.md), vous devez fournir les informations d’identification du registre.
+Lorsque vous déployez une image qui est hébergée dans un registre de conteneurs privé, tel que celui créé dans le [deuxième tutoriel](container-instances-tutorial-prepare-acr.md), vous devez fournir les informations d’identification pour accéder au registre. Comme indiqué dans [S’authentifier avec Azure Container Registry à partir d’Azure Container Instances](../container-registry/container-registry-auth-aci.md), une bonne pratique à suivre dans de nombreux scénarios consiste à créer et à configurer un principal du service Azure Active Directory avec des autorisations d’accès en *extraction* (pull) à votre registre. Consultez cet article pour des exemples de scripts de création d’un principal de service avec les autorisations nécessaires. Notez l’ID et le mot de passe du principal de service. Vous utilisez ces informations d’identification lorsque vous déployez le conteneur.
 
-D’abord, obtenez le nom complet du serveur de connexion du registre de conteneurs (remplacez `<acrName>` par le nom de votre registre) :
+Vous avez également besoin du nom complet du serveur de connexion au registre de conteneurs (remplacez `<acrName>` par le nom de votre registre) :
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Ensuite, obtenez le mot de passe du registre de conteneurs :
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
 ### <a name="deploy-container"></a>Déployer le conteneur
 
-Maintenant, utilisez la commande [az container create][az-container-create] pour déployer le conteneur. Remplacez `<acrLoginServer>` et `<acrPassword>` par les valeurs obtenues à partir des deux commandes précédentes. Remplacez `<acrName>` par le nom de votre registre de conteneur, et `<aciDnsLabel>` par le nom DNS souhaité.
+Maintenant, utilisez la commande [az container create][az-container-create] pour déployer le conteneur. Remplacez `<acrLoginServer>` par les valeurs obtenues à partir de la commande précédente. Remplacez `<service-principal-ID>` et `<service-principal-password>` par l’ID et le mot de passe de principal de service que vous avez créés pour accéder au registre. Remplacez `<aciDnsLabel>` par un nom DNS souhaité.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure. La valeur `--dns-name-label` doit être unique au sein de la région Azure dans laquelle vous créez l’instance de conteneur. Modifiez la valeur de la commande précédente si vous recevez un message d’erreur **Étiquette de nom DNS** lorsque vous exécutez la commande.

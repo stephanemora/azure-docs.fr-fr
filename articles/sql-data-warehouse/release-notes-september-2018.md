@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd6531bc950e006f15924bb9a0d6428f9e69d544
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460724"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330832"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Nouveautés dans Azure SQL Data Warehouse Septembre 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les changements introduits en septembre 2018.
@@ -24,6 +24,9 @@ Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article
 En avril 2018, [Microsoft a annoncé](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) la sortie d’Azure SQL Data Warehouse Gen2, qui offre des performances multipliées par 5, une échelle de calcul multipliée par 5, une concurrence multipliée par 4 et un stockage illimité. Comme indiqué dans le [test d’évaluation de Data Warehouse dans le cloud](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) réalisé par Gigaom, SQL Data Warehouse Gen2 **surclasse Amazon Redshift de 42 %**.
 
 Gen2 est généralement disponible à un point d’entrée inférieur à celui de DWU500c, ce qui vous permet d’exécuter un entrepôt de données de plus petite taille ou des environnements de développement/test avec les dernières améliorations du service. Le nouveau point d’entrée conserve toutes les fonctionnalités de Gen2, notamment la [mise en cache adaptative](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), la [lecture aléatoire ultra-rapide des données](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/) et la prise en charge d’un [entrepôt de données en temps réel](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
+
+## <a name="sql-vulnerability-assessment"></a>Évaluation des vulnérabilités SQL
+L’[Évaluation des vulnérabilités SQL (VA)](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/25/sql-vulnerability-assessment-now-supports-azure-sql-data-warehouse-and-azure-sql-database-managed-instance/) est un service facile à utiliser qui surveille en permanence votre entrepôt de données. Il vous aide à assurer un niveau élevé de sécurité à tout moment et à faire en sorte que vos stratégies d’organisation soient respectées. Il fournit un rapport de sécurité complet ainsi que les étapes de correction actionnables pour chaque problème détecté. Ce rapport facilite la gestion proactive de la sécurité de votre base de données et attire votre attention sur les actions à impact maximal, même si vous n’êtes pas un expert en sécurité. Pour les environnements dynamiques où les modifications sont fréquentes et difficiles à suivre, VA est incontournable car il permet de détecter les paramètres qui peuvent laisser votre entrepôt de données vulnérables aux attaques.
 
 ## <a name="improved-availability-with-query-restartability"></a>Disponibilité améliorée avec redémarrage des requêtes
 Bon nombre de problèmes peuvent se produire pendant l’exécution d’une requête et provoquer son échec. Une panne du réseau, une défaillance matérielle ou toute autre déconnexion peut entraîner une interruption. SQL Data Warehouse prend désormais en charge le redémarrage des requêtes SELECT au niveau des étapes ou des instructions. 

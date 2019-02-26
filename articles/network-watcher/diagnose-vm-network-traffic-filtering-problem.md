@@ -1,6 +1,6 @@
 ---
 title: Diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle - démarrage rapide - portail Azure | Microsoft Docs
-description: Dans ce démarrage rapide, vous apprenez à diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle à l’aide de la capacité de vérification de flux IP de Azure Network Watcher.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle à l’aide de la fonctionnalité de vérification de flux IP d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: jimdial
@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 1802df4e6cbe77b4bc7ee2ee49f24d8dc51de015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180519"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429228"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
 
 Dans ce guide de démarrage rapide, vous déployez une machine virtuelle, puis vous vérifiez les communications vers une adresse IP et une URL et à partir d’une adresse IP. Vous déterminez la cause d’un échec de communication et la façon de le résoudre.
 
@@ -37,17 +37,17 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
-2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter** ou **Ubuntu Server 17.10 VM**.
+2. Sélectionnez **Calcul**, puis **Windows Server 2016 Datacenter** ou une version d’**Ubuntu Server**.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVm|
+    |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Lieu| Sélectionnez **Est des États-Unis**.|
+    |Lieu| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
@@ -61,8 +61,8 @@ Pour tester une communication réseau avec Network Watcher, commencez par active
 
 Si vous avez déjà un observateur réseau activé dans au moins une région, passez à l’étape [Utiliser la vérification du flux IP](#use-ip-flow-verify).
 
-1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la **zone de filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats, sélectionnez-la.
-2. Activez un observateur réseau dans la région de l’est des États-Unis, car il s’agit de la région de la machine virtuelle déployée à l’étape précédente. Sélectionnez **Régions**, pour développer, puis sélectionnez **...**  à droite de **Est des États-Unis**, comme illustré dans l’image suivante :
+1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats, sélectionnez-la.
+2. Activez un observateur réseau dans la région USA Est, car il s’agit de la région de la machine virtuelle déployée à l’étape précédente. Sélectionnez la zone **Régions** pour la développer, puis sélectionnez **...** à droite de la région **USA Est**, comme illustré dans l’image suivante :
 
     ![Activer Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
@@ -70,7 +70,7 @@ Si vous avez déjà un observateur réseau activé dans au moins une région, pa
 
 ### <a name="use-ip-flow-verify"></a>Utilisez la vérification des flux IP
 
-Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic réseau vers et à partir de la machine virtuelle, par défaut. Vous pouvez ultérieurement remplacer des valeurs de Azure par défaut, autoriser ou refuser d’autres types de trafic.
+Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic réseau à destination et en provenance de la machine virtuelle, par défaut. Vous pouvez ultérieurement remplacer des valeurs de Azure par défaut, autoriser ou refuser d’autres types de trafic.
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la zone de *filtre* **Tous les services**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats, sélectionnez-la.
 2. Sélectionnez **Vérifier le flux IP**, sous **OUTILS DE DIAGNOSTIC RÉSEAU**.
@@ -90,11 +90,11 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
 
     ![Vérification du flux IP](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
 
-    Après quelques secondes, le résultat retourné vous informe que l’accès est autorisé par une règle de sécurité nommée **AllowInternetOutbound**. Lorsque vous avez exécuté la vérification, Network Watcher a automatiquement créé un observateur réseau dans la région de l’est des États-Unis, si vous aviez un observateur réseau dans une autre région avant l’exécution de la vérification.
+    Après quelques secondes, le résultat retourné vous informe que l’accès est autorisé par une règle de sécurité nommée **AllowInternetOutbound**. Lorsque vous avez exécuté la vérification, Network Watcher a automatiquement créé un observateur réseau dans la région USA Est, si vous aviez un observateur réseau dans une autre région avant l’exécution de la vérification.
 4. Effectuez de nouveau l’étape 3, mais modifiez l’**adresse IP distante** par **172.31.0.100**. Le résultat retourné vous informe que l’accès est refusé par une règle de sécurité nommée **DefaultOutboundDenyAll**.
 5. Effectuez à nouveau l’étape 3, mais configurez la **Direction** sur **Entrant**, le **port local** sur **80** et le **port distant** sur **60000**. Le résultat retourné vous informe que l’accès est refusé par une règle de sécurité nommée **DefaultInboundDenyAll**.
 
-À présent que vous savez quelles règles de sécurité autorisent ou refusent le trafic à destination ou à partir d’une machine virtuelle, vous pouvez déterminer comment résoudre les problèmes.
+À présent que vous savez quelles règles de sécurité autorisent ou refusent le trafic à destination ou en provenance d’une machine virtuelle, vous pouvez déterminer comment résoudre les problèmes.
 
 ## <a name="view-details-of-a-security-rule"></a>Voir les détails d’une règle de sécurité
 
@@ -112,7 +112,7 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
 4. Lorsque vous avez exécuté la vérification de sortie vers l’adresse 172.131.0.100 à l’étape 4 de [Utiliser la vérification de flux IP](#use-ip-flow-verify), vous avez appris que la règle **DefaultOutboundDenyAll** a refusé la communication. Cette règle équivaut à la règle **DenyAllOutBound** indiquée dans l’image à l’étape 2 qui spécifie **0.0.0.0/0** comme **DESTINATION**. Cette règle refuse les communications sortantes vers l’adresse 172.131.0.100, car l’adresse ne se trouve pas dans le même **DESTINATION** que toutes les autres **règles de trafic sortant** indiquées dans l’image. Pour autoriser les communications sortantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic sortant vers le port 80 pour l’adresse 172.131.0.100.
 5. Lorsque vous avez exécuté la vérification d’entrée vers l’adresse 172.131.0.100 à l’étape 5 de [Utiliser la vérification de flux IP](#use-ip-flow-verify), vous avez appris que la règle **DefaultIntboundDenyAll** a refusé la communication. Cette règle équivaut à la règle **DenyAllInBound** indiquée dans l’image à l’étape 2. La règle **DenyAllInBound** est appliquée, car aucune autre règle de priorité plus élevée n’existe pour autoriser l’entrée par le port 80 vers la machine virtuelle à partir de l’adresse 172.31.0.100. Pour autoriser les communications entrantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic entrant vers le port 80 à partir de l’adresse 172.31.0.100.
 
-Les contrôles dans ce démarrage rapide ont permis de tester la configuration Azure. Si les contrôles retournent les résultats attendus et si vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
+Les contrôles dans ce démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -124,6 +124,6 @@ Quand vous n’avez plus besoin du groupe de ressources, supprimez-le, ainsi que
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle et diagnostiqué des filtres de trafic réseau entrant et sortant. Vous avez appris que les règles de groupe de sécurité réseau autorisent ou refusent le trafic à destination et à partir d’une machine virtuelle. En savoir plus sur les [règles de sécurité](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) et la [création des règles de sécurité](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle et diagnostiqué des filtres de trafic réseau entrant et sortant. Vous avez appris que les règles de groupe de sécurité réseau autorisent ou refusent le trafic à destination et en provenance d’une machine virtuelle. En savoir plus sur les [règles de sécurité](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) et la [création des règles de sécurité](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
-Même avec des filtres de trafic réseau adaptés, les communications vers une machine virtuelle peuvent échouer en raison d’une configuration de routage. Pour savoir comment diagnostiquer les problèmes de routage de réseau de machine virtuelle, consultez [Diagnostiquer des problèmes de routage sur une machine virtuelle](diagnose-vm-network-routing-problem.md) ou, pour diagnostiquer les problèmes liés au routage sortant, à la latence et au filtrage de trafic, avec un outil, consultez [Résoudre les problèmes de connexion](network-watcher-connectivity-portal.md).
+Même avec des filtres de trafic réseau adaptés, les communications vers une machine virtuelle peuvent échouer en raison d’une configuration de routage. Pour savoir comment diagnostiquer les problèmes de routage réseau d’une machine virtuelle, consultez [Diagnostiquer des problèmes de routage sur une machine virtuelle](diagnose-vm-network-routing-problem.md) ou, pour diagnostiquer les problèmes liés au routage sortant, à la latence et au filtrage de trafic, avec un outil, consultez [Résoudre les problèmes de connexion](network-watcher-connectivity-portal.md).

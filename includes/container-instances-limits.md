@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 02/13/2019
 ms.author: danlep
-ms.openlocfilehash: 44bdaec78e1fad574f29a5945b07041b588aaff8
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dd5c8878ce71b49b3a25f5d14a00bfe4f49ee769
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572096"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333815"
 ---
 | Ressource | Limite par défaut |
 | --- | :--- |
@@ -17,17 +17,15 @@ ms.locfileid: "51572096"
 | Nombre de conteneurs par groupe de conteneurs | 60 |
 | Nombre de volumes par groupe de conteneurs | 20 |
 | Ports par adresse IP | 5. |
+| Taille de journal d’instance de conteneur - instance en cours d’exécution | 4 Mo |
+| Taille de journal d’instance de conteneur - instance arrêtée | 16 Ko ou 1 000 lignes |
 | Création de conteneurs par heure |300<sup>1</sup> |
 | Création de conteneurs par tranche de 5 minutes | 100<sup>1</sup> |
 | Suppression de conteneurs par heure | 300<sup>1</sup> |
 | Suppression de conteneurs par tranche de 5 minutes | 100<sup>1</sup> |
-| Plusieurs conteneurs par groupe de conteneurs | Linux uniquement<sup>2</sup> |
-| Volumes de fichiers Azure | Linux uniquement<sup>2</sup> |
-| Volumes GitRepo | Linux uniquement<sup>2</sup> |
-| Volumes de secret | Linux uniquement<sup>2</sup> |
+
 
 <sup>1</sup> Créer une [demande de support Azure][azure-support] pour demander une augmentation de la limite.<br />
-<sup>2</sup> Une prise en charge Windows pour cette fonctionnalité est prévue.
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991325"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310931"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -100,20 +100,6 @@ Vous pouvez fractionner une métrique par dimension afin de visualiser la façon
    > [!NOTE]
    > Pour masquer les segments non pertinents pour votre scénario et faciliter la lecture des graphiques, utilisez un Filtrage et un Fractionnement sur la même dimension.
 
-### <a name="new-alert-rule"></a>Nouvelle règle d’alerte
-
-Vous pouvez également utiliser les critères que vous avez définis pour visualiser vos métriques en tant que base pour la logique sous-jacente d’une règle d’alerte basée sur une métrique. 
-
-Si vous cliquez sur **Nouvelle règle d’alerte**
-
-![Bouton Nouvelle règle d’alerte surligné en rouge](./media/metrics-charts/015.png)
-
-Vous êtes redirigé vers le volet de la création de règle d’alerte avec les dimensions de métriques sous-jacentes de votre graphique préremplies pour faciliter la génération de règles d’alerte personnalisées.
-
-![Créer une règle d’alerte](./media/metrics-charts/016.png)
-
-Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d’alertes de métrique.
-
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Verrouiller les limites de l’axe y du graphique
 
 Lorsque le graphique montre des fluctuations plus faibles sur de plus grandes valeurs, il est important de verrouiller la plage de l’axe y. 
@@ -138,6 +124,20 @@ Pour épingler un graphique configuré à un tableau de bord :
 Après avoir configuré votre graphique, cliquez sur le menu **Actions** dans l’angle supérieur droit du graphique, puis sur **Épingler au tableau de bord**.
 
 ![image de métrique](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>Créer des règles d'alerte
+
+Vous pouvez utiliser les critères que vous avez définis pour visualiser vos métriques en tant que base d’une règle d’alerte basée sur une métrique. La nouvelle règle d’alerte inclura les dimensions de la ressource, de la métrique, du fractionnement et du filtre cibles de votre graphique. Vous ne pourrez pas modifier ces paramètres ultérieurement dans le volet de création de règles d’alerte.
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Pour créer une nouvelle règle d’alerte, cliquez sur **Nouvelle règle d’alerte**
+
+![Bouton Nouvelle règle d’alerte surligné en rouge](./media/metrics-charts/015.png)
+
+Vous êtes redirigé vers le volet de la création de règle d’alerte avec les dimensions de métriques sous-jacentes de votre graphique préremplies pour faciliter la génération de règles d’alerte personnalisées.
+
+![Créer une règle d’alerte](./media/metrics-charts/016.png)
+
+Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d’alertes de métrique.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

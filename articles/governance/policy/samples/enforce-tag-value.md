@@ -1,6 +1,6 @@
 ---
 title: Exemple - Appliquer une étiquette et sa valeur
-description: Pour cet exemple de stratégie, un nom et une valeur de balise doivent être spécifiés.
+description: Cet exemple de définition de stratégie nécessite un nom et une valeur d’étiquette, tous deux définis comme un paramètre.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 952f932d850806553b6e7e2f9efad2643a2ecdf3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0524c0e9e67cd477b8aa8ba8005cf8ebcce3f1da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242632"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337840"
 ---
-# <a name="enforce-tag-and-its-value"></a>Enforce tag and its value
+# <a name="sample---enforce-tag-and-its-value"></a>Exemple - Appliquer une étiquette et sa valeur
 
 Cette stratégie JSON exige le nom et la valeur spécifiés pour une étiquette. Spécifiez les nom et valeur de balise à imposer.
 

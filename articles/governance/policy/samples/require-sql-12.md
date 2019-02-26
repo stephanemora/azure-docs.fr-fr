@@ -1,6 +1,6 @@
 ---
 title: Exemple - Exiger SQL Server version 12.0
-description: Cet exemple de stratégie exige que les serveurs SQL Server utilisent la version 12.0.
+description: Cet exemple de définition de stratégie nécessite que la version 12.0 des serveurs SQL soit exécutée.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d00ff3554666ddbe6915882baa423da319b9f54a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 33fb78ed99bff0ccf035f68cfc2d23552a822df7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244205"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340618"
 ---
-# <a name="require-sql-server-version-120"></a>Nécessitent SQL Server version 12.0
+# <a name="sample---require-sql-server-version-120"></a>Exemple - Exiger SQL Server version 12.0
 
 Cette stratégie exige que les serveurs SQL Server utilisent la version 12.0.
 

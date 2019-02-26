@@ -1,21 +1,21 @@
 ---
 title: Didacticiel de démarrage rapide pour l’indexation et la création de requêtes à l’aide du Portail Azure - Recherche Azure
-description: Dans ce guide de démarrage rapide, vous allez utiliser le Portail Azure et des exemples de données intégrés pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage.
+description: Découvrez comment créer et interroger votre premier index dans la Recherche Azure à l’aide d’exemples de données prédéfinis et de l’Assistant Importation de données dans le portail Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991308"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270332"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Démarrage rapide : Utiliser les outils du portail intégrés pour l’importation, l’indexation et la création de requêtes dans Recherche Azure
 
@@ -94,15 +94,17 @@ Les champs comportent des types de données et des attributs. Les cases à coche
 
 Votre sélection n’a aucune influence sur les besoins en stockage. Par exemple, si vous définissez l’attribut **Récupérable** sur plusieurs champs, les besoins en stockage n’augmentent pas.
 
-Par défaut, l’Assistant analyse la source de données pour y rechercher des identificateurs uniques comme base pour le champ de clé. Les chaînes sont dotées d’attributs les définissant comme récupérables et utilisables dans une recherche. Les entiers présentent des attributs les définissant comme récupérables, filtrables, triables et à choix multiples.
+Par défaut, l’Assistant analyse la source de données pour y rechercher des identificateurs uniques comme base pour le champ de clé. Les *chaînes* sont dotées des attributs **Récupérable** et **Possibilité de recherche**. Les *entiers* sont dotés des attributs **Récupérable**, **Filtrable**, **Triable** et **À choix multiples**.
 
-1. Acceptez toutes les valeurs par défaut.
+1. Acceptez les valeurs par défaut. 
 
-  ![Index généré pour la source realestate](media/search-get-started-portal/realestateindex2.png)
+   Si vous réexécutez l’Assistant à l’aide d’une source de données realestate existante, l’index ne sera pas configuré avec les attributs par défaut. Vous devrez sélectionner manuellement les attributs lors des prochaines importations.
+
+   ![Index généré pour la source realestate](media/search-get-started-portal/realestateindex2.png)
 
 2. Passez à la page suivante.
 
-  ![Page suivante - Créer un indexeur](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Page suivante - Créer un indexeur](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Étape 4 : configurer l’indexeur
 

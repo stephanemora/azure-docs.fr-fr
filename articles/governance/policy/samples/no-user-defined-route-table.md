@@ -1,6 +1,6 @@
 ---
 title: Exemple - Aucune table de routage définie par l’utilisateur
-description: Cet exemple de stratégie interdit le déploiement de réseaux virtuels avec une table de routage définie par l’utilisateur.
+description: Cet exemple de définition de stratégie interdit le déploiement de réseaux virtuels avec une table de routage définie par l’utilisateur.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: db0e7ec5d684f71b3a8426cdf5256adaa8467383
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6155477f7ff70544032e4890cae215fb68523a11
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242870"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341417"
 ---
-# <a name="no-user-defined-route-table"></a>Pas de table de routage définie par l’utilisateur
+# <a name="sample---no-user-defined-route-table"></a>Exemple - Aucune table de routage définie par l’utilisateur
 
 Cette stratégie interdit le déploiement de réseaux virtuels avec une table de routage définie par l’utilisateur.
 

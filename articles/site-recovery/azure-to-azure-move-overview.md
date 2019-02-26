@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112544"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309860"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -51,7 +51,7 @@ Déplacer des machines virtuelles implique les étapes suivantes :
 > Actuellement, Azure Site Recovery prend en charge le déplacement des machines virtuelles d’une région à une autre, mais pas le déplacement au sein d’une région. 
 
 > [!NOTE]
-> Des instructions détaillées sur ces étapes sont fournies dans la documentation de chaque scénario, comme indiqué ici.
+> Des instructions détaillées sur ces étapes sont fournies dans la documentation de chaque scénario, comme indiqué [ici](#next-steps).
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Architectures classiques d’un déploiement multicouche
 La section ci-dessous décrit les architectures de déploiement les plus courantes que les clients adoptent pour une application multicouche dans Azure. L’exemple auquel nous nous intéressons ici est celui d’une application à trois couches avec une adresse IP publique. Chaque couche (Web, Application et Base de données) a deux machines virtuelles et se connecte aux autres couches par le biais d’un équilibreur de charge. La couche Base de données a une réplication SQL Always ON entre les machines virtuelles à des fins de haute disponibilité (HA).

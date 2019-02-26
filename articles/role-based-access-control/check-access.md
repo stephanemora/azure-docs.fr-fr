@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure | Microsoft Docs'
-description: Découvrez comment afficher les autorisations de contrôle d’accès en fonction du rôle (RBAC) attribuées à un utilisateur, groupe, principal de service ou identité managée à l’aide du portail Azure.
+title: 'Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure | Microsoft Docs'
+description: Découvrez comment afficher l’accès dont dispose un utilisateur ou un autre principal de sécurité aux ressources Azure avec le contrôle d’accès en fonction du rôle (RBAC) et le portail Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b755dd6223c21084cafea82a1c8857f9f54b03b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641865"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337943"
 ---
-# <a name="quickstart-view-roles-assigned-to-a-user-using-the-azure-portal"></a>Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure
 
-Vous pouvez utiliser le panneau **Contrôle d’accès (IAM)** dans [Contrôle d’accès en fonction du rôle (RBAC)](overview.md) pour voir les attributions de rôles de plusieurs utilisateurs, groupes, principaux de service et identités managées, mais parfois vous voulez juste voir rapidement les attributions de rôles d’un seul utilisateur, groupe, principal de service ou identité managée. Pour cela, le moyen le plus simple consiste à utiliser la fonctionnalité **Vérifier l’accès** dans le portail Azure.
+Vous pouvez utiliser le panneau **Contrôle d’accès (IAM)** dans [Contrôle d’accès en fonction du rôle (RBAC)](overview.md) pour afficher l’accès dont dispose un utilisateur ou un autre principal de sécurité aux ressources Azure. Cependant, vous devez parfois simplement afficher rapidement l’accès pour un seul utilisateur ou un autre principal de sécurité. Pour cela, le moyen le plus simple consiste à utiliser la fonctionnalité **Vérifier l’accès** dans le portail Azure.
 
 ## <a name="view-role-assignments"></a>Voir les attributions de rôles
 
-Suivez ces étapes pour voir les attributions de rôles d’un utilisateur, groupe, principal de service ou identité managée au niveau de l’abonnement.
+ La façon d’afficher l’accès pour un utilisateur consiste à lister ses attributions de rôles. Suivez ces étapes pour voir les attributions de rôles d’un utilisateur, groupe, principal de service ou identité managée au niveau de l’abonnement.
 
 1. Dans le portail Azure, cliquez sur **Tous les services**, puis sur **Abonnements**.
 
@@ -54,4 +54,4 @@ Suivez ces étapes pour voir les attributions de rôles d’un utilisateur, grou
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accorder l’accès à un utilisateur avec RBAC et le portail Azure](quickstart-assign-role-user-portal.md)
+> [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](quickstart-assign-role-user-portal.md)

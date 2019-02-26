@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2a030daa8d9c30add1beb3a2628aa16b2da22dde
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695578"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338850"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -263,5 +263,5 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comprendre les différents rôles](rbac-and-directory-admin-roles.md)
-- [Contrôle d’accès en fonction du rôle avec REST](role-assignments-rest.md)
+- [Comprendre les différents rôles dans Azure](rbac-and-directory-admin-roles.md)
+- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et de l’API REST](role-assignments-rest.md)

@@ -1,6 +1,6 @@
 ---
 title: Exemple - Appliquer un modèle de correspondance
-description: Cet exemple de stratégie exige que les ressources respectent le modèle de correspondance pour les conventions de nommage.
+description: Cet exemple de définition de stratégie exige que les ressources respectent le modèle de correspondance pour les conventions de nommage.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4a001316afb489c7147153b5a2de076a5a425c93
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8fdbd6bc319a85c240eddcc5513c8e900329870b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241807"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341383"
 ---
-# <a name="enforce-match-pattern-for-naming-conventions"></a>Appliquer le modèle de correspondance pour les conventions d’affectation de noms
+# <a name="sample---enforce-match-pattern-for-naming-conventions"></a>Exemple - Appliquer le modèle de correspondance pour les conventions de nommage
 
 Exigez que les noms de ressource soient conformes à un modèle de similitude pour les conventions d’affectation de noms. Spécifiez le modèle de correspondance autorisé en tant que paramètre.
 

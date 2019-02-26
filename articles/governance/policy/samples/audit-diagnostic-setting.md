@@ -1,6 +1,6 @@
 ---
 title: Exemple - Auditer le paramètre de diagnostic
-description: Cet exemple de stratégie vérifie si les paramètres de diagnostic ne sont pas activés pour des types de ressources spécifiés.
+description: Cet exemple de définition de stratégie vérifie si les paramètres de diagnostic ne sont pas activés pour des types de ressources spécifiés.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 77d430138ea1fe7f3a0e6e81031fb3a733f47b1c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: f5b3a5cfd8adb97918a727bd05133d6c1b9f8a42
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241459"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343721"
 ---
-# <a name="audit-diagnostic-setting"></a>Auditer le paramètre de diagnostic
+# <a name="sample---audit-diagnostic-setting"></a>Exemple - Auditer le paramètre de diagnostic
 
 Cette stratégie intégrée vérifie si les paramètres de diagnostic ne sont pas activés pour des types de ressources spécifiés. Spécifiez un tableau de types de ressources pour vérifier si les paramètres de diagnostic sont activés.
 

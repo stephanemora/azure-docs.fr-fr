@@ -1,7 +1,7 @@
 ---
 title: Ajouter des suggesteurs à un index Recherche Azure
 description: Active les champs pour des actions de requêtes prédictives, où les suggestions de requête sont composées de champs dans un index Recherche Azure.
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007697"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269924"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Ajouter des suggesteurs à un index Recherche Azure
 
@@ -34,9 +34,12 @@ Bien qu’un **suggesteur** possède plusieurs propriétés, il se compose princ
 
 Vous ne pouvez disposer que d'une seule ressource **suggesteur** par index (plus précisément, un **suggesteur** dans la collection **suggesteurs**).
 
-Vous pouvez créer un **suggesteur** à tout moment, mais l’impact sur votre index varie en fonction des champs. Les nouveaux champs ajoutés à un suggesteur dans le cadre de la même mise à jour ont moins d'impact du fait qu'il n'est pas nécessaire de regénérer l'index. Cela étant, l'ajout de champs existants modifie la définition des champs, ce qui nécessite une regénération complète de l’index.
+## <a name="creating-a-suggester"></a>Création d’un suggesteur 
 
-## <a name="usage"></a>Usage  
+Vous pouvez créer un **suggesteur** à tout moment, mais l’impact sur votre index varie en fonction des champs. 
+
++ Les nouveaux champs ajoutés à un suggesteur dans le cadre de la même mise à jour ont moins d'impact du fait qu'il n'est pas nécessaire de regénérer l'index.
++ Cela étant, l’ajout de champs existants à un suggesteur modifie la définition des champs, ce qui nécessite une regénération complète de l’index.
 
  Les **suggesteurs** fonctionnent de façon optimale quand ils sont utilisés pour suggérer des documents spécifiques plutôt que des expressions ou des termes isolés. Les champs les plus appropriés sont les titres, les noms et d’autres expressions relativement courtes qui peuvent identifier un élément. Les champs les moins efficaces sont les champs répétitifs, tels que les catégories et les balises, ou les champs très longs, tels que les champs des descriptions ou des commentaires.  
 

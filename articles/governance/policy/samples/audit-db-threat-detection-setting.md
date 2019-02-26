@@ -1,6 +1,6 @@
 ---
 title: 'Exemple : Auditer le paramètre de détection des menaces au niveau de la base de données'
-description: Cet exemple de stratégie audite les stratégies d’alerte de sécurité de base de données SQL pour déterminer si ces stratégies ne sont pas définies sur un état spécifié.
+description: Cet exemple de définition de stratégie audite les stratégies d’alerte de sécurité de base de données SQL pour déterminer si ces stratégies ne sont pas définies sur un état spécifié.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2ef0e83f73a30b0510ec728cd5c2a88845821dc9
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 73f9300d2948337b8e397f544e1dde2d5d09ed0b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241663"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342353"
 ---
-# <a name="audit-db-level-threat-detection-setting"></a>Auditer le paramètre de détection de menaces au niveau de la base de données
+# <a name="sample---audit-db-level-threat-detection-setting"></a>Exemple : Auditer le paramètre de détection des menaces au niveau de la base de données
 
 Cette stratégie audite les stratégies d’alerte de sécurité de base de données SQL pour déterminer si ces stratégies ne sont pas définies sur un état spécifié. Spécifiez une valeur qui indique si la détection des menaces est activée ou désactivée.
 

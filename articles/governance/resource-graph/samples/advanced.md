@@ -1,6 +1,6 @@
 ---
 title: Exemples de requêtes avancées
-description: Utilisez Azure Resource Graph pour exécuter des requêtes avancées.
+description: Utilisez Azure Resource Graph pour exécuter certaines requêtes avancées, notamment la fonctionnalité VMSS, en listant toutes les étiquettes utilisées et en mettant en correspondance les machines virtuelles avec des expressions régulières.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cb2755384f8b87c74aa283af0c75f9f869fb31cd
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854664"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344010"
 ---
 # <a name="advanced-resource-graph-queries"></a>Requêtes Resource Graph avancées
 

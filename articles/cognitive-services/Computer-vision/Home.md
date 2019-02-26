@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872641"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453050"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -45,17 +45,17 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 
 ## <a name="extract-text-from-images"></a>Extraire du texte à partir des images
 
-Vous pouvez utiliser le service Vision par ordinateur pour [extraire du texte via la reconnaissance optique de caractères (OCR)](concept-extracting-text-ocr.md) à partir d’une image sous forme de flux de caractères lisibles par ordinateur. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu, en degrés, autour de l’axe horizontal de l’image et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte extrait.
+Vous pouvez utiliser le service Vision par ordinateur pour [extraire du texte à l’aide de la reconnaissance optique de caractères (OCR)](concept-extracting-text-ocr.md) à partir d’une image sous forme d’un flux de caractères lisible par machine. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
 
-Vous pouvez également [reconnaître le texte imprimé et le texte manuscrit](concept-recognizing-text.md) à partir d’une image. Le service Vision par ordinateur peut détecter et extraire à la fois le texte imprimé et le texte manuscrit à partir d’images d’objets divers avec différents fonds et surfaces, tels que des reçus, des affiches, des cartes de visite, des courriers ou des tableaux blancs. Pour l’instant, la fonction de reconnaissance du texte manuscrit et imprimé est en préversion et prend uniquement en charge la langue Anglais.  
+Vous pouvez également [reconnaître le texte imprimé et le texte manuscrit](concept-recognizing-text.md) dans une image. Le service Vision par ordinateur peut détecter et extraire à la fois le texte imprimé et le texte manuscrit à partir d’images d’objets divers avec différents fonds et surfaces, tels que des reçus, des affiches, des cartes de visite, des courriers ou des tableaux blancs. Pour l’instant, la reconnaissance du texte manuscrit et du texte imprimé est en préversion et prend uniquement en charge l’anglais. 
 
 ## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 
-Vous pouvez utiliser le service Vision par ordinateur pour [détecter du contenu pour adultes et choquant](concept-detecting-adult-content.md) dans une image, évaluer la probabilité que l’image contienne du contenu pour adultes ou choquant, et générer un score de confiance pour ces deux types de contenu. Le filtre pour la détection de contenu choquant et réservé aux adultes peut être défini sur une échelle variable afin de répondre à vos besoins spécifiques.
+Vous pouvez utiliser Vision par ordinateur pour [détecter le contenu pour adultes et choquant](concept-detecting-adult-content.md) dans une image et retourner un score de confiance pour les deux. Le filtre pour la détection de contenu choquant et réservé aux adultes peut être défini sur une échelle variable afin de répondre à vos besoins spécifiques.
 
 ## <a name="use-containers"></a>Utiliser des conteneurs
 
-[Utilisez des conteneurs Vision par ordinateur](computer-vision-how-to-install-containers.md) pour reconnaître le texte imprimé et manuscrit localement, en installant un conteneur Docker normalisé plus près de vos données.
+[Utilisez des conteneurs Vision par ordinateur](computer-vision-how-to-install-containers.md) pour reconnaître le texte imprimé et le texte manuscrit localement en installant un conteneur Docker normalisé plus près de vos données.
 
 ## <a name="image-requirements"></a>Exigences des images
 

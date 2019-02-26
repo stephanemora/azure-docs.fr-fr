@@ -1,5 +1,5 @@
 ---
-title: Créer une stratégie pour identifier les ressources non conformes avec Azure CLI
+title: Créer une stratégie pour des ressources non conformes avec Azure CLI
 description: Utilisez Azure CLI pour créer une affectation Azure Policy afin d’identifier les ressources non conformes.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3b4f71e420c0d80594193f27739fd120881247d4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1f80171e8987f92688d564713e29fbfe2e103335
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856228"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342182"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Créer une affectation de stratégie pour identifier les ressources non conformes avec Azure CLI
 
@@ -73,7 +73,7 @@ Pour plus d’informations sur les ID d’affectation de stratégie, consultez [
 
 Exécutez ensuite la commande suivante pour obtenir les ID des ressources non conformes, intégrés dans un fichier JSON :
 
-```
+```console
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 

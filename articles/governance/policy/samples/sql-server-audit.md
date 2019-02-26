@@ -1,6 +1,6 @@
 ---
 title: Exemple - Auditer les paramètres d'audit de SQL Server
-description: Cet exemple de stratégie audite les paramètres d’audit de SQL Server.
+description: Cet exemple de définition de stratégie audite les paramètres d’audit des serveurs SQL avec auditIfNotExists.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 761cef1421f8a0dca84f4142c6ae9ae1b45f33c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1e0731de5ce2a12fee6b203f245e42aa4bc67d6e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242020"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338170"
 ---
-# <a name="audit-sql-server-audit-settings"></a>Audit des paramètres d’audit de SQL Server
+# <a name="sample---audit-sql-server-audit-settings"></a>Exemple - Auditer les paramètres d’audit des serveurs SQL
 
 Cette stratégie intégrée effectue l’audit de SQL Server pour déterminer si les paramètres d’audit sont activés.
 

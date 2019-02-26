@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 161778c921026547c532b05474a60dd0d3e9fa7a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 11918ecf741ef31354cb281d3e439585506683f4
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237798"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417225"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Créer une application Python et PostgreSQL dans Azure App Service
 
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Gérer l’application dans le portail Azure
 
 > [!NOTE]
-> Avant de créer une instance d’Azure Database pour PostgreSQL, [cliquez ici](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) pour savoir quelle génération de calcul est disponible dans votre région.
+> Avant de créer une instance Azure Database pour PostgreSQL, vérifiez [quelle génération de calcul est disponible dans votre région](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores).
 
 Vous pouvez suivre les étapes de cet article sur MacOS. Les instructions pour Linux et Windows sont identiques dans la plupart des cas, mais les différences ne sont pas détaillées dans ce didacticiel.
 

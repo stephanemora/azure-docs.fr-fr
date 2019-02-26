@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2019
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92e5dd5190a76bd09e33ea4c40a5b5cc2d66bc7b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691029"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301127"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Section outputs des modèles Azure Resource Manager
 
-Dans la section des sorties, vous spécifiez des valeurs retournées à partir du déploiement. Par exemple, vous pouvez retourner l'URI d'accès à une ressource déployée.
+Dans la section des sorties, vous spécifiez des valeurs retournées à partir du déploiement. Par exemple, vous pouvez retourner l'URI d'accès à une ressource déployée. Utilisez la propriété `condition` facultative pour indiquer si la valeur de sortie est retournée.
 
 ## <a name="define-and-use-output-values"></a>Définir et utiliser des valeurs de sortie
 
@@ -31,6 +31,18 @@ L’exemple suivant montre comment retourner l’ID de ressource d’une adresse
 ```json
 "outputs": {
   "resourceID": {
+    "type": "string",
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+  }
+}
+```
+
+L’exemple suivant montre comment retourner conditionnellement l’ID de ressource pour une adresse IP publique si une nouvelle a été déployée :
+
+```json
+"outputs": {
+  "resourceID": {
+    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
     "type": "string",
     "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
   }
@@ -70,6 +82,7 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 ```json
 "outputs": {
     "<outputName>" : {
+        "condition": "<boolean-value-whether-to-output-value>",
         "type" : "<type-of-output-value>",
         "value": "<output-value-expression>"
     }
@@ -78,9 +91,10 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| outputName |Oui |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
-| Type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. |
-| value |Oui |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. |
+| outputName |OUI |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
+| condition |Non  | Valeur booléenne qui indique si cette valeur de sortie est retournée. Si elle est égale à `true`, cela signifie que la valeur est incluse dans la sortie pour le déploiement. Si elle est égale à `false`, la valeur de sortie est ignorée pour ce déploiement. Lorsqu’elle n’est pas spécifiée, la valeur par défaut est `true`. |
+| Type |OUI |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. |
+| value |OUI |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. |
 
 Pour plus d’informations sur l’ajout de commentaires, consultez [Commentaires dans les modèles](resource-group-authoring-templates.md#comments).
 

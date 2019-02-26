@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691555"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268128"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 
 Azure Resource Manager est le service de déploiement et de gestion d’Azure. Il fournit une couche de gestion cohérente qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure. Vous pouvez utiliser ses fonctionnalités de contrôle d’accès, d’audit et de marquage pour sécuriser et organiser vos ressources après déploiement.
 
-Lorsque vous effectuez des actions via le portail, PowerShell, Azure CLI, les API REST ou les kits SDK client, l’API Azure Resource Manager traite votre demande. Comme toutes les demandes sont gérées via la même API, vous voyez des résultats cohérents et des capacités cohérentes dans tous les différents outils.
+Lorsque vous effectuez des actions via le portail, PowerShell, Azure CLI, les API REST ou les kits SDK client, l’API Azure Resource Manager traite votre demande. Comme toutes les demandes sont gérées via la même API, vous voyez des résultats cohérents et des capacités cohérentes dans tous les différents outils. Toutes les fonctionnalités disponibles dans le portail sont également disponibles via PowerShell, Azure CLI, les API REST et les SDK clients. Les fonctionnalités initialement publiées par le biais des API seront représentées dans le portail dans les 180 jours après la publication de la version initiale.
 
 L’illustration suivante montre comment tous ces outils interagissent avec l’API Azure Resource Manager. L’API transmet les requêtes au service Resource Manager, qui authentifie et autorise les requêtes. Ensuite, Resource Manager route les requêtes vers le service approprié.
 

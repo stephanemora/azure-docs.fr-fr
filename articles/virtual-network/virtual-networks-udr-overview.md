@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812784"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268836"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -121,7 +121,7 @@ Une passerelle de réseau local peut échanger les itinéraires avec une passere
 
 Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, un itinéraire distinct est ajouté à la table de routage de tous les sous-réseaux d’un réseau virtuel pour chaque préfixe publié. L’itinéraire est ajouté avec *Passerelle de réseau virtuel* comme source et type de tronçon suivant. 
 
-Vous pouvez désactiver la propagation des itinéraires BGP sur un sous-réseau à l’aide d’une propriété sur une table de routage. Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, les itinéraires ne sont pas ajoutés à la table de routage de tous les sous-réseaux pour lesquels la propagation BGP est désactivée. La connectivité avec les connexions VPN est obtenue à l’aide [d’itinéraires personnalisés](#custom-routes) avec un tronçon suivant de type *Passerelle de réseau virtuel*. Pour plus d’informations, consultez l’article décrivant [comment désactiver la propagation des itinéraires BGP](manage-route-table.md#create-a-route-table).
+Vous pouvez désactiver la propagation des itinéraires de passerelle ER et VPN sur un sous-réseau à l’aide d’une propriété sur une table de routage. Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, les itinéraires ne sont pas ajoutés à la table de routage de tous les sous-réseaux pour lesquels la propagation BGP est désactivée. La connectivité avec les connexions VPN est obtenue à l’aide [d’itinéraires personnalisés](#custom-routes) avec un tronçon suivant de type *Passerelle de réseau virtuel*. Pour plus d’informations, consultez l’article décrivant [comment désactiver la propagation des itinéraires BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Comment Azure choisit un itinéraire
 

@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093038"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429245"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : surveiller la communication réseau entre deux machines virtuelles à l’aide du portail Azure
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Didacticiel : Superviser la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
 Il peut être essentiel pour votre organisation que la communication soit efficace entre une machine virtuelle et un point de terminaison comme une autre machine virtuelle. Parfois, des modifications de configuration sont introduites et mettent en péril cette communication. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -51,7 +51,7 @@ Créez deux machines virtuelles.
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVm1|
+    |Nom|myVm1|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|
@@ -73,11 +73,11 @@ Réeffectuez les étapes indiquées dans [Créer la première machine virtuelle]
 
 |Étape|Paramètre|Valeur|
 |---|---|---|
-| 1 | Sélectionnez **Machine virtuelle Ubuntu Server 17.10**. |                                                                         |
-| 3 | NOM                              | myVm2                                                                   |
-| 3 | Type d'authentification               | Collez votre clé publique SSH ou sélectionnez **Mot de passe**, puis entrez un mot de passe. |
-| 3 | Groupe de ressources                    | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.                 |
-| 6. | Extensions                        | **Agent réseau pour Linux**                                             |
+| 1 | Sélectionner une version de **Ubuntu Server** |                                                                         |
+| 3 | Nom                                  | myVm2                                                                   |
+| 3 | Type d'authentification                   | Collez votre clé publique SSH ou sélectionnez **Mot de passe**, puis entrez un mot de passe. |
+| 3 | Groupe de ressources                        | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.                 |
+| 6. | Extensions                            | **Agent réseau pour Linux**                                             |
 
 Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Attendez la fin du déploiement de la machine virtuelle avant d’effectuer les étapes restantes.
 
@@ -93,7 +93,7 @@ Créez un moniteur de connexion pour surveiller la communication sur le port TCP
 
     | Paramètre                  | Valeur               |
     | ---------                | ---------           |
-    | NOM                     | myVm1-myVm2(22)     |
+    | Nom                     | myVm1-myVm2(22)     |
     | Source                   |                     |
     | Machine virtuelle          | myVm1               |
     | Destination              |                     |
@@ -152,7 +152,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
     | Plages de ports de destination | 22             |
     | Action                  | Deny           |
     | Priorité                | 100            |
-    | NOM                    | DenySshInbound |
+    | Nom                    | DenySshInbound |
 
 5. Étant donné que le moniteur de connexion effectue un sondage toutes les 60 secondes, patientez quelques minutes, puis dans la partie gauche du portail, sélectionnez **Network Watcher**, puis **Moniteur de connexion**, puis resélectionnez le moniteur **myVm1-myVm2(22)**. Les résultats sont à présent différents, comme l’illustre l’image suivante :
 
@@ -160,7 +160,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
 
     Vous pouvez voir que la colonne d’état contient un point d’exclamation rouge pour l’interface réseau **myvm2529**.
 
-6. Pour découvrir pourquoi l’état a changé, sélectionnez 10.0.0.5, dans l’image précédente. Le moniteur de connexion vous informe que la raison de l’échec de communication est : *Trafic bloqué en raison de la règle de groupe de sécurité réseau suivante : UserRule_DenySshInbound*.
+6. Pour découvrir pourquoi l’état a changé, sélectionnez 10.0.0.5, dans l’image précédente. Le moniteur de connexion vous donne la cause de l’échec de la communication : *Trafic bloqué à cause de la règle de groupe de sécurité réseau suivante : UserRule_DenySshInbound*.
 
     Si vous ne saviez pas que quelqu’un avait implémenté la règle de sécurité que vous avez créée à l’étape 4, vous apprendriez du moniteur de connexion que cette règle est la cause du problème de communication. Vous pourriez alors la modifier, la remplacer ou la supprimer pour rétablir la communication entre les machines virtuelles.
 

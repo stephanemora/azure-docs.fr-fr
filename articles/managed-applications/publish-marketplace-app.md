@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989783"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343959"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
@@ -64,9 +64,9 @@ Une offre d’application gérée correspond à une classe d’offre de produit 
 
 Le formulaire **Paramètres de l’offre** contient les champs suivants :
 
-* **Offer ID** (ID de l’offre) - Il s’agit d’un identificateur unique qui identifie l’offre au sein d’un profil d’éditeur. Cet ID est visible dans les URL de produit, les modèles Resource Manager et les états de facturation. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). L’ID ne peut pas se terminer par un tiret. Il est limité à un maximum de 50 caractères. Ce champ est verrouillé une fois l’offre publiée.
-* **Publisher ID** (ID de l’éditeur) : utilisez cette liste déroulante pour choisir le profil d’éditeur sous lequel vous voulez publier cette offre. Ce champ est verrouillé une fois l’offre publiée.
-* **Nom** : ce nom d’affichage pour votre offre s’affiche dans le Marketplace et dans le portail. Il ne peut pas comprendre plus de 50 caractères. Incluez un nom de marque reconnaissable pour votre produit. N’incluez pas ici le nom de votre entreprise, sauf si c’est le nom sous lequel l’offre est commercialisée. Si vous commercialisez cette offre sur votre propre site web, assurez-vous que le nom présente rigoureusement le même aspect que sur votre site.
+* **ID de l’offre** : il s’agit d’un identificateur unique qui identifie l’offre au sein d’un profil d’éditeur. Cet ID est visible dans les URL de produit, les modèles Resource Manager et les états de facturation. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). L’ID ne peut pas se terminer par un tiret. Il est limité à un maximum de 50 caractères. Ce champ est verrouillé une fois l’offre publiée.
+* **ID de l’éditeur** : utilisez cette liste déroulante pour choisir le profil d’éditeur sous lequel vous voulez publier cette offre. Ce champ est verrouillé une fois l’offre publiée.
+* **Nom** : dans la Place de marché et dans le portail, ce nom d’affichage s’affiche pour votre offre. Il ne peut pas comprendre plus de 50 caractères. Incluez un nom de marque reconnaissable pour votre produit. N’incluez pas ici le nom de votre entreprise, sauf si c’est le nom sous lequel l’offre est commercialisée. Si vous commercialisez cette offre sur votre propre site web, assurez-vous que le nom présente rigoureusement le même aspect que sur votre site.
 
 Une fois terminé, sélectionnez **Enregistrer** pour enregistrer votre progression.
 
@@ -90,22 +90,22 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
 
    Renseignez les champs suivants :
 
-   * **Titre** : saisissez un titre pour cette référence. Ce titre s’affiche dans la galerie pour cet élément.
-   * **Summary** (Résumé) : saisissez un bref résumé décrivant cette référence (SKU). Ce texte s’affiche en dessous du titre.
-   * **Description** : saisissez une description détaillée de la référence (SKU).
-   * **SKU Type** (Type de référence) - Les valeurs autorisées sont *Managed Application* (Application gérée) et *Solution Templates* (Modèles de solution). Dans le cas présent, sélectionnez *Managed Application* (Application gérée).
-   * **Disponibilité par pays/région** : sélectionnez les pays où l’application managée est disponible.
-   * **Tarification** : spécifiez un prix pour la gestion de l’application. Sélectionnez les pays disponibles avant de définir le prix.
+   * **Titre** : Entrez un titre pour cette référence SKU. Ce titre s’affiche dans la galerie pour cet élément.
+   * **Résumé**: Entrez un résumé décrivant brièvement cette référence SKU. Ce texte s’affiche en dessous du titre.
+   * **Description** : Entrez une description détaillée de la référence SKU.
+   * **Type de référence SKU** : Les valeurs autorisées sont *Application managée* et *Modèles de solution*. Dans le cas présent, sélectionnez *Managed Application* (Application gérée).
+   * **Disponibilité par pays/région** : Sélectionnez les pays où l’application managée est disponible.
+   * **Prix** : Spécifiez un prix pour la gestion de l’application. Sélectionnez les pays disponibles avant de définir le prix.
 
 1. Ajoutez un nouveau package. Remplissez la section **Détails du package** sur le formulaire suivant :
 
    Renseignez les champs suivants :
 
-   * **Version** : entrez la version du package chargé. Il doit respecter le format `{number}.{number}.{number}{number}`.
-   * **Fichier de package (.zip)** : ce package contient deux fichiers nécessaires compressés dans un package .zip. L’un des fichiers est un modèle Resource Manager, qui définit les ressources à déployer pour l’application gérée. L’autre fichier définit [l’interface utilisateur](create-uidefinition-overview.md) pour les consommateurs qui déploient l’application gérée via le portail. Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
-   * **PrincipalId** : cette propriété représente l’identificateur Azure Active Directory (Azure AD) d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auquel ou à laquelle l’accès aux ressources de l’abonnement du client a été accordé. La définition de rôle décrit les autorisations.
-   * **Role Definition** - Cette propriété dresse une liste de tous les rôles RBAC intégrés fournis par Azure AD. Vous pouvez sélectionner le rôle le mieux adapté pour gérer les ressources pour le compte du client.
-   * **Paramètres de stratégie** : appliquez une stratégie [Azure Policy](../azure-policy/azure-policy-introduction.md) à votre application managée pour spécifier des exigences de conformité pour les solutions déployées. Parmi les options disponibles, sélectionnez les stratégies à appliquer. Pour **Paramètres de stratégie**, indiquez une chaîne JSON avec les valeurs de paramètre. Pour les définitions de stratégie et le format des valeurs de paramètre, consultez [Exemples Azure Policy](../azure-policy/json-samples.md).
+   * **Version** : Entrez la version du package chargé. Il doit respecter le format `{number}.{number}.{number}{number}`.
+   * **Fichier de package (.zip)**  : Ce package contient deux fichiers nécessaires qui sont compressés dans un package .zip. L’un des fichiers est un modèle Resource Manager, qui définit les ressources à déployer pour l’application gérée. L’autre fichier définit [l’interface utilisateur](create-uidefinition-overview.md) pour les consommateurs qui déploient l’application gérée via le portail. Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
+   * **PrincipalId** : Cette propriété représente l’identificateur Azure Active Directory (Azure AD) d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels l’accès aux ressources de l’abonnement du client a été accordé. La définition de rôle décrit les autorisations.
+   * **Définition de rôle** : Cette propriété dresse une liste de tous les rôles RBAC intégrés qui sont fournis par Azure AD. Vous pouvez sélectionner le rôle le mieux adapté pour gérer les ressources pour le compte du client.
+   * **Paramètres de stratégie** : Appliquez une stratégie [Azure Policy](../governance/policy/overview.md) à votre application managée afin de spécifier des exigences de conformité pour les solutions déployées. Parmi les options disponibles, sélectionnez les stratégies à appliquer. Pour **Paramètres de stratégie**, indiquez une chaîne JSON avec les valeurs de paramètre. Pour les définitions de stratégie et le format des valeurs de paramètre, consultez [Exemples Azure Policy](../governance/policy/samples/index.md).
 
 Vous pouvez ajouter plusieurs autorisations. Nous vous recommandons de créer un groupe d’utilisateurs AD et de spécifier son ID dans **PrincipalId**. De cette manière, vous pouvez ajouter plus d’utilisateurs au groupe d’utilisateurs sans avoir à mettre à jour la référence (SKU).
 

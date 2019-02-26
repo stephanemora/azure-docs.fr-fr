@@ -1,6 +1,6 @@
 ---
 title: Exemple - Auditer le paramètre de détection de menaces au niveau du serveur
-description: Cet exemple de stratégie audite les stratégies d’alerte de sécurité de base de données SQL pour déterminer si ces stratégies ne sont pas définies sur un état spécifié.
+description: Cet exemple de définition de stratégie audite les stratégies d’alerte de sécurité des serveurs SQL pour déterminer si ces stratégies ne sont pas définies sur un état spécifié.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9e0ea3b65a4c442358c357e9603d607d8464c21b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ba694618bf86ef8e97241c955a40790960be2f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242173"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341366"
 ---
-# <a name="audit-server-level-threat-detection-setting"></a>Auditer le paramètre de détection de menaces au niveau du serveur
+# <a name="sample---audit-server-level-threat-detection-setting"></a>Exemple - Auditer le paramètre de détection de menaces au niveau du serveur
 
-Cette stratégie audite les stratégies d’alerte de sécurité de base de données SQL pour déterminer si ces stratégies ne sont pas définies sur un état spécifié. Spécifiez une valeur qui indique si la détection des menaces est activée ou désactivée.
+Cette stratégie audite les stratégies d’alerte de sécurité des serveurs SQL pour déterminer si ces stratégies ne sont pas définies sur un état spécifié. Spécifiez une valeur qui indique si la détection des menaces est activée ou désactivée.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

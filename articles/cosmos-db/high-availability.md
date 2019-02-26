@@ -4,15 +4,15 @@ description: Cet article décrit comment Azure Cosmos DB offre une haute disponi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b5e99b421e66f087a1793f5301736e192ef75c08
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109756"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311237"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -64,19 +64,7 @@ Les pannes régionales ne sont pas rares et Azure Cosmos DB permet de s’assure
 
 - Même si votre compte Cosmos est hautement disponible, votre application peut ne pas être pas correctement conçue pour rester hautement disponible. Pour tester la haute disponibilité de bout en bout pour votre application, appelez régulièrement le [basculement manuel à l’aide d’Azure CLI ou du portail Azure](how-to-manage-database-account.md#manual-failover), dans le cadre de procédures de récupération d’urgence ou de test de votre application.
 
-
-Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s'appelle l'objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective).
-
-Le tableau suivant présente les RPO et RTO pour les scénarios les plus courants.
-
-|Nombre de régions |Configuration |Niveau de cohérence|RPO |RTO |
-|---------|---------|---------|-------|-------|
-|1    | *    |*   | < 240 minutes | < 1 semaine |
-|>1     | Réplication maître unique | Session, Préfixe cohérent et Éventuel | < 15 minutes | < 15 minutes |
-|>1     | Réplication maître unique | Obsolescence limitée | K & T | < 15 minutes |
-|>1     | Réplication multimaître | Session, Préfixe cohérent et Éventuel | < 15 minutes | 0 |
-|>1     | Réplication multimaître | Obsolescence limitée | K & T | 0 |
-|>1     | * | Remarque | 0 | < 15 minutes |
+- Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective). Pour obtenir le RPO et le RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
 title: Exemple - Auditer une machine virtuelle n’utilisant pas de disques managés
-description: Cet exemple JSON vérifie si une machine virtuelle est créée sans utilisation de disques managés.
+description: Cet exemple de définition JSON audite les machines virtuelles qui n’utilisent pas de disques managés.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 30f143fa4ad8bd7e90cfafca8ea6eb276e70e28c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c2bdfb5bc855467be61065e93a932838b5782bee
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243431"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337099"
 ---
-# <a name="audit-when-vm-does-not-use-managed-disk"></a>Auditer lorsque la machine virtuelle n’utilise pas de disque managé
+# <a name="sample---audit-when-vm-does-not-use-managed-disk"></a>Exemple - Auditer les machines virtuelles qui n’utilisent pas de disques managés
 
 Vérifie si une machine virtuelle est créée sans utilisation de disques managés.
 

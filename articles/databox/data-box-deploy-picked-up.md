@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243006"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341587"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutoriel : Retourner l’appareil Azure Data Box et vérifier le chargement des données dans Azure
 
@@ -42,9 +42,7 @@ Avant de commencer, vérifiez les points suivants :
 ## <a name="ship-data-box-back"></a>Renvoyer la Data Box
 
 1. Assurez-vous que l’appareil est hors tension et que les câbles sont débranchés. Enroulez le cordon d’alimentation fourni avec la Data Box et fixez-le à l’arrière de l’appareil.
-2. Si l’appareil est expédié aux États-Unis, assurez-vous que l’étiquette d’expédition est affichée sur l’écran E-ink et planifiez l’enlèvement avec votre transporteur. Si l’étiquette est endommagée ou perdue, ou si elle ne s’affiche pas sur l’écran E-ink, contactez le Support Microsoft. À condition que le support technique le suggère, accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition** dans le Portail Azure. Téléchargez l’étiquette d’expédition et collez-la sur l’appareil.
-
-    Si l’appareil est prévu pour fonctionner en Europe, l’écran E-ink n’affiche pas l’étiquette d’expédition. Au lieu de cela, l’étiquette d’expédition de retour est incluse dans la pochette transparente sous l’étiquette d’expédition. Supprimez l’ancienne étiquette d’expédition et vérifiez que l’étiquette d’expédition de retour est clairement visible.
+2. Assurez-vous que l’étiquette d’expédition est affichée sur l’écran E-ink et planifiez l’enlèvement avec votre transporteur. Si l’étiquette est endommagée ou perdue, ou si elle ne s’affiche pas sur l’écran E-ink, contactez le support Microsoft. Si le support technique le suggère, vous pouvez accéder à **Vue d’ensemble > Télécharger une étiquette d’expédition** dans le portail Azure. Téléchargez l’étiquette d’expédition et collez-la sur l’appareil.
     
 3. Planifiez une date d’enlèvement avec UPS en cas de renvoi de l’appareil. Pour planifier une date d’enlèvement, appelez le service UPS local (numéro vert propre au pays) ou déposez l’appareil Data Box à l’emplacement de dépôt le plus proche.
 

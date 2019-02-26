@@ -1,6 +1,6 @@
 ---
 title: Exemple - Types de ressources autorisés
-description: Cet exemple de stratégie vérifie que seuls les types de ressources approuvés sont déployés.
+description: Cet exemple de définition de stratégie vérifie que seuls les types de ressources approuvés sont déployés.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3d2f065f875cd012a808af985e36469c85532913
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0dc58bb11d6415cb1003a8b505e337ab385f7d46
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243635"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339989"
 ---
-# <a name="allowed-resource-types"></a>Types de ressources autorisés
+# <a name="sample---allowed-resource-types"></a>Exemple - Types de ressources autorisés
 
 Cette stratégie garantit que seuls les types de ressources approuvés sont déployés. Spécifiez un tableau de types de ressources qui sont autorisés.
 

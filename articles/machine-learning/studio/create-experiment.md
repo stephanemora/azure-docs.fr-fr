@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f5b24b21c4511b535509421aaa35ba3498e9f6a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246015"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453169"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Démarrage rapide : Créer votre première expérience de science des données dans Azure Machine Learning Studio
 
@@ -57,15 +57,15 @@ Voici comment obtenir ce jeu de données dans le cadre de votre expérience.
 
 1. Un nom par défaut est attribué à l’expérience : il apparaît en haut du canevas. Sélectionnez le texte et remplacez-le par un nom plus significatif, par exemple **Prédiction sur les prix automobiles**. Le nom n’a pas besoin d’être unique.
 
-    ![Renommer l’expérience][rename-experiment]
+    ![Renommer l’expérience](./media/create-experiment/rename-experiment.png)
 
 1. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Tapez la valeur **automobile** dans la zone de recherche se trouvant en haut de cette palette, afin de rechercher le jeu de données **Données sur le prix des véhicules automobiles (brutes)**. Faites glisser ce jeu de données vers le canevas de l’expérience.
 
-    ![Recherchez le jeu de données d’automobile et faites-le glisser vers le canevas de l’expérience][type-automobile]
+    ![Recherchez le jeu de données d’automobile et faites-le glisser vers le canevas de l’expérience](./media/create-experiment/type-automobile.png)
 
 Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé en bas du jeu de données d’automobile, puis sélectionnez **Visualiser**.
 
-![Cliquez sur le port de sortie et sélectionnez « Visualiser »][select-visualize]
+![Cliquez sur le port de sortie et sélectionnez « Visualiser »](./media/create-experiment/select-visualize.png)
 
 > [!TIP]
 > Les jeux de données et les modules disposent de ports d’entrée et de sortie représentés par de petits cercles : les ports d’entrée se situent en haut, tandis que les ports de sortie se situent en bas.
@@ -74,7 +74,7 @@ Pour créer un flux de données dans votre expérience, connectez le port de sor
 
 Dans ce jeu de données, chaque ligne représente un véhicule automobile et chaque colonne représente une variable associée au véhicule automobile. Nous allons prédire le prix dans la colonne la plus à droite (colonne 26, intitulée « price ») en fonction des autres variables associées à chaque véhicule automobile.
 
-![Affichez les données automobiles dans la fenêtre de visualisation des données][visualize-auto-data]
+![Affichez les données automobiles dans la fenêtre de visualisation des données](./media/create-experiment/visualize-auto-data.png)
 
 Fermez la fenêtre de visualisation en cliquant sur le symbole «**x**» dans le coin supérieur droit.
 
@@ -89,9 +89,9 @@ Nous commençons par ajouter un module qui supprime toute la colonne **normalize
 
 1. Dans la zone de recherche située en haut de la palette de modules, entrez la chaîne **sélectionner des colonnes** afin de rechercher le module [Sélectionner des colonnes dans le jeu de données][select-columns]. Faites ensuite glisser ce module vers le canevas de l’expérience. Ce module permet de sélectionner les colonnes de données à inclure ou exclure du modèle.
 
-1. Connectez le port de sortie du jeu de données **Données sur le prix des véhicules automobiles (brutes)** au port d’entrée du module [Sélectionner des colonnes dans le jeu de données][select-columns].
+1. Connectez le port de sortie du jeu de données **Données sur le prix des véhicules automobiles (brutes)** au port d’entrée de Sélectionner des colonnes dans le jeu de données.
 
-    ![Ajoutez le module « Sélectionner des colonnes dans le jeu de données » dans le canevas de l’expérience et connectez-le][type-select-columns]
+    ![Ajoutez le module « Sélectionner des colonnes dans le jeu de données » dans le canevas de l’expérience et connectez-le](./media/create-experiment/type-select-columns.png)
 
 1. Cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns], puis cliquez sur **Lancer le sélecteur de colonne** dans le volet **Propriétés**.
 
@@ -100,26 +100,26 @@ Nous commençons par ajouter un module qui supprime toute la colonne **normalize
     - Dans les listes déroulantes, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Une liste de colonnes s’affiche. Sélectionnez la colonne **normalized-losses**, qui est alors ajoutée à la zone de texte.
     - Cliquez sur le bouton en forme de coche (OK) pour fermer le sélecteur de colonne (en bas à droite).
 
-    ![Lancez le sélecteur de colonne et excluez la colonne « normalized-losses »][launch-column-selector]
+    ![Lancez le sélecteur de colonne et excluez la colonne « normalized-losses »](./media/create-experiment/launch-column-selector.png)
 
     À présent, le volet de propriétés du module **Sélectionner des colonnes dans le jeu de données** indique qu’il transmettra toutes les colonnes du jeu de données, à l’exception de **normalized-losses**.
 
-    ![Le volet Propriétés indique que la colonne « normalized-losses » est exclue][showing-excluded-column]
+    ![Le volet Propriétés indique que la colonne « normalized-losses » est exclue](./media/create-experiment/showing-excluded-column.png)
 
     > [!TIP] 
     > Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
 
-    ![Double-cliquez sur un module pour ajouter un commentaire][add-comment]
+    ![Double-cliquez sur un module pour ajouter un commentaire](./media/create-experiment/add-comment.png)
 
 1. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] vers la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module [Nettoyage des données manquantes][clean-missing-data] de nettoyer les données en supprimant les lignes où il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 
-    ![Définissez le mode de nettoyage du module « Nettoyage des données manquantes » sur « Supprimer toute la ligne »][set-remove-entire-row]
+    ![Définissez le mode de nettoyage du module « Nettoyage des données manquantes » sur « Supprimer toute la ligne »](./media/create-experiment/set-remove-entire-row.png)
 
 1. Exécutez l’expérience en cliquant sur **EXÉCUTER** au bas de la page.
 
     Une fois l’expérience terminée, une coche verte s’affiche en regard de chaque module pour indiquer la réussite de leurs opérations. Notez que le statut **Exécution terminée** s’affiche dans le coin supérieur droit de la fenêtre.
 
-    ![Une fois l’exécution terminée, l’expérience doit ressembler à ceci][early-experiment-run]
+    ![Une fois l’exécution terminée, l’expérience doit ressembler à ceci](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
 > Pourquoi exécutons-nous l’expérience maintenant ? Lors de l’exécution de l’expérience, les définitions de colonne de nos données sont transmises à partir du jeu de données, par le biais des modules [Sélectionner des colonnes dans le jeu de données][select-columns] et [Nettoyage des données manquantes][clean-missing-data]. Autrement dit, tous les modules que nous connectons à [Nettoyage des données manquantes][clean-missing-data] disposent de ces mêmes informations.
@@ -140,7 +140,7 @@ Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnal
 
 1. Faites glisser un autre module [Sélectionner des colonnes dans le jeu de données][select-columns] vers le canevas de l’expérience. Connectez le port de sortie de gauche du module [Nettoyage des données manquantes][clean-missing-data] à l’entrée du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
-    ![Connectez le module « Sélectionner des colonnes dans le jeu de données » au module « Nettoyage des données manquantes »][connect-clean-to-select]
+    ![Connectez le module « Sélectionner des colonnes dans le jeu de données » au module « Nettoyage des données manquantes »](./media/create-experiment/connect-clean-to-select.png)
 
 1. Double-cliquez sur le module et saisissez le commentaire suivant : « Sélection des fonctionnalités pour la prévision ».
 
@@ -152,7 +152,7 @@ Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnal
 
 1. Cliquez sur le bouton en forme de coche (OK) pour continuer.
 
-    ![Sélectionnez les colonnes (fonctionnalités) à inclure dans la prédiction][select-columns-to-include]
+    ![Sélectionnez les colonnes (fonctionnalités) à inclure dans la prédiction](./media/create-experiment/select-columns-to-include.png)
 
 Ce module produit un jeu de données filtré qui contient uniquement les fonctionnalités que nous souhaitons transmettre à l’algorithme d’apprentissage utilisé à l’étape suivante. Plus tard, vous pouvez reprendre la procédure en utilisant une autre sélection de fonctionnalités.
 
@@ -174,7 +174,7 @@ Nous allons utiliser nos données pour la formation et le test en les divisant e
 
 1. Cliquez sur le module [Fractionner les données][split] pour le sélectionner. Rechercher **Fraction de lignes dans le premier jeu de données de sortie** (dans le volet **Propriétés** à droite du canevas) et attribuez-lui la valeur 0,75. Ainsi, nous allons utiliser 75 % des données pour former le modèle, et 25 % pour le tester.
 
-    ![Définissez la part de fractionnement du module « Fractionner les données » sur 0,75][set-split-data-percentage]
+    ![Définissez la part de fractionnement du module « Fractionner les données » sur 0,75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
     > En modifiant le paramètre **Valeur de départ aléatoire** , vous pouvez produire différents échantillons aléatoires pour la formation et le test. Ce paramètre contrôle la valeur de départ du générateur de nombres pseudo-aléatoire.
@@ -185,19 +185,19 @@ Nous allons utiliser nos données pour la formation et le test en les divisant e
 
 1. Recherchez et faites glisser le module [Effectuer le traitement de données pour apprentissage du modèle][train-model] jusqu’à la zone de dessin de l’expérience. Connectez la sortie du module [Régression linéaire][linear-regression] à l’entrée de gauche du module [Former le modèle][train-model], puis connectez la sortie des données de formation (port gauche) du module [Fractionner les données][split] à l’entrée de droite du module [Former le modèle][train-model].
 
-    ![Connectez le module « Former le modèle » aux modules « Régression linéaire » et « Fractionner les données »][connect-train-model]
+    ![Connectez le module « Former le modèle » aux modules « Régression linéaire » et « Fractionner les données »](./media/create-experiment/connect-train-model.png)
 
 1. Cliquez sur le module [Effectuer le traitement de données][train-model] pour apprentissage du modèle, cliquez sur l’option **Lancer le sélecteur de colonne** du volet **Propriétés** et sélectionnez la colonne **Price**. **Price** est la valeur à prédire par notre modèle.
 
     Vous pouvez sélectionner la colonne **price** dans le sélecteur de colonne en la faisant passer de la liste **Colonnes disponibles** à la liste **Colonnes sélectionnées**.
 
-    ![Sélectionnez la colonne price pour le module « Former le modèle »][select-price-column]
+    ![Sélectionnez la colonne price pour le module « Former le modèle »](./media/create-experiment/select-price-column.png)
 
 1. Exécutez l’expérience.
 
 Nous disposons à présent d’un modèle de régression formé qui permet de noter de nouvelles données automobiles pour effectuer des prédictions de prix.
 
-![Une fois l’exécution terminée, l’expérience doit ressembler à ceci][second-experiment-run]
+![Une fois l’exécution terminée, l’expérience doit ressembler à ceci](./media/create-experiment/second-experiment-run.png)
 
 ## <a name="predict-new-automobile-prices"></a>Prédiction des nouveaux prix des voitures
 
@@ -205,21 +205,21 @@ Nous disposons à présent d’un modèle de régression formé qui permet de no
 
 1. Recherchez et faites glisser le module [Noter le modèle][score-model] vers le canevas de l’expérience. Connectez la sortie du module [Former le modèle][train-model] au port d’entrée de gauche [Noter le modèle][score-model]. Connectez la sortie de données de test (port de droite) du module [Split Data][split] au port d’entrée de droite de [Score Model][score-model].
 
-    ![Connectez le module « Noter le modèle » aux modules « Former le modèle » et « Fractionner les données »][connect-score-model]
+    ![Connectez le module « Noter le modèle » aux modules « Former le modèle » et « Fractionner les données »](./media/create-experiment/connect-score-model.png)
 
 1. Exécutez l’expérience et affichez la sortie du module [Noter le modèle][score-model] en cliquant sur le port de sortie de [Noter le modèle][score-model], puis sélectionnez **Visualiser**. La sortie affiche les valeurs de prévision associées au prix, ainsi que les valeurs connues des données de test.  
 
-    ![Sortie du module « Noter le modèle »][score-model-output]
+    ![Sortie du module « Noter le modèle »](./media/create-experiment/score-model-output.png)
 
 1. Enfin, nous testons la qualité des résultats. Sélectionnez et faites glisser le module [Évaluer le modèle][evaluate-model] vers le canevas de l’expérience, puis connectez la sortie du module [Noter le modèle][score-model] à l’entrée de gauche du module [Évaluer le modèle][evaluate-model]. L’expérience finale doit ressembler à ceci :
 
-    ![Expérience finale][complete-linear-regression-experiment]
+    ![Expérience finale](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. Exécutez l’expérience.
 
 Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur le port de sortie, puis sélectionnez **Visualiser**.
 
-![Résultats de l’évaluation de l’expérience][evaluation-results]
+![Résultats de l’évaluation de l’expérience](./media/create-experiment/evaluation-results.png)
 
 Les statistiques suivantes s’affichent pour notre modèle :
 
@@ -241,35 +241,6 @@ Dans ce guide de démarrage rapide, vous avez créé une expérience simple à p
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Développer une solution prédictive dans Studio](tutorial-part1-credit-risk.md)
-
-<!-- Images -->
-[sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
-[rename-experiment]: ./media/create-experiment/rename-experiment.png
-[visualize-auto-data]:./media/create-experiment/visualize-auto-data.png
-[select-visualize]: ./media/create-experiment/select-visualize.png
-[showing-excluded-column]:./media/create-experiment/showing-excluded-column.png
-[set-remove-entire-row]:./media/create-experiment/set-remove-entire-row.png
-[early-experiment-run]:./media/create-experiment/early-experiment-run.png
-[select-columns-to-include]:./media/create-experiment/select-columns-to-include.png
-[second-experiment-run]:./media/create-experiment/second-experiment-run.png
-[connect-score-model]:./media/create-experiment/connect-score-model.png
-[evaluation-results]:./media/create-experiment/evaluation-results.png
-[complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[type-automobile]:./media/create-experiment/type-automobile.png
-[type-select-columns]:./media/create-experiment/type-select-columns.png
-[launch-column-selector]:./media/create-experiment/launch-column-selector.png
-[add-comment]:./media/create-experiment/add-comment.png
-[connect-clean-to-select]:./media/create-experiment/connect-clean-to-select.png
-
-[set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[connect-train-model]:./media/create-experiment/connect-train-model.png
-[select-price-column]:./media/create-experiment/select-price-column.png
-
-[score-model-output]:./media/create-experiment/score-model-output.png
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

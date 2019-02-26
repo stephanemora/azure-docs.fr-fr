@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Accéder aux données Azure Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark | Microsoft Docs'
+title: 'Didacticiel : Accéder aux données Azure Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark | Microsoft Docs'
 description: Ce tutoriel montre comment exécuter des requêtes Spark sur un cluster Azure Databricks afin d’accéder aux données dans un compte de stockage Azure Data Lake Storage Gen2.
 services: storage
 author: dineshmurthy
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891655"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452598"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Didacticiel : Accéder aux données Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark
+# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutoriel : Accéder aux données Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark
 
 Ce tutoriel vous montre comment connecter un cluster Azure Databricks aux données contenues dans un compte de stockage Azure compatible avec Azure Data Lake Storage Gen2. Cette connexion vous permet d’exécuter en mode natif des requêtes et analyses sur des données à partir de votre cluster.
 
@@ -38,6 +38,17 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 * Installez AzCopy v10. Consultez [Transférer des données avec AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+*  Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
+
+   :heavy_check_mark: Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service.
+
+   > [!IMPORTANT]
+   > Veillez à attribuer le rôle dans l’étendue du compte de stockage Data Lake Storage Gen2. Vous pouvez attribuer un rôle à l’abonnement ou au groupe de ressources parent, mais des erreurs d’autorisation sont générées tant que ces attributions de rôles ne sont pas propagées au compte de stockage.
+
+   :heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
+
 ### <a name="download-the-flight-data"></a>Téléchargement des données de vol
 
 Ce tutoriel utilise des données de vol issues du Bureau of Transportation Statistics pour montrer comment effectuer une opération ETL. Vous devez télécharger ces données pour suivre ce tutoriel.
@@ -49,24 +60,6 @@ Ce tutoriel utilise des données de vol issues du Bureau of Transportation Stati
 3. Sélectionnez le bouton **Download** (Télécharger) et enregistrez les résultats sur votre ordinateur. 
 
 4. Décompressez le contenu du fichier compressé et notez le nom du fichier et son chemin. Vous aurez besoin de ces informations lors d’une étape ultérieure.
-
-## <a name="get-your-storage-account-name"></a>Obtenir le nom de votre compte de stockage
-
-Vous aurez besoin du nom de votre compte de stockage. Pour l’obtenir, connectez-vous au [portail Azure](https://portal.azure.com/), choisissez **Tous les services** et filtrez sur le terme *stockage*. Sélectionnez ensuite **Comptes de stockage**, puis localisez votre compte de stockage.
-
-Collez le nom dans un fichier texte. Vous en aurez besoin bientôt.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Créer un principal du service
-
-Créez un principal du service en suivant l’aide fournie dans cette rubrique : [Guide pratique pour Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
-
-:heavy_check_mark: Au cours des étapes indiquées dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le **Rôle Contributeur de Stockage Blob** à votre application.
-
-:heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
 
 ## <a name="create-an-azure-databricks-service"></a>Créer un service Azure Databricks
 
@@ -145,9 +138,16 @@ Dans cette section, vous allez créer un système de fichiers et un dossier dans
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `application-id`, `authentication-id` et `tenant-id` par les valeurs que vous avez collectées quand vous avez effectué les étapes des sections Mettre de côté la configuration du compte de stockage et [Créer un principal du service](#service-principal) décrites dans cet article. Remplacez l’espace réservé `file-system-name` par n’importe quel nom que vous souhaitez donner à votre système de fichiers.
 
-19. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc. 
+18. Dans ce bloc de code, remplacez les valeurs d’espace réservé `application-id`, `authentication-id`, `tenant-id` et `storage-account-name` par celles que vous avez collectées au moment de la finalisation des prérequis de ce tutoriel. Remplacez la valeur d’espace réservé `file-system-name` par le nom de système de fichiers de votre choix.
+
+   * `application-id` et `authentication-id` proviennent de l’application que vous avez inscrite auprès d’Active Directory dans le cadre de la création d’un principal de service.
+
+   * `tenant-id` provient de votre abonnement.
+
+   * `storage-account-name` est le nom de votre compte de stockage Azure Data Lake Storage Gen2.
+
+19. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 
     Laissez ce notebook ouvert car vous allez y ajouter des commandes plus tard.
 

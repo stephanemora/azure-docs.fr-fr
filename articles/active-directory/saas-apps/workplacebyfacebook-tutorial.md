@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdc7ef8ee991719153f6daed01fbb76f945a7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e233de6f0909477e5033d2a0104f9165e86a9077
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194935"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs
 
@@ -143,31 +143,38 @@ Pour configurer l’authentification unique Azure AD avec Workplace by Facebook,
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Workplace by Facebook en tant qu’administrateur.
   
-   > [!NOTE]
-   > Dans le cadre du processus d’authentification SAML, Workplace peut utiliser des chaînes de requête d’une taille pouvant aller jusqu’à 2,5 Ko pour transmettre des paramètres à Azure AD.
+    > [!NOTE]
+    > Dans le cadre du processus d’authentification SAML, Workplace peut utiliser des chaînes de requête d’une taille pouvant aller jusqu’à 2,5 Ko pour transmettre des paramètres à Azure AD.
 
-2. Dans **Admin Panel** (Panneau d’administration), accédez à l’onglet **Security** (Sécurité), puis à **Authentication** (Authentification).
+2. Dans **Admin Panel** (Panneau d’administration), accédez à l’onglet **Security**.
 
-3. Sous **SAML Authentication**, sélectionnez **SSO Only** dans la liste déroulante.
+    ![Panneau d’administration](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. Entrez les valeurs copiées à partir de la section **Configuration de Workplace by Facebook** du portail Azure dans les champs correspondants :
+3. Sous l’onglet **Authentication**, sélectionnez **Single-Sign On (SSO)** (Authentification unique) et procédez comme suit :
 
-    * Dans la zone de texte **URL SAML**, collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
-    * Dans la zone de texte **SAML Issuer URL** (URL de l’émetteur SAML), collez la valeur de **l’identifiant Azure AD** que vous avez copiée dans le portail Azure.
-    * Dans **SAML Logout Redirect** (Redirection de déconnexion SAML) (facultatif), collez la valeur de **l’URL de déconnexion**, que vous avez copiée à partir du portail Azure.
-    * Ouvrez dans le Bloc-notes votre **certificat codé en base 64**, téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **SAML Certificate** (Certificat SAML).
+    ![Onglet d’authentification](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. Vous devrez peut-être entrer l’URL d’audience, l’URL de destinataire et l’URL du service consommateur d’assertion (ACS), répertoriées sous la section **Basic SAML Configuration** (Configuration SAML de base).
+    a. Dans la zone de texte **URL SAML**, collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
 
-6. Faites défiler l’affichage jusqu’au bas de la section et cliquez sur le bouton **Test SSO**. Une fenêtre contextuelle apparaît, avec la page de connexion Azure AD. Entrez normalement vos informations d’identification pour vous authentifier.
+    b. Dans la zone de texte **SAML Issuer URI** (URI de l’émetteur SAML), collez la valeur de l’**identificateur Azure Ad** que vous avez copiée dans le portail Azure.
+
+    c. Dans **SAML Logout Redirect** (Redirection de déconnexion SAML) (facultatif), collez la valeur de **l’URL de déconnexion**, que vous avez copiée à partir du portail Azure.
+
+    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64**, téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **SAML Certificate** (Certificat SAML).
+
+    e. Copiez **Audience URL** pour votre instance et collez-la dans la zone de texte  **Identificateur (ID d’entité)** de la section  **Configuration SAML de base** du portail Azure.
+
+    f. Copiez **Recipient URL** (URL de destinataire) pour votre instance et collez-la dans la zone de texte  **URL d’authentification** de la section  **Configuration SAML de base** du portail Azure.
+
+    g. Faites défiler l’affichage jusqu’au bas de la section et cliquez sur le bouton **Test SSO**. Une fenêtre contextuelle apparaît, avec la page de connexion Azure AD. Entrez normalement vos informations d’identification pour vous authentifier.
 
     **Résolution des problèmes :** Vérifiez que l’adresse e-mail retournée par Azure AD est identique au compte Workplace avec lequel vous êtes connecté.
 
-7. Une fois le test terminé, faites défiler jusqu’au bas de la page et cliquez sur le bouton **Save** (Enregistrer).
+    h. Une fois le test terminé, faites défiler jusqu’au bas de la page et cliquez sur le bouton **Save** (Enregistrer).
 
-8. La page de connexion à Azure AD sera désormais présentée à tous les utilisateurs de Workplace pour qu’ils s’authentifient.
+    i. La page de connexion à Azure AD sera désormais présentée à tous les utilisateurs de Workplace pour qu’ils s’authentifient.
 
-9. **Redirection de déconnexion SAML (facultatif)** -
+4. **Redirection de déconnexion SAML (facultatif)** -
 
     Vous pouvez choisir de configurer une URL de déconnexion SAML, qui peut être utilisée pour pointer vers la page de déconnexion d’Azure AD. Quand ce paramètre est activé et configuré, l’utilisateur n’est plus dirigé vers la page de déconnexion de Workplace. Au lieu de cela, il est redirigé vers l’URL qui a été ajoutée dans le paramètre SAML Logout Redirect.
 

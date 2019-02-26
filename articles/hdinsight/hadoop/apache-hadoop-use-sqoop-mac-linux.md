@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 02/15/2019
+ms.openlocfilehash: 2f16ba3fde73705d431ba97d65059b178020bb62
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635695"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340295"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Utiliser Apache Sqoop pour échanger des données entre Apache Hadoop sur HDInsight et SQL Database
 
@@ -105,7 +105,7 @@ GO
     Les champs dans les données sont séparés par un caractère de tabulation et les lignes se terminent par un caractère de nouvelle ligne.
 
     > [!IMPORTANT]  
-    > Le chemin `wasb:///` fonctionne avec les clusters qui utilisent Stockage Azure comme stockage de cluster par défaut. Pour les clusters qui utilisent Azure Data Lake Storage, utilisez plutôt `adl:///`.
+    > Le chemin `wasb:///` fonctionne avec les clusters qui utilisent Stockage Azure comme stockage de cluster par défaut. Pour les clusters qui utilisent Azure Data Lake Storage Gen2, utilisez plutôt `abfs:///`. Pour les clusters qui utilisent Azure Data Lake Storage Gen1, utilisez plutôt `adl:///`.
 
 2. Une fois l’importation terminée, utilisez la commande suivante pour répertorier les données dans le nouveau répertoire :
 

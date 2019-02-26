@@ -1,6 +1,6 @@
 ---
 title: Exemple - Références SKU autorisées pour les comptes de stockage et les machines virtuelles
-description: Cet exemple de stratégie exige que les comptes de stockage et les machines virtuelles utilisent des références (SKU) approuvées.
+description: Pour cet exemple de définition de stratégie, les comptes de stockage et les machines virtuelles doivent utiliser des références SKU approuvées.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4e194e70c13fe70702e700fcaafa7cdf981e0147
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: cb6ccf87cc14424801a06cc2e9749e2fc2f6ee4a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242071"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339904"
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>Références (SKU) autorisées pour les comptes de stockage et les machines virtuelles
+# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exemple - Références SKU autorisées pour les comptes de stockage et les machines virtuelles
 
 Cette stratégie exige que les comptes de stockage et les machines virtuelles utilisent des références (SKU) approuvées. Utilise des stratégies intégrées pour garantir des références (SKU) approuvées. Spécifiez un tableau de références SKU de machine virtuelle approuvées et un tableau de références SKU de compte de stockage approuvées.
 

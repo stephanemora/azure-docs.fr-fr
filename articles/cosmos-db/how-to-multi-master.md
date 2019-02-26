@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: effe6fa942ce0cabace08e72dba90baf8646680e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118824"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312138"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-in-azure-cosmos-db"></a>Guide pratique pour configurer les fonctionnalités multimaîtres dans vos applications au sein d’Azure Cosmos DB
+# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Comment configurer les fonctionnalités multimaîtres dans les applications qui utilisent Azure Cosmos DB
 
-Pour utiliser les fonctionnalités multimaîtres dans vos applications, vous devez activer les écritures multirégions et configurer la fonctionnalité du multihébergement en définissant la région actuelle sur laquelle l’application est déployée.
+Pour utiliser les fonctionnalités multimaîtres dans vos applications, vous devez activer les écritures multirégions et configurer la fonctionnalité de multirésidence. Pour configurer la multirésidence, définissez la région dans laquelle l’application est déployée.
 
 ## <a id="netv2"></a>Kit SDK .NET v2
 
-Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `UseMultipleWriteLocations`, puis configurez `SetCurrentLocation` en fonction de la région sur laquelle l’application est déployée et Cosmos DB répliquée.
+Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `UseMultipleWriteLocations`, puis configurez `SetCurrentLocation` en fonction de la région dans laquelle l’application est déployée et Azure Cosmos DB est répliqué.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy

@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234660"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339785"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -43,8 +43,11 @@ Vous pouvez utiliser l’audit de bases de données SQL pour :
 > [!IMPORTANT]
 > Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage blob Azure avec votre abonnement Azure.
 >
-> - **Stockage Premium** n’est actuellement **pas pris en charge** par l’ajout d’objets blob.
+> - Tous les types de stockage (v1, v2, blob) sont pris en charge.
+> - Toutes les configurations de réplication de stockage sont prises en charge.
+> - **Stockage Premium** n’est actuellement **pas pris en charge**.
 > - Le **stockage dans un réseau virtuel** n’est actuellement **pas pris en charge**.
+> - Le **stockage derrière un pare-feu** n’est actuellement **pas pris en charge**
 
 ## <a id="subheading-8"></a>Définir une stratégie d’audit au niveau du serveur ou au niveau de la base de données
 

@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961395"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326508"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Créer un stockage sur disque pour machines virtuelles dans Azure Stack
 
@@ -32,9 +32,9 @@ Cet article explique comment créer un stockage sur disque pour machines virtuel
 
 À compter de la version 1808, Azure Stack prend en charge l’utilisation de disques managés et non managés sur les machines virtuelles, à la fois comme disque de système d’exploitation et comme disque de données. Dans les versions antérieures à la version 1808, seuls les disques non managés sont pris en charge. 
 
-Les **[disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** simplifient la gestion des disques des machines virtuelles Azure IaaS, en gérant les comptes de stockage associés aux disques de machines virtuelles. Vous spécifiez simplement la taille du disque dont vous avez besoin, et Azure Stack crée et gère le disque pour vous.
+Les **[disques managés](../../virtual-machines/windows/managed-disks-overview.md)** simplifient la gestion des disques des machines virtuelles Azure IaaS, en gérant les comptes de stockage associés aux disques de machines virtuelles. Vous spécifiez simplement la taille du disque dont vous avez besoin, et Azure Stack crée et gère le disque pour vous.
 
-Les **[disques non managés](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)** nécessitent la création d’un [compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour stocker les disques. Les disques que vous créez sont appelés « disques de machine virtuelle » et sont stockés dans des conteneurs, dans le compte de stockage.
+Les disques non managés nécessitent la création d’un compte de stockage pour stocker les disques. Les disques que vous créez sont appelés « disques de machine virtuelle » et sont stockés dans des conteneurs, dans le compte de stockage.
 
 ### <a name="best-practice-guidelines"></a>Conseils de bonnes pratiques
 

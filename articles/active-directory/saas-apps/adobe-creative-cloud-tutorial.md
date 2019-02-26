@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Adobe Creative Cloud | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Adobe Creative Cloud | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adobe Creative Cloud.
 services: active-directory
 documentationCenter: na
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccb593e198e4dff8f30bddfe26071523ea7a893d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a160c604050f567f3fc0f77ca20a22349f07fd9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179227"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutoriel : Intégration d’Azure Active Directory à Adobe Creative Cloud
 
@@ -45,7 +45,7 @@ Pour configurer l’intégration d’Azure AD à Adobe Creative Cloud, vous ave
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Adobe Creative Cloud prend en charge l’authentification unique initiée par **SP et IDP**
+* Adobe Creative Cloud prend en charge l’authentification unique lancée par le **fournisseur de services**
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Ajout de Adobe Creative Cloud à partir de la galerie
 
@@ -67,7 +67,7 @@ Pour configurer l’intégration de Adobe Creative Cloud à Azure AD, vous deve
 
 4. Dans la zone de recherche, tapez **Adobe Creative Cloud**, sélectionnez **Adobe Creative Cloud** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Adobe Creative Cloud dans la liste des résultats](common/search-new-app.png)
+    ![Adobe Creative Cloud dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -101,29 +101,23 @@ Pour configurer l’authentification unique Azure AD avec Adobe Creative Cloud, 
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. À la section **Configuration SAML de base**, si vous souhaitez configurer en mode initié par **IDP**, suivez les étapes ci-dessous :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Adobe Creative Cloud](common/idp-intiated.png)
+    ![Informations d’authentification unique dans Domaine et URL Adobe Creative Cloud](common/sp-identifier.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.okta.com/saml2/service-provider/<token>`
+    a. Dans la zone de texte **URL de connexion**, tapez la valeur : `https://adobe.com`.
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique d’Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Contactez l’[équipe du support technique du client Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
-
-    Dans la zone de texte **URL de connexion**, tapez la valeur `https://adobe.com`.
-
-    ![Informations d’authentification unique dans Domaine et URL Adobe Creative Cloud](common/metadata-upload-additional-signon.png)
-
-6. L’application Adobe Creative Cloud attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
+5. L’application Adobe Creative Cloud attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
     ![image](common/edit-attribute.png)
 
-7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
- 
+6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
+
     | Nom | Attribut source|
     |----- | --------- |
     | FirstName | user.givenname |
@@ -151,11 +145,11 @@ Pour configurer l’authentification unique Azure AD avec Adobe Creative Cloud, 
     > [!NOTE]
     > Les utilisateurs doivent posséder une licence Office 365 ExO pour que la valeur de demande par message soit renseignée dans la réponse SAML.
 
-8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+7. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-9. Dans la section **Configurer Adobe Creative Cloud**, copiez la ou les URL appropriées correspondant à vos besoins.
+8. Dans la section **Configurer Adobe Creative Cloud**, copiez la ou les URL appropriées correspondant à vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 

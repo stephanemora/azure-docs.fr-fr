@@ -1,6 +1,6 @@
 ---
-title: Tutoriel - Accorder l’accès à un groupe avec RBAC et Azure PowerShell | Microsoft Docs
-description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour accorder l’accès à un groupe pour afficher tous les éléments d’un abonnement et gérer tous les éléments d’un groupe de ressources à l’aide d’Azure PowerShell.
+title: 'Tutoriel : Accorder un accès de groupe aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell | Microsoft Docs'
+description: Découvrez comment accorder un accès de groupe aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: ad6884067a756412efe27ce275387ff5ceb1b298
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105669"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343687"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Tutoriel : Accorder l’accès à un groupe avec RBAC et Azure PowerShell
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutoriel : Accorder un accès de groupe aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
 
-Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) est la façon dont vous gérez l’accès aux ressources dans Azure. Dans ce tutoriel, vous accordez l’accès à un groupe pour afficher tous les éléments d’un abonnement et gérer tous les éléments d’un groupe de ressources à l’aide d’Azure PowerShell.
+Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce tutoriel, vous accordez l’accès à un groupe pour afficher tous les éléments d’un abonnement et gérer tous les éléments d’un groupe de ressources à l’aide d’Azure PowerShell.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -70,7 +70,7 @@ Pour attribuer un rôle, vous avez besoin d’un utilisateur, d’un groupe ou d
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Si vous n’avez pas les autorisations pour créer des groupes, vous pouvez suivre le [Tutoriel : Accorder l’accès à un utilisateur avec RBAC et Azure PowerShell](tutorial-role-assignments-user-powershell.md) à la place.
+Si vous n’avez pas les autorisations pour créer des groupes, vous pouvez suivre le [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](tutorial-role-assignments-user-powershell.md).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -294,4 +294,4 @@ Pour supprimer les ressources créées par ce tutoriel, supprimez le groupe de r
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Gérer l’accès avec RBAC et PowerShell](role-assignments-powershell.md)
+> [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](role-assignments-powershell.md)

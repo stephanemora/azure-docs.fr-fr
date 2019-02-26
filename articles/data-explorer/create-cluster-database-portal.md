@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un cluster et une base de données pour l’Explorateur de données Azure'
+title: 'Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster et une base de données pour l’Explorateur de données Azure et ingérer (charger) des données.
 services: data-explorer
 author: orspod
@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394219"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408831"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Démarrage rapide : Créer un cluster et une base de données pour l’Explorateur de données Azure
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement scalable pour les données des journaux et de télémétrie. Pour utiliser l’Explorateur de données Azure, créez tout d’abord un *cluster*et une ou plusieurs *bases de données* dans ce cluster. Ensuite, *ingérez* (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. Dans ce guide de démarrage rapide, vous allez créer un cluster et une base de données. Dans les articles suivants, nous vous montrons comment ingérer les données.
+L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Pour utiliser l’Explorateur de données Azure, créez tout d’abord un *cluster*et une ou plusieurs *bases de données* dans ce cluster. Ensuite, *ingérez* (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. Dans ce guide de démarrage rapide, vous allez créer un cluster et une base de données. Dans les articles suivants, nous vous montrons comment ingérer les données.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -31,11 +31,11 @@ Créez un cluster pour l’Explorateur de données Azure dans un groupe de resso
 
 1. Cliquez sur le bouton **Créer une ressource** (+) dans le coin supérieur gauche du portail.
 
-1. Recherchez *Explorateur de données Azure*, puis sélectionnez **Explorateur de données Azure**.
+1. Recherchez *Azure Data Explorer*.
 
    ![Rechercher des ressources](media/create-cluster-database-portal/search-resources.png)
 
-1. En bas à droite, sélectionnez **Créer**.
+1. Sous **Azure Data Explorer**, en bas de l’écran, sélectionnez **Créer**.
 
 1. Entrez un nom unique pour votre cluster, sélectionnez votre abonnement et créez un groupe de ressources nommé *test-resource-group*.
 
@@ -51,10 +51,12 @@ Créez un cluster pour l’Explorateur de données Azure dans un groupe de resso
     | Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre cluster.|
     | Groupe de ressources | *test-resource-group* | Créez un groupe de ressources. |
     | Lieu | *USA Ouest* | Pour ce guide de démarrage rapide, sélectionnez *USA Ouest*. Pour un système de production, sélectionnez la région qui répond le mieux à vos besoins.
-    | Spécification de calcul | *D13_v2* | Sélectionnez la spécification du prix le plus bas pour ce guide de démarrage rapide. Pour un système de production, sélectionnez la spécification qui répond le mieux à vos besoins.
+    | Spécifications de calcul | *D13_v2* | Sélectionnez la spécification du prix le plus bas pour ce guide de démarrage rapide. Pour un système de production, sélectionnez la spécification qui répond le mieux à vos besoins.
     | | |
 
-1. Sélectionnez **Créer** pour provisionner le cluster. En général, le provisionnement prend environ dix minutes. Dans la barre d’outils, sélectionnez **Notifications** (icône de cloche) pour superviser le processus de provisionnement.
+1. Sélectionnez **Créer** pour provisionner le cluster. En général, le provisionnement prend environ dix minutes. Dans la barre d’outils, sélectionnez **Notifications** pour superviser le processus de provisionnement.
+
+    ![Notifications](media/create-cluster-database-portal/notifications.png)
 
 1. Lorsque le processus est terminé, sélectionnez **Notifications** et **Accéder à la ressource**.
 
@@ -75,8 +77,8 @@ Vous êtes maintenant prêt pour la deuxième étape du processus : la créatio
     **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
     | Nom de la base de données | *TestDatabase* | Ce nom de base de données doit être unique dans le cluster.
-    | Période de rétention | *3650* | Intervalle de temps pendant lequel vous avez la garantie d’avoir les données à disposition pour les interroger. Cet intervalle se mesure à partir du moment où les données sont ingérées.
-    | Période de cache | *31* | Intervalle de temps pendant lequel les données fréquemment interrogées restent disponibles dans le stockage SSD ou la RAM, plutôt que dans un stockage à plus long terme.
+    | Période de rétention | *3650* | Intervalle de temps (en jours) pendant lequel vous avez la garantie d’avoir les données à disposition pour les interroger. Cet intervalle se mesure à partir du moment où les données sont ingérées.
+    | Période de cache | *31* | Intervalle de temps (en jours) pendant lequel les données fréquemment interrogées restent disponibles dans le stockage SSD ou la RAM, plutôt que dans un stockage à plus long terme.
     | | | |
 
 1. Sélectionnez **Enregistrer** pour créer la base de données. La création prend généralement moins d’une minute. Lorsque le processus est terminé, revenez à l’onglet **Vue d’ensemble** du cluster.
@@ -128,6 +130,6 @@ Si vous envisagez de suivre nos autres tutoriels et guides de démarrage rapide,
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingérer des données Event Hub dans l’Explorateur de données Azure](ingest-data-event-hub.md)
+> [Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
 
 

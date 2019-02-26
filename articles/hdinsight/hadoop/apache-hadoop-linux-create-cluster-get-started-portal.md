@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: dbae234739cd58278b1dc56c956a5fb058394681
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 003bd5ccae2b22dc411259226d84b11444694651
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913408"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417903"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Démarrage rapide : Bien démarrer avec Apache Hadoop et Apache Hive dans Azure HDInsight à l’aide du Portail Azure
 
@@ -63,7 +63,7 @@ Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’ai
     |Propriété  |Description  |
     |---------|---------|
     |**Type du cluster**     | Sélectionnez **Hadoop** |
-    |**Système d’exploitation**     |  Sélectionnez votre abonnement Azure. |
+    |**Système d’exploitation**     | Sélectionnez **Linux** |
     |**Version**     | Sélectionnez **Hadoop 2.7.3 (HDI 3.6)**|
 
     Cliquez sur **Sélectionner** et sur **Suivant**.

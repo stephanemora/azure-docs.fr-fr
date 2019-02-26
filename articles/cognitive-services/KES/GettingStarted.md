@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: c9c336b9aed06095849f33060ff6969e8b7bfcaf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881704"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309639"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Prendre en main la fonctionnalité Service d’exploration des connaissances
 
@@ -228,7 +228,7 @@ Lorsque vous exécutez `kes.exe` en dehors d’Azure, l’index est limité à 1
 
 Pour autoriser `kes.exe` à accéder à un compte Azure, [téléchargez le fichier de paramètres de publication Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) depuis le Portail Azure. Si vous y êtes invité, connectez-vous au compte Azure souhaité. Enregistrez le fichier sous *AzurePublishSettings.xml* dans le répertoire de travail à partir duquel `kes.exe` s’exécute.
 
-Pour créer et héberger des index plus grands, vous disposez de deux méthodes. La première méthode consiste à préparer le schéma et les fichiers de données dans une machine virtuelle dans Azure. Exécutez ensuite [`kes.exe build_index`](#building-index) pour créer l’index localement sur la machine virtuelle, sans aucune restriction de taille. L’index résultant peut être hébergé localement sur la machine virtuelle à l’aide de [`kes.exe host_service`](#hosting-service) pour une création de prototypes rapide. Pour des instructions détaillées, consultez le didacticiel [Démarrage rapide : Créer une machine virtuelle Windows sur le Portail Azure](../../../articles/virtual-machines/windows/quick-create-portal.md).
+Pour créer et héberger des index plus grands, vous disposez de deux méthodes. La première méthode consiste à préparer le schéma et les fichiers de données dans une machine virtuelle dans Azure. Exécutez ensuite `kes.exe build_index` pour créer l’index localement sur la machine virtuelle, sans aucune restriction de taille. L’index résultant peut être hébergé localement sur la machine virtuelle à l’aide de `kes.exe host_service` pour un prototypage rapide, là encore sans aucune restriction. Pour des instructions détaillées, consultez le didacticiel [Démarrage rapide : Créer une machine virtuelle Windows sur le Portail Azure](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
 La deuxième méthode consiste à effectuer une génération Azure à distance, à l’aide de [`kes.exe build_index`](CommandLine.md#build_index-command) avec le paramètre `--remote`. Cela spécifie une taille de machine virtuelle Azure. Lorsque le paramètre `--remote` est spécifié, la commande crée une machine virtuelle Azure temporaire de cette taille. Il crée ensuite l’index sur la machine virtuelle, charge l’index sur le stockage d’objets blob cible et supprime la machine virtuelle à la fin. Votre abonnement Azure est facturé pour le coût de la machine virtuelle pendant la génération de l’index.
 

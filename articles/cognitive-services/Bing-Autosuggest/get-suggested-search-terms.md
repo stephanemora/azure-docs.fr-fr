@@ -10,54 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 09/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: b5959e014b7e531b8f52fcbe6f6492576eedd61a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c7ac631ded5d781b2d2949d65f6197e194521055
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875669"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268921"
 ---
 # <a name="what-is-bing-autosuggest"></a>Qu’est-ce que la Suggestion automatique Bing ?
 
-Si vous envoyez des requêtes à l’une des API Recherche Bing, vous pouvez utiliser l’API Suggestion automatique Bing pour améliorer votre expérience avec la zone de recherche. L’API Suggestion automatique Bing renvoie une liste de requêtes suggérées en fonction d’une chaîne de requête partielle saisie par l’utilisateur dans la zone de recherche. Affichez les suggestions dans la liste déroulante de la zone de recherche. Les termes suggérés sont basés sur l’intention de l’utilisateur et sur des requêtes suggérées que d’autres utilisateurs ont recherchées.
+Si votre application envoie des requêtes à l’une des API Recherche Bing, vous pouvez utiliser l’API Suggestion automatique Bing pour améliorer l’expérience de recherche de vos utilisateurs. L’API Suggestion automatique Bing retourne une liste de requêtes suggérées en fonction d’une chaîne de requête partielle dans la zone de recherche. À mesure que des caractères sont entrés dans la zone de recherche, vous pouvez afficher des suggestions dans une liste déroulante.
 
-En général, vous appelez cette API chaque fois que l’utilisateur tape un nouveau caractère dans la zone de recherche. L’exhaustivité de la chaîne de requête conditionne la pertinence des termes suggérés par l’API. Plus la chaîne de requête est complète, plus la liste de termes suggérés est pertinente. Par exemple, il se peut que les suggestions renvoyées par l’API pour une recherche du caractère *s* soient moins pertinentes celles renvoyées pour la recherche du terme *sailing dinghies* (canot à voile).
+## <a name="bing-autosuggest-api-features"></a>Fonctionnalités de l’API Suggestion automatique Bing
 
-## <a name="getting-suggested-search-terms"></a>Obtention de suggestions de termes recherchés
+| Fonctionnalité                                                                                                                                                                                 | Description                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Suggestion de termes de recherche en temps réel](concepts/get-suggestions.md) | Améliorez l’expérience dans votre application en utilisant l’API Suggestion automatique Bing pour afficher des suggestions de termes de recherche pendant la saisie d’une requête. |
 
-L’exemple suivant illustre une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile). N’oubliez pas d’encoder en URL le terme de requête partiel de l’utilisateur quand vous définissez le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query). Par exemple, si l’utilisateur a tapé *sailing les*, affectez la valeur `sailing+les` ou `sailing%20les` à `q`.
+## <a name="workflow"></a>Workflow
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+L’API Suggestion automatique Bing est un service web RESTful que vous pouvez facilement appeler à partir de n’importe quel langage de programmation capable d’exécuter des requêtes HTTP et d’analyser des réponses JSON. 
 
-La réponse suivante contient une liste d’objets [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) contenant les termes de requête suggérés.
+1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitement.
+2. Envoyez une requête à cette API chaque fois qu’un utilisateur tape un nouveau caractère dans la zone de recherche de votre application.
+3. Traitez la réponse de l’API en analysant le message JSON renvoyé.
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+En général, vous appelez cette API chaque fois que l’utilisateur tape un nouveau caractère dans la zone de recherche de votre application. À mesure que l’utilisateur tape d’autres caractères, l’API retourne des suggestions de requête de recherche plus pertinentes. Par exemple, les suggestions retournées par l’API pour le caractère `s` sont probablement moins pertinentes que celles retournées pour `sail` (dériveurs).
 
-Chaque suggestion comporte les champs `displayText`, `query` et `url`. Le champ `displayText` correspond à la requête suggérée que vous utilisez pour remplir la liste déroulante de la zone de recherche. Vous devez afficher toutes les suggestions incluses dans la réponse, dans l’ordre indiqué.
-
-Voici un exemple de zone de recherche déroulante avec des suggestions de termes de requête.
+L’exemple suivant montre une zone déroulante de recherche avec les termes de requête suggérés provenant de l’API Suggestion automatique Bing.
 
 ![Liste de zone de recherche déroulante Suggestion automatique](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Si l’utilisateur sélectionnait une suggestion de requête dans la liste déroulante, vous utiliseriez la chaîne de requête du champ `query` pour appeler l’[API Recherche Web Bing](../bing-web-search/search-the-web.md) et afficher vous-même les résultats. Vous pourriez aussi utiliser l’URL du champ `url` pour rediriger plutôt l’utilisateur vers la page des résultats de la recherche Bing.
-
-## <a name="throttling-requests"></a>Demandes de limitation
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+Quand un utilisateur sélectionne une suggestion dans la liste déroulante, vous pouvez l’utiliser pour lancer la recherche avec l’une des API Recherche Bing ou accéder directement à la page des résultats de la recherche Bing.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

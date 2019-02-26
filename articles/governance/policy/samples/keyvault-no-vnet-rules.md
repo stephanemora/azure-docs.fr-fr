@@ -1,6 +1,6 @@
 ---
-title: Exemple - Auditer des coffres Key Vault pour détecter ceux sans points de terminaison de réseau virtuel
-description: Cet exemple de stratégie audite les coffres Key Vault pour détecter les instances qui n’ont pas de points de terminaison de service de réseau virtuel.
+title: Exemple - Auditer des coffres de clés pour détecter ceux qui n’ont pas de points de terminaison de réseau virtuel
+description: Cet exemple de définition de stratégie audite les coffres de clés pour détecter les instances qui n’ont pas de points de terminaison de service de réseau virtuel.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: c9a5359303c1feecfbc905099a1bed2fc10fa52d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6b53c94787cfcabae1072f9879f14e0d890e967c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245794"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341519"
 ---
-# <a name="key-vault-vaults-with-no-virtual-network-endpoints"></a>Coffres Key Vault sans points de terminaison de réseau virtuel
+# <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exemple - Coffres de clés sans points de terminaison de réseau virtuel
 
 Cette stratégie audite les coffres Key Vault n’ayant aucun point de terminaison de réseau virtuel. Utilisez cette option pour appliquer vos exigences de sécurité. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel dans Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md).
 

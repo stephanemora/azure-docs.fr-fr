@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994046"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429415"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Didacticiel : Appeler des API de recherche cognitive (préversion)
 
@@ -403,9 +403,7 @@ Le script affecte à ```"maxFailedItems"``` la valeur -1, ce qui indique au mot
 
 Notez également l’instruction ```"dataToExtract":"contentAndMetadata"``` dans les paramètres de configuration. Cette instruction indique à l’indexeur d’extraire automatiquement le contenu de fichiers de différents formats, ainsi que les métadonnées associées à chaque fichier. 
 
-Lorsque le contenu est extrait, vous pouvez définir ```ImageAction``` pour extraire le texte des images trouvées dans la source de données. L’instruction ```"ImageAction":"generateNormalizedImages"``` indique à l’indexeur d’extraire le texte des images (par exemple, le mot « stop » d’un panneau de signalisation Stop) et de l’incorporer dans le champ de contenu. Ce comportement s’applique aux images intégrées dans les documents (pensez à une image dans un fichier PDF), ainsi qu’aux images trouvées dans la source de données, par exemple un fichier JPG.
-
-Dans cette version préliminaire, ```"generateNormalizedImages"``` est la seule valeur valide pour ```"ImageAction"```.
+Lorsque le contenu est extrait, vous pouvez définir ```imageAction``` pour extraire le texte des images trouvées dans la source de données. La configuration ```"imageAction":"generateNormalizedImages"```, associée à la compétence de reconnaissance optique des caractères et à la compétence de fusion de texte, indique à l’indexeur d’extraire le texte des images (par exemple, le mot « stop » d’un panneau de signalisation Stop) et de l’incorporer dans le champ de contenu. Ce comportement s’applique aux images intégrées dans les documents (pensez à une image dans un fichier PDF), ainsi qu’aux images trouvées dans la source de données, par exemple un fichier JPG.
 
 ## <a name="check-indexer-status"></a>Vérifier l’état de l’indexeur
 

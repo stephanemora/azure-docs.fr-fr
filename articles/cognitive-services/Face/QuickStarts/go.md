@@ -8,42 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 06/25/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: d1384e22d5a036002d59c30755a8a0e5de648102
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 752f15fd730f1244f44ba3749bff3c5bb85ca02b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882962"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312597"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go
 
-Dans ce démarrage rapide, vous allez détecter des visages humains dans une image à l’aide de l’API Visage.
+Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec Go pour détecter des visages humains dans une image.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’une clé d’abonnement pour exécuter l’exemple. Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
+- Un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/download).
 
-## <a name="face---detect-request"></a>Requête Visage - Détecter
+## <a name="write-the-script"></a>Écrire le script
 
-Utilisez la méthode [Visage - Détecter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour détecter les visages dans une image et retourner les attributs du visage, notamment :
-
-* ID de visage : ID unique utilisé dans plusieurs scénarios d’API Visage.
-* Rectangle du visage : valeurs gauche, haut, largeur et hauteur indiquant l’emplacement du visage dans l’image.
-* Repères : groupe de 27 points de repère du visage pointant vers les positions importantes des composants du visage.
-* Les attributs du visage, notamment l’âge, le sexe, l’intensité du sourire, la posture de la tête et la pilosité faciale.
-
-Pour exécuter l’exemple, effectuez les étapes suivantes :
-
-1. Copiez le code ci-après dans un éditeur.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez la valeur `uriBase` par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-1. Si vous le souhaitez, remplacez la valeur `imageUrl` par l’image que vous souhaitez analyser.
-1. Enregistrez le fichier avec une extension `.go`.
-1. Ouvrez une invite de commandes sur un ordinateur sur lequel Go est installé.
-1. Générez le fichier, par exemple : `go build detect-face.go`.
-1. Exécutez le fichier, par exemple : `detect-face`.
+Créez un fichier _faceDetection.go_ et ajoutez le code suivant. L’API Visage est appelée pour une URL d’image donnée.
 
 ```go
 package main
@@ -115,9 +100,25 @@ func main() {
 }
 ```
 
-## <a name="face---detect-response"></a>Réponse Visage - Détecter
+Vous devez remplacer la valeur `subscriptionKey` par votre clé d’abonnement, et éventuellement changer la chaîne `uriBase` pour qu’elle contienne l’identificateur de région approprié. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents sur l’API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). 
 
-Une réponse correcte est retournée au format JSON, par exemple :
+Vous pouvez également changer le champ `imageUrl` pour qu’il pointe vers votre propre image d’entrée. Vous pouvez aussi changer le champ `returnFaceAttributes` qui spécifie les attributs de visage à récupérer.
+
+## <a name="run-the-script"></a>Exécutez le script
+
+Ouvrez une invite de commandes et générez le programme avec la commande suivante :
+
+```shell
+go build faceDetection.go
+```
+
+Ensuite, exécutez le programme :
+
+```shell
+detect-face
+```
+
+Une chaîne JSON des données de visage détectées doit apparaître dans la console. Voici un exemple de réponse JSON correcte.
 
 ```json
 [
@@ -300,7 +301,7 @@ Une réponse correcte est retournée au format JSON, par exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les API Visage utilisées pour détecter les visages humains dans une image, délimiter les visages avec des rectangles et retourner des attributs tels que l’âge et le sexe.
+Dans ce guide de démarrage rapide, vous avez écrit un script Ruby qui appelle l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
 
 > [!div class="nextstepaction"]
 > [API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

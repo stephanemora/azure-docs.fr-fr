@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49412731823cb906e77835e2b915f7915b18dea2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed94b7571acb0ced124644dafc59d805d5112e8a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203792"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268564"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Azure AD Graph
 
@@ -39,6 +39,7 @@ Ce didacticiel vous indique comment utiliser une identité managée de machine v
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 - Pour que vous puissiez accorder à l’identité de la machine virtuelle l’accès à Azure AD Graph, le rôle **Administrateur général** doit être assigné à votre compte dans Azure AD.
+- Installez la dernière version d’[Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) si ce n’est pas déjà fait. 
 
 ## <a name="connect-to-azure-ad"></a>Se connecter à Azure AD
 

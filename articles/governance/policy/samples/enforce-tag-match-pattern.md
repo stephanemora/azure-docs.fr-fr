@@ -1,6 +1,6 @@
 ---
 title: Exemple - Appliquer un modèle de correspondance de balise
-description: Cet exemple de stratégie exige que les ressources respectent le modèle de correspondance pour la valeur des étiquettes.
+description: Cet exemple de définition de stratégie exige que les ressources respectent le modèle de correspondance pour la valeur des étiquettes.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f3e4246141a9d9de1a7d6451422e1e55a4c3545f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9510bb147a8eb9687e074191e8fcc404c847dc0a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244417"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342658"
 ---
-# <a name="enforce-tag-match-pattern-for-tag-values"></a>Appliquer le modèle de correspondance de balise pour les valeurs de balise
+# <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>Exemple - Appliquer le modèle de correspondance des étiquettes pour les valeurs d’étiquettes
 
 Exigez que la valeur de balise soit conforme à un modèle de correspondance. Spécifiez le modèle autorisé dans la règle de stratégie.
 

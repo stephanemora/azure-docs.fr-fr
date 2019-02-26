@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985417"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458424"
 ---
 # <a name="enable-write-accelerator"></a>Activer l’Accélérateur des écritures
 
@@ -42,17 +42,17 @@ Quand vous utilisez l’Accélérateur des écritures sur un disque/disque dur v
 
 - La mise en cache du disque Premium doit être définie sur Aucune ou Lecture seule. Les autres modes de mise en cache ne sont pas pris en charge.
 - Les instantanés ne sont pas pris en charge pour les disques où l’Accélérateur d’écriture est activé. Durant la sauvegarde, le service Sauvegarde Azure exclut automatiquement les disques avec activation de l’Accélérateur d’écriture, qui sont attachés à la machine virtuelle.
-- Seules les tailles d’E/S plus petites (<=32 Kio) prennent le chemin accéléré. Dans les cas de charge de travail où les données sont chargées en bloc ou les tampons de journal des transactions des différents systèmes de gestion de base de données (SGBD) sont davantage remplis avant d’être conservés dans le stockage, les E/S écrites sur le disque risquent de ne pas prendre le chemin d’accès accéléré.
+- Seules les tailles d’E/S plus petites (<=512 Kio) prennent le chemin accéléré. Dans les cas de charge de travail où les données sont chargées en bloc ou les tampons de journal des transactions des différents systèmes de gestion de base de données (SGBD) sont davantage remplis avant d’être conservés dans le stockage, les E/S écrites sur le disque risquent de ne pas prendre le chemin d’accès accéléré.
 
 L’Accélérateur des écritures prend en charge un nombre limité de disques durs virtuels de stockage Azure Premium par machine virtuelle. Les limites actuelles sont :
 
 | Référence de la machine virtuelle | Nombre de disques avec Accélérateur des écritures | IOPS de disque avec Accélérateur des écritures par machine virtuelle |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1 000 |
-| M8ms, M8s | 1 | 500 |
+| M128ms, 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5 000 |
+| M16ms, M16s | 2 | 2 500 |
+| M8ms, M8s | 1 | 1250 |
 
 Les limites d’IOPS s’entendent par machine virtuelle et *non* par disque. Tous les disques avec Accélérateur des écritures partagent la même limite d’IOPS par machine virtuelle.
 
