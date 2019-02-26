@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99fa8cbc211469185f2503718c84bc1b12db44c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56c992b1cc0e8f1d9743ff8226ab48852afc1168
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178213"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313124"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application non issue de la galerie
 
@@ -29,13 +29,13 @@ Si vous voulez configurer l’authentification unique pour une application non i
 ## <a name="overview-of-steps-required"></a>Vue d’ensemble des étapes requises
 Vous trouverez ci-après une vue d’ensemble de la procédure à suivre pour configurer l’authentification unique fédérée avec SAML 2.0 pour une application non issue de la galerie (telle qu’une application personnalisée).
 
--   [Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)](#_Configuring_single_sign-on)
+-   Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)
 
 -   [Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Récupérer le certificat et les métadonnées Azure AD](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configurer les valeurs de métadonnées Azure AD dans l’application (URL de connexion, émetteur, URL de déconnexion et certificat)](#_Configuring_single_sign-on)
+-   Configurer les valeurs de métadonnées Azure AD dans l’application (URL de connexion, émetteur, URL de déconnexion et certificat)
 
 -   Affecter des utilisateurs à l’application
 

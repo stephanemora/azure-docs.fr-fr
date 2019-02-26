@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244485"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327848"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
@@ -78,7 +78,7 @@ Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de s
 Les comptes de stockage universels peuvent être configurés avec l’un des niveaux de performances suivants :
 
 * Un niveau de performances Standard pour le stockage des objets blob, des fichiers, des tables, des files d’attente et des disques de machine virtuelle Azure
-* Un niveau de performances Premium pour stocker uniquement les disques de machine virtuelle Azure Consultez [Stockage Premium : Stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../virtual-machines/windows/premium-storage.md) pour une présentation détaillée de Premium Storage.
+* Un niveau de performance Premium pour le stockage des disques de machine virtuelle non gérés uniquement
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveaux d’accès pour les données d’objets blob de blocs
 

@@ -1,6 +1,6 @@
 ---
 title: Gérer les instantanés avec Azure NetApp Files | Microsoft Docs
-description: Décrit comment créer un instantané à la demande pour un volume ou restaurer à partir d’un instantané sur un nouveau volume avec Azure NetApp Files.
+description: Explique comment créer des captures instantanées pour un volume ou procéder à la restauration d'une capture instantanée sur un nouveau volume avec Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 3c69cb076b3b23cd5149e05f1b6ee9ae1ba170a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412930"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430197"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
+
 Vous pouvez utiliser Azure NetApp Files pour créer un instantané à la demande pour un volume ou pour restaurer à partir d’un instantané sur un nouveau volume.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Créer un instantané à la demande pour un volume
-Vous pouvez créer des instantanés seulement à la demande.  Actuellement, les stratégies d’instantané ne sont pas prises en charge.  
-1.  Dans le panneau Gérer le volume, cliquez sur **Instantanés**, puis cliquez sur **+ Ajouter un instantané** pour créer un instantané à la demande pour un volume.
 
-2.  Dans la fenêtre Nouvel instantané, spécifiez un nom pour l’instantané que vous créez.   
+Vous pouvez créer des instantanés seulement à la demande. Actuellement, les stratégies d’instantané ne sont pas prises en charge.
 
-3. Cliquez sur **OK**. 
+1.  Dans le panneau Volume, cliquez sur **Captures instantanées**.
 
+    ![Accéder à des captures instantanées](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+
+2.  Cliquez sur **+ Ajouter une capture instantanée** afin de créer une capture instantanée à la demande pour un volume.
+
+    ![Ajouter une capture instantanée](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+
+3.  Dans la fenêtre Nouvel instantané, spécifiez un nom pour l’instantané que vous créez.   
+
+    ![Nouvelle capture instantanée](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+
+4. Cliquez sur **OK**. 
 
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restaurer un instantané sur un nouveau volume
+
 Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volume. 
 1. Accédez au panneau **Gérer les instantanés** à partir du panneau Volume pour afficher la liste des instantanés. 
 2. Sélectionnez un instantané à restaurer.  
@@ -61,7 +72,7 @@ Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volu
 
     *   **Réseau virtuel**  
         Spécifiez le réseau virtuel Azure à partir duquel vous voulez accéder au volume.  
-        Le réseau virtuel que vous spécifiez doit avoir un sous-réseau délégué à Azure NetApp Files. Le service Azure NetApp Files est accessible seulement à partir du même réseau virtuel ou d’un sous-réseau qui se trouve dans la même région que le volume via le peering de réseau virtuel. Vous pouvez également accéder au volume à partir de votre réseau local via Express Route. 
+        Le réseau virtuel que vous spécifiez doit avoir un sous-réseau délégué à Azure NetApp Files. Vous ne pouvez accéder à Azure NetApp Files qu'à partir du même réseau virtuel ou d'un réseau virtuel qui se trouve dans la même région que le volume via le peering de réseau virtuel. Vous pouvez accéder au volume à partir de votre réseau local via Express Route. 
 
     * **Sous-réseau**  
         Spécifiez le sous-réseau que vous souhaitez utiliser pour le volume.  
@@ -73,3 +84,6 @@ Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volu
 5. Cliquez sur **OK**.   
     Le nouveau volume sur lequel l’instantané est restauré apparaît dans le panneau Volumes.
 
+## <a name="next-steps"></a>Étapes suivantes
+
+[Comprendre la hiérarchie de stockage d’Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

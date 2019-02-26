@@ -3,17 +3,16 @@ title: À propos des périphériques VPN pour les connexions Azure entre locaux 
 description: Cet article traite des périphériques VPN et des paramètres IPsec pour les connexions entre locaux de passerelle VPN S2S. Des liens sont fournis vers des instructions et des exemples de configuration.
 services: vpn-gateway
 author: yushwang
-manager: rossort
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/20/2019
 ms.author: yushwang
-ms.openlocfilehash: 3e3dff18bde1c02c3746aa200376b02e1fba9e05
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7024849c796d7cef226fef1b20b0a6604f1344ba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765362"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454281"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -48,7 +47,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall série X |Pare-feu Barracuda 6.5 |[Guide de configuration](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Non compatible |
 | Brocade            |Routeur virtuel Vyatta 5400   |Routeur virtuel 6.6R3 GA|[Guide de configuration](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Non compatible |
 | Check Point |Passerelle de sécurité |R80.10 |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Pris en charge |[Guide de configuration*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
+| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Pris en charge |[Guide de configuration*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased : IOS 15.1<br>RouteBased : IOS 15.2 |Pris en charge |Pris en charge |
 | Cisco |ISR |PolicyBased : IOS 15.0<br>RouteBased* : IOS 15.1 |Pris en charge |Pris en charge |
 | Cisco |Meraki |N/A |Non compatible |Non compatible |
@@ -66,7 +65,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Palo Alto Networks |Tous les périphériques exécutant PAN-OS |PAN-OS<br>PolicyBased : 6.1.5 ou version ultérieure<br>RouteBased : 7.1.4 |[Guide de configuration](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Guide de configuration](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | UTM nouvelle génération (série NU) | 9.0.1.3 | Non compatible | [Guide de configuration](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |Série TZ, série NSA<br>Série SuperMassive<br>Série NSA classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Non compatible |[Guide de configuration](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
-| Sophos | Pare-feu XG Next Gen | XG v17 | | [Guide de configuration](https://community.sophos.com/kb/127546) |
+| Sophos | Pare-feu XG Next Gen | XG v17 | | [Guide de configuration](https://community.sophos.com/kb/127546)<br><br>[Guide de configuration - Associations de sécurité multiples](https://community.sophos.com/kb/en-us/133154) |
 | Ubiquiti | EdgeRouter | Version 1.10 d’EdgeOS |  | [Protocole BGP sur IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[Protocole VTI sur IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Tous |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 

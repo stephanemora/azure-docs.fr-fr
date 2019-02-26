@@ -1,5 +1,5 @@
 ---
-title: Connexion web avec OpenID Connect dans Azure Active Directory B2C | Microsoft Docs
+title: Connexion web avec OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Création d’applications web à l’aide de l’implémentation du protocole d’authentification OpenID Connect d’Azure Active Directory.
 services: active-directory-b2c
 author: davidmu1
@@ -7,24 +7,25 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bd7ecf273d4e842909d88eeaa3683203d8d9e841
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107308"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429161"
 ---
-# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C : Connexion web avec OpenID Connect
-OpenID Connect est un protocole d’authentification basé sur OAuth 2.0, qui peut être utilisé pour connecter de façon sécurisée des utilisateurs à des applications web. En utilisant l’implémentation d’OpenID Connect d’Azure Active Directory B2C (Azure AD B2C), vous pouvez sous-traiter l’inscription, la connexion et d’autres tâches de gestion des identités de vos applications web à Azure Active Directory. Ce guide explique comment procéder, indépendamment du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
+# <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Connexion web avec OpenID Connect dans Azure Active Directory B2C
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*. Vous pouvez ainsi procéder à une authentification unique à l’aide d’OAuth. Il introduit le concept de *jeton d’ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur et d’obtenir des informations de base sur son profil.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) est un protocole d’authentification basé sur OAuth 2.0, qui peut être utilisé pour connecter de façon sécurisée des utilisateurs à des applications web. En utilisant l’implémentation d’OpenID Connect d’Azure Active Directory B2C (Azure AD B2C), vous pouvez sous-traiter l’inscription, la connexion et d’autres tâches de gestion des identités de vos applications web à Azure Active Directory. Ce guide explique comment procéder, indépendamment du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
 
-Comme il étend OAuth 2.0, les applications peuvent acquérir de façon sécurisée des *jetons d’accès*. Vous pouvez utiliser des jetons d’accès access_tokens pour accéder aux ressources qui sont sécurisées par un [serveur d’autorisation](active-directory-b2c-reference-protocols.md#the-basics). Nous recommandons OpenID Connect si vous concevez une application web hébergée sur un serveur et accessible par le biais d’un navigateur. Si vous souhaitez ajouter la gestion des identités à votre application mobile ou à votre application de bureau à l’aide d’Azure AD B2C, vous devez utiliser [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) au lieu d’OpenID Connect.
+OpenID Connect étend le protocole d’*autorisation* OAuth 2.0 pour l’utiliser en tant que protocole d’*authentification*. Vous pouvez ainsi procéder à une authentification unique à l’aide d’OAuth. Il introduit le concept de *jeton d’ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur et d’obtenir des informations de base sur son profil.
 
-Azure AD B2C étend le protocole OpenID Connect standard pour proposer plus qu’une simple authentification et une simple autorisation. Il introduit le [paramètre de flux utilisateur](active-directory-b2c-reference-policies.md), grâce auquel vous pouvez utiliser OpenID Connect pour ajouter à votre application des expériences utilisateur comme l’inscription, la connexion et la gestion des profils. Vous pouvez découvrir ici comment utiliser OpenID Connect et des flux d’utilisateurs pour implémenter chacune de ces expériences dans vos applications web. Vous voyez également comment obtenir des jetons d’accès pour accéder à des API web.
+Comme il étend OAuth 2.0, les applications peuvent acquérir de façon sécurisée des *jetons d’accès*. Vous pouvez utiliser des jetons d’accès pour accéder aux ressources qui sont sécurisées par un [serveur d’autorisation](active-directory-b2c-reference-protocols.md#the-basics). Nous recommandons OpenID Connect si vous concevez une application web hébergée sur un serveur et accessible par le biais d’un navigateur. Si vous souhaitez ajouter la gestion des identités à votre application mobile ou à votre application de bureau à l’aide d’Azure AD B2C, vous devez utiliser [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) au lieu d’OpenID Connect.
+
+Azure AD B2C étend le protocole OpenID Connect standard pour proposer plus qu’une simple authentification et une simple autorisation. Il introduit le [paramètre de flux utilisateur](active-directory-b2c-reference-policies.md), grâce auquel vous pouvez utiliser OpenID Connect pour ajouter à votre application des expériences utilisateur comme l’inscription, la connexion et la gestion des profils. Fournisseurs d’identité qui utilisent le protocole OpenID Connect incluent le [compte Microsoft](active-directory-b2c-setup-msa-app.md) et d’autres [fournisseurs OpenID Connect](active-directory-b2c-setup-oidc-idp.md).
 
 Les demandes HTTP d’exemple dans la section suivante utilisent notre répertoire B2C d’exemple fabrikamb2c.onmicrosoft.com, ainsi que notre exemple d’application, https://aadb2cplayground.azurewebsites.net, et nos flux d’utilisateurs. Vous êtes libre de tester ces demandes vous-même à l’aide de ces valeurs, ou de les remplacer par les vôtres.
 Découvrez comment [obtenir votre propre client B2C, votre application et vos flux d’utilisateurs](#use-your-own-b2c-tenant).

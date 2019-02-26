@@ -3,27 +3,27 @@ title: Obtenir une chaîne de connexion - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des instructions pour obtenir une chaîne de connexion utilisable par les clients pour se connecter à Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238145"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445098"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtenir une chaîne de connexion Event Hubs
 
-Pour utiliser Event Hubs, vous devez créer un espace de noms Event Hubs. Un espace de noms est un conteneur d’étendue qui peut héberger plusieurs Event Hubs/rubriques Kafka. Cet espace de noms vous donne une valeur unique de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Une fois l’espace de noms créé, vous pouvez obtenir la chaîne de connexion requise pour communiquer avec Event Hubs.
+Pour utiliser Event Hubs, vous devez créer un espace de noms Event Hubs. Un espace de noms est un conteneur d’étendue pour plusieurs hubs d’événements ou rubriques Kafka. Cet espace de noms vous donne une valeur unique de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Une fois l’espace de noms créé, vous pouvez obtenir la chaîne de connexion requise pour communiquer avec Event Hubs.
 
 La chaîne de connexion pour Azure Event Hubs se compose des éléments suivants :
 
-* FQDN = nom de domaine complet de l’espace de noms Event Hubs que vous avez créé. (Comprend l’espace de noms Event Hubs suivi de servicebus.windows.net)
+* FQDN = nom de domaine complet de l’espace de noms EventHubs que vous avez créé (cela inclut l’espace de noms EventHubs suivi de servicebus.windows.net)
 * SharedAccessKeyName = le nom que vous avez choisi pour les clés de signature d’accès partagé de votre application
 * SharedAccessKey = la valeur de la clé générée.
 
@@ -37,30 +37,29 @@ Un exemple de chaîne de connexion peut se présenter comme `Endpoint=sb://dummy
 Cet article vous guide dans les différentes façons d’obtenir la chaîne de connexion.
 
 ## <a name="get-connection-string-from-the-portal"></a>Obtenir la chaîne de connexion dans le portail
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
+2. Dans le menu de navigation de gauche, sélectionnez **Tous les services**. 
+3. Sélectionnez **Event Hubs** dans la section **Analytics**. 
+4. Dans la liste de hubs d’événements, sélectionnez votre Event Hub.
+6. Sur la page **Espace de noms Event Hubs**, cliquez sur **Stratégies d’accès partagé** dans le menu de gauche.
 
-Une fois que vous avez l’espace de noms Event Hubs, la section de la vue d’ensemble du portail peut vous donner la chaîne de connexion, comme illustré ci-dessous :
+    ![Élément de menu des stratégies d’accès partagées](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+7. Sélectionnez une **stratégie d’accès partagé** dans la liste des stratégies. Celle par défaut s’appelle : **RootManageSharedAccessPolicy**. Vous pouvez ajouter une stratégie avec les autorisations appropriées (lecture, écriture) et utiliser cette stratégie. 
 
-![Chaîne de connexion Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+    ![Stratégies d’accès partagé Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+8. Cliquez sur le bouton **copier** à côté du champ **Clé primaire de la chaîne de connexion**. 
 
-Lorsque vous cliquez sur le lien de chaîne de connexion dans la section vue d’ensemble, il ouvre l’onglet des stratégies SAS comme indiqué dans la figure ci-dessous :
-
-![Stratégies SAS d’Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-
-Vous pouvez ajouter une nouvelle stratégie SAS et obtenir la chaîne de connexion ou utiliser la stratégie par défaut déjà créée. Lorsque la stratégie est ouverte, la chaîne de connexion est obtenue comme indiqué dans la figure ci-dessous :
-
-![Obtenir la chaîne de connexion Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    ![Obtenir la chaîne de connexion Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Obtention de la chaîne de connexion avec Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous pouvez utiliser Get-AzEventHubNamespaceKey pour obtenir la chaîne de connexion pour la stratégie ou le nom de règle spécifié, comme indiqué ci-dessous :
+Vous pouvez utiliser [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) pour obtenir la chaîne de connexion pour la stratégie ou le nom de règle spécifié, comme indiqué ci-dessous :
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
-
-Reportez-vous à [Module PowerShell Azure Event Hubs](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) pour plus d’informations.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Obtention de la chaîne de connexion avec Azure CLI
 Vous pouvez utiliser ce qui suit pour obtenir la chaîne de connexion de l’espace de noms :
@@ -69,7 +68,7 @@ Vous pouvez utiliser ce qui suit pour obtenir la chaîne de connexion de l’esp
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-Reportez-vous à [CLI Azure pour Event Hubs](https://docs.microsoft.com/cli/azure/eventhubs) pour plus d’informations.
+Pour plus d’informations sur les commandes Azure CLI pour Event Hubs, consultez [Azure CLI pour Event Hubs](/cli/azure/eventhubs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

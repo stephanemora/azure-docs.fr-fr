@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183834"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339021"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>FAQ et problèmes connus liés à Identity Protection (version actualisée) dans Azure Active Directory
 
@@ -33,6 +33,8 @@ ms.locfileid: "56183834"
 
 
 **Ignorer le risque lié à l’utilisateur** dans Identity Protection (version actualisée) définit l’acteur dans l’historique des risques utilisateur d’Identity Protection (version actualisée) sur le **\<nom de l’administrateur avec un lien hypertexte pointant vers le panneau de l’utilisateur\>**.
+
+Un problème connu provoque actuellement des latences dans le flux de rejet du risque utilisateur. Si vous disposez d'une « Stratégie de risque utilisateur », celle-ci cessera de s'appliquer aux utilisateurs ignorés quelques minutes après un clic sur « Ignorer le risque lié à l'utilisateur ». Cela dit, des retards d'actualisation de l'« état de risque » des utilisateurs ignorés ont été identifiés. Pour contourner ce problème, actualisez la page au niveau du navigateur afin d'afficher le dernier « État de risque » de l'utilisateur.
 
 
 ## <a name="risky-users-report"></a>Rapport sur les utilisateurs à risque

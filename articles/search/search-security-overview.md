@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 02/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311709"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342420"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Sécurité et confidentialité dans Recherche Azure
 
@@ -60,14 +60,16 @@ Tous les services Azure prennent en charge les contrôles d’accès en fonction
 
 ## <a name="service-access-and-authentication"></a>Accès au service et authentification
 
-Alors que le service Recherche Azure hérite des fonctions de sécurité de la plateforme Azure, il fournit également sa propre authentification basée sur clé. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. Deux types de clés sont utilisés pour accéder à votre service de recherche :
+Alors que le service Recherche Azure hérite des fonctions de sécurité de la plateforme Azure, il fournit également sa propre authentification basée sur clé. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. 
 
-* Admin (valable pour toute opération de lecture/écriture par rapport au service)
-* Requête (valable pour les opérations en lecture seule, telles que les requêtes par rapport à un index)
+Il existe deux niveaux d’accès à votre service de recherche, activés par deux types de clés :
 
-Des clés d’administration sont créées une fois le service approvisionné. Bien qu’il existe deux clés d’administration, désignées comme *principale* et *secondaire*, celles-ci sont en fait interchangeables. Chaque service dispose de deux clés Admin que vous pouvez interchanger sans perdre l’accès à votre service. Vous pouvez régénérer l'une des clés Admin, mais vous ne pouvez pas augmenter leur nombre total. Il y a, au maximum, deux clés Admin par service de recherche.
+* Accès administrateur (valable pour toute opération de lecture/écriture par rapport au service)
+* Accès de requête (valable pour les opérations en lecture seule, telles que les requêtes par rapport à un index)
 
-Des clés de requête sont créées selon les besoins et conçues pour les applications client qui appellent la Recherche. Vous pouvez créer, au maximum, 50 clés de ce type. Dans le code d’application, vous spécifiez l’URL de recherche et une clé API de requête pour autoriser l’accès en lecture seule au service. Le code de votre application spécifie également l’index utilisé par votre application. Ensemble, le point de terminaison, une clé API pour un accès en lecture seule et un index cible définissent le niveau de portée et d’accès de la connexion à partir de votre application cliente.
+Des *clés d’administration* sont créées une fois le service approvisionné. Bien qu’il existe deux clés d’administration, désignées comme *principale* et *secondaire*, celles-ci sont en fait interchangeables. Chaque service dispose de deux clés Admin que vous pouvez interchanger sans perdre l’accès à votre service. Vous pouvez régénérer l'une des clés Admin, mais vous ne pouvez pas augmenter leur nombre total. Il y a, au maximum, deux clés Admin par service de recherche.
+
+Des *clés de requête* sont créées selon les besoins et conçues pour les applications client qui appellent la Recherche. Vous pouvez créer, au maximum, 50 clés de ce type. Dans le code d’application, vous spécifiez l’URL de recherche et une clé API de requête pour autoriser l’accès en lecture seule au service. Le code de votre application spécifie également l’index utilisé par votre application. Ensemble, le point de terminaison, une clé API pour un accès en lecture seule et un index cible définissent le niveau de portée et d’accès de la connexion à partir de votre application cliente.
 
 L’authentification est requise à chaque requête, chaque requête étant composée d’une clé obligatoire, d’une opération et d’un objet. Quand ils sont chaînés, les deux niveaux d’autorisation (complet ou en lecture seule) et le contexte (par exemple, une opération de requête sur un index) sont suffisants pour fournir une sécurité couvrant l’ensemble des opérations de service. Pour plus d’informations sur les clés, consultez [Créer et gérer des clés de l’api](search-security-api-keys.md).
 
@@ -93,7 +95,9 @@ Pour plus d’informations sur la structuration d’une demande dans Recherche A
 
 ## <a name="user-access-to-index-content"></a>Accès utilisateur au contenu d’index
 
-L’accès par utilisateur au contenu d’un index est implémenté à travers les filtres de sécurité de vos requêtes, qui retournent les documents associés à une identité de sécurité donnée. Au lieu des rôles prédéfinis et des attributions de rôles, le contrôle d’accès basé sur l’identité est implémenté en tant que filtre qui limite les résultats de recherche de documents et de contenu en fonction des identités. Le tableau suivant décrit les deux approches permettant de filtrer les résultats de recherche de contenu non autorisé.
+Par défaut, l’accès utilisateur à un index est déterminé par la clé d’accès sur la demande de requête. La plupart des développeurs créent et affectent des [*clés de requête*](search-security-api-keys.md) pour les demandes de recherche du côté client. Une clé de requête accorde un accès en lecture à l’ensemble du contenu dans l’index.
+
+Si vous avez besoin d’un contrôle granulaire, par utilisateur, sur le contenu, vous pouvez créer des filtres de sécurité sur vos requêtes, en renvoyant des documents associés à une identité de sécurité donnée. Au lieu des rôles prédéfinis et des attributions de rôles, le contrôle d’accès basé sur l’identité est implémenté en tant que *filtre* qui limite les résultats de recherche de documents et de contenu en fonction des identités. Le tableau suivant décrit les deux approches permettant de filtrer les résultats de recherche de contenu non autorisé.
 
 | Approche | DESCRIPTION |
 |----------|-------------|

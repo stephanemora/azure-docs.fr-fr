@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864279"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312189"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Décrire les images dans le langage humain
 
-Les algorithmes de la Vision par ordinateur analysent le contenu d’une image. L’analyse constitue la description essentielle qui est affichée sous forme de texte lisible par l’homme (phrases complètes). La description résume les éléments identifiés dans l’image. Les algorithmes de la Vision par ordinateur génèrent différentes descriptions selon les éléments visuels identifiés dans l’image. Chacune des descriptions est évaluée, et un indice de confiance est généré. Une liste est ensuite renvoyée, classée du score de confiance plus élevé au plus bas.
+Le service Vision par ordinateur peut analyser une image et générer une phrase explicite qui décrit son contenu. En fait, l'algorithme renvoie plusieurs descriptions basées sur différentes caractéristiques visuelles, et chaque description reçoit un score de confiance. Le résultat final est une liste de descriptions classées de la confiance la plus élevée à la plus faible.
 
 ## <a name="image-description-example"></a>Exemple de description d’image
 

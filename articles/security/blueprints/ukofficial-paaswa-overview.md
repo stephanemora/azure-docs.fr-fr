@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700976"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301789"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de sécurité et de conformité Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
 
@@ -29,7 +29,7 @@ Ce blueprint a été revu par le NCSC (National Cyber Security Centre) du Royaum
 
 L’architecture utilise des composants [PaaS](https://azure.microsoft.com/overview/what-is-paas/) Azure pour fournir un environnement qui permet aux clients d’éviter les dépenses et la complexité liées à l’achat de licences de logiciels, de gestion de l’infrastructure d’application sous-jacente et des intergiciels (middleware), ou des outils de développement et d’autres ressources. Les clients gèrent les applications et les services qu’ils développent, en se concentrant sur la mise à disposition d’une valeur métier, tandis que Microsoft Azure gère les autres ressources Azure, comme les machines virtuelles, le stockage et la mise en réseau, en confiant, dans le cadre de la [répartition des responsabilités](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility), la plus grande partie de la responsabilité de la gestion de l’infrastructure à la plateforme Azure. [Azure App Services](https://azure.microsoft.com/services/app-service/) offre comme services par défaut une mise à l’échelle automatique et une haute disponibilité, prend en charge Windows et Linux, et permet des déploiements automatisés à partir de GitHub, d’Azure DevOps ou de n’importe quel référentiel Git. Grâce à l’utilisation d’App Services, les développeurs peuvent se concentrer sur la mise à disposition d’une valeur commerciale métier sans devoir s’occuper de la gestion de l’infrastructure. Il est possible de créer des applications web Java, PHP, Node.js, Python, HTML ou C# entièrement nouvelles, ou de migrer des applications web cloud ou locales existantes vers Azure App Services (une attention et des tests approfondis étant néanmoins nécessaires pour vérifier les performances).
 
-Ce blueprint est principalement consacré au provisionnement d’une interface web [PaaS](https://azure.microsoft.com/overview/what-is-paas/) de base sécurisée, destinée au public ainsi qu’aux utilisateurs du back office. Ce scénario de conception du blueprint considère l’utilisation de services web hébergés dans Azure, où un utilisateur public peut envoyer, visualiser et gérer des données sensibles de façon sécurisée, et où un opérateur de back office ou du secteur public peut traiter de façon sécurisée les données sensibles que l’utilisateur public a envoyées. Voici des cas d’utilisation de ce scénario :
+Ce blueprint est principalement consacré au provisionnement d’une interface web [PaaS](https://azure.microsoft.com/overview/what-is-paas/) de base sécurisée, destinée au public ainsi qu’aux utilisateurs de back office. Ce scénario de conception du blueprint considère l’utilisation de services web hébergés dans Azure, où un utilisateur public peut envoyer, visualiser et gérer des données sensibles de façon sécurisée, et où un opérateur de back office ou du secteur public peut traiter de façon sécurisée les données sensibles que l’utilisateur public a envoyées. Voici des cas d’utilisation de ce scénario :
 
 - Un utilisateur envoyant une déclaration d’impôts, avec un opérateur d’une administration traitant l’envoi.
 - Un utilisateur demandant un service via une application web, avec un utilisateur de back office validant et fournissant le service.
@@ -182,7 +182,7 @@ Vous pouvez trouver des informations détaillées sur la sécurisation de Stocka
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisé pour surveiller les applications web dynamiques, il détecte automatiquement les anomalies des performances, analyse les performances et diagnostique les problèmes, et aide à comprendre comment les utilisateurs interagissent avec l’application. Application Insights peut être déployé sur des plateformes, notamment .NET, Node.js et J2EE, hébergées localement ou dans le cloud. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisé pour surveiller les applications web dynamiques, il détecte automatiquement les anomalies des performances, analyse les performances et diagnostique les problèmes, et aide à comprendre comment les utilisateurs interagissent avec l’application. Application Insights peut être déployé sur des plateformes, notamment .NET, Node.js et Java EE, hébergées localement ou dans le cloud. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement.
 
 #### <a name="application-insights-in-this-blueprint"></a>Application Insights dans ce blueprint
 
@@ -232,7 +232,7 @@ Trois approches ont été fournies pour le déploiement : une approche [Azure CL
 1.  Clonez ou téléchargez [ce dépôt GitHub](https://aka.ms/ukofficial-paaswa-repo) sur votre station de travail locale.
 2.  Passez en revue [Méthode 1 : Azure CLI 2 (version Express)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) et exécutez les commandes fournies.
 3.  Passez en revue [Méthode 1a : Azure CLI 2 (configuration du déploiement à l’aide d’arguments de script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) et exécutez les commandes fournies
-4.  Passez en revue [Méthode 2 : Processus de déploiement via le portail Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) et exécutez les commandes listées
+4.  Passez en revue [Méthode 2 : Processus de déploiement via le Portail Microsoft Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) et exécutez les commandes listées
 
 ## <a name="guidance-and-recommendations"></a>Instructions et recommandations
 

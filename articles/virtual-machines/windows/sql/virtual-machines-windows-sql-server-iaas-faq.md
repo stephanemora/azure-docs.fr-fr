@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767336"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456654"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -87,6 +87,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 1. **Puis-je modifier une machine virtuelle pour utiliser ma propre licence SQL Server si elle a été créée à partir de l’une des images de la galerie avec paiement à l’utilisation ?**
 
    Oui. Vous pouvez facilement passer d'un modèle de licence à l'autre si vous avez initialement créé une image de la galerie avec paiement à l'utilisation. En revanche, vous ne pourrez pas basculer votre licence en mode Paiement à l'utilisation si vous avez commencé avec une image BYOL (apportez votre propre licence). Pour plus d'informations, consultez [Guide pratique pour changer le modèle de licence d'une machine virtuelle SQL Server](virtual-machines-windows-sql-ahb.md).
+
+   > [!Note]
+   > Actuellement, ce service n'est disponible que pour les clients du cloud public.
 
 1. **Dois-je utiliser des images BYOL ou un fournisseur de ressources de machine virtuelle SQL pour créer une nouvelle machine virtuelle SQL ?**
 

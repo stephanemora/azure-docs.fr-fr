@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871694"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328263"
 ---
 # <a name="service-health"></a>Service Health
 Service Health fournit un tableau de bord personnalisable qui suit l’intégrité de vos services Azure dans les régions où vous les utiliser. Dans ce tableau de bord, vous pouvez suivre les événements actifs, notamment les problèmes de service en cours, la maintenance planifiée à venir ou les conseils d’intégrité pertinents. Lorsque des événements deviennent inactifs, ils sont placés dans votre historique d’intégrité pendant 90 jours. Enfin, vous pouvez utiliser le tableau de bord Service Health pour créer et gérer des alertes d’intégrité de service qui vous informent de façon proactive des problèmes de service vous concernant.
@@ -24,6 +24,9 @@ Service Health suit trois types d’événements d’intégrité qui peuvent avo
 1. **Problèmes liés aux services** : problèmes touchant les services Azure qui vous affectent en ce moment même. 
 2. **Maintenance planifiée** : maintenance à venir qui pourra avoir une incidence sur la disponibilité de vos services.  
 3. **Health advisories** (Avis concernant l’intégrité) : modifications apportées aux services Azure qui nécessitent votre attention. Ce type d’événement se produit par exemple lorsque des fonctionnalités Azure sont déconseillées ou si vous dépassez un quota d’utilisation.
+
+> [!NOTE]
+> Pour afficher les événements Service Health, les utilisateurs doivent avoir le rôle de lecteur sur un abonnement.
 
 ## <a name="get-started-with-service-health"></a>Prise en main de Service Health
 Pour lancer votre tableau de bord Service Health, sélectionnez la vignette Service Health dans le tableau de bord du portail. Si vous avez supprimé la vignette ou utilisez un tableau de bord personnalisé, recherchez Service Health dans Plus de services (en bas à gauche de votre tableau de bord).

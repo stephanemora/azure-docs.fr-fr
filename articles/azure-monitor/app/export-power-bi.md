@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262578"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312989"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](https://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -26,7 +26,7 @@ Pour exporter des données d’Application Insights vers Power BI, il existe tr
 
 * [**Exporter des requêtes Analytics**](#export-analytics-queries). Ceci est la méthode privilégiée. Écrivez une requête et exportez-la vers Power BI. Vous pouvez placer cette requête sur un tableau de bord, avec d’autres données.
 * [**Exportation continue et Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Cette méthode est utile si vous souhaitez stocker vos données pendant de longues périodes. Si vous n’avez pas d’exigence concernant une conservation étendue des données, utilisez la méthode Exporter une requête Analytics. Exportation continue et Stream Analytics : implique un travail supplémentaire de configuration et des frais de stockage supplémentaires.
-* [**Adaptateur Power BI**](#power-pi-adapter). L’ensemble de graphiques est prédéfini, mais vous pouvez ajouter vos propres requêtes à partir d’autres sources.
+* **Adaptateur Power BI**. L’ensemble de graphiques est prédéfini, mais vous pouvez ajouter vos propres requêtes à partir d’autres sources.
 
 > [!NOTE]
 > L’adaptateur Power BI est désormais **déconseillé**. Les graphiques prédéfinis pour cette solution sont renseignés par des requêtes statiques non modifiables. Vous n’avez pas la possibilité de modifier ces requêtes et, en fonction de certaines propriétés de vos données, il est possible que la connexion à Power BI réussisse, mais aucune donnée n’est renseignée. Cela est dû aux critères d’exclusion qui sont définis dans la requête codée en dur. Cette solution peut toujours fonctionner pour certains clients, mais en raison du manque de flexibilité de l’adaptateur, la solution recommandée consiste à utiliser la fonctionnalité [**Exporter une requête Analytics**](#export-analytics-queries).

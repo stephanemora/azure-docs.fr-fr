@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 36889fc6cb8dbec77136dc8cea08416e51837243
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564831"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330577"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non gérés)
 
@@ -32,7 +32,7 @@ L’objectif de ce guide est d’aider les nouveaux utilisateurs d’Azure Premi
 Vous pouvez migrer des machines virtuelles d’autres plateformes vers Azure Premium Storage ou migrer des machines virtuelles Azure existantes du stockage Standard vers le stockage Premium. Ce guide décrit les étapes pour les deux scénarios. Suivez les étapes spécifiées dans la section appropriée selon votre scénario.
 
 > [!NOTE]
-> Une vue d’ensemble des fonctionnalités et la tarification du stockage Premium sont disponibles dans Stockage Premium : [Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../../virtual-machines/windows/premium-storage.md). Nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’IOPS dans Azure Premium Storage pour que votre application bénéficie de performances optimales. Si votre disque ne nécessite pas un nombre élevé d'IOPS, vous pouvez limiter les coûts en le conservant dans le stockage Standard qui stocke les données de disque de machine virtuelle sur des disques durs et non des disques SSD.
+> Les fonctionnalités et les tarifs des disques SSD Premium sont présentés dans : [Sélectionner un type de disque pour les machines virtuelles IaaS](../../virtual-machines/windows/disks-types.md#premium-ssd). Nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’IOPS dans Azure Premium Storage pour que votre application bénéficie de performances optimales. Si votre disque ne nécessite pas un nombre élevé d'IOPS, vous pouvez limiter les coûts en le conservant dans le stockage Standard qui stocke les données de disque de machine virtuelle sur des disques durs et non des disques SSD.
 >
 
 L’exécution du processus de migration dans son intégralité peut nécessiter des actions supplémentaires précédant et suivant les étapes fournies dans ce guide. Par exemple, la configuration de réseaux virtuels ou de points de terminaison ou l’intégration de modifications de code dans l’application elle-même, ce qui peut nécessiter un certain temps d’indisponibilité dans votre application. Ces actions sont propres à chaque application, et vous devez les exécuter en plus des étapes indiquées dans ce guide pour effectuer la transition complète vers Premium Storage de manière aussi transparente que possible.
@@ -69,7 +69,7 @@ Les comptes de stockage Premium ont les objectifs d’évolutivité suivants en 
 |:--- |:--- |
 | Capacité du disque : 35 To<br />Capacité d’instantané : 10 To |Jusqu'à 50 Go par seconde pour les données entrantes/sortantes |
 
-Pour plus d’informations sur les spécifications de Premium Storage, consultez la page [Objectifs d’évolutivité et de performances lors de l’utilisation de Premium Storage](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
+Pour plus d'informations sur les spécifications du Stockage Premium, consultez les [Objectifs d'extensibilité et de performances du Stockage Azure](storage-scalability-targets.md#premium-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Stratégie de mise en cache du disque
 Par défaut, la stratégie de mise en cache est *Lecture seule* pour tous les disques de données Premium et *Lecture-écriture* pour le disque du système d’exploitation Premium attaché à la machine virtuelle. Ce paramètre de configuration est recommandé pour optimiser les performances des E/S de votre application. Pour les disques de données en écriture seule ou avec d'importantes opérations d'écriture (par ex., les fichiers journaux de SQL Server), désactivez la mise en cache du disque pour de meilleures performances de l'application. Les paramètres du cache pour les disques de données existants peuvent être mis à jour à l’aide du [portail Azure Portal](https://portal.azure.com) ou du paramètre *-HostCaching* de l’applet de commande *Set-AzureDataDisk*.
@@ -748,7 +748,7 @@ La configuration de votre machine virtuelle actuelle peut être personnalisée s
 2. Connectez-vous à la machine virtuelle et copiez les données du volume actuel vers le nouveau disque mappé à ce volume. Utilisez cette même procédure pour tous les volumes actuels devant être mappés à un nouveau disque.
 3. Ensuite, modifiez les paramètres d’application pour basculer vers les nouveaux disques et détachez les anciens volumes.
 
-Pour optimiser l’application pour de meilleures performances de disque, reportez-vous à [Optimisation des performances applicatives](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
+Pour optimiser l'application afin d'améliorer les performances du disque, reportez-vous à la section Optimisation des performances des applications de l'article [Conception pour de hautes performances](../../virtual-machines/windows/premium-storage-performance.md).
 
 ### <a name="application-migrations"></a>Migrations des applications
 Les bases de données et autres applications complexes peuvent nécessiter des étapes spéciales, telles que définies par le fournisseur de l’application pour la migration. Reportez-vous à la documentation correspondante de l’application. Par exemple, la migration des bases de données se fait généralement via des étapes de sauvegarde et de restauration.
@@ -765,7 +765,7 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 
 * [Stockage Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../../virtual-machines/windows/premium-storage.md)
+* [Sélectionner un type de disque pour les machines virtuelles IaaS](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

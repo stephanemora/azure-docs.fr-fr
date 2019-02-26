@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976900"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328711"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Démarrage rapide : Installation manuelle d’un système SAP HANA à une instance sur des machines virtuelles Azure
 ## <a name="introduction"></a>Introduction
@@ -195,7 +195,7 @@ En fonction des [exigences de stockage TDI SAP HANA](https://www.sap.com/documen
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 Go | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-Dans la configuration de disque suggérée, le volume de données et le volume de journal HANA sont placés sur le même ensemble de disques de stockage Azure premium qui sont agrégés avec LVM ou MDADM. Il n’est pas nécessaire de définir un niveau de redondance RAID, car le stockage Azure Premium conserve trois images des disques à des fins de redondance. Pour vérifier que vous configurez suffisamment de stockage, consultez [SAP HANA TDI storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Exigences de stockage TDI SAP HANA) et [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm) (Guide d’installation et de mise à jour du serveur SAP HANA). Prenez également en compte les différents volumes de débit de disque dur virtuel (VHD) des divers disques de stockage Azure premium, comme expliqué dans [Stockage Premium hautes performances et disques managés pour machines virtuelles](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+Dans la configuration de disque suggérée, le volume de données et le volume de journal HANA sont placés sur le même ensemble de disques de stockage Azure premium qui sont agrégés avec LVM ou MDADM. Il n’est pas nécessaire de définir un niveau de redondance RAID, car le stockage Azure Premium conserve trois images des disques à des fins de redondance. Pour vérifier que vous configurez suffisamment de stockage, consultez [SAP HANA TDI storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Exigences de stockage TDI SAP HANA) et [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm) (Guide d’installation et de mise à jour du serveur SAP HANA). Prenez également en compte les différents volumes de débit de disque dur virtuel (VHD) des divers disques de stockage Azure premium, comme expliqué dans [Stockage Premium hautes performances et disques managés pour machines virtuelles](../../windows/disks-types.md). 
 
 Vous pouvez ajouter des disques de stockage premium aux machines virtuelles HANA SGBD, pour stocker les sauvegardes du journal des transactions ou de bases de données.
 
@@ -206,9 +206,7 @@ Pour plus d’informations sur les deux principaux outils utilisés pour configu
 
 Pour plus d’informations sur la façon de joindre des disques à des machines virtuelles Azure exécutant Linux comme système d’exploitation invité, consultez [Ajouter un disque à une machine virtuelle Linux](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Le stockage Azure Premium vous permet de définir les modes de mise en cache des disques. Pour l’ensemble de disques agrégés contenant /hana/data et /hana/log, la mise en cache des disques doit être désactivée. Pour les autres volumes (disques), le mode de mise en cache doit être défini sur **ReadOnly**.
-
-Pour plus d’informations, consultez [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../../windows/premium-storage.md).
+Les disques SSD Azure Premium vous permettent de définir les modes de mise en cache des disques. Pour l’ensemble de disques agrégés contenant /hana/data et /hana/log, la mise en cache des disques doit être désactivée. Pour les autres volumes (disques), le mode de mise en cache doit être défini sur **ReadOnly**.
 
 Pour rechercher des exemples de modèles JSON pour la création de machines virtuelles, accédez à [Modèles de démarrage rapide Microsoft Azure](https://github.com/Azure/azure-quickstart-templates).
 Le modèle vm-simple-sles est un modèle de base. Il inclut une section de stockage, avec un disque de données de 100 Go supplémentaires. Ce modèle peut être utilisé comme base. Vous pouvez adapter le modèle à votre propre configuration.

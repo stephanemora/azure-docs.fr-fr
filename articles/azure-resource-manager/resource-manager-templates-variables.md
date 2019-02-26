@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 50feca90d375d6afd3b04afe019ad9f9025f19dc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712744"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308569"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Section Variables des modèles Azure Resource Manager
 Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
@@ -58,9 +58,7 @@ L’exemple précédent a montré un moyen de définir une variable. Vous pouvez
             {
                 "name": "<name-of-array-property>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },
@@ -68,9 +66,7 @@ L’exemple précédent a montré un moyen de définir une variable. Vous pouvez
         {
             "name": "<variable-array-name>",
             "count": <number-of-iterations>,
-            "input": {
-                <properties-to-repeat>
-            }
+            "input": <object-or-value-to-repeat>
         }
     ]
 }
@@ -117,38 +113,45 @@ Récupérez les paramètres actuels ainsi :
 
 ## <a name="use-copy-element-in-variable-definition"></a>Utiliser l’élément copy dans la définition de la variable
 
-Vous pouvez utiliser la syntaxe **copy** pour créer une variable avec un tableau de plusieurs éléments. Vous fournissez le nombre d’éléments (count). Chaque élément contient les propriétés dans l’objet **input**. Vous pouvez utiliser copy dans une variable ou pour créer la variable. Si vous définissez une variable et que vous utilisez **copy** dans cette variable, vous créez un objet possédant une propriété tableau. Si vous utilisez **copy** au niveau supérieur et que vous définissez une ou plusieurs variables dedans, vous créez un ou plusieurs tableaux. L’exemple suivant présente les deux approches :
+Pour créer plusieurs instances d’une variable, utilisez la propriété `copy` dans la section des variables. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété `input`. Vous pouvez utiliser la propriété `copy` au sein d’une variable, ou au niveau supérieur de la section des variables. Lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de variable, vous devez fournir le nom de l’itération.
+
+L’exemple suivant explique comment utiliser la copie :
 
 ```json
 "variables": {
-    "disk-array-on-object": {
-        "copy": [
-            {
-                "name": "disks",
-                "count": 3,
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('disks')]"
-                }
-            }
-        ]
-    },
+  "disk-array-on-object": {
     "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
+      {
+        "name": "disks",
+        "count": 3,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks')]"
         }
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "disks-top-level-array",
+      "count": 3,
+      "input": {
+        "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+        "diskSizeGB": "1",
+        "diskIndex": "[copyIndex('disks-top-level-array')]"
+      }
+    },
+    {
+      "name": "top-level-string-array",
+      "count": 5,
+      "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+    }
+  ]
 },
 ```
 
-La variable **disk-array-on-object** contient l’objet suivant avec un tableau nommé **disks** :
+Une fois que l’expression de copie a été évaluée, la variable **disk-array-on-object** contient l’objet suivant avec un tableau nommé **disks** :
 
 ```json
 {
@@ -194,34 +197,19 @@ La variable **disks-top-level-array** contient le tableau suivant :
 ]
 ```
 
-Vous pouvez également spécifier plusieurs objets lorsque vous utilisez la fonction de copie pour créer des variables. L'exemple suivant est une définition de deux tableaux en tant que variables. Le premier est nommé **disks-top-level-array** et comporte cinq éléments. Le second s’appelle **a-different-array** et possède trois éléments.
+La variable **top-level-string-array** contient le tableau suivant :
 
 ```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
-},
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
-Cette approche fonctionne bien pour vérifier que les valeurs des paramètres sont au bon format pour une valeur de modèle. L’exemple suivant met en forme des valeurs de paramètres pour les utiliser dans la définition des règles de sécurité :
+L’utilisation de la copie fonctionne bien lorsque vous devez prendre des valeurs de paramètres et les mapper à des valeurs de ressources. L’exemple suivant met en forme des valeurs de paramètres pour les utiliser dans la définition des règles de sécurité :
 
 ```json
 {

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007727"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456688"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modèles d’achat Azure SQL Database
 
@@ -50,9 +50,11 @@ Le coût associé au calcul reflète la capacité de calcul totale provisionnée
 
 ## <a name="storage-costs"></a>Coûts de stockage
 
-Les divers types de stockage sont facturés différemment. Pour le stockage des données, vous êtes facturé en fonction du stockage provisionné, sur la base de la taille maximum de la base de données ou du pool que vous sélectionnez. Le coût ne change pas, sauf si vous réduisez ou augmentez cette taille maximum. Le stockage de sauvegarde est associé aux sauvegardes automatisées de votre instance et il est alloué de manière dynamique. L’allongement de la période de rétention des sauvegardes a pour effet d’augmenter le volume de stockage de sauvegarde que votre instance utilise. Un stockage de sauvegarde jusqu’à 100 % de la capacité de stockage totale provisionnée de votre serveur n’occasionne aucuns frais supplémentaires. Toute consommation supérieure du stockage de sauvegarde est facturée en Go par mois. Par exemple, si la taille de stockage de base de données dont vous disposez est de 100 Go, vous obtenez un volume de sauvegarde de 100 Go sans frais supplémentaires. Toutefois, si le volume de sauvegarde est de 110 Go, les 10 Go supplémentaires vous sont facturés.
+Les divers types de stockage sont facturés différemment. Pour le stockage des données, vous êtes facturé en fonction du stockage provisionné, sur la base de la taille maximum de la base de données ou du pool que vous sélectionnez. Le coût ne change pas, sauf si vous réduisez ou augmentez cette taille maximum. Le stockage de sauvegarde est associé aux sauvegardes automatisées de votre instance et il est alloué de manière dynamique. L’allongement de la période de rétention des sauvegardes a pour effet d’augmenter le volume de stockage de sauvegarde que votre instance utilise. 
 
-Pour le stockage de sauvegarde d’une base de données unique, vous êtes facturé au prorata pour le stockage qui a été alloué aux sauvegardes de base de données moins la taille de la base de données. Pour le stockage de sauvegarde d’un pool élastique, vous êtes facturé au prorata pour le stockage qui a été alloué aux sauvegardes de base de données de toutes les bases de données dans le pool moins la taille maximum des données du pool élastique. Une augmentation de la taille de la base de données ou du pool élastique, ou une augmentation du taux de transaction, nécessite plus de stockage et augmente donc votre facture de stockage de sauvegarde.  Lorsque vous augmentez la taille maximum des données, cette nouvelle quantité est déduite de la taille du stockage de sauvegarde facturée.
+7 jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob RA-GRS standard. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Un volume de stockage minimal égal à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
+
+Pour plus d'informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 

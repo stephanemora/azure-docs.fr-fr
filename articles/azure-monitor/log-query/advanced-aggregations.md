@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 37eb8ca3c25268dd7923087439a8fbf0fd1f168b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005418"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269907"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête de Data Explorer](/azure/kusto/query/) avec des données de journal Azure Monitor :
+Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête Kusto](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

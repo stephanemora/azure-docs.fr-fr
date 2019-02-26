@@ -1,7 +1,7 @@
 ---
 title: Ajouter des analyseurs personnalisés - Recherche Azure
 description: Modifier les générateurs de jetons de texte et les filtres de caractères utilisés dans les requêtes de recherche en texte intégral de Recherche Azure.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,22 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 150510ec09744b1350a93bde4e2a4dcb141867c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007537"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302078"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs personnalisés à un index de Recherche Azure
 
-Un *analyseur personnalisé* est une combinaison spécifiée par l’utilisateur d’un générateur de jetons et de filtres facultatifs utilisés pour personnaliser le traitement du texte dans le moteur de recherche. Par exemple, vous pouvez créer un analyseur personnalisé avec un *filtre de caractères* pour supprimer le balisage HTML avant que les entrées de texte soient tokenisées.
+Un *analyseur personnalisé* est un type spécifique d’[analyseur de texte](search-analyzers.md) qui se compose d’une combinaison définie par l’utilisateur du générateur de jetons existant et des filtres facultatifs. En combinant des générateurs de jetons et des filtres de manière innovante, vous pouvez personnaliser le traitement du texte dans le moteur de recherche pour obtenir des résultats spécifiques. Par exemple, vous pouvez créer un analyseur personnalisé avec un *filtre de caractères* pour supprimer le balisage HTML avant que les entrées de texte soient tokenisées.
+
+ Vous pouvez définir plusieurs analyseurs personnalisés pour varier la combinaison de filtres, mais chaque champ ne peut utiliser qu’un analyseur pour l’analyse de l’indexation et qu’un analyseur pour l’analyse de la recherche. Pour savoir à quoi ressemble un analyseur de client, consultez [Exemple d’analyseur personnalisé](search-analyzers.md#Example1).
 
 ## <a name="overview"></a>Vue d’ensemble
 
- En termes simples, le rôle d’un [moteur de recherche en texte intégral](search-lucene-query-architecture.md) est de traiter et de stocker des documents afin de permettre une interrogation et une récupération efficaces. À un niveau élevé, tout cela se résume à extraire les mots importants des documents, à les placer dans un index, puis à utiliser ce dernier pour rechercher les documents qui correspondent aux mots d’une requête donnée. Le processus d’extraction de mots des documents et de requêtes de recherche est appelé analyse lexicale. Les composants qui effectuent une analyse lexicale sont appelés des analyseurs.
+ En termes simples, le rôle d’un [moteur de recherche en texte intégral](search-lucene-query-architecture.md) est de traiter et de stocker des documents afin de permettre une interrogation et une récupération efficaces. À un niveau élevé, tout cela se résume à extraire les mots importants des documents, à les placer dans un index, puis à utiliser ce dernier pour rechercher les documents qui correspondent aux mots d’une requête donnée. Le processus d’extraction de mots des documents et de requêtes de recherche est appelé *analyse lexicale*. Les composants qui effectuent une analyse lexicale sont appelés des *analyseurs*.
 
- Dans Recherche Azure, vous pouvez choisir parmi un ensemble prédéfini d’analyseurs indépendants des langues dans le tableau [Analyseurs](#AnalyzerTable) et dans des analyseurs spécifiques à des langues listés dans [Analyseurs linguistiques &#40;API REST de Recherche Azure&#41;](index-add-language-analyzers.md). Vous pouvez également définir vos propres analyseurs personnalisés.  
+ Dans Recherche Azure, vous pouvez choisir parmi un ensemble prédéfini d’analyseurs indépendants des langues dans le tableau [Analyseurs](#AnalyzerTable) ou dans des analyseurs spécifiques à des langues listés dans [Analyseurs linguistiques &#40;API REST de Recherche Azure&#41;](index-add-language-analyzers.md). Vous pouvez également définir vos propres analyseurs personnalisés.  
 
  Un analyseur personnalisé vous permet de contrôler le processus de conversion du texte en jetons indexables et utilisables pour la recherche. Il s’agit d’une configuration définie par l’utilisateur constituée d’un seul générateur de jetons prédéfini, d’un ou plusieurs filtres de jetons et d’un ou plusieurs filtres de caractères. Le générateur de jetons est chargé de segmenter le texte en jetons tandis que les filtres de jeton modifient les jetons émis par le générateur de jetons. Les filtres de caractères sont appliqués pour préparer le texte en entrée avant son traitement par le générateur de jetons. Par exemple, le filtre de caractères peut remplacer certains caractères ou certains symboles.
 
@@ -50,22 +52,13 @@ Un *analyseur personnalisé* est une combinaison spécifiée par l’utilisateur
 
 -   Conversion ASCII. Ajoutez le filtre de conversion ASCII Standard pour normaliser les signes diacritiques, comme ö ou ê, dans les termes de recherche.  
 
- Vous pouvez définir plusieurs analyseurs personnalisés pour varier la combinaison de filtres, mais chaque champ ne peut utiliser qu’un analyseur pour l’analyse de l’indexation et qu’un analyseur pour l’analyse de la recherche.  
-
- Cette page contient la liste des analyseurs, des générateurs de jetons, des filtres de jetons et des filtres de caractères pris en charge. Vous trouverez également la description des modifications apportées à la définition d’index avec un exemple d’utilisation. Pour plus d’informations sur la technologie sous-jacente exploitée dans l’implémentation d’Azure Search, consultez l’article [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)(Résumé du package d’analyse [Lucene]). Pour obtenir des exemples de configurations d’analyseurs, consultez [Analyseurs dans Recherche Azure > Exemples](https://docs.microsoft.com/azure/search/search-analyzers#examples).
-
-
-## <a name="default-analyzer"></a>Analyseur par défaut  
-
-Par défaut, les champs utilisables pour la recherche dans Recherche Azure sont analysés avec [l’Analyseur Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html), qui décompose le texte en éléments d’après les règles de la [« Segmentation du texte Unicode »](https://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.  
-
- Il est automatiquement utilisé sur tous les champs interrogeables, sauf si vous le remplacez explicitement par un autre analyseur au sein de la définition du champ. Ces analyseurs alternatifs peuvent être un analyseur personnalisé ou un autre analyseur prédéfini figurant dans la liste des [analyseurs](#AnalyzerTable) disponibles ci-dessous.
+ Cette page contient la liste des analyseurs, des générateurs de jetons, des filtres de jetons et des filtres de caractères pris en charge. Vous trouverez également la description des modifications apportées à la définition d’index avec un exemple d’utilisation. Pour plus d’informations sur la technologie sous-jacente exploitée dans l’implémentation d’Azure Search, consultez l’article [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)(Résumé du package d’analyse [Lucene]). Pour obtenir des exemples de configurations d’analyseurs, consultez [Ajouter des analyseurs dans Recherche Azure](search-analyzers.md#examples).
 
 ## <a name="validation-rules"></a>Règles de validation  
  Les noms des analyseurs, des générateurs de jetons, des filtres de jetons et des filtres de caractères doivent être uniques, et ils ne peuvent pas être identiques à ceux des analyseurs, générateurs de jetons, filtres de jetons et filtres de caractères prédéfinis. Consultez les [Informations de référence sur les propriétés](#PropertyReference) pour les noms déjà utilisés.
 
-## <a name="create-a-custom-analyzer"></a>Créer un analyseur personnalisé
- Vous pouvez définir des analyseurs personnalisés au moment de la création d’index. La syntaxe de spécification d’un analyseur personnalisé est décrite dans cette section. Vous pouvez également vous familiariser avec la syntaxe en examinant les exemples de définitions dans [Analyseurs dans Recherche Azure](https://docs.microsoft.com/azure/search/search-analyzers#examples).  
+## <a name="create-custom-analyzers"></a>Créer des analyseurs personnalisés
+ Vous pouvez définir des analyseurs personnalisés au moment de la création d’index. La syntaxe de spécification d’un analyseur personnalisé est décrite dans cette section. Vous pouvez également vous familiariser avec la syntaxe en examinant les exemples de définitions dans [Ajouter des analyseurs dans Recherche Azure](search-analyzers.md#examples).  
 
  Une définition d’analyseur inclut un nom, un type, un ou plusieurs filtres de caractères, un générateur de jetons au maximum, et un ou plusieurs filtres de jetons pour le traitement venant après la segmentation du texte en unités lexicales. Les filtres de caractères sont appliqués avant la segmentation du texte en unités lexicales. Les filtres de jetons et les filtres de caractères sont appliqués de gauche à droite.
 
@@ -148,12 +141,13 @@ La définition de l’analyseur est une partie de l’index. Consultez [API de c
 Les définitions des filtres de caractères, des générateurs de jetons et des filtres de jetons sont ajoutées à l’index seulement si vous définissez des options personnalisées. Pour utiliser tel quel un filtre ou un générateur de jetons existant, spécifiez son nom dans la définition de l’analyseur.
 
 <a name="Testing custom analyzers"></a>
-## <a name="test-a-custom-analyzer"></a>Tester un analyseur personnalisé
+
+## <a name="test-custom-analyzers"></a>Tester des analyseurs personnalisés
 
 Vous pouvez utiliser l’**opération de test d’analyseur** dans l’[API REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) pour voir comment un analyseur décompose le texte donné en jetons.
 
 **Requête**
-~~~~
+```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
     api-key: [admin key]
@@ -162,9 +156,9 @@ Vous pouvez utiliser l’**opération de test d’analyseur** dans l’[API REST
      "analyzer":"my_analyzer",
      "text": "Vis-à-vis means Opposite"
   }
-~~~~
+```
 **Réponse**
-~~~~
+```
   {
     "tokens": [
       {
@@ -193,21 +187,21 @@ Vous pouvez utiliser l’**opération de test d’analyseur** dans l’[API REST
       }
     ]
   }
- ~~~~
+```
 
- ## <a name="update-a-custom-analyzer"></a>Mettre à jour un analyseur personnalisé
+ ## <a name="update-custom-analyzers"></a>Mettre à jour des analyseurs personnalisés
 
 Une fois qu’un analyseur, un générateur de jetons, un filtre de jetons ou un filtre de caractères est défini, il ne peut pas être modifié. D’autres peuvent être ajoutés à un index existant à condition que l’indicateur `allowIndexDowntime` soit défini comme true dans la demande de mise à jour de l’index :
 
-~~~~
+```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
-~~~~
+```
 
 Cette opération place votre index hors connexion pendant au moins quelques secondes, ce qui entraîne l’échec de vos demandes d’indexation et de requête. Les performances et la disponibilité en écriture de l’index peuvent être altérées pendant plusieurs minutes après la mise à jour de l’index, ou plus longtemps pour les très grands index. Ces effets sont cependant temporaires et finissent par se résoudre d’eux-mêmes.
 
  <a name="ReferenceIndexAttributes"></a>
 
-## <a name="index-attribute-reference"></a>Informations de référence sur les attributs d’index
+## <a name="analyzer-reference"></a>Référence d’analyseur
 
 Les tableaux ci-dessous listent les propriétés de configuration de la section des analyseurs, des générateurs de jetons, des filtres de jetons et des filtres de caractères d’une définition d’index. La structure d’un analyseur, d’un générateur de jetons ou d’un filtre dans votre index est composée de ces attributs. Pour plus d’informations sur l’affectation d’une valeur, consultez les [Informations de référence sur les propriétés](#PropertyReference).
 
@@ -390,5 +384,5 @@ Dans le tableau ci-dessous, les filtres de jetons qui sont implémentés avec Ap
 
 ## <a name="see-also"></a>Voir aussi  
  [API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/)   
- [Analyseurs dans Recherche Azure > Exemples](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
+ [Analyseurs dans Recherche Azure > Exemples](search-analyzers.md#examples)    
  [Créer un index &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

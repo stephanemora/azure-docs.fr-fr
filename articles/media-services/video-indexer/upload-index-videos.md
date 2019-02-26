@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998584"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414742"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -29,10 +29,10 @@ L’article montre comment utiliser l’API [Charger une vidéo](https://api-por
 Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder (opération décrite dans cet article). Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
 
 ## <a name="uploading-considerations"></a>Éléments à prendre en compte pour le chargement
-    
+
 - Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
-- La taille du chargement avec l’option URL est limitée à 10 Go
-- La taille du chargement avec l’option Tableau d'octets est limitée à 2 Go 
+- La taille du chargement avec l’option URL est limitée à 25 Go
+- La taille du chargement avec l’option Tableau d'octets est limitée à 2 Go
 - L’option Tableau d’octets expire après 30 minutes
 - L’URL fournie dans le paramètre `videoURL` doit être encodée
 

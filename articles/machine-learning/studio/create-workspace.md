@@ -1,5 +1,5 @@
 ---
-title: Créer un espace de travail
+title: Créer un espace de travail Machine Learning Studio
 titleSuffix: Azure Machine Learning Studio
 description: Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace de travail Machine Learning Studio. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
 services: machine-learning
@@ -10,24 +10,23 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 16c67c217c8ef33a360fd479a45317d6c42af494
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486315"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270093"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Créer et partager un espace de travail Azure Machine Learning Studio
 
 Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace de travail Machine Learning Studio. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
 
+## <a name="create-a-studio-workspace"></a>Créer un espace de travail Studio
 
-
-### <a name="to-create-a-workspace"></a>Pour créer un espace de travail
 1. Connectez-vous au [portail Azure](https://portal.azure.com/)
 
     > [!NOTE]
-    > Pour vous connecter et créer un espace de travail, vous devez être un administrateur d’abonnements Azure. 
+    > Pour vous connecter et créer un espace de travail Studio, vous devez être administrateur d'abonnements Azure. 
     >
     > 
 
@@ -40,9 +39,13 @@ Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace d
     - Le *Nom de l’espace de travail* peut contenir jusqu’à 260 caractères. Il ne doit pas se terminer par un espace. Le nom ne peut pas contenir ces caractères : `< > * % & : \ ? + /`
     - Le *plan de service web* que vous choisissez (ou créez), ainsi que le *niveau tarifaire* associé que vous sélectionnez, est utilisé si vous déployez des services web à partir de cet espace de travail.
 
-    ![Créer un espace de travail](./media/create-workspace/create-new-workspace.png)
+    ![Créer un espace de travail Studio](./media/create-workspace/create-new-workspace.png)
 
 5. Cliquez sur **Créer**.
+
+> [!NOTE]
+> Machine Learning Studio s'appuie sur un compte de stockage Azure fourni par vous pour enregistrer les données intermédiaires au moment de l'exécution du flux de travail. Une fois l'espace de travail créé, si le compte de stockage est supprimé ou si les clés d'accès sont modifiées, l'espace de travail cesse de fonctionner et toutes ses expériences échouent.
+Si vous supprimez accidentellement le compte de stockage, recréez-le avec le même nom dans la même région que celui que vous avez supprimé et resynchronisez la clé d'accès. Si vous avez modifié les clés d’accès du compte de stockage, resynchronisez-les dans l’espace de travail à l’aide du portail Azure.
 
 Une fois l’espace de travail déployé, vous pouvez l’ouvrir dans Machine Learning Studio.
 
@@ -56,12 +59,12 @@ Une fois l’espace de travail déployé, vous pouvez l’ouvrir dans Machine Le
 
     ![Ouvrir des expérimentations](./media/create-workspace/my-experiments.png)
 
-Pour plus d’informations sur la gestion de votre espace de travail, consultez [Gestion d’un espace de travail Azure Machine Learning](manage-workspace.md).
-Si vous rencontrez un problème lors de la création de votre espace de travail, consultez [Guide de résolution des problèmes : création et connexion à un espace de travail Machine Learning Studio](troubleshooting-creating-ml-workspace.md).
+Pour plus d'informations sur la gestion de votre espace de travail Studio, consultez [Gestion d'un espace de travail Azure Machine Learning Studio](manage-workspace.md).
+Si vous rencontrez un problème lors de la création de votre espace de travail, consultez [Guide de résolution des problèmes : Créer un espace de travail Machine Learning Studio et s'y connecter](troubleshooting-creating-ml-workspace.md).
 
 
-## <a name="sharing-an-azure-machine-learning-workspace"></a>Partage d’un espace de travail Azure Machine Learning
-Une fois l’espace de travail Machine Learning créé, vous pouvez y inviter les utilisateurs pour partager l’accès à votre espace de travail et à l’ensemble de ses expérimentations, jeux de données, bloc-notes, etc. Vous pouvez ajouter des utilisateurs dans l’un des deux rôles :
+## <a name="share-an-azure-machine-learning-studio-workspace"></a>Partager un espace de travail Azure Machine Learning Studio
+Une fois l'espace de travail Machine Learning Studio créé, vous pouvez inviter des utilisateurs à partager l'accès à celui-ci et à l'ensemble de ses expérimentations, jeux de données, bloc-notes, etc. Vous pouvez ajouter des utilisateurs dans l’un des deux rôles :
 
 * **Utilisateur** : un utilisateur de l’espace de travail peut créer, ouvrir, modifier et supprimer des expérimentations, jeux de données, etc. dans l’espace de travail.
 * **Propriétaire** : un propriétaire peut inviter et supprimer des utilisateurs dans l’espace de travail, ainsi que les actions qu’ils sont autorisés à effectuer.
@@ -71,7 +74,7 @@ Une fois l’espace de travail Machine Learning créé, vous pouvez y inviter le
 > 
 > 
 
-### <a name="to-share-a-workspace"></a>Pour partager un espace de travail
+### <a name="to-share-a-studio-workspace"></a>Pour partager un espace de travail Studio
 
 1. Connectez-vous à Machine Learning Studio à l’adresse [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 

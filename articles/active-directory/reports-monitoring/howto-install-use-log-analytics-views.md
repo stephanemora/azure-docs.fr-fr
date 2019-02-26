@@ -17,14 +17,14 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de2aa262dff54f2b8e535aa646e9a8cac7719567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7220fc6b239d20e9f1fc81e7d18b4d7ca6f0ded5
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165261"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453628"
 ---
-# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les vues Log Analytics pour Azure Active Directory
+# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les affichages Log Analytics pour Azure Active Directory
 
 Les vues Log Analytics pour Azure Active Directory facilitent la recherche et l’analyse des journaux d’activité Azure AD dans votre locataire Azure AD. Les journaux d’activité Azure AD sont les suivants :
 
@@ -33,7 +33,7 @@ Les vues Log Analytics pour Azure Active Directory facilitent la recherche et l�
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser les vues Log Analytics, vous devez préalablement :
+Pour utiliser les vues Log Analytics, vous avez besoin de :
 
 * Créer un espace de travail Log Analytics dans votre abonnement Azure. Découvrez comment [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Effectuer les étapes nécessaires pour [envoyer les journaux d’activité Azure AD dans votre espace de travail Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
@@ -41,13 +41,13 @@ Pour utiliser les vues Log Analytics, vous devez préalablement :
 
 ## <a name="install-the-log-analytics-views"></a>Installer les vues Log Analytics
 
-1. Accédez à votre espace de travail Log Analytics. Pour cela, accédez d’abord au [portail Azure](https://portal.azure.com) et sélectionnez **Tous les services**. Entrez **Log Analytics** dans la zone de texte, puis sélectionnez **Log Analytics**. Sélectionnez l’espace de travail vers lequel vous avez envoyé les journaux d’activité (voir les prérequis).
+1. Accédez à votre espace de travail Log Analytics. Pour cela, accédez d’abord au [portail Azure](https://portal.azure.com) et sélectionnez **Tous les services**. Entrez **Log Analytics** dans la zone de texte, puis sélectionnez **Espaces de travail Log Analytics**. Sélectionnez l’espace de travail vers lequel vous avez envoyé les journaux d’activité (voir les prérequis).
 2. Sélectionnez **Concepteur de vues**, sélectionnez **Importer**, puis sélectionnez **Choisir un fichier** pour importer les vues à partir de votre ordinateur local.
 3. Sélectionnez les vues que vous avez téléchargées (voir les prérequis) et sélectionnez **Enregistrer** pour enregistrer les vues importées. Effectuez cette opération pour la vue **Événements de provisionnement de compte Azure AD** et la vue **Événements de connexion**.
 
 ## <a name="use-the-views"></a>Utiliser les vues
 
-1. Accédez à votre espace de travail Log Analytics. Pour cela, accédez d’abord au [portail Azure](https://portal.azure.com) et sélectionnez **Tous les services**. Entrez **Log Analytics** dans la zone de texte, puis sélectionnez **Log Analytics**. Sélectionnez l’espace de travail vers lequel vous avez envoyé les journaux d’activité (voir les prérequis).
+1. Accédez à votre espace de travail Log Analytics. Pour cela, accédez d’abord au [portail Azure](https://portal.azure.com) et sélectionnez **Tous les services**. Entrez **Log Analytics** dans la zone de texte, puis sélectionnez **Espaces de travail Log Analytics**. Sélectionnez l’espace de travail vers lequel vous avez envoyé les journaux d’activité (voir les prérequis).
 
 2. Quand vous êtes dans l’espace de travail, sélectionnez **Récapitulatif de l’espace de travail**. Vous devez normalement avoir les trois vues suivantes :
 
@@ -73,5 +73,5 @@ Pour utiliser les vues Log Analytics, vous devez préalablement :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Guide pratique pour analyser les journaux d’activité dans Log Analytics](howto-analyze-activity-logs-log-analytics.md)
-* [Bien démarrer avec Log Analytics dans le portail Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Comment analyser les journaux d’activité avec les journaux Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
+* [Prise en main des journaux Azure Monitor sur le Portail Microsoft Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

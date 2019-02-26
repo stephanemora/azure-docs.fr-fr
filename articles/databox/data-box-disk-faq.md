@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 68bc3302874849a69249a50dcecd46024ad939ef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 007c63c163b6e972bd59189569c92c99d2718cbe
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448327"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301483"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Qu’est-ce qu’Azure Data Box Disk ?
 
@@ -131,6 +131,9 @@ R. L’ensemble d’outils Data Box Disk contient trois outils :
 L’ensemble d’outils est disponible pour Windows et Linux. Vous pouvez télécharger l’ensemble d’outils ici :
  - [Télécharger l’ensemble d’outils Data Box Disk pour Windows](https://aka.ms/databoxdisktoolswin) 
  - [Télécharger l’ensemble d’outils Data Box Disk pour Linux](https://aka.ms/databoxdisktoolslinux)
+ 
+ ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Puis-je utiliser Data Box Disk pour transférer des données vers Azure Files, puis utiliser les données avec Azure File Sync ? 
+ R. Azure Files n’est pas pris en charge avec Data Box Disk. Les métadonnées ne sont pas non plus conservées si les données des fichiers sont ensuite utilisées avec Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Vérification et chargement

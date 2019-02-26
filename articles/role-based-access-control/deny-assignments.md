@@ -1,6 +1,6 @@
 ---
-title: Comprendre les attributions de refus dans le RBAC Azure | Microsoft Docs
-description: En savoir plus sur les attributions de refus dans le contrôle d’accès en fonction du rôle (RBAC) pour les ressources dans Azure.
+title: Comprendre les affectations de refus relatives aux ressources Azure | Microsoft Docs
+description: Familiarisez-vous avec les affectations de refus du contrôle d'accès en fonction du rôle (RBAC) pour les ressources Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fa1a979c01999bd79c45d24e4c7771edaf346dd8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632413"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339122"
 ---
-# <a name="understand-deny-assignments"></a>Comprendre les attributions de refus
+# <a name="understand-deny-assignments-for-azure-resources"></a>Comprendre les affectations de refus relatives aux ressources Azure
 
-À l’instar d’une attribution de rôle, une *affectation de refus* associe un ensemble d’actions de refus à un utilisateur, un groupe ou un principal de service, sur une étendue spécifique, afin de refuser l’accès. Les affectations de refus empêchent les utilisateurs d’effectuer des actions particulières, même si une attribution de rôle leur accorde l’accès. Dans Azure, certains fournisseurs de ressources incluent désormais des affectations de refus. Actuellement, les affectations de refus sont **en lecture seule** et peuvent être définies uniquement par Azure.
+À l’instar d’une attribution de rôle, une *affectation de refus* associe un ensemble d’actions de refus à un utilisateur, un groupe ou un principal de service, sur une étendue spécifique, afin de refuser l’accès. Les affectations de refus empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Dans Azure, certains fournisseurs de ressources incluent désormais des affectations de refus. Actuellement, les affectations de refus sont **en lecture seule** et ne peuvent être définies que par Microsoft.
 
 À certains égards, les affectations de refus sont différentes des attributions de rôles. Les affectations de refus peuvent exclure des principaux et empêcher la transmission à des étendues enfant. Les affectations de refus s’appliquent également aux affectations d’[administrateurs d’abonnements classiques](rbac-and-directory-admin-roles.md).
 
@@ -35,9 +35,9 @@ Cet article explique comment définir des attributions de refus.
  Une attribution de refus possède les propriétés suivantes :
 
 > [!div class="mx-tableFixed"]
-> | Propriété | Obligatoire | type | Description |
+> | Propriété | Obligatoire | Type | Description |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Oui | Chaîne | Nom d'affichage de l’attribution de refus. Les noms doivent être uniques pour une étendue donnée. |
+> | `DenyAssignmentName` | OUI | Chaîne | Nom d'affichage de l’attribution de refus. Les noms doivent être uniques pour une étendue donnée. |
 > | `Description` | Non  | Chaîne | Description de l’attribution de refus. |
 > | `Permissions.Actions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les opérations de gestion auxquelles l’attribution de refus bloque l’accès. |
 > | `Permissions.NotActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de gestion à exclure de l’attribution de refus. |
@@ -45,7 +45,7 @@ Cet article explique comment définir des attributions de refus.
 > | `Permissions.NotDataActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de données à exclure de l’attribution de refus. |
 > | `Scope` | Non  | Chaîne | Chaîne qui spécifie l’étendue à laquelle l’attribution de refus s’applique. |
 > | `DoNotApplyToChildScopes` | Non  | Booléen | Spécifie si l’attribution de refus s’applique aux étendues enfants. La valeur par défaut est false. |
-> | `Principals[i].Id` | Oui | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels s’applique l’affectation de refus. Définie sur un GUID vide `00000000-0000-0000-0000-000000000000` pour représenter tous les principaux. |
+> | `Principals[i].Id` | OUI | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels s’applique l’affectation de refus. Définie sur un GUID vide `00000000-0000-0000-0000-000000000000` pour représenter tous les principaux. |
 > | `Principals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par Principals[i].Id. Définie sur `SystemDefined` pour représenter tous les principaux. |
 > | `ExcludePrincipals[i].Id` | Non  | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels l’attribution de refus ne s’applique pas. |
 > | `ExcludePrincipals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par ExcludePrincipals[i].Id. |
@@ -60,5 +60,5 @@ Le **principal défini par le système** a été introduit pour prendre en charg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Répertorier les attributions de refus à l’aide de RBAC et de l’API REST](deny-assignments-rest.md)
-* [Comprendre les définitions de rôles](role-definitions.md)
+* [Dresser la liste des affectations de refus relatives aux ressources Azure à l'aide de l'API REST](deny-assignments-rest.md)
+* [Comprendre les définitions de rôle relatives aux ressources Azure](role-definitions.md)

@@ -1,6 +1,6 @@
 ---
-title: Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle et de l’API REST - Azure | Microsoft Docs
-description: Découvrez comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d'accès en fonction du rôle (RBAC) et de l’API REST. Apprenez notamment à lister, à accorder et à supprimer des accès.
+title: Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST - Azure | Microsoft Docs
+description: Apprenez à gérer la façon dont les utilisateurs, les groupes et les applications accèdent aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST. Apprenez notamment à lister, à accorder et à supprimer des accès.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 859a410a4ff9204e8e52fbd2cc3b38823f4bb830
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435216"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338408"
 ---
-# <a name="manage-access-using-rbac-and-the-rest-api"></a>Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle et de l’API REST
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST
 
-Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) est la façon dont vous gérez l’accès aux ressources dans Azure. Cet article décrit comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et de l’API REST.
+Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l'accès aux ressources Azure. Cet article décrit comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et de l’API REST.
 
 ## <a name="list-access"></a>Répertorier les accès
 
-Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attributions de rôles pour énumérer les accès. Pour répertorier les attributions de rôles, utilisez l’une des API REST de la [liste d’attributions de rôles](/rest/api/authorization/roleassignments/list). Pour affiner vos résultats, vous spécifiez une étendue et un filtre facultatif. Pour appeler cette API, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` dans l’étendue spécifiée. Plusieurs [rôles intégrés](built-in-roles.md) se voient accorder l’accès à cette opération.
+Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attributions de rôles pour énumérer les accès. Pour répertorier les attributions de rôles, utilisez l’une des API REST de la [liste d’attributions de rôles](/rest/api/authorization/roleassignments/list). Pour affiner vos résultats, vous spécifiez une étendue et un filtre facultatif. Pour appeler cette API, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` dans l’étendue spécifiée. Différents [rôles intégrés en lien avec les ressources Azure](built-in-roles.md) bénéficient d'un accès à cette opération.
 
 1. Commencez par la requête suivante :
 
@@ -38,7 +38,7 @@ Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attribu
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les attributions de rôle.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -77,7 +77,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
     
 1. Dans l’URI, remplacez *{scope}* par l’étendue de l’attribution de rôle.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -105,7 +105,7 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue de suppression de l’attribution de rôle.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -117,4 +117,4 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 - [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Référence de l'API REST Azure](/rest/api/azure/)
-- [Créer des rôles personnalisés avec l’API REST](custom-roles-rest.md)
+- [Créer des rôles personnalisés pour les ressources Azure à l'aide de l'API REST](custom-roles-rest.md)

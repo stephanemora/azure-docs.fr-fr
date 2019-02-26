@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4195016bb029d2cf8f5042a853fa591609bd486e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447205"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428531"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 Azure Cloud Shell est un shell interactif, accessible par navigateur pour la gestion des ressources Azure.
@@ -53,7 +53,7 @@ Service managé par Microsoft, Cloud Shell est livré avec des outils en ligne d
 Consultez la [liste complète des outils installés dans Cloud Shell](features.md#tools).
 
 ### <a name="integrated-cloud-shell-editor"></a>Éditeur Cloud Shell intégré
-Cloud Shell propose un éditeur de texte graphique intégré s’appuyant sur l’éditeur open source Monaco. Créez et modifiez des fichiers de configuration facilement en exécutant `code .` pour un déploiement fluide via Azure CLI 2.0 ou Azure PowerShell.
+Cloud Shell propose un éditeur de texte graphique intégré s’appuyant sur l’éditeur open source Monaco. Créez et modifiez facilement des fichiers de configuration en exécutant `code .` pour un déploiement fluide via Azure CLI ou Azure PowerShell.
 
 [En savoir plus sur l’éditeur Cloud Shell](using-cloud-shell-editor.md).
 
@@ -68,7 +68,7 @@ Cloud Shell est un outil flexible qui s’utilise à partir de :
 * [Documentation d’Azure CLI](https://docs.microsoft.com/cli/azure)
 * [Documentation d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Application mobile Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [Extension de compte Azure VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Extension Azure Account pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Connecter votre stockage Microsoft Azure Files
 Les machines Cloud Shell, temporaires, ont besoin qu’un partage Azure Files (nouveau ou existant) soit monté en tant que `clouddrive` pour pouvoir conserver les fichiers.

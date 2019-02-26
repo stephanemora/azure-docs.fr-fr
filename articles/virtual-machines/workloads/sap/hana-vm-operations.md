@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c85d405502890253bcdb80c652ed53f58546de9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747048"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328841"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -68,10 +68,10 @@ Déployez les machines virtuelles sur Azure en utilisant :
 Vous pouvez également déployer une plateforme SAP HANA installée et complète sur les services de machine virtuelle Azure par le biais de la [plateforme cloud SAP](https://cal.sap.com/). Le processus d’installation est décrit dans [Déploiement de SAP S/4HANA ou BW/4HANA sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) ou avec le processus d’automatisation publié [ici](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### <a name="choose-azure-storage-type"></a>Choisir le type de stockage Azure
-Azure fournit deux types de stockage adaptés aux machines virtuelles Azure exécutant SAP HANA :
+Azure fournit deux types de stockage adaptés aux machines virtuelles Azure exécutant SAP HANA : Disques durs standard et disques SSD (Solid State Drive) premium. Pour en savoir plus sur ces types de disques, consultez notre article [Sélectionner un type de disque](../../windows/disks-types.md)
 
-- [Stockage Standard Azure](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Stockage Premium Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Disques durs standard
+- Disques SSD Premium (Solid State Drive)
 
 Azure offre deux méthodes de déploiement avec les disques durs virtuels sur le stockage Azure Standard et Premium. Si le scénario global le permet, tirez parti des déploiements [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/).
 
@@ -408,7 +408,7 @@ Conformément au guide des bonnes pratiques pour DT 2.0, le débit d’E/S des d
 
 Il est obligatoire d’attacher plusieurs disques Azure à la machine virtuelle DT 2.0 et de créer un RAID logiciel (agrégation) sur le niveau du système d’exploitation pour atteindre la limite maximale de débit des disques par machine virtuelle. Un seul disque Azure ne peut pas fournir le débit nécessaire pour atteindre la limite maximale de la machine virtuelle à cet égard. Un stockage Premium Azure est obligatoire pour exécuter DT 2.0. 
 
-- Vous pouvez trouver plus d’informations sur les types de disque Azure disponibles [ici](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Vous pouvez trouver plus d’informations sur les types de disque Azure disponibles [ici](../../windows/disks-types.md)
 - Vous pouvez trouver des informations sur la création d’un RAID logiciel via mdadm [ici](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - Vous pouvez trouver des informations sur la configuration de LVM pour créer un volume agrégé par bandes de façon à obtenir un débit maximal [ici](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 

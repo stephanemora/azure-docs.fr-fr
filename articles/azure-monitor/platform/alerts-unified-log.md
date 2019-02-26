@@ -5,23 +5,24 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 2/20/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106401"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452880"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
-Cet article fournit des informations sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les [Alertes Azure](../platform/alerts-overview.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes.
 
-Une alerte de journal comprend des règles de requête de journal pour [Azure Monitor](../learn/tutorial-viewdata.md) ou [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Pour en savoir plus sur son utilisation, voir [Création d’alertes de journal dans Azure](../platform/alerts-log.md)
+Cet article fournit des informations sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les [Alertes Azure](../../azure-monitor/platform/alerts-overview.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes.
+
+Une alerte de journal consiste en des règles de recherche pour les [journaux Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Pour en savoir plus sur son utilisation, voir [Création d’alertes de journal dans Azure](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
-> Les données de journal populaires d’[Azure Monitor](../learn/tutorial-viewdata.md) sont désormais également disponibles sur la plateforme de métrique dans Azure Monitor. Pour en savoir plus, voir [Alerte de métrique pour les journaux](../platform/alerts-metric-logs.md)
+> Les données de journal populaires des [journaux Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) sont désormais également disponibles sur la plateforme de métrique dans Azure Monitor. Pour en savoir plus, voir [Alerte de métrique pour les journaux](../../azure-monitor/platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Règle d’alerte de recherche dans les journaux - Définition et types
@@ -30,10 +31,11 @@ Des règles de recherche dans les journaux sont créées par Alertes Azure pour 
 
 Les règles de recherche dans les journaux sont définies par les détails suivants :
 
-- **Requête de journal**.  La requête qui s’exécute chaque fois que la règle d’alerte est déclenchée.  Les enregistrements retournés par cette requête permettent de déterminer si une alerte doit être déclenchée. Une requête d’analytique peut concerner un espace de travail Log Analytics ou une application Application Insights spécifique et même porter sur [plusieurs ressources Log Analytics et Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sous réserve que l’utilisateur dispose de droits d’accès aux applications externes. Certaines combinaisons et commandes d’analytique ne peuvent pas être utilisées dans des alertes de journal ; pour plus de détails, consultez [Requêtes d’alertes de journal dans Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
-
+- **Requête de journal**.  La requête qui s’exécute chaque fois que la règle d’alerte est déclenchée.  Les enregistrements retournés par cette requête permettent de déterminer si une alerte doit être déclenchée. Une requête d’analytique peut concerner un espace de travail Log Analytics ou une application Application Insights spécifique et même porter sur [plusieurs ressources Log Analytics et Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sous réserve que l’utilisateur dispose de droits d’accès et de requête à toutes les ressources. 
     > [!IMPORTANT]
-    > Pour des raisons de sécurité, les alertes de journal **ne prennent pas en charge** l’utilisation de [fonctions](../log-query/functions.md). De plus, l’utilisateur doit spécifier la requête d’analytique complète et avoir des droits d’accès et d’exécution complets pour pouvoir créer une règle d’alerte de journal avec cette requête.
+    > Pour des raisons de sécurité, les alertes de journal **ne prennent pas en charge** l’utilisation de [fonctions](../log-query/functions.md). En outre, la [requête inter-ressources](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) prend en charge les alertes de journal pour Application Insights et les alertes de journal pour [Log Analytics configurées à l’aide d’API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md) uniquement.
+
+    Certaines combinaisons et commandes d’analytique ne peuvent pas être utilisées dans des alertes de journal ; pour plus de détails, consultez [Requêtes d’alertes de journal dans Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
 
 - **Période**  Spécifie l’intervalle de temps pour la requête. La requête retourne uniquement les enregistrements qui ont été créés dans cette plage précédant son exécution. La période limite les données extraites pour la requête de journal afin d’empêcher les abus, et contourne toute commande de temps (comme « il y a ») utilisée dans une requête de journal. <br>*Par exemple, si la période est définie sur 60 minutes et la requête exécutée à 13 h 15, seuls les enregistrements créés entre 12 h 15 et 13 h 15 sont retournés pour l’exécution de la requête de journal. Maintenant, si la requête de journal utilise une commande de temps telle que « il y a » (7d), la requête de journal est exécutée uniquement pour les données collectées entre 12 h 15 et 13 h 15, comme si celles-ci n’avaient existé que pendant les 60 minutes passées, et non pendant les sept jours de données spécifiés dans la requête de journal.*
 
@@ -41,7 +43,7 @@ Les règles de recherche dans les journaux sont définies par les détails suiva
 
 - **Seuil**.  Les résultats de la recherche dans les journaux sont évalués pour déterminer si une alerte doit être créée.  Le seuil diffère selon le type de règle d’alerte de recherche dans les journaux.
 
-Les règles de requête de journal, qu’il s’agisse d’[Azure Monitor](../learn/tutorial-viewdata.md) ou d’[Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), peuvent être de deux types. Chacun de ces types est décrit en détail dans les sections suivantes.
+Les règles de recherche dans les journaux, qu’il s’agisse de [journaux Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) ou d’[Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), peuvent être de deux types. Chacun de ces types est décrit en détail dans les sections suivantes.
 
 - **[Nombre de résultats](#number-of-results-alert-rules)**. Alerte unique créée lorsque le nombre d’enregistrements renvoyés par la recherche dans les journaux dépasse un nombre spécifié.
 - **[Mesure métrique](#metric-measurement-alert-rules)**.  Alerte créée pour chaque objet des résultats de la recherche dans les journaux dont les valeurs dépassent le seuil spécifié.
@@ -78,10 +80,10 @@ Les règles d’alerte **Mesure métrique** créent une alerte pour chaque objet
 
 - **Fonction d’agrégation** : Détermine le calcul à effectuer et, éventuellement, un champ numérique à agréger.  Par exemple, **count()** renvoie le nombre d’enregistrements dans la requête, et **avg(CounterValue)** renvoie la moyenne du champ CounterValue sur l’intervalle. La fonction d’agrégation dans une requête doit être nommée/appelée : AggregatedValue et fournir une valeur numérique. 
 
-- **Champ de groupe** : Un enregistrement avec une valeur agrégée est créé pour chaque instance de ce champ, et une alerte peut être générée pour chacun.  Par exemple, si vous souhaitez générer une alerte pour chaque ordinateur, vous pourriez utiliser **by Computer**. Dans le cas où plusieurs champs de groupe sont spécifiés dans une requête d’alerte, l’utilisateur peut spécifier le champ à utiliser pour trier les résultats à l’aide du paramètre **Agréger sur** (metricColumn).
+- **Champ de groupe** : Un enregistrement avec une valeur agrégée est créé pour chaque instance de ce champ, et une alerte peut être générée pour chacun.  Par exemple, si vous souhaitez générer une alerte pour chaque ordinateur, vous pourriez utiliser **by Computer**. Dans le cas où plusieurs champs de groupe sont spécifiés dans une requête d’alerte, l’utilisateur peut spécifier le champ à utiliser pour trier les résultats à l’aide du paramètre **Agréger sur** (metricColumn)
 
     > [!NOTE]
-    > L’option *Agréger sur* (metricColumn) est disponible uniquement pour les alertes de journal de type Mesure de métriques pour Application Insights et pour les alertes de journal pour [Log Analytics configurées à l’aide d’API scheduledQueryRules](alerts-log-api-switch.md).
+    > L’option *Agréger sur* (metricColumn) est disponible uniquement pour les alertes de journal de type Mesure de métriques pour Application Insights et pour les alertes de journal pour [Log Analytics configurées à l’aide d’API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md).
 
 - **Intervalle** :  Définit l’intervalle de temps pendant lequel les données sont agrégées.  Par exemple, si vous avez spécifié **5 minutes**, un enregistrement est créé pour chaque instance du champ de groupe agrégé à intervalles de 5 minutes sur la période spécifiée pour l’alerte.
 
@@ -120,7 +122,8 @@ Si le résultat de la requête devait être tracé, il se présenterait comme su
 
 ![Résultats de l’exemple de requête](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-Dans cet exemple, nous voyons, par période de 5 minutes pour chacun des trois ordinateurs - utilisation moyenne du processeur telle que calculée pour 5 minutes. Seuil de 90 violé par srv01 une seule fois à 1:25. En comparaison, srv02 dépasse le seuil de 90 à 1:10, 1:15 et 1:25, alors que srv03 le dépasse de 90 à 1:10, 1:15, 1:20 et 1:30. L'alerte étant configurée pour se déclencher au-delà de deux violations, nous constatons que seuls srv02 et srv03 répondent aux critères. Ainsi, des alertes distinctes seraient créées pour srv02 et srv03 dans la mesure où le seuil de 90 % a été dépassé deux fois au cours de plusieurs périodes.  Si le paramètre *Déclencher l'alerte selon :* était configuré pour l'option *Violations continues*, une alerte serait déclenchée **uniquement** pour srv03, car il a dépassé le seuil lors de trois périodes consécutives entre 1:10 et 1:20. Et **non** pour srv02, car il a dépassé le seuil lors de deux périodes entre 1:10 et 1:15.
+Dans cet exemple, nous voyons, par période de 5 minutes pour chacun des trois ordinateurs - utilisation moyenne du processeur telle que calculée pour 5 minutes. Seuil de 90 violé par srv01 une seule fois à 1:25. En comparaison, srv02 dépasse le seuil de 90 à 1:10, 1:15 et 1:25, alors que srv03 le dépasse de 90 à 1:10, 1:15, 1:20 et 1:30.
+L'alerte étant configurée pour se déclencher au-delà de deux violations, nous constatons que seuls srv02 et srv03 répondent aux critères. Ainsi, des alertes distinctes seraient créées pour srv02 et srv03 dans la mesure où le seuil de 90 % a été dépassé deux fois au cours de plusieurs périodes.  Si le paramètre *Déclencher l’alerte selon :* était configuré pour l’option *Violations continues*, une alerte serait déclenchée **uniquement** pour srv03, car il a dépassé le seuil lors de trois périodes consécutives entre 1:10 et 1:20. Et **non** pour srv02, car il a dépassé le seuil lors de deux périodes entre 1:10 et 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Règle d’alerte Recherche dans les journaux - déclenchement et état
 
@@ -128,11 +131,11 @@ La règle d’alerte Recherche dans les journaux s’applique sur la logique ind
 
 Imaginons maintenant que nous disposions d’une règle d’alerte de journal appelée *Contoso-Log-Alert*, conformément à la configuration utilisée dans l’[exemple fourni pour l’alerte de journal de type Nombre de résultats](#example-of-number-of-records-type-log-alert). 
 - À 13 h 05, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a généré 0 enregistrement. Ce résultat est inférieur au seuil et ne déclenche donc pas d’alerte. 
-- Lors de l’itération suivante, à 13 h10, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 5 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](../platform/action-groups.md) associé. 
-- À 13 h15, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 2 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](../platform/action-groups.md) associé.
+- Lors de l’itération suivante, à 13 h10, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 5 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](../../azure-monitor/platform/action-groups.md) associé. 
+- À 13 h15, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 2 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](../../azure-monitor/platform/action-groups.md) associé.
 - À 13 h 20, lorsque Contoso-Log-Alert a été exécutée par l’alerte Azure, le résultat de la recherche dans les journaux a généré à nouveau 0 enregistrement. Ce résultat est inférieur au seuil et ne déclenche donc pas d’alerte.
 
-Mais dans ce scénario, à 13 h 15, les alertes Azure ne peuvent pas déterminer si les problèmes sous-jacents observés à 13 h 10 persistent et qu’il n’y a pas de nouvelles pannes. Comme la requête fournie par l’utilisateur est susceptible de prendre en compte des enregistrements antérieurs, les alertes Azure ne sont pas fiables. Pour plus de prudence, Contoso-Log-Alert se déclenche à nouveau à 13 h 15 par le biais du [groupe d’actions](../platform/action-groups.md) configuré. Enfin, à 13 h 20, lorsque aucun enregistrement n’est visible, les alertes Azure ne peuvent pas avoir l’assurance que la cause des enregistrements a été résolue. Par conséquent, Contoso-Log-Alert ne va pas passer à l’état Résolu dans le tableau de bord Azure Alert et/ou les notifications envoyées indiquant la résolution de l’alerte.
+Mais dans ce scénario, à 13 h 15, les alertes Azure ne peuvent pas déterminer si les problèmes sous-jacents observés à 13 h 10 persistent et qu’il n’y a pas de nouvelles pannes. Comme la requête fournie par l’utilisateur est susceptible de prendre en compte des enregistrements antérieurs, les alertes Azure ne sont pas fiables. Pour plus de prudence, Contoso-Log-Alert se déclenche à nouveau à 13 h 15 par le biais du [groupe d’actions](../../azure-monitor/platform/action-groups.md) configuré. Enfin, à 13 h 20, lorsque aucun enregistrement n’est visible, les alertes Azure ne peuvent pas avoir l’assurance que la cause des enregistrements a été résolue. Par conséquent, Contoso-Log-Alert ne va pas passer à l’état Résolu dans le tableau de bord Azure Alert et/ou les notifications envoyées indiquant la résolution de l’alerte.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Tarification et facturation des alertes de journal
@@ -140,15 +143,22 @@ Mais dans ce scénario, à 13 h 15, les alertes Azure ne peuvent pas détermin
 La tarification applicable aux alertes de journal est présentée à la page [Tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Dans les factures d’Azure, les Alertes de journal sont représentées comme étant de type `microsoft.insights/scheduledqueryrules` avec :
 
 - Alertes de journal sur Application Insights, affichées avec le nom exact de l’alerte, ainsi que le groupe de ressources et les propriétés de l’alerte
-- Alertes de journal sur Log Analytics, affichées avec le nom exact de l’alerte ainsi que le groupe de ressources et les propriétés de l’alerte (création avec l’[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)) 
-- Alertes de journal sur Log Analytics, affichées avec le nom de l’alerte sous la forme `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` ainsi que le groupe de ressources et les propriétés de l’alerte, si la création a été effectuée avec l’[API Log Analytics héritée](api-alerts.md) ou par le biais du portail Azure **sans** recours volontaire à la nouvelle API
+- Alertes de journal sur Log Analytics, affichées avec le nom exact de l’alerte ainsi que le groupe de ressources et les propriétés de l’alerte (création avec l’[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules))
 
-    > [!NOTE]
-    > Si des caractères non valides tels que `<, >, %, &, \, ?, /` sont présents, ils sont remplacés par `_` sur la facture. Pour supprimer les ressources scheduleQueryRules créées pour la facturation des règles d’alerte à l’aide de l’[API Log Analytics héritée](api-alerts.md), l’utilisateur doit supprimer la planification et l’action d’alerte d’origine avec l’[API Log Analytics héritée](api-alerts.md).
+L’[API Log Analytics héritée](../../azure-monitor/platform/api-alerts.md) présente des actions d’alerte et des planifications dans le cadre de la recherche enregistrée Log Analytics, et non des [ressources Azure](../../azure-resource-manager/resource-group-overview.md) propres. Par conséquent, pour activer la facturation pour de telles alertes de journal héritées créées pour Log Analytics à l’aide du portail Microsoft Azure **sans** [basculer vers la nouvelle API](../../azure-monitor/platform/alerts-log-api-switch.md) ou via l’[API Log Analytics héritée](../../azure-monitor/platform/api-alerts.md), des pseudo règles d’alerte masquées sont créées sur `microsoft.insights/scheduledqueryrules` pour la facturation sur Azure. Les pseudo règles d’alerte masquées créées pour la facturation sur `microsoft.insights/scheduledqueryrules` comme indiqué en tant que `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`, de pair avec les propriétés de groupe de ressources et d’alerte.
+
+> [!NOTE]
+> Si des caractères non valides tels que `<, >, %, &, \, ?, /` sont présents, ils seront remplacés par `_` dans le nom de la pseudo règle d’alerte masquée et par conséquent, également dans la facture Azure.
+
+Pour supprimer les ressources scheduleQueryRules masquées créées pour la facturation des règles d’alerte à l’aide de l’[API Log Analytics héritée](api-alerts.md), l’utilisateur peut effectuer l’une des opérations suivantes :
+
+- N’importe quel utilisateur peut [changer la préférence d’API pour les règles d’alerte sur l’espace de travail Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) et sans perte de ses règles d’alerte ou déplacement de surveillance vers l’API [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) conforme à Azure Resource Manager. Ainsi, vous n’avez plus besoin de créer des pseudo règles d’alerte masquées pour la facturation.
+- Ou si l’utilisateur ne souhaite pas changer de préférence d’API, l’utilisateur devra **supprimer** la planification d’origine et l’action d’alerte au moyen de l’[API Log Analytics héritée](api-alerts.md) ou supprimer dans le [portail Microsoft Azure la règle d’alerte de journal d’origine](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur la [création d’alertes de journal dans Azure](../platform/alerts-log.md).
+
+* En savoir plus sur la [création d’alertes de journal dans Azure](../../azure-monitor/platform/alerts-log.md).
 * Comprendre les [webhooks dans les alertes de journal dans Azure](alerts-log-webhook.md).
-* En savoir plus sur [Alertes Azure](../platform/alerts-overview.md).
-* En savoir plus sur [Application Insights](../app/analytics.md).
-* En savoir plus sur les [requêtes dans les journaux Azure Monitor](../log-query/log-query-overview.md).    
+* En savoir plus sur [Alertes Azure](../../azure-monitor/platform/alerts-overview.md).
+* En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md).
+* En savoir plus sur [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

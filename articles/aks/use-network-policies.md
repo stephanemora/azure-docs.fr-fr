@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232172"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447172"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
@@ -27,21 +27,7 @@ Cet article vous montre comment utiliser des stratégies réseau pour contrôler
 
 Azure CLI 2.0.56 (ou version ultérieure) doit être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
-## <a name="overview-of-network-policy"></a>Présentation de la stratégie réseau
-
-Par défaut, tous les pods d’un cluster AKS peuvent envoyer et recevoir du trafic sans aucune limite. Pour améliorer la sécurité, vous pouvez définir des règles qui contrôlent le flux du trafic. Par exemple, les applications backend ne sont souvent exposées qu’aux services frontend nécessaires, et les composants de base de données ne sont accessibles qu’aux couches d’application qui s’y connectent.
-
-Les stratégies réseau sont des ressources Kubernetes qui vous permettent de contrôler le flux du trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. Les stratégies réseau sont définies en tant que manifestes YAML et peuvent être intégrées à un manifeste plus vaste qui crée également un déploiement ou un service.
-
-Pour voir des stratégies réseau en action, nous allons créer, puis développer une stratégie qui définit le flux de trafic comme suit :
-
-* Refuser tout trafic sur un pod.
-* Autoriser le trafic en fonction des étiquettes de pod.
-* Autoriser le trafic en fonction de l’espace de noms.
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Créer un cluster AKS et activer la stratégie réseau
-
-La stratégie réseau n’est activable qu’une fois le cluster créé. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. Pour créer un AKS avec une stratégie réseau, activez tout d’abord un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *EnableNetworkPolicy*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+Pour créer un AKS avec une stratégie réseau, activez tout d’abord un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *EnableNetworkPolicy*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressource
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Pour utiliser la stratégie réseau avec un cluster AKS, vous devez utiliser le [plug-in Azure CNI][azure-cni] et définir vos propre réseau et sous-réseaux virtuels. Pour de plus amples informations sur la façon de planifier les plages de sous-réseau nécessaires, consultez [Configurer le réseau avancé][use-advanced-networking]. L’exemple de script suivant :
+## <a name="overview-of-network-policy"></a>Présentation de la stratégie réseau
+
+Par défaut, tous les pods d’un cluster AKS peuvent envoyer et recevoir du trafic sans aucune limite. Pour améliorer la sécurité, vous pouvez définir des règles qui contrôlent le flux du trafic. Par exemple, les applications backend ne sont souvent exposées qu’aux services frontend nécessaires, et les composants de base de données ne sont accessibles qu’aux couches d’application qui s’y connectent.
+
+Les stratégies réseau sont des ressources Kubernetes qui vous permettent de contrôler le flux du trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. Les stratégies réseau sont définies en tant que manifestes YAML et peuvent être intégrées à un manifeste plus vaste qui crée également un déploiement ou un service.
+
+Pour voir des stratégies réseau en action, nous allons créer, puis développer une stratégie qui définit le flux de trafic comme suit :
+
+* Refuser tout trafic sur un pod.
+* Autoriser le trafic en fonction des étiquettes de pod.
+* Autoriser le trafic en fonction de l’espace de noms.
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Créer un cluster AKS et activer la stratégie réseau
+
+La stratégie réseau n’est activable qu’une fois le cluster créé. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. 
+
+Pour utiliser la stratégie réseau avec un cluster AKS, vous devez utiliser le [plug-in Azure CNI][azure-cni] et définir vos propre réseau et sous-réseaux virtuels. Pour de plus amples informations sur la façon de planifier les plages de sous-réseau nécessaires, consultez [Configurer le réseau avancé][use-advanced-networking].
+
+L’exemple de script suivant :
 
 * Crée un réseau virtuel et un sous-réseau.
 * Crée un principal du service Azure Active Directory (AD) pour une utilisation avec le cluster AKS.
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID <<< $(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."
@@ -241,6 +245,9 @@ spec:
           app: webapp
           role: frontend
 ```
+
+> [!NOTE]
+> Cette stratégie de réseau utilise un élément *namespaceSelector* et un élément *podSelector* pour la règle d’entrée. La syntaxe YAML est importante pour que les règles d’entrée soient additives ou non. Dans cet exemple, les deux éléments doivent correspondre pour que la règle d’entrée soit appliquée. Les versions de Kubernetes antérieures à *1.12* risquent de ne pas interpréter correctement ces éléments et de limiter le trafic réseau comme prévu. Pour plus d’informations, consultez [Comportement des sélecteurs To et From][policy-rules].
 
 Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
 
@@ -442,6 +449,7 @@ Pour en savoir plus sur l’utilisation de stratégies, consultez [Stratégies d
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

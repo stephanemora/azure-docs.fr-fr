@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754640"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452999"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,9 @@ Cet article vous montre comment activer et gérer le programme de mise à l’é
 
 Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.55 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
-Les clusters AKS qui prennent en charge le programme de mise à l’échelle automatique de cluster doivent utiliser des groupes de machines virtuelles identiques et exécuter Kubernetes *1.12.4* ou ultérieur. Cette prise en charge des groupes identiques est en préversion. Pour accepter et créer des clusters utilisant des groupes identiques, installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], comme indiqué dans l’exemple suivant :
+### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
+
+Les clusters AKS qui prennent en charge le programme de mise à l’échelle automatique de cluster doivent utiliser des groupes de machines virtuelles identiques et exécuter Kubernetes *1.12.4* ou ultérieur. Cette prise en charge des groupes identiques est en préversion. Pour accepter et créer des clusters utilisant des groupes identiques, installez tout d’abord l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > Lorsque vous installez l’extension *aks-preview*, chaque cluster AKS que vous créez utilise le modèle de déploiement en préversion des groupes identiques. Pour refuser et créer des clusters normaux entièrement pris en charge, supprimez l’extension à l’aide de la commande `az extension remove --name aks-preview`.
+
+### <a name="register-scale-set-feature-provider"></a>Inscrire le fournisseur de fonctionnalités de groupe identique
+
+Pour créer un AKS qui utilise des groupes identiques, vous devez également activer un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *VMSSPreview*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>À propos du programme de mise à l’échelle automatique de cluster
 
@@ -149,6 +171,9 @@ Cet article vous a montré comment mettre automatiquement à l’échelle le nom
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

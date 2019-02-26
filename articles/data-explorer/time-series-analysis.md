@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b7d498b34fa3e247d5d4688f8d87213e7707fd86
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750560"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408780"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
 
@@ -224,9 +224,9 @@ demo_many_series1
 |   |   |
 | --- | --- |
 |   | Nombre |
-|   | 23115 |
+|   | 18339 |
 
-Nous allons à présent créer un ensemble de 23115 séries chronologiques de la métrique du nombre de lectures. Nous ajoutons la clause `by` à l’instruction make-series, appliquons une régression linéaire, et sélectionnons les deux premières séries chronologiques en termes de tendance décroissante la plus significative :
+Nous allons à présent créer un ensemble de 18339 séries chronologiques de la métrique du nombre de lectures. Nous ajoutons la clause `by` à l’instruction make-series, appliquons une régression linéaire, et sélectionnons les deux premières séries chronologiques en termes de tendance décroissante la plus significative :
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -235,7 +235,7 @@ demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
-| render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
+| render timechart with(title='Service Traffic Outage for 2 instances (out of 18339)')
 ```
 
 ![Deux premières séries chronologiques](media/time-series-analysis/time-series-top-2.png)
@@ -258,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | 37 | 1151 | -102743.910227889 |
 |   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
-En moins de deux minutes, Azure Data Explorer a analysé plus de 20 000 séries chronologiques et détecté deux séries chronologiques anormales dans lesquelles le nombre de lectures chutait soudainement.
+En moins de deux minutes, Azure Data Explorer a analysé près de 20 000 séries chronologiques et détecté deux séries chronologiques anormales dans lesquelles le nombre de lectures chutait soudainement.
 
 Ces fonctionnalités avancées combinées avec la rapidité des performances d’Azure Data Explorer produisent une solution unique et puissante pour l’analyse de séries chronologiques.

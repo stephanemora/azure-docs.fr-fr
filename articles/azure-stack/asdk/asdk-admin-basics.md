@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a07a829aac9659ac7ab8d04b64a1ea1a9a2de78
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248161"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428055"
 ---
 # <a name="asdk-administration-basics"></a>Informations de base sur l’administration de l’ASDK 
 Si vous débutez avec l’administration du kit de développement Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide présente le rôle d’opérateur Azure Stack dans l’environnement d’évaluation, et explique comment permettre aux utilisateurs de test de devenir productifs plus rapidement.
@@ -37,7 +37,7 @@ Il faut prendre en compte certains points liés aux comptes pour gérer Azure St
 |-----|-----|-----|
 |Administrateur local (. \Administrator)|Administrateur hôte ASDK|Administrateur hôte ASDK|
 |AzureStack\AzureStackAdmin|Administrateur hôte ASDK<br><br>Peut être utilisé pour se connecter au portal d’administration Azure Stack<br><br>Accès pour afficher et administrer les anneaux Service Fabric|Administrateur hôte ASDK<br><br>Aucun accès au portail d’administration Azure Stack<br><br>Accès pour afficher et administrer les anneaux Service Fabric<br><br>N’est plus propriétaire de l’abonnement du fournisseur par défaut (DPS)|
-|AzureStack\CloudAdmin|Peut consulter et exécuter des commandes autorisées dans le point de terminaison privilégié|Peut consulter et exécuter des commandes autorisées dans le point de terminaison privilégié<br><br>Ne peut pas se connecter à l’hôte ASDK<br><br>Propriétaire de l’abonnement du fournisseur par défaut (DPS)|
+|AzureStack\CloudAdmin|Peut consulter et exécuter des commandes autorisées dans le point de terminaison privilégié|Peut consulter et exécuter des commandes autorisées dans le point de terminaison privilégié<br><br>Ne peut pas se connecter à l'hôte ASDK<br><br>Propriétaire de l’abonnement du fournisseur par défaut (DPS)|
 |Administrateur général Azure AD|Utilisé au cours de l’installation<br><br>Propriétaire de l’abonnement du fournisseur par défaut (DPS)|Non applicable|
 |
 

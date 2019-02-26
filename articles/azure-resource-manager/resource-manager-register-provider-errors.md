@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497415"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341400"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Résoudre les erreurs d’inscription de fournisseurs de ressources
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 Le message d’erreur doit fournir des suggestions pour les emplacements et les versions d’API pris en charge. Vous pouvez changer votre modèle en l’une des valeurs suggérées. La plupart des fournisseurs sont inscrits automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous. Si vous n’avez pas déjà utilisé un certain fournisseur de ressources, vous devrez peut-être l’inscrire.
 
+Ou, lors de la désactivation de l’arrêt automatique pour les machines virtuelles, vous pouvez recevoir un message d’erreur semblable au suivant :
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>Cause :
 
-Ces erreurs apparaissent pour l’une des trois raisons suivantes :
+Ces erreurs apparaissent pour l’une des raisons suivantes :
 
-* Le fournisseur de ressources n’a pas été inscrit pour votre abonnement
+* Le fournisseur de ressources requis n’a pas été inscrit pour votre abonnement
 * La version de l’API n’est pas prise en charge pour le type de ressource.
 * L’emplacement n’est pas pris en charge pour le type de ressource.
+* Pour l’arrêt automatique des machines virtuelles, le fournisseur de ressources Microsoft.DevTestLab doit être inscrit.
 
 ## <a name="solution-1---powershell"></a>Solution 1 : PowerShell
 

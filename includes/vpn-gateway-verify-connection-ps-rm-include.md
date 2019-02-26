@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 267234cb9ecea1dc097f13739bf98ee11206ad06
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 49f48c2d0bf865cf8c8fde831e7a597f8701d213
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444094"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418022"
 ---
-Vous pouvez vérifier que votre connexion a réussi via l’applet de commande « Get-AzureRmVirtualNetworkGatewayConnection » avec ou sans « -Debug ». 
+Vous pouvez vérifier que votre connexion a réussi via l’applet de commande « Get-AzVirtualNetworkGatewayConnection » avec ou sans « -Debug ». 
 
 1. Utilisez l’exemple d’applet de commande suivant, en configurant les valeurs sur les vôtres. Si vous y êtes invité, sélectionnez A pour exécuter tout. Dans l’exemple, «  -Name » fait référence au nom de la connexion que vous voulez tester.
 
    ```azurepowershell-interactive
-   Get-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
+   Get-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
    ```
 2. Une fois l’applet de commande exécutée, affichez les valeurs. Dans l’exemple ci-dessous, l’état de la connexion indique « Connecté » et vous pouvez voir les octets d’entrée et de sortie.
    

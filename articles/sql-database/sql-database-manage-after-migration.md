@@ -1,5 +1,5 @@
 ---
-title: Gérer après la migration - Azure SQL Database | Microsoft Docs
+title: Gérer des bases de données uniques et en pool après la migration - Azure SQL Database | Microsoft Docs
 description: Découvrez comment gérer votre base de données après la migration vers Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/13/2019
+ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099732"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417633"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et en pool dans Azure SQL Database
 
-Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L’article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
+Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L'article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database avec des bases de données uniques et en pool pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
 
-- Vous êtes en train d’évaluer la migration de vos applications vers Azure SQL DB – Modernisation de vos applications.
+- Vous êtes en train d'évaluer la migration de vos applications vers Azure SQL Database - Modernisation de vos applications.
 - Vous êtes en train d’effectuer la migration de vos applications – Scénario de migration en cours.
 - Vous avez récemment terminé la migration vers Azure SQL DB – Nouvel administrateur de base de données dans le cloud.
 
-Cet article présente certaines des principales caractéristiques d’Azure SQL Database en tant que plateforme que vous pouvez exploiter dès maintenant. Ces caractéristiques sont les suivantes :
+Cet article traite de certaines caractéristiques essentielles d'Azure SQL Database en tant que plateforme, auxquelles vous pouvez facilement avoir recours lorsque vous utilisez des bases de données uniques et des bases de données regroupées dans des pools élastiques. Ces caractéristiques sont les suivantes :
 
 - Continuité d’activité et récupération d’urgence (BCDR)
 - Sécurité et conformité
 - Surveillance et maintenance de bases de données intelligentes
 - Déplacement des données
+
+> [!NOTE]
+> Cet article s'applique aux options de déploiement suivantes d'Azure SQL Database : bases de données uniques et pools élastiques. Il ne s'applique pas à l'option de déploiement des instances gérées de SQL Database.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuité d’activité et récupération d’urgence (BCDR)
 
@@ -299,11 +302,11 @@ SQL Database utilise des techniques intelligentes pour gérer certaines classes 
 
 - **Exporter** : vous pouvez exporter votre base de données Azure SQL Database en tant que fichier BACPAC à partir du portail Azure.
 
-   ![exportation de base de données](./media/sql-database-export/database-export.png)
+   ![exportation de base de données](./media/sql-database-export/database-export1.png)
 
 - **Importer** : vous pouvez aussi importer des données sous forme de fichier BACPAC dans la base de données à partir du portail Azure.
 
-   ![importation de base de données](./media/sql-database-import/import.png)
+   ![importation de base de données](./media/sql-database-import/import1.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Comment synchroniser des données entre SQL Database et SQL Server
 

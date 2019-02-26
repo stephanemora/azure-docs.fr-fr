@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/08/19
+ms.date: 02/16/19
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 199c0e53fb9462a121072dbea8c90928c0d75abf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c1496653c319b4732614cd1c8148afb5c5b06215
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178942"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456739"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
-À l’aide d’Azure Active Directory (Azure AD), vous pouvez affecter des administrateurs distincts à différentes fonctions. Les administrateurs peuvent être désignés dans le portail Azure AD pour effectuer des tâches comme l’ajout ou le changement d’utilisateurs, l’attribution de rôles d’administrateur, la réinitialisation des mots de passe utilisateur, la gestion des licences utilisateur et la gestion des noms de domaine.
+À l’aide d’Azure Active Directory (Azure AD), vous pouvez désigner des administrateurs limités pour exécuter des fonctions dans des rôles moins privilégiés. Les administrateurs peuvent être désignés dans le portail Azure AD pour effectuer des tâches comme l’ajout ou le changement d’utilisateurs, l’attribution de rôles d’administrateur, la réinitialisation des mots de passe utilisateur, la gestion des licences utilisateur et la gestion des noms de domaine. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
 
 L’administrateur général a accès à toutes les fonctionnalités d’administration. Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. Seuls les administrateurs généraux et les administrateurs disposant d'un rôle privilégié peuvent déléguer des rôles d'administrateur. Pour limiter les risques, nous vous conseillons de réserver ce rôle à quelques membres de votre entreprise uniquement.
 
@@ -42,7 +42,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Développeur d’applications](#application-developer)**  : Les utilisateurs dans ce rôle peuvent créer des inscriptions d’application quand le paramètre « Les utilisateurs peuvent inscrire des applications » est défini sur Non. Ce rôle permet également aux membres de donner leur consentement pour eux-mêmes lorsque le paramètre « Les utilisateurs peuvent autoriser les applications à accéder aux données de l'entreprise en leur nom » est défini sur Non. Les membres de ce rôle sont ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 
-* **[Administrateur d’authentification](#authentication-administrator)**  : Les utilisateurs ayant ce rôle peuvent afficher les informations de la méthode d’authentification actuelle et définir ou réinitialiser les informations d’identification sans mot de passe. Les administrateurs d’authentification peuvent forcer les utilisateurs à se réinscrire en fonction de leur mot de passe existant (par exemple, MFA, FIDO) et à révoquer l’option « remember MFA on the device » (« se souvenir de l’authentification multifacteur sur l’appareil »), en demandant aux utilisateurs non administrateurs ou aux membres des rôles suivants de se connecter lors de leur prochaine authentification multifacteur :
+* **[Administrateur d’authentification](#authentication-administrator)**  : Les utilisateurs disposant de ce rôle peuvent définir ou réinitialiser des informations d’identification sans mot de passe. Les administrateurs d’authentification peuvent forcer les utilisateurs à se réinscrire en fonction de leur mot de passe existant (par exemple, MFA, FIDO) et à révoquer l’option « remember MFA on the device » (« se souvenir de l’authentification multifacteur sur l’appareil »), en demandant aux utilisateurs non administrateurs ou aux membres des rôles suivants de se connecter lors de leur prochaine authentification multifacteur :
   * Administrateur d’authentification
   * Lecteurs de répertoires
   * Inviteur

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: c3a737bdd9978e6cb02e3e8b7a34407eb1dd8fb6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: fd301967800f67d95c12f1689981b2dfd8eb2d80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380590"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452761"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de stockage pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -44,7 +44,7 @@ Dans Kubernetes, les volumes ne se limitent pas forcément à un disque classiqu
 
 ## <a name="persistent-volumes"></a>Volumes persistants
 
-Les volumes sont définis et créés dans le cadre du cycle de vie d’un pod et sont conservés jusqu’à ce que le pod soit supprimé. Le stockage d’un pod est censé être conservé si le pod est replanifié sur un autre hôte pendant un événement de maintenance, en particulier dans les ressources StatefulSet. Un *volume persistant* est une ressource de stockage créée et gérée par l’API Kubernetes, et qui peut exister au-delà de la durée de vie d’un pod donné.
+Les volumes qui sont définis et créés dans le cadre du cycle de vie d’un pod sont conservés jusqu’à ce que le pod soit supprimé. Le stockage d’un pod est censé être conservé si le pod est replanifié sur un autre hôte pendant un événement de maintenance, en particulier dans les ressources StatefulSet. Un *volume persistant* est une ressource de stockage créée et gérée par l’API Kubernetes, et qui peut exister au-delà de la durée de vie d’un pod donné.
 
 Des disques Azure ou Azure Files sont utilisés pour fournir le volume persistant (PersistentVolume). Comme indiqué dans la section précédente sur les volumes, le choix de disques Azure ou d’Azure Files est souvent déterminé par le niveau de performance ou la nécessité d’un accès simultané aux données.
 

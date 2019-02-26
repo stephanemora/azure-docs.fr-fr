@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160909"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446322"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planification de la capacité de calcul Azure Stack
 Les [tailles de machine virtuelle prises en charge dans Azure Stack](./user/azure-stack-vm-sizes.md) sont un sous-ensemble de celles prises en charge dans Azure. Azure impose des limites de ressources à différents niveaux pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Si aucune limite n’est appliquée à la consommation des locataires, la surconsommation de ressources par certains locataires aurait un impact négatif sur l’expérience des autres locataires. Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place dans Azure Stack conformément aux limites d’Azure. Pour les ressources de stockage, Azure Stack implémente des limites d’E/S par seconde de stockage pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage.  
@@ -43,7 +43,7 @@ Si un serveur échoue, les machines virtuelles hébergées sur le serveur en éc
 
 Le calcul suivant permet d’obtenir la capacité de mémoire totale disponible qui peut être utilisée pour le placement de machine virtuelle de locataire. Cette capacité de mémoire est calculée pour l’intégralité de l’unité d’échelle Azure Stack.
 
-  Mémoire disponible pour le placement de machine virtuelle = mémoire serveur totale – réserve de résilience – surcharge de l’infrastructure Azure Stack <sup>1</sup>
+  Mémoire disponible pour le placement des machines virtuelles = Mémoire totale du serveur – Réserve de résilience – Mémoire utilisée par les machines virtuelles en cours d'exécution – Surcharge de l'infrastructure Azure Stack <sup>1</sup>
 
   Réserve de résilience = H + R * (N-1) + V * (N-2)
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859742"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429466"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -58,7 +58,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-La vidéo suivante montre l’utilisation d’une clé Cognitive Services. 
+La vidéo suivante montre l’utilisation d’une clé Cognitive Services.
 
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Authentification avec une clé d’abonnement multiservice
 
@@ -127,16 +127,15 @@ Les jetons d’authentification sont incluses dans une requête sous la forme de
 
 ### <a name="sample-requests"></a>Exemples de demandes
 
-Utilisez cette URL pour échanger une clé d’abonnement monoservice contre un jeton d’authentification : `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Utilisez cette URL pour échanger une clé d'abonnement contre un jeton d'authentification : `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
-"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
-
-Quand vous utilisez une clé d’abonnement multiservice, vous devez utiliser un point de terminaison spécifique à la région pour l’échange de jeton. Utilisez cette URL pour échanger une clé d’abonnement multiservice contre un jeton d’authentification : `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 Ces régions multiservices prennent en charge l’échange de jeton :
 
@@ -147,13 +146,6 @@ Ces régions multiservices prennent en charge l’échange de jeton :
 | `japaneast` | `northeurope` | `southcentralus` |
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
-
-```cURL
-curl -v -X POST \
-"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
--H "Content-type: application/x-www-form-urlencoded" \
--H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
 
 Après avoir obtenu un jeton d’authentification, vous devez le passer dans chaque requête sous la forme de l’en-tête `Authorization`. Voici un exemple d’appel à l’API de traduction de texte Translator Text :
 

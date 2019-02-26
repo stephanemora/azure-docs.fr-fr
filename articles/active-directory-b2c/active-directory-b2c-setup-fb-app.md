@@ -1,5 +1,5 @@
 ---
-title: Configurer l’inscription et la connexion avec un compte Facebook à l’aide d’Azure Active Directory B2C | Microsoft Docs
+title: Configurer l’inscription et la connexion avec un compte Facebook - Azure Active Directory B2C | Microsoft Docs
 description: Proposez l’inscription et la connexion aux clients disposant de comptes Facebook dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1afb83c3e381c33b1c29c224d1ce0cc1d3d080
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 56534589c89fefb38f206f1c57da7996ae43e81d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163039"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428497"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Facebook à l’aide d’Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Création d’une application Facebook
 
-Pour utiliser un compte Facebook en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire qui la représente. Si vous n’avez pas encore de compte Facebook, vous pouvez en obtenir un à l’adresse [https://www.facebook.com/](https://www.facebook.com/).
+Pour utiliser un compte Facebook en tant que [fournisseur d’identité](active-directory-b2c-reference-oauth-code.md) dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire qui la représente. Si vous n’avez pas encore de compte Facebook, vous pouvez en obtenir un à l’adresse [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Connectez-vous à [Facebook pour les développeurs](https://developers.facebook.com/) avec les informations d’identification de votre compte Facebook.
 2. Si ce n’est pas déjà fait, vous devez vous inscrire en tant que développeur Facebook. Pour cela, sélectionnez **S’inscrire** dans le coin supérieur droit de la page, acceptez les politiques de Facebook et suivez les étapes de l’inscription.

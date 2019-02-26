@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744396"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343032"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
 En règle générale, vous déployez des ressources Azure sur un groupe de ressources dans votre abonnement Azure. Toutefois, vous pouvez également créer des groupes de ressources Azure et créer des ressources Azure au niveau de l’abonnement. Pour déployer des modèles au niveau de l’abonnement, vous utilisez Azure CLI et Azure PowerShell. Le portail Azure ne prend pas en charge le déploiement dans le niveau de l’abonnement.
 
-Pour créer un groupe de ressources dans un modèle Azure Resource Manager, définissez une ressource [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) avec un nom et un emplacement pour le groupe de ressources. Vous pouvez créer un groupe de ressources et déployer des ressources sur ce groupe de ressources dans le même modèle. Les ressources que vous pouvez déployer au niveau de l’abonnement sont les suivantes : [Stratégies](../azure-policy/azure-policy-introduction.md) et [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
+Pour créer un groupe de ressources dans un modèle Azure Resource Manager, définissez une ressource [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) avec un nom et un emplacement pour le groupe de ressources. Vous pouvez créer un groupe de ressources et déployer des ressources sur ce groupe de ressources dans le même modèle. Les ressources que vous pouvez déployer au niveau de l’abonnement sont les suivantes : [Stratégies](../governance/policy/overview.md) et [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>Définir et assigner une stratégie
 
-Vous pouvez [définir](../azure-policy/policy-definition.md) et assigner une stratégie dans le même modèle.
+Vous pouvez [définir](../governance/policy/concepts/definition-structure.md) et assigner une stratégie dans le même modèle.
 
 ```json
 {

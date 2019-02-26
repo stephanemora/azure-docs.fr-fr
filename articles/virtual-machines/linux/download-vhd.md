@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 6d827e1142fa17b29633c98c062fd204f7a49e36
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f72d49a3ab204ce64eb89d0f05630b640c138e0a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729726"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329249"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Télécharger un disque VHD Linux à partir d’Azure
 
-Dans cet article, vous allez découvrir comment télécharger un fichier de [disque dur virtuel (VHD) Linux](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à partir d’Azure à l’aide d’Azure CLI et du portail Azure. 
+Dans cet article, vous allez découvrir comment télécharger un fichier de disque dur virtuel (VHD) Linux à partir d’Azure à l’aide d’Azure CLI et du portail Microsoft Azure. 
 
 Si vous ne l’avez pas déjà fait, installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
 

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba77f79ad4625319a9b6e3eae46bf8470f43607
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203775"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455039"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Ajout de vos comptes Microsoft personnels
 Ajoutez vos comptes Microsoft personnels, par exemple vos comptes Outlook.com et Xbox LIVE, à l’application Microsoft Authenticator pour le processus de vérification en deux étapes standard et la méthode de connexion par téléphone sans mot de passe.
@@ -37,7 +37,7 @@ Vous pouvez ajouter votre compte Microsoft personnel en activant d’abord la v�
 
 ### <a name="turn-on-two-factor-verification"></a>Activation de la vérification en deux étapes
 
-1. Sur votre PC, accédez à la page [Security basics](https://account.microsoft.com/security) (Fonctions de base de la sécurité), puis connectez-vous à l’aide de votre compte Microsoft personnel. Par exemple : alain@outlook.com.
+1. Sur votre ordinateur, accédez à la page [Security basics](https://account.microsoft.com/security) (Fonctions de base de la sécurité), puis connectez-vous à l'aide de votre compte Microsoft personnel. Par exemple : alain@outlook.com.
 
 2. En bas de la page **Security basics** (Fonctions de base de la sécurité), cliquez sur le lien **more security options** (Autres options de sécurité).
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C | Microsoft Docs
+title: Configurer l'inscription et la connexion avec un compte Microsoft - Azure Active Directory B2C | Microsoft Docs
 description: Proposez l’inscription et la connexion aux clients disposant de comptes Microsoft dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0565b9ec1e78a5ce1f40e4f2e1f46e84fbb53a94
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13e199a56a3cdd4f8e5a21f162fe0397c6f397cd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172729"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428253"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Créer une application de compte Microsoft
 
-Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire qui la représente. Si vous n’avez pas encore de compte Microsoft, vous pouvez en obtenir un à l’adresse [https://www.live.com/](https://www.live.com/).
+Pour utiliser un compte Microsoft en tant que [fournisseur d'identité](active-directory-b2c-reference-oidc.md) dans Azure Active Directory (Azure AD) B2C, vous devez créer dans votre locataire une application qui le représente. Si vous n’avez pas encore de compte Microsoft, vous pouvez en obtenir un à l’adresse [https://www.live.com/](https://www.live.com/).
 
 1. Connectez-vous au [Portail d’inscription des applications Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) avec vos informations d'identification Microsoft.
 2. En haut à droite, sélectionnez **Ajouter une application**.

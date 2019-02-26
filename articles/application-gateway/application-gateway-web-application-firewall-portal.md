@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157137"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453254"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure
 
@@ -130,7 +130,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Dans ce didacticiel, la passerelle d’application utilise un compte de stockage pour stocker des données à des fins de détection et de prévention. Vous pouvez également utiliser Log Analytics ou Event Hub pour enregistrer des données.
+Dans ce didacticiel, la passerelle d’application utilise un compte de stockage pour stocker des données à des fins de détection et de prévention. Vous pouvez également utiliser les journaux Azure Monitor ou Event Hub pour enregistrer des données.
 
 1. Cliquez sur **Nouveau** dans le coin supérieur gauche du portail Azure.
 2. Sélectionnez **Stockage**, puis **Compte de stockage - blob, fichier, table, file d’attente**.

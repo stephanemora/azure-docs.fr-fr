@@ -1,6 +1,6 @@
 ---
-title: Configurer les informations de sécurité pour utiliser les questions de sécurité - Azure Active Directory | Microsoft Docs
-description: Configurez vos informations de sécurité pour vérifier votre identité au moyen de questions de sécurité prédéfinies.
+title: Configurer les informations de sécurité (préversion) pour utiliser les questions de sécurité - Azure Active Directory | Microsoft Docs
+description: Comment configurer vos informations de sécurité pour vérifier votre identité au moyen de questions de sécurité prédéfinies.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,43 +9,68 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3817411c1285f2ca7c8aa294f90314e3545504
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b0fd2cd0250e3b3074e5632f30c8dbcc8db41e6e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203486"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455022"
 ---
-# <a name="set-up-security-info-to-use-pre-defined-security-questions-preview"></a>Configurer les informations de sécurité pour utiliser les questions de sécurité prédéfinies (préversion)
+# <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurer les informations de sécurité (préversion) pour utiliser les questions de sécurité
+Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
+
+Après avoir configuré votre méthode de réinitialisation de mot de passe, vous devez également configurer votre méthode de vérification à deux facteurs, à l’aide d’une [application d’authentification](security-info-setup-auth-app.md), de la [messagerie texte](security-info-setup-text-msg.md), ou d’un [appel téléphonique](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Pour configurer vos informations de sécurité, vous devez vous connecter à votre compte professionnel ou scolaire, puis suivre la procédure d’inscription. Si vous n’avez jamais configuré vos informations de sécurité, vous êtes amené à le faire maintenant.
+## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Configurer vos questions de sécurité à partir de la page d’informations de sécurité
+Selon les paramètres de votre entreprise, vous pourrez peut-être choisir et répondre à quelques questions de sécurité parmi vos méthodes d’information de sécurité. Votre administrateur définit le nombre de questions de sécurité que vous devez choisir et auxquelles vous devez répondre.
 
-## <a name="set-up-security-questions"></a>Régler les questions de sécurité
-
-En fonction des paramètres de votre organisation, vous pouvez être invité à ajouter des questions de sécurité à vos informations de sécurité lorsque vous vous connectez. Sinon, la configuration des questions de sécurité dans les informations de sécurité peut s’effectuer en suivant les étapes de [Gérer vos informations de sécurité](security-info-manage-settings.md).
-
-Si vous utilisez des questions de sécurité, nous vous recommandons de les utiliser conjointement avec une autre méthode. Les questions de sécurité peuvent s’avérer moins sécurisées que d’autres méthodes, car certaines personnes peuvent connaître les réponses aux questions d’une personne.
+Si vous utilisez des questions de sécurité, nous vous recommandons de les utiliser conjointement avec une autre méthode. Les questions de sécurité peuvent être moins sécurisées que d’autres méthodes, car certaines personnes peuvent connaître les réponses à vos questions.
 
 >[!Note]
->Les questions de sécurité sont stockées de façon privée et sécurisée dans un objet utilisateur du répertoire, elles ne peuvent être posées qu’à vous au moment de l’inscription. L’administrateur ne peut pas lire ni modifier vos questions ou vos réponses.<br>Si vous ne voyez pas l’option des questions de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser comme moyen de vérification. Si c’est le cas, vous devez choisir une autre méthode ou contacter votre administrateur pour obtenir de l’aide.
+>Les questions de sécurité sont stockées de façon privée et sécurisée dans un objet utilisateur du répertoire, elles ne peuvent être posées qu’à vous au moment de l’inscription. L’administrateur ne peut pas lire ni modifier vos questions ou vos réponses.
 
-### <a name="to-choose-and-answer-your-security-questions"></a>Pour choisir et répondre à vos questions de sécurité
+>Si vous ne voyez pas l’option des questions de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser comme moyen de vérification. Si tel est le cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l’aide.
 
-1. Sélectionnez **Questions de sécurité**, puis choisissez les questions de sécurité auxquelles vous souhaitez répondre. 
+### <a name="to-set-up-your-security-questions"></a>Pour configurer vos questions de sécurité
 
-    Le nombre de questions de sécurité que vous devez sélectionner est déterminé par votre administrateur.
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
-    ![Page Informations de sécurité, sélection de vos questions de sécurité](media/security-info/security-info-keep-secure-setup-pick-questions.png)
+    ![Page Mon profil, avec les liens des Informations de sécurité en surbrillance](media/security-info/securityinfo-myprofile.png)
 
-2. Fournissez les réponses à vos questions choisies, puis sélectionnez **Terminé**.
+2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** sur la page **Informations de sécurité**.
 
-## <a name="additional-security-info-options"></a>Options d’informations de sécurité supplémentaires
+    ![Page Informations de sécurité, avec l’option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod.png)
 
+3. Sur la page **Ajouter une méthode**, choisissez **Questions de sécurité** dans la liste déroulante, puis sélectionnez **Ajouter**.
+
+    ![Zone Ajouter une méthode, avec les questions de sécurité sélectionnées](media/security-info/securityinfo-myprofile-addquestions.png)
+
+4. Sur la page **Questions de sécurité**, choisissez vos questions de sécurité, répondez-y, puis sélectionnez **Enregistrer**.
+
+    ![Ajouter le numéro de téléphone et choisir la méthode de l’appel téléphonique](media/security-info/securityinfo-myprofile-securityquestions.png)
+
+    Vos informations de sécurité sont mises à jour et vous pouvez utiliser vos question de sécurité pour vérifier votre identité lors de la réinitialisation de mot de passe.
+
+## <a name="delete-security-questions-from-your-security-info-methods"></a>Supprimer les questions de sécurité de vos méthodes d’informations de sécurité
+Si vous ne souhaitez plus utiliser vos question de sécurité comme méthode d’informations de sécurité, vous pouvez supprimer celles-ci de la page **Informations de sécurité**.
+
+>[!Important]
+>Si vous supprimez vos question de sécurité par erreur, il n’existe aucun moyen d’annuler la suppression. Vous devrez à nouveau ajouter la méthode en suivant les étapes de la section [Configurer vos question de sécurité](#set-up-your-security-questions-from-the-security-info-page) de cet article.
+
+### <a name="to-delete-your-security-questions"></a>Pour supprimer vos questions de sécurité
+
+1. Sur la page **Informations de sécurité**, sélectionnez le lien **Supprimer** en regard de l’option **Question de sécurité**.
+
+    ![Lien permettant de supprimer la méthode Téléphone sur la page Informations de sécurité](media/security-info/securityinfo-myprofile-questionsdelete.png)
+
+2. Sélectionnez **Oui** dans la zone de confirmation pour supprimer vos **Question de sécurité**. Une fois vos question de sécurité supprimées, la méthode disparaît de vos informations de sécurité et de la page **Informations de sécurité**.
+
+## <a name="additional-security-info-methods"></a>Autres méthodes d’informations de sécurité
 Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :
 
 - **Application d’authentification.** Téléchargez et utilisez une application d’authentification pour obtenir une notification d’approbation ou un code d’approbation généré de manière aléatoire pour la réinitialisation du mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la configuration et l’utilisation de l’application Microsoft Authenticator, consultez [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md).
@@ -60,8 +85,6 @@ Vous avez la possibilité de choisir la façon d’être contacté par votre org
     >Si certaines de ces options ne sont pas disponibles, votre organisation n’autorise très probablement pas ces méthodes. Si tel est le cas, vous devez choisir une autre méthode ou contacter votre administrateur pour obtenir de l’aide.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-- Si vous devez mettre à jour vos informations de sécurité, suivez les instructions dans l’article [Manage your security info](security-info-manage-settings.md) (Gérer vos informations de sécurité).
 
 - Si vous avez perdu ou oublié votre mot de passe, réinitialisez-le à partir du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/), ou suivez les étapes de l’article [Réinitialiser votre mot de passe professionnel ou scolaire](user-help-reset-password.md).
 

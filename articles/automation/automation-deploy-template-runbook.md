@@ -10,24 +10,24 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powerShell, runbook, json, azure automation
-ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421809"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416113"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook PowerShell Azure Automation
 
 Vous pouvez écrire un [runbook PowerShell Azure Automation](automation-first-runbook-textual-powershell.md) qui déploie une ressource Azure en utilisant un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-create-first-template.md).
 
-Ainsi, vous pouvez automatiser le déploiement de ressources Azure. Vous pouvez gérer vos modèles Resource Manager dans un emplacement central et sécurisé, tel que Stockage Azure.
+Ainsi, vous pouvez automatiser le déploiement de ressources Azure. Vous pouvez gérer vos modèles Resource Manager à un emplacement central et sécurisé, tel que Stockage Azure.
 
-Dans cette rubrique, nous créons un runbook PowerShell qui utilise un modèle Resource Manager stocké dans [Stockage Azure](../storage/common/storage-introduction.md) pour déployer un nouveau compte de stockage Azure.
+Dans cet article, nous créons un runbook PowerShell qui utilise un modèle Resource Manager stocké dans le service [Stockage Azure](../storage/common/storage-introduction.md) pour déployer un nouveau compte de stockage Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour ce tutoriel, vous devez disposer des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [créer un compte gratuit](https://azure.microsoft.com/free/).
 * [compte Automation](automation-sec-configure-azure-runas-account.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
@@ -176,7 +176,7 @@ Enregistrez le fichier localement sous le nom `DeployTemplate.ps1`.
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importer et publier le runbook dans votre compte Azure Automation
 
 Nous allons maintenant utiliser PowerShell pour importer le runbook dans votre compte Azure Automation, puis publier le runbook.
-Pour plus d’informations sur la façon d’importer et de publier un runbook dans le portail Azure, consultez [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md).
+Pour plus d'informations sur l'importation et la publication d'un runbook sur le portail Azure, consultez [Gérer des runbooks dans Azure Automation](manage-runbooks.md).
 
 Pour importer `DeployTemplate.ps1` dans votre compte Automation en tant que runbook PowerShell, exécutez les commandes PowerShell suivantes :
 

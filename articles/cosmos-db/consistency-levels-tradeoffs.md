@@ -4,15 +4,15 @@ description: Compromis entre disponibilité et performance pour différents nive
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113751"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309197"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Cohérence, disponibilité et compromis sur les performances 
 
@@ -44,22 +44,23 @@ La latence exacte de la durée des boucles s’exprime en fonction de la distanc
 
 - Pour un type donné d’opération d’écriture, tel qu’insert, replace, upsert et delete, le débit d’écriture des unités de requête est identique pour tous les niveaux de cohérence.
 
-## <a name="consistency-levels-and-data-durability"></a>Niveaux de cohérence et durabilité des données
+## <a id="rto"></a>Niveaux de cohérence et durabilité des données
 
-Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Le tableau définit la relation entre le modèle de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Il est important de noter que dans un système distribué, même avec une cohérence forte, il s'avère impossible d’avoir une base de données distribuée avec un RPO de zéro en raison du théorème CAP. Pour plus d’informations, consultez  [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md).
+Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective).
+
+Le tableau définit la relation entre le modèle de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Il est important de noter que dans un système distribué, même avec une cohérence forte, il s’avère impossible d’avoir une base de données distribuée avec un RPO de zéro en raison du théorème CAP. Pour plus d’informations, consultez  [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md).
 
 |**Région(s)**|**Mode de réplication**|**Niveau de cohérence**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Maître unique ou multimaître|Tous les niveaux de cohérence|< 240 minutes|< 1 semaine|
 |>1|Maître unique|Session, Préfixe cohérent et Éventuel|< 15 minutes|< 15 minutes|
-|>1|Maître unique|Obsolescence limitée|K & T*|< 15 minutes|
+|>1|Maître unique|Obsolescence limitée|K & T|< 15 minutes|
 |>1|Multimaître|Session, Préfixe cohérent et Éventuel|< 15 minutes|0|
-|>1|Multimaître|Obsolescence limitée|K & T*|0|
+|>1|Multimaître|Obsolescence limitée|K & T|0|
 |>1|Maître unique ou multimaître|Remarque|0|< 15 minutes|
 
-* K & T = nombre de versions « K » (mises à jour) d’un élément. Ou intervale de temps « T ».
-
-
+K = nombre de versions « K » (mises à jour) d’un élément.
+T = intervalle de temps « T » depuis la dernière mise à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

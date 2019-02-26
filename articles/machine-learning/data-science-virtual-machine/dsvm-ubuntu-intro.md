@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f0c9c06e953df16199acda5f821fdac35b86f07f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477554"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268853"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
 
@@ -31,7 +31,7 @@ La machine virtuelle DSVM pour Linux est une image de machine virtuelle Ubuntu q
   * [Caffe2](https://github.com/caffe2/caffe2) : version multiplateforme de Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) : kit de ressources logicielles d’apprentissage profond de Microsoft Research.
   * [H2O](https://www.h2o.ai/) : plateforme Big Data open source et interface graphique utilisateur
-  * [Keras](https://keras.io/) : API de réseau neuronal générale dans Python pour Theano et TensorFlow
+  * [Keras](https://keras.io/) : API de réseau neuronal de haut niveau en Python pour TensorFlow, Microsoft Cognitive Toolkit et Theano
   * [MXNet](http://mxnet.io/) : bibliothèque d’apprentissage profond flexible et efficace avec de nombreuses liaisons de langage
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits) : système graphique qui simplifie les tâches courantes d’apprentissage profond
   * [PyTorch](http://pytorch.org/) : bibliothèque Python générale avec prise en charge des réseaux dynamiques
@@ -177,7 +177,7 @@ Quelques exemples de bloc-notes sont disponibles dans JupyterHub.
 H2O est une plateforme d’analyse prédictive et d’apprentissage automatique rapide, en mémoire et distribuée. Un package Python est installé dans les environnements Anaconda racine et py35. Un package R est également installé. Pour démarrer H2O à partir de la ligne de commande, exécutez `java -jar /dsvm/tools/h2o/current/h2o.jar` ; il existe différentes [options de ligne de commande](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que vous pouvez configurer. Pour commencer, l’interface utilisateur Flow Web est accessible ici : http://localhost:54321. Des exemples de bloc-notes sont également disponibles dans JupyterHub.
 
 #### <a name="keras"></a>Keras
-Keras est une API de réseau neuronal principal dans Python qui est capable de s’exécuter sur Tensorflow ou Theano. Elle est disponible dans les environnements Python racine et py35. 
+Keras est une API de réseau neuronal de haut niveau, en Python, qui est capable de s'exécuter sur TensorFlow, Microsoft Cognitive Toolkit ou Theano. Elle est disponible dans les environnements Python racine et py35. 
 
 #### <a name="mxnet"></a>MXNet
 MXNet est une infrastructure d’apprentissage approfondi conçue pour offrir efficacité et flexibilité. Elle possède des liaisons R et Python incluses dans la machine virtuelle DSVM. Des exemples de bloc-notes sont inclus dans JupyterHub et un exemple de code est disponible dans /dsvm/samples/mxnet.

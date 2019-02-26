@@ -4,18 +4,18 @@ description: Utiliser le portail Azure pour déployer des modules sur un apparei
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8b7327796cf29c8c234c0a750c90e0689f508f7e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969401"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430112"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Déployer des modules Azure IoT Edge à partir du portail Azure
 
@@ -51,6 +51,7 @@ Le portail Azure comprend un Assistant qui vous guide à travers la création du
 
    * **Module IoT Edge** : option par défaut.
    * **Module Azure Stream Analytics** : uniquement les modules générés à partir d’une charge de travail Azure Stream Analytics.
+   * **Module Azure Machine Learning** : uniquement les images de modèle générées à partir d’un espace de travail Azure Machine Learning.
 
 1. Sélectionnez le **Module IoT Edge**.
 
@@ -82,6 +83,29 @@ Passez en revue les informations de votre déploiement, puis sélectionnez **Env
 ## <a name="view-modules-on-your-device"></a>Afficher les modules sur votre appareil
 
 Une fois les modules déployés sur votre appareil, vous pouvez les voir tous dans la page **Détails de l’appareil** du portail. Cette page affiche le nom de chaque module déployé, ainsi que des informations utiles telles que le code de sortie et l’état du déploiement.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Déployer des modules à partir de la Place de marché Azure
+
+La Place de marché Azure est un marché d’applications et de services en ligne qui vous permet de naviguer au milieu d’un large éventail d’applications et de solutions d’entreprise certifiées et optimisées pour s’exécuter sur Azure, notamment les [modules IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Vous pouvez également accéder à la Place de marché Azure via le Portail Azure sous **Créer une ressource**.
+
+Vous pouvez installer un module IoT Edge à partir de la Place de marché Azure ou du Portail Azure :
+
+1. Recherchez un module et entamez le processus de déploiement.
+
+   * Portail Azure : Recherchez un module et sélectionnez **Créer**.
+
+   * Place de marché Azure :
+
+     1. Recherchez un module et sélectionnez **Obtenir maintenant**.
+     1. Acceptez les conditions d’utilisation et la politique de confidentialité du fournisseur en sélectionnant **Continuer**.
+
+1. Choisissez votre abonnement et l’IoT Hub auquel l’appareil cible est joint.
+
+1. Choisissez **Déployer sur un appareil**.
+
+1. Entrez le nom de l’appareil ou sélectionnez **Rechercher un appareil** pour naviguer entre les appareils inscrits auprès du hub.
+
+1. Sélectionnez **Créer** pour continuer le processus standard de la configuration d’un manifeste de déploiement, y compris l’ajout d’autres modules si vous le souhaitez. Les détails du nouveau module, tels que l’URI de l’image, les options de création et les propriétés souhaitées, sont prédéfinis mais peuvent être modifiés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

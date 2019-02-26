@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ac55d14f864698506610301ae46bd4b6573d4f92
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118290"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330662"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -248,7 +248,7 @@ ms.locfileid: "56118290"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -870,7 +870,7 @@ Les exigences à respecter pour la préparation de votre propre disque de machin
 
 * À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage.
 * Il doit être au format VHD fixe. Les disques durs virtuels ou les disques durs virtuels au format VHDx ne sont pas encore pris en charge sur Azure. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
-* Les VHD montés sur la machine virtuelle et qui doivent être remontés sur celle-ci dans Azure, doivent également être au format VHD fixe. Pour connaître les limites de taille des disques de données, consultez [cet article (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) et [cet article (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows). Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
+* Les VHD montés sur la machine virtuelle et qui doivent être remontés sur celle-ci dans Azure, doivent également être au format VHD fixe. Pour connaître les limites de taille des disques de données, consultez [cet article (Linux)](../../linux/managed-disks-overview.md) et [cet article (Windows)](../../windows/managed-disks-overview.md). Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Ajoutez un autre compte local doté de privilèges d’administrateur, pouvant être utilisé par le support Microsoft ou être attribué comme contexte d’exécution aux services et applications, jusqu’à ce que la machine virtuelle soit déployée et que des utilisateurs plus appropriés puissent être utilisés.
 * Ajoutez d’autres comptes locaux, car ceux-ci peuvent être nécessaires pour le scénario de déploiement spécifique.
 
@@ -897,7 +897,7 @@ Les exigences à respecter pour la préparation de votre propre image de machine
 
 * À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage.
 * Il doit être au format VHD fixe. Les disques durs virtuels ou les disques durs virtuels au format VHDx ne sont pas encore pris en charge sur Azure. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
-* Les VHD montés sur la machine virtuelle et qui doivent être remontés sur celle-ci dans Azure, doivent également être au format VHD fixe. Pour connaître les limites de taille des disques de données, consultez [cet article (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) et [cet article (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows). Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
+* Les VHD montés sur la machine virtuelle et qui doivent être remontés sur celle-ci dans Azure, doivent également être au format VHD fixe. Pour connaître les limites de taille des disques de données, consultez [cet article (Linux)](../../windows/managed-disks-overview.md) et [cet article (Windows)](../../linux/managed-disks-overview.md). Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Ajoutez d’autres comptes locaux, car ceux-ci peuvent être nécessaires pour le scénario de déploiement spécifique.
 * Si l’image contient une installation de SAP NetWeaver et si le renommage du nom d’hôte au moment du déploiement Azure est probable, il est recommandé de copier les dernières versions du DVD du gestionnaire de déploiement de logiciels SAP dans le modèle. Cela vous permettra d’utiliser la fonction de renommage fournie par SAP pour adapter le nom d’hôte modifié et/ou changer le SID du système SAP dans l’image de machine virtuelle déployée dès qu’une nouvelle copie est démarrée.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004517"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268598"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics dans Application Insights
 Analytics est le puissant outil de recherche et de requête d[’Application Insights](app-insights-overview.md). Analytics étant un outil web, aucune installation n’est nécessaire.
@@ -31,7 +31,7 @@ Vous pouvez également utiliser l[’interface Analytics](https://go.microsoft.c
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Relation aux journaux Azure Monitor
-L’analytique d’Application Insights est basée sur [Azure Data Explorer](/azure/data-explorer), comme les journaux d’Azure Monitor, et utilise également le [langage de requête de Data Explorer](/azure/kusto/query). Il utilise le même [portail Log Analytics](../log-query/get-started-portal.md) que les journaux d’Azure Monitor, même si ses données sont stockées dans une partition distincte.
+L'analytique d'Application Insights repose sur [Azure Data Explorer](/azure/data-explorer), comme les journaux d'Azure Monitor, et utilise également le [langage de requête Kusto](/azure/kusto/query). Il utilise le même [portail Log Analytics](../log-query/get-started-portal.md) que les journaux d’Azure Monitor, même si ses données sont stockées dans une partition distincte.
 
 Vous ne pouvez pas accéder directement aux données d’un espace de travail Log Analytics à partir d’analyses Application Insights. Vous ne pouvez pas non plus accéder directement à des données d’application à partir de Log Analytics. Pour interroger les deux jeux de données ensemble, écrivez un [requête dans Log Analytics](../log-query/log-query-overview.md) et utilisez l’expression [app()](../log-query/app-expression.md) pour accéder aux données d’application.
 

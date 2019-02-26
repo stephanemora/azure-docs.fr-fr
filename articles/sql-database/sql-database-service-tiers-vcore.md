@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a9a38d30ec2a8e9139470531960d47fef1025269
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992124"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328620"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
 
@@ -42,7 +42,7 @@ Le tableau suivant montre les différences entre les trois niveaux :
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité|
 |Calcul|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|
 |Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur|
-|Stockage|Utilise le [Stockage distant Premium](../virtual-machines/windows/premium-storage.md) :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
+|Stockage|Utilise le stockage à distance :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
 |Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec 7000 IOPS au maximum</br>instance managée : dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|TBD|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|?|
 |Sauvegardes|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegarde basée sur des instantanés dans le stockage distant Azur. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S du calcul. Les restaurations sont très rapides (elles durent quelques minutes plutôt que quelques heures ou jours).|

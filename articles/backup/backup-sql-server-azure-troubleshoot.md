@@ -1,26 +1,19 @@
 ---
-title: Guide de dépannage Sauvegarde Azure pour les machines virtuelles SQL Server | Microsoft Docs
-description: Informations de dépannage pour la sauvegarde des machines virtuelles SQL Server sur Azure.
+title: Résoudre les problèmes de sauvegarde de bases de données SQL Server avec Sauvegarde Azure | Microsoft Docs
+description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 services: backup
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
+author: anuragm
+manager: shivamg
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 02/19/2019
 ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296119"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428617"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Résoudre les problèmes de sauvegarde SQL Server sur Azure
 
@@ -28,11 +21,11 @@ Cet article fournit des informations de dépannage pour la protection des machin
 
 ## <a name="public-preview-limitations"></a>Limitations de la préversion publique
 
-Pour consulter les limitations relatives à la préversion publique, reportez-vous à l’article [Sauvegarder une base de données SQL Server dans Azure](backup-azure-sql-database.md#public-preview-limitations).
+Pour consulter les limitations relatives à la préversion publique, reportez-vous à l’article [Sauvegarder une base de données SQL Server dans Azure](backup-azure-sql-database.md#preview-limitations).
 
 ## <a name="sql-server-permissions"></a>Autorisations SQL Server
 
-Pour configurer la protection d’une base de données SQL Server sur une machine virtuelle, l’extension **AzureBackupWindowsWorkload** doit être installée sur la machine virtuelle concernée. Si vous recevez l’erreur **UserErrorSQLNoSysadminMembership**, cela signifie que votre instance SQL n’a pas les autorisations de sauvegarde requises. Pour corriger cette erreur, suivez les étapes indiquées dans [Définir des autorisations pour les machines virtuelles SQL autres que de la Place de marché](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
+Pour configurer la protection d’une base de données SQL Server sur une machine virtuelle, l’extension **AzureBackupWindowsWorkload** doit être installée sur la machine virtuelle concernée. Si vous recevez l’erreur **UserErrorSQLNoSysadminMembership**, cela signifie que votre instance SQL n’a pas les autorisations de sauvegarde requises. Pour corriger cette erreur, suivez les étapes indiquées dans [Définir des autorisations pour les machines virtuelles SQL autres que de la Place de marché](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ## <a name="troubleshooting-errors"></a>Résolution des erreurs
 
@@ -56,13 +49,13 @@ Les tableaux suivants sont organisés par code d’erreur.
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | This SQL database does not support the requested backup type. (Cette base de données SQL ne prend pas en charge le type de sauvegarde demandé.) | Se produit lorsque le mode de récupération de la base de données n’autorise pas le type de sauvegarde demandé. L’erreur peut se produire dans les situations suivantes : <br/><ul><li>Une base de données utilisant un mode de récupération simple n’autorise pas la sauvegarde de fichier journal.</li><li>Les sauvegardes de fichier journal et différentielles ne sont pas autorisées pour une base de données MASTER.</li></ul>Pour plus d’informations, consultez le document [Modes de récupération (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server). | Si la sauvegarde de fichier journal échoue pour la base de données en mode de récupération simple, essayez l’une des options suivantes :<ul><li>Si la base de données est en mode de récupération simple, désactivez les sauvegardes de fichier journal.</li><li>Consultez la [documentation SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) pour modifier le mode de récupération de la base de données en le définissant sur Complet ou Journalisation en bloc. </li><li> Si vous ne souhaitez pas modifier le mode de récupération et si vous disposez d’une stratégie standard pour sauvegarder plusieurs bases de données ne pouvant être changée, ignorez l’erreur. Vos sauvegardes complètes et différentielles fonctionneront par planification. Les sauvegardes de fichier journal seront ignorées, ce qui est attendu dans ce cas.</li></ul>S’il s’agit d’une base de données MASTER et si vous avez configuré la sauvegarde différentielle ou de fichier journal, suivez l’une des étapes ci-après :<ul><li>Utilisez le portail pour modifier la planification de la stratégie de sauvegarde pour la base de données MASTER en la définissant sur Complète.</li><li>Si vous disposez d’une stratégie standard pour sauvegarder plusieurs bases de données ne pouvant être changée, ignorez l’erreur. Votre sauvegarde complète fonctionnera par planification. Les sauvegardes différentielles ou de fichier journal n’auront pas lieu, ce qui est attendu dans ce cas.</li></ul> |
-| Operation canceled as a conflicting operation was already running on the same database. (Opération annulée car une opération conflictuelle était déjà en cours d’exécution sur la même base de données.) | Consultez le [billet de blog sur les limitations relatives à la sauvegarde et à la restauration](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) qui s’exécutent simultanément.| [Utilisez SQL Server Management Studio (SSMS) pour surveiller les travaux de sauvegarde.](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) Après l’échec de l’opération en conflit, recommencez l’opération.|
+| Operation canceled as a conflicting operation was already running on the same database. (Opération annulée car une opération conflictuelle était déjà en cours d’exécution sur la même base de données.) | Consultez le [billet de blog sur les limitations relatives à la sauvegarde et à la restauration](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) qui s’exécutent simultanément.| [Utilisez SQL Server Management Studio (SSMS) pour surveiller les travaux de sauvegarde.](manage-monitor-sql-database-backup.md) Après l’échec de l’opération en conflit, recommencez l’opération.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| SQL database does not exist. (La base de données SQL n’existe pas.) | La base de données a été supprimée ou renommée. | <ul><li>Vérifiez si la base de données a été supprimée ou renommée par inadvertance.</li><li>Si la base de données a été supprimée par inadvertance, restaurez la base de données à l’emplacement d’origine pour poursuivre les sauvegardes.</li><li>Si vous avez supprimé la base de données et si vous n’avez pas besoin de sauvegardes ultérieures, dans le coffre Recovery Services cliquez sur [Arrêter la sauvegarde, puis « Conserver les données de sauvegarde » ou « Supprimer les données de sauvegarde »](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms).</li>|
+| SQL database does not exist. (La base de données SQL n’existe pas.) | La base de données a été supprimée ou renommée. | Vérifiez si la base de données a été supprimée ou renommée par inadvertance.<br/><br/> Si la base de données a été supprimée par inadvertance, restaurez la base de données à l’emplacement d’origine pour poursuivre les sauvegardes.<br/><br/> Si vous avez supprimé la base de données et si vous n’avez pas besoin de sauvegardes ultérieures, dans le coffre Recovery Services cliquez sur [Arrêter la sauvegarde, puis « Conserver les données de sauvegarde » ou « Supprimer les données de sauvegarde »](manage-monitor-sql-database-backup.md).
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981755"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447461"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -61,6 +61,8 @@ Le tableau suivant présente les offres non prises en charge.
 | **Plans de support** | Support standard Azure Government | MS-AZR-USGOV-0041P |
 | **Plans de support** | Support Professional Direct Azure Government | MS-AZR-USGOV-0042P |
 | **Plans de support** | Support Developer Support Azure Government | MS-AZR-USGOV-0043P |
+
+Pour les clients des catégories d'offre Paiement à l'utilisation, MSDN et Visual Studio, les données sont disponibles dans Cost Management à partir du 10/02/2018.
 
 Si vous ne voyez pas de données pour un abonnement et que vous souhaitez déterminer si votre abonnement figure dans les offres prises en charge, vous pouvez valider que votre abonnement est pris en charge. Pour valider qu’un abonnement Azure est pris en charge, connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez ensuite **Tous les services** dans le volet du menu de gauche. Dans la liste des services, sélectionnez **Abonnements**. Dans le menu de la liste des abonnements, cliquez sur l’abonnement que vous souhaitez vérifier. Votre abonnement est affiché sous l’onglet Vue d’ensemble et vous pouvez voir les éléments **Offre** et **ID de l’offre**. L’image suivante en montre un exemple.
 

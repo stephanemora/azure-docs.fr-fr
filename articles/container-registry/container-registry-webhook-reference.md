@@ -7,16 +7,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857752"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329317"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Référence de webhook Azure Container Registry
 
-Vous pouvez [configurer des webhooks](container-registry-webhook.md) pour votre registre de conteneurs qui génèrent des événements lorsque certaines actions sont effectuées. Par exemple, vous pouvez activer des webhooks qui sont déclenchés sur des opérations `push` et `delete` d’image conteneur. Lorsqu’un webhook est déclenché, Azure Container Registry envoie une requête HTTP ou HTTPS contenant des informations sur l’événement à un point de terminaison que vous spécifiez. Votre point de terminaison peut ensuite traiter le webhook et agir en conséquence.
+Vous pouvez [configurer des webhooks](container-registry-webhook.md) pour votre registre de conteneurs qui génèrent des événements lorsque certaines actions sont effectuées. Par exemple, activez des webhooks déclenchés sur des opérations `push` et `delete` d'une image de conteneur. Lorsqu’un webhook est déclenché, Azure Container Registry envoie une requête HTTP ou HTTPS contenant des informations sur l’événement à un point de terminaison que vous spécifiez. Votre point de terminaison peut ensuite traiter le webhook et agir en conséquence.
 
 Les sections suivantes détaillent le schéma de requêtes de webhook générées par des événements pris en charge. Les sections de l’événement contient le schéma de charge utile pour le type d’événement, une charge utile de requête par exemple, et un ou plusieurs exemples de commandes qui peuvent déclencher le webhook.
 
@@ -40,17 +40,17 @@ Webhook déclenché lorsqu’une image conteneur est envoyée vers un référent
 
 ### <a name="push-event-payload"></a>Charge utile d’événement push
 
-|Élément|type|Description|
+|Élément|Type|Description|
 |-------------|----------|-----------|
 |`id`|Chaîne|ID de l’événement de webhook.|
-|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
 |`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#request)|Type complexe|Requête qui a généré l’événement de webhook.|
 
 ### <a name="target"></a>cible
 
-|Élément|type|Description|
+|Élément|Type|Description|
 |------------------|----------|-----------|
 |`mediaType`|Chaîne|Type MIME de l’objet référencé.|
 |`size`|Int32|Nombre d’octets du contenu. Identique au champ Longueur.|
@@ -61,7 +61,7 @@ Webhook déclenché lorsqu’une image conteneur est envoyée vers un référent
 
 ### <a name="request"></a>request
 
-|Élément|type|Description|
+|Élément|Type|Description|
 |------------------|----------|-----------|
 |`id`|Chaîne|ID de la requête qui a initié l’événement.|
 |`host`|Chaîne|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
@@ -104,17 +104,17 @@ Webhook déclenché lorsqu’un référentiel ou un manifeste est supprimé. Non
 
 ### <a name="delete-event-payload"></a>Charge utile d’événement de suppression
 
-|Élément|type|Description|
+|Élément|Type|Description|
 |-------------|----------|-----------|
 |`id`|Chaîne|ID de l’événement de webhook.|
-|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
 |`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#delete_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#delete_request)|Type complexe|Requête qui a généré l’événement de webhook.|
 
 ### <a name="delete_target"></a> cible
 
-|Élément|type|Description|
+|Élément|Type|Description|
 |------------------|----------|-----------|
 |`mediaType`|Chaîne|Type MIME de l’objet référencé.|
 |`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
@@ -122,7 +122,7 @@ Webhook déclenché lorsqu’un référentiel ou un manifeste est supprimé. Non
 
 ### <a name="delete_request"></a> requête
 
-|Élément|type|Description|
+|Élément|Type|Description|
 |------------------|----------|-----------|
 |`id`|Chaîne|ID de la requête qui a initié l’événement.|
 |`host`|Chaîne|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
@@ -154,10 +154,10 @@ Exemples de commandes [Azure CLI](/cli/azure/acr) qui déclenchent un webhook d�
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

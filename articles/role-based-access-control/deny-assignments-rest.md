@@ -1,6 +1,6 @@
 ---
-title: Lister les affectations de refus à l’aide de RBAC et de l’API REST - Azure | Microsoft Docs
-description: Découvrez comment lister les affectations de refus pour les utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle (RBAC) et de l’API REST.
+title: Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST - Azure | Microsoft Docs
+description: Apprenez à dresser la liste des affectations de refus pour les utilisateurs, groupes et applications à l'aide de l'API REST et du contrôle d'accès en fonction du rôle (RBAC) pour les ressources Azure.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975580"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341621"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>Lister les affectations de refus à l’aide de RBAC et de l’API REST
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST
 
 Actuellement, les affectations de refus sont **en lecture seule** et peuvent être définies uniquement par Azure. Même si vous ne pouvez pas créer vos propres affectations de refus, il est utile de lister celles qui sont définies, car elles peuvent impacter vos autorisations actuelles. Cet article décrit comment lister les affectations de refus existantes à l’aide de RBAC et de l’API REST.
 
@@ -60,7 +60,7 @@ Actuellement, les affectations de refus sont **en lecture seule** et peuvent êt
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les affectations de refus.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -95,6 +95,6 @@ Actuellement, les affectations de refus sont **en lecture seule** et peuvent êt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comprendre les affectations de refus](deny-assignments.md)
+- [Comprendre les affectations de refus relatives aux ressources Azure](deny-assignments.md)
 - [Élever l’accès d’un administrateur général dans Azure Active Directory](elevate-access-global-admin.md)
 - [Référence de l'API REST Azure](/rest/api/azure/)

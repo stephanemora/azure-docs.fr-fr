@@ -1,39 +1,49 @@
 ---
-title: Remplacement des certificats auto-signés des passerelles P2S par des certificats publics | Passerelle VPN Azure | Microsoft Docs
+title: Remplacement des certificats des passerelles P2S par des certificats publics | Passerelle VPN Azure | Microsoft Docs
 description: Cet article explique comment installer les nouveaux certificats d'autorité de certification publics des passerelles P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: ac1ae4125418a9c0b3e9587cd03a44e752ac8f82
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236955"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453511"
 ---
-# <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Remplacement des certificats auto-signés des passerelles P2S par des certificats publics
+# <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passer à un certificat de passerelle d’autorité de certification public pour P2S
 
-La Passerelle VPN Azure n'émet plus de certificats auto-signés vers les passerelles pour les connexions P2S. Les certificats délivrés sont maintenant signés par une autorité de certification publique. Toutefois, les anciennes passerelles peuvent encore utiliser des certificats auto-signés. Ces certificats auto-signés approchent de leur date d'expiration et doivent être remplacés par des certificats d'autorité de certification publics.
+La Passerelle VPN Azure n'émet plus de certificats auto-signés de niveau Azure vers ses passerelles pour les connexions P2S. Les certificats délivrés sont maintenant signés par une autorité de certification publique. Toutefois, certaines des passerelles les plus anciennes peuvent encore utiliser des certificats auto-signés. Ces certificats auto-signés approchent de leur date d'expiration et doivent être remplacés par des certificats d'autorité de certification publics.
 
-Auparavant, le certificat auto-signé de la passerelle devait être mis à jour tous les 18 mois. Les fichiers de configuration des clients VPN devaient ensuite être générés et redéployés sur tous les clients P2S. Les certificats d'autorité de certification publics mettent fin à cette limitation. En plus du remplacement des certificats, ce changement apporte également des améliorations à la plateforme, de meilleures métriques et une stabilité accrue.
+>[!NOTE]
+> Les certificats auto-signés utilisés pour l'authentification des clients P2S ne sont pas concernés par ce changement de certificats de niveau Azure. Vous pouvez continuer à émettre et à utiliser des certificats auto-signés normalement.
+>
+
+Dans ce contexte, les certificats constituent des certificats supplémentaires de niveau Azure. Il ne s'agit pas des chaînes de certificats que vous utilisez lors de la génération de vos propres certificats racine auto-signés et des certificats clients pour l'authentification. Ces certificats ne sont pas concernés ; ils expireront aux dates que vous avez définies.
+
+Auparavant, un certificat auto-signé destiné à la passerelle (émis en arrière-plan par Azure) devait être mis à jour tous les 18 mois. Les fichiers de configuration des clients VPN devaient ensuite être générés et redéployés sur tous les clients P2S. Les certificats d'autorité de certification publics mettent fin à cette limitation. En plus du remplacement des certificats, ce changement apporte également des améliorations à la plateforme, de meilleures métriques et une stabilité accrue.
 
 Seules les passerelles les plus anciennes sont concernées par ce changement. Si votre certificat de passerelle doit être remplacé, vous recevrez un message ou une notification toast sur le portail Azure. Pour savoir si votre passerelle est concernée, suivez les étapes décrites dans cet article.
 
->[!IMPORTANT]
->La mise à jour est prévue pour le 12 mars 2019 à partir de 18:00 UTC. Vous pouvez créer un cas de support si vous préférez choisir un autre créneau horaire. Formulez et finalisez votre demande au moins 24 heures à l'avance.  Vous pouvez demander l'un des créneaux horaire suivants :
+> [!IMPORTANT]
+> La mise à jour est prévue pour le 12 mars 2019 à partir de 18:00 UTC. Vous pouvez créer un cas de support si vous préférez choisir un autre créneau horaire. Formulez et finalisez votre demande au moins 24 heures à l'avance.  Vous pouvez demander l'un des créneaux horaire suivants :
 >
->* 06:00 UTC le 25 février
->* 18:00 UTC le 25 février
->* 06:00 UTC le 1er mars
->* 18:00 UTC le 1er mars
+> * 06:00 UTC le 25 février
+> * 18:00 UTC le 25 février
+> * 06:00 UTC le 1er mars
+> * 18:00 UTC le 1er mars
 >
->**Pour toutes les autres passerelles, la mise à jour aura lieu le 12 mars 2019 à partir de 18:00 UTC**.
+> **Pour toutes les autres passerelles, la mise à jour aura lieu le 12 mars 2019 à partir de 18:00 UTC**.
 >
+> Le processus de remplacement de passerelle prendra jusqu'à 2 heures. Les clients recevront un e-mail au terme du processus de remplacement de leur passerelle.
+> 
 
 ## <a name="1-verify-your-certificate"></a>1. Vérifiez votre certificat
+
+### <a name="resource-manager"></a>Gestionnaire de ressources
 
 1. Vérifiez si vous êtes concerné par cette mise à jour. Téléchargez la configuration de votre client VPN actuel en suivant les étapes décrites dans [cet article](point-to-site-vpn-client-configuration-azure-cert.md).
 
@@ -43,6 +53,11 @@ Seules les passerelles les plus anciennes sont concernées par ce changement. Si
   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Si la mention « DigiCert Global Root CA » apparaît pour les champs *ServerCertRotCn* et *ServerCertIssuerCn*, cela signifie que vous n'êtes pas concerné par cette mise à jour et que vous n'avez pas besoin de suivre les étapes décrites dans cet article. Si une autre mention apparaît, en revanche, le certificat de votre passerelle est concerné par la mise à jour et sera remplacé.
+
+### <a name="classic"></a>Classique
+
+1. Sur un ordinateur client, accédez à l'emplacement %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. Dans le dossier Gateway ID, vous pouvez afficher le certificat.
+2. Dans l'onglet Général du certificat, vérifiez que l'autorité émettrice est « DigiCert Global Root CA ». Si vous avez autre chose que cette autorité émettrice, cela signifie que le certificat de votre passerelle est concerné par la mise à jour et qu'il va faire l'objet d'un remplacement.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Consultez le calendrier de mise à jour des certificats
 

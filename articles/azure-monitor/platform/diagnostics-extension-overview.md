@@ -1,20 +1,18 @@
 ---
 title: Vue d’ensemble de l’extension Azure Diagnostics
 description: Utilisation des diagnostics Azure pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic dans Cloud Services, Virtual Machines et Service Fabric
-services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470509"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310455"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Azure Diagnostics
 L’extension Azure Diagnostics est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](../../azure-monitor/overview.md).
@@ -27,28 +25,29 @@ L’extension Azure Diagnostics peut collecter les types de données suivants :
 
 | source de données | Description |
 | --- | --- |
-| Compteurs de performances |Système d’exploitation et compteurs de performances personnalisés |
+| Métriques du compteur de performances |Système d’exploitation et compteurs de performances personnalisés |
 | Journaux d’application |Messages de trace écrits par votre application |
 | Journaux d’événements Windows |Informations envoyées au système de journalisation des événements Windows |
-| .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) |
+| Journaux .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) |
 | Journaux IIS |Informations au sujet des sites Web IIS |
-| ETW basé sur les manifestes |Événements de suivi d’événements pour Windows générés par n’importe quel processus.(1) |
-| Vidages sur incident |Informations sur l’état du processus en cas d’incident d’application |
+| [Journaux ETW basés sur les manifestes](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Événements de suivi d’événements pour Windows générés par n’importe quel processus.(1) |
+| Vidages sur incident (journaux) |Informations sur l’état du processus si une application se bloque |
 | Journaux d'erreurs personnalisés |Journaux créés par votre application ou service |
-| Journaux d’infrastructure Azure Diagnostic |Informations au sujet des diagnostics eux-mêmes |
+| Journaux d’infrastructure Azure Diagnostic |Informations sur les Diagnostics Microsoft Azure eux-mêmes |
 
 (1) pour obtenir la liste des fournisseurs d’ETW, exécutez `c:\Windows\System32\logman.exe query providers` dans une fenêtre de console sur la machine à partir de laquelle vous souhaitez recueillir des informations.
 
 ## <a name="data-storage"></a>Stockage des données
 L’extension stocke ses données dans un [compte de stockage Azure](diagnostics-extension-to-storage.md) que vous spécifiez.
 
-Vous pouvez également les envoyer vers [Application Insights](../../azure-monitor/app/cloudservices.md). Vous pouvez également les diffuser en continu vers [Event Hub](../../event-hubs/event-hubs-about.md), ce qui vous permet ensuite de les envoyer vers des services de surveillance non Azure.
+Vous pouvez également les envoyer vers [Application Insights](../../azure-monitor/app/cloudservices.md). 
 
-### <a name="azure-monitor"></a>Azure Monitor
-Vous avez aussi la possibilité d’envoyer vos données vers Azure Monitor. Pour le moment, ce récepteur s’applique uniquement aux compteurs de performances. Vous permet d’envoyer les compteurs de performances collectés sur votre machine virtuelle, groupe de machines virtuelles identiques (VMSS) ou service cloud à Azure Monitor sous la forme de métriques personnalisées. Le récepteur Azure Monitor prend en charge ce qui suit :
+Vous pouvez également les diffuser en continu vers [Event Hub](../../event-hubs/event-hubs-about.md), ce qui vous permet ensuite de les envoyer vers des services de surveillance non Azure.
+
+Vous avez aussi la possibilité d’envoyer vos données vers la base de données de série chronologique de métriques Azure Monitor. Pour le moment, ce récepteur s’applique uniquement aux compteurs de performances. Il vous permet d’envoyer des compteurs de performances en tant que métriques personnalisées. Cette fonctionnalité est en version préliminaire. Le récepteur Azure Monitor prend en charge ce qui suit :
 * Récupération de tous les compteurs de performances envoyés à Azure Monitor via les [API de métriques Azure Monitor.](https://docs.microsoft.com/rest/api/monitor/)
-* Génération d’alertes sur l’ensemble des compteurs de performances envoyés à Azure Monitor via la nouvelle [expérience d’alerte unifiée](../../azure-monitor/platform/alerts-overview.md) dans Azure Monitor.
-* Traitement de l’opérateur générique des compteurs de performances comme dimension « Instance » sur votre métrique.  Par exemple, si vous avez collecté le compteur « LogicalDisk(\*)/DiskWrites/sec », vous pouvez filtrer et fractionner sur la dimension « Instance » pour tracer ou générer des alertes sur le nombre d’écritures/s de chaque disque logique sur la machine virtuelle (C:, D:, etc.)
+* Génération d’alertes sur l’ensemble des compteurs de performances envoyés à Azure Monitor via les [alertes de métriques](../../azure-monitor/platform/alerts-overview.md) dans Azure Monitor
+* Traitement de l’opérateur générique des compteurs de performances comme dimension « Instance » sur votre métrique.  Par exemple, si vous avez collecté le compteur « LogicalDisk(\*)/DiskWrites/sec », vous pouvez filtrer et fractionner sur la dimension « Instance » pour tracer ou générer des alertes sur le nombre d’écritures/s de chaque disque logique sur la machine virtuelle (par exemple, C:)
 
 Pour en savoir plus sur la manière de configurer ce récepteur, consultez la [documentation relative à Azure Diagnostics Schema.](diagnostics-extension-schema-1dot3.md)
 

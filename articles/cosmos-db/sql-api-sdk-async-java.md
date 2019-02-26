@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979171"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416273"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Direct GA.
+* La connectivité de mode direct est désormais généralement disponible. Pour un exemple qui utilise une connectivité de mode direct, consultez le référentiel GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java).
 * Ajout de la prise en charge de QueryMetrics.
-* Modification des API acceptant java.util.Collection pour lesquelles l’ordre est important et qui acceptent java.util.List à la place.
-  List est désormais accepté par ConnectionPolicy#getPreferredLocations(), JsonSerialization et PartitionKey(.).
+* Modification des API acceptant java.util.Collection pour lesquelles l’ordre est important et qui acceptent java.util.List à la place. List est désormais accepté par ConnectionPolicy#getPreferredLocations(), JsonSerialization et PartitionKey(.).
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Ajout de la prise en charge de Direct.
+* Ajout de la prise en charge pour la connectivité de mode direct.
 * Modification des API acceptant java.util.Collection pour lesquelles l’ordre est important et qui acceptent java.util.List à la place.
   List est désormais accepté par ConnectionPolicy#getPreferredLocations(), JsonSerialization et PartitionKey(.).
 * Correction d’un bogue de session pour la requête de document en mode passerelle.

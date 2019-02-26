@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260378"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313566"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
 
@@ -127,7 +127,7 @@ Nous utilisons des conteneurs Docker pour des questions de fiabilité et de modu
 
     -   Interface Web qui interagit avec les contrats de gouvernance
 
-## <a name="how-to-guides"></a>Procédures
+## <a name="how-to-guides"></a>Guides pratiques
 ### <a name="governance-dapp"></a>Governance DApp
 
 La décentralisation de la gouvernance est au centre du concept de preuve d’autorité. La Governance DApp est un ensemble de [contrats intelligents](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) prédéployés associés à une application web servant à administrer les autorités sur le réseau.
@@ -359,7 +359,7 @@ Cette première étape s’effectue en toute transparence si vous utilisez un d�
 
     -  Choisissez le même nombre de nœuds de validateur que le reste des membres sur le réseau, pour garantir une représentation équitable
 
-    -  Utilisez la même adresse Ethereum que celle qui a été fournie à [l’étape précédente](#step-1-add-the-new-admin)
+    -  Utilisez la même adresse Ethereum que celle qui a été fournie à l’étape précédente
 
     -  Passez *l’URL de données du consortium* sur l’onglet *Paramètres Ethereum*
 
@@ -623,7 +623,7 @@ La réponse contiendra des informations utiles sur la joindre de membres (bloc G
 }
 
 ```
-## <a name="tutorials"></a>Didacticiels
+## <a name="tutorials"></a>Tutoriels
 
 ### <a name="programmatically-interacting-with-a-smart-contract"></a>Interaction par programmation avec un contrat intelligent
 

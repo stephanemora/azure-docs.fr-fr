@@ -10,25 +10,23 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/12/2019
+ms.date: 02/15/2019
 ms.author: juliako
-ms.openlocfilehash: ce022e22cc98dd218dff4840f686464233f99c72
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f4ce64599aad2b2eebbef6ca8d81acfca2a7a702
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176341"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342505"
 ---
 # <a name="create-an-azure-media-services-account"></a>Créer un compte Azure Media Services
 
-Pour commencer à chiffrer, coder, analyser, gérer et diffuser en continu du contenu multimédia dans Azure, vous devez créer un compte Media Services. En créant un compte Media Services, vous créez aussi un compte de stockage associé (ou utilisez un compte existant).  
+Pour commencer à chiffrer, coder, analyser, gérer et diffuser en continu du contenu multimédia dans Azure, vous devez créer un compte Media Services. Un compte Media Services doit être associé à un ou plusieurs comptes de stockage.
 
 > [!NOTE]
 > Le compte Media Services et tous les comptes de stockage associés doivent être faire partie du même abonnement Azure. Il est fortement recommandé d’utiliser des comptes de stockage situés au même emplacement que le compte Media Services afin d’éviter des frais supplémentaires de sortie des données et une importante latence.
 
 Cet article décrit les étapes à suivre pour créer un compte Azure Media Services à l’aide d’Azure CLI.  
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

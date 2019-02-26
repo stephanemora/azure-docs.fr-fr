@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883999"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453934"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Aide-mémoire d’algorithme d’apprentissage automatique pour Azure Machine Learning Studio
 
@@ -27,14 +27,12 @@ ms.locfileid: "55883999"
 
 **Téléchargez l’aide-mémoire ici : [Aide-mémoire de l’algorithme Machine Learning (11 x 17 pouces)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Aide-mémoire de l’algorithme Machine Learning : Découvrez comment choisir un algorithme Machine Learning.][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![Aide-mémoire de l’algorithme Machine Learning : Découvrez comment choisir un algorithme Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning Studio au format tabloïd pour l’avoir à portée de main et obtenir de l’aide lors du choix d’un algorithme.
 
 > [!NOTE]
-> Pour obtenir de l’aide concernant l’utilisation de cet aide-mémoire pour le choix de l’algorithme approprié et plus d’informations sur les différents types d’algorithmes d’apprentissage et leur utilisation, consultez [Comment choisir des algorithmes Microsoft Azure Machine Learning](algorithm-choice.md).
+> Pour obtenir de l’aide concernant l’utilisation de cet aide-mémoire pour le choix de l’algorithme approprié et plus d’informations sur les différents types d’algorithmes d’apprentissage et leur utilisation, consultez [Comment choisir des algorithmes Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Remarques et définitions terminologiques pour l’aide-mémoire d’algorithme Machine Learning Studio
 
@@ -44,7 +42,7 @@ Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning Stud
 
 * Il existe trois catégories principales d’apprentissage automatique : l’**apprentissage supervisé**, l’**apprentissage non supervisé** et l’**apprentissage par renforcement**.
 
-  * Dans l’**apprentissage supervisé**, chaque point de données est étiqueté ou associé à une catégorie ou une valeur qui vous intéresse.  La définition d’une image comme un « chat » ou un « chien » est un exemple d’étiquette de catégorie.  Le prix de vente associé à un véhicule d’occasion est un exemple d’étiquette de valeur. L’objectif de l’apprentissage supervisé est d’étudier de nombreux exemples étiquetés comme ceux-ci, pour pouvoir effectuer des prévisions sur les points de données futurs. Par exemple pour identifier de nouvelles photos avec le bon animal ou affecter des prix de vente corrects à des véhicules d’occasion. Il s’agit d’un type d’apprentissage automatique utile et apprécié. Tous les modules d’Azure Machine Learning sont supervisés, mis à part l’algorithme des [k-moyennes][k-means-clustering].
+  * Dans l’**apprentissage supervisé**, chaque point de données est étiqueté ou associé à une catégorie ou une valeur qui vous intéresse.  La définition d’une image comme un « chat » ou un « chien » est un exemple d’étiquette de catégorie.  Le prix de vente associé à un véhicule d’occasion est un exemple d’étiquette de valeur. L’objectif de l’apprentissage supervisé est d’étudier de nombreux exemples étiquetés comme ceux-ci, pour pouvoir effectuer des prévisions sur les points de données futurs. Par exemple pour identifier de nouvelles photos avec le bon animal ou affecter des prix de vente corrects à des véhicules d’occasion. Il s’agit d’un type d’apprentissage automatique utile et apprécié. Tous les modules d’Azure Machine Learning Studio sont supervisés, mis à part l’algorithme des [k-moyennes][k-means-clustering].
 
   * Dans l’**apprentissage non supervisé**, les points de données n’ont aucune étiquette associée. En effet, l’objectif d’un algorithme d’apprentissage non supervisé est d’organiser les données d’une certaine façon ou de décrire sa structure. Cela peut signifier un regroupement en clusters, comme le fait l’algorithme des k-moyennes ou la recherche de différentes manières de visualiser des données complexes afin d’en simplifier l’affichage.
 

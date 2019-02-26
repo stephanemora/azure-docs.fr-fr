@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cc4893837feeec6116750a7e37e7621af11ab0a4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011680"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453917"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -126,11 +126,11 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 >[!IMPORTANT]
 > Les ports pour lesquels *l’objectif* est indiqué en **gras** sont nécessaires au déploiement du service Gestion des API. Toutefois, le blocage des autres ports entraîne une dégradation de la capacité à utiliser et à surveiller le service en cours d’exécution.
 
-* **Fonctionnalité SSL** : pour activer la génération et la validation de la chaîne de certification SSL, le service de gestion des API nécessite une connectivité réseau sortante vers ocsp.msocsp.com, mscrl.microsoft.com et crl.microsoft.com. Cette dépendance n’est pas requise si l’un des certificats que vous chargez sur la gestion de API contient la totalité de la chaîne permettant d’accéder à la racine de l’AC.
++ **Fonctionnalité SSL** : pour activer la génération et la validation de la chaîne de certification SSL, le service de gestion des API nécessite une connectivité réseau sortante vers ocsp.msocsp.com, mscrl.microsoft.com et crl.microsoft.com. Cette dépendance n’est pas requise si l’un des certificats que vous chargez sur la gestion de API contient la totalité de la chaîne permettant d’accéder à la racine de l’AC.
 
-* **Accès DNS** : L’accès sortant sur le port 53 est nécessaire pour la communication avec des serveurs DNS. S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau hébergeant la gestion de l’API.
++ **Accès DNS** : L’accès sortant sur le port 53 est nécessaire pour la communication avec des serveurs DNS. S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau hébergeant la gestion de l’API.
 
-* **Métriques et supervision de l’intégrité** : connectivité réseau sortante aux points de terminaison de la supervision Azure, qui se résolvent sous les domaines suivants : 
++ **Métriques et supervision de l’intégrité** : connectivité réseau sortante aux points de terminaison de la supervision Azure, qui se résolvent sous les domaines suivants : 
 
     | Environnement Azure | Points de terminaison                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -138,17 +138,22 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-* **Relais SMTP** : connectivité réseau sortante pour le relais SMTP, qui se résout sur l’hôte `ies.global.microsoft.com`.
++ **Relais SMTP** : connectivité réseau sortante pour le relais SMTP, qui se résout sur l’hôte `ies.global.microsoft.com`.
 
-* **Diagnostics du portail Azure** : pour activer le flux des journaux de diagnostic à partir du portail Azure lors de l’utilisation de l’extension de la gestion des API depuis l’intérieur d’un réseau virtuel, un accès sortant vers `dc.services.visualstudio.com` sur le port 443 est requis. Cela permet de résoudre les problèmes que vous pouvez rencontrer lors de l’utilisation d’extension.
++ **CAPTCHA du portail des développeurs** : Connectivité réseau sortante pour CAPTCHA du portail de développeur, qui se résout sur l’hôte `client.hip.live.com`.
 
-* **Configuration d’Express Route** : une configuration cliente courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force le trafic Internet sortant à évoluer sur site. Ce flux de trafic interrompt la connectivité avec la gestion des API Azure, car le trafic sortant peut être bloqué sur site, ou faire l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure. La solution consiste à définir un (ou plusieurs) itinéraires définis par l’utilisateur ([UDR][UDRs]) sur le sous-réseau qui contient la gestion des API Azure. Un itinéraire défini par l'utilisateur définit des itinéraires spécifiques au sous-réseau qui seront respectés au lieu de l'itinéraire par défaut.
-  Si possible, il est recommandé d'utiliser la configuration suivante :
- * La configuration ExpressRoute annonce 0.0.0.0/0 et par défaut, tunnelise de force tout le trafic sortant sur site.
- * L’itinéraire défini par l'utilisateur appliqué au sous-réseau contenant la gestion des API Azure définit 0.0.0.0/0 avec un type de tronçon Internet suivant.
- Le résultat est que l’itinéraire défini par l'utilisateur au niveau du sous-réseau a la priorité sur le tunneling forcé ExpressRoute, garantissant ainsi un accès Internet sortant à partir de la gestion des API Azure.
++ **Diagnostics du portail Azure** : pour activer le flux des journaux de diagnostic à partir du portail Azure lors de l’utilisation de l’extension de la gestion des API depuis l’intérieur d’un réseau virtuel, un accès sortant vers `dc.services.visualstudio.com` sur le port 443 est requis. Cela permet de résoudre les problèmes que vous pouvez rencontrer lors de l’utilisation d’extension.
 
-* **Routage par le biais d’appliances virtuelles réseau** : les configurations utilisant un routage défini par l’utilisateur avec un itinéraire par défaut (0.0.0.0/0) pour acheminer le trafic destiné à Internet à partir du sous-réseau Gestion des API par le biais d’une appliance virtuelle réseau s’exécutant dans Azure bloqueront le trafic de gestion d’Internet vers l’instance de service Gestion des API déployée au sein du sous-réseau du réseau virtuel. Cette configuration n’est pas prise en charge.
++ **Configuration d’Express Route** : une configuration cliente courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force le trafic Internet sortant à évoluer sur site. Ce flux de trafic interrompt la connectivité avec la gestion des API Azure, car le trafic sortant peut être bloqué sur site, ou faire l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure. La solution consiste à définir un (ou plusieurs) itinéraires définis par l’utilisateur ([UDR][UDRs]) sur le sous-réseau qui contient la gestion des API Azure. Un itinéraire défini par l'utilisateur définit des itinéraires spécifiques au sous-réseau qui seront respectés au lieu de l'itinéraire par défaut.
+
+    Si possible, il est recommandé d'utiliser la configuration suivante :
+
+     * La configuration ExpressRoute annonce 0.0.0.0/0 et par défaut, tunnelise de force tout le trafic sortant sur site.
+     * L’itinéraire défini par l'utilisateur appliqué au sous-réseau contenant la gestion des API Azure définit 0.0.0.0/0 avec un type de tronçon Internet suivant.
+
+    Le résultat est que l’itinéraire défini par l'utilisateur au niveau du sous-réseau a la priorité sur le tunneling forcé ExpressRoute, garantissant ainsi un accès Internet sortant à partir de la gestion des API Azure.
+
++ **Routage par le biais d’appliances virtuelles réseau** : les configurations utilisant un routage défini par l’utilisateur avec un itinéraire par défaut (0.0.0.0/0) pour acheminer le trafic destiné à Internet à partir du sous-réseau Gestion des API par le biais d’une appliance virtuelle réseau s’exécutant dans Azure bloqueront le trafic de gestion d’Internet vers l’instance de service Gestion des API déployée au sein du sous-réseau du réseau virtuel. Cette configuration n’est pas prise en charge.
 
 >[!WARNING]
 >La gestion des API Azure n’est pas prise en charge avec les configurations ExpressRoute qui **publient incorrectement de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée**. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les annonces de routage depuis Microsoft pour un grand ensemble de plages d'adresses IP Microsoft Azure. Si ces plages d’adresses sont incorrectement publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’instance de la gestion des API Azure sont incorrectement acheminés de force vers l’infrastructure réseau sur site d’un client. Ce flux réseau interrompt la gestion des API Azure. La solution à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée.

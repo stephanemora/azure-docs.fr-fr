@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657023"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311561"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -27,6 +27,9 @@ Dans cet article, vous en apprendrez davantage sur les identités managées dans
 > * Utiliser l’identité managée pour accéder à un coffre de clés à partir d’un conteneur en cours d’exécution
 
 Adaptez les exemples pour activer et utiliser des identités dans Azure Container Instances pour accéder aux autres services Azure. Ces exemples sont interactifs. Toutefois, en pratique, vos images de conteneur exécuteraient du code pour accéder aux services Azure.
+
+> [!NOTE]
+> Actuellement, vous ne pouvez pas utiliser une identité managée dans un groupe de conteneurs déployé sur un réseau virtuel.
 
 ## <a name="why-use-a-managed-identity"></a>Pourquoi utiliser une identité managée ?
 

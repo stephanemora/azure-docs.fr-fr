@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469496"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415508"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -28,7 +28,7 @@ Les erreurs de certificat sont provoquées par une des deux situations suivantes
 1. L’application est connectée via un « proxy transparent » ; dans cette configuration, un serveur (par exemple, le serveur de votre société) intercepte le trafic HTTPS, le déchiffre, puis le chiffre à l’aide d’un certificat auto-signé.
 2. Vous exécutez une application qui injecte un certificat SSL auto-signé dans les messages HTTPS que vous recevez. Les exemples d’applications qui injectent des certificats incluent un antivirus et un logiciel d’inspection de trafic réseau.
 
-Lorsque l’Explorateur de stockage voit un certificat auto-signé ou non approuvé, il ne peut plus savoir si le message HTTPS reçu a été modifié. Si vous avez une copie du certificat auto-signé, vous pouvez ordonner à l’Explorateur de stockage de lui faire confiance en procédant comme suit :
+Lorsque l'Explorateur Stockage voit un certificat auto-signé ou non approuvé, il ne peut plus savoir si le message HTTPS reçu a été modifié. Si vous avez une copie du certificat auto-signé, vous pouvez ordonner à l’Explorateur de stockage de lui faire confiance en procédant comme suit :
 
 1. Obtenez une copie Base-64 chiffrée X.509 (.cer) du certificat
 2. Cliquez sur **Modifier** > **Certificats SSL** > **Importer les certificats**, puis utilisez le sélecteur de fichiers pour rechercher, sélectionner et ouvrir le fichier .cer
@@ -53,6 +53,20 @@ Si vous ne savez pas d'où provient le certificat, vous pouvez essayer de le sav
 Si vous ne trouvez aucun certificat auto-signé à l’aide des étapes précédentes, contactez-nous par l’intermédiaire de l’outil de commentaires pour obtenir de l’aide. Vous pouvez choisir de lancer l’Explorateur de stockage à partir de la ligne de commande avec l’indicateur `--ignore-certificate-errors`. Une fois lancé avec cet indicateur, Explorateur de stockage ignore les erreurs de certificat.
 
 ## <a name="sign-in-issues"></a>Problèmes de connexion
+
+### <a name="blank-sign-in-dialog"></a>Boîte de dialogue de connexion vide
+Les boîtes de dialogue de connexion vides sont généralement dues à ADFS qui demande à l'Explorateur Stockage de procéder à une redirection non prise en charge par Electron. Pour contourner ce problème, vous pouvez essayer d'utiliser le flux de code de l'appareil dans le cadre de la connexion. Pour ce faire, suivez les étapes suivantes :
+1. « Accéder à Expérimental » -> « Utiliser la connexion par le code de l'appareil ».
+2. Ouvrez la boîte de dialogue de connexion (via l'icône de connexion de la barre verticale de gauche ou via l'option « Ajouter un compte » du panneau du compte).
+3. Choisissez l'environnement auquel vous souhaitez vous connecter.
+4. Cliquez sur le bouton « Se connecter ».
+5. Suivez les instructions figurant sur le panneau.
+
+Remarque : pour le moment, cette fonctionnalité est uniquement disponible dans la préversion 1.7.0.
+
+Si vous rencontrez des problèmes pour vous connecter au compte que vous souhaitez utiliser parce que votre navigateur par défaut est déjà connecté à un autre compte, vous pouvez :
+1. copier manuellement le lien et le code dans une session privée de votre navigateur, ou
+2. copier manuellement le lien et le code dans un autre navigateur.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Boucle de réauthentification ou modification du nom UPN
 Si vous êtes dans une boucle de réauthentification ou avez changé le nom UPN de l’un de vos comptes, essayez ce qui suit :
@@ -90,7 +104,7 @@ Si aucune de ces méthodes ne fonctionne, [ouvrez un problème sur GitHub](https
 Si vous ne parvenez pas à récupérer vos abonnements après vous être connecté avec succès, essayez l’une des méthodes de résolution de problèmes suivantes :
 
 * Vérifiez que votre compte a accès aux abonnements attendus. Vous pouvez vérifier que vous avez accès en vous connectant au portail de l’environnement Azure que vous essayez d’utiliser.
-* Assurez-vous que vous vous êtes connecté à l’aide de l’environnement approprié (Azure, Azure Chine, Azure Allemagne, Azure Gouvernement des États-Unis ou environnement personnalisé).
+* Assurez-vous que vous vous êtes connecté à l'aide de l'environnement Azure approprié (Azure, Azure Chine 21Vianet, Azure Allemagne, Azure Gouvernement des États-Unis ou environnement personnalisé).
 * Si vous vous trouvez derrière un proxy, vérifiez que vous avez correctement configuré le proxy de l’Explorateur de stockage.
 * Essayez de supprimer et de rajouter le compte.
 * S’il existe un lien « Plus d’informations », examinez les messages d’erreur signalés pour les locataires en échec. Si les messages d’erreur que vous voyez ne vous aident pas, n’hésitez pas à [ouvrir un problème sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -116,7 +130,7 @@ Tout d’abord, vérifiez que les informations suivantes que vous avez entrées 
 * URL de proxy et numéro de port
 * Nom d’utilisateur et mot de passe si requis par le proxy
 
-Notez que l’Explorateur Stockage ne prend pas en charge les fichier .pac pour la configuration des paramètres de proxy.
+Notez que l'Explorateur Stockage ne prend pas en charge les fichiers de configuration automatique du proxy pour la configuration des paramètres de proxy.
 
 ### <a name="common-solutions"></a>Solutions courantes
 

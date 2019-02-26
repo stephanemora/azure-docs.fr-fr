@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456219"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342302"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Audit dans Azure SQL Data Warehouse
 
@@ -74,10 +74,13 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
     ![Volet de navigation][8]
 
     > [!IMPORTANT]
-    > Les journaux d’audit au niveau du serveur sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure.
+    > Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage blob Azure avec votre abonnement Azure.
     >
-    > * **Stockage Premium** n’est actuellement  **pas pris en charge** par l’ajout d’objets blob.
-    > * Le **stockage dans un réseau virtuel** n’est actuellement **pas pris en charge**.
+    > - Tous les types de stockage (v1, v2, blob) sont pris en charge.
+    > - Toutes les configurations de réplication de stockage sont prises en charge.
+    > - Le **stockage Premium** n'est actuellement **pas pris en charge**.
+    > - Le **stockage dans un réseau virtuel** n’est actuellement **pas pris en charge**.
+    > - Le **stockage derrière un pare-feu** n'est actuellement **pas pris en charge**.
 
 8. Cliquez sur **Enregistrer**.
 

@@ -1,6 +1,6 @@
 ---
-title: Gérer l’accès pour les utilisateurs externes à l’aide du contrôle d’accès en fonction du rôle dans Azure | Microsoft Docs
-description: Découvrez comment gérer l’accès pour les utilisateurs externes à l’organisation à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans Azure.
+title: Gérer l'accès aux ressources Azure pour les utilisateurs externes à l'aide du contrôle d'accès en fonction du rôle | Microsoft Docs
+description: Apprenez à gérer l'accès aux ressources Azure pour les utilisateurs externes à l'organisation à l'aide du contrôle d'accès en fonction du rôle (RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284521"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343858"
 ---
-# <a name="manage-access-for-external-users-using-rbac"></a>Gérer l’accès pour les utilisateurs externes à l’aide du contrôle d’accès en fonction du rôle
+# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gérer l'accès aux ressources Azure pour les utilisateurs externes à l'aide du contrôle d'accès en fonction du rôle
 
 La fonctionnalité de contrôle d'accès basé sur le rôle (RBAC) permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs, fournisseurs ou travailleurs indépendants externes qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux domaines de la facturation. La fonctionnalité RBAC offre la flexibilité de pouvoir être propriétaire d’un seul abonnement Azure géré par le compte d’administrateur (rôle Administrateur du service au niveau d’un abonnement) et d’avoir plusieurs utilisateurs invités à travailler dans le cadre de cet abonnement, mais sans droits d’administration sur celui-ci.
 
 > [!NOTE]
-> Ni les abonnements Office 365 ni les licences Azure Active Directory (par exemple, Accès à Azure Active Directory) provisionnées à partir du Centre d’administration Office 365 ne sont éligibles pour l’utilisation de la fonctionnalité RBAC.
+> Ni les abonnements Office 365 ni les licences Azure Active Directory (par exemple, Accès à Azure Active Directory) configurés à partir du Centre d'administration Office 365 ne sont éligibles pour l'utilisation de la fonctionnalité RBAC.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Attribuer des rôles RBAC à l’étendue d’abonnement
 
@@ -55,7 +55,7 @@ Après avoir sélectionné l’abonnement, l’utilisateur administrateur doit c
 
 ![ajouter un utilisateur dans la fonctionnalité de contrôle d’accès IAM dans le portail Azure](./media/role-assignments-external-users/2.png)
 
-L’étape suivante consiste à sélectionner le rôle à attribuer et l’utilisateur à qui le rôle RBAC doit être attribué. Dans le menu déroulant **Rôle**, l’utilisateur administrateur voit uniquement les rôles RBAC intégrés disponibles dans Azure. Pour plus d’explications sur chaque rôle et les étendues qui peuvent lui être attribuées, consultez [Rôles intégrés](built-in-roles.md).
+L’étape suivante consiste à sélectionner le rôle à attribuer et l’utilisateur à qui le rôle RBAC doit être attribué. Dans le menu déroulant **Rôle**, l’utilisateur administrateur voit uniquement les rôles RBAC intégrés disponibles dans Azure. Pour plus d'explications sur chaque rôle et sur les étendues qui peuvent lui être attribuées, consultez [Rôles intégrés pour les ressources Azure](built-in-roles.md).
 
 L’utilisateur administrateur doit ensuite ajouter l’adresse de messagerie de l’utilisateur externe. Le comportement attendu est que l’utilisateur externe n'apparaisse pas dans le client existant. Une fois l’utilisateur externe invité, il est visible sous **Abonnements > Contrôle d’accès (IAM)** avec tous les utilisateurs auxquels un rôle RBAC est actuellement attribué dans l’étendue de l’abonnement.
 

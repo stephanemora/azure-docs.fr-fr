@@ -1,6 +1,6 @@
 ---
-title: Comprendre les définitions de rôles dans le RBAC Azure | Microsoft Docs
-description: Apprenez-en davantage sur les définitions de rôles dans le cadre du contrôle d’accès en fonction du rôle (RBAC) pour une gestion affinée des accès aux ressources dans Azure.
+title: Comprendre les définitions de rôles dans des ressources RBAC pour Azure | Microsoft Docs
+description: Apprenez-en davantage sur les définitions de rôles dans le cadre du contrôle d’accès en fonction du rôle (RBAC) pour une gestion affinée des accès aux ressources Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991359"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342777"
 ---
-# <a name="understand-role-definitions"></a>Comprendre les définitions de rôles
+# <a name="understand-role-definitions-for-azure-resources"></a>Comprendre les définitions de rôle relatives aux ressources Azure
 
-Si vous essayez de comprendre comment un rôle fonctionne, ou si vous créez votre propre [rôle personnalisé](custom-roles.md), il est utile de comprendre la façon dont les rôles sont définis. Cet article décrit en détail les définitions de rôles et fournit quelques exemples.
+Si vous essayez de comprendre comment un rôle fonctionne, ou si vous créez votre propre [rôle personnalisé pour des ressources Azure](custom-roles.md), il est utile de comprendre la façon dont les rôles sont définis. Cet article décrit en détail les définitions de rôles et fournit quelques exemples.
 
 ## <a name="role-definition-structure"></a>Structure d’une définition de rôle
 
@@ -151,6 +151,8 @@ Comme Alice dispose d’une action avec caractère générique (`*`) à une éte
 
 Les autorisations de Bob se limitent aux actions `Actions` et `DataActions` spécifiées dans le rôle [Contributeur aux données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-contributor-preview). En fonction du rôle, Bob peut effectuer à la fois des opérations de gestion et des opérations sur les données. Par exemple, Bob peut lire, écrire et supprimer des conteneurs du compte de stockage spécifié, mais aussi lire, écrire et supprimer les objets blob.
 
+Pour plus d’informations sur la gestion et la sécurité du plan de données pour le stockage, consultez le [guide de sécurité Stockage Microsoft Azure](../storage/common/storage-security-guide.md).
+
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Quels outils prennent en charge l’utilisation de RBAC pour les opérations sur les données ?
 
 Pour afficher et utiliser des opérations sur les données, vous devez disposer des versions appropriées des outils ou des kits de développement logiciel (SDK) :
@@ -225,10 +227,10 @@ La chaîne `AssignableScopes` est définie sur l’étendue racine (`"/"`) pour 
 | Rôle disponible pour attribution uniquement dans le groupe de ressources réseau | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Rôle disponible pour attribution dans toutes les étendues | `"/"` |
 
-Pour plus d’informations sur `AssignableScopes` pour des rôles personnalisés, consultez [Rôles personnalisés](custom-roles.md).
+Pour plus d’informations sur `AssignableScopes` pour des rôles personnalisés, consultez [Rôles personnalisés pour les ressources Azure](custom-roles.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Rôles intégrés](built-in-roles.md)
-* [Rôles personnalisés](custom-roles.md)
+* [Rôles intégrés pour les ressources Azure](built-in-roles.md)
+* [Rôles personnalisés pour les ressources Azure](custom-roles.md)
 * [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md)

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: faeba611dfc55307f8f855ee45a1a8d37603f2f5
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117382"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300123"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostic approfondi des applications et services web avec Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Pourquoi ai-je besoin d’Application Insights ?
-Application Insights surveille votre application web en cours d’exécution. En plus de signaler les défaillances et problèmes de performance, il permet d’analyser comment les clients utilisent votre application. Résidant dans le cloud ou localement, il fonctionne pour les applications qui s’exécutent sur de nombreuses plates-formes (ASP.NET, J2EE, Node.js, etc.). 
+Application Insights surveille votre application web en cours d’exécution. En plus de signaler les défaillances et problèmes de performance, il permet d’analyser comment les clients utilisent votre application. Résidant dans le cloud ou localement, il fonctionne pour les applications qui s'exécutent sur de nombreuses plateformes (ASP.NET, Java EE, Node.js, etc.). 
 
 ![Aspects de la complexité liée à la distribution d’applications web](./media/devops/010.png)
 

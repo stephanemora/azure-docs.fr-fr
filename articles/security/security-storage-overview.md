@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 5d8c9ae52152df6a0e016c12234afe4ae780b251
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115434"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326754"
 ---
 # <a name="azure-storage-security-overview"></a>Présentation de la sécurité du Stockage Azure
 
@@ -79,7 +79,7 @@ Pour de nombreuses organisations, le [chiffrement des données au repos](https:/
 
 En savoir plus sur Storage Service Encryption :
 
-* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) est disponible pour le [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/). Pour plus d’informations sur les autres types de stockage Azure, consultez [Fichiers Azure](https://azure.microsoft.com/services/storage/files/), [Stockage sur disque Premium](https://azure.microsoft.com/services/storage/premium-storage/), [Stockage Table](https://azure.microsoft.com/services/storage/tables/) et [Stockage File d’attente](https://azure.microsoft.com/services/storage/queues/).
+* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) est disponible pour le [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/). Pour plus d'informations sur les autres types de stockage Azure, consultez [Azure Files](https://azure.microsoft.com/services/storage/files/), [Stockage Table](https://azure.microsoft.com/services/storage/tables/) et [Stockage File d'attente](https://azure.microsoft.com/services/storage/queues/).
 * [Azure Storage Service Encryption pour les données au repos](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption

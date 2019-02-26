@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b7515a5c22b98fb14499e07057ff52311fc6e67
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: acdd2f5cb345ca5c5462394ae5c6135ad43b2143
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744815"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415700"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilisation d’Azure pour l’hébergement et l’exécution de scénarios de charge de travail SAP
 
-En choisissant Microsoft Azure, vous pouvez exécuter de manière fiable vos charges de travail et scénarios SAP critiques sur une plateforme scalable, conforme et qui a fait ses preuves en entreprise.  Bénéficiez de l’extensibilité, de la flexibilité et des économies de coût fournies par Azure. Avec le partenariat étendu entre Microsoft et SAP, vous pouvez exécuter les applications SAP dans des environnements de développement/test et de production dans Azure en bénéficiant d’une prise en charge complète. De SAP NetWeaver à SAP S4/HANA ou SAP BI, de Linux à Windows, de SAP HANA à SQL, nous sommes là pour vous.
+En choisissant Microsoft Azure, vous pouvez exécuter de manière fiable vos charges de travail et scénarios SAP critiques sur une plateforme scalable, conforme et qui a fait ses preuves en entreprise.  Bénéficiez de l’extensibilité, de la flexibilité et des économies de coût fournies par Azure. Avec le partenariat étendu entre Microsoft et SAP, vous pouvez exécuter les applications SAP dans des environnements de développement/test et de production dans Azure en bénéficiant d’une prise en charge complète. De SAP NetWeaver à SAP S/4HANA ou SAP BI, de Linux à Windows, de SAP HANA à SQL, nous sommes là pour vous.
 
 En plus de l’hébergement des scénarios de SAP NetWeaver avec différents SGBD sur Azure, vous pouvez héberger différents autres scénarios de charge de travail SAP, comme SAP BI dans Azure. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000845"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267340"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agrégations dans des requêtes Azure Monitor | Microsoft Docs
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête de Data Explorer](/azure/kusto/query/) avec des données de journal Azure Monitor :
+Reportez-vous à d’autres leçons sur l’utilisation du [langage de requête Kusto](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756816"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311203"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -221,7 +221,7 @@ Pour illustrer ce scénario, supposons que l’utilisateur A est l’administra
 
 3. L’utilisateur B utilise l’Explorateur de stockage pour effectuer l’attachement au compte appartenant à l’utilisateur A à l’aide de la SAP fournie.
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Générer une chaîne de connexion SAP pour le compte à partager
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>Générer une chaîne de requête SAP pour le compte à partager
 
 1. Dans l’Explorateur Stockage, cliquez avec le bouton droit sur le compte de stockage que vous souhaitez partager, puis sélectionnez **Obtenir une signature d’accès partagé...**.
 
@@ -231,7 +231,7 @@ Pour illustrer ce scénario, supposons que l’utilisateur A est l’administra
 
     ![Boîte de dialogue Obtenir une signature d’accès partagé][15]
 
-3. Sélectionnez **Copier** en regard de la zone de texte **Chaîne de connexion** pour la copier dans le Presse-papiers, puis cliquez sur **Fermer**.
+3. Sélectionnez **Copier** en regard de la zone de texte **Chaîne de requête** pour la copier dans le Presse-papiers, puis cliquez sur **Fermer**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Attacher à un compte de stockage à l’aide d’une chaîne de connexion SAP
 

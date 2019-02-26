@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982843"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330866"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Transmission de votre première image vers un Registre de conteneur Docker privé à l’aide de l’interface de ligne de commande (CLI) Docker
 
@@ -116,10 +116,10 @@ Si vous n’avez plus besoin de l’image Nginx, vous pouvez la supprimer locale
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Pour supprimer des images de votre registre de conteneurs Azure, vous pouvez utiliser la commande Azure CLI [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Par exemple, la commande suivante supprime le manifeste référencé par une étiquette, toutes les données de couche associées et toutes les autres étiquettes référençant le manifeste.
+Pour supprimer des images de votre registre de conteneurs Azure, vous pouvez utiliser la commande Azure CLI [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Par exemple, la commande suivante supprime le manifeste référencé par l'étiquette `samples/nginx:latest`, toutes les données de couche uniques et toutes les autres étiquettes référençant le manifeste.
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492485"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453866"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning Studio
 Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
@@ -28,7 +28,8 @@ Le portail des services web Azure Machine Learning vous permet d’effectuer les
 * créer, supprimer ou mettre à jour des plans de facturation (nouveau uniquement) ;
 * ajouter et supprimer des points de terminaison (classique uniquement).
 
-
+>[!NOTE]
+>Vous pouvez également gérer les services web Classic dans [Machine Learning Studio](http://studio.azureml.net) dans l’onglet **Services web**.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorisations pour gérer des services web basés sur le gestionnaire de nouvelles ressources
 
@@ -38,7 +39,7 @@ Si l’utilisateur n’a pas les autorisations appropriées pour accéder aux re
 
 *Échec du déploiement d’un service web. Ce compte n’a pas de droits d’accès suffisants à l’abonnement Azure qui contient l’espace de travail. Pour déployer un service web sur Azure, le même compte doit être invité à l’espace de travail et disposer de l’accès à l’abonnement Azure qui contient l’espace de travail.*
 
-Pour plus d'informations sur la création d'un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning](create-workspace.md).
+Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning Studio](create-workspace.md).
 
 Pour plus d’informations sur la définition des autorisations d’accès, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -107,7 +108,7 @@ Le tableau de bord du plan affiche les informations suivantes :
 
 ## <a name="manage-classic-web-services"></a>Gérer des services web classiques
 > [!NOTE]
-> Les procédures décrites dans cette section ont trait à la gestion de services web classiques via le portail des services web Azure Machine Learning. Pour plus d’informations sur la gestion des services web classiques via Machine Learning Studio et le portail Azure, voir [Gestion d’un espace de travail Azure Machine Learning](manage-workspace.md).
+> Les procédures décrites dans cette section ont trait à la gestion de services web classiques via le portail des services web Azure Machine Learning. Pour plus d’informations sur la gestion des services web classiques via Machine Learning Studio et le portail Microsoft Azure, voir [Gestion d’un espace de travail Azure Machine Learning Studio](manage-workspace.md).
 > 
 > 
 

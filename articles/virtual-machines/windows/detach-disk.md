@@ -16,24 +16,21 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd91607260d47d37bc3ce94ec63f700082416b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981143"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329897"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Détachement d’un disque de données d’une machine virtuelle Windows
 
 Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à une machine virtuelle, vous pouvez le détacher facilement. Cela supprime le disque de la machine virtuelle, mais pas du stockage.
 
 > [!WARNING]
-> Si vous détachez un disque, il n’est pas supprimé automatiquement. Si vous êtes abonné au stockage Premium, vous continuerez à engager des frais de stockage pour le disque. Pour plus d’informations, consultez [Tarifs et facturation du stockage Premium](premium-storage.md#pricing-and-billing).
->
->
+> Si vous détachez un disque, il n’est pas supprimé automatiquement. Si vous êtes abonné au stockage Premium, vous continuerez à engager des frais de stockage pour le disque. Pour plus d’informations, consultez [Tarifs et facturation du stockage Premium](disks-types.md#billing).
 
 Si vous souhaitez réutiliser les données du disque, vous pouvez l’attacher à la même machine virtuelle ou à une autre.
-
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -51,7 +48,6 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle.
 
-
 ## <a name="detach-a-data-disk-using-the-portal"></a>Détacher un disque de données avec le portail
 
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
@@ -65,5 +61,5 @@ Le disque reste dans le stockage, mais il n’est plus attaché à une machine v
 Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous souhaitez réutiliser le disque de données, vous pouvez simplement [l’attacher à une autre machine virtuelle](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
+Si vous souhaitez réutiliser le disque de données, vous pouvez simplement [l’attacher à une autre machine virtuelle](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

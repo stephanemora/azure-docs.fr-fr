@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694582"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310548"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure
 
@@ -56,7 +56,7 @@ La seconde méthode utilise également des enregistrements CNAME. Pour éviter l
 
 Le mappage de votre domaine personnalisé à un point de terminaison d’objet blob peut entraîner une courte indisponibilité du domaine au moment où vous l’inscrivez dans le [portail Azure](https://portal.azure.com). Si ce domaine prend actuellement en charge une application visée par un contrat de niveau de service (SLA) interdisant toute interruption de service, utilisez le sous-domaine Azure *asverify* en tant qu’étape d’inscription intermédiaire. Cette étape garantit aux utilisateurs l’accès à votre domaine pendant que vous procédez au mappage DNS.
 
-La méthode intermédiaire est couverte dans [Inscrire un domaine personnalisé à l’aide du sous-domaine *asverify*](#register-a-custom-domain-using-the-asverify-subdomain).
+La méthode intermédiaire est décrite dans Inscrire un domaine personnalisé à l'aide du sous-domaine *asverify*.
 
 ## <a name="register-a-custom-domain"></a>Inscrire un domaine personnalisé
 Enregistrez le domaine à l’aide de la procédure de cette section si les instructions suivantes s’appliquent :
@@ -65,7 +65,7 @@ Enregistrez le domaine à l’aide de la procédure de cette section si les inst
 
 Avec Azure DNS, vous pouvez configurer un nom DNS personnalisé pour votre magasin d’objets blob. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
 
-Si votre domaine personnalisé prend actuellement en charge une application qui ne peut supporter une interruption de service, utilisez la procédure décrite à la rubrique [Inscrire un domaine personnalisé à l’aide du sous-domaine *asverify*](#register-a-custom-domain-using-the-asverify-subdomain).
+Si votre domaine personnalisé prend actuellement en charge une application qui ne peut pas subir de temps d'arrêt, utilisez la procédure décrite à la rubrique Inscrire un domaine personnalisé à l'aide du sous-domaine *asverify*.
 
 Pour configurer un nom de domaine personnalisé, créez un enregistrement CNAME dans DNS. L’enregistrement CNAME spécifie un alias pour un nom de domaine. Dans notre exemple, il mappe l’adresse de votre domaine personnalisé au point de terminaison de stockage blob de votre compte de stockage.
 

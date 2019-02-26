@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998090"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456518"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -52,7 +52,7 @@ Le maître de cluster inclut les composants Kubernetes principaux suivants :
 
 AKS fournit un maître de cluster monolocataire doté de dispositifs dédiés (serveur d’API, planificateur, etc.). Vous définissez le nombre et la taille des nœuds, puis la plateforme Azure configure la communication sécurisée entre les nœuds et le maître de cluster. L’interaction avec le maître de cluster se produit par le biais d’API Kubernetes, telles que `kubectl` ou le tableau de bord Kubernetes.
 
-Ce maître de cluster managé signifie que vous n’avez pas besoin de configurer de composants tels qu’un magasin *etcd* hautement disponible, mais aussi que vous ne pouvez pas accéder directement au maître de cluster. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du portail Azure, qui met à niveau le maître de cluster, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux du maître de cluster par le biais d’Azure Log Analytics.
+Ce maître de cluster managé signifie que vous n’avez pas besoin de configurer de composants tels qu’un magasin *etcd* hautement disponible, mais aussi que vous ne pouvez pas accéder directement au maître de cluster. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du portail Azure, qui met à niveau le maître de cluster, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux du maître de cluster par le biais des journaux Azure Monitor.
 
 Si vous devez configurer le maître de cluster d’une façon particulière ou avez besoin d’un accès direct à ce dernier, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine].
 
@@ -70,13 +70,13 @@ La taille des machines virtuelles Azure pour vos nœuds détermine le nombre d�
 
 Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est basée sur Ubuntu Linux. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Vous ne devez effectuer aucune configuration manuelle.
 
-Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine]. Les versions d’`aks-engine` en amont présentent et fournissent des options de configuration avant qu’elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser des conteneurs Windows ou un runtime de conteneur autre que Docker, vous pouvez utiliser `aks-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
+Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine]. En amont, `aks-engine` assure la mise en production des fonctionnalités et fournit les options de configuration avant qu'elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser des conteneurs Windows ou un runtime de conteneur autre que Docker, vous pouvez utiliser `aks-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
 
 ### <a name="resource-reservations"></a>Réservations de ressources
 
 Vous n’avez pas besoin de gérer les principaux composants de Kubernetes sur chaque nœud, tels que *kubelet*, *kube-proxy* et *kube-dns*, mais ils consomment une part des ressources de calcul disponibles. Pour conserver les fonctionnalités et les performances des nœuds, les ressources de calcul suivantes sont réservées sur chaque nœud :
 
-- **UC** - 60 ms
+- **UC** - 60 ms
 - **Mémoire** -20 % jusqu'à 4 Gio
 
 Ces réservations signifient que la quantité disponible d’UC et de mémoire pour vos applications peut apparaître inférieure à ce que le nœud lui-même contient. S’il existe des contraintes de ressources en raison du nombre d’applications que vous exécutez, ces réservations garantissent que l’UC et la mémoire restent disponibles pour les principaux composants de Kubernetes. Les réservations de ressources ne peuvent pas être modifiées.
@@ -103,7 +103,7 @@ Quand vous mettez à l’échelle ou à niveau un cluster AKS, l’action est ef
 
 Kubernetes Utilise des *pods* pour exécuter une instance de votre application. Un pod représente une instance unique de votre application. Les pods ont généralement un mappage 1 à 1 avec un conteneur, bien qu’il existe des scénarios avancés où un pod peut contenir plusieurs conteneurs. Ces pods multiconteneurs sont planifiés ensemble sur le même nœud et permettent aux conteneurs de partager des ressources connexes.
 
-Quand vous créez un pod, vous pouvez définir des *limites de ressources* pour demander une certaine quantité de ressources en UC ou mémoire. Le planificateur de Kubernetes essaie de planifier les pods afin qu’ils s’exécutent sur un nœud dont les ressources permettent de répondre à la demande. Vous pouvez également spécifier des limites de ressources maximales qui empêchent un pod donné de consommer trop de ressources de calcul à partir du nœud sous-jacent. Une bonne pratique consiste à inclure des limites de ressources pour tous les pods afin d’aider le planificateur de Kubernetes à comprendre quelles sont les ressources nécessaires et autorisées.
+Quand vous créez un pod, vous pouvez définir des *limites de ressources* pour demander une certaine quantité de ressources en UC ou mémoire. Le planificateur de Kubernetes essaie de planifier les pods afin qu’ils s’exécutent sur un nœud dont les ressources permettent de répondre à la demande. Vous pouvez également spécifier des limites de ressources maximales qui empêchent un pod donné de consommer trop de ressources de calcul à partir du nœud sous-jacent. Une bonne pratique consiste à inclure des limites de ressources pour tous les pods afin d'aider le Scheduler Kubernetes à identifier les ressources nécessaires et autorisées.
 
 Pour plus d’informations, consultez [Kubernetes pods][kubernetes-pods] (Pods Kubernetes) et [Kubernetes pod lifecycle][kubernetes-pod-lifecycle] (Cycle de vie des pods Kubernetes).
 
@@ -203,7 +203,7 @@ Quand vous créez un cluster AKS, les espaces de noms suivants sont disponibles�
 
 - *default* : espace de noms dans lequel sont créés par défaut les pods et les déploiements quand aucun espace de noms n’est fourni. Dans les environnements plus petits, vous pouvez déployer les applications directement dans l’espace de noms par défaut sans provoquer la création de séparations logiques supplémentaires. Quand vous interagissez avec l’API Kubernetes, comme avec `kubectl get pods`, l’espace de noms par défaut est utilisé si aucun n’est spécifié.
 - *kube-system* : espace de noms où se trouvent les principales ressources, telles que les fonctionnalités réseau, comme le DNS et le proxy, ou bien le tableau de bord Kubernetes. En règle générale, vous ne déployez pas vos propres applications dans cet espace de noms.
-- *kube-public* : cet espace de noms n’est généralement pas utilisé, mais vous pouvez y recourir pour rendre les ressources visibles dans l’ensemble du cluster et consultables par tous les utilisateurs.
+- *kube-public* : cet espace de noms n'est généralement pas utilisé, mais vous pouvez y recourir pour rendre les ressources visibles dans l'ensemble du cluster et consultables par tous les utilisateurs.
 
 Pour plus d’informations, consultez [Kubernetes namespaces][kubernetes-namespaces] (Espaces de noms Kubernetes).
 

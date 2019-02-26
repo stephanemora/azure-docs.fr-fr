@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002192"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268190"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analyser des données de texte dans les journaux Azure Monitor
 Certaines données de journal collectées par Azure Monitor incluront plusieurs informations au sein d'une même propriété. L’analyse de ces données dans plusieurs propriétés simplifie leur utilisation dans des requêtes. Un exemple courant est le [journal personnalisé](../../log-analytics/log-analytics-data-sources-custom-logs.md) qui collecte une entrée de journal entière avec plusieurs valeurs dans une seule propriété. En créant des propriétés distinctes pour les différentes valeurs, vous pouvez faire des recherches et des agrégations sur chacune d’elles.
@@ -63,7 +63,7 @@ Les inconvénients de cette méthode sont les suivants :
 Consultez [Créer des champs personnalisés dans Azure Monitor](../platform/custom-fields.md) pour plus d'informations sur l'analyse des données lors de la collecte. Cela crée des propriétés personnalisées dans la table, pouvant être utilisées par les requêtes comme n’importe quelle autre propriété.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Analyser les données dans une requête à l’aide de modèles
-Lorsque les données que vous souhaitez analyser peuvent être identifiées par un modèle répété sur plusieurs enregistrements, vous pouvez utiliser différents opérateurs dans le [langage de requête de l’Explorateur de données](/azure/kusto/query/) afin d’extraire la donnée spécifique dans une ou plusieurs nouvelles propriétés.
+Lorsque les données que vous souhaitez analyser peuvent être identifiées par un modèle répété sur plusieurs enregistrements, vous pouvez utiliser différents opérateurs du [langage de requête Kusto](/azure/kusto/query/) pour extraire la donnée spécifique dans une ou plusieurs nouvelles propriétés.
 
 ### <a name="simple-text-patterns"></a>Modèles de texte simples
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>Analyser des structures prédéfinies dans une requête
-Si vos données sont formatées dans une structure connue, vous pouvez peut-être utiliser l’une des fonctions dans le [langage de requête de l’Explorateur de données](/azure/kusto/query/) pour analyser des structures prédéfinies :
+Si vos données sont formatées dans une structure connue, vous pourrez peut-être utiliser l'une des fonctions du [langage de requête Kusto](/azure/kusto/query/) pour analyser des structures prédéfinies :
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

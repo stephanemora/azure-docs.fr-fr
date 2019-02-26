@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 87331ed0d9e5a4ff51e3669390d1b40dea58574a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389247"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453849"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -75,18 +75,18 @@ Cette utilisation de la passerelle Application Gateway est un exemple de configu
 
 ## <a name="logging"></a>Journalisation 
 
-Le pare-feu Azure peut envoyer des journaux aux services Stockage Azure, Event Hub ou Log Analytics. Pour intégrer votre application avec n’importe quelle destination prise en charge, accédez au portail Pare-feu Azure > Journaux de diagnostic, puis activez les journaux pour la destination choisie. Si vous intégrez Log Analytics, vous pouvez suivre dans les journaux tout le trafic envoyé au pare-feu Azure. Pour voir le trafic refusé, ouvrez le portail Log Analytics > Journaux et entrez une requête comme celle-ci 
+Le Pare-feu Azure peut envoyer des journaux aux services Stockage Azure, Event Hub ou Azure Monitor. Pour intégrer votre application avec n’importe quelle destination prise en charge, accédez au portail Pare-feu Azure > Journaux de diagnostic, puis activez les journaux pour la destination choisie. Si vous intégrez des journaux Azure Monitor, vous pouvez suivre dans les journaux tout le trafic envoyé au Pare-feu Azure. Pour voir le trafic refusé, ouvrez votre portail d’espace de travail Log Analytics > Journaux et entrez une requête comme celle-ci 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-L’intégration de votre pare-feu Azure avec Log Analytics est très utile quand vous préparez une application sans connaître toutes ses dépendances. Pour en savoir plus sur Log Analytics, consultez [Analyser les données Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+L’intégration de votre Pare-feu Azure à des journaux Azure Monitor est très utile quand vous préparez une application sans connaître toutes ses dépendances. Pour en savoir plus sur les journaux Azure Monitor, consultez [Analyser les données de journal dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## <a name="dependencies"></a>Les dépendances
 
 Les informations suivantes sont requises uniquement si vous souhaitez configurer une appliance de pare-feu autre que le pare-feu Azure. 
 
 - Les services compatibles avec les points de terminaison de service doivent être configurés avec des points de terminaison de service.
-- Les dépendances d’adresses IP pour le trafic non-HTTP/S.
+- Les dépendances d’adresses IP pour le trafic non-HTTP/S (à la fois le trafic TCP et UDP)
 - Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être placés dans votre dispositif de pare-feu.
 - Les points de terminaison HTTP/HTTPS avec des caractères génériques sont des dépendances qui peuvent varier avec votre environnement ASE selon le nombre de qualificateurs. 
 - Les dépendances Linux sont uniquement un problème si vous déployez des applications Linux dans votre environnement ASE. Si vous ne déployez pas d’applications Linux dans votre environnement ASE, vous n’avez pas besoin d’ajouter ces adresses à votre pare-feu. 

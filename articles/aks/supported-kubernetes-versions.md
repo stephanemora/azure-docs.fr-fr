@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 02/15/2018
 ms.author: saudas
-ms.openlocfilehash: 3e8342a719bf9ae7174195f88b97972d7f13193c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465783"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313447"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -27,11 +27,11 @@ AKS prend en charge quatre versions mineures de Kubernetes :
 - La version mineure actuelle qui est publiée en amont (n)
 - Trois versions mineures précédentes. Chaque version mineure prise en charge prend également en charge deux correctifs stables.
 
-Par exemple, si AKS introduit *1.11.x* aujourd’hui, la prise en charge est également fournie pour *1.10.a* + *1.10.b*, *1.9.c*  +  *1.9d*, *1.8.e* + *1.8f* (où les versions des correctifs sous forme de lettre représentent les deux builds stables les plus récentes).
+Par exemple, si AKS introduit *1.12.x* aujourd'hui, la prise en charge est également fournie pour *1.11.a* + *1.11.b*, *1.10.c*  +  *1.10d*, *1.9.e* + *1.9f* (où les versions des correctifs sous forme de lettre représentent les deux builds stables les plus récentes).
 
-Quand une nouvelle version mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont mises hors service. 15 jours avant la publication de la nouvelle version mineure et la mise hors service à venir de la version, une annonce est faite via les [canaux de mise à jour d’Azure][azure-update-channel]. Dans l’exemple ci-dessus où *1.11.x* est publiée, les versions mises hors service sont *1.7.g* + *1.7.h*.
+Quand une nouvelle version mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont mises hors service. 15 jours avant la publication de la nouvelle version mineure et la mise hors service à venir de la version, une annonce est faite via les [canaux de mise à jour d’Azure][azure-update-channel]. Dans l'exemple ci-dessus où *1.12.x* est publiée, les versions mises hors service sont *1.8.g* + *1.8.h*.
 
-Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d* , *1.8.e* + *1.8f*, la version par défaut pour les nouveaux clusters est *1.10.b*.
+Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d* , *1.9.e* + *1.9f*, la version par défaut pour les nouveaux clusters est *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Répertorier les versions prises en charge
 
@@ -41,20 +41,19 @@ Pour savoir quelles sont les versions disponibles pour vos abonnement et région
 az aks get-versions --location eastus --output table
 ```
 
-La sortie est similaire à l’exemple suivant, qui montre que la version Kubernetes *1.12.4* est la version disponible la plus récente :
+La sortie est similaire à l'exemple suivant, qui montre que la version *1.12.5* de Kubernetes est la version la plus récente disponible :
 
 ```
 KubernetesVersion    Upgrades
 -------------------  -----------------------
-1.12.4               None available
-1.11.6               1.12.4
-1.11.5               1.11.6, 1.12.4
-1.10.12              1.11.5, 1.11.6
-1.10.9               1.10.12, 1.11.5, 1.11.6
+1.12.5               None available
+1.12.4               1.12.5
+1.11.7               1.12.4, 1.12.5
+1.11.6               1.11.7, 1.12.4, 1.12.5
+1.10.12              1.11.6, 1.11.7
+1.10.9               1.10.12, 1.11.6, 1.11.7
 1.9.11               1.10.9, 1.10.12
 1.9.10               1.9.11, 1.10.9, 1.10.12
-1.8.15               1.9.10, 1.9.11
-1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## <a name="faq"></a>Forum Aux Questions
@@ -63,8 +62,8 @@ KubernetesVersion    Upgrades
 
 Si vous êtes sur la version *n-4*, vous êtes en dehors de l’objectif de niveau de service (SLO). Si votre mise à niveau de la version n-4 vers n-3 réussit, vous êtes à nouveau dans le SLO. Par exemple : 
 
-- Si les versions d’AKS prises en charge sont *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f*, et que vous utilisez *1.7.g* ou *1.7.h*, vous êtes en dehors du SLO.
-- Si la mise à niveau depuis *1.7.g* ou *1.7.h* vers *1.8.e* ou *1.8.f* réussit, vous êtes à nouveau dans le SLO.
+- Si les versions d'AKS prises en charge sont *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d* et *1.9.e* + *1.9f*, et que vous utilisez *1.8.g* ou *1.8.h*, vous êtes en dehors du SLO.
+- Si la mise à niveau de *1.8.g* ou *1.8.h* vers *1.9.e* ou *1.9.f* aboutit, vous êtes à nouveau dans le SLO.
 
 Les mises à niveau vers des versions antérieures à *n-4* ne sont pas prises en charge. Dans ce cas, nous recommandons aux clients de créer de nouveaux clusters AKS et de redéployer leurs charges de travail.
 

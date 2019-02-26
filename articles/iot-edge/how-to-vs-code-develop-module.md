@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245750"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456705"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
 
@@ -262,6 +262,7 @@ Lors du débogage de modules à l’aide de cette méthode, vos modules s’exé
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Ajoutez la ligne de code unique suivante au rappel que vous souhaitez déboguer :
 
       ```python
@@ -350,6 +351,12 @@ Vous pouvez ignorer cette section si vos modules sont exécutés sur la même ma
 
 > [!NOTE]
 > L'exemple précédent montre comment déboguer des modules IoT Edge sur des conteneurs. Il a permis d'ajouter des ports exposés aux paramètres `createOptions` du conteneur de votre module. Une fois le débogage de vos modules terminé, nous vous recommandons de supprimer ces ports exposés pour les modules IoT Edge prêts à entrer en production.
+
+## <a name="build-and-debug-a-module-remotely"></a>Générer et déboguer un module à distance
+
+Grâce aux récentes modifications apportées aux moteurs Docker et Moby pour prendre en charge les connexions SSH, ainsi qu'au nouveau paramètre Azure IoT Tools qui permet d'injecter des paramètres d'environnement dans la palette de commandes Visual Studio Code et dans les terminaux Azure IoT Edge, vous pouvez désormais générer et déboguer des modules sur des appareils distants.
+
+Consultez ce [billet de blog destiné aux développeurs IoT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) pour obtenir plus d'informations et des instructions pas à pas.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

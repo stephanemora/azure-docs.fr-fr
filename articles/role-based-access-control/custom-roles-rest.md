@@ -1,6 +1,6 @@
 ---
-title: Créer des rôles personnalisés avec l’API REST – Azure | Microsoft Docs
-description: Découvrez comment créer des rôles personnalisés pour le contrôle d'accès en fonction du rôle (RBAC) avec l’API REST. (lister, créer, mettre à jour et supprimer).
+title: Créer des rôles personnalisés pour les ressources Azure à l'aide de l'API REST - Azure | Microsoft Docs
+description: Apprenez à créer des rôles personnalisés avec contrôle d'accès en fonction du rôle (RBAC) pour les ressources Azure à l'aide de l'API REST. Cet article indique également comment répertorier, créer, mettre à jour et supprimer des rôles personnalisés.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: cfcb7ef2a4fc02932f9d03c277b105c4b1e0ff3a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436060"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338765"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>Créer des rôles personnalisés avec l’API REST
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Créer des rôles personnalisés pour les ressources Azure à l'aide de l'API REST
 
-Si les [rôles intégrés](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec l’API REST.
+Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec l’API REST.
 
 ## <a name="list-roles"></a>Répertorier les rôles
 
@@ -38,7 +38,7 @@ Pour lister tous les rôles ou obtenir des informations sur l’un d’entre eux
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les rôles.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -67,7 +67,7 @@ Pour obtenir des informations sur un unique rôle à partir de son nom d’affic
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les rôles.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -115,7 +115,7 @@ Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôle
 
 1. Dans l’URI, remplacez *{scope}* par le premier élément `assignableScopes` du rôle personnalisé.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -179,7 +179,7 @@ Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions 
 
 1. Dans l’URI, remplacez *{scope}* par le premier élément `assignableScopes` du rôle personnalisé.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -262,7 +262,7 @@ Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de r�
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez supprimer le rôle personnalisé.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -272,6 +272,6 @@ Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de r�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rôles personnalisés dans Azure](custom-roles.md)
-- [Gérer l’accès avec RBAC et l’API REST](role-assignments-rest.md)
-- [Référence sur l'API REST Azure](/rest/api/azure/)
+- [Rôles personnalisés pour les ressources Azure](custom-roles.md)
+- [Gérer l'accès aux ressources Azure à l'aide du contrôle RBAC et de l'API REST](role-assignments-rest.md)
+- [Référence de l'API REST Azure](/rest/api/azure/)

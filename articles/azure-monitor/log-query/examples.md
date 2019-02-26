@@ -1,6 +1,6 @@
 ---
-title: Exemples de requêtes de journal dans Azure Monitor | Microsoft Docs
-description: Exemples de requêtes de journal dans Azure Monitor utilisant le langage de requête de Data Explorer.
+title: Exemples de requêtes de journal Azure Monitor | Microsoft Docs
+description: Exemples de requêtes de journal Azure Monitor utilisant le langage de requête Kusto.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993195"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416647"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemples de requêtes de journal dans Azure Monitor
-Cet article inclut divers exemples de [requêtes](log-query-overview.md) utilisant le [langage de requête de Data Explorer](https://docs.microsoft.com/azure/kusto/query/) pour récupérer différents types de données d’Azure Monitor. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
+Cet article inclut divers exemples de [requêtes](log-query-overview.md) utilisant le [langage de requête Kusto](/azure/kusto/query/) pour récupérer différents types de données de journal à partir d'Azure Monitor. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
 
 Consultez les [informations de référence sur le langage Kusto](https://docs.microsoft.com/azure/kusto/query/) pour plus de détails sur les différents mots clés utilisés dans ces exemples. Si vous ne connaissez pas Azure Monitor, lisez une [leçon sur la création de requêtes](get-started-queries.md).
 
@@ -38,7 +38,7 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>Rechercher des événements liés à l’unmarshaling
-Cet exemple lance une recherche dans les tables **Event** et **SecurityEvents** pour les enregistrements qui mentionnent _unmashaling_.
+Cet exemple lance une recherche dans les tables **Event** et **SecurityEvents** pour trouver les enregistrements qui mentionnent _unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"

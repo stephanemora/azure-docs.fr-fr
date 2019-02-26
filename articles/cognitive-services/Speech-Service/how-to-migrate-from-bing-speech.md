@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863565"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447954"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrer de la Reconnaissance vocale Bing vers le Service Speech
 
@@ -65,7 +65,7 @@ Si votre organisation ou vous disposez d’applications en développement ou en 
 
 Les [API REST](rest-apis.md) du Service Speech sont compatibles avec les API Reconnaissance vocale Bing. Si vous utilisez actuellement les API REST Reconnaissance vocale Bing, vous devez uniquement modifier le point de terminaison REST et basculer vers une clé d’abonnement Speech Service.
 
-Les protocoles WebSocket du Service Speech sont également compatibles avec ceux utilisés par la Reconnaissance vocale Bing. Pour tout nouveau développement, nous vous recommandons d’utiliser le kit de développement logiciel (SDK) Speech Service plutôt que WebSockets. Il est judicieux d’également migrer le code existant vers le kit de développement logiciel (SDK). Cependant, comme avec les API REST, le code existant utilisant la Reconnaissance vocale Bing via des WebSockets nécessite uniquement une modification du point de terminaison et une clé mise à jour.
+Les protocoles WebSocket du Service Speech sont également compatibles avec ceux utilisés par la Reconnaissance vocale Bing. Pour tout nouveau développement, nous vous recommandons d’utiliser le kit de développement logiciel (SDK) Speech plutôt que WebSockets. Il est judicieux d’également migrer le code existant vers le kit de développement logiciel (SDK). Cependant, comme avec les API REST, le code existant utilisant la Reconnaissance vocale Bing via des WebSockets nécessite uniquement une modification du point de terminaison et une clé mise à jour.
 
 Si vous utilisez une bibliothèque de client Reconnaissance vocale Bing pour un langage de programmation spécifique, la migration vers le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) nécessite l’apport de modifications à votre application, car l’API est différente. Le kit de développement logiciel (SDK) Speech peut simplifier votre code tout en vous donnant accès à de nouvelles fonctionnalités.
 

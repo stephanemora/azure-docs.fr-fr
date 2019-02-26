@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822780"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329945"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
@@ -88,7 +88,7 @@ Vérifiez ensuite les propriétés de la machine source. N’oubliez pas que le 
 2. Dans **Propriétés**, vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
 3. Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez modifier plusieurs propriétés de la machine virtuelle :
 * Nom de la machine virtuelle Azure : si besoin, modifiez ce nom afin de respecter les exigences d'Azure.
-* Taille ou type de la machine virtuelle cible : la taille de machine virtuelle par défaut est choisie en fonction de la taille de la machine virtuelle source. Si besoin, vous pouvez à tout moment sélectionner une autre taille avant le basculement. Notez que la taille du disque de la machine virtuelle dépend également de la taille du disque source et qu'elle ne peut être modifiée qu'après le basculement. En savoir plus sur les IOPS et sur les tailles de disque [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) et [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
+* Taille ou type de la machine virtuelle cible : la taille de machine virtuelle par défaut est choisie en fonction de la taille de la machine virtuelle source. Si besoin, vous pouvez à tout moment sélectionner une autre taille avant le basculement. Notez que la taille du disque de la machine virtuelle dépend également de la taille du disque source et qu'elle ne peut être modifiée qu'après le basculement. Pour en savoir plus sur les tailles de disque et les E/S par seconde, consultez l'article [Objectifs d'extensibilité pour les disques](../virtual-machines/windows/disk-scalability-targets.md).
 
     ![Propriétés Calcul et réseau](./media/vmware-azure-enable-replication/vmproperties.png)
 

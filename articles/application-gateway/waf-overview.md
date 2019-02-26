@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425160"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454257"
 ---
 # <a name="web-application-firewall-waf"></a>Pare-feu d’applications web (WAF)
 
@@ -133,7 +133,7 @@ Application Gateway WAF peut être configuré pour s’exécuter dans les deux m
 
 ### <a name="application-gateway-waf-reports"></a>Surveillance du pare-feu d’applications web
 
-Il est important de surveiller l’état de votre passerelle d’application. La journalisation et l’intégration à Azure Monitor, Azure Security Center, et Log Analytics permet de surveiller l’état de votre pare-feu d’applications web et des applications qu’il protège.
+Il est important de surveiller l’état de votre passerelle d’application. La surveillance de l'intégrité de votre pare-feu d'applications web et des applications qu'il protège est assurée par la journalisation et l'intégration à Azure Monitor, à Azure Security Center et aux journaux Azure Monitor.
 
 ![diagnostics](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ Chaque journal de passerelle d’application est intégré à [Azure Monitor](..
 
 #### <a name="logging"></a>Journalisation
 
-Application Gateway WAF fournit des rapports détaillés sur chaque menace détectée. La journalisation est intégrée aux journaux Azure Diagnostics et les alertes sont enregistrées au format json. Ces journaux peuvent être intégrés à [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+Application Gateway WAF fournit des rapports détaillés sur chaque menace détectée. La journalisation est intégrée aux journaux Azure Diagnostics et les alertes sont enregistrées au format json. Ces journaux peuvent être intégrés aux [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

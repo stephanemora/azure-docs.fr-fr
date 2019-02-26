@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236003"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416783"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gérer les pré-scripts et les post-scripts (préversion)
 
@@ -22,7 +22,7 @@ Les pré-scripts et post-scripts vous permettent d’exécuter des runbooks Powe
 
 ## <a name="runbook-requirements"></a>Exigences en matière de runbook
 
-Le runbook que vous souhaitez utiliser en tant que pré/post-script doit être importé dans votre compte Automation et publié. Pour plus d’informations sur ce processus, consultez la section [Publication d’un runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+Le runbook que vous souhaitez utiliser en tant que pré/post-script doit être importé dans votre compte Automation et publié. Pour plus d’informations sur ce processus, consultez la section [Publication d’un runbook](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="using-a-prepost-script"></a>Utilisation d’un pré/post-script
 
@@ -52,7 +52,19 @@ Lorsque vous cliquez sur l’exécution du déploiement de mises à jour, vous o
 
 ## <a name="passing-parameters"></a>Transmission des paramètres
 
-Lorsque vous configurez des pré/post-scripts, vous pouvez transmettre des paramètres tout comme vous planifieriez un runbook. Les paramètres sont définis au moment de la création du déploiement de mises à jour. Les pré et post-scripts requièrent des paramètres du type `String`. Si vous avez besoin d’un autre type d’objet, vous pouvez le caster en un autre type en utilisant `[System.Convert]`, ou le gérer avec votre propre logique.
+Lorsque vous configurez des pré/post-scripts, vous pouvez transmettre des paramètres tout comme vous planifieriez un runbook. Les paramètres sont définis au moment de la création du déploiement de mises à jour. Les pré et post-scripts prennent en charge les types suivants :
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [single]
+* [double]
+* [DateTime]
+* [string]
+
+Si vous avez besoin d’un autre type d’objet, vous pouvez le caster en un autre type avec votre propre logique dans le runbook.
 
 Outre vos paramètres de runbook standard, un paramètre supplémentaire est fourni. Il s’agit du paramètre **SoftwareUpdateConfigurationRunContext**. Ce paramètre est une chaîne JSON, et si vous le définissez dans votre pré/post-script, il est automatiquement transmis par le déploiement de mises à jour. Le paramètre contient des informations sur le déploiement de mises à jour, qui constituent un sous-ensemble des informations renvoyées par [l’API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). Le tableau ci-après vous présente les propriétés qui sont fournies dans la variable :
 

@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: bdd512972f1a684a3b76ae0323bbadd87bf0d659
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9ea9cc116a13aac2dca9edf8ba86c933310b5198
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238315"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269635"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Détection d’anomalies dans Azure Stream Analytics
 
-Azure Stream Analytics offre des fonctionnalités de détection des anomalies basées sur un Machine Learning intégré qui peuvent permettre de surveiller les deux anomalies qui se produisent le plus souvent : temporaires et persistantes. Les fonctions **AnomalyDetection_SpikeAndDip** et **AnomalyDetection_ChangePoint** permettent de détecter des anomalies directement dans votre travail Stream Analytics.
+Disponible à la fois dans le cloud et Azure IoT Edge, Azure Stream Analytics offre des fonctionnalités de détection des anomalies basées sur un Machine Learning intégré qui peuvent permettre de surveiller les deux anomalies qui se produisent le plus souvent : temporaires et persistantes. Les fonctions **AnomalyDetection_SpikeAndDip** et **AnomalyDetection_ChangePoint** permettent de détecter des anomalies directement dans votre travail Stream Analytics.
 
 Les modèles Machine Learning supposent une série chronologique équitablement échantillonnée. Si la série chronologique n’est pas uniforme, vous pouvez insérer une étape d’agrégation avec une fenêtre bascule avant l’appel de la détection des anomalies.
 
@@ -36,13 +36,14 @@ Des lacunes dans la série chronologique peuvent être le résultat du modèle q
 
 ## <a name="spike-and-dip"></a>Pics et baisses
 
-Les anomalies temporaires d’un flux d’événements d’une série chronologique sont appelées « pics et baisses ». Les pics et baisses peuvent être surveillés à l’aide de l’opérateur basé sur Machine Learning **AnomalyDetection_SpikeAndDip**.
+Les anomalies temporaires d’un flux d’événements d’une série chronologique sont appelées « pics et baisses ». Les pics et baisses peuvent être surveillés à l’aide de l’opérateur basé sur Machine Learning [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+).
 
 ![Exemple d’anomalie de pic et de baisse](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
 Dans la même fenêtre glissante, si un deuxième pic est plus petit que le premier, le score calculé pour le plus petit pic n’est probablement pas suffisamment important par rapport au score du premier pic au niveau de confiance spécifié. Vous pouvez essayer de réduire le paramètre de niveau de confiance du modèle pour détecter ces anomalies. Toutefois, si vous commencez à recevoir trop d’alertes, vous pouvez utiliser un intervalle de confiance plus élevé.
 
-L’exemple de requête suivant suppose une vitesse d’entrée uniforme d’1 événement par seconde dans une fenêtre glissante de 2 minutes avec un historique de 120 événements. La dernière instruction SELECT extrait et génère le score et le statut d’anomalie avec un niveau de confiance de 95 %.
+L’exemple de requête suivant suppose une vitesse d’entrée uniforme d’un événement par seconde dans une fenêtre glissante de 2 minutes avec un historique de 120 événements. La dernière instruction SELECT extrait et génère le score et le statut d’anomalie avec un niveau de confiance de 95 %.
 
 ```SQL
 WITH AnomalyDetectionStep AS
@@ -67,9 +68,9 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Point de changement
 
-Les anomalies persistantes d’un flux d’événements d’une série chronologique sont des modifications de la distribution des valeurs du flux d’événements, telles que des modifications du niveau et des tendances. Dans Stream Analytics, ces anomalies sont détectées à l’aide de l’opérateur basé sur Machine Learning **AnomalyDetection_ChangePoint**.
+Les anomalies persistantes d’un flux d’événements d’une série chronologique sont des modifications de la distribution des valeurs du flux d’événements, telles que des modifications du niveau et des tendances. Dans Stream Analytics, ces anomalies sont détectées à l’aide de l’opérateur basé sur Machine Learning [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics).
 
-Les modifications persistantes durent beaucoup plus longtemps que les pics et les baisses, et peuvent indiquer un ou des événements catastrophiques. Les modifications persistantes ne sont généralement pas facilement visibles à l’œil nu, mais peuvent être détectées avec l’opérateur **AnomalyDetection_ChangePoint**.
+Les modifications persistantes durent beaucoup plus longtemps que les pics et les baisses, et peuvent indiquer un ou des événements catastrophiques. Les modifications persistantes ne sont généralement pas visibles à l’œil nu, mais peuvent être détectées avec l’opérateur **AnomalyDetection_ChangePoint**.
 
 L’image suivante est un exemple de modification de niveau :
 
@@ -79,7 +80,7 @@ L’image suivante est un exemple de modification de tendance :
 
 ![Exemple d’anomalie de modification de tendance](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-trend-change.png)
 
-L’exemple de requête suivant suppose une vitesse d’entrée uniforme d’1 événement par seconde dans une fenêtre glissante de 20 minutes avec une taille d’historique de 1 200 événements. La dernière instruction SELECT extrait et génère le score et le statut d’anomalie avec un niveau de confiance de 80 %.
+L’exemple de requête suivant suppose une vitesse d’entrée uniforme d’un événement par seconde dans une fenêtre glissante de 20 minutes avec une taille d’historique de 1 200 événements. La dernière instruction SELECT extrait et génère le score et le statut d’anomalie avec un niveau de confiance de 80 %.
 
 ```SQL
 WITH AnomalyDetectionStep AS

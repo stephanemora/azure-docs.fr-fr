@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 254d1faf0d846cc6a0e165b68db11ac0314eab33
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747490"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430571"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
-Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des captures instantanées d’entrepôts de données pour récupérer ou copier votre entrepôt de données dans un point de restauration précédent dans la région primaire. Utilisez des sauvegardes géoredondantes d’entrepôts de données pour effectuer une restauration dans une autre région géographique. 
+Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des points de restauration d'entrepôt de données pour récupérer ou copier votre entrepôt de données à un état précédent dans la région primaire. Utilisez des sauvegardes géoredondantes d’entrepôts de données pour effectuer une restauration dans une autre région géographique. 
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>Qu’est-ce qu’une capture instantanée d’entrepôt de données ?
 Une *capture instantanée d’entrepôt de données* crée un point de restauration que vous pouvez utiliser pour récupérer ou copier votre entrepôt de données dans un état antérieur.  Comme SQL Data Warehouse est un système distribué, une capture instantanée d’entrepôt de données est constituée de nombreux fichiers qui sont stockés dans le stockage Azure. Les captures instantanées capturent les changements incrémentiels à partir des données stockées dans votre entrepôt de données.

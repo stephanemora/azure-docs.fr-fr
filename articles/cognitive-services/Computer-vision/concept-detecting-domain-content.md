@@ -8,53 +8,132 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871997"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312525"
 ---
-# <a name="detecting-domain-specific-content"></a>Détection du contenu spécifique à un domaine
+# <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
 
-Outre le balisage et la catégorisation très précise, Vision par ordinateur prend également en charge les informations spécialisées (ou spécifiques à un domaine). Les informations spécialisées peuvent être implémentées en tant que méthode autonome ou à l’aide de la catégorisation précise. Elles permettent d’affiner la taxonomie des 86 catégories via l’ajout de modèles spécifiques aux domaines.
+Outre le balisage et la catégorisation de haut niveau, le service Vision par ordinateur prend également en charge d'autres analyses spécifiques à un domaine en utilisant des modèles formés à partir de données spécialisées. 
 
-Deux options existent pour utiliser les modèles spécifiques à un domaine :
+Les modèles spécifiques à un domaine peuvent être utilisés de deux façons : en l'état (analyse élargie) ou en tant qu'amélioration de la fonctionnalité de catégorisation.
 
-* Analyse élargie  
-  Analysez uniquement un modèle choisi en lançant un appel HTTP POST. Si vous savez quel modèle vous souhaitez utiliser, spécifiez le nom du modèle. Vous obtiendrez uniquement des informations pertinentes pour ce modèle. Par exemple, vous pouvez utiliser cette option pour ne rechercher que la reconnaissance de célébrités. La réponse contient une liste de célébrités susceptibles de correspondre, accompagnées de scores de confiance.
-* Analyse améliorée  
-  Effectuez une analyse pour fournir des informations supplémentaires en lien avec les catégories de la taxonomie des 86 catégories. Cette option peut être utilisée dans les applications où les utilisateurs souhaitent obtenir une analyse d’image générique en plus des détails issus d’un ou de plusieurs modèles spécifique à un domaine. Lorsque cette méthode est appelée, le classifieur de la taxonomie des 86 catégories est appelé en premier. Si aucune des catégories ne correspond à celle des modèles connus ou correspondants, une deuxième session d’appels du classifieur est lancée. Par exemple, si le paramètre `details`de l’appel HTTP POST est défini sur « all » ou inclut « celebrities », la méthode appelle le classifieur de célébrités après l’appel au classifieur des 86 catégories. Si l’image est classée en tant que `people_` ou sous-catégorie de cette catégorie, le classifieur de célébrités est appelé.
+### <a name="scoped-analysis"></a>Analyse élargie
 
-## <a name="listing-domain-specific-models"></a>Liste des modèles spécifiques à un domaine
+Vous pouvez analyser une image à l'aide du modèle spécifique au domaine choisi en appelant l'API [Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200). 
 
-Vous pouvez répertorier les modèles spécifiques à un domaine et pris en charge par Vision par ordinateur. Actuellement, Vision par ordinateur prend en charge les modèles spécifiques à un domaine ci-après pour la détection de contenu spécifique à un domaine :
+Voici un exemple de réponse JSON renvoyé par l'API **models/celebrities/analyze** pour l'image donnée :
+
+![Satya Nadella debout](./images/satya.jpeg)
+
+```json
+{
+  "result": {
+    "celebrities": [{
+      "faceRectangle": {
+        "top": 391,
+        "left": 318,
+        "width": 184,
+        "height": 184
+      },
+      "name": "Satya Nadella",
+      "confidence": 0.99999856948852539
+    }]
+  },
+  "requestId": "8217262a-1a90-4498-a242-68376a4b956b",
+  "metadata": {
+    "width": 800,
+    "height": 1200,
+    "format": "Jpeg"
+  }
+}
+```
+
+### <a name="enhanced-categorization-analysis"></a>Analyse de catégorisation améliorée  
+
+Vous pouvez également utiliser des modèles spécifiques à un domaine pour compléter l'analyse d'image générale. Pour ce faire, dans le cadre de la [catégorisation de haut niveau](concept-categorizing-images.md), vous devez spécifier des modèles spécifiques à un domaine dans le paramètre *details* de l'appel d'API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). 
+
+Dans ce cas, le classifieur de la taxonomie des 86 catégories est appelé en premier. Si l'une des catégories détectées possède un modèle spécifique au domaine correspondant, l'image est également transmise à travers ce modèle et les résultats sont ajoutés. 
+
+La réponse JSON suivante montre comment une analyse spécifique à un domaine peut être incluse en tant que nœud `detail` dans une analyse de catégorisation plus large.
+
+```json
+"categories":[  
+  {  
+    "name":"abstract_",
+    "score":0.00390625
+  },
+  {  
+    "name":"people_",
+    "score":0.83984375,
+    "detail":{  
+      "celebrities":[  
+        {  
+          "name":"Satya Nadella",
+          "faceRectangle":{  
+            "left":597,
+            "top":162,
+            "width":248,
+            "height":248
+          },
+          "confidence":0.999028444
+        }
+      ],
+      "landmarks":[  
+        {  
+          "name":"Forbidden City",
+          "confidence":0.9978346
+        }
+      ]
+    }
+  }
+]
+```
+
+## <a name="list-the-domain-specific-models"></a>Dresser la liste des modèles spécifiques à un domaine
+
+Le service Vision par ordinateur prend actuellement en charge les modèles spécifiques à un domaine suivants :
 
 | Nom | Description |
 |------|-------------|
 | celebrities | Reconnaissance des célébrités, prise en charge pour les images classées dans la catégorie `people_` |
 | landmarks | Reconnaissance des points de repère, prise en charge pour les images classées dans les catégories `outdoor_` ou `building_` |
 
-### <a name="domain-model-list-example"></a>Exemple de liste de modèles de domaine
-
-La réponse JSON suivante répertorie les modèles spécifiques à un domaine et pris en charge par Vision par ordinateur.
+L'appel de l'API [Models](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) renvoie ces informations, ainsi que les catégories auxquelles chaque modèle peut s'appliquer :
 
 ```json
-{
-    "models": [
-        {
-            "name": "celebrities",
-            "categories": ["people_", "人_", "pessoas_", "gente_"]
-        },
-        {
-            "name": "landmarks",
-            "categories": ["outdoor_", "户外_", "屋外_", "aoarlivre_", "alairelibre_",
-                "building_", "建筑_", "建物_", "edifício_"]
-        }
-    ]
+{  
+  "models":[  
+    {  
+      "name":"celebrities",
+      "categories":[  
+        "people_",
+        "人_",
+        "pessoas_",
+        "gente_"
+      ]
+    },
+    {  
+      "name":"landmarks",
+      "categories":[  
+        "outdoor_",
+        "户外_",
+        "屋外_",
+        "aoarlivre_",
+        "alairelibre_",
+        "building_",
+        "建筑_",
+        "建物_",
+        "edifício_"
+      ]
+    }
+  ]
 }
 ```
 

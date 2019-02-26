@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cbe13c9167ebccdd55d54ddd99ba11c6d58b01e8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9c684e9d1bf6cec12024cedfb5360d10e400e139
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429931"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416002"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Modifier des runbooks textuels dans Azure Automation
 
@@ -22,7 +22,7 @@ L’éditeur de texte dans Azure Automation peut être utilisé pour modifier d
 
 L’éditeur de texte inclut une fonctionnalité permettant d’insérer du code pour les cmdlets, les ressources et les runbooks enfants dans un runbook. Plutôt que de taper le code vous-même, vous pouvez sélectionner le code approprié dans la liste des ressources disponibles et l’insérer dans le runbook.
 
-Dans Azure Automation, chaque runbook existe en deux versions : un brouillon et une version publiée. Vous devez modifier le brouillon du runbook, puis le publier afin qu’il puisse être exécuté. La version publiée ne peut pas être modifiée. Consultez [Publication d’un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) pour plus d’informations.
+Dans Azure Automation, chaque runbook existe en deux versions : un brouillon et une version publiée. Vous devez modifier le brouillon du runbook, puis le publier afin qu’il puisse être exécuté. La version publiée ne peut pas être modifiée. Pour plus d'informations, consultez [Publication d'un runbook](manage-runbooks.md#publish-a-runbook).
 
 Pour utiliser des [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks), consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -33,7 +33,7 @@ Utilisez la procédure suivante pour ouvrir un runbook afin de le modifier dans 
 1. Dans le portail Azure, sélectionnez votre compte Automation.
 2. Sous **AUTOMATISATION DE PROCESSUS**, cliquez sur **Runbooks** pour ouvrir la liste des runbooks.
 3. Sélectionnez le runbook que vous souhaitez modifier, puis cliquez sur le bouton **Modifier**.
-4. Effectuez la modification requise.
+4. Modifiez le runbook.
 5. Cliquez sur **Enregistrer** lorsque vos modifications sont terminées.
 6. Cliquez sur **Publier** si vous souhaitez que le dernier brouillon du runbook soit publié.
 
@@ -42,7 +42,7 @@ Utilisez la procédure suivante pour ouvrir un runbook afin de le modifier dans 
 1. Dans le canevas de l’éditeur de texte, placez le curseur à l’emplacement où vous souhaitez placer l’applet de commande.
 2. Développez le nœud **Applets de commande** dans le contrôle Bibliothèque.
 3. Développez le module contenant l’applet de commande que vous souhaitez utiliser.
-4. Cliquez avec le bouton droit sur l’applet de commande à insérer, puis sélectionnez **Ajouter au canevas**. Si plusieurs jeux de paramètres sont définis pour l’applet de commande, le jeu par défaut est ajouté. Vous pouvez également développer l’applet de commande pour sélectionner un jeu de paramètres différent.
+4. Cliquez avec le bouton droit sur la cmdlet à insérer, puis sélectionnez **Ajouter au canevas**. Si plusieurs jeux de paramètres sont définis pour l’applet de commande, le jeu par défaut est ajouté. Vous pouvez également développer l’applet de commande pour sélectionner un jeu de paramètres différent.
 5. Le code de l’applet de commande est inséré avec sa liste entière de paramètres.
 6. Indiquez une valeur appropriée à la place du type de données entouré par des accolades <> pour tous les paramètres requis. Supprimez les paramètres dont vous n’avez pas besoin.
 
@@ -64,7 +64,7 @@ Utilisez la procédure suivante pour ouvrir un runbook afin de le modifier dans 
 
 ## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Pour modifier un runbook Azure Automation à l’aide de Windows PowerShell
 
-Pour modifier un runbook avec Windows PowerShell, utilisez l’éditeur de votre choix et enregistrez-le dans un fichier .ps1. Vous pouvez utiliser la cmdlet [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) pour récupérer le contenu du Runbook, puis la cmdlet [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) pour remplacer le brouillon du Runbook actuel par la version modifiée.
+Pour modifier un runbook avec Windows PowerShell, utilisez l'éditeur de votre choix et enregistrez-le dans un fichier `.ps1`. Vous pouvez utiliser la cmdlet [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) pour récupérer le contenu du Runbook, puis la cmdlet [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) pour remplacer le brouillon du Runbook actuel par la version modifiée.
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Pour récupérer le contenu d’un runbook à l’aide de Windows PowerShell
 
@@ -81,7 +81,7 @@ Export-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $autom
 
 ### <a name="to-change-the-contents-of-a-runbook-using-windows-powershell"></a>Pour modifier le contenu d’un runbook à l’aide de Windows PowerShell
 
-Les exemples de commandes suivants montrent comment remplacer le contenu existant d’un runbook par le contenu d’un fichier de script. Notez qu’il s’agit du même exemple de procédure que [Pour importer un Runbook à partir d’un fichier de script avec Windows PowerShell](automation-creating-importing-runbook.md).
+Les exemples de commandes suivants montrent comment remplacer le contenu existant d’un runbook par le contenu d’un fichier de script. Il s'agit du même exemple de procédure que celui présenté dans [Pour importer un runbook à partir d'un fichier de script avec Windows PowerShell](manage-runbooks.md#import-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -95,7 +95,7 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 
 ## <a name="related-articles"></a>Articles connexes
 
-* [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
+* [Gérer les runbooks dans Azure Automation](manage-runbooks.md)
 * [Apprentissage du workflow PowerShell](automation-powershell-workflow.md)
 * [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 * [Certificates](automation-certificates.md)

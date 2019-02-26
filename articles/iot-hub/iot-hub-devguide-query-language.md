@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: 65de1279c47f5992dd82e9f4634b3de52925769c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0cb3bc63f9c3d63c68edba0b4162970e18fca76d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568377"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312699"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
@@ -361,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** fait référence à n’importe quelle propriété du document JSON dans le regroupement FROM. Vous trouverez des exemples de clauses SELECT dans la section [Bien démarrer avec les requêtes de jumeau d’appareil](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries).
+**Attribute_name** fait référence à n’importe quelle propriété du document JSON dans le regroupement FROM. Vous trouverez des exemples de clauses SELECT dans la section Bien démarrer avec les requêtes de jumeau d’appareil.
 
 Actuellement, les clauses de sélection autres que **SELECT*** sont prises en charge uniquement dans les requêtes d’agrégation sur des jumeaux d’appareil.
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077452"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268394"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -70,7 +70,7 @@ R.  Pour obtenir Azure Data Box, connectez-vous au portail Azure et créez une c
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>Q. Je n’ai pas pu créer une commande Data Box dans le portail Azure. Quel est le problème ?
 R. Si vous n’avez pas pu créer une commande Data Box, le problème vient de votre type d’abonnement ou de votre accès. 
 
-Vérifiez votre abonnement. Data Box est uniquement disponible dans le cadre des offres Accord Entreprise (EA), Fournisseur de solutions Cloud (CSP) ou Abonnement avec paiement à l’utilisation. Si votre abonnement ne figure pas dans la liste ci-dessus, contactez le support Microsoft pour mettre à niveau votre abonnement.
+Vérifiez votre abonnement. Data Box est disponible uniquement pour les offres d’abonnement Contrat Entreprise et Fournisseur de solutions Cloud. Si votre abonnement ne figure pas dans la liste ci-dessus, contactez le support Microsoft pour mettre à niveau votre abonnement.
 
 Si vous disposez d’un type d’offre pris en charge pour l’abonnement, vérifiez le niveau d’accès de votre abonnement. Vous devez être contributeur ou propriétaire de votre abonnement pour créer une commande.
 

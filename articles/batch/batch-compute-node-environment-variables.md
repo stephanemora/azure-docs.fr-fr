@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/03/2019
+ms.date: 02/07/2019
 ms.author: lahugh
-ms.openlocfilehash: 48c2172e02e935dde28ac323c776c8895b1d36b2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 734c16111ab859b55d87525cdc8a644c8114f6d2
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017359"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429034"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Variables d’environnement de nœud de calcul Azure Batch
 
@@ -42,26 +42,29 @@ Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s
 | Nom de la variable                     | Description                                                              | Disponibilité | Exemples |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nom du compte Batch auquel la tâche appartient.                  | Toutes les tâches.   | mybatchaccount |
+| AZ_BATCH_ACCOUNT_URL            | URL du compte Batch. | Toutes les tâches. | `https://myaccount.westus.batch.azure.com` |
+| AZ_BATCH_APP_PACKAGE            | Préfixe de toutes les variables d'environnement du package d'application. Par exemple, si l'application « Foo » version « 1 » est installée sur un pool, la variable d'environnement est AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 pointe vers l'emplacement où le package a été téléchargé (un dossier). | Toute tâche à laquelle un package d'application est associé. Également disponible pour toutes les tâches si le nœud lui-même contient des packages d'application. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Jeton d’authentification qui accorde l’accès à un ensemble limité d’opérations du service Batch. Cette variable d’environnement est présente seulement si les [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) sont définis quand la [tâche est ajoutée](/rest/api/batchservice/task/add#request-body). La valeur du jeton est utilisée dans les API Batch comme informations d’identification pour créer un client Batch, comme dans l’[API .NET BatchClient.Open()](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Toutes les tâches. | Jeton d’accès OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Sous-répertoire du [répertoire de travail de la tâche][files_dirs] dans lequel les certificats sont stockés pour les nœuds de calcul Linux. Notez que cette variable d’environnement ne s’applique pas aux nœuds de calcul Windows.                                                  | Toutes les tâches.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_HOST_LIST              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP,nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4,10.0.0.5` |
+| AZ_BATCH_IS_CURRENT_NODE_MASTER | Spécifie si le nœud actuel est le nœud principal pour une [tâche multi-instance][multi_instance]. Les valeurs possibles sont `true` et `false`.| Tâche principale multi-instance et tâches subordonnées. | `true` |
 | AZ_BATCH_JOB_ID                 | ID du travail auquel la tâche appartient. | Toutes les tâches, sauf la tâche de démarrage. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | Chemin d’accès complet du [répertoire de la tâche][files_dirs] de préparation du travail sur le nœud. | Toutes les tâches, sauf la tâche de démarrage et la tâche de préparation du travail. Disponible uniquement si la tâche est configurée avec une tâche de préparation du travail. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_DIR   | Chemin d’accès complet du [répertoire de travail de la tâche][files_dirs] de préparation du travail sur le nœud. | Toutes les tâches, sauf la tâche de démarrage et la tâche de préparation du travail. Disponible uniquement si la tâche est configurée avec une tâche de préparation du travail. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
+| AZ_BATCH_MASTER_NODE            | Adresse IP et port du nœud de calcul sur lequel s’exécute la tâche principale d’une [tâche multi-instance][multi_instance]. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | ID du nœud auquel la tâche est affectée. | Toutes les tâches. | tvm-1219235766_3-20160919t172711z |
+| AZ_BATCH_NODE_IS_DEDICATED      | Si `true`, le nœud actuel est un nœud dédié. Si `false`, c’est un [nœud basse priorité](batch-low-pri-vms.md). | Toutes les tâches. | `true` |
+| AZ_BATCH_NODE_LIST              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP;nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_NODE_ROOT_DIR          | Chemin d’accès complet de la racine de tous les [répertoires Batch][files_dirs] sur le nœud. | Toutes les tâches. | C:\user\tasks |
 | AZ_BATCH_NODE_ROOT_DIR        | Chemin d’accès complet du [répertoire partagé][files_dirs] sur le nœud. Toutes les tâches qui s’exécutent sur un nœud ont accès en lecture/écriture à ce répertoire. Les tâches qui s’exécutent sur d’autres nœuds n’ont pas accès à distance à ce répertoire (il ne s’agit pas d’un répertoire réseau « partagé »). | Toutes les tâches. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | Chemin d’accès complet du [répertoire de la tâche de démarrage][files_dirs] sur le nœud. | Toutes les tâches. | C:\user\tasks\startup |
 | AZ_BATCH_POOL_ID                | ID du pool sur lequel la tâche s’exécute. | Toutes les tâches. | batchpool001 |
 | AZ_BATCH_TASK_DIR               | Chemin d’accès complet du [répertoire de la tâche][files_dirs] sur le nœud. Ce répertoire contient les fichiers `stdout.txt` et `stderr.txt` pour la tâche et le répertoire AZ_BATCH_TASK_WORKING_DI. | Toutes les tâches. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | ID de la tâche en cours. | Toutes les tâches, sauf la tâche de démarrage. | task001 |
+| AZ_BATCH_TASK_SHARED_DIR | Le chemin d’accès du répertoire est identique pour la tâche principale et chaque tâche subordonnée d’une [tâche multi-instance][multi_instance]. Le chemin d’accès existe sur chaque nœud sur lequel la tâche multi-instance s’exécute, et est accessible en lecture/écriture pour les commandes de la tâche en cours d’exécution sur ce nœud (tant la [commande coordination][coord_cmd] que la [commande application][app_cmd]). Des tâches subordonnées ou une tâche principale qui s’exécutent sur d’autres nœuds n’ont pas accès à distance à ce répertoire (il ne s’agit pas d’un répertoire réseau « partagé »). | Tâche principale multi-instance et tâches subordonnées. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
+| AZ_BATCH_TASK_SHARED_DIR        | Répertoire commun permettant de stocker les données destinées à être partagées entre les tâches du nœud. | Toutes les tâches. | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | Chemin d’accès complet du [répertoire de travail de la tâche][files_dirs] sur le nœud. La tâche en cours d’exécution dispose d’un accès en lecture/écriture à ce répertoire. | Toutes les tâches. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | Liste des nœuds et nombre de cœurs par nœud alloués à une [tâche multi-instance][multi_instance]. Les nœuds et les cœurs sont répertoriés au format `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, où le nombre de nœuds est suivi d’une ou plusieurs adresses IP de nœud et du nombre de cœurs pour chacun. |  Tâche principale multi-instance et tâches subordonnées. |`2 10.0.0.4 1 10.0.0.5 1` |
-| AZ_BATCH_NODE_LIST              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP;nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4;10.0.0.5` |
-| AZ_BATCH_HOST_LIST              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP,nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4,10.0.0.5` |
-| AZ_BATCH_MASTER_NODE            | Adresse IP et port du nœud de calcul sur lequel s’exécute la tâche principale d’une [tâche multi-instance][multi_instance]. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4:6000`|
-| AZ_BATCH_TASK_SHARED_DIR | Le chemin d’accès du répertoire est identique pour la tâche principale et chaque tâche subordonnée d’une [tâche multi-instance][multi_instance]. Le chemin d’accès existe sur chaque nœud sur lequel la tâche multi-instance s’exécute, et est accessible en lecture/écriture pour les commandes de la tâche en cours d’exécution sur ce nœud (tant la [commande coordination][coord_cmd] que la [commande application][app_cmd]). Des tâches subordonnées ou une tâche principale qui s’exécutent sur d’autres nœuds n’ont pas accès à distance à ce répertoire (il ne s’agit pas d’un répertoire réseau « partagé »). | Tâche principale multi-instance et tâches subordonnées. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_IS_CURRENT_NODE_MASTER | Spécifie si le nœud actuel est le nœud principal pour une [tâche multi-instance][multi_instance]. Les valeurs possibles sont `true` et `false`.| Tâche principale multi-instance et tâches subordonnées. | `true` |
-| AZ_BATCH_NODE_IS_DEDICATED | Si `true`, le nœud actuel est un nœud dédié. Si `false`, c’est un [nœud basse priorité](batch-low-pri-vms.md). | Toutes les tâches. | `true` |
 
 [files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
 [multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/

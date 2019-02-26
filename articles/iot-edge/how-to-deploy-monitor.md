@@ -5,17 +5,17 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/25/2018
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083918"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428775"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure
 
@@ -53,19 +53,20 @@ La création d’un déploiement nécessite cinq étapes. Les sections suivantes
 ### <a name="step-1-name-and-label"></a>Étape 1 : Nom et étiquette
 
 1. Donnez à votre déploiement un nom unique comportant au plus 128 lettres minuscules. Évitez les espaces et les caractères non valides suivants : `& ^ [ ] { } \ | " < > /`.
-1. Ajoutez des étiquettes pour faciliter le suivi de vos déploiements. Les étiquettes sont des paires **Nom**, **Valeur** qui décrivent votre déploiement. Par exemple, `HostPlatform, Linux` ou `Version, 3.0.1`.
+1. Vous pouvez ajouter des étiquettes sous forme de paires clé-valeur pour vous aider à suivre vos déploiements. Par exemple, **HostPlatform** et **Linux**, ou **Version** et **3.0.1**.
 1. Sélectionnez **Suivant** pour passer à l’étape 2. 
 
 ### <a name="step-2-add-modules-optional"></a>Étape 2 : ajouter des modules (facultatif)
 
-Vous pouvez ajouter deux types de modules à un déploiement. Le premier est un module basé sur un service Azure, tel que Compte de stockage ou Stream Analytics. Le deuxième est un module basé sur votre propre code. Vous pouvez ajouter plusieurs modules de chaque type à un déploiement. 
+Vous pouvez ajouter deux types de modules à un déploiement. Le premier est un module basé sur un service Azure, tel que Compte de stockage ou Stream Analytics. Le deuxième est un module qui utilise votre propre code. Vous pouvez ajouter plusieurs modules de chaque type à un déploiement. 
 
 Si vous créez un déploiement sans module, il supprime tous les modules actuels des appareils. 
 
 >[!NOTE]
->Azure Machine Learning et Azure Functions ne prennent pas encore en charge le déploiement de service Azure automatisé. Utilisez un déploiement de module personnalisé pour ajouter manuellement ces services à votre déploiement. 
+>Azure Functions ne prend pas encore en charge le déploiement de service Azure automatisé. Utilisez un déploiement de module personnalisé pour ajouter manuellement ce service à votre déploiement. 
 
 Pour ajouter un module à partir d’Azure Stream Analytics, effectuez les étapes suivantes :
+
 1. Dans la section **Modules de déploiement** de la page, cliquez sur **Ajouter**.
 1. Sélectionnez **Module Azure Stream Analytics**.
 1. Choisissez votre **abonnement** dans le menu déroulant.
@@ -73,7 +74,8 @@ Pour ajouter un module à partir d’Azure Stream Analytics, effectuez les étap
 1. Sélectionnez **Enregistrer** pour ajouter votre module au déploiement. 
 
 Pour ajouter du code personnalisé en tant que module, ou pour ajouter manuellement un module de service Azure, effectuez les étapes suivantes :
-1. Dans la section **Paramètres de Registre** de la page, fournissez les noms et informations d’identification des registres de conteneurs privés qui contiennent les images de module pour ce déploiement. L’agent Edge signale l’erreur 500 s’il ne peut pas trouver les informations d’identification du registre de conteneurs pour une image docker.
+
+1. Dans la section **Paramètres du registre de conteneurs** de la page, fournissez les noms et informations d'identification des registres de conteneurs privés qui contiennent les images de module pour ce déploiement. L'agent Edge signale l'erreur 500 s'il ne peut pas trouver les informations d'identification du registre de conteneurs pour une image Docker.
 1. Dans la section **Modules de déploiement** de la page, cliquez sur **Ajouter**.
 1. Sélectionnez **Module IoT Edge**.
 1. Donnez un **Nom** à votre module.
@@ -87,8 +89,8 @@ Pour ajouter du code personnalisé en tant que module, ou pour ajouter manuellem
 1. Utilisez le menu déroulant pour sélectionner **l’État souhaité** pour le module. Choisissez parmi les options suivantes :
    * **En cours d’exécution** : il s’agit de l’option par défaut. Le module commence à s’exécuter immédiatement après son déploiement.
    * **Arrêté** : après son déploiement, le module reste inactif jusqu’à ce que vous-même ou un autre module demandiez son démarrage.
-1. Sélectionnez **Activer** si vous souhaitez ajouter des balises ou des propriétés au jumeau de module. 
-1. Entrez les **variables d’environnement** pour ce module. Les variables d’environnement fournissent des informations complémentaires à un module qui facilitent le processus de configuration.
+1. Sélectionnez **Définir les propriétés souhaitées du jumeau de module** si vous souhaitez ajouter des balises ou d'autres propriétés au jumeau de module.
+1. Entrez les **variables d'environnement** correspondant à ce module. Les variables d’environnement fournissent des informations complémentaires à un module qui facilitent le processus de configuration.
 1. Sélectionnez **Enregistrer** pour ajouter votre module au déploiement. 
 
 Une fois que vous avez configuré tous les modules pour un déploiement, sélectionnez **Suivant** pour passer à l’étape 3.
@@ -99,8 +101,22 @@ Les itinéraires définissent comment les modules communiquent les uns avec les 
 
 Ajoutez ou mettez à jour les itinéraires avec des informations issues de [Déclarer des itinéraires](module-composition.md#declare-routes), puis sélectionnez **Suivant** pour passer à la section de vérification.
 
+### <a name="step-4-specify-metrics-optional"></a>Étape 4 : Spécifier les métriques (facultatif)
 
-### <a name="step-4-target-devices"></a>Étape 4 : Appareils cibles
+Les métriques fournissent des nombres récapitulatifs des différents états qu’un appareil peut signaler après l’application d’un contenu de configuration.
+
+1. Entrez un nom pour **Nom de métrique**.
+
+1. Entrez une requête pour **Critères de la métrique**. La requête est basée sur les [propriétés signalées](module-edgeagent-edgehub.md#edgehub-reported-properties) du jumeau de module du hub IoT Edge. La métrique représente le nombre de lignes retournées par la requête.
+
+Par exemple : 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+### <a name="step-5-target-devices"></a>Étape 5 : Appareils cibles
 
 Utilisez la propriété tags à partir de vos appareils pour cibler des appareils spécifiques qui doivent recevoir ce déploiement. 
 
@@ -110,9 +126,32 @@ Utilisez la propriété tags à partir de vos appareils pour cibler des appareil
 1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Sélectionnez **Suivant** pour passer à l’étape finale.
 
-### <a name="step-5-review-template"></a>Étape 5 : Modèle de vérification
+### <a name="step-6-review-deployment"></a>Étape 6 : Vérifier le déploiement
 
 Passez en revue les informations de votre déploiement, puis sélectionnez **Envoyer**.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Déployer des modules à partir de la Place de marché Azure
+
+La Place de marché Azure est un marché d'applications et de services en ligne qui vous permet de naviguer au milieu d'un large éventail d'applications et de solutions d'entreprise certifiées et optimisées pour s'exécuter sur Azure, notamment les [modules IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Vous pouvez également accéder à la Place de marché Azure via le portail Azure sous **Créer une ressource**.
+
+Vous pouvez installer un module IoT Edge à partir de la Place de marché Azure ou du portail Azure :
+
+1. Recherchez un module et entamez le processus de déploiement.
+
+   * Portail Azure : Recherchez un module et sélectionnez **Créer**.
+
+   * Place de marché Azure :
+
+     1. Recherchez un module et sélectionnez **Obtenir maintenant**.
+     1. Acceptez les conditions d'utilisation et la politique de confidentialité du fournisseur en sélectionnant **Continuer**.
+
+1. Choisissez votre abonnement et le hub IoT auquel l'appareil cible est joint.
+
+1. Choisissez **Déployer à l'échelle**.
+
+1. Choisissez d'ajouter le module à un nouveau déploiement ou à un clone d'un déploiement existant ; en cas de clonage, sélectionnez le déploiement existant dans la liste.
+
+1. Sélectionnez **Créer** pour poursuivre le processus de création d'un déploiement à l'échelle. Vous pourrez spécifier les mêmes détails que pour n'importe quel déploiement.
 
 ## <a name="monitor-a-deployment"></a>Surveiller un déploiement
 
@@ -130,15 +169,17 @@ Pour afficher les détails d’un déploiement et surveiller les appareils qui l
    * **Priorité** : numéro de priorité du déploiement.
    * **System metrics** - **Targeted** (Métriques système - Ciblé) spécifie le nombre de jumeaux d’appareil dans IoT Hub qui correspondent à la condition de ciblage, et **Applied** (appliqué) spécifie le nombre d’appareils dont les jumeaux de module se sont vu appliquer le contenu de déploiement dans IoT Hub. 
    * **Device metrics** (Métriques de l’appareil) : nombre d’appareils Edge dans le déploiement indiquant une réussite ou des erreurs de l’exécution du client IoT Edge.
+   * **Métriques personnalisées** : nombre d'appareils de périmètre figurant dans les données de rapport de déploiement pour toutes les métriques que vous avez définies dans le cadre du déploiement.
    * **Creation time (Heure de création)** : horodatage de création du déploiement. Cet horodatage sert à départager deux déploiements ayant la même priorité. 
-2. Sélectionnez le déploiement que vous souhaitez surveiller.  
-3. Inspectez les détails du déploiement. Vous pouvez utiliser les onglets pour passer en revue les détails du déploiement.
+1. Sélectionnez le déploiement que vous souhaitez surveiller.  
+1. Inspectez les détails du déploiement. Vous pouvez utiliser les onglets pour passer en revue les détails du déploiement.
 
 ## <a name="modify-a-deployment"></a>Modifier un déploiement
 
 Quand vous modifiez un déploiement, les modifications sont répliquées immédiatement sur tous les appareils ciblés. 
 
 Si vous mettez à jour la condition cible, les mises à jour suivantes se produisent :
+
 * Si un appareil ne remplissait pas l’ancienne condition cible, mais qu’il remplit la nouvelle condition cible et que ce déploiement a la priorité la plus élevée pour cet appareil, ce déploiement est appliqué à l’appareil. 
 * Si un appareil exécutant actuellement ce déploiement ne remplit plus la condition cible, il désinstalle ce déploiement et prend le déploiement suivant dans l’ordre de priorité. 
 * Si un appareil exécutant actuellement ce déploiement ne remplit plus la condition cible et ne remplit la condition cible d’aucun autre déploiement, aucun changement ne se produit sur l’appareil. L’appareil continue à exécuter ses modules actuels dans leur état actuel, mais il n’est plus géré dans le cadre de ce déploiement. Dès qu’il remplit la condition cible d’un autre déploiement, il désinstalle ce déploiement et prend le nouveau. 
@@ -153,9 +194,10 @@ Pour modifier un déploiement, effectuez les étapes suivantes :
 
 1. Sélectionnez le déploiement à modifier. 
 1. Mettez à jour les champs suivants : 
-   * Condition cible 
-   * Étiquettes 
-   * Priorité 
+   * Condition cible
+   * Métriques : vous pouvez modifier ou supprimer des métriques que vous avez définies, ou en ajouter de nouvelles.
+   * Étiquettes
+   * Priorité
 1. Sélectionnez **Enregistrer**.
 1. Suivez les étapes fournies dans [Surveiller un déploiement](#monitor-a-deployment) pour observer le déploiement des modifications. 
 

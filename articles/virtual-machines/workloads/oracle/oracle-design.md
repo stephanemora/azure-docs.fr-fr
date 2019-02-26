@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495218"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327508"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
@@ -146,19 +146,17 @@ Selon vos besoins en bande passante réseau, vous pouvez choisir différents typ
 
 ### <a name="disk-types-and-configurations"></a>Types de disque et configurations
 
-- *Disques du système d’exploitation par défaut* : ces types de disques permettent la persistance et la mise en cache des données. Ils sont optimisés pour un accès au système d’exploitation au moment du démarrage, mais ils ne sont pas conçus pour les charges de travail transactionnelles ou d’entrepôt de données (analytiques).
+- *Disques de système d'exploitation par défaut* : ces types de disques permettent la persistance et la mise en cache des données. Ils sont optimisés pour un accès au système d’exploitation au moment du démarrage, mais ils ne sont pas conçus pour les charges de travail transactionnelles ou d’entrepôt de données (analytiques).
 
 - *Disques non managés* : ces types de disques permettent de gérer les comptes de stockage qui stockent les fichiers de disque dur virtuel (VHD) correspondant à vos disques de machine virtuelle. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage Azure.
 
 - *Disques managés* : Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (Premium ou Standard) et la taille de disque dont vous avez besoin. Azure crée et gère le disque pour vous.
 
-- *Disques de stockage Premium* : ces types de disques sont mieux adaptés aux charges de production. Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique, telles que les machines de séries DS, DSv2, GS, et F. Le disque Premium est fourni dans différentes tailles, allant de 32 Go à 4 096 Go. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle.
+- *Disques de stockage Premium* : ces types de disques conviennent essentiellement aux charges de travail de production. Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique, telles que les machines de séries DS, DSv2, GS, et F. Le disque Premium est fourni dans différentes tailles, allant de 32 Go à 4 096 Go. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle.
 
 Lorsque vous créez un disque managé dans le portail, vous pouvez choisir le **Type de compte** associé au type de disque que vous souhaitez utiliser. N’oubliez pas que les disques disponibles ne s’affichent pas tous dans le menu déroulant. Une fois que vous avez choisi une taille de machine virtuelle, le menu affiche uniquement les références SKU de stockage Premium disponibles qui sont associées à cette taille de machine virtuelle.
 
 ![Capture d’écran de la page de disque managé](./media/oracle-design/premium_disk01.png)
-
-Pour plus d’informations, consultez [Stockage Premium hautes performances et disques managés pour les machines virtuelles](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
 Une fois que vous avez configuré votre stockage sur une machine virtuelle, vous pouvez tester la charge des disques avant de créer une base de données. Le fait de connaître la latence et le débit du taux d’E/S peut vous aider à déterminer si les machines virtuelles prennent en charge le débit attendu avec les cibles de latence.
 
@@ -192,15 +190,13 @@ Il existe trois solutions pour la mise en cache de l’hôte :
 
 - *Lecture seule* : toutes les demandes sont mises en cache pour les lectures ultérieures. Toutes les écritures sont conservées directement dans le Stockage Blob Azure.
 
-- *Lecture-écriture* : il s’agit d’un algorithme de type « lecture anticipée ». Les lectures et les écritures sont mises en cache pour les lectures ultérieures. Les écritures qui ne sont pas de type double écriture sont d’abord conservées dans le cache local. Pour SQL Server, les écritures sont conservées dans Stockage Azure, car il utilise la double écriture. Il fournit également la latence de disque la plus faible pour les charges de travail légères.
+- *Lecture-écriture* : il s'agit d'un algorithme de type « lecture anticipée ». Les lectures et les écritures sont mises en cache pour les lectures ultérieures. Les écritures qui ne sont pas de type double écriture sont d’abord conservées dans le cache local. Pour SQL Server, les écritures sont conservées dans Stockage Azure, car il utilise la double écriture. Il fournit également la latence de disque la plus faible pour les charges de travail légères.
 
 - *Aucun* (désactivé) : cette option vous permet de contourner le cache. Toutes les données sont transférées sur le disque et conservées dans Stockage Azure. Cette méthode vous donne le taux d’E/S le plus élevé pour les charges de travail intensives d’E/S. Vous devez également tenir compte du coût de transaction.
 
 **Recommandations**
 
 Pour optimiser le débit, il est recommandé de commencer par **Aucun** pour la mise en cache de l’hôte. Pour le stockage Premium, vous devez désactiver les barrières lorsque vous montez le système de fichiers conformément aux options **Lecture seule** ou **Aucun**. Mettez à jour le fichier/etc/fstab avec l’UUID sur les disques.
-
-Pour plus d’informations, consultez [Stockage Premium pour les machines virtuelles Linux](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Capture d’écran de la page de disque managé](./media/oracle-design/premium_disk02.png)
 
@@ -217,12 +213,12 @@ Une fois votre environnement Azure configuré, l’étape suivante consiste à s
 
 - *Stratégie du groupe de sécurité réseau* : le groupe de sécurité réseau peut être défini par un sous-réseau ou une carte réseau. Il est plus simple de contrôler la sécurité de l’accès au niveau du sous-réseau et de forcer le routage pour les éléments tels que les pare-feu d’application.
 
-- *Jumpbox* : pour un accès plus sécurisé, les administrateurs ne doivent pas se connecter directement au service d’application ou à la base de données. Une jumpbox sert de média entre la machine de l’administrateur et les ressources Azure.
+- *Serveur de rebond (jumpbox)*  : pour un accès plus sécurisé, les administrateurs ne doivent pas se connecter directement au service d'application ou à la base de données. Une jumpbox sert de média entre la machine de l’administrateur et les ressources Azure.
 ![Capture d’écran de la page relative à la topologie Jumpbox](./media/oracle-design/jumpbox.png)
 
     L’accès à la machine de l’administrateur doit être limité à l’adresse IP de la jumpbox. La jumpbox doit avoir accès à l’application et à la base de données.
 
-- *Réseau privé* (sous-réseaux) : il est recommandé de placer le service d’application et la base de données sur des sous-réseaux distincts, afin de mieux contrôler la stratégie de groupe de sécurité réseau.
+- *Réseau privé* (sous-réseaux) : il est recommandé de placer le service d'application et la base de données sur des sous-réseaux distincts afin de mieux contrôler la stratégie de groupe de sécurité réseau.
 
 
 ## <a name="additional-reading"></a>Documentation supplémentaire
@@ -234,5 +230,5 @@ Une fois votre environnement Azure configuré, l’étape suivante consiste à s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Didacticiel : créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
+- [Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 - [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)

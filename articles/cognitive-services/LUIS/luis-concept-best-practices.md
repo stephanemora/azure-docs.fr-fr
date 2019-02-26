@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243414"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428905"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
 Suivez le processus de création d’applications pour générer votre application LUIS. 
@@ -61,7 +61,7 @@ Prenons les exemples d’énoncés suivants :
 
 Pour plus d'informations :
 * Concept : [Concepts relatifs aux intentions dans votre application LUIS](luis-concept-intent.md)
-* Didacticiel : [Générer une application LUIS pour déterminer les intentions d’un utilisateur](luis-quickstart-intents-only.md)
+* Tutoriel : [Générer une application LUIS pour déterminer les intentions d’un utilisateur](luis-quickstart-intents-only.md)
 * Activation [Ajouter des intentions pour déterminer l’intention de l’utilisateur des énoncés](luis-how-to-add-intents.md)
 
 
@@ -77,23 +77,32 @@ Pour plus d'informations :
 * Concept : [Cycle de création de votre application LUIS](luis-concept-app-iteration.md)
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Ajouter des listes d’expressions et des modèles dans les itérations ultérieures
-Les [listes d’expressions](luis-concept-feature.md) vous permettent de définir des dictionnaires de mots liés à votre domaine d’application. Commencez par créer une liste d’expressions de quelques mots, puis utiliser la fonctionnalité de suggestion pour que LUIS connaisse d’autres mots de vocabulaire spécifiques à votre application. N’ajoutez pas tous les mots au vocabulaire, car la liste d’expressions ne fonctionne pas par correspondance exacte. 
+
+Il est préférable de ne pas appliquer ces pratiques tant que votre application n'a pas été testée. Vous devez comprendre le comportement de l’application avant d’ajouter des listes d’expressions et des motifs. Cela permet de comprendre comment votre application se comporte sans ces éléments ; vous pouvez ensuite ajouter ces fonctionnalités selon les besoins. Il n'est pas nécessaire d'ajouter ces fonctionnalités à chaque [itération](luis-concept-app-iteration.md) ou de les modifier à chaque version. 
+
+Rien ne vous empêche de les ajouter au début de la conception de votre modèle, mais il est plus aisé de constater les changements produits par chaque fonctionnalité une fois le modèle testé avec des énoncés. 
+
+Une bonne pratique consiste à le tester via le [point de terminaison](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) pour bénéficier de l'avantage supplémentaire qu'offre l'[apprentissage actif](luis-concept-review-endpoint-utterances.md). Le [volet de test interactif](luis-interactive-test.md) constitue également une méthodologie de test valide. 
+ 
+
+### <a name="phrase-lists"></a>Listes d’expressions
+
+Les [listes d’expressions](luis-concept-feature.md) vous permettent de définir des dictionnaires de mots liés à votre domaine d’application. Commencez par créer une liste d’expressions de quelques mots, puis utiliser la fonctionnalité de suggestion pour que LUIS connaisse d’autres mots de vocabulaire spécifiques à votre application. Une Liste d'expressions améliore la détection des intentions et la classification des entités en renforçant le signal associé aux mots ou expressions significatifs pour votre application. 
+
+N’ajoutez pas tous les mots au vocabulaire, car la liste d’expressions ne fonctionne pas par correspondance exacte. 
+
+Pour plus d'informations :
+* Concept : [Caractéristiques de liste d’expressions dans votre application LUIS](luis-concept-feature.md)
+* Procédure : [Utiliser des listes d’expressions pour améliorer le signal de liste de mots](luis-how-to-add-features.md)
+
+### <a name="patterns"></a>Modèles
 
 Les énoncés d’utilisateurs réels du point de terminaison, très similaires les uns aux autres, peuvent révéler des motifs dans le choix et la place des mots. La fonctionnalité [modèle](luis-concept-patterns.md) s’appuie sur ces motifs et sur des expressions régulières pour améliorer la précision des prédictions. L’ajout d’une expression régulière au modèle permet d’ignorer certains mots et signes de ponctuation tout en préservant la correspondance avec le modèle. 
 
 Utilisez la [syntaxe facultative](luis-concept-patterns.md) du modèle afin d’ignorer la ponctuation. Utilisez la [liste explicite](luis-concept-patterns.md#explicit-lists) pour compenser les problèmes de syntaxe pattern.any. 
 
-N’appliquez pas ces pratiques tant que votre application n’a pas reçu de demandes du point de terminaison. Vous devez comprendre le comportement de l’application avant d’ajouter des listes d’expressions et des motifs. Cela permet de comprendre comment votre application se comporte sans ces éléments ; vous pouvez ensuite ajouter ces fonctionnalités selon les besoins. 
-
-Il n’est pas risqué de les ajouter au début de la conception de votre modèle mais il est plus aisé de constater les changements produits par chaque fonctionnalité si vous les ajoutez à l’application soumis au trafic réel. 
-
-Vous n’avez pas besoin d’ajouter ces fonctionnalités à chaque itération ou de les modifier à chaque version. 
-
 Pour plus d'informations :
-* Concept : [Cycle de création de votre application LUIS](luis-concept-app-iteration.md)
-* Concept : [Caractéristiques de liste d’expressions dans votre application LUIS](luis-concept-feature.md)
 * Concept : [Les modèles améliorent la précision de la prédiction](luis-concept-patterns.md)
-* Procédure : [Utiliser des listes d’expressions pour améliorer le signal de liste de mots](luis-how-to-add-features.md)
 * Procédure : [Comment ajouter des modèles pour améliorer la précision de la prédiction](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Équilibrer vos énoncés entre toutes les intentions

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 1b0e99998aaf29c366cce1926f930174686cfee6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585949"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414896"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud
 
@@ -34,7 +34,7 @@ Un même message peut correspondre à la condition de plusieurs requêtes de rou
 
 Un IoT Hub a un [point de terminaison intégré](iot-hub-devguide-messages-read-builtin.md) unique. Vous pouvez créer des points de terminaison personnalisés pour y acheminer les messages en liant d’autres services de votre abonnement au hub. IoT Hub prend actuellement en charge les conteneurs de stockage Azure, les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus.
 
-Quand vous utilisez des points de terminaison de routage et personnalisés, les messages sont remis seulement au point de terminaison intégré s’ils ne correspondent à aucune requête. Pour remettre des messages au point de terminaison intégré ainsi qu’à un point de terminaison personnalisé, ajoutez un itinéraire qui envoie des messages au point de terminaison des **événements**.
+Quand vous utilisez des points de terminaison de routage et personnalisés, les messages sont remis seulement au point de terminaison intégré s’ils ne correspondent à aucune requête. Pour remettre des messages au point de terminaison intégré ainsi qu’à un point de terminaison personnalisé, ajoutez un itinéraire qui envoie des messages au point de terminaison intégré des **événements**.
 
 > [!NOTE]
 > * IoT Hub prend uniquement en charge l’écriture de données dans des conteneurs de stockage Azure en tant qu’objets blob.
