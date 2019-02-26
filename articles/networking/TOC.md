@@ -11,7 +11,7 @@
 ### [Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager](disaster-recovery-dns-traffic-manager.md)
 ## Planifier et concevoir
 ### [Réseaux virtuels](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Connectivité intersite - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Connectivité intersite - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Options de connectivité intersite - connexion privée dédiée](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Interopérabilité de connectivité du serveur principal
 #### [Préface et initialisation (tearDown) de test](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -57,7 +57,7 @@
 ### [Interface de ligne de commande Azure](cli-samples.md)
 ### [Azure PowerShell](powershell-samples.md)
 
-## Didacticiels
+## Tutoriels
 ### [Équilibrer la charge des machines virtuelles](../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connecter un ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -76,6 +76,6 @@
 ## [Tarification](https://azure.microsoft.com/pricing)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services/)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
 
