@@ -24,7 +24,7 @@ items:
     - name: Acheminer des journaux vers un compte de stockage
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Rapports
     items:
@@ -58,7 +58,7 @@ items:
     items:
     - name: Journaux Azure AD dans Azure Monitor
       href: concept-activity-logs-azure-monitor.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Rapports
     items:
@@ -74,9 +74,9 @@ items:
       href: howto-configure-prerequisites-for-reporting-api.md
   - name: Surveillance
     items:
-    - name: Intégrer les journaux d’activité à Log Analytics
+    - name: Intégrer les journaux d’activité aux journaux Azure Monitor
       href: howto-integrate-activity-logs-with-log-analytics.md
-    - name: Analyser les journaux d’activité dans Log Analytics
+    - name: Analyser les journaux d’activité dans les journaux Azure Monitor
       href: howto-analyze-activity-logs-log-analytics.md
     - name: Installer et utiliser les vues Log Analytics pour Azure AD
       href: howto-install-use-log-analytics-views.md
@@ -120,9 +120,9 @@ items:
     - name: Schéma du journal de connexion
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 9f5447c644d49c3c1919bb933762392b987b45f6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e14fac6ff115951ca46995d7973e919e6a774b8c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870132"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819375"

@@ -16,7 +16,7 @@ items:
   - name: Créer une application
     href: quick-deploy-iot-central.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1- Définir un nouveau type d’appareil
     href: tutorial-define-device-type.md
@@ -34,7 +34,7 @@ items:
     href: concepts-architecture.md
   - name: Connectivité
     href: concepts-connectivity.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Connecter des appareils
     items:
@@ -97,9 +97,11 @@ items:
       href: howto-administer.md
     - name: Préparer et charger des images
       href: howto-prepare-images.md
-    - name: Gérer IoT Central à partir du portail de gestion Azure
+    - name: Gérer à partir du portail Azure
       href: howto-manage-iot-central-from-portal.md
-    - name: Gérer IoT Central à partir d’Azure PowerShell
+    - name: Gérer à partir d’Azure CLI
+      href: howto-manage-iot-central-from-cli.md
+    - name: Gérer à partir d’Azure PowerShell
       href: howto-manage-iot-central-from-powershell.md
     - name: En tant que CSP, créer et gérer une application
       href: howto-create-and-manage-applications-as-CSP.md
@@ -141,9 +143,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Navigateurs pris en charge
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 3952573268a93bd33f54ec0c533dd15e2ce19ef3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 95702f9255bfe02aec5c5770d06021aa3b28148c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657554"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806876"

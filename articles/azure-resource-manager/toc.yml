@@ -52,15 +52,15 @@ items:
     items:
     - name: Structure de fichiers de modèle
       href: resource-group-authoring-templates.md
-    - name: parameters
+    - name: Paramètres
       href: resource-manager-templates-parameters.md
-    - name: variables
+    - name: Variables
       href: resource-manager-templates-variables.md
     - name: Fonctions
       href: resource-group-authoring-templates.md#functions
     - name: Ressources
       href: resource-manager-templates-resources.md
-    - name: Outputs
+    - name: Sorties
       href: resource-manager-templates-outputs.md
   - name: Assistance
     items:
@@ -105,22 +105,14 @@ items:
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Déployer des modèles
     items:
-    - name: Déployer en utilisant le portail Azure
+    - name: Déployer - portail
       href: resource-group-template-deploy-portal.md
-    - name: Déployer à l’aide d’Azure CLI
+    - name: Déployer - CLI
       href: resource-group-template-deploy-cli.md
-    - name: Déployer en utilisant Azure PowerShell
+    - name: Déployer - PowerShell
       href: resource-group-template-deploy.md
     - name: Déployer en utilisant une API REST
       href: resource-group-template-deploy-rest.md
-    - name: Exporter des modèles
-      items:
-      - name: Utiliser le portail
-        href: resource-manager-export-template.md
-      - name: Utilisation de l’interface de ligne de commande Azure
-        href: resource-manager-export-template-cli.md
-      - name: Utilisation de Microsoft Azure PowerShell
-        href: resource-manager-export-template-powershell.md
     - name: Sécuriser les modèles avec un jeton SAS
       items:
       - name: Utilisation de l’interface de ligne de commande Azure
@@ -134,12 +126,28 @@ items:
       maintainContext: true
   - name: Gestion des ressources
     items:
-    - name: Gérer en utilisant le portail Azure
-      href: resource-group-portal.md
-    - name: Gérer en utilisant Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Gérer en utilisant Azure CLI
-      href: cli-azure-resource-manager.md
+    - name: Gérer des groupes de ressources
+      items:
+      - name: Gérer des groupes de ressources - portail
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-portal.md
+      - name: Gérer des groupes de ressources - CLI
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-cli.md
+      - name: Gérer des groupes de ressources - PowerShell
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-powershell.md
+    - name: Gestion des ressources
+      items:
+      - name: Gérer des ressources - portail
+        displayName: open,delete,deploy,move,lock,tag,monitor
+        href: manage-resources-portal.md
+      - name: Gérer des ressources - CLI
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-cli.md
+      - name: Gérer des ressources - PowerShell
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-powershell.md
     - name: Déplacer des ressources
       href: resource-group-move-resources.md
     - name: Organiser les ressources en utilisant des étiquettes
@@ -251,9 +259,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 44ba1f922400b9e61d9c40f849b8cb923ef75ddf
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1483d34859135d7b50bada6c74c90d09abc2df23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301942"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820533"
