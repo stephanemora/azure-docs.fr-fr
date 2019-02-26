@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880044"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313358"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services
 
@@ -98,13 +98,13 @@ Le deuxième écran présente les liens d’aide disponibles pour vous aider à 
 ![liens d’aide dans le panneau Démarrage rapide](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>Étapes post-mise à niveau
-Les coffres Recovery Services prennent en charge la spécification d’informations de fuseau horaire dans la stratégie de sauvegarde. Une fois le coffre mis à niveau, accédez à Stratégies de sauvegarde dans le menu de paramètres du coffre et mettez à jour les informations de fuseau horaire pour chacune des stratégies configurées dans le coffre. Cet écran montre déjà l’heure de planification de sauvegarde spécifiée en fonction du fuseau horaire local utilisé quand vous avez créé la stratégie. 
+Les coffres Recovery Services prennent en charge la spécification d’informations de fuseau horaire dans la stratégie de sauvegarde. Une fois le coffre mis à niveau, accédez à Stratégies de sauvegarde dans le menu de paramètres du coffre et mettez à jour les informations de fuseau horaire pour chacune des stratégies configurées dans le coffre. Cet écran montre déjà l’heure de planification de sauvegarde spécifiée en fonction du fuseau horaire local utilisé quand vous avez créé la stratégie.
 
 ## <a name="enhanced-security"></a>Sécurité améliorée
 
-Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services, les paramètres de sécurité de ce coffre sont activés automatiquement. Quand les paramètres de sécurité sont actifs, certaines opérations telles que la suppression des sauvegardes ou la modification d’une phrase secrète nécessitent un code PIN [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Pour plus d’informations sur la sécurité améliorée, consultez l’article [Fonctionnalités de sécurité pour la protection des sauvegardes hybrides](backup-azure-security-feature.md). 
+Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services, les paramètres de sécurité de ce coffre sont activés automatiquement. Quand les paramètres de sécurité sont actifs, certaines opérations telles que la suppression des sauvegardes ou la modification d’une phrase secrète nécessitent un code PIN [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Pour plus d’informations sur la sécurité améliorée, consultez l’article [Fonctionnalités de sécurité pour la protection des sauvegardes hybrides](backup-azure-security-feature.md).
 
-Quand la sécurité améliorée est activée, les données sont conservées jusqu’à 14 jours après que les informations relatives au point de récupération ont été supprimées du coffre. Les clients sont facturés pour le stockage de ces données de sécurité. La rétention des données de sécurité s’applique aux points de récupération définis pour l’agent de sauvegarde Azure, le serveur de sauvegarde Azure et System Center Data Protection Manager. 
+Quand la sécurité améliorée est activée, les données sont conservées jusqu’à 14 jours après que les informations relatives au point de récupération ont été supprimées du coffre. Les clients sont facturés pour le stockage de ces données de sécurité. La rétention des données de sécurité s’applique aux points de récupération définis pour l’agent de sauvegarde Azure, le serveur de sauvegarde Azure et System Center Data Protection Manager.
 
 ## <a name="gather-data-on-your-vault"></a>Collecter des données sur votre coffre
 
@@ -112,38 +112,38 @@ Une fois que vous avez effectué la mise à niveau vers un coffre Recovery Servi
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-**Le plan de mise à niveau affecte-t-il mes sauvegardes en cours ?**</br>
+### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>Le plan de mise à niveau affecte-t-il mes sauvegardes en cours ?
  Non. Vos sauvegardes en cours se poursuivent sans interruption pendant et après la mise à niveau.
 
-**Si je n’envisage de mise à niveau prochainement, qu’advient-il de mes coffres ?**</br>
+### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>Si je n’envisage de mise à niveau prochainement, qu’advient-il de mes coffres ?
 Toutes les nouvelles fonctionnalités s’appliquant uniquement aux coffres Recovery Services, nous vous conseillons vivement de mettre à niveau vos coffres. À compter du 1er septembre 2017, Microsoft commencera la mise à niveau automatique des coffres de sauvegarde vers des coffres Recovery Services. Après le 30 novembre 2017, vous ne pouvez plus créer de coffres de sauvegarde à l’aide de PowerShell. Votre coffre peut être mis à niveau automatiquement à tout moment dans l’intervalle. Microsoft vous recommande de mettre à niveau votre coffre dès que possible.
 
-**Quelles sont les implications de cette migration pour mes outils existants ?**</br>
-Mettez à jour vos outils vers le modèle de déploiement Resource Manager. Les coffres Recovery Services ont été créés pour une utilisation dans le modèle de déploiement Resource Manager. Il est important de planifier le modèle de déploiement Resource Manager et de tenir compte de la différence dans vos coffres. 
+### <a name="what-does-this-upgrade-mean-for-my-existing-tooling"></a>Quelles sont les implications de cette migration pour mes outils existants ?
+Mettez à jour vos outils vers le modèle de déploiement Resource Manager. Les coffres Recovery Services ont été créés pour une utilisation dans le modèle de déploiement Resource Manager. Il est important de planifier le modèle de déploiement Resource Manager et de tenir compte de la différence dans vos coffres.
 
-**Lors de la mise à niveau, existe-t-il un temps d’arrêt ?**</br>
+### <a name="during-the-upgrade-is-there-much-downtime"></a>Lors de la mise à niveau, existe-t-il un temps d’arrêt ?
 Cette durée dépend du nombre de ressources faisant l’objet de la mise à niveau. Pour les déploiements de taille modeste (quelques dizaines d’instances protégées), la mise à niveau entière doit prendre moins de 20 minutes. Pour les déploiements plus importants, il ne devrait pas excéder une heure.
 
-**Puis-je restaurer après la mise à niveau ?**</br>
- Non. La restauration n’est pas prise en charge une fois la mise à niveau des ressources opérée avec succès.
+### <a name="can-i-roll-back-after-upgrading"></a>Puis-je restaurer après la mise à niveau ?
+ Non. La restauration n’est pas prise en charge une fois la mise à niveau des ressources réussie.
 
-**Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une mise à niveau ?**</br>
+### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une mise à niveau ?
 Oui. La première étape d’une mise à niveau consiste à valider le fait que les ressources peuvent être mises à niveau. En cas d’échec de la validation des conditions préalables, vous recevez des messages concernant toutes les raisons pour lesquelles la mise à niveau ne peut pas être effectuée.
 
-**Puis-je mettre à niveau mon coffre de sauvegarde basé sur un fournisseur de services de chiffrement ?**</br>
+### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>Puis-je mettre à niveau mon coffre de sauvegarde basé sur un fournisseur de services de chiffrement ?
  Non. Actuellement, vous ne pouvez pas mettre à niveau des coffres de sauvegarde basés sur un fournisseur de services de chiffrement. Nous ajouterons la prise en charge de la mise à niveau des coffres de sauvegarde basés sur un fournisseur de services de chiffrement dans les versions ultérieures.
 
-**Puis-je afficher mon coffre Azure Classic après mise à niveau ?**</br>
+### <a name="can-i-view-my-classic-vault-post-upgrade"></a>Puis-je afficher mon coffre Azure Classic après mise à niveau ?
  Non. Vous ne pouvez pas afficher ou gérer votre coffre classique après mise à niveau. Vous pouvez utiliser le nouveau portail Azure uniquement pour toutes les actions de gestion sur le coffre.
 
-**Ma mise à niveau a échoué, mais l’ordinateur où se trouvait l’agent nécessitant une mise à jour n’existe plus. Que faire dans ce cas ?**</br>
+### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>Ma mise à niveau a échoué, mais l’ordinateur où se trouvait l’agent nécessitant une mise à jour n’existe plus. Que faire dans ce cas ?
 Si vous devez stocker les sauvegardes de cet ordinateur pour une rétention à long terme, vous ne pourrez pas mettre à niveau le coffre. Dans les versions ultérieures, nous ajouterons la prise en charge de la mise à niveau d’un coffre de ce type.
 Si vous n’avez plus besoin de stocker les sauvegardes de cet ordinateur, désinscrivez-le du coffre et réessayez la mise à niveau.
 
-**Pourquoi ne puis-je pas voir les informations relatives aux travaux de mes ressources après la mise à niveau ?**</br>
+### <a name="why-cant-i-see-the-jobs-information-for-my-resources-after-upgrade"></a>Pourquoi ne puis-je pas voir les informations relatives aux travaux de mes ressources après la mise à niveau ?
 La surveillance des sauvegardes (agent MARS et IaaS) est une nouvelle fonctionnalité que vous obtenez quand vous mettez à niveau votre coffre de sauvegarde vers un coffre Recovery Services. La synchronisation des informations de surveillance avec le service prend jusqu’à 12 heures.
 
-**Comment signaler un problème ?**</br>
+### <a name="how-do-i-report-an-issue"></a>Comment signaler un problème ?
 Si une partie de la mise à niveau du coffre échoue, notez l’OperationId mentionné dans l’erreur. Le Support technique de Microsoft travaillera de manière proactive pour résoudre le problème. Vous pouvez contacter le Support ou nous envoyer un e-mail à l’adresse rsvaultupgrade@service.microsoft.com avec votre ID d’abonnement, le nom du coffre et l’OperationId. Nous tenterons de résoudre le problème le plus rapidement possible. Ne retentez l’opération que sauf si vous y êtes explicitement invité par Microsoft.
 
 

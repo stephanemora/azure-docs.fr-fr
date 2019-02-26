@@ -25,7 +25,7 @@
 #### [Mise à jour corrective automatisée](virtual-machines-windows-sql-automated-patching.md)
 #### [Configurer l’intégration d’Azure Key Vault](virtual-machines-windows-ps-sql-keyvault.md)
 
-# Procédures
+# Guides pratiques
 ## Créer une machine virtuelle SQL
 ### [Utiliser le portail](virtual-machines-windows-portal-sql-server-provision.md)
 ### [Utilisation d'Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
@@ -35,13 +35,16 @@
 ## Configurer la haute disponibilité
 ### [Utiliser le stockage Azure pour la sauvegarde et la restauration](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Groupe de disponibilité Always On
-#### [Utilisation du modèle du portail Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Utilisation des modèles de démarrage rapide](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [Manuellement - prérequis](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [Manuellement - tutoriel](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Équilibrage de charge - Portail Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Équilibrage de charge - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Interface CLI des machines virtuelles SQL Azure](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Modèle du portail Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Modèles de démarrage rapide Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Plusieurs régions](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### Configurer manuellement    
+##### [Composants requis](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [Didacticiel](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [Équilibrage de charge - Portail Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [Équilibrage de charge - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### Instance de cluster de basculement
 #### [Configurer](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
@@ -62,4 +65,4 @@
 ## [Outils SQL Server](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
