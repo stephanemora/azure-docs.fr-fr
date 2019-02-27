@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d992d13a67c7b01f82b615e7131a20b84dec9e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851013"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456229"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
@@ -24,6 +24,7 @@ Cet article décrit comment activer la réplication de machines virtuelles prena
 >
 
 ## <a name="required-user-permissions"></a>Autorisations utilisateur requises
+Azure Site Recovery a besoin que l’utilisateur dispose d’une autorisation de création du coffre de clés dans la région cible et de copie des clés dans la région.
 
 Pour activer la réplication de machines virtuelles Azure Disk Encryption à partir du portail, l’utilisateur doit disposer des autorisations ci-dessous.
 - Autorisations d’accès au coffre de clés
@@ -43,12 +44,22 @@ Pour activer la réplication de machines virtuelles Azure Disk Encryption à par
     - Encrypt (Chiffrer)
     - Decrypt (Déchiffrer)
 
-Vous pouvez gérer les autorisations en accédant à la ressource de coffre de clés dans le portail, puis en ajoutant les autorisations requises à l’utilisateur.
+Vous pouvez gérer les autorisations en accédant à la ressource de coffre de clés dans le portail, puis en ajoutant les autorisations requises à l’utilisateur. Par exemple : le guide détaillé ci-dessous montre comment l’activer pour le coffre de clés « ContosoWeb2Keyvault », qui se trouve dans la région source.
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+
+-  Accédez à « Accueil > Keyvaults > ContosoWeb2KeyVault > Stratégies d’accès »
+
+![Autorisations keyvault](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
+
+
+
+- Vous pouvez voir qu’il n’y a aucune autorisation utilisateur, par conséquent, ajoutez l’autorisation mentionnée ci-dessus en cliquant sur « AJOUTER » et l’utilisateur et les autorisations
+
+![Autorisations keyvault](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 Si l’utilisateur activant la récupération d’urgence ne dispose pas des autorisations requises pour copier les clés, le script ci-dessous peut être donné à l’administrateur de la sécurité disposant des autorisations appropriées pour copier les secrets et clés de chiffrement vers la région cible.
 
+Consultez [cet article](#trusted-root-certificates-error-code-151066) pour résoudre les problèmes d’autorisation de résolution des problèmes.
 >[!NOTE]
 >Pour activer la réplication de machine virtuelle Azure Disk Encryption à partir du portail, vous devez disposer au moins des autorisations « Liste » sur les coffres de clés, les secrets et les clés
 >
@@ -93,7 +104,7 @@ Cette procédure suppose que la région principale Azure est Asie Est et que la 
     - **Groupe à haute disponibilité** : par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom ayant le suffixe « asr ». Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il est réutilisé.
     - **Coffres de clés de chiffrement de disque** : par défaut, Azure Site Recovery crée un coffre de clés dans la région cible avec un nom ayant le suffixe « asr » en fonction des clés de chiffrement du disque de la machine virtuelle source. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
     - **Coffres de clés de chiffrement de clé** : par défaut, Azure Site Recovery crée un coffre de clés dans la région cible avec un nom ayant le suffixe « asr » en fonction des clés de chiffrement de la clé de la machine virtuelle source. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
-    - **Stratégie de réplication** : définit les paramètres de l’historique de rétention des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec les paramètres par défaut de « 24 heures » pour la rétention des points de récupération, et de « 60 minutes » pour la fréquence des captures instantanées de cohérence des applications.
+    - **Stratégie de réplication** : définit les paramètres de l’historique de conservation des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec les paramètres par défaut de « 24 heures » pour la rétention des points de récupération, et de « 60 minutes » pour la fréquence des captures instantanées de cohérence des applications.
 
 
 
@@ -124,12 +135,26 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
 
 ## <a name="update-target-vm-encryption-settings"></a>Mettre à jour les paramètres de chiffrement de machine virtuelle cible
 Dans les scénarios ci-dessous, vous devez mettre à jour les paramètres de chiffrement de machine virtuelle cible.
-  - Vous avez activé la réplication Azure Site Recovery sur la machine virtuelle, et Azure Disk Encryption (ADE) sur la machine virtuelle source à une date ultérieure.
-  - Vous avez activé la réplication Azure Site Recovery sur la machine virtuelle, et modifié la clé de chiffrement pour le disque et/ou la clé de chiffrement à clé sur la machine virtuelle source à une date ultérieure.
+  - Vous avez activé la réplication Azure Site Recovery sur la machine virtuelle, et Azure Disk Encryption (ADE) sur la machine virtuelle source à une date ultérieure
+  - Vous avez activé la réplication Azure Site Recovery sur la machine virtuelle, et modifié la clé de chiffrement pour le disque et/ou la clé de chiffrement à clé sur la machine virtuelle source à une date ultérieure
 
 Vous pouvez utiliser [le script](#copy-ade-keys-to-dr-region-using-powershell-script) pour copier les clés de chiffrement vers la région cible, puis mettre à jour les paramètres de chiffrement cibles dans **Coffre Recovery Services -> Propriétés -> Calcul et Réseau.**
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="trusted-root-certificates-error-code-151066"></a>Résoudre les problèmes d’autorisation du coffre de clés lors de la réplication de machine virtuelle Azure vers Azure
+
+**Cause 1 :** Vous avez peut-être sélectionné un coffre de clés déjà créé à partir de la Région cible qui n’a pas les autorisations requises.
+Si vous sélectionnez un coffre de clés déjà créé dans la région cible au lieu de laisser Azure Site Recovery le créer. Assurez-vous que le coffre de clés dispose des autorisations requises comme indiqué ci-dessus.</br>
+*Par exemple* : Un utilisateur essaie de répliquer une machine virtuelle qui a un coffre de clés dans la région source, par exemple « ContososourceKeyvault ».
+L’utilisateur dispose de toutes les autorisations sur le coffre de clés de la région source, mais lors de la protection il sélectionne un coffre de clés « ContosotargetKeyvault » déjà créé, qui n’a d’autorisation, alors la protection génère une erreur.</br>
+**Procédure de résolution :** Accédez à « Accueil > Keyvaults > ContososourceKeyvault > Stratégies d’accès » et ajoutez les autorisations comme indiqué ci-dessus. 
+
+**Cause 2 :** Vous avez peut-être sélectionné un coffre de clés déjà créé à partir de la Région cible qui n’a pas les autorisations de déchiffrement-chiffrement.
+Si vous sélectionnez un coffre de clés déjà créé dans la région cible au lieu de laisser Azure Site Recovery le créer. Vérifiez que l’utilisateur dispose des autorisations de déchiffrement-chiffrement au cas où vous voulez chiffrer également la clé dans la région source.</br>
+*Par exemple* : Un utilisateur essaie de répliquer une machine virtuelle qui a un coffre de clés dans la région source, par exemple « ContososourceKeyvault ».
+L’utilisateur dispose de toutes les autorisations sur le coffre de clés de la région source, mais lors de la protection il sélectionne un coffre de clés « ContosotargetKeyvault » déjà créé, qui n’a d’autorisation pour déchiffrer et chiffrer.</br>
+**Procédure de résolution :** Accédez à « Accueil > Keyvaults > ContososourceKeyvault > Stratégies d’accès » et ajoutez les autorisations sous Autorisations de clé > Opérations de chiffrement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

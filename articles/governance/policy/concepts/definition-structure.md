@@ -4,17 +4,17 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237415"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447784"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -80,7 +80,7 @@ Le **mode** détermine les types de ressources à évaluer pour une stratégie. 
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroup`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md).
+Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>parameters
 
@@ -215,7 +215,9 @@ Une condition évalue si un **champ** ou un accesseur de **valeur** répond à c
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ Une condition évalue si un **champ** ou un accesseur de **valeur** répond à c
 Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur.
 Celle-ci ne doit pas en comporter plus d’un (`*`).
 
-Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour tous les caractères et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, voir [Autoriser plusieurs modèles de noms](../samples/allow-multiple-name-patterns.md).
+Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour tous les caractères et tout autre caractère pour représenter ce caractère réel.
+Les conditions **match** et **notMatch** sont sensibles à la casse. Des alternatives non sensibles à la casse sont disponibles dans **matchInsensitively** et **notMatchInsensitively**. Pour obtenir des exemples, voir [Autoriser plusieurs modèles de noms](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Champs
 
@@ -245,15 +248,41 @@ Les champs suivants sont pris en charge :
 - `identity.type`
   - Renvoie le type d'[identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) activé sur la ressource.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - Cette syntaxe en crochet prend en charge les noms de balise contenant des signes de ponctuation tels qu’un trait d’union, un point ou un espace.
   - Où **\<tagName\>** est le nom de l’étiquette pour laquelle vérifier la condition.
-  - Exemple : `tags.CostCenter` où **CostCenter** est le nom de l’étiquette.
-- `tags[<tagName>]`
-  - Cette syntaxe entre crochets accepte les noms d’étiquette comportant des points.
-  - Où **\<tagName\>** est le nom de l’étiquette pour laquelle vérifier la condition.
-  - Exemple : `tags[Acct.CostCenter]` où **Acct.CostCenter** est le nom de l’étiquette.
-
+  - Exemples : `tags['Acct.CostCenter']` où **Acct.CostCenter** est le nom de l’étiquette.
+- `tags['''<tagName>''']`
+  - Cette syntaxe en crochet prend en charge les noms de balise contenant des apostrophes en appliquant une séquence d’échappement entre apostrophes doubles.
+  - Où **'\<tagName\>'** est le nom de l’étiquette pour laquelle vérifier la condition.
+  - Exemple : `tags['''My.Apostrophe.Tag''']` où **'\<tagName\>'** est le nom de l’étiquette.
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]` et `tags[tag.with.dots]` sont toujours des manières acceptables de déclarer un champ de balises.
+> Toutefois, les expressions préférées sont celles répertoriées ci-dessus.
+
+#### <a name="use-tags-with-parameters"></a>Utiliser des balises avec des paramètres
+
+Une valeur de paramètre peut être passée à un champ de balise. Le passage d’un paramètre à un champ de balise augmente la flexibilité de la définition de stratégie lors de l’attribution de stratégie.
+
+Dans l’exemple suivant, `concat` est utilisé pour créer une recherche dans le champ de balises pour la balise nommée avec la valeur du paramètre **tagName**. Si cette balise n’existe pas, l’effet **append** est utilisé pour ajouter la balise à l’aide de la valeur de la même balise nommée définie sur le groupe de ressources parent des ressources auditées à l’aide de la fonction lookup `resourcegroup()`.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>Valeur
 
@@ -341,7 +370,7 @@ Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les prop
 
 ### <a name="policy-functions"></a>Fonctions de stratégie
 
-A l’exception des fonctions de déploiement et de ressources suivantes, toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) sont utilisables dans le cadre d’une règle de stratégie :
+Toutes les [fonctions du modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) peuvent être utilisées dans une règle de stratégie, à l’exception des fonctions suivantes :
 
 - copyIndex()
 - deployment()
@@ -353,7 +382,7 @@ A l’exception des fonctions de déploiement et de ressources suivantes, toutes
 
 De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 
-#### <a name="policy-function-examples"></a>Exemples de fonctions de stratégie
+#### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 
 Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGroup` pour obtenir la propriété **name**, combinée au tableau `concat` et à la fonction d’objet, pour créer une condition `like` selon laquelle le nom de ressource commence par le nom du groupe de ressources.
 
@@ -367,24 +396,6 @@ Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGr
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGroup` pour obtenir la valeur de tableau de propriétés **tags** de la balise **CostCenter** du groupe de ressources, et l’ajouter à la balise **CostCenter** de la nouvelle ressource.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

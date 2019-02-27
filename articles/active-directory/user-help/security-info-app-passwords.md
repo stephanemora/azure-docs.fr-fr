@@ -1,6 +1,6 @@
 ---
-title: Définir les mots de passe d’application à l’aide des informations de sécurité - Azure Active Directory | Microsoft Docs
-description: Définissez des mots de passe générés automatiquement (mots de passe d’application) à utiliser avec chaque application sans navigateur, distincts d’un mot de passe normal, à l’aide des informations de sécurité.
+title: Définir les mots de passe d’application à partir de la page Informations de sécurité (préversion) - Azure Active Directory | Microsoft Docs
+description: Définissez des mots de passe générés automatiquement (mots de passe d’application) à utiliser avec n’importe quelle application sans navigateur, ou n’importe quelle application qui ne prend pas en charge la vérification à deux facteurs, dans votre organisation. Ce mot de passe d’application est différent d’un mot de passe normal et peut être configuré à partir de la page Informations de sécurité.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dcdfe3aef40942dd61fe604e179b61dbdd747c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211884"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456807"
 ---
-# <a name="manage-app-passwords-using-security-info-preview"></a>Gérer les mots de passe d’application à l’aide des informations de sécurité (préversion)
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gérer les mots de passe d’application à partir de votre page Informations de sécurité (préversion)
+Certaines applications, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes dans votre organisation, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Certaines applications sans navigateur, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
+>[!Important]
+>Votre administrateur peut ne pas vous autoriser à utiliser des mots de passe d’application. Si vous ne voyez pas l’option **Mots de passe d’application**, cela signifie qu’elle n’est pas disponible dans votre organisation.
 
 Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit les points suivants :
 
@@ -36,52 +38,48 @@ Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit le
     >[!Note]
     >Les clients Office 2013 (y compris Outlook) prennent en charge de nouveaux protocoles d’authentification et peuvent être utilisés dans le cadre de la vérification en deux étapes. Cela signifie qu’après l’activation de la vérification en deux étapes, vous n’aurez plus besoin de mots de passe d’application pour les clients Office 2013. Pour plus d’informations, consultez l’article [Fonctionnement de l’authentification moderne pour les applications clientes Office 2013 et Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
-## <a name="create-and-delete-app-passwords-using-security-info"></a>Créer et supprimer des mots de passe d’application à l’aide des informations de sécurité
+## <a name="create-new-app-passwords"></a>Créer de nouveaux mots de passe d’application
+Si vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et que votre administrateur a activé la fonctionnalité d’informations de sécurité, vous pouvez créer et supprimer des mots de passe d’application à l’aide de la page **Informations de sécurité**.
 
-Si vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et que votre administrateur a activé la fonctionnalité d’informations de sécurité, vous pouvez créer et supprimer des mots de passe d’application à l’aide du Portail My Apps.
+>[!Note]
+>Si votre administrateur n’a pas activé la fonctionnalité d’informations de sécurité, vous devez suivre les instructions et les informations contenues dans la section [Gérer les mots de passe pour la vérification en deux étapes](multi-factor-authentication-end-user-app-passwords.md).
 
-Si votre administrateur n’a pas activé la fonctionnalité d’informations de sécurité, vous devez suivre les instructions et les informations contenues dans la section [Gérer les mots de passe pour la vérification en deux étapes](multi-factor-authentication-end-user-app-passwords.md).
+### <a name="to-create-a-new-app-password"></a>Pour créer un nouveau mot de passe d’application
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
-### <a name="to-create-app-passwords-using-the-my-apps-portal"></a>Pour créer des mots de passe d’application à l’aide du portail MyApps
+    ![Page Mon profil, avec les liens des Informations de sécurité en surbrillance](media/security-info/securityinfo-myprofile.png)
 
-1. Connectez-vous à votre compte professionnel ou scolaire.
+2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** sur la page **Informations de sécurité**.
 
-2. Accédez à myapps.microsoft.com, sélectionnez votre nom en haut à droite de la page, puis sélectionnez **Profil**.
+    ![Page Informations de sécurité, avec l'option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod.png)
 
-3. Dans la zone **Gérer le compte**, sélectionnez **Modifier les informations de sécurité**.
+3. Sur la page **Ajouter une méthode**, choisissez **Mot de passe d’application** dans la liste déroulante, puis sélectionnez **Ajouter**.
 
-    ![Écran du profil, avec le lien Modifier les informations de sécurité mis en évidence](media/security-info/security-info-profile.png)
+    ![Zone Ajouter une méthode, avec l’option Mot de passe d’application sélectionnée](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. Dans l’écran **Sécuriser votre compte**, sélectionnez **Ajouter des informations de sécurité**.
+4. Tapez le nom de l’application qui requiert le mot de passe, puis sélectionnez **Suivant**.
 
-    ![Écran des informations de sécurité, avec les informations existantes modifiables](media/security-info/security-info-edit-add-info.png)
+    ![Page Mot de passe d’application, avec le nom de l’application](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. Dans l’écran **Ajouter des informations de sécurité**, sélectionnez **Mot de passe de l’application**.
+5. Copiez le texte à partir de la zone **Mot de passe**, collez le mot de passe dans la zone de mot de passe de l’application (dans cet exemple, Outlook 2010), puis sélectionnez **Terminé**.
 
-6. Dans l’écran **Créer votre mot de passe d’application**, saisissez un nom pour votre mot de passe d’application, puis sélectionnez **Suivant**.
-
-    ![Écran où vous nommez votre mot de passe d’application](media/security-info/security-info-name-app-password.png)
-
-7. Sélectionnez **Copier** pour copier le mot de passe dans le Presse-papiers, puis sélectionnez **Suivant**.
-
-    ![Écran avec mot de passe d’application à copier](media/security-info/security-info-create-app-password.png)
+    ![Page Mot de passe d’application, avec le nom de l’application](media/security-info/securityinfo-myprofile-password-copytext.png)
     
-8. Vérifiez que le mot de passe d’application apparaît sur l’écran **Sécuriser votre compte**.
+    Le mot de passe est ajouté et vous pourrez vous connecter correctement à votre application à l’avenir.
 
-    ![Écran sécurisé, avec mot de passe de l’application](media/security-info/security-info-keep-secure-app-password.png)
+## <a name="delete-your-app-passwords"></a>Supprimer vos mots de passe d’application
+Si vous n’avez plus besoin d’utiliser une application qui requiert un mot de passe d’application, vous pouvez supprimer le mot de passe d’application associé. Le fait de supprimer le mot de passe d’application libère l’un des emplacements de mot de passe d’application disponibles pour une utilisation ultérieure.
 
-### <a name="to-delete-app-passwords-using-the-my-apps-portal"></a>Pour supprimer des mots de passe d’application à l’aide du portail My Apps
+>[!Important]
+>Si vous supprimez un mot de passe d’application par erreur, il n’existe aucun moyen d’annuler la suppression. Vous devrez créer un nouveau mot de passe d’application et l’entrer à nouveau dans l’application, en suivant les étapes décrites dans la section [Créer de nouveaux mots de passe d’application](#create-new-app-passwords) de cet article.
 
-1. Sur l’écran **Sécuriser votre compte**, sélectionnez la **X** en regard du mot de passe d’application à supprimer.
+### <a name="to-delete-an-app-password"></a>Pour supprimer un mot de passe d’application
 
-    ![Écran sécurisé, supprimer le mot de passe de l’application](media/security-info/security-info-keep-secure-delete-app-password.png)
+1. Sur la page **Informations de sécurité**, sélectionnez le lien **Supprimer** en regard de l’option **Mot de passe d’application** pour l’application spécifique.
 
-2. Dans l’écran **Supprimer le mot de passe de l’application**, sélectionnez **Supprimer**.
+    ![Lien permettant de supprimer la méthode Mot de passe d’application sur la page Informations de sécurité](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-    ![Écran Supprimer le mot de passe d’application](media/security-info/security-info-keep-secure-delete-app-password2.png)
+2. Sélectionnez **Oui** dans la zone de confirmation pour supprimer le **Mot de passe d’application**. Une fois le mot de passe d’application supprimé, celui-ci disparaît de vos informations de sécurité et de la page **Informations de sécurité**.
 
-## <a name="next-steps"></a>Étapes suivantes
-
-- Si vous devez mettre à jour vos informations de sécurité, suivez les instructions dans l’article [Manage your security info](security-info-manage-settings.md) (Gérer vos informations de sécurité).
-
-- Pour obtenir des informations plus générales sur les informations de sécurité et ce que vous pouvez faire, consultez [Vue d’ensemble des informations de sécurité ](user-help-security-info-overview.md) 
+## <a name="for-more-information"></a>Pour plus d’informations
+- Pour plus d’informations sur la page **Informations de sécurité** et sur sa configuration, consultez [Vue d’ensemble des informations de sécurité](user-help-security-info-overview.md)

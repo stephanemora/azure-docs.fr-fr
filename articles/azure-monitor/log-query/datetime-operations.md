@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8350524e51d8ced45586d085fe1b49274aa6db9d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999247"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269975"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Utilisation de valeurs de date et d'heure dans les requêtes de journal Azure Monitor
 
@@ -31,7 +31,7 @@ Cet article explique comment utiliser des données de date et d'heure dans les r
 
 
 ## <a name="date-time-basics"></a>Notions de base de date et d’heure
-Le langage de requête de Data Explorer comporte deux principaux types de données associés aux dates et heures : datetime et timespan. Toutes les dates sont exprimées au format UTC. Même si plusieurs formats datetime sont pris en charge, le format ISO8601 est préféré. 
+Le langage de requête de Kusto comporte deux principaux types de données associés aux dates et heures : datetime et timespan. Toutes les dates sont exprimées au format UTC. Même si plusieurs formats datetime sont pris en charge, le format ISO8601 est préféré. 
 
 Les types timespan sont exprimés en tant que valeur décimale suivie d’une unité de temps :
 
@@ -45,7 +45,7 @@ Les types timespan sont exprimés en tant que valeur décimale suivie d’une un
 |microsecond | microseconde  |
 |graduation        | nanoseconde   |
 
-Les types datetime peuvent être créés en castant une chaîne avec l’opérateur `todatetime`. Par exemple, pour passer en revue les pulsations de machine virtuelle envoyées dans un laps de temps spécifique, vous pouvez utiliser [l’opérateur between](/azure/kusto/query/betweenoperator) qui est pratique pour spécifier une plage de temps.
+Les types datetime peuvent être créés en castant une chaîne avec l’opérateur `todatetime`. Par exemple, pour passer en revue les pulsations de machine virtuelle envoyées dans un laps de temps spécifique, utilisez l’opérateur `between` pour spécifier une plage de temps.
 
 ```Kusto
 Heartbeat
@@ -91,7 +91,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-Vous pouvez voir que la colonne _timeAgo_ contient des valeurs telles que : « 00:09:31.5118992 », ce qui signifie qu’elles sont présentées selon le format hh:mm:ss.fffffff. Si vous souhaitez mettre en forme ces valeurs selon le _numver_ de minutes depuis l’heure de début, il suffit de diviser cette valeur par « 1 minute » :
+La colonne `timeAgo` conserve des valeurs telles que : « 00:09:31.5118992 », ce qui signifie qu’elles sont présentées selon le format hh:mm:ss.fffffff. Si vous souhaitez mettre en forme ces valeurs selon le `numver` de minutes depuis l’heure de début, divisez cette valeur par « 1 minute » :
 
 ```Kusto
 Event
@@ -103,7 +103,7 @@ Event
 
 
 ## <a name="aggregations-and-bucketing-by-time-intervals"></a>Agrégations et création de compartiments par intervalles de temps
-Un autre scénario très courant est la nécessité d’obtenir des statistiques sur une certaine période de temps dans un fragment de temps particulier. Pour ce faire, un opérateur `bin` peut être utilisé dans le cadre d’une clause de synthèse.
+Un autre scénario courant est la nécessité d’obtenir des statistiques sur une certaine période de temps dans un fragment de temps particulier. Pour ce scénario, un opérateur `bin` peut être utilisé dans le cadre d’une clause de synthèse.
 
 Utilisez la requête suivante pour obtenir le nombre d’événements qui se sont produits toutes les 5 minutes pendant la dernière demi-heure :
 
@@ -113,7 +113,7 @@ Event
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
 ```
 
-Cela produit le tableau suivant :  
+Cette requête produit le tableau suivant :  
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -131,7 +131,7 @@ Event
 | summarize events_count=count() by startofday(TimeGenerated) 
 ```
 
-Cela génère les résultats suivants :
+Cette requête produit les résultats suivants :
 
 |timestamp|count_|
 |--|--|
@@ -139,11 +139,11 @@ Cela génère les résultats suivants :
 |2018-07-29T00:00:00.000|12 315|
 |2018-07-30T00:00:00.000|16 847|
 |2018-07-31T00:00:00.000|12 616|
-|2018-08-01T00:00:00.000|5 416  |
+|2018-08-01T00:00:00.000|5 416|
 
 
 ## <a name="time-zones"></a>Fuseaux horaires
-Dans la mesure où toutes les valeurs datetime sont exprimées au format UTC, il est souvent utile de les convertir dans le fuseau horaire local. Par exemple, utilisez ce calcul pour convertir les heures UTC en PST :
+Dans la mesure où toutes les valeurs datetime sont exprimées au format UTC, il est souvent utile de convertir ces valeurs dans le fuseau horaire local. Par exemple, utilisez ce calcul pour convertir les heures UTC en PST :
 
 ```Kusto
 Event
@@ -158,10 +158,10 @@ Event
 | Arrondir la valeur à la taille de compartiment | [bin](/azure/kusto/query/binfunction) |
 | Obtenir une date ou heure spécifique | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
 | Obtenir une partie de valeur | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| Obtenir une date par rapport à une valeur  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| Obtenir une valeur de date relative  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête de Data Explorer](/azure/kusto/query/) avec des données de journal Azure Monitor :
+Reportez-vous à d’autres leçons sur l’utilisation du [langage de requête Kusto](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Fonctions d’agrégation](aggregations.md)
