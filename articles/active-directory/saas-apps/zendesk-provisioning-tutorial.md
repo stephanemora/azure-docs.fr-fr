@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e56cc5a893c5a88a5b64466d6feceb20ccd8cdc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167845"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445540"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
 
@@ -118,7 +118,8 @@ Cette section vous guide tout au long des étapes de configuration du service de
     *   Dans le champ **Domaine**, spécifiez le sous-domaine de votre locataire Zendesk.
     Exemple : pour un compte avec une URL de tenant https://my-tenant.zendesk.com, votre sous-domaine serait **my-tenant**.
 
-6. Le **Jeton secret** pour votre compte se trouve dans **Admin > API > Paramètres**. 
+6. Le **Jeton secret** pour votre compte se trouve dans **Admin > API > Paramètres**.
+   Assurez-vous que **Jeton d'accès** est défini sur **Activé**.
 
     ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png) ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 

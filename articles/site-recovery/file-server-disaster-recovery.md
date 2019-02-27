@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 64008a91033b1fdd9cb318e76db2b1958f2337e9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508366"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309317"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
@@ -58,17 +58,17 @@ Le diagramme suivant vous permet de déterminer la stratégie à utiliser pour v
 |---------|---------|---------|
 |Environnement de serveurs de fichiers avec ou sans DFSR|   [Utiliser Site Recovery pour la réplication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery ne prend pas en charge les clusters de disque partagés ni le périphérique de stockage NAS. Si votre environnement utilise ces configurations, utilisez l’une des autres approches, le cas échéant. <br> Site Recovery ne prend pas en charge SMB 3.0. La machine virtuelle répliquée intègre les modifications uniquement lorsque celles qui sont apportées aux fichiers sont mises à jour dans l’emplacement d’origine des fichiers.
 |Environnement de serveurs de fichiers avec DFSR     |  [Étendre la DFSR à une machine virtuelle Azure IaaS](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      La DFSR fonctionne bien dans des environnements avec une bande passante extrêmement faible. Cette approche nécessite une machine virtuelle Azure opérationnelle en permanence. Vous devez prendre en compte le coût de la machine virtuelle dans votre planification.         |
-|Machine virtuelle Azure IaaS     |     [Synchronisation de fichiers ](#use-azure-file-sync-service-to-replicate-your-files)   |     Si vous utilisez la synchronisation de fichiers dans un scénario de récupération d’urgence, pendant le basculement, vous devez prendre des mesures manuelles pour vous assurer que les partages de fichiers sont accessibles à la machine du client de manière transparente. La synchronisation de fichiers exige que le port 445 soit ouvert à partir de la machine du client.     |
+|Machine virtuelle Azure IaaS     |     File Sync    |     Si vous utilisez la synchronisation de fichiers dans un scénario de récupération d’urgence, pendant le basculement, vous devez prendre des mesures manuelles pour vous assurer que les partages de fichiers sont accessibles à la machine du client de manière transparente. La synchronisation de fichiers exige que le port 445 soit ouvert à partir de la machine du client.     |
 
 
 ### <a name="site-recovery-support"></a>Prise en charge de Site Recovery
 Étant donné que la réplication Site Recovery est indépendante des applications, ces recommandations sont censées être vraies pour les scénarios suivants.
 | Source    |Vers un site secondaire    |Vers Azure
 |---------|---------|---------|
-|Azure| -|Oui|
-|Hyper-V|   Oui |Oui
-|VMware |Oui|   Oui
-|Serveur physique|   Oui |Oui
+|Azure| -|OUI|
+|Hyper-V|   OUI |OUI
+|VMware |OUI|   OUI
+|Serveur physique|   OUI |OUI
  
 
 > [!IMPORTANT]

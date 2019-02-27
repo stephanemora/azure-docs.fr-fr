@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 54511ac4dfdc05ec1880695b1ae2360f0b5e8162
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246872"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328365"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -106,12 +106,12 @@ Comme il est ici question de l’IaaS, l’installation et la configuration de W
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure de stockage d’une machine virtuelle pour les déploiements SGBDR
-Pour pouvoir suivre ce chapitre, il est nécessaire de comprendre le contenu de [ce chapitre][deployment-guide-3] du [Guide de déploiement][deployment-guide]. Vous devez savoir ce qui distingue les différentes séries de machines virtuelles et connaître les différences entre les offres de stockage Azure Standard et [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) avant de lire ce chapitre.
+Pour pouvoir suivre ce chapitre, il est nécessaire de comprendre le contenu de [ce chapitre][deployment-guide-3] du [Guide de déploiement][deployment-guide]. Vous devez savoir ce qui distingue les différentes séries de machines virtuelles et connaître les différences entre les offres de stockage Standard et Premium avant de lire ce chapitre. Concernant l'option
 
 En termes de stockage Azure pour les machines virtuelles Azure, vous devez prendre connaissance des articles suivants :
 
-- [À propos du stockage des disques pour les machines virtuelles Azure Windows](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [À propos du stockage des disques pour les machines virtuelles Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Présentation des disques managés pour les machines virtuelles Azure Windows](../../windows/managed-disks-overview.md)
+- [Présentation des disques managés pour les machines virtuelles Azure Linux](../../linux/managed-disks-overview.md)
 
 Dans une configuration de base, nous privilégions généralement une structure de déploiement dans laquelle le système d’exploitation, le SGBD et les fichiers binaires SAP éventuels sont séparés des fichiers de base de données. Il est recommandé que les systèmes SAP exécutés dans Machines Virtuelles Azure aient la même machine virtuelle (ou le même disque) de base installée avec le système d’exploitation, les exécutables du système de gestion de base de données (SGBD) et les exécutables SAP. Les fichiers de données et les journaux du SGBD sont stockés dans le stockage Azure (Standard ou Stockage Premium) dans des fichiers de disques durs virtuels distincts et attachés en tant que disques logiques à la machine virtuelle image du système d’exploitation Azure d’origine. En particulier pour les déploiements Linux, il peut y avoir différentes recommandations. Notamment en ce qui concerne SAP HANA.
 
@@ -134,10 +134,8 @@ Azure applique un quota d’E/S par seconde pour chaque disque de données. Ces 
 > [!NOTE]
 > Pour tirer parti du [contrat SLA de machine virtuelle unique](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) d’Azure, tous les disques attachés doivent être de type Stockage Premium Azure, notamment le disque dur virtuel de base.
 
-
 > [!NOTE]
 > Il n’est pas pris en charge pour héberger les fichiers principaux (fichiers de données et fichiers journaux) des bases de données SAP sur du matériel de stockage situé dans des centres de données colocalisés adjacents aux centres de données Azure. Pour la charge de travail SAP, seul le stockage représenté en tant que service Azure natif est pris en charge pour les fichiers journaux des données et des transactions des bases de données SAP.
-> 
 
 L’emplacement des fichiers de base de données et des fichiers journaux/de restauration, ainsi que le type de stockage Azure utilisé, doivent être dictés par les besoins en E/S par seconde, en latence et en débit. Afin de bénéficier d’un nombre suffisant d’E/S par seconde, il se peut que vous soyez obligé d’utiliser plusieurs disques ou d’utiliser un plus grand disque Stockage Premium. Si vous utilisez plusieurs disques, vous créeriez une frange de logiciels sur les disques qui contiennent les fichiers de données ou les fichiers journaux/de restauration. Dans ce cas, les contrats de niveau de service relatifs aux IOPS et au débit de disque des disques Stockage Premium sous-jacents ou le niveau maximal d’IOPS atteignable des disques Azure Standard Storage se cumulent pour la frange qui en résulte.
 

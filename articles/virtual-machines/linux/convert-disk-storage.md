@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 42b0b7a1ca2767a7051a6c57ef2aeac8cf2bb64c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477401"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326406"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Convertir le stockage Managed Disks Azure de standard en premium, et vice versa
 
-Les disques managés offrent trois options de stockage : [SSD Premium](../windows/premium-storage.md), SSD Standard et [HDD Standard](../windows/standard-storage.md). Il vous permet de basculer facilement entre les options avec une interruption minimale adaptée à vos besoins de performances. Ce n’est pas pris en charge pour les disques non gérés. Toutefois, vous pouvez facilement [effectuer des conversions en disques gérés](convert-unmanaged-to-managed-disks.md) pour basculer facilement entre les types de disques.
+Azure Managed Disks offre quatre [options de stockage](disks-types.md) : disques Ultra Solid State Drive (SSD), SSD Premium, SSD Standard et disques durs standard (HDD). Il vous permet de basculer facilement entre les options avec une interruption minimale adaptée à vos besoins de performances. Ce n’est pas pris en charge pour les disques non gérés. Toutefois, vous pouvez facilement [effectuer des conversions en disques gérés](convert-unmanaged-to-managed-disks.md) pour basculer facilement entre les types de disques.
 
 Cet article vous montre comment convertir des disques gérés de standard en premium, et vice versa, à l’aide de l’interface de ligne de commande Azure. Si vous devez installer ou mettre à niveau l’interface, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 * La conversion nécessite un redémarrage de la machine virtuelle. Par conséquent, planifiez la migration de vos stockages sur disques au cours d’une fenêtre de maintenance préexistante. 
-* Si vous utilisez des disques non gérés, tout d’abord [effectuez des conversions en disques gérés](convert-unmanaged-to-managed-disks.md) afin d’utiliser cet article pour basculer entre les options de stockage. 
+* Si vous utilisez des disques non gérés, tout d’abord [effectuez des conversions en disques gérés](convert-unmanaged-to-managed-disks.md) afin d’utiliser cet article pour basculer entre les options de stockage.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Convertir tous les disques gérés d’une machine virtuelle de standard en premium, et vice versa

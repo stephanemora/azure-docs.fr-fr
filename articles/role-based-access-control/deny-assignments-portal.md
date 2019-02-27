@@ -1,6 +1,6 @@
 ---
-title: Afficher les affectations de refus avec le portail Azure | Microsoft Docs
-description: Découvrez comment afficher les utilisateurs, groupes, principaux de service et identités managées auxquels l’accès à des actions spécifiques a été refusé dans une étendue particulière à l’aide du portail Azure.
+title: Afficher les affectations de refus pour les ressources Azure à l'aide du portail Azure | Microsoft Docs
+description: Découvrez comment afficher les utilisateurs, groupes, principaux de service et identités managées auxquels l’accès à des actions de ressource Azure spécifiques a été refusé dans une étendue particulière à l’aide du portail Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637724"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343236"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Afficher les affectations de refus avec le portail Azure
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Afficher les affectations de refus pour les ressources Azure à l'aide du portail Azure
 
-Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d’effectuer des actions particulières, même si une attribution de rôle leur accorde l’accès. Bien que vous ne puissiez pas créer vos propres affectations de refus, vous devez malgré tout être en mesure de voir les affectations de refus, car elles peuvent affecter vos autorisations globales. Pour obtenir des informations sur une affectation de refus, vous devez disposer de l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés](built-in-roles.md).
+Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Bien que vous ne puissiez pas créer vos propres affectations de refus, vous devez malgré tout être en mesure de voir les affectations de refus, car elles peuvent affecter vos autorisations globales. Pour obtenir des informations sur une affectation de refus, vous devez disposer de l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés](built-in-roles.md) pour les ressources Azure.
 
 Cet article explique comment utiliser le portail Azure pour afficher les affectations de refus.
 
@@ -105,5 +105,5 @@ Suivez ces étapes pour afficher des détails supplémentaires sur une affectati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comprendre les affectations de refus](deny-assignments.md)
-* [Répertorier les attributions de refus à l’aide de RBAC et de l’API REST](deny-assignments-rest.md)
+* [Comprendre les affectations de refus relatives aux ressources Azure](deny-assignments.md)
+* [Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST](deny-assignments-rest.md)

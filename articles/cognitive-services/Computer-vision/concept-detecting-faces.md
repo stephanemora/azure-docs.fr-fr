@@ -8,23 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 81e846c6ffc0361b7154c962dbc047b9e5ae55e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872983"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308449"
 ---
 # <a name="face-detection-with-computer-vision"></a>Détection des visages avec Vision par ordinateur
 
-Vision par ordinateur détecte les visages au sein d’une image et génère l’âge, le sexe et le rectangle du visage de chaque visage détecté. Il fournit un sous-ensemble de fonctionnalités proposées par le service [Visage](/azure/cognitive-services/face/). Vous pouvez également utiliser le service Visage pour effectuer une analyse plus détaillée, comme l’identification faciale et la détection de la pose.  
+Vision par ordinateur permet de détecter les visages au sein d’une image et génère l’âge, le sexe et le rectangle du visage de chaque visage détecté. 
+
+> [!NOTE]
+> Cette fonctionnalité est également proposée par le service [Visage](/azure/cognitive-services/face/) Azure. Consultez cette alternative pour une analyste plus détaillée des visages, avec identification faciale et détection de la pose. 
 
 ## <a name="face-detection-examples"></a>Exemples de détection des visages
 
-Le premier exemple montre la réponse JSON retournée par Vision par ordinateur pour une image contenant un seul visage.
+L'exemple suivant montre la réponse JSON renvoyée par Vision par ordinateur pour une image contenant un seul visage.
 
 ![Analyse Vision femme toit visage](./Images/woman_roof_face.png)
 
@@ -51,7 +54,7 @@ Le premier exemple montre la réponse JSON retournée par Vision par ordinateur 
 }
 ```
 
-Le deuxième exemple montre la réponse JSON retournée pour une image contenant plusieurs visages.
+L'exemple suivant montre la réponse JSON renvoyée pour une image contenant plusieurs visages.
 
 ![Analyse Vision photo de famille visage](./Images/family_photo_face.png)
 
@@ -110,4 +113,4 @@ Le deuxième exemple montre la réponse JSON retournée pour une image contenant
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les concepts concernant la [détection du contenu spécifique à un domaine](concept-detecting-domain-content.md).
+Consultez la documentation de référence [Analyser l'image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pour en savoir plus sur l’utilisation de la fonctionnalité de détection des visages.

@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90c508fb5ad3caf961747f2ac10bae42dd1f4c35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114958"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343508"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
-Cet article explique comment configurer des stratégies de sécurité et comment les afficher dans Security Center. Azure Security Center attribue automatiquement ses [stratégies de sécurité intégrées](security-center-policy-definitions.md) sur chaque abonnement qui est intégré. Vous pouvez les configurer dans [Azure Policy](../azure-policy/azure-policy-introduction.md), ce qui vous permet également de définir des stratégies pour plusieurs groupes d’administration et abonnements.
+Cet article explique comment configurer des stratégies de sécurité et comment les afficher dans Security Center. Azure Security Center attribue automatiquement ses [stratégies de sécurité intégrées](security-center-policy-definitions.md) sur chaque abonnement qui est intégré. Vous pouvez les configurer dans [Azure Policy](../governance/policy/overview.md), ce qui vous permet également de définir des stratégies pour plusieurs groupes d’administration et abonnements.
 
-Pour obtenir des instructions sur la façon de définir des stratégies à l’aide de PowerShell, consultez [Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide du module Azure RM PowerShell](../azure-policy/assign-policy-definition-ps.md).
+Pour obtenir des instructions sur la façon de définir des stratégies à l’aide de PowerShell, consultez [Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide du module Azure PowerShell](../governance/policy/assign-policy-powershell.md).
 
 >[!NOTE]
 > L'intégration de Security Center avec Azure Policy a débuté. Les clients existants migreront automatiquement vers la nouvelle initiative intégrée dans Azure Policy, plutôt que vers les stratégies de sécurité précédentes dans Security Center. Cette modification n’affectera ni vos ressources ni votre environnement, exception faite de la présence de la nouvelle initiative dans Azure Policy.
 
 ## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
-Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, tout en garantissant leur conformité aux exigences de sécurité réglementaires. Dans Azure Policy, vous pouvez définir des stratégies pour vos abonnements Azure, et les adapter à votre type de charge de travail ou à la sensibilité de vos données. Par exemple, les applications qui utilisent des données réglementées, telles que les informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé que d’autres charges de travail. Pour définir des stratégies sur des abonnements ou des groupes d’administration, configurez-les dans [Azure Policy](../azure-policy/azure-policy-introduction.md).
+Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, tout en garantissant leur conformité aux exigences de sécurité réglementaires. Dans Azure Policy, vous pouvez définir des stratégies pour vos abonnements Azure, et les adapter à votre type de charge de travail ou à la sensibilité de vos données. Par exemple, les applications qui utilisent des données réglementées, telles que les informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé que d’autres charges de travail. Pour définir des stratégies sur des abonnements ou des groupes d’administration, configurez-les dans [Azure Policy](../governance/policy/overview.md).
 
 Vos stratégies de sécurité sont à la source des suggestions de sécurité que vous obtenez dans Azure Security Center. Vous pouvez surveiller la conformité avec elles pour mieux identifier les vulnérabilités potentielles et atténuer les menaces. Pour plus d’informations sur la façon de déterminer l’option adaptée à votre situation, consultez la liste des [stratégies de sécurité intégrées](security-center-policy-definitions.md).
 
@@ -52,7 +52,7 @@ Security Center crée automatiquement une stratégie de sécurité par défaut, 
 - Affecter des stratégies pour des groupes d’administration et des abonnements, qui peuvent représenter une organisation entière ou une unité commerciale au sein de l’organisation.
 - Surveiller la conformité à la stratégie.
 
-Pour plus d’informations sur Azure Policy, consultez [Créer et gérer des stratégies pour mettre en vigueur la conformité](../azure-policy/create-manage-policy.md).
+Pour plus d’informations sur Azure Policy, consultez [Créer et gérer des stratégies pour mettre en vigueur la conformité](../governance/policy/tutorials/create-and-manage.md).
 
 Une stratégie Azure est constituée des composants suivants :
 
@@ -236,4 +236,4 @@ Dans cet article, vous avez appris à modifier les stratégies de sécurité dan
 * [FAQ d’Azure Security Center](security-center-faq.md) : Obtenez des réponses aux questions fréquentes concernant l’utilisation du service.
 * [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
-Pour en savoir plus sur Azure, consultez [Présentation d’Azure Policy](../azure-policy/azure-policy-introduction.md).
+Pour en savoir plus sur Azure, consultez [Présentation d’Azure Policy](../governance/policy/overview.md).

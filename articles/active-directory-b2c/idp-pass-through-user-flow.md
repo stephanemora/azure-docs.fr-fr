@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fd0f8241c07f603089b896dcfc9ece29f1e33d1c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882214"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428202"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’un flux utilisateur à une application dans Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "55882214"
 
 Un [flux utilisateur](active-directory-b2c-reference-policies.md) dans Azure Active Directory (Azure AD) B2C permet aux utilisateurs d’une application de s’inscrire ou de se connecter à un fournisseur d’identité. Au départ, Azure AD B2C reçoit un [jeton d’accès](active-directory-b2c-reference-tokens.md) du fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous activez une revendication dans votre flux utilisateur pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C.
 
-Pour l’instant, Azure AD B2C permet uniquement de passer le jeton d’accès de fournisseurs d’identité [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) (dont font partie [Facebook](active-directory-b2c-setup-fb-app.md) et [Google](active-directory-b2c-setup-goog-app.md)). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
+Azure AD B2C prend en charge la transmission du jeton d'accès des fournisseurs d'identité [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) et [OpenID Connect](active-directory-b2c-reference-oidc.md). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Votre application doit utiliser un [flux utilisateur v2](user-flow-versions.md).
-- Votre flux utilisateur est configuré avec un fournisseur d’identité OAuth 2.0.
+- Votre flux utilisateur est configuré avec un fournisseur d’identité OAuth 2.0 ou Open ID Connect.
 
 ## <a name="enable-the-claim"></a>Activer la revendication
 

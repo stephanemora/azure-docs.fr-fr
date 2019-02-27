@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9c1f8507cfa1f21214428e852e6ffed4d7703254
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564321"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312869"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun
 Deux certificats ne peuvent pas avoir la même empreinte, ce qui complique la gestion ou le renouvellement des certificats de cluster. Toutefois, plusieurs certificats peuvent avoir le même nom commun ou objet.  Basculer un cluster déployé de l’utilisation des empreintes de certificat à l’utilisation des noms communs de certificat simplifie considérablement la gestion des certificats. Cet article décrit la mise à jour d’un cluster Service Fabric en cours d’exécution pour utiliser le nom commun d’un certificat à la place de son empreinte.
@@ -96,7 +96,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Vous ne pouvez pas utiliser un même ID de ressource pour deux secrets de groupes de machines virtuelles identiques, puisque chaque secret constitue une ressource unique avec sa propre version. 
+> Vous ne pouvez pas utiliser un même ID de ressource pour deux secrets de groupes identiques, puisque chaque secret constitue une ressource unique avec sa propre version. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Télécharger et mettre à jour le modèle à partir du portail
 Le certificat a été installé sur le groupe identique sous-jacent, mais vous devez également mettre à jour le cluster Service Fabric pour qu’il utilise ce certificat et son nom commun.  À présent, téléchargez le modèle de déploiement du cluster.  Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez au groupe de ressources qui héberge le cluster.  Dans **Paramètres**, sélectionnez **Déploiements**.  Sélectionnez le déploiement le plus récent, puis cliquez sur **Afficher le modèle**.

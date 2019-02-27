@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235570"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313430"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Mise à l’échelle du cache Azure pour Redis
 Le cache Azure pour Redis offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Après la création d’un cache, vous pouvez mettre à l’échelle la taille et le niveau de tarification du cache si les exigences de votre application changent. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.
@@ -115,7 +115,7 @@ La liste suivante présente différentes réponses aux questions les plus fréqu
 * [Vais-je perdre mes données de cache durant la mise à l’échelle ?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Les paramètres personnalisés de mes bases de données sont-ils affectés au cours de la mise à l’échelle ?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Mon cache reste-t-il disponible durant la mise à l’échelle ?](#will-my-cache-be-available-during-scaling)
-* [Maintenant que j’ai configuré la géoréplication, pourquoi ne puis-je pas mettre à l’échelle mon cache ou modifier les partitions d’un cluster ?](#scaling-limitations-with-geo-relication)
+* Maintenant que j’ai configuré la géoréplication, pourquoi ne puis-je pas mettre à l’échelle mon cache ou modifier les partitions d’un cluster ?
 * [Quelles sont les opérations qui ne sont pas prises en charge ?](#operations-that-are-not-supported)
 * [Quelle est la durée d’une mise à l’échelle ?](#how-long-does-scaling-take)
 * [Comment savoir quand la mise à l’échelle est terminée ?](#how-can-i-tell-when-scaling-is-complete)

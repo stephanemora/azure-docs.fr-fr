@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993660"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268326"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Aide-mémoire sur les requêtes de journal SQL vers Azure Monitor 
 
-Le tableau ci-dessous permet aux utilisateurs qui connaissent le langage SQL d’apprendre le langage de requête Data Explorer pour écrire des requêtes de journal dans Azure Monitor. Examinez la commande T-SQL pour réaliser un scénario courant et l’équivalent dans une requête de journal Azure Monitor.
+Le tableau ci-dessous permet aux utilisateurs qui connaissent le langage SQL d’apprendre le langage de requête Kusto pour écrire des requêtes de journal dans Azure Monitor. Examinez la commande T-SQL pour réaliser un scénario courant et l’équivalent dans une requête de journal Azure Monitor.
 
 ## <a name="sql-to-azure-monitor"></a>SQL vers Azure Monitor
 

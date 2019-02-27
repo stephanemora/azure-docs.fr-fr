@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 45eadf5e049d56c8f558596eb197eb010b1fbb14
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: eff27e296800f78303d085f471e4fda188b487ce
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196992"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301857"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Tâches de configuration après l’installation du kit ASDK
 
@@ -46,7 +46,18 @@ Vous pouvez installer la dernière version du module Azure Stack PowerShell sur 
 
 - **Avec une connexion Internet** sur l’ordinateur hôte du kit ASDK. Exécutez le script PowerShell suivant pour installer ces modules dans le kit de développement :
 
-  - Azure Stack 1811 ou version ultérieure :
+- Azure Stack 1901 ou version ultérieure :
+
+    ```PowerShell
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    ```
+
+    > [!Note]  
+    > La version du module Azure Stack 1.7.0 est un changement cassant. Pour migrer à partir d’Azure Stack 1.6.0, consultez le [guide de migration](https://aka.ms/azspshmigration170).
+
+  - Azure Stack 1811 :
 
     ``` PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
@@ -59,7 +70,7 @@ Vous pouvez installer la dernière version du module Azure Stack PowerShell sur 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
 
-  - Azure Stack 1808 ou version ultérieure :
+  - Azure Stack 1810 ou version antérieure :
 
     ``` PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 

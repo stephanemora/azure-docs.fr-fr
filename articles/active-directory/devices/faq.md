@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9517ccac4006edec473e25c5e6524ce62d4e1259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210100"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269057"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -157,7 +157,11 @@ Les utilisateurs supprimés ou désactivés qui ne se sont pas connectés préc�
 
 **R :** Un utilisateur peut joindre ou inscrire un appareil à Azure AD à l’aide de l’authentification multifacteur. L’appareil lui-même devient alors un second facteur approuvé pour cet utilisateur. À chaque fois que le même utilisateur se connecte à l’appareil et accède à une application, Azure AD prend en compte l’appareil comme second facteur. Cela permet à cet utilisateur d’accéder en toute transparence aux applications sans invites d’authentification multifacteur supplémentaires. 
 
-Ce comportement ne s’applique pas à un autre utilisateur qui se connecte à cet appareil. Par conséquent, tous les autres utilisateurs qui accèdent à cet appareil reçoivent le défi de l’authentification multifacteur. Ensuite, ils peuvent accéder aux applications qui nécessitent l’authentification multifacteur.
+Ce comportement :
+
+- S'applique pas aux appareils joints Azure AD et aux appareils inscrits sur Azure AD, mais pas aux appareils joints Azure AD hybrides.
+
+- Ne s’applique pas à un autre utilisateur qui se connecte à cet appareil. Par conséquent, tous les autres utilisateurs qui accèdent à cet appareil reçoivent le défi de l’authentification multifacteur. Ensuite, ils peuvent accéder aux applications qui nécessitent l’authentification multifacteur.
 
 ---
 

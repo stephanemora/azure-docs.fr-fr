@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6495a4e4da9330cba562c7fd6530369c09d180da
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820961"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302061"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de tables de Stockage Azure : concevoir des tables scalables et performantes
 
@@ -721,6 +721,9 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 
 ### <a name="log-tail-pattern"></a>Modèle de fin de journal
 Récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
+
+> [!NOTE]
+> Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Dès lors, ce modèle convient au stockage Table Azure, mais pas à Azure Cosmos DB. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contexte et problème
 Une exigence courante est de pouvoir récupérer les toutes dernières entités créées, par exemple les dix dernières notes de frais soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les *n* premières entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  

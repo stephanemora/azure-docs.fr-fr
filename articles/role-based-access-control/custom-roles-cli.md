@@ -1,6 +1,6 @@
 ---
-title: Créer des rôles personnalisés avec Azure CLI | Microsoft Docs
-description: Découvrez comment créer des rôles personnalisés pour le contrôle d'accès en fonction du rôle (RBAC) avec Azure CLI. (lister, créer, mettre à jour et supprimer).
+title: Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI | Microsoft Docs
+description: Apprenez à créer des rôles personnalisés avec contrôle d'accès en fonction du rôle (RBAC) pour les ressources Azure à l'aide d’Azure CLI. Cet article indique également comment répertorier, créer, mettre à jour et supprimer des rôles personnalisés.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437254"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338136"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>Créer des rôles personnalisés avec Azure CLI
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI
 
-Si les [rôles intégrés](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec Azure CLI.
+Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Créer un rôle personnalisé avec Azure CLI](tutorial-custom-role-cli.md)
-- [Rôles personnalisés dans Azure](custom-roles.md)
+- [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md)
+- [Rôles personnalisés pour les ressources Azure](custom-roles.md)
 - [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md)

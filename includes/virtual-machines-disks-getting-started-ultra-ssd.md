@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985412"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443328"
 ---
-# <a name="enabling-azure-ultra-ssds"></a>Activation d’Azure Ultra SSD
+# <a name="enabling-azure-ultra-ssd"></a>Activation d’Azure Ultra SSD
 
-Azure Ultra SSD fournit un stockage de disque avec un haut débit, un nombre d’IOPS élevé et une faible latence homogène pour les machines virtuelles IaaS Azure. Cette nouvelle offre fournit des performances optimales aux mêmes niveaux de disponibilité que nos offres de disques existantes. Entre autres avantages, Ultra SSD permet de changer dynamiquement les performances de disque en fonction de vos charges de travail sans avoir à redémarrer les machines virtuelles. L’offre Ultra SSD est adaptée aux charges de travail qui consomment beaucoup de données comme SAP HANA, les bases de données de niveau supérieur et les charges de travail avec un grand nombre de transactions.
+Azure Ultra SSD fournit un stockage de disque avec un haut débit, un nombre d’IOPS élevé et une faible latence homogène pour les machines virtuelles IaaS Azure. Cette nouvelle offre fournit des performances optimales aux mêmes niveaux de disponibilité que nos offres de disques existantes. Entre autres avantages, Ultra SSD permet de changer dynamiquement les performances de disque en fonction de vos charges de travail sans avoir à redémarrer les machines virtuelles. Les disques SSD Ultra sont adaptés aux charges de travail qui consomment beaucoup de données comme SAP HANA, les bases de données de niveau supérieur et les charges de travail avec un grand nombre de transactions.
 
-Ultra SSD est en préversion et vous devez vous y [inscrire](https://aka.ms/UltraSSDPreviewSignUp) pour y accéder.
+Les disques SSD Ultra sont actuellement en préversion et vous devez vous y [inscrire](https://aka.ms/UltraSSDPreviewSignUp) pour y accéder.
 
-Une fois approuvé, exécutez l’une des commandes suivantes pour déterminer dans quelle zone de la région USA Est 2 vous devez déployer votre disque Ultra SSD :
+Après approbation, exécutez l’une des commandes suivantes pour déterminer dans quelle zone de la région USA Est 2 vous devez déployer votre disque Ultra :
 
 PowerShell : `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
@@ -57,7 +57,7 @@ Spécifiez la référence SKU UltraSSD_LRS, la capacité du disque, les IOPS et 
 }
 ```
 
-Ajoutez une fonctionnalité supplémentaire dans les propriétés de la machine virtuelle pour indiquer si Ultra SSD est activé (reportez-vous à [cet exemple](https://aka.ms/UltraSSDTemplate) pour le modèle Resource Manager complet) :
+Ajoutez une fonctionnalité supplémentaire dans les propriétés de la machine virtuelle pour indiquer si Ultra est activé (reportez-vous à [cet exemple](https://aka.ms/UltraSSDTemplate) pour le modèle Resource Manager complet) :
 
 ```json
 {
@@ -80,8 +80,8 @@ Une fois que la machine virtuelle est provisionnée, vous pouvez partitionner et
 ## <a name="additional-ultra-ssd-scenarios"></a>Autres scénarios Ultra SSD
 
 - Lors de la création d’une machine virtuelle, les disques Ultra SSD peuvent également être implicitement créés. Toutefois, ces disques reçoivent une valeur par défaut pour les IOPS (500) et le débit (8 Mio/s).
-- Les disques Ultra SSD supplémentaires peuvent être attachés aux machines virtuelles compatibles avec Ultra SSD.
-- Ultra SSD permet la modification des attributs de performances des disques (IOPS et débit) lors de l’exécution, sans détacher le disque de la machine virtuelle. Une fois qu’une opération de redimensionnement de performances de disque est émise sur un disque, elle peut mettre jusqu’à une heure à être appliquée.
+- Les disques Ultra SSD supplémentaires peuvent être attachés aux machines virtuelles compatibles.
+- Les disques SSD Ultra permettent la modification des attributs de performances des disques (IOPS et débit) lors de l’exécution, sans détacher le disque de la machine virtuelle. Une fois qu’une opération de redimensionnement de performances de disque est émise sur un disque, elle peut mettre jusqu’à une heure à être appliquée.
 - Pour augmenter la capacité du disque, vous devez désallouer une machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes

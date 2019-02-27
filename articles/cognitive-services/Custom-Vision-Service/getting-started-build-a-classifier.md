@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 6b39d01266cdde0316d1a660429d5ccab546dac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873629"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445455"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Comment créer un classifieur avec Custom Vision
 
@@ -23,26 +23,28 @@ Pour utiliser le service Vision personnalisée pour la classification d’images
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un [compte Microsoft](https://account.microsoft.com/account) valide ou un compte Azure Active Directory (compte professionnel ou scolaire).
-
-    > [!IMPORTANT] 
-    > La connexion pour les utilisateurs AAD de [clouds nationaux Microsoft](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) n’est pas prise en charge actuellement.
+- Un abonnement Azure valide. [Créez un compte](https://azure.microsoft.com/free/) gratuitement.
 - Un ensemble d’images avec lequel entraîner votre classifieur. Reportez-vous aux conseils ci-dessous pour le choix des images.
-- Facultatif : Un abonnement Azure associé à votre compte Microsoft ou à votre compte AAD. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Sans abonnement Azure, vous ne pouvez créer que deux projets en __version d’essai limitée__.
+
+
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Créer des ressources Custom Vision dans le portail Azure
+Pour utiliser le service Custom Vison, vous devez créer des ressources de formation et de prédiction Custom Vision dans le [portail Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Des ressources de formation et de prédiction sont ainsi créées. 
 
 ## <a name="create-a-new-project"></a>Création d'un projet
 
-Dans votre navigateur web, accédez à la [page web Custom Vision](https://customvision.ai) et sélectionnez __Sign in__ (Se connecter).
+Dans votre navigateur web, accédez à la [page web Custom Vision](https://customvision.ai) et sélectionnez __Sign in__ (Se connecter). Connectez-vous avec le même compte que celui utilisé pour vous connecter au portail Azure.
 
 ![Image de la page de connexion](./media/browser-home.png)
 
-Si vous disposez d’un compte Azure, vous êtes à même, lors de la création du projet, de créer des ressources d’entraînement et de prédiction pour le service Vision personnalisée dans le [portail Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision).
 
 1. Pour créer votre premier projet, sélectionnez **New Project** (Nouveau projet). La boîte de dialogue **Create new project** (Créer un projet) s’affiche.
 
     ![La boîte de dialogue du nouveau projet comporte des champs permettant de renseigner le nom, la description et les domaines.](./media/getting-started-build-a-classifier/new-project.png)
 
-1. Entrez un nom et une description pour le projet. Sélectionnez ensuite un groupe de ressources. Si votre compte de connexion est associé à un compte Azure, la liste déroulante Resource Group (Groupe de ressources) affiche tous vos groupes de ressources Azure qui incluent une ressource du service Vision personnalisée. Dans les deux cas, vous pouvez également sélectionner __Limited trial__  (Essai limité) dans cette liste déroulante.
+1. Entrez un nom et une description pour le projet. Sélectionnez ensuite un groupe de ressources. Si votre compte de connexion est associé à un compte Azure, la liste déroulante Resource Group (Groupe de ressources) affiche tous vos groupes de ressources Azure qui incluent une ressource du service Vision personnalisée. 
+
+> [!NOTE]
+> Si aucun groupe de ressources n’est disponible, assurez-vous de vous être connecté à [customvision.ai](https://customvision.ai) avec le même compte que celui utilisé pour vous connecter au [portail Azure](https://portal.azure.com/). En outre, assurez-vous d'avoir sélectionné le même « Répertoire » dans le portail de Custom Vision que celui du portail Azure où se trouvent vos ressources Custom Vision. Dans les deux sites, vous pouvez sélectionner votre répertoire à partir du menu déroulant de compte situé en haut à droite de l’écran. 
 
 1. Sélectionnez __Classification__ sous __Project Types__ (Types de projets). Ensuite, sous __Classification Types__ (Types de classifications), choisissez **Multilabel** (Multi-étiquette) ou **Multiclass** (Multiclasse), en fonction de votre cas d’utilisation. La classification multi-étiquette applique un nombre quelconque de vos étiquettes à une image (zéro ou plus), tandis que la classification multiclasse trie les images et les classe dans une seule catégorie (chaque image que vous soumettez se voit appliquer l’étiquette la plus probable). Vous pourrez changer ultérieurement le type de classification si vous le souhaitez.
 
@@ -95,6 +97,11 @@ Dans cette section, vous chargez et vous étiquetez manuellement des images pour
     ![La barre de progression indique que toutes les tâches sont terminées.](./media/getting-started-build-a-classifier/add-images04.png)
 
 Pour charger un autre ensemble d’images, revenez en haut de cette section et répétez les étapes. À un moment donné dans votre projet, il peut être nécessaire d’ajouter des _exemples négatifs_ pour rendre votre classifieur plus précis. Les exemples négatifs sont ceux qui ne correspondent à aucune des autres balises. Quand vous chargez ces images, appliquez l’étiquette spéciale **Negative** (Négatif) à celles-ci.
+
+> [!NOTE]
+> Le service Vision personnalisée prend en charge un traitement automatique des images négatives. Par exemple, si vous générez un classifieur raisins/bananes et que vous soumettez une image de chaussure à la prédiction, il devra lui donner un score proche de 0 % aussi bien pour les raisins que pour les bananes.
+
+> À l’inverse, dans les cas où les images négatives représentent simplement une variante des images utilisées pour l’apprentissage, il est probable que le modèle les catégorise comme une classe étiquetée en raison des grandes similitudes qu’elles présentent. Par exemple, si vous avez un classifieur oranges/pamplemousses et que vous fournissez une image de clémentine, il est possible qu’il l’évalue comme étant une orange car la clémentine présente des caractéristiques similaires à l'orange. Si vos images négatives sont de cette nature, nous vous conseillons de créer une ou plusieurs balises supplémentaires (comme **Autre**) et d’étiqueter ainsi les images négatives pendant l’apprentissage pour permettre au modèle de mieux faire la distinction entre ces classes.
 
 ## <a name="train-the-classifier"></a>Former le classifieur
 

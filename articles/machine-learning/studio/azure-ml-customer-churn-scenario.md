@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243534"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453985"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio
 ## <a name="overview"></a>Vue d’ensemble
-Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
+Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning Studio. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 
 ### <a name="acknowledgements"></a>Remerciements
-Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning. L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
+Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning Studio. L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
 
 > [!NOTE]
 > Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) dans [Azure AI Gallery](http://gallery.azure.ai/)
@@ -54,13 +54,13 @@ Une méthode standard de résolution de l’attrition est décrite dans les figu
 2. Le modèle d’intervention vous permet d’envisager la façon dont le niveau d’intervention pourrait influer sur la probabilité d’attrition et la quantité de valeur vie client.
 3. Cela permet de bénéficier d’une analyse qualitative transformée en campagne marketing proactive, qui cible des segments de clients afin de proposer la meilleure offre.  
 
-![][1]
+![Diagramme illustrant la manière dont la tolérance au risque, ainsi que les modèles de décision génèrent des données exploitables](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 Cette approche innovante est la meilleure façon de traiter l’attrition, mais elle s’accompagne d’une certaine complexité : nous devons développer un archétype portant sur plusieurs modèles et une trace entre les modèles. L'interaction entre les modèles peut être encapsulée, comme illustré dans le schéma suivant :  
 
-![][2]
+![Diagramme d'interaction du modèle d'attrition](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
-*Figure 4 : Archétype multi-modèles unifié*  
+*Figure 4 : Archétype multi-modèles unifié*  
 
 Les interactions entre les différents modèles sont primordiales si nous voulons proposer une méthode holistique permettant de fidéliser la clientèle. Chaque modèle se dégrade forcément au fil du temps. De ce fait, l’architecture est une boucle implicite (similaire à l’archétype défini par le standard d’exploration de données CRISP-DM, [***3***]).  
 
@@ -71,13 +71,13 @@ L'analyse des données volumineuses est un ajout intéressant. Actuellement, les
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implémentation de l’archétype de modélisation de ML Studio
-Étant donné le problème que nous venons de décrire, quelle est la meilleure façon d'implémenter une méthode de modélisation et de notation intégrée ? Dans cette section, nous verrons comment nous y sommes parvenus à l’aide de Microsoft Azure Machine Learning Studio.  
+Compte tenu du problème décrit, quelle est la meilleure façon d'implémenter une méthode de modélisation et de notation intégrée ? Dans cette section, nous verrons comment nous y sommes parvenus à l’aide de Microsoft Azure Machine Learning Studio.  
 
 L’approche multi-modèles est incontournable pour concevoir un archétype global d’attrition. Même la partie évaluative (prédictive) de la méthode doit être multi-modèles.  
 
 Le schéma suivant illustre le fonctionnement du prototype que nous avons créé, qui utilise quatre algorithmes de notation différents dans ML Studio afin de prévoir le taux d’attrition. L'utilisation d'une méthode multi-modèles n'est pas seulement utile pour créer un classifieur d'ensemble afin d'améliorer l'exactitude, mais également pour se protéger du surajustement et pour améliorer la sélection des caractéristiques prédictives.  
 
-![][3]
+![Capture d’écran illustrant un espace de travail Studio complexe avec de nombreux modules interconnectés](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Figure 5 : Prototype d’une méthode de modélisation de l’attrition*  
 
@@ -86,9 +86,9 @@ Les sections suivantes fournissent plus d’informations sur le modèle de notat
 ### <a name="data-selection-and-preparation"></a>Sélection et préparation des données
 Les données utilisées pour établir les modèles et évaluer les clients ont été obtenues à partir d'une solution verticale de CRM. Elles ont été masquées pour protéger la confidentialité des clients. Ces données portent sur 8 000 abonnements aux États-Unis et proviennent de trois sources : données de préparation (métadonnées des abonnements), données d’activité (utilisation du système) et données de service clientèle. Elles n’incluent pas d’informations professionnelles sur les clients de l’entreprise. Par exemple, elles ne contiennent pas de métadonnées sur la fidélité ni de scores de crédit.  
 
-Pour simplifier, les processus de nettoyage des données et ETL ne sont pas utilisés, car nous estimons que la préparation des données a déjà été effectuée à un autre niveau.   
+Pour simplifier, les processus de nettoyage des données et ETL ne sont pas utilisés, car nous estimons que la préparation des données a déjà été effectuée à un autre niveau.
 
-La sélection des caractéristiques de modélisation se base sur une notation préliminaire de l’importance de l’ensemble des facteurs de prédiction, incluse dans le processus à l’aide du module de forêt aléatoire. Pour l’implémentation dans ML Studio, nous avons calculé les valeurs moyennes et médianes, ainsi que les plages de caractéristiques représentatives. Nous avons notamment ajouté des agrégats pour les données qualitatives, telles que des valeurs minimum et maximum pour l’activité de l’utilisateur.    
+La sélection des caractéristiques de modélisation se base sur une notation préliminaire de l’importance de l’ensemble des facteurs de prédiction, incluse dans le processus à l’aide du module de forêt aléatoire. Pour l’implémentation dans ML Studio, nous avons calculé les valeurs moyennes et médianes, ainsi que les plages de caractéristiques représentatives. Nous avons notamment ajouté des agrégats pour les données qualitatives, telles que des valeurs minimum et maximum pour l’activité de l’utilisateur.
 
 Nous avons également collecté des informations temporelles portant sur les 6 derniers mois. Nous avons analysé les données pendant un an. Nous avons pu déterminer que, même s’il existe des tendances significatives en termes de statistiques, l’effet sur l’attrition est fortement réduit après six mois.  
 
@@ -96,11 +96,11 @@ Ce qui importe le plus, c’est que le processus dans son ensemble (y compris ET
 
 Les schémas suivants illustrent les données utilisées :  
 
-![][4]
+![Capture d’écran illustrant un exemple de données utilisées avec des valeurs brutes](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
-*Figure 6 : Extrait d’une source de données (masquée)*  
+*Figure 6 : Extrait d’une source de données (masquée)*  
 
-![][5]
+![Capture d’écran illustrant des caractéristiques statistiques extraites à partir de la source de données](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *Figure 7 : Caractéristiques extraites de la source de données*
  
@@ -122,7 +122,7 @@ Nous avons utilisé les quatre algorithmes d'apprentissage automatique suivants 
 
 Le schéma suivant illustre une partie de la surface de conception de l’expérience, qui indique l’ordre dans lequel les modèles ont été créés :  
 
-![][6]  
+![Capture d’écran d’une petite section du canevas de l'expérience Studio](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *Figure 8 : Création de modèles dans Microsoft Azure ML Studio*  
 
@@ -135,18 +135,18 @@ Nous avons également envoyé le jeu de données de notation à un modèle compa
 Dans cette section, nous présentons nos découvertes sur l’exactitude des modèles en fonction du jeu de données d’évaluation.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Exactitude et précision de la notation
-En général, l'implémentation dans Azure ML est derrière SAP en termes d'exactitude et ce, d'environ 10 à 15 % (aire sous la courbe, ASC).  
+En général, l'implémentation dans Azure Machine Learning Studio est derrière SAP en termes d'exactitude et ce, d'environ 10 à 15 % (aire sous la courbe, ASC).  
 
 Toutefois, la mesure la plus importante en termes d’attrition est le taux de classification incorrecte : parmi les clients les plus enclins à l’attrition, quels sont ceux qui n’ont **pas** quitté un fournisseur, mais ont bénéficié malgré tout d’un traitement spécial ? Le schéma suivant compare ces différents taux de classification incorrecte pour tous les modèles :  
 
-![][7]
+![Zone située sous le graphique de courbe comparant les performances de quatre algorithmes](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *Figure 9 : Aire sous la courbe du prototype Passau*
 
 ### <a name="using-auc-to-compare-results"></a>Utilisation de l’aire sous la courbe (ASC) pour comparer des résultats
 L’aire sous la courbe (ASC) est une mesure qui représente la mesure globale de *séparabilité* entre les distributions d’évaluations pour des populations positives et négatives. Elle est similaire à la courbe ROC (Receiver Operating Characteristic, caractéristique de fonctionnement du récepteur). Cependant, contrairement à cette dernière, elle ne vous demande pas de choisir une valeur seuil. Au lieu de cela, elle résume les résultats pour **tous** les choix possibles. En comparaison, la courbe ROC traditionnelle indique le taux de positifs sur l’axe vertical et le taux de faux positifs sur l’axe horizontal. De plus, son seuil de classification varie.   
 
-La mesure ASC est généralement utilisée pour évaluer la valeur de différents algorithmes (ou systèmes), car elle permet de comparer des modèles à l’aide de leurs valeurs ASC. Il s’agit d’une approche populaire dans des secteurs comme la météorologie et les biosciences. Ainsi, l’ASC est un outil répandu pour évaluer les performances d’un classifieur.  
+La mesure ASC est utilisée pour évaluer la valeur de différents algorithmes (ou systèmes), car elle permet de comparer des modèles à l’aide de leurs valeurs ASC. Il s’agit d’une approche populaire dans des secteurs comme la météorologie et les biosciences. Ainsi, l’ASC est un outil répandu pour évaluer les performances d’un classifieur.  
 
 ### <a name="comparing-misclassification-rates"></a>Comparaison des taux de classification incorrecte
 Nous avons comparé les taux de classification incorrecte du jeu de données concerné à l’aide des données CRM d’environ 8 000 abonnements.  
@@ -160,14 +160,14 @@ De même, l’exactitude est plus importante que la précision, car nous tenons 
 
 Le schéma suivant, provenant de Wikipedia, décrit cette relation sous forme de graphique dynamique facile à comprendre :  
 
-![][8]
+![Deux cibles. Une cible montre des marques vaguement regroupées, mais proche du centre de la cible indiquant « Faible précision : bonne justesse, précision médiocre ». Une autre cible montre des marques étroitement regroupées, mais loin du centre de la cible indiquant « Faible précision : justesse médiocre, bonne précision ».](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *Figure 10 : Équilibre entre exactitude et précision*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Résultats liés à l’exactitude et à la précision du modèle d’arbre de décision optimisé
 Le graphique suivant présente les résultats bruts d’une notation réalisée à l’aide du prototype Machine Learning pour le modèle d’arbre de décision optimisé. Il s’agit du modèle présentant la plus grande exactitude parmi les quatre proposés :  
 
-![][9]
+![Extrait de table montrant des éléments tels que l’exactitude, la précision, le rappel, le f-score, l’ASC, la perte de journaux moyenne et la perte de journaux de formation pour quatre algorithmes.](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Figure 11 : Caractéristiques du modèle d’arbre de décision optimisé*
 
@@ -200,18 +200,18 @@ Cette observation importante est souvent ignorée par les entreprises, qui préf
 
 Cependant, la promesse d’une analyse autonome à l’aide de ML Studio permet d’envisager que les quatre catégories d’informations, évaluées par division ou service, deviendront des sources utiles pour l’apprentissage automatique relatif à l’attrition.  
 
-Une autre fonctionnalité passionnante proposée par Microsoft Azure ML est la possibilité d’ajouter un module personnalisé dans le référentiel des modules prédéfinis qui sont déjà disponibles. Cette capacité permet surtout de sélectionner des bibliothèques et de créer des modèles pour les marchés verticaux. C’est un facteur de différenciation primordial de Microsoft Azure ML sur le marché.  
+Une autre fonctionnalité passionnante proposée par Azure Machine Learning Studio est la possibilité d’ajouter un module personnalisé dans le référentiel des modules prédéfinis qui sont déjà disponibles. Cette capacité permet surtout de sélectionner des bibliothèques et de créer des modèles pour les marchés verticaux. C’est un facteur de différenciation primordial d'Azure Machine Learning Studio sur le marché.  
 
 Nous espérons pouvoir à nouveau évoquer ce sujet, notamment en ce qui concerne l’analyse des données volumineuses.
   
 
 ## <a name="conclusion"></a>Conclusion
-Ce document détaille une approche rationnelle pour la gestion d’un problème commun, l’attrition, à l’aide d’une structure générique. Nous avons envisagé un prototype de modèle de notation, que nous avons implémenté à l’aide de Microsoft Azure ML. Enfin, nous avons évalué l'exactitude et les performances de la solution prototype par rapport aux algorithmes comparables dans SAP.  
+Ce document détaille une approche rationnelle pour la gestion d’un problème commun, l’attrition, à l’aide d’une structure générique. Nous avons envisagé un prototype de modèle de notation, que nous avons implémenté à l’aide d'Azure Machine Learning Studio. Enfin, nous avons évalué l'exactitude et les performances de la solution prototype par rapport aux algorithmes comparables dans SAP.  
 
  
 
 ## <a name="references"></a>Références
-[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, juillet/août 2011, p.18-20.  
+[1] Analyse prédictive : Beyond the Predictions, W. McKnight, Information Management, juillet/août 2011, p.18-20.  
 
 [2] Article Wikipedia : [Exactitude et précision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
@@ -223,17 +223,6 @@ Ce document détaille une approche rationnelle pour la gestion d’un problème 
  
 
 ## <a name="appendix"></a>Annexe
-![][10]
+![Capture d’écran d’une présentation d’un prototype pour l’attrition](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Figure 12 : Capture d’écran d’une présentation d’un prototype pour l’attrition*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

@@ -11,16 +11,16 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 02/14/2019
 ms.author: twhitney, mikhegn
-ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300062"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311220"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Guide pratique pour déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Activation Déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2017
 
 Avec Visual Studio 2017 Update 7 (15.7), vous pouvez déboguer des applications .NET dans les conteneurs en tant que services Service Fabric. Cet article explique comment configurer votre environnement, puis déboguer une application .NET dans un conteneur exécuté dans un cluster Service Fabric local.
 
@@ -37,10 +37,10 @@ Avec Visual Studio 2017 Update 7 (15.7), vous pouvez déboguer des applications
 1. Pour prendre en charge la résolution DNS entre les conteneurs, vous devez configurer votre cluster de développement local avec le nom de la machine. Ces étapes sont également nécessaires si vous voulez adresser des services via le proxy inverse.
     1. Ouvrez PowerShell en tant qu’administrateur
     2. Accédez au dossier d’installation Cluster du SDK, qui est en général `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Exécutez le script `DevClusterSetup.ps1` avec le paramètre `-UseMachineName`
+    3. Exécuter le script `DevClusterSetup.ps1`
 
        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
        ```
 
     > [!NOTE]
@@ -54,13 +54,13 @@ Avec Visual Studio 2017 Update 7 (15.7), vous pouvez déboguer des applications
 Voici une liste des limitations connues du débogage de conteneurs dans Service Fabric et des résolutions possibles :
 
 * L’utilisation de localhost pour ClusterFQDNorIP ne prend pas en charge la résolution DNS dans les conteneurs.
-    * Résolution : Configurer le cluster local avec le nom de la machine (voir ci-dessus)
+    * Résolution : Configurez le cluster local avec le nom de la machine (voir ci-dessus).
 * L’exécution de Windows 10 sur une machine virtuelle n’obtient aucune réponse DNS en retour dans le conteneur.
-    * Résolution : Désactiver le déchargement de la somme de contrôle UDP pour IPv4 sur la carte réseau des machines virtuelles
+    * Résolution : Désactivez le déchargement de la somme de contrôle UDP pour IPv4 sur la carte réseau des machines virtuelles.
     * Notez une dégradation des performances réseau de la machine suite à cela.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * La résolution des services dans la même application en utilisant le nom du service DNS ne fonctionne pas sur Windows 10, si l’application a été déployée à l’aide de Docker Compose
-    * Résolution : Utiliser servicename.applicationname pour résoudre les points de terminaison du service
+    * Résolution : Utilisez servicename.applicationname pour résoudre les points de terminaison du service
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Si vous utilisez IP-address pour ClusterFQDNorIP, le changement de l’adresse IP principale sur l’hôte entraîne l’arrêt de la fonctionnalité DNS.
     * Résolution : Recréez le cluster avec la nouvelle adresse IP principale sur l’hôte ou utilisez le nom de la machine. C’est normal.

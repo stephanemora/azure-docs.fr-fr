@@ -3,7 +3,7 @@ title: Prise en main d’Azure AD v2.0 UWP | Microsoft Docs
 description: Cet article explique comment des applications de plateforme Windows universelle (UWP) peuvent appeler une API qui requiert des jetons d’accès du point de terminaison Azure Active Directory v2.0.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
-ms.author: andret
+ms.date: 02/18/2019
+ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7d4e586dcb90153fb4d037c9c9821cd3ea3182
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176711"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408814"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
 
@@ -74,14 +74,11 @@ Avec ce guide, vous allez créer une application qui affiche un bouton permettan
 2. Copiez et collez la commande suivante dans la fenêtre **Console du Gestionnaire de package** :
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
+    Install-Package Microsoft.Identity.Client
     ```
 
 > [!NOTE]
-> Cette commande installe [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquiert, met en cache et actualise les jetons utilisateur qui accèdent aux API protégées par Azure Active Directory v2.0.
-
-> [!NOTE]
-> Ce didacticiel n’utilise pas encore la dernière version de MSAL.NET, mais nous travaillons à sa mise à jour.
+> Cette commande installe [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL acquiert, met en cache et actualise les jetons utilisateur qui accèdent aux API protégées par Azure Active Directory v2.0.
 
 ## <a name="initialize-msal"></a>Initialiser MSAL
 Cette étape vous aide à créer une classe pour gérer l’interaction avec MSAL, telle que la gestion des jetons.
@@ -159,7 +156,8 @@ Cette section montre comment utiliser MSAL afin d’obtenir un jeton pour l’AP
     
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, App.PublicClientApp.Users.FirstOrDefault());
+                var accounts = await App.PublicClientApp.GetAccountsAsync();
+                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
             }
             catch (MsalUiRequiredException ex)
             {
@@ -203,15 +201,15 @@ La méthode `AcquireTokenSilentAsync` gère les acquisitions et renouvellements 
 
 La méthode `AcquireTokenSilentAsync` peut échouer. Cet échec peut être dû à une déconnexion de l’utilisateur ou à la modification de son mot de passe sur un autre appareil. Quand la bibliothèque MSAL détecte que le problème peut être résolu par une intervention interactive, elle déclenche une exception `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
 
-* Elle peut appeler immédiatement `AcquireTokenAsync`. Cet appel invite l’utilisateur à se connecter. Normalement, ce modèle est utilisé dans des applications en ligne où aucun contenu hors connexion n’est disponible pour l’utilisateur. L’exemple créé avec cette installation guidée suit ce modèle. Vous le découvrez en action lors de la première exécution de l’exemple. 
-    * Aucun utilisateur n’ayant encore utilisé l’application, `PublicClientApp.Users.FirstOrDefault()` contient une valeur null, et une exception `MsalUiRequiredException` est levée.
-    * Le code contenu dans l’exemple gère alors l’exception en appelant `AcquireTokenAsync`. Cet appel invite l’utilisateur à se connecter.
+* Elle peut appeler immédiatement `AcquireTokenAsync`. Cet appel invite l’utilisateur à se connecter. Normalement, ce modèle est utilisé dans des applications en ligne où aucun contenu hors connexion n’est disponible pour l’utilisateur. L’exemple créé avec cette installation guidée suit ce modèle. Vous le découvrez en action lors de la première exécution de l’exemple.
+  * Aucun utilisateur n’ayant encore utilisé l’application, `accounts.FirstOrDefault()` contient une valeur null, et une exception `MsalUiRequiredException` est levée.
+  * Le code contenu dans l’exemple gère alors l’exception en appelant `AcquireTokenAsync`. Cet appel invite l’utilisateur à se connecter.
 
 * Elle peut également présenter une indication visuelle aux utilisateurs montrant qu’une connexion interactive est requise. Ils peuvent alors sélectionner le moment opportun pour se connecter. L’application peut également effectuer une nouvelle tentative de `AcquireTokenSilentAsync` ultérieurement. Ce modèle est souvent utilisé lorsque les utilisateurs peuvent avoir recours à d’autres fonctionnalités de l’application sans interruption de service, par exemple lorsque le contenu hors connexion est disponible dans l’application. Dans ce cas, les utilisateurs peuvent décider de se connecter pour accéder à la ressource protégée ou pour actualiser les informations obsolètes. L’application peut également décider d’effectuer une nouvelle tentative de `AcquireTokenSilentAsync` une fois le réseau restauré après une indisponibilité temporaire.
 
 ## <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Appeler l’API Microsoft Graph à l’aide du jeton que vous venez d’obtenir
 
-* Ajoutez la nouvelle méthode suivante à au fichier **MainPage.xaml.cs**. Cette méthode permet d’envoyer une demande `GET` à l’API Graph à l’aide d’un en-tête [Authorize] :
+* Ajoutez la nouvelle méthode suivante à au fichier **MainPage.xaml.cs**. Cette méthode permet d’envoyer une demande `GET` à l’API Graph à l’aide d’un en-tête `Authorization` :
 
     ```csharp
     /// <summary>
@@ -255,11 +253,12 @@ Dans cet exemple d’application, la méthode `GetHttpContentWithToken` est util
     /// </summary>
     private void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
-        if (App.PublicClientApp.Users.Any())
+        var accounts = await App.PublicClientApp.GetAccountsAsync();
+        if (accounts.Any())
         {
             try
             {
-                App.PublicClientApp.Remove(App.PublicClientApp.Users.FirstOrDefault());
+                App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
                 this.ResultText.Text = "User has signed-out";
                 this.CallGraphButton.Visibility = Visibility.Visible;
                 this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -333,7 +332,7 @@ Pour activer l’Authentification intégrée de Windows en cas d’utilisation a
     ```
 
 > [!IMPORTANT]
-> L’Authentification intégrée de Windows n’est pas configurée par défaut pour cet exemple. Les applications qui demandent les fonctionnalités *Authentification en entreprise* ou *Certificats utilisateur partagés* nécessitent un niveau supérieur de vérification de Microsoft Store. Tous les développeurs ne souhaitent pas effectuer la vérification de niveau supérieur. N’activez ce paramètre que si vous avez besoin de l’Authentification intégrée de Windows avec un domaine Azure Active Directory fédéré.
+> L’[Authentification Windows intégrée](https://aka.ms/msal-net-iwa) n’est pas configurée par défaut pour cet exemple. Les applications qui demandent les fonctionnalités *Authentification en entreprise* ou *Certificats utilisateur partagés* nécessitent un niveau supérieur de vérification de Microsoft Store. Tous les développeurs ne souhaitent pas effectuer la vérification de niveau supérieur. N’activez ce paramètre que si vous avez besoin de l’Authentification intégrée de Windows avec un domaine Azure Active Directory fédéré.
 
 ## <a name="test-your-code"></a>Test de votre code
 

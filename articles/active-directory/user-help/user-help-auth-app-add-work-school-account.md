@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775e6968282c94abec64fb410f2cc720ba0913e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168431"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453543"
 ---
 # <a name="add-your-work-or-school-account"></a>Ajout de votre compte professionnel ou scolaire
 Si votre organisation utilise la vérification en deux étapes, vous pouvez configurer votre compte professionnel ou scolaire pour utiliser l’application Microsoft Authenticator comme l’une des méthodes de vérification.
@@ -27,7 +27,7 @@ Si votre organisation utilise la vérification en deux étapes, vous pouvez conf
 
 ## <a name="add-your-work-or-school-account"></a>Ajout de votre compte professionnel ou scolaire
 
-1. Sur votre PC, accédez à la page [Vérification de sécurité supplémentaire](https://aka.ms/mfasetup).
+1. Sur votre ordinateur, accédez à la page [Vérification de sécurité supplémentaire](https://aka.ms/mfasetup).
 
     >[!Note]
     >Si la page **Vérification de sécurité supplémentaire** n’est pas affichée, il se peut que votre administrateur ait activé l’expérience des informations de sécurité (préversion). Si tel est le cas, vous devez suivre les instructions de la section [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md). Si ce n’est pas le cas, vous devez contacter le support technique de votre organisation pour obtenir de l’aide. Pour plus d’informations sur les informations de sécurité, consultez [Gérer vos informations de sécurité](security-info-manage-settings.md).
@@ -40,7 +40,7 @@ Si votre organisation utilise la vérification en deux étapes, vous pouvez conf
 
 3. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** grâce à l’icône **Personnaliser et contrôler** dans l’angle supérieur droit, puis sélectionnez **Compte professionnel ou scolaire**.
 
-4. Utilisez la caméra de votre appareil pour analyser le code QR à partir de l’écran **Configurer l’application mobile** de votre PC, puis choisissez **Terminé**.
+4. Utilisez la caméra de votre appareil pour analyser le code QR à partir de l’écran **Configurer l’application mobile** de votre ordinateur, puis sélectionnez **Terminé**.
 
     >[!Note]
     >Si la caméra ne peut pas capturer le code QR, vous pouvez ajouter manuellement les informations de votre compte à l’application Microsoft Authenticator pour la vérification en deux étapes. Pour en savoir plus, consultez l’article [Ajouter manuellement un compte](user-help-auth-app-add-account-manual.md).

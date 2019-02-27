@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204370"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417197"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Aperçu : Déployer la protection par mot de passe Azure AD
 
@@ -53,15 +53,18 @@ Pour cela, téléchargez de préférence tous les correctifs sur l’ordinateur 
     |`https://login.microsoftonline.com`|Demandes d’authentification|
     |`https://enterpriseregistration.windows.net`|Fonctionnalité de protection par mot de passe Azure AD|
 
+* Tous les ordinateurs hébergeant le service proxy de protection par mot de passe Azure AD doivent être configurés de manière à autoriser le trafic sortant TLS 1.2 HTTP.
 * Un compte d’administrateur général pour inscrire la forêt et le service proxy de protection par mot de passe Azure AD auprès d’Azure AD.
 * Un compte disposant des privilèges d’administrateur de domaine Active Directory dans le domaine racine de la forêt pour inscrire la forêt Windows Server Active Directory auprès d’Azure AD.
 * Les domaines Active Directory exécutant le logiciel du service d’agent de contrôleur de domaine doivent utiliser DFSR pour la réplication sysvol.
 
 ## <a name="single-forest-deployment"></a>Déploiement de forêt unique
 
-Le diagramme suivant montre comment les composants de base de la protection par mot de passe Azure AD opèrent ensemble dans un environnement Active Directory local.  
+Le diagramme suivant montre comment les composants de base de la protection par mot de passe Azure AD opèrent ensemble dans un environnement Active Directory local.
 
 ![Comment les composants de protection par mot de passe Azure AD fonctionnent ensemble](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Avant le déploiement, il est conseillé de se pencher sur le fonctionnement du logiciel. Consultez [Vue d’ensemble conceptuelle de la protection par mot de passe Azure AD](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>Télécharger le logiciel
 

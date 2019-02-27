@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: af067cabf312ec3c2556b84dc4d739e41ec0aacc
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535272"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430214"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
 
@@ -24,6 +24,7 @@ Pour créer une règle de réseau virtuel, il doit d’abord exister un [réseau
 
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL est déployé, pour les serveurs à usage général et à mémoire optimisée.
+> En cas de peering de réseau virtuel, si le trafic passe par une passerelle de réseau virtuel commune avec des points de terminaison de service et qu'il est supposé transiter par l'homologue, créez une règle ACL/VNet pour permettre aux machines virtuelles Azure du réseau virtuel de la passerelle d'accéder au serveur Azure Database pour MySQL.
 
 <a name="anch-terminology-and-description-82f" />
 

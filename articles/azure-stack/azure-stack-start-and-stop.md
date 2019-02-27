@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: b8d13377b2fb1545ecf88645a5e19bf5eab24c74
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6b14f5e8967567030ce854d05c53a8d26027e9a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238133"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428837"
 ---
 # <a name="start-and-stop-azure-stack"></a>Démarrer et arrêter Azure Stack
 Suivez les procédures décrites dans cet article pour arrêter et redémarrer correctement les services Azure Stack. L’arrêt met physiquement hors tension l’ensemble de l’environnement Azure Stack. Le démarrage met sous tension tous les rôles d’infrastructure et rétablit l’état d’alimentation des ressources de locataire dans lequel elles se trouvaient avant l’arrêt.

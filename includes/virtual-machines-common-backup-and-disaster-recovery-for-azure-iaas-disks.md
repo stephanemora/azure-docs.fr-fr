@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638813"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443434"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
 Cet article explique comment planifier la sauvegarde et la récupération d’urgence (DR) de machines virtuelles (VM) IaaS et de disques dans Azure. Ce document couvre les disques managés et non managés.
 
-Nous abordons tout d’abord les fonctionnalités de tolérance de panne intégrées dans la plateforme Azure qui vous protègent contre les défaillances locales. Nous présentons ensuite les scénarios d’urgence qui ne sont pas entièrement couverts par les fonctionnalités intégrées. Nous montrons également plusieurs exemples de charges de travail où différentes considérations en matière de sauvegarde et de récupération d’urgence peuvent s’appliquer. Nous examinons ensuite les solutions possibles pour la récupération d’urgence des disques IaaS. 
+Nous abordons tout d’abord les fonctionnalités de tolérance de panne intégrées dans la plateforme Azure qui vous protègent contre les défaillances locales. Nous présentons ensuite les scénarios d’urgence qui ne sont pas entièrement couverts par les fonctionnalités intégrées. Nous montrons également plusieurs exemples de charges de travail où différentes considérations en matière de sauvegarde et de récupération d’urgence peuvent s’appliquer. Nous examinons ensuite les solutions possibles pour la récupération d’urgence des disques IaaS.
 
 ## <a name="introduction"></a>Introduction
 
-La plateforme Azure utilise différentes méthodes pour la redondance et la tolérance de panne afin de protéger les clients contre les défaillances matérielles localisées. Les défaillances locales peuvent inclure des problèmes avec un serveur de stockage Azure qui stocke une partie des données d’un disque virtuel ou les défaillances d’un disque SSD ou d’un disque dur sur ce serveur. Ces défaillances isolées de composant matériel peuvent se produire pendant les opérations normales. 
+La plateforme Azure utilise différentes méthodes pour la redondance et la tolérance de panne afin de protéger les clients contre les défaillances matérielles localisées. Les défaillances locales peuvent inclure des problèmes avec un serveur de stockage Azure qui stocke une partie des données d’un disque virtuel ou les défaillances d’un disque SSD ou d’un disque dur sur ce serveur. Ces défaillances isolées de composant matériel peuvent se produire pendant les opérations normales.
 
 La plateforme Azure est conçue pour résister à ces défaillances. Des sinistres majeurs peuvent entraîner des défaillances ou l’inaccessibilité de nombreux serveurs de stockage ou même d’un centre de données entier. Alors que vos machines virtuelles et disques sont normalement protégés contre les défaillances localisées, des étapes supplémentaires sont nécessaires pour protéger votre charge de travail contre les défaillances irrécupérables à l’échelle de la région (par exemple, une catastrophe majeure) qui peuvent affecter vos machines virtuelles et vos disques.
 
 Outre la possibilité de défaillances de la plateforme, des problèmes avec l’application ou les données d’un client peuvent se produire. Par exemple, une nouvelle version de votre application peut par inadvertance apporter des modifications aux données et les endommager. Dans ce cas, vous pouvez restaurer l’application et les données à une version antérieure qui contient le dernier état correct connu. Cela nécessite la gestion de sauvegardes régulières.
 
-Pour la récupération d’urgence régionale, vous devez sauvegarder vos disques de machines virtuelles IaaS dans une autre région. 
+Pour la récupération d’urgence régionale, vous devez sauvegarder vos disques de machines virtuelles IaaS dans une autre région.
 
 Avant d’examiner les options de sauvegarde et de récupération d’urgence, récapitulons quelques méthodes disponibles pour gérer les défaillances localisées.
 
@@ -47,9 +47,9 @@ Pour garantir le maintien en continu de trois réplicas, Stockage Azure génère
 
 Cette architecture a permis à Azure de fournir de façon cohérente une durabilité de classe Entreprise pour les disques IaaS, avec un [taux de défaillance annuel](https://en.wikipedia.org/wiki/Annualized_failure_rate) inégalé dans le secteur de zéro %.
 
-Les défaillances matérielles localisées sur l’ordinateur hôte ou dans la plateforme de stockage peuvent parfois entraîner une indisponibilité temporaire de la machine virtuelle qui est couverte par le [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) qui en garantit la disponibilité. Azure fournit également un contrat SLA de pointe pour les instances de machine virtuelle uniques qui utilisent des disques SSD Premium Azure.
+Les défaillances matérielles localisées sur l’ordinateur hôte ou dans la plateforme de stockage peuvent parfois entraîner une indisponibilité temporaire de la machine virtuelle qui est couverte par le [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) qui en garantit la disponibilité. Azure fournit également un contrat SLA de pointe pour les instances de machine virtuelle uniques qui utilisent des disques SSD Azure Premium.
 
-Pour protéger les charges de travail d’application contre les temps d’arrêt suite à l’indisponibilité temporaire d’un disque ou d’une machine virtuelle, les clients peuvent utiliser les [groupes à haute disponibilité](../articles/virtual-machines/windows/manage-availability.md). Plusieurs machines virtuelles regroupées dans un groupe à haute disponibilité assurent la redondance de votre application. Azure crée ensuite ces machines virtuelles et disques dans des domaines d’erreur distincts avec différents composants d’alimentation, réseau et serveur. 
+Pour protéger les charges de travail d’application contre les temps d’arrêt suite à l’indisponibilité temporaire d’un disque ou d’une machine virtuelle, les clients peuvent utiliser les [groupes à haute disponibilité](../articles/virtual-machines/windows/manage-availability.md). Plusieurs machines virtuelles regroupées dans un groupe à haute disponibilité assurent la redondance de votre application. Azure crée ensuite ces machines virtuelles et disques dans des domaines d’erreur distincts avec différents composants d’alimentation, réseau et serveur.
 
 En raison de ces domaines d’erreur distincts, les défaillances matérielles localisées n’affectent généralement pas plusieurs machines virtuelles du groupe en même temps. Ces domaines d’erreur distincts garantissent une haute disponibilité pour votre application. Il est considéré comme une bonne pratique d’utiliser des groupes à haute disponibilité lorsque la haute disponibilité est requise. La section suivante couvre l’aspect de la récupération d’urgence.
 
@@ -98,11 +98,11 @@ Des problèmes peuvent également affecter les données d’une application IaaS
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>Solution de reprise d’activité après sinistre : Sauvegarde Azure 
 
-[Sauvegarde Azure](https://azure.microsoft.com/services/backup/) est utilisé pour la sauvegarde et la récupération d’urgence et il fonctionne aussi bien avec les [disques managés](../articles/virtual-machines/windows/managed-disks-overview.md) que les [disques non managés](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). Vous pouvez créer un travail de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. 
+[Sauvegarde Azure](https://azure.microsoft.com/services/backup/) est utilisé pour la sauvegarde et la récupération d’urgence et il fonctionne aussi bien avec les [disques managés](../articles/virtual-machines/windows/managed-disks-overview.md) que les disques non managés. Vous pouvez créer un travail de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde.
 
-Si vous utilisez des [disques SSD Premium](../articles/virtual-machines/windows/premium-storage.md), des [disques managés](../articles/virtual-machines/windows/managed-disks-overview.md) ou d’autres types de disques avec l’option [Stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md), il est particulièrement important de créer des sauvegardes de reprise d’activité après sinistre périodiques. Sauvegarde Azure stocke les données dans votre coffre Recovery Services pour une rétention à long terme. Choisissez l’option [Stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md) pour le coffre Recovery Services du service Sauvegarde. Cette option garantit que les sauvegardes sont répliquées sur une région Azure différente afin d’assurer la protection contre les sinistres au niveau d’une région.
+Si vous utilisez des [disques SSD Premium](../articles/virtual-machines/windows/disks-types.md), des [disques managés](../articles/virtual-machines/windows/managed-disks-overview.md) ou d’autres types de disques avec l’option [Stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md), il est particulièrement important de créer des sauvegardes de reprise d’activité après sinistre périodiques. Sauvegarde Azure stocke les données dans votre coffre Recovery Services pour une rétention à long terme. Choisissez l’option [Stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md) pour le coffre Recovery Services du service Sauvegarde. Cette option garantit que les sauvegardes sont répliquées sur une région Azure différente afin d’assurer la protection contre les sinistres au niveau d’une région.
 
-Pour les [disques non managés](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), vous pouvez utiliser le type de stockage pour les disques IaaS, mais veillez à ce que Sauvegarde Azure soit activé avec l’option de stockage géoredondant pour le coffre Recovery Services.
+Pour les disques non managés, vous pouvez utiliser le type de stockage pour les disques IaaS, mais veillez à ce que Sauvegarde Azure soit activé avec l’option de stockage géoredondant pour le coffre Recovery Services.
 
 > [!NOTE]
 > Si vous utilisez l’option de [stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md) ou de [stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) pour vos disques non managés, vous avez quand même besoin de captures instantanées cohérentes pour la sauvegarde et la récupération d’urgence. Utilisez [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) ou des [captures instantanées cohérentes](#alternative-solution-consistent-snapshots).
@@ -136,7 +136,7 @@ Pour résoudre ce problème, Sauvegarde Azure offre des sauvegardes cohérentes 
 
 Lorsque le service Sauvegarde Azure lance le travail de sauvegarde à l’heure planifiée, il déclenche l’extension de sauvegarde installée dans la machine virtuelle pour prendre une capture instantanée à un moment donné. Cet instantané est pris de façon coordonnée avec le service VSS (Volume Shadow Service) pour obtenir un instantané cohérent des disques sur la machine virtuelle sans avoir à arrêter cette dernière. L’extension de sauvegarde de la machine virtuelle vide toutes les écritures avant de prendre une capture instantanée cohérente de tous les disques. Après la capture instantanée, les données sont transférées par le service Sauvegarde Azure dans le coffre de sauvegarde. Pour rendre le processus de sauvegarde plus efficace, le service identifie et transfère uniquement les blocs de données qui ont été modifiés après la sauvegarde précédente.
 
-Pour effectuer la restauration, vous pouvez afficher les sauvegardes disponibles au moyen de Sauvegarde Azure, puis lancer une restauration. Vous pouvez créer et restaurer des sauvegardes Azure au moyen du [portail Azure](https://portal.azure.com/), de [PowerShell](../articles/backup/backup-azure-vms-automation.md) ou de l’interface [Azure CLI](/cli/azure/). 
+Pour effectuer la restauration, vous pouvez afficher les sauvegardes disponibles au moyen de Sauvegarde Azure, puis lancer une restauration. Vous pouvez créer et restaurer des sauvegardes Azure au moyen du [portail Azure](https://portal.azure.com/), de [PowerShell](../articles/backup/backup-azure-vms-automation.md) ou de l’interface [Azure CLI](/cli/azure/).
 
 ### <a name="steps-to-enable-a-backup"></a>Étapes à suivre pour activer la sauvegarde
 
@@ -166,15 +166,15 @@ Si vous devez réparer ou regénérer une machine virtuelle, vous pouvez la rest
 
 -   Vous pouvez créer une machine virtuelle en tant que représentation jusqu’à une date et une heure de votre machine virtuelle sauvegardée.
 
--   Vous pouvez restaurer les disques, puis utiliser le modèle de la machine virtuelle pour personnaliser et recréer la machine virtuelle restaurée. 
+-   Vous pouvez restaurer les disques, puis utiliser le modèle de la machine virtuelle pour personnaliser et recréer la machine virtuelle restaurée.
 
 Pour plus d’informations, consultez les instructions de la section [Utiliser le portail Azure pour restaurer des machines virtuelles](../articles/backup/backup-azure-arm-restore-vms.md). Ce document explique également les étapes spécifiques permettant de restaurer les machines virtuelles sauvegardées dans un centre de données associé à l’aide de votre coffre de sauvegarde géoredondant en cas de sinistre dans le centre de données primaire. Dans ce cas, Sauvegarde Azure utilise le service Compute de la région secondaire pour créer la machine virtuelle restaurée.
 
-Vous pouvez également utiliser PowerShell pour [restaurer une machine virtuelle](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) ou [créer une machine virtuelle à partir de disques restaurés](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+Vous pouvez également utiliser PowerShell pour [créer une machine virtuelle à partir de disques restaurés](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Autre solution : Instantanés cohérents
 
-Si vous ne pouvez pas utiliser Sauvegarde Azure, vous pouvez implémenter votre propre mécanisme de sauvegarde à l’aide de captures instantanées. Il est compliqué de créer des captures instantanées cohérentes pour tous les disques utilisés par une machine virtuelle, puis de répliquer ces captures instantanées vers une autre région. Pour cette raison, Azure considère qu’il est préférable d’utiliser le service Sauvegarde plutôt que de créer une solution personnalisée. 
+Si vous ne pouvez pas utiliser Sauvegarde Azure, vous pouvez implémenter votre propre mécanisme de sauvegarde à l’aide de captures instantanées. Il est compliqué de créer des captures instantanées cohérentes pour tous les disques utilisés par une machine virtuelle, puis de répliquer ces captures instantanées vers une autre région. Pour cette raison, Azure considère qu’il est préférable d’utiliser le service Sauvegarde plutôt que de créer une solution personnalisée.
 
 Si vous utilisez le stockage géoredondant avec accès en lecture ou le stockage géoredondant pour les disques, les captures instantanées sont automatiquement répliquées vers un centre de données secondaire. Si vous utilisez le stockage localement redondant pour les disques, vous devez répliquer les données vous-même. Pour plus d’informations, consultez [Sauvegarder les disques de machines virtuelles Azure non gérés avec des captures instantanées incrémentielles](../articles/virtual-machines/windows/incremental-snapshots.md).
 
@@ -216,7 +216,7 @@ La création de captures instantanées uniquement n’est peut-être pas suffisa
 
 Si vous utilisez le stockage géoredondant ou le stockage géoredondant avec accès en lecture pour vos disques, les captures instantanées sont automatiquement répliquées vers une région secondaire. Un délai de quelques minutes peut s’écouler avant la réplication. Si le centre de données principal tombe en panne avant que les captures instantanées n’aient terminé la réplication, vous ne pouvez pas accéder aux captures instantanées à partir du centre de données secondaire. La probabilité que cela se produise est faible.
 
-> [!NOTE] 
+> [!NOTE]
 > Avoir uniquement des disques dans un compte de stockage géoredondant ou géoredondant avec accès en lecture ne protège pas la machine virtuelle contre les incidents. Vous devez également créer des captures instantanées coordonnées ou utiliser Sauvegarde Azure. Cela est nécessaire pour récupérer une machine virtuelle dans un état cohérent.
 
 Si vous utilisez un stockage localement redondant, vous devez copier les captures instantanées dans un autre compte de stockage immédiatement après leur création. La cible de la copie peut être un compte de stockage localement redondant dans une région différente, ce qui entraîne la génération d’une copie dans une région éloignée. Vous pouvez également copier la capture instantanée dans un compte de stockage géoredondant avec accès en lecture dans la même région. Dans ce cas, la capture instantanée est répliquée tardivement dans la région secondaire distante. Votre sauvegarde est protégée contre les sinistres sur le site principal une fois que la copie et la réplication sont terminées.
@@ -260,12 +260,10 @@ La principale différence entre le stockage géoredondant et un stockage géored
 
 S’il s’agit d’une interruption importante, l’équipe Azure peut déclencher un basculement géographique et modifier les entrées DNS principales pour qu’elles pointent vers le stockage secondaire. À ce stade, si vous avez activé le stockage géoredondant ou le stockage géoredondant avec accès en lecture, vous pouvez accéder aux données dans la région utilisée comme région secondaire. En d’autres termes, si votre compte de stockage est un stockage géoredondant et qu’un problème survient, vous pouvez accéder au stockage secondaire uniquement s’il existe un basculement géographique.
 
-Pour plus d’informations, consultez [Que faire en cas de panne du stockage Azure](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+Pour plus d’informations, consultez [Que faire en cas de panne du stockage Azure](../articles/storage/common/storage-disaster-recovery-guidance.md).
 
 >[!NOTE] 
 >Microsoft contrôle si un basculement se produit. Le basculement n’est pas contrôlé par le compte de stockage. Par conséquent, il n’est pas décidé par les clients individuels. Pour implémenter la récupération d’urgence pour des comptes de stockage ou disques de machine virtuelle spécifiques, vous devez utiliser les techniques décrites précédemment dans cet article.
-
-
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231102"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453294"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -90,7 +90,7 @@ L’extrait de code suivant montre un exemple de la réponse :
 
 ## <a name="diagnostic-logging"></a>Journaux de diagnostic
 
-Vous pouvez utiliser différents types de journaux dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Vous pouvez accéder à certains de ces journaux via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste suivante :
+Vous pouvez utiliser différents types de journaux dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Vous pouvez accéder à certains de ces journaux via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme les [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), Excel et Power BI. Pour en savoir plus sur les différents types de journaux, consultez la liste suivante :
 
 * **Journal d’activité** : vous pouvez utiliser le [Journal d’activité Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anciennement journaux des opérations et journaux d’audit) pour voir toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
 * **Journal d’accès** : Vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser les informations importantes. Ceci comprend l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway est identifiée par la propriété instanceId.
@@ -104,7 +104,7 @@ Pour stocker vos journaux, vous disposez de trois options :
 
 * **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux quand ils sont stockés pour une durée plus longue et consultés quand cela est nécessaire.
 * **Hubs d’événements** : les hubs d’événements constituent une excellente solution pour l’intégration à d’autres outils SEIM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
-* **Log Analytics** : Log Analytics convient parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
+* **Journaux Azure Monitor** : Les journaux Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
 
 ### <a name="enable-logging-through-powershell"></a>Activation de la journalisation avec PowerShell
 
@@ -298,7 +298,7 @@ Vous pouvez afficher et analyser les données du journal d’activité en utilis
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Affichage et analyse des journaux d’accès, des performances et du pare-feu
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) peut collecter les fichiers du compteur et du journal d’événements à partir de votre compte de stockage d’objets Blob. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux.
+Les [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) peuvent collecter les fichiers du compteur et du journal d’événements à partir de votre compte de stockage d’objets Blob. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux.
 
 Vous pouvez également vous connecter à votre compte de stockage et récupérer les entrées de journal JSON pour les journaux d’accès et des performances. Après avoir téléchargé les fichiers JSON, vous pouvez les convertir en CSV et les afficher dans Excel, PowerBI ou tout autre outil de visualisation de données.
 
@@ -374,7 +374,7 @@ Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Visualisation du compteur et des journaux des événements à l’aide de [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+* Visualisez le compteur et les journaux des événements à l’aide des [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 * Billet de blog sur la [visualisation de votre journal d’activité Azure avec Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 * Billet de blog sur [l’affichage et l’analyse des journaux d’activité Azure dans Power BI](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 

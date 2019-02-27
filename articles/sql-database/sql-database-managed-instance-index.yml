@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9d8b875d7e5a831af52eae8abc642632cb5f635
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238383"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454688"
 documentType: LandingData
 title: Azure SQL Database Managed Instance
 metadata:
@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: Le <a href="sql-database-managed-instance#business-critical-service-tier">niveau de service critique d’entreprise</a> est désormais en <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">disponibilité générale</a>.
-    - html: (Préversion) Création <a href="https://aka.ms/managed-instance-aadlogins">de connexions Azure AD au niveau de l’instance</a> à l’aide de <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.
+    - html: (Préversion) Création <a href="https://aka.ms/managed-instance-aadlogins">de principaux de serveur (connexions) Azure AD au niveau de l’instance</a> à l’aide de <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.
     - html: (Préversion) Création d’instances pour lesquelles <a href="https://aka.ms/managed-instance-collation">vous choisissez le classement au niveau du serveur</a>.
     - html: "<a href=\"https://aka.ms/managed-instance-configurable-backup-retention\">Configuration de la rétention des sauvegardes jusqu’à 35 jours</a> pour la restauration d’un point dans le temps. Remarque : la rétention des sauvegardes à long terme (jusqu'à 10 ans) n’est toujours pas activée. Vous pouvez utiliser <a href=\"https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server\">les sauvegardes de copie uniquement</a> à la place."
     - html: (Préversion) Utilisez les <a href="https://aka.ms/managed-instance-failover-groups">groupes de basculement géolocalisés</a> pour conserver une copie de l’instance dans une autre région et vous assurer que vos données seront disponibles même en cas de catastrophe régionale.

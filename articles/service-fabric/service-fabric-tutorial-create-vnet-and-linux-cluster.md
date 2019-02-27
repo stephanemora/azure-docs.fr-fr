@@ -1,6 +1,6 @@
 ---
-title: Créer un cluster Service Fabric Linux dans Azure | Microsoft Docs
-description: Dans ce didacticiel, vous découvrez comment déployer un cluster Service Fabric Linux dans un réseau virtuel Azure existant à l’aide de l’interface de ligne de commande Azure.
+title: Créer un cluster Service Fabric Linux dans Azure | Microsoft Docs
+description: Découvrez comment déployer un cluster Service Fabric Linux dans un réseau virtuel Azure existant à l’aide de l’interface Azure CLI.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,70 +9,33 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/27/2018
+ms.date: 02/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 265e99d18d8660f149d33b1b4a37a7d32eae794d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bef2e5da1a151fd6178298f3b993337fd07bd294
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755193"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313329"
 ---
-# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
+# <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
-Ce tutoriel est la première partie d’une série d’étapes. Vous découvrirez comment déployer un cluster Service Fabric Linux dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) à l’aide de l’interface Azure CLI et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Windows à l’aide de PowerShell, consultez la section relative à la [création d’un cluster Windows sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
-
-> [!div class="checklist"]
-> * Créer un réseau virtuel dans Azure à l’aide de l’interface Azure CLI
-> * Créer un cluster Service Fabric sécurisé dans Azure à l’aide de l’interface Azure CLI
-> * Sécuriser le cluster avec un certificat X.509
-> * Se connecter au cluster à l’aide de l’interface de ligne de commande (CLI) de Service Fabric
-> * Supprimer un cluster
-
-Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
-> [!div class="checklist"]
-> * Créer un cluster sécurisé sur Azure
-> * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
-> * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
+Dans cet article, vous découvrirez comment déployer un cluster Service Fabric Linux dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) à l’aide de l’interface Azure CLI et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Windows à l’aide de PowerShell, consultez la section relative à la [création d’un cluster Windows sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce tutoriel :
+Avant de commencer :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
 * Installer [Azure CLI](/cli/azure/install-azure-cli)
+* Pour découvrir les concepts clés des clusters, consultez [Vue d’ensemble des clusters Azure](service-fabric-azure-clusters-overview.md)
 
-Les procédures suivantes créent un cluster Service Fabric à cinq nœuds. Pour calculer le coût lié à l’exécution d’un cluster Service Fabric dans Azure, utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
-
-## <a name="key-concepts"></a>Concepts clés
-
-Un [cluster Service Fabric](service-fabric-deploy-anywhere.md) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Les clusters peuvent être mis à l’échelle pour des milliers de machines. Une machine ou une machine virtuelle appartenant à un cluster est appelée « nœud ». Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement.
-
-Un type de nœud définit la taille, le nombre et les propriétés d’un groupe de machines virtuelles du cluster. Chaque type de nœud défini est configuré en tant que [groupe de machines virtuelles identiques](/azure/virtual-machine-scale-sets/). Il s’agit de ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles en tant que groupe. Chaque type de nœud peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. Les types de nœuds permettent de définir les rôles d’un groupe de nœuds de cluster, par exemple « frontal » ou « back end ».  Votre cluster peut avoir plusieurs types de nœuds, mais le type de nœud principal doit avoir au moins cinq machines virtuelles pour les clusters de production (ou au moins trois machines virtuelles pour les clusters de test).  Les [services système de Service Fabric](service-fabric-technical-overview.md#system-services) sont placés sur les nœuds du type de nœud principal.
-
-Le cluster est sécurisé avec un certificat de cluster. Un certificat de cluster est un certificat X.509 qui permet de sécuriser la communication de nœud à nœud et d’authentifier les points de terminaison de gestion de cluster auprès d’un client de gestion.  Ce certificat de cluster fournit également un certificat SSL pour l’API de gestion HTTPS et pour Service Fabric Explorer par le biais de HTTPS. Les certificats auto-signés sont destinés aux clusters de test.  Pour les clusters de production, utilisez un certificat délivré par une autorité de certification (AC) en tant que certificat de cluster.
-
-Le certificat de cluster doit :
-
-* Contenir une clé privée
-* Être créé pour un échange de clés, pouvant faire l’objet d’un export vers un fichier .pfx (Personal Information Exchange)
-* Avoir un sujet dont le nom correspond au domaine utilisé pour accéder au cluster Service Fabric. Cette correspondance est nécessaire pour que le certificat SSL soit fourni aux points de terminaison de gestion HTTPS du cluster et à Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat SSL auprès d’une autorité de certification pour le domaine azure.com. Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom de sujet du certificat doit correspondre au nom de domaine personnalisé utilisé pour votre cluster.
-
-Azure Key Vault permet de gérer des certificats pour des clusters Service Fabric dans Azure.  Lorsqu’un cluster est déployé dans Azure, le fournisseur de ressources Azure chargé de la création des clusters Service Fabric extrait les certificats de Key Vault et les installe sur les machines virtuelles du cluster.
-
-Ce didacticiel explique comment déployer un cluster de cinq nœuds dans un type de nœud unique. Pour le déploiement d’un cluster de production, la [planification de la capacité](service-fabric-cluster-capacity.md) est néanmoins une étape importante. Voici quelques éléments à prendre en compte dans le cadre de ce processus.
-
-* Nombre de nœuds et de types de nœuds dont votre cluster a besoin
-* Propriétés de chaque type de nœud (par exemple, taille, principal ou non, accessibilité sur Internet et nombre de machines virtuelles)
-* Caractéristiques de fiabilité et de durabilité du cluster
+Les procédures suivantes créent un cluster Service Fabric à sept nœuds. Pour calculer le coût lié à l’exécution d’un cluster Service Fabric dans Azure, utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
 
 ## <a name="download-and-explore-the-template"></a>Télécharger et explorer le modèle
 
@@ -81,14 +44,14 @@ Téléchargez les fichiers de modèle Resource Manager suivants :
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
 
-Ce modèle déploie un cluster sécurisé de cinq machines virtuelles et un type de nœud unique dans un réseau virtuel.  D’autres exemples de modèles sont disponibles sur [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Le modèle [AzureDeploy.json][template] déploie un certain nombre de ressources, notamment celles ci-dessous.
+Ce modèle déploie un cluster sécurisé de sept machines virtuelles et trois types de nœuds dans un réseau virtuel.  D’autres exemples de modèles sont disponibles sur [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Le modèle [AzureDeploy.json][template] déploie un certain nombre de ressources, notamment celles ci-dessous.
 
 ### <a name="service-fabric-cluster"></a>Cluster Service Fabric
 
 Dans la ressource **Microsoft.ServiceFabric/clusters**, un cluster Linux est déployé avec les caractéristiques suivantes :
 
-* un type de nœud unique
-* cinq nœuds dans le type de nœud principal (configurable dans les paramètres du modèle)
+* Trois types de nœuds
+* Cinq nœuds dans le type de nœud principal (configurable dans les paramètres du modèle) et un nœud dans chacun des autres types
 * Système d’exploitation : Ubuntu 16.04 LTS (configurable dans les paramètres du modèle)
 * certificat sécurisé (configurable dans les paramètres du modèle)
 * [service DNS](service-fabric-dnsservice.md) activé
@@ -134,6 +97,8 @@ Le fichier de paramètres [AzureDeploy.Parameters][parameters] déclare de nombr
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Déployer le réseau virtuel et le cluster
 
 Puis, configurez la topologie de réseau et déployez le cluster Service Fabric. Le modèle Resource Manager [AzureDeploy.json][template] crée un réseau virtuel et un sous-réseau pour Service Fabric. Le modèle déploie également un cluster avec la sécurité de certificat activée.  Pour les clusters de production, utilisez un certificat délivré par une autorité de certification (AC) en tant que certificat de cluster. Un certificat auto-signé peut être utilisé pour garantir la sécurité des clusters de test.
+
+Dans cet article, le modèle déploie un cluster qui utilise l’empreinte numérique du certificat pour identifier le certificat de cluster.  Deux certificats ne peuvent pas avoir la même empreinte numérique, ce qui complique leur gestion. Basculer un cluster déployé de l’utilisation des empreintes de certificat à l’utilisation des noms communs de certificat simplifie considérablement la gestion des certificats.  Pour savoir comment mettre à jour le cluster pour que celui-ci utilise des noms communs de certificat pour la gestion des certificats, consultez [Modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Créer un cluster à l’aide d’un certificat existant
 
@@ -194,22 +159,13 @@ sfctl cluster health
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Les autres articles de cette série de didacticiels utilisent le cluster que vous venez de créer. Si vous ne passez pas immédiatement à l’article suivant, vous souhaiterez peut-être [supprimer le cluster](service-fabric-cluster-delete.md) pour éviter de subir des frais.
+Si vous ne passez pas immédiatement à l’article suivant, vous souhaiterez peut-être [supprimer le cluster](service-fabric-cluster-delete.md) pour éviter de subir des frais.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Découvrez comment [mettre à l'échelle un cluster.](service-fabric-tutorial-scale-cluster.md)
 
-> [!div class="checklist"]
-> * Créer un réseau virtuel dans Azure à l’aide de l’interface Azure CLI
-> * Créer un cluster Service Fabric sécurisé dans Azure à l’aide de l’interface Azure CLI
-> * Sécuriser le cluster avec un certificat X.509
-> * Se connecter au cluster à l’aide de l’interface de ligne de commande (CLI) de Service Fabric
-> * Supprimer un cluster
+Dans cet article, le modèle déploie un cluster qui utilise l’empreinte numérique du certificat pour identifier le certificat de cluster.  Deux certificats ne peuvent pas avoir la même empreinte numérique, ce qui complique leur gestion. Basculer un cluster déployé de l’utilisation des empreintes de certificat à l’utilisation des noms communs de certificat simplifie considérablement la gestion des certificats.  Pour savoir comment mettre à jour le cluster pour que celui-ci utilise des noms communs de certificat pour la gestion des certificats, consultez [Modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
-Maintenant, passez au didacticiel suivant pour savoir comment mettre à l’échelle votre cluster.
-> [!div class="nextstepaction"]
-> [Mise à l’échelle d’un cluster](service-fabric-tutorial-scale-cluster.md)
-
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

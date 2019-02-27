@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0ff2fbf8ddfdd191c72cfdb36a9462076f8dec5b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657295"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301568"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modèles de messagerie asynchrone et haute disponibilité
 
@@ -62,77 +62,10 @@ D’autres composants dans Azure peuvent parfois rencontrer des problèmes de se
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Défaillance Service Bus dans un sous-système unique
 Quelle que soit l’application, les circonstances peuvent générer une défaillance chez un composant interne de Service Bus. Lorsque Service Bus détecte cela, il rassemble les données de l’application pour vous aider à diagnostiquer ce qui est arrivé. Une fois les données collectées, l’application est redémarrée afin de revenir à un état cohérent. Ce processus est assez rapidement et peut faire en sorte qu’une entité semble indisponible pendant quelques minutes, bien que les interruptions de service par défaut soient beaucoup plus courtes.
 
-Dans ce cas, l’application cliente génère une exception [System.TimeoutException][System.TimeoutException] ou [MessagingException][MessagingException]. Service Bus contient un correctif pour ce problème sous la forme d’un programme de nouvelle tentative cliente automatisée. Une fois la période de nouvelle tentative épuisée, si le message n’est pas remis, vous pouvez entamer des recherches à l’aide d’autres fonctionnalités, par exemple, les [espaces de noms associés][paired namespaces]. Les espaces de noms associés génèrent d’autres notifications, qui sont abordées dans cet article.
-
-### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Panne de Service Bus dans un centre de données Azure.
-La cause la plus probable de défaillance dans un centre de données Azure est l’échec du déploiement d’une mise à niveau de Service Bus ou d’un système dépendant. Au fur et à mesure que la plateforme évolue, l’éventualité de ce type de panne diminue. Une défaillance de centre de données peut également se produire pour les raisons suivantes :
-
-* Panne électrique (l’alimentation électrique et les générateurs de courant sont interrompus).
-* Connectivité (interruption d’Internet entre vos clients et Azure).
-
-Dans les deux cas, une catastrophe naturelle ou une erreur humaine a provoqué le problème. Pour contourner ce problème et vous assurer que vous pouvez toujours envoyer des messages, vous pouvez utiliser des [espaces de noms associés][paired namespaces] pour acheminer les messages vers un second emplacement pendant la restauration de l’emplacement principal. Pour plus d’informations, consultez la section [Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres][Best practices for insulating applications against Service Bus outages and disasters].
-
-## <a name="paired-namespaces"></a>Espaces de noms associés
-La fonctionnalité d’[espaces de noms associés][paired namespaces] prend en charge les scénarios dans lesquels une entité Service Bus ou un déploiement dans un centre de données n’est plus disponible. Bien qu’un tel événement soit rare, les systèmes distribués toujours doivent être préparés aux pires scénarios. En règle générale, cet événement se produit lorsque certains éléments dont dépend Service Bus rencontrent un problème de courte durée. Pour maintenir la disponibilité des applications pendant une panne, les utilisateurs de Service Bus peuvent utiliser deux espaces de noms différents, de préférence dans des centres de données distincts, pour héberger leurs entités de messagerie. Le reste de cette section utilise la terminologie suivante :
-
-* Espace de noms principal : espace de noms avec lequel l’application interagit pour envoyer et recevoir des opérations.
-* Espace de noms secondaire : espace de noms servant de sauvegarde de l’espace de noms principal. La logique d’application n’interagit pas avec cet espace de noms.
-* Intervalle de basculement : durée d’une panne permettant d’accepter les pannes normales avant que l’application bascule de l’espace de noms principal vers l’espace de noms secondaire.
-
-Les espaces de noms associés prennent en charge la *disponibilité des fonctions d’envoi*. La disponibilité des fonctions d’envoi maintient la possibilité d’envoyer des messages. Pour utiliser la disponibilité d’envoi, votre application doit répondre aux exigences suivantes :
-
-1. Les messages sont reçus uniquement à partir de l’espace de noms principal.
-2. Les messages envoyés à une file d’attente ou rubrique donnée peuvent arriver dans le désordre.
-3. Les messages au sein d’une session peuvent arriver dans le désordre. Ce comportement diffère du comportement normal des sessions. Cela signifie que votre application utilise des sessions pour regrouper les messages de façon logique.
-4. L’état de la session est conservé uniquement au niveau de l’espace de noms principal.
-5. La file d’attente principale peut se mettre en ligne et commencer à accepter des messages avant que la file d’attente secondaire ait placé tous les messages dans la file d’attente principale.
-
-Les sections suivantes décrivent les API, la façon dont les API sont implémentées et présente des exemples de code qui utilisent la fonctionnalité. Notez que cette fonctionnalité est associée à des coûts.
-
-### <a name="the-messagingfactorypairnamespaceasync-api"></a>API MessagingFactory.PairNamespaceAsync
-La fonctionnalité d’espaces de noms associés inclut la méthode [PairNamespaceAsync][PairNamespaceAsync] sur la classe [Microsoft.ServiceBus.Messaging.MessagingFactory][Microsoft.ServiceBus.Messaging.MessagingFactory] :
-
-```csharp
-public Task PairNamespaceAsync(PairedNamespaceOptions options);
-```
-
-Lorsque la tâche est terminée, l’association de l’espace de noms se termine elle aussi et est prête à fonctionner pour chaque entité [MessageReceiver][MessageReceiver], [QueueClient][QueueClient] ou [TopicClient][TopicClient] créée avec l’instance [MessagingFactory][MessagingFactory]. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] est la classe de base correspondant aux différents types d’associations disponibles avec l’objet [MessagingFactory][MessagingFactory]. Actuellement, la seule classe dérivée est la classe nommée [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], qui met en œuvre les exigences associées à la disponibilité des envois. [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] possède un ensemble de constructeurs qui s’appuient les uns sur les autres. En examinant le constructeur comportant le plus grand nombre de paramètres, vous pouvez comprendre le comportement des autres constructeurs.
-
-```csharp
-public SendAvailabilityPairedNamespaceOptions(
-    NamespaceManager secondaryNamespaceManager,
-    MessagingFactory messagingFactory,
-    int backlogQueueCount,
-    TimeSpan failoverInterval,
-    bool enableSyphon)
-```
-
-Ces paramètres ont les significations suivantes :
-
-* *secondaryNamespaceManager*: instance [NamespaceManager][NamespaceManager] initialisée pour l’espace de noms secondaire que la méthode [PairNamespaceAsync][PairNamespaceAsync] peut utiliser pour configurer l’espace de noms secondaire. Le gestionnaire d’espaces de noms sera utilisé pour obtenir la liste des files d’attente dans l’espace de noms et s’assurer que les files d’attente backlog requises existent. Si ce n’est pas le cas, ces files d’attente sont créées. [NamespaceManager][NamespaceManager] doit avoir la possibilité de créer un jeton avec la revendication **Gérer**.
-* *messagingFactory* : instance [MessagingFactory][MessagingFactory] de l’espace de noms secondaire. L’objet [MessagingFactory][MessagingFactory] est utilisé pour procéder aux envois, et si la propriété [EnableSyphon][EnableSyphon] est définie sur **true**, pour recevoir des messages de la part des files d’attente.
-* *backlogQueueCount* : nombre de files d’attente à créer. La valeur doit être au moins à 1. Lorsque vous envoyez des messages à la file d’attente, l’une d’entre elles est sélectionnée de manière aléatoire. Si vous définissez la valeur sur 1, une seule file d’attente peut être utilisée. Lorsque cela se produit et que la seule file d’attente génère des erreurs, le client ne peut pas faire de tentative avec une autre file d’attente et risque de ne pas envoyer votre message. Nous vous recommandons de définir cette valeur sur une valeur supérieure et la valeur par défaut est de 10. Vous pouvez lui attribuer une valeur supérieure ou inférieure selon la quantité de données que votre application envoie quotidiennement. Chaque file d’attente peut contenir jusqu’à 5 Go de messages.
-* *failoverInterval* : durée pendant laquelle vous allez accepter les défaillances sur l’espace de noms principal avant de basculer chaque entité sur l’espace de noms secondaire. Les basculements se produisent sur la base entité par entité. Les entités dans un espace de noms unique résident fréquemment sur différents nœuds au sein de Service Bus. La défaillance d’une entité n’implique pas nécessairement la défaillance d’une autre. Vous pouvez définir cette valeur sur [System.TimeSpan.Zero][System.TimeSpan.Zero] pour basculer sur le second espace de noms tout de suite après votre première défaillance non temporaire. Les défaillances qui déclenchent le minuteur de basculement sont les exceptions [MessagingException][MessagingException] dans lesquelles la propriété [IsTransient][IsTransient] a la valeur false ou [System.TimeoutException][System.TimeoutException]. D’autres exceptions, telles que [UnauthorizedAccessException][UnauthorizedAccessException] ne provoquent pas de basculement, car elles signalent que le client est configuré de façon incorrecte. Une exception [ServerBusyException][ServerBusyException] n’entraîne pas de basculement, car le modèle correct consiste à attendre 10 secondes, puis à renvoyer le message.
-* *enableSyphon* : indique que cette association particulière doit siphonner les messages de l’espace de noms secondaire et les placer sur l’espace de noms principal. En général, les applications qui envoient des messages doivent définir cette valeur sur**false** ; les applications qui reçoivent des messages doivent définir cette valeur sur **true**. La raison est que souvent, les destinataires de messages sont moins nombreux que les expéditeurs. En fonction du nombre de destinataires, vous pouvez choisir d’utiliser une seule instance d’application pour gérer les tâches de siphon. L’utilisation de nombreux destinataires a un coût pour chaque file d’attente backlog.
-
-Pour utiliser le code, créez une instance principale de [MessagingFactory][MessagingFactory], une instance secondaire de [MessagingFactory][MessagingFactory], une instance secondaire de [NamespaceManager][NamespaceManager] et une instance de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. L’appel peut se réduire à ce qui suit :
-
-```csharp
-SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
-primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
-```
-
-Lorsque la tâche retournée par la méthode [PairNamespaceAsync][PairNamespaceAsync] se termine, tout est configuré et prêt à l’emploi. Avant que la tâche soit renvoyée, il se peut que vous n’ayez pas terminé toutes les tâches en arrière-plan nécessaires pour que l’association fonctionne correctement. Par conséquent, vous ne devez pas commencer à envoyer les messages avant que la tâche ne revienne. En cas de défaillance (informations d’identification incorrectes ou échec de création des files d’attente), ces exceptions seront levées lorsque la tâche est achevée. Une fois que la tâche est retournée, vérifiez que les files d’attente ont été détectées ou créées en examinant la propriété [BacklogQueueCount][BacklogQueueCount] de votre instance [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. Pour le code qui précède, cette opération se présente comme suit :
-
-```csharp
-if (sendAvailabilityOptions.BacklogQueueCount < 1)
-{
-    // Handle case where no queues were created.
-}
-```
+Dans ce cas, l’application cliente génère une exception [System.TimeoutException][System.TimeoutException] ou [MessagingException][MessagingException]. Service Bus contient un correctif pour ce problème sous la forme d’un programme de nouvelle tentative cliente automatisée. Une fois la période de nouvelle tentative épuisée, si le message n’est pas remis, vous pouvez entamer des recherches à l’aide d’autres fonctionnalités mentionnées dans l'article [Gestion des urgences et des pannes][handling outages and disasters].
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez appris les principes fondamentaux de la messagerie asynchrone dans Service Bus, approfondissez le sujet sur les [espaces de noms associés][paired namespaces].
+Maintenant que vous avez appris les principes fondamentaux de la messagerie asynchrone dans Service Bus, approfondissez le sujet sur la [gestion des urgences et des pannes][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -152,4 +85,4 @@ Maintenant que vous avez appris les principes fondamentaux de la messagerie asyn
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
-[paired namespaces]: service-bus-paired-namespaces.md
+[handling outages and disasters]: service-bus-outages-disasters.md

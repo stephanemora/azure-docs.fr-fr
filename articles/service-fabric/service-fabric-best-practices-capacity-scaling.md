@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d6f2ca53829642009adbc50061966c5a7e924f7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240401"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446815"
 ---
 # <a name="capacity-planning-and-scaling"></a>Planification et mise à l’échelle de la capacité
 
@@ -33,7 +33,7 @@ Les opérations de mise à l’échelle doivent se faire via le déploiement d'u
 * Vous devez uniquement mettre à l’échelle horizontale un nœud de groupe de machines virtuelles identiques à la fois.
   * Pour mettre à l'échelle trois nœuds ou plus à la fois, vous devez [mettre à l’échelle un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), mais il est plus sûr de mettre à l'échelle horizontale un nœud de groupe de machines virtuelles identiques à la fois.
 * Si vous bénéficiez d'une fiabilité Silver ou supérieure pour votre cluster Service Fabric, ainsi qu'une durabilité Silver ou supérieure pour tous les groupes identiques, vous configurez des règles de mise à l'échelle automatique.
-  * La capacité [minimale] des règles de mise à l'échelle automatique doit être supérieure ou égale à 5 instances de machine virtuelle, et supérieure ou égale à votre niveau de fiabilité minimal pour votre type de nœud principal.
+  * La capacité [minimale] des règles de mise à l'échelle automatique doit être supérieure ou égale à 5 instances de machine virtuelle, et supérieure ou égale à votre niveau de fiabilité minimal pour votre type de nœud principal.
 
 > [!NOTE]
 > Azure Service Fabric avec état : /System/InfastructureService/<NODE_TYPE_NAME>, s’exécute sur chaque type de nœud doté d'une durabilité Silver ou supérieure, et constitue le seul service système pris en charge pour s'exécuter dans Azure sur tous les types de nœuds de vos clusters. 

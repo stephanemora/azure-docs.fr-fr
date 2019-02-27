@@ -12,86 +12,115 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ff67474566737ca75206cd1237c89f873cb173a8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 18dc82880830b6f8d14a7fc01930f75e9e61e5b0
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489850"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300548"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
-Cet article explique comment utiliser Azure PowerShell avec les modèles de Gestionnaire des ressources pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).
+Apprenez à utiliser Azure PowerShell avec des modèles Resource Manager pour déployer vos ressources dans Azure. Pour plus d'informations sur les concepts de déploiement et de gestion des solutions Azure, consultez [Vue d'ensemble d'Azure Resource Manager](resource-group-overview.md).
 
-Le modèle Resource Manager que vous déployez peut être un fichier local sur votre machine, ou un fichier externe qui se trouve dans un dépôt comme GitHub. Le modèle que vous déployez dans le cadre de cet article est disponible en tant que [modèle de compte de stockage dans GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+Le déploiement d'un modèle s'effectue généralement en deux étapes :
 
-Si nécessaire, installez le module Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
+1. Créez un groupe de ressources. Le groupe de ressources sert de conteneur pour les ressources déployées. Le nom du groupe de ressources ne peut contenir que des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il peut comprendre jusqu’à 90 caractères. Il ne peut pas se terminer par un point.
+2. Déployez un modèle. Le modèle définit les ressources à créer.  Le déploiement crée les ressources dans le groupe de ressources spécifié.
+
+Cet article utilise cette méthode de déploiement en deux étapes.  L'autre option consiste à déployer un groupe de ressources et les ressources en même temps.  Pour plus d'informations, consultez [Créer un groupe de ressources et déployer des ressources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+
+## <a name="prerequisites"></a>Prérequis
+
+À moins d'utiliser [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell) pour déployer les modèles, vous devez installer Azure PowerShell et vous connecter à Azure :
+- **Installez les cmdlets Azure PowerShell sur votre ordinateur local.** Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Connectez-vous à Azure à l'aide de [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount.md)**. Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
+- * Téléchargez et enregistrez un [modèle de démarrage rapide](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). Le nom du fichier local utilisé dans cet article est **c:\MyTemplates\azuredeploy.json**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
-<a id="deploy-local-template" />
-
-## <a name="deploy-a-template-from-your-local-machine"></a>Déployer un modèle à partir de votre ordinateur local
-
-Au moment de déployer des ressources dans Azure, vous effectuez les opérations suivantes :
-
-1. Connexion à votre compte Azure
-2. Créez un groupe de ressources qui sert de conteneur pour les ressources déployées. Le nom du groupe de ressources ne peut contenir que des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il peut comprendre jusqu’à 90 caractères. Il ne peut pas se terminer par un point.
-3. Déploiement dans le groupe de ressources du modèle qui définit les ressources à créer
-
-Un modèle peut inclure des paramètres qui permettent de personnaliser le déploiement. Par exemple, vous pouvez indiquer des valeurs qui sont adaptées à un environnement particulier (par exemple, de développement, de test ou de production). L’exemple de modèle définit un paramètre pour la référence (SKU) de compte de stockage.
+## <a name="deploy-templates-stored-locally"></a>Déployer des modèles stockés localement
 
 L’exemple suivant crée un groupe de ressources et déploie un modèle à partir de votre ordinateur local :
 
-```powershell
-Connect-AzAccount
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
-Select-AzSubscription -SubscriptionName <yourSubscriptionName>
- 
-New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+  -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message qui inclut le résultat :
+Remarque : *c:\MyTemplates\azuredeploy.json* est un modèle de démarrage rapide.  Consultez les [Conditions préalables](#prerequisites).
 
-```powershell
-ProvisioningState       : Succeeded
-```
+Le déploiement peut prendre plusieurs minutes.
 
-## <a name="deploy-a-template-from-an-external-source"></a>Déployer un modèle à partir d’une source externe
+## <a name="deploy-templates-stored-externally"></a>Déployer des modèles stockés en externe
 
 Au lieu de stocker les modèles Resource Manager sur votre ordinateur local, vous pouvez les stocker dans un emplacement externe. Vous pouvez stocker des modèles dans un dépôt de contrôle de code source (par exemple, GitHub). Vous pouvez aussi les stocker dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation.
 
 Pour déployer un modèle externe, utilisez le paramètre **TemplateUri**. Pour déployer l’exemple de modèle à partir de GitHub, utilisez l’URI figurant dans l’exemple.
 
-```powershell
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
-  -storageAccountType Standard_GRS
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous ne souhaitez pas que votre modèle soit accessible au public, vous pouvez le protéger en le stockant dans un conteneur de stockage privé. Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton de signature d’accès partagé (SAS), consultez [Déployer un modèle privé avec un jeton SAS](resource-manager-powershell-sas-token.md).
+L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous ne souhaitez pas que votre modèle soit accessible au public, vous pouvez le protéger en le stockant dans un conteneur de stockage privé. Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton de signature d’accès partagé (SAS), consultez [Déployer un modèle privé avec un jeton SAS](resource-manager-powershell-sas-token.md). Pour suivre un tutoriel, consultez [Tutoriel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./resource-manager-tutorial-use-key-vault.md).
 
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
+## <a name="deploy-templates-from-azure-cloud-shell"></a>Déployer des modèles à partir d'Azure Cloud Shell
 
-Dans Azure Cloud Shell, utilisez les commandes suivantes :
+Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com) pour déployer votre modèle. Pour déployer un modèle externe, fournissez son URI. Pour déployer un modèle local, vous devez d’abord charger votre modèle dans le compte de stockage de votre Cloud Shell. Pour charger des fichiers dans Azure Cloud Shell, sélectionnez l'icône de menu **Charger/télécharger des fichiers** de la fenêtre d'Azure Cloud Shell.
 
-```powershell
-New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri <copied URL> `
-  -storageAccountType Standard_GRS
+Pour ouvrir Azure Cloud Shell, accédez à [https://shell.azure.com](https://shell.azure.com), ou sélectionnez **Essayer** dans la section de code suivante :
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Déployer sur plus d’un groupe de ressources ou abonnement
+Pour coller le code, cliquez sur celui-ci avec le bouton droit et sélectionnez **Coller**.
 
-En général, vous déployez toutes les ressources dans votre modèle sur un seul groupe de ressources. Toutefois, il existe des scénarios dans lesquels vous pouvez souhaitez déployer un ensemble de ressources, tout en les plaçant dans différents groupes de ressources ou abonnements. Vous ne pouvez pas déployer sur plus de cinq groupes de ressources dans un déploiement. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
+## <a name="deploy-to-multiple-resource-groups-or-subscriptions"></a>Déployer sur plusieurs groupes de ressources ou abonnements
 
-<a id="parameter-file" />
+En général, vous déployez toutes les ressources dans votre modèle sur un seul groupe de ressources. Toutefois, il existe des scénarios dans lesquels vous pouvez souhaitez déployer un ensemble de ressources, tout en les plaçant dans différents groupes de ressources ou abonnements. Vous ne pouvez pas déployer sur plus de cinq groupes de ressources dans un déploiement. Pour plus d'informations, consultez [Déployer des ressources Azure dans différents groupes de ressources et abonnements](resource-manager-cross-resource-group-deployment.md).
 
-## <a name="parameters"></a>parameters
+## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
+
+En cas d'échec du déploiement, vous pouvez automatiquement relancer un déploiement antérieur réussi à partir de votre historique de déploiement. Pour spécifier le redéploiement, utilisez le paramètre `-RollbackToLastDeployment` ou `-RollBackDeploymentName` dans la commande de déploiement.
+
+Pour utiliser cette option, vos déploiements doivent avoir des noms uniques afin de pouvoir être identifiés dans l’historique. Si les noms ne sont pas uniques, le déploiement actuellement en échec peut remplacer le déploiement réussi précédemment dans l’historique. Vous pouvez uniquement utiliser cette option avec les déploiements de niveau racine. Les déploiements à partir d’un modèle imbriqué ne sont pas disponibles pour le redéploiement.
+
+Pour redéployer le dernier déploiement réussi, ajoutez le paramètre `-RollbackToLastDeployment` comme indicateur.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -Name ExampleDeployment02 `
+  -ResourceGroupName $resourceGroupName `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -RollbackToLastDeployment
+```
+
+Pour redéployer un déploiement spécifique, utilisez le paramètre `-RollBackDeploymentName` et indiquez le nom du déploiement.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -Name ExampleDeployment02 `
+  -ResourceGroupName $resourceGroupName `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -RollBackDeploymentName ExampleDeployment01
+```
+
+Le déploiement spécifié doit avoir réussi.
+
+## <a name="pass-parameter-values"></a>Passer les valeurs de paramètre
 
 Pour passer les valeurs de paramètre, vous pouvez utiliser des paramètres inline ou un fichier de paramètres. Les exemples précédents dans cet article décrivent des paramètres inline.
 
@@ -137,7 +166,7 @@ Le fichier de paramètres doit être au format suivant :
 }
 ```
 
-Notez que la section des paramètres comprend un nom de paramètre qui correspond au paramètre défini dans votre modèle (storageAccountType). Le fichier de paramètres contient une valeur pour le paramètre. Cette valeur est transmise automatiquement au modèle pendant le déploiement. Vous pouvez créer plusieurs fichiers de paramètres, puis transmettre le fichier de paramètres approprié pour le scénario. 
+Notez que la section des paramètres comprend un nom de paramètre qui correspond au paramètre défini dans votre modèle (storageAccountType). Le fichier de paramètres contient une valeur pour le paramètre. Cette valeur est transmise automatiquement au modèle pendant le déploiement. Vous pouvez créer plusieurs fichiers de paramètres, puis transmettre le fichier de paramètres approprié pour le scénario.
 
 Copiez l’exemple précédent et enregistrez-le dans un fichier nommé `storage.parameters.json`.
 
@@ -145,7 +174,7 @@ Pour transmettre un fichier de paramètres local, utilisez le paramètre **Templ
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
@@ -167,20 +196,20 @@ Cependant, lorsque vous utilisez un fichier de paramètres externe, vous ne pouv
 
 Si votre modèle inclut un paramètre utilisant le même nom que l’un des paramètres dans la commande PowerShell, PowerShell présente le paramètre de votre modèle avec le suffixe **FromTemplate**. Par exemple, un paramètre nommé **ResourceGroupName** dans votre modèle est en conflit avec le paramètre **ResourceGroupName** dans la cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**. En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
 
-## <a name="test-a-template-deployment"></a>Tester le déploiement d’un modèle
+## <a name="test-template-deployments"></a>Tester les déploiements de modèles
 
 Pour tester votre modèle et vos valeurs de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment).  
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
+  -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
 ```
 
 Si aucune erreur n’est détectée, la commande se termine sans réponse. Si une erreur est détectée, la commande retourne un message d’erreur. Par exemple, la transmission d’une valeur incorrecte pour la référence (SKU) du compte de stockage retourne l’erreur suivante :
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\storage.json -storageAccountType badSku
+  -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType badSku
 
 Code    : InvalidTemplate
 Message : Deployment template validation failed: 'The provided value 'badSku' for the template parameter 'storageAccountType'
@@ -197,9 +226,8 @@ Test-AzResourceGroupDeployment : After parsing a value an unexpected character w
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Les exemples de cet article permettent de déployer des ressources dans un groupe de ressources pour votre abonnement par défaut. Pour utiliser un autre abonnement, consultez [Gérer plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
-* Pour spécifier comment gérer les ressources présentes dans le groupe de ressources, mais non définies dans le modèle, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
-* Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
-* Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](resource-manager-powershell-sas-token.md).
-* Pour déployer en toute sécurité votre service sur plusieurs régions, consultez [Azure Deployment Manager](deployment-manager-overview.md).
+
+- Pour déployer en toute sécurité votre service sur plusieurs régions, consultez [Azure Deployment Manager](deployment-manager-overview.md).
+- Pour spécifier comment gérer les ressources présentes dans le groupe de ressources, mais non définies dans le modèle, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
+- Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](resource-manager-powershell-sas-token.md).

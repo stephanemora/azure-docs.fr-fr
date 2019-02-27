@@ -73,7 +73,8 @@
 #### [Examiner les conditions requises](storsimple-8000-system-requirements.md)
 #### [Passer en revue les spécifications techniques](storsimple-8000-technical-specifications-and-compliance.md)
 #### [Comprendre les limites](storsimple-8000-limits.md)
-#### [meilleures pratiques](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
+#### [Bonnes pratiques
+](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
 
 
 ### Installer
@@ -199,8 +200,8 @@
 ### Archivage
 #### [Update 3](storsimple-update3-release-notes.md)
 #### [Update 2.2](storsimple-update21-release-notes.md)
-#### [Update 2 ](storsimple-update2-release-notes.md)
-#### [Update 1 ](storsimple-update1-release-notes.md)
+#### [Update 2](storsimple-update2-release-notes.md)
+#### [Update 1](storsimple-update1-release-notes.md)
 #### [Update 0.3](storsimple-february-2015-release-notes.md)
 #### [Update 0.2](storsimple-january-2015-release-notes.md)
 #### [Update 0.1](storsimple-october-2014-release-notes.md)

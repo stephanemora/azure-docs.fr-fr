@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 5daf60669d6e647fc1060bb5ac172b777c9559c5
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 23adf2903a50727d920e4a20b8a325313fa39e2a
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512293"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428005"
 ---
 # <a name="azure-stack-registration"></a>Inscription d’Azure Stack
 Vous pouvez inscrire le Kit de développement Azure Stack auprès d’Azure pour télécharger des éléments de la Place de marché à partir d’Azure et renvoyer des rapports de données commerciales à Microsoft. L’inscription est obligatoire pour prendre en charge les fonctionnalités complètes d’Azure Stack, notamment la syndication de la Place de marché. L'inscription est requise pour vous permettre de tester les fonctionnalités importantes d'Azure Stack, comme la syndication de marketplace et les rapports d'utilisation. Après avoir inscrit Azure Stack, l’utilisation est signalée à Azure Commerce. Vous pouvez la consulter sous l’abonnement utilisé pour l’inscription. Toutefois, l’utilisation du kit de développement Azure Stack n’est pas facturée à ses utilisateurs.
@@ -48,7 +48,7 @@ Pour inscrire le kit ASDK auprès d’Azure, procédez aux étapes suivantes.
 
 1. Ouvrez une console PowerShell en tant qu’administrateur.  
 
-2. Exécutez les commandes PowerShell suivantes pour inscrire votre installation ASDK auprès d’Azure. Vous devrez vous connecter à votre abonnement Azure et à l’installation ASDK locale. Si vous n’avez toujours pas d’abonnement Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.<br><br>Définissez un nom unique pour l'inscription au moment de l'exécution de la cmdlet **Set-AzsRegistration**. Par défaut, le paramètre **RegistrationName** a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue.
+2. Exécutez les commandes PowerShell suivantes pour inscrire votre installation ASDK auprès d’Azure. Vous devrez vous connecter à votre ID d'abonnement de facturation Azure et à l’installation ASDK locale. Si vous n’avez toujours pas d’ID d'abonnement de facturation Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.<br><br>Définissez un nom unique pour l'inscription au moment de l'exécution de la cmdlet **Set-AzsRegistration**. Par défaut, le paramètre **RegistrationName** a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue.
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 

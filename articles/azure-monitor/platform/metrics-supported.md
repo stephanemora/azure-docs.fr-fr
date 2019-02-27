@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473824"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408865"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor. D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. La liste ci-dessous englobe uniquement les métriques disponibles en utilisant le pipeline de métriques Azure Monitor consolidé. Pour rechercher ces métriques et y accéder, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -652,14 +652,52 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|
-|MetadataRequests|Demandes de métadonnées|Nombre|Nombre|Nombre de demandes de métadonnées. Cosmos DB gère la collection des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement.|DatabaseName, CollectionName, Region, StatusCode|
-|MongoRequestCharge|Frais des requêtes Mongo|Nombre|Total|Unités de requête Mongo consommées|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|MongoRequests|Requêtes Mongo|Nombre|Nombre|Nombre de requêtes Mongo effectuées|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|TotalRequestUnits|Unités de requête totales|Nombre|Total|Unités de requête consommées|DatabaseName, CollectionName, Region, StatusCode|
-|TotalRequests|Total de requêtes|Nombre|Nombre|Nombre de requêtes effectuées|DatabaseName, CollectionName, Region, StatusCode|
+### <a name="request-metrics"></a>Métriques de demande
 
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions| Granularités de temps| Mappage de métrique héritée | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |   Total de requêtes| Nombre   | Nombre | Nombre de requêtes effectuées|  DatabaseName, CollectionName, Region, StatusCode|   Tous |   TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Erreur interne du service, Service indisponible, Requêtes limitées, Requêtes moyennes par seconde |    Permet de surveiller les requêtes par code d'état, collection à une granularité d'une minute. Pour obtenir les requêtes moyennes par seconde, utilisez l'agrégation Count pour une minute et divisez-la par 60. |
+| MetadataRequests |    Demandes de métadonnées   |Nombre| Nombre   | Nombre de demandes de métadonnées. Azure Cosmos DB gère la collection des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement.    | DatabaseName, CollectionName, Region, StatusCode| Tous|  |Permet de surveiller les limitations dues aux requêtes de métadonnées.|
+| MongoRequests |   Requêtes Mongo| Nombre | Nombre|  Nombre de requêtes Mongo effectuées   | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tous |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|   Permet de surveiller les erreurs de requête Mongo, les utilisations par type de commande. |
+
+
+### <a name="request-unit-metrics"></a>Métriques d’unités de requête
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions| Granularités de temps| Mappage de métrique héritée | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|   Frais des requêtes Mongo |  Nombre   |Total  |Unités de requête Mongo consommées|  DatabaseName, CollectionName, Region, CommandName, ErrorCode|   Tous |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Permet de surveiller les unités de requête des ressources Mongo en une minute.|
+| TotalRequestUnits |Unités de requête totales|   Nombre|  Total|  Unités de requête consommées| DatabaseName, CollectionName, Region, StatusCode    |Tous|   TotalRequestUnits|  Permet de surveiller l’utilisation total des unités de requête à une granularité d’une minute. Pour obtenir les unités de requête moyennes consommées par seconde, utilisez l'agrégation Total pour une minute et divisez-la par 60.|
+| ProvisionedThroughput |Débit approvisionné|    Nombre|  Maximale |Débit approvisionné à la granularité de la collection|  DatabaseName, CollectionName|   5 Mo| |   Permet de surveiller le débit approvisionné par collection.|
+
+### <a name="storage-metrics"></a>Métriques de stockage
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions| Granularités de temps| Mappage de métrique héritée | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage| Stockage disponible   |Octets| Total|  Stockage total disponible signalé à une granularité de 5 minutes par région|   DatabaseName, CollectionName, Region|   5 Mo| Stockage disponible|   Permet de surveiller la capacité de stockage disponible (applicable uniquement aux collections de stockage fixe) La granularité minimale doit être de 5 minutes.| 
+| DataUsage |Utilisation des données |Octets| Total   |Utilisation totale des données signalée à une granularité de 5 minutes par région|    DatabaseName, CollectionName, Region|   5 Mo  |Taille des données  | Permet de surveiller l'utilisation totale des données d'une collection et d'une région, la granularité minimale doit être de 5 minutes.|
+| IndexUsage|   Utilisation d'index|    Octets|  Total   |Utilisation d'index total signalée à une granularité de 5 minutes par région|    DatabaseName, CollectionName, Region|   5 Mo| Taille d'index| Permet de surveiller l'utilisation totale des données d'une collection et d'une région, la granularité minimale doit être de 5 minutes. |
+| DocumentQuota|    Quota de document| Octets|  Total|  Quota de stockage total signalé à une granularité de 5 minutes par région. S'applique à f| DatabaseName, CollectionName, Region|   5 Mo  |Capacité de stockage|  Permet de surveiller le quota total d'une collection et d'une région, la granularité minimale doit être de 5 minutes.|
+| DocumentCount|    Nombre de documents| Nombre   |Total  |Nombre de documents total signalé à une granularité de 5 minutes par région|  DatabaseName, CollectionName, Region|   5 Mo  |Nombre de documents|Permet de surveiller le nombre de document total d'une collection et d'une région, la granularité minimale doit être de 5 minutes.|
+
+### <a name="latency-metrics"></a>Métriques de latence
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions| Granularités de temps| Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency    | Latence de réplication|  Millisecondes|   Minimum,Maximum,Average | Latence de réplication P99 des régions source et cible pour le compte géolocalisé| SourceRegion, TargetRegion| Tous | Permet de surveiller la latence de réplication P99 entre deux régions pour un compte géorépliqué. |
+
+### <a name="availability-metrics"></a>Métriques de disponibilité
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions| Granularités de temps| Mappage de métrique héritée | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability   | Disponibilité des services| Pourcentage |Minimum, Maximum|   Disponibilité des requêtes de compte à une granularité d’une heure|  |   1 h  | Disponibilité des services  | Il s’agit du pourcentage des requêtes totales passées. Une requête échoue en raison d'une erreur système si le code d'état correspond à 410, 500 ou 503 Permet de surveiller la disponibilité du compte à une granularité d'une heure. |
+
+### <a name="cassandra-api-metrics"></a>Métriques de l'API Cassandra
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions| Granularités de temps| Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests | Requêtes Cassandra |  Nombre|  Nombre|  Nombre de requêtes d’API Cassandra effectuées|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   Tous| Permet de surveiller les requêtes Cassandra à une granularité d’une minute. Pour obtenir les requêtes moyennes par seconde, utilisez l'agrégation Count pour une minute et divisez-la par 60.|
+| CassandraRequestCharges|  Frais de requête Cassandra| Nombre|   Sum, Min, Max, Avg| Unités de requête consommées par les requêtes d’API Cassandra|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Tous| Permet de surveiller les unités de requête utilisées par minute par un compte d’API Cassandra.|
+| CassandraConnectionClosures   | Fermetures de connexion Cassandra |Nombre| Nombre   |Nombre de connexions Cassandra fermées|    ClosureReason, Region|  Tous | Permet de surveiller la connectivité entre les clients et l’API Cassandra Azure Cosmos DB.|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
@@ -1322,7 +1360,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|BlobCapacity|Capacité d’objet blob|Octets|Total|Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets.|/BlobType|
+|BlobCapacity|Capacité d’objet blob|Octets|Total|Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets.|BlobType|
 |BlobCount|Nombre d’objets blob|Nombre|Total|Nombre d’objets blob dans le service BLOB du compte de stockage.|/BlobType|
 |ContainerCount|Nombre de conteneurs d’objets blob|Nombre|Moyenne|Nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage.|Aucune dimension|
 |Transactions|Transactions|Nombre|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName, Authentication|

@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 065319987b6ec8d1dd5cbbb10198e5a4e470543e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: bcb62b311426c7582202ced3714d01c429118ab5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886818"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268411"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -64,8 +64,8 @@ Quand l’appel `GET /api/stock/value` est établi vers un service externe, vous
 
 Nous travaillons sur une proposition RFC pour le [protocole HTTP de corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Cette proposition définit deux en-têtes :
 
-- `Request-Id` : représente le GUID de l’appel.
-- `Correlation-Context` : représente la collection de paires nom-valeur des propriétés de trace distribuée.
+- `Request-Id`: représente le GUID de l’appel.
+- `Correlation-Context`: représente la collection de paires nom-valeur des propriétés de trace distribuée.
 
 La norme définit également deux schémas pour la génération de `Request-Id` : plat et hiérarchique. Avec le schéma plat, une clé `Id` connue est définie pour la collection `Correlation-Context`.
 
@@ -75,8 +75,8 @@ Application Insights définit [l’extension](https://github.com/lmolkova/correl
 
 Nous migrons vers le [format de traçage distribué W3C](https://w3c.github.io/trace-context/). Il définit :
 
-- `traceparent` : représente l’ID d’opération globalement unique et l’identificateur unique de l’appel.
-- `tracestate` : représente le contexte de traçage propre au système.
+- `traceparent`: représente l’ID d’opération globalement unique et l’identificateur unique de l’appel.
+- `tracestate`: représente le contexte de traçage propre au système.
 
 #### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications ASP.NET classiques
 
@@ -104,7 +104,7 @@ public void ConfigureServices(IServiceCollection services)
 
 - **Configuration d’entrée**
 
-  - Pour les applications J2EE, ajoutez ce qui suit à la balise `<TelemetryModules>` dans le fichier ApplicationInsights.xml :
+  - Pour les applications Java EE, ajoutez ce qui suit à la balise `<TelemetryModules>` dans le fichier ApplicationInsights.xml :
 
     ```xml
     <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>

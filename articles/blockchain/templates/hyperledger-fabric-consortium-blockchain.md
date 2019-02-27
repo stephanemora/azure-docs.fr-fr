@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54829925"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328025"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Réseau consortium de Fabric Hyperledger
 
@@ -100,7 +100,7 @@ Dans **Paramètres réseau**, spécifiez les entrées pour créer ou rejoindre u
 **Configuration réseau**|Vous pouvez choisir de créer un nouveau réseau ou de rejoindre un réseau existant. Si vous choisissez *Rejoindre existant*, vous devez fournir des valeurs supplémentaires. |Nouveau réseau <br/> Rejoindre existant |
 **Mot de passe d’autorité de certification HLF**|Mot de passe utilisé pour les certificats générés par les autorités de certification qui sont créés dans le cadre du déploiement. Le mot de passe doit contenir trois des types de caractères suivants : une majuscule, une minuscule, un chiffre et un caractère spécial.<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|Entre 1 et 25 caractères |
 **Paramètres de l’organisation** |Vous pouvez personnaliser le nom et le certificat de votre organisation ou utiliser des valeurs par défaut.|Default <br/> Avancé |
-**Paramètres de réseau VPN**| Configurer une passerelle de tunnel VPN pour accéder aux machines virtuelles | Oui <br/> Non  |
+**Paramètres de réseau VPN**| Configurer une passerelle de tunnel VPN pour accéder aux machines virtuelles | OUI <br/> Non  |
 
 Sélectionnez **OK**.
 
@@ -113,7 +113,7 @@ Dans **Configuration de l’infrastructure**, configurez la taille et les perfor
 | Nom du paramètre | Description | Valeurs autorisées |
 |---|---|---|
 **Type d’échelle**|Type de déploiement d’une machine virtuelle unique avec plusieurs conteneurs ou de plusieurs machines virtuelles dans un modèle évolutif.|Machine virtuelle unique ou machines virtuelles multiples |
-**Type de disque de machine virtuelle**|Type de stockage prenant en charge chacun des nœuds déployés. <br/> Pour en savoir plus sur le stockage, consultez [Introduction au stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) et [Stockage Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|SSD Standard <br/> SSD Premium |
+**Type de disque de machine virtuelle**|Type de stockage prenant en charge chacun des nœuds déployés. <br/> Pour en savoir plus sur les types de disques disponibles, consultez [Sélectionner un type de disque](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Déploiement de machines virtuelles multiples (paramètres supplémentaires)
 

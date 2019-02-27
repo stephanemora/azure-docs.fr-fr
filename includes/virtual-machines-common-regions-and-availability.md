@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476292"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333971"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Régions et disponibilité des machines virtuelles dans Azure
 Azure fonctionne dans plusieurs centres de données à travers le monde. Ces centres de données sont regroupés en régions géographiques, ce qui vous donne une certaine flexibilité dans le choix de l’emplacement où vous créez vos applications. Il est important de comprendre le fonctionnement des machines virtuelles et de connaître leur emplacement dans Azure, ainsi que les différentes options disponibles pour optimiser les performances, la disponibilité et la redondance. Cet article fournit une vue d’ensemble des fonctionnalités d’optimisation de la disponibilité et de redondance d’Azure.
@@ -72,8 +72,8 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 
 | Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Les données sont répliquées entre plusieurs installations. |Non  |OUI |OUI |Oui |
-| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |Oui |
+| Les données sont répliquées entre plusieurs installations. |Non  |OUI |OUI |OUI |
+| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |OUI |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6. |6. |
 
 Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -92,7 +92,7 @@ Les prix varient selon le type de stockage et la disponibilité que vous sélect
 Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/) pour connaître les informations de tarification des différents types de stockage et options de disponibilité.
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité
-Un groupe à haute disponibilité est un regroupement logique de machines virtuelles au sein d’un centre de données qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe à haute disponibilité proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez. Lorsqu’une seule machine virtuelle utilise le [stockage Azure Premium](../articles/virtual-machines/windows/premium-storage.md), le SLA Azure s’applique pour les événements de maintenance non planifiés. 
+Un groupe à haute disponibilité est un regroupement logique de machines virtuelles au sein d’un centre de données qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe à haute disponibilité proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez. Lorsqu’une seule machine virtuelle utilise des [disques SSD Azure Premium](../articles/virtual-machines/windows/disks-types.md#premium-ssd), le contrat SLA Azure s’applique pour les événements de maintenance non planifiés.
 
 Un groupe à haute disponibilité est composé de deux regroupements supplémentaires qui vous protègent contre les défaillances matérielles et autorisent l’application des mises à jour en toute sécurité dans des domaines d’erreur (FD) et des domaines de mise à jour (UD). Vous pouvez en savoir plus sur la gestion de la disponibilité des [machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md) ou des [machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md).
 

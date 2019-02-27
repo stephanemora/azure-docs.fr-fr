@@ -8,27 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861270"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312527"
 ---
-# <a name="detecting-adult-and-racy-content"></a>Détection du contenu pour adultes et osé
+# <a name="detect-adult-and-racy-content"></a>Détecter du contenu pour adultes et choquant
 
-Les différentes catégories visuelles comptent également le groupe pour le contenu suggestif et/ou réservé aux adultes qui permet de détecter des sujets pour adultes et restreint l’affichage des images à caractère sexuel. Le filtre pour la détection de contenu suggestif et réservé aux adultes peut être défini sur une échelle variable pour s’adapter aux préférences de l’utilisateur.
+Vision par ordinateur peut détecter des éléments pour adultes dans les images pour permettre aux développeurs de restreindre l'affichage de telles images dans leurs logiciels. Des indicateurs de contenu sont appliquées avec un score compris entre zéro et un pour permettre aux développeurs d'interpréter les résultats en fonction de leurs préférences. 
 
-## <a name="defining-adult-and-racy-content"></a>Définition du contenu pour adultes et choquant
+> [!NOTE]
+> Cette fonctionnalité est également proposée par le service [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview). Reportez-vous à cette alternative pour des solutions adaptées à des scénarios de modération de contenu plus rigoureux, tels que les flux de travail de modération de contenu et de révision manuelle.
 
-Parmi les différentes fonctionnalités visuelles couvertes par la [méthode Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), la fonctionnalité visuelle Adulte active la détection des images pour adultes et choquantes. Par définition, les images « pour adultes » sont de nature pornographique, et représentent souvent actes sexuels et nudité. Par définition, des images « choquantes » sont de nature sexuellement suggestive et contiennent souvent moins de contenu sexuellement explicite que les images marquées comme étant « pour adultes ». Le type de fonctionnalité visuelle Adulte est couramment utilisé pour restreindre l’affichage des images à contenu sexuellement suggestif et explicitement sexuel.
+## <a name="content-flag-definitions"></a>Définitions des indicateurs de contenu
 
-## <a name="identifying-adult-and-racy-content"></a>Identification du contenu pour adultes et choquant
+Par définition, les images **pour adultes** sont de nature pornographique, et représentent souvent des actes sexuels et de nudité. 
 
-La méthode Analyze Image retourne deux propriétés, `isAdultContent` et `isRacyContent`, dans la réponse JSON de la méthode pour indiquer respectivement du contenu pour adultes et choquant. Les deux propriétés retournent une valeur booléenne, true ou false. Cette méthode retourne également deux propriétés, `adultScore` et `racyScore`, qui représentent respectivement les scores de confiance permettant d’identifier du contenu pour adultes et choquant. Un filtre de confiance pour la détection de contenu pour adultes et choquant peut être défini sur une échelle variable afin de répondre à votre préférence en fonction de votre scénario spécifique.
+Par définition, les images **choquantes** sont de nature sexuellement suggestive et contiennent souvent moins de contenu sexuellement explicite que les images marquées comme étant **pour adultes**. 
+
+## <a name="identify-adult-and-racy-content"></a>Identifier du contenu pour adultes et choquant
+
+API [Analyser](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+
+La méthode Analyze Image retourne deux propriétés booléennes, `isAdultContent` et `isRacyContent`, dans la réponse JSON de la méthode pour indiquer respectivement du contenu pour adultes et choquant. Cette méthode retourne également deux propriétés, `adultScore` et `racyScore`, qui représentent respectivement les scores de confiance permettant d’identifier du contenu pour adultes et choquant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

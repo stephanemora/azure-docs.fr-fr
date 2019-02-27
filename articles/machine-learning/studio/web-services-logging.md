@@ -1,6 +1,6 @@
 ---
 title: Journalisation de service web - Azure Machine Learning Studio | Microsoft Docs
-description: Découvrez comment activer la journalisation pour les services Web de Machine Learning. La journalisation fournit des informations supplémentaires pour vous aider à résoudre les problèmes des API.
+description: Découvrez comment activer la journalisation pour les services Web de Machine Learning Studio. La journalisation fournit des informations supplémentaires pour vous aider à résoudre les problèmes des API.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 80a5ec64a2afd2367acaedd6e44ffe1a21e9c622
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474381"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270086"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio
-Ce document fournit des informations sur la fonctionnalité de journalisation des services web Machine Learning. La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning.  
+Ce document fournit des informations sur la fonctionnalité de journalisation des services web Machine Learning Studio. La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning Studio.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Comment activer la journalisation pour un service web
 
-Vous activez la journalisation à partir du portail des [services web Azure Machine Learning](https://services.azureml.net). 
+Vous activez la journalisation à partir du portail des [services web Azure Machine Learning Studio](https://services.azureml.net). 
 
-1. Connectez-vous au portail des services web Azure Machine Learning à l’adresse [https://services.azureml.net](https://services.azureml.net). Pour un service web classique, vous pouvez également accéder au portail en cliquant sur **Nouvelle expérience de services web** dans la page des services web Machine Learning dans Machine Learning Studio.
+1. Connectez-vous au portail des services web Azure Machine Learning Studio à l’adresse [https://services.azureml.net](https://services.azureml.net). Pour un service web classique, vous pouvez également accéder au portail en cliquant sur **Nouvelle expérience de services web** dans la page des services web Machine Learning Studio dans Machine Learning Studio.
 
    ![Lien Nouvelle expérience de services web](./media/web-services-logging/new-web-services-experience-link.png)
 

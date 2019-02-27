@@ -2,24 +2,24 @@
 title: Envoyer des événements à l’aide de Node.js - Azure Event Hubs | Microsoft Docs
 description: Cet article décrit la procédure à suivre pour créer une application Node.js qui envoie des événements d’Azure Event Hubs.
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 7281e6bb2dda5dc3fddb5f39bf271293ebb88a73
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: ec3182d11f1b2ffa31acd05fa1f2db695f3f2cf7
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732009"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447716"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Envoyer des événements vers Azure Event Hubs avec Node.js
 
-Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
+Azure Event Hubs est une plateforme de streaming Big Data et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
 
 Ce tutoriel décrit comment envoyer des événements à un hub d’événements à partir d’une application écrite en Node.js.
 
@@ -56,7 +56,7 @@ Le Kit de développement logiciel (SDK) que vous avez cloné contient plusieurs 
 
 1. Ouvrez le projet dans Visual Studio Code. 
 2. Créez un fichier nommé **.env** sous le dossier **client**. Copiez et collez les exemples de variables d’environnement du fichier **sample.env** dans le dossier racine.
-3. Configurez la chaîne de connexion de votre Event Hub, le nom de l’Event Hub et le point de terminaison de stockage. Vous pouvez copier la chaîne de connexion de votre Event Hub de la **clé primaire de chaîne de connexion** sous **RootManageSharedAccessKey** sur la page Event Hub dans le portail Azure. Pour des instructions détaillées, consultez la rubrique [Obtenir la chaîne de connexion](event-hubs-create.md#create-an-event-hubs-namespace).
+3. Configurez la chaîne de connexion de votre Event Hub, le nom de l’Event Hub et le point de terminaison de stockage. Pour des instructions sur l’obtention d’une chaîne de connexion pour un Event Hub, consultez [Obtenir la chaîne de connexion](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Dans l’interface de ligne de commande Azure, accédez au chemin d’accès du dossier **client**. Installez les packages de nœud et générez le projet en exécutant les commandes suivantes :
 
     ```shell
@@ -70,30 +70,40 @@ Le Kit de développement logiciel (SDK) que vous avez cloné contient plusieurs 
     ```
 
 
-## <a name="review-the-sample-code"></a>Passer en revue l’exemple de code 
-Voici l’exemple de code permettant d’envoyer des événements à un hub d’événements à l’aide de Node.js. Vous pouvez manuellement créer un fichier sampleSender.js et l’exécuter pour envoyer des événements à un hub d’événements. 
-
+## <a name="review-the-sample-code"></a>Réviser l’exemple de code 
+Examinez l’exemple de code du fichier simpleSender.js pour envoyer des événements à un Event Hub.
 
 ```javascript
-const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const lib_1 = require("../lib");
+const dotenv = require("dotenv");
+dotenv.config();
+const connectionString = "EVENTHUB_CONNECTION_STRING";
+const entityPath = "EVENTHUB_NAME";
+const str = process.env[connectionString] || "";
+const path = process.env[entityPath] || "";
 
 async function main() {
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
-    // const eventData = { body: { "message": "Hello World" } };
-    const data = { body: "Hello World 1" };
+    const client = lib_1.EventHubClient.createFromConnectionString(str, path);
+    const data = {
+        body: "Hello World!!"
+    };
     const delivery = await client.send(data);
-    console.log("message sent successfully.");
+    console.log(">>> Sent the message successfully: ", delivery.tag.toString());
+    console.log(delivery);
+    console.log("Calling rhea-promise sender close directly. This should result in sender getting reconnected.");
+    await Object.values(client._context.senders)[0]._sender.close();
+    // await client.close();
 }
 
 main().catch((err) => {
-    console.log(err);
+    console.log("error: ", err);
 });
 
 ```
 
-N’oubliez pas de définir les variables d’environnement avant d’exécuter le script. Vous pouvez les configurer dans la ligne de commande, comme indiqué dans l’exemple suivant, ou utiliser le [package dotenv](https://www.npmjs.com/package/dotenv#dotenv). 
+N’oubliez pas de définir vos variables d’environnement avant d’exécuter le script. Vous pouvez les configurer dans la ligne de commande, comme indiqué dans l’exemple suivant, ou utiliser le [package dotenv](https://www.npmjs.com/package/dotenv#dotenv). 
 
 ```shell
 // For windows

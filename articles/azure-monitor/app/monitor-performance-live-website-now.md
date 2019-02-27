@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3daa1c7b3594de227c43d7e722ee9c6cae0902f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301609"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301024"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumenter des applications web lors de l’exécution avec Application Insights Status Monitor
 
@@ -27,7 +27,7 @@ Status Monitor est utilisé pour instrumenter une application .NET hébergée da
 
 - Si votre application est déployée dans Azure App Services, suivez [les instructions ci-dessous](azure-web-apps.md).
 - Si votre application est déployé dans une machine virtuelle Azure, vous pouvez activer l’analyse Application Insights à partir du panneau de configuration Azure.
-- (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](java-live.md) et [d’Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (Des articles distincts sont également consacrés à l’instrumentation des [applications web Java EE actives](java-live.md) et [d’Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Capture d’écran des graphiques de vue d’ensemble App Insights qui contiennent des informations sur les demandes ayant échoué, le temps de réponse du serveur et les requêtes serveur](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -44,14 +44,14 @@ Voici un résumé de ce que vous apporte chaque méthode :
 
 |  | En cours de création | En cours d’exécution |
 | --- | --- | --- |
-| Requêtes et exceptions |Oui |Oui |
-| [Exceptions plus détaillées](../../azure-monitor/app/asp-net-exceptions.md) | |Oui |
+| Requêtes et exceptions |OUI |OUI |
+| [Exceptions plus détaillées](../../azure-monitor/app/asp-net-exceptions.md) | |OUI |
 | [Diagnostics de dépendance](../../azure-monitor/app/asp-net-dependencies.md) |Sur .NET 4.6 +, mais moins détaillé |Oui, tous les détails : codes de résultat, texte de commande SQL, verbe HTTP|
-| [Compteurs de performances système](../../azure-monitor/app/performance-counters.md) |Oui |Oui |
-| [API pour la télémétrie personnalisée][api] |Oui |Non  |
-| [Intégration des journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) |Oui |Non  |
-| [Mode Page et données utilisateur](../../azure-monitor/app/javascript.md) |Oui |Non  |
-| Nécessité de régénérer le code |Oui | Non  |
+| [Compteurs de performances système](../../azure-monitor/app/performance-counters.md) |OUI |OUI |
+| [API pour la télémétrie personnalisée][api] |OUI |Non  |
+| [Intégration des journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) |OUI |Non  |
+| [Mode Page et données utilisateur](../../azure-monitor/app/javascript.md) |OUI |Non  |
+| Nécessité de régénérer le code |OUI | Non  |
 
 
 

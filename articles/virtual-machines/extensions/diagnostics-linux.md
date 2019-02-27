@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387044"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313532"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux
 
@@ -127,7 +127,7 @@ Cet ensemble d’informations de configuration contient des informations sensibl
 }
 ```
 
-NOM | Valeur
+Nom | Valeur
 ---- | -----
 storageAccountName | Nom du compte de stockage dans lequel les données sont écrites par l’extension.
 storageAccountEndPoint | (facultatif) Le point de terminaison identifiant le cloud dans lequel se trouve le compte de stockage. Si ce paramètre est absent, l’extension de diagnostic Linux utilise par défaut le cloud public Azure, `https://core.windows.net`. Pour utiliser un compte de stockage Azure Allemagne, Azure Government ou Azure Chine, définissez cette valeur en conséquence.
@@ -316,7 +316,7 @@ Type | Identifie le fournisseur réel de la mesure.
 class | Avec « counter », identifie la métrique spécifique au sein de l’espace de noms du fournisseur.
 counter | Avec « class », identifie la métrique spécifique au sein de l’espace de noms du fournisseur.
 counterSpecifier | Identifie la métrique spécifique au sein de l’espace de noms des métriques Azure.
-condition | (facultatif) Sélectionne une instance spécifique de l’objet auquel s’applique la métrique ou sélectionne l’agrégation sur toutes les instances de cet objet. Pour plus d’informations, consultez les [ `builtin` définitions des métriques](#metrics-supported-by-builtin).
+condition | (facultatif) Sélectionne une instance spécifique de l’objet auquel s’applique la métrique ou sélectionne l’agrégation sur toutes les instances de cet objet. Pour plus d’informations, consultez les définitions des métriques `builtin`.
 sampleRate | Intervalle IS 8601 qui définit la fréquence à laquelle des échantillons bruts sont collectés pour cette métrique. S’il n’est pas défini, l’intervalle de collecte est défini par la valeur de [sampleRateInSeconds](#ladcfg). L’échantillonnage le plus court pris en charge est de 15 secondes (PT15S).
 unité | Doit être l’une des chaînes suivantes : « Count », « Bytes », « Seconds », « Percent », « CountPerSecond », « BytesPerSecond », « Millisecond ». Définit l’unité pour la métrique. Les consommateurs des données collectées attendent des valeurs de données collectées correspondant à cette unité. L’extension de diagnostic Linux ignore ce champ.
 displayName | Étiquette (dans la langue spécifiée par les paramètres régionaux associés) à attacher à ces données dans les métriques Azure. L’extension de diagnostic Linux ignore ce champ.

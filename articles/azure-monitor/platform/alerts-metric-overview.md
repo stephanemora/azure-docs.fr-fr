@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005516"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342981"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
-Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de métriques de la plateforme, de [métriques personnalisées](../../azure-monitor/platform/metrics-custom-overview.md), de [journaux courants d’Azure Monitor convertis en métriques](../../azure-monitor/platform/alerts-metric-logs.md) ou de métriques standard d’Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
+Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de [métriques de la plateforme](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), de [métriques personnalisées](../../azure-monitor/platform/metrics-custom-overview.md), de [journaux courants d’Azure Monitor convertis en métriques](../../azure-monitor/platform/alerts-metric-logs.md) et de métriques Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
 
 ## <a name="how-do-metric-alerts-work"></a>Fonctionnement des alertes de métrique
 
@@ -65,8 +65,6 @@ Par exemple, si l’utilisation de « myVM » demeure au-dessus du seuil lors 
 Au bout d’un moment, l’utilisation de « myVM » revient à la normale (au-dessous du seuil). la règle d’alerte surveille l’état deux fois de plus, puis envoie une notification de résolution. La règle d’alerte envoie un message de résolution/désactivation lorsque la condition d’alerte n’est pas remplie pendant trois périodes consécutives pour réduire le bruit en cas de flottement de conditions.
 
 Comme la notification de résolution est envoyée par le biais de webhooks ou d’un e-mail, l’état de l’instance d’alerte (état de l’analyse) dans le portail Azure est également défini comme résolu.
-
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Surveillance à l’échelle à l’aide d’alertes de métrique dans Azure Monitor
 
 ### <a name="using-dimensions"></a>Utilisation de dimensions
 
@@ -123,9 +121,9 @@ Cette règle surveille si l’utilisation moyenne du processeur pendant les 5 d
 
 L’allongement des périodes passées à vérifier et le nombre de violations peuvent aussi vous permettre de filtrer les alertes de sorte à seulement recevoir une conformément à votre définition d’un écart significatif. [Découvrez-en plus sur les options avancées des seuils dynamiques](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Supervision de plusieurs ressources à l’aide d’alertes de métrique
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Surveillance à l’échelle à l’aide d’alertes de métrique dans Azure Monitor
 
-Comme vous l’avez vu dans la section précédente, il est possible d’avoir une seule règle d’alerte de métrique unique qui surveille chaque combinaison de dimensions (par exemple, une série chronologique de métriques). Toutefois, vous étiez auparavant toujours contraint de n’effectuer l’opération que sur une seule ressource à la fois. Azure Monitor prend également en charge la supervision de plusieurs ressources avec une seule règle d’alerte de métrique. Cette fonctionnalité est actuellement disponible en préversion et n’est prise en charge que sur les machines virtuelles. En outre, une alerte de métrique unique ne peut superviser les ressources que dans une seule région Azure.
+Pour l'instant, vous avez vu la manière d'utiliser une alerte de métrique unique pour surveiller une ou plusieurs séries chronologiques de métriques liées à une seule ressource Azure. Vous apprécierez de pouvoir appliquer la même règle d'alerte à de nombreuses ressources. Azure Monitor prend également en charge la supervision de plusieurs ressources avec une seule règle d’alerte de métrique. Actuellement, cette fonctionnalité est uniquement prise en charge sur les machines virtuelles. En outre, une alerte de métrique unique ne peut superviser les ressources que dans une seule région Azure.
 
 Vous disposez de trois méthodes pour spécifier l’étendue de la supervision par une alerte de métrique unique :
 
@@ -133,7 +131,7 @@ Vous disposez de trois méthodes pour spécifier l’étendue de la supervision 
 - pour toutes les machines virtuelles (dans une seule région Azure) dans un ou plusieurs groupes de ressources d’un abonnement ;
 - pour toutes les machines virtuelles (dans une seule région Azure) d’un abonnement.
 
-La création de règles d’alerte de métrique surveillant plusieurs ressources n’est pas actuellement prise en charge via le portail Azure. Vous pouvez créer ces règles par le biais des [modèles Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Vous recevrez des notifications individuelles pour chaque machine virtuelle.
+La création de règles d'alerte de métrique surveillant plusieurs ressources est similaire à la [création de toute autre alerte de métrique](alerts-metric.md) surveillant une seule ressource, à la différence près que vous sélectionnez toutes les ressources que vous souhaitez surveiller. Vous pouvez également créer ces règles par le biais des [modèles Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Vous recevrez des notifications individuelles pour chaque machine virtuelle.
 
 ## <a name="typical-latency"></a>Latence classique
 
@@ -149,7 +147,7 @@ Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à 
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | OUI |
 | Microsoft.Batch/batchAccounts| OUI|
-|Microsoft.Cache/redis| OUI
+|Microsoft.Cache/redis| OUI |
 |Microsoft.ClassicCompute/virtualMachines | Non  |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Non |
 |Microsoft.CognitiveServices/accounts | Non  |
@@ -160,7 +158,7 @@ Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à 
 |Microsoft.DBforMySQL/servers| OUI|
 |Microsoft.DBforPostgreSQL/servers| OUI|
 |Microsoft.Devices/IotHubs | Non |
-|Microsoft.DocumentDB/databaseAccounts| Non |
+|Microsoft.DocumentDB/databaseAccounts| OUI|
 |Microsoft.EventHub/namespaces | OUI|
 |Microsoft.Logic/workflows | OUI|
 |Microsoft.Network/loadBalancers |OUI|
@@ -168,16 +166,16 @@ Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à 
 |Microsoft.Network/applicationGateways| OUI|
 |Microsoft.Network/expressRouteCircuits| OUI|
 |Microsoft.Network/trafficManagerProfiles | OUI|
-|Microsoft.Search/searchServices | Non |
-|Microsoft.ServiceBus/namespaces| Non |
+|Microsoft.Search/searchServices | OUI|
+|Microsoft.ServiceBus/namespaces| OUI |
 |Microsoft.Storage/storageAccounts | OUI|
 |Microsoft.StreamAnalytics/streamingjobs| OUI|
 |Microsoft.TimeSeriesInsights/environments | OUI|
 |Microsoft. Web/serverfarms | OUI |
 |Microsoft. Web/sites (à l’exclusion de Functions) | OUI|
 |Microsoft. Web/hostingEnvironments/multiRolePools | Non |
-|Microsoft. Web/hostingEnvironments/workerPools| Non 
-|Microsoft.SQL/Servers | Non |
+|Microsoft. Web/hostingEnvironments/workerPools| Non  |
+|Microsoft.SQL/Servers | Non  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

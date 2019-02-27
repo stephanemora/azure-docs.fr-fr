@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765788"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456994"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -73,7 +73,7 @@ Les informations suivantes sont requises en tant qu’entrées pour les paramèt
 
 Pour les déploiements d’Active Directory sur plusieurs sites, configurez le site Active Directory le plus proche de votre déploiement Azure Stack. La configuration évite que le service Azure Stack Graph ne résolve les requêtes en utilisant un serveur de catalogue global d’un site distant.
 
-Ajoutez le sous-réseau [Réseau de l’adresse IP virtuelle publique](azure-stack-network.md#public-vip-network) Azure Stack au site Azure Active Directory le plus proche d’Azure Stack. Par exemple, si vous avez deux sites Active Directory, un à Seattle et l’autre à Redmond, et qu’Azure Stack est déployé sur le site de Seattle, vous devez ajouter le sous-réseau du réseau d’adresse IP virtuelle publique Azure Stack au site Azure AD de Seattle.
+Ajoutez le sous-réseau [Réseau de l’adresse IP virtuelle publique](azure-stack-network.md#public-vip-network) Azure Stack au site Active Directory le plus proche d’Azure Stack. Par exemple, si vous avez deux sites Active Directory, un à Seattle et l’autre à Redmond, et qu’Azure Stack est déployé sur le site de Seattle, vous devez ajouter le sous-réseau du réseau d’adresse IP virtuelle publique Azure Stack au site Active Directory de Seattle.
 
 Pour plus d’informations sur les sites Active Directory, consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 

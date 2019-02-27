@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358148"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327542"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installer le client Chef à partir du portail Azure
 Vous pouvez ajouter l’extension du client Chef directement sur une machine Linux ou Windows à partir du portail Azure. Cet article vous guide tout au long du processus, qui utilise une machine virtuelle Linux.
@@ -53,7 +53,7 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
 1. Sous l’onglet **De base**, spécifiez les valeurs suivantes, puis sélectionnez **OK**.
 
     - **Nom** : Entrez le nom de la nouvelle machine virtuelle.
-    - **Type de disque de machine virtuelle** : spécifiez **SSD** ou **HDD** pour le type de disque de stockage. Pour plus d’informations sur les types de disques de machine virtuelle dans Azure, consultez l’article [Stockage Premium hautes performances et disques managés pour machines virtuelles](/azure/virtual-machines/windows/premium-storage).
+    - **Type de disque de machine virtuelle** : spécifiez **SSD** ou **HDD** pour le type de disque de stockage. Pour plus d’informations sur les types de disques de machine virtuelle dans Azure, consultez l’article [Sélectionner un type de disque](../virtual-machines/windows/disks-types.md).
     - **Nom d’utilisateur** : entrez le nom d’un utilisateur qui dispose de privilèges d’administrateur sur la machine virtuelle.
     - **Authentication type (Type d’authentification)** : sélectionnez **Password (Mot de passe)**. Vous pouvez également sélectionner **Clé publique SSH** et fournir une valeur pour cette clé. Pour cette démonstration (et dans les captures d’écran), **Mot de passe** est sélectionné.
     - **Mot de passe** et **Confirmer le mot de passe** : entrez un mot de passe pour l’utilisateur.

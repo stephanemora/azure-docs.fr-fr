@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077469"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313481"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -35,6 +35,7 @@ Certaines limitations s’appliquent lorsque vous déployez des groupes de conte
 
 * Pour déployer des groupes de conteneurs dans un sous-réseau, le sous-réseau ne peut pas contenir d’autres types de ressources. Supprimez toutes les ressources d’un sous-réseau avant de déployer des groupes de conteneurs dans celui-ci, ou créez un sous-réseau.
 * Les groupes de conteneurs déployés dans un réseau virtuel ne prennent pas en charge les adresses IP publiques ou les étiquettes de nom DNS.
+* Vous ne pouvez pas utiliser une [identité managée](container-instances-managed-identity.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
 * En raison des ressources réseau supplémentaires impliquées, le déploiement d’un groupe de conteneurs dans un réseau virtuel est généralement un peu plus lent que celui d’une instance de conteneur standard.
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire

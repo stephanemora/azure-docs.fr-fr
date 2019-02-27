@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: bbfb070a66bdae415d357542459ee88fd8b1865f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 7ba0cd37ea4c26485b154663fa4a99e98e3ec64e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104393"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430129"
 ---
 # <a name="security-groups"></a>Groupes de sécurité
 <a name="network-security-groups"></a>
@@ -32,10 +32,10 @@ Un groupe de sécurité réseau contient le nombre des règles souhaité (ou auc
 
 |Propriété  |Explication  |
 |---------|---------|
-|NOM|Nom unique au sein du groupe de sécurité réseau.|
+|Nom|Nom unique au sein du groupe de sécurité réseau.|
 |Priorité | Nombre compris entre 100 et 4096. Les règles sont traitées dans l’ordre croissant, car les nombres les plus faibles sont prioritaires. Une fois que le trafic correspond à une règle, le traitement s’arrête. Par conséquent, les règles avec des priorités plus faibles (des nombres plus élevés) et ayant les mêmes attributs que les règles de priorité supérieure ne sont pas traitées.|
 |Source ou destination| Tout, ou adresse IP, bloc de routage CIDR (10.0.0.0/24, par exemple), une [balise de service](#service-tags) ou [groupe de sécurité d’application](#application-security-groups) individuel(le). Si vous spécifiez une adresse pour une ressource Azure, spécifiez l’adresse IP privée assignée à la ressource. Les groupes de sécurité réseau sont traités une fois qu’Azure a converti une adresse IP publique en adresse IP privée pour le trafic entrant, et avant qu’Azure ne convertisse une adresse IP privée en une adresse IP publique pour le trafic sortant. En savoir plus sur les [adresses IP](virtual-network-ip-addresses-overview-arm.md) Azure. En spécifiant une plage, une balise de service ou un groupe de sécurité d’application, vous pouvez créer moins des règles de sécurité. La possibilité de spécifier plusieurs adresses IP individuelles et plages (vous ne pouvez pas spécifier plusieurs balises de service ou groupes d’applications) dans une règle est désignée sous le nom de [règles de sécurité augmentée](#augmented-security-rules). Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs adresses IP et plages d’adresses IP dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique. En savoir plus sur les [modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocole     | TCP, UDP ou Tout, ce qui inclut TCP, UDP et ICMP. Vous ne pouvez pas spécifier ICMP seul. Si vous avez besoin d’ICMP, vous devez donc utiliser Tout. |
+|Protocole     | TCP, UDP ou Tout, ce qui inclut (sans s'y limiter) TCP, UDP et ICMP. Vous ne pouvez pas spécifier ICMP seul. Si vous avez besoin d’ICMP, vous devez donc utiliser Tout. |
 |Direction| Indique si la règle s’applique au trafic entrant ou sortant.|
 |Plage de ports     |Vous pouvez spécifier un port individuel ou une plage de ports. Par exemple, indiquez 80 ou 10000-10005. La spécification de plages vous permet de créer moins de règles de sécurité. Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs ports ou plages de ports dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique.   |
 |Action     | Autoriser ou refuser        |

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261500"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268870"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -40,7 +40,7 @@ Pour surveiller les alertes ou afficher les données de gestion concernant un co
 
     ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Dans la liste des coffres, cliquez sur un coffre pour ouvrir son tableau de bord **Vue d’ensemble**. 
+4. Dans la liste des coffres, cliquez sur un coffre pour ouvrir son tableau de bord **Vue d’ensemble**.
 
     ![coffre recovery services tableau de bord](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ Pour accéder au menu Alertes de sauvegarde, dans le menu du coffre Recovery Ser
 
 ![Alertes de sauvegarde](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-Le rapport Alertes de sauvegarde répertorie les alertes concernant le coffre. 
+Le rapport Alertes de sauvegarde répertorie les alertes concernant le coffre.
 
 ![Alertes de sauvegarde](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ Par défaut, toutes les informations, à l’exception de **l’heure de la dern
 
 ### <a name="change-the-filter-in-alerts-report"></a>Modifier le filtre du rapport d’alertes
 
-Utilisez le menu **Filtrer** pour changer le niveau de gravité, l’état, ainsi que l’heure de début et l’heure de fin des alertes. 
+Utilisez le menu **Filtrer** pour changer le niveau de gravité, l’état, ainsi que l’heure de début et l’heure de fin des alertes.
 
 > [!NOTE]
 > Le fait de modifier le filtre des alertes de sauvegarde n’a aucun impact sur les alertes critiques ou d’avertissement qui s’affichent dans le tableau de bord Vue d’ensemble du coffre.
@@ -184,7 +184,7 @@ Pour afficher des informations détaillées sur les travaux, cliquez sur **En co
 
 Le menu **Travaux de sauvegarde** affiche des informations sur le type de l’élément, l’opération, l’état, l’heure de début et la durée.  
 
-Pour ouvrir le menu Travaux de sauvegarde, dans le menu principal du coffre, cliquez sur **Travaux de sauvegarde**. 
+Pour ouvrir le menu Travaux de sauvegarde, dans le menu principal du coffre, cliquez sur **Travaux de sauvegarde**.
 
 ![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -263,17 +263,14 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-**Q1. Combien de temps faut-il pour que l’état du travail de l’agent de sauvegarde Azure apparaisse dans le portail ?**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Combien de temps faut-il pour que l’état du travail de l’agent de sauvegarde Azure apparaisse dans le portail ?
+Une quinzaine de minutes peuvent être nécessaires avant que l’état du travail de l’agent de sauvegarde Azure ne s’affiche dans le portail.
 
-R1. Une quinzaine de minutes peuvent être nécessaires avant que l’état du travail de l’agent de sauvegarde Azure ne s’affiche dans le portail.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>En cas d’échec d’un travail de sauvegarde, au bout de combien de temps l’alerte est-elle déclenchée ?
+Une alerte est générée dans les 20 minutes qui suivent l’échec de la sauvegarde Azure.
 
-**Q2. En cas d’échec d’un travail de sauvegarde, au bout de combien de temps l’alerte est-elle déclenchée ?**
-
-R2. Une alerte est générée dans les 20 minutes qui suivent l’échec de la sauvegarde Azure.
-
-**Q3. Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?**
-
-R3 Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?
+Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
 
 * Si les notifications sont configurées sur une base horaire, et qu’une alerte est déclenchée et résolue dans l’heure
 * Si un travail est annulé

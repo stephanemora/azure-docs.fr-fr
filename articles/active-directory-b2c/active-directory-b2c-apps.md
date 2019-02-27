@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ea179ff7e4b525e86003faadfb92e090476bd81
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172644"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446373"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Azure Active Directory B2C
 
@@ -91,10 +91,10 @@ L’API web peut ensuite utiliser le jeton pour vérifier l’identité de l’a
 Une API web peut recevoir des jetons de tous types de clients, notamment des applications web, des applications de bureau et mobiles, des applications monopages, des démons côté serveur, et même d’autres API web. Voici un exemple de flux complet d’une application web appelant une API web :
 
 1. L’application web exécute une stratégie et l’utilisateur termine l’expérience utilisateur.
-2. Azure AD B2C retourne un `access_token` et un code d’autorisation au navigateur.
-3. Le navigateur publie le `access_token` et le code d’autorisation à l’URI de redirection.
-4. Le serveur web valide le `access token` et définit un cookie de session.
-5. Le `access_token` est fourni à Azure AD B2C avec le code d’autorisation, l’ID client de l’application et les informations d’identification.
+2. Azure AD B2C renvoie un `id_token` (OpenID Connect) et un code d’autorisation au navigateur.
+3. Le navigateur publie le `id_token` et le code d’autorisation à l’URI de redirection.
+4. Le serveur web valide le `id_token` et définit un cookie de session.
+5. Le serveur web demande à Azure AD B2C un `access_token` en lui fournissant le code d’autorisation, l'ID du client d'application et les informations d’identification du client.
 6. Le `access_token` et le `refresh_token` sont retournés au serveur web.
 7. L’API web est appelée avec le `access_token` dans un en-tête d’autorisation.
 8. L’API web valide le jeton.

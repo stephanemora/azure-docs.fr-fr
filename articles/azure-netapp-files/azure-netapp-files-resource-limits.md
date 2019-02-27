@@ -1,6 +1,6 @@
 ---
 title: Limites des ressources pour Azure NetApp Files | Microsoft Docs
-description: Décrit les limites des ressources Azure NetApp Files, y compris les limites des pools de capacité, des volumes et du sous-réseau délégué.
+description: Décrit les limites des ressources Azure NetApp Files, y compris les limites des comptes NetApp, des pools de capacité, des volumes et du sous-réseau délégué.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -11,33 +11,29 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
-ms.date: 01/03/2019
+ms.topic: concepts
+ms.date: 02/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f34afb1df2ae38353f29a80bfb6798c16856dbeb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 196d85917e0a9900e141d58bff171beeb8540409
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056355"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430011"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
+
 Comprendre les limites des ressources pour Azure NetApp Files vous permet de gérer vos volumes.
 
-## <a name="capacity_pools"></a>Pools de capacités
-
+- Chaque abonnement Azure peut présenter un maximum de 10 comptes NetApp.
+- Chaque compte NetApp peut disposer d'un maximum de 25 pools de capacité.
+- Chaque pool de capacité peut appartenir à un seul compte NetApp.  
 - La taille minimale d’un pool de capacité est de 4 Tio et sa taille maximale est de 500 Tio. 
-- Chaque pool de capacité peut appartenir à un seul compte NetApp. Toutefois, vous pouvez avoir plusieurs pools de capacité au sein d’un compte NetApp.  
-
-## <a name="volumes"></a>Volumes
-
+- Chaque pool de capacité peut disposer d'un maximum de 500 volumes.
 - La taille minimale d’un volume est de 100 Gio et sa taille maximale est de 92 Tio.
-- Vous pouvez avoir un maximum de 100 volumes par abonnement Azure et par région.  
+- Chaque volume peut disposer d'un maximum de 255 instantanés.
+- Chaque réseau virtuel Azure peut présenter un seul sous-réseau délégué à Azure NetApp Files.
 
-## <a name="delegated_subnet"></a>Sous-réseau délégué 
-
-Dans chaque réseau virtuel Azure, un seul sous-réseau peut être délégué à Azure NetApp Files.
-
-## <a name="next-steps"></a>Étapes suivantes
+**Étapes suivantes**
 
 [Comprendre la hiérarchie de stockage d’Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

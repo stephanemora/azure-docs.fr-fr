@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084053"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333786"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -41,7 +41,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration au sein d’un centre de données assure la disponibilité d’au moins une des machines virtuelles pendant un événement de maintenance planifié ou non, avec le niveau de 99,95 % stipulé dans le contrat de niveau de service (SLA) Azure. Pour plus d’informations, consultez le [SLA pour Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Évitez de laisser une instance unique de machine virtuelle dans un groupe à haute disponibilité. Avec cette configuration, les machines virtuelles ne sont pas sous la garantie du SLA et connaissent des interruptions de service au cours des événements de maintenance planifiés, sauf lorsqu’une machine virtuelle unique utilise le [stockage Premium Azure](../articles/virtual-machines/windows/premium-storage.md). Pour les machines virtuelles uniques utilisant le stockage Premium, le SLA Azure s’applique.
+> Évitez de laisser une instance unique de machine virtuelle dans un groupe à haute disponibilité. Avec cette configuration, les machines virtuelles ne sont pas sous la garantie du SLA et connaissent des interruptions de service au cours des événements de maintenance planifiés, sauf lorsqu’une machine virtuelle unique utilise des [disques SSD Premium Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd). Pour les machines virtuelles uniques utilisant des disques SSD Premium, le contrat SLA Azure s’applique.
 
 Chaque machine virtuelle de votre groupe à haute disponibilité se voit attribuer un **domaine de mise à jour** et un **domaine d’erreur** par la plateforme Azure sous-jacente. Pour un groupe à haute disponibilité donné, cinq domaines de mise à jour non configurables par l’utilisateur sont affectés par défaut (les déploiements Resource Manager peuvent ensuite être étendus à 20 domaines de mise à jour) pour indiquer les groupes de machines virtuelles et les équipements physiques sous-jacents qui peuvent être redémarrés simultanément. Dans le cas où un seul groupe à haute disponibilité comprend plus de cinq machines virtuelles, la sixième machine est placée dans le même domaine de mise à jour que la première, la septième dans le même que la deuxième, etc. Le redémarrage des domaines de mise à jour peut ne pas suivre un ordre séquentiel au cours de la maintenance planifiée, mais un seul domaine de mise à jour peut être redémarré à la fois. Un domaine de mise à jour redémarré bénéficie de 30 minutes pour récupérer avant que la maintenance ne soit lancée sur un autre domaine de mise à jour.
 
@@ -60,7 +60,7 @@ Les [disques gérés](../articles/virtual-machines/windows/managed-disks-overvie
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Si vous prévoyez d’utiliser des machines virtuelles avec des [disques non gérés](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks), suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+Si vous prévoyez d’utiliser des machines virtuelles avec des disques non managés, suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Conservez tous les disques (système d’exploitation et données) associés à une machine virtuelle dans le même compte de stockage.**
 2. **Examinez les [limites](../articles/storage/common/storage-scalability-targets.md) sur le nombre de disques non gérés dans un compte de stockage** avant d’ajouter plus de disques durs virtuels à un compte de stockage.

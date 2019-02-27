@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961344"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454019"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mise à l'échelle de ressources de singletons Azure SQL Database unique
 
@@ -42,7 +42,7 @@ Après la sélection initiale du nombre de vCore, vous pouvez mettre à l’éch
 
 La modification du niveau de service et/ou de la taille de calcul d’une base de données crée un réplica de la base de données d’origine à la nouvelle taille de calcul, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue lors de ce processus, mais pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être restaurées. Le délai de basculement peut varier, mais il est généralement inférieur à 30 secondes dans 99 % des cas. Ce délai peut se révéler supérieur, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
 
-La durée de la totalité du processus de montée en puissance dépend de la taille et du niveau de service de la base de données avant et après la modification. Par exemple, le basculement d’une base de données de 250 Go vers, depuis ou dans un niveau de service usage général ne demande pas plus de six heures. Le changement de la taille de calcul d’une base de données de la même taille dans le niveau de service critique pour l’entreprise doit s’effectuer en moins de trois heures.
+La durée de la totalité du processus de montée en puissance dépend généralement de la taille et du niveau de service de la base de données avant et après la modification. Par exemple, une taille de base de données qui modifie la taille de calcul du niveau de service Usage général doit se terminer sous quelques minutes. En revanche, la latence de changement de la taille de calcul du niveau de service Critique pour l'entreprise est  généralement de 90 minutes ou moins pour 100 Go.
 
 > [!TIP]
 > Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) et [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).

@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2ec578fcc51519cb6794ea87f8e4236d6b1d96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7dfce660340654e98883ae6e696644175c005459
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198080"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343083"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur la façon de déployer certaines fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement suivants aborderont les notions de base (valeur commerciale, planification, conception et procédures opérationnelles) nécessaires pour réussir le lancement de quelques-unes des fonctionnalités Azure AD les plus courantes. 
@@ -29,7 +29,7 @@ Nous aimerions avoir votre avis sur ces documents. Aussi, nous vous invitons à 
 |Scénario |Description |
 |-|-|
 |[Azure Multi-Factor Authentication](https://aka.ms/MFADPDownload)|Azure Multi-Factor Authentication (MFA) est la solution de vérification en deux étapes de Microsoft. À l’aide des méthodes d’authentification approuvées par l’administrateur, Azure MFA contribue à sécuriser l’accès aux données et applications, tout en répondant à la nécessité de mettre en place un processus d’authentification simple.|
-|[Accès conditionnel](https://aka.ms/CADPDownload)|Avec l’accès conditionnel, vous pouvez implémenter des décisions de contrôle d’accès automatisées pour accéder à vos applications cloud qui sont basées sur des conditions.|
+|[Plan téléchargeable](https://aka.ms/CADPDownload) ou [plan en ligne](https://aka.ms/deploymentplans/ca) de l'accès conditionnel|Avec l’accès conditionnel, vous pouvez implémenter des décisions de contrôle d’accès automatisées pour accéder à vos applications cloud qui sont basées sur des conditions.|
 |[Réinitialisation de mot de passe en libre service](https://aka.ms/SSPRDPDownload)|La réinitialisation de mot de passe en libre-service offre à vos utilisateurs la possibilité de réinitialiser leur mot de passe, sans intervention de l’administrateur, quand et où ils en ont besoin.|
 |[Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)|Azure AD Privileged Identity Management (PIM) vous aide à gérer les rôles d’administrateur privilégiés dans Azure AD, les ressources Azure et d’autres services Microsoft Online Services. PIM fournit des solutions telles que l’accès juste-à-temps, des workflows d’approbation de demande et des révisions d’accès entièrement intégrées pour que vous puissiez identifier, découvrir et empêcher les activités malveillantes de rôles privilégiés en temps réel.|
 |[Authentification unique](https://aka.ms/SSODPDownload)|Avec l’authentification unique, vous pouvez accéder à toutes les applications et ressources dont vous avez besoin pour travailler, et ce, en vous connectant une seule fois avec un seul compte d’utilisateur. Une fois connecté, vous pouvez basculer de Microsoft Office à SalesForce ou Box sans devoir vous authentifier à nouveau (par exemple, en tapant un mot de passe).|

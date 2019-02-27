@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247848"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301279"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Systèmes d’exploitation invités pris en charge par Azure Stack
 
@@ -53,7 +53,7 @@ Les éditions de centre de données sont disponibles au téléchargement sur la
 Les distributions Linux répertoriées comme disponibles sur la Place de marché incluent l’agent Windows Azure Linux (WALA) nécessaire. Si vous ajoutez votre propre image à Azure Stack, suivez les instructions de l’article [Ajouter des images Linux à Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Les images personnalisées doivent être générées avec la dernière version publique de WALA. Les versions antérieures à 2.2.18 peuvent ne pas fonctionner correctement sur Azure Stack.
+> Les images personnalisées doivent être générées avec la dernière version publique de WALA ou la version 2.2.20. Les versions antérieures à la version 2.2.20 et comprises entre les versions 2.2.20 et 2.2.35 peuvent ne pas fonctionner correctement sur Azure Stack. 
 >
 > [init-cloud](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour le moment.
 
@@ -70,7 +70,7 @@ Les distributions Linux répertoriées comme disponibles sur la Place de marché
 | SLES 12SP3 | 64 bits | SUSE | OUI |
 | Ubuntu 14.04-LTS | 64 bits | Canonical | OUI |
 | Ubuntu 16.04-LTS | 64 bits | Canonical | OUI |
-| Ubuntu 18.04-LTS | 64 bits | Canonical | Oui |
+| Ubuntu 18.04-LTS | 64 bits | Canonical | OUI |
 
 Pour plus d’informations sur la prise en charge Red Hat Enterprise Linux, consultez [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat et Azure Stack : forum aux questions).
 

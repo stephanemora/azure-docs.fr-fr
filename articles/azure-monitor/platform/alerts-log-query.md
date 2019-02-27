@@ -5,15 +5,15 @@ author: yossi-y
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429784"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447212"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Requêtes d’alertes de journal dans Azure Monitor
 [Les règles d’alerte basées sur des journaux Azure Monitor](alerts-unified-log.md) s’exécutent à intervalles réguliers ; vous devez donc vous assurer que leur écriture minime la surcharge et la latence. Cet article fournit des recommandations concernant l’écriture de requêtes performantes pour les alertes de journal et un processus de conversion des requêtes existantes. 
@@ -31,16 +31,11 @@ Les requêtes qui commencent par `search` ou `union` vous permettent d’effectu
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Bien que `search` et `union` soient utiles durant l’exploration des données, ils recherchent les termes dans le modèle de données entier et sont donc moins efficaces que le recours à une table, dans la mesure où ils doivent analyser plusieurs tables. Les requêtes dans les règles d’alerte étant exécutées à intervalles réguliers, cela peut entraîner une surcharge excessive et ajouter de la latence à l’alerte. En raison de cette surcharge, les requêtes pour les règles d’alerte dans Azure doivent toujours commencer par une table afin de définir une étendue claire, ce qui améliore à la fois les performances des requêtes et la pertinence des résultats.
 
@@ -55,7 +50,9 @@ app('Contoso-app1').requests,
 app('Contoso-app2').requests, 
 workspace('Contoso-workspace1').Perf 
 ```
- 
+
+>[!NOTE]
+>Les [requêtes inter-ressources](../log-query/cross-workspace-query.md) des alertes de journal sont prises en charge par la nouvelle [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Par défaut, Azure Monitor utilise l'[API Alerte Log Analytics héritée](api-alerts.md) pour créer de nouvelles règles d'alerte de journal à partir du portail Azure, sauf si vous basculez depuis l'[API Alertes de journal héritée](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Après le basculement, la nouvelle API devient la valeur par défaut des nouvelles règles d'alerte du portail Azure et vous permet de créer des règles d'alertes de journal pour les requêtes inter-ressources. Vous pouvez créer des règles d'alertes de journal pour les [requêtes inter-ressources](../log-query/cross-workspace-query.md) sans basculer en utilisant le [modèle ARM de l'API schededuRuRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template). Mais cette règle d'alerte est gérable via l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et non à partir du portail Azure.
 
 ## <a name="examples"></a>Exemples
 Les exemples suivants incluent des requêtes de journal qui utilisent `search` et `union`, et présentent les étapes permettant de modifier ces requêtes pour une utilisation avec des règles d’alerte.

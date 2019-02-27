@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164615"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301755"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 
@@ -84,9 +84,9 @@ Outre les rôles d’administration au niveau du serveur abordés précédemment
 
 ### <a name="database-creators"></a>Créateurs de base de données
 
-L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres de ce rôle peuvent créer des bases de données. Pour l’utiliser, vous créez un utilisateur dans la base de données `master`, puis vous ajoutez l’utilisateur au rôle de base de données **dbmanager**. Pour créer une base de données, l’utilisateur doit être un utilisateur basé sur une connexion SQL Server dans la base de données master, ou un utilisateur de base de données autonome basé sur un utilisateur Azure Active Directory.
+L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres de ce rôle peuvent créer des bases de données. Pour l’utiliser, vous créez un utilisateur dans la base de données `master`, puis vous ajoutez l’utilisateur au rôle de base de données **dbmanager**. Pour créer une base de données, l’utilisateur doit être un utilisateur basé sur une connexion SQL Server dans la base de données `master`, ou un utilisateur de base de données autonome basé sur un utilisateur Azure Active Directory.
 
-1. À l’aide d’un compte d’administrateur, connectez-vous à la base de données MASTER.
+1. À l’aide d’un compte d’administrateur, connectez-vous à la base de données `master`.
 2. créer une connexion d’authentification SQL Server à l’aide de l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemple d’instruction :
 
    ```sql
@@ -98,7 +98,7 @@ L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres 
 
    Pour améliorer les performances, les connexions (principaux au niveau du serveur) sont temporairement mises en cache au niveau de la base de données. Pour actualiser le cache d’authentification, consultez [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. Dans la base de données MASTER, créez un utilisateur à l’aide de l’instruction [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données autonome de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données autonome de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Exemples d’instructions :
+3. Dans la base de données `master`, créez un utilisateur à l’aide de l’instruction [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données autonome de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données autonome de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Exemples d’instructions :
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres 
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Ajoutez le nouvel utilisateur au rôle de base de données **dbmanager** à l’aide de l’instruction [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) . Exemples d’instructions :
+4. Ajoutez le nouvel utilisateur au rôle de base de données **dbmanager** dans `master` à l’aide de l’instruction [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Exemples d’instructions :
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres 
 
 5. Si nécessaire, configurez une règle de pare-feu pour permettre au nouvel utilisateur de se connecter. (Le nouvel utilisateur peut être couvert par une règle de pare-feu existante.)
 
-Désormais, l’utilisateur peut se connecter à la base de données MASTER et créer de nouvelles bases de données. Le compte qui crée la base de données devient propriétaire de cette dernière.
+Désormais, l’utilisateur peut se connecter à la base de données `master` et créer de nouvelles bases de données. Le compte qui crée la base de données devient propriétaire de cette dernière.
 
 ### <a name="login-managers"></a>Gestionnaires de connexion
 
@@ -141,11 +141,19 @@ Initialement, seul l’un des administrateurs ou le propriétaire de la base de 
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Pour donner le contrôle total de la base de données aux utilisateurs supplémentaires, faites-les membres du rôle de base de données fixe **db_owner** à l’aide de l’instruction `ALTER ROLE`.
+Pour donner le contrôle total de la base de données aux utilisateurs supplémentaires, faites-les membres du rôle de base de données fixe **db_owner**.
+
+Dans Azure SQL Database, utilisez l'instruction `ALTER ROLE`.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+Dans Azure SQL Data Warehouse, utilisez [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > L’un des motifs courants de création d’un utilisateur de base de données reposant sur une connexion serveur SQL Database correspond à la nécessité pour les utilisateurs d’accéder à plusieurs bases de données. Étant donné que les utilisateurs de base de données autonome constituent des entités individuelles, chaque base de données gère un utilisateur et un mot de passe qui lui sont propres. Cela risque d’entraîner un surcroît de complexité dans la mesure où l’utilisateur doit mémoriser le mot de passe de chacune des bases de données, cette situation pouvant même devenir intenable lorsqu’il devient nécessaire de modifier plusieurs mots de passe pour un grand nombre de bases de données. Toutefois, en cas d’utilisation des connexions SQL Server et de la haute disponibilité (géoréplication active et groupes de basculement), les connexions SQL Server doivent être définies manuellement sur chaque serveur. Dans le cas contraire, l’utilisateur de base de données ne sera plus mappé sur la connexion serveur après un basculement et ne sera pas en mesure d’accéder à la base de données suite au basculement. Pour plus d’informations sur la configuration de connexions pour la géoréplication, consultez l’article [Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement](sql-database-geo-replication-security-config.md).

@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 01f72b8d41c1a973c7d187f519a43ce62929a23e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359355"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270264"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -43,7 +43,11 @@ Cette erreur peut être due aux raisons suivantes :
 #### <a name="resolution"></a>Résolution :
 
 1. Pour savoir quelles adresses et quels ports doivent être autorisés pour le fonctionnement d’Update Management, consultez [Planification du réseau](../automation-hybrid-runbook-worker.md#network-planning).
-2. Si vous utilisez une image clonée, commencez par exécuter sysprep sur l’image et installez l’agent MMA ensuite.
+2. Si vous utilisez une image clonée :
+   1. Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la rechercher enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
+   2. Exécutez `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   3. Exécutez `Restart-Service HealthService` pour redémarrer `HealthService`. Cela recréera la clé et générera un nouvel UUID.
+   4. Si cela ne fonctionne pas, commencez par exécuter sysprep sur l’image et installez l’agent MMA ensuite.
 
 ### <a name="multi-tenant"></a>Scénario : Vous recevez une erreur d’abonnement lié lors de la création d’un déploiement de mise à jour pour les machines d’un autre client Azure.
 

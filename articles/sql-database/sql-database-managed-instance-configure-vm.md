@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 02/18/2019
+ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410059"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408797"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance
 
@@ -41,7 +41,7 @@ Les étapes suivantes créent un sous-réseau dans le réseau virtuel Managed In
 
 2. Sélectionnez **Sous-réseaux** et **+ Sous-réseau** pour créer un sous-réseau.
 
-   ![Sous-réseaux Managed Instance](./media/sql-database-managed-instance-configure-vm/subnets.png)
+   ![Sous-réseaux de l’instance managée](./media/sql-database-managed-instance-configure-vm/subnets.png)
 
 3. Remplissez le formulaire en utilisant les informations contenues dans ce tableau :
 
@@ -76,14 +76,14 @@ Pour créer une machine virtuelle cliente avec tous les outils nécessaires, le 
 
    | Paramètre| Valeur suggérée | Description |
    | ---------------- | ----------------- | ----------- |
-   | **Abonnement** | Abonnement valide | Doit être un abonnement dans lequel vous êtes autorisé à créer des ressources. |
+   | **Abonnement** | Un abonnement valide | Doit être un abonnement dans lequel vous êtes autorisé à créer des ressources. |
    | **Groupe de ressources** |Groupe de ressources que vous avez spécifié dans le guide de démarrage rapide [Créer une instance managée](sql-database-managed-instance-get-started.md).|Ce groupe de ressources doit être celui dans lequel se trouve le réseau virtuel.|
-   | **Emplacement** | Emplacement du groupe de ressources | Cette valeur est renseignée en fonction du groupe de ressources sélectionné. | 
-   | **Nom de la machine virtuelle**  | Tout nom valide | Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Lieu** | Emplacement du groupe de ressources | Cette valeur est renseignée en fonction du groupe de ressources sélectionné. | 
+   | **Nom de la machine virtuelle**  | Nom valide | Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Nom de l’utilisateur administrateur**|Tout nom d’utilisateur valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.<br>Vous utilisez ce nom d’utilisateur chaque fois que vous vous [connectez à la machine virtuelle](#connect-to-virtual-machine).| 
    |**Mot de passe**|Mot de passe valide|Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Vous utilisez ce mot de passe chaque fois que vous vous [connectez à la machine virtuelle](#connect-to-virtual-machine).|
    | **Taille de la machine virtuelle** | Toute taille valide | La valeur par défaut **Standard_B2s** de ce modèle est suffisante pour ce guide de démarrage rapide. |
-   | **Emplacement**|[resourceGroup().location].| Ne changez pas cette valeur. |
+   | **Lieu**|[resourceGroup().location].| Ne changez pas cette valeur. |
    | **Nom du réseau virtuel**|Réseau virtuel dans lequel vous avez créé l’instance managée.|
    | **Nom du sous-réseau**|Nom du sous-réseau que vous avez créé dans la procédure précédente| Ne choisissez pas le sous-réseau dans lequel vous avez créé l’instance managée.|
    | **Emplacement des artefacts** | [deployment().properties.templateLink.uri] | Ne changez pas cette valeur. |
@@ -97,7 +97,8 @@ Pour créer une machine virtuelle cliente avec tous les outils nécessaires, le 
 4. Sélectionnez **Acheter** pour déployer la machine virtuelle Azure dans votre réseau.
 5. Sélectionnez l’icône **Notifications** pour afficher l’état du déploiement.
 
-Patientez jusqu’à ce que la machine virtuelle Azure soit créée. 
+> [!IMPORTANT]
+> Attendez environ 15 minutes après la création de la machine virtuelle afin de donner le temps aux scripts de post-création d'installer SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 

@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: cf20c7dbfbf7cd3f09579b03b835148c1c295137
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600627"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301137"
 ---
 # <a name="consumption-model"></a>Modèle de consommation
 
 Les itinéraires en ligne fournissent un ensemble de paramètres pour une description détaillée du modèle de consommation spécifique du véhicule.
-Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _Combustion_ et _Electric_. Il n’est pas possible de spécifier les paramètres appartenant à des modèles différents dans la même requête.
+Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _Combustion_ et _Electric_. Il n’est pas possible de spécifier les paramètres appartenant à des modèles différents dans la même requête.
 Le modèle de consommation ne peut pas être utilisé avec les valeurs **travelMode** _bicycle_ et _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Contraintes des paramètres pour le modèle de consommation
 
 Dans les deux modèles de consommation, la spécification explicite de certains paramètres requiert la spécification d’autres paramètres. Ces dépendances sont les suivantes :
 
-* Tous les paramètres nécessitent que l’utilisateur spécifie **constantSpeedConsumption**. Il n’est pas possible de spécifier un autre paramètre de modèle de consommation, à l’exception de **vehicleWeight**si **constantSpeedConsumption*** n’est pas spécifié.
+* Tous les paramètres nécessitent que l’utilisateur spécifie **constantSpeedConsumption**. Il n’est pas possible de spécifier un autre paramètre de modèle de consommation, à l’exception de **vehicleWeight**si **constantSpeedConsumption** n’est pas spécifié.
 * **accelerationEfficiency** et **decelerationEfficiency** doivent toujours être spécifiés en tant que paire (autrement dit, les deux ou aucun).
 * Si **accelerationEfficiency** et **decelerationEfficiency** sont spécifiés, le produit de leurs valeurs ne doit pas être supérieur à 1 (pour empêcher tout mouvement perpétuel).
 * **uphillEfficiency** et **downhillEfficiency** doivent toujours être spécifiés en tant que paire (autrement dit, les deux ou aucun).
 * Si **uphillEfficiency** et **downhillEfficiency** sont spécifiés, le produit de leurs valeurs ne doit pas être supérieur à 1 (pour empêcher tout mouvement perpétuel).
-* Si les paramètres \***Efficiency** sont spécifiés par l’utilisateur, **vehicleWeight** doit également être spécifié. Lorsque **vehicleEngineType** a pour valeur _combustion_, **fuelEnergyDensityInMJoulesPerLiter** doit également être spécifié.
+* Si les paramètres \*__Efficiency__ sont spécifiés par l’utilisateur, **vehicleWeight** doit également être spécifié. Lorsque **vehicleEngineType** a pour valeur _combustion_, **fuelEnergyDensityInMJoulesPerLiter** doit également être spécifié.
 * **maxChargeInkWh** et **currentChargeInkWh** doivent toujours être spécifiés en tant que paire (autrement dit, les deux ou aucun).
 
 > [!NOTE]

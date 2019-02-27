@@ -1,7 +1,7 @@
 ---
 title: Déployer un espace de travail Studio avec Azure Resource Manager
 titleSuffix: Azure Machine Learning Studio
-description: Comment déployer un espace de travail pour Azure Machine Learning à l’aide du modèle Azure Resource Manager
+description: Comment déployer un espace de travail pour Azure Machine Learning Studio à l'aide d'un modèle Azure Resource Manager
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: c7f75b2553ada469f4963531fc33f6e5105084b1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 38cd41fecb98a008bbf5a93eddd0d6a346cf3ef7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487794"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453965"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Déployer un espace de travail Azure Machine Learning Studio à l’aide d’Azure Resource Manager
 
-Les modèles de déploiement Azure Resource Manager vous font gagner du temps en vous offrant une méthode évolutive pour déployer des composants interconnectés avec un mécanisme de validation et de nouvelle tentative. Pour configurer des espaces de travail Azure Machine Learning, par exemple, vous devez d’abord configurer un compte de stockage Azure et ensuite déployer votre espace de travail. Imaginez effectuer cette opération manuellement pour des centaines d’espaces de travail. Une alternative plus simple consiste à utiliser un modèle Azure Resource Manager pour déployer un espace de travail Azure Machine Learning et toutes ses dépendances. Cet article vous accompagne tout au long de cette procédure pas à pas. Pour une intéressante présentation d’Azure Resource Manager, consultez [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Les modèles de déploiement Azure Resource Manager vous font gagner du temps en vous offrant une méthode évolutive pour déployer des composants interconnectés avec un mécanisme de validation et de nouvelle tentative. Pour configurer des espaces de travail Azure Machine Learning Studio, par exemple, vous devez d'abord configurer un compte de stockage Azure, puis déployer votre espace de travail. Imaginez effectuer cette opération manuellement pour des centaines d’espaces de travail. Une alternative plus simple consiste à utiliser un modèle Azure Resource Manager pour déployer un espace de travail Studio et toutes ses dépendances. Cet article vous accompagne tout au long de cette procédure pas à pas. Pour une intéressante présentation d’Azure Resource Manager, consultez [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Pas à pas : créer un espace de travail Machine Learning
-Nous créerons un groupe de ressources Azure, puis déploierons un nouveau compte de stockage Azure et un nouvel espace de travail Azure Machine Learning à l’aide d’un modèle Resource Manager. Une fois le déploiement terminé, nous imprimerons des informations importantes sur les espaces de travail créés (clé primaire, workspaceID et URL de l’espace de travail).
+Nous créerons un groupe de ressources Azure, puis déploierons un nouveau compte de stockage Azure et un nouvel espace de travail Azure Machine Learning Studio à l'aide d'un modèle Resource Manager. Une fois le déploiement terminé, nous imprimerons des informations importantes sur les espaces de travail créés (clé primaire, workspaceID et URL de l’espace de travail).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Créer un modèle Azure Resource Manager
 Un espace de travail Machine Learning requiert un compte de stockage Azure pour stocker le jeu de données lié.
@@ -97,7 +97,7 @@ Connect-AzureRmAccount
 ```
 Cette étape doit être répétée pour chaque session. Une fois que vous êtes authentifié, vos informations d’abonnement s’affichent.
 
-![Compte Azure][1]
+![Compte Azure.](./media/deploy-with-resource-manager-template/azuresubscription.png)
 
 Maintenant que nous avons accès à Azure, nous pouvons créer le groupe de ressources.
 
@@ -111,7 +111,7 @@ $rg
 Vérifiez que le groupe de ressources est correctement configuré. **ProvisioningState** doit être « Réussi ».
 Le nom du groupe de ressources est utilisé par le modèle pour générer le nom du compte de stockage. Le nom du compte de stockage doit comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des nombres.
 
-![Groupe de ressources][2]
+![Groupe de ressources](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
 
 * À l’aide du déploiement du groupe de ressources, déployez un nouvel espace de travail Machine Learning.
 
@@ -133,14 +133,12 @@ Une autre méthode pour récupérer des jetons de l’espace de travail existant
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-Après la configuration de l’espace de travail, vous pouvez également automatiser de nombreuses tâches Azure Machine Learning Studio à l’aide du [Module PowerShell pour Azure Machine Learning](https://aka.ms/amlps).
+Après la configuration de l'espace de travail, vous pouvez également automatiser de nombreuses tâches Azure Machine Learning Studio à l'aide du [Module PowerShell pour Azure Machine Learning Studio](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
 * Parcourez le [Référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
 * Regardez cette vidéo sur [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
-* Consultez l’[aide relative à la référence du modèle Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) 
- <!--Image references--> [1] : ./media/deploy-with-resource-manager-template/azuresubscription.png [2] : ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
-
+* Consultez l'[aide de référence sur les modèles Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions).
 
 <!--Link references-->

@@ -10,20 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0f324dec9349b44252a85b2f9334a1b6d847faae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 870345148b55bc6026202fbd433d8575e421faba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247134"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456008"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio
 
-Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning. La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
+Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning Studio. La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
 
 
 
-Il existe différentes manières d’effectuer une sélection de modèle. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans Azure Machine Learning. Comme les langages R et Python sont pris en charge par Azure Machine Learning, vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
+Il existe différentes manières d’effectuer une sélection de modèle. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans Azure Machine Learning Studio. Comme les langages R et Python sont pris en charge par Azure Machine Learning Studio, vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
 
 Le processus de recherche de l’ensemble de paramètres idéal comprend quatre étapes :
 
@@ -32,7 +32,7 @@ Le processus de recherche de l’ensemble de paramètres idéal comprend quatre 
 3. **Définir la métrique** : Déterminez la métrique à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
 4. **Apprentissage, évaluation et comparaison** : Pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la métrique d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
 
-L’image ci-dessous illustre cette opération dans Azure Machine Learning.
+L’image ci-dessous illustre cette opération dans Azure Machine Learning Studio.
 
 ![Trouver l’ensemble de paramètres idéal](./media/algorithm-parameters-optimize/fig1.png)
 
