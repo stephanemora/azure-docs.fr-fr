@@ -8,22 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867118"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447648"
 ---
 # <a name="why-use-batch-transcription"></a>Pourquoi utiliser la transcription Batch ?
 
 La transcription Batch est idéale pour transcrire une grande quantité de données audio stockées dans des objets blob Azure, par exemple. Avec l’API REST dédiée, vous pouvez pointer vers des fichiers audio à l’aide d’un URI de signature d’accès partagé (SAS) et recevoir les transcriptions de manière asynchrone.
 
+## <a name="prerequisites"></a>Prérequis
+
+### <a name="subscription-key"></a>Clé d'abonnement
+
+Comme pour toutes les fonctionnalités du service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, la création de la clé est la seule opération à faire.
+
 >[!NOTE]
 > Pour pouvoir utiliser la transcription Batch, vous avez besoin d’un abonnement standard (S0) pour les services Speech. Les clés d’abonnement gratuit (F0) ne fonctionnent pas. Pour obtenir des informations complémentaires, consultez [tarifs et limites](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+
+### <a name="custom-models"></a>Modèles personnalisés
+
+Si vous souhaitez personnaliser des modèles acoustiques ou de langage, suivez les étapes de [Personnaliser des modèles acoustiques](how-to-customize-acoustic-models.md) et [Personnalisation de modèles de langage](how-to-customize-language-model.md). Pour utiliser les modèles créés dans la transcription de lot, vous avez besoin de leur ID de modèle. Cet ID n’est pas le point de terminaison que vous trouvez dans la vue des détails des points de terminaison, mais l’ID du modèle que vous pouvez récupérer en cliquant sur les détails des modèles.
 
 ## <a name="the-batch-transcription-api"></a>L’API de transcription Batch
 
@@ -34,7 +44,7 @@ L’API de transcription Batch offre une transcription de parole en texte asynch
 1. Téléchargement des transcriptions
 
 > [!NOTE]
-> L’API de transcription Batch est la solution idéale pour les centres d’appels qui accumulent généralement plusieurs milliers d’heures de données audio. L’API est guidée par une philosophie de type « Fire & Forget » (fonctionnement autonome après déclenchement), facilitant la transcription d’importants volumes d’enregistrements audio.
+> L’API de transcription Batch est la solution idéale pour les centres d’appels qui accumulent généralement plusieurs milliers d’heures de données audio. Elle facilite la transcription de volumes importants d’enregistrements audio.
 
 ### <a name="supported-formats"></a>Formats pris en charge
 
@@ -46,170 +56,69 @@ L’API de transcription Batch prend en charge les formats suivants :
 | MP3 | PCM | 16 bits | 8 ou 16 kHz, mono, stéréo |
 | OGG | OPUS | 16 bits | 8 ou 16 kHz, mono, stéréo |
 
-> [!NOTE]
-> L’API de transcription Batch exige une clé S0 (niveau payant). Elle ne fonctionne pas avec une clé gratuite (f0).
+Dans le cas des flux audio stéréo, l’API de transcription Batch divise les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. Cet exemple de demande inclut les propriétés de filtrage des obscénités et les timestamps au niveau des mots. 
 
-Dans le cas des flux audio stéréo, l’API de transcription Batch divise les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. Le fichier JSON suivant présente un exemple de requête, avec les propriétés permettant de configurer le filtre d'obscénités, le modèle de ponctuation et les horodatages au niveau des mots.
+### <a name="configuration"></a>Configuration
+
+Les paramètres de configuration sont fournis au format JSON :
 
 ```json
 {
-  "recordingsUrl": "https://contoso.com/mystoragelocation",
-  "models": [],
-  "locale": "en-US",
-  "name": "Transcription using locale en-US",
-  "description": "An optional description of the transcription.",
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": ["<optional acoustic model ID>, <optional language model ID>"],
+  "locale": "<local to us, for example en-US>",
+  "name": "<user define name of the transcription batch>",
+  "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
     "AddWordLevelTimestamps" : "True"
-  },
+  }
+}
 ```
 
 > [!NOTE]
 > L’API de transcription Batch utilise un service REST pour demander des transcriptions, l’état de ces dernières, ainsi que les résultats associés. Vous pouvez utiliser l’API dans n’importe quelle langue. La section ci-après décrit le mode d’utilisation de l’API.
 
-### <a name="query-parameters"></a>Paramètres de requête
-
-Ces paramètres peuvent être inclus dans la chaîne de la requête REST.
+### <a name="configuration-properties"></a>Propriétés de configuration
 
 | Paramètre | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
 | `ProfanityFilterMode` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive le d’obscénités, `masked` qui remplace les obscénités par des astérisques, `removed` qui supprime tous les obscénités du résultat ou `tags` qui ajoute les balises « obscénité ». Le paramètre par défaut est `masked`. | Facultatif |
 | `PunctuationMode` | Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive la ponctuation, `dictated` qui implique une ponctuation explicite, `automatic` qui permet au décodeur de gérer la ponctuation, ou `dictatedandautomatic` qui implique des marques de ponctuation dictées ou automatiques. | Facultatif |
-
-
-## <a name="authorization-token"></a>Jeton d’autorisation
-
-Comme pour toutes les fonctionnalités du service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, la création de la clé est la seule opération à faire.
-
-Si vous souhaitez personnaliser et utiliser un modèle personnalisé, ajoutez la clé d’abonnement au portail vocal personnalisé en procédant comme suit :
-
-1. Connectez-vous à [Custom Speech](https://customspeech.ai).
-
-2. En haut à droite, sélectionnez **Abonnements**.
-
-3. Sélectionnez **Connecter un abonnement existant**.
-
-4. Dans la fenêtre qui s’affiche, ajoutez la clé d’abonnement et un alias.
-
-    ![Fenêtre Ajouter un abonnement](media/stt/Subscriptions.jpg)
-
-5. Copiez et collez la clé dans l’exemple de code client ci-après.
-
-> [!NOTE]
-> Si vous prévoyez d’utiliser un modèle personnalisé, vous devrez également disposer de l’ID de ce modèle. Il ne s’agit pas de l’ID de point de terminaison qui se trouve dans la vue des détails du point de terminaison. Il s’agit de l’ID de modèle que vous pouvez récupérer lorsque vous sélectionnez les détails du modèle.
+ | `AddWordLevelTimestamps` | Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true`, qui permet des timestamps au niveau des mots, et `false` (la valeur par défaut) pour les désactiver. | Facultatif |
 
 ## <a name="sample-code"></a>Exemple de code
 
-Personnalisez l’exemple de code suivant avec une clé d’abonnement et une clé API. Cette action vous permet d’obtenir un jeton du porteur.
+L’exemple complet est disponible dans le [référentiel d’exemples GitHub](https://aka.ms/csspeech/samples) à l’intérieur du sous-répertoire `samples/batch`.
 
-```cs
-     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+Vous devez personnaliser l’exemple de code avec vos informations d’abonnement, la région du service, le pointage SAS URI vers le fichier audio à transcrire et les ID du modèle si vous souhaitez utiliser un modèle acoustique ou de langage personnalisé. 
 
-        {
-            var client = new HttpClient();
-            client.Timeout = TimeSpan.FromMinutes(25);
-            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+[!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-            return new CrisClient(client);
-        }
-```
+L’exemple de code installe le client et envoie la demande de transcription. Il demande ensuite des informations d’état et imprime les détails de la progression de la transcription.
 
-Après avoir obtenu le jeton, spécifiez l’URI SAS qui pointe vers le fichier audio qui nécessite une transcription. Le reste du code effectue une itération dans l’état et affiche les résultats. Dans un premier temps, vous configurez la clé, de la région, les modèles à utiliser et l’association de sécurité, comme illustré dans l’extrait de code suivant. Ensuite, vous instanciez le client et la demande POST.
+[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
-```cs
-            private const string SubscriptionKey = "<your Speech subscription key>";
-            private const string HostName = "westus.cris.ai";
-            private const int Port = 443;
-
-            // SAS URI
-            private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
-
-            // adapted model Ids
-            private static Guid AdaptedAcousticId = new Guid("guid of the acoustic adaptation model");
-            private static Guid AdaptedLanguageId = new Guid("guid of the language model");
-
-            // Creating a Batch Transcription API Client
-            var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-
-            var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
-```
-
-Maintenant que vous avez effectué la demande, vous pouvez interroger et télécharger les résultats de la transcription, comme illustré dans l’extrait de code suivant :
-
-```cs
-
-            // get all transcriptions for the user
-            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-
-            // for each transcription in the list we check the status
-            foreach (var transcription in transcriptions)
-            {
-                switch(transcription.Status)
-                {
-                    case "Failed":
-                    case "Succeeded":
-
-                            // we check to see if it was one of the transcriptions we created from this client.
-                        if (!createdTranscriptions.Contains(transcription.Id))
-                        {
-                            // not created from here, continue
-                            continue;
-                        }
-
-                        completed++;
-
-                        // if the transcription was successful, check the results
-                        if (transcription.Status == "Succeeded")
-                        {
-                            var resultsUri = transcription.ResultsUrls["channel_0"];
-                            WebClient webClient = new WebClient();
-                            var filename = Path.GetTempFileName();
-                            webClient.DownloadFile(resultsUri, filename);
-                            var results = File.ReadAllText(filename);
-                            Console.WriteLine("Transcription succeeded. Results: ");
-                            Console.WriteLine(results);
-                        }
-
-                    break;
-                    case "Running":
-                    running++;
-                     break;
-                    case "NotStarted":
-                    notStarted++;
-                    break;
-
-                    }
-                }
-            }
-        }
-```
-
-Pour plus d’informations sur les appels précédents, consultez notre [document swagger](https://westus.cris.ai/swagger/ui/index). L’exemple complet présenté ici est disponible sur [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
-
-> [!NOTE]
-> Dans le code précédent, la clé d’abonnement provient de la ressource Speech que vous créez dans le Portail Azure. Les clés obtenues à partir de la ressource Custom Speech Service ne fonctionnent pas.
+Pour plus d’informations sur les appels précédents, consultez notre [document Swagger](https://westus.cris.ai/swagger/ui/index). L’exemple complet présenté ici est disponible sur [GitHub](https://aka.ms/csspeech/samples) dans le sous-répertoire `samples/batch`.
 
 Notez la configuration asynchrone concernant la publication des données audio et la réception de l’état de la transcription. Le client que vous créez est un client HTTP .NET. Il existe une méthode `PostTranscriptions` pour l’envoi des détails du fichier audio, et une méthode `GetTranscriptions` pour la réception des résultats. `PostTranscriptions` renvoie un descripteur et `GetTranscriptions` l’utilise pour créer un descripteur permettant d’obtenir l’état de la transcription.
 
 L’exemple de code actuel ne spécifie pas de modèle personnalisé. Le service utilise les modèles de base pour la transcription du ou des fichiers. Pour spécifier les modèles, vous pouvez transmettre à la même méthode les ID du modèle acoustique et du modèle de langage.
 
-Si vous ne voulez pas utiliser le modèle de base, transmettez à la fois l’ID du modèle acoustique et l’ID du modèle de langage.
-
 > [!NOTE]
-> Dans le cas des transcriptions de base, vous n’avez pas besoin de déclarer les points de terminaison des modèles de base. Si vous souhaitez utiliser des modèles personnalisés, vous fournissez les ID de point de terminaison de ces modèles en guise [d’exemple de code](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Si vous voulez utiliser un modèle acoustique de base avec un modèle de langage de base, vous devez simplement déclarer l’ID de point de terminaison du modèle personnalisé. Microsoft détecte le modèle de base partenaire (modèle acoustique ou de langage) et l’utilise pour traiter la requête de transcription.
+> Dans le cas des transcriptions de base, vous n’avez pas besoin de déclarer l’ID des modèles de base. Si vous spécifiez uniquement un ID de modèle de langage (et pas un ID de modèle acoustique), un modèle acoustique correspondant est automatiquement sélectionné. Si vous spécifiez uniquement un ID de modèle acoustique (et pas un ID de modèle de langage), un modèle de langage correspondant est automatiquement sélectionné.
 
 ### <a name="supported-storage"></a>Stockage pris en charge
 
-Pour l’instant, le seul stockage pris en charge est le Stockage Blob Azure.
+Actuellement, seul le stockage d’objets blob est pris en charge.
 
 ## <a name="download-the-sample"></a>Télécharger l’exemple
 
-Vous trouverez l’exemple dans cet article sur [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Vous trouverez l’exemple dans le répertoire `samples/batch` du [référentiel d’exemples GitHub](https://aka.ms/csspeech/samples).
 
 > [!NOTE]
-> Nous ne fournissons pas de Contrat de niveau de service temporel pour les transcriptions audio par lots. Cela dit, une fois le travail de transcription déclenché (état En cours d'exécution), il est généralement traité plus rapidement qu'en temps réel.
+> Les travaux de transcription par lots sont planifiés au mieux des capacités, il n’y a pas de durée estimée jusqu’au moment où un travail passe à l’état en cours d’exécution. Une fois en cours d’exécution, la transcription réelle est traitée plus rapidement que l’audio en temps réel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

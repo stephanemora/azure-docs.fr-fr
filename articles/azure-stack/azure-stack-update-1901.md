@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115706"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416511"
 ---
 # <a name="azure-stack-1901-update"></a>Mise à jour 1901 d’Azure Stack
 
@@ -199,7 +199,9 @@ Pour consulter la référence des modules mis à jour, lisez [Référence du mod
            "autoUpgradeMinorVersion": "true"
    ```
 
-- Un nouvel élément doit être pris en compte afin de planifier correctement la capacité Azure Stack. Nous avons défini des limites concernant le nombre total de machines virtuelles qui peuvent être déployées dans Azure Stack. Ceci a pour but de garantir que l’ensemble de nos services internes pourront répondre aux besoins des clients. La limite est de 60 machines virtuelles par hôte, avec un maximum de 700 pour l’ensemble du tampon (si la limite de 60 par hôte est atteinte). Pour plus d’informations, consultez la [nouvelle version de l’outil Capacity Planner](http://aka.ms/azstackcapacityplanner).
+- Un nouvel élément doit être pris en compte afin de planifier correctement la capacité Azure Stack. Avec la mise à jour 1901, le nombre total de machines virtuelles pouvant être créées est limité.  Cette limite est destinée à être temporaire et a pour but de garantir la stabilité de la solution. Nous recherchons actuellement la cause du problème de stabilité en présence d’un plus grand nombre de machines virtuelles, mais aucun échéancier n’a encore été déterminé pour y remédier. Avec la mise à jour 1901, il y a désormais une limite de 60 machines virtuelles par serveur, la limite totale pour la solution étant de 700.  Par exemple, la limite pour 8 serveurs Azure Stack serait 480 machines virtuelles (8 * 60).  Pour une solution Azure Stack de 12 à 16 serveurs, la limite serait 700. Cette limite a été définie en gardant à l’esprit toutes les considérations relatives à la capacité de calcul, telles que la réserve de résilience et le rapport virtuel/physique de l’UC qu’un opérateur souhaite conserver. Pour plus d’informations, consultez la nouvelle version de l’outil de planification de la capacité.  
+Si la limite de mise à l'échelle de la machine virtuelle a été atteinte, les codes d’erreur suivants sont retournés comme résultat : VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - La version de l’API Compute est passée à 2017-12-01.
 
@@ -290,7 +292,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
    - Si l’abonnement a été créé avant la mise à jour 1808, le déploiement d’une machine virtuelle avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
       1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Sélectionnez **Fournisseurs de ressources**, **Microsoft.Compute**, puis **Réinscrire**.
-      2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
+      2. Sous le même abonnement, accédez à **Access Control (IAM)** et vérifiez qu’**AzureStack-DiskRP-Client** est répertorié.
    - Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre le problème, effectuez les étapes décrites dans [cet article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) afin de reconfigurer chacun de vos annuaires invités.
 
 - Une machine virtuelle 18.04 Ubuntu créée avec une autorisation SSH activée ne vous permet pas d’utiliser les clés SSH pour vous connecter. Pour contourner ce problème, utilisez un accès à la machine virtuelle pour l’extension Linux afin d’implémenter des clés SSH après l’approvisionnement, ou utilisez une authentification par mot de passe.

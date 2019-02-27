@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: cc4f559efecec3f024ce995dcf8f8757eb9cb4fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489686"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452812"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -23,10 +23,11 @@ ms.locfileid: "55489686"
 Le nouveau modèle pour la restauration instantanée fournit les améliorations de fonctionnalités suivantes :
 
 * Possibilité d’utiliser des instantanés pris dans le cadre d’une tâche de sauvegarde qui peut être récupérée sans attendre la fin du transfert des données dans le coffre. Cela réduit le temps d’attente pour la copie des instantanés dans le coffre avant de déclencher la restauration.
-* Réduction des durées de sauvegarde et de restauration en conservant les instantanés et les disques pendant sept jours
+* Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur par défaut est configurable à volonté entre 1 et 5 jours.
 * Prise en charge des disques d’une taille maximale de 4 To
 * Prise en charge des disques SSD Standard
-* Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
+*   Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machines virtuelles.
+
 
 
 ## <a name="whats-new-in-this-feature"></a>Nouveautés de cette fonctionnalité
@@ -47,6 +48,12 @@ Les instantanés sont conservés pendant sept jours. Cette fonctionnalité autor
 * Les instantanés sont stockés avec les disques afin d’accélérer la création des points de récupération et les opérations de restauration. Vous voyez donc des coûts de stockage correspondant aux instantanés pris pendant cette période.
 * Les instantanés incrémentiels sont stockés sous la forme d’objets blob de pages. Tout utilisateur qui utilise des disques non managés est facturé pour les instantanés stockés dans son compte de stockage local. Étant donné que les collections de points de restauration utilisées par les sauvegardes de machine virtuelle managée utilisent des instantanés d’objet blob au niveau du stockage sous-jacent, pour les disques managés vous voyez les coûts correspondant au tarif de l’instantané d’objet blob et ils sont incrémentiels.
 * Dans le cas des comptes de stockage Premium, les instantanés pris pour les points de récupération instantanée comptent pour la limite de 10 To d’espace alloué.
+* Vous pouvez configurer la rétention des instantanés en fonction des besoins de restauration. Selon vos exigences, vous pouvez définir la rétention des instantanés pendant au moins un jour dans le panneau de stratégie de sauvegarde, comme cela est expliqué ci-dessous. Cela peut vous aider à réduire les coûts de rétention des instantanés si vous n’effectuez pas fréquemment de restaurations.
+
+
+>[!NOTE]
+>Avec cette mise à niveau de restauration instantanée, la durée de rétention d’instantanés de tous les clients (**tant nouveaux et qu’existants**) est définie sur une valeur par défaut de deux jours. Vous pouvez cependant définir une durée de 1 à 5 jours en fonction de vos besoins.
+
 
 ## <a name="cost-impact"></a>Impact sur les coûts
 
@@ -56,10 +63,11 @@ Les instantanés incrémentiels sont stockés dans le compte de stockage de la m
 ## <a name="upgrading-to-instant-restore"></a>Mise à niveau vers la restauration instantanée
 
 Si vous utilisez le portail Azure, une notification s’affichera sur le tableau de bord du coffre. Elle concerne la prise en charge des disques volumineux et les améliorations de la vitesse de sauvegarde et de restauration.
+Pour ouvrir un écran pour la mise à niveau vers la restauration instantanée, sélectionnez la bannière.
 
 ![Tâche de sauvegarde dans le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle : notification de prise en charge](./media/backup-azure-vms/instant-rp-banner.png)
 
-Pour ouvrir un écran pour la mise à niveau vers la restauration instantanée, sélectionnez la bannière.
+Cliquez sur **Mise à niveau** comme le montre la capture d'écran ci-dessous :
 
 ![Tâche de sauvegarde dans le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle : mise à niveau](./media/backup-azure-vms/instant-rp.png)
 
@@ -67,6 +75,13 @@ Vous pouvez aussi accéder à la page **Propriétés** du coffre pour accéder �
 
 ![Tâche de sauvegarde dans la pile de sauvegarde de machine virtuelle -- Page Propriétés](./media/backup-azure-vms/instant-restore-capability-properties.png)
 
+
+## <a name="configure-snapshot-retention-using-azure-portal"></a>Configurer la rétention d’instantanés à l’aide du portail Azure
+Cette option est actuellement disponible dans l’Ouest du centre des États-Unis, dans le Sud de l’Inde et dans l’Est de l’Australie.
+
+Pour les utilisateurs mis à niveau, dans le portail Azure vous voyez un champ ajouté au panneau **Stratégie de sauvegarde de machine virtuelle** sous la section **Restauration instantanée**. Vous pouvez modifier la durée de rétention des instantanés à partir du panneau **Stratégie de sauvegarde de machine virtuelle** pour toutes les machines virtuelles associées à la stratégie de sauvegarde spécifique.
+
+![Fonctionnalité de restauration instantanée](./media/backup-azure-vms/instant-restore-capability.png)
 
 ## <a name="upgrade-to-instant-restore-using-powershell"></a>Mettre à niveau vers la restauration instantanée à l’aide de PowerShell
 
@@ -145,13 +160,13 @@ Chaque jour un nouvel instantané est pris, et il existe cinq instantanés incr�
 Les instantanés créés dans le cadre de la fonctionnalité de restauration instantanée sont des instantanés incrémentiels.
 
 ### <a name="how-can-i-calculate-the-approximate-cost-increase-due-to-instant-restore-feature"></a>Comment faire pour calculer une estimation de l’augmentation du coût due à la fonctionnalité de restauration instantanée ?
-Cela dépend du taux d’activité de la machine virtuelle. Dans un état stable, vous pouvez supposer que l’augmentation du coût est égale à la période de conservation d’instantané * le taux d’activité quotidien par machine virtuelle * le coût de stockage par Go.
+Cela dépend du taux d’activité de la machine virtuelle. Dans un état stable, vous pouvez supposer que l’augmentation du coût est égale au rapport entre la période de rétention des instantanés et le taux d’activité quotidien en fonction du coût de stockage en machine virtuelle par Go.
 
 ### <a name="if-the-recovery-type-for-a-restore-point-is-snapshot-and-vault-and-i-perform-a-restore-operation-which-recovery-type-will-be-used"></a>Si le type de récupération pour un point de restauration est « instantané et coffre » et que j’effectue une opération de restauration, quel sera le type de récupération utilisé ?
 Si le type de récupération est « instantané et coffre », la restauration sera effectuée automatiquement à partir de l’instantané local, ce qui sera beaucoup plus rapide que la restauration effectuée à partir du coffre.
 
 ### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>Que se passe-t-il si je sélectionne une période de conservation du point de restauration (niveau 2) inférieure à la période de conservation d’instantané (niveau 1) ?
-Le nouveau modèle n’autorise la suppression du point de restauration (niveau 2) que si l’instantané (niveau 1) est supprimé. Actuellement, nous prenons en charge une période de conservation de sept jours pour la suppression de l’instantané (niveau 1), donc la période de conservation de moins de sept jours du point de restauration (niveau 2) n’est pas honorée. Nous vous recommandons de planifier une période de conservation du point de restauration (niveau 2) supérieure à sept jours.
+Le nouveau modèle n’autorise la suppression du point de restauration (niveau 2) que si l’instantané (niveau 1) est supprimé. Nous vous recommandons de planifier une période de rétention du point de restauration (niveau 2) supérieure à la période de rétention des instantanés.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Pourquoi mon instantané existe-t-il même après la période de conservation définie dans la stratégie de sauvegarde ?
-Si le point de récupération a un instantané et qu’il s’agit du dernier point de récupération disponible, il est conservé jusqu’à la prochaine sauvegarde réussie. C’est conforme à la stratégie de GC actuelle, qui exige qu’au moins un point de récupération récent soit toujours présent au cas où toutes les sauvegardes ultérieures échoueraient en raison d’un problème sur la machine virtuelle. Dans les scénarios ordinaires, les points de récupération sont nettoyés au plus 48 heures après leur expiration.
+Si le point de récupération a un instantané et qu’il s’agit du dernier point de récupération disponible, il est conservé jusqu’à la prochaine sauvegarde réussie. C’est conforme à la stratégie de GC actuelle, qui exige qu’au moins un point de récupération récent soit toujours présent au cas où toutes les sauvegardes ultérieures échoueraient en raison d’un problème sur la machine virtuelle. Dans les scénarios ordinaires, les points de récupération sont nettoyés au maximum 24 heures après leur expiration.

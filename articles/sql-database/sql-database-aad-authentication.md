@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217168"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453135"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utiliser l’authentification Azure Active Directory pour l’authentification avec SQL
 
@@ -101,16 +101,16 @@ Pour créer un utilisateur de base de données autonome dans le service Azure SQ
 
 ### <a name="manage-instances"></a>Gérer des instances
 
-- Les connexions et les utilisateurs Azure AD sont pris en charge sous la forme d’une fonctionnalité d’évaluation pour les [instances managées](sql-database-managed-instance.md).
-- La définition de connexions Azure AD mappées sur un groupe Azure AD en tant que propriétaire de la base de données n’est pas prise en charge dans les [instances managées](sql-database-managed-instance.md).
+- Les principaux de serveur (connexions) et les utilisateurs Azure AD sont pris en charge en tant que fonctionnalité d'évaluation pour les [instances gérées](sql-database-managed-instance.md).
+- La définition de principaux de serveur (connexions) Azure AD mappés sur un groupe Azure AD en tant que propriétaire de la base de données n’est pas prise en charge dans les [instances gérées](sql-database-managed-instance.md).
     - En conséquence, quand vous ajoutez un groupe dans le cadre du rôle serveur `dbcreator`, les utilisateurs de ce groupe peuvent se connecter à l’instance managée et créer des bases de données, mais ne peuvent pas accéder à la base de données. En effet, le propriétaire de la nouvelle base de données est SA et non l’utilisateur Azure AD. Ce problème ne se manifeste pas si l’utilisateur individuel est ajouté au rôle serveur `dbcreator`.
-- La gestion et l’exécution de travaux SQL Agent sont prises en charge pour les connexions Azure AD.
-- Les opérations de sauvegarde et de restauration de base de données peuvent être exécutées par les connexions Azure AD.
-- L’audit de toutes les instructions liées aux connexions et aux événements d’authentification Azure AD est pris en charge.
-- La connexion administrateur dédiée pour les connexions Azure AD membres du rôle serveur sysadmin est prise en charge.
+- La gestion et l’exécution de travaux SQL Agent sont prises en charge pour les principaux de serveur (connexions) Azure AD.
+- Les opérations de sauvegarde et de restauration de base de données peuvent être exécutées par les principaux de serveur (connexions) Azure AD.
+- L’audit de toutes les instructions liées aux principaux de serveur (connexions) Azure AD et aux événements d’authentification Azure AD est pris en charge.
+- La connexion administrateur dédiée pour les principaux de serveur (connexions) Azure AD membres du rôle serveur sysadmin est prise en charge.
     - Prise en charge par le biais de l’utilitaire SQLCMD et de SQL Server Management Studio.
-- Les déclencheurs d’ouverture de session sont pris en charge pour les événements d’ouverture de session provenant de connexions Azure AD.
-- Vous pouvez configurer Service Broker et Database Mail à l’aide de connexions Azure AD.
+- Les déclencheurs d’ouverture de session sont pris en charge pour les événements d’ouverture de session provenant de principaux de serveur (connexions) Azure AD.
+- Vous pouvez configurer Service Broker et Database Mail à l’aide d’un principal de serveur (connexion) Azure AD.
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>Connexion à l’aide des identités Azure AD
@@ -121,7 +121,7 @@ L’authentification Azure Active Directory prend en charge les méthodes suivan
 - À l’aide d’un nom principal et d’un mot de passe Azure AD
 - À l’aide de l’authentification par jeton d’application
 
-Les méthodes d’authentification suivantes sont prises en charge pour les connexions Azure AD (**préversion publique**) :
+Les méthodes d’authentification suivantes sont prises en charge pour les principaux de serveur (connexions) Azure AD (**préversion publique**) :
 
 - Mot de passe Azure Active Directory
 - Intégration d’Azure Active Directory
@@ -133,7 +133,7 @@ Les méthodes d’authentification suivantes sont prises en charge pour les conn
 
 - Pour améliorer la facilité de gestion, nous vous conseillons de mettre en service un groupe Azure AD dédié en tant qu’administrateur.   
 - Un seul administrateur Azure AD (utilisateur ou groupe) peut être configuré pour un serveur Azure SQL Database ou Azure SQL Data Warehouse à tout moment.
-  - L’ajout de connexions Azure AD pour des instances managées (**préversion publique**) permet de créer plusieurs connexions Azure AD pouvant être ajoutées au rôle `sysadmin`.
+  - L’ajout de principaux de serveur (connexions) Azure AD pour des instances gérées (**préversion publique**) permet de créer plusieurs principaux de serveur (connexions) Azure AD pouvant être ajoutés au rôle `sysadmin`.
 - Seul un administrateur d’Azure AD pour SQL Server peut se connecter initialement au serveur Azure SQL Database, à Managed Instance, ou à Azure SQL Data Warehouse à l’aide d’un compte Azure Active Directory. L’administrateur Active Directory peut configurer les utilisateurs de base de données Azure AD suivants.   
 - Nous vous conseillons de définir l’expiration du délai de connexion à 30 secondes.   
 - SQL Server 2016 Management Studio et SQL Server Data Tools pour Visual Studio 2015 (version 14.0.60311.1 d’avril 2016 ou ultérieure) prennent en charge l’authentification Azure Active Directory. (L’authentification Azure AD est prise en charge par le **Fournisseur de données .NET Framework pour SQL Server** ; .NET Framework version 4.6 minimum). Par conséquent, les dernières versions de ces outils et applications de la couche Données (DAC et .bacpac) peuvent utiliser l’authentification Azure AD.   
@@ -147,12 +147,12 @@ Les méthodes d’authentification suivantes sont prises en charge pour les conn
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour apprendre à créer et à remplir Azure AD, puis à configurer Azure AD avec Azure SQL Database ou Azure SQL Data Warehouse, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).
-- Pour suivre un tutoriel sur l’utilisation de connexions Azure AD avec des instances managées, consultez [Connexions Azure AD avec des instances managées](sql-database-managed-instance-aad-security-tutorial.md).
+- Pour suivre un tutoriel sur l’utilisation de principaux de serveur (connexions) Azure AD avec des instances gérées, consultez [Principaux de serveur (connexions) Azure AD avec des instances gérées](sql-database-managed-instance-aad-security-tutorial.md).
 - Pour obtenir une vue d’ensemble de l’accès et du contrôle dans la base de données SQL, voir [Accès à la base de données SQL et contrôle](sql-database-control-access.md).
 - Pour une vue d’ensemble des connexions, des utilisateurs et des rôles de base de données dans la base de données SQL, voir [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md).
 - Pour en savoir plus sur les principaux de base de données, voir [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
 - Pour en savoir plus sur les rôles de base de données, voir [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
-- Pour voir la syntaxe permettant de créer des connexions Azure AD pour des instances managées, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Pour voir la syntaxe permettant de créer des principaux de serveur (connexions) Azure AD pour des instances gérées, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Pour en savoir plus sur les règles de pare-feu dans la base de données SQL, voir [Règles de pare-feu de la base de données SQL](sql-database-firewall-configure.md).
 
 <!--Image references-->

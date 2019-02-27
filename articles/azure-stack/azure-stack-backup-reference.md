@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201786"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416715"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
@@ -108,6 +108,23 @@ Infrastructure Backup Controller sauvegarde les données à la demande. La recom
 > [!Note]  
 > Il n’est pas nécessaire d’ouvrir des ports d’entrée.
 
+### <a name="encryption-requirements"></a>Exigences en matière de chiffrement
+
+À partir de la version 1901, le service de sauvegarde d’infrastructure utilisera un certificat avec une clé publique (. CER) pour chiffrer les données de sauvegarde et un certificat avec la clé privée (. PFX) pour déchiffrer les données de sauvegarde lors de la récupération du cloud.   
+ - Le certificat est utilisé pour le transport des clés, pas pour établir une communication sécurisée authentifiée. Pour cette raison, le certificat peut être auto-signé. Azure Stack n’ayant pas besoin vérifier la racine ou la confiance pour ce certificat, un accès internet externe n’est pas requis.
+ 
+Le certificat auto-signé comprend deux parties, l’une avec la clé publique et l’autre avec la clé privée :
+ - Chiffrer les données de sauvegarde : le certificat avec la clé publique (exporté vers un fichier .CER) est utilisé pour chiffrer les données de sauvegarde.
+ - Déchiffrer les données de sauvegarde : le certificat avec la clé privée (exporté vers un fichier .PFX) est utilisé pour déchiffrer les données de sauvegarde.
+
+Le certificat avec la clé publique (. CER) n’est pas géré par la rotation des secrets interne. Pour faire pivoter le certificat, vous devez créer un certificat auto-signé et mettre à jour les paramètres de sauvegarde avec le nouveau fichier (. CER).  
+ - Toutes les sauvegardes existantes restent chiffrées à l’aide de la clé publique précédente. Les nouvelles sauvegardes utiliseront la nouvelle clé publique. 
+ 
+Le certificat utilisé lors de la récupération du cloud avec la clé privée (. PFX) n’est pas conservé par Azure Stack pour des raisons de sécurité. Ce fichier devra être fourni explicitement lors de la récupération du cloud.  
+
+**Mode de compatibilité descendante** À partir de la version 1901, le prise en charge de clés de chiffrement est déconseillée et sera supprimée dans la version ultérieure. Si vous avez activé depuis la version 1811 avec la sauvegarde déjà activée à l’aide d’une clé de chiffrement, Azure Stack continuera à utiliser la clé de chiffrement. Le mode de compatibilité descendante est pris en charge pour au moins 3 mises en production. Un certificat sera ensuite requis. 
+ * La mise à jour de la clé de chiffrement vers le certificat est une opération unidirectionnelle.  
+ * Toutes les sauvegardes existantes restent chiffrées avec la clé de chiffrement. Les nouvelles sauvegardes utiliseront la nouvelle clé publique. 
 
 ## <a name="infrastructure-backup-limits"></a>Limites d’Infrastructure Backup
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4be483994bd7bc5bd97b1e59df230f66e9b4e24e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812557"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430344"
 ---
 # <a name="azure-backup-architecture"></a>Architecture de Sauvegarde Azure
 
@@ -24,12 +24,17 @@ Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauv
 
 Sauvegarde Azure sauvegarde les données, l’état de la machine et les charges de travail en cours d’exécution sur les ordinateurs locaux et machines virtuelles Azure. Il existe plusieurs scénarios de Sauvegarde Azure.
 
+## <a name="how-does-azure-backup-work"></a>Comment fonctionne Sauvegarde Azure ?
+
+Vous pouvez sauvegarder des machines et des données à l’aide d’un certain nombre de méthodes.
+
 - **Sauvegarder des ordinateurs locaux** :
-    - vous pouvez sauvegarder des ordinateurs locaux directement dans Azure à l’aide de Sauvegarde Azure.
-    - Vous pouvez protéger les ordinateurs locaux avec System Center Data Protection Manager (DPM) ou avec Serveur Sauvegarde Microsoft Azure (MABS), puis sauvegarder les données protégées sur DPM/MABS dans Azure à l’aide de Sauvegarde Azure.
+    - Vous pouvez sauvegarder des machines Windows locales directement dans Azure avec l’agent Azure Backup Microsoft Azure Recovery Services (MARS). Les machines Linux ne sont pas prises en charge.
+    - Vous pouvez sauvegarder les machines locales sur un serveur de sauvegarde, comme DPM (System Center Data Protection Manager) ou MABS (Microsoft Azure Backup Server), puis sauvegarder le serveur de sauvegarde dans un coffre de sauvegarde Recovery Services Azure.
 - **Sauvegarder des machines virtuelles Azure** :
-    - vous pouvez sauvegarder des machines virtuelles Azure directement avec Sauvegarde Azure.
-    - Vous pouvez protéger des machines virtuelles Azure avec DPM ou MABS s’exécutant dans Azure, puis sauvegarder les données protégées sur DPM/MABS avec Sauvegarde Azure.
+    - vous pouvez directement sauvegarder des machines virtuelles Azure. Pour ce faire, Sauvegarde Azure installe une extension de sauvegarde de l’agent de machine virtuelle Azure qui s’exécute sur la machine virtuelle. La totalité de la machine virtuelle est ainsi sauvegardée.
+    - Vous pouvez sauvegarder des fichiers et dossiers spécifiques sur la machine virtuelle Azure en exécutant l’agent MARS.
+    - Vous pouvez sauvegarder des machines virtuelles Azure sur MABS s’exécutant dans Azure, puis sauvegarder MABS dans le coffre.
 
 Apprenez-en davantage sur [ce que vous pouvez sauvegarder](backup-overview.md) et sur les [scénarios de sauvegarde pris en charge](backup-support-matrix.md).
 
@@ -38,8 +43,8 @@ Apprenez-en davantage sur [ce que vous pouvez sauvegarder](backup-overview.md) e
 
 Sauvegarde Azure stocke les données sauvegardées dans un coffre Recovery Services. Un coffre est une entité de stockage en ligne dans Azure qui permet de conserver les données telles que les copies de sauvegarde, les points de récupération et les stratégies de sauvegarde.
 
-- Les coffres Recovery Services facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion.
-- Dans chaque abonnement Azure, vous pouvez créer jusqu’à 500 coffres Recovery Services. 
+- Les coffres facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion.
+- Dans chaque abonnement Azure, vous pouvez créer jusqu’à 500 coffres.
 - Vous pouvez superviser les éléments sauvegardés dans un coffre, notamment les machines virtuelles Azure et les ordinateurs locaux.
 - Vous pouvez gérer l’accès au coffre avec le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure.
 - Vous spécifiez le mode de réplication des données dans le coffre pour la redondance :
@@ -49,18 +54,6 @@ Sauvegarde Azure stocke les données sauvegardées dans un coffre Recovery Servi
 
 
 
-## <a name="how-does-azure-backup-work"></a>Comment fonctionne Sauvegarde Azure ?
-
-Sauvegarde Azure exécute des travaux de sauvegarde sur la base d’une stratégie de sauvegarde par défaut ou personnalisée. La façon dont Sauvegarde Azure effectue une sauvegarde dépend du scénario.
-
-**Scénario** | **Détails** 
---- | ---
-**Sauvegarder directement des ordinateurs locaux** | Pour sauvegarder directement des ordinateurs locaux, Sauvegarde Azure utilise l’agent MARS (Microsoft Azure Recovery Services). L’agent est installé sur chaque ordinateur que vous souhaitez sauvegarder. <br/><br/> Ce type de sauvegarde n’est pas disponible pour les ordinateurs Linux locaux. 
-**Sauvegarder directement des machines virtuelles Azure** | Pour sauvegarder directement des machines virtuelles Azure, une extension de machine virtuelle Azure est installée sur la machine virtuelle la première fois qu’une sauvegarde s’exécute pour la machine virtuelle. 
-**Sauvegarder des machines et des applications protégées par DPM ou MABS** | Dans ce scénario, l’ordinateur/application est tout d’abord sauvegardé dans le stockage local DPM ou MABS. Ensuite, les données dans DPM/MABS sont sauvegardées dans le coffre par Sauvegarde Azure. Les ordinateurs locaux peuvent être protégés par DPM/MABS exécuté localement. Les machines virtuelles Azure peuvent être protégées par DPM/MABS exécuté dans Azure.
-
-[Obtenez une vue d’ensemble](backup-overview.md) et consultez [ce qui est pris en charge](backup-support-matrix.md) pour chaque scénario.
-
 
 ### <a name="backup-agents"></a>Agents de sauvegarde
 
@@ -68,17 +61,26 @@ Sauvegarde Azure fournit différents agents en fonction du type de sauvegarde.
 
 **Agent** | **Détails** 
 --- | --- 
-**Agent Microsoft Azure Recovery Services (MARS)** | Cet agent s’exécute sur chaque serveur Windows local pour sauvegarder les fichiers, les dossiers et l’état du système<br/><br/> Cet agent s’exécute sur les serveurs DPM/MABS pour sauvegarder le disque de stockage local DPM/MABS. Les applications et les ordinateurs sont sauvegardés localement sur ce disque DPM/MABS.
-**Extension de machine virtuelle Azure** | Pour sauvegarder des machines virtuelles Azure, une extension de sauvegarde est ajoutée à l’agent de machine virtuelle Azure en cours d’exécution sur les machines virtuelles. 
+**Agent Microsoft Azure Recovery Services (MARS)** | 1) S’exécute sur chaque serveur Windows local pour sauvegarder les fichiers, les dossiers et l’état du système<br/><br/> 2) S’exécute sur des machines virtuelles Azure pour sauvegarder des fichiers, des dossiers et l’état du système.<br/><br/>  3) S’exécute sur les serveurs DPM/MABS pour sauvegarder le disque de stockage local DPM/MABS dans Azure. 
+**Extension de machine virtuelle Azure** | S’exécute sur des machines virtuelles Azure pour les sauvegarder dans un coffre.
 
 
 ## <a name="backup-types"></a>Types de sauvegarde
 
 **Type de sauvegarde** | **Détails** | **Utilisation**
 --- | --- | ---
-**Complète** | Une sauvegarde contient la source de données entière.<br/><br/> Une sauvegarde complète occupe plus de bande passante réseau. | Utilisée pour la sauvegarde initiale.
+**Complète** | Une sauvegarde contient la source de données entière. Une sauvegarde complète occupe plus de bande passante réseau. | Utilisée pour la sauvegarde initiale.
 **Différentielle** |  Stocke les blocs ayant changé depuis la sauvegarde complète initiale. Utilise une plus petite quantité de stockage et de réseau, et ne conserve pas de copies redondantes des données inchangées.<br/><br/> Inefficace, car les blocs de données inchangés entre les sauvegardes ultérieures sont transférés et stockés. | Non utilisée par Sauvegarde Azure.
 **Incrémentielle** | Efficacité élevée du point de vue du stockage et du réseau. Stocke uniquement les blocs de données ayant changé depuis la sauvegarde précédente. <br/><br/> Avec une sauvegarde incrémentielle, il est inutile d’effectuer des sauvegardes complètes régulières. | Utilisée par DPM/MABS pour les sauvegardes sur disque, et utilisée dans toutes les sauvegardes vers Azure.
+
+## <a name="sql-server-backup-types"></a>Types de sauvegarde SQL Server
+
+**Type de sauvegarde** | **Détails** | **Utilisation**
+--- | --- | ---
+**Sauvegarde complète** | une sauvegarde complète de base de données sauvegarde l’intégralité de la base de données. Elle inclut toutes les données d’une base de données spécifique ou d’un ensemble de fichiers ou de groupes de fichiers, ainsi qu’un nombre de journaux suffisant pour récupérer ces données. | Vous pouvez déclencher au plus une sauvegarde complète par jour.<br/><br/> Vous pouvez choisir d’effectuer une sauvegarde complète tous les jours ou toutes les semaines.
+**Sauvegarde différentielle** | une sauvegarde différentielle est basée sur la sauvegarde de données complète précédente la plus récente.<br/><br/> Elle capture uniquement les données qui ont changé depuis la sauvegarde complète. |  Vous pouvez déclencher au plus une sauvegarde différentielle par jour.<br/><br/> Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour.
+**Sauvegarde de fichier journal** | une sauvegarde de fichier journal permet d’effectuer une restauration ponctuelle à la seconde donnée. | Au plus, vous pouvez configurer des sauvegardes du journal des transactions toutes les 15 minutes.
+
 
 ### <a name="comparison"></a>Opérateurs de comparaison
 
@@ -96,28 +98,16 @@ Le tableau suivant récapitule les fonctionnalités pour différents types de sa
 
 **Fonctionnalité** | **Ordinateurs Windows locaux (direct)** | **Machines virtuelles Azure** | **Ordinateurs/applications avec DPM/MABS**
 --- | --- | --- | ---
-Sauvegarder vers le coffre | ![Oui][green] | ![OUI][green] | ![Oui][green] 
-Sauvegarder sur disque DPM/MABS puis Azure | | | ![Oui][green] 
-Compresser les données envoyées pour la sauvegarde | ![Oui][green] | Aucune compression n’est effectuée lors du transfert des données. Le stockage croît légèrement, mais la restauration est plus rapide.  | ![Oui][green] 
-Exécuter une sauvegarde incrémentielle |![Oui][green] |![OUI][green] |![Oui][green] 
+Sauvegarder vers le coffre | ![OUI][green] | ![OUI][green] | ![OUI][green] 
+Sauvegarder sur disque DPM/MABS puis Azure | | | ![OUI][green] 
+Compresser les données envoyées pour la sauvegarde | ![OUI][green] | Aucune compression n’est effectuée lors du transfert des données. Le stockage croît légèrement, mais la restauration est plus rapide.  | ![OUI][green] 
+Exécuter une sauvegarde incrémentielle |![OUI][green] |![OUI][green] |![OUI][green] 
 Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> Uniquement pour les serveurs DPM/MABS déployés localement. 
 
 ![clé de table](./media/backup-architecture/table-key.png)
 
 
-## <a name="architecture-direct-backup-of-on-premises-windows-machines"></a>Architecture : sauvegarde directe des ordinateurs Windows locaux
 
-1. Pour configurer le scénario, vous téléchargez et installez l’agent MARS sur l’ordinateur, vous sélectionnez les éléments à sauvegarder, quand les sauvegardes seront exécutées, et la durée pendant laquelle elles seront conservées dans Azure.
-2. La sauvegarde initiale s’exécute conformément à vos paramètres de sauvegarde.
-3. L’agent MARS utilise le service Windows VSS (Volume Shadow Copy) pour prendre un instantané dans le temps des volumes sélectionnés pour la sauvegarde.
-    - L’agent MARS utilise uniquement l’écriture système de Windows pour capturer l’instantané.
-    - Il n’utilise aucun enregistreur VSS d’application, et ne capture donc pas d’instantané cohérent au niveau de l’application.
-3. Après avoir pris l’instantané avec VSS, l’agent MARS crée un disque dur virtuel dans le dossier de cache que vous avez spécifié quand vous avez configuré la sauvegarde, et il stocke les sommes de contrôle pour chaque bloc de données. 
-4. Les sauvegardes incrémentielles s’exécutent conformément à la planification que vous spécifiez, sauf si vous exécutez une sauvegarde ad hoc.
-5. Dans les sauvegardes incrémentielles, les fichiers modifiés sont identifiés et un nouveau disque dur virtuel est créé. Il est compressé et chiffré, puis envoyé dans le coffre.
-6. Une fois la sauvegarde incrémentielle terminée, le nouveau disque dur virtuel est fusionné avec le disque dur virtuel créé après la réplication initiale, fournissant ainsi l’état le plus récent à utiliser pour la comparaison pour la sauvegarde en cours. 
-
-![Sauvegarde d’un serveur Windows local avec l’agent MARS](./media/backup-architecture/architecture-on-premises-mars.png)
 
 
 ## <a name="architecture-direct-backup-of-azure-vms"></a>Architecture : sauvegarde directe de machines virtuelles Azure
@@ -136,19 +126,33 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
     - Les données d’instantanés peuvent ne pas être immédiatement copiées dans le coffre. Aux heures de pointe, cela peut prendre quelques heures. La durée de sauvegarde totale d’une machine virtuelle sera inférieure à 24 heures pour des stratégies de sauvegarde quotidienne.
 5. Une fois les données envoyées dans le coffre, l’instantané est supprimé et un point de récupération est créé.
 
+Notez que les machines virtuelles Azure ont besoin d’un Internet pour les commandes de contrôle. Si vous sauvegardez des charges de travail à l’intérieur de la machine virtuelle (par exemple sauvegarde SQL Server), les données sauvegardées doivent également avoir un accès Internet. 
 
 ![Sauvegarde des machines virtuelles Azure](./media/backup-architecture/architecture-azure-vm.png)
 
+## <a name="architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders"></a>Architecture : sauvegarde directe de machines Windows locales/fichiers de machines virtuelles Azure/dossiers
+
+1. Pour configurer le scénario, vous téléchargez et installez l’agent MARS sur l’ordinateur, vous sélectionnez les éléments à sauvegarder, quand les sauvegardes seront exécutées, et la durée pendant laquelle elles seront conservées dans Azure.
+2. La sauvegarde initiale s’exécute conformément à vos paramètres de sauvegarde.
+3. L’agent MARS utilise le service Windows VSS (Volume Shadow Copy) pour prendre un instantané dans le temps des volumes sélectionnés pour la sauvegarde.
+    - L’agent MARS utilise uniquement l’écriture système de Windows pour capturer l’instantané.
+    - Il n’utilise aucun enregistreur VSS d’application, et ne capture donc pas d’instantané cohérent au niveau de l’application.
+3. Après avoir pris l’instantané avec VSS, l’agent MARS crée un disque dur virtuel dans le dossier de cache que vous avez spécifié quand vous avez configuré la sauvegarde, et il stocke les sommes de contrôle pour chaque bloc de données. 
+4. Les sauvegardes incrémentielles s’exécutent conformément à la planification que vous spécifiez, sauf si vous exécutez une sauvegarde ad hoc.
+5. Dans les sauvegardes incrémentielles, les fichiers modifiés sont identifiés et un nouveau disque dur virtuel est créé. Il est compressé et chiffré, puis envoyé dans le coffre.
+6. Une fois la sauvegarde incrémentielle terminée, le nouveau disque dur virtuel est fusionné avec le disque dur virtuel créé après la réplication initiale, fournissant ainsi l’état le plus récent à utiliser pour la comparaison pour la sauvegarde en cours. 
+
+![Sauvegarde d’un serveur Windows local avec l’agent MARS](./media/backup-architecture/architecture-on-premises-mars.png)
 
 ## <a name="architecture-back-up-to-dpmmabs"></a>Architecture : sauvegarder dans DPM/MABS
 
 1. Vous installez l’agent de protection DPM ou MABS sur les ordinateurs que vous souhaitez protéger, et vous ajoutez les ordinateurs à un groupe de protection DPM.
     - Pour protéger des ordinateurs locaux, le serveur DPM ou MABS doit être local.
-    - Pour protéger des machines virtuelles Azure, le serveur DPM ou MABS doit se trouver dans Azure, exécuté en tant que machine virtuelle Azure.
+    - Pour protéger des machines virtuelles Azure, le serveur MABS doit se trouver dans Azure et être exécuté en tant que machine virtuelle Azure.
     - À l’aide de DPM/MABS, vous pouvez protéger des volumes, des partages, des fichiers et des dossiers. Vous pouvez protéger l’état du système des ordinateurs, et protéger des applications spécifiques avec des paramètres de sauvegarde prenant en charge les applications.
-2. Quand vous configurez la protection d’une machine ou d’une application dans DPM, vous choisissez de sauvegarder sur le disque local DPM pour le stockage à court terme et sur Azure (protection en ligne). Vous spécifiez également quand doit s’exécuter la sauvegarde vers le stockage local DPM/MABS, et quand doit s’exécuter la sauvegarde en ligne sur Azure.
-3. Le disque de la charge de travail protégée est sauvegardé vers les disques locaux DPM et dans Azure, conformément à la planification que vous avez spécifiée.
-4. La sauvegarde en ligne dans le coffre est gérée par l’agent MARS en cours d’exécution sur le serveur DPM/MABS.
+2. Quand vous configurez la protection d’une machine ou d’une application dans DPM/MABS, vous choisissez de sauvegarder sur le disque local MABS/DPM pour le stockage à court terme et sur Azure (protection en ligne). Vous spécifiez également quand doit s’exécuter la sauvegarde vers le stockage local DPM/MABS, et quand doit s’exécuter la sauvegarde en ligne sur Azure.
+3. Le disque de la charge de travail protégée est sauvegardé sur les disques MABS/DPM locaux, conformément à la planification que vous avez spécifiée.
+4. Les disques DPM/MABS sont sauvegardés dans le coffre par l’agent MARS en cours d’exécution sur le serveur DPM/MABS.
 
 ![Sauvegarde de machines/charges de travail protégées par DPM ou MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 
@@ -175,8 +179,8 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
 
 Pour en savoir plus :
 
-- Apprenez-en davantage sur le stockage sur disque pour les machines virtuelles [Windows](../virtual-machines/windows/about-disks-and-vhds.md) et [Linux](../virtual-machines/linux/about-disks-and-vhds.md).
-- Apprenez-en davantage sur le stockage [Standard](../virtual-machines/windows/standard-storage.md) et [Premium](../virtual-machines/windows/premium-storage.md).
+- Apprenez-en davantage sur le stockage sur disque pour les machines virtuelles [Windows](../virtual-machines/windows/managed-disks-overview.md) et [Linux](../virtual-machines/linux/managed-disks-overview.md).
+- En savoir plus sur les [types de disques](../virtual-machines/windows/disks-types.md) disponibles, tels que standard et premium.
 
 
 ### <a name="backing-up-and-restoring-azure-vms-with-premium-storage"></a>Sauvegarde et restauration de machines virtuelles Azure avec le stockage Premium 
@@ -184,9 +188,9 @@ Pour en savoir plus :
 Vous pouvez sauvegarder des machines virtuelles Azure utilisant du stockage Premium avec Sauvegarde Azure :
 
 - Au moment de sauvegarder des machines virtuelles avec stockage Premium, le service Sauvegarde crée un emplacement intermédiaire temporaire nommé « AzureBackup- » dans le compte de stockage. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération.
-- Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. [Plus d’informations](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) Ne modifiez pas l’emplacement intermédiaire.
+- Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. [Plus d’informations](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits) Ne modifiez pas l’emplacement intermédiaire.
 - Une fois la sauvegarde terminée, l’emplacement intermédiaire est supprimé.
-- Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à la [tarification du stockage Premium](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+- Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à la [tarification du stockage Premium](../virtual-machines/windows/disks-types.md#billing).
 
 Quand vous restaurez des machines virtuelles Azure utilisant le stockage Premium, vous pouvez les restaurer vers un stockage Premium ou Standard. En général, vous les restaurerez vers du stockage Premium, mais il peut être rentable de les restaurer vers un stockage Standard si vous avez uniquement besoin d’un sous-ensemble de fichiers de la machine virtuelle.
 
