@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 4f025680c1c637f8b8475be2d5784d08e9e2343b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962007"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328671"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de ressources pour les pools élastiques suivant les limites du modèle d’achat vCore
 
@@ -59,11 +59,11 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Pour connaître le nombre maximal de workers actuels (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)
+\* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de workers simultanés est de 50, puisque le nombre maximal de workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Niveau de service Usage général : Plateforme de calcul de génération 4 (partie 2)
 
-|Taille de calcul|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Taille de calcul|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
@@ -85,7 +85,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Pour connaître le nombre maximal de workers actuels (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)
+\* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Niveau de service Usage général : Plateforme de calcul de génération 5 (partie 1)
 
@@ -111,7 +111,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Pour connaître le nombre maximal de workers actuels (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)
+\* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Niveau de service Usage général : Plateforme de calcul de génération 5 (partie 2)
 
@@ -136,7 +136,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Pour connaître le nombre maximal de workers actuels (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)
+\* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Critique pour l’entreprise : tailles de stockage et tailles de calcul
 
@@ -164,7 +164,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Pour connaître le nombre maximal de workers actuels (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)
+\* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 4 (partie 2)
 
@@ -190,7 +190,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Pour connaître le nombre maximal de workers actuels (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)
+\* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 5 (partie 1)
 
@@ -216,7 +216,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Pour connaître le nombre maximal de workers actuels (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)
+\* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 5 (partie 2)
 
@@ -242,7 +242,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Pour connaître le nombre maximal de workers actuels (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)
+\* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 Si tous les vCore d’un pool élastique sont occupés, chaque base de données du pool reçoit une quantité égale de ressources de calcul pour traiter les requêtes. Le service de base de données SQL offre un partage équitable des ressources entre les bases de données, garantissant des tranches de temps de calcul égales. Le partage équitable des ressources du pool élastique s’ajoute à n’importe quelle quantité de ressources garantie pour chaque base de données lorsque le nombre minimal de vCore par base de données est défini sur une valeur différente de zéro.
 
@@ -264,4 +264,4 @@ Le tableau suivant décrit les propriétés des bases de données mises en pool.
 - Pour connaître les limites de ressources DTU des pools élastiques, consultez l’article sur les [limites de ressources pour les pools élastiques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Pour connaître les limites de ressources des instances gérées, consultez l’article sur les [limites de ressources des instances gérées](sql-database-managed-instance-resource-limits.md).
 - Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
-- Pour plus d’informations sur les limites de ressources au niveau du serveur de base de données et de l’abonnement, consultez l’article [Vue d’ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
+- Pour plus d'informations sur les limites de ressources au niveau du serveur de base de données et de l'abonnement, consultez l'article [Vue d'ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).

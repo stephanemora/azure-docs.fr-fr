@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
-ms.date: 09/12/2018
+ms.date: 02/19/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 7530545c3577a662ac0075b83b3eb7e4a8a40f89
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911909"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428565"
 ---
 # <a name="visual-studio-images-on-azure"></a>Images de Visual Studio sur Azure
-L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée est un moyen simple et rapide de créer un environnement de développement opérationnel à partir de rien. Des images système avec différentes configurations de Visual Studio sont disponibles sur la [Place de Marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
+L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée est un moyen simple et rapide de créer un environnement de développement opérationnel à partir de rien. Des images système avec différentes configurations de Visual Studio sont disponibles sur la [Place de Marché Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1).
 
 Vous êtes un nouvel utilisateur d’Azure ? [Créer un compte Azure gratuit](https://azure.microsoft.com/free).
 
@@ -34,8 +34,8 @@ La Place de Marché Azure met à disposition des images pour les dernières vers
 
 | Version commerciale                                              | Éditions                     |     Version du produit      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019 : Préversion (Préversion 2)                   |           Entreprise         | Version 16.0.0 Préversion 2 |
-| Visual Studio 2017 : Version la plus récente (15.9)                    |    Enterprise, Community     |      Version 15.9.4      |
+|    Visual Studio 2019 : Préversion (Préversion 3)                   |           Entreprise         | Version 16.0.0 Préversion 3 |
+| Visual Studio 2017 : Version la plus récente (15.9)                    |    Enterprise, Community     |      Version 15.9.7      |
 |         Visual Studio 2017 : RTW                              |    Enterprise, Community     |      Version 15.0.20     |
 |   Visual Studio 2015 : Mise à jour la plus récente (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |
 |         Visual Studio 2015 : RTW                              |             Aucun             | (Expiration pour maintenance)  |

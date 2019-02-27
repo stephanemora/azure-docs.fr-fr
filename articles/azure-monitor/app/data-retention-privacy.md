@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094527"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300259"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -41,7 +41,7 @@ Le service Application Insights stocke et analyse les données de télémétrie.
 
 Vous pouvez exporter des données à partir du service Application Insights vers une base de données ou des outils externes, par exemple. Vous devez attribuer une clé spéciale, que vous obtenez de la part du service, à chaque outil. La clé peut être révoquée si nécessaire. 
 
-Les Kits SDK d’Application Insights sont disponibles pour une variété d’applications : les services web hébergés dans vos propres serveurs J2EE ou ASP.NET ou dans Azure ; les clients web, autrement dit, le code s’exécutant dans une page web ; les applications et les services de bureau ; les applications pour appareils comme Windows Phone, iOS et Android. Toutes envoient les données de télémétrie vers le même service.
+Les Kits SDK d’Application Insights sont disponibles pour une variété d’applications : les services web hébergés dans vos propres serveurs Java EE ou ASP.NET ou dans Azure ; les clients web, autrement dit, le code s’exécutant dans une page web ; les applications et les services de bureau ; les applications pour appareils comme Windows Phone, iOS et Android. Toutes envoient les données de télémétrie vers le même service.
 
 ## <a name="what-data-does-it-collect"></a>Quelles données collecte-t-il ?
 ### <a name="how-is-the-data-is-collected"></a>Comment les données sont-elles collectées ?
@@ -51,7 +51,7 @@ Il existe trois sources de données :
   
   * Chaque Kit SDK comporte un certain nombre de [modules](../../azure-monitor/app/configuration-with-applicationinsights-config.md), utilisant diverses techniques pour collecter différents types de données de télémétrie.
   * Si vous installez le Kit SDK pendant le développement, vous pouvez utiliser ses API pour envoyer votre propre télémétrie, ainsi que les modules standards. Ces données de télémétrie personnalisées peuvent inclure toutes les données que vous souhaitez envoyer.
-* Sur certains serveurs web, il existe également des agents qui s’exécutent en même temps que l’application et qui envoient des données de télémétrie concernant l’UC, la mémoire et l’occupation du réseau. Par exemple, les machines virtuelles Azure, les hôtes Docker, et [les serveurs J2EE](../../azure-monitor/app/java-agent.md) peuvent disposer de ces agents.
+* Sur certains serveurs web, il existe également des agents qui s’exécutent en même temps que l’application et qui envoient des données de télémétrie concernant l’UC, la mémoire et l’occupation du réseau. Par exemple, les machines virtuelles Azure, les hôtes Docker et [les serveurs Java EE](../../azure-monitor/app/java-agent.md) peuvent disposer de ces agents.
 * [Les tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) sont des processus exécutés par Microsoft qui envoient des requêtes à votre application web à intervalles réguliers. Les résultats sont envoyés au service Application Insights.
 
 ### <a name="what-kinds-of-data-are-collected"></a>Quel genre de données est collecté ?
@@ -101,7 +101,7 @@ Microsoft n’utilise les données que pour vous fournir le service.
 * Aux États-Unis, en Europe ou en Asie du Sud-Est. Vous pouvez sélectionner l’emplacement quand vous créez une ressource Application Insights. 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Cela signifie-t-il que mon application doit être hébergée aux États-Unis, en Europe ou en Asie du Sud-Est ?
-*  Non. Votre application peut s’exécuter n’importe où, sur vos propres hôtes locaux ou dans le cloud.
+* Non. Votre application peut s’exécuter n’importe où, sur vos propres hôtes locaux ou dans le cloud.
 
 ## <a name="how-secure-is-my-data"></a>Mes données sont-elles sécurisées ?
 Application Insights est un service Azure. Les stratégies de sécurité sont décrites dans le [livre blanc sur la sécurité, la confidentialité et la conformité Azure](https://go.microsoft.com/fwlink/?linkid=392408).
@@ -208,7 +208,7 @@ Nous ne recommandons pas de configurer explicitement votre application de façon
 | Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 et Windows Server 2008 R2 SP1 | Pris en charge, mais non activé par défaut. | Consultez la page [Paramètres de Registre de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) pour plus d’informations sur l’activation.  |
 | Windows Server 2008 SP2 | La prise en charge de TLS 1.2 nécessite une mise à jour. | Consultez [Mise à jour pour ajouter la prise en charge de TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) dans Windows Server 2008 SP2. |
-|Windows Vista |  Non pris en charge. | N/A
+|Windows Vista | Non pris en charge. | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Vérifier la version d’OpenSSL que votre distribution Linux exécute
 

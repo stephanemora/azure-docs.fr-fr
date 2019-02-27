@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 15cbfb9babe38ba6acaf4312735ab839af3f2d99
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 74496cd3d4cd01be326baae870b075eb923983af
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371301"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443347"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Questions fréquemment posées sur la migration du modèle classique vers le modèle Azure Resource Manager
 
@@ -54,7 +54,7 @@ Pendant la migration, les ressources Classic sont converties en ressources Resou
 <a name="vault">Lorsque</a> vous faites évoluer une machine virtuelle du mode Classic vers le mode Resource Manager, les sauvegardes effectuées avant cette migration ne sont pas transférées vers la nouvelle machine virtuelle Resource Manager. Toutefois, si vous souhaitez conserver vos sauvegardes des machines virtuelles Classic, procédez comme suit avant la migration. 
 
 1. Dans le coffre Recovery Services, accédez à l’onglet **Éléments protégés**, puis sélectionnez la machine virtuelle. 
-2. Cliquez sur [Arrêter la protection](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Laissez l’option *Supprimer les données de sauvegarde associées***non cochée**.
+2. Cliquez sur Arrêter la protection. Laissez l’option *Supprimer les données de sauvegarde associées***non cochée**.
 
 > [!NOTE]
 > Les frais de sauvegarde vous seront facturés tant que vous conserverez les données. Les copies de sauvegarde seront supprimées en fonction de la durée de rétention définie. Toutefois, la dernière copie de sauvegarde est systématiquement conservée jusqu’à ce que vous supprimiez explicitement les données de sauvegarde. Il est recommandé de vérifier la durée de rétention de la machine virtuelle et de déclencher l’option « Supprimer les données de sauvegarde » sur l’élément protégé dans le coffre à l’issue de la durée de rétention. 

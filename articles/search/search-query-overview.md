@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005044"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300873"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Rédiger une requête dans Recherche Azure
 
@@ -22,14 +22,14 @@ Dans Recherche Azure, une requête est une spécification complète d’une opé
 
 Une demande de requête permet de spécifier les champs à prendre en compte, la méthode de recherche, les champs à renvoyer, les critères de tri ou de filtre, etc. Non spécifiée, une requête s’exécute sur tous les champs recherchables en tant qu’opération de recherche de texte intégral et retourne un jeu de résultats sans score dans un ordre arbitraire.
 
-### <a name="apis-and-tools-for-testing"></a>API et outils de test
+## <a name="apis-and-tools-for-testing"></a>API et outils de test
 
 Le tableau suivant liste les API et les approches basées sur des outils pour envoyer des requêtes.
 
 | Méthodologie | Description |
 |-------------|-------------|
 | [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
-| [Postman ou autre outil de test HTTP](search-fiddler.md) | Explique comment configurer un en-tête et un corps de requête HTTP pour l'envoi de requêtes à Recherche Azure.  |
+| [Postman ou Fiddler](search-fiddler.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche Azure.  |
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Rechercher des documents (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
 
@@ -76,7 +76,7 @@ Les attributs d’index d’un champ définissent les opérations autorisées, p
 La capture d’écran ci-dessus est une liste partielle des attributs d’index pour l’exemple d’index immobilier. Vous pouvez consulter le schéma d’index complet dans le portail. Pour en savoir plus sur les attributs d’index, consultez [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Certaines fonctionnalités de requête s’appliquent à l’ensemble de l’index plutôt qu’à des champs spécifiques. Ces fonctionnalités incluent : les [cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), les [analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), les [constructions de générateur de suggestions (pour la saisie semi-automatique et la suggestion automatique)](https://docs.microsoft.com/rest/api/searchservice/suggesters) et la [logique de notation pour le classement des résultats](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
+> Certaines fonctionnalités de requête s’appliquent à l’ensemble de l’index plutôt qu’à des champs spécifiques. Ces fonctionnalités incluent : les [cartes de synonymes](search-synonyms.md), les [analyseurs personnalisés](index-add-custom-analyzers.md), les [constructions de générateur de suggestions (pour la saisie semi-automatique et la suggestion automatique)](index-add-suggesters.md) et la [logique de notation pour le classement des résultats](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Éléments d’une demande de requête
 
@@ -94,9 +94,9 @@ Tous les autres paramètres de recherche sont facultatifs. Pour obtenir la liste
 
 ## <a name="choose-a-parser-simple--full"></a>Choisir un analyseur : simple | full
 
-Le service Recherche Azure repose sur Apache Lucene et vous offre le choix entre deux analyseurs de requêtes pour la gestion des requêtes classiques et spécialisées. Les requêtes qui utilisent l’analyseur simple sont formulées à l’aide de la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search), qui est sélectionnée par défaut pour sa rapidité et son efficacité dans les requêtes de texte au format libre. Cette syntaxe prend en charge un certain nombre d’opérateurs de recherche courants, notamment les opérateurs AND, OR, NOT, les expressions, les suffixes et les opérateurs de priorité.
+Le service Recherche Azure repose sur Apache Lucene et vous offre le choix entre deux analyseurs de requêtes pour la gestion des requêtes classiques et spécialisées. Les requêtes qui utilisent l’analyseur simple sont formulées à l’aide de la [syntaxe de requête simple](query-simple-syntax.md), qui est sélectionnée par défaut pour sa rapidité et son efficacité dans les requêtes de texte au format libre. Cette syntaxe prend en charge un certain nombre d’opérateurs de recherche courants, notamment les opérateurs AND, OR, NOT, les expressions, les suffixes et les opérateurs de priorité.
 
-La [syntaxe de requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), activée lorsque vous ajoutez `queryType=full` à la requête, expose le langage de requête expressif et largement adopté développé dans le cadre [d’Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La syntaxe complète étend la syntaxe simple. Toute requête que vous écrivez avec la syntaxe simple s’exécute dans l’analyseur Lucene complet. 
+La [syntaxe de requête complète Lucene](query-Lucene-syntax.md#bkmk_syntax), activée lorsque vous ajoutez `queryType=full` à la requête, expose le langage de requête expressif et largement adopté développé dans le cadre [d’Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La syntaxe complète étend la syntaxe simple. Toute requête que vous écrivez avec la syntaxe simple s’exécute dans l’analyseur Lucene complet. 
 
 Les exemples suivants illustrent parfaitement la situation : la même requête, mais avec des paramètres queryType différents, génère des résultats différents. Dans la première requête, l’élément `^3` est traité comme une partie du terme recherché.
 
@@ -118,16 +118,16 @@ Recherche Azure prend en charge un large éventail de types de requêtes.
 
 | Type de requête | Usage | Exemples et informations complémentaires |
 |------------|--------|-------------------------------|
-| Recherche de texte de forme libre | Paramètre de recherche et analyseur au choix| Une recherche en texte intégral recherche un ou plusieurs termes dans tous les champs *pouvant faire l’objet d’une recherche* de votre index, et fonctionne à l’instar des moteurs de recherche Google ou Bing. L’exemple dans l’introduction est une recherche en texte intégral.<br/><br/>La recherche en texte intégral fait l’objet d’une analyse de texte à l’aide de l’analyseur Lucene standard (par défaut) pour mettre tous les termes en minuscules et supprimer les mots exclus tels que « the » (les). Vous pouvez remplacer l’analyseur par défaut en choisissant un [analyseur non anglais](https://docs.microsoft.com/rest/api/searchservice/language-support#analyzer-list) ou un [analyseur spécialisé](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) qui modifiera les paramètres d’analyse de texte. Un analyseur [mot clé](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) traite par exemple tout le contenu d’un champ comme un jeton unique. Cela est utile pour les données telles que les codes postaux, les numéros d’identification et certains noms de produit. | 
-| Recherche filtrée | [Expression de filtre OData](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) et analyseur au choix | Les requêtes de filtre évaluent une expression booléenne dans tous les champs *filtrables* d’un index. Contrairement à une recherche, une requête de filtre établit une correspondance avec le contenu exact d’un champ, y compris la casse dans les champs de type chaîne. Une autre différence est que les requêtes de filtre sont exprimées dans la syntaxe OData. <br/>[Exemple d’expression de filtre](search-query-simple-examples.md#example-3-filter-queries) |
+| Recherche de texte de forme libre | Paramètre de recherche et analyseur au choix| Une recherche en texte intégral recherche un ou plusieurs termes dans tous les champs *pouvant faire l’objet d’une recherche* de votre index, et fonctionne à l’instar des moteurs de recherche Google ou Bing. L’exemple dans l’introduction est une recherche en texte intégral.<br/><br/>La recherche en texte intégral fait l’objet d’une analyse de texte à l’aide de l’analyseur Lucene standard (par défaut) pour mettre tous les termes en minuscules et supprimer les mots exclus tels que « the » (les). Vous pouvez remplacer l’analyseur par défaut en choisissant un [analyseur non anglais](index-add-language-analyzers.md#language-analyzer-list) ou un [analyseur spécialisé indépendant des langages](index-add-custom-analyzers.md#AnalyzerTable) qui modifiera les paramètres d’analyse de texte. Un analyseur [mot clé](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) traite par exemple tout le contenu d’un champ comme un jeton unique. Cela est utile pour les données telles que les codes postaux, les numéros d’identification et certains noms de produit. | 
+| Recherche filtrée | [Expression de filtre OData](query-odata-filter-orderby-syntax.md) et analyseur au choix | Les requêtes de filtre évaluent une expression booléenne dans tous les champs *filtrables* d’un index. Contrairement à une recherche, une requête de filtre établit une correspondance avec le contenu exact d’un champ, y compris la casse dans les champs de type chaîne. Une autre différence est que les requêtes de filtre sont exprimées dans la syntaxe OData. <br/>[Exemple d’expression de filtre](search-query-simple-examples.md#example-3-filter-queries) |
 | Recherche basée sur la localisation | Champ de [type Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types), expression de filtre et analyseur au choix | Les coordonnées stockées dans un champ de type Edm.GeographyPoint sont utilisées pour les recherches de type « rechercher à proximité » ou basées sur une carte. <br/>[Exemple de recherche sur la localisation](search-query-simple-examples.md#example-5-geo-search)|
 | Recherche de plage | expression de filtre et analyseur simple | Dans Recherche Azure, les requêtes de plage sont créées à l’aide du paramètre de filtre. <br/>[Exemple de filtre de plage](search-query-simple-examples.md#example-4-range-filters) | 
-| [Filtrage intra-champ](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields) | Paramètre de recherche et analyseur complet | Crée une expression de requête composite ciblant un champ unique. <br/>[Exemple de filtrage intra-champ](search-query-lucene-examples.md#example-2-intra-field-filtering) |
-| [recherche approximative](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy) | Paramètre de recherche et analyseur complet | Recherche les termes ayant une construction ou une orthographe similaire. <br/>[Exemple de recherche approximative](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [recherche de proximité](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity) | Paramètre de recherche et analyseur complet | Recherche les termes proches les uns des autres dans un document. <br/>[Exemple de recherche de proximité](search-query-lucene-examples.md#example-4-proximity-search) |
-| [promotion de termes](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost) | Paramètre de recherche et analyseur complet | Élève le rang d’un document qui contient le terme de promotion, par rapport aux documents qui ne contiennent pas ce terme. <br/>[Exemple de promotion de termes](search-query-lucene-examples.md#example-5-term-boosting) |
-| [recherche d’expression régulière](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex) | Paramètre de recherche et analyseur complet | Exécute la recherche à partir du contenu d’une expression régulière. <br/>[Exemple de recherche d’expression régulière](search-query-lucene-examples.md#example-6-regex) |
-|  [recherche par préfixe ou caractères génériques](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard) | Paramètre de recherche et analyseur complet | Exécute la recherche à partir d’un préfixe et d’un tilde (`~`) ou d’un caractère unique (`?`). <br/>[Exemple de recherche par caractères génériques](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Filtrage intra-champ](query-lucene-syntax.md#bkmk_fields) | Paramètre de recherche et analyseur complet | Crée une expression de requête composite ciblant un champ unique. <br/>[Exemple de filtrage intra-champ](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [recherche approximative](query-lucene-syntax.md#bkmk_fuzzy) | Paramètre de recherche et analyseur complet | Recherche les termes ayant une construction ou une orthographe similaire. <br/>[Exemple de recherche approximative](search-query-lucene-examples.md#example-3-fuzzy-search) |
+| [recherche de proximité](query-lucene-syntax.md#bkmk_proximity) | Paramètre de recherche et analyseur complet | Recherche les termes proches les uns des autres dans un document. <br/>[Exemple de recherche de proximité](search-query-lucene-examples.md#example-4-proximity-search) |
+| [promotion de termes](query-lucene-syntax.md#bkmk_termboost) | Paramètre de recherche et analyseur complet | Élève le rang d’un document qui contient le terme de promotion, par rapport aux documents qui ne contiennent pas ce terme. <br/>[Exemple de promotion de termes](search-query-lucene-examples.md#example-5-term-boosting) |
+| [recherche d’expression régulière](query-lucene-syntax.md#bkmk_regex) | Paramètre de recherche et analyseur complet | Exécute la recherche à partir du contenu d’une expression régulière. <br/>[Exemple de recherche d’expression régulière](search-query-lucene-examples.md#example-6-regex) |
+|  [recherche par préfixe ou caractères génériques](query-lucene-syntax.md#bkmk_wildcard) | Paramètre de recherche et analyseur complet | Exécute la recherche à partir d’un préfixe et d’un tilde (`~`) ou d’un caractère unique (`?`). <br/>[Exemple de recherche par caractères génériques](search-query-lucene-examples.md#example-7-wildcard-search) |
 
 ## <a name="manage-search-results"></a>Gérer les résultats de recherche 
 
@@ -156,7 +156,7 @@ Pour plus d’informations sur la pagination des résultats de recherche, consul
 ### <a name="ordering-results"></a>Classement des résultats
 Lors de la réception des résultats d’une requête de recherche, vous pouvez demander qu’Azure Search produise les résultats classés par valeurs dans un champ spécifique. Par défaut, Azure Search classe les résultats en fonction du rang du résultat de la recherche de chaque document, qui est dérivé de la méthode [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Si vous souhaitez que Recherche Azure retourne les résultats en les classant avec une valeur autre que le résultat de la recherche, vous pouvez utiliser le paramètre de recherche **`orderby`**. Vous pouvez spécifier la valeur du paramètre **`orderby`** pour inclure les noms de champ et les appels à la fonction [**`geo.distance()`** ](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) pour les valeurs géospatiales. Chaque expression peut être suivie par `asc` pour indiquer que les résultats sont demandés dans l’ordre croissant, et par **`desc`** pour indiquer que les résultats sont demandés dans l’ordre décroissant. Le classement par défaut est l’ordre croissant.
+Si vous souhaitez que Recherche Azure retourne les résultats en les classant avec une valeur autre que le résultat de la recherche, vous pouvez utiliser le paramètre de recherche **`orderby`**. Vous pouvez spécifier la valeur du paramètre **`orderby`** pour inclure les noms de champ et les appels à la fonction [**`geo.distance()`** ](query-odata-filter-orderby-syntax.md) pour les valeurs géospatiales. Chaque expression peut être suivie par `asc` pour indiquer que les résultats sont demandés dans l’ordre croissant, et par **`desc`** pour indiquer que les résultats sont demandés dans l’ordre décroissant. Le classement par défaut est l’ordre croissant.
 
 
 ### <a name="hit-highlighting"></a>Mise en surbrillance des correspondances

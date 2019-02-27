@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246032"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429860"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -86,7 +86,7 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 
 ### <a name="client-requirements"></a>Configuration requise des clients
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS ou avoir accès à Microsoft Update. Vous pouvez utiliser Update Management avec System Center Configuration Manager. Pour en savoir plus sur les scénarios d’intégration, consultez la section [Intégrer System Center Configuration Manager à Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). L’[agent Windows](../azure-monitor/platform/agent-windows.md) est obligatoire. L’agent est automatiquement installé si vous intégrez une machine virtuelle Azure.
 
@@ -145,7 +145,7 @@ Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 Heartbeat
@@ -188,6 +188,8 @@ Une analyse est effectuée deux fois par jour sur chaque ordinateur Windows gé
 Une analyse est effectuée toutes les 3 heures sur chaque ordinateur Linux géré.
 
 L’affichage sur le tableau de bord des données mises à jour provenant des ordinateurs gérés peut prendre entre 30 minutes et 6 heures.
+
+La consommation moyenne de données Log Analytics d'une machine utilisant la solution Update Management est d'environ 25 Mo par mois. Cette valeur est approximative et sujette à modification en fonction de votre environnement. Nous vous recommandons de surveiller votre environnement pour connaître votre consommation exacte.
 
 ## <a name="viewing-update-assessments"></a>Afficher les évaluations des mises à jour
 
@@ -260,7 +262,7 @@ Pour afficher un déploiement de mises à jour à partir de l’API REST, consul
 
 Les tableaux suivants répertorient les classifications des mises à jour dans Update Management, avec une définition de chaque classification.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 |classification ;  |Description  |
 |---------|---------|

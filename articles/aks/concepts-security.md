@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818989"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456501"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -24,7 +24,7 @@ Cet article présente les concepts fondamentaux qui sécurisent vos applications
 - [Sécurité des nœuds](#node-security)
 - [Mise à niveau des clusters](#cluster-upgrades)
 - [Sécurité du réseau](#network-security)
-- Secrets Kubernetes
+- [Secrets Kubernetes](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Sécurité du maître
 
@@ -36,9 +36,9 @@ Par défaut, le serveur d’API Kubernetes utilise une adresse IP publique avec 
 
 Les nœuds AKS sont des machines virtuelles Azure dont vous assurez la gestion et la maintenance. Les nœuds exécutent une distribution Ubuntu Linux optimisée avec le runtime de conteneur Docker. Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds sont déployés automatiquement avec les dernières configurations et mises à jour de sécurité du système d’exploitation.
 
-La plateforme Azure applique automatiquement les correctifs de sécurité du système d’exploitation aux nœuds chaque nuit. Si une mise à jour de la sécurité du système d’exploitation nécessite un redémarrage de l’hôte, ce redémarrage n’est pas effectué automatiquement. Vous pouvez redémarrer les nœuds manuellement, ou bien appliquer une approche courante qui consiste à utiliser [Kured][kured], démon de redémarrage open source pour Kubernetes. S’exécutant en tant que [ressource DaemonSet][aks-daemonset], Kured supervise chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Les redémarrages sont gérés au sein du cluster à l’aide du même [processus d’isolation et de drainage](#cordon-and-drain) que celui appliqué pour la mise à niveau du cluster.
+La plateforme Azure applique automatiquement les correctifs de sécurité du système d’exploitation aux nœuds chaque nuit. Si une mise à jour de la sécurité du système d’exploitation nécessite un redémarrage de l’hôte, ce redémarrage n’est pas effectué automatiquement. Vous pouvez redémarrer les nœuds manuellement, ou bien appliquer une approche courante qui consiste à utiliser [Kured][kured], démon de redémarrage open source pour Kubernetes. Kured s’exécute comme un [DaemonSet][aks-daemonsets] et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Les redémarrages sont gérés au sein du cluster à l’aide du même [processus d’isolation et de drainage](#cordon-and-drain) que celui appliqué pour la mise à niveau du cluster.
 
-Les nœuds sont déployés sur un sous-réseau de réseau virtuel privé, sans aucune adresse IP publique affectée. Pour des raisons de gestion et de résolution des problèmes, SSH est activé par défaut. Cet accès SSH n’est disponible qu’au moyen de l’adresse IP interne. Vous pouvez utiliser des règles de groupe de sécurité réseau Azure pour restreindre davantage l’accès d’une plage d’adresses IP aux nœuds AKS. La suppression de la règle SSH de groupe de sécurité réseau par défaut et la désactivation du service SSH sur les nœuds empêchent la plateforme Azure d’effectuer des tâches de maintenance.
+Les nœuds sont déployés sur un sous-réseau de réseau virtuel privé, sans aucune adresse IP publique affectée. Pour des raisons de gestion et de résolution des problèmes, SSH est activé par défaut. Cet accès SSH n’est disponible qu’au moyen de l’adresse IP interne.
 
 Pour fournir le stockage, les nœuds utilisent des disques managés Azure. Pour la plupart des tailles de nœud de machine virtuelle, il s’agit de disques Premium assortis de disques SSD hautes performances. Les données stockées sur les disques managés sont automatiquement chiffrées au repos au sein de la plateforme Azure. Pour améliorer la redondance, ces disques sont également répliqués de manière sécurisée au sein du centre de données Azure.
 
@@ -46,7 +46,7 @@ Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas encore totaleme
 
 ## <a name="cluster-upgrades"></a>Mise à niveau des clusters
 
-Pour des raisons de conformité et de sécurité, ou pour que soient utilisées les dernières fonctionnalités, Azure fournit des outils pour orchestrer la mise à niveau d’un cluster et de composants AKS. Cette orchestration de la mise à niveau inclut les composants maîtres et agents Kubernetes. Vous pouvez afficher la liste des versions Kubernetes disponibles pour votre cluster AKS. Pour démarrer le processus de mise à niveau, vous spécifiez une de ces versions disponibles. Ensuite, Azure isole et draine de manière sécurisée chaque nœud AKS et effectue la mise à niveau.
+Pour des raisons de conformité et de sécurité, ou pour que soient utilisées les dernières fonctionnalités, Azure fournit des outils pour orchestrer la mise à niveau d’un cluster et de composants AKS. Cette orchestration de la mise à niveau inclut les composants maîtres et agents Kubernetes. Vous pouvez afficher la [liste des versions Kubernetes disponibles](supported-kubernetes-versions.md) pour votre cluster AKS. Pour démarrer le processus de mise à niveau, vous spécifiez une de ces versions disponibles. Ensuite, Azure isole et draine de manière sécurisée chaque nœud AKS et effectue la mise à niveau.
 
 ### <a name="cordon-and-drain"></a>Isolation et drainage
 

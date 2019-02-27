@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 6db263dcfc3195c9b2ab3afe7587845a4632fd1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7c422d560341e51fad582439117533b7d9cd4c8
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456525"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327661"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
-Le [stockage Premium Azure](premium-storage.md) offre une prise en charge des disques haute performance et à faible latence pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Ce guide vous aide à migrer vos disques de machine virtuelle d’un compte de stockage standard vers un compte de stockage Premium à l’aide d’[Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+Les [SSD premium Azure](disks-types.md) offrent une prise en charge des disques haute performance et à faible latence pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d’E/S. Ce guide vous aide à migrer vos disques de machine virtuelle d’un compte de stockage standard vers un compte de stockage Premium à l’aide d’[Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence en orchestrant la réplication des machines virtuelles et des serveurs physiques locaux dans le cloud (Azure) ou dans un centre de données secondaire. Lorsque des pannes se produisent sur votre site principal, vous effectuez un basculement sur le site secondaire pour préserver la disponibilité des applications et des charges de travail. Vous restaurez votre site principal dès lors qu’il retrouve un fonctionnement normal. 
 
@@ -85,7 +85,7 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 ### <a name="step-2-choose-your-protection-goals"></a>Étape 2 : Sélectionner vos objectifs en matière de protection 
 
 1. Sur la machine virtuelle sur laquelle vous souhaitez installer le serveur de configuration, ouvrez le [portail Azure](https://portal.azure.com).
-2. Accédez à **Coffres Recovery Services** > **Paramètres** > **Site Recovery** > **Étape 1 : préparer l’infrastructure**** > Objectif de protection**.
+2. Accédez à **Coffres Recovery Services** > **Paramètres** > **Site Recovery** > **Étape 1 : préparer l’infrastructure** > **Objectif de protection**.
 
    ![Accès au volet Objectif de protection][2]
 
@@ -222,7 +222,6 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 
 * [Stockage Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

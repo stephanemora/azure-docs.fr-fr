@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105075"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300582"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -280,8 +280,8 @@ Pour en savoir plus sur Microsoft.Azure.Services.AppAuthentication et les opéra
 
 Une application avec une identité managée a deux variables d’environnement définies :
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - URL du service de jetons local.
+- MSI_SECRET - en-tête utilisé afin de limiter les attaques de falsification de requêtes côté serveur (SSRF). La plateforme effectue la rotation de la valeur.
 
 **MSI_ENDPOINT** est une URL locale à partir de laquelle votre application peut demander des jetons. Pour obtenir un jeton pour une ressource, effectuez une requête HTTP GET à destination de ce point de terminaison, en indiquant notamment les paramètres suivants :
 
@@ -289,7 +289,7 @@ Une application avec une identité managée a deux variables d’environnement d
 > |-----|-----|-----|
 > |resource|Requête|URI de ressource AAD de la ressource pour laquelle un jeton doit être obtenu. Il peut s’agir d’un des [services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) ou toute autre ressource URI.|
 > |api-version|Requête|Version de l’API de jeton à utiliser. « 2017-09-01 » est la seule version prise en charge.|
-> |secret|En-tête|Valeur de la variable d’environnement MSI_SECRET.|
+> |secret|En-tête|Valeur de la variable d’environnement MSI_SECRET. Cet en-tête est utilisé afin de limiter les attaques de falsification de requêtes côté serveur (SSRF).|
 > |clientid|Requête|(Facultatif) L’ID de l’identité attribuée par l’utilisateur à utiliser. Si elle est omise, l’identité attribuée par le système est utilisée.|
 
 Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivantes :

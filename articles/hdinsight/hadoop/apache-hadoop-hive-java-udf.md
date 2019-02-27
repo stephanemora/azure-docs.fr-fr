@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4a3da9e2ad4d5ab83c1e906b3ab43540e819b48c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814144"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341998"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utiliser une fonction UDF Java avec Apache Hive dans HDInsight
 
@@ -213,7 +213,7 @@ Découvrez comment créer une fonction définie par l’utilisateur basée sur J
     ```
 
     > [!NOTE]
-    > Cet exemple suppose que le stockage Azure est le stockage par défaut pour le cluster. Si votre cluster utilise Data Lake Storage, remplacez la valeur `wasb:///` par `adl:///`.
+    > Cet exemple suppose que le stockage Azure est le stockage par défaut pour le cluster. Si votre cluster utilise Data Lake Storage Gen2, remplacez la valeur `wasb:///` par `abfs:///`. Si votre cluster utilise Data Lake Storage Gen1, remplacez la valeur `wasb:///` par `adl:///`.
 
 3. Utilisez la fonction UDF pour convertir les valeurs extraites d’une table en chaînes de caractères minuscules.
 

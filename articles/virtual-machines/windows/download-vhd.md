@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: f62c1b815180e39468a39b8bc2a220a6bfb9ea5a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726293"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329368"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Télécharger un VHD Windows à partir d’Azure
 
-Dans cet article, vous apprendrez à télécharger un fichier de [disque dur virtuel (VHD) Windows](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à partir d’Azure à l’aide du Portail Azure. 
+Dans cet article, vous apprendrez à télécharger un fichier de disque dur virtuel (VHD) Windows à partir d’Azure à l’aide du Portail Azure.
 
 ## <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
 

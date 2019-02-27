@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109315"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428635"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 Un cluster Azure Service Fabric est une ressource que vous possédez. Il vous incombe la responsabilité de sécuriser vos clusters pour empêcher les utilisateurs non autorisés de s’y connecter. La sécurisation des clusters est particulièrement importante lorsque vous exécutez des charges de travail de production sur le cluster. Même s’il est possible d’en créer, les clusters non sécurisés permettent aux utilisateurs anonymes de s’y connecter si les points de terminaison de gestion sont exposés sur l’Internet public. Les clusters non sécurisés ne sont pas gérés pour les charges de travail de production. 
@@ -73,12 +73,17 @@ Un cluster Service Fabric offre différents points d’entrée pour leurs foncti
 Pour les clusters exécutés dans Azure, vous pouvez également sécuriser l’accès aux points de terminaison de gestion à l’aide d’Azure Active Directory (Azure AD). Pour apprendre à créer les artefacts Azure AD requis et à les renseigner lors de la création du cluster, consultez la section [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Recommandations de sécurité
-Si vous utilisez la sécurité de nœud à nœud pour un cluster Azure, nous vous recommandons d’utiliser la sécurité Azure AD pour authentifier les clients et les certificats.
+Pour les clusters Service Fabric déployés dans un réseau public hébergé dans Azure, les recommandations concernant l’authentification mutuelle client à nœud sont les suivantes :
+*   Utiliser Azure Active Directory pour l’identité client
+*   Utiliser un certificat pour l’identité du serveur et le chiffrement SSL de la communication HTTP
+
+Pour les clusters Service Fabric déployés dans un réseau public hébergé dans Azure, les recommandations concernant la sécurité de nœud à nœud incitent à utiliser un certificat de cluster pour authentifier les nœuds. 
+
 
 Pour les clusters Windows Server autonomes, nous vous recommandons d’utiliser la sécurité Windows avec des comptes de service gérés de groupe si vous disposez de Windows Server 2012 R2 et d’Active Directory. Sinon, continuez à utiliser la sécurité Windows avec les comptes Windows.
 
 ## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
-Vous pouvez utiliser le contrôle d’accès pour limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Ainsi, vous rendez le cluster plus sécurisé. Deux types de contrôle d'accès sont pris en charge pour les clients qui se connectent à un cluster : le rôle Administrateur et le rôle Utilisateur.
+Vous pouvez utiliser le contrôle d’accès pour limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Ainsi, vous rendez le cluster plus sécurisé. Deux types de contrôle d’accès sont pris en charge pour les clients qui se connectent à un cluster : le rôle Administrateur et le rôle Utilisateur.
 
 Les utilisateurs qui reçoivent le rôle Administrateur ont un accès complet aux fonctionnalités de gestion (y compris les fonctionnalités de lecture/écriture). Les utilisateurs qui reçoivent le rôle Utilisateur ne disposent, par défaut, que d’un accès en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête). Ils peuvent également résoudre des applications et des services.
 

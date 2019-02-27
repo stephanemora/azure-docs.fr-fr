@@ -1,25 +1,22 @@
 ---
-title: Créer une passerelle d’application qui héberge plusieurs sites web – Portail Azure | Microsoft Docs
+title: Créer une passerelle d’application qui héberge plusieurs sites web - Portail Azure
 description: Découvrez comment créer une passerelle d’application qui héberge plusieurs sites web avec le Portail Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993312"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454292"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
 
-Vous pouvez utiliser le Portail Azure pour [configurer l’hébergement de plusieurs sites web](multiple-site-overview.md) quand vous créez une [passerelle d’application](overview.md). Dans ce tutoriel, vous allez définir des pools d’adresses principaux à l’aide de machines virtuelles. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
+Vous pouvez utiliser le Portail Azure pour [configurer l’hébergement de plusieurs sites web](multiple-site-overview.md) quand vous créez une [passerelle d’application](overview.md). Dans cet article, vous allez définir des pools d’adresses principaux à l’aide de machines virtuelles. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Cet article, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
 
 Dans cet article, vous apprendrez comment :
 
@@ -35,9 +32,9 @@ Dans cet article, vous apprendrez comment :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com)
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
@@ -141,6 +138,8 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 3. Cliquez sur **OK**.
 4. Créez un deuxième écouteur en utilisant le nom *fabrikamListener* et utilisez le nom de votre deuxième domaine. Dans cet exemple, *www.fabrikam.com* est utilisé.
 
+![Écouteurs multisite](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>Créer des règles d’acheminement
 
 Les règles sont traitées dans l’ordre dans lequel elles sont répertoriées, et le trafic est dirigé selon la première règle correspondante, quelle que soit sa spécificité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
@@ -180,12 +179,4 @@ Une fois la passerelle d’application créée avec son adresse IP publique, vou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à effectuer les opérations suivantes :
-
-> [!div class="checklist"]
-> * Créer une passerelle Application Gateway
-> * Créer des machines virtuelles pour les serveurs principaux
-> * Créer des pools principaux avec les serveurs principaux
-> * Créer des écouteurs principaux
-> * Créer des règles d’acheminement
-> * Créer un enregistrement CNAME dans votre domaine
+[Configurer App Service avec Application Gateway](create-web-app.md)

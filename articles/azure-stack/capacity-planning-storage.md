@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176345"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445999"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planification de la capacité de stockage Azure Stack
 Les sections suivantes fournissent des informations relatives à la planification de la capacité de stockage Azure Stack pour vous aider à planifier selon les besoins de stockage de la solution.
@@ -38,7 +38,9 @@ Les opérateurs peuvent choisir entre une configuration de stockage hybride ou e
 
 ![Planification de la capacité de stockage Azure](media/azure-stack-capacity-planning/storage.png)
 
-Dans la configuration entièrement flash, le cache est NVMe avec un disque SSD SATA ou NVMe pour la capacité. Dans la configuration hybride, le cache est un disque SSD SATA ou NVMe, tandis que la capacité est HDD.
+Dans la configuration entièrement flash, la configuration peut être à un ou deux niveaux.  Dans le cas d'une configuration à un niveau, tous les appareils Capacité sont de même type (par exemple, NVMe, SSD SATA ou SSD SAS) et les appareils Cache ne sont pas utilisés. Dans le cas d'une configuration flash à deux niveaux, la configuration type est NVMe pour les appareils Cache et SATA ou SSD SAS pour les appareils Capacité.
+
+Dans le cas d'une configuration hybride à deux niveaux, le cache est un disque NVMe, SATA ou SSD SATA, tandis que la capacité est HDD. 
 
 Voici un bref résumé de la configuration des espaces de stockage direct et du stockage Azure Stack :
 - Un pool d’espaces de stockage par unité d’échelle (tous les appareils de stockage sont configurés dans un pool unique)

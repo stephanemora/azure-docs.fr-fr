@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245182"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329011"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -79,7 +79,7 @@ Pare-feux du Stockage Azure pour réseaux virtuels  | Pris en charge | Si vous u
 
 Site Recovery prend en charge la réplication de machines virtuelles Azure exécutant les systèmes d’exploitation répertoriés dans cette section.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 **Système d’exploitation** | **Détails**
 --- | ---
@@ -177,8 +177,8 @@ Ce tableau récapitule la prise en charge du disque du système d’exploitation
 
 **Composant** | **Support** | **Détails**
 --- | --- | ---
-Taille maximale du disque du système d’exploitation | 2048 GB | [En savoir plus](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) sur les disques de machines virtuelles.
-Disque temporaire | Non pris en charge | Le disque temporaire est toujours exclu de la réplication.<br/><br/> Ne conservez pas de données persistantes sur le disque temporaire. [Plus d’informations](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)
+Taille maximale du disque du système d’exploitation | 2048 GB | [En savoir plus](../virtual-machines/windows/managed-disks-overview.md) sur les disques de machines virtuelles.
+Disque temporaire | Non pris en charge | Le disque temporaire est toujours exclu de la réplication.<br/><br/> Ne conservez pas de données persistantes sur le disque temporaire. [Plus d’informations](../virtual-machines/windows/managed-disks-overview.md)
 Taille maximale du disque de données | 4095 Go |
 Nombre maximal de disques de données | Jusqu’à 64, en adéquation avec la prise en charge pour une taille spécifique de machine virtuelle Azure | [En savoir plus](../virtual-machines/windows/sizes.md) sur les tailles de machines virtuelles.
 Taux de modification du disque de données | 10 Mbits/s maximum par disque pour le stockage Premium. 2 Mbits/s maximum par disque pour le stockage Standard. | Si le taux moyen de modification des données sur le disque est en permanence supérieur à la valeur maximale, la réplication ne pourra pas suivre.<br/><br/>  Toutefois, si la valeur maximale est dépassée de manière sporadique, la réplication peut suivre, mais les points de récupération pourraient être légèrement différés.
@@ -194,7 +194,7 @@ Chiffrement au repos (SSE) | Pris en charge | SSE est le paramètre par défaut 
 Azure Disk Encryption (ADE) pour système d’exploitation Windows | Prise en charge des machines virtuelles activées pour le [chiffrement avec Azure AD app](https://aka.ms/ade-aad-app) |
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Non pris en charge |
 Ajout/suppression de disque à chaud | Non pris en charge | Si vous ajoutez ou supprimez un disque de données sur la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
-Exclure le disque | Non pris en charge|   Le disque temporaire est exclu par défaut.
+Exclure le disque | [prise en charge via powershell](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  Le disque temporaire est exclu par défaut.
 Espaces de stockage direct  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 Serveur de fichiers avec montée en puissance parallèle  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 LRS | Prise en charge |

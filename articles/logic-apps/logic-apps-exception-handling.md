@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686260"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308721"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -29,12 +29,12 @@ Pour bénéficier de la gestion des erreurs et des exceptions la plus simple, vo
 
 Voici les types de stratégie de nouvelle tentative : 
 
-| type | Description | 
+| Type | Description | 
 |------|-------------| 
-| [**Par défaut**](#default-retry) | Cette stratégie envoie jusqu’à quatre nouvelles tentatives à intervalles [*exponentiellement croissants*](#exponential-retry), mis à l’échelle toutes les 7,5 secondes, mais limités à une valeur comprise entre 5 et 45 secondes. | 
-| [**Intervalle exponentiel**](#exponential-retry)  | Cette stratégie attend un intervalle aléatoire sélectionné parmi une plage à croissance exponentielle avant d’envoyer la requête suivante. | 
-| [**Intervalle fixe**](#fixed-retry)  | Cette stratégie attend l’intervalle spécifié avant d’envoyer la requête suivante. | 
-| [**Aucune**](#no-retry)  | Ne renvoie pas la requête. | 
+| **Par défaut** | Cette stratégie envoie jusqu’à quatre nouvelles tentatives à intervalles *exponentiellement croissants*, mis à l’échelle toutes les 7,5 secondes, mais limités à une valeur comprise entre 5 et 45 secondes. | 
+| **Intervalle exponentiel**  | Cette stratégie attend un intervalle aléatoire sélectionné parmi une plage à croissance exponentielle avant d’envoyer la requête suivante. | 
+| **Intervalle fixe**  | Cette stratégie attend l’intervalle spécifié avant d’envoyer la requête suivante. | 
+| **Aucun**  | Ne renvoie pas la requête. | 
 ||| 
 
 Pour plus d’informations sur les limitations de la stratégie de nouvelle tentative, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
@@ -71,7 +71,7 @@ Vous pouvez aussi spécifier manuellement la stratégie de nouvelle tentative da
 
 *Obligatoire*
 
-| Valeur | type | Description |
+| Valeur | Type | Description |
 |-------|------|-------------|
 | <*retry-policy-type*> | Chaîne | Type de stratégie de nouvelles tentatives à utiliser : `default`, `none`, `fixed` ou `exponential` | 
 | <*retry-interval*> | Chaîne | Intervalle de nouvelle tentative, où la valeur doit être au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L’intervalle minimal par défaut est `PT5S` et l’intervalle maximal est `PT1D`. Quand vous utilisez la stratégie d’intervalle exponentiel, vous pouvez spécifier différentes valeurs minimales et maximales. | 
@@ -80,7 +80,7 @@ Vous pouvez aussi spécifier manuellement la stratégie de nouvelle tentative da
 
 *Facultatif*
 
-| Valeur | type | Description |
+| Valeur | Type | Description |
 |-------|------|-------------|
 | <*minimum-interval*> | Chaîne | Pour la stratégie à intervalle exponentiel, il s’agit du plus petit intervalle pour l’intervalle sélectionné de manière aléatoire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*maximum-interval*> | Chaîne | Pour la stratégie à intervalle exponentiel, il s’agit du plus grand intervalle pour l’intervalle sélectionné de manière aléatoire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 

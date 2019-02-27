@@ -7,34 +7,34 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230592"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455991"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
-Avec Azure Kubernetes Service (AKS), les composants principaux tels que *kube-apiserver* et *kube-controller-manager* sont fournis sous la forme d’un service administré. Vous créez et gérez les nœuds qui exécutent le *kubelet* et le runtime de conteneurs, et vous déployez vos applications par le biais du serveur d’API de l’environnement Kubernetes managés. Pour faciliter la résolution des problèmes de votre application et de vos services, vous pouvez avoir besoin d’afficher les journaux générés par ces composants principaux. Cet article vous indique comment utiliser Azure Log Analytics pour activer et interroger les journaux provenant des composants principaux Kubernetes.
+Avec Azure Kubernetes Service (AKS), les composants principaux tels que *kube-apiserver* et *kube-controller-manager* sont fournis sous la forme d’un service administré. Vous créez et gérez les nœuds qui exécutent le *kubelet* et le runtime de conteneurs, et vous déployez vos applications par le biais du serveur d’API de l’environnement Kubernetes managés. Pour faciliter la résolution des problèmes de votre application et de vos services, vous pouvez avoir besoin d’afficher les journaux générés par ces composants principaux. Cet article vous indique comment utiliser Azure Monitor pour activer et interroger les journaux provenant des composants principaux Kubernetes.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article requiert l’exécution d’un cluster AKS existant dans votre compte Azure. Si vous ne disposez pas encore d’un cluster AKS, créez-en un à l’aide de [l’interface de ligne de commande Azure (Azure CLI)][cli-quickstart] ou du [Portail Azure][portal-quickstart]. Log Analytics fonctionne avec des clusters AKS sur lesquels le contrôle d’accès en fonction du rôle (RBAC) est ou non activé.
+Cet article requiert l’exécution d’un cluster AKS existant dans votre compte Azure. Si vous ne disposez pas encore d’un cluster AKS, créez-en un à l’aide de [l’interface de ligne de commande Azure (Azure CLI)][cli-quickstart] ou du [Portail Azure][portal-quickstart]. Azure Monitor fonctionne avec des clusters AKS sur lesquels le contrôle d’accès en fonction du rôle (RBAC) est activé ou non.
 
 ## <a name="enable-diagnostics-logs"></a>Activer les journaux de diagnostic
 
-Pour faciliter la collecte et l’analyse des données provenant de plusieurs sources, Log Analytics fournit un langage de requêtes et un moteur d’analyse vous permettant d’obtenir des insights sur votre environnement. Un espace de travail est utilisé pour assembler et analyser les données, et peut s’intégrer à d’autres services Azure tels qu’Application Insights et Security Center. Si vous souhaitez analyser les journaux à l’aide d’une autre plateforme, vous pouvez plutôt choisir d’envoyer les journaux de diagnostic à un compte de stockage ou à un Event Hub Azure. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Log Analytics ?][log-analytics-overview].
+Pour faciliter la collecte et l’analyse des données provenant de plusieurs sources, les journaux Azure Monitor fournissent un langage de requêtes et un moteur d’analyse vous permettant d’obtenir des insights sur votre environnement. Un espace de travail est utilisé pour assembler et analyser les données, et peut s’intégrer à d’autres services Azure tels qu’Application Insights et Security Center. Si vous souhaitez analyser les journaux à l’aide d’une autre plateforme, vous pouvez plutôt choisir d’envoyer les journaux de diagnostic à un compte de stockage ou à un Event Hub Azure. Pour plus d’informations, consultez [Présentation des journaux Azure Monitor][log-analytics-overview].
 
-Log Analytics est activé et géré dans le Portail Azure. Pour activer la collecte des journaux relatifs aux composants principaux Kubernetes dans votre cluster AKS, ouvrez le Portail Azure dans un navigateur web et procédez comme suit :
+Les journaux Azure Monitor sont activés et gérés dans le portail Azure. Pour activer la collecte des journaux relatifs aux composants principaux Kubernetes dans votre cluster AKS, ouvrez le Portail Azure dans un navigateur web et procédez comme suit :
 
 1. Sélectionnez le groupe de ressources de votre cluster AKS, par exemple *myResourceGroup*. Ne sélectionnez pas le groupe de ressources qui contient vos ressources de cluster AKS individuelles, comme *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Sur le côté gauche, choisissez **Paramètres de diagnostic**.
 1. Sélectionnez votre cluster AKS, tel que *myAKSCluster*, puis choisissez **Activer les diagnostics**.
-1. Entrez un nom, par exemple *myAKSClusterLogs*, puis sélectionnez l’option pour **Envoyer à Log Analytics**.
-    * Choisissez *Configurer* pour configurer Log Analytics, puis sélectionnez un espace de travail existant ou l’option **Créer un espace de travail**.
+1. Entrez un nom, par exemple *myAKSClusterLogs*, puis sélectionnez l’option pour **Envoyer vers l'espace de travail Log Analytics**.
+    * Sélectionnez *Configurer* pour configurer l'espace de travail Log Analytics, puis sélectionnez un espace de travail existant ou l’option **Créer un espace de travail**.
     * Si vous avez besoin de créer un espace de travail, indiquez un nom, un groupe de ressources et un emplacement.
-1. Dans la liste des journaux disponibles, sélectionnez les journaux que vous souhaitez activer. Par défaut, les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* sont activés. Vous pouvez activer des journaux supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux collectés une fois Log Analytics activé.
+1. Dans la liste des journaux disponibles, sélectionnez les journaux que vous souhaitez activer. Par défaut, les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* sont activés. Vous pouvez activer des journaux supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux collectés une fois les espaces de travail Log Analytics activés.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux sélectionnés.
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Log Analytics est activé et géré dans le Portail Azure. Pour activer la colle
 
 L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic*, ainsi que l’option de création d’un espace de travail Log Analytics :
 
-![Activation de l’espace de travail Log Analytics pour Log Analytics dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
+![Activer l’espace de travail Log Analytics pour les journaux Azure Monitor dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planifier un pod test sur le cluster AKS
 

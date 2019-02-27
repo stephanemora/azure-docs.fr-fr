@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e8e50aa49595addeab3369f74b618c31b7cf1625
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242666"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454376"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Créer un modèle d’analyse des sentiments dans Azure Machine Learning Studio
 
-Vous pouvez utiliser Azure Machine Learning pour créer des modèles d’analyse de texte et les rendre opérationnels. Ces modèles peuvent, par exemple, vous aider à résoudre des problèmes d’analyse de sentiments ou de classification de document.
+Vous pouvez utiliser Azure Machine Learning Studio pour créer des modèles d’analyse de texte et les rendre opérationnels. Ces modèles peuvent, par exemple, vous aider à résoudre des problèmes d’analyse de sentiments ou de classification de document.
 
 Dans une expérience d’analyse de texte, vous devez généralement :
 
@@ -66,7 +66,7 @@ En guise d’alternative à l’utilisation du module d’extraction des fonctio
 ## <a name="step-3-train-classification-or-regression-model"></a>Étape 3 : former le modèle de classification ou de régression ;
 À présent, le texte a été transformé en colonnes de fonctions numériques. Le jeu de données contient toujours des colonnes de type chaîne issues des étapes précédentes, donc nous utilisons Sélectionner des colonnes dans le jeu de données pour les exclure.
 
-Nous utilisons ensuite [Régression logistique à deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) pour prédire notre cible : note de critique élevée ou faible. À ce stade, le problème d’analyse de texte a été transformé en un problème de classification standard. Vous pouvez utiliser les outils disponibles dans Azure Machine Learning pour améliorer le modèle. Par exemple, vous pouvez faire des essais avec des classifieurs différents pour déterminer la précision des résultats qu’ils donnent, ou vous pouvez utiliser le réglage d’hyperparamètre pour améliorer la précision.
+Nous utilisons ensuite [Régression logistique à deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) pour prédire notre cible : note de critique élevée ou faible. À ce stade, le problème d’analyse de texte a été transformé en un problème de classification standard. Vous pouvez utiliser les outils disponibles dans Azure Machine Learning Studio pour améliorer le modèle. Par exemple, vous pouvez faire des essais avec des classifieurs différents pour déterminer la précision des résultats qu’ils donnent, ou vous pouvez utiliser le réglage d’hyperparamètre pour améliorer la précision.
 
 ![Apprentissage et Notation](./media/text-analytics-module-tutorial/scoring-text.png)
 

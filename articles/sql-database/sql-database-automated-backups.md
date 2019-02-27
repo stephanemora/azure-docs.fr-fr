@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997119"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453577"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -85,6 +85,11 @@ Les bases de données uniques et en pool permettent de configurer une conservati
 Comme les sauvegardes PITR, les sauvegardes LTR sont géo-redondantes et protégées par la [réplication entre les régions du stockage Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
 Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
+
+## <a name="storage-costs"></a>Coûts de stockage
+7 jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob Standard RA-GRS. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Un volume de stockage minimal égal à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
+
+Pour plus d’informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="are-backups-encrypted"></a>Les sauvegardes sont-elles chiffrées ?
 

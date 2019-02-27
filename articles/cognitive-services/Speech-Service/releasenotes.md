@@ -8,17 +8,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871793"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446832"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="speech-sdk-130-2019-february-release"></a>Kit de développement logiciel (SDK) de reconnaissance vocale 1.3.0 : Version de février 2019
+
+**Nouvelles fonctionnalités**
+
+* Le SDK Speech prend en charge la sélection du microphone d’entrée via la classe AudioConfig. Cela permet de diffuser en continu des données audio au service Speech à partir d’un microphone qui n’est pas le microphone par défaut. Pour plus d’informations, consultez la documentation décrivant la [sélection du périphérique d’entrée audio](how-to-select-audio-input-devices.md). JavaScript ne propose pas encore cette fonctionnalité.
+* Le SDK Speech prend désormais en charge Unity dans une version bêta. Merci d’envoyer des commentaires via la section problèmes dans le [dépôt d’exemples GitHub](https://aka.ms/csspeech/samples). Cette version prend en charge Unity sur Windows x86 et x64 (applications de bureau autonome ou plateforme Windows universelle) et Android (ARM32/64, x86). Des informations supplémentaires sont disponibles dans notre [Démarrage rapide Unity](quickstart-csharp-unity.md).
+
+**Exemples**
+
+Le nouveau contenu suivant est disponible dans notre [dépôt d’exemples](https://aka.ms/csspeech/samples) :
+
+* Exemples supplémentaires pour AudioConfig.FromMicrophoneInput.
+* Exemples Python supplémentaires pour la reconnaissance de l’intention et la traduction.
+* Exemples Python supplémentaires pour la reconnaissance de l’intention et la traduction.
+* Exemples Java supplémentaires pour la traduction avec une sortie audio.
+* Nouvel exemple pour l’utilisation de l’[API REST de transcription Batch](batch-transcription.md).
+
+**Améliorations/Modifications**
+
+* Python
+  * Vérification de paramètres améliorée et messages d’erreur dans SpeechConfig.
+  * Ajouter la prise en charge de l’objet Connect.
+  * Prise en charge de Python 32 bits (x86) sur Windows.
+  * Le SDK Speech pour Python n’est plus en version bêta.
+* iOS
+  * Le SDK est désormais basé sur le SDK iOS version 12.1.
+  * Le SDK prend désormais en charge iOS 9.2 et versions ultérieures.
+  * Améliorer la documentation de référence et corriger plusieurs noms de propriété.
+* JavaScript
+  * Ajouter la prise en charge de l’objet Connect.
+  * Ajouter des fichiers de définition de type pour JavaScript en offre groupée
+  * Prise en charge initiale et implémentation des conseils.
+  * Retourne la collection de propriétés avec le service JSON dans le cadre de la reconnaissance
+* Les DLL Windows contiennent à présent une vraie ressource de version.
+
+**Résolution des bogues**
+
+* Le nom d’utilisateur et le mot de passe du proxy vides n’étaient pas été traités correctement. Avec cette version, si vous définissez un nom d’utilisateur et un mot de passe proxy en tant que chaîne vide, ils ne seront pas soumis lors de la connexion au proxy.
+* Les SessionId créés par le SDK n’étaient pas toujours vraiment aléatoires pour certains langages&nbsp;/ environnements. L’ajout de l’initialisation du générateur aléatoire a permis de corriger ce problème.
+* Amélioration de la gestion du jeton d’autorisation. Si vous souhaitez utiliser un jeton d’autorisation, spécifiez-le dans le SpeechConfig et ne renseignez pas la clé d’abonnement. Créez ensuite le module de reconnaissance comme d’habitude.
+* Dans certains cas, la connexion de l’objet n’a pas été libéré correctement. Ce problème a été résolu.
+* L’exemple JavaScript a été corrigé de façon à prendre en charge la sortie audio pour la synthèse de traduction également dans Safari.
+
+## <a name="speech-sdk-121"></a>Kit de développement logiciel (SDK) Speech 1.2.1
+
+Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a été ajoutée. Les correctifs suivants ont été appliqués :
+
+* Déclenchement du fin de flux au niveau de turn.end, et non pas de speech.end.
+* Correction d’un bogue dans la pompe audio qui ne planifiait pas le prochain envoi si l’envoi en cours échouait.
+* Correction de la reconnaissance continue avec le jeton d’authentification.
+* Correction de bogue pour un module de reconnaissance / des points de terminaison différents.
+* Améliorations de la documentation.
 
 ## <a name="speech-sdk-120-2018-december-release"></a>SDK Speech 1.2.0 : Version de décembre 2018
 

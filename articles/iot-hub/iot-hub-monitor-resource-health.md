@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 3b56097f8805b4c6d95256ae1753daf5ded266fb
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888394"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446781"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
@@ -302,12 +302,118 @@ La catégorie des méthodes directes assure le suivi des interactions demande-r�
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
             "location": "Resource location"
         }
     ]
 }
 ```
+
+#### <a name="distributed-tracing-preview"></a>Traçage distribué (préversion)
+
+La catégorie de traçage distribué suit les ID de corrélation pour les messages comportant l’en-tête de contexte de trace. Pour activer pleinement ces journaux, le code côté client doit être mis à jour en suivant [Analyser et diagnostiquer les applications IoT de bout en bout avec le traçage distribué IoT Hub (preview)](iot-hub-distributed-tracing.md).
+
+Notez que `correlationId` est conforme à la proposition [Trace Context du W3](https://github.com/w3c/trace-context), car il contient un `trace-id` ainsi qu’un `span-id`. 
+
+##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Journaux appareil à cloud (D2C) IoT Hub
+
+IoT Hub enregistre ce journal en recevant un message contenant des propriétés de trace valides. 
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubD2C",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Receive message success",
+            "durationMs": "",
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Ici, `durationMs` n’est pas calculé, car l’horloge IoT Hub peut ne pas être synchronisée avec l’horloge de l’appareil, ce qui fausse le calcul de durée. Nous recommandons d’écrire la logique en utilisant les horodatages de la section `properties` pour capturer les pics de latence de l’appareil vers le cloud.
+
+| Propriété | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **messageSize** | Entier  | Taille du message appareil-à-cloud, en octets |
+| **deviceId** | Chaîne de caractères alphanumériques ASCII 7 bits | Identité de l’appareil |
+| **callerLocalTimeUtc** | Horodateur UTC | Heure de création du message telle que rapportée par l’horloge local de l’appareil |
+| **calleeLocalTimeUtc** | Horodateur UTC | Heure de réception du message sur la passerelle d’IoT Hub telle qu’elle est rapportée par l’horloge du service IoT Hub |
+
+##### <a name="iot-hub-ingress-logs"></a>Journaux d’entrée IoT Hub
+
+IoT Hub enregistre ce journal lorsqu’un message contenant des propriétés de trace valides écrit dans l’Event Hub interne ou intégré.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubIngress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Ingress message success",
+            "durationMs": "10",
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Dans la section `properties`, ce journal contient des informations supplémentaires sur l’entrée des messages.
+
+| Propriété | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **isRoutingEnabled** | Chaîne | Indique si le routage des messages est activé (true) ou non (false) dans le hub IoT |
+| **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message D2C dans ce cas-ci |
+
+##### <a name="iot-hub-egress-logs"></a>Journaux de sortie IoT Hub
+
+IoT Hub enregistre ce journal lorsque le [routage](iot-hub-devguide-messages-d2c.md) est activé et que le message est écrit sur un [point de terminaison](iot-hub-devguide-endpoints.md). Si le routage n’est pas activé, IoT Hub n’enregistre pas ce journal.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubEgress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-98ac3578922acd26-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Egress message success",
+            "durationMs": "10",
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Dans la section `properties`, ce journal contient des informations supplémentaires sur l’entrée des messages.
+
+| Propriété | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **endpointName** | Chaîne | Nom du point de terminaison de routage |
+| **endpointType** | Chaîne | Type du point de terminaison de routage |
+| **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message d’entrée IoT Hub dans ce cas-ci |
+
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lecture de journaux à partir d’Azure Event Hubs
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: fd7355c342a075f7b0c2e1173717c0345f1f94ba
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561091"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428548"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement
 
@@ -69,7 +69,7 @@ Le tableau suivant fournit une vue d’ensemble des éléments de schéma associ
 
 | **Élément JSON** | **Description** | **Type** | **Valeurs autorisées** | **Obligatoire** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | ID de ressource Azure Resource Manager du compte de stockage. | Chaîne | ID d’Azure Resource Manager | Oui |
+| **scope** | ID de ressource Azure Resource Manager du compte de stockage. | Chaîne | ID d’Azure Resource Manager | OUI |
 | **events** | Type des événements qui entraîne l’activation de ce déclencheur. | Tableau    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Oui, n’importe quelle combinaison de ces valeurs. |
 | **blobPathBeginsWith** | Le chemin d’accès de l’objet blob doit commencer par le modèle fourni pour activer le déclencheur. Par exemple, `/records/blobs/december/` active uniquement le déclencheur pour les objets blob du dossier `december` sous le conteneur `records`. | Chaîne   | | Vous devez indiquer une valeur pour l’une de ces propriétés au moins : `blobPathBeginsWith` ou `blobPathEndsWith`. |
 | **blobPathEndsWith** | Le chemin d’accès de l’objet blob doit se terminer par le modèle fourni pour activer le déclencheur. Par exemple, `december/boxes.csv` active uniquement le déclencheur pour les objets blob nommés `boxes` dans un dossier `december`. | Chaîne   | | Vous devez indiquer une valeur pour l’une de ces propriétés au moins : `blobPathBeginsWith` ou `blobPathEndsWith`. |

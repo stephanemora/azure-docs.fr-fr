@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819159"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428792"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Écrire dans Apache Hadoop HDFS à partir d’Apache Storm sur HDInsight
 
@@ -50,15 +50,18 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 Le composant HdfsBolt utilise le schéma de fichier que vous fournissez pour savoir comment écrire dans le stockage HDFS. Avec HDInsight, utilisez l’un des schémas suivants :
 
 * `wasb://`: avec un compte Stockage Azure.
-* `adl://`: avec Azure Data Lake Storage.
+* `abfs://`: avec Azure Data Lake Storage Gen2.
+* `adl://`: avec Azure Data Lake Storage Gen1.
 
 Le tableau suivant fournit des exemples d’utilisation du schéma de fichier dans différents scénarios :
 
 | Schéma | Notes |
 | ----- | ----- |
 | `wasb:///` | Le compte de stockage par défaut est un conteneur d’objets blob dans un compte de stockage Azure. |
-| `adl:///` | Le compte de stockage par défaut est un répertoire dans Azure Data Lake Storage. Lors de la création du cluster, vous spécifiez le répertoire Data Lake Storage qui sera la racine du stockage HDFS du cluster. Par exemple, le répertoire `/clusters/myclustername/`. |
+| `abfs:///` | Le compte de stockage par défaut est un répertoire dans un compte Azure Data Lake Storage Gen2. |
+| `adl:///` | Le compte de stockage par défaut est un répertoire dans Azure Data Lake Storage Gen1. Lors de la création du cluster, vous spécifiez le répertoire Data Lake Storage qui sera la racine du stockage HDFS du cluster. Par exemple, le répertoire `/clusters/myclustername/`. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Un compte de stockage Azure différent du compte par défaut (compte supplémentaire) associé au cluster. |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | Un compte de stockage Azure différent du compte par défaut (compte supplémentaire) associé au cluster. |
 | `adl://STORENAME/` | La racine du compte Data Lake Storage utilisé par le cluster. Ce schéma vous permet d’accéder aux données qui se trouvent en dehors du répertoire qui contient le système de fichiers du cluster. |
 
 Pour plus d’informations, consultez la documentation de référence [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) sur le site Apache.org.
@@ -180,7 +183,7 @@ Pour plus d’informations sur l’utilisation de ce script avec votre cluster, 
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > Cet exemple suppose que votre cluster utilise un compte de stockage Azure pour le stockage par défaut. Si votre cluster utilise Azure Data Lake Storage, utilisez `hdfs.url: adl:///` à la place.
+    > Cet exemple suppose que votre cluster utilise un compte de stockage Azure pour le stockage par défaut. Si votre cluster utilise Azure Data Lake Storage Gen2, utilisez `hdfs.url: abfs:///` à la place. Si votre cluster utilise Azure Data Lake Storage Gen1, utilisez `hdfs.url: adl:///` à la place.
     
     Pour enregistrer le fichier, use __Ctrl + X__, puis __Y__, et enfin __Entrée__. Les valeurs dans ce fichier définissent l’URL de Data Lake Storage et le nom du répertoire où sont écrites les données.
 

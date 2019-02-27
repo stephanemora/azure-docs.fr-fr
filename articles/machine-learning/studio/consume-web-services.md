@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a05b99cf0e40e63c01aee27bd745dd165dc23b8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998079"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452693"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Guide pratique pour utiliser un service web Azure Machine Learning Studio
 
-Une fois que vous avez déployé un modèle prédictif Azure Machine Learning en tant que service Web, vous pouvez utiliser une API REST pour lui envoyer des données et obtenir des prédictions. Vous pouvez envoyer les données en temps réel ou par lot.
+Une fois que vous avez déployé un modèle prédictif Azure Machine Learning Studio en tant que service Web, vous pouvez utiliser une API REST pour lui envoyer des données et obtenir des prédictions. Vous pouvez envoyer les données en temps réel ou par lot.
 
 Vous trouverez des informations supplémentaires sur la création et le déploiement d’un service web Machine Learning à l’aide de Machine Learning Studio dans les pages suivantes :
 
@@ -32,14 +32,14 @@ Vous trouverez des informations supplémentaires sur la création et le déploie
 ## <a name="overview"></a>Vue d’ensemble
 Grâce au service web Microsoft Azure Machine Learning, une application externe peut communiquer avec le modèle de notation de workflow Machine Learning et ce, en temps réel. Un appel du service web Machine Learning renvoie les résultats d’une prédiction à une application externe. Pour créer cet appel, vous transmettez une clé API créée quand vous déployez une prédiction. Le service web Machine Learning est basé sur l’architecture REST, souvent choisie pour les projets de programmation web.
 
-Microsoft Azure Machine Learning propose deux types de service :
+Microsoft Azure Machine Learning Studio propose deux types de service :
 
 * Service de requête-réponse (Request-Response Service, RRS) : service hautement évolutif, à faible latence, qui constitue une interface pour les modèles sans état créés et déployés à partir de Machine Learning Studio.
 * Service d’exécution de lot (Batch Execution Service, BES) : service asynchrone qui effectue la notation d’un lot pour les enregistrements de données.
 
 Pour plus d’informations sur les services web Machine Learning, consultez [Déployer un service web Machine Learning](publish-a-machine-learning-web-service.md).
 
-## <a name="get-an-azure-machine-learning-authorization-key"></a>Obtenir une clé d’autorisation Microsoft Azure Machine Learning
+## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>Obtenir une clé d’autorisation Microsoft Azure Machine Learning Studio
 Quand vous déployez votre expérimentation, les clés API sont générées pour le service web. Vous pouvez récupérer les clés de plusieurs emplacements.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>À partir du portail des services web Microsoft Azure Machine Learning
@@ -103,7 +103,7 @@ Pour vous connecter à un service web Machine Learning, le package NuGet **Micro
 **Pour exécuter l’exemple de code**
 
 1. Publiez l’expérience « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Machine Learning.
-2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez **Obtenir une clé d’autorisation Microsoft Azure Machine Learning** plus haut.
+2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez **Obtenir une clé d’autorisation Microsoft Azure Machine Learning Studio** ci-dessus.
 3. Affectez l’élément serviceUri avec l’URI de requête.
 
 **Voici à quoi ressemble une requête complète.**
@@ -199,7 +199,7 @@ Pour vous connecter à un service web Machine Learning, utilisez la bibliothèqu
 **Pour exécuter l’exemple de code**
 
 1. Déployer l’exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Machine Learning.
-2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section **Obtenir une clé d’autorisation Microsoft Azure Machine Learning** au début de cet article.
+2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez **Obtenir une clé d’autorisation Microsoft Azure Machine Learning Studio** au début de cet article.
 3. Affectez l’élément serviceUri avec l’URI de requête.
 
 **Voici à quoi ressemble une requête complète.**

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e1edf0ed0c9efcb9f0c81718621706550bf3c4d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012001"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311714"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager
 
@@ -33,26 +33,26 @@ La ressource à créer plusieurs fois est au format suivant :
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "apiVersion": "2016-01-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": 3
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -85,22 +85,22 @@ L’opération copy se révèle utile lorsque vous travaillez avec des tableaux,
 ```json
 "parameters": { 
   "org": { 
-     "type": "array", 
-     "defaultValue": [ 
-         "contoso", 
-         "fabrikam", 
-         "coho" 
-      ] 
+    "type": "array", 
+    "defaultValue": [ 
+      "contoso", 
+      "fabrikam", 
+      "coho" 
+    ] 
   }
 }, 
 "resources": [ 
   { 
-      "name": "[concat('storage', parameters('org')[copyIndex()])]", 
-      "copy": { 
-         "name": "storagecopy", 
-         "count": "[length(parameters('org'))]" 
-      }, 
-      ...
+    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
+    "copy": { 
+      "name": "storagecopy", 
+      "count": "[length(parameters('org'))]" 
+    }, 
+    ...
   } 
 ]
 ```
@@ -119,30 +119,30 @@ Par exemple, pour déployer en série des comptes de stockage deux à la fois, u
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "apiVersion": "2016-01-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": 4,
-                "mode": "serial",
-                "batchSize": 2
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 4,
+        "mode": "serial",
+        "batchSize": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
-``` 
+```
 
 La propriété mode accepte également **parallel**, qui est la valeur par défaut.
 
@@ -164,13 +164,13 @@ L’exemple suivant montre comment appliquer `copy` à la propriété dataDisks 
   "properties": {
     "storageProfile": {
       "copy": [{
-          "name": "dataDisks",
-          "count": 3,
-          "input": {
-              "lun": "[copyIndex('dataDisks')]",
-              "createOption": "Empty",
-              "diskSizeGB": "1023"
-          }
+        "name": "dataDisks",
+        "count": 3,
+        "input": {
+          "lun": "[copyIndex('dataDisks')]",
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        }
       }],
       ...
 ```
@@ -187,22 +187,22 @@ Le Gestionnaire des ressources développe le tableau `copy` durant le déploieme
   "properties": {
     "storageProfile": {
       "dataDisks": [
-          {
-              "lun": 0,
-              "createOption": "Empty",
-              "diskSizeGB": "1023"
-          },
-          {
-              "lun": 1,
-              "createOption": "Empty",
-              "diskSizeGB": "1023"
-          },
-          {
-              "lun": 2,
-              "createOption": "Empty",
-              "diskSizeGB": "1023"
-          }
-      }],
+        {
+          "lun": 0,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        },
+        {
+          "lun": 1,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        },
+        {
+          "lun": 2,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        }
+      ],
       ...
 ```
 
@@ -210,27 +210,27 @@ L'élément copy est un tableau. Vous pouvez donc spécifier plusieurs propriét
 
 ```json
 {
-    "name": "string",
-    "type": "Microsoft.Network/loadBalancers",
-    "apiVersion": "2017-10-01",
-    "properties": {
-        "copy": [
-          {
-              "name": "loadBalancingRules",
-              "count": "[length(parameters('loadBalancingRules'))]",
-              "input": {
-                ...
-              }
-          },
-          {
-              "name": "probes",
-              "count": "[length(parameters('loadBalancingRules'))]",
-              "input": {
-                ...
-              }
-          }
-        ]
-    }
+  "name": "string",
+  "type": "Microsoft.Network/loadBalancers",
+  "apiVersion": "2017-10-01",
+  "properties": {
+    "copy": [
+      {
+        "name": "loadBalancingRules",
+        "count": "[length(parameters('loadBalancingRules'))]",
+        "input": {
+          ...
+        }
+      },
+      {
+        "name": "probes",
+        "count": "[length(parameters('loadBalancingRules'))]",
+        "input": {
+          ...
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -238,39 +238,41 @@ Vous pouvez utiliser des itérations de ressource et de propriété ensemble. R�
 
 ```json
 {
-    "type": "Microsoft.Network/virtualNetworks",
-    "name": "[concat(parameters('vnetname'), copyIndex())]",
-    "apiVersion": "2018-04-01",
-    "copy":{
-        "count": 2,
-        "name": "vnetloop"
+  "type": "Microsoft.Network/virtualNetworks",
+  "name": "[concat(parameters('vnetname'), copyIndex())]",
+  "apiVersion": "2018-04-01",
+  "copy":{
+    "count": 2,
+    "name": "vnetloop"
+  },
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "[parameters('addressPrefix')]"
+      ]
     },
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "addressSpace": {
-            "addressPrefixes": [
-                "[parameters('addressPrefix')]"
-            ]
-        },
-        "copy": [
-            {
-                "name": "subnets",
-                "count": 2,
-                "input": {
-                    "name": "[concat('subnet-', copyIndex('subnets'))]",
-                    "properties": {
-                        "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
-                    }
-                }
-            }
-        ]
-    }
+    "copy": [
+      {
+        "name": "subnets",
+        "count": 2,
+        "input": {
+          "name": "[concat('subnet-', copyIndex('subnets'))]",
+          "properties": {
+            "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
+          }
+        }
+      }
+    ]
+  }
 }
 ```
 
 ## <a name="variable-iteration"></a>Itération de variable
 
-Pour créer plusieurs instances d’une variable, utilisez l’élément `copy` dans la section des variables. Vous pouvez créer plusieurs instances d’objets avec des valeurs associées, puis attribuer ces valeurs à des instances de la ressource. Vous pouvez utiliser la copie pour créer un objet avec une propriété de tableau ou un tableau. L’exemple suivant présente les deux approches :
+Pour créer plusieurs instances d’une variable, utilisez la propriété `copy` dans la section des variables. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété `input`. Vous pouvez utiliser la propriété `copy` au sein d’une variable, ou au niveau supérieur de la section des variables. Lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de variable, vous devez fournir le nom de l’itération.
+
+L’exemple suivant montre plusieurs façons différentes de créer des variables de tableau avec des éléments construits dynamiquement. Il montre comment utiliser la copie à l’intérieur d’une variable pour créer des tableaux d’objets et de chaînes. Il montre également comment utiliser la copie au niveau supérieur pour créer des tableaux d’objets, de chaînes et d’entiers.
 
 ```json
 {
@@ -288,18 +290,33 @@ Pour créer plusieurs instances d’une variable, utilisez l’élément `copy` 
             "diskSizeGB": "1",
             "diskIndex": "[copyIndex('disks')]"
           }
+        },
+        {
+          "name": "diskNames",
+          "count": 5,
+          "input": "[concat('myDataDisk', copyIndex('diskNames', 1))]"
         }
       ]
     },
     "copy": [
       {
-        "name": "disks-top-level-array",
+        "name": "top-level-object-array",
         "count": 5,
         "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "name": "[concat('myDataDisk', copyIndex('top-level-object-array', 1))]",
           "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
+          "diskIndex": "[copyIndex('top-level-object-array')]"
         }
+      },
+      {
+        "name": "top-level-string-array",
+        "count": 5,
+        "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+      },
+      {
+        "name": "top-level-integer-array",
+        "count": 5,
+        "input": "[copyIndex('top-level-integer-array')]"
       }
     ]
   },
@@ -313,68 +330,56 @@ Pour créer plusieurs instances d’une variable, utilisez l’élément `copy` 
       "value": "[variables('disk-array-on-object').disks]",
       "type" : "array"
     },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
+    "exampleObjectArray": {
+      "value": "[variables('top-level-object-array')]",
+      "type" : "array"
+    },
+    "exampleStringArray": {
+      "value": "[variables('top-level-string-array')]",
+      "type" : "array"
+    },
+    "exampleIntegerArray": {
+      "value": "[variables('top-level-integer-array')]",
       "type" : "array"
     }
   }
 }
 ```
 
-Avec les deux approches, l'élément copy est un tableau. Vous pouvez donc spécifier plusieurs variables. Ajoutez un objet à chaque variable à créer.
-
-```json
-"copy": [
-  {
-    "name": "first-variable",
-    "count": 5,
-    "input": {
-      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
-    }
-  },
-  {
-    "name": "second-variable",
-    "count": 3,
-    "input": {
-      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
-    }
-  },
-]
-```
-
 ## <a name="depend-on-resources-in-a-loop"></a>En fonction des ressources dans une boucle
+
 Vous spécifiez qu’une ressource est déployée après une autre ressource à l’aide de l’élément `dependsOn`. Pour déployer une ressource qui dépend de la collection de ressources dans une boucle, vous pouvez utiliser le nom de la boucle de copie dans l’élément dependsOn. L’exemple suivant montre comment déployer trois comptes de stockage avant de déployer la machine virtuelle. La définition complète de la machine virtuelle n’est pas affichée. Notez que le nom de l’élément de copie a la valeur `storagecopy` et que l’élément dependsOn pour la machine virtuelle est également défini sur `storagecopy`.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "resources": [
-        {
-            "apiVersion": "2016-01-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": 3
-            }
-        },
-        {
-            "apiVersion": "2015-06-15", 
-            "type": "Microsoft.Compute/virtualMachines", 
-            "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-            "dependsOn": ["storagecopy"],
-            ...
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      }
+    },
+    {
+      "apiVersion": "2015-06-15", 
+      "type": "Microsoft.Compute/virtualMachines", 
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "dependsOn": ["storagecopy"],
+      ...
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -388,19 +393,19 @@ Par exemple, supposons que vous définissez généralement un jeu de données co
 ```json
 "resources": [
 {
-    "type": "Microsoft.DataFactory/datafactories",
-    "name": "exampleDataFactory",
-    ...
-    "resources": [
+  "type": "Microsoft.DataFactory/datafactories",
+  "name": "exampleDataFactory",
+  ...
+  "resources": [
     {
-        "type": "datasets",
-        "name": "exampleDataSet",
-        "dependsOn": [
-            "exampleDataFactory"
-        ],
-        ...
+      "type": "datasets",
+      "name": "exampleDataSet",
+      "dependsOn": [
+        "exampleDataFactory"
+      ],
+      ...
     }
-}]
+  ]
 ```
 
 Pour créer plusieurs jeux de données, déplacez-le en dehors de la fabrique de données. Le jeu de données doit être au même niveau que la fabrique de données, mais il est toujours une ressource enfant de la fabrique de données. Vous conservez la relation entre le jeu de données et la fabrique de données par le biais des propriétés type et name. Étant donné que le type ne peut plus peut être déduit à partir de sa position dans le modèle, vous devez fournir le type qualifié complet au format : `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
@@ -412,21 +417,21 @@ L’exemple ci-après illustre l’implémentation :
 ```json
 "resources": [
 {
-    "type": "Microsoft.DataFactory/datafactories",
-    "name": "exampleDataFactory",
-    ...
+  "type": "Microsoft.DataFactory/datafactories",
+  "name": "exampleDataFactory",
+  ...
 },
 {
-    "type": "Microsoft.DataFactory/datafactories/datasets",
-    "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
-    "dependsOn": [
-        "exampleDataFactory"
-    ],
-    "copy": { 
-        "name": "datasetcopy", 
-        "count": "3" 
-    } 
-    ...
+  "type": "Microsoft.DataFactory/datafactories/datasets",
+  "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+  "dependsOn": [
+    "exampleDataFactory"
+  ],
+  "copy": {
+    "name": "datasetcopy",
+    "count": "3"
+  },
+  ...
 }]
 ```
 

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40973fbdd1965eb84776fc9365718c65fa0149a7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765712"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416987"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -75,7 +75,7 @@ sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -114,7 +114,12 @@ Avant de pouvoir créer des machines virtuelles à l’aide de CLI, vous devez c
 
 Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 
-1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`.
+1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`. Dans certains scénarios, la connectivité Internet sortante directe est acheminée par l'intermédiaire d'un proxy ou d'un pare-feu, qui assure l'interception SSL. La commande `az cloud register` peut alors échouer avec une erreur de type « Impossible d'obtenir les points de terminaison du cloud ». Pour contourner cette erreur, vous pouvez définir les variables d'environnement suivantes :
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. Pour inscrire l’environnement *administrateur de cloud*, utilisez :
 
@@ -200,7 +205,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
       ```
 
       > [!NOTE]
-      > Si l’authentification multifacteur est activée sur votre compte d’utilisateur, vous pouvez utiliser la commande `az login command` sans fournir le paramètre `-u`. L’exécution de cette commande vous donne une URL et un code à utiliser pour vous authentifier.
+      > Si l'authentification multifacteur est activée sur votre compte d'utilisateur, vous pouvez utiliser la commande `az login` sans fournir le paramètre `-u`. L’exécution de cette commande vous donne une URL et un code à utiliser pour vous authentifier.
    
       * Connectez-vous en tant que *principal de service* : avant de vous connecter, [créez un principal de service avec le portail Azure](azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
 

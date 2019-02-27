@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175402"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340108"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -152,8 +152,8 @@ Dans ce scénario, vous disposez d'un seul locataire Workday et souhaitez attrib
 
 |   |   |
 | - | - |
-|  Non. d'agents d'approvisionnement à déployer localement | 3 (pour la haute disponibilité et le basculement) |
-|  Non. d'applications d'approvisionnement d'utilisateurs de Workday vers AD à configurer sur le portail Azure | 1 |
+| Non. d'agents d'approvisionnement à déployer localement | 3 (pour la haute disponibilité et le basculement) |
+| Non. d'applications d'approvisionnement d'utilisateurs de Workday vers AD à configurer sur le portail Azure | 1 |
 
   ![Scénario 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -163,8 +163,8 @@ Ce scénario implique l'approvisionnement d'utilisateurs de Workday vers plusieu
 
 |   |   |
 | - | - |
-|  Non. d'agents d'approvisionnement à déployer localement | 3 (pour la haute disponibilité et le basculement) |
-|  Non. d'applications d'approvisionnement d'utilisateurs de Workday vers AD à configurer sur le portail Azure | une application par domaine enfant |
+| Non. d'agents d'approvisionnement à déployer localement | 3 (pour la haute disponibilité et le basculement) |
+| Non. d'applications d'approvisionnement d'utilisateurs de Workday vers AD à configurer sur le portail Azure | une application par domaine enfant |
 
   ![Scénario 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -174,8 +174,8 @@ Ce scénario implique l'approvisionnement d'utilisateurs de Workday vers des dom
 
 |   |   |
 | - | - |
-|  Non. d'agents d'approvisionnement à déployer localement | 3 par forêt AD disjointe |
-|  Non. d'applications d'approvisionnement d'utilisateurs de Workday vers AD à configurer sur le portail Azure | une application par domaine enfant |
+| Non. d'agents d'approvisionnement à déployer localement | 3 par forêt AD disjointe |
+| Non. d'applications d'approvisionnement d'utilisateurs de Workday vers AD à configurer sur le portail Azure | une application par domaine enfant |
 
   ![Scénario 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 

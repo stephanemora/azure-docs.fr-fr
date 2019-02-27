@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration dans Azure
-description: Découvrez comment tenir et mettre à jour votre hiérarchie de groupes d’administration.
+title: Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration dans Azure - Gouvernance Azure
+description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582409"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342578"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -39,11 +39,11 @@ Vous pouvez modifier le nom du groupe d’administration en utilisant le portail
 
 1. Sélectionnez l’option **Renommer le groupe** en haut de la page.
 
-   ![Renommer le groupe](./media/detail_action_small.png)
+   ![Renommer l'option Groupe](./media/detail_action_small.png)
 
 1. Lorsque le menu s’ouvre, entrez le nouveau nom à afficher.
 
-   ![Renommer le groupe](./media/rename_context.png)
+   ![Renommer le volet Groupe](./media/rename_context.png)
 
 1. Sélectionnez **Enregistrer**.
 
@@ -87,11 +87,11 @@ Pour supprimer un groupe d’administration, les conditions suivantes doivent ê
 
    - Si l’icône est désactivée, placez le curseur de la souris au-dessus d’elle pour en connaître la raison.
 
-   ![Supprimer un groupe](./media/delete.png)
+   ![Renommer l'option Groupe](./media/delete.png)
 
 1. Une fenêtre s’ouvre pour que vous confirmiez la suppression du groupe d’administration.
 
-   ![Supprimer un groupe](./media/delete_confirm.png)
+   ![Fenêtre de confirmation de suppression du groupe](./media/delete_confirm.png)
 
 1. Sélectionnez **Oui**.
 
@@ -195,13 +195,13 @@ Pour connaître vos autorisations, sélectionnez le groupe d’administration, p
 
 1. Dans la liste, sélectionnez les points de suspension situés en fin de la ligne de l’abonnement à déplacer.
 
-   ![Déplacer](./media/move_small.png)
+   ![Option Déplacer](./media/move_small.png)
 
 1. Sélectionnez **Déplacer**.
 
 1. Dans le menu qui s’ouvre, sélectionnez le **groupe d’administration parent**.
 
-   ![Déplacer](./media/move_small_context.png)
+   ![Volet Déplacer](./media/move_small_context.png)
 
 1. Sélectionnez **Enregistrer**.
 

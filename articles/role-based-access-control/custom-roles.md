@@ -1,6 +1,6 @@
 ---
-title: Rôles personnalisés dans Azure | Microsoft Docs
-description: Découvrez comment définir des rôles personnalisés avec le contrôle d’accès en fonction du rôle (RBAC) d’Azure pour une gestion affinée des accès aux ressources dans Azure.
+title: Rôles personnalisés pour les ressources Azure | Microsoft Docs
+description: Découvrez comment créerdes rôles personnalisés avec le contrôle d’accès en fonction du rôle (RBAC) pour une gestion affinée des accès aux ressources Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697127"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339326"
 ---
-# <a name="custom-roles-in-azure"></a>Rôles personnalisés dans Azure
+# <a name="custom-roles-for-azure-resources"></a>Rôles personnalisés pour les ressources Azure
 
-Si les [rôles intégrés](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des principaux de service dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un annuaire Azure Active Directory et peuvent être partagés entre des abonnements. Chaque annuaire peut avoir jusqu’à 2 000 rôles personnalisés. Vous pouvez créer des rôles personnalisés à l’aide d’Azure PowerShell, de l’interface de ligne de commande Azure et de l’API REST.
+Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des principaux de service dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un annuaire Azure Active Directory et peuvent être partagés entre des abonnements. Chaque annuaire peut avoir jusqu’à 2 000 rôles personnalisés. Vous pouvez créer des rôles personnalisés à l’aide d’Azure PowerShell, de l’interface de ligne de commande Azure et de l’API REST.
 
 ## <a name="custom-role-example"></a>Exemple de rôle personnalisé
 
@@ -86,15 +86,15 @@ Un rôle personnalisé dispose des propriétés suivantes.
 
 | Propriété | Obligatoire | Type | Description |
 | --- | --- | --- | --- |
-| `Name` | Oui | Chaîne | Nom complet du rôle personnalisé. Si une définition de rôle est une ressource de niveau abonnement, elle peut cependant être utilisée dans plusieurs abonnements partageant le même annuaire Azure AD. Ce nom d’affichage doit être unique dans l’étendue de l’annuaire Azure AD. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 128. |
-| `Id` | Oui | Chaîne | ID unique du rôle personnalisé. Pour Azure PowerShell et Azure CLI, cet ID est généré automatiquement lorsque vous créez un nouveau rôle. |
-| `IsCustom` | Oui | Chaîne | Indique s’il s’agit d’un rôle personnalisé. À définir sur `true` pour les rôles personnalisés. |
-| `Description` | Oui | Chaîne | Description du rôle personnalisé. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 1 024. |
-| `Actions` | Oui | String[] | Tableau de chaînes qui spécifie les opérations d’administration que le rôle autorise. Pour plus d’informations, voir [Actions](role-definitions.md#actions). |
+| `Name` | OUI | Chaîne | Nom complet du rôle personnalisé. Si une définition de rôle est une ressource de niveau abonnement, elle peut cependant être utilisée dans plusieurs abonnements partageant le même annuaire Azure AD. Ce nom d’affichage doit être unique dans l’étendue de l’annuaire Azure AD. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 128. |
+| `Id` | OUI | Chaîne | ID unique du rôle personnalisé. Pour Azure PowerShell et Azure CLI, cet ID est généré automatiquement lorsque vous créez un nouveau rôle. |
+| `IsCustom` | OUI | Chaîne | Indique s’il s’agit d’un rôle personnalisé. À définir sur `true` pour les rôles personnalisés. |
+| `Description` | OUI | Chaîne | Description du rôle personnalisé. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 1 024. |
+| `Actions` | OUI | String[] | Tableau de chaînes qui spécifie les opérations d’administration que le rôle autorise. Pour plus d’informations, voir [Actions](role-definitions.md#actions). |
 | `NotActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations d’administration exclues des `Actions` autorisées. Pour plus d’informations, voir [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Pour plus d’informations, voir [DataActions (préversion)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations de données exclues des `DataActions` autorisées. Pour plus d’informations, voir [NotDataActions (préversion)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Oui | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Ne peut pas être défini sur l’étendue racine (`"/"`) ou sur une étendue de groupe d’administration. Pour plus d’informations, consultez [AssignableScopes](role-definitions.md#assignablescopes) et [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | OUI | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Ne peut pas être défini sur l’étendue racine (`"/"`) ou sur une étendue de groupe d’administration. Pour plus d’informations, consultez [AssignableScopes](role-definitions.md#assignablescopes) et [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Qui peut créer, supprimer, mettre à jour ou afficher un rôle personnalisé
 
@@ -107,7 +107,7 @@ Tout comme pour les rôles intégrés, la propriété `AssignableScopes` spécif
 | Afficher un rôle personnalisé | `Microsoft.Authorization/ roleDefinition/read` | Les utilisateurs ayant accès à cette opération dans une étendue peuvent afficher les rôles personnalisés disponibles pour attribution dans cette étendue. Tous les rôles intégrés permettent que les rôles personnalisés soient disponibles pour attribution. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer des rôles personnalisés à l’aide d’Azure PowerShell](custom-roles-powershell.md)
-- [Créer des rôles personnalisés à l’aide d’Azure CLI](custom-roles-cli.md)
-- [Comprendre les définitions de rôles](role-definitions.md)
-- [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle dans Azure](troubleshooting.md)
+- [Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure PowerShell](custom-roles-powershell.md)
+- [Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI](custom-roles-cli.md)
+- [Comprendre les définitions de rôle relatives aux ressources Azure](role-definitions.md)
+- [Résoudre des problèmes liés au contrôle d'accès en fonction du rôle pour les ressources Azure](troubleshooting.md)

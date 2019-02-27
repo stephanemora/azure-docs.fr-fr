@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 72c4bfc4151e8120f8641c743c0da3896bd71fe1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995028"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299562"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installer PowerShell pour Azure Stack
 
@@ -97,7 +97,7 @@ L’installation comporte trois étapes :
 
 Exécutez le script PowerShell suivant pour installer ces modules sur votre station de travail de développement :
 
-- Azure Stack 1901 ou version ultérieure.
+- Azure Stack 1901 ou version ultérieure :
 
     ```PowerShell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -108,7 +108,7 @@ Exécutez le script PowerShell suivant pour installer ces modules sur votre stat
     > [!Note]  
     > La version du module Azure Stack 1.7.0 est un changement cassant. Pour migrer à partir d’Azure Stack 1.6.0, consultez le [guide de migration](https://aka.ms/azspshmigration170).
 
-- Azure Stack 1811 ou version antérieure.
+- Azure Stack 1811 :
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -120,7 +120,7 @@ Exécutez le script PowerShell suivant pour installer ces modules sur votre stat
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
 
-- Azure Stack 1809 ou version antérieure.
+- Azure Stack 1810 ou version antérieure :
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382741"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310573"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Sauvegarder un client Windows ou un serveur Windows Server dans Azure et le modèle de déploiement Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un client Windows) sur Azure avec Azure Backup et le modèle de déploiement Resource Manager.
@@ -72,7 +72,7 @@ Lorsque vous créez un archivage de Recovery Services pour la première fois, vo
 
     ![Sélectionnez le nouveau coffre dans la liste des coffres Recovery Services.](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Quand vous sélectionnez le coffre, le panneau Coffre Recovery Services se réduit et le panneau **Vue d’ensemble** (*qui mentionne le nom du coffre en haut*) ainsi que le panneau des détails du coffre s’ouvrent.
+    Lorsque vous sélectionnez le coffre, le panneau Coffre Recovery Services se réduit et le panneau **Vue d’ensemble** (*qui mentionne le nom du coffre en haut*) ainsi que le panneau des détails du coffre s’ouvrent.
 
     ![Afficher la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

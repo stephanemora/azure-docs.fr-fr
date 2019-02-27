@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300729"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446662"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -26,12 +26,11 @@ Oui. Vous pouvez créer jusqu’à 500 coffres Recovery Services par région de
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Le nombre de serveurs/ordinateurs pouvant être inscrits dans chaque coffre est-il limité ?
 Vous pouvez inscrire jusqu’à 1 000 machines virtuelles Azure par coffre. Si vous utilisez l’agent Sauvegarde Microsoft Azure, vous pouvez inscrire jusqu’à 50 agents MAB par coffre. Et vous pouvez inscrire 50 serveurs MAB/DPM dans un coffre.
 
-
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Si mon organisation possède un coffre, comment isoler les données de différents serveurs lors de la restauration des données ?
 Les données que vous souhaitez récupérer ensemble doivent utiliser la même phrase secrète lorsque vous configurez la sauvegarde. Si vous souhaitez isoler la récupération vers un serveur ou des serveurs spécifiques, utilisez une phrase secrète unique aux serveurs voulus. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Puis-je déplacer mon coffre d’un abonnement vers un autre ?
-Non. Le coffre est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement.
+Oui. Pour déplacer un coffre Recovery Services, consultez cet [article](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Puis-je déplacer des données de sauvegarde vers un autre coffre ?
 Non. Les données de sauvegarde stockées dans un coffre ne peuvent pas être déplacées vers un autre coffre.
@@ -40,7 +39,8 @@ Non. Les données de sauvegarde stockées dans un coffre ne peuvent pas être d�
 Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les options de stockage avant de commencer le stockage des sauvegardes.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Puis-je effectuer une restauration de niveau élément (ILR) pour les machines virtuelles sauvegardées dans un coffre Recovery Services ?
-ILR n’est pas pris en charge.
+- La restauration de niveau élément est prise en charge pour les machines virtuelles Azure sauvegardées par la sauvegarde de machine virtuelle Azure. Pour plus d’informations, consultez cet [article](backup-azure-restore-files-from-vm.md)
+- La restauration de niveau élément n’est pas prise en charge pour les points de récupération en ligne des machines virtuelles sur site sauvegardées par le serveur de sauvegarde Azure ou System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
@@ -76,10 +76,8 @@ Non. Chaque serveur DPM ou serveur Sauvegarde Azure peut être inscrit auprès 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Puis-je utiliser Azure Backup Server pour créer une sauvegarde de la récupération complète (BMR) pour un serveur physique ? <br/>
 Oui.
 
-
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Puis-je utiliser DPM pour sauvegarder des applications dans Azure Stack ?
 Non. Vous pouvez utiliser la sauvegarde Azure pour protéger Azure Stack, mais la sauvegarde Azure ne prend pas en charge actuellement l’utilisation de DPM pour sauvegarder des applications dans Azure Stack.
-
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Si j’ai installé l’agent Sauvegarde Azure pour protéger mes fichiers et dossiers, puis-je installer System Center DPM pour sauvegarder les charges de travail locales vers Azure ?
 Oui. Mais vous devez configurer tout d’abord DPM et puis installer l’agent Sauvegarde Azure.  L’installation des composants dans cet ordre garantit le fonctionnement de l’agent Sauvegarde Azure avec DPM. L’installation de l’agent Sauvegarde Azure avant l’installation de DPM n’est pas conseillée et n’est pas prise en charge.
@@ -93,7 +91,6 @@ Oui.
 - Vous sauvegardez les machines virtuelles Azure une fois par jour.
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Quels sont les systèmes d’exploitation pris en charge par la sauvegarde ?
-
 Sauvegarde Azure prend en charge les systèmes d’exploitation suivants pour la sauvegarde des dossiers et des fichiers, ainsi que des applications protégées par Azure Backup Server et DPM.
 
 **SE**| **Référence (SKU)** |**Détails**
@@ -138,29 +135,23 @@ SharePoint | Somme des bases de données de contenu et de configuration dans une
 Microsoft Exchange |Somme de toutes les bases de données Exchange sur un serveur Exchange en cours de sauvegarde.
 État système/récupération complète |Chaque copie individuelle de l’état système/récupération complète de l’ordinateur sauvegardée.
 
-
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>La quantité de données sauvegardées dans un coffre Recovery Services est-elle limitée ?
 Il n’existe aucune limite pour la quantité de données que vous pouvez sauvegarder dans un coffre Recovery Services.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Si j’annule une opération de sauvegarde en cours, les données de sauvegarde transférées sont-elles supprimées ?
-Non. Toutes les données transférées dans le coffre avant l’annulation de l’opération de sauvegarde sont conservées. Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde. En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers. La prochaine tâche de sauvegarde sera incrémentielle par rapport aux données précédemment sauvegardées. Les sauvegardes incrémentielles transfèrent uniquement les données nouvelles ou modifiées, ce qui équivaut à une meilleure utilisation de la bande passante.
-
-Si vous annulez une tâche de sauvegarde pour une machine virtuelle Azure, toutes les données transférées sont ignorées. La tâche de sauvegarde suivante transfère des données incrémentielles à partir de la dernière sauvegarde réussie.
-
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Pourquoi la taille des données transférées dans le coffre Recovery Services est-elle plus réduite que celle des données sélectionnées pour la sauvegarde ?
-
- Les données sauvegardées à partir de l’agent Azure Backup, de DPM et du serveur de sauvegarde Azure sont compressées et chiffrées avant d’être transférées. Une fois la compression et le chiffrement appliqués, les données dans le coffre sont inférieures de 30 à 40 %.
+Les données sauvegardées à partir de l’agent Azure Backup, de DPM et du serveur de sauvegarde Azure sont compressées et chiffrées avant d’être transférées. Une fois la compression et le chiffrement appliqués, les données dans le coffre sont inférieures de 30 à 40 %.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Puis-je supprimer des fichiers individuels à partir d’un point de récupération dans le coffre ?
 Non. La Sauvegarde Azure ne prend pas en charge la suppression ou le vidage des éléments individuels à partir de sauvegardes stockées.
 
-
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Si j’annule une opération de sauvegarde après son démarrage, les données de sauvegarde transférées sont-elles supprimées ?
-
 Non. Toutes les données transférées dans le coffre avant l’annulation de l’opération de sauvegarde sont conservées.
+
 - Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde.
 - En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers.
 - La prochaine tâche de sauvegarde sera incrémentielle par rapport aux données précédemment sauvegardées. Les sauvegardes incrémentielles transfèrent uniquement les données nouvelles ou modifiées, ce qui équivaut à une meilleure utilisation de la bande passante.
+
+Si vous annulez une tâche de sauvegarde pour une machine virtuelle Azure, toutes les données transférées sont ignorées. La tâche de sauvegarde suivante transfère des données incrémentielles à partir de la dernière sauvegarde réussie.
 
 ## <a name="retention-and-recovery"></a>Rétention et récupération
 
@@ -177,7 +168,7 @@ Non. Les stratégies de rétention ne peuvent être appliquées que sur les poin
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Si une sauvegarde est conservée pendant longtemps, faut-il plus de temps pour récupérer un point de données plus ancien ? <br/>
-Non, le délai de récupération reste identique pour les points de données récents ou anciens. Chaque point de récupération se comporte comme un point complet.
+Non. Le délai de récupération reste identique pour les points de données récents ou anciens. Chaque point de récupération se comporte comme un point complet.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Si chaque point de récupération est un point complet, cela a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?
 Les produits avec points de rétention à long terme stockent les données de sauvegarde en tant que points complets.
@@ -203,7 +194,7 @@ Non. La récupération est gratuite et le trafic sortant ne vous est pas factur�
 Lorsqu’une nouvelle stratégie est appliquée, le planning et la rétention de la nouvelle stratégie sont suivis.
 
 - Si la rétention est étendue, les points de récupération existants sont marqués comme à conserver afin qu’ils soient conformes à la nouvelle stratégie.
-- - Si la rétention est réduite, ils sont marqués comme à nettoyer lors de la prochaine tâche de nettoyage et sont ensuite supprimés.
+- Si la rétention est réduite, ils sont marqués comme à nettoyer lors de la prochaine tâche de nettoyage et sont ensuite supprimés.
 
 ## <a name="encryption"></a>Chiffrement
 

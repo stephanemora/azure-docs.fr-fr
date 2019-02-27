@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744162"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340346"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -45,11 +45,11 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
 
 * Pour le traitement de travaux basé sur un fichier, vous pouvez utiliser une URL HTTP(S) comme entrée.<br/>Vous n’avez pas besoin de contenu déjà stocké dans Azure, ou de créer des ressources.
 * Introduit le concept de [transformations](transforms-jobs-concept.md) pour le traitement de travaux basé sur fichier. Vous pouvez utiliser une transformation pour créer des configurations réutilisables, créer des modèles Azure Resource Manager, et isoler des paramètres de traitement entre plusieurs clients ou locataires.
-* Un actif multimédia peut avoir plusieurs [localisateurs de streaming](streaming-locators-concept.md), chacun avec des paramètres différents d’empaquetage dynamique et de chiffrement dynamique.
+* Un actif multimédia peut avoir plusieurs [localisateurs de streaming](streaming-locators-concept.md), chacun avec des paramètres différents d’[empaquetage dynamique](dynamic-packaging-overview.md) et de chiffrement dynamique.
 * La [protection du contenu](content-key-policy-concept.md) prend en charge les fonctionnalités à plusieurs clés.
 * Vous pouvez diffuser des événements en direct d’une durée maximale de 24 heures quand vous utilisez Media Services pour transcoder un flux de contribution à une seule vitesse de transmission en un flux de sortie à vitesse de transmission multiple.
 * Nouvelle prise en charge du streaming en direct à faible latence sur des événements en direct. Pour plus d’informations, consultez [latence](live-event-latency.md).
-* L’aperçu des événements en direct prend en charge l’empaquetage dynamique et le chiffrement dynamique. Ceci permet la protection du contenu sur l’aperçu, ainsi que l’empaquetage DASH et HLS.
+* L’aperçu des événements en direct prend en charge l’[empaquetage dynamique](dynamic-packaging-overview.md) et le chiffrement dynamique. Ceci permet la protection du contenu sur l’aperçu, ainsi que l’empaquetage DASH et HLS.
 * La sortie en direct est plus simple à utiliser que l’entité Program dans les API v2. 
 * Prise en charge améliorée de RTMP (stabilité accrue et meilleure prise en charge de l’encodeur source).
 * Ingestion sécurisée RTMPS.<br/>Quand vous créez un événement en direct, vous obtenez 4 URL de réception. Les 4 URL d’ingestion sont presque identiques, ont le même jeton de streaming (AppId) ; seule la partie du numéro de port est différente. Il existe deux URL principales et de secours pour RTMPS.   

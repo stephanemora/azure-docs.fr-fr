@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 565e33748d3a39c61c75313188980c51d5bea5b9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a52b78b62395f571e448a73b8c34847ef16b2613
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203894"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429534"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health
 Ce document vous guide à travers l’installation et la configuration des agents Azure AD Connect Health. Vous pouvez télécharger les agents [ici](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent):
@@ -36,13 +36,13 @@ Le tableau qui suit est une liste d’exigences d’utilisation d’Azure AD Con
 | Connectivité sortante vers les points de terminaison de service Azure | Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health. Si la connectivité sortante est bloquée à l’aide de pare-feu, assurez-vous d’ajouter les points de terminaison suivants à la liste autorisée. Consultez les [points de terminaison de connectivité sortante](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints). |
 |Connectivité sortante basée sur des adresses IP | Pour le filtrage basé sur des adresses IP sur les pare-feu, reportez-vous aux [plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
 | L’inspection SSL pour le trafic sortant est filtrée ou désactivée | L’étape d’inscription de l’agent ou des étapes de téléchargement de données peuvent échouer en cas d’inspection SSL ou d’arrêt pour le trafic sortant sur la couche réseau. En savoir plus sur [comment configurer l’inspection SSL](https://technet.microsoft.com/library/ee796230.aspx) |
-| Ports du pare-feu sur le serveur qui exécute l’agent |L’agent requiert que les ports de pare-feu suivants soient ouverts pour pouvoir communiquer avec les points de terminaison du service Azure AD Health.<br /><br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />En savoir plus sur l’[activation des ports de pare-feu](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Ports du pare-feu sur le serveur qui exécute l’agent |L’agent requiert que les ports de pare-feu suivants soient ouverts pour pouvoir communiquer avec les points de terminaison du service Azure AD Health.<br /><br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />Notez que le port 5671 n'est plus requis pour la dernière version de l'agent. Procédez à une mise à niveau vers la dernière version pour que seul le port 443 soit requis. En savoir plus sur l’[activation des ports de pare-feu](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Autoriser les sites web suivants en cas d’activation de la sécurité renforcée d’IE |Si la sécurité renforcée d’Internet Explorer est activée, les sites web suivants doivent être autorisés sur le serveur où l’agent sera installé.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Le serveur de fédération pour votre organisation approuvé par Azure Active Directory. Par exemple : https:\//sts.contoso.com</li> En savoir plus sur [comment configurer IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
 | Vérifier que le logiciel PowerShell 4.0 ou plus est installé | <li>Le logiciel Windows Server 2008 R2 est livré avec PowerShell 2.0, qui est insuffisant pour l’agent. Mettez à jour PowerShell, comme expliqué ci-dessous sous [Installation de l’agent sur les serveurs Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Le logiciel Windows Server 2012 est livré avec PowerShell 3.0, qui est insuffisant pour l’agent.  [Mettez à jour](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Le logiciel Windows Server 2012 R2 et les versions ultérieures sont proposés avec une version suffisamment récente de PowerShell.</li>|
 |Désactiver FIPS|FIPS n’est pas pris en charge par les agents Azure AD Connect Health.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Connectivité sortante vers les points de terminaison de service Azure
- Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health. Si la connectivité sortante est bloquée à l’aide de pare-feu, assurez-vous d’ajouter les points de terminaison suivants à la liste autorisée. En savoir plus sur la [vérification de la connectivité sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health. Si la connectivité sortante est bloquée à l'aide de pare-feu, assurez-vous que les URL suivantes ne sont pas bloquées par défaut. Ne désactivez pas la surveillance ou l'inspection de la sécurité de ces URL, mais autorisez-les comme vous le feriez pour tout autre trafic Internet. Celles-ci permettent la communication avec les points de terminaison de service Azure AD Connect Health. En savoir plus sur la [vérification de la connectivité sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | Environnement de domaine | Points de terminaison de service Azure nécessaires |
 | --- | --- |
@@ -119,7 +119,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur **Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS 2.0 est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable</code>
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Fermez le composant logiciel enfichable **Gestion AD FS**. Pour ouvrir le composant logiciel enfichable Gestion AD FS, cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur **Gestion AD FS 2.0**.
@@ -132,7 +132,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Ouvrez **Stratégie de sécurité locale** en ouvrant **Gestionnaire de serveur** sur l’écran d’accueil, ou Gestionnaire de serveur dans la barre des tâches sur le bureau, puis cliquez sur **Outils/Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
+4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : ```auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable```.
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Ouvrez le composant logiciel enfichable **Gestion AD FS** (dans le Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
@@ -144,7 +144,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Ouvrez **Stratégie de sécurité locale** en ouvrant **Gestionnaire de serveur** sur l’écran d’accueil, ou Gestionnaire de serveur dans la barre des tâches sur le bureau, puis cliquez sur **Outils/Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez le compte de service AD FS à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>.
+4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable.</code>.
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Ouvrez le composant logiciel enfichable **Gestion AD FS** (dans le Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
@@ -272,7 +272,7 @@ Vous disposez des options suivantes afin de configurer un agent Azure AD Connect
 
 > [!NOTE]
 > Tous les services de l’agent Azure AD Connect Health doivent être redémarrés pour que la mise à jour des paramètres du proxy prenne effet. Exécutez la commande suivante :<br />
->  Restart-Service AdHealth*
+> Restart-Service AdHealth*
 >
 >
 

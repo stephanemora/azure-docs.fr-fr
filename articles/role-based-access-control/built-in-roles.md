@@ -15,20 +15,22 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699259"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340842"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
-Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs, groupes et principaux de service. Les attributions de rôles vous permettent de contrôler l’accès aux ressources dans Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés](custom-roles.md).
 
-Les rôles intégrés sont en constante évolution. Pour obtenir les dernières définitions de rôle, utilisez la commande [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) a plusieurs rôles intégrés pour les ressources Azure que vous pouvez affecter aux utilisateurs, groupes, principaux de service et identités managées. Les attributions de rôles vous permettent de contrôler l’accès aux ressources Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés pour les ressources Azure](custom-roles.md).
+
+Cet article répertorie les rôles intégrés pour les ressources Azure, qui sont en constante évolution. Pour obtenir les derniers rôles, utilisez la commande [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list). Si vous recherchez des rôles d’administrateur pour Azure Active Directory, consultez [Autorisations de rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="built-in-role-descriptions"></a>Descriptions des rôles intégrés
-Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cliquez sur le nom d’un rôle pour voir la liste de `Actions`, `NotActions`, `DataActions` et `NotDataActions` concernant ce rôle.
+
+Le tableau ci-après fournit une brève description de chaque rôle intégré. Cliquez sur le nom d’un rôle pour voir la liste de `Actions`, `NotActions`, `DataActions` et `NotDataActions` concernant ce rôle. Pour plus d’informations sur la signification de ces actions et la manière dont elles s'appliquent en termes de gestion et de données, consultez [Comprendre les définitions de rôle relatives aux ressources Azure](role-definitions.md).
 
 
 | Rôle intégré | Description |
@@ -139,6 +141,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | **Actions** |  |
 > | * | Créer et gérer les ressources de tous les types |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="contributor"></a>Contributeur
 > [!div class="mx-tableFixed"]
@@ -154,6 +162,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Authorization/elevateAccess/Action | Accorde à l’appelant un accès Administrateur de l’accès utilisateur au niveau de la portée du client |
 > | Microsoft.Blueprint/blueprintAssignments/write | Créer ou mettre à jour tous les artefacts de blueprint |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Supprimer tous les artefacts de blueprint |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="reader"></a>Lecteur
 > [!div class="mx-tableFixed"]
@@ -163,6 +175,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Actions** |  |
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="acrimagesigner"></a>AcrImageSigner
 > [!div class="mx-tableFixed"]
@@ -172,6 +190,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Envoie ou tire des métadonnées d’approbation du contenu pour un registre de conteneurs. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="acrpull"></a>AcrPull
 > [!div class="mx-tableFixed"]
@@ -181,6 +205,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Tire (pull) ou obtient des images à partir d’un registre de conteneurs. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="acrpush"></a>AcrPush
 > [!div class="mx-tableFixed"]
@@ -191,6 +221,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Tire (pull) ou obtient des images à partir d’un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/push/write | Envoie (push) ou écrit des images dans un registre de conteneurs. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -200,6 +236,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Tire (pull) ou obtient des images en quarantaine à partir du registre de conteneurs |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -210,6 +252,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Tire (pull) ou obtient des images en quarantaine à partir du registre de conteneurs |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Écrit ou modifie l’état des images en quarantaine |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="api-management-service-contributor"></a>Contributeur du service de gestion des API
 > [!div class="mx-tableFixed"]
@@ -225,6 +273,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="api-management-service-operator-role"></a>Rôle d’opérateur du service Gestion des API
 > [!div class="mx-tableFixed"]
@@ -250,6 +304,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtenir la liste des clés utilisateur |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="api-management-service-reader-role"></a>Rôle de lecteur du service Gestion des API
 > [!div class="mx-tableFixed"]
@@ -268,6 +326,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtenir la liste des clés utilisateur |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="application-insights-component-contributor"></a>Contributeur de composants Application Insights
 > [!div class="mx-tableFixed"]
@@ -284,6 +346,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="application-insights-snapshot-debugger"></a>Débogueur de capture instantanée d’Application Insights
 > [!div class="mx-tableFixed"]
@@ -298,6 +366,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="automation-job-operator"></a>Opérateur de travaux Automation
 > [!div class="mx-tableFixed"]
@@ -319,6 +393,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="automation-operator"></a>Opérateur Automation
 > [!div class="mx-tableFixed"]
@@ -348,6 +428,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Obtient le résultat d’un travail |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="automation-runbook-operator"></a>Opérateur de runbook Automation
 > [!div class="mx-tableFixed"]
@@ -362,6 +448,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Rôle d’administrateur de cluster Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -371,6 +463,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Répertorier les informations d’identification clusterAdmin d’un cluster géré |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Rôle d’utilisateur de cluster Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -380,6 +478,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Répertorier les informations d’identification clusterAdmin d’un cluster géré |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="azure-stack-registration-owner"></a>Propriétaire de l’inscription Azure Stack
 > [!div class="mx-tableFixed"]
@@ -391,6 +495,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Récupère les détails étendus d’un produit de la place de marché Azure Stack. |
 > | Microsoft.AzureStack/registrations/products/read | Obtient les propriétés d’un produit de la place de marché Azure Stack. |
 > | Microsoft.AzureStack/registrations/read | Obtient les propriétés d’une inscription Azure Stack. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="backup-contributor"></a>Contributeur de sauvegarde
 > [!div class="mx-tableFixed"]
@@ -442,6 +552,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtient l’état de l’opération pour une opération donnée. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Répertorier tous les intentions de protection de sauvegarde |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="backup-operator"></a>Opérateur de sauvegarde
 > [!div class="mx-tableFixed"]
@@ -508,6 +624,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtient l’état de l’opération pour une opération donnée. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Répertorier tous les intentions de protection de sauvegarde |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="backup-reader"></a>Lecteur de sauvegarde
 > [!div class="mx-tableFixed"]
@@ -555,6 +677,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtient l’état de l’opération pour une opération donnée. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Répertorier tous les intentions de protection de sauvegarde |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="billing-reader"></a>Lecteur de facturation
 > [!div class="mx-tableFixed"]
@@ -570,6 +698,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="biztalk-contributor"></a>Contributeur BizTalk
 > [!div class="mx-tableFixed"]
@@ -585,6 +719,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cdn-endpoint-contributor"></a>Contributeur de point de terminaison CDN
 > [!div class="mx-tableFixed"]
@@ -601,6 +741,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cdn-endpoint-reader"></a>Lecteur de point de terminaison CDN
 > [!div class="mx-tableFixed"]
@@ -617,6 +763,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cdn-profile-contributor"></a>Contributeur de profil CDN
 > [!div class="mx-tableFixed"]
@@ -633,6 +785,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cdn-profile-reader"></a>Lecteur de profil CDN
 > [!div class="mx-tableFixed"]
@@ -649,6 +807,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="classic-network-contributor"></a>Contributeur de réseau classique
 > [!div class="mx-tableFixed"]
@@ -664,6 +828,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="classic-storage-account-contributor"></a>Contributeur de compte de stockage classique
 > [!div class="mx-tableFixed"]
@@ -679,6 +849,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>Rôle de service d’opérateur de clé de compte de stockage classique
 > [!div class="mx-tableFixed"]
@@ -689,6 +865,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Répertorie les clés d’accès des comptes de stockage. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Régénère les clés d’accès existantes du compte de stockage. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="classic-virtual-machine-contributor"></a>Contributeur de machine virtuelle classique
 > [!div class="mx-tableFixed"]
@@ -714,6 +896,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cognitive-services-contributor"></a>Contributeur Cognitive Services
 > [!div class="mx-tableFixed"]
@@ -739,6 +927,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cognitive-services-user"></a>Utilisateur Cognitive Services
 > [!div class="mx-tableFixed"]
@@ -760,6 +954,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/read | Obtient la liste des abonnements. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cosmos-db-account-reader-role"></a>Rôle de lecteur de compte Cosmos DB
 > [!div class="mx-tableFixed"]
@@ -775,6 +975,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Insights/Metrics/read | Lire des mesures |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
@@ -785,6 +991,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Soumettre une demande pour configurer la sauvegarde |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Soumettre une demande de restauration |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cost-management-contributor"></a>Contributeur Cost Management
 > [!div class="mx-tableFixed"]
@@ -799,6 +1011,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/read | Obtient la liste des abonnements. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="cost-management-reader"></a>Lecteur Cost Management
 > [!div class="mx-tableFixed"]
@@ -813,6 +1031,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/read | Obtient la liste des abonnements. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="data-box-contributor"></a>Contributeur Data Box
 > [!div class="mx-tableFixed"]
@@ -827,6 +1051,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | Microsoft.Databox/* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="data-box-reader"></a>Lecteur Data Box
 > [!div class="mx-tableFixed"]
@@ -842,6 +1072,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Databox/locations/availableSkus/action | Retourner la liste des références (SKU) disponibles |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="data-factory-contributor"></a>Contributeurs de fabrique de données
 > [!div class="mx-tableFixed"]
@@ -858,6 +1094,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="data-lake-analytics-developer"></a>Développeur Data Lake Analytics
 > [!div class="mx-tableFixed"]
@@ -889,6 +1131,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Delete | Supprimer une règle de pare-feu. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Crée ou met à jour une stratégie de calcul. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Supprime une stratégie de calcul. |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="data-purger"></a>Videur de données
 > [!div class="mx-tableFixed"]
@@ -901,6 +1147,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Insights/components/purge/action | Vider des données d’Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Supprime les données spécifiées de l’espace de travail |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="devtest-labs-user"></a>Utilisateur de DevTest Labs
 > [!div class="mx-tableFixed"]
@@ -941,6 +1193,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Répertorier les tailles disponibles pour la mise à jour de la machine virtuelle |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="dns-zone-contributor"></a>Contributeur de Zone DNS
 > [!div class="mx-tableFixed"]
@@ -956,6 +1212,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="documentdb-account-contributor"></a>Contributeur de compte DocumentDB
 > [!div class="mx-tableFixed"]
@@ -971,6 +1233,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="eventgrid-eventsubscription-contributor"></a>Contributeur EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
@@ -988,6 +1256,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="eventgrid-eventsubscription-reader"></a>Lecteur EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
@@ -1002,6 +1276,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | Lister les abonnements à des événements régionaux |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Lister des abonnements à des événements régionaux par type de rubrique |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="hdinsight-domain-services-contributor"></a>Contributeur HDInsight Domain Services
 > [!div class="mx-tableFixed"]
@@ -1013,6 +1293,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Contributeur de compte Intelligent Systems
 > [!div class="mx-tableFixed"]
@@ -1028,6 +1314,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="key-vault-contributor"></a>Contributeur Key Vault
 > [!div class="mx-tableFixed"]
@@ -1045,6 +1337,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Vider un coffre Key Vault supprimé de manière réversible |
 > | Microsoft.KeyVault/hsmPools/* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="lab-creator"></a>Créateur Lab
 > [!div class="mx-tableFixed"]
@@ -1060,6 +1356,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obtenir des informations de disponibilité régionale pour chaque catégorie de taille configurée sous un compte Lab |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="log-analytics-contributor"></a>Contributeur Log Analytics
 > [!div class="mx-tableFixed"]
@@ -1081,6 +1383,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="log-analytics-reader"></a>Lecteur Log Analytics
 > [!div class="mx-tableFixed"]
@@ -1095,6 +1403,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Récupère les clés partagées de l’espace de travail. Ces clés sont utilisées pour connecter les agents Microsoft Operational Insights à l’espace de travail. |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="logic-app-contributor"></a>Contributeur d’application logique
 > [!div class="mx-tableFixed"]
@@ -1123,6 +1435,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Récupère les propriétés d’un plan App Service. |
 > | Microsoft.Web/sites/functions/listSecrets/action | Répertorie les fonctions Web Apps des clés secrètes. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="logic-app-operator"></a>Opérateur d’application logique
 > [!div class="mx-tableFixed"]
@@ -1147,6 +1465,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Web/connections/*/read | Lit les connexions. |
 > | Microsoft.Web/customApis/*/read | Lit l’API personnalisée. |
 > | Microsoft.Web/serverFarms/read | Récupère les propriétés d’un plan App Service. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="managed-application-operator-role"></a>Rôle opérateur d’application managée
 > [!div class="mx-tableFixed"]
@@ -1157,6 +1481,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
 > | Microsoft.Solutions/applications/read | Récupère une liste d’applications. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="managed-applications-reader"></a>Lecteur Applications managées
 > [!div class="mx-tableFixed"]
@@ -1168,6 +1498,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Solutions/jitRequests/* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="managed-identity-contributor"></a>Contributeur d’identités gérées
 > [!div class="mx-tableFixed"]
@@ -1184,6 +1520,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="managed-identity-operator"></a>Opérateur d’identités gérées
 > [!div class="mx-tableFixed"]
@@ -1199,6 +1541,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="management-group-contributor"></a>Collaborateur du groupe d’administration
 > [!div class="mx-tableFixed"]
@@ -1212,6 +1560,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Management/managementGroups/subscriptions/delete | Dissocie un abonnement du groupe d’administration. |
 > | Microsoft.Management/managementGroups/subscriptions/write | Associe un abonnement existant au groupe d’administration. |
 > | Microsoft.Management/managementGroups/write | Crée ou met à jour un groupe d’administration. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="management-group-reader"></a>Lecteur du groupe d’administration
 > [!div class="mx-tableFixed"]
@@ -1221,6 +1575,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
 > | **Actions** |  |
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="monitoring-contributor"></a>Contributeur d’analyse
 > [!div class="mx-tableFixed"]
@@ -1253,6 +1613,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Publication des métriques de surveillance
 > [!div class="mx-tableFixed"]
@@ -1264,8 +1630,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Insights/Register/Action | Inscrire le fournisseur Microsoft Insights |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Écrit des métriques |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="monitoring-reader"></a>Lecteur d’analyse
 > [!div class="mx-tableFixed"]
@@ -1277,6 +1647,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Exécute une requête de recherche. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="network-contributor"></a>Contributeur de réseau
 > [!div class="mx-tableFixed"]
@@ -1292,6 +1668,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="new-relic-apm-account-contributor"></a>Contributeur de compte NewRelic APM
 > [!div class="mx-tableFixed"]
@@ -1307,6 +1689,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | NewRelic.APM/accounts/* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="reader-and-data-access"></a>Lecteur et accès aux données
 > [!div class="mx-tableFixed"]
@@ -1317,6 +1705,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="redis-cache-contributor"></a>Contributeur Cache Redis
 > [!div class="mx-tableFixed"]
@@ -1332,6 +1726,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="resource-policy-contributor-preview"></a>Contributeur de stratégie de ressource (préversion)
 > [!div class="mx-tableFixed"]
@@ -1346,6 +1746,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Authorization/policysetdefinitions/* | Créer et gérer des ensembles de stratégies |
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="scheduler-job-collections-contributor"></a>Contributeur des collections de travaux du planificateur
 > [!div class="mx-tableFixed"]
@@ -1361,6 +1767,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Scheduler/jobcollections/* | Créer et gérer des collections de travaux |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="search-service-contributor"></a>Contributeur du service de recherche
 > [!div class="mx-tableFixed"]
@@ -1376,6 +1788,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Search/searchServices/* | Créer et gérer les services de recherche |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="security-admin"></a>Administrateur de la sécurité
 > [!div class="mx-tableFixed"]
@@ -1405,6 +1823,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Security/securityContacts/write | Met à jour le contact de sécurité |
 > | Microsoft.Security/InformationProtectionPolicies/write | Met à jour les stratégies de protection des informations pour la ressource |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="security-manager-legacy"></a>Gestionnaire de sécurité (hérité)
 > [!div class="mx-tableFixed"]
@@ -1423,6 +1847,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Security/* | Créer et gérer des stratégies et des composants de sécurité |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="security-reader"></a>Lecteur de sécurité
 > [!div class="mx-tableFixed"]
@@ -1439,6 +1869,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Security/*/read | Lire des stratégies et des composants de sécurité |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="site-recovery-contributor"></a>Contributeur Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1474,6 +1910,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="site-recovery-operator"></a>Opérateur Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1539,6 +1981,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="site-recovery-reader"></a>Lecteur Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1578,6 +2026,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="sql-db-contributor"></a>Contributeur de base de données SQL
 > [!div class="mx-tableFixed"]
@@ -1614,6 +2068,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="sql-security-manager"></a>Gestionnaire de sécurité SQL
 > [!div class="mx-tableFixed"]
@@ -1655,6 +2113,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Créer et gérer les stratégies d’alerte de sécurité de serveur SQL |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="sql-server-contributor"></a>Contributeur SQL Server
 > [!div class="mx-tableFixed"]
@@ -1694,6 +2158,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Modifier les stratégies d'alerte de sécurité du serveur SQL |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="storage-account-contributor"></a>Contributeur de compte de stockage
 > [!div class="mx-tableFixed"]
@@ -1711,6 +2179,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/* | Créer et gérer les comptes de stockage |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="storage-account-key-operator-service-role"></a>Rôle de service d’opérateur de clé de compte de stockage
 > [!div class="mx-tableFixed"]
@@ -1721,6 +2195,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Régénère les clés d’accès au compte de stockage spécifié. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="storage-blob-data-contributor-preview"></a>Contributeur aux données Blob du stockage (préversion)
 > [!div class="mx-tableFixed"]
@@ -1732,10 +2212,14 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retourne le résultat de la suppression d’un conteneur |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourne la liste des conteneurs |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retourne le résultat du conteneur put blob |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retourne le résultat de la suppression d'un objet blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourne un objet blob ou une liste d'objets blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Retourner le résultat de l’écriture d’un objet blob |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="storage-blob-data-owner-preview"></a>Propriétaire des données Blob du stockage (préversion)
 > [!div class="mx-tableFixed"]
@@ -1745,8 +2229,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>Lecteur des données Blob du stockage (préversion)
 > [!div class="mx-tableFixed"]
@@ -1756,8 +2244,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourne la liste des conteneurs |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourne un objet blob ou une liste d'objets blob |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="storage-queue-data-contributor-preview"></a>Contributeur aux données en file d'attente du stockage (préversion)
 > [!div class="mx-tableFixed"]
@@ -1769,10 +2261,14 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Retourne le résultat de la suppression d’une file d’attente |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Retourne une file d’attente ou une liste de files d’attente. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Retourne le résultat de l’écriture d’une file d’attente |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Retourne le résultat de la suppression d'un message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Retourne un message |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Retourne le résultat de l'écriture d'un message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Retourner le résultat de l’écriture d’un message |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="storage-queue-data-reader-preview"></a>Lecteur des données en file d'attente du stockage (préversion)
 > [!div class="mx-tableFixed"]
@@ -1782,8 +2278,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Retourne une file d’attente ou une liste de files d’attente. |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Retourne un message |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="support-request-contributor"></a>Contributeur de demande de support
 > [!div class="mx-tableFixed"]
@@ -1795,6 +2295,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Authorization/*/read | Autorisation de lecture |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="traffic-manager-contributor"></a>Contributeur Traffic Manager
 > [!div class="mx-tableFixed"]
@@ -1810,6 +2316,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="user-access-administrator"></a>Administrateur de l'accès utilisateur
 > [!div class="mx-tableFixed"]
@@ -1821,6 +2333,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
 > | Microsoft.Authorization/* | Gérer les autorisations |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="virtual-machine-administrator-login"></a>Connexion de l’administrateur aux machines virtuelles
 > [!div class="mx-tableFixed"]
@@ -1834,9 +2352,13 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Network/loadBalancers/read | Obtient une définition d’équilibrage de charge. |
 > | Microsoft.Network/networkInterfaces/read | Obtient une définition d’interface réseau.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Se connecter à la machine virtuelle comme utilisateur normal |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Se connecter à une machine virtuelle avec des privilèges d’administrateur Windows ou d’utilisateur racine Linux |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="virtual-machine-contributor"></a>Contributeur de machine virtuelle
 > [!div class="mx-tableFixed"]
@@ -1883,6 +2405,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="virtual-machine-user-login"></a>Connexion de l’utilisateur aux machines virtuelles
 > [!div class="mx-tableFixed"]
@@ -1896,8 +2424,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Network/loadBalancers/read | Obtient une définition d’équilibrage de charge. |
 > | Microsoft.Network/networkInterfaces/read | Obtient une définition d’interface réseau.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Se connecter à la machine virtuelle comme utilisateur normal |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="web-plan-contributor"></a>Contributeur de plan web
 > [!div class="mx-tableFixed"]
@@ -1913,6 +2445,12 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | Microsoft.Web/serverFarms/* | Créer et gérer des batteries de serveurs |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="website-contributor"></a>Contributeur de site web
 > [!div class="mx-tableFixed"]
@@ -1933,9 +2471,15 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Récupère les propriétés d’un plan App Service. |
 > | Microsoft.Web/sites/* | Créer et gérer des sites web (la création de sites nécessite également des autorisations d’écriture pour le plan App Service associé) |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rôles personnalisés](custom-roles.md)
-- [Gérer les attributions de rôle à l’aide du portail Azure](role-assignments-portal.md)
+- [Rôles personnalisés pour les ressources Azure](custom-roles.md)
+- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)
 - [Autorisations dans Azure Security Center](../security-center/security-center-permissions.md)

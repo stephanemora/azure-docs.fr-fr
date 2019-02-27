@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857938"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445115"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
 
@@ -24,7 +24,7 @@ Respectez la [licence du SDK Speech](https://aka.ms/csspeech/license201809), ain
 
 Selon la plateforme, il existe différentes dépendances pour exécuter votre application.
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 Le kit de développement logiciel (SDK) Speech de Cognitive Services est testé sur Windows 10 et Windows Server 2016.
 
@@ -47,19 +47,19 @@ Les fichiers du kit de développement logiciel (SDK) Speech requis peuvent être
 
 ## <a name="linux"></a>Linux
 
+Le kit de développement logiciel (SDK) Speech prend actuellement en charge les distributions Ubuntu 16.04 et 18.04.
 Pour une application native, vous devez fournir la bibliothèque du SDK Speech, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Veillez à sélectionner la version (x86, x64) correspondant à votre application. En fonction de la version de Linux, vous devrez peut-être également inclure les dépendances suivantes :
 
 * Les bibliothèques partagées de la bibliothèque C de GNU (notamment la bibliothèque de programmation POSIX Threads, `libpthreads`)
 * La bibliothèque OpenSSL (`libssl.so.1.0.0`)
-* La bibliothèque cURL (`libcurl.so.4`)
 * La bibliothèque partagée pour les applications ALSA (`libasound.so.2`)
 
-Sur Ubuntu 16.04 ou 18.04, par exemple, les bibliothèques C de GNU doivent déjà être installées par défaut. Les trois dernières peuvent être installées à l’aide de ces commandes :
+Sous Ubuntu, les bibliothèques C de GNU doivent déjà être installées par défaut. Les trois dernières peuvent être installées à l’aide de ces commandes :
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

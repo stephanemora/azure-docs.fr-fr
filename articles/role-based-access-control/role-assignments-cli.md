@@ -1,6 +1,6 @@
 ---
-title: Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI | Microsoft Docs
-description: Découvrez comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI. Apprenez notamment à lister, à accorder et à supprimer des accès.
+title: Gérer l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI | Microsoft Docs
+description: Découvrez comment gérer l’accès des utilisateurs, groupes et applications aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d'Azure CLI. Apprenez notamment à lister, à accorder et à supprimer des accès.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437097"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341711"
 ---
-# <a name="manage-access-using-rbac-and-azure-cli"></a>Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI
 
-Le [contrôle d’accès en fonction du rôle](overview.md) est la façon dont vous gérez l’accès aux ressources dans Azure. Cet article décrit comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI.
+Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l’accès aux ressources Azure. Cet article décrit comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour gérer les accès, il vous faudra l’un des éléments suivants :
 
 * [Bash dans Azure Cloud Shell](/azure/cloud-shell/overview)
-* [interface de ligne de commande Azure](/cli/azure)
+* [Interface de ligne de commande Azure](/cli/azure)
 
 ## <a name="list-roles"></a>Répertorier les rôles
 
@@ -311,5 +311,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Créer un rôle personnalisé avec Azure CLI](tutorial-custom-role-cli.md)
-- [Utiliser Azure CLI pour gérer les ressources et les groupes de ressources Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+- [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md)
+- [Utiliser Azure CLI pour gérer les ressources et les groupes de ressources Azure](../azure-resource-manager/cli-azure-resource-manager.md)

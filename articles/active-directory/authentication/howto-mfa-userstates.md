@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbfffa94c76de2c7c4e9f4f2e67c9744e52f22c7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39659df99951850ced07be14f81348ae9c1c1be5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194187"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428600"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Comment exiger la vérification en deux étapes pour un utilisateur
 
@@ -44,7 +44,7 @@ Les comptes d'utilisateur dans Azure Multi-Factor Authentication peuvent présen
 | Statut | Description | Applications affectées (autres que des navigateurs) | Applications du navigateur affectées | Authentification moderne affectée |
 |:---:|:---:|:---:|:--:|:--:|
 | Désactivé |État par défaut d’un nouvel utilisateur non inscrit à Azure MFA. |Non  |Non  |Non  |
-| activé |L’utilisateur a été inscrit dans l’authentification multifacteur Azure, mais n’a pas été enregistré. Il sera invité à s’inscrire la prochaine fois qu’il se connectera. | Non.  Ils continuent de fonctionner jusqu’à ce que le processus d’inscription soit terminé. | Oui. Après expiration de la session, l’inscription à Azure MFA est nécessaire.| Oui. Après expiration du jeton d’accès, l’inscription à Azure MFA est nécessaire. |
+| activé |L’utilisateur a été inscrit dans l’authentification multifacteur Azure, mais n’a pas été enregistré. Il sera invité à s’inscrire la prochaine fois qu’il se connectera. |Non.  Ils continuent de fonctionner jusqu’à ce que le processus d’inscription soit terminé. | Oui. Après expiration de la session, l’inscription à Azure MFA est nécessaire.| Oui. Après expiration du jeton d’accès, l’inscription à Azure MFA est nécessaire. |
 | Appliquée |L’utilisateur a été inscrit et a terminé le processus d’inscription pour utiliser l’authentification multifacteur Azure. |Oui. Les applications requièrent des mots de passe d'application. |Oui. Azure MFA est requis lors de la connexion. | Oui. Azure MFA est requis lors de la connexion. |
 
 L’état d’un utilisateur indique si un administrateur l’a inscrit dans l’authentification multifacteur Azure et s’il a terminé le processus d’inscription.
@@ -96,7 +96,7 @@ Commencez par installer le module au moyen de la commande suivante :
 > N’oubliez pas de vous connecter d’abord au moyen de la commande **Connect-MsolService**.
 
 
-PowerShell est une bonne option si vous devez activer de nombreux utilisateurs à la fois. Créez un script PowerShell qui effectue une itération sur une liste d’utilisateurs et active ces utilisateurs :
+ Cet exemple de script PowerShell permet l’authentification multifacteur pour un utilisateur individuel :
 
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -105,7 +105,7 @@ PowerShell est une bonne option si vous devez activer de nombreux utilisateurs �
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-Voici un exemple de script :
+PowerShell est une bonne option si vous devez activer de nombreux utilisateurs à la fois. À titre d’exemple, le script suivant parcourt une liste d’utilisateurs et active l’authentification multifacteur sur leurs comptes :
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -117,11 +117,11 @@ Voici un exemple de script :
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
     
-Pour désactiver MFA, utilisez ce script :
+Pour désactiver l’authentification multifacteur, utilisez ce script :
 
     Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
     
-Ou celui-ci, plus court :
+qui peut également être raccourci ainsi :
 
     Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 

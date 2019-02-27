@@ -3,7 +3,7 @@ title: API Graph Azure Active Directory | Microsoft Docs
 description: Vue d’ensemble et guide de démarrage rapide de l’API Azure AD Graph qui permet un accès à Azure AD via les points de terminaison API REST, par l’intermédiaire d’un programme.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: lleonard-msft
 manager: mtillman
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
@@ -13,21 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b26c8a0d040ab91c53e04593280885ef7fd13eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173757"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448090"
 ---
 # <a name="azure-active-directory-graph-api"></a>API Graph Azure Active Directory
 
 > [!IMPORTANT]
-> Nous vous recommandons fortement d’utiliser [Microsoft Graph](https://developer.microsoft.com/graph/) au lieu de l’API Azure AD Graph pour accéder aux ressources Azure Active Directory. Nos efforts de développement sont maintenant axés sur Microsoft Graph et aucune autre amélioration n’est prévue pour l’API Azure AD Graph. Il existe un nombre très limité de scénarios pour lesquels l’API Azure AD Graph peut être appropriée. Pour plus d’informations, consultez le billet de blog [Microsoft Graph ou Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) dans le centre de développement Office.
+>
+> Depuis février 2019, il est conseillé de ne plus utiliser l’API Azure Active Directory Graph au profit de l’API Microsoft Graph.  
+>
+> Pour faciliter la transition, les versions antérieures de l’API Azure AD Graph seront mises hors service avant les versions plus récentes.  
+>
+> Pour plus de détails, de mises à jour et de délais, consultez la publication de blog [Microsoft Graph ou Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) dans le centre de développement Office.
+>
+> Pour l’avenir, les applications doivent utiliser l’API Microsoft Graph. 
+
+
 
 Cet article s’applique à l’API Graph Azure AD. Pour obtenir des informations similaires sur l’API Microsoft Graph, consultez [Utiliser l’API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). 
 

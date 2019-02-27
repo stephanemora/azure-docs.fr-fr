@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117272"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270060"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
 
@@ -34,6 +34,9 @@ Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requ
 
 > [!Note]  
 > Les adresses IP virtuelles de l’utilisateur sont dynamiques, définies par les utilisateurs eux-mêmes, sans contrôle de la part de l’opérateur Azure Stack.
+
+> [!Note]
+> À partir de la mise à jour 1811, les ports de la plage 12495-30015 ne doivent plus être ouverts en raison de l’ajout de l'[hôte d’extension](azure-stack-extension-host-prepare.md).
 
 |Point de terminaison (VIP)|Enregistrement A d’hôte DNS|Protocole|Ports|
 |---------|---------|---------|---------|

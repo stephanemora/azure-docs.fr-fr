@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 73f8b1323f6cd22ef215fba4ec45714f099032f6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508672"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415831"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configurer des clients OpenVPN sur la passerelle VPN Azure (préversion)
 
@@ -24,12 +24,14 @@ Cet article vous permet de configurer des clients OpenVPN.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour votre passerelle VPN. Pour plus d’informations, consultez [Configurer OpenVPN pour la passerelle VPN Azure](vpn-gateway-howto-openvpn.md).
 
 ## <a name="windows"></a>Clients Windows
 
 1. Téléchargez et installez le client OpenVPN depuis le [site web OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) officiel.
-2. Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez « New-AzureRmVpnClientConfiguration » dans PowerShell.
+2. Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez « New-AzVpnClientConfiguration » dans PowerShell.
 3. Décompressez le profil. Utilisez ensuite e bloc-notes pour ouvrir le fichier de configuration *vpnconfig.ovpn* à partir du dossier OpenVPN.
 4. [Exportez](vpn-gateway-certificates-point-to-site.md#clientexport) le certificat de client P2S que vous avez créé et chargé dans votre configuration P2S sur la passerelle.
 5. Procédez à l’extraction de la clé privée et de l’empreinte numérique en base 64 à partir de la *.pfx*. Pour ce faire, plusieurs options s’offrent à vous. Vous devez utiliser OpenSSL sur votre machine. Le fichier *profileinfo.txt* contient la clé privée et l’empreinte numérique pour l’autorité de certification et le certificat client. Assurez-vous d’utiliser l’empreinte numérique du certificat client.
@@ -64,7 +66,7 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
 ## <a name="mac"></a>Clients Mac
 
 1. Télécharger et installer un client OpenVPN, comme [TunnelBlik](https://tunnelblick.net/downloads.html). 
-2. Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez « New-AzureRmVpnClientConfiguration » dans PowerShell.
+2. Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez « New-AzVpnClientConfiguration » dans PowerShell.
 3. Décompressez le profil. Utilisez le Bloc-notes pour ouvrir le fichier de configuration vpnconfig.ovpn à partir du dossier OpenVPN.
 4. Renseignez la section du certificat client P2S avec la clé publique du certificat client P2S en base64. Dans un certificat au format PEM, vous pouvez simplement ouvrir le fichier .cer et copier la clé base64 entre les en-têtes de certificat. Consultez [Exporter la clé publique](vpn-gateway-certificates-point-to-site.md#cer) pour plus d’informations sur la façon d’exporter un certificat pour obtenir la clé publique codée.
 5. Renseignez la section de la clé privée avec la clé privée du certificat client P2S en base64. Pour plus d’informations sur la façon d’extraire une la clé privée, consultez [Exporter votre clé privée](https://openvpn.net/community-resources/how-to/#pki).

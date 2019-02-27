@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 02/20/2019
 ms.author: terrylan
-ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112214"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455754"
 ---
 # <a name="azure-network-architecture"></a>Architecture réseau Azure
 L’architecture réseau Azure suit une version modifiée du modèle standard cœur/distribution/accès, avec des couches matérielles distinctes. Les couches sont les suivantes :
@@ -28,7 +28,7 @@ L’architecture réseau Azure suit une version modifiée du modèle standard c�
 - Distribution (routeurs d’accès et agrégation L2). La couche Distribution sépare le routage L3 de la commutation L2.
 - Accès (commutateurs d’hôte L2)
 
-L’architecture réseau a deux niveaux de commutateurs de couche 2. Une couche regroupe le trafic de l’autre couche. La seconde couche effectue des boucles pour incorporer la redondance. Elle offre des avantages comme une empreinte VLAN plus souple et une meilleure mise à l’échelle des ports. L’architecture garde les couches L2 et L3 bien distinctes, ce qui permet d’utiliser le matériel dans chacune des couches du réseau et de minimiser l’impact d’une défaillance d’une couche sur la ou les autres couches. L’utilisation de troncs permet de partager des ressources, comme la connectivité à l’infrastructure L3.
+L’architecture réseau a deux niveaux de commutateurs de couche 2. Une couche regroupe le trafic de l’autre couche. La seconde couche effectue des boucles pour incorporer la redondance. Cette architecture des avantages comme une empreinte VLAN plus souple et une meilleure mise à l’échelle des ports. L’architecture garde les couches L2 et L3 bien distinctes, ce qui permet d’utiliser le matériel dans chacune des couches du réseau et de minimiser l’impact d’une défaillance d’une couche sur la ou les autres couches. L’utilisation de troncs permet de partager des ressources, comme la connectivité à l’infrastructure L3.
 
 ## <a name="network-configuration"></a>Configuration réseau
 L’architecture réseau d’un cluster Azure dans un centre de données se compose des appareils suivants :
@@ -51,7 +51,7 @@ La conception de Quantum 10 distribue les commutateurs de couche 3 sur plusieurs
 Les routeurs de distribution/d’accès L3 exécutent les principales fonctionnalités de routage pour les couches de distribution et d’accès. Ces périphériques sont déployés sous forme de paires et constituent la passerelle par défaut des sous-réseaux. Chaque paire de routeurs d’accès peut prendre en charge plusieurs paires de commutateurs d’agrégation L2 en fonction de la capacité. Le nombre maximal dépend de la capacité du périphérique, ainsi que des domaines de défaillance. Le nombre est généralement de trois paires de commutateurs d’agrégation L2 par paire de routeurs d’accès.
 
 ### <a name="l2-aggregation-switches"></a>Commutateurs d’agrégation L2  
-Ces périphériques servent de point d’agrégation pour le trafic L2. Ils constituent la couche de distribution de la structure fabric L2 et peuvent gérer de grandes quantités de trafic. Étant donné que ces appareils agrègent le trafic, la fonctionnalité 802.1q est nécessaire et les technologies de bande passante élevée telles que l’agrégation des ports et 10GE sont utilisées.
+Ces périphériques servent de point d’agrégation pour le trafic L2. Ils constituent la couche de distribution de la structure fabric L2 et peuvent gérer de grandes quantités de trafic. Étant donné que ces appareils agrègent le trafic, la fonctionnalité 802.1q est nécessaire et les technologies de bande passante élevée telles que l’agrégation des ports et 10GE sont utilisées.
 
 ### <a name="l2-host-switches"></a>Commutateurs d’hôte L2
 Les hôtes se connectent directement à ces commutateurs. Ils peuvent être montés en rack ou déployés en châssis. La norme 802.1q permet de désigner un réseau VLAN comme réseau VLAN natif, tout en traitant celui-ci comme une structure Ethernet normale (non marquée). Dans des circonstances normales, les trames du réseau VLAN natif sont transmises et reçues non marquées sur un port de tronc 802.1q. Cette fonctionnalité a été conçue pour la migration vers 802.1q et la compatibilité avec des périphériques non-802.1q. Dans cette architecture, seule l’infrastructure réseau utilise le réseau VLAN natif.
@@ -64,7 +64,7 @@ L’agrégation de liens permet à plusieurs liens individuels d’être regroup
 Les numéros spécifiés pour le commutateur L2Agg à L2Host sont les numéros de port-canal utilisés sur le côté L2Agg. Étant donné que la plage de numéros est plus limitée sur le côté L2Host, la norme consiste à utiliser les numéros 1 et 2 sur le côté L2Host. Ceux-ci font référence au port-canal qui va côté « a » et « b » respectivement.
 
 ### <a name="vlans"></a>Réseaux VLAN
-L’architecture réseau utilise des réseaux VLAN pour regrouper les serveurs dans un seul domaine de diffusion. Les numéros de réseau VLAN sont conformes aux normes 802.1q, qui prennent en charge les réseaux VLAN numérotés de 1 à 4094.
+L’architecture réseau utilise des réseaux VLAN pour regrouper les serveurs dans un seul domaine de diffusion. Les numéros de réseau VLAN sont conformes à la norme 802.1q, qui prennent en charge les réseaux VLAN numérotés de 1 à 4094.
 
 ### <a name="customer-vlans"></a>Réseaux VLAN de clients
 Vous avez plusieurs options d’implémentation de réseau VLAN que vous pouvez déployer par le biais du portail Azure pour satisfaire les besoins de séparation et d’architecture de votre solution. Vous déployez ces solutions via des machines virtuelles. Pour obtenir des exemples d’architecture de référence de client, consultez [Architectures de référence Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/).
@@ -72,23 +72,15 @@ Vous avez plusieurs options d’implémentation de réseau VLAN que vous pouvez 
 ### <a name="edge-architecture"></a>Architecture de périphérie
 Les centres de données Azure reposent sur des infrastructures réseau hautement redondantes et bien provisionnées. Microsoft implémente les réseaux des centres de données Azure avec des architectures à redondance « need plus one » (N+1) ou supérieures. Des fonctionnalités de basculement complètes dans et entre les centres de données permettent de garantir la disponibilité du réseau et des services. En externe, les centres de données sont desservis par des circuits réseau haut débit dédiés. Ces circuits connectent des propriétés de manière redondante, avec plus de 1 200 fournisseurs de services Internet dans le monde entier à de multiples points d’appairage. Cela offre plus de 2 000 Gbits/s de capacité de périphérie potentielle sur le réseau.
 
-Les routeurs de filtrage à la couche de périphérie et d’accès du réseau Azure offrent une sécurité bien établie au niveau des paquets. Cela permet d’empêcher les tentatives non autorisées de connexion à Azure. Les routeurs permettent de vous assurer que le contenu réel des paquets présente des données au format attendu et qu’il est conforme au schéma de communication client/serveur attendu. Azure implémente une architecture hiérarchisée qui est constituée des composants de séparation de réseau et de contrôle d’accès suivants :
+Les routeurs de filtrage à la couche de périphérie et d’accès du réseau Azure offrent une sécurité bien établie au niveau des paquets et permettent d'empêcher les tentatives non autorisées de connexion à Azure. Les routeurs permettent de vous assurer que le contenu réel des paquets présente des données au format attendu et qu’il est conforme au schéma de communication client/serveur attendu. Azure implémente une architecture hiérarchisée qui est constituée des composants de séparation de réseau et de contrôle d’accès suivants :
 
 - **Routeurs de périphérie.** Ils séparent l’environnement des applications d’Internet. Les routeurs de périphérie sont conçus pour fournir une protection anti-usurpation et limiter l’accès à l’aide de listes ACL.
 - **Routeurs de distribution (accès).** Ils autorisent uniquement les adresses IP approuvées par Microsoft, fournissent une protection anti-usurpation et établissent des connexions à l’aide de listes ACL.
 
-### <a name="a10-ddos-mitigation-architecture"></a>Architecture d’atténuation DDOS A10
-Les attaques par déni de service continuent de représenter une véritable menace pour la fiabilité des services en ligne. Comme les attaques deviennent plus ciblées et plus sophistiquées et que les services de Microsoft sont plus dispersés d’un point de vue géographique, l’identification et la réduction de l’impact de ces attaques est une priorité de premier ordre. Les informations suivantes vous expliquent comment le système d’atténuation DDOS A10 est implémenté dans une perspective d’architecture réseau.
+### <a name="ddos-mitigation"></a>Atténuation des risques liés à DDoS
+Les attaques par déni de service distribué (DDoS) continuent de représenter une véritable menace pour la fiabilité des services en ligne. Comme les attaques deviennent plus ciblées et plus sophistiquées et que les services de Microsoft sont plus dispersés d’un point de vue géographique, l’identification et la réduction de l’impact de ces attaques est une priorité de premier ordre.
 
-Azure utilise des appareils réseau A10 au niveau du routeur de centre de données, qui offrent une atténuation et une détection automatisées. La solution A10 utilise la surveillance réseau Azure pour échantillonner des paquets de flux et déterminer si une attaque a lieu. Si l’attaque est détectée, les appareils A10 effectuent un nettoyage pour atténuer les attaques. Ce n’est qu’à ce moment-là qu’un trafic plus propre est autorisé dans le centre de données Azure directement depuis le routeur de centre de données. Microsoft utilise la solution A10 pour protéger l’infrastructure réseau Azure.
-
-Les protections DDoS de la solution A10 sont les suivantes :
-
-- Protection contre la saturation de flux UDP IPv4 et IPv6
-- Protection contre la saturation de flux ICMP IPv4 et IPv6
-- Protection contre la saturation de flux TCP IPv4 et IPv6
-- Protection contre les attaques TCP SYN pour IPv4 et IPv6
-- Attaque par fragmentation
+Le service [Azure DDos Protection standard](../virtual-network/ddos-protection-overview.md) assure une excellente défense contre les attaques DDoS. Pour en savoir plus, consultez [Protection DDoS Azure : Bonnes pratiques et architectures de référence](azure-ddos-best-practices.md).
 
 > [!NOTE]
 > Microsoft fournit une protection DDoS par défaut à tous les clients Azure.
