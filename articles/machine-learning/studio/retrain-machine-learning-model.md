@@ -1,7 +1,7 @@
 ---
-title: Réentraîner un modèle Azure Machine Learning Studio
+title: Recycler et déployer un service web
 titleSuffix: Azure Machine Learning Studio
-description: Apprenez à reformer un modèle et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning.
+description: Apprenez à mettre à jour un service web de façon à utiliser un modèle Machine Learning récemment entraîné dans Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,84 +9,186 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
-ms.date: 04/19/2017
-ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/14/2019
+ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236258"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330509"
 ---
-# <a name="retrain-an-azure-machine-learning-studio-model"></a>Réentraîner un modèle Azure Machine Learning Studio
-Dans le cadre du processus de mise en œuvre opérationnelle des modèles d’apprentissage automatique d’Azure Machine Learning, votre modèle est entraîné et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles. 
+# <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
 
-Les modèles que vous créez à l’aide de Machine Learning ne sont généralement pas statiques. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, il faut effectuer à nouveau l’apprentissage du modèle. 
+Le recyclage représente un moyen de garantir que les modèles Machine Learning restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article montre comment recycler et déployer un modèle Machine Learning sous la forme d’un nouveau service web dans Studio. Pour recycler un service web classique, voir cet article [guide pratique](retrain-classic-web-service.md).
 
-Il peut être très fréquent d’avoir à effectuer à nouveau l’apprentissage du modèle. Avec la fonctionnalité d’API Programmatic Retraining, vous pouvez reformer le modèle par programmation à l’aide des API Retraining et mettre à jour le service web avec le modèle reformé. 
+Cet article suppose qu’un service web prédictif est déjà déployé. Si vous n’en disposez pas, [découvrez comment déployer un service web Studio](publish-a-machine-learning-web-service.md).
 
-Ce document décrit le processus de nouvel apprentissage et vous montre comment utiliser les API Retraining.
+Pour recycler et déployer un nouveau service web Machine Learning, vous allez suivre ces étapes :
 
-## <a name="why-retrain-defining-the-problem"></a>Les raisons de la reformation : définition du problème
-Dans le cadre du processus de formation Machine Learning, un modèle est formé à l’aide d’un jeu de données. Les modèles que vous créez à l’aide de Machine Learning ne sont généralement pas statiques. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, il faut effectuer à nouveau l’apprentissage du modèle.
+1. Déployer un **service web de recyclage**.
+1. Effectuer l’apprentissage d’un nouveau modèle à l’aide du **service web de recyclage**.
+1. Mettre à jour **l’expérience prédictive** de façon à utiliser le nouveau modèle.
 
-Dans ces scénarios, une API par programme offre un moyen pratique pour vous ou les utilisateurs de vos API de créer un client qui peut, à titre exceptionnel ou de manière régulière, reformer le modèle à l’aide de ses propres données. Il est alors possible d’évaluer les résultats de la reformation et de mettre à jour l’API du service web de sorte qu’elle utilise le modèle reformé.
+## <a name="deploy-the-retraining-web-service"></a>Déployez le service web de reformation
 
-> [!NOTE]
-> Si vous avez une expérience de formation existante et un nouveau service web, vous pouvez consulter la section Reformer un service web prédictif existant au lieu de suivre la procédure pas à pas décrite dans la section suivante.
-> 
-> 
+Un service web de recyclage permet de recycler un modèle avec un nouvel ensemble de paramètres, par exemple de nouvelles données, et de l’enregistrer pour plus tard. Lorsqu’une **Sortie de service web** est connectée à un module **Effectuer l’apprentissage du modèle**, l’expérience de formation génère un nouveau modèle utilisable.
 
-## <a name="end-to-end-workflow"></a>Workflow de bout en bout
-Le processus comprend les composants suivants : une expérience de formation et une expérience prédictive publiée comme un service web. Pour permettre la reformation d’un modèle, l’expérience de formation doit être publiée en tant que service web avec la sortie d’un modèle formé. Cela permet à l’API d’accéder au modèle en vue de la reformation. 
+Suivez les étapes ci-dessous pour déployer un service web de recyclage :
 
-Les étapes suivantes s’appliquent aux services web nouveaux et classiques :
+1. Connectez un module **Entrée de service web** à votre entrée de données. En règle générale, vous souhaitez vous assurer que vos données d’entrée sont traitées de la même manière que vos données de formation d’origine.
+1. Connectez un module **Sortie de service web** à la sortie de votre module **Effectuer l’apprentissage du modèle**.
+1. Si vous disposez d’un module **Évaluer le modèle**, vous pouvez connecter un module **Sortie de service web** pour obtenir les résultats de l’évaluation en sortie.
+1. Exécutez votre expérience.
 
-Créez le service web prédictif initial :
+    Après exécution de l’expérience, le workflow obtenu devrait se présenter ainsi :
 
-* Créez une expérience d'apprentissage
-* Créez une expérience prédictive
-* Déployez un service web prédictif
+    ![Workflow obtenu](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
-Reformez le service web :
+    Vous allez maintenant déployer l’expérience de formation en tant que service web de recyclage produisant un modèle entraîné et les résultats de son évaluation.
 
-* Mettez à jour l’expérience de formation pour permettre la reformation
-* Déployez le service web de reformation
-* Utilisez le code de service d’exécution de lot pour reformer le modèle
+1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**.
+1. Sélectionnez **Déployer le service web [Nouveau]**. Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**.
+1. Tapez le nom de votre service web et choisissez un plan de paiement.
+1. Sélectionnez **Déployer**.
 
-> [!NOTE] 
-> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md). 
+## <a name="retrain-the-model"></a>Recycler le modèle
 
-Si vous avez déployé un service web classique :
+Pour cet exemple, nous utilisons le langage C# pour créer l’application de reformation. Pour accomplir cette tâche, vous pouvez également utiliser un code Python ou R.
 
-* Créer un point de terminaison sur le service web prédictif
-* Obtenez l’URL et le code du CORRECTIF
-* Utilisez l’URL du CORRECTIF pour faire pointer le nouveau point de terminaison sur le modèle reformé 
+Suivez les étapes ci-dessous pour appeler les API de recyclage :
 
-Si vous rencontrez des difficultés pour reformer un service web classique, voir [Dépannage de la reformation d’un service web classique Azure Machine Learning](troubleshooting-retraining-models.md).
+1. Créez une application console C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#** > **Bureau classique Windows** > **Console App (.NET Framework)**.
+1. Connectez-vous au portail des services web Azure Machine Learning.
+1. Cliquez sur le service web que vous utilisez.
+1. Cliquez sur **Consommer**.
+1. En bas de la page **Utiliser**, dans la section **Exemple de code**, cliquez sur **Lot**.
+1. Copiez l’exemple de code C# pour l’exécution par lot et collez-le dans le fichier Program.cs. Assurez-vous que l’espace de noms reste intact.
 
-Si vous avez déployé un nouveau service web :
+Ajoutez le package NuGet Microsoft.AspNet.WebApi.Client comme indiqué dans les commentaires. Pour ajouter la référence à Microsoft.WindowsAzure.Storage.dll, il peut se révéler nécessaire d’installer la [bibliothèque de client pour les services de Stockage Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-* Connectez-vous à votre compte Azure Resource Manager
-* Obtenez la définition du service web
-* Exportez la définition du service web au format JSON
-* Mettez à jour la référence à l’objet blob `ilearner` dans le JSON
-* Importez le JSON dans une définition du service web
-* Mettez à jour le service web avec la nouvelle définition du service web
+La capture d’écran suivante montre la page **Consommer** du portail des services web Azure Machine Learning.
 
-Le processus de configuration de la reformation pour un service web classique implique les étapes suivantes :
+![Page Consommer](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
 
-![Présentation du processus de nouvel apprentissage.][1]
+### <a name="update-the-apikey-declaration"></a>Mettre à jour la déclaration apiKey
 
-Le processus de configuration de la reformation pour un nouveau service web implique les étapes suivantes :
+Localisez la déclaration **apikey**:
 
-![Présentation du processus de nouvel apprentissage.][7]
+    const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-## <a name="other-resources"></a>Autres ressources
-* [Reformation et mise à jour de modèles Microsoft Azure Machine Learning avec Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-* [Créer de nombreux modèles Machine Learning et points de terminaison de service web à partir d’une expérience à l’aide de PowerShell](create-models-and-endpoints-with-powershell.md)
-* La vidéo [Modèles de reformation AML utilisant des API](https://www.youtube.com/watch?v=wwjglA8xllg) montre comment reformer des modèles Machine Learning créés dans Azure Machine Learning en utilisant les API de reformation et PowerShell.
+Dans la section **Informations de base sur la consommation** de la page **Consommer**, recherchez la clé primaire et copiez-la dans la déclaration **apiKey**.
 
-<!--image links-->
-[1]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
-[7]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
+### <a name="update-the-azure-storage-information"></a>Mettre à jour les informations Azure Storage
 
+L’exemple de code BES charge un fichier d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers le Stockage Azure, le traite et réécrit les résultats dans le Stockage Azure.
+
+1. Se connecter au portail Azure
+1. Dans la colonne de navigation de gauche, cliquez sur **Autres services**, recherchez **Comptes de stockage** et sélectionnez-le.
+1. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle reformé.
+1. Dans la colonne de navigation de gauche, cliquez sur **Clés d’accès**.
+1. Copiez et enregistrez la **Clé d’accès primaire**.
+1. Dans la colonne de navigation de gauche, cliquez sur **Conteneurs**.
+1. Sélectionnez un conteneur existant ou créez-en un et enregistrez le nom.
+
+Localisez les déclarations *StorageAccountName*, *StorageAccountKey* et *StorageContainerName*, puis mettez à jour les valeurs que vous avez enregistrées à partir du portail.
+
+    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
+    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
+    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+
+Vous devez également vous assurer que le fichier d’entrée est disponible à l’emplacement spécifié dans le code.
+
+### <a name="specify-the-output-location"></a>Spécifier l’emplacement de sortie
+
+Lorsque vous spécifiez l’emplacement de sortie dans la Charge utile des demandes, l’extension du fichier spécifiée dans *RelativeLocation* doit être spécifiée en tant que valeur `ilearner`.
+
+    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+        {
+            "output1",
+            new AzureBlobDataReference()
+            {
+                ConnectionString = storageConnectionString,
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
+            }
+        },
+
+Voici un exemple de sortie de recyclage :
+
+![Sortie du nouvel apprentissage.](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+
+### <a name="evaluate-the-retraining-results"></a>Évaluer les résultats de la reformation
+
+Lorsque vous exécutez l’application, la sortie inclut l’URL et le jeton de signature d’accès partagé (SAP) nécessaires pour accéder aux résultats de l’évaluation.
+
+Pour consulter les résultats des performances du modèle recyclé, combinez *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie de *output2* et collez l’URL complète dans la barre d’adresse du navigateur.
+
+Examinez les résultats pour déterminer si le nouveau modèle entraîné est plus performant que l’actuel.
+
+Enregistrez *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie.
+
+## <a name="update-the-predictive-experiment"></a>Mettre à jour l’expérience prédictive
+
+### <a name="sign-in-to-azure-resource-manager"></a>Se connecter à Azure Resource Manager
+
+Tout d’abord, connectez-vous à votre compte Azure dans l’environnement PowerShell avec la cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
+
+### <a name="get-the-web-service-definition-object"></a>Obtenir l’objet Définition du service web
+
+Ensuite, obtenez l’objet Définition du service web en appelant l’applet de commande [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice).
+
+    $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+
+Pour déterminer le nom du groupe de ressources d’un service web existant, exécutez l’applet de commande Get-AzureRmMlWebService sans paramètres pour afficher les services web dans votre abonnement. Recherchez le service web et examinez son ID de service web. Le nom du groupe de ressources est le quatrième élément de l’ID, juste après l’élément *resourceGroups* . Dans l’exemple suivant, le nom du groupe de ressources est Default-MachineLearning-SouthCentralUS.
+
+    Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
+    Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+    Name : RetrainSamplePre.2016.8.17.0.3.51.237
+    Location : South Central US
+    Type : Microsoft.MachineLearning/webServices
+    Tags : {}
+
+Pour déterminer le nom du groupe de ressources d’un service web existant, vous pouvez également vous connecter au portail des services web Azure Machine Learning. Sélectionnez le service web. Le nom de groupe de ressources est le cinquième élément de l’URL du service web, juste après l’élément *resourceGroups* . Dans l’exemple suivant, le nom du groupe de ressources est Default-MachineLearning-SouthCentralUS.
+
+    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+
+### <a name="export-the-web-service-definition-object-as-json"></a>Exporter l’objet Définition du service web en tant que JSON
+
+Pour modifier la définition du modèle formé de manière à utiliser le modèle nouvellement formé, vous devez d’abord utiliser l’applet de commande [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) pour l’exporter vers un fichier au format JSON.
+
+    Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+
+### <a name="update-the-reference-to-the-ilearner-blob"></a>Mettre à jour la référence à l’objet blob ilearner
+
+Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *uri* dans le nœud *locationInfo* avec l’URI de l’objet blob ilearner. L’URI est générée en combinant les valeurs *BaseLocation* et *RelativeLocation* de la sortie de l’appel de reformation BES.
+
+     "asset3": {
+        "name": "Retrain Sample [trained model]",
+        "type": "Resource",
+        "locationInfo": {
+          "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
+        },
+        "outputPorts": {
+          "Results dataset": {
+            "type": "Dataset"
+          }
+        }
+      },
+
+### <a name="import-the-json-into-a-web-service-definition-object"></a>Importer le JSON dans un objet Définition du service web
+
+Utilisez la cmdlet [Import-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) pour reconvertir le fichier JSON modifié en un objet de définition de service web permettant de mettre à jour l’expérience prédictive.
+
+    $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
+
+### <a name="update-the-web-service"></a>Mise à jour du service web
+
+Enfin, utilisez l’applet de commande [Update-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) pour mettre à jour l’expérience prédictive.
+
+    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour savoir comment gérer les services web ou effectuer le suivi de plusieurs exécutions d’expériences, voir les articles suivants :
+
+* [Explorer le portail Services web](manage-new-webservice.md)
+* [Gérer des itérations d’expériences](manage-experiment-iterations.md)

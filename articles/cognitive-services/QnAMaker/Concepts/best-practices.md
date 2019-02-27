@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245539"
+ms.locfileid: "56270179"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 Le [cycle de vie du développement d’une base de connaissances](../Concepts/development-lifecycle-knowledge-base.md) vous guide de bout en bout sur la façon de gérer votre base de connaissances. Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
@@ -25,6 +25,18 @@ Le [cycle de vie du développement d’une base de connaissances](../Concepts/de
 Le service QnA Maker améliore en permanence les algorithmes qui extraient des entités QnA à partir du contenu, et étend la liste des formats HTML et des formats de fichiers pris en charge. Suivez les [instructions](../Concepts/data-sources-supported.md) d’extraction de données en fonction de votre type de document. 
 
 En général, les pages FAQ doivent être autonomes et ne pas être combinées avec d’autres informations. Les manuels de produits doivent avoir des titres clairs et, si possible, une page d’index. 
+
+## <a name="creating-good-questions-and-answers"></a>Créer de bonnes questions et réponses
+
+### <a name="good-questions"></a>Bonnes questions
+
+Les meilleures questions sont simples. Identifiez le mot ou l’expression clé de chaque question, puis créez une question simple pour ce mot ou cette expression. 
+
+Ajoutez autant de questions alternatives que vous le souhaitez, en restant toutefois sur des modifications simples. Le fait d’ajouter des mots ou des formulations qui ne font pas partie de l’objectif principal de la question n’aide pas QnA Maker à trouver une correspondance. 
+
+### <a name="good-answers"></a>Bonnes réponses
+
+Les meilleures réponses sont simples, mais pas trop (par exemple, oui et non). Si votre réponse doit comporter des liens vers d’autres sources ou offrir une expérience enrichie avec des contenus multimédias et des liens, utilisez le [balisage](../how-to/metadata-generateanswer-usage.md) pour distinguer le type de réponse attendu, puis envoyez cette balise avec la requête pour obtenir la bonne version de la réponse.
 
 ## <a name="chit-chat"></a>Échanges de conversation (chit-chat)
 Ajoutez facilement des échanges à votre bot afin de rendre ses conversations plus naturelles et engageantes. Vous pouvez aisément ajouter des jeux de données d’échanges de conversation pour trois personnalités prédéfinies lors de la création de votre base de connaissances, et les modifier à tout moment. Découvrez comment [ajouter des échanges de conversation à votre base de connaissances](../How-To/chit-chat-knowledge-base.md). 
@@ -58,7 +70,6 @@ Essayez d’optimiser l’utilisation des fonctionnalités de classement que QnA
 ### <a name="choosing-a-threshold"></a>Choix d’un seuil
 Le score de confiance par défaut utilisé comme seuil est de 50, mais vous pouvez le changer pour votre base de connaissances en fonction de vos besoins. Chaque base de connaissances étant différente, vous devez procéder à des test et choisir le seuil qui convient le mieux à votre base de connaissances. Pour en savoir plus sur le score de confiance, consultez [cet article](../Concepts/confidence-score.md). 
 
-
 ### <a name="add-alternate-questions"></a>Ajouter des questions alternatives
 Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la probabilité de trouver une correspondance avec une requête utilisateur. Les questions alternatives sont utiles quand il existe plusieurs manières de poser une question. C’est notamment le cas pour les variantes syntaxiques et lexicales.
 
@@ -81,17 +92,16 @@ Les synonymes en langue anglaise sont pris en charge. Utilisez des [variantes de
 |buy|purchase<br>netbanking<br>net banking|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Utiliser des mots distincts pour différencier les questions
-Les algorithmes de correspondance et de classement de QnA Maker recherchent une correspondance entre une requête utilisateur et l’une des questions contenues dans la base de connaissances. Ils retournent de meilleurs résultats si chaque question répond à un besoin différent. La répétition du même mot défini entre les questions réduit la probabilité de sélection de la réponse appropriée pour une requête utilisateur qui contient ces mots. 
+L’algorithme de classement de QnA Maker, qui recherche une correspondance entre une requête utilisateur et les questions de la base de connaissances, retourne de meilleurs résultats si chaque question répond à un besoin différent. La répétition du même mot défini entre les questions réduit la probabilité de sélection de la réponse appropriée pour une requête utilisateur qui contient ces mots. 
 
 Par exemple, vous pouvez avoir deux entités QnA distinctes avec les questions suivantes :
 
 |Entités QnA|
 |--|
 |où est l’*emplacement* de stationnement|
-|où est l’*emplacement* du distributeur automatique|
+|où est *l’emplacement* du distributeur automatique de billets|
 
-Ces deux entités QnA employant des mots très similaires, elles pourraient générer des scores très similaires pour de nombreuses requêtes d’utilisateur utilisant la tournure de phrase *« où est l’emplacement de `<x>` ».* Au lieu de cela, essayez de distinguer clairement avec des requêtes comme *« où est le parc de stationnement »* et *« où est le distributeur automatique »*, en évitant des mots tels que « emplacement » susceptibles de figurer dans de nombreuses questions dans votre base de connaissances. 
-
+Ces deux entités QnA employant des mots très similaires, elles pourraient générer des scores très similaires pour de nombreuses requêtes d’utilisateur utilisant la tournure de phrase *« où est l’emplacement de `<x>` ».* Essayez plutôt de les distinguer clairement avec des requêtes du type *« où est le parking »* et *« où est le distributeur automatique de billets »*, en évitant des mots comme « emplacement » susceptibles de figurer dans de nombreuses questions de la base de connaissances. 
 
 ## <a name="collaborate"></a>Travailler en collaboration
 QnA Maker permet aux utilisateurs de [travailler en collaboration](../How-to/collaborate-knowledge-base.md) sur une base de connaissances. Les utilisateurs doivent avoir accès au groupe de ressources Azure QnA Maker pour accéder à la base de connaissances. Certaines organisations souhaitent externaliser la mise à jour et la gestion des bases de connaissances tout en pouvant quand même protéger l’accès à leurs ressources Azure. Ce modèle éditeur-approbateur s’obtient en configurant deux [services QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identiques dans des abonnements différents et en sélectionnant l’un d’entre eux pour le cycle de modification-test. À la fin des tests, le contenu de la base de connaissances est transféré, par un processus [importation-exportation](../Tutorials/migrate-knowledge-base.md), au service QnA Maker de l’approbateur, qui publiera la base de connaissances et mettra à jour le point de terminaison.

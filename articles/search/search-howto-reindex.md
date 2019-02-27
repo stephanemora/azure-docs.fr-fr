@@ -6,21 +6,21 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 2595912732389c8a415d1854a84a7b9c182e4dc7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745089"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341638"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Comment régénérer un index Recherche Azure
 
 Cet article explique comment regénerer un index Recherche Azure et les circonstances dans lesquelles les regénérations sont nécessaires, et il contient des recommandations pour atténuer l’impact des regénérations sur les demandes des requêtes en cours.
 
-Une *regénération* fait référence à la suppression et à la recréation des structures de données physiques associées à un index, notamment tous les index inversés basés sur un champ. Dans Recherche Azure, vous ne pouvez pas supprimer et recréer des champs spécifiques. Pour regénerer un index, la totalité du stockage des champs doit être supprimé, recréé sur la base d’un schéma d’index existant ou révisé, puis à nouveau rempli avec les données envoyées à l’index ou extraites de sources externes. Il est courant de regénerer les index pendant le développement, mais il peut également être nécessaire de regénerer un index au niveau de la production pour prendre en compte des modifications structurelles, comme l’ajout de types complexes.
+Une *regénération* fait référence à la suppression et à la recréation des structures de données physiques associées à un index, notamment tous les index inversés basés sur un champ. Dans la Recherche Azure, vous ne pouvez pas supprimer et recréer des champs un par un. Pour regénerer un index, la totalité du stockage des champs doit être supprimé, recréé sur la base d’un schéma d’index existant ou révisé, puis à nouveau rempli avec les données envoyées à l’index ou extraites de sources externes. Il est courant de régénérer les index pendant le développement, mais il peut également être nécessaire de les régénérer au niveau de la production pour prendre en compte des modifications structurelles, comme l’ajout de types complexes ou l’ajout de champs à des suggesteurs.
 
 Contrairement aux regénérations, qui placent un index hors connexion, *l’actualisation des données* s’exécute comme tâche d’arrière-plan. Vous pouvez ajouter, supprimer et remplacer des documents avec une interruption minimale pour les charges de travail de requêtes, bien que l’exécution des requêtes soit alors généralement plus longue. Pour plus d’informations sur la mise à jour du contenu des index, consultez [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -28,21 +28,24 @@ Contrairement aux regénérations, qui placent un index hors connexion, *l’act
 
 | Condition | Description |
 |-----------|-------------|
-| Modification d’une définition de champ | La révision d’un nom, d’un type de données ou d’[attributs d’index](https://docs.microsoft.com/rest/api/searchservice/create-index) spécifiques (interrogeable, filtrable, triable, à choix multiples) nécessite une regénération complète. |
-| Suppression d’un champ | Pour supprimer physiquement toutes les traces d’un champ, vous devez regénerer l’index. Quand une regénération immédiate n’est pas praticable, la plupart des développeurs modifient le code de l’application pour désactiver l’accès au champ « supprimé ». Physiquement, le contenu et la définition du champ restent dans l’index jusqu’à la regénération suivante avec un schéma qui omet le champ en question. |
-| Changement de niveau | Si vous avez besoin de davantage de capacité, il n’y a pas de mise à niveau sur place. Un nouveau service est créé sur le nouveau point de capacité et les index doivent être créés à partir de zéro sur le nouveau service. |
+| Modifier une définition de champ | La révision d’un nom de champ, d’un type de données ou [d’attributs d’index](https://docs.microsoft.com/rest/api/searchservice/create-index) spécifiques (interrogeable, filtrable, triable, à choix multiples) exige une régénération complète. |
+| Affecter un analyseur à un champ | Les [analyseurs](search-analyzers.md) sont définis dans un index, puis affectés à des champs. Vous pouvez à tout moment ajouter une nouvelle définition d’analyseur à un index, mais il n’est possible *d’affecter* l’analyseur qu’à la création du champ. Cette condition s’applique à la fois à la propriété **analyzer** et à la propriété **indexAnalyzer**. La propriété **searchAnalyzer** fait figure d’exception (elle peut être affectée à un champ existant). |
+| Mettre à jour ou supprimer une définition d’analyseur dans un index | Il n’est pas possible de supprimer ou de modifier une configuration d’analyseur existante (analyseur, générateur de jetons, filtre de jetons ou filtre de caractères) dans l’index, à moins de régénérer la totalité de l’index. |
+| Ajouter un champ à un suggesteur | Pour pouvoir ajouter un champ existant à une construction [Suggesteurs](index-add-suggesters.md), il faut régénérer l’index. |
+| Supprimer un champ | Pour supprimer physiquement toutes les traces d’un champ, vous devez regénerer l’index. Quand une régénération immédiate n’est pas réalisable, il est possible de modifier le code de l’application en désactivant l’accès au champ « supprimé ». Physiquement, le contenu et la définition du champ restent dans l’index jusqu’à la régénération suivante, lors de laquelle est appliqué un schéma omettant le champ en question. |
+| Changer de niveau | Si vous avez besoin de davantage de capacité, il n’y a pas de mise à niveau sur place. Un nouveau service est créé sur le nouveau point de capacité et les index doivent être créés à partir de zéro sur le nouveau service. |
 
-Toutes les autres modifications peuvent être effectuées sans impact sur les structures physiques existantes. Plus précisément, les modifications suivantes n’impliquent *pas* une regénération d’index :
+Toutes les autres modifications peuvent être effectuées sans impact sur les structures physiques existantes. Plus précisément, les modifications suivantes n’exigent *pas* de régénération d’index :
 
 + Ajouter un nouveau champ
-+ Définir l’attribut **Récupérable** sur un champ existant
-+ Définir un analyseur sur un champ existant
++ Définir l’attribut **retrievable** sur un champ existant
++ Définir un **searchAnalyzer** sur un champ existant
++ Ajouter une nouvelle définition d’analyseur dans un index
 + Ajouter, mettre à jour ou supprimer des profils de scoring
 + Ajouter, mettre à jour ou supprimer des paramètres CORS
-+ Ajouter, mettre à jour ou supprimer des générateurs de suggestions
 + Ajouter, mettre à jour ou supprimer des synonymMaps
 
-Quand vous ajoutez un nouveau champ, les documents indexés existants reçoivent une valeur null pour le nouveau champ. Lors de l’actualisation suivante des données, les valeurs provenant des données sources externes remplacent les valeurs null ajoutées par Recherche Azure.
+Quand vous ajoutez un nouveau champ, les documents indexés existants reçoivent une valeur null pour le nouveau champ. Lors de l’actualisation suivante des données, les valeurs provenant des données sources externes remplacent les valeurs null ajoutées par Recherche Azure. Pour plus d’informations sur la mise à jour du contenu des index, consultez [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="partial-or-incremental-indexing"></a>Indexation incrémentielle ou partielle
 
@@ -62,23 +65,30 @@ Pour plus d’informations sur les indexeurs, consultez [Vue d’ensemble des in
 
 Planifiez des régénérations fréquentes et complètes pendant la phase de développement actif, lorsque les schémas d’index sont à l’état de flux. Pour les applications déjà en production, nous recommandons de créer un nouvel index qui s’exécute côte à côte avec un index existant pour éviter des temps d’arrêt dans les requêtes.
 
-Si vous avez des exigences strictes dans le cadre d’un contrat SLA, vous pouvez envisager de provisionner un nouveau service spécifiquement pour ce travail, le développement et l’indexation se produisant dans une isolation complète d’un index de production. Un service distinct s’exécute sur son propre matériel, éliminant toute possibilité de contention des ressources. Une fois le développement terminé, vous laissez le nouvel index en place et vous redirigez les requêtes vers le nouveau point de terminaison et le nouvel index, ou bien vous exécutez le code terminé pour publier un index revu sur votre service Recherche Azure d’origine. Il n’existe actuellement aucun mécanisme pour déplacer un index prêt à l’emploi vers un autre service.
+Les mises à jour d’index requièrent des autorisations en lecture/écriture au niveau du service. 
 
-Les mises à jour d’index requièrent des autorisations en lecture/écriture au niveau du service. Par programmation, vous pouvez appeler l’[API REST de mise à jour d’un index](https://docs.microsoft.com/rest/api/searchservice/update-index) ou des API .NET pour une regénération complète. La demande est identique à l’[API REST de création d’index](https://docs.microsoft.com/rest/api/searchservice/create-index), mais elle a un contexte différent.
+Il n’est pas possible de régénérer un index sur le portail. Vous pouvez appeler programmatiquement [l’API REST Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) ou des [API .NET équivalentes](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) pour une régénération complète. Une demande de mise à jour d’index est identique à [l’API REST Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index), mais avec un contexte différent.
 
-1. Si vous réutilisez le nom de l’index, [supprimez l’index existant](https://docs.microsoft.com/rest/api/searchservice/delete-index). Toutes les requêtes ciblant cet index sont immédiatement supprimées. La suppression d’un index est irréversible, détruisant le stockage physique pour la collection de champs et d’autres constructions. Veillez à bien comprendre les implications de la suppression d’un index avant de le supprimer. 
+Le workflow suivant est orienté vers l’API REST, mais il s’applique également au kit SDK .NET.
 
-2. Fournissez un schéma d’index avec les définitions des champs modifiés. Les spécifications des schémas sont documentées dans [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+1. En cas de réutilisation du nom d’un index, [supprimez l’index existant](https://docs.microsoft.com/rest/api/searchservice/delete-index). 
 
-3. Spécifiez une [clé d’administrateur](https://docs.microsoft.com/azure/search/search-security-api-keys) sur la demande.
+   Toutes les requêtes ciblant cet index sont immédiatement supprimées. La suppression d’un index est irréversible, détruisant le stockage physique pour la collection de champs et d’autres constructions. Veillez à bien comprendre les implications de la suppression d’un index avant de le supprimer. 
 
-4. Envoyez une commande de [mise à jour d’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour regénérer l’expression physique de l’index sur Recherche Azure. Le corps de la demande contient le schéma d’index, ainsi que des constructions pour les profils de scoring, les analyseurs, les générateurs de suggestions et les options CORS.
+2. Formulez une demande [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) avec votre point de terminaison de service, votre clé API et une [clé d’administration](https://docs.microsoft.com/azure/search/search-security-api-keys). La clé d’administration est requise pour les opérations d’écriture.
 
-5. [Chargez l’index avec des documents ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) d’une source externe. Vous pouvez aussi utiliser cette API si vous actualisez un schéma d’index existant non modifié avec des documents mis à jour.
+3. Dans le corps de la demande, indiquez un schéma d’index avec les définitions des champs modifiés. Le corps de la demande contient le schéma d’index, ainsi que des constructions pour les profils de scoring, les analyseurs, les générateurs de suggestions et les options CORS. Les spécifications des schémas sont documentées dans [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-Quand vous créez l’index, du stockage physique est alloué pour chaque champ dans le schéma d’index, avec un index inversé créé pour chaque champ avec possibilité de recherche. Les champs sans possibilité de recherche peuvent être utilisés dans des filtres ou des expressions, mais ils n’ont pas d’index inversés et la recherche en texte intégral n’y est pas possible. Lors d’une regénération d’index, ces index inversés sont supprimés et recréés sur la base du schéma d’index que vous fournissez.
+4. Envoyez une demande [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour régénérer l’expression physique de l’index sur la Recherche Azure. 
+
+5. [Chargez l’index avec des documents ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) d’une source externe.
+
+Quand vous créez l’index, du stockage physique est alloué pour chaque champ dans le schéma d’index, avec un index inversé créé pour chaque champ avec possibilité de recherche. Des champs sans possibilité de recherche peuvent être utilisés dans des filtres ou des expressions, mais ils n’ont pas d’index inversé et n’autorisent pas la recherche approximative ou en texte intégral. Lors d’une regénération d’index, ces index inversés sont supprimés et recréés sur la base du schéma d’index que vous fournissez.
 
 Quand vous chargez l’index, l’index inversé de chaque champ est rempli avec tous les mots uniques tokenisés de chaque document, avec un mappage aux ID des documents correspondants. Par exemple, lors de l’indexation d’un jeu de données avec des hôtels, un index inversé créé pour un champ Ville peut contenir des termes pour Seattle, Portland, etc. L’ID des documents qui incluent « Seattle » ou « Portland » dans le champ Ville figure à côté du terme. Lors d’une opération [Ajouter, mettre à jour ou supprimer](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), les termes et la liste des ID de document sont mis à jour en conséquence.
+
+> [!NOTE]
+> Si vous avez des exigences strictes dans le cadre d’un contrat SLA, vous pouvez envisager de provisionner un nouveau service spécifiquement pour ce travail, le développement et l’indexation se produisant dans une isolation complète d’un index de production. Un service distinct s’exécute sur son propre matériel, éliminant toute possibilité de contention des ressources. Une fois le développement terminé, vous laissez le nouvel index en place et vous redirigez les requêtes vers le nouveau point de terminaison et le nouvel index, ou bien vous exécutez le code terminé pour publier un index revu sur votre service Recherche Azure d’origine. Il n’existe actuellement aucun mécanisme pour déplacer un index prêt à l’emploi vers un autre service.
 
 ## <a name="view-updates"></a>Voir les mises à jour
 

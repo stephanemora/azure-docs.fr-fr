@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e2dc82ee49b240fe562f02b38c4991c644c010d3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213017"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333905"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Premium Azure : Conception pour de hautes performances
+# <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Azure Premium : conception sous le signe de la haute performance
 
 Cet article fournit des instructions pour la création d’applications hautes performances avec Azure Premium Storage. Vous pouvez utiliser les instructions fournies dans ce document parallèlement aux bonnes pratiques de performances applicables aux technologies utilisées par votre application. Pour illustrer les instructions, nous avons utilisé comme exemple un SQL Server exécuté sur Premium Storage.
 
@@ -35,7 +35,7 @@ Ces instructions vous sont spécifiquement fournies pour Premium Storage, car le
 > Parfois, ce qui semble être un problème de performances disque est en fait un goulot d’étranglement sur le réseau. Dans ces situations, vous devez optimiser vos [performances réseau](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Si votre machine virtuelle prend en charge la mise en réseau accélérée, vous devez vous assurer qu’elle est activée. Si elle n’est pas activée, vous pouvez l’activer sur les machines virtuelles déjà déployées sur [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) et [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Avant de commencer, si vous ne connaissez pas le Stockage Premium, lisez tout d’abord les articles [Stockage Premium : Stockage haute performance pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md) et [Objectifs de performance et scalabilité du Stockage Azure](../articles/storage/common/storage-scalability-targets.md).
+Avant de commencer, si vous ne connaissez pas le Stockage Premium, lisez tout d’abord les articles [Sélectionner un type de disque Azure pour les machines virtuelles IaaS](../articles/virtual-machines/windows/disks-types.md) et [Objectifs de performance et d’évolutivité du Stockage Azure](../articles/storage/common/storage-scalability-targets.md).
 
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -45,7 +45,7 @@ Dans cette section, nous allons aborder les indicateurs de performances courants
 
 ## <a name="iops"></a>E/S par seconde
 
-Le nombre d’E/S par seconde représente le nombre de demandes que votre application envoie aux disques de stockage en une seconde. Une opération d’entrée/sortie peut être accessible en lecture ou écriture, et être séquentielle ou aléatoire. Les applications OLTP (un site web de vente en ligne, par exemple) doivent traiter immédiatement de nombreuses requêtes d’utilisateurs simultanées. Les requêtes utilisateurs représentent des transactions d’insertion et de mise à jour qui pèsent lourdement sur la base de données, et que l’application doit traiter rapidement. Les applications OLTP requièrent dont un nombre d’E/S par seconde très élevé. Ces applications gèrent des millions de demandes d’E/S petites et aléatoires. Si vous possédez une telle application, vous devez concevoir votre infrastructure applicative de manière à optimiser les E/S. Dans la section *Optimisation des performances applicatives*, nous aborderons en détail tous les facteurs que vous devez prendre en compte pour obtenir un nombre d’E/S par seconde élevé.
+Le nombre d’E/S par seconde représente le nombre de demandes que votre application envoie aux disques de stockage en une seconde. Une opération d’entrée/sortie peut être accessible en lecture ou écriture, et être séquentielle ou aléatoire. Les applications OLTP, comme un site web de vente en ligne, par exemple, doivent traiter immédiatement de nombreuses requêtes d’utilisateurs simultanées. Les requêtes utilisateurs représentent des transactions d’insertion et de mise à jour qui pèsent lourdement sur la base de données, et que l’application doit traiter rapidement. Les applications OLTP requièrent dont un nombre d’E/S par seconde très élevé. Ces applications gèrent des millions de demandes d’E/S petites et aléatoires. Si vous possédez une telle application, vous devez concevoir votre infrastructure applicative de manière à optimiser les E/S. Dans la section *Optimisation des performances applicatives*, nous aborderons en détail tous les facteurs que vous devez prendre en compte pour obtenir un nombre d’E/S par seconde élevé.
 
 Lorsque vous attachez un disque de stockage Premium à votre machine virtuelle à grande échelle, Azure met à disposition un nombre garanti d’E/S par seconde, conformément à la spécification de disque. Par exemple, un disque P50 configure 7500 E/S par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique d’E/S par seconde qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a une limite de 80 000 E/S par seconde.
 
@@ -53,11 +53,11 @@ Lorsque vous attachez un disque de stockage Premium à votre machine virtuelle �
 
 Le débit ou la bande passante est la quantité de données que votre application envoie aux disques de stockage dans un intervalle spécifié. Si votre application effectue des opérations d’entrée/sortie avec des tailles d’unité d’E/S importantes, elle aura besoin d’un débit élevé. Les applications d’entrepôt de données ont tendance à émettre des opérations d’analyse intensives qui accèdent simultanément à de grandes quantités de données et exécutent généralement des opérations en bloc. En d’autres termes, ces applications nécessitent un débit plus élevé. Si vous possédez une telle application, vous devez concevoir votre infrastructure de manière à en optimiser le débit. Dans la section suivante, nous décrirons en détail les facteurs que vous devrez ajuster pour y parvenir.
 
-Lorsque vous attachez un disque de stockage premium à une machine virtuelle à grande échelle, Azure met à disposition un débit conforme à la spécification de ce disque. Par exemple, un disque P50 configure un débit de disque de 250 Mo par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique de débit qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a un débit maximal de 2 000 Mo par seconde. 
+Lorsque vous attachez un disque de stockage Premium à une machine virtuelle à grande échelle, Azure met à disposition un débit conforme à la spécification de ce disque. Par exemple, un disque P50 configure un débit de disque de 250 Mo par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique de débit qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a un débit maximal de 2 000 Mo par seconde.
 
 La formule ci-dessous illustre la relation entre le débit et le nombre d’E/S par seconde.
 
-![](media/premium-storage-performance/image1.png)
+![Relation entre le nombre d’E/S par seconde et le débit](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
 Par conséquent, il est important de déterminer les valeurs optimales de débit et d’E/S par seconde dont a besoin votre application. Lorsque vous essayez d’optimiser une de ces valeurs, l’autre est également affectée. Dans la section *Optimisation des performances applicatives*, nous aborderons plus en détail la question de l’optimisation des E/S par seconde et du débit.
 
@@ -67,23 +67,15 @@ La latence est le temps nécessaire à une application pour recevoir une demande
 
 Lorsque vous optimisez votre application pour augmenter le nombre d’E/S par seconde et le débit, la latence de votre application s’en trouve affectée. Après avoir ajusté les performances de votre application, pensez toujours à évaluer la latence de l’application afin d’éviter un comportement de latence élevée inattendu.
 
-Le suivi des opérations de plan de contrôle sur les disques managés peut impliquer le déplacement du disque d’un emplacement de stockage à un autre. Cette opération est effectuée via une copie en arrière-plan des données, qui peut prendre plusieurs heures (généralement moins de 24 heures), selon la quantité de données stockées sur les disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.  
+# <a name="performance-application-checklist-for-disks"></a>Liste de vérification des applications hautes performances pour les disques
 
-1.  [Mettre à jour le type de stockage](../articles/virtual-machines/windows/convert-disk-storage.md)
-2.  [Détacher et attacher un disque d’une machine virtuelle à une autre](../articles/virtual-machines/windows/attach-disk-ps.md)
-3.  [Créer un disque managé à partir d’un VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
-4.  [Créer un disque managé à partir d’un instantané](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
-5.  [Convertir des disques non managés en disques managés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
-
-## <a name="gather-application-performance-requirements"></a>Collecte des exigences de performances de l’application
-
-La première étape de la conception d’applications hautes performances exécutées sur Azure Premium Storage consiste à comprendre les exigences de performances de votre application. Après avoir recueilli ces exigences de performances, vous pourrez optimiser votre application de manière à obtenir les meilleures performances possibles.
+La première étape de la conception d’applications hautes performances exécutées sur le Stockage Azure Premium consiste à comprendre les exigences de performances de votre application. Après avoir recueilli ces exigences de performances, vous pourrez optimiser votre application de manière à obtenir les meilleures performances possibles.
 
 Dans la section précédente, nous avons expliqué les indicateurs de performances courants, à savoir le nombre d’E/S par seconde, le débit et la latence. Vous devez déterminer, parmi ces indicateurs de performances, lesquels sont essentiels à votre application pour fournir l’expérience utilisateur recherchée. Par exemple, un nombre d’E/S par seconde élevé est plus important pour les applications OLTP qui traitent des millions de transactions en une seconde. En revanche, un débit élevé sera plus pertinent pour les applications d’entrepôt de données qui traitent de grandes quantités de données en une seconde. De même, une très faible latence sera cruciale pour les applications en temps réel, telles que les sites web de diffusion en continu de vidéo en direct.
 
 Ensuite, vous devrez mesurer les exigences de performances maximales de votre application tout au long de sa durée de vie. Utilisez l’exemple de liste de contrôle ci-dessous comme point de départ. Notez les exigences de performances maximales relevées au cours des périodes de charge de travail normales, des périodes de pointe et des heures creuses. En identifiant les conditions requises pour tous les niveaux de charges de travail, vous serez en mesure de déterminer les exigences de performances globales de votre application. Par exemple, la charge de travail normale d’un site web de commerce électronique correspond aux transactions habituellement traitées au quotidien au cours d’une année. Les pics de charge du site web correspondront aux transactions traitées pendant la période de Noël ou les périodes de soldes. Les pics de charge ne durent généralement que pendant un temps limité, mais ils peuvent vous obliger à mettre à l’échelle votre application en multipliant au moins par deux sa capacité par rapport à son fonctionnement normal. Déterminez les besoins au 50e percentile, au 90e percentile et au 99e percentile. Cela vous permettra d’éliminer les observations aberrantes en termes d’exigences de performances et de concentrer vos efforts sur l’optimisation des valeurs adéquates.
 
-### <a name="application-performance-requirements-checklist"></a>Liste de contrôle pour les exigences de performances de l’application
+## <a name="application-performance-requirements-checklist"></a>Liste de contrôle pour les exigences de performances de l’application
 
 | **Exigences de performances** | **50e percentile** | **90e percentile** | **99e percentile** |
 | --- | --- | --- | --- |
@@ -106,9 +98,7 @@ Ensuite, vous devrez mesurer les exigences de performances maximales de votre ap
 > [!NOTE]
 >  vous devez anticiper la mise à l’échelle de ces nombres en fonction de la croissance prévue de votre application. Il est judicieux de planifier la croissance, car il pourrait être plus difficile de modifier l’infrastructure ultérieurement afin d’en améliorer les performances.
 
-Si vous possédez une application existante et que vous souhaitez migrer vers Premium Storage, commencez par compléter la liste de contrôle ci-dessus pour l’application existante. Développez ensuite un prototype de votre application sur Premium Storage et concevez l’application selon les instructions décrites dans la section *Optimisation des performances applicatives* dans la suite de ce document. La section suivante décrit les outils que vous pouvez utiliser pour collecter les mesures de performances.
-
-Créez une liste de contrôle semblable à votre application prototype existante. À l’aide des outils de benchmarking, vous pouvez simuler les charges de travail et mesurer les performances de l’application prototype. Consultez la section [Benchmarking](#benchmarking) pour en savoir plus. En procédant ainsi, vous pouvez déterminer si Premium Storage peut satisfaire ou dépasser les exigences de performances de votre application. Vous pouvez ensuite implémenter les mêmes règles pour votre application de production.
+Si vous possédez une application existante et que vous souhaitez migrer vers Premium Storage, commencez par compléter la liste de contrôle ci-dessus pour l’application existante. Développez ensuite un prototype de votre application sur Premium Storage et concevez l’application selon les instructions décrites dans la section *Optimisation des performances applicatives* dans la suite de ce document. L’article suivant décrit les outils que vous pouvez utiliser pour collecter les mesures de performances.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Compteurs de mesure des exigences de performances de l’application
 
@@ -129,13 +119,15 @@ Les compteurs PerfMon sont disponibles pour le processeur, pour la mémoire et p
 
 En savoir plus sur [iostat](https://linux.die.net/man/1/iostat) et [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
-## <a name="optimizing-application-performance"></a>Optimisation des performances applicatives
+
+
+## <a name="optimize-application-performance"></a>Optimiser les performances de l'application
 
 La nature des demandes d’E/S, la taille de machine virtuelle, la taille de disque, le nombre de disques, la mise en cache du disque, le traitement multithread et la profondeur de file d’attente représentent les principaux facteurs qui influencent les performances d’une application exécutée sur Premium Storage. Vous pouvez contrôler certains de ces facteurs avec les dispositifs fournis par le système. La plupart des applications ne vous permettront peut-être pas de modifier directement la taille d’E/S et la profondeur de file d’attente. Par exemple, si vous utilisez SQL Server, vous ne pouvez choisir ni la taille d’E/S ni la profondeur de file d’attente. SQL Server choisit les valeurs optimales de taille d’E/S et de profondeur de file d’attente profondeur de manière à obtenir les meilleures performances. Il est important de comprendre les effets de ces deux types de facteurs sur les performances de votre application, afin que vous puissiez configurer les ressources appropriées pour répondre à vos besoins de performances.
 
 Dans cette section, reportez-vous à la liste de contrôle des exigences de performances applicatives que vous avez créée pour identifier le degré nécessaire d’optimisation des performances de votre application. Sur cette base, vous serez en mesure de déterminer les facteurs de cette section que vous devrez paramétrer. Pour évaluer les effets de chaque facteur sur les performances de votre application, exécutez les outils de benchmarking sur l’installation de votre application. Reportez-vous à la section [Benchmarking](#Benchmarking) à la fin de cet article pour connaître les étapes à suivre pour exécuter les outils d’évaluation courants sur les machines virtuelles Windows et Linux.
 
-### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Aperçu de l’optimisation des E/S, du débit et de la latence
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Aperçu de l’optimisation des E/S, du débit et de la latence
 
 Le tableau ci-dessous récapitule les facteurs de performances et les étapes nécessaires à l’optimisation des E/S, du débit et de la latence. Les sections qui suivent ce résumé décrivent en détail chaque facteur.
 
@@ -229,7 +221,7 @@ Avec Azure Premium Storage, vous obtenez le même niveau de performances pour le
 
 Lorsque vous exécutez Linux avec Premium Storage, vérifiez les dernières mises à jour sur les pilotes requis pour garantir de meilleures performances.
 
-## <a name="premium-storage-disk-sizes"></a>Tailles de disques Premium Storage
+## <a name="premium-storage-disk-sizes"></a>Tailles de disques Stockage Premium
 
 Stockage Azure Premium offre trois tailles de disque qui sont actuellement en préversion et les huit tailles de disque de la disponibilité générale. Chaque taille de disque a une limite de mise à l’échelle bien spécifique pour le nombre d’E/S par seconde, la bande passante et le stockage. Choisissez la taille de disque Premium Storage adaptée aux exigences de l’application et à la taille de machine virtuelle à grande échelle. Le tableau ci-dessous répertorie les onze tailles de disque et leurs fonctionnalités. Les tailles P4, P6, P15, P60, P70 et P80 ne sont actuellement prises en charge que par Managed Disks.
 
@@ -298,6 +290,46 @@ Par exemple, vous pouvez appliquer ces instructions à une instance SQL Server 
 1. Choisissez l’option « Aucun » pour le cache sur les disques de stockage Premium qui hébergent des fichiers journaux.  
    a.  Les fichiers journaux ont principalement des opérations d’écriture intensives. Ils ne bénéficient donc pas du cache en lecture seule.
 
+### <a name="optimize-performance-on-linux-vms"></a>Optimiser les performances sur les machines virtuelles Linux
+
+Pour tous les disques ultra ou SSD Premium dont le paramètre de cache est **ReadOnly** ou **None**, vous devez désactiver les « barrières » lorsque vous montez le système de fichiers. Ces barrières sont inutiles dans ce cas de figure, car les écritures sur les disques de stockage Premium sont pérennes avec ces paramètres de cache. Lorsque la demande d’écriture se termine, les données sont stockées dans le magasin permanent. Utilisez l’une des méthodes suivantes pour désactiver les « barrières ». Choisissez celle qui correspond à votre système de fichiers :
+  
+* Pour **reiserFS**, pour désactiver les barrières, utilisez l’option de montage `barrier=none`. (Pour activer les barrières, utilisez `barrier=flush`.)
+* Pour **ext3/ext4**, pour désactiver les barrières, utilisez l’option de montage `barrier=0`. (Pour activer les barrières, utilisez `barrier=1`.)
+* Pour **XFS**, pour désactiver les barrières, utilisez l’option de montage `nobarrier`. (Pour activer les barrières, utilisez `barrier`.)
+* Pour les disques de stockage Premium avec une mise en cache définie sur **ReadWrite**, activez les barrières de durabilité de l’écriture.
+* Pour conserver les étiquettes de volume après avoir redémarré la machine virtuelle, vous devez mettre à jour /etc/fstab avec les références identificateur unique universel (UUID) aux disques. Pour plus d’informations, consultez [Ajouter un disque géré à une machine virtuelle Linux](../articles/virtual-machines/linux/add-disk.md).
+
+Les distributions Linux suivantes ont été validées pour les SSD Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions ou d’une version ultérieure pour améliorer les performances et la stabilité des SSD Premium. 
+
+Certaines versions nécessitent également la dernière version 4.0 de Linux Integration Services (LIS) pour Azure. Pour télécharger et installer une distribution, suivez le lien figurant dans le tableau suivant. Nous ajoutons des images à la liste à chaque validation. Nos validations indiquent que les performances varient pour chaque image. Les performances dépendent des caractéristiques de la charge de travail et de vos paramètres d’image. Chaque image est optimisée pour des charges de travail particulières.
+
+| Distribution | Version | Noyau pris en charge | Détails |
+| --- | --- | --- | --- |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-Server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-Server-20150123-en-us-30GB |
+| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 requis](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consultez la remarque dans la section suivante* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommandé](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consultez la remarque dans la section suivante* |
+| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
+| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 ou RHCK |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+
+## <a name="lis-drivers-for-openlogic-centos"></a>Pilotes LIS pour Openlogic CentOS
+
+Si vous exécutez des machines virtuelles OpenLogic CentOS, exécutez la commande suivante pour installer les pilotes les plus récents :
+
+```
+sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum install microsoft-hyper-v
+```
+
+Pour activer les nouveaux pilotes, redémarrez la machine virtuelle.
+
 ## <a name="disk-striping"></a>Entrelacement de disques
 
 Lorsqu’une machine virtuelle à grande échelle est connectée à plusieurs disques de stockage premium persistants, les disques peuvent être entrelacés ensemble pour agréger les E/S par seconde, la bande passante et la capacité de stockage.
@@ -363,249 +395,11 @@ Vous ne devez pas configurer la profondeur de file d’attente à une valeur él
 
 Azure Premium Storage configure la valeur spécifiée d’E/S par seconde et de débit en fonction des tailles de machine virtuelle et des tailles de disque que vous choisissez. Chaque fois que votre application tentera de dépasser les limites de ce que la machine virtuelle ou le disque peut gérer, Premium Storage lui imposera une limitation. Cette limitation se manifeste sous la forme d’une dégradation des performances de votre application, à savoir une latence plus élevée, un débit réduit ou un nombre inférieur d’E/S par seconde. Sans cette limitation, votre application risquerait de planter en demandant plus que ses ressources ne lui permettent d’effectuer. Par conséquent, pour éviter les problèmes de performances associés à une limitation, veillez à toujours fournir suffisamment de ressources pour votre application. Tenez compte des explications données ci-dessus dans les sections relatives aux tailles de disque et aux tailles de machine virtuelle. Le benchmarking offre le meilleur moyen de déterminer les ressources dont vous aurez besoin pour héberger votre application.
 
-## <a name="benchmarking"></a>Benchmarking
-
-Le benchmarking consiste à simuler différentes charges de travail sur votre application et à mesurer les performances de l’application pour chaque charge de travail. En suivant la procédure décrite dans la section précédente, vous avez pu recueillir les exigences de performances de l’application. À présent, vous pouvez utiliser des outils de benchmarking sur les machines virtuelles qui hébergent l’application afin de déterminer les niveaux de performance que votre application peut atteindre avec Premium Storage. Dans cette section, nous allons vous fournir des exemples d’un benchmarking effectué sur une machine virtuelle DS14 Standard configurée avec des disques Azure Premium Storage.
-
-Nous avons utilisé les outils courants Iometer et FIO, pour Windows et Linux respectivement. Ces outils génèrent plusieurs threads qui simulent une charge de travail en production et mesurent les performances du système. L’utilisation de ces outils vous permet également de configurer des paramètres tels que la taille de bloc et la profondeur de file d’attente, que vous ne pouvez normalement pas modifier pour une application. Vous bénéficiez ainsi d’une plus grande souplesse pour optimiser les performances sur une machine virtuelle à grande échelle dotée de disques premium pour différents types de charges de travail applicatives. Pour en savoir plus sur chaque outil de benchmarking, visitez [Iometer](http://www.iometer.org/) et [FIO](http://freecode.com/projects/fio).
-
-Pour suivre les exemples ci-dessous, créez une machine virtuelle DS14 Standard et attachez-y 11 disques Premium Storage. Sur ces 11 disques, configurez 10 disques avec une mise en cache de l’hôte définie sur « Aucun » et entrelacez-les dans un volume appelé NoCacheWrites. Configurez la mise en cache de l’hôte en « Lecture seule » sur le disque restant et créez un volume appelé CacheReads avec ce disque. Avec cette configuration, vous serez en mesure d’observer les performances de lecture et d’écriture maximale à partir d’une machine virtuelle DS14 Standard. Pour connaître les étapes détaillées de la création d’une machine virtuelle DS14 avec des disques premium, accédez à [Créer et utiliser un compte de stockage Premium pour un disque de données de machine virtuelle](../articles/virtual-machines/windows/premium-storage.md).
-
-*Préchauffage du cache*  
- Le disque dont la mise en cache de l’hôte est définie en lecture seule sera en mesure de générer un taux d’E/S par seconde supérieur à la limite du disque. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. De cette manière, les E/S de lecture que l’outil de benchmarking simulera sur le volume CacheReads pourront effectivement atteindre le cache et non pas le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S supplémentaires à partir du seul disque ayant une mise en cache.
-
-> **Important :**  
->  Vous devez préchauffer le cache avant d’exécuter l’outil de benchmarking à chaque redémarrage de la machine virtuelle.
-
-#### <a name="iometer"></a>Iometer
-
-[Téléchargez l’outil Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) sur la machine virtuelle.
-
-*Fichier de test*  
- Iometer utilise un fichier de test stocké sur le volume sur lequel vous allez exécuter le test de benchmarking. Les lectures et écritures sont activées sur ce fichier de test afin de mesurer le taux d’E/S par seconde et le débit du disque. Iometer crée ce fichier de test si vous n’en avez pas fourni. Créez un fichier de test de 200 Go appelé iobw.tst sur les volumes CacheReads et NoCacheWrites.
-
-*Spécifications d’accès*  
-Les spécifications (taille d’E/S de la demande, % de lecture-écriture, % aléatoire/séquentiel) sont configurées à l’aide de l’onglet « Access Specifications » d’Iometer. Créez une spécification d’accès pour chacun des scénarios ci-dessous. Créez les spécifications d’accès et enregistrez-les avec un nom approprié, comme RandomWrites\_8K, RandomReads\_8K. Sélectionnez la spécification correspondante lorsque vous exécutez le scénario de test.
-
-Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scénario d’E/S en écriture maximales.  
-    ![](media/premium-storage-performance/image8.png)
-
-*Spécifications de test du taux maximal d’E/S par seconde*  
- Pour démontrer le taux maximal d’E/S par seconde, utilisez une taille de demande plus petite. Utilisez une taille de 8 Ko et créez des spécifications pour les lectures et écritures aléatoires.
-
-| Spécification d’accès | Taille de la demande | % aléatoire | % écriture |
-| --- | --- | --- | --- |
-| RandomWrites\_8K |8 Ko |100 |0 |
-| RandomReads\_8K |8 Ko |100 |100 |
-
-*Spécifications de test du débit maximal*  
- Pour afficher le débit maximal, utilisez une plus grande taille de demande. Utilisez une taille de requête 64 K et créez des spécifications pour les lectures et écritures aléatoires.
-
-| Spécification d’accès | Taille de la demande | % aléatoire | % écriture |
-| --- | --- | --- | --- |
-| RandomWrites\_64K |64 Ko |100 |0 |
-| RandomReads\_64K |64 Ko |100 |100 |
-
-*Exécution du test Iometer*  
- Procédez comme suit pour préparer le cache
-
-1. Créez deux spécifications d’accès avec les valeurs indiquées ci-dessous
-
-   | Nom | Taille de la demande | % aléatoire | % écriture |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1MB |1 Mo |100 |0 |
-   | RandomReads\_1MB |1 Mo |100 |100 |
-1. Exécutez le test Iometer pour initialiser le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
-
-   | Scénario | Volume cible | Nom | Duration |
-   | --- | --- | --- | --- |
-   | Initialisation du disque de cache |CacheReads |RandomWrites\_1MB |2 heures |
-1. Exécutez le test Iometer pour préchauffer le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
-
-   | Scénario | Volume cible | Nom | Durée |
-   | --- | --- | --- | --- |
-   | Préchauffage du disque de cache |CacheReads |RandomReads\_1MB |2 heures |
-
-Une fois le disque de cache préchauffé, poursuivez avec les scénarios de test décrits ci-dessous. Pour exécuter le test Iometer, utilisez au moins trois threads de travail pour **chaque** volume cible. Pour chaque thread de travail, sélectionnez le volume cible, définissez une profondeur de file d’attente et sélectionnez l’une des spécifications de test enregistrées, comme illustré dans le tableau ci-dessous, pour exécuter le scénario de test correspondant. Le tableau indique également les résultats attendus pour les E/S par seconde et le débit lors de l’exécution de ces tests. Pour tous les scénarios, une petite taille d’E/S de 8 Ko et une profondeur de file d’attente élevée de 128 sont utilisées.
-
-| Scénario de test | Volume cible | Nom | Résultat |
-| --- | --- | --- | --- |
-| Bande passante E/S par seconde en lecture |CacheReads |RandomWrites\_8K |50 000 E/S par seconde  |
-| Bande passante E/S par seconde en écriture |NoCacheWrites |RandomReads\_8K |64 000 E/S par seconde |
-| Bande passante Taux d’E/S par seconde combiné |CacheReads |RandomWrites\_8K |100 000 E/S par seconde |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Bande passante Mo/s en lecture |CacheReads |RandomWrites\_64K |524 Mo/s |
-| Bande passante Mo/s en écriture |NoCacheWrites |RandomReads\_64K |524 Mo/s |
-| Mo/s combiné |CacheReads |RandomWrites\_64K |1 000 Mo/s |
-| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
-
-Voici les captures d’écran des résultats du test Iometer pour les scénarios de taux d’E/S par seconde et de débit combinés.
-
-*Taux d’E/S maximal combiné en lecture et en écriture*  
-![](media/premium-storage-performance/image9.png)
-
-*Débit maximal combiné en lecture et en écriture*  
-![](media/premium-storage-performance/image10.png)
-
-### <a name="fio"></a>FIO
-
-FIO est un outil communément utilisé pour tester le stockage sur des machines virtuelles Linux. Cet outil offre la possibilité de sélectionner différentes tailles d’E/S, avec des lectures et des écritures séquentielles ou aléatoires. Il génère des threads de travail ou des processus pour exécuter les opérations d’E/S spécifiées. Vous pouvez spécifier le type d’opérations d’E/S que chaque thread de travail doit exécuter à l’aide de fichiers de travail. Nous avons créé un fichier de travail par scénario, comme illustré dans les exemples ci-dessous. Vous pouvez modifier les spécifications de ces fichiers de travail pour tester différentes charges de travail exécutées sur Premium Storage. Dans ces exemples, nous utilisons une machine virtuelle DS 14 standard exécutée sous **Ubuntu**. Utilisez la configuration décrite au début de la [section Benchmarking](#Benchmarking) et préchauffez le cache avant d’exécuter les tests de benchmarking.
-
-Avant de commencer, [téléchargez FIO](https://github.com/axboe/fio) et installez-le sur votre machine virtuelle.
-
-Exécutez la commande ci-dessous pour Ubuntu.
-
-```
-apt-get install fio
-```
-
-Nous allons utiliser quatre threads de travail pour générer les opérations d’écriture et quatre threads de travail pour générer les opérations de lecture sur les disques. Les Workers d’écriture pilotent le trafic sur le volume « nocache », qui comporte 10 disques sans mise en cache (paramètre « Aucun »). Les Workers de lecture pilotent le trafic sur le volume « readcache », qui comporte 1 disque avec une mise en cache définie sur « Lecture seule ».
-
-*Taux d’E/S par seconde maximal en écriture*  
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en écriture. Nommez ce fichier « fiowrite.ini ».
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-```
-
-Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.  
-
-* Une profondeur de file d’attente élevée de 256.  
-* Une petite taille de bloc de 8 Ko.  
-* Plusieurs threads effectuant des écritures aléatoires.
-
-Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.  
-
-```
-sudo fio --runtime 30 fiowrite.ini
-```
-
-Pendant l’exécution du test, vous serez en mesure de voir le nombre d’E/S par seconde en écriture générées par la machine virtuelle et les disques Premium. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 produit un taux d’E/S par seconde maximal en écriture limité à 50 000 E/S par seconde.  
-    ![](media/premium-storage-performance/image11.png)
-
-*Taux d’E/S par seconde maximal en lecture*  
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en lecture. Nommez ce fichier « fioread.ini ».
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-```
-
-Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.
-
-* Une profondeur de file d’attente élevée de 256.  
-* Une petite taille de bloc de 8 Ko.  
-* Plusieurs threads effectuant des écritures aléatoires.
-
-Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
-
-```
-sudo fio --runtime 30 fioread.ini
-```
-
-Pendant l’exécution du test, vous serez en mesure de voir le nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 génère plus de 64 000 E/S par seconde en lecture. Cette valeur représente les performances combinées du disque et du cache.  
-    ![](media/premium-storage-performance/image12.png)
-
-*Taux d’E/S par seconde maximal en lecture et en écriture*  
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal combiné d’E/S par seconde en lecture et en écriture. Nommez ce fichier « fioreadwrite.ini ».
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=128
-ioengine=libaio
-bs=4k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-```
-
-Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.
-
-* Une profondeur de file d’attente élevée de 128.  
-* Une petite taille de bloc de 4 Ko.  
-* Plusieurs threads effectuant des opérations d’écriture et de lecture aléatoires.
-
-Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
-
-```
-sudo fio --runtime 30 fioreadwrite.ini
-```
-
-Pendant l’exécution du test, vous serez en mesure de voir le nombre combiné d’E/S par seconde en lecture et en écriture générées par la machine virtuelle et les disques Premium. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 génère plus de 100 000 E/S par seconde en lecture et en écriture. Cette valeur représente les performances combinées du disque et du cache.  
-    ![](media/premium-storage-performance/image13.png)
-
-*Débit maximal combiné*  
- Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une plus grande taille de bloc et une grande profondeur de file d’attente avec plusieurs threads effectuant des opérations de lecture et d’écriture. Vous pouvez utiliser une taille de bloc de 64 Ko et une profondeur de file d’attente de 128.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur Azure Premium Storage :
+En savoir plus sur les types de disque disponibles :
 
-* [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../articles/virtual-machines/windows/premium-storage.md)  
+* [Sélectionner un type de disque](../articles/virtual-machines/windows/disks-types.md)  
 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 

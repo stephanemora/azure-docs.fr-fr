@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880874"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313073"
 ---
 # <a name="detect-color-schemes-in-images"></a>Détecter les jeux de couleurs dans les images
 
-Vision par ordinateur extrait les couleurs d’une image. Les couleurs sont ensuite analysées dans trois contextes différents : la couleur de premier plan dominante, la couleur d’arrière-plan dominante et les couleurs dominantes de l’image dans sa globalité. Elles sont regroupées en 12 couleurs d’accentuation dominantes. Les couleurs d’accentuation sont les suivantes : noir, bleu, marron, gris, vert, orange, rose, violet, rouge, vert foncé, blanc et jaune. Vision par ordinateur analyse les couleurs extraites à partir d’une image afin de retourner une couleur d’accentuation qui représente la couleur la plus vive de l’image vers les visionneuses, grâce à une combinaison de couleurs dominantes et de saturation. Selon les images, qu’elles soient simplement en noir et blanc ou comportant des couleurs d’accentuation, les couleurs peuvent être renvoyées en codes de couleur hexadécimaux. Vision par ordinateur retourne également une valeur booléenne indiquant si une image est en noir et blanc.
+La Vision par ordinateur analyse les couleurs d’une image pour identifier trois attributs différents : la couleur de premier plan dominante, la couleur d’arrière-plan dominante et le jeu de couleurs dominantes de l’image dans sa globalité. Les couleurs retournées appartiennent au jeu : noir, bleu, marron, gris, vert, orange, rose, violet, rouge, bleu canard, blanc et jaune. 
+
+La Vision par ordinateur extrait également une couleur d’accentuation, qui représente la couleur la plus éclatante de l’image, à partir d’une combinaison de couleurs dominantes et de saturation. La couleur d’accentuation est retournée sous la forme d’un code de couleur HTML hexadécimal. 
+
+La Vision par ordinateur retourne également une valeur booléenne qui indique si l’image est en noir et blanc.
 
 ## <a name="color-scheme-detection-examples"></a>Exemples de détection de jeux de couleurs
 
-L’exemple suivant illustre la réponse JSON retournée par Vision par ordinateur lors de la détection du jeu de couleurs de l’image d’exemple. Dans ce cas, l’image d’exemple n’est pas une image en noir et blanc, mais les couleurs de premier plan et d’arrière-plan dominantes sont le noir, tandis que les couleurs dominantes de l’image dans son ensemble sont le noir et blanc.
+L’exemple suivant illustre la réponse JSON retournée par Vision par ordinateur lors de la détection du jeu de couleurs de l’image d’exemple. Dans ce cas, l’exemple d’image n’est pas en noir et blanc, mais les couleurs de premier plan et d’arrière-plan dominantes sont le noir, tandis que les couleurs dominantes de l’image dans son ensemble sont le noir et le blanc.
 
 ![Montagne extérieur](./Images/mountain_vista.png)
 
@@ -48,7 +52,7 @@ L’exemple suivant illustre la réponse JSON retournée par Vision par ordinate
 
 ### <a name="dominant-color-examples"></a>Exemples de couleur dominante
 
-Le tableau suivant décrit les couleurs dominantes de premier plan, d’arrière-plan et d’image pour chaque exemple d’image, selon Vision par ordinateur.
+Le tableau suivant présente la couleur de premier plan, la couleur d’arrière-plan et la couleur de l’image retournées pour chaque exemple d’image.
 
 | Image | Couleurs dominantes |
 |-------|-----------------|
@@ -57,7 +61,7 @@ Le tableau suivant décrit les couleurs dominantes de premier plan, d’arrière
 
 ### <a name="accent-color-examples"></a>Exemples de couleur d’accentuation
 
- Le tableau suivant décrit la couleur d’accentuation, sous la forme d’une valeur de couleur HTML hexadécimale, pour chaque exemple d’image, selon Vision par ordinateur.
+ Le tableau suivant présente la couleur d’accentuation retournée, sous la forme d’une valeur de couleur HTML hexadécimale, pour chaque exemple d’image.
 
 | Image | Couleur d’accentuation |
 |-------|--------------|
@@ -67,7 +71,7 @@ Le tableau suivant décrit les couleurs dominantes de premier plan, d’arrière
 
 ### <a name="black--white-detection-examples"></a>Exemples de détection pour le noir et blanc
 
-Le tableau suivant indique si chaque exemple d’image est noir et blanc, selon Vision par ordinateur.
+Le tableau suivant présente l’évaluation en noir et blanc de la Vision par ordinateur dans les exemples d’images.
 
 | Image | Noir et blanc ? |
 |-------|----------------|

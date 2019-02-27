@@ -12,27 +12,27 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c48bbffd6a6312588d071841000b9211266285e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163034"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301466"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
-Les connecteurs rendent possible le proxy d’application Azure AD. Ils sont très puissants, simples et faciles à déployer et maintenir. Cet article présente les connecteurs, leur fonctionnement et des suggestions pour optimiser le déploiement. 
+Les connecteurs rendent possible le proxy d’application Azure AD. Ils sont simples, faciles à déployer et à gérer et très puissants. Cet article présente les connecteurs, leur fonctionnement et des suggestions pour optimiser le déploiement. 
 
 ## <a name="what-is-an-application-proxy-connector"></a>Qu’est-ce qu’un connecteur de proxy d’application ?
 
-Les connecteurs sont des agents légers présent en local et qui facilitent la connexion sortante vers le service de proxy d’application. Les connecteurs doivent être installés sur un serveur Windows Server qui a accès à l’application principale. Vous pouvez organiser des connecteurs dans les groupes de connecteurs, et chaque groupe gère le trafic vers des applications spécifiques. Les connecteurs équilibrent la charge automatiquement et peuvent aider à optimiser la structure du réseau. 
+Les connecteurs sont des agents légers présent en local et qui facilitent la connexion sortante vers le service de proxy d’application. Les connecteurs doivent être installés sur un serveur Windows Server qui a accès à l’application principale. Vous pouvez organiser des connecteurs dans les groupes de connecteurs, et chaque groupe gère le trafic vers des applications spécifiques.
 
 ## <a name="requirements-and-deployment"></a>Exigences et déploiement
 
-Pour déployer le proxy d’application avec succès, vous devez disposer d’au moins un connecteur, mais nous vous recommandons d’en utiliser deux ou plusieurs pour assurer une meilleure résilience. Installez le connecteur sur un serveur Windows Server 2012 R2 ou une machine 2016. Le connecteur doit être en mesure de communiquer avec le service Application Proxy, ainsi que les applications locales que vous publiez. 
+Pour déployer le proxy d’application avec succès, vous devez disposer d’au moins un connecteur, mais nous vous recommandons d’en utiliser deux ou plusieurs pour assurer une meilleure résilience. Installez le connecteur sur un serveur Windows Server 2012 R2 ou une machine 2016. Le connecteur doit communiquer avec le service Proxy d’application et les applications locales que vous publiez. 
 
 ### <a name="windows-server"></a>Windows Server
-Vous avez besoin d’un serveur exécutant Windows Server 2012 R2 ou ultérieur, sur lequel vous pouvez installer le connecteur de proxy d’application. Le serveur doit se connecter aux services de proxy d’application dans Azure et aux applications locales que vous publiez.
+Vous avez besoin d’un serveur exécutant Windows Server 2012 R2 ou ultérieur, sur lequel vous pouvez installer le connecteur de proxy d’application. Le serveur doit se connecter aux services Proxy d’application dans Azure et aux applications locales que vous publiez.
 
 TLS 1.2 doit être activé sur le serveur Windows Server avant l’installation du connecteur de proxy d’application. Jusqu’à nouvel ordre, les connecteurs existants avec des versions antérieures à 1.5.612.0 continueront de fonctionner sur les versions antérieures de TLS. Pour activer TLS 1.2 :
 
@@ -72,7 +72,7 @@ Si vous ne souhaitez pas attendre le chargement d’une mise à jour automatique
 Pour les abonnés avec plusieurs connecteurs, les mises à jour automatiques ciblent un seul connecteur à la fois dans chaque groupe afin d’éviter les temps d’arrêt dans votre environnement. 
 
 Vous pouvez rencontrer des temps d’arrêt lors de la mise à jour de votre connecteur si :  
-- Vous n’avez qu’un seul connecteur. Pour éviter ce temps d’arrêt et optimiser la disponibilité, nous vous recommandons d’installer un second connecteur et de [créer un groupe de connecteurs](application-proxy-connector-groups.md).  
+- Vous n’avez qu’un seul connecteur. Nous vous recommandons d’en installer un deuxième et de [créer un groupe de connecteurs](application-proxy-connector-groups.md) pour éviter les temps morts et accroître la disponibilité.  
 - Un connecteur se trouvait au milieu d’une transaction lorsque la mise à jour a commencé. Bien que la transaction d’origine soit perdue, votre navigateur devrait automatiquement relancer l’opération, ou vous pouvez actualiser votre page. Lorsque la demande est renvoyée, le trafic est acheminé vers un connecteur de secours.
 
 ## <a name="creating-connector-groups"></a>Créer des groupe de connecteurs
@@ -85,7 +85,7 @@ Pour en savoir plus sur les groupes de connecteurs, consultez [Publier des appli
 
 ## <a name="capacity-planning"></a>Planification de la capacité 
 
-Alors que les connecteurs équilibreront automatiquement la charge au sein d’un groupe de connecteur, il est également important que vous vous assuriez d’avoir planifié une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendue. En général, plus vous avez d’utilisateurs, plus vous aurez besoin d’une machine disposant de capacités importantes. Voici un tableau donnant un plan du volume pouvant être gérer par différentes machines. Veuillez noter qu’il est entièrement basé sur le nombre attendu de transactions par seconde (TPS) plutôt que sur le nombre d’utilisateurs, étant donné que les modèles d’utilisation varient et ne peuvent être utilisés pour prévoir une charge.  Notez également qu’il y aura des différences en fonction de la taille des réponses et du temps de réponse de l’application principal, une réponse volumineuse et un temps de réponse lent entraînant un TPS maximal plus faible.
+Il est important de planifier une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendu. En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des capacités importantes. Voici un tableau donnant un plan du volume pouvant être gérer par différentes machines. Veuillez noter qu’il s’appuie entièrement sur le nombre attendu de transactions par seconde (TPS) plutôt que par utilisateur, étant donné que les modèles d’utilisation varient et ne peuvent servir à prévoir une charge. Il y aura par ailleurs des différences en fonction de la taille des réponses et du temps de réponse de l’application principale : plus la réponse est volumineuse et le temps de réponse lent, plus le TPS maximal est faible. Nous vous recommandons d’avoir des ordinateurs supplémentaires pour maintenir une charge distribuée aux alentours de 50 %. Cette capacité additionnelle garantit résilience et haute disponibilité.
 
 |Cœurs|RAM|Latence attendue (MS)-P99|TPS max.|
 | ----- | ----- | ----- | ----- |
@@ -102,28 +102,26 @@ Alors que les connecteurs équilibreront automatiquement la charge au sein d’u
 
 Les connecteurs peuvent être installés n’importe où sur le réseau pourvu qu’ils puissent envoyer des requêtes vers le service de proxy d’application. L’important est que l’ordinateur qui exécute le connecteur dispose également d’un accès à vos applications. Vous pouvez installer les connecteurs à l’intérieur de votre réseau d’entreprise ou sur une machine virtuelle qui s’exécute dans le cloud. Les connecteurs peuvent s’exécuter dans une zone démilitarisée (DMZ), mais ce n’est pas nécessaire car tout le trafic est sortant afin sécuriser votre réseau.
 
-Les connecteurs envoient uniquement des demandes sortantes. Le trafic sortant est envoyé au service de proxy d’application et aux applications publiées. Il n’est pas nécessaire pour ouvrir des ports d’entrée car le trafic passe dans les deux sens une fois qu’une session est établie. Il n’est pas nécessaire de configurer l’équilibrage de charge entre les connecteurs ou de configurer l’accès entrant à travers vos pare-feu. 
+Les connecteurs envoient uniquement des demandes sortantes. Le trafic sortant est envoyé au service de proxy d’application et aux applications publiées. Il n’est pas nécessaire pour ouvrir des ports d’entrée car le trafic passe dans les deux sens une fois qu’une session est établie. Il n’est pas non plus nécessaire de configurer l’accès entrant à travers les pare-feu. 
 
 Pour plus d’informations sur la configuration des règles sortantes de pare-feu, consultez [Travailler avec des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md).
 
 
 ## <a name="performance-and-scalability"></a>Performances et évolutivité
 
-La mise à l’échelle pour le proxy d’application est transparente, mais l’échelle est un facteur lorsqu’il s’agit de connecteurs. Vous devez disposer de suffisamment de connecteurs pour gérer les pics de trafic. Toutefois, il n’est pas nécessaire de configurer l’équilibrage des charges, car tous les connecteurs dans un groupe de connecteurs équilibrent automatiquement la charge.
-
-Étant donné que les connecteurs sont sans état, ils ne sont pas affectés par le nombre d’utilisateurs ou de sessions. Ils varient plutôt selon le nombre de requêtes et leur taille de charge utile. Avec le trafic web standard, une machine moyenne peut gérer quelques milliers de requêtes par seconde. La capacité spécifique dépend des caractéristiques exactes de la machine. 
+La mise à l’échelle pour le proxy d’application est transparente, mais l’échelle est un facteur lorsqu’il s’agit de connecteurs. Vous devez disposer de suffisamment de connecteurs pour gérer les pics de trafic. Puisqu’ils sont sans état, les connecteurs ne sont pas affectés par le nombre d’utilisateurs ou de sessions. Ils varient plutôt selon le nombre de requêtes et leur taille de charge utile. Avec le trafic web standard, une machine moyenne peut gérer quelques milliers de requêtes par seconde. La capacité spécifique dépend des caractéristiques exactes de la machine. 
 
 Les performances du connecteur sont liées au processeur et à la mise en réseau. Les performances processeur sont nécessaires pour le chiffrement et le déchiffrement SSL, tandis que la mise en réseau est vitale pour obtenir une connectivité rapide aux applications et au service en ligne dans Azure.
 
 En revanche, la mémoire est moins problématique pour les connecteurs. Le service en ligne s’occupe de la majeure partie du traitement et de tout le trafic non authentifié. Tout ce qui peut être effectué dans le cloud est réalisé dans le cloud. 
 
-L’équilibrage de charge se produit entre les connecteurs d’un groupe de connecteurs donné. Nous faisons une variation de tourniquet pour déterminer quel connecteur du groupe sert une requête particulière. Si, pour une raison quelconque, la machine ou le connecteur deviennent indisponibles, le trafic passe à un autre connecteur du groupe. Cette résilience est également la raison pour laquelle nous vous recommandons d’avoir plusieurs connecteurs.
+Si, pour une raison quelconque, la machine ou le connecteur deviennent indisponibles, le trafic passe à un autre connecteur du groupe. Cette résilience est également la raison pour laquelle nous vous recommandons d’avoir plusieurs connecteurs.
 
 Un autre facteur affectant les performances est la qualité de la connexion réseau entre les connecteurs, y compris : 
 
 * **Le service en ligne** : les connexions à latence faible ou élevée au service du proxy d’application d’Azure influencent les performances du connecteur. Pour des performances optimales, connectez votre organisation à Azure avec Express Route. Sinon, assurez-vous que l’équipe réseau garantit que les connexions à Azure sont gérées de la façon la plus efficace. 
 * **Applications principales** : dans certains cas, il existe des proxys supplémentaires entre le connecteur et les applications principales capables de ralentir ou d’empêcher des connexions. Pour résoudre les problèmes de ce scénario, ouvrez un navigateur à partir du serveur du connecteur et essayez d’accéder à l’application. Si vous exécutez les connecteurs dans Azure alors que les applications sont locales, l’expérience peut ne pas être celle que vos utilisateurs attendent.
-* **Contrôleurs de domaine** : si les connecteurs effectuent l’authentification unique à l’aide de la délégation Kerberos contrainte (KCD), ils contactent les contrôleurs de domaine avant d’envoyer la requête au serveur principal. Les connecteurs ont un cache de tickets Kerberos, mais dans un environnement occupé, la réactivité des contrôleurs de domaine peut affecter les performances. Ce problème est plus courant pour les connecteurs qui s’exécutent dans Azure mais qui communiques avec les contrôleurs de domaine locaux. 
+* **Contrôleurs de domaine** : Si les connecteurs assurent l’authentification unique (SSO) à l’aide de la délégation Kerberos contrainte, ils contactent les contrôleurs de domaine avant d’envoyer la demande au serveur principal. Les connecteurs ont un cache de tickets Kerberos, mais dans un environnement occupé, la réactivité des contrôleurs de domaine peut affecter les performances. Ce problème est plus courant pour les connecteurs qui s’exécutent dans Azure mais qui communiques avec les contrôleurs de domaine locaux. 
 
 Pour plus d’informations sur l’optimisation de votre réseau, consultez [Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory](application-proxy-network-topology.md).
 
@@ -169,7 +167,7 @@ Les connecteurs ont des journaux de session et admin. Les journaux admin incluen
 
 Pour afficher les journaux, accédez l’Observateur d’événements, ouvrez le menu **Affichage**, puis activez **Afficher les journaux d’analyse et de débogage**. Ensuite, permettez-leur de lancer la collecte d’événements. Ces journaux n’apparaissent pas dans le proxy d’application web dans Windows Server 2012 R2, car les connecteurs sont basés sur une version plus récente.
 
-Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur compose de deux services Windows : le connecteur lui-même et l’outil de mise à jour. Tous deux doivent s’exécuter en permanence.
+Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur se compose de deux services Windows : le connecteur lui-même et le programme de mise à jour. Tous deux doivent s’exécuter en permanence.
 
  ![AzureAD Services Local](./media/application-proxy-connectors/aad-connector-services.png)
 

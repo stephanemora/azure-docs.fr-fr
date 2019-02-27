@@ -1,30 +1,31 @@
 ---
-title: Pagination des éléments d’une page de résultats de recherche - Recherche Azure
-description: Pagination dans Azure Search, un service de recherche cloud hébergé sur Microsoft Azure.
+title: Guide pratique pour utiliser les résultats de la recherche – Recherche Azure
+description: Structurez et triez les résultats de recherche, récupérez le nombre de documents et ajoutez la navigation du contenu aux résultats de recherche dans la Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2016
+ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309310"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301551"
 ---
-# <a name="how-to-page-search-results-in-azure-search"></a>Navigation dans les résultats de recherche d’Azure Search
-Cet article explique comment utiliser l’API REST de service Azure Search pour implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation.
+# <a name="how-to-work-with-search-results-in-azure-search"></a>Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure
+Cet article explique comment implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation. Les options de page qui fournissent des données ou des informations aux résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées au service Recherche Azure. 
 
-Dans tous les cas mentionnés ci-après, les options de page qui fournissent des données ou des informations à votre page de résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées à votre service Azure Search. Ces demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de ce qui est demandé et de la manière dont formuler la réponse.
+Dans l’API REST, les demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de la nature de la demande et de la formulation de la réponse. Dans le kit SDK .NET, l’API équivalente est la classe [DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+
+Plusieurs exemples de code comportent une interface frontale web, qui se trouve ici : [Application de démonstration New York City Jobs](http://azjobsdemo.azurewebsites.net/) et [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Consultez [API REST de service Azure Search](https://docs.microsoft.com/rest/api/searchservice) pour en savoir plus sur la syntaxe de demande.
-> 
+> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Pour plus d’informations sur la syntaxe des demandes, voir [API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice). 
 > 
 
 ## <a name="total-hits-and-page-counts"></a>Nombre total de résultats et nombre de pages
@@ -32,7 +33,7 @@ L’affichage du nombre total des résultats d’une requête et la présentatio
 
 ![][1]
 
-Dans Azure Search, vous utilisez les paramètres `$count`, `$top` et `$skip` pour renvoyer ces valeurs. L’exemple suivant illustre une demande du nombre total de résultats, renvoyé sous la forme `@OData.count`:
+Dans Azure Search, vous utilisez les paramètres `$count`, `$top` et `$skip` pour renvoyer ces valeurs. L’exemple suivant illustre un exemple de demande du nombre total de correspondances sur un index nommé « onlineCatalog », retourné sous la forme `@OData.count` :
 
         GET /indexes/onlineCatalog/docs?$count=true
 
@@ -70,7 +71,7 @@ Les données sont souvent triées par défaut en fonction de la pertinence, mais
 
  ![][3]
 
-Dans Azure Search, le tri repose sur l’expression `$orderby` pour tous les champs indexés comme étant `"Sortable": true.`
+Dans la Recherche Azure, le tri repose sur l’expression `$orderby` pour tous les champs indexés comme étant `"Sortable": true.`. Une clause `$orderby` est une expression OData. Pour plus d’informations sur la syntaxe, voir [Syntaxe des expressions OData pour les filtres et les clauses order by](query-odata-filter-orderby-syntax.md).
 
 La pertinence est clairement liée aux profils de score. Vous pouvez utiliser le score par défaut, qui repose sur l’analyse de texte et les statistiques pour ordonner tous les résultats : dans ce cas, les documents présentant des correspondances plus nombreuses ou plus fortes affichent un score plus élevé.
 
@@ -83,7 +84,7 @@ Vous pouvez créer la méthode qui accepte l’option de tri sélectionnée comm
  ![][5]
 
 > [!NOTE]
-> Si le score par défaut suffit dans de nombreuses situations, nous vous recommandons tout de même de baser la pertinence sur un profil de score personnalisé. Un profil de score personnalisé accorde plus d’importance aux éléments qui avantagent votre entreprise. Consultez [Ajout de profils de calcul de score](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) pour en savoir plus. 
+> Si le score par défaut suffit dans de nombreuses situations, nous vous recommandons tout de même de baser la pertinence sur un profil de score personnalisé. Un profil de score personnalisé accorde plus d’importance aux éléments qui avantagent votre entreprise. Pour plus d’informations, voir [Ajout de profils de score](index-add-scoring-profiles.md) . 
 > 
 > 
 
@@ -91,7 +92,7 @@ Vous pouvez créer la méthode qui accepte l’option de tri sélectionnée comm
 Les options de navigation de recherche sont communes à toutes les pages de résultats et se trouvent souvent sur le côté ou en haut de la page. Dans Azure Search, la navigation à facettes permet une recherche autonome en fonction de filtres prédéfinis. Consultez [Navigation à facettes dans Azure Search](search-faceted-navigation.md) pour en savoir plus.
 
 ## <a name="filters-at-the-page-level"></a>Filtres au niveau de la page
-Si votre solution inclut des pages de recherche dédiées à certains types de contenu (par exemple, une application de vente au détail en ligne avec des départements figurant en haut de la page), vous pouvez associer une expression de filtre à un événement **onClick** pour ouvrir une page préfiltrée. 
+Si votre solution comporte dans sa conception des pages de recherche dédiées à certains types de contenu (par exemple, une application de vente au détail en ligne avec des départements figurant en haut de la page), vous pouvez associer une [expression de filtre](search-filters.md) à un événement **onClick** pour ouvrir une page à l’état préfiltré. 
 
 Vous pouvez envoyer un filtre avec ou sans expression de recherche. Par exemple, la demande suivante applique un filtre en fonction du nom de la marque et ne renvoie que les documents correspondants.
 

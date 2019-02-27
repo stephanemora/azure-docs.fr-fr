@@ -5,20 +5,23 @@ services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 02/17/2019
 ms.author: raynew
-ms.custom: mvc
-ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ff4ee1d88bd13e647d0f6218d7e9c9b2c57a5a01
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883702"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429568"
 ---
 # <a name="azure-backup-support-matrix"></a>Tableau de prise en charge de Sauvegarde Azure
 
-Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauvegarder des données dans le cloud Microsoft Azure. Cet article énumère les limitations et les paramètres de prise en charge pour les scénarios et les déploiements de Sauvegarde Azure.
+Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauvegarder des données dans le cloud Microsoft Azure. Cet article énumère les limitations et les paramètres généraux de prise en charge pour les scénarios et les déploiements de Sauvegarde Azure.
+
+Autres matrices de prise en charge disponibles :
+
+[Matrice de prise en charge](backup-support-matrix-iaas.md) pour la sauvegarde de machine virtuelle Azure [Matrice de prise en charge](backup-support-matrix-mabs-dpm.md) pour la sauvegarde à l’aide de System Center DPM ou du serveur de sauvegarde Microsoft Azure (MABS) [Matrice de prise en charge](backup-support-matrix-mars-agent.md) pour la sauvegarde à l’aide de l’agent Microsoft Azure Recovery Services (MARS)
 
 ## <a name="vault-support"></a>Prise en charge des coffres
 
@@ -26,13 +29,14 @@ La Sauvegarde Azure utilise les coffres Recovery Services pour orchestrer et gé
 
 **Paramètre** | **Détails**
 --- | ---
-Nombre de coffres | Jusqu’à 500 coffres Recovery Services dans un même abonnement.
-Machines dans un coffre | Jusqu’à 1 000 machines virtuelles Azure dans un même coffre.<br/><br/> Jusqu’à 50 machines locales exécutant l’agent Sauvegarde Azure (agent Microsoft Azure Recovery Services (MARS)) peuvent être inscrites dans un même coffre.
-Source de données dans le stockage de l’archivage | Au maximum 54 400 Go. Le nombre des sauvegardes de machines virtuelles Azure n’est pas limité.
-Sauvegardes dans le coffre | Machines virtuelles Azure : une fois par jour ; machines protégées par DPM/MABS : deux fois par jour ; machines sauvegardées directement à l’aide de l’agent MARS : trois fois par jour.  
-Déplacer le coffre | Pour déplacer un coffre Recovery Services, vous devez être inscrit dans une préversion privée. Pour l’essayer, contactez AskAzureBackupTeam@microsoft.com.
-Déplacer des données entre des coffres | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
-Type de réplication de stockage | Vous pouvez modifier le type de réplication de stockage (GRS/LRS) pour un coffre avant que les sauvegardes soient stockées. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
+**Coffres dans l’abonnement** | Jusqu’à 500 coffres Recovery Services dans un même abonnement.
+**Machines dans un coffre** | Jusqu’à 1 000 machines virtuelles Azure dans un même coffre.<br/><br/> Jusqu’à 50 serveurs MABS peuvent être inscrits dans un seul coffre.
+**Source de données dans le stockage du coffre** | Au maximum 54 400 Go. Le nombre des sauvegardes de machines virtuelles Azure n’est pas limité.
+**Sauvegardes dans le coffre** | Machines virtuelles Azure : une fois par jour<br/><br/>Machines protégées par DPM/MABS : deux fois par jour<br/><br/> Machines sauvegardées directement à l’aide de l’agent MARS : trois fois par jour. 
+**Sauvegardes entre les coffres** | La sauvegarde s’effectue dans une région.<br/><br/> Vous avez besoin d’un coffre dans chaque région Azure qui contient les machines virtuelles que vous souhaitez sauvegarder. Vous ne pouvez pas sauvegarder vers une autre région. 
+**Déplacer le coffre** | Vous pouvez [déplacer les coffres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre des abonnements ou entre des groupes de ressources dans le même abonnement.
+**Déplacer des données entre des coffres** | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
+**Modifier le type de stockage de coffre** | Vous pouvez modifier le type de réplication de stockage (GRS/LRS) pour un coffre avant que les sauvegardes soient stockées. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
 
 
 
@@ -40,15 +44,15 @@ Type de réplication de stockage | Vous pouvez modifier le type de réplication 
 
 Voici ce qui est pris en charge si vous voulez sauvegarder des machines locales.
 
-**Machine** | **Lieu** | **Sauvegarder** | **Caractéristiques**
+**Machine** | **Sauvegardé** | **Lieu** | **Caractéristiques**
 --- | --- | --- | ---
-**Physique/virtuelle Windows (sans serveur de sauvegarde)** | Fichiers, dossiers, état du système | Sauvegarde dans le coffre Recovery Services | Sauvegarde trois fois par jour.<br/><br/> Pas de sauvegarde tenant compte des applications.<br/><br/> Restaurer le fichier, le dossier, le volume.
-**Physique/virtuelle Linux (sans serveur de sauvegarde)** | Sauvegarde non prise en charge.
-**Physique/virtuelle avec DPM** | Fichiers, dossiers, volumes, état du système, données d’application. | Sauvegarde dans DPM (sur un disque connecté localement au serveur DPM ou sur bande).<br/><br/> DPM, puis sauvegarde dans le coffre. | Captures instantanées tenant compte des applications<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/>. Oracle non pris en charge.
-**Physique/virtuelle avec MABS** | Fichiers, dossiers, volumes, état du système, données d’application. | Sauvegarde dans MABS (sur un disque connecté localement au serveur MABS). La bande n’est pas prise en charge<br/><br/> MABS effectue ensuite la sauvegarde dans le coffre. | Captures instantanées tenant compte des applications<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/>. Oracle non pris en charge.
+**Sauvegarde directe de l’ordinateur Windows avec l’agent MARS** | Fichiers, dossiers, état du système | Sauvegarde dans le coffre Recovery Services | Sauvegarde trois fois par jour.<br/><br/> Pas de sauvegarde tenant compte des applications.<br/><br/> Restaurer le fichier, le dossier, le volume.
+**Sauvegarde directe de l’ordinateur Linux avec l’agent MARS** | Sauvegarde non prise en charge.
+**Sauvegarde dans DPM** | Fichiers, dossiers, volumes, état du système, données d’application. | Sauvegarde dans le stockage DPM local. DPM, puis sauvegarde dans le coffre. | Captures instantanées tenant compte des applications<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/>. Oracle non pris en charge.
+**Sauvegarde dans MABS** | Fichiers, dossiers, volumes, état du système, données d’application. | Sauvegarde dans le stockage MABS local. MABS effectue ensuite la sauvegarde dans le coffre. | Captures instantanées tenant compte des applications<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/>. Oracle non pris en charge.
 
 
-## <a name="azure-vms"></a>Machines virtuelles Azure
+## <a name="azure-vm-backup-support"></a>Prise en charge de la sauvegarde de machines virtuelles Azure
 
 ### <a name="azure-vm-limits"></a>Limites des machines virtuelles Azure
 
@@ -62,11 +66,12 @@ Taille de disque de données de machine virtuelle Azure | La taille maximale d�
 
 Voici ce qui est pris en charge si vous voulez sauvegarder des machines virtuelles Azure.
 
-**Machine** | **Lieu** | **Sauvegarder** | **Caractéristiques**
+**Machine** | **Sauvegardé** | **Lieu** | **Caractéristiques**
 --- | --- | --- | ---
-**Machines virtuelles Azure (sans serveur de sauvegarde)** | Fichiers, dossiers, état du système | Sauvegarde dans le coffre. | Sauvegarde une fois par jour.<br/><br/> Sauvegarde tenant compte des applications pour les machines virtuelles Windows, sauvegarde cohérente au niveau fichier pour les machines virtuelles Linux. Vous pouvez configurer la cohérence des applications pour les machines Linux à l’aide de scripts personnalisés.<br/><br/> Restaurer une machine virtuelle/un disque.<br/><br/> Sauvegarde sur une machine virtuelle Azure impossible vers un emplacement locale.
-**Machine virtuelle Azure avec DPM** | Fichiers, dossiers, volumes, état du système, données d’application. | Sauvegarde dans DPM en cours d’exécution dans Azure (sur un disque connecté localement au serveur DPM). La bande n’est pas prise en charge.<br/><br/> DPM, puis sauvegarde dans le coffre. | Captures instantanées tenant compte des applications<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/>. Oracle non pris en charge.
-**Machine virtuelle Azure avec MABS** | Fichiers, dossiers, volumes, état du système, données d’application. | Sauvegarde dans MABS en cours d’exécution dans Azure (sur un disque connecté localement au serveur MABS). La bande n’est pas prise en charge<br/><br/> MABS effectue ensuite la sauvegarde dans le coffre. | Captures instantanées tenant compte des applications<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/>. Oracle non pris en charge.
+**Sauvegarde de machine virtuelle Azure à l’aide de l’extension de machine virtuelle** | Machine virtuelle complète | Sauvegarde dans le coffre | Extension installée lorsque vous activez la sauvegarde pour une machine virtuelle.<br/><br/> Sauvegarde une fois par jour.<br/><br/> Sauvegarde tenant compte des applications pour les machines virtuelles Windows, sauvegarde cohérente au niveau fichier pour les machines virtuelles Linux. Vous pouvez configurer la cohérence des applications pour les machines Linux à l’aide de scripts personnalisés.<br/><br/> Restaurer une machine virtuelle/un disque.<br/><br/> Sauvegarde sur une machine virtuelle Azure impossible vers un emplacement locale.
+**Sauvegarde de machine virtuelle Azure à l’aide de l’agent MARS** | Fichiers, dossiers | Sauvegarde dans le coffre | Sauvegarde trois fois par jour.<br/><br/> L’agent MARS peut s’exécuter en même temps que l’extension de machine virtuelle si vous souhaitez sauvegarder des fichiers ou dossiers spécifiques plutôt que la machine virtuelle entière.
+**Machine virtuelle Azure avec DPM** | Fichiers, dossiers, volumes, état du système, données d’application. | Sauvegarde dans le stockage local de la machine virtuelle Azure exécutant DPM. DPM, puis sauvegarde dans le coffre. | Captures instantanées tenant compte des applications<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/>. Oracle non pris en charge.
+**Machine virtuelle Azure avec MABS** | Fichiers, dossiers, volumes, état du système, données d’application. | Sauvegardé dans le stockage local de la machine virtuelle Azure exécutant MABS. MABS effectue ensuite la sauvegarde dans le coffre. | Captures instantanées tenant compte des applications<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/> Oracle non pris en charge.
 
 
 
@@ -78,12 +83,17 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines Linux.
 
 **Sauvegarde** | **Linux (approuvé par Azure)**
 --- | ---
-**Machine Linux locale (sans DPM ou MABS)**. |  Non. L’agent MARS ne peut être installé que sur des machines Windows.
-**Machine virtuelle Azure (sans DPM ou MABS)** | Sauvegarde cohérente au niveau application à l’aide de [scripts personnalisés](backup-azure-linux-app-consistent.md).<br/><br/> Récupération au niveau fichier.<br/><br/> Restaurer en créant une machine virtuelle à partir d’un point de récupération ou d’un disque.
-**Machine locale/machine virtuelle Azure avec DPM** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure
-**Machine locale/machine virtuelle Azure avec MABS** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure.
+**Sauvegarde directe de la machine locale exécutant Linux**. |  Non. L’agent MARS ne peut être installé que sur des machines Windows.
+**Sauvegarde de la machine virtuelle Azure exécutant Linux (à l’aide de l’extension de l’agent)** | Sauvegarde cohérente au niveau application à l’aide de [scripts personnalisés](backup-azure-linux-app-consistent.md).<br/><br/> Récupération au niveau fichier.<br/><br/> Restaurer en créant une machine virtuelle à partir d’un point de récupération ou d’un disque.
+**Sauvegarde de la machine virtuelle locale ou Azure exécutant Linux à l’aide de DPM** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure
+**Sauvegarde de la machine locale ou de la machine virtuelle Azure exécutant Linux à l’aide de MABS** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure.
 
-## <a name="disk-support"></a>Prise en charge des disques
+## <a name="daylight-saving-support"></a>Prise en charge de l’heure d’été
+
+Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Modifiez les stratégies de sauvegarde manuellement selon les besoins.
+
+
+## <a name="disk-deduplication-support"></a>Prise en charge de la déduplication de disque
 
 La prise en charge de la déduplication de disque est la suivante :
 - La déduplication de disque est prise en charge localement quand vous utilisez DPM ou MABS pour sauvegarder des machines virtuelles Hyper-V exécutant Windows. Windows Server effectue la déduplication (au niveau de l’hôte) sur les disques durs virtuels attachés en tant que stockage de sauvegarde à la machine virtuelle.
@@ -109,26 +119,25 @@ Sécurité des données :
 
 **Machine** | **En transit** | **Au repos**
 --- | --- | ---
-Machines Windows locales sans DPM/MAB | ![Oui][green] | ![Oui][green]
-Machines virtuelles Azure | ![Oui][green] | ![Oui][green]
-Machines virtuelles locales/Azure avec DPM | ![Oui][green] | ![Oui][green]
-Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
+Machines Windows locales sans DPM/MAB | ![OUI][green] | ![OUI][green]
+Machines virtuelles Azure | ![OUI][green] | ![OUI][green]
+Machines virtuelles locales/Azure avec DPM | ![OUI][green] | ![OUI][green]
+Machines virtuelles locales/Azure avec MABS | ![OUI][green] | ![OUI][green]
 
 
 
 ## <a name="compression-support"></a>Prise en charge de la compression
 
-Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, comme décrit dans le tableau ci-dessous. Notez les points suivants :
+Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, comme décrit dans le tableau ci-dessous. 
 
 - Pour les machines virtuelles Azure, l’extension de machine virtuelle lit directement les données à partir du compte de stockage Azure via le réseau de stockage. Il n’est donc pas nécessaire de compresser ce trafic.
 - Si vous utilisez DPM ou MABS, vous pouvez compresser les données avant qu’elles soient sauvegardées dans DPM/MABS, afin d’économiser la bande passante.
 
 **Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser (HTTPS) dans le coffre**
 --- | --- | ---
-Machines Windows locales sans DPM/MAB | N/D | Oui
-Machines virtuelles Azure | N/D | N/D
-Machines virtuelles locales/Azure avec DPM | ![Oui][green] | ![Oui][green]
-Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
+**Sauvegarde directe des ordinateurs Windows locaux** | N/D | OUI
+**Sauvegarde des machines virtuelles Azure à l’aide de l’extension de machine virtuelle** | N/D | N/D
+**Sauvegarde sur des machines locales/Azure à l’aide de MABS/DPM | ![OUI][green] | ![OUI][green]
 
 
 
@@ -146,10 +155,8 @@ Points de récupération sur un disque DPM/MAB | 64 pour les serveurs de fichier
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Sauvegarder des machines virtuelles Azure](backup-azure-arm-vms-prepare.md)
-- [Sauvegarder des ordinateurs Windows directement](tutorial-backup-windows-server-to-azure.md), sans serveur de sauvegarde.
-- [Configurer MABS](backup-azure-microsoft-azure-backup.md) pour la sauvegarde dans Azure, puis sauvegarder des charges de travail dans MABS.
-- [Configurer DPM](backup-azure-dpm-introduction.md) pour la sauvegarde dans Azure, puis sauvegarder des charges de travail dans DPM.
+- [Passez en revue la matrice de prise en charge](backup-support-matrix-iaas.md) de la sauvegarde des machines virtuelles Azure.
+
 
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png
