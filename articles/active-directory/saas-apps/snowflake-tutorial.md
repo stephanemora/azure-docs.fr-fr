@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191314"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutoriel : Intégration d’Azure Active Directory à Snowflake
 
@@ -141,7 +141,7 @@ Pour configurer l’authentification unique Azure AD avec Snowflake, effectuez l
     > [!NOTE]
     > Ce n’est pas dans le même contexte que vous avez sélectionné en haut à droite, sous votre nom d’utilisateur
     
-    ![L’administrateur Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![L’administrateur Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Ouvrez le **certificat Base 64 téléchargé** dans le Bloc-notes. Copiez la valeur entre « -----BEGIN CERTIFICATE----- » et « -----END CERTIFICATE----- », et collez-la entre les guillemets situés à côté de **certificate** ci-dessous. Dans **ssoUrl**, collez la valeur de l’**URL de connexion** que vous avez copiée sur le portail Azure. Sélectionnez **Toutes les requêtes** et cliquez sur **Exécuter**.
 
@@ -219,11 +219,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Snowflake, vous deve
 
 2. **Sélectionnez le rôle** **ACCOUNTADMIN** en cliquant sur **profil** en haut à droite de la page.  
 
-    ![L’administrateur Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![L’administrateur Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Créez l’utilisateur en exécutant la requête SQL ci-dessous. Vérifiez que la valeur de « LOGIN_NAME » correspond au nom d’utilisateur Azure AD sur la feuille de calcul, comme indiqué ci-dessous.
 
-    ![L’adminsql Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![L’adminsql Snowflake](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;
@@ -238,7 +238,7 @@ Le fait de cliquer sur la vignette Snowflake dans le panneau d’accès doit vou
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

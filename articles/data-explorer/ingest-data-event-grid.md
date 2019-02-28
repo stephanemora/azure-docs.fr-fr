@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743682"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804641"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Démarrage rapide : Ingérer des objets blob Azure dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
@@ -58,7 +58,7 @@ Créez une table dans Azure Data Explorer, à laquelle Event Hubs envoie les don
 
 1. Dans le portail Azure, sous votre cluster, sélectionnez **Requête**.
 
-    ![Lien d’application de requête](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Lien d’application de requête](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Copiez la commande suivante dans la fenêtre et sélectionnez **Exécuter** pour créer la table (TestTable) qui doit recevoir les données ingérées.
 
@@ -82,11 +82,11 @@ Vous vous connectez maintenant à Event Grid à partir d’Azure Data Explorer, 
 
 1. Sous le cluster que vous avez créé, sélectionnez **Bases de données** et **TestDatabase**.
 
-    ![Sélectionner la base de données de test](media/ingest-data-event-hub/select-test-database.png)
+    ![Sélectionner la base de données de test](media/ingest-data-event-grid/select-test-database.png)
 
 1. Sélectionnez **Ingestion des données**, puis **Ajouter une connexion de données**.
 
-    ![Ingestion de données](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Ingestion de données](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Sélectionnez un type de connexion : **Stockage d'objets blob**.
 
@@ -185,9 +185,9 @@ Si vous ne prévoyez pas de réutiliser votre grille d’événement, effacez **
 
 1. Dans le portail Azure, sélectionnez **Groupes de ressources** tout à gauche, puis sélectionnez le groupe de ressources que vous avez créé.  
 
-    Si le menu de gauche est réduit, sélectionnez le ![Bouton Développer](media/ingest-data-event-hub/expand.png) pour le développer.
+    Si le menu de gauche est réduit, sélectionnez le ![Bouton Développer](media/ingest-data-event-grid/expand.png) pour le développer.
 
-   ![Sélectionner un groupe de ressources à supprimer](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Sélectionner un groupe de ressources à supprimer](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. Sous **test-resource-group**, sélectionnez **Supprimer le groupe de ressources**.
 

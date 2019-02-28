@@ -3,7 +3,7 @@ title: 'Démarrage rapide : Déployer une application web sur Azure Service Fab
 description: Ce guide de démarrage rapide montre comment créer un site web ASP.NET Core et le publier sur Azure Service Fabric Mesh à l’aide de Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylermsft
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,20 +13,20 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 35ce19d796a9889d734bd5dde20a7c56485656f1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888535"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804915"
 ---
-# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Démarrage rapide : créer et déployer une application web sur Azure Service Fabric Mesh
+# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Démarrage rapide : Créer et déployer une application web dans Azure Service Fabric Mesh
 
-Azure Service Fabric Mesh est un service entièrement managé qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de réseau.
+Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau.
 
-Dans ce guide de démarrage rapide, vous allez créer une application Service Fabric Mesh consistant en une application web ASP.NET Core, l’exécuter sur le cluster de développement local, puis la publier pour l’exécuter sur Azure.
+Dans ce guide de démarrage rapide, vous allez créer une application Service Fabric mesh consistant en une application web ASP.NET Core, l’exécuter sur le cluster de développement local, puis la publier pour l’exécuter sur Azure.
 
 Vous aurez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez facilement créer un abonnement Azure gratuit, et [créer un compte gratuit](https://azure.microsoft.com/free/) avant de commencer. Vous devrez également [configurer votre environnement de développement](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 

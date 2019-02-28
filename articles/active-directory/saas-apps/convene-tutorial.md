@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6462083265c7fa93dd0fc496830fff21f80928
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7fb602b158fc97f6737aaaf5297adf48f63790f1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161336"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873922"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-convene"></a>Tutoriel : Intégration d’Azure AD à Convene
+# <a name="tutorial-azure-active-directory-integration-with-convene"></a>Didacticiel : Intégration d’Azure AD à Convene
 
 Dans ce didacticiel, vous allez apprendre à intégrer Convene à Azure Active Directory (Azure AD).
 L’intégration de Convene dans Azure AD vous offre les avantages suivants :
@@ -230,7 +230,7 @@ Quand vous cliquez sur la vignette Convene dans le volet d’accès, vous devez 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
