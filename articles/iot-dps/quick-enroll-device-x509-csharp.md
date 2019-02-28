@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 34c303ef45c32d5b210b48a6de36589bcac5dacc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f20c62f574b22d55d2acd8f9c7b811067837adb7
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189118"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985935"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Démarrage rapide : Inscrire des appareils X.509 auprès du service Device Provisioning avec C#
 
@@ -59,7 +59,7 @@ Pour utiliser ces outils de test pour générer des certificats, procédez comme
 
 2. Suivez les étapes dans [Gestion de certificats d’autorité de certification de test pour des exemples et tutoriels](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 
-Outre les outils du Kit de développement logiciel (SDK) C, l’[Exemple de vérification de certificat de groupe](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) dans le *Kit de développement logiciel (SDK) Microsoft Azure IoT pour .NET* montre comment effectuer une preuve de possession dans C# avec un certificat racine ou intermédiaire d’autorité de certification X.509 existant. 
+Outre les outils du Kit de développement logiciel (SDK) C, l’[Exemple de vérification de certificat de groupe](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) dans le *Kit de développement logiciel (SDK) Microsoft Azure IoT pour .NET* montre comment effectuer une preuve de possession dans C# avec un certificat racine ou intermédiaire d’autorité de certification X.509 existant. 
 
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>Obtenir la chaîne de connexion de votre service d’approvisionnement

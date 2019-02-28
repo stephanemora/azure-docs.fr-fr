@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e377cf749119c23d37bb4db8ab78abb1ce8c82ae
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e49bc5a468777197eaf88a492566a606e7b9f93
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199746"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
 
@@ -133,7 +133,7 @@ Pour configurer l’authentification unique Azure AD avec Amazon Web Services
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
+4. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.  Cliquez sur **Enregistrer**.
 
     ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
@@ -452,7 +452,7 @@ Quand vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d�
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

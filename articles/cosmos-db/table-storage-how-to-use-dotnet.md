@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044414"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985884"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,6 @@ Vous aurez besoin des éléments suivants pour suivre cet exemple :
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Bibliothèque commune de stockage Azure pour .NET (préversion)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - Package de préversion requis pris en charge dans les environnements de production. 
 * [Bibliothèque de tables Microsoft Azure CosmosDB pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) : cette bibliothèque est actuellement disponible uniquement pour .NET Standard, elle n’est pas encore disponible pour .NET Core.
-* [Gestionnaire de configuration Azure pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Compte Azure Storage](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -77,14 +76,11 @@ Il existe trois packages recommandés auxquels vous devez vous référer dans vo
 
 * [Bibliothèque de tables Microsoft Azure Cosmos DB pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Ce package fournit un accès par programmes aux ressources de données dans votre compte de stockage Table Azure ou votre compte API Table Azure Cosmos DB. Cette bibliothèque est actuellement disponible uniquement pour .NET Standard, elle n’est pas encore disponible pour .NET Core.
 
-* [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) : ce package fournit une classe pour l’analyse d’une chaîne de connexion à partir d’un fichier config, quel que soit l’emplacement d’exécution de votre application.
-
 Pour obtenir les packages NuGet, procédez comme suit :
 
 1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions**, puis sélectionnez **Gérer les packages NuGet**.
 2. Recherchez en ligne « Microsoft.Azure.Storage.Common », choisissez la version <= 9.0.0.1, puis sélectionnez **Installer** pour installer la bibliothèque commune de stockage Azure pour .NET (préversion) et ses dépendances. Vérifiez que la case **Inclure la version préliminaire** est cochée, car il s’agit d’un version préliminaire du package de préversion.
 3. Recherchez en ligne « Microsoft.Azure.CosmosDB.Table », puis sélectionnez **Installer** pour installer la bibliothèque de tables CosmosDB Microsoft Azure.
-4. Recherchez en ligne « WindowsAzure.ConfigurationManager », puis sélectionnez **Installer** pour installer la bibliothèque du gestionnaire de configuration Microsoft Azure.
 
 > [!NOTE]
 > Les dépendances ODataLib de la bibliothèque de stockage commune pour .NET sont résolues via les packages ODataLib disponibles sur NuGet, et non à partir de WCF Data Services. Vous pouvez télécharger directement les bibliothèques ODataLib ou les référencer avec votre projet de code via NuGet. Les packages ODataLib utilisés par la bibliothèque cliente de stockage sont [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) et [Spatial](https://nuget.org/packages/System.Spatial/). Bien qu’elles soient utilisées par les classes de stockage de tables Azure, ces bibliothèques sont des dépendances requises pour la programmation avec la bibliothèque de stockage commune.
