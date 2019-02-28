@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000948"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342488"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Créer un index de base dans la Recherche Azure
 
@@ -23,6 +23,32 @@ Dans Recherche Azure, un *index* est une banque permanente de *documents* et d'a
 Lorsque vous ajoutez ou chargez un index, la Recherche Azure crée des structures physiques basées sur le schéma fourni. Par exemple, si l’un des champs de votre index est marqué comme utilisable dans une requête, un index inversé est créé pour ce champ. Lorsque vous ajouterez ou chargerez des documents, ou que vous soumettrez des requêtes de recherche à la Recherche Azure, vous enverrez les demandes à un index spécifique de votre service de recherche. Le processus consistant à charger des champs ayant valeur de documents se nomme *indexation* ou ingestion des données.
 
 Vous pouvez créer un index avec le portail, [l’API REST](search-create-index-rest-api.md) ou le [Kit SDK .NET](search-create-index-dotnet.md).
+
+## <a name="recommended-workflow"></a>Workflow recommandé
+
+Avant de parvenir à une conception d’index satisfaisante, il convient d’effectuer plusieurs itérations. En utilisant une combinaison d’outils et d’API, vous pouvez finaliser rapidement votre conception.
+
+1. Déterminez si vous pouvez utiliser un [indexeur](search-indexer-overview.md#supported-data-sources). Si vos données externes représentent l’une des sources de données prises en charge, vous pouvez créer un prototype d’index et le charger à l’aide de l’Assistant [**Importation de données**](search-import-data-portal.md).
+
+2. Si vous ne pouvez pas utiliser **Importation de données**, vous pouvez toujours [créer un index initial sur le portail](search-create-index-portal.md), ajouter des champs, des types de données, puis affecter des attributs à l’aide des contrôles de la page **Ajouter un index**. Le portail présente les attributs disponibles en fonction des types de données. Si vous débutez dans la conception d’index, cela vous sera utile.
+
+   ![Page Ajouter un index présentant les attributs par type de données](media/search-create-index-portal/field-attributes.png "Page Ajouter un index présenter les attributs par type de données")
+  
+   Quand vous cliquez sur **Créer**, toutes les structures physiques supportant votre index sont créées dans votre service de recherche.
+
+3. Téléchargez le schéma d’index à l’aide de l’[API REST d’obtention d’index](https://docs.microsoft.com/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-fiddler.md). Vous disposez maintenant d’une représentation JSON de l’index que vous avez créé sur le portail. 
+
+   À ce stade, vous passez à une approche basée sur le code. Le portail ne se prête pas bien à l’itération dans le sens où vous ne pouvez pas modifier un index qui a déjà été créé. En revanche, vous pouvez utiliser Postman et REST pour les tâches restantes.
+
+4. [Chargez votre index avec des données](search-what-is-data-import.md). Recherche Azure accepte les documents JSON. Pour charger vos données par programmation, vous pouvez utiliser Postman avec des documents JSON dans la charge utile de demande. S’il n’est pas facilement d’exprimer vos données au format JSON, cette étape sera la plus fastidieuse.
+
+5. Interrogez votre index, examinez les résultats et continuez d’itérer sur le schéma d’index jusqu’à ce que vous commenciez à obtenir les résultats attendus. Pour interroger votre index, vous pouvez utiliser l’[**Explorateur de recherche**](search-explorer.md) ou Postman.
+
+6. Continuez d’utiliser le code pour itérer sur votre conception.  
+
+Comme les structures physiques sont créées dans le service, il est nécessaire de [supprimer et de recréer les index](search-howto-reindex.md) chaque fois que vous apportez des modifications importantes à la définition de champ existante. Cela signifie que pendant le développement, vous devez prévoir des regénérations fréquentes. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
+
+Pour une conception itérative, il est recommandé de privilégier une approche basée sur le code plutôt que sur le portail. Si vous utilisez le portail pour définir un index, vous devrez remplir la définition de l’index à chaque regénération. Sinon, les outils tels que [Postman et l’API REST](search-fiddler.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
 
 ## <a name="components-of-an-index"></a>Composants d’un index
 
@@ -104,19 +130,22 @@ La [*collection de champs*](#fields-collection) correspond généralement à la 
 }
 ```
 
-## <a name="fields-collection-and-attribution"></a>Collection et attribution de champs
+<a name="fields-collection"></a>
+
+## <a name="fields-collection-and-field-attributes"></a>Collection et attributs de champs
+
 Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et les attributs de chaque champ de votre index. Le type de champ classifie les données stockées dans ce champ. Les attributs sont définis sur des champs individuels pour spécifier la façon dont le champ est utilisé. Les tableaux ci-après énumèrent les types et les attributs que vous pouvez spécifier.
 
 ### <a name="data-types"></a>Types de données
 | Type | Description |
 | --- | --- |
-| *Edm.String* |Texte pouvant éventuellement être tokenisé pour la recherche en texte intégral (césure de mots, recherche de radical, etc). |
-| *Collection(Edm.String)* |Liste de chaînes pouvant être éventuellement tokenisées pour la recherche en texte intégral. En théorie, il n’existe pas de limite supérieure quant au nombre d’éléments d’une collection, mais la limite supérieure de 16 Mo sur la taille de charge utile s’applique aux collections. |
+| *Edm.String* |Texte pour lequel un jeton peut éventuellement être généré pour la recherche en texte intégral (césure de mots, recherche de radical, etc). |
+| *Collection(Edm.String)* |Liste de chaînes pour lesquels un jeton peut éventuellement être généré pour la recherche en texte intégral. En théorie, il n’existe pas de limite supérieure quant au nombre d’éléments d’une collection, mais la limite supérieure de 16 Mo sur la taille de charge utile s’applique aux collections. |
 | *Edm.Boolean* |Contient des valeurs true/false. |
 | *Edm.Int32* |Valeurs entières 32 bits. |
 | *Edm.Int64* |Valeurs entières 64 bits. |
 | *Edm.Double* |Données numériques à double précision. |
-| *Edm.DateTimeOffset* |Dates et heures représentées au format OData V4 (par exemple, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.DateTimeOffset* |Valeurs de date et heure représentées au format OData V4 (par exemple, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Point représentant un emplacement géographique de la planète. |
 
 Pour plus d’informations sur les types de données pris en charge par le service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
@@ -133,20 +162,35 @@ Pour plus d’informations sur les types de données pris en charge par le servi
 
 Pour plus d’informations sur les attributs d’index du service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
+## <a name="storage-implications"></a>Implications au niveau du stockage
+
+Les attributs que vous sélectionnez ont un impact sur le stockage. La capture d’écran suivante illustre les caractéristiques du stockage d’index résultant des différentes combinaisons d’attributs.
+
+L’index est basé sur la source de données de l’[l’exemple intégré realestate](search-get-started-portal.md), que vous pouvez indexer et interroger sur le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
+
+![Taille d’index en fonction de la sélection d’attributs](./media/search-what-is-an-index/realestate-index-size.png "Taille d’index en fonction de la sélection d’attributs")
+
+Bien que ces variantes d’index soient artificielles, nous pouvons nous y reporter pour nous faire une idée de la façon dont les attributs affectent le stockage. Le paramètre **retrievable** fait-il croître l’index ? Non. L’ajout de champs à un **suggesteur** fait-il croître l’index ? Oui.
+
+Les index qui prennent en charge le filtrage et le tri sont en proportion plus volumineux que les index qui prennent en charge uniquement la recherche en texte intégral. La raison en est que le filtrage et le tri portent sur les correspondances exactes. De ce fait, les documents sont stockés intacts. En revanche, les champs pouvant faire l’objet d’une recherche en texte intégral ou approximative utilisent des index inversés, qui sont remplis avec des termes assortis de jetons qui occupent moins d’espace que les documents entiers.
+
+> [!Note]
+> L’architecture de stockage est considérée comme un détail d’implémentation de Recherche Azure et est susceptible d’évoluer sans préavis. Il n’est pas garanti que le comportement actuel persistera dans l’avenir.
+
 ## <a name="suggesters"></a>Générateurs de suggestions
-Un suggesteur est une section du schéma qui définit quels champs d’un index sont utilisés pour prendre en charge l’autocomplétion et les requêtes prédictives dans les recherches. En général, les chaînes de recherche partielles sont envoyées aux Suggestions (API REST du service Recherche Azure) pendant que l’utilisateur tape une requête de recherche, et l’API retourne un ensemble d’expressions suggérées. Un générateur de suggestions que vous définissez dans l’index détermine quels champs sont utilisés pour générer les termes de recherche type-ahead. Pour plus d’informations sur la configuration, voir [Ajouter des suggesteurs](index-add-suggesters.md).
+Un suggesteur est une section du schéma qui définit quels champs d’un index sont utilisés pour prendre en charge l’autocomplétion et les requêtes prédictives dans les recherches. En général, les chaînes de recherche partielle sont envoyées à l’[API REST Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) pendant que l’utilisateur tape une requête de recherche, et l’API retourne un ensemble d’expressions suggérées. 
+
+Les champs ajoutés à un suggesteur sont utilisés pour générer des termes de recherche à saisie semi-automatique (« type-ahead »). Tous les termes de recherche sont créés pendant l’indexation et stockés séparément. Pour plus d’informations sur la création d’une structure de suggesteur, consultez [Ajouter des suggesteurs](index-add-suggesters.md).
 
 ## <a name="scoring-profiles"></a>Profils de score
 
-Un profil de score est une section du schéma qui définit des comportements de score personnalisés permettant de faire apparaître certains éléments plus haut dans les résultats de la recherche. Les profils de calcul de score sont constitués de pondérations et de fonctions de champ. Pour les utiliser, vous spécifiez un profil par nom dans la chaîne de requête.
+Un [profil de score](index-add-scoring-profiles.md) est une section du schéma qui définit des comportements de score personnalisés permettant de faire apparaître certains éléments plus haut dans les résultats de la recherche. Les profils de calcul de score sont constitués de pondérations et de fonctions de champ. Pour les utiliser, vous spécifiez un profil par nom dans la chaîne de requête.
 
-Un profil de score par défaut fonctionne en arrière-plan pour calculer un score de recherche pour chaque élément d’un jeu de résultats. Vous pouvez utiliser le profil de score interne et sans nom. Vous pouvez aussi définir defaultScoringProfile pour utiliser par défaut un profil personnalisé, appelé chaque fois qu’aucun profil personnalisé n’est spécifié dans la chaîne de requête.
-
-Pour plus d'informations, voir [Ajouter des profils de score](index-add-scoring-profiles.md) .
+Un profil de score par défaut fonctionne en arrière-plan pour calculer un score de recherche pour chaque élément d’un jeu de résultats. Vous pouvez utiliser le profil de score interne et sans nom. Vous pouvez aussi définir **defaultScoringProfile** pour utiliser par défaut un profil personnalisé, appelé chaque fois qu’aucun profil personnalisé n’est spécifié dans la chaîne de requête.
 
 ## <a name="analyzers"></a>Analyseurs
 
-L’élément analyseurs définit le nom de l’analyseur linguistique à utiliser pour le champ. Pour connaître l'ensemble des valeurs autorisées, voir [Analyseurs linguistiques dans la Recherche Azure](index-add-language-analyzers.md). Cette option n’est utilisable qu’avec les champs pouvant faire l’objet d’une recherche ; elle ne peut être associée ni à **searchAnalyzer** ni à **indexAnalyzer**. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
+L’élément analyseurs définit le nom de l’analyseur linguistique à utiliser pour le champ. Pour plus d’informations sur les différents analyseurs disponibles, consultez [Ajout d’analyseurs à un index Recherche Azure](search-analyzers.md). Les analyseurs peuvent être utilisés uniquement avec les champs pouvant faire l’objet d’une recherche. Une fois que l’analyseur est affecté à un champ, il ne peut plus être modifié, à moins de regénérer l’index.
 
 ## <a name="cors"></a>CORS
 

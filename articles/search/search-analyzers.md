@@ -4,65 +4,84 @@ description: Attribuez des analyseurs aux champs de texte d’un index pouvant f
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 02/15/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 008a24fe9822ca51b81e1f6979a3731d794a8867
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964336"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343270"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
 
-Un *analyseur* est un composant de [recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter le texte dans les chaînes de requête et les documents indexés. Les transformations suivantes se produisent généralement au cours d’une analyse :
+Un *analyseur* est un composant du [moteur de recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter le texte dans les chaînes de requête et les documents indexés. La façon dont les différents analyseurs manipulent le texte varie en fonction du scénario. Les analyseurs linguistiques traitent le texte en utilisant des règles linguistiques afin d’améliorer la qualité de la recherche, alors que d’autres analyseurs effectuent des tâches plus simples comme la conversion de caractères en minuscules, par exemple. 
+
+Les analyseurs linguistiques sont les plus fréquemment utilisés. D’ailleurs, un analyseur linguistique par défaut est affecté à chaque champ pouvant faire l’objet d’une recherche figurant dans un index Recherche Azure. Les transformations linguistiques suivantes sont courantes au cours d’une analyse de texte :
 
 + Les mots non essentiels (mots vides) et la ponctuation sont supprimés.
 + Les expressions et les mots avec tirets sont segmentés en différents composants.
 + Les mots en majuscules sont mis en minuscules.
 + Seule la racine des mots est conservée pour qu’une correspondance soit trouvée, quels que soient le temps ou la forme utilisés.
 
-Les analyseurs linguistiques convertissent une entrée de texte en forme primitive ou racine plus efficace pour le stockage et la récupération des informations. La conversion se produit lors de l’indexation, lorsque l’index est créé, puis à nouveau lors d’une recherche lorsque l’index est en lecture. Vous êtes plus susceptible d’obtenir les résultats de recherche que vous attendez si vous utilisez le même analyseur de texte pour les deux opérations.
+Les analyseurs linguistiques convertissent une entrée de texte en forme primitive ou racine plus efficace pour le stockage et la récupération des informations. La conversion se produit lors de l’indexation, lorsque l’index est créé, puis à nouveau lors d’une recherche lorsque l’index est en lecture. Vous avez plus de chances d’obtenir les résultats de recherche que vous attendez si vous utilisez le même analyseur pour les deux opérations.
 
-Le service Recherche Azure utilise [l’analyseur Lucene Standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) comme analyseur par défaut. Vous pouvez substituer l’analyseur par défaut champ par champ. Cet article décrit les différents choix possibles et explique les bonnes pratiques à suivre pour l’analyse personnalisée. Il fournit également des exemples de configurations pour les principaux scénarios.
+## <a name="default-analyzer"></a>Analyseur par défaut  
 
-## <a name="supported-analyzers"></a>Analyseurs pris en charge
+Par défaut, Recherche Azure utilise l’[analyseur Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html), qui décompose le texte en éléments en suivant les règles de la [« Segmentation du texte Unicode »](https://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.  
 
-La liste suivante contient les analyseurs pris en charge par la Recherche Azure.
+Il est utilisé automatiquement sur chaque champ pouvant faire l’objet d’une recherche. Vous pouvez substituer l’analyseur par défaut champ par champ. Ces analyseurs alternatifs peuvent être un [analyseur linguistique](index-add-language-analyzers.md), un [analyseur personnalisé](index-add-custom-analyzers.md) ou un analyseur prédéfini figurant dans la [liste des analyseurs disponibles](index-add-custom-analyzers.md#AnalyzerTable).
+
+
+## <a name="types-of-analyzers"></a>Types d’analyseurs
+
+La liste suivante décrit les analyseurs disponibles dans Recherche Azure.
 
 | Catégorie | Description |
 |----------|-------------|
 | [Analyseur Lucene standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Par défaut. Aucune spécification ou configuration n’est nécessaire. Cet analyseur à usage général est efficace pour la plupart des scénarios et des langues.|
-| Analyseurs prédéfinis | Proposés comme un produit fini destiné à être utilisé tel quel, avec une personnalisation limitée. <br/>Il en existe deux types : spécialisé et linguistique. Ils sont dits « prédéfinis », car vous les référencez par leur nom, sans personnalisation. <br/><br/>Utilisez les [analyseurs spécialisés (non dépendants de la langue)](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) quand les entrées de texte nécessitent un traitement spécialisé ou un traitement minimal. Les analyseurs prédéfinis qui ne dépendent pas de la langue sont les suivants : **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>Utilisez les [analyseurs linguistiques](https://docs.microsoft.com/rest/api/searchservice/language-support) quand vous avez besoin d’une prise en charge linguistique avancée pour différentes langues. La Recherche Azure prend en charge 35 analyseurs linguistiques Lucene et 50 analyseurs de traitement en langage naturel Microsoft. |
-|[Analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Configuration définie par l’utilisateur d’une combinaison d’éléments existants, comprenant un générateur de jetons (obligatoire) et des filtres facultatifs (caractères ou jetons).|
+| Analyseurs prédéfinis | Proposés comme produits finis destinés à être utilisés tels quels. <br/>Il en existe deux types : spécialisé et linguistique. Ils sont dits « prédéfinis », car vous les référencez par leur nom, sans aucune configuration ni personnalisation. <br/><br/>Les [analyseurs spécialisés (non dépendants de la langue)](index-add-custom-analyzers.md#AnalyzerTable) sont employés quand les entrées de texte nécessitent un traitement spécialisé ou minimal. Les analyseurs prédéfinis qui ne dépendent pas de la langue sont les suivants : **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>Utilisez les [analyseurs linguistiques](index-add-language-analyzers.md) quand vous avez besoin d’une prise en charge linguistique avancée pour différentes langues. La Recherche Azure prend en charge 35 analyseurs linguistiques Lucene et 50 analyseurs de traitement en langage naturel Microsoft. |
+|[Analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Ils renvoient à une configuration définie par l’utilisateur constituée d’une combinaison d’éléments existants, dont un générateur de jetons (obligatoire) et des filtres facultatifs (caractères ou jetons).|
 
-Vous pouvez personnaliser un analyseur prédéfini, tel que **Pattern** ou **Stop**, pour utiliser les autres options qui sont documentées dans [Référence sur les analyseurs prédéfinis](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Seuls quelques analyseurs prédéfinis peuvent être configurés. Comme pour toute personnalisation, nommez votre nouvelle configuration (par exemple, *MonAnalyseurDePatterns*) pour la distinguer de l’analyseur de patterns Lucene.
+Certains analyseurs prédéfinis, comme **Pattern** ou **Stop**, prennent en charge un ensemble limité d’options de configuration. Pour définir ces options, vous créez en réalité un analyseur personnalisé constitué de l’analyseur prédéfini et d’une des autres options documentées dans les [informations de référence sur les analyseurs prédéfinis](index-add-custom-analyzers.md#AnalyzerTable). Comme pour toute configuration personnalisée, nommez votre nouvelle configuration (par exemple, *MonAnalyseurSéquencesOctets*) pour la distinguer de l’analyseur Lucene Pattern.
 
 ## <a name="how-to-specify-analyzers"></a>Comment spécifier des analyseurs
 
-1. (Pour les analyseurs personnalisés uniquement) Créez une section **analyseur** dans la définition de l’index. Pour plus d’informations, consultez [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index) et [Analyseurs personnalisés > Créer](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
+1. (Pour les analyseurs personnalisés uniquement) Créez une section **analyseur** nommée dans la définition de l’index. Pour plus d’informations, consultez [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index) et [Ajouter des analyseurs personnalisés](index-add-custom-analyzers.md).
 
-2. Sur une [définition de champ](https://docs.microsoft.com/rest/api/searchservice/create-index) dans l’index, définissez la propriété **analyzer** sur le nom d’un analyseur cible, par exemple, `"analyzer" = "keyword"`. Les valeurs valides sont les suivantes : le nom d’un analyseur prédéfini, d’un analyseur linguistique ou d’un analyseur personnalisé qui a également été défini dans le schéma de l’index.
+2. Dans une [définition de champ](https://docs.microsoft.com/rest/api/searchservice/create-index) de l’index, attribuez à la propriété **analyzer** du champ le nom d’un analyseur cible, par exemple, `"analyzer" = "keyword"`. Les valeurs valides sont les suivantes : le nom d’un analyseur prédéfini, d’un analyseur linguistique ou d’un analyseur personnalisé qui a également été défini dans le schéma de l’index. Envisagez d’affecter un analyseur pendant la phase de définition de l’index avant que celui-ci soit créé dans le service.
 
-3. Au lieu de définir une seule propriété **analyzer**, vous pouvez éventuellement définir des analyseurs différents pour l’indexation et l’interrogation avec les paramètres de champ **indexAnalyzer** et **searchAnalyzer`**. 
+3. Au lieu de définir une seule propriété **analyzer**, vous pouvez éventuellement définir des analyseurs différents pour l’indexation et l’interrogation à l’aide des paramètres de champ **indexAnalyzer** et **searchAnalyzer**. Vous utiliserez ainsi l’un ou l’autre de ces analyseurs pour la préparation et la récupération des données si l’une de ces activités nécessite une transformation spécifique et l’autre non.
 
-3. L’ajout d’un analyseur à une définition de champ entraîne une opération d’écriture dans l’index. Si vous ajoutez un **analyseur** à un index existant, prenez note des étapes suivantes :
+L’affectation de la propriété **analyzer** ou **indexAnalyzer** à un champ qui a déjà été créé physiquement n’est pas autorisée. Si cela n’est pas clair, vous trouverez dans le tableau suivant des détails sur les actions qui nécessitent une regénération et pourquoi.
  
  | Scénario | Impact | Étapes |
  |----------|--------|-------|
- | Ajouter un nouveau champ | minimal | Si le champ n’existe pas encore dans le schéma, il n’y a aucune révision de champ à effectuer, car il n’a pas encore de présence physique dans votre index. Utilisez [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour cette tâche.|
- | Ajout d’un analyseur à un champ indexé existant. | regénération | L’index inversé doit être entièrement recréé pour ce champ et le contenu de ces champs doit être réindexé. <br/> <br/>Pour un index en cours de développement, [supprimez](https://docs.microsoft.com/rest/api/searchservice/delete-index) et [créez](https://docs.microsoft.com/rest/api/searchservice/create-index) l’index pour sélectionner la nouvelle définition de champ. <br/> <br/>Pour un index en production, vous devez créer un champ pour fournir la définition modifiée et commencer à l’utiliser. Utilisez [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour incorporer le nouveau champ. Par la suite, pendant l’opération de maintenance planifiée de l’index, vous pouvez le nettoyer de façon à supprimer les champs obsolètes. |
+ | Ajouter un nouveau champ | minime | Si le champ n’existe pas encore dans le schéma, il n’y a aucune révision de champ à effectuer, car il n’a pas encore de présence physique dans votre index. Vous pouvez utiliser [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour ajouter un nouveau champ à un index existant, et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour la remplir.|
+ | Ajoutez une propriété **analyzer** ou **indexAnalyzer** à un champ indexé existant. | [regénération](search-howto-reindex.md) | L’index inversé doit être entièrement recréé pour ce champ et le contenu de ces champs doit être réindexé. <br/> <br/>Pour un index en cours de développement, [supprimez](https://docs.microsoft.com/rest/api/searchservice/delete-index) et [créez](https://docs.microsoft.com/rest/api/searchservice/create-index) l’index pour sélectionner la nouvelle définition de champ. <br/> <br/>Pour les index en production, vous devez retarder une regénération en créant un champ pour fournir la définition modifiée et commencer à l’utiliser à la place de l’ancienne. Utilisez [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour incorporer le nouveau champ et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour le remplir. Par la suite, pendant l’opération de maintenance planifiée de l’index, vous pouvez le nettoyer de façon à supprimer les champs obsolètes. |
 
-## <a name="tips-and-best-practices"></a>Conseils et meilleures pratiques
+## <a name="when-to-add-analyzers"></a>Quand ajouter des analyseurs
+
+La phase de développement actif est le meilleur moment pour ajouter et affecter des analyseurs, là où la suppression et la recréation d’index sont des activités courantes.
+
+À mesure que la définition d’un index se consolide, vous pouvez ajouter de nouvelles constructions d’analyse à l’index, mais vous devez transmettre l’indicateur **allowIndexDowntime** à [Mettre à jour l’index de mise](https://docs.microsoft.com/rest/api/searchservice/update-index) si vous voulez éviter cette erreur :
+
+*« Mise à jour d’index non autorisée, car cette opération pourrait entraîner un temps d’arrêt. Pour ajouter de nouveaux analyseurs, générateurs de jetons, filtres de jetons ou filtres de caractères à un index existant, définissez le paramètre de requête « allowIndexDowntime » sur « true » dans la demande de mise à jour d’index. Notez que cette opération placera votre index hors connexion pendant au moins quelques secondes, ce qui entraînera l’échec de vos demandes d’indexation et de requête. Les performances et la disponibilité en écriture peuvent être altérées pendant plusieurs minutes après la mise à jour de l’index, voire plus longtemps pour les index de très grande taille ».*
+
+Il en va de même au moment d’affecter un analyseur à un champ. Sachant qu’un analyseur fait partie intégrante de la définition du champ, vous pouvez l’ajouter uniquement pendant la création du champ. Si vous souhaitez ajouter des analyseurs à des champs existants, vous devez [supprimer et regénérer](search-howto-reindex.md) l’index ou ajouter un nouveau champ avec l’analyseur souhaité.
+
+Comme indiqué, la variante **searchAnalyzer** constitue une exception. Sur les trois différentes façons de spécifier des analyseurs (**analyzer**, **indexAnalyzer**, **searchAnalyzer**), seul l’attribut **searchAnalyzer** peut être modifié dans un champ existant.
+
+## <a name="recommendations-for-working-with-analyzers"></a>Suggestions pour utiliser des analyseurs
 
 Cette section offre des conseils pour utiliser les analyseurs.
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>Un même analyseur pour les opérations de lecture-écriture, sauf besoins spécifiques
 
-La recherche Azure vous permet de spécifier différents analyseurs pour l’indexation et la recherche via les paramètres de champ supplémentaires `indexAnalyzer` et `searchAnalyzer`. Par défaut, l’analyseur défini avec la propriété `analyzer` est utilisé pour l’indexation et la recherche. Si `analyzer` n’est pas spécifié, l’analyseur Lucene standard est utilisé par défaut.
+Recherche Azure vous permet de spécifier différents analyseurs pour l’indexation et la recherche via les paramètres de champ supplémentaires **indexAnalyzer** et **searchAnalyzer**. Par défaut, l’analyseur défini avec la propriété **analyzer** est utilisé pour l’indexation et la recherche. Si `analyzer` n’est pas spécifié, l’analyseur Lucene standard est utilisé par défaut.
 
 En règle générale, il est préférable d’utiliser le même analyseur pour l’indexation et l’interrogation, sauf si des besoins spécifiques vous obligent à faire autrement. Veillez à effectuer des tests approfondis. Quand il existe une divergence de traitement de texte pendant la recherche et l’indexation, le risque est que les termes de la requête et les termes indexés ne correspondent pas si la configuration de l’analyseur de recherche et celle de l’analyseur d’indexation ne sont pas conformes.
 
@@ -82,8 +101,14 @@ La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) est un
 
 Les exemples ci-dessous montrent des définitions d’analyseur pour quelques scénarios clés.
 
++ [Exemple d’analyseur personnalisé](#Example1)
++ [Exemple d’affectation d’analyseurs à un champ](#Example2)
++ [Combinaison d’analyseurs pour l’indexation et la recherche](#Example3)
++ [Exemple d’analyseur linguistique](#Example4)
+
 <a name="Example1"></a>
-### <a name="example-1-custom-options"></a>Exemple 1 : Options personnalisées
+
+### <a name="custom-analyzer-example"></a>Exemple d’analyseur personnalisé
 
 Cet exemple montre une définition d’analyseur avec des options personnalisées. Les options personnalisées pour les filtres de caractères, les générateurs de jetons et les filtres de jetons sont spécifiées séparément comme des constructions nommées, puis elles sont référencées dans la définition de l’analyseur. Les éléments prédéfinis sont utilisés tels quels et sont référencés par leur nom.
 
@@ -156,7 +181,8 @@ Si nous suivons cet exemple :
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Exemple 2 : Remplacer l’analyseur par défaut
+
+### <a name="per-field-analyzer-assignment-example"></a>Exemple d’affectation d’analyseur par champ
 
 L’analyseur standard est celui qui est utilisé par défaut. Supposons que vous souhaitiez remplacer l’analyseur par défaut par un autre analyseur prédéfini, tel que l’analyseur de pattern. Si vous ne définissez pas d’options personnalisées, vous devez uniquement le spécifier par son nom dans la définition du champ.
 
@@ -188,9 +214,10 @@ L’élément « analyzer » remplace l’analyseur standard champ après champ.
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Exemple 3 : Des analyseurs différents pour les opérations d’indexation et de recherche
 
-Les API comprennent des attributs d’index supplémentaires qui permettent de spécifier des analyseurs différents pour l’indexation et la recherche. Les attributs `searchAnalyzer` et `indexAnalyzer` doivent être spécifiés comme une paire, en remplacement de l’attribut `analyzer`.
+### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Combinaison d’analyseurs pour les opérations d’indexation et de recherche
+
+Les API comprennent des attributs d’index supplémentaires qui permettent de spécifier des analyseurs différents pour l’indexation et la recherche. Les attributs **searchAnalyzer** et **indexAnalyzer** doivent être spécifiés sous forme de paire, en remplacement de l’attribut **analyzer**.
 
 
 ~~~~
@@ -215,7 +242,8 @@ Les API comprennent des attributs d’index supplémentaires qui permettent de s
 ~~~~
 
 <a name="Example4"></a>
-### <a name="example-4-language-analyzer"></a>Exemple 4 : Analyseur de langage
+
+### <a name="language-analyzer-example"></a>Exemple d’analyseur linguistique
 
 Les champs qui contiennent des chaînes dans différentes langues peuvent utiliser un analyseur linguistique, tandis que les autres champs conservent l’analyseur par défaut (ou utilisent un autre analyseur prédéfini ou personnalisé). Si vous utilisez un analyseur linguistique, vous devez l’utiliser à la fois pour les opérations d’indexation et de recherche. Les champs qui utilisent un analyseur linguistique ne peuvent pas avoir des analyseurs différents pour l’indexation et la recherche.
 
@@ -250,11 +278,11 @@ Les champs qui contiennent des chaînes dans différentes langues peuvent utilis
 
 + Lisez notre explication détaillée du [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md). Cet article utilise des exemples pour expliquer les comportements qui, au premier abord, peuvent sembler contraires à la logique.
 
-+ Essayez une syntaxe de requête supplémentaire à partir de la section Exemple [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) ou à partir de la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) dans l’Explorateur de recherche du portail.
++ Essayez une syntaxe de requête supplémentaire à partir de la section Exemple [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) ou à partir de la [syntaxe de requête simple](query-simple-syntax.md) dans l’Explorateur de recherche du portail.
 
-+ Découvrez comment appliquer des [analyseurs lexicaux propres au langage](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Découvrez comment appliquer des [analyseurs lexicaux propres au langage](index-add-language-analyzers.md).
 
-+ [Configurez des analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour un traitement minimal ou pour un traitement spécialisé sur certains champs.
++ [Configurez des analyseurs personnalisés](index-add-custom-analyzers.md) pour un traitement minimal ou pour un traitement spécialisé sur certains champs.
 
 + [Comparez les analyseurs standard et les analyseurs anglais](https://alice.unearth.ai/) dans des volets adjacents sur ce site web de démonstration. 
 
@@ -262,11 +290,11 @@ Les champs qui contiennent des chaînes dans différentes langues peuvent utilis
 
  [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
- [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+ [Syntaxe de requête simple](query-simple-syntax.md) 
 
- [Syntaxe de requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ [Syntaxe de requête complète Lucene](query-lucene-syntax.md) 
  
- [Traiter les résultats de recherche](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
+ [Traiter les résultats de recherche](search-pagination-page-layout.md)
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png

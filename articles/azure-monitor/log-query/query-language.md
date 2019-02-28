@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989244"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343049"
 ---
 # <a name="azure-monitor-log-queries"></a>Requêtes de journal Azure Monitor
-Les journaux Azure Monitor reposent sur Azure Data Explorer ; les requêtes de journal Azure Monitor utilisent une version du même langage de requête. La [documentation du langage de requête Azure Data Explorer](/azure/kusto/query), qui rassemble toutes les informations sur le langage, devra être votre principale ressource pour écrire des requêtes de journal Azure Monitor. Cette page comporte des liens vers d’autres ressources permettant d’apprendre à écrire des requêtes et de découvrir les différences avec l’implémentation Azure Monitor du langage.
+Les journaux Azure Monitor reposent sur Azure Data Explorer ; les requêtes de journal Azure Monitor utilisent une version du même langage de requête Kusto. La [documentation du langage de requête Kusto](/azure/kusto/query), qui rassemble toutes les informations sur ce langage, doit constituer votre principale référence lorsque vous écrivez des requêtes de journal Azure Monitor. Cette page comporte des liens vers d’autres ressources permettant d’apprendre à écrire des requêtes et de découvrir les différences avec l’implémentation Azure Monitor du langage.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Les journaux Azure Monitor reposent sur Azure Data Explorer ; les requêtes de j
 
 ## <a name="reference"></a>Informations de référence
 
-- [Référence du langage de requête](/azure/kusto/query) est la référence complète du langage de requête Data Explorer.
-- [Différences du langage de requête de journal Azure Monitor](data-explorer-difference.md) décrit les différences entre les versions du langage de requête Data Explorer.
+- [Référence du langage de requête](/azure/kusto/query) représente la ressource complète disponible sur le langage de requête Kusto.
+- [Différences propres au langage de requête de journal Azure Monitor](data-explorer-difference.md) décrit les différences existant entre les versions du langage de requête Kusto.
 - [Propriétés standard dans les enregistrements de journaux Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) décrit les propriétés communes à toutes les données de journal Azure Monitor.
 - [Effectuer des requêtes de journal inter-ressources dans Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) explique comment écrire des requêtes de journal qui utilisent des données provenant de plusieurs espaces de travail Log Analytics et applications Application Insights.
 
@@ -65,4 +65,4 @@ Les journaux Azure Monitor reposent sur Azure Data Explorer ; les requêtes de j
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Accédez à la [documentation de référence complète sur le langage de requête Data Explorer](/azure/kusto/query/).
+- Accédez à la [documentation de référence complète du langage de requête Kusto](/azure/kusto/query/).

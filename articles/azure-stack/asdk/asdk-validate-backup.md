@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 31c5d068c8fcd0b6edea7cff63098131d848a14e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965322"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416376"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utiliser l’ASDK pour valider une sauvegarde Azure Stack
 Après déploiement d’Azure Stack et approvisionnement de ressources utilisateur telles que des offres, des plans, des quotas et des abonnements, vous devez [activer la sauvegarde d’infrastructure Azure Stack](../azure-stack-backup-enable-backup-console.md). La planification et l’exécution de sauvegardes d’infrastructure régulières garantit que les données de gestion d’infrastructure ne seront pas perdues en cas de défaillance catastrophique du matériel ou du service.
@@ -45,18 +45,35 @@ Le scénario suivant **n’est pas** pris en charge lors de la validation de sau
 ## <a name="cloud-recovery-deployment"></a>Déploiement de récupération cloud
 Vous pouvez valide les sauvegardes d’infrastructure de votre déploiement de systèmes intégrés en effectuant un déploiement de récupération cloud de l’ASDK. Dans ce type de déploiement, des données de service spécifiques sont restaurées à partir de la sauvegarde, une fois l’ASDK installé sur l’ordinateur hôte.
 
-
-
 ### <a name="prereqs"></a>Prérequis de la récupération cloud
 Avant de commencer un déploiement de récupération cloud de l’ASDK, vérifiez que vous disposez des informations suivantes :
 
-|Configuration requise|Description|
+**Exigences du programme d’installation de l’interface utilisateur**
+
+*Le programme d’installation actuel de l’interface utilisateur prend uniquement en charge la clé de chiffrement*
+
+|Prérequis|Description|
 |-----|-----|
-|Chemin d'accès du partage de la sauvegarde.|Chemin d'accès du partage de fichiers UNC de la dernière sauvegarde Azure Stack qui sera utilisée pour récupérer les informations d’infrastructure d’Azure Stack. Ce partage local sera créé pendant le processus de déploiement de la récupération cloud.|
-|Clé de chiffrement de la sauvegarde.|Clé de chiffrement utilisée pour planifier la sauvegarde d’infrastructure à exécuter à l’aide du portail d’administration Azure Stack.|
-|ID de la sauvegarde à restaurer.|ID de sauvegarde, sous la forme alphanumérique « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx », identifiant la sauvegarde à restaurer lors de la récupération cloud.|
-|Adresse IP du serveur de temps.|Une adresse IP de serveur de temps valide, telle que 132.163.97.2, est requise pour le déploiement d’Azure Stack.|
-|Mot de passe du certificat externe.|Mot de passe du certificat externe utilisé par Azure Stack. La sauvegarde de l’autorité de certification contient des certificats externes qui doivent être restaurés avec ce mot de passe.|
+|Chemin du partage de la sauvegarde|Chemin d'accès du partage de fichiers UNC de la dernière sauvegarde Azure Stack qui sera utilisée pour récupérer les informations d’infrastructure d’Azure Stack. Ce partage local sera créé pendant le processus de déploiement de la récupération cloud.|
+|ID de la sauvegarde à restaurer|ID de sauvegarde, sous la forme alphanumérique « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx », identifiant la sauvegarde à restaurer lors de la récupération cloud.|
+|Adresse IP du serveur de temps|Une adresse IP de serveur de temps valide, telle que 132.163.97.2, est requise pour le déploiement d’Azure Stack.|
+|Mot de passe du certificat externe|Mot de passe du certificat externe utilisé par Azure Stack. La sauvegarde de l’autorité de certification contient des certificats externes qui doivent être restaurés avec ce mot de passe.|
+|Clé de chiffrement de la sauvegarde|Obligatoire si vous avez effectué une mise à niveau vers Azure Stack version 1901 ou ultérieure et si les paramètres de sauvegarde sont toujours configurés avec une clé de chiffrement. La clé de chiffrement est dépréciée depuis la version 1901. Le programme d’installation prendra en charge la clé de chiffrement en mode de compatibilité descendante pour au moins 3 publications de version. Dès lors que vous mettez à jour les paramètres de sauvegarde dans l’optique d’utiliser un certificat, consultez le tableau suivant pour en savoir plus sur les informations obligatoires.|
+
+|     |     | 
+
+**Exigences du programme d’installation de PowerShell**
+
+*Le programme d’installation actuel de PowerShell prend en charge la clé de chiffrement ou le certificat de déchiffrement*
+
+|Prérequis|Description|
+|-----|-----|
+|Chemin du partage de la sauvegarde|Chemin d'accès du partage de fichiers UNC de la dernière sauvegarde Azure Stack qui sera utilisée pour récupérer les informations d’infrastructure d’Azure Stack. Ce partage local sera créé pendant le processus de déploiement de la récupération cloud.|
+|ID de la sauvegarde à restaurer|ID de sauvegarde, sous la forme alphanumérique « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx », identifiant la sauvegarde à restaurer lors de la récupération cloud.|
+|Adresse IP du serveur de temps|Une adresse IP de serveur de temps valide, telle que 132.163.97.2, est requise pour le déploiement d’Azure Stack.|
+|Mot de passe du certificat externe|Mot de passe du certificat externe utilisé par Azure Stack. La sauvegarde de l’autorité de certification contient des certificats externes qui doivent être restaurés avec ce mot de passe.|
+|Mot de passe de certification de déchiffrement|Facultatif. Obligatoire uniquement si la sauvegarde est chiffrée à l’aide d’un certificat. Le mot de passe est destiné au certificat auto-signé (.pfx) qui contient la clé privée nécessaire au déchiffrement des données de sauvegarde.|
+|Clé de chiffrement de la sauvegarde|Facultatif. Obligatoire si vous avez effectué une mise à niveau vers Azure Stack version 1901 ou ultérieure et si les paramètres de sauvegarde sont toujours configurés avec une clé de chiffrement. Le programme d’installation prendra en charge la clé de chiffrement en mode de compatibilité descendante pour au moins 3 publications de version. Dès lors que vous mettez à jour les paramètres de sauvegarde dans l’optique d’utiliser un certificat, vous devez fournir le mot de passe pour le certificat de déchiffrement.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Préparer l’ordinateur hôte 
@@ -74,17 +91,23 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
 Ensuite, copiez vos derniers fichiers de sauvegarde Azure Stack vers le partage nouvellement créé. La structure de dossiers au sein du partage doit être la suivante : `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`.
 
+Pour finir, copiez le certificat de déchiffrement (.pfx) dans le répertoire du certificat `C:\CloudDeployment\Setup\Certificates\` et renommez le fichier `BackupDecryptionCert.pfx`.
+
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>Déployer l’ASDK en mode de récupération cloud
-Le script **InstallAzureStackPOC.ps1** est utilisé pour lancer la récupération cloud. 
 
 > [!IMPORTANT]
-> L’installation d’ASDK prend en charge une seule carte réseau de mise en réseau. Si vous avez plusieurs cartes réseau, vérifiez qu’une seule d’entre elles est activée (et que toutes les autres sont désactivées) avant d’exécuter le script de déploiement.
+> 1. L’interface utilisateur du programme d’installation actuel prend uniquement en charge la clé de chiffrement. Vous pouvez valider uniquement les sauvegardes des systèmes qui continuent d’utiliser la clé de chiffrement. Si la sauvegarde a été chiffrée sur un système intégré ou le kit ASDK à l’aide du certificat, vous devez utiliser le programme d’installation de PowerShell (**InstallAzureStackPOC.ps1**). 
+> 2. Le programme d’installation de PowerShell (**InstallAzureStackPOC.ps1**) prend en charge le certificat ou la clé de chiffrement.
+> 3. L’installation d’ASDK prend en charge une seule carte réseau de mise en réseau. Si vous avez plusieurs cartes réseau, vérifiez qu’une seule d’entre elles est activée (et que toutes les autres sont désactivées) avant d’exécuter le script de déploiement.
 
-### <a name="use-the-installer-to-deploy-the-asdk-in-recovery-mode"></a>Utiliser le programme d’installation pour déployer le kit ASDK en mode de récupération
+### <a name="use-the-installer-ui-to-deploy-the-asdk-in-recovery-mode"></a>Utiliser l’interface utilisateur du programme d’installation pour déployer le kit ASDK en mode de récupération
 Cette section explique étape par étape comment déployer le kit ASDK à l’aide d’une interface graphique utilisateur (GUI) installable en téléchargeant et en exécutant le script PowerShell **asdk-installer.ps1**.
 
 > [!NOTE]
 > L’interface utilisateur du programme d’installation du Kit de développement Azure Stack est un script open source basé sur WCF et PowerShell.
+
+> [!IMPORTANT]
+> L’interface utilisateur du programme d’installation actuel prend uniquement en charge la clé de chiffrement.
 
 1. Une fois que l’ordinateur hôte a correctement démarré dans l’image CloudBuilder.vhdx, connectez-vous avec les informations d’identification d’administration spécifiées lorsque vous avez [préparé l’ordinateur hôte du kit de développement](asdk-prepare-host.md) en vue de l’installation du kit ASDK. Il doit s’agir des mêmes informations d’identification d’administrateur local que celles de l’hôte du Kit de développement.
 2. Ouvrez une console PowerShell avec élévation de privilèges et exécutez le script PowerShell **&lt;lettre de lecteur>\AzureStack_Installer\asdk-installer.ps1**. Le script peut maintenant se trouver sur un lecteur autre que C:\ dans l’image CloudBuilder.vhdx. Cliquez sur **Restaurer**.
@@ -117,27 +140,66 @@ Cette section explique étape par étape comment déployer le kit ASDK à l’ai
 
 
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Utiliser PowerShell pour déployer le kit ASDK en mode de récupération
+
 Modifiez les commandes PowerShell suivantes pour votre environnement, puis exécutez-les pour déployer l’ASDK en mode de récupération cloud :
+
+**Utilisez le script InstallAzureStackPOC.ps1 pour lancer la récupération cloud avec une clé de chiffrement.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     
-$adminPass = Get-Credential Administrator
-$key = ConvertTo-SecureString "<Your backup encryption key>" -AsPlainText -Force ` 
-$certPass = Read-Host -AsSecureString  
+$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
+$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
+$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
+$key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
--BackupEncryptionKeyBase64 $key -BackupStoreCredential $adminPass -BackupId "<Backup ID to restore>" `
--TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
+ -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
+ -BackupEncryptionKeyBase64 $key `
+ -BackupStoreCredential $backupstorecredential `
+ -BackupId "<Backup ID to restore>" `
+ -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
-## <a name="restore-infrastructure-data-from-backup"></a>Restaurer les données de l’infrastructure à partir de la sauvegarde
-Après un déploiement de récupération cloud réussi, vous devez effectuer la restauration à l’aide de cmdlet **restauration-AzureStack**. 
-
-Après vous être connecté en tant qu’opérateur Azure Stack, [installez Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell), puis, en remplaçant le paramètre `Name` par votre ID de sauvegarde, exécutez la commande suivante :
+**Utilisez le script InstallAzureStackPOC.ps1 pour lancer la récupération cloud avec un certificat de déchiffrement.**
 
 ```powershell
-Restore-AzsBackup -Name "<BackupID>"
+cd C:\CloudDeployment\Setup     
+$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
+$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
+$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
+$decryptioncertpassword  = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
+ -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
+ -BackupDecryptionCertPassword $decryptioncertpassword `
+ -BackupStoreCredential $backupstorecredential `
+ -BackupId "<Backup ID to restore>" `
+ -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
+
+## <a name="complete-cloud-recovery"></a>Effectuer la récupération cloud 
+Après un déploiement de récupération cloud réussi, vous devez effectuer la restauration à l’aide d’applet de commande **Restore-AzureStack**. 
+
+Après vous être connecté en tant qu’opérateur Azure Stack, [installez Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) et exécutez les commandes suivantes pour spécifier le certificat et le mot de passe à utiliser pendant la restauration de la sauvegarde :
+
+**Mode de récupération avec fichier de certificat**
+
+> [!NOTE] 
+> Le déploiement d’Azure Stack ne conserve pas le certificat de déchiffrement pour des raisons de sécurité. Vous devrez fournir à nouveau le certificat de déchiffrement et le mot de passe associé.
+
+```powershell
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>" `
+ -DecryptionCertPath "<path to decryption certificate with file name (.pfx)>" `
+ -DecryptionCertPassword $decryptioncertpassword
+```
+
+**Mode de récupération avec clé de chiffrement**
+```powershell
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>"
+```
+
 Attendez 60 minutes après l’appel de cette cmdlet pour démarrer la vérification des données de sauvegarde sur l’ASDK récupéré du cloud.
 
 ## <a name="next-steps"></a>Étapes suivantes

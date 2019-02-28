@@ -1,7 +1,7 @@
 ---
 title: Ajouter des analyseurs linguistiques – Recherche Azure
 description: Analyse de texte lexicale multilingue pour les requêtes et les index formulés dans une langue autre que l’anglais dans la Recherche Azure.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,20 +19,20 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b5c562994c169a8c5d51ee31a9606c5c40162603
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007607"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328289"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs linguistiques à un index de Recherche Azure
 
-Un *analyseur linguistique* est un composant spécifique d’un [moteur de recherche en texte intégral](https://docs.microsoft.com/azure/search/search-lucene-query-architecture) qui effectue une analyse lexicale suivant les règles linguistiques de la langue cible. Chaque champ offrant une possibilité de recherche dispose d’une propriété `analyzer`. Si votre index contient des chaînes traduites, par exemple des champs distincts pour le texte en anglais et le texte en chinois, vous pouvez spécifier des analyseurs linguistiques sur chaque champ pour accéder aux riches fonctionnalités linguistiques de ces analyseurs.  
+Un *analyseur linguistique* est un type spécifique d’[analyseur de texte](search-analyzers.md) qui effectue une analyse lexicale selon les règles linguistiques de la langue cible. Chaque champ pouvant faire l’objet d’une recherche dispose d’une propriété **analyzer**. Si votre index contient des chaînes traduites, par exemple des champs distincts pour le texte en anglais et le texte en chinois, vous pouvez spécifier des analyseurs linguistiques sur chaque champ pour accéder aux riches fonctionnalités linguistiques de ces analyseurs.  
 
 La Recherche Azure prend en charge 35 analyseurs qui s’appuient sur Lucene et 50 analyseurs exploitant la technologie propriétaire Microsoft de traitement du langage naturel utilisée dans Office et Bing.
 
-## <a name="compare-language-analyzer-types"></a>Comparer les types d’analyseurs linguistiques 
+## <a name="comparing-analyzers"></a>Comparaison des analyseurs
 
 Certains développeurs peuvent préférer la solution open source, plus familière et simple de Lucene. Les analyseurs linguistiques Lucene sont plus rapides, mais les analyseurs Microsoft proposent des fonctionnalités avancées, comme la lemmatisation, la décomposition en mots (dans les langues comme l’allemand, le danois, le néerlandais, le suédois, le norvégien, l’estonien, le finnois, le hongrois et le slovaque) et la reconnaissance d’entités (URL, adresses e-mail, dates, numéros). Si possible, vous devez comparer les analyseurs Microsoft et Lucene pour savoir lequel vous convient le mieux. 
 
@@ -49,15 +49,17 @@ L’analyseur par défaut est Lucene Standard, qui fonctionne bien pour l’angl
  > [!Tip]
  > La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) présente une comparaison point par point des résultats produits par l’analyseur Lucene standard, l’analyseur linguistique anglais de Lucene et de l’outil de traitement du langage naturel anglais de Microsoft. Pour chaque recherche, les résultats de chaque analyseur sont affichés dans des volets adjacents.
 
-## <a name="analyzer-configuration"></a>Configuration des analyseurs
+## <a name="configuring-analyzers"></a>Configuration des analyseurs
 
-Pour chaque champ dans la définition d'index, vous pouvez affecter à la propriété `analyzer` un nom d'analyseur qui spécifie la langue et le fournisseur. Le même analyseur sera appliqué lors de l’indexation et de la recherche pour ce champ. Il peut par exemple y avoir des champs distincts pour des descriptions d'hôtels en anglais, en français et en espagnol côte à côte dans le même index.  
+Les analyseurs linguistiques sont utilisés en l’état. Pour chaque champ de la définition d’index, vous pouvez attribuer à la propriété **analyzer** un nom d’analyseur qui spécifie la langue et la pile linguistique (Microsoft ou Lucene). Le même analyseur sera appliqué lors de l’indexation et de la recherche pour ce champ. Il peut par exemple y avoir des champs distincts pour des descriptions d'hôtels en anglais, en français et en espagnol côte à côte dans le même index. Au lieu de **analyzer**, vous pouvez aussi utiliser **indexAnalyzer** et **searchAnalyzer** pour appliquer des règles d’analyse différentes au moment de l’indexation et de l’interrogation. 
 
-Utilisez le paramètre de requête **searchFields** pour spécifier le champ de langue dans vos requêtes. Vous pouvez consulter des exemples de requêtes comportant la propriété analyzer dans la Recherche dans les documents. 
+Utilisez le paramètre de requête **searchFields** pour spécifier le champ de langue dans vos requêtes. Vous pouvez consulter les exemples de requêtes qui contiennent la propriété analyzer dans [Recherche dans les documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Pour plus d’informations sur les propriétés d’index, voir [Créer un index &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Pour plus d’informations sur l’analyse dans la Recherche Azure, voir [Analyseurs dans la Recherche Azure](https://docs.microsoft.com/azure/search/search-analyzers).
 
-## <a name="analyzer-list"></a>Liste d’analyseurs  
+<a name="language-analyzer-list"></a>
+
+## <a name="language-analyzer-list"></a>Liste d’analyseurs linguistiques 
  Voici la liste des langues prises en charge avec les noms d’analyseur Lucene et Microsoft.  
 
 |Langage|Nom de l’analyseur Microsoft|Nom de l’analyseur Lucene|  
