@@ -173,7 +173,7 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=mobile-services)
-## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Exemples
 ### [Ingénieur de terrain](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)

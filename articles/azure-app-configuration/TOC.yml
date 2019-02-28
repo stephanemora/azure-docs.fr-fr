@@ -1,0 +1,60 @@
+items:
+- name: Documentation Azure App Configuration
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: À propos d’Azure App Configuration
+    href: overview.md
+- name: Démarrages rapides
+  items:
+  - name: Créer une application ASP.NET Core
+    href: quickstart-aspnet-core-app.md
+  - name: Créer une application .NET Core
+    href: quickstart-dotnet-core-app.md
+  - name: Créer une application .NET Framework
+    href: quickstart-dotnet-app.md
+  - name: Création d’une fonction Azure
+    href: quickstart-azure-function-csharp.md
+  - name: Créer une application Java Spring
+    href: quickstart-java-spring-app.md
+  expanded: true
+- name: Tutoriels
+  items:
+  - name: Activer la configuration dynamique dans ASP.NET Core
+    href: enable-dynamic-configuration-aspnet-core.md
+  - name: Intégrer avec Azure Managed Service Identity
+    href: integrate-azure-managed-service-identity.md
+- name: Exemples
+  items:
+  - name: Exemples de code
+    href: https://github.com/Azure/AppConfiguration/samples
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Concepts
+  items:
+  - name: stockage clé-valeur
+    href: concept-key-value.md
+  - name: Capture instantanée à un point dans le temps
+    href: concept-point-time-snapshot.md
+- name: Guides pratiques
+  items:
+  - name: Importer ou exporter des données de configuration
+    href: howto-import-export-data.md
+  - name: Intégrer avec un pipeline CI/CD
+    href: howto-integrate-ci-cd-pipeline.md
+- name: Informations de référence
+  items:
+  - name: Fournisseur de configuration .NET Core
+    href: https://go.microsoft.com/fwlink/?linkid=2074664
+  - name: Générateur de configuration .NET Framework
+    href: https://go.microsoft.com/fwlink/?linkid=2074663
+  - name: Fournisseur de configuration Java Spring
+    href: https://go.microsoft.com/fwlink/?linkid=2074659
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/azure-app-configuration
+ms.openlocfilehash: c35296a6923e464ca20a873de4165ea20c08278f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56884132"
