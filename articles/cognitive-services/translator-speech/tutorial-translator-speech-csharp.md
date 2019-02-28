@@ -10,14 +10,15 @@ ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 383e17e0a9e60b52a63420af19c2bca4337083d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876910"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673749"
 ---
-# <a name="tutorial-translator-speech-application-in-c"></a>Tutoriel : Application de traduction de conversation Translator Speech en C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Didacticiel : Application de traduction de conversation Translator Speech en C#
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -33,7 +34,7 @@ Un fichier solution Visual Studio pour cette application est [disponible sur Git
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour ce didacticiel, vous avez besoin de n’importe quelle édition de Visual Studio 2017, y compris la Community Edition. 
+Pour ce didacticiel, vous avez besoin de n’importe quelle édition de Visual Studio 2017, y compris la Community Edition.
 
 La solution Visual Studio génère également un programme d’installation pour l’application. Vous avez besoin de [l’ensemble d’outils WiX Toolset](http://wixtoolset.org/) et de [l’extension Visual Studio de l’ensemble d’outils WiX](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) pour prendre en charge cette fonctionnalité.
 
@@ -63,7 +64,7 @@ Actuellement, le service de traduction de conversation Translator Speech prend e
 
 En d’autres termes, pour la traduction vocale, la langue source doit être une langue prise en charge pour la transcription. La langue de sortie peut être toute langue prise en charge pour la traduction de texte, en supposant que vous souhaitiez un résultat sous forme de texte. Si vous souhaitez une sortie sous forme vocale, vous pouvez traduire uniquement dans une langue prise en charge pour la synthèse vocale.
 
-Microsoft peut ajouter la prise en charge de nouvelles langues de façon ponctuelle. Pour cette raison, il est déconseillé de coder en dur toute connaissance des langues prises en charge dans votre application. À la place, l’API de traduction de conversation Translator Speech fournit un point de terminaison de langues qui vous permet de récupérer les langues prises en charge lors de l’exécution. Vous pouvez choisir de recevoir une ou plusieurs listes de langues : 
+Microsoft peut ajouter la prise en charge de nouvelles langues de façon ponctuelle. Pour cette raison, il est déconseillé de coder en dur toute connaissance des langues prises en charge dans votre application. À la place, l’API de traduction de conversation Translator Speech fournit un point de terminaison de langues qui vous permet de récupérer les langues prises en charge lors de l’exécution. Vous pouvez choisir de recevoir une ou plusieurs listes de langues :
 
 | | |
 |-|-|
@@ -73,7 +74,7 @@ Microsoft peut ajouter la prise en charge de nouvelles langues de façon ponctue
 
 Le point de terminaison des langues ne nécessite pas de clé d’abonnement, et son utilisation n’est pas comptée dans votre quota. Son URI est `https://dev.microsofttranslator.com/languages` et retourne ses résultats au format JSON.
 
-La méthode `UpdateLanguageSettingsAsync()` dans `MainWindow.xaml.cs`, illustrée ici, appelle le point de terminaison des langues pour obtenir la liste des langues prises en charge. 
+La méthode `UpdateLanguageSettingsAsync()` dans `MainWindow.xaml.cs`, illustrée ici, appelle le point de terminaison des langues pour obtenir la liste des langues prises en charge.
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -193,9 +194,9 @@ Cette méthode construit d’abord une requête HTTP pour le point de terminaiso
 
 Le point de terminaison des langues utilise l’en-tête `Accept-Languages` de la requête pour déterminer la langue dans laquelle les noms des langues sont représentés. Par exemple, la langue allemande connue auprès des anglophones sous le nom « German » est appelée « Deutsch » en allemand et « Alemán » en espagnol, et la liste des langues reflète ces différences. La langue par défaut du système est utilisée pour cet en-tête.
 
-Une fois que la requête a été envoyée et que la réponse JSON a été reçue, la réponse est analysée dans les structures de données internes. Ces structures sont ensuite utilisées pour construire les menus des langues source et cible. 
+Une fois que la requête a été envoyée et que la réponse JSON a été reçue, la réponse est analysée dans les structures de données internes. Ces structures sont ensuite utilisées pour construire les menus des langues source et cible.
 
-Étant donné que les voix disponibles dépendent de la langue cible choisie par l’utilisateur, il n’est pas encore possible de configurer le menu Voix. À la place, les voix disponibles pour chaque langue sont stockées pour une utilisation ultérieure. Le gestionnaire `ToLanguage_SelectionChanged` (dans le même fichier source) met à jour ultérieurement le menu Voix en appelant `UpdateVoiceComboBox()` lorsque l’utilisateur choisit une langue cible. 
+Étant donné que les voix disponibles dépendent de la langue cible choisie par l’utilisateur, il n’est pas encore possible de configurer le menu Voix. À la place, les voix disponibles pour chaque langue sont stockées pour une utilisation ultérieure. Le gestionnaire `ToLanguage_SelectionChanged` (dans le même fichier source) met à jour ultérieurement le menu Voix en appelant `UpdateVoiceComboBox()` lorsque l’utilisateur choisit une langue cible.
 
 De façon ludique, une langue cible est sélectionnée aléatoirement si l’utilisateur n’a pas exécuté l’application auparavant. (Les paramètres de menu sont enregistrés entre les sessions.)
 
@@ -281,7 +282,7 @@ private void Connect()
         TranslateTo = ((ComboBoxItem)this.ToLanguage.SelectedItem).Tag.ToString(),
         Voice = voicename,
     };
-    
+
     options.Hostname = baseUrl;
     options.AuthHeaderKey = "Authorization";
     options.AuthHeaderValue = ""; // set later in ConnectAsync.
@@ -368,11 +369,11 @@ Voici la méthode `ConnectAsync()` qui instancie la classe `speechClient` et con
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
 {
     await ADMAuthenticate(options);
-    
+
     TextMessageDecoder textDecoder;
-    
+
     s2smtClient = new SpeechClient((SpeechTranslateClientOptions)options, CancellationToken.None);
-    
+
     s2smtClient.OnBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnEndOfBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnTextData += (c, a) => { textDecoder.AppendData(a); lastReceivedPacketTick = DateTime.Now.Ticks; };
@@ -410,7 +411,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
     {
         SafeInvoke(() =>
         {
-            // We only care to react to server disconnect when our state is Connected. 
+            // We only care to react to server disconnect when our state is Connected.
             if (currentState == UiState.Connected)
             {
                 Log("E: Connection has been lost.");

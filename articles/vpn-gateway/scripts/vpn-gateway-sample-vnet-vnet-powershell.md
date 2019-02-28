@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: f13c31b0c7a85ea4e24f73bdc1fee9c96e51ab35
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0d49e65ccfd13637a2e7313a5ec3a48b2ce900ca
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417196"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727449"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
@@ -144,7 +144,7 @@ Remove-AzResourceGroup -Name TestRG2
 ```
  
  
- ## <a name="script-explanation"></a>Explication du script
+## <a name="script-explanation"></a>Explication du script
 
 Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque élément du tableau renvoie à une documentation spécifique.
 

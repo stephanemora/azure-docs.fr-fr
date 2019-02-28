@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce qu’Azure Active Directory B2B Collaboration ? | Microsoft Docs
+title: Qu’est-ce qu’Azure Active Directory B2B Collaboration ? - Azure Active Directory | Microsoft Docs
 description: Azure AD B2B Collaboration prend en charge l’accès utilisateur invité, qui vous permet de partager des ressources et de collaborer avec des partenaires externes de manière sécurisée.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f787faceeb9c517ada124411e8090d0b91bd433f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182253"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674478"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?
 

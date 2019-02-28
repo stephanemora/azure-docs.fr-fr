@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf3f06db3586d15e5bf87ecdcae7110277864b55
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7bf8dc576565e344626354d99712ed17cd937ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207600"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871796"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutoriel : Intégration d’Azure Active Directory à Agiloft
+# <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Didacticiel : Intégration d’Azure Active Directory à Agiloft
 
 Dans ce didacticiel, vous allez apprendre à intégrer Agiloft dans Azure Active Directory (Azure AD).
 L’intégration d’Agiloft dans Azure AD vous offre les avantages suivants :
@@ -240,7 +240,7 @@ Quand vous cliquez sur la vignette Agiloft dans le volet d’accès, vous devez 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

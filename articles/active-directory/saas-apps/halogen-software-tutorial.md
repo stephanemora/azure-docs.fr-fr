@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 143c214e13d3a603b9d417c68acd7b74dd342040
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dfcf637810a3cbbc70216af39918847e703ca32f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455226"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869732"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Tutoriel : Intégration d’Azure Active Directory avec Halogen Software
+# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Halogen Software
 
 Dans ce didacticiel, vous allez apprendre à intégrer Halogen Software à Azure Active Directory (Azure AD).
 L’intégration de Halogen Software dans Azure AD vous offre les avantages suivants :
@@ -248,7 +248,7 @@ Quand vous cliquez sur la vignette Halogen Software dans le volet d’accès, vo
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

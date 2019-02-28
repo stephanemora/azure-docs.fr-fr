@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Appinux | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Appinux | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Appinux.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b459e02ca0655e6965c8b68062f37b9950dce847
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce6d6f08cd507f18db1d072984aecae634aab8db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179669"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877127"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Tutoriel : Intégration d’Azure Active Directory à Appinux
+# <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Didacticiel : Intégration d’Azure Active Directory à Appinux
 
 Dans ce tutoriel, vous allez apprendre à intégrer Appinux dans Azure Active Directory (Azure AD).
 L’intégration d’Appinux dans Azure AD vous offre les avantages suivants :
@@ -234,7 +234,7 @@ Le fait de cliquer sur la vignette Appinux dans le panneau d’accès doit vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

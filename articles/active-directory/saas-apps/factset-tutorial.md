@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 220cf55151d26822d7c5098905fbc929657d2a19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39ae568560af32b42f3d92360bdf900a868f9654
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168409"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883281"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-factset"></a>Didacticiel : Intégration d’Azure AD à FactSet
+# <a name="tutorial-azure-active-directory-integration-with-factset"></a>Tutoriel : Intégration d’Azure AD à FactSet
 
 Dans ce didacticiel, vous allez apprendre à intégrer FactSet à Azure Active Directory (Azure AD).
 L’intégration de FactSet dans Azure AD vous offre les avantages suivants :
@@ -193,7 +193,7 @@ Quand vous cliquez sur la vignette FactSet dans le volet d’accès, vous devez 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

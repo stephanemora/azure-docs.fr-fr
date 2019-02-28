@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2075f8f83392c9ddd1761a96958fcb6cb12dc013
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3cf43de73fd06da6965d0baf17878c5fb10d7caf
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816422"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587172"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 
@@ -40,20 +40,10 @@ Ce didacticiel couvre les étapes suivantes :
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="create-a-namespace-using-the-azure-portal"></a>Créer un espace de noms à l’aide du Portail Azure
-
-> [!NOTE] 
-> Vous pouvez également créer des entités de messagerie et un espace de noms Service Bus à l’aide de [PowerShell](/powershell/azure/get-started-azureps). Pour plus d’informations, consultez [Utiliser PowerShell pour gérer les ressources Service Bus](service-bus-manage-with-ps.md).
-
-Si vous avez déjà créé un espace de noms pour la messagerie Service Bus, passez directement à la section Créer une file d’attente à l’aide du portail Azure.
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-a-queue-using-the-azure-portal"></a>Créer une file d’attente à l’aide du Portail Azure
-
-Si vous avez déjà créé une file d’attente Service Bus, passez directement à la section Envoyer des messages à la file d’attente.
-
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
+
 
 ## <a name="send-messages-to-the-queue"></a>Envoyer des messages à la file d’attente
 

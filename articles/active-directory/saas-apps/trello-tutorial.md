@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Trello | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Trello | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Trello.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad65cbbe16b66e71b67a3c61d3265f0e3a6729e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fae38ba2e8cd415751d021cd3b264fb9cac0be61
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205441"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880017"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutoriel : Intégration d’Azure Active Directory à Trello
+# <a name="tutorial-azure-active-directory-integration-with-trello"></a>Didacticiel : Intégration d’Azure Active Directory à Trello
 
 Dans ce didacticiel, vous allez apprendre à intégrer Trello à Azure Active Directory (Azure AD).
 L’intégration de Trello dans Azure AD vous offre les avantages suivants :
@@ -237,7 +237,7 @@ Le fait de cliquer sur la vignette Trello dans le panneau d’accès doit vous c
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

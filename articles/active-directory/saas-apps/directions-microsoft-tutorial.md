@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Directions on Microsoft | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Directions on Microsoft.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b767854842faf7980c3d773d2700a9c08317b53b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 87b3ee979c39e80c771b49abb51358b75ff4df54
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172499"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875716"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft
+# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutoriel : Intégration d’Azure Active Directory à Directions on Microsoft
 
 Dans ce didacticiel, vous allez apprendre à intégrer Directions on Microsoft à Azure Active Directory (Azure AD).
 L’intégration de Directions on Microsoft à Azure AD vous offre les avantages suivants :
@@ -206,7 +206,7 @@ Quand vous cliquez sur la vignette Directions on Microsoft dans le volet d’acc
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

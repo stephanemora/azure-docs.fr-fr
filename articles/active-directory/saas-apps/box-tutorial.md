@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bacc389531a6050623441e9fd0a3275b98fb1fec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 638f10a8c12dd65160e7fbc3d1ecea45e5be8541
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177936"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865839"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutoriel : intégration d’Azure Active Directory à Box
+# <a name="tutorial-azure-active-directory-integration-with-box"></a>Didacticiel : intégration d’Azure Active Directory à Box
 
 Dans ce didacticiel, vous allez apprendre à intégrer Box dans Azure Active Directory (Azure AD).
 L’intégration de Box dans Azure AD vous offre les avantages suivants :
@@ -191,7 +191,7 @@ Le fait de cliquer sur la vignette Box dans le panneau d’accès doit vous conn
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

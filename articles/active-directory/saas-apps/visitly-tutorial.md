@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2daa4f287123a81b1727d173557c0221ffaba6f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c3b75a4bb886dfdbc51024ec68decf92652ce758
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181964"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873234"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Tutoriel : Intégration d’Azure Active Directory à Visitly
+# <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Didacticiel : Intégration d’Azure Active Directory à Visitly
 
 Dans ce tutoriel, vous allez apprendre à intégrer Visitly à Azure Active Directory (Azure AD).
 L’intégration de Visitly à Azure AD offre les avantages suivants :
@@ -214,7 +214,7 @@ Quand vous cliquez sur la vignette Visitly dans le volet d’accès, vous devez 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

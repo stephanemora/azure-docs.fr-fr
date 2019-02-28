@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Exécuter le modèle TensorFlow en Python - Service Vision personnalisée'
+title: 'Didacticiel : Exécuter le modèle TensorFlow en Python - Service Vision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Exécutez un modèle TensorFlow dans Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: b0f437ab42de89358af5901349100bc32aa7c2d6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 298279fd67b312b6a7ab3a9939444c344407127f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872592"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806893"
 ---
-# <a name="tutorial-run-tensorflow-model-in-python"></a>Tutoriel : Exécuter le modèle TensorFlow dans Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Didacticiel : Exécuter le modèle TensorFlow dans Python
 
 Une fois que vous avez [exporté votre modèle TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) à partir du Service Vision personnalisée, ce démarrage rapide vous montrera comment utiliser ce modèle localement pour classer des images.
 
@@ -111,8 +111,10 @@ augmented_image = resize_to_256_square(max_square_image)
 ### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Rogner le centre pour l’adapter à la taille d’entrée spécifique du modèle
 
 ```Python
-# The compact models have a network size of 227x227, the model requires this size.
-network_input_size = 227
+# Get the input size of the model
+with tf.Session() as sess:
+    input_tensor_shape = sess.graph.get_tensor_by_name('Placeholder:0').shape.as_list()
+network_input_size = input_tensor_shape[1]
 
 # Crop the center for the specified network_input_Size
 augmented_image = crop_center(augmented_image, network_input_size, network_input_size)

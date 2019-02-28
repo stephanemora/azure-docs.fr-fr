@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Benefitsolver.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5f129ecb3dc62c2aa500bfb9645c9e20f142e6c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c0c01005eb239c0f0c0e773ae3d1dad153f86169
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198603"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutoriel : Intégration d’Azure Active Directory à Benefitsolver
 
@@ -230,7 +230,7 @@ Le fait de cliquer sur la vignette Benefitsolver dans le panneau d’accès doit
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

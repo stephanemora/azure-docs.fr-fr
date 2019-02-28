@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Eli Onboarding | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Eli Onboarding | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Eli Onboarding.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd09bbdbb6bfd83769846d9b2c8638f36b85b607
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 59f0260cf7ca8e538415605f94dabf947fd37210
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186333"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eli-onboarding"></a>Didacticiel : Intégration d’Azure Active Directory avec Eli Onboarding
 
@@ -193,7 +193,7 @@ Quand vous cliquez sur la vignette Eli Onboarding dans le volet d’accès, vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

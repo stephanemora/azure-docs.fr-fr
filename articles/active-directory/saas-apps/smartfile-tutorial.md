@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3a68a651ec62305f396dff07526d071bae82cc0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7972ddb836b7318b232316d751947355d356f6a1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170223"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875138"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Didacticiel : Intégration d’Azure Active Directory à SmartFile
+# <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Tutoriel : Intégration d’Azure Active Directory à SmartFile
 
 Dans ce tutoriel, vous allez découvrir comment intégrer SmartFile à Azure Active Directory (Azure AD).
 L’intégration de SmartFile dans Azure AD vous offre les avantages suivants :
@@ -193,7 +193,7 @@ Quand vous cliquez sur la vignette SmartFile dans le volet d’accès, vous deve
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

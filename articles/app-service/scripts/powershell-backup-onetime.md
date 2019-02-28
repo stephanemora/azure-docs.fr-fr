@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 13d985b95d971ea28ec5345dbb86df7a3271b716
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f1f08ca8517d01a6d72f1f8a18514ea3f851ff14
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115179"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587903"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>Sauvegarder une application web à l’aide de PowerShell
 
@@ -50,8 +50,8 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Crée un compte de stockage. |
-| [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer) | Crée un conteneur de stockage Azure. |
-| [New-AzStorageContainerSASToken](/powershell/module/azure.storage/new-AzStoragecontainersastoken) | Génère un jeton SAS pour un conteneur de stockage Azure.  |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Crée un conteneur de stockage Azure. |
+| [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Génère un jeton SAS pour un conteneur de stockage Azure.  |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Crée un plan App Service. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crée une application web. |
 | [New-AzWebAppBackup](/powershell/module/az.websites/new-azwebappbackup) | Crée une sauvegarde pour une application web. |

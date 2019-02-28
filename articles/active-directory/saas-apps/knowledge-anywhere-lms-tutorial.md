@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ac3522d4182ef7cbf35eb8505dede2aff233937
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: c56c03637e5a8eb7716673974292482a9fb75212
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302474"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877790"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowledge-anywhere-lms"></a>Didacticiel : Intégration d’Azure Active Directory à Knowledge Anywhere LMS
+# <a name="tutorial-azure-active-directory-integration-with-knowledge-anywhere-lms"></a>Tutoriel : Intégration d’Azure Active Directory à Knowledge Anywhere LMS
 
 Dans ce tutoriel, vous allez apprendre à intégrer Knowledge Anywhere LMS à Azure Active Directory (Azure AD).
 L’intégration de Knowledge Anywhere LMS à Azure AD vous offre les avantages suivants :
@@ -236,7 +236,7 @@ Le fait de cliquer sur la vignette Knowledge Anywhere LMS dans le volet d’acc�
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

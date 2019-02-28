@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Pavaso Digital Close | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Pavaso Digital Close | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Pavaso Digital Close.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e98d3630c3e62c0147cceb4d5398ac8255548769
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 16cc1fc232eb5c7b4704fb4dfeb239ba72d51e77
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192793"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870004"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutoriel : Intégration d’Azure Active Directory à Pavaso Digital Close
+# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Didacticiel : Intégration d’Azure Active Directory à Pavaso Digital Close
 
 Dans ce tutoriel, vous allez apprendre à intégrer Pavaso Digital Close à Azure Active Directory (Azure AD).
 L’intégration de Pavaso Digital Close à Azure AD vous offre les avantages suivants :
@@ -199,7 +199,7 @@ Le fait de cliquer sur la vignette Pavaso Digital Close dans le panneau d’acc�
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

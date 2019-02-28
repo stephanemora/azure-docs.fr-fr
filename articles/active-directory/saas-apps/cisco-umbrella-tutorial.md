@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 222ac0b5dede45b9ae2b6fe9ba464e738ea48b94
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4f51ade234c8792f235bd8c9218b3c6ef9f22de7
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194255"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutoriel : Intégration d’Azure Active Directory à Cisco Umbrella
 
@@ -147,7 +147,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 6. Dans l'**Option A : Charger le fichier XML**, chargez le fichier **XML des métadonnées de fédération** que vous avez téléchargé à partir du portail Azure. Après avoir chargé les métadonnées, les valeurs ci-dessous sont automatiquement renseignées. Cliquez ensuite sur **SUIVANT**.
 
-    ![Sélection du fichier ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
+    ![Sélection du fichier](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
 7. Sous la section **Valider la configuration SAML**, cliquez sur **TESTER VOTRE CONFIGURATION SAML**.
 
@@ -245,7 +245,7 @@ Le fait de cliquer sur la vignette Cisco Umbrella dans le panneau d’accès doi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

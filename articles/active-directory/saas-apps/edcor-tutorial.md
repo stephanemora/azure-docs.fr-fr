@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21d40dbb1dcb6c8ccbd412298e3656e07b42e48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f3a4483f4c3e91bb15b924973a0fd13aaff9c6b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181522"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883298"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutoriel : Intégration d’Azure Active Directory à Edcor
+# <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Didacticiel : Intégration d’Azure Active Directory à Edcor
 
 Dans ce didacticiel, vous allez apprendre à intégrer Edcor à Azure Active Directory (Azure AD).
 L’intégration d’Edcor à Azure AD vous offre les avantages suivants :
@@ -189,7 +189,7 @@ Le fait de cliquer sur la vignette Edcor dans le panneau d’accès doit vous co
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

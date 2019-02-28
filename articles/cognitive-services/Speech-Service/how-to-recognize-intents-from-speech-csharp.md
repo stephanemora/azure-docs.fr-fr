@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9166ac5bf630b66ae46f356e17a327162f06af2a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867169"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866995"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutoriel : Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#
 
@@ -77,7 +77,7 @@ Le nouvel abonnement apparaît dans le tableau, en bas de la page, au bout de qu
 
 ## <a name="create-a-speech-project-in-visual-studio"></a>Créer un projet de reconnaissance vocale dans Visual Studio
 
-[!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## <a name="add-the-code"></a>Ajouter le code
 

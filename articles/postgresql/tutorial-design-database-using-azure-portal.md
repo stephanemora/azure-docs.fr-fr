@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide du portail Azure'
+title: 'Tutoriel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide du portail Azure'
 description: Ce didacticiel montre comment concevoir votre première base de données Azure pour PostgreSQL à l’aide du portail Azure.
 author: rachel-msft
 ms.author: raagyema
@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536523"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864547"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Tutoriel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide du portail Azure
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide du portail Azure
 
 Base de données Azure pour PostgreSQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. À l’aide du portail Azure, vous pouvez facilement gérer votre serveur et concevoir une base de données.
 
@@ -78,7 +78,7 @@ Le service Azure Database pour PostgreSQL utilise un pare-feu au niveau du serve
 
 1.  Une fois le déploiement terminé, cliquez sur **Toutes les ressources** dans le menu de gauche et saisissez le nom **mydemoserver** pour rechercher le serveur qui vient d’être créé. Cliquez sur le nom du serveur figurant dans les résultats de la recherche. La page **Présentation** correspondant à votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
 
-   ![Base de données Azure pour PostgreSQL - Rechercher le serveur ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Base de données Azure pour PostgreSQL - Rechercher le serveur](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  Sur la page du serveur, sélectionnez **Sécurité de la connexion**. 
 
@@ -98,7 +98,7 @@ Lorsque vous avez créé le serveur Azure Database pour PostgreSQL, la base de d
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer.
 
-   ![Base de données Azure pour PostgreSQL - Rechercher le serveur ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Base de données Azure pour PostgreSQL - Rechercher le serveur](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2. Cliquez sur le nom du serveur **mydemoserver**.
 

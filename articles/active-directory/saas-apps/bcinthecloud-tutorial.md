@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeed203a32b94e3d1dfe55eb443f8247579decac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2040b20ce984e774f80c76f09b5fbacebef4fe30
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166298"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877688"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Didacticiel : Intégration d'Azure Active Directory à BC in the Cloud
+# <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Tutoriel : Intégration d'Azure Active Directory à BC in the Cloud
 
 Dans ce didacticiel, vous allez apprendre à intégrer BC in the Cloud à Azure Active Directory (Azure AD).
 L’intégration de BC in the Cloud à Azure AD vous offre les avantages suivants :
@@ -193,7 +193,7 @@ Lorsque vous cliquez sur la vignette BC in the Cloud dans le volet d’accès, v
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a606345655e18cf4991387cfd3cd18716d2df9dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2728ce2c375519646d0781005fc10a4174cf2483
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188186"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881360"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Didacticiel : Intégration d'Azure Active Directory à ClickTime
+# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutoriel : Intégration d'Azure Active Directory à ClickTime
 
 Dans ce didacticiel, vous allez apprendre à intégrer ClickTime à Azure Active Directory (Azure AD).
 L’intégration de ClickTime à Azure AD vous offre les avantages suivants :
@@ -237,7 +237,7 @@ Quand vous cliquez sur la vignette ClickTime dans le volet d’accès, vous deve
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

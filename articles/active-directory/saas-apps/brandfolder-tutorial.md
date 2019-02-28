@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Brandfolder | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Brandfolder | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Brandfolder.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27a2997d548bfed5190a12b82b960b3462ee0825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 549ed3fce5ef47e345786ca261280ebfc304dc2f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190158"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Tutoriel : Intégration d’Azure Active Directory à Brandfolder
 
@@ -185,7 +185,7 @@ Quand vous cliquez sur la vignette Brandfolder dans le volet d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

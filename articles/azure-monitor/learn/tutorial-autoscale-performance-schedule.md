@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: b9d54dc1483da20b4c411047af0b44b681fe197c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429274"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734266"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
 
@@ -55,7 +55,7 @@ Les quelques étapes suivantes vous aident à compléter l’écran de mise à l
 
    ![Enregistrer un paramètre de mise à l'échelle automatique](./media/tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
- ## <a name="configure-default-profile"></a>Configurer un profil par défaut
+## <a name="configure-default-profile"></a>Configurer un profil par défaut
 1. Fournissez un **Nom** pour le paramètre de mise à l’échelle automatique.
 2. Dans le profil par défaut, vérifiez que le **mode de mise à l’échelle** est défini sur « Mettre à l’échelle à un nombre d’instances spécifique ».
 3. Définissez le nombre d’instances sur **1**. Ce paramètre garantit que si aucun autre profil n’est actif ou en vigueur, le profil par défaut utilise un nombre d’instances de 1.

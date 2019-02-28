@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Korn Ferry ALP | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Korn Ferry ALP | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Korn Ferry ALP.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed28b1b1b48c7cce7f6ec4c044a13e17918857f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6f9fe3f53d9d54c2a8fdc0b0c663d0085d137188
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182712"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873727"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Tutoriel : Intégration d’Azure Active Directory à Korn Ferry ALP
+# <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Didacticiel : Intégration d’Azure Active Directory à Korn Ferry ALP
 
 Dans ce tutoriel, vous allez apprendre à intégrer Korn Ferry ALP à Azure AD (Azure AD).
 L’intégration de Korn Ferry ALP à Azure AD vous offre les avantages suivants :
@@ -193,7 +193,7 @@ Le fait de cliquer sur la vignette Korn Ferry ALP dans le panneau d’accès doi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

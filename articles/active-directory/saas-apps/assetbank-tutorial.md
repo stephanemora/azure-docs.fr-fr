@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3145e2ffd7e5fab1ecfc5c7cd83746e6cd8d5936
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b024447eba938976019d662f410fbe08b979b1ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207128"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882567"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>Tutoriel : Intégration d’Azure Active Directory à Asset Bank
+# <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>Didacticiel : Intégration d’Azure Active Directory à Asset Bank
 
 Dans ce didacticiel, vous allez apprendre à intégrer Asset Bank à Azure Active Directory (Azure AD).
 L’intégration de Asset Bank à Azure AD vous offre les avantages suivants :
@@ -197,7 +197,7 @@ Quand vous cliquez sur la vignette Asset Bank dans le volet d’accès, vous dev
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

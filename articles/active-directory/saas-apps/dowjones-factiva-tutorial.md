@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Dow Jones Factiva | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Dow Jones Factiva | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dow Jones Factiva.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3a46e5a3e28ad36e13885ebad16874530cb0142
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9aa10274d3e153e40ad0e13abe0924c4619f6e7d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182627"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873897"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Didacticiel : Intégration d’Azure Active Directory à Dow Jones Factiva
+# <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Tutoriel : Intégration d’Azure Active Directory à Dow Jones Factiva
 
 Dans ce didacticiel, vous allez apprendre à intégrer Dow Jones Factiva à Azure Active Directory (Azure AD).
 L’intégration de Dow Jones Factiva dans Azure AD vous offre les avantages suivants :
@@ -186,7 +186,7 @@ Quand vous cliquez sur la vignette Dow Jones Factiva dans le volet d’accès, v
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

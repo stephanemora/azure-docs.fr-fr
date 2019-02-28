@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Tutoriel : Intégration d’Azure Active Directory à IDrive | Microsoft Docs'
+title: 'Didacticiel : Tutoriel : Intégration d’Azure Active Directory à IDrive | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et IDrive.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d6071b4c0034a9bd69e326205bda2ec3bcb377
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: be1f126a1ddadfa7ab60518002d5628f91abe71c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169953"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869800"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Tutoriel : Intégration d’Azure Active Directory à IDrive
+# <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Didacticiel : Intégration d’Azure Active Directory à IDrive
 
 Dans ce tutoriel, vous allez apprendre à intégrer IDrive à Azure Active Directory (Azure AD).
 L’intégration d’IDrive à Azure AD vous offre les avantages suivants :
@@ -192,7 +192,7 @@ Lorsque vous cliquez sur la vignette IDrive dans le volet d’accès, vous devez
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

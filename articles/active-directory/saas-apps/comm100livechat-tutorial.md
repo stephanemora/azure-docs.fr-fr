@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Comm100 Live Chat | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Comm100 Live Chat | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Comm100 Live Chat.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85cd76288b6d744a201008aadde98ac5bb31ff86
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 873b9d89889317a5c406313811c74286caf7d0e1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166791"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882040"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Didacticiel : Intégration d’Azure Active Directory à Comm100 Live Chat
+# <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Tutoriel : Intégration d’Azure Active Directory à Comm100 Live Chat
 
 Dans ce didacticiel, vous allez apprendre à intégrer Comm100 Live Chat à Azure Active Directory (Azure AD).
 L’intégration de Comm100 Live Chat à Azure AD vous offre les avantages suivants :
@@ -269,7 +269,7 @@ Quand vous cliquez sur la vignette Comm100 Live Chat dans le volet d’accès, v
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

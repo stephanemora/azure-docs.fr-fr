@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: f6713326045ebd84f1cd484803fbc725ad798d7b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c1171a6b118797c2aafda137ec532259921c0713
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882265"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880544"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -73,7 +73,7 @@ Ce tutoriel vous montre comment déplacer des machines virtuelles Azure vers une
 
     - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
     Pour tous les autres composants réseau, reportez-vous à cette [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network) sur la mise en réseau. 
 

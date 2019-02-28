@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c839c6cfa15c9a2e0874939d05467050f7e4849
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 589aa227352a839e1d77a35412d2193fa05df420
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189217"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873443"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Tutoriel : Intégration d’Azure Active Directory à Brightidea
+# <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Didacticiel : Intégration d’Azure Active Directory à Brightidea
 
 Dans ce tutoriel, vous allez apprendre à intégrer Brightidea à Azure Active Directory (Azure AD).
 L’intégration de Brightidea à Azure AD vous offre les avantages suivants :
@@ -239,7 +239,7 @@ Quand vous cliquez sur la vignette Brightidea dans le volet d’accès, vous dev
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

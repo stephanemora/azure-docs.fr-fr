@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 524d1fbe69dc2f9c233834fa961c8a9e0b7c2d00
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 29a8158bbc4e43f913d4b6931f7d5f41d3236898
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196788"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877331"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutoriel : Intégration d’Azure Active Directory à iDiD Manager
+# <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Didacticiel : Intégration d’Azure Active Directory à iDiD Manager
 
 L’objectif de ce tutoriel est de vous apprendre à intégrer iDiD Manager à Azure Active Directory (Azure AD).
 L’intégration d’iDiD Manager à Azure AD vous offre les avantages suivants :
@@ -185,7 +185,7 @@ Le fait de cliquer sur la vignette iDiD Manager dans le panneau d’accès doit 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

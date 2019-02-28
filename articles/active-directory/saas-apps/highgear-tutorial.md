@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à HighGear | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à HighGear | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HighGear.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8e91af71b4c3358d416fe5f6f7a62c9268944ac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 017664e29f1ecf7d35411a3bc941df932c195856
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201803"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Didacticiel : Intégration d’Azure Active Directory à HighGear
 
@@ -254,7 +254,7 @@ Le fait de cliquer sur la vignette HighGear dans le panneau d’accès doit vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

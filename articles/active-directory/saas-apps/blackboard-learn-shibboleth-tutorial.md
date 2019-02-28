@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Blackboard Learn - Shibboleth | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Blackboard Learn - Shibboleth | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Blackboard Learn - Shibboleth.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ece314cd5d24e62d2b7ba631227bb6072506c29
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5b15d49792499ad9d6ded1105e5a4f74f67a0bf9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204472"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870701"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Didacticiel : Intégration d’Azure Active Directory à Blackboard Learn - Shibboleth
+# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Tutoriel : Intégration d’Azure Active Directory à Blackboard Learn - Shibboleth
 
 Dans ce didacticiel, vous allez apprendre à intégrer Blackboard Learn - Shibboleth à Azure Active Directory (Azure AD).
 L’intégration de Blackboard Learn- Shibboleth dans Azure AD vous offre les avantages suivants :
@@ -195,7 +195,7 @@ Quand vous cliquez sur la vignette Blackboard Learn - Shibboleth dans le volet d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

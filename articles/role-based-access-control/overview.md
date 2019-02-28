@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2d8f3ffb4f7d90b053c8a285d62007f5655d9adb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: eb8791a4031eeeeeccddda024514af208ff66251
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338629"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806560"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
@@ -108,7 +108,7 @@ Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? RBAC ét
 
 ## <a name="deny-assignments"></a>Affectations de refus
 
-Jusqu’à maintenant, RBAC était exclusivement un modèle d’autorisation sans possibilité de refus, il prend désormais en charge des affectations de refus dans une certaine mesure. À l’instar d’une attribution de rôle, une *affectation de refus* attache un ensemble d’actions de refus à un utilisateur, un groupe, un principal de service ou une identité managée, sur une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles. Actuellement, les affectations de refus sont **en lecture seule** et peuvent être définies uniquement par Azure. Pour plus d’informations, consultez [Comprendre les affectations de refus pour les ressources Azure](deny-assignments.md) et [Afficher les affectations de refus pour les ressources Azure avec le portail Azure](deny-assignments-portal.md).
+Jusqu’à maintenant, RBAC était exclusivement un modèle d’autorisation sans possibilité de refus, il prend désormais en charge des affectations de refus dans une certaine mesure. À l’instar d’une attribution de rôle, une *affectation de refus* attache un ensemble d’actions de refus à un utilisateur, un groupe, un principal de service ou une identité managée, sur une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles. Actuellement, les affectations de refus sont **en lecture seule** et ne peuvent être définies que par Microsoft. Pour plus d’informations, consultez [Comprendre les affectations de refus pour les ressources Azure](deny-assignments.md) et [Afficher les affectations de refus pour les ressources Azure avec le portail Azure](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Comment RBAC détermine si un utilisateur a accès à une ressource
 

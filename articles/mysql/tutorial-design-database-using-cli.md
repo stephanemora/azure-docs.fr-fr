@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI'
+title: 'Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI'
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database pour MySQL avec Azure CLI depuis la ligne de commande.
 author: ajlam
 ms.author: andrela
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 17a147b12d660e25bfba1e3b987f9c6ae219942d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545788"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882584"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI
 
 Azure Database pour MySQL est un service de base de données relationnelle dans le cloud de Microsoft basé sur le moteur de base de données MySQL Community Edition. Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
 
@@ -27,6 +27,8 @@ Azure Database pour MySQL est un service de base de données relationnelle dans 
 > * Données de requête
 > * Mettre à jour des données
 > * Restaurer des données
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 Vous pouvez utiliser Azure Cloud Shell dans le navigateur ou [installer Azure CLI]( /cli/azure/install-azure-cli) sur votre ordinateur pour exécuter les blocs de code de ce tutoriel.
 

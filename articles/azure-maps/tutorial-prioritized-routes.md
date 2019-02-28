@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ec047f38596bed4d3f0bc5520dc9c7fc18b4c24
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749761"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585234"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -248,7 +248,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
         datasource.add(routeLine, 0);
     });
     ```
-    Cet extrait de code interroge le service de routage d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest), puis analyse la réponse au format GeoJSON à l’aide de [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Il crée ensuite un tableau de coordonnées pour l’itinéraire retourné et l’ajoute à la source de données, mais ajoute également un index de 0 pour vous assurer qu’il est restitué avant toutes les autres lignes dans la source de données. Ceci est dû au fait que le calcul d’itinéraire réservé aux camions est généralement plus lent qu’un calcul d’itinéraire réservé aux voitures et que, si la ligne d’itinéraire réservé aux camions est ajoutée à la source de données après l’itinéraire réservé aux voitures, il s’affiche au-dessus de celui-ci. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux camions : un trait de couleur bleue et une épaisseur de trait de 9 pixels. 
+    Cet extrait de code interroge le service de routage d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest), puis analyse la réponse au format GeoJSON à l’aide de [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest). Il crée ensuite un tableau de coordonnées pour l’itinéraire retourné et l’ajoute à la source de données, mais ajoute également un index de 0 pour vous assurer qu’il est restitué avant toutes les autres lignes dans la source de données. Ceci est dû au fait que le calcul d’itinéraire réservé aux camions est généralement plus lent qu’un calcul d’itinéraire réservé aux voitures et que, si la ligne d’itinéraire réservé aux camions est ajoutée à la source de données après l’itinéraire réservé aux voitures, il s’affiche au-dessus de celui-ci. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux camions : un trait de couleur bleue et une épaisseur de trait de 9 pixels. 
 
 4. Ajoutez le code JavaScript suivant afin de solliciter l’itinéraire pour une voiture et afficher les résultats :
 
@@ -267,7 +267,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
         datasource.add(routeLine);
     });
     ```
-    Cet extrait de code utilise la requête d’itinéraire de camion, mais pour une voiture. Il interroge le service de routage d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest), puis analyse la réponse au format GeoJSON à l’aide de [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Il crée ensuite un tableau de coordonnées pour l’itinéraire retourné et l’ajoute à la source de données. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux voitures : un trait de couleur violette et une épaisseur de trait de 5 pixels. 
+    Cet extrait de code utilise la requête d’itinéraire de camion, mais pour une voiture. Il interroge le service de routage d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest), puis analyse la réponse au format GeoJSON à l’aide de [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest). Il crée ensuite un tableau de coordonnées pour l’itinéraire retourné et l’ajoute à la source de données. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux voitures : un trait de couleur violette et une épaisseur de trait de 5 pixels. 
 
 5. Enregistrez le fichier **MapTruckRoute.html** et actualisez votre navigateur afin d’afficher les résultats. Dans le cadre d’une connexion efficace avec les API Maps, vous devriez observer une carte similaire au contenu suivant.
 

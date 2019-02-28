@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à ADP | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à ADP | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ADP.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80118cc1d111ddc11f35f57a96b61a5b940460cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fb6943ef6c75f634cdb68557ed2339574bdc2602
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190566"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878283"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutoriel : Intégration d’Azure Active Directory à ADP
 
@@ -304,7 +304,7 @@ Le fait de cliquer sur la vignette ADP dans le panneau d’accès doit vous conn
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

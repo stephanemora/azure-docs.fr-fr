@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d14b352f335d0e0f409c7723fd9395eac6f2a48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2029b90b4f23b22fa20ad8a89af308f6c16b410e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209470"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872571"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Didacticiel : Intégration d'Azure Active Directory à Arc Publishing - Authentification unique
+# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutoriel : Intégration d'Azure Active Directory à Arc Publishing - Authentification unique
 
 Dans ce tutoriel, vous allez apprendre à intégrer Arc Publishing - Authentification unique à Azure Active Directory (Azure AD).
 L’intégration d’Arc Publishing - Authentification unique à Azure AD vous offre les avantages suivants :
@@ -75,7 +75,7 @@ Pour configurer l’intégration d’Arc Publishing - Authentification unique à
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès d’Arc Publishing - SSO avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Arc Publishing - SSO associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec Arc Publishing - SSO, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Arc Publishing - Authentification unique, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Arc Publishing - SSO](#configure-arc-publishing---sso-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
@@ -238,7 +238,7 @@ Quand vous cliquez sur la vignette Arc Publishing - SSO dans le volet d’accès
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

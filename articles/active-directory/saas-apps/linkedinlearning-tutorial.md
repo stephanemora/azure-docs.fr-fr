@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9328564b082ba3eb0cff94652271fcd64cf2630c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 321b236e7d4f0635dcc4ced40e34f1e356859279
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168764"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866162"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutoriel : Intégration d’Azure Active Directory à LinkedIn Learning
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Didacticiel : Intégration d’Azure Active Directory à LinkedIn Learning
 
 Dans ce didacticiel, vous allez apprendre à intégrer LinkedIn Learning à Azure Active Directory (Azure AD).
 L’intégration de LinkedIn Learning dans Azure AD vous offre les avantages suivants :
@@ -239,7 +239,7 @@ Lorsque vous cliquez sur la vignette LinkedIn Learning dans le volet d’accès,
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846674"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586900"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
@@ -41,40 +41,11 @@ Ce didacticiel couvre les étapes suivantes :
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Créer un espace de noms à l’aide du Portail Azure
-
-> [!NOTE] 
-> Vous pouvez également créer des entités de messagerie et un espace de noms Service Bus à l’aide de [PowerShell](/powershell/azure/get-started-azureps). Pour plus d’informations, consultez [Utiliser PowerShell pour gérer les ressources Service Bus](service-bus-manage-with-ps.md).
-
-Si vous avez déjà créé un espace de noms Service Bus Messaging, passez directement à la section [Créer une rubrique à l’aide du portail Azure](#2-create-a-topic-using-the-azure-portal).
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Créer une rubrique à l’aide du Portail Azure
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-1. Connectez-vous au [portail Azure][azure-portal].
-2. Dans le volet de navigation gauche du portail, cliquez sur **Service Bus** (si vous ne voyez pas **Service Bus**, cliquez sur **Tous les services** ou sur **Toutes les ressources**). Cliquez sur l’espace de noms dans lequel vous souhaitez créer la rubrique. 
-3. La fenêtre de vue d’ensemble de l’espace de noms s’affiche. Cliquez sur **Rubriques** :
-   
-    ![Création d'une rubrique][createtopic1]
-4. Cliquez sur **+ Rubrique**.
-   
-    ![Sélectionnez les rubriques][createtopic2]
-5. Entrez le nom de la rubrique. Conservez les valeurs par défaut des autres options.
-   
-    ![Sélectionner Nouveau][createtopic3]
-6. En bas de la boîte de dialogue, cliquez sur **Créer**.
-
-## <a name="3-create-a-subscription-to-the-topic"></a>3. Créer un abonnement à la rubrique
-
-1. Dans le volet des ressources du portail, cliquez sur l’espace de noms que vous avez créé à l’étape 1, puis cliquez sur **Rubriques** et sur le nom de la rubrique que vous avez créée à l’étape 2.
-2. En haut du volet de vue d’ensemble, cliquez sur **+ Abonnement** pour ajouter un abonnement à cette rubrique.
-
-    ![Créer un abonnement][createtopic4]
-
-3. Entrez un nom pour l’abonnement. Conservez les valeurs par défaut des autres options.
-
-## <a name="4-send-messages-to-the-topic"></a>4. Envoyez des messages à la rubrique
+## <a name="send-messages-to-the-topic"></a>Envoyez des messages à la rubrique
 
 Pour envoyer des messages à la rubrique, écrivez une application de console C# à l’aide de Visual Studio.
 
@@ -231,7 +202,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)**.
    
       ![Taille des messages][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5. Réception des messages de l’abonnement
+## <a name="receive-messages-from-the-subscription"></a>Réception des messages de l’abonnement
 
 Pour recevoir les messages que vous venez d’envoyer, créez une autre application de console .NET Core et installez le package NuGet **Microsoft.Azure.ServiceBus**, identique à l’application d’expéditeur précédente.
 

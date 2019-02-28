@@ -9,16 +9,16 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 02/04/2018
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be1bf8c003315fc4dbed449283f7c92850edced
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4f6c1af2051d946b29e2022c90d0ad9820b4d283
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752039"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823499"
 ---
-# <a name="tutorial-prepare-data-for-regression-modeling"></a>Didacticiel : Préparer les données pour la modélisation de régression
+# <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutoriel : Préparer les données pour la modélisation de régression
 
 Dans ce tutoriel, vous apprenez à préparer des données à la modélisation de régression, à l’aide du SDK de préparation des données Azure Machine Learning. Vous exécutez diverses transformations pour filtrer et combiner deux jeux de données NYC Taxi différents.
 

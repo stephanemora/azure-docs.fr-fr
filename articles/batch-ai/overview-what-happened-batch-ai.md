@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447801"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961350"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>Qu’arrive-t-il à Azure Batch AI ?
 
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Découvrez plus d’informations sur l’inscription de comptes de stockage supplémentaires ou sur l’obtention d’une référence à un autre magasin de données inscrit dans la [documentation du service Azure ML](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Découvrez plus d’informations sur l’inscription de comptes de stockage supplémentaires ou sur l’obtention d’une référence à un autre magasin de données inscrit dans la [documentation du service Azure ML](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### <a name="downloading-and-uploading-data"></a>Téléchargement et chargement de données 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-Vous trouverez toutes les informations pour cet extrait de code d’entraînement (notamment le fichier tf_mnist_replica.py) dans le [dépôt GitHub d’exemples de notebooks Azure ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). Le magasin de données lui-même peut être monté sur les nœuds individuels ou bien les données d’entraînement peuvent être téléchargées sur le nœud lui-même. Vous trouverez plus d’informations sur le référencement du magasin de données dans votre estimateur dans la [documentation du service Azure ML](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
+Vous trouverez toutes les informations pour cet extrait de code d’entraînement (notamment le fichier tf_mnist_replica.py) dans le [dépôt GitHub d’exemples de notebooks Azure ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). Le magasin de données lui-même peut être monté sur les nœuds individuels ou bien les données d’entraînement peuvent être téléchargées sur le nœud lui-même. Vous trouverez plus d’informations sur le référencement du magasin de données dans votre estimateur dans la [documentation du service Azure ML](../machine-learning/service/how-to-access-data.md#access). 
 
 La soumission d’une exécution dans Azure ML se fait via la fonction submit.
 

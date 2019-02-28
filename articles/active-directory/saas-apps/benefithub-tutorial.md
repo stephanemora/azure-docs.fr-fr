@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bac9e6d57ccca5d96f324a89fa5d21f83c420eb6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a248464b4b60ffd19dc237d80c7f195a7e7c5c4e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189087"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879966"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Didacticiel : Intégration d’Azure Active Directory à BenefitHub
+# <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Tutoriel : Intégration d’Azure Active Directory à BenefitHub
 
 Dans ce didacticiel, vous allez apprendre à intégrer BenefitHub à Azure Active Directory (Azure AD).
 L’intégration de BenefitHub dans Azure AD vous offre les avantages suivants :
@@ -225,7 +225,7 @@ Quand vous cliquez sur la vignette BenefitHub dans le volet d’accès, vous dev
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

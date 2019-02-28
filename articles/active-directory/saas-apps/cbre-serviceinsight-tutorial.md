@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à CBRE ServiceInsight | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à CBRE ServiceInsight | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CBRE ServiceInsight.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b2652676ad1187db4f58779fa0b891aa286fe01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7a2f85c17805d2bd0313bffd1b0b555e1e4d99c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181199"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866978"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cbre-serviceinsight"></a>Tutoriel : Intégration d’Azure Active Directory à CBRE ServiceInsight
+# <a name="tutorial-azure-active-directory-integration-with-cbre-serviceinsight"></a>Didacticiel : Intégration d’Azure Active Directory à CBRE ServiceInsight
 
 Dans ce tutoriel, vous allez apprendre à intégrer CBRE ServiceInsight à Azure AD (Azure Active Directory).
 L’intégration de CBRE ServiceInsight à Azure AD vous offre les avantages suivants :
@@ -211,7 +211,7 @@ Le fait de cliquer sur la vignette CBRE ServiceInsight dans le panneau d’accè
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

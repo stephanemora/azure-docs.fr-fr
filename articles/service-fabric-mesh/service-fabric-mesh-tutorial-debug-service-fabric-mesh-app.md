@@ -3,8 +3,8 @@ title: Tutoriel - Déboguer une application web Azure Service Fabric Mesh s’ex
 description: Dans ce didacticiel, vous allez déboguer une application de maillage Azure Service Fabric s’exécutant dans votre cluster local.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/31/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: bef86b189064a82b6605e8b99a374b1ee92682e2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787628"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805118"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutoriel : Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutoriel : Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local
 
 Ce tutoriel est la deuxième partie d’une série de tutoriels. Il vous explique comment générer et déboguer une application Azure Service Fabric Mesh dans votre cluster de développement local.
 

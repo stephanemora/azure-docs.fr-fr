@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Blackboard Learn | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Blackboard Learn | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Blackboard Learn.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c13b511fdc4c348cb7356ccc2fb64c40239fc4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b3de4517ae55212e6ad10301156b2d7a0c5509ec
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169851"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Tutoriel : Intégration d’Azure Active Directory à Blackboard Learn
 
@@ -222,7 +222,7 @@ Le fait de cliquer sur la vignette Blackboard Learn dans le panneau d’accès d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

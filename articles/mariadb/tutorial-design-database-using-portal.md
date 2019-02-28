@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Créer une base de données Azure Database for MariaDB à l’aide du portail Azure'
-description: Ce tutoriel explique comment créer et gérer une base de données et un serveur Azure Database for MariaDB à l’aide du portail Azure.
+title: 'Tutoriel : Créer une base de données Azure Database for MariaDB à l’aide du portail Azure'
+description: Ce didacticiel explique comment créer et gérer une base de données et un serveur Azure Database for MariaDB à l’aide du Portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538104"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880513"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutoriel : Créer une base de données Azure Database for MariaDB à l’aide du portail Azure
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutoriel : Créer une base de données Azure Database for MariaDB à l’aide du portail Azure
 
 Azure Database for MariaDB est un service géré que vous pouvez utiliser pour exécuter, gérer et mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. À l’aide du Portail Azure, vous pouvez facilement gérer votre serveur et créer une base de données.
 
@@ -28,6 +28,8 @@ Ce didacticiel vous montre comment utiliser le portail Azure pour :
 > * Données de requête
 > * Mettre à jour des données
 > * Restaurer des données
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

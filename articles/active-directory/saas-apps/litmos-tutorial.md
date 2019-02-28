@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3260be2f570e2ad7dcbe3cf459d3da289af46001
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ada3c9a6ed08895727d395363b7e8a9cb1f2f08f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165346"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864394"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Tutoriel : Intégration d’Azure Active Directory à Litmos
+# <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Didacticiel : Intégration d’Azure Active Directory à Litmos
 
 Dans ce didacticiel, vous allez apprendre à intégrer Litmos avec Azure Active Directory (Azure AD).
 L’intégration de Litmos dans Azure AD vous offre les avantages suivants :
@@ -271,7 +271,7 @@ Quand vous cliquez sur la vignette Litmos dans le volet d’accès, vous devez �
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

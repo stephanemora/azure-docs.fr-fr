@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Adoddle cSaas Platform | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Adoddle cSaas Platform | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adoddle cSaas Platform.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab31783f35a02202f9ac25e22683600495123235
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d275b89118a075c502160ee43e6d0045aa0cf9f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210966"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874056"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Didacticiel : Intégration d’Azure Active Directory à Adoddle cSaas Platform
+# <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Tutoriel : Intégration d’Azure Active Directory à Adoddle cSaas Platform
 
 Dans ce tutoriel, vous allez apprendre à intégrer Adoddle cSaas Platform à Azure Active Directory (Azure AD).
 L’intégration d’Adoddle cSaas Platform à Azure AD vous offre les avantages suivants :
@@ -188,7 +188,7 @@ Quand vous cliquez sur la vignette Adoddle cSaas Platform dans le volet d’acc�
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

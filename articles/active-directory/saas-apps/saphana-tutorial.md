@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à SAP HANA | Microsoft Docs'
+title: 'Didacticiel : intégration d’Azure Active Directory à SAP HANA | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP HANA.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff4ceab324ec11e4afe06f494ed98428626c0743
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 017d693f0d71692abfb432216ca0645dee80d7df
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181267"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865227"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutoriel : intégration d’Azure Active Directory à SAP HANA
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Didacticiel : intégration d’Azure Active Directory à SAP HANA
 
 Dans ce didacticiel, vous allez apprendre à intégrer SAP HANA à Azure Active Directory (Azure AD).
 L’intégration de SAP HANA à Azure AD vous offre les avantages suivants :
@@ -268,7 +268,7 @@ Le fait de cliquer sur la vignette SAP HANA dans le panneau d’accès doit vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 212238a16a36179a63eec9f239799a716d13c57e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e79424ff3fe3bce006932c19dba8cf5fc4bce4f2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168967"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878623"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutoriel : Intégration d’Azure Active Directory à AppDynamics
+# <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Didacticiel : Intégration d’Azure Active Directory à AppDynamics
 
 Dans ce didacticiel, vous allez apprendre à intégrer AppDynamics à Azure Active Directory (Azure AD).
 L’intégration d’AppDynamics à Azure AD vous offre les avantages suivants :
@@ -220,7 +220,7 @@ Lorsque vous cliquez sur la vignette AppDynamics dans le volet d’accès, vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

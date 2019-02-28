@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à de Pluralsight | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à de Pluralsight | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Pluralsight.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c72ed2852f0f732c9f3b5641fc1ed819fc72476b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 844e8abff45f663b39846c9b8dc9b55be0d43f4f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184463"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875614"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Didacticiel : Intégration d’Azure Active Directory à Pluralsight
+# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutoriel : Intégration d’Azure Active Directory à Pluralsight
 
 Dans ce didacticiel, vous allez apprendre à intégrer Pluralsight à Azure AD (Azure Active Directory).
 L’intégration de Pluralsight à Azure AD vous offre les avantages suivants :
@@ -218,7 +218,7 @@ Quand vous cliquez sur la vignette Pluralsight dans le volet d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

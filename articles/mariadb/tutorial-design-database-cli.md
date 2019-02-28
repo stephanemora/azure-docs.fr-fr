@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI'
+title: 'Didacticiel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI'
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database for MariaDB avec Azure CLI, depuis la ligne de commande.
 author: ajlam
 ms.author: andrela
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ed80008548585015c9e29aaea013fdeb85fd8e9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541189"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872775"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Didacticiel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI
 
 Azure Database for MariaDB est un service de base de données relationnelle dans le cloud Microsoft qui repose sur le moteur de base de données MariaDB Community Edition. Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
 
@@ -27,6 +27,8 @@ Azure Database for MariaDB est un service de base de données relationnelle dans
 > * Données de requête
 > * Mettre à jour des données
 > * Restaurer des données
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 Vous pouvez utiliser Azure Cloud Shell dans le navigateur ou [installer Azure CLI]( /cli/azure/install-azure-cli) sur votre ordinateur pour exécuter les blocs de code de ce tutoriel.
 
@@ -175,7 +177,7 @@ Pour effectuer la restauration, vous avez besoin des informations suivantes :
 - Point de restauration : sélectionnez un point dans le temps avant la modification du serveur. Doit être supérieure ou égale à la plus ancienne valeur de sauvegarde de la base de données source.
 - Serveur cible : indiquez le nom du nouveau serveur sur lequel vous souhaitez effectuer la restauration
 - Serveur source : indiquez le nom du serveur à partir duquel vous voulez effectuer la restauration
-- Emplacement : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source
+- Localisation : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver

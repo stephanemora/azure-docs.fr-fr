@@ -12,12 +12,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 7a77b8a1a2205465956d8c30a3fee6aec5e8428b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663789"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817420"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Développement en équipe avec les espaces Azure Dev Spaces
 
@@ -57,7 +57,7 @@ _Sans_ Dev Spaces, Scott disposerait d’autres moyens de développer et de test
 * Ajouter du code axé sur le développement à *webfrontend* qui permette au développeur d’envoyer des requêtes vers une autre instance de *mywebapi*. L’ajout de ce code complique le service *webfrontend*.
 
 ### <a name="set-up-your-baseline"></a>Configurer votre base de référence
-Tout d’abord, nous allons devoir déployer la base de référence de nos services. Ce déploiement va représenter la « dernière configuration valide connue ». Vous pourrez donc comparer facilement le comportement de votre code local à celui de la version archivée. Nous allons ensuite créer un espace enfant basé sur cette base de référence, afin de tester les modifications apportées à *mywebapi* dans le contexte d’une application plus grande.
+Tout d’abord, nous allons devoir déployer une base de référence de nos services. Ce déploiement va représenter la « dernière configuration valide connue ». Vous pourrez donc comparer facilement le comportement de votre code local à celui de la version archivée. Nous allons ensuite créer un espace enfant basé sur cette base de référence, afin de tester les modifications apportées à *mywebapi* dans le contexte d’une application plus grande.
 
 1. Clonez l’[exemple d’application Dev Spaces](https://github.com/Azure/dev-spaces) : `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Extrayez la branche distante *azds_updates* : `git checkout -b azds_updates origin/azds_updates`
@@ -125,9 +125,9 @@ Voici un diagramme qui vous aidera à comprendre comment les différents espaces
 Cette fonctionnalité intégrée à Azure Dev Spaces vous permet de tester le code de bout en bout dans un environnement partagé sans que chaque développeur n’ait à recréer la pile de services complète dans son espace. Ce routage nécessite que les en-têtes de propagation soient transférés dans le code de votre application, comme illustré dans l’étape précédente de ce guide.
 
 ### <a name="test-code-running-in-the-devscott-space"></a>Tester le code qui s’exécute dans l’espace _dev/scott_
-Pour tester votre nouvelle version de *mywebapi* avec *webfrontend*, ouvrez votre navigateur et accédez à l’URL du point d’accès public de *webfrontend* (par exemple, http://dev.webfrontend.123456abcdef.eastus.aksapp.io), puis accédez à la page À propos de. Vous devez y voir le message d’origine « Hello from webfrontend and Hello from mywebap ».
+Pour tester votre nouvelle version de *mywebapi* avec *webfrontend*, ouvrez votre navigateur et accédez à l’URL du point d’accès public de *webfrontend* (par exemple, http://dev.webfrontend.123456abcdef.eus.azds.io), puis accédez à la page À propos de. Vous devez y voir le message d’origine « Hello from webfrontend and Hello from mywebap ».
 
-Maintenant, ajoutez « scott.s » à l’URL pour qu’elle ressemble à quelque chose comme ceci http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io, puis actualisez le navigateur. Vous devriez atteindre le point d’arrêt que vous avez défini dans votre projet *mywebapi*. Appuyez sur F5 pour continuer et dans votre navigateur, vous devriez maintenant voir le nouveau message « Hello from webfrontend » et mywebapi affiche maintenant autre chose. Cela est dû au fait que le chemin de votre code mis à jour dans *mywebapi* est exécuté dans l’espace _dev/scott_.
+Maintenant, ajoutez « scott.s » à l’URL pour qu’elle ressemble à quelque chose comme ceci http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io, puis actualisez le navigateur. Vous devriez atteindre le point d’arrêt que vous avez défini dans votre projet *mywebapi*. Appuyez sur F5 pour continuer et dans votre navigateur, vous devriez maintenant voir le nouveau message « Hello from webfrontend » et mywebapi affiche maintenant autre chose. Cela est dû au fait que le chemin de votre code mis à jour dans *mywebapi* est exécuté dans l’espace _dev/scott_.
 
 Une fois que vous disposerez d’un espace _dev_ contenant en permanence les dernières modifications, et si votre application est conçue pour tirer parti d’un routage DevSpace basé sur un espace, comme décrit dans cette section du tutoriel, vous vous rendrez compte à quel point Dev Spaces aide à tester les nouvelles fonctionnalités dans le contexte d’une application de taille plus importante. Au lieu de déployer _tous_ les services dans votre espace privé, vous pouvez créer un espace privé dérivé de _dev_, et « activer » uniquement les services que vous utilisez réellement. L’infrastructure de routage Dev Spaces gère le reste en utilisant tous les services issus de votre espace privé qu’elle peut trouver, tout en utilisant par défaut la dernière version actuellement exécutée dans l’espace _dev_. Mieux encore, _plusieurs_ développeurs peuvent développer différents services simultanément dans leur propre espace, sans s’interrompre mutuellement.
 
@@ -139,7 +139,7 @@ Vous êtes arrivé au terme du guide de démarrage ! Vous avez appris à effect
 > * Développer du code de façon itérative dans des conteneurs.
 > * Développer indépendamment deux services distincts et utiliser la découverte des services DNS de Kubernetes pour appeler un autre service.
 > * Développer et tester votre code de façon productive dans un environnement d’équipe.
-> * Établir une base de référence de fonctionnalités à l’aide de Dev Spaces pour tester facilement les modifications isolées dans le contexte d’une application de microservice de taille plus importante
+> * Établir une base de référence de fonctionnalités à l’aide de Dev Spaces pour tester facilement les modifications isolées dans le contexte d’une application de microservice plus grande
 
 Maintenant que vous avez exploré Azure Dev Spaces, [partagez votre espace de développement avec les membres de l’équipe](how-to/share-dev-spaces.md) et montrez-leur combien il est facile de collaborer.
 

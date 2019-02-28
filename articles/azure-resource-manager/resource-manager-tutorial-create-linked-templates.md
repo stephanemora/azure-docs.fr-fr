@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270298"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867012"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
 
@@ -297,7 +297,7 @@ Nous avons vu dans le [Tutoriel : Créer des modèles Azure Resource Manager av
 1. Ouvrez azuredeploy.json dans Visual Studio Code s’il n’est pas ouvert.
 2. Développez la définition de ressource de machine virtuelle, mettez à jour **dependsOn** comme indiqué dans la capture d’écran suivante :
 
-    ![Dépendance configurée par les modèles liés Azure Resource Manager ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
+    ![Dépendance configurée par les modèles liés Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     Le nom de la ressource de déploiement *linkedTemplate*.  
 3. Mettez à jour **properties/diagnosticsProfile/bootDiagnostics/storageUri** comme indiqué dans la capture d’écran précédente.

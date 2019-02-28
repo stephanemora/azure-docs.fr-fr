@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Bugsnag | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Bugsnag | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bugsnag.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e27bdd9bfcf732add45355f014e4af8a67d0c59
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 54ec962d5f750ab5f78a576d0fdbb1293b72634b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56318985"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Tutoriel : Intégration d’Azure Active Directory à Bugsnag
 
@@ -187,7 +187,7 @@ Le fait de cliquer sur la vignette Bugsnag dans le volet d’accès doit automat
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

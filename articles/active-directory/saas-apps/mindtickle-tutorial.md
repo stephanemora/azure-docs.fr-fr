@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à MindTickle | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à MindTickle | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et MindTickle.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 355ffcf079268a73e12bc1eec5ca089b52730f7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 619dc9bbc70531436492a4aa1bef0bd26a78c4ed
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198964"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875288"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>Tutoriel : Intégration d’Azure Active Directory à MindTickle
+# <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>Didacticiel : Intégration d’Azure Active Directory à MindTickle
 
 Dans ce tutoriel, vous allez découvrir comment intégrer MindTickle à Azure Active Directory (Azure AD).
 L’intégration de MindTickle à Azure AD vous offre les avantages suivants :
@@ -203,7 +203,7 @@ Le fait de cliquer sur la vignette MindTickle dans le panneau d’accès doit vo
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

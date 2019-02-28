@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8afd2201d55dfed94cf8f0dd34ca26870c0cc324
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c92e76d1fd49121d09a56f986c39de52dbbde1c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169358"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877722"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Didacticiel : Intégration d’Azure Active Directory à Appraisd
+# <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Tutoriel : Intégration d’Azure Active Directory à Appraisd
 
 Dans ce tutoriel, vous allez apprendre à intégrer Appraisd à Azure Active Directory (Azure AD).
 L’intégration d’Appraisd à Azure AD vous offre les avantages suivants :
@@ -274,7 +274,7 @@ Quand vous cliquez sur la vignette Appraisd dans le volet d’accès, vous devez
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

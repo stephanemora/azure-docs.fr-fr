@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddc88f3e2f62004c1971db89d2324fcc001183be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 161d350dd0e931b93ee873833e40691f0128cb68
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168203"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864300"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-airstack"></a>Tutoriel : Intégration d’Azure Active Directory à AirStack
+# <a name="tutorial-azure-active-directory-integration-with-airstack"></a>Didacticiel : Intégration d’Azure Active Directory à AirStack
 
 Dans ce tutoriel, vous allez apprendre à intégrer AirStack à Azure Active Directory (Azure AD).
 L’intégration d’AirStack à Azure AD vous offre les avantages suivants :
@@ -182,7 +182,7 @@ Lorsque vous cliquez sur la vignette AirStack dans le volet d’accès, vous dev
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

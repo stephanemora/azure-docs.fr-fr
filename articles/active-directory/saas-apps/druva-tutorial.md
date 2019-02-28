@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b82efa4b14800eabbbcb4b977f256a5d885fc93b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5aac1b32f420f4a028777d1a9b5dc6b31cab23a1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211833"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872554"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutoriel : Intégration d’Azure Active Directory à Druva
+# <a name="tutorial-azure-active-directory-integration-with-druva"></a>Didacticiel : Intégration d’Azure Active Directory à Druva
 
 Dans ce didacticiel, vous apprenez à intégrer Druva dans Azure Active Directory (Azure AD).
 L’intégration de Druva dans Azure AD vous offre les avantages suivants :
@@ -275,7 +275,7 @@ Quand vous cliquez sur la vignette Druva dans le volet d’accès, vous devez ê
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

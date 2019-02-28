@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bca2d3a358e3da59db710117f101747ae5a710
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dce4fa99335f6e5b8a829cfa2605312f3ace988a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202738"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880935"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Didacticiel : intégration d’Azure Active Directory à Cloud Service PICCO
+# <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Tutoriel : intégration d’Azure Active Directory à Cloud Service PICCO
 
 Ce tutoriel explique comment intégrer Cloud Service PICCO à Azure Active Directory (Azure AD).
 L’intégration de Cloud Service PICCO à Azure AD offre les avantages suivants :
@@ -186,7 +186,7 @@ Le fait de cliquer sur la vignette Cloud Service PICCO dans le panneau d’accè
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de Azure Active Directory à BitaBIZ | Microsoft Docs'
+title: 'Didacticiel : Intégration de Azure Active Directory à BitaBIZ | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BitaBIZ.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23a14129b7a50bdf2ec33c112fc02fd97f83c3f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c3cd6a299cdad93cf9e403cb04a4b7dfda85cbb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186928"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutoriel : Intégration de Azure Active Directory à BitaBIZ
 
@@ -259,7 +259,7 @@ Quand vous cliquez sur la vignette BitaBIZ dans le volet d’accès, vous devez 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

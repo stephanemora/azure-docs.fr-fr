@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/07/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cd692442791f57e1560a97f09253ccd1a8264fb3
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269091"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817029"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutoriel : Sécuriser des artefacts dans les déploiements de modèles Azure Resource Manager
 
@@ -214,11 +214,8 @@ New-AzResourceGroupDeployment `
     -_artifactsLocation $artifactsLocation `
     -_artifactsLocationSasToken $artifactsLocationSasToken `
     -bacpacFileName $bacpacFileName `
-    -TemplateFile azuredeploy.json
+    -TemplateFile "$HOME/azuredeploy.json"
 ```
-
-> [!NOTE]
-> Un problème d’E/S existe avec l’utilisation d’Azure PowerShell dans Cloud shell.  Le message d’erreur est *Impossible de récupérer les paramètres dynamiques pour l’applet de commande. Chemin « Azure:/azuredeploy.json » introuvable, car il n’existe pas.*  Une solution de contournement temporaire consiste à ne pas inclure le commutateur **-TemplateFile** dans la commande `New-AzResourceGroupDeploy`. La commande vous invite ensuite à entrer le nom du fichier.
 
 Utilisez un mot de passe généré. Consultez les [Conditions préalables](#prerequisites).
 Pour les valeurs de _artifactsLocation, _artifactsLocationSasToken et bacpacFileName, consultez [Générer un jeton SAS](#generate-a-sas-token).

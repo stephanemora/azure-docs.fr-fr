@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230830"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882635"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
@@ -177,7 +177,7 @@ Pour distribuer le trafic vers les machines virtuelles, un pool d’adresses pri
 4. Cliquez sur **Ajouter une nouvelle ressource principal** pour ajouter chaque machine virtuelle (*myVM2* et *myVM3*) au pool de principal de l’équilibreur de charge.
 5. Cliquez sur **Add**.
 
-    ![Ajout au pool d’adresses principal - ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Ajout au pool d’adresses principal -](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Vérifiez que le paramètre du pool principal de l’équilibreur de charge affiche les trois machines virtuelles : **myVM1**, **myVM2** et **myVM3**.
 
