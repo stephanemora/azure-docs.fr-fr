@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2105919e0c21ef57ae2cd19450110df384252e97
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730934"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010631"
 documentType: LandingData
 title: Documentation Suggestion automatique Bing
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Documentation Suggestion automatique Bing - Tutoriels, guides de démarrage rapide, informations de référence sur l’API | Microsoft Docs
   description: Découvrez comment utiliser l’API Suggestion automatique Bing pour obtenir des suggestions de requêtes en fonction d’une requête partielle. Ces tutoriels vous montrent comment créer des applications qui utilisent le service.
   services: cognitive-services
-  author: v-jaswel
-  manager: kamrani
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jaswel
+  ms.date: 02/20/2019
+  ms.author: aahi
 abstract:
-  description: L’API Suggestion automatique Bing vous permet d’envoyer un terme de requête de recherche partielle à Bing et d’obtenir une liste de suggestions de requêtes sur lesquelles d’autres utilisateurs ont lancé des recherches.  Par exemple, quand l’utilisateur entre successivement les caractères de son terme de recherche, vous pouvez appeler cette API et remplir la liste déroulante de la zone de recherche avec des suggestions de chaînes de requête. Tirez parti de nos guides de démarrage rapide, tutoriels et exemples pour découvrir comment utiliser l’API Suggestion automatique.
+  description: L’API Suggestion automatique Bing vous permet d’envoyer un terme de requête de recherche partielle à Bing et d’obtenir une liste de suggestions de requêtes sur lesquelles d’autres utilisateurs ont lancé des recherches.  Par exemple, quand l’utilisateur tape successivement les caractères de son terme de recherche, vous pouvez appeler cette API et remplir la liste déroulante de la zone de recherche avec des suggestions. Tirez parti de nos guides de démarrage rapide, tutoriels et exemples pour découvrir comment utiliser l’API Suggestion automatique.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-autosuggest/overview
+      html: <p>Découvrir l’API Suggestion automatique Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Présentation de l’API Suggestion automatique Bing
+    - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
+      html: <p>Découvrir comment obtenir des suggestions de recherche en temps réel</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Obtention de suggestions de l’API Suggestion automatique Bing
+    - href: /azure/cognitive-services/bing-autosuggest/language-support
+      html: <p>Découvrez quels langages sont pris en charge par l’API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Langues prises en charge
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Découvrez comment développer des applications à l’aide de l’API Suggestion automatique Bing :'
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Application web à page unique</a> &#124; <a href="tutorials/autosuggest-source.md">code source</a>
+    text: <a href="tutorials/autosuggest.md">Application web à page unique</a>
 - title: Informations de référence
   items:
   - type: list

@@ -1,22 +1,12 @@
 ---
 title: Organiser vos ressources avec des groupes d’administration Azure - Azure Governance
-description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
+description: 'Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.'
 author: rthorn17
-manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339285"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -30,9 +20,9 @@ Vous pouvez créer une structure flexible de groupes d’administration et d’a
 
 ![arborescence](./media/tree.png)
 
-Créez une hiérarchie afin de pouvoir appliquer une stratégie, par exemple limiter les emplacements de machine virtuelle à la région USA Ouest sur le groupe « Groupe d’administration de l’équipe Infrastructure ». Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
+Créez une hiérarchie afin de pouvoir appliquer une stratégie, par exemple limiter les emplacements de machine virtuelle à la région USA Ouest sur le groupe « Production ». Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
 
-Un autre scénario où vous pouvez utiliser les groupes d’administration consiste à fournir un accès utilisateur à plusieurs abonnements. En déplaçant un grand nombre d’abonnements dans ce groupe d’administration, vous pouvez créer une affectation de [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) dans le groupe d’administration, qui héritera de l’accès à tous les abonnements.
+Un autre scénario où vous pouvez utiliser les groupes d’administration consiste à fournir un accès utilisateur à plusieurs abonnements. En déplaçant plusieurs abonnements dans ce groupe d’administration, vous pouvez créer une affectation de [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) dans le groupe d’administration, qui héritera de l’accès à tous les abonnements.
 Une affectation sur le groupe d’administration peut autoriser les utilisateurs à accéder à tout ce que dont ils ont besoin, au lieu de créer un script RBAC sur différents abonnements.
 
 ### <a name="important-facts-about-management-groups"></a>Faits importants sur les groupes d’administration
@@ -42,12 +32,12 @@ Une affectation sur le groupe d’administration peut autoriser les utilisateurs
   - Cette limite n’inclut ni le niveau racine ni le niveau d’abonnement.
 - Chaque groupe d’administration et chaque abonnement ne prennent en charge qu’un seul parent.
 - Chaque groupe d’administration peut avoir de nombreux enfants.
-- Dans chaque annuaire, tous les abonnements et groupes d’administration sont dans une même hiérarchie. Pour connaître les exceptions relatives à la préversion, consultez [Faits importants sur le groupe d’administration racine](#important-facts-about-the-root-management-group).
+- Dans chaque annuaire, tous les abonnements et groupes d’administration sont dans une même hiérarchie. Consultez [Faits importants sur le groupe d’administration racine](#important-facts-about-the-root-management-group).
 
 ## <a name="root-management-group-for-each-directory"></a>Groupe d’administration racine pour chaque annuaire
 
 Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration « racine ».
-Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. L’[administrateur de l’annuaire doit élever ses privilèges](../../role-based-access-control/elevate-access-global-admin.md) pour être propriétaire de ce groupe racine à l’initiale. Une fois que l’administrateur est propriétaire du groupe, il peut affecter un rôle RBAC à d’autres utilisateurs ou groupes de l’annuaire pour qu’ils gèrent la hiérarchie.
+Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. L’[administrateur général Azure AD doit élever ses privilèges](../../role-based-access-control/elevate-access-global-admin.md) pour être propriétaire de ce groupe racine au départ. Une fois que l’administrateur est propriétaire du groupe, il peut affecter un rôle RBAC à d’autres utilisateurs ou groupes de l’annuaire pour qu’ils gèrent la hiérarchie.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Faits importants sur le groupe d’administration racine
 
@@ -60,7 +50,7 @@ Ce groupe d’administration racine est intégré à la hiérarchie et contient 
   - Lors de leur création, les nouveaux abonnements sont attribués par défaut au groupe d’administration racine.
 - Tous les clients Azure peuvent voir le groupe d’administration racine, mais tous ne peuvent pas le gérer.
   - Toute personne ayant accès à un abonnement peut voir où celui-ci se trouve dans la hiérarchie.  
-  - Personne ne reçoit par défaut l’accès au groupe d’administration racine. Les administrateurs généraux d’annuaires sont les seuls utilisateurs à pouvoir élever leurs privilèges pour obtenir l’accès.  Une fois l’accès obtenu, les administrateurs d’annuaires peuvent attribuer un rôle RBAC aux autres utilisateurs qu’ils doivent gérer.  
+  - Personne ne reçoit par défaut l’accès au groupe d’administration racine. Les administrateurs généraux Azure AD sont les seuls utilisateurs à pouvoir élever leurs privilèges pour obtenir l’accès.  Une fois l’accès obtenu, les administrateurs généraux peuvent attribuer un rôle RBAC aux autres utilisateurs qu’ils doivent gérer.  
 
 > [!IMPORTANT]
 > Les attributions d’accès utilisateur et de stratégies effectuées au niveau du groupe d’administration racine **s’appliquent à toutes les ressources de l’annuaire**.
@@ -69,21 +59,21 @@ Ce groupe d’administration racine est intégré à la hiérarchie et contient 
 
 ## <a name="initial-setup-of-management-groups"></a>Configuration initiale des groupes d’administration
 
-Lorsqu’un utilisateur commence à utiliser les groupes d’administration, un processus de configuration initiale est lancé. La première étape est la création du groupe d’administration racine dans l’annuaire. Une fois le groupe créé, tous les abonnements existants de l’annuaire deviennent des enfants du groupe d’administration racine. Ce processus permet de faire en sorte que l’annuaire ne contienne qu’une seule hiérarchie de groupes gestion. Le fait de n’avoir qu’une seule hiérarchie par annuaire permet aux administrateurs d’appliquer un accès global et des stratégies que les autres utilisateurs de l’annuaire ne peuvent pas contourner. Avec une seule hiérarchie par annuaire, tout élément attribué au niveau racine est appliqué à l’ensemble des groupes d’administration, abonnements, groupes de ressources et ressources de l’annuaire.
+Lorsqu’un utilisateur commence à utiliser les groupes d’administration, un processus de configuration initiale est lancé. La première étape est la création du groupe d’administration racine dans l’annuaire. Une fois le groupe créé, tous les abonnements existants de l’annuaire deviennent des enfants du groupe d’administration racine. Ce processus permet de faire en sorte que l’annuaire ne contienne qu’une seule hiérarchie de groupes gestion. Le fait de n’avoir qu’une seule hiérarchie par annuaire permet aux administrateurs d’appliquer un accès global et des stratégies que les autres utilisateurs de l’annuaire ne peuvent pas contourner. Tout élément attribué au niveau racine est appliqué à toute la hiérarchie, qui comprend tous les groupes d’administration, les abonnements, les groupes de ressources et les ressources de ce locataire Azure AD.
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Difficultés pour afficher tous les abonnements
 
-Un problème a été constaté sur quelques annuaires ayant commencé à utiliser des groupes d’administration de manière anticipée dans la préversion (25 juin 2018) : tous les abonnements n’étaient pas appliqués dans la hiérarchie.  Les processus permettant d’appliquer des abonnements dans la hiérarchie ont été implémentés après l’affectation d’un rôle ou d’une stratégie dans le groupe d’administration racine de l’annuaire.
+Un problème a été constaté sur quelques annuaires ayant commencé à utiliser des groupes d’administration de manière anticipée dans la préversion du 25 juin 2018 où tous les abonnements n’étaient pas dans la hiérarchie.  Les processus permettant d’avoir tous les abonnements dans la hiérarchie ont été mis en place après l’affectation d’un rôle ou d’une stratégie dans le groupe d’administration racine de l’annuaire.
 
 ### <a name="how-to-resolve-the-issue"></a>Que pouvez-vous faire pour résoudre le problème ?
 
 Pour résoudre ce problème, deux options s’offrent à vous.
 
 1. Supprimer toutes les affectations de rôle et de stratégie du groupe d’administration racine
-    1. En supprimant toutes les affectations de stratégie et de rôle du groupe d’administration racine, le service renverra tous les abonnements dans la hiérarchie du prochain cycle pendant la nuit.  Ce processus permet de garantir qu’aucun accès n’est donné et qu’aucune stratégie n’est affectée accidentellement à tous les abonnements de locataires.
-    1. La meilleure méthode pour effectuer ce processus sans affecter vos services consiste à appliquer les affectations de rôle ou de stratégie à un niveau en dessous du groupe d’administration racine. Vous pouvez ensuite supprimer toutes les affectations au niveau de la racine.
+   1. En supprimant toutes les affectations de stratégie et de rôle du groupe d’administration racine, le service renverra tous les abonnements dans la hiérarchie du prochain cycle pendant la nuit.  Ce processus permet de garantir qu’aucun accès n’est donné et qu’aucune stratégie n’est affectée accidentellement à tous les abonnements de locataires.
+   1. La meilleure méthode pour effectuer ce processus sans affecter vos services consiste à appliquer les affectations de rôle ou de stratégie à un niveau en dessous du groupe d’administration racine. Vous pouvez ensuite supprimer toutes les affectations au niveau de la racine.
 1. Appeler l’API directement afin de démarrer le processus de renvoi
-    1. Tous les clients de l’annuaire peuvent appeler les API *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Lorsque l’API StartTenantBackfillRequest est appelée, elle lance le processus de configuration initiale de déplacement de tous les abonnements dans la hiérarchie. Ce processus démarre également l’application de tous les nouveaux abonnements en tant qu’enfants du groupe d’administration racine. Ce processus peut être effectué sans changer d’affectation au niveau racine. En appelant l’API, vous dites qu’une affectation de stratégie ou d’accès à la racine peut être appliquée à tous les abonnements.
+   1. Tous les clients de l’annuaire peuvent appeler les API *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Lorsque l’API StartTenantBackfillRequest est appelée, elle lance le processus de configuration initiale de déplacement de tous les abonnements dans la hiérarchie. Ce processus démarre également l’application de tous les nouveaux abonnements en tant qu’enfants du groupe d’administration racine. Ce processus peut être effectué sans changer d’affectation au niveau racine. En appelant l’API, vous dites qu’une affectation de stratégie ou d’accès à la racine peut être appliquée à tous les abonnements.
 
 Si vous avez des questions sur ce processus de renvoi, contactez : managementgroups@microsoft.com  
   
@@ -95,17 +85,18 @@ Par exemple, un contributeur de machine virtuelle avec rôle RBAC peut être aff
 
 Le graphique suivant montre la liste des rôles, ainsi que les actions prises en charge par les groupes d’administration.
 
-| Nom du rôle RBAC             | Créer | Renommer | Déplacer | Supprimer | Attribuer l’accès | Attribuer la stratégie | Lire  |
-|:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Propriétaire                       | X      | X      | X    | X      | X             | X             | X     |
-|Contributeur                 | X      | X      | X    | X      |               |               | X     |
-|Contributeur MG*             | X      | X      | X    | X      |               |               | X     |
-|Lecteur                      |        |        |      |        |               |               | X     |
-|Lecteur MG*                  |        |        |      |        |               |               | X     |
-|Contributeur de la stratégie de ressource |        |        |      |        |               | X             |       |
-|Administrateur de l'accès utilisateur   |        |        |      |        | X             |               |       |
+| Nom du rôle RBAC             | Créer | Renommer | Déplacer** | Supprimer | Attribuer l’accès | Attribuer la stratégie | Lire  |
+|:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
+|Propriétaire                       | X      | X      | X      | X      | X             | X             | X     |
+|Contributeur                 | X      | X      | X      | X      |               |               | X     |
+|Contributeur MG*             | X      | X      | X      | X      |               |               | X     |
+|Lecteur                      |        |        |        |        |               |               | X     |
+|Lecteur MG*                  |        |        |        |        |               |               | X     |
+|Contributeur de la stratégie de ressource |        |        |        |        |               | X             |       |
+|Administrateur de l'accès utilisateur   |        |        |        |        | X             |               |       |
 
 * : Contributeur MG et lecteur MG autorisent uniquement les utilisateurs à effectuer ces actions sur l’étendue du groupe d’administration.  
+** : Les attributions de rôles sur le groupe d’administration racine ne sont pas nécessaires pour déplacer un abonnement ou un groupe d’administration.  Consultez [Gérer vos ressources avec des groupes d’administration](manage.md) pour des détails sur le déplacement d’éléments dans la hiérarchie.
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Définition et attribution d’un rôle RBAC personnalisé
 
@@ -113,17 +104,11 @@ Les rôles RBAC personnalisés ne sont pas pris en charge par les groupes d’ad
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditer des groupes d’administration avec des journaux d’activité
 
-Pour suivre des groupes d’administration avec cette API, utilisez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs). Il est actuellement impossible d’utiliser PowerShell, l’interface CLI ou le Portail Azure pour suivre l’activité des groupes d’administration.
+Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md). Vous pouvez rechercher dans tous les événements qui se produisent dans un groupe d’administration au même emplacement central, tout comme d’autres ressources Azure.  Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
 
-1. En tant qu’administrateur locataire du locataire Azure AD, [élevez l’accès](../../role-based-access-control/elevate-access-global-admin.md), puis affectez un rôle de lecteur à l’utilisateur d’audit sur l’étendue `/providers/microsoft.insights/eventtypes/management`.
-1. En tant qu’utilisateur auditeur, appelez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs) pour voir les activités des groupes d’administration. Filtrez toute l’activité des groupes d’administration par fournisseur de ressources **Microsoft.Management**.  Exemple :
+![Journaux d’activité avec les groupes d’administration](media/al-mg.png)
 
-```http
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
-```
-
-> [!NOTE]
-> Pour appeler facilement cette API à partir de la ligne de commande, essayez [ARMClient](https://github.com/projectkudu/ARMClient).
+Quand vous cherchez à interroger les groupes d’administration en dehors du portail Azure, l’étendue cible pour les groupes d’administration ressemble à **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -131,6 +116,6 @@ Pour en savoir plus sur les groupes d’administration, consultez :
 
 - [Créer des groupes d’administration pour organiser les ressources Azure](create.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
-- [Consulter les groupes d’administration dans le module Azure PowerShell Resources](https://aka.ms/mgPSdocs)
-- [Consulter les groupes d’administration dans l’API REST](https://aka.ms/mgAPIdocs)
-- [Consulter les groupes d’administration dans Azure CLI](https://aka.ms/mgclidoc)
+- [Consulter les groupes d’administration dans le module Azure PowerShell Resources](/powershell/module/az.resources#resources)
+- [Consulter les groupes d’administration dans l’API REST](/rest/api/resources/managementgroups)
+- [Consulter les groupes d’administration dans Azure CLI](/cli/azure/account/management-group)

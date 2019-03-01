@@ -20,7 +20,7 @@ items:
   - name: Créer une machine virtuelle Linux - CLI
     href: azure-stack-quick-create-vm-linux-cli.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Tâches courantes
     items:
@@ -44,7 +44,7 @@ items:
       href: azure-stack-solution-geo-distributed.md
     - name: Déployer une solution cloud hybride
       href: azure-stack-solution-hybrid-cloud.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Utiliser le portail Azure Stack
     href: azure-stack-use-portal.md
@@ -148,6 +148,8 @@ items:
           href: azure-stack-solution-template-kubernetes-azuread.md
         - name: Déployer Kubernetes avec AD FS
           href: azure-stack-solution-template-kubernetes-adfs.md
+        - name: Activer le tableau de bord Kubernetes
+          href: azure-stack-solution-template-kubernetes-dashboard.md
         - name: Résoudre les problèmes du cluster Kubernetes
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Déployer Cognitive Services
@@ -229,13 +231,13 @@ items:
     href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
   - name: Informations sur la tarification
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formation et certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: c9c4e0109df5880100956e167d17c61dfd001743
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a06965bc494da93dfb945ccdfbbf10db310df48c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450675"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986292"

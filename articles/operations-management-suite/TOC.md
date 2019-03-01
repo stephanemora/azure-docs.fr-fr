@@ -2,7 +2,7 @@
 ## [Surveillance d’agent](../monitoring/index.md)
 
 # Prise en main
-## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Journaux Azure Monitor](../log-analytics/log-analytics-get-started.md)
 ## [Automation](/azure/automation/)
 ## [Sauvegarde](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
@@ -11,7 +11,7 @@
 # Procédures
 
 ## Analyser
-### [Log Analytics](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatisation
 ### [Vue d’ensemble d’Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -62,7 +62,7 @@
 ### [Ressources Automation](../azure-monitor/insights/solutions-resources-automation.md)
 ### [Recherches de journaux et alertes](../azure-monitor/insights/solutions-resources-searches-alerts.md)
 ### [Views](../azure-monitor/insights/solutions-resources-views.md)
-### [Meilleures pratiques](../azure-monitor/insights/solutions-best-practices.md)
+### [Bonnes pratiques](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Scénarios de gestion
 ### [Recueillir des données d’analyse à partir du runbook](../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
