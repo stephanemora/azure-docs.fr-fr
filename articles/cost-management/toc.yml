@@ -21,10 +21,14 @@ items:
       href: tutorial-acm-opt-recommendations.md
   - name: Concepts
     items:
-    - name: Meilleures pratiques de Azure Cost Management
+    - name: Bonnes pratiques Azure Cost Management
       href: cost-mgt-best-practices.md
     - name: Comprendre les données Cost Management
       href: understand-cost-mgt-data.md
+    - name: Comprendre et utiliser des étendues
+      href: understand-work-scopes.md
+    - name: API pour migrer d’un contrat Entreprise à un contrat client Microsoft
+      href: migrate-cost-management-api.md
   - name: Guides pratiques
     items:
     - name: Assigner l’accès aux données
@@ -113,9 +117,9 @@ items:
         href: cost-mgt-faq.md
       - name: Contacter le support technique Cloudyn
         href: support-request-cost-management.md
-ms.openlocfilehash: ae9155548a839db18fc80f40c12e5264643cea9d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: deec8d274f50f2fad6b18141ec924245c3c2f5ec
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769013"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337853"
