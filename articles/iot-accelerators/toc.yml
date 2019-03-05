@@ -1,6 +1,4 @@
 items:
-- name: Notions de base d’Azure IoT
-  href: ../iot-fundamentals/index.yml
 - name: Documentation sur les accélérateurs de solution IoT
   href: index.md
 - name: Vue d’ensemble
@@ -21,7 +19,7 @@ items:
     items:
     - name: Essayer une solution de surveillance à distance
       href: quickstart-remote-monitoring-deploy.md
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: Surveiller des appareils IoT
       href: iot-accelerators-remote-monitoring-monitor.md
@@ -37,7 +35,7 @@ items:
       href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
     - name: Détecter des anomalies en périphérie
       href: iot-accelerators-remote-monitoring-edge.md
-  - name: Procédures
+  - name: Guides pratiques
     items:
     - name: Déployer une solution
       items:
@@ -141,7 +139,7 @@ items:
     items:
     - name: Essayer une solution de fabrique connectée
       href: quickstart-connected-factory-deploy.md
-  - name: Procédures
+  - name: Guides pratiques
     items:
     - name: Utiliser le tableau de bord
       href: iot-accelerators-connected-factory-dashboard.md
@@ -167,13 +165,13 @@ items:
     items:
     - name: Essayer une solution de simulation d’appareil
       href: quickstart-device-simulation-deploy.md
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: Créer et exécuter une simulation
       href: iot-accelerators-device-simulation-create-simulation.md
     - name: Créer un appareil simulé personnalisé
       href: iot-accelerators-device-simulation-create-custom-device.md
-  - name: Procédures
+  - name: Guides pratiques
     items:
     - name: Utiliser un hub IoT existant
       href: iot-accelerators-device-simulation-choose-hub.md
@@ -207,7 +205,7 @@ items:
   items:
   - name: Vue d’ensemble
     href: iot-accelerators-architecture-overview.md
-  - name: Download
+  - name: Téléchargement
     href: https://aka.ms/iotrefarchitecture
   - name: Implémentations partenaires
     items:
@@ -255,13 +253,13 @@ items:
     href: https://azure.microsoft.com/roadmap/
   - name: Forum Aux Questions
     href: iot-accelerators-faq.md
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Supervision à distance V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 3e3b8a7319a622d4b340b4ac704c45c00030a23b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b2067facd27e94735aba63bb1c54c15e1511c64
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099763"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342035"

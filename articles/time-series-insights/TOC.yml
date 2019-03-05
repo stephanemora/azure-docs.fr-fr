@@ -1,6 +1,4 @@
 items:
-- name: Notions de base d’Azure IoT
-  href: ../iot-fundamentals/index.yml
 - name: Documentation Azure Time Series Insights
   href: index.yml
 - name: Vue d’ensemble
@@ -17,7 +15,7 @@ items:
     items:
     - name: Explorer la préversion de Time Series Insights
       href: time-series-insights-update-quickstart.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Explorer la bibliothèque cliente JavaScript de Time Series Insights
     href: tutorial-explore-js-client-lib.md
@@ -67,7 +65,7 @@ items:
       href: time-series-insights-manage-reference-data-csharp.md
     - name: Partager un affichage personnalisé
       href: time-series-insights-parameterized-urls.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Accorder l’accès aux données
     href: time-series-insights-data-access.md
@@ -176,15 +174,15 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-timeseries-insights
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
-ms.openlocfilehash: 3ae33ba02eb21c748fcea541f3eecff689fb2e8e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ead0631edf7ed36d7dadf185c49bb0e78bafc9c7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250635"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341379"
