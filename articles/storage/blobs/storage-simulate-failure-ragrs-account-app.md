@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2d86c0c4838fb2ae9d839e64a067824019133d8b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024431"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872877"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutoriel : Simuler un échec d’accès au stockage redondant avec accès en lecture
 
@@ -75,7 +75,7 @@ Une fois l’opération effectuée, sélectionnez **File** (Fichier) et **Save**
 
 ### <a name="interrupting-the-application"></a>Interruption de l’application
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python et Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python et Java v7](#tab/dotnet-python-java-v7)
 
 Exécutez l’application dans votre environnement de développement intégré ou interpréteur de commandes.
 
@@ -83,7 +83,7 @@ Une fois que l’application a commencé sa lecture du point de terminaison prin
 
 ![Application de scénario](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Exécutez l’application dans votre environnement de développement intégré ou interpréteur de commandes.
 
@@ -113,7 +113,7 @@ Décommentez les lignes suivantes, remplacez `STORAGEACCOUNTNAME` par le nom de 
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python et Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python et Java v7](#tab/dotnet-python-java-v7)
 
 Pour permettre à l’application de reprendre son exécution, appuyez sur **une touche**.
 
@@ -123,7 +123,7 @@ Ce modèle correspond au modèle [Disjoncteur](https://docs.microsoft.com/azure/
 
 ![Coller la règle personnalisée](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Maintenant que vous avez introduit la défaillance, entrez **G** pour la tester.
 
@@ -133,7 +133,7 @@ Vous êtes informé que le pipeline secondaire est utilisé au lieu du pipeline 
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simuler la restauration du point de terminaison principal
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python et Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python et Java v7](#tab/dotnet-python-java-v7)
 
 Une fois que vous avez défini la règle personnalisée Fiddler à l’étape précédente, les demandes d’accès au point de terminaison principal cessent d’aboutir.
 
@@ -153,7 +153,7 @@ Une fois l’opération effectuée, appuyez sur **une touche** pour permettre à
 
 ![Reprendre l’exécution de l’application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Une fois que vous avez défini la règle personnalisée Fiddler à l’étape précédente, les demandes d’accès au point de terminaison principal cessent d’aboutir.
 
@@ -173,11 +173,11 @@ Vous pouvez créer un itinéraire statique non valide pour toutes les demandes d
 
 ### <a name="start-and-pause-the-application"></a>Démarrer et interrompre l’application
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python et Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python et Java v7](#tab/dotnet-python-java-v7)
 
 Exécutez l’application dans votre environnement de développement intégré ou interpréteur de commandes. Une fois que l’application a commencé sa lecture du point de terminaison principal, appuyez sur **une touche** dans la fenêtre de console pour mettre en pause l’application.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Étant donné que vous contrôlez l’exemple, vous n’avez pas besoin de l’interrompre pour tester une défaillance.
 
@@ -210,13 +210,13 @@ Pour ajouter un itinéraire statique relatif à un hôte de destination, entrez 
 
 Remplacez `<destination_ip>` par l’adresse IP du compte de stockage, et `<gateway_ip>` par l’adresse IP de l’hôte local.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python et Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python et Java v7](#tab/dotnet-python-java-v7)
 
 Pour permettre à l’application de reprendre son exécution, appuyez sur **une touche**.
 
 Une fois que l’application a repris son exécution, les demandes d’accès au point de terminaison principal n’aboutissent plus. L’application tente de se reconnecter au point de terminaison principal à cinq reprises. Après cinq tentatives non réussies, elle demande l’image au point de terminaison secondaire en lecture seule. Une fois que l’application a réussi à récupérer l’image à 20 reprises à partir du point de terminaison secondaire, elle tente de se connecter au point de terminaison principal. Si le point de terminaison principal est toujours inaccessible, l’application reprend sa lecture du point de terminaison secondaire. Ce modèle correspond au modèle [Disjoncteur](/azure/architecture/patterns/circuit-breaker) décrit dans le didacticiel précédent.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Maintenant que vous avez introduit la défaillance, entrez **G** pour la tester. Vous êtes informé que le pipeline secondaire est utilisé au lieu du pipeline principal.
 
@@ -236,14 +236,14 @@ Pour supprimer l’itinéraire statique d’un hôte de destination, le compte d
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python et Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python et Java v7](#tab/dotnet-python-java-v7)
 
 Pour permettre à l’application de reprendre son exécution, appuyez sur **une touche**. L’application poursuit sa lecture du point de terminaison principal jusqu’à ce qu’elle atteigne 999 lectures.
 
 ![Reprendre l’exécution de l’application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Entrez **G** pour tester le téléchargement. L’application signale qu’elle réutilise maintenant le pipeline principal.
 
