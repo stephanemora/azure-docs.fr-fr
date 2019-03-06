@@ -5,18 +5,18 @@ description: À l’aide de C#, créez un bot conversationnel intégré avec com
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cjgronlund
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 98c65b7adfe35c1ca80846ff7619dad69c5ba266
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 028c06924e41606ba1d4e0b15fe26f2b7270db3c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219224"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960294"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutoriel : Bot LUIS en C# avec Bot Framework 4.x et bot d'application web Azure
 À l’aide de C#, vous pouvez créer un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot utilise l’application HomeAutomation pour implémenter une solution de bot. Le bot est créé avec le [bot d’application web](https://docs.microsoft.com/azure/bot-service/) Azure et [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
@@ -66,7 +66,7 @@ ms.locfileid: "55219224"
     
 5. Sélectionnez **Créer**. Le service de bot est alors créé et déployé sur Azure. Une partie de ce processus crée une application LUIS nommée `luis-csharp-bot-XXXX`. Ce nom est basé sur les noms de bot et d’application définis dans la section précédente.
 
-    [ ![Créer un bot d’application web](./media/bfv4-csharp/create-web-app-service.png) ](./media/bfv4-csharp/create-web-app-service.png#lightbox)
+    [![Créer un bot d’application web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
 6. Laissez cet onglet de navigateur ouvert. Pour toutes les étapes avec le portail LUIS, ouvrez un nouvel onglet de navigateur. Quand le nouveau service de bot est déployé, passez à la section suivante.
 
@@ -106,7 +106,7 @@ Pour développer le code de bot d’application web, téléchargez-le et utilise
 
 3. Sélectionnez **Télécharger le code source du bot**. 
 
-    [ ![Télécharger le code source du bot d’application web pour un bot de base](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Télécharger le code source du bot d’application web pour un bot de base](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. Quand le code source est compressé, un message fournit un lien pour le télécharger. Sélectionnez le lien. 
 
@@ -205,7 +205,7 @@ Avant de changer tout code ou paramètre, vérifiez que le bot fonctionne.
 
 2. Dans l’émulateur de bot, sélectionnez le fichier *.bot à la racine du projet. Ce fichier `.bot` inclut le point de terminaison de l’URL du bot pour les messages :
 
-    [ ![Émulateur de bot v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Émulateur de bot v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. Entrez le secret de bot que vous avez copié à partir des paramètres de l’application du service de bot Azure à l’étape 1 de la section **[Télécharger le bot d’application web](#download-the-web-app-bot)**. Ainsi, l’émulateur peut accéder aux champs chiffrés dans le fichier `.bot`.
 
@@ -213,7 +213,7 @@ Avant de changer tout code ou paramètre, vérifiez que le bot fonctionne.
 
 4. Dans l’émulateur de bot, entrez `Hello` et obtenez la réponse appropriée pour le bot de base.
 
-    [ ![Réponse pour le bot de base dans l’émulateur](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![Réponse pour le bot de base dans l’émulateur](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>Modifier le code de bot 
 

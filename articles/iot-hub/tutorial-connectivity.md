@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745807"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674498"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT
 
@@ -122,7 +122,7 @@ Cette fois, vous voyez une erreur d’authentification lorsque l’application t
 
 Si votre appareil utilise l’un des Kits de développement logiciel (SDK) de l’appareil IoT Hub, le code de bibliothèque du Kit de développement logiciel (SDK) génère le jeton SAP utilisé pour l’authentification auprès du Hub. Un jeton SAP est généré à partir du nom de votre Hub, du nom de votre appareil et de la clé de l’appareil.
 
-Dans certains scénarios, comme dans une passerelle de protocole cloud ou dans le cadre d’un schéma d’authentification personnalisé, vous devrez peut-être générer le jeton SAP vous-même. Pour résoudre les problèmes liés à votre code de génération SAP, il est utile de pouvoir générer un jeton SAP vérifié à utiliser pendant le test.
+Dans certains scénarios, comme dans une passerelle de protocole cloud ou dans le cadre d’un schéma d’authentification personnalisé, vous devrez peut-être générer le jeton SAP vous-même. Pour résoudre les problèmes liés à votre code de génération SAP, il est utile de générer un jeton SAP vérifié à utiliser pendant le test.
 
 > [!NOTE]
 > L’exemple SimulatedDevice-2.js inclut des exemples de génération d’un jeton SAP avec et sans le kit de développement logiciel.
@@ -133,7 +133,7 @@ Pour générer un jeton SAP vérifié à l’aide de CLI, exécutez la commande 
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-Prenez note du texte entier du jeton SAP généré. La sortie a l’aspect suivant : `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+Prenez note du texte entier du jeton SAP généré. La sortie a l’aspect suivant : `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 Dans une fenêtre de terminal sur votre machine de développement, accédez au dossier racine de l’exemple de projet Node.js que vous avez téléchargé. Puis accédez au dossier **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
 
@@ -189,13 +189,9 @@ La fenêtre de terminal affiche des informations lorsqu’il envoie des données
 
 ![Envoi de messages de l’appareil simulé](media/tutorial-connectivity/sim-3-sending.png)
 
-Vous pouvez utiliser **Métriques** dans le portail pour vérifier que les messages de télémétrie arrivent jusqu’à votre Hub IoT :
+Vous pouvez utiliser les **Métriques** dans le portail pour vérifier que les messages de télémétrie arrivent jusqu’à votre hub IoT. Sélectionnez votre Hub IoT dans la liste déroulante **Ressource**, sélectionnez **Messages de télémétrie envoyés** en tant que métrique et définissez l’intervalle de temps sur **Dernière heure**. Le graphique indique le nombre agrégé de messages envoyés par l’appareil simulé :
 
-![Accédez aux métriques IoT Hub](media/tutorial-connectivity/metrics-portal.png)
-
-Sélectionnez votre Hub IoT dans la liste déroulante **Ressource**, sélectionnez **Messages de télémétrie envoyés** en tant que métrique et définissez l’intervalle de temps sur **Dernière heure**. Le graphique indique le nombre agrégé de messages envoyés par l’appareil simulé :
-
-![Afficher les métriques IoT Hub](media/tutorial-connectivity/metrics-active.png)
+![Afficher les métriques IoT Hub](media/tutorial-connectivity/metrics-portal.png)
 
 Après le démarrage de l’appareil simulé, les mesures deviennent disponibles après quelques minutes.
 

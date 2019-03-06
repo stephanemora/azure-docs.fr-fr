@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096634"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804953"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : Configurer un laboratoire avec Azure DevTest Labs
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutoriel : Configurer un laboratoire avec Azure DevTest Labs
 Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -80,7 +80,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 1. Une fois la machine virtuelle créée, elle apparaît dans la liste des **machines virtuelles exigibles** dans la liste. 
 
     > [!NOTE] 
-    > Lorsque vous ajoutez une VM Linux à un laboratoire, vous pouvez activer l’accès à SSH et RDP à la machine virtuelle. Si vous n’activez pas l’accès lors de la création de la machine virtuelle, vous pouvez ajouter manuellement des règles dans le groupe de sécurité réseau associé à la machine virtuelle pour ouvrir des ports pour le SSH et le RDP.
+    > Dans la page **Paramètres avancés**, vous pouvez configurer une adresse IP publique, privée ou partagée pour la machine virtuelle. Quand le paramètre d’**adresse IP partagée** est activé, Azure DevTest Labs active automatiquement RDP pour les machines virtuelles Windows et SSH pour les machines virtuelles Linux. Si vous créez des machines virtuelles avec des adresses **IP publiques**, RDP et SSH sont activés sans aucune modification à partir de DevTest Labs.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Ajouter un utilisateur au rôle Utilisateur de laboratoire
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 571cce2fafe1d19653dfa1e3d9a91042584621eb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426777"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735939"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Démarrage rapide : Créer un serveur - PowerShell
 
@@ -21,49 +21,51 @@ Ce démarrage rapide décrit comment utiliser PowerShell à partir d’une ligne
 
 ## <a name="prerequisites"></a>Prérequis
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Abonnement Azure** : Visitez [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) pour créer un compte.
 - **Azure Active Directory** : votre abonnement doit être associé à un client Azure Active Directory et vous devez disposer d’un compte dans ce répertoire. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
-- **Module Azure PowerShell, version 4.0 ou ultérieure**. Pour connaître la version de l’interface, exécutez ` Get-Module -ListAvailable AzureRM`. Pour installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+- **Azure PowerShell**. Pour trouver la version installée, exécutez `Get-Module -ListAvailable Az`. Pour installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 
-## <a name="import-azurermanalysisservices-module"></a>Importer le module de AzureRm.AnalysisServices
+## <a name="import-azanalysisservices-module"></a>Importer le module Az.AnalysisServices
 
-Pour créer un serveur dans votre abonnement, vous utilisez le module de composant [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices). Chargez le module AzureRm.AnalysisServices dans votre session PowerShell.
+Pour créer un serveur dans votre abonnement, vous utilisez le module [Az.AnalysisServices](/powershell/module/az.analysisservices). Chargez le module Az.AnalysisServices dans votre session PowerShell.
 
 ```powershell
-Import-Module AzureRM.AnalysisServices
+Import-Module Az.AnalysisServices
 ```
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à votre abonnement Azure à l’aide de la commande [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Suivez les instructions à l’écran.
+Connectez-vous à votre abonnement Azure à l’aide de la commande [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount). Suivez les instructions à l’écran.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. Lorsque vous créez votre serveur, vous devez spécifier un groupe de ressources dans votre abonnement. Si vous ne disposez pas d’un groupe de ressources, créez-en un à l’aide de la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` dans la région USA Ouest.
+Un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. Lorsque vous créez votre serveur, vous devez spécifier un groupe de ressources dans votre abonnement. Si vous ne disposez pas d’un groupe de ressources, créez-en un à l’aide de la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` dans la région USA Ouest.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
 ```
 
 ## <a name="create-a-server"></a>Créer un serveur
 
-Créer un nouveau serveur à l’aide de la commande [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). L’exemple suivant crée un serveur nommé myServer dans myResourceGroup, dans la région États-Unis de l’Ouest, au niveau D1, et spécifie philipc@adventureworks.com en tant qu’administrateur de serveur.
+Créez un serveur à l’aide de la commande [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver). L’exemple suivant crée un serveur nommé myServer dans myResourceGroup, dans la région États-Unis de l’Ouest, au niveau D1, et spécifie philipc@adventureworks.com en tant qu’administrateur de serveur.
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Vous pouvez supprimer le serveur à partir de votre abonnement à l’aide de la commande [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). Si vous continuez avec d’autres démarrages rapides et tutoriels de cette collection, ne supprimez pas votre serveur. L’exemple suivant supprime le serveur créé à l’étape précédente.
+Vous pouvez supprimer le serveur de votre abonnement à l’aide de la commande [Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver). Si vous continuez avec d’autres démarrages rapides et tutoriels de cette collection, ne supprimez pas votre serveur. L’exemple suivant supprime le serveur créé à l’étape précédente.
 
 
 ```powershell
-Remove-AzureRmAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
+Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

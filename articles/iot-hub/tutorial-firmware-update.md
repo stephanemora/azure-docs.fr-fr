@@ -9,15 +9,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 02/22/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729810"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671826"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil
 
@@ -94,7 +94,8 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ```
 
-Si vous exécutez ces commandes à partir d’une invite de commandes Windows ou d’une invite de commandes Powershell, consultez la page [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
+> [!TIP]
+> Si vous exécutez ces commandes à partir d’une invite de commandes Windows ou d’une invite de commandes Powershell, consultez la page [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
 ) pour plus d’informations sur la façon de citer les chaînes JSON.
 
 ## <a name="start-the-firmware-update"></a>Démarrer la mise à jour du microprogramme
@@ -205,7 +206,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à implémenter un processus de mise à jour de microprogramme pour vos appareils connectés. Passez au tutoriel suivant pour apprendre à utiliser les outils du portail Azure IoT Hub et les commandes Azure CLI pour tester la connectivité de l’appareil.
+Dans ce tutoriel, vous avez appris à implémenter un processus de mise à jour de microprogramme pour vos appareils connectés. Passez au tutoriel suivant pour apprendre à utiliser les outils du portail Azure IoT Hub et les commandes Azure CLI pour tester la connectivité de l’appareil.
 
 > [!div class="nextstepaction"]
 [Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT](tutorial-connectivity.md)

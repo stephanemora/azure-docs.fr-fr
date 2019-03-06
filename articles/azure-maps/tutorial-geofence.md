@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244451"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670891"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -148,7 +148,7 @@ Ouvrez l’application Postman et suivez les étapes pour charger la limite géo
    }
    ```
 
-5. Cliquez sur Send, puis examinez l’en-tête de la réponse. L’en-tête d’emplacement contient l’URI permettant d’accéder aux données ou de les télécharger pour les utiliser ultérieurement. Il contient également la valeur unique `udId` pour les données chargées.
+5. Cliquez sur Send (Envoyer), puis examinez l’en-tête de la réponse. L’en-tête d’emplacement contient l’URI permettant d’accéder aux données ou de les télécharger pour une utilisation ultérieure. Il contient également la valeur unique `udId` pour les données chargées.
 
   ```HTTP
   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}

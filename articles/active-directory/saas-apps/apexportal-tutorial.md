@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Apex Portal | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Apex Portal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Apex Portal.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a494e403b8afa1424640ac2e24d0f832b3de02dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89b264c35d7dc269252a156aad6a24a565dbd6ea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210609"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutoriel : Intégration d’Azure Active Directory à Apex Portal
 
@@ -217,8 +217,8 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans Apex Portal. Apex Portal prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Apex Portal, il en est créé un après l’authentification.
 
-> [!NOTE]
-> Pour créer manuellement un utilisateur, contactez  [l’équipe de support d’Apex Portal](mailto:support@apexanalytix.com).
+> [!NOTE]
+> Pour créer manuellement un utilisateur, contactez l’ [équipe du support technique Apex Portal](mailto:support@apexanalytix.com).
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
@@ -228,7 +228,7 @@ Quand vous cliquez sur la vignette Apex Portal dans le volet d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b2b5c7201fe45fb52eb333b9e32b4996e00df9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471320"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822921"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -57,7 +57,7 @@ Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez la réfé
 
 ## <a name="diagrams"></a>Diagrammes de topologie de connexion
 
-Il est important de savoir qu’il existe différentes configurations disponibles pour les connexions aux passerelles VPN. Vous devez déterminer la configuration qui correspond le mieux à vos besoins. Dans les sections ci-dessous, vous pouvez afficher des informations et des diagrammes de topologie sur les connexions de passerelle VPN suivantes : Les sections suivantes contiennent des tableaux qui répertorient les éléments ci-dessous :
+Il est important de savoir qu’il existe différentes configurations disponibles pour les connexions aux passerelles VPN. Vous devez déterminer la configuration qui correspond le mieux à vos besoins. Dans les sections ci-dessous, vous pouvez afficher des informations et des diagrammes de topologie sur les connexions de passerelle VPN suivantes : Les sections ci-après contiennent des tableaux répertoriant les éléments suivants :
 
 * Modèle de déploiement disponible
 * Outils de configuration disponibles
@@ -152,7 +152,6 @@ Pour les questions fréquemment posées sur la passerelle VPN, consultez le [For
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Planifiez votre configuration de passerelle VPN. Consultez [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md).
 - Pour plus d’informations, consultez la [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 - Consultez les [Limites du service et de l’abonnement](../azure-subscription-service-limits.md#networking-limits).
 - Découvrez certaines des autres [fonctionnalités de réseau](../networking/networking-overview.md) clés d’Azure.

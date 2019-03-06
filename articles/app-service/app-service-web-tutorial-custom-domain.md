@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113360"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650901"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -199,6 +199,15 @@ Pour l’exemple de domaine `contoso.com`, créez les enregistrements A et TXT 
 | - | - | - |
 | A | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
+
+> [!NOTE]
+> Pour ajouter un sous-domaine (comme `www.contoso.com`) à l’aide d’un enregistrement A au lieu d’un [enregistrement CNAME](#map-a-cname-record) recommandé, votre enregistrement A et votre enregistrement TXT doivent plutôt se présenter comme dans le tableau suivant :
+>
+> | Type d’enregistrement | Host | Valeur |
+> | - | - | - |
+> | A | `www` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
 
 Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS ressemble à l’exemple suivant :
 

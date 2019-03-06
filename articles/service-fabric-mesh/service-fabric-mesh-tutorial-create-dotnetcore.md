@@ -3,8 +3,8 @@ title: Tutoriel - Créer, déboguer, déployer et superviser une application mul
 description: Dans ce didacticiel, vous allez créer une application de maillage multiservice Azure Service Fabric composée d’un site web ASP.NET Core qui communique avec un service web back-end, la déboguer en local et la publier dans Azure.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888747"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805424"
 ---
-# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutoriel : Créer, déboguer, déployer et mettre à niveau une application Service Fabric Mesh multiservice
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Didacticiel : Créer, déboguer, déployer et mettre à niveau une application Service Fabric Mesh multiservice
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à utiliser Visual Studio pour créer une application Azure Service Fabric Mesh comportant un serveur web frontend ASP.NET et un service backend d’API web ASP.NET Core. Vous allez ensuite déboguer l’application dans votre cluster de développement local. Vous allez publier l’application sur Azure, apporter des changements à la configuration et au code, puis mettre à niveau l’application. Enfin, vous allez nettoyer les ressources Azure inutilisées afin d’éviter d’être facturé pour ce que vous n’utilisez pas.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 764b5ebb73340d377250d39e20b17ed0daf18bbe
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7cf0788bdd013eb6a42ee5aa3f5c054a557cbc77
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447682"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651836"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Didacticiel : Configurer un compte lab avec Azure Lab Services
 Dans Azure Lab Services, un compte de laboratoire sert de compte central, dans lequel sont gérés tous les laboratoires de votre entreprise. Dans votre compte lab, accordez l’autorisation à d’autres personnes pour créer des laboratoires et définissez des stratégies qui s’appliquent à tous les laboratoires du compte de laboratoire. Dans ce tutoriel, découvrez comment créer un compte de laboratoire en tant qu’administrateur de laboratoire. 
@@ -66,7 +66,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, l’util
 
 Pour donner aux formateurs l’autorisation de créer des laboratoires pour leurs classes, ajoutez-les au rôle **Créateur de laboratoire** :
 
-1. Dans la page **Compte Lab**, sélectionnez **Contrôle d’accès (IAM)**, puis cliquez sur **+ Ajouter une attribution de rôle** dans la barre d’outils. 
+1. Dans la page **Compte Lab**, sélectionnez **Contrôle d’accès (IAM)**, puis **+ Ajouter** et **+ Ajouter une attribution de rôle** dans la barre d’outils. 
 
     ![Contrôle d’accès -> bouton Ajouter une attribution de rôle](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
 1. Dans la page **Ajouter une attribution de rôle**, sélectionnez **Créateur lab** pour **Rôle**, sélectionnez l’utilisateur à ajouter au rôle Créateur lab, puis sélectionnez **Enregistrer**. 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 11/28/2018
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b01e16f85eaccee4d765b4985769df670d4d35ca
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 003b43760b4c0ae5785315e6acf0ed9982d9b1fe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413028"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960842"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -56,7 +56,7 @@ Le trafic réseau entrant vers votre adresse IP publique de pare-feu est traduit
 
 ### <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 
-Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux dans un compte de stockage, de transmettre en continu des événements vers votre Event Hub ou de les envoyer vers Log Analytics.
+Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux dans un compte de stockage, de transmettre en continu des événements à votre hub d’événements ou de les envoyer à des journaux Azure Monitor.
 
 ## <a name="known-issues"></a>Problèmes connus
 

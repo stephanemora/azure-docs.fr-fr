@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/19/2018
+ms.date: 02/22/2019
 ms.author: dobett
-ms.openlocfilehash: b33039dab609cb457f1228a958f6a18070c675ac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fcc69ccea831546aa448dc1602cefd0248c65bb8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247552"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673153"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (Node.js)
 
@@ -47,16 +47,15 @@ Téléchargez l’exemple de projet Node.js à partir de https://github.com/Azur
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-
 ## <a name="register-a-device"></a>Inscrire un appareil
 
 Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dans ce démarrage rapide, vous utilisez Azure Cloud Shell pour inscrire un appareil simulé.
 
-1. Exécutez les commandes suivantes dans Azure Cloud Shell pour ajouter l’extension CLI IoT Hub et créer l’identité d’appareil. 
+1. Exécutez les commandes suivantes dans Azure Cloud Shell pour ajouter l’extension CLI IoT Hub et créer l’identité d’appareil.
 
-   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
-   **MyNodeDevice** : il s’agit du nom donné à l’appareil inscrit. Utilisez MyNodeDevice comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez également utiliser ce nom pour l’ensemble de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
+   **MyNodeDevice** : Nom de l’appareil que vous inscrivez. Utilisez **MyNodeDevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez utiliser ce nom pour l’ensemble de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -65,32 +64,31 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 1. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire :
 
-   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
- 
+
     Notez la chaîne de connexion à l’appareil, qui ressemble à ce qui suit :
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
     Vous utiliserez cette valeur plus loin dans ce démarrage rapide.
 
-1. Vous avez également besoin d’une _chaîne de connexion de service_ pour permettre à l’application back-end de se connecter à votre hub IoT et ainsi récupérer les messages. La commande suivante récupère la chaîne de connexion de service correspondant à votre hub IoT :
-   
-   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+1. Vous avez également besoin d’une _chaîne de connexion de service_ pour activer l’application back-end afin de vous connecter à votre IoT Hub et récupérer les messages. La commande suivante récupère la chaîne de connexion de service correspondant à votre hub IoT :
+
+   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
-     
+
     Notez la chaîne de connexion de service, qui ressemble à ce qui suit :
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
 
     Vous utiliserez cette valeur plus loin dans ce démarrage rapide. La chaîne de connexion de service est différente de la chaîne de connexion d’appareil.
-
 
 ## <a name="send-simulated-telemetry"></a>Envoyer des données de télémétrie simulée
 

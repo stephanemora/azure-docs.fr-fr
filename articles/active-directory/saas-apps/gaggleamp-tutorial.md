@@ -1,245 +1,220 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à GaggleAMP | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à GaggleAMP | Microsoft Docs'
 description: Découvrez comment configurer l'authentification unique entre Azure Active Directory et GaggleAMP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/06/2018
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce28f3667689134a2de177ed5c0dfae810dc1889
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79ad337affdddfb647937435cfa637be0e38f7bd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173570"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutoriel : Intégration d’Azure AD à GaggleAMP
 
 Dans ce didacticiel, vous allez apprendre à intégrer GaggleAMP à Azure Active Directory (Azure AD).
-
 L’intégration de GaggleAMP dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à GaggleAMP.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à GaggleAMP (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
+* Dans Azure AD, vous pouvez contrôler qui a accès à GaggleAMP.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à GaggleAMP (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à GaggleAMP, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement GaggleAMP pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement GaggleAMP pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de GaggleAMP à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* GaggleAMP prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité**
+
+* GaggleAMP prend en charge l’attribution d’utilisateurs **juste-à-temps**
 
 ## <a name="adding-gaggleamp-from-the-gallery"></a>Ajout de GaggleAMP à partir de la galerie
+
 Pour configurer l’intégration de GaggleAMP à Azure AD, vous devez ajouter GaggleAMP à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter GaggleAMP à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![APPLICATIONS][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![APPLICATIONS][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-1. Dans la zone de recherche, entrez **GaggleAMP**.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![Création d’un utilisateur de test Azure AD](./media/gaggleamp-tutorial/tutorial_gaggleamp_search.png)
+4. Dans la zone de recherche, tapez **GaggleAMP**, sélectionnez **GaggleAMP** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-1. Dans le volet de résultats, sélectionnez **GaggleAMP**, puis cliquez sur **Ajouter** pour ajouter l’application.
+     ![GaggleAMP dans la liste des résultats](common/search-new-app.png)
 
-    ![Création d’un utilisateur de test Azure AD](./media/gaggleamp-tutorial/tutorial_gaggleamp_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec GaggleAMP, avec un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur GaggleAMP correspondant dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur GaggleAMP associé doit être établie.
-
-Dans GaggleAMP, assignez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec GaggleAMP pour un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur GaggleAMP associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec GaggleAMP, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Création d’un utilisateur de test GaggleAMP](#creating-a-gaggleamp-test-user)** pour avoir un équivalent de Britta Simon dans GaggleAMP lié à la représentation Azure AD associée.
-1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique GaggleAMP](#configure-gaggleamp-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test GaggleAMP](#create-gaggleamp-test-user)** pour avoir un équivalent de Britta Simon dans GaggleAMP lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application GaggleAMP.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec GaggleAMP, procédez comme suit :**
+Pour configurer l’authentification unique Azure AD avec GaggleAMP, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, sur la page d’intégration de l’application **GaggleAMP**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **GaggleAMP**, sélectionnez **Authentification unique**.
 
-    ![Configurer l'authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Configurer l'authentification unique](./media/gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-1. Dans la section **GaggleAMP Domain and URLs** (Domaine et URL GaggleAMP), suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-    ![Configurer l'authentification unique](./media/gaggleamp-tutorial/tutorial_gaggleamp_url.png)
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-     Dans la zone de texte **Identificateur**, tapez l’URL : `https://accounts.gaggleamp.com/auth/saml/callback`
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+    ![Informations d’authentification unique dans Domaine et URL GaggleAMP](common/idp-identifier.png)
 
-     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://gaggleamp.com/i/<customerid>`
+    Dans la zone de texte **Identificateur**, tapez une URL :  `https://accounts.gaggleamp.com/auth/saml/callback`
+
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+
+    ![image](common/both-preintegrated-signon.png)
+
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://gaggleamp.com/i/<customerid>`
 
     > [!NOTE]
-    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique de GaggleAMP](mailto:sales@gaggleamp.com).
- 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de GaggleAMP](mailto:sales@gaggleamp.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-    ![Configure Single Sign-On](./media/gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-1. Cliquez sur le bouton **Enregistrer** .
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-    ![Configurer l'authentification unique](./media/gaggleamp-tutorial/tutorial_general_400.png)
+7. Dans la section **Configurer GaggleAMP**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-1. Dans la section **Configuration de GaggleAMP**, cliquez sur **Configurer GaggleAMP** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    ![Configurer l'authentification unique](./media/gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
+    a. URL de connexion
+
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+### <a name="configure-gaggleamp-single-sign-on"></a>Configurer l’authentification unique GaggleAMP
 
 1. Dans une autre instance de navigateur, accédez à la page d’authentification unique SML que l’équipe du support technique Gaggle aura créée pour vous (par exemple : *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
-1. Sur la page **SAML SSO** (Authentification unique SAML), procédez comme suit :  
+2. Sur la page **SAML SSO** (Authentification unique SAML), procédez comme suit :  
    
     ![Authentification unique GaggleAMP](./media/gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
     a. Sélectionnez **Autres** dans le menu déroulant **Fournisseur d’identité**.
     
-    b. Dans la zone de texte **Émetteur du fournisseur d’identité**, collez la valeur de **l’URL de l’émetteur** copiée à partir du portail Azure.
+    b. Dans la zone de texte **Identity Provider Issuer** (Émetteur du fournisseur d’identité), collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du portail Azure.
     
-    c. Dans la zone de texte **URL d’authentification unique du fournisseur d’identité**, collez la valeur **URL du service d’authentification unique** que vous avez copiée à partir du portail Azure.
+    c. Dans la zone de texte **Identity Provider Single Sign-On URL** (URL d’authentification unique du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
     
     d. Ouvrez dans le Bloc-notes votre fichier **Certificate(Base64)** téléchargé, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X.509**.
     
     e. Cliquez sur **Enregistrer**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-![Créer un utilisateur Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Création d’un utilisateur de test Azure AD](./media/gaggleamp-tutorial/create_aaduser_01.png) 
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-    
-    ![Création d’un utilisateur de test Azure AD](./media/gaggleamp-tutorial/create_aaduser_02.png) 
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
- 
-    ![Création d’un utilisateur de test Azure AD](./media/gaggleamp-tutorial/create_aaduser_03.png) 
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
- 
-    ![Création d’un utilisateur de test Azure AD](./media/gaggleamp-tutorial/create_aaduser_04.png) 
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    Par exemple, BrittaSimon@contoso.com
 
-    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
-
-    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
- 
-### <a name="creating-a-gaggleamp-test-user"></a>Création d’un utilisateur de test GaggleAMP
 
-L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans GaggleAMP. GaggleAMP prend en charge l'approvisionnement juste-à-temps, option activée par défaut.
-
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à GaggleAMP s’il n’existe pas déjà. 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à GaggleAMP.
 
-![Affecter des utilisateurs][200] 
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **GaggleAMP**.
 
-**Pour affecter Britta Simon à GaggleAMP, procédez comme suit :**
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+2. Dans la liste des applications, sélectionnez **GaggleAMP**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Lien GaggleAMP dans la liste des applications](common/all-applications.png)
 
-1. Dans la liste des applications, sélectionnez **GaggleAMP**.
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
-    ![Configurer l'authentification unique](./media/gaggleamp-tutorial/tutorial_gaggleamp_app.png) 
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Affecter des utilisateurs][202] 
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-    ![Affecter des utilisateurs][203]
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+### <a name="create-gaggleamp-test-user"></a>Créer un utilisateur de test GaggleAMP
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+Dans cette section, un utilisateur appelé Britta Simon est créé dans GaggleAMP. GaggleAMP prend en charge l’attribution d’utilisateurs juste-à-temps, qui est une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans GaggleAMP, il en est créé un après l’authentification.
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
-Quand vous cliquez sur la vignette GaggleAMP dans le volet d’accès, vous devez être connecté automatiquement à votre application GaggleAMP.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Quand vous cliquez sur la vignette GaggleAMP dans le volet d’accès, vous devez être connecté automatiquement à l’application GaggleAMP pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/gaggleamp-tutorial/tutorial_general_01.png
-[2]: ./media/gaggleamp-tutorial/tutorial_general_02.png
-[3]: ./media/gaggleamp-tutorial/tutorial_general_03.png
-[4]: ./media/gaggleamp-tutorial/tutorial_general_04.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/gaggleamp-tutorial/tutorial_general_100.png
-
-[200]: ./media/gaggleamp-tutorial/tutorial_general_200.png
-[201]: ./media/gaggleamp-tutorial/tutorial_general_201.png
-[202]: ./media/gaggleamp-tutorial/tutorial_general_202.png
-[203]: ./media/gaggleamp-tutorial/tutorial_general_203.png

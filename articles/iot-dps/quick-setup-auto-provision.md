@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0b16c6da0066ac4e919c1bef031d3206a359aae6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182636"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818117"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
     * **Nom :** Spécifiez un nom unique pour votre nouvelle instance du service Device Provisioning. Si le nom saisi est disponible, une coche verte s’affiche.
     * **Abonnement :** Choisissez l’abonnement que vous voulez utiliser pour créer cette instance du service Device Provisioning.
-    * **Groupe de ressources :** Ce champ vous permet de créer un groupe de ressources ou de sélectionner un groupe déjà existant pour contenir la nouvelle instance. Choisissez le même groupe de ressources qui contient l’IoT Hub que vous avez créé ci-dessus, par exemple, **TestResources**. En plaçant toutes les ressources associées dans un même groupe, vous pouvez les gérer toutes ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources contenues dans ce groupe. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-portal.md).
+    * **Groupe de ressources :** Ce champ vous permet de créer un groupe de ressources ou de sélectionner un groupe déjà existant pour contenir la nouvelle instance. Choisissez le même groupe de ressources qui contient l’IoT Hub que vous avez créé ci-dessus, par exemple, **TestResources**. En plaçant toutes les ressources associées dans un même groupe, vous pouvez les gérer toutes ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources contenues dans ce groupe. Pour plus d’informations, consultez [Gérer des groupes de ressources Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md).
     * **Emplacement :** Sélectionnez l’emplacement le plus proche de vos appareils.
 
       ![Entrée des informations de base sur votre instance de service Device Provisioning dans le panneau du Portail](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  

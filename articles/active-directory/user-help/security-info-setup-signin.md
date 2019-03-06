@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bb1ec22d4113c7b9cecbc428bf70ac91d9a7e75
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457906"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587886"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurer des informations de sécurité (préversion) à partir de l’invite de la page de connexion
 Vous pouvez suivre ces étapes si vous êtes invité à définir des informations de sécurité immédiatement après vous être connecté à votre compte professionnel ou scolaire.
@@ -76,7 +76,7 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 
     Vos informations de sécurité sont mises à jour pour utiliser l’application Microsoft Authenticator par défaut afin de vérifier votre identité quand vous utilisez la vérification en deux étapes ou la réinitialisation de mot de passe.
 
-9. Dans la page **Téléphone**, indiquez si vous souhaitez recevoir un SMS ou un appel téléphonique, puis sélectionnez **Suivant**. Dans cet exemple, nous utilisons des SMS. Vous devez donc indiquer le numéro de téléphone d’un appareil qui accepte les SMS.
+9. Dans la page de configuration **Téléphone**, indiquez si vous voulez recevoir un SMS ou un appel téléphonique, puis sélectionnez **Suivant**. Dans cet exemple, nous utilisons des SMS. Vous devez donc indiquer le numéro de téléphone d’un appareil qui accepte les SMS.
 
     ![Configuration d’un numéro de téléphone pour recevoir des SMS](media/security-info/securityinfo-prompt-text-msg.png)
 

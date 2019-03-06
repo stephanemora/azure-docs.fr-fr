@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bbede01844f20c0240b154fd319b818a43463131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efa8f4fc604440b8c1396aa654834ce83a41844e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824488"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875809"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -25,7 +25,7 @@ Ce tutoriel vous montre comment déplacer des machines virtuelles Azure vers une
 > * [Vérifier la configuration requise](#verify-prerequisites)
 > * [Préparer les machines virtuelles sources](#prepare-the-source-vms)
 > * [Préparer la région cible](#prepare-the-target-region)
-> * [Copier les données vers la région cible](#copy-data-to-the-target-region)
+> * [Copier des données vers la région cible](#copy-data-to-the-target-region)
 > * [Tester la configuration](#test-the-configuration)
 > * [Effectuer le déplacement](#perform-the-move-to-the-target-region-and-confirm)
 > * [Supprimer les ressources dans la région source](#discard-the-resource-in-the-source-region)
@@ -64,7 +64,7 @@ Ce tutoriel vous montre comment déplacer des machines virtuelles Azure vers une
 
 2. Assurez-vous que votre abonnement dispose de suffisamment de ressources pour prendre en charge des machines virtuelles de tailles correspondant à vos machines virtuelles source. Si vous l’utilisez pour copier des données vers la cible, Site Recovery choisit une machine virtuelle cible de la même taille ou de la taille la plus proche possible.
 
-3. Assurez-vous de créer une ressource cible pour chaque composant identifié dans la topologie du réseau source. Cette étape est importante pour garantir que vos machines virtuelles, après leur déplacement final vers la région cible, offriront toutes les fonctionnalités et capacités qui étaient disponibles dans la région source.
+3. Veillez à créer une ressource cible pour chaque composant identifié dans la topologie du réseau source. Cette étape est importante pour garantir que vos machines virtuelles, après leur déplacement final vers la région cible, offriront toutes les fonctionnalités et capacités qui étaient disponibles dans la région source.
 
     > [!NOTE]
     > Azure Site Recovery détecte et crée automatiquement un réseau virtuel et un compte de stockage quand vous activez la réplication de la machine virtuelle source. Vous pouvez aussi précréer ces ressources et les affecter à la machine virtuelle au moment de l’étape d’activation de la réplication. En revanche, pour toutes les autres ressources, comme mentionné ci-dessous, vous devez les créer manuellement dans la région cible.
@@ -73,7 +73,7 @@ Ce tutoriel vous montre comment déplacer des machines virtuelles Azure vers une
 
     - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
     Pour tous les autres composants réseau, reportez-vous à cette [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network) sur la mise en réseau. 
 

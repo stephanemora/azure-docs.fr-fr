@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267256"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872486"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Qu'est-ce que le service Azure Machine Learning ?
 
@@ -32,7 +32,7 @@ Les prévisions ou prédictions générées à partir de Machine Learning peuven
 
 Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour préparer les données, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning.
 
-[ ![Workflow du service Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Workflow du service Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Le service Azure Machine Learning prend entièrement en charge les technologies open source. Vous pouvez utiliser des dizaines de milliers de packages Python open source avec des composants de machine learning. Par exemple : PyTorch, TensorFlow et scikit-learn.
 La prise en charge d’outils complets facilite l’exploration et la préparation interactive des données, puis le développement et le test de modèles. Par exemple : [les notebooks Jupyter](http://jupyter.org) ou l’extension [Azure Machine Learning pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
@@ -70,7 +70,7 @@ Pour commencer à utiliser le service Azure Machine Learning, consultez [Étapes
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>En quoi le service Azure Machine Learning est-il différent de Machine Learning Studio ?
 
-Azure Machine Learning Studio est un espace de travail collaboratif visuel par glisser-déplacer dans lequel vous pouvez créer, tester et déployer des solutions de machine learning sans avoir besoin d’écrire du code. Il utilise des algorithmes de machine learning prédéfinis et préconfigurés, ainsi que des modules de gestion de données. 
+[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) est un espace de travail collaboratif visuel par glisser-déplacer dans lequel vous pouvez créer, tester et déployer des solutions de machine learning sans avoir besoin d’écrire du code. Il utilise des algorithmes de machine learning prédéfinis et préconfigurés, ainsi que des modules de gestion de données.
 
 Utilisez Machine Learning Studio lorsque vous souhaitez essayer rapidement et simplement des modèles Machine Learning et que les algorithmes de machine learning intégrés sont suffisants pour vos solutions.
 

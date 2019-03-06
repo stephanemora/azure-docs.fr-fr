@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a427910c598ce7a93dd1b74fb4297d9825ba14ca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245607"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887384"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemple : Comment extraire des phrases clés avec l’Analyse de texte
 
@@ -31,9 +31,9 @@ Actuellement, l’API Extraction de phrases clés prend en charge l’anglais, l
 
 L’extraction de phrases clés fonctionne mieux avec une plus grande quantité de texte. Contrairement à l’analyse des sentiments, qui fonctionne mieux sur des petites quantités de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
 
-Vous devez disposer des documents JSON dans le format : id, texte, langue
+Vous devez disposer de documents JSON dans le format : id, texte, langue
 
-La taille des documents doit être inférieure à 5 000 caractères par document et vous pouvez avoir jusqu'à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. L’exemple suivant illustre le contenu qui peut être soumis pour extraction d’expressions clés.
+La taille des documents doit être inférieure à 5 120 caractères par document et vous pouvez avoir jusqu’à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. L’exemple suivant illustre le contenu qui peut être soumis pour extraction d’expressions clés.
 
 ```json
     {

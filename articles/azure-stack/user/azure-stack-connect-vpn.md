@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 882724c5f45cc2c5b3debb8fa80538239a98b749
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa467910cfa2dad84af3905db3592657cae85be9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240690"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594353"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Connexion d’Azure Stack à Azure à l’aide d’un VPN
 
@@ -56,7 +56,7 @@ Le tableau d’exemples de configuration réseau montre les valeurs utilisées p
 
 ## <a name="create-the-network-resources-in-azure"></a>Créer les ressources réseau dans Azure
 
-Vous devez tout d’abord créer les ressources réseau pour Azure. Les instructions ci-après vous indiquent comment créer les ressources à partir du [portail Azure](https://portal.azure.com/).
+Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-après vous indiquent comment créer les ressources à partir du [portail Azure](https://portal.azure.com/).
 
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>Créer le réseau virtuel et le sous-réseau de machine virtuelle
 
@@ -305,4 +305,4 @@ Si vous souhaitez connaître la quantité de données qui transite par votre con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer des applications sur Azure et Azure Stack](azure-stack-solution-pipeline.md)
+* [Déployer des applications sur Azure et Azure Stack](azure-stack-solution-pipeline.md)

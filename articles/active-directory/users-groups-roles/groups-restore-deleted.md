@@ -1,72 +1,81 @@
 ---
 title: Restaurer un groupe Office 365 supprimé dans Azure AD | Microsoft Docs
-description: Comment restaurer un groupe supprimé, afficher les groupes pouvant être restaurés et supprimer de façon permanente un groupe dans Azure Active Directory
+description: Guide pratique pour restaurer un groupe supprimé, voir les groupes pouvant être restaurés et supprimer définitivement un groupe dans Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/28/2017
+ms.date: 02/21/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2e756676ee1abde88f75a1629640239f3162ea
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: cacd4a24becab1dfe797fe29aea125c016527192
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430639"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734385"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restaurer un groupe Office 365 supprimé dans Azure Active Directory
-
 Lorsque vous supprimez un groupe Office 365 dans Azure Active Directory (Azure AD), celui-ci est conservé, mais il n’est pas visible pendant 30 jours à partir de la date de suppression. L’avantage de ce comportement est que le groupe et son contenu peuvent être restaurés au besoin. Cette fonctionnalité est limitée exclusivement aux groupes Office 365 dans Azure AD. Elle n’est pas disponible pour les groupes de sécurité et les groupes de distribution.
 
 > [!NOTE]
-> N’utilisez pas `Remove-MsolGroup`, car il vide le groupe définitivement. Utilisez toujours `Remove-AzureADMSGroup` pour supprimer un groupe O365.
+> N’utilisez pas `Remove-MsolGroup`, car il vide le groupe définitivement. Utilisez toujours `Remove-AzureADMSGroup` pour supprimer un groupe Office 365.
 
 Les autorisations requises pour restaurer un groupe peuvent être les suivantes :
 
 Rôle | Autorisations
 --------- | ---------
-Administrateur de la société, Prise en charge du partenaire de niveau 2 et Administrateurs de services InTune | Peut restaurer n’importe quel groupe Office 365 supprimé
-Administrateur de compte d’utilisateur et Prise en charge du partenaire de niveau 2 | Peut restaurer n’importe quel groupe Office 365 supprimé, à l’exception de ceux affectés au rôle Administrateur de la société
+Administrateur de la société, Prise en charge du partenaire de niveau 2 et Administrateurs de services Intune | Peut restaurer n’importe quel groupe Office 365 supprimé
+Administrateur de compte d’utilisateur et Prise en charge du partenaire de niveau 2 | Peut restaurer n’importe quel groupe Office 365 supprimé, à l’exception de ceux affectés au rôle Administrateur de la société
 Utilisateur | Peut restaurer n’importe quel groupe Office 365 supprimé dont il est propriétaire
 
+## <a name="view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore"></a>Voir et gérer les groupes Office 365 supprimés disponibles pour la restauration
 
-## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore"></a>Afficher des groupes Office 365 supprimés disponibles pour la restauration
+1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur.
 
+2. Sélectionnez **Groupes**, puis **Groupes supprimés** pour voir les groupes supprimés disponibles pour la restauration.
+
+    ![Panneau des groupes supprimés](media/groups-lifecycle/deleted-groups3.png)
+
+3. Dans le panneau **Groupes supprimés**, vous pouvez effectuer les opérations suivantes :
+
+  - Restaurer le groupe supprimé et son contenu en sélectionnant **Restaurer le groupe**.
+  - Supprimer définitivement le groupe supprimé en sélectionnant **Supprimer définitivement**. Pour supprimer définitivement un groupe, vous devez être administrateur.
+
+## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>Voir les groupes Office 365 supprimés disponibles pour la restauration à l’aide de PowerShell
 Les applets de commande suivantes peuvent servir à afficher les groupes supprimés pour vérifier que ceux qui vous intéressent n’ont pas encore été supprimés de façon définitive. Ces cmdlets font partie du module [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/). Pour plus d’informations sur ce module, consultez l’article [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 1.  Exécutez l’applet de commande suivante pour afficher tous les groupes Office 365 supprimés dans votre locataire et dont la restauration est toujours possible.
    
-  ```
-  Get-AzureADMSDeletedGroup
-  ```
+    ```
+    Get-AzureADMSDeletedGroup
+    ```
 
 2.  Ou, si vous connaissez l’ID d’objet d’un groupe spécifique (que vous pouvez obtenir à partir de l’applet de commande indiquée à l’étape 1), exécutez l’applet de commande suivante pour vérifier que le groupe supprimé spécifique n’a pas encore été supprimé de façon définitive.
-  
-  ```
-  Get-AzureADMSDeletedGroup –Id <objectId>
-  ```
 
-## <a name="how-to-restore-your-deleted-office-365-group"></a>Comment restaurer votre groupe Office 365 supprimé
+    ```
+    Get-AzureADMSDeletedGroup –Id <objectId>
+    ```
+
+## <a name="how-to-restore-your-deleted-office-365-group-using-powershell"></a>Comment restaurer votre groupe Office 365 supprimé à l’aide de PowerShell
 Une fois que vous avez vérifié que le groupe est toujours disponible pour la restauration, restaurez-le en effectuant l’une des étapes suivantes. Si le groupe contient des documents, des sites SP ou d’autres objets persistants, la restauration du groupe et de son contenu peut nécessiter jusqu’à 24 heures.
 
-1.  Exécutez l’applet de commande suivante pour restaurer le groupe et son contenu.
+1. Exécutez l’applet de commande suivante pour restaurer le groupe et son contenu.
  
- ```
- Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
- ``` 
+   ```
+    Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
+    ``` 
 
-Vous pouvez également exécuter l’applet de commande suivante pour supprimer définitivement le groupe supprimé.
- ```
- Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
- ```
+2. Vous pouvez également exécuter l’applet de commande suivante pour supprimer définitivement le groupe supprimé.
+    
+    ```
+    Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
+    ```
 
 ## <a name="how-do-you-know-this-worked"></a>Comment savez-vous si l’opération a fonctionné ?
 

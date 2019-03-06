@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449348"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868185"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutoriel : Copier des données sur Azure Data Box Disk et procéder à une vérification
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur Azure Data Box Disk et procéder à une vérification
 
 Ce didacticiel explique comment copier des données à partir de votre ordinateur hôte, puis générer les sommes de contrôle pour vérifier l’intégrité des données.
 
@@ -178,20 +178,20 @@ Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieu
 1. L’outil Data Box Split Copy doit avoir été téléchargé et extrait dans un dossier local de votre ordinateur Windows. Cet outil a été téléchargé lorsque vous avez téléchargé l’ensemble d’outils Data Box Disk pour Windows.
 2. Ouvrez l’Explorateur de fichiers. Notez la lettre de lecteur de la source de données et les lettres de lecteur attribuées à Data Box Disk. 
 
-     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+     ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-1.png)
  
 3. Identifiez les données sources à copier. Par exemple, dans ce cas précis :
     - Les données d’objet blob de blocs ci-après ont été identifiées.
 
-         ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Les données d’objet blob de pages ci-après ont été identifiées.
 
-         ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Accédez au dossier dans lequel le logiciel a été extrait. Recherchez le fichier `SampleConfig.json` dans ce dossier. Il s’agit d’un fichier en lecture seule que vous pouvez modifier et enregistrer.
 
-   ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Modifiez le fichier `SampleConfig.json`.
  
@@ -200,36 +200,36 @@ Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieu
     - Entrez les lettres de lecteur correspondant aux disques cibles. Les données sont copiées sur les différents disques à partir du chemin d’accès source.
     - Fournissez un chemin d’accès pour les fichiers journaux. Par défaut, ces fichiers sont envoyés au répertoire dans lequel se trouve le fichier `.exe`.
 
-     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. Pour valider le format de fichier, accédez à `JSONlint`. Enregistrez le fichier sous le nom `ConfigFile.json`. 
 
-     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Ouvrez une fenêtre d’invite de commandes. 
 
-8. Exécutez `DataBoxDiskSplitCopy.exe`. type
+8. Exécutez `DataBoxDiskSplitCopy.exe`. Type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Appuyez sur Entrée pour poursuivre le script.
 
-    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. Une fois le jeu de données fractionné et copié, le résumé de l’outil Split Copy pour la session de copie vous est présenté. Voici un exemple de sortie obtenue.
 
-    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Vérifiez que les données ont été fractionnées entre les disques cibles. 
  
-    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Fractionner les données de copie](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Fractionner les données de copie](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     Si vous examinez de plus près le contenu du lecteur `n:`, vous pouvez constater que deux sous-dossiers ont été créés et correspondent aux données d’objet blob de blocs et d’objet blob de pages.
     
-     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. Si la session de copie échoue, vous pouvez récupérer et reprendre l’opération en utilisant la commande suivante :
 

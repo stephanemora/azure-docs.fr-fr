@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 3b09af19bd25ea3c64375869cd7db7f2b65923f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a7dd8cd349703fc9009695e570b66c3a3e626d15
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423765"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593180"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
@@ -232,7 +232,7 @@ Dans cette étape, vous liez votre compte Stockage Azure à la fabrique de donn�
 ### <a name="create-azure-sql-database-linked-service"></a>Créez le service lié Azure SQL Database.
 Dans cette étape, vous liez votre base de données Azure SQL à la fabrique de données.
 
-1. Créez un fichier JSON nommé **AzureSQLDatabaseLinkedService.json** dans le dossier **C:\ADFTutorials\IncCopyChangeTrackingTutorial** avec le contenu suivant : Remplacez server, database name **, &lt;user id&gt; et &lt;password&gt;** par le nom de votre serveur SQL Azure, de votre base de données, l’ID utilisateur et le mot de passe avant d’enregistrer le fichier. 
+1. Créez un fichier JSON nommé **AzureSQLDatabaseLinkedService.json** dans le dossier **C:\ADFTutorials\IncCopyChangeTrackingTutorial** avec le contenu suivant : Remplacez **&lt;server&gt;, &lt;database name **, &lt;user id&gt; et &lt;password&gt;** par le nom de votre serveur SQL Azure, de votre base de données, l’ID utilisateur et le mot de passe avant d’enregistrer le fichier. 
 
     ```json
     {
@@ -661,10 +661,10 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
     
 ## <a name="next-steps"></a>Étapes suivantes
-Passez au tutoriel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
+Passez au tutoriel suivant pour en savoir plus sur la copie des fichiers nouveaux et modifiés uniquement en fonction de leur LastModifiedDate :
 
 > [!div class="nextstepaction"]
->[Transformer des données en utilisant un cluster Spark dans le cloud](tutorial-transform-data-spark-powershell.md)
+>[Copier les nouveaux fichiers par lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

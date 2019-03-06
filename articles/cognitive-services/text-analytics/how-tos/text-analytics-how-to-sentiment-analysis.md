@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242125"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887418"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemple : Comment détecter les sentiments dans l’Analyse de texte
 
@@ -37,9 +37,9 @@ L’analyse des sentiments est effectuée sur l’ensemble du document, par oppo
 
 L’analyse des sentiments produit un résultat de meilleure qualité lorsque vous lui donnez de petits segments de texte à analyser. Au contraire, l’extraction d’expressions clés fonctionne mieux sur de plus grands blocs de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
 
-Vous devez disposer des documents JSON dans le format : id, texte, langue
+Vous devez disposer de documents JSON dans le format : id, texte, langue
 
-La taille des documents doit être inférieure à 5 000 caractères par document et vous pouvez avoir jusqu'à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments.
+La taille des documents doit être inférieure à 5 120 caractères par document et vous pouvez avoir jusqu’à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments.
 
 ```
     {

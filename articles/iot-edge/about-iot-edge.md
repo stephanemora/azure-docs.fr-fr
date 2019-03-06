@@ -7,24 +7,24 @@ ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 06/12/2018
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2d1e4ce719311a28fb4b2075864f8f411cd2713d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230558"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877450"
 ---
 # <a name="what-is-azure-iot-edge"></a>Qu’est-ce qu’Azure IoT Edge
 
-Azure IoT Edge déplace l’analytique et la logique métier personnalisée du cloud vers les appareils, afin que votre organisation puisse se concentrer sur les perspectives commerciales plutôt que sur la gestion des données. Permettez à votre solution de mettre réellement à l’échelle en configurant votre logiciel IoT, en le déployant sur des appareils grâce à des conteneurs standard et en le surveillant à partir du cloud.
+Azure IoT Edge déplace l’analytique et la logique métier personnalisée du cloud vers les appareils, afin que votre organisation puisse se concentrer sur les perspectives commerciales plutôt que sur la gestion des données. Configurez vos logiciels IoT, déployez-les sur des appareils par le biais de conteneurs standard et supervisez-les tous à partir du cloud.
 
 >[!NOTE]
 >Azure IoT Edge est disponible dans les niveaux gratuit et standard d’IoT Hub. Le niveau gratuit est destiné aux tests et à l’évaluation uniquement. Pour plus d’informations sur les niveaux De base et Standard d’IoT Hub, consultez [Mettre à l’échelle votre solution IoT Hub](../iot-hub/iot-hub-scaling.md).
 
-L’analytique apporte de la valeur métier dans les solutions IoT, mais toutes les analyses ne doivent pas se trouver sur le cloud. Si vous souhaitez qu’un périphérique réponde aux situations d’urgence aussi rapidement que possible, vous pouvez utiliser la détection d’anomalies sur le périphérique lui-même. De même, si vous souhaitez réduire les coûts de bande passante et éviter de transférer des téraoctets de données brutes, vous pouvez effectuer l’agrégation et le nettoyage des données localement. Vous envoyez ensuite les informations sur le cloud. 
+L’analytique apporte de la valeur métier dans les solutions IoT, mais toutes les analyses ne doivent pas se trouver sur le cloud. Si vous souhaitez qu’un périphérique réponde aux situations d’urgence aussi rapidement que possible, vous pouvez utiliser la détection d’anomalies sur le périphérique lui-même. De même, si vous souhaitez réduire les coûts de bande passante et éviter de transférer des téraoctets de données brutes, vous pouvez effectuer l’agrégation et le nettoyage des données localement. Ensuite, envoyez les insights au cloud à des fins d’analyse. 
 
 Azure IoT Edge est constitué de trois composants :
 * Les modules IoT Edge sont des conteneurs qui exécutent les services Azure, les services tiers ou votre propre code. Ils sont déployés sur des appareils IoT Edge et s’exécutent localement sur ces appareils. 
@@ -33,11 +33,11 @@ Azure IoT Edge est constitué de trois composants :
 
 ## <a name="iot-edge-modules"></a>Modules IoT Edge
 
-Les modules IoT Edge sont des unités d’exécution, actuellement implémentés en tant que conteneurs compatibles Docker, qui exécutent votre logique métier en périphérie. Plusieurs modules peuvent être configurés pour communiquer entre eux, créant ainsi un pipeline de traitement des données. Vous pouvez développer des modules personnalisés ou créer des packages de certains services Azure dans des modules qui fournissent des analyses en mode hors connexion et en périphérie. 
+Les modules IoT Edge sont des unités d’exécution, implémentées en tant que conteneurs compatibles Docker, qui exécutent votre logique métier en périphérie. Plusieurs modules peuvent être configurés pour communiquer entre eux, créant ainsi un pipeline de traitement des données. Vous pouvez développer des modules personnalisés ou créer des packages de certains services Azure dans des modules qui fournissent des analyses en mode hors connexion et en périphérie. 
 
 ### <a name="artificial-intelligence-on-the-edge"></a>Intelligence artificielle en périphérie
 
-Azure IoT Edge vous permet de déployer des traitements d’événements complexes, du machine learning, de la reconnaissance d’images et autres systèmes IA de haut vol sans enregistrement en interne. Les services Azure comme Azure Functions, Azure Stream Analytics et Azure Machine Learning peuvent tous être exécutés en local par le biais d’Azure IoT Edge, mais vous n’êtes pas limité aux services Azure. Toute personne peut créer des modules IA et rendre leur utilisation possible par la communauté. 
+Azure IoT Edge vous permet de déployer des traitements d’événements complexes, du machine learning, de la reconnaissance d’images et autres systèmes IA de haut vol sans enregistrement en interne. Les services Azure comme Azure Functions, Azure Stream Analytics et Azure Machine Learning peuvent tous être exécutés en local par le biais d’Azure IoT Edge, mais vous n’êtes pas limité aux services Azure. Toute personne est en mesure de créer des modules IA et de les mettre à la disposition de la communauté à des fins d’utilisation par le biais de la Place de marché Azure. 
 
 ### <a name="bring-your-own-code"></a>Apportez votre propre code
 
@@ -55,7 +55,7 @@ Le runtime Azure IoT Edge active les logiques cloud et personnalisées sur les p
 
 ![Le runtime de IoT Edge envoie des informations et des rapports à IoT Hub](./media/about-iot-edge/runtime.png)
 
-Les choix liés à l’utilisation d’un appareil Azure IoT Edge vous incombent. Le runtime est souvent utilisé pour déployer l’IA sur des passerelles qui agrègent des données et les traitent à partir de plusieurs autres appareils locaux, mais ce modèle de déploiement n’est qu’une option. Les appareils feuilles peuvent également être des appareils Azure IoT Edge, qu’ils soient connectés à une passerelle ou directement dans le cloud.
+Les choix liés à l’utilisation d’un appareil Azure IoT Edge vous incombent. Le runtime est souvent utilisé pour déployer l’IA sur des passerelles qui agrègent des données et les traitent à partir d’autres appareils locaux, mais ce modèle de déploiement n’est qu’une option. Les appareils feuilles peuvent également être des appareils Azure IoT Edge, qu’ils soient connectés à une passerelle ou directement dans le cloud.
 
 Le runtime Azure IoT Edge s’exécute sur un grand nombre d’appareils IoT pour permettre l’utilisation du runtime de plusieurs façons. Il prend en charge les systèmes d’exploitation Linux et Windows ainsi que des détails matériels abstraits. Utilisez un appareil plus petit qu’un Raspberry Pi 3 si vous ne traitez pas de grands volumes de données ou utilisez un serveur industriel pour exécuter des charges de travail consommant beaucoup de ressources.
 
@@ -74,5 +74,3 @@ Azure IoT Edge s’intègre parfaitement avec les accélérateurs de solution Az
 ## <a name="next-steps"></a>Étapes suivantes
 
 Essayez ces concepts en [déployant IoT Edge sur un appareil simulé](quickstart.md).
-
- 

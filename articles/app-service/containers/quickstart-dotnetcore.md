@@ -1,5 +1,5 @@
 ---
-title: Créer une application .NET Core sur Linux - Azure App Service | Microsoft Docs
+title: Créer une application ASP.NET Core sur Linux - Azure App Service | Microsoft Docs
 description: Déployez votre première application Hello World .NET Core sur App Service sur Linux en quelques minutes.
 keywords: azure app service, application web, dotnet, core, linux, oss
 services: app-service
@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: af22473e0c9b56210b720ee5d122d96566689158
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633927"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889713"
 ---
-# <a name="create-a-net-core-app-in-app-service-on-linux"></a>Créer une application .NET Core dans App Service sur Linux
+# <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Créer une application ASP.NET Core dans App Service sur Linux
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer sur App Service sur _Windows_, consultez [Créer une application ASP.NET Core dans Azure](../app-service-web-get-started-dotnet.md).

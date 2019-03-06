@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 35002ccfc294b59a13e6826b4ca75a1ab6c68b62
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 812f957ffe2a3f24ead4ef0fe66a25c3cfd17995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870297"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866910"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Qu’est-ce que l’API Vision par ordinateur Version 1.0 ?
 
@@ -29,7 +29,7 @@ L’API Vision par ordinateur basée sur le cloud offre aux développeurs un acc
 * Étiqueter des images en fonction du contenu.
 * Classer des images.
 * Identifier le type et la qualité des images.
-* [Détecter des visages et renvoyer leurs coordonnées. ](#Faces)
+* [Détecter des visages et renvoyer leurs coordonnées.](#Faces)
 * Reconnaître le contenu spécifique à un domaine.
 * Générer des descriptions de contenu.
 * Utiliser la reconnaissance optique des caractères afin d’identifier le texte imprimé trouvé dans les images.

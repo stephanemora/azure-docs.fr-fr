@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572082"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825439"
 ---
 1. Connectez-vous au [portail Azure][Azure portal].
 2. Dans le menu de gauche, sélectionnez **+ Créer une ressource**. Ensuite, sélectionnez **Intégration** > **Relais**. Si **Relais** ne s’affiche pas dans la liste, sélectionnez **Afficher tout** dans l’angle supérieur droit. 
 3. Sous **Créer un espace de noms**, saisissez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
 4. Dans la case **Abonnement**, sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
-5. Dans la case [Groupe de ressources](../articles/azure-resource-manager/resource-group-portal.md), sélectionnez un groupe de ressources existant dans lequel placer l’espace de noms, ou créez-en un nouveau.  
+5. Dans la case [Groupe de ressources](../articles/azure-resource-manager/manage-resource-groups-portal.md), sélectionnez un groupe de ressources existant dans lequel placer l’espace de noms, ou créez-en un nouveau.  
 6. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
    
     ![Créer un espace de noms][create-namespace]
@@ -28,7 +28,7 @@ ms.locfileid: "51572082"
 3. Dans **Stratégies d’accès partagées**, sélectionnez **RootManageSharedAccessKey**.
    
     ![informations de connexion][connection-info]
-4. Sous **Stratégie : RootManageSharedAccessKey**, sélectionnez le bouton **Copie** à côté de **Clé primaire de la chaîne de connexion**. La chaîne de connexion est alors copiée dans le presse-papiers pour une utilisation ultérieure. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire.
+4. Sous **Stratégie : RootManageSharedAccessKey**, sélectionnez le bouton **Copie** à côté de **Clé primaire de la chaîne de connexion**. La chaîne de connexion est alors copiée dans le presse-papiers pour une utilisation ultérieure. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire.
    
     ![connection-string][connection-string]
 

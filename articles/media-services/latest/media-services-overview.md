@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337559"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960647"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Présentation d’Azure Media Services v3
 
@@ -76,7 +76,7 @@ Consultez l’exemple [Obtenir une stratégie de clé de contenu - .NET](get-con
 
 ## <a name="how-can-i-get-started-with-v3"></a>Comment bien démarrer avec v3 ?
 
-Pour plus d’informations sur la façon de commencer à développer avec l’API de Media Services v3 en utilisant différents outils et SDK, consultez [Commencer à développer](developers-guide.md).
+Pour savoir comment commencer à développer avec l’API Media Services v3 en utilisant différents outils et SDK, consultez [Commencer à développer](developers-guide.md).
 
 ## <a name="v3-content-map"></a>plan du contenu v3
 
@@ -88,7 +88,7 @@ Le contenu de Media Services v3 est organisé selon la structure suivante (ce qu
 | Démarrages rapides | Montre les instructions fondamentales du 1er jour pour les nouveaux clients qui testent rapidement Media Services.|
 | Tutoriels | Montre les procédures de scénarios pour certaines des tâches Media Services principales.|
 | Exemples | Liens vers des exemples de code. |
-| Concepts | Contient une explication détaillée des fonctionnalités de Media Services v3 et des diagrammes. Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubriques avant de commencer le développement.<br/><br/>* Chargement et stockage cloud<br/>* Encodage<br/>* Analytique multimédia<br/>* Empaquetage, remise, protection<br/>* Streaming en direct<br/>* Supervision continue<br/>* Clients Player<br/><br/>et bien plus. |
+| Concepts | Contient une explication détaillée des [concepts et fonctionnalités de Media Services v3](concepts-overview.md). Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubriques avant de commencer le développement.<br/><br/>* Chargement et stockage cloud<br/>* Encodage<br/>* Analytique multimédia<br/>* Empaquetage, remise, protection<br/>* Streaming en direct<br/>* Supervision<br/>* Clients Player<br/><br/>et bien plus. |
 | Guides pratiques | Montrent comment effectuer une tâche.|
 
 ## <a name="next-steps"></a>Étapes suivantes

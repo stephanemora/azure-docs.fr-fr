@@ -11,33 +11,38 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 3940c2f239a4354cfb44a499f7375f4ba34f8aa8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/18/2019
+ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892025"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874747"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Bien démarrer avec une instance managée Azure SQL Database
 
-L’option de déploiement [Instance managée](sql-database-managed-instance-index.yml) crée une base de données presque 100 % compatible avec le moteur de base de données local SQL Server (Édition Entreprise) le plus récent, qui fournit une implémentation de [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) native qui traite les problèmes de sécurité courants ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server locaux. Dans cette section, vous allez découvrir comment configurer et créer rapidement une instance managée, puis comment migrer vos bases de données.
+L’option de déploiement [Managed Instance](sql-database-managed-instance-index.yml) crée une base de données presque 100 % compatible avec le moteur de base de données local SQL Server (Édition Entreprise) le plus récent. Elle fournit une implémentation de [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) native traitant les problèmes de sécurité courants, ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server locaux. Dans cet article, vous allez apprendre à créer et configurer rapidement une instance managée, puis à migrer vos bases de données.
 
 ## <a name="quickstart-overview"></a>Vue d’ensemble du guide de démarrage rapide
 
-Les guides de démarrage rapide suivants vous permettent de créer une instance managée, de configurer une machine virtuelle ou une connexion VPN point à site pour l’application cliente et de restaurer une base de données vers votre nouvelle instance managée à l’aide d’un fichier `.bak` :
+Les guides de démarrage rapide suivants vous permettent en un rien de temps de créer une instance managée, de configurer une machine virtuelle ou une connexion VPN point à site pour l’application cliente, et de restaurer une base de données sur votre nouvelle instance managée à l’aide d’un fichier `.bak`.
 
-- [Créer une instance managée à l’aide du portail Azure](sql-database-managed-instance-get-started.md). Dans le portail Azure, vous configurez les paramètres nécessaires (nom d’utilisateur/mot de passe, nombre de cœurs, stockage maximal) pour créer automatiquement un environnement réseau Azure, sans vous occuper des détails du réseau ni des besoins d’infrastructure. Vous devez simplement vérifier que vous avez un [type d’abonnement](sql-database-managed-instance-resource-limits.md#supported-subscription-types) autorisé à créer une instance managée. Si vous souhaitez utiliser votre propre réseau ou personnaliser le réseau, examinez comment configurer l’environnement réseau pour une instance managée.
-- Une instance managée est créée dans son propre réseau virtuel sans aucun point de terminaison public. Pour l’accès aux applications clientes, vous pouvez créer une machine virtuelle dans le même réseau virtuel (sous-réseau différent) ou créer une connexion VPN point à site au réseau virtuel à partir de votre ordinateur client à l’aide de l’un de ces guides de démarrage rapide.
+### <a name="configure-environment"></a>Configurer l’environnement
+Dans un premier temps, vous devez créer votre première instance Managed Instance avec l’environnement réseau dans lequel elle va être placée, puis activer la connexion à partir de l’ordinateur ou de la machine virtuelle où vous exécutez les requêtes vers Managed Instance. Vous pouvez utiliser les guides suivants :
+
+- [Créer une instance managée à l’aide du portail Azure](sql-database-managed-instance-get-started.md). Dans le portail Azure, vous configurez les paramètres nécessaires (nom d’utilisateur/mot de passe, nombre de cœurs et stockage maximal) pour créer automatiquement l’environnement réseau Azure, sans vous occuper des détails du réseau ni des besoins d’infrastructure. Vous devez simplement vérifier que vous avez un [type d’abonnement](sql-database-managed-instance-resource-limits.md#supported-subscription-types) actuellement autorisé à créer une instance managée. Si vous disposez de votre propre réseau à utiliser, ou que vous souhaitez personnaliser le réseau, consultez [Configurer un réseau virtuel existant pour Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md) ou [Créer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-create-vnet-subnet.md).
+- Une instance managée est créée dans son propre réseau virtuel sans aucun point de terminaison public. Pour l’accès aux applications clientes, vous pouvez **créer une machine virtuelle dans le même réseau virtuel (sous-réseau différent)** ou **créer une connexion VPN point à site au réseau virtuel à partir de votre ordinateur client**, à l’aide de l’un de ces guides de démarrage rapide :
+
   - Créez une [machine virtuelle Azure dans le réseau virtuel de l’instance managée](sql-database-managed-instance-configure-vm.md) pour la connectivité aux applications clientes, notamment SQL Server Management Studio.
   - Configurez une [connexion VPN de point à site à votre instance managée](sql-database-managed-instance-configure-p2s.md) à partir de votre ordinateur client où se trouvent SQL Server Management Studio et d’autres applications de connectivité clientes. Il s’agit là de l’une des deux options disponibles pour établir la connectivité à votre instance managée et à son réseau virtuel.
 
   > [!NOTE]
   > Vous pouvez également utiliser une connexion ExpressRoute ou de site à site à partir de votre réseau local, mais ces approches sortent du cadre de ces guides de démarrage rapide.
 
-Après avoir créé une instance managée et configuré l’accès, vous pouvez commencer à migrer vos bases de données placées sur un serveur SQL Server local ou sur des machines virtuelles Azure. La migration échoue si la base de données source à migrer contient des fonctionnalités non prises en charge. Pour éviter les échecs et vérifier la compatibilité, vous pouvez installer l’[Assistant Migration de données](https://www.microsoft.com/download/details.aspx?id=53595), qui analyse vos bases de données sur SQL Server et recherche les problèmes susceptibles de bloquer la migration vers une instance managée, comme l’existence de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou de plusieurs fichiers journaux. Si vous résolvez ces problèmes, vous pouvez migrer vos bases de données vers une instance managée. L’[Assistant Expérimentation de base de données](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) est un autre outil pratique qui peut enregistrer votre charge de travail sur SQL Server et la réexécuter sur une instance managée afin de déterminer si vous allez rencontrer des problèmes de performances en cas de migration vers une instance managée.
+### <a name="migrate-your-databases"></a>Migrer vos bases de données 
+Après avoir créé une instance managée et configuré l’accès, vous pouvez commencer à migrer vos bases de données à partir d’un serveur SQL Server local ou de machines virtuelles Azure. La migration échoue si la base de données source à migrer contient des fonctionnalités non prises en charge. Pour éviter les échecs et vérifier la compatibilité, vous pouvez installer l’[Assistant Migration de données](https://www.microsoft.com/download/details.aspx?id=53595), qui analyse vos bases de données sur SQL Server et recherche les problèmes susceptibles de bloquer la migration vers une instance managée, comme l’existence de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou de plusieurs fichiers journaux. Si vous résolvez ces problèmes, vous pouvez migrer vos bases de données vers une instance managée. L’[Assistant Expérimentation de base de données](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) est un autre outil pratique qui peut enregistrer votre charge de travail sur SQL Server et la réexécuter sur une instance managée afin de déterminer si vous allez rencontrer des problèmes de performances en cas de migration vers une instance managée.
 
-Une fois que vous êtes sûr de pouvoir migrer votre base de données vers une instance managée, vous pouvez utiliser les fonctionnalités de restauration natives de SQL Server pour restaurer une base de données sur une instance managée à partir d’un fichier `.bak`. Pou accéder à un guide de démarrage rapide, consultez [Restaurer une sauvegarde sur une instance managée](sql-database-managed-instance-get-started-restore.md). Dans ce guide de démarrage rapide, vous effectuez une restauration à partir d’un fichier `.bak` situé dans le stockage Blob Azure à l’aide de la commande Transact-SQL `RESTORE`. 
+Une fois que vous êtes sûr de pouvoir migrer votre base de données vers une instance managée, vous pouvez utiliser les fonctionnalités de restauration natives de SQL Server pour restaurer une base de données sur une instance managée à partir d’un fichier `.bak`. Vous pouvez utiliser cette méthode pour migrer des bases de données à partir du moteur de base de données SQL Server installé en local ou d’une machine virtuelle Azure. Pou accéder à un guide de démarrage rapide, consultez [Restaurer une sauvegarde sur une instance managée](sql-database-managed-instance-get-started-restore.md). Dans ce guide de démarrage rapide, vous effectuez une restauration à partir d’un fichier `.bak` situé dans le stockage Blob Azure à l’aide de la commande Transact-SQL `RESTORE`. 
 
 > [!TIP]
 > Pour utiliser la commande Transact-SQL `BACKUP` afin de créer une sauvegarde de votre base de données dans le stockage Blob Azure, consultez [Sauvegarde SQL Server vers une URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
@@ -66,6 +71,6 @@ Les articles de ces guides de démarrage rapide vous permettent de configurer un
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vous trouverez une [liste générale des fonctionnalités prises en charge dans Managed Instance ici](sql-database-features.md) et [des informations détaillées et les problèmes connus ici](sql-database-managed-instance-transact-sql-information.md).
-- Découvrez plus d’informations sur les [caractéristiques techniques de Managed Instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
+- Vous trouverez une [liste générale des fonctionnalités prises en charge dans Managed Instance ici](sql-database-features.md) et des [informations détaillées et problèmes connus ici](sql-database-managed-instance-transact-sql-information.md).
+- Apprenez-en davantage sur les [caractéristiques techniques de Managed Instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
 - Consultez l’article sur l’[utilisation d’une instance managée dans Azure SQL Database](sql-database-howto-managed-instance.md) pour accéder à des guides pratiques plus avancés. 

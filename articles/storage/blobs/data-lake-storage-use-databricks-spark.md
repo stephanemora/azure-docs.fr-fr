@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Accéder aux données Azure Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark | Microsoft Docs'
+title: 'Tutoriel : Accéder aux données Azure Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark | Microsoft Docs'
 description: Ce tutoriel montre comment exécuter des requêtes Spark sur un cluster Azure Databricks afin d’accéder aux données dans un compte de stockage Azure Data Lake Storage Gen2.
 services: storage
 author: dineshmurthy
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452598"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585424"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutoriel : Accéder aux données Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark
 
@@ -146,6 +146,9 @@ Dans cette section, vous allez créer un système de fichiers et un dossier dans
    * `tenant-id` provient de votre abonnement.
 
    * `storage-account-name` est le nom de votre compte de stockage Azure Data Lake Storage Gen2.
+
+    > [!NOTE]
+    > Dans un environnement de production, songez à stocker votre clé d’authentification dans Azure Databricks. Ensuite, ajoutez une clé de recherche à votre bloc de code au lieu de la clé d’authentification. Après avoir suivi ce guide de démarrage rapide, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks pour voir des exemples de cette approche.
 
 19. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 

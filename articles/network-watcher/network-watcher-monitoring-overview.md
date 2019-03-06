@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427027"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984385"
 ---
 # <a name="what-is-azure-network-watcher"></a>Présentation d’Azure Network Watcher
 
@@ -97,7 +97,7 @@ Pour en savoir plus sur les journaux de flux NSG, complétez le tutoriel [Enregi
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Afficher les journaux de diagnostic de ressources réseau
 
-Il est possible d’activer la journalisation des diagnostics pour des ressources réseau Azure, par exemple, des groupes de sécurité réseau, des adresses IP publiques, des équilibreurs de charge, des passerelles de réseau virtuel et des passerelles d’application. La fonctionnalité de *journaux de diagnostic* permet d’activer et de désactiver les journaux de diagnostic de n’importe quelle ressource réseau qui en génère, au sein d’une même interface. Pour afficher les journaux de diagnostic, vous pouvez utiliser des outils comme Microsoft Power BI et Azure Log Analytics. Pour plus d’informations sur l’analyse des journaux de diagnostic réseau Azure, voir [Solutions réseau Azure dans Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Il est possible d’activer la journalisation des diagnostics pour des ressources réseau Azure, par exemple, des groupes de sécurité réseau, des adresses IP publiques, des équilibreurs de charge, des passerelles de réseau virtuel et des passerelles d’application. La fonctionnalité de *journaux de diagnostic* permet d’activer et de désactiver les journaux de diagnostic de n’importe quelle ressource réseau qui en génère, au sein d’une même interface. Pour afficher les journaux de diagnostic, vous pouvez utiliser des outils comme Microsoft Power BI et les journaux Azure Monitor. Pour plus d’informations sur l’analyse des journaux de diagnostic réseau Azure, consultez [Solutions réseau Azure dans les journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Activation automatique de Network Watcher
 Lorsque vous créez ou mettez à jour un réseau virtuel dans votre abonnement, Network Watcher sera automatiquement activé dans la région de votre réseau virtuel. L’activation automatique de Network Watcher n’a aucun impact sur vos ressources ni sur les frais associés. Pour plus d’informations, consultez [Créer une instance Network Watcher](network-watcher-create.md).

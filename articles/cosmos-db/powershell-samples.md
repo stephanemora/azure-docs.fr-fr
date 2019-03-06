@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/16/2017
 ms.author: sngun
-ms.openlocfilehash: f4220653b39381c360b4b05ab018262e46288e8f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3498ac6a2a4aaa1682d7b5bc5aae5383866d5bcd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043802"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873795"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemples Azure PowerShell pour Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 |**Création d’un compte Azure Cosmos DB**||
 |[Création et configuration d’un compte Cosmos avec l’API SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Azure Cosmos DB à utiliser avec l’API SQL. |
 |[Création et configuration d’un compte Cosmos avec l’API Azure Cosmos DB pour MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Cosmos avec l’API Azure Cosmos DB pour MongoDB. |
-|[Création et configuration d’un compte Cosmos avec l’API Gremlin](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Azure Cosmos DB à utiliser avec l’API Gremlin. |
+|[Créer et configurer un compte Cosmos avec l’API Gremlin](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Azure Cosmos DB à utiliser avec l’API Gremlin. |
 |[Création et configuration d’un compte Cosmos avec l’API Cassandra](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Azure Cosmos DB à utiliser avec l’API Cassandra. |
 |[Création et configuration d’un compte Cosmos avec l’API Table](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Azure Cosmos DB à utiliser avec l’API Table. |
 |**Mettre à l’échelle Azure Cosmos DB**||

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/18
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232190"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959121"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Didacticiel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail
 
@@ -44,25 +44,26 @@ Pour toutes les étapes de ce didacticiel, connectez-vous au portail Azure à l�
 
 Commencez par créer un équilibreur de charge standard public qui permet d’équilibrer la charge du trafic sur les machines virtuelles. Un équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez un équilibreur de charge standard, vous créez également une adresse IP publique standard qui est configurée en tant qu’équilibreur de charge frontal et nommée **LoadBalancerFrontend** par défaut. 
 
-1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-   
-1. Dans le volet **Créer un équilibreur de charge**, tapez ou sélectionnez les valeurs suivantes :
-   
-   - **Nom** : Entrez *MyLoadBalancer*.
-   - **Type** : Sélectionnez **Public**. 
-   - **Référence SKU** : Sélectionnez **Standard**.
-   - **Adresse IP publique** : Sélectionnez **Créer**, puis tapez *MyPublicIP* dans le champ.
-   - **Configurer une adresse IP publique** > **Zone de disponibilité** : Sélectionnez **Redondant dans une zone**.
-   - **Groupe de ressources** : Sélectionnez **Créer**, entrez *MyResourceGroupLB*, puis sélectionnez **OK**. 
-   - **Emplacement** : Sélectionnez **Europe Ouest**. 
-     
-     >[!NOTE]
-     >Veillez à créer votre équilibreur de charge et toutes ses ressources dans un emplacement prenant en charge les zones de disponibilité. Pour plus d’informations, consultez [Régions prenant en charge les zones de disponibilité](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
-   
-1. Sélectionnez **Créer**.
-   
-![Créer un équilibrage de charge](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
+1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
+2. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
 
+    | Paramètre                 | Valeur                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
+    | Nom                   | *myLoadBalancer*                                   |
+    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Type          | Sélectionnez **Public**.                                        |
+    | SKU           | Sélectionnez **Standard**.                          |
+    | Adresse IP publique | Sélectionnez **Créer nouveau**. |
+    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
+    |Zone de disponibilité| Sélectionnez **Redondant dans une zone**.    |
+     
+    >[!NOTE]
+     >Veillez à créer votre équilibreur de charge et toutes ses ressources dans un emplacement prenant en charge les zones de disponibilité. Pour plus d’informations, consultez [Régions prenant en charge les zones de disponibilité](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+
+3. Dans l’onglet **Vérifier + créer**, cliquez sur **Créer**.  
+  
 ## <a name="create-and-configure-back-end-servers"></a>Créer et configurer des serveurs principaux
 
 Créez un réseau virtuel avec deux machines virtuelles, puis ajoutez les machines virtuelles au pool principal de votre équilibreur de charge. 

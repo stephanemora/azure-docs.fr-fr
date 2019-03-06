@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/04/2019
+ms.date: 02/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108753"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592653"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Didacticiel : Transférer des données avec Azure Data Box Gateway (préversion)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutoriel : Transférer des données avec Azure Data Box Gateway (préversion)
 
 
 ## <a name="introduction"></a>Introduction
@@ -133,6 +133,7 @@ Effectuez ces étapes sur votre client Linux connecté à votre Data Box Edge.
 > Les mises en garde suivantes s’appliquent à la préversion :
 > - Une fois un fichier créé dans les partages, vous ne pouvez plus en modifier le nom. 
 > - La suppression d’un fichier à partir d’un partage ne supprime pas l’entrée du compte de stockage.
+> - Si vous utilisez `rsync` pour copier des données, l’option `rsync -a` n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

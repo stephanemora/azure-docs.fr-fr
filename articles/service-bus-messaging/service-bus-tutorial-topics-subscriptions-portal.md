@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001632"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886432"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutoriel : Mettre à jour l’inventaire avec le portail Azure et des rubriques/abonnements
 
@@ -45,49 +45,11 @@ Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installé
 
 Chaque [abonnement à une rubrique](service-bus-messaging-overview.md#topics) peut recevoir une copie de chaque message. Les rubriques sont entièrement compatibles au niveau de la sémantique et du protocole avec les files d’attente Service Bus. Les rubriques Service Bus prennent en charge un large éventail de règles de sélection avec des conditions de filtre et avec des actions facultatives qui permettent de définir ou de modifier les propriétés des messages. Chaque fois qu’une règle correspond, elle génère un message. Pour en savoir plus sur les règles, filtres et actions, consultez ce [lien](topic-filters.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Tout d’abord, accédez au [portail Azure][Azure portal] et connectez-vous à l’aide de votre abonnement Azure. La première étape consiste à créer un espace de noms Service Bus de type **Messagerie**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
 
-Un espace de noms de messagerie Service Bus fournit un conteneur d’étendue unique, référencé par son [nom de domaine complet][], dans lequel vous créez une ou plusieurs files d’attente, rubriques et abonnements. L’exemple suivant crée un espace de noms de messagerie Service Bus dans un [groupe de ressources](/azure/azure-resource-manager/resource-group-portal) nouveau ou existant :
-
-1. Dans le volet de navigation gauche du portail, cliquez sur  **+ Créer une ressource**, puis sur **Intégration Entreprise** et sur **Service Bus**.
-2. Dans la boîte de dialogue **Créer un espace de noms**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
-3. Après avoir vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Standard ou Premium).
-4. Dans le champ **Abonnement**, sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
-5. Dans le champ **Groupe de ressources** , choisissez un groupe de ressources existant dans lequel l’espace de noms sera utilisé, ou créez-en un nouveau.      
-6. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
-7. Cliquez sur **Créer**. Le système crée l’espace de noms de service et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
-
-  ![namespace](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Obtenir les informations d’identification de gestion
-
-Créer un espace de noms génère automatiquement une règle de signature d’accès partagé (SAS) initiale comprenant une paire de clés primaire et secondaire qui vous offre un contrôle complet sur tous les aspects de l’espace de noms. Pour copier la règle initiale, effectuez les étapes suivantes :
-
-1. Cliquez sur **Toutes les ressources**, puis sur le nom de l’espace de noms que vous venez de créer.
-2. Dans la fenêtre Espace de noms, cliquez sur **Stratégies d’accès partagé**.
-3. Dans l’écran **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
-4. Dans la fenêtre **Stratégie : RootManageSharedAccessKey**, cliquez sur le bouton **Copier** situé en regard de **Chaîne de connexion principale**, pour copier la chaîne de connexion dans le presse-papiers pour une utilisation ultérieure. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire.
-
-    ![connection-string][connection-string]
-5. Répétez l’étape précédente, en copiant et collant la valeur de **Clé primaire** dans un emplacement temporaire pour l’utiliser ultérieurement.
-
-## <a name="create-a-topic-and-subscriptions"></a>Créer une rubrique et des abonnements
-
-Pour créer une rubrique Service Bus, spécifiez l’espace de noms dans lequel vous souhaitez la créer. L’exemple suivant montre comment créer une rubrique sur le portail :
-
-1. Dans le volet de navigation gauche du portail, cliquez sur **Service Bus** (si vous ne voyez pas **Service Bus**, cliquez sur **Tous les services**).
-2. Cliquez sur l’espace de noms dans lequel vous souhaitez créer la rubrique.
-3. Dans la fenêtre de l’espace de noms, cliquez sur **Rubriques**, puis dans la fenêtre **Rubriques**, cliquez sur **+ Rubriques**.
-4. Entrez le **nom** de la rubrique et laissez les valeurs par défaut des autres valeurs.
-5. En bas de la fenêtre, cliquez sur **Créer**.
-6. Notez le nom de la rubrique.
-7. Sélectionnez la rubrique que vous venez de créer.
-8. Cliquez sur **+ Abonnement**, entrez le nom d’abonnement **S1**et laissez toutes les autres valeurs par défaut.
-9. Répétez la dernière étape deux fois de plus, en créant des abonnements nommés **S2** et **S3**.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Créer des règles de filtre sur les abonnements
 
@@ -105,7 +67,7 @@ Pour exécuter le code, procédez comme suit :
 
 2. Accédez à l’exemple de dossier `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Récupérez la chaîne de connexion que vous avez copié dans le bloc-notes dans la section [Obtenir les informations d’identification de gestion](#obtain-the-management-credentials) de ce tutoriel. Vous avez également besoin du nom de la rubrique que vous avez créé dans la section précédente.
+3. Récupérez la chaîne de connexion que vous avez copiée dans le Bloc-notes dans la section Obtenir les informations d’identification de gestion de ce tutoriel. Vous avez également besoin du nom de la rubrique que vous avez créé dans la section précédente.
 
 4. Saisissez ensuite la commande suivante dans l’invite de commandes :
 
@@ -451,7 +413,7 @@ Passez au prochain tutoriel pour en savoir plus sur les fonctionnalités de publ
 > [Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[nom de domaine complet]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

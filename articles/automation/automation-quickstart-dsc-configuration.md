@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f272f72a0bcae70a25bada266dc6b080f46526cd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431586"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817715"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle Linux avec le service de configuration d’état souhaité
 
@@ -144,5 +144,5 @@ Dans ce démarrage rapide, vous avez intégré une machine virtuelle Linux à DS
 
 * Pour en savoir plus sur le service de configuration d’état souhaité PowerShell, consultez [Vue d’ensemble de la configuration d’état souhaité PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
 * Pour en savoir plus sur la gestion d’Automation DSC à partir de PowerShell, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
-* Pour savoir comment transférer des rapports DSC à Log Analytics pour générer des rapports et alertes, consultez [Transférer des rapports DSC à Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+* Pour apprendre à transférer des rapports DSC à des journaux Azure Monitor à des fins de création de rapports et d’alertes, consultez [Transfert de rapports DSC à des journaux Azure Monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 
 

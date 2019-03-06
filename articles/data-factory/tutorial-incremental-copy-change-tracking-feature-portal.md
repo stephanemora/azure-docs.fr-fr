@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 92441e55d0a423e1e716d15166791c85fcf5d8ec
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 70159b975fd38c918f0b21a384b76666957f058b
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434221"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593146"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
@@ -410,7 +410,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
     2. Sélectionnez **Import parameter** (Paramètre d’importation). 
     3. Dans la section **Paramètres de procédure stockée**, spécifiez les valeurs suivantes pour les paramètres : 
 
-        | NOM | type | Valeur | 
+        | Nom | type | Valeur | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Chaîne | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
@@ -464,10 +464,10 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
     
 ## <a name="next-steps"></a>Étapes suivantes
-Passez au tutoriel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
+Passez au tutoriel suivant pour en savoir plus sur la copie des fichiers nouveaux et modifiés uniquement en fonction de leur LastModifiedDate :
 
 > [!div class="nextstepaction"]
->[Transformer des données en utilisant un cluster Spark dans le cloud](tutorial-transform-data-spark-portal.md)
+>[Copier les nouveaux fichiers par lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

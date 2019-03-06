@@ -1,74 +1,77 @@
 ---
-title: 'Démarrage rapide : API Vérification orthographique Bing, Node.js'
+title: 'Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Node.js'
 titlesuffix: Azure Cognitive Services
-description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Vérification orthographique Bing.
+description: Commencez à utiliser l’API REST Vérification orthographique Bing pour vérifier l’orthographe et la grammaire.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 0fea6f163e6d977f26e13c816c4eaa514eea676b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e3379a086eb09745142f4e3997ed195eb4d1de5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864891"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56885905"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-nodejs"></a>Démarrage rapide pour l’API Vérification orthographique Bing avec Node.js 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Node.js
 
-Cet article vous explique comment utiliser l’[API Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) avec Node.js. L’API Vérification orthographique renvoie une liste de mots qu’elle ne reconnaît pas avec des suggestions de remplacements. Généralement, vous envoyez du texte à cette API, puis vous effectuez les remplacements suggérés dans le texte ou vous les montrez à l’utilisateur de votre application pour qu’il puisse décider de les effectuer ou non. Cet article explique comment envoyer une requête contenant le texte « Hollo, wrld! ». Les remplacements suggérés sont « Hello » et « world ».
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing. Cette simple application Python envoie une demande à l’API et retourne une liste de mots qu’elle n’a pas reconnus, suivie des suggestions de corrections. Alors que cette application est écrite en Python, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer de [Node.js 6](https://nodejs.org/en/download/) pour exécuter ce code.
+* [Node.js 6](https://nodejs.org/en/download/) ou version ultérieure.
 
-Vous devez disposer d’un [compte API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **API vérification orthographique Bing v7**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/#lang) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Obtenir les résultats de la vérification orthographique
 
-1. Créez un projet Node.js dans votre IDE favori.
-2. Ajoutez le code ci-dessous.
-3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+## <a name="create-and-initialize-a-project"></a>Créer et initialiser un projet
 
-```nodejs
-'use strict';
+1. Créez un fichier JavaScript dans votre IDE ou éditeur favori. Définissez la sévérité et les exigences HTTPS. Créez ensuite des variables pour vos hôte du point de terminaison d’API, chemin et clé d’abonnement.
 
-let https = require ('https');
+    ```javascript
+    'use strict';
+    let https = require ('https');
+    
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/spellcheck';
+    let key = 'ENTER KEY HERE';
+    ```
 
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/spellcheck';
+2. Créez des variables pour votre marché, le mode de vérification orthographique et le texte dont vous souhaitez vérifier l’orthographe. Créez ensuite une chaîne qui ajoute le paramètre `?mkt=` à votre marché et `&mode=` à votre mode.
 
-/* NOTE: Replace this example key with a valid subscription key (see the Prequisites section above). Also note v5 and v7 require separate subscription keys. */
-let key = 'ENTER KEY HERE';
+    ```javascript
+    let mkt = "en-US";
+    let mode = "proof";
+    let text = "Hollo, wrld!";
+    let query_string = "?mkt=" + mkt + "&mode=" + mode;
+    ```
 
-// These values are used for optional headers (see below).
-// let CLIENT_ID = "<Client ID from Previous Response Goes Here>";
-// let CLIENT_IP = "999.999.999.999";
-// let CLIENT_LOCATION = "+90.0000000000000;long: 00.0000000000000;re:100.000000000000";
+## <a name="create-the-request-parameters"></a>Créer les paramètres de demande
 
-let mkt = "en-US";
-let mode = "proof";
-let text = "Hollo, wrld!";
-let query_string = "?mkt=" + mkt + "&mode=" + mode;
+Créez vos paramètres de demande en créant un objet avec une méthode `POST`. Ajoutez votre chemin en ajoutant le chemin du point de terminaison et la chaîne de requête. Ajoutez votre clé d’abonnement dans l’en-tête `Ocp-Apim-Subscription-Key`.
 
+```javascript
 let request_params = {
-    method : 'POST',
-    hostname : host,
-    path : path + query_string,
-    headers : {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Content-Length' : text.length + 5,
-        'Ocp-Apim-Subscription-Key' : key,
-//        'X-Search-Location' : CLIENT_LOCATION,
-//        'X-MSEdge-ClientID' : CLIENT_ID,
-//        'X-MSEdge-ClientIP' : CLIENT_ID,
-    }
+   method : 'POST',
+   hostname : host,
+   path : path + query_string,
+   headers : {
+   'Content-Type' : 'application/x-www-form-urlencoded',
+   'Content-Length' : text.length + 5,
+      'Ocp-Apim-Subscription-Key' : key,
+   }
 };
+```
 
+## <a name="create-a-response-handler"></a>Créer un gestionnaire de réponse
+
+Créez une fonction nommée `response_handler` pour prendre la réponse JSON de l’API, puis imprimez-la. Créez une variable pour le corps de la réponse. Ajoutez la réponse quand un indicateur `data` est reçu, à l’aide de `response.on()`. Quand un indicateur `end` est reçu, imprimez le corps JSON dans la console.
+
+```javascript
 let response_handler = function (response) {
     let body = '';
     response.on ('data', function (d) {
@@ -81,13 +84,19 @@ let response_handler = function (response) {
         console.log ('Error: ' + e.message);
     });
 };
+```
 
+## <a name="send-the-request"></a>Envoyer la demande
+
+Appelez l’API en utilisant `https.request()` avec vos paramètres de demande et le gestionnaire de réponse. Écrivez votre texte pour l’API et mettez par la suite fin à la demande.
+
+```javascript
 let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
 
-**Réponse**
+## <a name="example-json-response"></a>Exemple de réponse JSON
 
 Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
@@ -132,9 +141,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel de l’API Vérification orthographique Bing](../tutorials/spellcheck.md)
+> [Créer une application web monopage](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Voir aussi
-
-- [Vue d’ensemble de l’API Vérification orthographique Bing](../proof-text.md)
+- [Qu’est-ce que l’API Vérification orthographique Bing ?](../overview.md)
 - [Informations de référence sur l’API Vérification orthographique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

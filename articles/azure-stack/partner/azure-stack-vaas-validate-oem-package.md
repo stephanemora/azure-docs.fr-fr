@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3a9ee66907b51a40e9f4b0871d9f6ba6e29763a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242397"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594047"
 ---
 # <a name="validate-oem-packages"></a>Valider les packages OEM
 
@@ -35,7 +35,7 @@ Vous pouvez tester un nouveau package OEM lorsqu’une modification a été appo
 
 ## <a name="managing-packages-for-validation"></a>Gestion des packages pour validation
 
-Lorsque vous utilisez le workflow **Validation de package** pour valider un package, vous devez fournir une URL à **Stockage Blob Azure**. Ce blob est le package OEM qui a été installé sur la solution au moment du déploiement. Créez le blob à l’aide du compte de stockage Azure que vous avez créé au moment de l’installation (voir [Configurer votre validation en tant que Ressources de service](azure-stack-vaas-set-up-resources.md)).
+Lorsque vous utilisez le workflow **Validation de package** pour valider un package, vous devez fournir une URL à **Stockage Blob Azure**. Cet objet blob est le package OEM signé de test qui est installé dans le cadre du processus de mise à jour. Créez le blob à l’aide du compte de stockage Azure que vous avez créé au moment de l’installation (voir [Configurer votre validation en tant que Ressources de service](azure-stack-vaas-set-up-resources.md)).
 
 ### <a name="prerequisite-provision-a-storage-container"></a>Configuration requise : Provisionner un conteneur de stockage
 
@@ -58,7 +58,9 @@ Créer un conteneur dans votre compte de stockage pour les objets blob de packag
 
 Lorsque vous créez un workflow **Validation de package** dans le portail VaaS, vous devez fournir une URL au Stockage Blob Azure qui contient votre package.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>Option 1 : Générer une URL SAP de compte
+#### <a name="option-1-generating-a-blob-sas-url"></a>Option 1 : Génération d’une URL SAP d’objet blob
+
+Utilisez cette option si vous ne souhaitez pas activer l’accès en lecture public à votre conteneur de stockage ni aux objets blob.
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte de stockage, puis au fichier .zip contenant votre package
 
@@ -70,18 +72,21 @@ Lorsque vous créez un workflow **Validation de package** dans le portail VaaS, 
 
 5. Sélectionnez **Générer un jeton et une URL SAP d’objet blob**.
 
-Utilisez la valeur **URL SAP d’objet blob** lors du démarrage d’un nouveau workflow **Validation de package** dans le portail VaaS.
+Utilisez l’**URL SAP d’objet blob** quand vous fournissez des URL d’objet blob de package au portail.
 
-#### <a name="option-2-using-public-read-container"></a>Option 2 : Utilisation d’un conteneur en lecture publique
+#### <a name="option-2-grant-public-read-access"></a>Option 2 : Accorder un accès en lecture public
 
 > [!CAUTION]
-> Cette option ouvre votre conteneur à un accès anonyme en lecture seule.
+> Cette option ouvre vos objets blob à un accès anonyme en lecture seule.
 
 1. Autoriser l’**accès en lecture publique pour les objets blob uniquement** du conteneur de package en suivant les instructions dans la section [Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-2. Dans le conteneur de package, sélectionnez l’objet blob de package dans le conteneur pour ouvrir le volet Propriétés.
+> [!NOTE]
+> Si vous fournissez une URL de package à un *test interactif* (par exemple, Vérification de la mise à jour mensuelle Azure Stack ou Vérification des packages d’extensions OEM), vous devez accorder un **accès en lecture public complet** pour continuer les tests.
 
-3. Copiez l’**URL**. Utilisez cette valeur lors du démarrage d’un nouveau workflow **Validation de package** dans le portail VaaS.
+2. Dans le conteneur de package, sélectionnez l’objet blob de package pour ouvrir le volet Propriétés.
+
+3. Copiez l’**URL**. Utilisez cette valeur quand vous fournissez des URL d’objet blob de package au portail.
 
 ## <a name="apply-monthly-update"></a>Appliquer la mise à jour mensuelle
 
@@ -99,7 +104,7 @@ Utilisez la valeur **URL SAP d’objet blob** lors du démarrage d’un nouveau 
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. Spécifiez l’URL de l’objet du stockage Azure qui a été installé sur la solution au moment du déploiement. Pour obtenir des instructions, consultez [Générer des URL d’objet blob de package pour VaaS](#generate-package-blob-url-for-vaas).
+5. Entrez l’URL de l’objet blob du stockage Azure pour le package OEM signé de test nécessitant une signature de Microsoft. Pour obtenir des instructions, consultez [Générer des URL d’objet blob de package pour VaaS](#generate-package-blob-url-for-vaas).
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
@@ -113,9 +118,16 @@ Utilisez la valeur **URL SAP d’objet blob** lors du démarrage d’un nouveau 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Vous allez être redirigé vers la page de résumé de tests.
 
+## <a name="required-tests"></a>Tests requis
+
+Les tests suivants sont requis pour la validation de package OEM :
+
+- Vérification des packages d’extensions OEM
+- Cloud Simulation Engine
+
 ## <a name="run-package-validation-tests"></a>Exécution des tests de validations du package
 
-1. Dans la page **Résumé des tests de validation du package**, vous trouverez la liste des tests nécessaires pour terminer la validation. Les tests dans ce workflow durent environ 24 heures.
+1. Dans la page **Résumé des tests de validation du package**, vous allez exécuter un sous-ensemble des tests listés appropriés à votre scénario.
 
     Dans les workflows de validation, la **planification** d’un test utilise des paramètres communs au niveau du workflow que vous avez spécifiés lors de la création de votre workflow (voir [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](azure-stack-vaas-parameters.md)). Si l’une des valeurs de paramètres de test devient non valide, vous devez les redéfinir comme indiqué dans la section relative à la [modification des paramètres de workflow](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
@@ -125,13 +137,11 @@ Utilisez la valeur **URL SAP d’objet blob** lors du démarrage d’un nouveau 
 
 2. Sélectionnez l’agent qui exécutera le test. Pour plus d’informations sur l’ajout d’agents d’exécution de test locaux, consultez [Déployer l’agent local](azure-stack-vaas-local-agent.md).
 
-3. Pour chacun des tests suivants, effectuez les étapes 4 et 5 :
-    - Vérification des packages d’extensions OEM
-    - Moteur de simulation cloud
+3. Pour effectuer la vérification des packages d’extensions OEM, sélectionnez **Planifier** dans le menu contextuel pour ouvrir une invite de planification de l’instance de test.
 
-4. Sélectionnez **Planifier** dans le menu contextuel pour ouvrir une invite de planification de l’instance de test.
+4. Passez en revue les paramètres de test, puis sélectionnez **Envoyer** pour planifier l’exécution de la vérification des packages d’extensions OEM.
 
-5. Passez en revue les paramètres de test, puis sélectionnez **Envoyer** pour planifier l’exécution du test.
+5. Passez en revue le résultat de la vérification des packages d’extensions OEM. Une fois que le test a réussi, planifiez l’exécution de Cloud Simulation Engine.
 
 Une fois que tous les tests ont été effectués avec succès, envoyez le nom de votre validation de solution VaaS et validation de package à l’adresse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) pour demander la signature du package.
 

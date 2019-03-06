@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ffa14e3fb3fd41d6a30e1cf30713b26d7ecd255a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436009"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815890"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Détecter les logiciels installés sur vos machines Azure et non-Azure
 
@@ -58,8 +58,10 @@ Pour activer la solution, configurez l’emplacement, l’espace de travail Log 
 Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme l’inventaire.
 L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
-Une fois la solution activée, des informations sur les logiciels installés et les modifications apportées à la machine virtuelle sont envoyées à Log Analytics.
+Une fois la solution activée, des informations sur les logiciels installés et les changements apportés à la machine virtuelle sont envoyées aux journaux Azure Monitor.
 Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
 ## <a name="onboard-a-vm"></a>Intégrer une machine virtuelle
@@ -101,7 +103,7 @@ Par exemple, la recherche de « Contoso » renvoie tous les logiciels dont le no
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Rechercher les journaux d’inventaire des logiciels installés
 
-L’inventaire génère des données de journal qui sont envoyées à Log Analytics. Pour rechercher les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Inventaire**.
+L’inventaire génère des données de journal qui sont envoyées aux journaux Azure Monitor. Pour rechercher les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Inventaire**.
 
 Les données d’inventaire sont stockées sous le type **ConfigurationData**.
 L’exemple de requête Log Analytics suivant retourne les résultats d’inventaire dans lesquels le serveur de publication est « Microsoft Corporation ».
@@ -113,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans Log Analytics, consultez [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux Azure Monitor, consultez [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Inventaire d’une machine unique
 
-Pour afficher l’inventaire des logiciels d’une seule machine, vous pouvez accéder à l’inventaire à partir de la page de ressources de la machine virtuelle Azure ou utiliser Log Analytics pour filtrer jusqu'à la machine correspondante.
+Pour voir l’inventaire des logiciels d’une seule machine, vous pouvez accéder à l’inventaire à partir de la page de ressources de la machine virtuelle Azure ou utiliser les journaux Azure Monitor pour filtrer la machine correspondante.
 L’exemple suivant de requête Log Analytics retourne la liste des logiciels pour une machine nommée ContosoVM.
 
 ```loganalytics

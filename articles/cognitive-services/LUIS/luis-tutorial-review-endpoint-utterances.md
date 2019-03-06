@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 88ac9f07fb8791ca3d64123663b0380a56220cdd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865949"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878169"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison
 Dans ce tutoriel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTPS de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité. Vous devez examiner les énoncés de point de terminaison régulièrement dans le cadre de la maintenance LUIS planifiée. 
@@ -50,11 +50,13 @@ Procédez comme suit :
 
 1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
-2. Importez le code JSON dans une nouvelle application.
+1. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `review`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+1. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `review`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
-    Si vous utilisez ce didacticiel comme une nouvelle application importée, vous devez également effectuer l’apprentissage, publier, puis ajouter les énoncés au point de terminaison avec un [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou à partir du point de terminaison dans un navigateur. Les énoncés à ajouter sont :
+1. Entraînez et publiez la nouvelle application.
+
+1. Utilisez le point de terminaison pour ajouter les énoncés suivants. Vous pouvez le faire avec un [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou à partir du point de terminaison dans un navigateur. Les énoncés à ajouter sont :
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -64,13 +66,13 @@ Procédez comme suit :
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Sélectionnez **Réviser les énoncés de point de terminaison** dans le volet de navigation gauche. La liste est filtrée pour intention **ApplyForJob**. 
+1. Sélectionnez **Réviser les énoncés de point de terminaison** dans le volet de navigation gauche. La liste est filtrée pour intention **ApplyForJob**. 
 
-    [ ![Capture d’écran du bouton Réviser les énoncés de point de terminaison dans le volet de navigation gauche](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    [![Capture d’écran du bouton Réviser les énoncés de point de terminaison dans le volet de navigation gauche](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
-3. Appuyez sur **Affichage des entités** pour afficher les entités étiquetées. 
+1. Appuyez sur **Affichage des entités** pour afficher les entités étiquetées. 
     
-    [ ![Capture d’écran de Réviser les énoncés de point de terminaison avec le bouton Affichage des entités en surbrillance](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [![Capture d’écran de Réviser les énoncés de point de terminaison avec le bouton Affichage des entités en surbrillance](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Énoncé|Intention correcte|Entités manquantes|
     |:--|:--|:--|
@@ -78,29 +80,29 @@ Procédez comme suit :
 
     Cet énoncé n’est pas dans l’intention correcte et a un score inférieur à 50 %. L’intention **ApplyForJob** a 21 énoncés par rapport aux sept énoncés dans **GetJobInformation**. Avec l’alignement correct de l’énoncé de point de terminaison, d’autres énoncés doivent être ajoutés à l’intention **GetJobInformation**. Ceci est considéré comme un exercice que vous devez effectuer vous-même. Chaque intention, à l’exception de l’intention **None**, doit avoir à peu près le même nombre d’énoncés d’exemple. L’intention **None** doit avoir 10 % du nombre total d’énoncés de l’application. 
 
-4. Pour l’intention `I'm looking for a job with Natual Language Processing`, sélectionnez l’intention correcte, **GetJobInformation** dans la colonne **Intention alignée**. 
+1. Pour l’intention `I'm looking for a job with Natual Language Processing`, sélectionnez l’intention correcte, **GetJobInformation** dans la colonne **Intention alignée**. 
 
-    [ ![Capture d’écran de Réviser les énoncés de point de terminaison alignant l’énoncé à l’intention](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    [![Capture d’écran de Réviser les énoncés de point de terminaison alignant l’énoncé sur l’intention](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-5. Dans le même énoncé, l’entité pour `Natural Language Processing` est keyPhrase. Ce devrait être une entité **Job** à la place. Sélectionnez `Natural Language Processing` puis sélectionnez l’entité **Job** dans la liste.
+1. Dans le même énoncé, l’entité pour `Natural Language Processing` est keyPhrase. Ce devrait être une entité **Job** à la place. Sélectionnez `Natural Language Processing` puis sélectionnez l’entité **Job** dans la liste.
 
-    [ ![Capture d’écran de Réviser les énoncés de point de terminaison étiquetant l’entité en énoncé](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    [![Capture d’écran de Réviser les énoncés de point de terminaison étiquetant l’entité en énoncé](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-6. Sur la même ligne, sélectionnez sur la coche encerclée dans la colonne **Ajouter à l’intention alignée**. 
+1. Sur la même ligne, sélectionnez sur la coche encerclée dans la colonne **Ajouter à l’intention alignée**. 
 
-    [ ![Capture d’écran de la finalisation de l’alignement de l’énoncé dans l’intention](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+    [![Capture d’écran de la finalisation de l’alignement de l’énoncé dans l’intention](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Cette action déplace l’énoncé de **Réviser les énoncés de point de terminaison** à l’intention **GetJobInformation**. L’énoncé de point de terminaison est désormais un énoncé d’exemple pour cette intention. 
 
-7. Révisez les énoncés restants dans cette intention, en étiquetant les énoncés et en corrigeant l’**Intention alignée**, si ceux-ci sont incorrects.
+1. Révisez les énoncés restants dans cette intention, en étiquetant les énoncés et en corrigeant l’**Intention alignée**, si ceux-ci sont incorrects.
 
-8. Lorsque tous les énoncés sont corrects, sélectionnez la case à cocher de chaque ligne, puis sélectionnez **Ajouter la sélection** pour aligner correctement les énoncés. 
+1. Lorsque tous les énoncés sont corrects, sélectionnez la case à cocher de chaque ligne, puis sélectionnez **Ajouter la sélection** pour aligner correctement les énoncés. 
 
-    [ ![Capture d’écran de la finalisation des énoncés restants en intention alignée](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+    [![Capture d’écran de la finalisation des énoncés restants en intention alignée](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. La liste ne devrait plus avoir ces énoncés. Si d’autres énoncés apparaissent, continuez d’examiner la liste, en corrigeant les intentions et en étiquetant toutes les entités manquantes, jusqu’à ce que la liste soit vide. 
+1. La liste ne devrait plus avoir ces énoncés. Si d’autres énoncés apparaissent, continuez d’examiner la liste, en corrigeant les intentions et en étiquetant toutes les entités manquantes, jusqu’à ce que la liste soit vide. 
 
-10. Sélectionnez l’intention suivante dans la liste Filtre, puis continuez à corriger les énoncés et à étiqueter les entités. N’oubliez pas que la dernière étape de chaque intention consiste à sélectionner **Ajouter à l’intention alignée** sur la ligne de l’énoncé ou à cocher la case à côté de chaque intention et sélectionner **Ajouter la sélection** au-dessus de la table.
+1. Sélectionnez l’intention suivante dans la liste Filtre, puis continuez à corriger les énoncés et à étiqueter les entités. N’oubliez pas que la dernière étape de chaque intention consiste à sélectionner **Ajouter à l’intention alignée** sur la ligne de l’énoncé ou à cocher la case à côté de chaque intention et sélectionner **Ajouter la sélection** au-dessus de la table.
 
     Continuez jusqu’à ce que toutes les intentions et entités dans la liste de filtres aient une liste vide. C’est une application très petite. Le processus de révision ne prend que quelques minutes. 
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: d94e2db66c8c5dac2b4d8551ae34a07cd68fd635
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106970"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961042"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Résoudre les problèmes d’Azure Data Box Gateway 
 
@@ -103,6 +103,7 @@ Toutes les erreurs rencontrées lors des processus de chargement et d’actualis
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Impossible de charger les données dans le compte, car le compte ou le partage sont désactivés.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Impossible de se connecter au conteneur, car les autorisations de compte sont erronées ou obsolètes. Vérifiez votre accès.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Impossible d’ajouter de nouvelles données, car le conteneur est plein. Vérifiez les spécifications Azure relatives aux tailles de conteneur prises en charge en fonction du type. Par exemple, le service Azure Files prend uniquement en charge une taille de fichier maximale de 5 To.                                     |
+    |    2009            |    ERROR_CLOUD_CONTAINER_MISSING                |     Impossible de charger les données, car le conteneur associé au partage n’existe pas.                                     |    
     |    2997            |    ERROR_ITEM_CANCELED                                     |    Une erreur inattendue s’est produite. Il s’agit d’une erreur temporaire qui se résoudra d’elle-même.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    Une erreur inattendue s’est produite. L’erreur peut se résoudre d’elle-même, mais si elle persiste pendant plus de 24 heures, contactez le Support Microsoft.                                                                                                     |
     |    16000           |    RefreshException                                        |    Impossible de récupérer ce fichier.                                                                                                                                                                                                        |

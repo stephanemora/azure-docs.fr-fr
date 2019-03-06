@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245085"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886771"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Exemple : Comment détecter la langue avec l’Analyse de texte
 
@@ -29,7 +29,7 @@ Cette capacité est utile pour les magasins de contenu qui collectent du texte a
 
 Vous devez disposer des documents JSON dans ce format : id, texte
 
-La taille des documents doit être inférieure à 5 000 caractères par document et vous pouvez avoir jusqu'à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour détection de la langue.
+La taille des documents doit être inférieure à 5 120 caractères par document et vous pouvez avoir jusqu’à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour détection de la langue.
 
    ```
     {

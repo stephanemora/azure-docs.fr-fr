@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 590e1e5853ccf4a525477f194c78f1fd8ce679ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 64ba17053179d428f5ef7e5ce9685240bde6665f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453067"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822989"
 ---
-# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutoriel : Déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à déployer un cluster Service Fabric exécutant Windows dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) et un [groupe de sécurité réseau virtuel](../virtual-network/virtual-networks-nsg.md) à l’aide de PowerShell et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications.  Pour créer un cluster Linux à l’aide de l’interface de ligne de commande Azure, consultez la page [Créer un cluster Linux sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -173,12 +173,12 @@ Dans cet article, nous partons du principe que vous avez déjà créé un locata
 Pour simplifier certaines des étapes impliquées dans la configuration d’Azure AD avec un cluster Service Fabric, nous avons créé un ensemble de scripts Windows PowerShell. [Téléchargez les scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) sur votre ordinateur.
 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Créer des applications Azure AD et attribuer des rôles aux utilisateurs
-Créez deux applications Azure AD pour contrôler l’accès au cluster : une application web et une application native. Une fois que vous avez créé les applications pour représenter votre cluster, affectez les utilisateurs aux [rôles pris en charge par Service Fabric](service-fabric-cluster-security-roles.md) : lecture seule et administrateur.
+Créez deux applications Azure AD pour contrôler l’accès au cluster : une application web et une application native. Une fois que vous avez créé les applications pour représenter votre cluster, attribuez à vos utilisateurs les [rôles pris en charge par Service Fabric](service-fabric-cluster-security-roles.md) : lecture seule et administrateur.
 
-Exécutez `SetupApplications.ps1`, puis entrez l’ID du locataire, le nom du cluster et l’URL de réponse de l’application web en tant que paramètres.  Spécifiez également les noms d’utilisateur et les mots de passe des utilisateurs.  Par exemple : 
+Exécutez `SetupApplications.ps1`, puis entrez l'ID du locataire, le nom du cluster et l'URL de réponse de l'application web en tant que paramètres.  Spécifiez également les noms d'utilisateur et les mots de passe des utilisateurs.  Par exemple : 
 
 ```PowerShell
-$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
@@ -186,11 +186,11 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 > [!NOTE]
 > Pour les clouds nationaux (par exemple, Azure Government, Azure Chine, Azure Allemagne), vous devez également spécifier le paramètre `-Location`.
 
-Vous trouverez votre *ID de locataire*, ou ID de répertoire, dans le [portail Azure](https://portal.azure.com). Sélectionnez **Azure Active Directory -> Propriétés**, puis copiez l’**ID de répertoire**.
+Vous trouverez votre *ID de locataire*, ou ID de répertoire, dans le [portail Azure](https://portal.azure.com). Sélectionnez **Azure Active Directory -> Propriétés**, puis copiez la valeur **ID de répertoire**.
 
 Le paramètre *ClusterName* est utilisé pour préfixer les applications Azure AD créées par le script. Il ne doit pas forcément correspondre précisément au nom du cluster. Il sert uniquement à simplifier le mappage des artefacts Azure AD au cluster Service Fabric avec lequel ils sont utilisés.
 
-Le paramètre *WebApplicationReplyUrl* est le point de terminaison par défaut qui est retourné par Azure AD aux utilisateurs une fois qu’ils se sont connectés. Définissez ce point de terminaison en tant que point de terminaison Service Fabric Explorer pour votre cluster, qui est par défaut :
+Le paramètre *WebApplicationReplyUrl* est le point de terminaison par défaut qu'Azure AD renvoie à vos utilisateurs après leur connexion. Définissez ce point de terminaison en tant que point de terminaison Service Fabric Explorer pour votre cluster, qui est par défaut :
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -272,7 +272,7 @@ Ajoutez des valeurs dans le fichier de paramètres [azuredeploy.parameters.json]
 
 Puis, configurez la topologie de réseau et déployez le cluster Service Fabric. Le modèle Resource Manager [azuredeploy.json][template] crée un réseau virtuel (VNET), ainsi qu’un groupe de sécurité réseau (NSG) et un sous-réseau pour Service Fabric. Le modèle déploie également un cluster avec la sécurité de certificat activée.  Pour les clusters de production, utilisez un certificat délivré par une autorité de certification (AC) en tant que certificat de cluster. Un certificat auto-signé peut être utilisé pour garantir la sécurité des clusters de test.
 
-Dans cet article, le modèle déploie un cluster qui utilise l’empreinte numérique du certificat pour identifier le certificat de cluster.  Deux certificats ne peuvent pas avoir la même empreinte numérique, ce qui complique leur gestion. Basculer un cluster déployé de l’utilisation des empreintes de certificat à l’utilisation des noms communs de certificat simplifie considérablement la gestion des certificats.  Pour savoir comment mettre à jour le cluster pour que celui-ci utilise des noms communs de certificat pour la gestion des certificats, lisez [Modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+Dans cet article, le modèle déploie un cluster qui utilise l’empreinte numérique du certificat pour identifier le certificat de cluster.  Deux certificats ne peuvent pas avoir la même empreinte numérique, ce qui complique leur gestion. Basculer un cluster déployé de l’utilisation des empreintes de certificat à l’utilisation des noms communs de certificat simplifie considérablement la gestion des certificats.  Pour savoir comment mettre à jour le cluster pour que celui-ci utilise des noms communs de certificat pour la gestion des certificats, consultez [Modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Créer un cluster à l’aide d’un certificat existant
 

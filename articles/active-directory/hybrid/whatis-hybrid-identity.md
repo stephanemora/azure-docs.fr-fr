@@ -13,14 +13,14 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190464"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881802"
 ---
-# <a name="what-is-hybrid-identity"></a>L’Identité hybride 
+# <a name="what-is-hybrid-identity"></a>L’Identité hybride
 
 Les entreprises et les organisations utilisent aujourd’hui de plus en plus souvent une combinaison d’applications locales et cloud.  Les utilisateurs doivent avoir accès à ces applications en local et dans le cloud, ce qui constitue un véritable défi. 
 
@@ -30,7 +30,7 @@ Pour obtenir l’identité hybride, l'une des trois méthodes d’authentificati
 
 - **[Synchronisation de hachage de mot de passe (PHS)](whatis-phs.md)**  
 - **[Authentification directe (PTA)](how-to-connect-pta.md)**  
-- **[Fédération](whatis-fed.md)** 
+- **[Fédération (AD FS)](whatis-fed.md)** 
 
 Ces méthodes d’authentification s'accompagnent également de fonctionnalités d'[authentification unique](how-to-connect-sso.md).  L’authentification unique connecte automatiquement les utilisateurs lorsque leurs appareils d’entreprise sont connectés au réseau de l’entreprise.
 
@@ -47,7 +47,7 @@ Voici quelques scénarios courants de gestion des identités hybrides et des acc
 |Permettre à mes utilisateurs de se connecter et d’accéder aux services cloud à l’aide de leur mot de passe local.|![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| ![Recommandé](./media/whatis-hybrid-identity/ic195031.png) |![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implémenter l’authentification unique à l’aide des informations d’identification d’entreprise.|![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| ![Recommandé](./media/whatis-hybrid-identity/ic195031.png) |![Recommandé](./media/whatis-hybrid-identity/ic195031.png)|  
 |M’assurer qu’aucun hachage du mot de passe n’est stocké dans le cloud.| |![Recommandé](./media/whatis-hybrid-identity/ic195031.png)|![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| 
-|Activer des solutions d’authentification multifacteur cloud.| |![Recommandé](./media/whatis-hybrid-identity/ic195031.png)|![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| 
+|Activer des solutions d’authentification multifacteur cloud.|![Recommandé](./media/whatis-hybrid-identity/ic195031.png)|![Recommandé](./media/whatis-hybrid-identity/ic195031.png)|![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| 
 |Activer des solutions d’authentification multifacteur locales.| | |![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| 
 |Prendre en charge l’authentification par carte à puce pour mes utilisateurs.<sup>4</sup>| | |![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| 
 |Afficher les notifications d’expiration du mot de passe dans le portail Office et sur le bureau Windows 10.| | |![Recommandé](./media/whatis-hybrid-identity/ic195031.png)| 

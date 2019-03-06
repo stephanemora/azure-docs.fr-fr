@@ -13,52 +13,26 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: e9c3cae7c7129cc489ddd38b5b2de18dd6f52e58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660527"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958828"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introduction aux laboratoires de salle de classe
 Azure Lab Services vous permet de configurer rapidement un environnement pour votre laboratoire de salle de classe dans le cloud. Un formateur crée un laboratoire de salle de classe, configure Windows ou des machines virtuelles Linux, installe les logiciels et laboratoires d’outils nécessaires dans la classe, puis les rend disponibles aux étudiants. Les étudiants de la classe se connectent à des machines virtuelles (VM) dans le laboratoire puis s’en servent pour leurs projets, devoirs et exercices en classe. 
 
-Les laboratoires de la salle de classe sont des laboratoires gérés qui sont gérés par Azure. Le service lui-même gère toute l’infrastructure d’un laboratoire géré, de l’augmentation de la capacité des machines virtuelles à la gestion des erreurs, en passant par la mise à l’échelle de cette infrastructure. Vous spécifiez le type d’infrastructure dont vous avez besoin et installez les outils ou les logiciels requis pour la classe. Les laboratoires sont actuellement en version préliminaire.  
+Les labos de salle de classe sont des types de labos managés par Azure. Le service lui-même gère toute l’infrastructure d’un type de labo managé, de l’augmentation de la capacité des machines virtuelles à la gestion des erreurs, en passant par la mise à l’échelle de cette infrastructure. Vous spécifiez le type d’infrastructure dont vous avez besoin et installez les outils ou les logiciels requis pour la classe. 
 
-## <a name="scenarios"></a>Scénarios
-Voici le scénario principal que les laboratoires de salle de classe Azure Lab Services prennent en charge : 
+## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Gestion automatique de l’infrastructure et de la mise à l’échelle Azure 
+Azure Lab Services est un service managé, ce qui signifie que le service gère automatiquement le provisionnement et la gestion de l’infrastructure sous-jacente du labo. Ainsi, vous pouvez vous concentrer simplement sur la préparation de l’expérience de labo pour vos utilisateurs. Laissez le service gérer tout le reste et déployer les machines virtuelles de votre labo pour votre public. Mettez à l’échelle votre labo pour des centaines de machines virtuelles en un simple clic.
 
-### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>Configurer un laboratoire redimensionnable d’ordinateurs dans le cloud pour votre classe  
+## <a name="simple-experience-for-your-lab-users"></a>Expérience aisée pour les utilisateurs de votre labo 
+Les utilisateurs invités à votre labo bénéficient d’un accès immédiat aux ressources que vous mettez à leur disposition. Il leur suffit de se connecter pour voir la liste complète des machines virtuelles auxquelles ils ont accès dans les différents labos. Ils cliquent sur un simple bouton pour se connecter aux machines virtuelles et commencer à travailler. Ils n’ont pas besoin d’un abonnement Azure pour utiliser le service. 
 
-- Créer un laboratoire de salle de classe managé. Vous indiquez au service exactement ce dont vous avez besoin, et celui-ci crée et gère l’infrastructure du laboratoire pour vous. Vous pouvez ainsi vous concentrer sur votre classe, sans vous soucier des aspects techniques d’un laboratoire. 
-- Proposer aux étudiants un laboratoire de machines virtuelles configurées précisément pour répondre aux besoins de la classe ; Accorder à chaque élève un nombre limité d’heures afin d’utiliser les machines virtuelles pour le travail en classe.  
-- Déplacer vers le cloud le laboratoire d’ordinateurs physiques de votre école. Redimensionner automatiquement le nombre de machines virtuelles uniquement à l’utilisation maximale et au seuil de coûts que vous définissez sur le laboratoire. 
-- Supprimez le laboratoire d’un simple clic une fois que vous avez terminé. 
-
-## <a name="user-profiles"></a>Profils utilisateur
-Cet article décrit les profils utilisateur disponibles dans Azure Lab Services. 
-
-### <a name="lab-account-owner"></a>Propriétaire du compte du laboratoire
-En règle générale, l’administrateur informatique des ressources de cloud de l’organisation, qui est propriétaire de l’abonnement Azure, se comporte comme un propriétaire de compte de laboratoire et effectue les tâches suivantes :   
-
-- Définit un compte de laboratoire pour votre organisation.
-- Gère et configure les stratégies sur l’ensemble des laboratoires.
-- Attribue des autorisations aux personnes de l’organisation pour créer un laboratoire sous le compte de laboratoire.
-
-### <a name="educator"></a>Formateur
-En général, les utilisateurs comme les enseignants ou les formateurs en ligne créent des laboratoires de salle de classe sous un compte de laboratoire. Un formateur effectue les tâches suivantes : 
-
-- Crée un laboratoire de salle de classe.
-- Crée les machines virtuelles dans le laboratoire. 
-- Installe les logiciels appropriés sur les machines virtuelles.
-- Désigne qui peut accéder au laboratoire.
-- Fournit le lien d’inscription au laboratoire aux étudiants.
-
-### <a name="student"></a>Étudiant
-Un étudiant effectue les tâches suivantes :
-
-- Utilise le lien d’inscription que lui a envoyé le créateur du laboratoire pour s’inscrire à ce laboratoire. 
-- Se connecte à une machine virtuelle dans le laboratoire et l’utilise pour le travail en classe, les devoirs et d’autres projets. 
+## <a name="cost-optimization-and-tracking"></a>Optimisation et analyse des coûts  
+Maîtrisez votre budget en contrôlant le nombre exact d’heures pendant lesquelles les utilisateurs de votre labo peuvent utiliser les machines virtuelles. Établissez des plannings dans le labo pour permettre aux utilisateurs d’utiliser les machines virtuelles uniquement pendant les créneaux horaires désignés ou configurez des heures récurrentes d’arrêt et de démarrage automatiques. Gardez une trace de l’utilisation pour chaque utilisateur et définissez des limites.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Prendre en main un compte de laboratoire qui est requis pour créer un laboratoire de salle de classe à l’aide de Azure Lab Services :

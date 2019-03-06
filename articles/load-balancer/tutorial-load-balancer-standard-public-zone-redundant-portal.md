@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882635"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982791"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
@@ -50,16 +50,20 @@ Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azur
 L’équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez une nouvelle adresse IP publique en créant l’équilibreur de charge, celle-ci est automatiquement configurée comme version de référence standard et est également automatiquement redondante interzone.
 
 1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-2. Dans la page **Créer un équilibreur de charge**, entrez les valeurs suivantes pour l’équilibreur de charge :
-    - *myLoadBalancer* : pour le nom de l’équilibreur de charge.
-    - **Public** : pour le type de l’équilibreur de charge.
-     - *myPublicIP* : pour la nouvelle adresse IP publique créée. Pour ce faire, cliquez sur **Choisir une adresse IP publique,** puis sur **Créer**. Pour le nom, tapez *myPublicIP*, conservez la référence Standard par défaut et sélectionnez **Redondante interzone** pour **Zone de disponibilité**.
-    - *myResourceGroupLBAZ* : pour le nom du nouveau groupe de ressources que vous créez.
-    - **westeurope** : pour l’emplacement.
-3. Cliquez sur **Créer** pour générer l’équilibreur de charge.
-   
-    ![Créer un équilibrage de charge](./media/load-balancer-standard-public-availability-zones-portal/1a-load-balancer.png)
+2. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
 
+    | Paramètre                 | Valeur                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupLBAZ* dans la zone de texte.|
+    | Nom                   | *myLoadBalancer*                                   |
+    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Type          | Sélectionnez **Public**.                                        |
+    | SKU           | Sélectionnez **Standard**.                          |
+    | Adresse IP publique | Sélectionnez **Créer nouveau**. |
+    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
+    |Zone de disponibilité| Sélectionnez **Redondant dans une zone**.    |
+   
 
 ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 

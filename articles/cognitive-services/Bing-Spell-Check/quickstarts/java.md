@@ -1,92 +1,121 @@
 ---
-title: 'Démarrage rapide : API Vérification orthographique Bing, Java'
+title: 'Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Java'
 titlesuffix: Azure Cognitive Services
-description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Vérification orthographique Bing.
+description: Commencez à utiliser l’API REST Vérification orthographique Bing pour vérifier l’orthographe et la grammaire.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4a61e2a1c1457e0f64f4d1e1b11b98c26827481a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2905d05dce48b705de44780425ed2b55b02555c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854878"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888982"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-java"></a>Démarrage rapide pour l’API Vérification orthographique Bing avec Java 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Java
 
-Cet article vous explique comment utiliser l’[API Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)  avec Java. L’API Vérification orthographique renvoie une liste de mots qu’elle ne reconnaît pas avec des suggestions de remplacements. Généralement, vous envoyez du texte à cette API, puis vous effectuez les remplacements suggérés dans le texte ou vous les montrez à l’utilisateur de votre application pour qu’il puisse décider de les effectuer ou non. Cet article explique comment envoyer une requête contenant le texte « Hollo, wrld! ». Les remplacements suggérés sont « Hello » et « world ».
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing. Cette simple application Java envoie une demande à l’API et retourne une liste de suggestions de corrections. Bien que cette application soit écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](https://aka.ms/azure-jdks). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
+Kit de développement Java (JDK) 7 ou version ultérieure.
 
-Vous devez disposer d’un [compte API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **API vérification orthographique Bing v7**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/#lang) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Obtenir les résultats de la vérification orthographique
 
-1. Créez un projet Java dans votre IDE favori.
-2. Ajoutez le code ci-dessous.
-3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+## <a name="create-and-initialize-an-application"></a>Créer et lancer une application
 
-```java
-import java.io.*;
-import java.net.*;
-import javax.net.ssl.HttpsURLConnection;
+1. Créez un projet Java dans votre éditeur ou IDE favori, puis importez les packages suivants.
 
-public class HelloWorld {
+    ```java
+    import java.io.*;
+    import java.net.*;
+    import javax.net.ssl.HttpsURLConnection;
+    ```
 
+2. Créez des variables pour l’hôte du point de terminaison d’API, le chemin et votre clé d’abonnement. Créez ensuite des variables pour votre marché, le texte dont vous souhaitez vérifier l’orthographe et une chaîne pour le mode de vérification orthographique.
+
+    ```java
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    // NOTE: Replace this example key with a valid subscription key.
-    static String key = "ENTER KEY HERE";
+    static String key = "ENTER YOUR KEY HERE";
 
     static String mkt = "en-US";
     static String mode = "proof";
     static String text = "Hollo, wrld!";
+    ```
 
-    public static void check () throws Exception {
-        String params = "?mkt=" + mkt + "&mode=" + mode;
-        URL url = new URL(host + path + params);
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        connection.setRequestProperty("Content-Length", "" + text.length() + 5);
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
-        connection.setDoOutput(true);
+## <a name="create-and-send-an-api-request"></a>Créer et envoyer une requête d’API
 
+1. Créez une fonction appelée `check()` pour créer et envoyer la demande API. Dans celle-ci, effectuez les opérations suivantes. Créez une chaîne pour les paramètres de demande. Ajoutez le paramètre `?mkt=` à votre chaîne de marché et le paramètre `&mode=` à votre mode de vérification orthographique.  
+
+   ```java
+   public static void check () throws Exception {
+       String params = "?mkt=" + mkt + "&mode=" + mode;
+   //...
+   }
+   ```
+
+2. Créez une URL en combinant l’hôte du point de terminaison, le chemin et la chaîne de paramètres. Créez un objet `HttpsURLConnection`.
+
+    ```java
+    URL url = new URL(host + path + params);
+    HttpsURLConnection connection = (HttpsURLConnection) 
+    ```
+
+3. Ouvrez une connexion à l’URL. Définissez la méthode de demande sur `POST`. Ajoutez vos paramètres de demande. Veillez à ajouter votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key`. 
+
+    ```java
+    url.openConnection();
+    connection.setRequestMethod("POST");
+    connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
+    connection.setDoOutput(true);
+    ```
+
+4. Créez un objet `DataOutputStream` et envoyez la demande à l’API.
+
+    ```java
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
         wr.writeBytes("text=" + text);
         wr.flush();
         wr.close();
+    ```
 
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(connection.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-            System.out.println(line);
-        }
-        in.close();
+## <a name="read-the-response"></a>Lire la réponse
+
+1. Créez un `BufferedReader` et lisez la réponse de l’API. Imprimez-la dans la console.
+    
+    ```java
+    BufferedReader in = new BufferedReader(
+    new InputStreamReader(connection.getInputStream()));
+    String line;
+    while ((line = in.readLine()) != null) {
+        System.out.println(line);
     }
+    in.close();
+    ```
 
+2. Dans la fonction principale de votre application, appelez la fonction créée ci-dessus. 
+
+    ```java
     public static void main(String[] args) {
         try {
-            check ();
+            check();
         }
         catch (Exception e) {
             System.out.println (e);
         }
     }
-}
-```
-
-**Réponse**
+    ```
+    
+## <a name="example-json-response"></a>Exemple de réponse JSON
 
 Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
@@ -131,9 +160,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel de l’API Vérification orthographique Bing](../tutorials/spellcheck.md)
+> [Créer une application web monopage](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Voir aussi
-
-- [Vue d’ensemble de l’API Vérification orthographique Bing](../proof-text.md)
+- [Qu’est-ce que l’API Vérification orthographique Bing ?](../overview.md)
 - [Informations de référence sur l’API Vérification orthographique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

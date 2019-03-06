@@ -9,14 +9,14 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b031e7b772389aa81fd214d31365c20018cf48ae
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510631"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874441"
 ---
-# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutoriel : Générer une application hautement disponible avec le stockage Blob
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Didacticiel : Générer une application hautement disponible avec le stockage Blob
 
 Ce tutoriel est la première partie d’une série d’étapes. Il vous apprend à rendre vos données d’application hautement disponibles dans Azure.
 
@@ -37,24 +37,24 @@ Dans ce premier volet, vous apprenez à :
 
 Pour suivre ce tutoriel :
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 * Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
   - **Développement Azure**
 
   ![Développement Azure (sous Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 * Installez [Python](https://www.python.org/downloads/)
 * Téléchargez et installez le [SDK Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[SDK Java V7] (#tab/java-v7)
+# <a name="java-v7-sdk-tabjava-v7"></a>[SDK Java V7](#tab/java-v7)
 
 * Installer et configurer [Maven](http://maven.apache.org/download.cgi) pour qu’il fonctionne à partir de la ligne de commande
 * Installer et configurer [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# <a name="java-v10-sdk-tabjava-v10"></a>[SDK Java V10] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[SDK Java V10](#tab/java-v10)
 
 * Installer et configurer [Maven](http://maven.apache.org/download.cgi) pour qu’il fonctionne à partir de la ligne de commande
 * Installer et configurer [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)

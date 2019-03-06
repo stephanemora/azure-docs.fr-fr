@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/16/2019
+ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 2f0191bd181a8e10fa59f6d1d53da348e6440aba
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343578"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749798"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Commencer à développer avec l’API Media Services v3 avec des SDK/outils
 
-En tant que développeur, vous pouvez utiliser [l’API REST](https://aka.ms/ams-v3-rest-sdk) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API Media Services v3 s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
+En tant que développeur, vous pouvez utiliser [l’API REST](https://aka.ms/ams-v3-rest-ref) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
 
 Cette rubrique fournit des liens vers les SDK, les outils et la documentation. Il fournit également des informations utiles pour différents environnements de développement.
 
@@ -95,6 +95,7 @@ Explorez la documentation [Informations de référence sur .NET](https://aka.ms/
 - [Utilisation du chiffrement dynamique DRM et du service de remise des licences - .NET](protect-with-drm.md)
 - [Obtenir une clé de signature à partir de la stratégie existante - .NET](get-content-key-policy-dotnet-howto.md)
 - [Créer des filtres avec Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Exemples avancés de vidéo à la demande d’Azure Functions v2 avec Media Services v3](http://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

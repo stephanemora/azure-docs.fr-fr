@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 269bd74aca85ddbc2bafda30542c48f8ab391b32
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339156"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587360"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure PowerShell
 
-Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure PowerShell. Le rôle personnalisé permet à l’utilisateur de consulter tous les éléments de l’abonnement et d’ouvrir des tickets de support.
+Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure PowerShell. Le rôle personnalisé permet à l’utilisateur de consulter tous les éléments du plan de gestion d’un abonnement et d’ouvrir des tickets de support.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - autorisations nécessaires pour créer des rôles personnalisés, par exemple, [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ;
-- [Azure PowerShell](/powershell/azure/install-az-ps) installé localement
+- [Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Se connecter à Azure PowerShell
 

@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433677"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816934"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -62,12 +62,14 @@ Au cours de l’intégration, la machine virtuelle est approvisionnée avec l’
 Cet agent sert à communiquer avec la machine virtuelle et à obtenir des informations sur les logiciels installés.
 
 L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
-Une fois la solution activée, des informations sur les logiciels installés et les modifications apportées à la machine virtuelle sont envoyées à Log Analytics.
+Une fois la solution activée, des informations sur les logiciels installés et les changements apportés à la machine virtuelle sont envoyées aux journaux Azure Monitor.
 Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
-## <a name="using-change-tracking-in-log-analytics"></a>Utiliser le suivi des modifications dans Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Le suivi des modifications génère des données de journal qui sont envoyées à Log Analytics.
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilisation du suivi des changements dans les journaux Azure Monitor
+
+Le suivi des changements génère des données de journal qui sont envoyées aux journaux Azure Monitor.
 Pour rechercher les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Suivi des modifications**.
 Les données de suivi des modifications sont stockées sous le type **ConfigurationData**.
 L’exemple de requête Log Analytics ci-après renvoie tous les services Windows arrêtés.
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans Log Analytics, consultez [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux Azure Monitor, consultez [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurer le suivi des modifications
 

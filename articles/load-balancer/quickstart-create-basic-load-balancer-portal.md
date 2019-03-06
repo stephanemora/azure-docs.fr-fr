@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231969"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986326"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base public à l’aide du portail Azure
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base à l’aide du portail Azure
 
 L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les requêtes entrantes sur des machines virtuelles. Vous pouvez utiliser le portail Azure pour créer un équilibreur de charge et équilibrer le trafic entre des machines virtuelles. Ce guide de démarrage rapide vous montre comment créer et configurer un équilibreur de charge, des serveurs back-ends et des ressources réseau au niveau de tarification De Base.
 
@@ -30,25 +30,27 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour toutes les tâches de ce guide de démarrage rapide, connectez-vous au [portail Azure](http://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Créer un équilibreur de charge de base
+## <a name="create-a-basic-load-balancer"></a>Créer un équilibreur de charge de base public
 
 Commencez par créer un équilibreur de charge de base public à l’aide du portail. Le nom et l’adresse IP publique que vous créez sont automatiquement configurés comme front-end de l’équilibreur de charge.
 
-1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-   
-1. Dans le volet **Créer un équilibreur de charge**, tapez ou sélectionnez les valeurs suivantes :
-   
-   - **Nom** : Entrez *MyLoadBalancer*.
-   - **Type** : Sélectionnez **Public**. 
-   - **SKU** : Sélectionnez **De base**.
-   - **Adresse IP publique :** Sélectionnez **Créer nouveau**. 
-     - Champ **Adresse IP publique** : Entrez *MyPublicIP*.
-     - **Configurer une adresse IP publique** > **Affectation** : Sélectionnez **Dynamique**.
-   - **Groupe de ressources** : Sélectionnez **Créer**, entrez *MyResourceGroupLB*, puis sélectionnez **OK**. 
-   
-1. Sélectionnez **Créer**.
-   
-![Créer un équilibrage de charge](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
+2. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
+
+    | Paramètre                 | Valeur                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
+    | Nom                   | *myLoadBalancer*                                   |
+    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Type          | Sélectionnez **Public**.                                        |
+    | SKU           | Sélectionnez **De base**.                          |
+    | Adresse IP publique | Sélectionnez **Créer nouveau**. |
+    | Nom de l’adresse IP publique              | *MyPublicIP*   |
+    | Affectation| statique|
+
+3. Dans l’onglet **Vérifier + créer**, cliquez sur **Créer**.   
+
 
 ## <a name="create-back-end-servers"></a>Créer des serveurs principaux
 

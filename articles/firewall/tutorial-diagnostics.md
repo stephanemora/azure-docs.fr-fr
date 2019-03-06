@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426165"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958972"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Didacticiel : surveiller les journaux de Pare-feu Azure et les métriques
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Didacticiel : Superviser les journaux et les métriques du Pare-feu Azure
 
 Vous pouvez surveiller le service Pare-feu Azure à l’aide des journaux de pare-feu. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure. Grâce aux métriques, vous pouvez afficher des compteurs de performances dans le portail. 
 
-Vous pouvez accéder à certains de ces journaux via le portail. Les journaux peuvent être envoyés vers les services [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Stockage et Event Hubs, puis analysés dans Log Analytics ou par différents outils comme Excel et Power BI.
+Vous pouvez accéder à certains de ces journaux via le portail. Les journaux peuvent être envoyés au service [Journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), au stockage et aux hubs d’événements, puis analysés dans les journaux Azure Monitor ou par différents outils comme Excel et Power BI.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -48,7 +50,7 @@ L’affichage des données dans vos journaux peut prendre quelques minutes aprè
 
 3. Cliquez sur **Activer les diagnostics** pour démarrer la collecte de données.
 4. La page **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic. 
-5. Dans cet exemple, Log Analytics stocke les journaux. Tapez le nom **Firewall log analytics**.
+5. Dans cet exemple, les journaux Azure Monitor stockent les journaux. Par conséquent, tapez **Firewall log analytics** comme nom.
 6. Cliquez sur **Envoyer à Log Analytics** pour configurer votre espace de travail. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
 7. Sous **Log Analytics**, cliquez sur **Configurer**.
 8. Sur la page Espaces de travail Log Analytics, cliquez sur **Créer un espace de travail**.
@@ -89,14 +91,14 @@ Pour activer la journalisation des diagnostics, procédez comme suit :
 
 Vous pouvez afficher et analyser les données du journal d’activité en utilisant l’une des méthodes suivantes :
 
-* **Outils Azure** : récupérez les informations à partir du journal d’activité au moyen d’Azure PowerShell, d’Azure CLI, de l’API REST Azure ou du Portail Azure. Des instructions pas à pas pour chaque méthode sont détaillées dans l’article [Opérations d’activité avec Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI** : si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing) , vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’activité Azure pour Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), vous pouvez analyser vos données avec des tableaux de bord préconfigurés à utiliser en l’état ou à personnaliser.
+* **Outils Azure** : récupérez les informations du journal d’activité en utilisant Azure PowerShell, Azure CLI, l’API REST Azure ou le portail Azure. Des instructions pas à pas pour chaque méthode sont détaillées dans l’article [Opérations d’activité avec Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Power BI** : si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’activité Azure pour Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), vous pouvez analyser vos données avec des tableaux de bord préconfigurés à utiliser en l’état ou à personnaliser.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Afficher et analyser les journaux de règles et d’application et de réseau
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) collecte les fichiers journaux des événements et des compteurs. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux.
+Les [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) collectent les compteurs et les fichiers journaux des événements. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux.
 
-Pour accéder aux exemples de requêtes Pare-feu Azure Log Analytics, consultez [Exemples Pare-feu Azure Log Analytics](log-analytics-samples.md).
+Pour accéder aux exemples de requêtes Log Analytics du Pare-feu Azure, consultez [Exemples Log Analytics du Pare-feu Azure](log-analytics-samples.md).
 
 Vous pouvez également vous connecter à votre compte de stockage et récupérer les entrées de journal JSON pour les journaux d’accès et des performances. Après avoir téléchargé les fichiers JSON, vous pouvez les convertir en CSV et les afficher dans Excel, PowerBI ou tout autre outil de visualisation de données.
 
@@ -108,10 +110,10 @@ Accédez à un Pare-feu Azure, sous **Supervision** cliquez sur **Métriques**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez configuré votre pare-feu pour collecter des journaux, vous pouvez explorer Log Analytics pour afficher vos données.
+Maintenant que vous avez configuré votre pare-feu pour collecter des journaux, vous pouvez explorer les journaux Azure Monitor pour voir vos données.
 
 > [!div class="nextstepaction"]
-> [Solutions d’analyse réseaux dans Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
+> [Solutions de supervision réseau dans les journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

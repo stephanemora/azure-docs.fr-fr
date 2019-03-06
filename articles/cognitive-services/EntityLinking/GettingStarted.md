@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Générer une application de liaison d’entités - C#'
+title: 'Tutoriel : Générer une application de liaison d’entités - C#'
 titlesuffix: Azure Cognitive Services
 description: Analysez du texte et liez des entités nommées aux entrées adéquates dans une base de connaissances à l’aide de l’API de liaison d’entités.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: c3e7d27fa0e62c1dcc92e7eac7ddb56a1de5ba49
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857808"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594030"
 ---
-# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Didacticiel : Générer une application de liaison d’entités en C#
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutoriel : Générer une application de liaison d’entités en C#
 
 La liaison d'entités de Microsoft est un outil de traitement de langage naturel qui analyse du texte et lie des entités nommées aux entrées adéquates dans une base de connaissances. 
 
@@ -55,7 +55,7 @@ La liaison d'entités est maintenant installée dans votre application. Elle a b
  ![Bibliothèque NuGet incluse dans le projet](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Étape 4 : Ajouter un bloc de texte d’entrée et de sortie au fichier XAML de votre application</a>
-Accédez au fichier ** MainPage.xaml ** dans l’**Explorateur de solutions**, puis double-cliquez sur le fichier pour l’ouvrir dans une nouvelle fenêtre. Pour des raisons pratiques, vous pouvez double-cliquez sur le bouton **XAML** dans l’onglet **Concepteur**. Ceci masque le **Concepteur visuel** et réserve toute la place disponible à l’affichage du code.
+Accédez au fichier **MainPage.xaml** dans l’**Explorateur de solutions**, puis double-cliquez sur le fichier pour l’ouvrir dans une nouvelle fenêtre. Pour des raisons pratiques, vous pouvez double-cliquez sur le bouton **XAML** dans l’onglet **Concepteur**. Ceci masque le **Concepteur visuel** et réserve toute la place disponible à l’affichage du code.
 
  ![Bibliothèque NuGet incluse dans le projet](./Images/UWPMainPage.png)
  

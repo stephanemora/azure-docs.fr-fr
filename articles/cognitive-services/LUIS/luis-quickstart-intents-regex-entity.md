@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 5ebd8875f14eef9a5febaf5356f0d2fadb0828bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869634"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867267"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutoriel : Obtenir des données au format approprié à partir de l’énoncé
 Dans ce tutoriel, vous créez une application pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
@@ -82,7 +82,7 @@ Une expression régulière est un choix approprié pour ce type de données quan
     |Auteur de hrf-546234 ?|
     |Titre de hrf-456234 ?|
 
-    [ ![Capture d’écran de la page d’intentions avec de nouveaux énoncés mis en surbrillance](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [![Capture d’écran de la page d’intentions avec de nouveaux énoncés mis en surbrillance](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 

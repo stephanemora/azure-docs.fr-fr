@@ -2,21 +2,21 @@
 title: Démarrage rapide pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
 description: Dans ce démarrage rapide, vous exécutez un exemple d’application iOS pour envoyer des données de télémétrie simulées à un hub IoT et lire les données de télémétrie provenant du hub IoT à traiter dans le cloud.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/20/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: c2cfe40afb2c855e600e103fc8b9bb0845b09aa3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 05ae99425bbe16c27ca7efd475757499996e06b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515112"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672115"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Démarrage rapide : envoyer des données de télémétrie depuis un appareil à un IoT Hub (iOS)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Démarrage rapide : Envoyer des données de télémétrie à partir d’un appareil vers un hub IoT (iOS)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -44,9 +44,9 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 1. Exécutez les commandes suivantes dans Azure Cloud Shell pour ajouter l’extension CLI IoT Hub et créer l’identité d’appareil. 
 
-   **YourIoTHubName** : remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
-   **MyiOSdevice** : il s’agit du nom donné à l’appareil inscrit. Utilisez MyiOSdevice comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez également utiliser ce nom pour l’ensemble de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
+   **myiOSdevice** : il s’agit du nom donné à l’appareil inscrit. Utilisez MyiOSdevice comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez également utiliser ce nom pour l’ensemble de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -136,7 +136,7 @@ Dans cet article, vous avez configuré un hub IoT, inscrit un appareil, envoyé 
 Pour savoir comment contrôler votre appareil simulé à partir d’une application back-end, passez au démarrage rapide suivant.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : contrôler un appareil connecté à un IoT Hub](quickstart-control-device-node.md)
+> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-node.md)
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: tutorial-routing.md

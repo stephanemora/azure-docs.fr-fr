@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ea67c19beeb2fa52b77b04913aee1838569c4ac6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700109"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675022"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs VMware locaux à la récupération d’urgence vers Azure
 
@@ -80,7 +80,7 @@ Vérifiez que les machines virtuelles et serveurs VMware respectent les conditio
 3. Vérifiez la prise en charge du [réseau](vmware-physical-azure-support-matrix.md#network) et du [stockage](vmware-physical-azure-support-matrix.md#storage) locaux. 
 4. Vérifiez ce qui est pris en charge pour la [mise en réseau Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), le [stockage](vmware-physical-azure-support-matrix.md#azure-storage) et le [calcul](vmware-physical-azure-support-matrix.md#azure-compute) après le basculement.
 5. Les machines virtuelles locales que vous répliquez vers Azure doivent respecter les [exigences relatives aux machines virtuelles Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
-6. Sur des machines virtuelles Linux, le nom de l’appareil ou le nom du point de montage doit être unique. Vérifiez qu’aucun appareil ou point de montage ne possède un nom sensible à la casse. Par exemple, il est interdit d’attribuer à deux appareils de la même machine virtuelle les noms *appareil1* et *Appareil1*.
+6. Sur des machines virtuelles Linux, le nom de l’appareil ou le nom du point de montage doit être unique. Vérifiez que deux appareils/points de montage n’ont pas des noms identiques. Notez que les noms ne respectent pas la casse. Par exemple, il est interdit d’attribuer à deux appareils de la même machine virtuelle les noms _appareil1_ et _Appareil1_.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement

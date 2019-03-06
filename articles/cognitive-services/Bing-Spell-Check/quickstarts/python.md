@@ -1,72 +1,92 @@
 ---
-title: 'Démarrage rapide : API Vérification orthographique Bing, Python'
+title: 'Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Python'
 titlesuffix: Azure Cognitive Services
-description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Vérification orthographique Bing.
+description: Commencez à utiliser l’API REST Vérification orthographique Bing pour vérifier l’orthographe et la grammaire.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 5aa67c0e582d64f258da7abd01a9492daaf91efd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e95006c6448bf1179d33bcd00c16d6e4246db148
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882282"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887316"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-python"></a>Démarrage rapide pour l’API Vérification orthographique Bing avec Python 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Python
 
-Cet article vous explique comment utiliser l’[API Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) avec Python. L’API Vérification orthographique renvoie une liste de mots qu’elle ne reconnaît pas avec des suggestions de remplacements. Généralement, vous envoyez du texte à cette API, puis vous effectuez les remplacements suggérés dans le texte ou vous les montrez à l’utilisateur de votre application pour qu’il puisse décider de les effectuer ou non. Cet article explique comment envoyer une requête contenant le texte « Hollo, wrld! » Les remplacements suggérés sont « Hello » et « world ».
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing. Cette simple application Python envoie une demande à l’API et retourne une liste de suggestions de corrections. Alors que cette application est écrite en Python, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour exécuter ce code, vous devez disposer de [Python 3.x](https://www.python.org/downloads/).
+* Python [3.x](https://www.python.org)
 
-Vous devez disposer d’un [compte API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **API vérification orthographique Bing v7**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/#lang) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure. Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Obtenir les résultats de la vérification orthographique
 
-1. Créez un projet Python dans votre IDE favori.
-2. Ajoutez le code ci-dessous.
-3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+## <a name="initialize-the-application"></a>Initialiser l’application
 
-```python
-import http.client, urllib.parse, json
+1. Créez un fichier Python dans votre éditeur ou IDE favori, puis ajoutez l’instruction d’importation suivante.
 
-text = 'Hollo, wrld!'
+   ```python
+   import requests
+   import json
+   ```
 
-data = {'text': text}
+2. Créez des variables pour le texte dont vous souhaitez vérifier l’orthographe, votre clé d’abonnement et votre point de terminaison Vérification orthographique Bing.
 
-# NOTE: Replace this example key with a valid subscription key.
-key = 'ENTER KEY HERE'
+    ```python
+    api_key = "enter-your-key-here"
+    example_text = "Hollo, wrld" # the text to be spell-checked
+    endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/SpellCheck"
+    ```
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck?'
-params = 'mkt=en-us&mode=proof'
+## <a name="create-the-parameters-for-the-request"></a>Créer les paramètres de la demande
 
-headers = {'Ocp-Apim-Subscription-Key': key,
-'Content-Type': 'application/x-www-form-urlencoded'}
+1. Créez un dictionnaire avec `text` comme clé et votre texte comme valeur.
 
-# The headers in the following example 
-# are optional but should be considered as required:
-#
-# X-MSEdge-ClientIP: 999.999.999.999  
-# X-Search-Location: lat: +90.0000000000000;long: 00.0000000000000;re:100.000000000000
-# X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
+    ```python
+    data = {'text': example_text}
+    ```
 
-conn = http.client.HTTPSConnection(host)
-body = urllib.parse.urlencode (data)
-conn.request ("POST", path + params, body, headers)
-response = conn.getresponse ()
-output = json.dumps(json.loads(response.read()), indent=4)
-print (output)
-```
+2. Ajoutez les paramètres de votre demande. Définissez le paramètre `mkt` sur votre marché, et `mode` sur `proof`. 
 
-**Réponse**
+    ```python
+    params = {
+        'mkt':'en-us',
+        'mode':'proof'
+        }
+    ```
+
+3. Ajoutez un en-tête `Content-Type` et votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key`.
+
+    ```python
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Ocp-Apim-Subscription-Key': api_key,
+        }
+    ```
+
+## <a name="send-the-request-and-read-the-response"></a>Envoyer la demande et lire la réponse
+
+1. Envoyez la demande POST à l’aide de la bibliothèque requests.
+
+    ```python
+    response = requests.post(endpoint, headers=headers, params=params, data=data)
+    ```
+
+2. Obtenez la réponse JSON et imprimez-la.
+    
+    ```python
+    json_response = response.json()
+    print(json.dumps(json_response, indent=4))
+    ```
+
+## <a name="example-json-response"></a>Exemple de réponse JSON
 
 Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
@@ -111,9 +131,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel de l’API Vérification orthographique Bing](../tutorials/spellcheck.md)
+> [Créer une application web monopage](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Voir aussi
-
-- [Vue d’ensemble de l’API Vérification orthographique Bing](../proof-text.md)
+- [Qu’est-ce que l’API Vérification orthographique Bing ?](../overview.md)
 - [Informations de référence sur l’API Vérification orthographique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

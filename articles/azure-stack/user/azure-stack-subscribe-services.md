@@ -13,25 +13,25 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981280"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649082"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Didacticiel : créer et tester un abonnement
 
-Ce didacticiel vous montre comment créer un abonnement qui contient une offre et comment la tester. Pour le test, connectez-vous au portail utilisateur Azure Stack en tant qu’administrateur cloud, abonnez-vous à l’offre, puis créez une machine virtuelle.
+Ce tutoriel montre comment créer un abonnement qui contient une offre et comment la tester. Pour le test, connectez-vous au portail utilisateur Azure Stack en tant qu’administrateur cloud, abonnez-vous à l’offre, puis créez une machine virtuelle.
 
 > [!TIP]
-> Pour une expérience d’évaluation plus avancée, vous pouvez [créer un abonnement pour un utilisateur particulier](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator), puis vous connecter en tant que cet utilisateur dans le portail utilisateur. 
+> Pour une expérience d’évaluation plus avancée, vous pouvez [créer un abonnement pour un utilisateur particulier](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator), puis vous connecter en tant que cet utilisateur dans le portail utilisateur.
 
-Dans ce didacticiel, vous allez apprendre à vous abonner à une offre Azure Stack.
+Dans ce tutoriel, vous allez apprendre à vous abonner à une offre Azure Stack.
 
 Contenu :
 
@@ -60,10 +60,10 @@ Pour vous abonner à une offre en tant qu’utilisateur, connectez-vous au porta
 
 ## <a name="test-the-offer"></a>Tester l’offre
 
-En étant connecté au portail utilisateur, vous pouvez tester l’offre en provisionnant une machine virtuelle à l’aide des fonctionnalités du nouvel abonnement. 
+En étant connecté au portail utilisateur, vous pouvez tester l’offre en provisionnant une machine virtuelle à l’aide des fonctionnalités du nouvel abonnement.
 
 > [!NOTE]
-> Ce test nécessite d’avoir ajouté une machine virtuelle Windows Server 2016 Datacenter à la place de marché Azure Stack. 
+> Ce test nécessite d’avoir ajouté une machine virtuelle Windows Server 2016 Datacenter à la place de marché Azure Stack.
 
 1. Connectez-vous au portail utilisateur.
 
@@ -84,7 +84,6 @@ En étant connecté au portail utilisateur, vous pouvez tester l’offre en prov
 > [!NOTE]
 > Le déploiement de la machine virtuelle prend quelques minutes.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Ce que vous avez appris dans ce didacticiel :
@@ -92,7 +91,6 @@ Ce que vous avez appris dans ce didacticiel :
 > [!div class="checklist"]
 > * S’abonner à une offre 
 > * Tester l’offre
-
 
 > [!div class="nextstepaction"]
 > [Créer une machine virtuelle à partir d’un modèle de communauté](azure-stack-create-vm-template.md)

@@ -12,19 +12,19 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: b91fb86dfa8ca0d8e75be2c44f9821df84739790
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6a9058d7f84b336b332ffdaf9b41abfb660433e6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664935"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819852"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Développement multiservice avec Azure Dev Spaces
 
 Dans ce tutoriel, vous allez apprendre à développer des applications multiservices à l’aide d’Azure Dev Spaces, et découvrir certains des avantages de Dev Spaces.
 
 ## <a name="call-another-container"></a>Appeler un autre conteneur
-Dans cette section, vous allez créer un deuxième service `mywebapi` et demander à `webfrontend` de l’appeler. Chaque service s’exécutera dans un conteneur distinct. Ensuite, vous allez effectuer le débogage dans les deux conteneurs.
+Dans cette section, vous allez créer un deuxième service, `mywebapi`, et demander à `webfrontend` de l’appeler. Chaque service s’exécutera dans un conteneur distinct. Ensuite, vous allez effectuer le débogage dans les deux conteneurs.
 
 ![](media/common/multi-container.png)
 
@@ -35,14 +35,14 @@ Pour des questions de temps, nous allons télécharger un exemple de code à par
 1. Ouvrez le projet `mywebapi` dans une *fenêtre distincte de Visual Studio*.
 1. Sélectionnez **Azure Dev Spaces** dans la liste déroulante des paramètres de lancement comme vous l’avez déjà fait pour le projet `webfrontend`. Au lieu de créer un nouveau cluster ASK, sélectionnez celui que vous avez déjà créé. Comme avant, laissez le champ Space (Espace) sur `default` et cliquez sur **OK**. Dans la fenêtre Sortie, vous pouvez voir que Visual Studio commence à « préparer » ce nouveau service dans votre espace de développement afin d’accélérer les choses quand vous démarrer à déboguer.
 1. Appuyez sur F5, et attendez la création et le déploiement du service. Lorsque la barre d’état de Visual Studio devient orange, le service est prêt.
-1. Notez l’URL du point de terminaison qui s’affiche dans le volet **Azure Dev Spaces pour AKS** de la fenêtre **Output** (Résultat). Elle ressemble à ceci : http://localhost:\<portnumber\> Le conteneur a l’air de s’exécuter en local, mais en réalité, il s’exécute dans l’espace de développement dans Azure.
+1. Notez l’URL du point de terminaison qui s’affiche dans le volet **Azure Dev Spaces pour AKS** de la fenêtre **Sortie**. Elle ressemble à ceci : http://localhost:\<portnumber\> Le conteneur a l’air de s’exécuter en local, mais en réalité, il s’exécute dans l’espace de développement dans Azure.
 2. Lorsque `mywebapi` est prêt, ouvrez votre navigateur à l’adresse localhost et ajoutez `/api/values` à l’URL pour appeler l’API GET par défaut pour le `ValuesController`. 
 3. Si toutes les étapes se sont déroulées correctement, vous pouvez voir une réponse du service `mywebapi` qui ressemble à ceci.
 
     ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Effectuer une requête à partir de *webfrontend* sur *mywebapi*
-Nous allons maintenant écrire du code dans `webfrontend` qui envoie une requête à `mywebapi`. Basculez vers la fenêtre Visual Studio qui contient le projet `webfrontend`. Dans le fichier `HomeController.cs`, *remplacez* le code de la méthode À propos de par le code suivant :
+Nous allons maintenant écrire du code dans `webfrontend` qui envoie une requête à `mywebapi`. Basculez vers la fenêtre Visual Studio qui contient le projet `webfrontend`. Dans le fichier `HomeController.cs`, *remplacez* le code de la méthode About par le code suivant :
 
    ```csharp
    public async Task<IActionResult> About()
@@ -85,7 +85,7 @@ C’est terminé ! Vous disposez maintenant d’une application à plusieurs con
 Vous avez peut-être remarqué que, même si *webfrontend* ne contient pas de code permettant d’imprimer l’appel HTTP qu’il émet vers *mywebapi*, des messages de trace HTTP s’affichent dans la fenêtre de sortie :
 ```
 // The request from your browser
-webfrontend.<id>.<region>.aksapp.io --gyk-> webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
    GET /Home/About HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -98,7 +98,7 @@ webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.<id>.<region>.aksapp.io <-gyk-- webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
    HTTP/1.1 200 OK
    <!DOCTYPE html>
    <html>

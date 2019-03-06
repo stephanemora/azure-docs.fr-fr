@@ -8,14 +8,14 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f13f8878f24309330db8143eb0f5cf3ae890d2fe
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e7ca026d47952721c7aa28de401738ef50b697c6
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039144"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586714"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB : Créer une base de données de graphe avec PHP et le portail Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide de PHP et du portail Azure
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -40,11 +40,11 @@ Par ailleurs :
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
-Pour être en mesure de créer une base de données de graphiques, vous devez avoir préalablement créé un compte de base de données (Graphique) Gremlin avec Azure Cosmos DB.
+Pour être en mesure de créer une base de données de graphe, vous devez avoir préalablement créé un compte de base de données (Graph) Gremlin avec Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Ajout d’un graphique
+## <a name="add-a-graph"></a>Ajout d’un graphe
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -123,7 +123,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     ]);
     ```
 
-3. Si votre compte de base de données de graphiques a été créé le 20 décembre 2017 ou après, modifiez `graphs.azure.com` dans le nom d’hôte pour le remplacer par `gremlin.cosmosdb.azure.com`.
+3. Si votre compte de base de données de graphe a été créé le 20 décembre 2017 ou après, modifiez `graphs.azure.com` dans le nom d’hôte pour le remplacer par `gremlin.cosmosdb.azure.com`.
 
 4. Remplacez le paramètre `username` dans l’objet de connexion par le nom de votre base de données et de votre graphe. Si vous avez utilisé les valeurs recommandées `sample-database` et `sample-graph`, vous devriez avoir le code suivant :
 
@@ -181,7 +181,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     php connect.php
     ```
 
-    La fenêtre de terminal affiche les vertex ajoutés au graphique. 
+    La fenêtre de terminal affiche les vertex ajoutés au graphe. 
     
     Si vous rencontrez des erreurs de délai d’expiration, vérifiez que vous avez correctement mis à jour les informations de connexion dans [Mise à jour de vos informations de connexion](#update-your-connection-information) et essayez également de réexécuter la dernière commande. 
     
@@ -206,7 +206,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 4. Entrez l’étiquette *person*.
 
-5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
+5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphe. Seule la clé id est obligatoire.
 
     key|value|Notes
     ----|----|----

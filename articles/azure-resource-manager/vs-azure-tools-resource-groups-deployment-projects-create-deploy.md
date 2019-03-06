@@ -11,22 +11,20 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493429"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649677"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
 Avec Visual Studio, vous pouvez créer un projet qui déploie votre infrastructure et votre code sur Azure. Par exemple, vous pouvez définir l’hôte web, le site web et la base de données de votre application, et déployer cette infrastructure parallèlement au code. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants. Dans cet article, vous déployez une application web et SQL Database.  
 
 Cet article montre comment utiliser [Visual Studio 2017 avec des charges de travail ASP.NET et de développement installées](/dotnet/azure/dotnet-tools). Si vous utilisez Visual Studio 2015 Update 2 et le kit de développement logiciel (SDK) Microsoft Azure pour .NET 2.9 ou Visual Studio 2013 avec Azure SDK 2.9, votre expérience sera sensiblement identique.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Créer un projet de groupe de ressources Azure
 
@@ -101,7 +99,7 @@ Le paramètre **storageType** est prédéfini avec des types autorisés et un ty
 }
 ```
 
-Visual Studio fournit également des fonctionnalités intellisense pour vous aider à comprendre quelles propriétés sont disponibles lors de la modification du modèle. Par exemple, pour modifier les propriétés de votre plan App Service, accédez à la ressource **HostingPlan** et ajoutez une valeur pour les **propriétés**. Notez qu’intellisense affiche les valeurs disponibles et fournit une description de cette valeur.
+Visual Studio fournit également des fonctionnalités IntelliSense pour vous aider à comprendre les propriétés qui sont disponibles lors de la modification du modèle. Par exemple, pour modifier les propriétés de votre plan App Service, accédez à la ressource **HostingPlan** et ajoutez une valeur pour les **propriétés**. Notez qu’intellisense affiche les valeurs disponibles et fournit une description de cette valeur.
 
 ![afficher intellisense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
@@ -148,7 +146,9 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
 5. Sélectionnez le bouton **Déployer** pour déployer le projet dans Azure. Une console PowerShell s’ouvre en dehors de l’instance de Visual Studio. Entrez le mot de passe d’administrateur SQL Server dans la console PowerShell lorsque vous y êtes invité. **Votre console PowerShell peut être masquée par d’autres éléments ou réduite dans la barre des tâches.** Recherchez-la et sélectionnez-la pour indiquer le mot de passe.
    
    > [!NOTE]
-   > Il se peut que Visual Studio vous invite à installer les cmdlets Azure PowerShell. Vous devez disposer des cmdlets Azure PowerShell pour déployer des groupes de ressources. Si vous y êtes invité, installez-les. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/install-az-ps).
+   > Il se peut que Visual Studio vous invite à installer les cmdlets Azure PowerShell. Si vous y êtes invité, installez-les. Vous devez disposer des modules Azure PowerShell pour déployer correctement des groupes de ressources. Le script PowerShell due projet ne fonctionne pas avec le nouveau [module Azure PowerShell Az](/powershell/azure/new-azureps-module-az). 
+   >
+   > Pour plus d’informations, consultez [Installer et configurer des modules Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. Ce déploiement peut prendre quelques minutes. La fenêtre **Sortie** indique l’état du déploiement. Lorsque le déploiement est terminé, le dernier message indique que le déploiement a été réalisé avec succès :

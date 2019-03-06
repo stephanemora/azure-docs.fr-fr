@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267527"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817947"
 ---
-# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes
+# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Didacticiel : Créer des modèles Azure Resource Manager avec des ressources dépendantes
 
 Découvrez comment créer un modèle Azure Resource Manager pour déployer plusieurs ressources.  Après avoir créé le modèle, vous déployez le modèle à l’aide du Cloud Shell dans le portail Azure.
 
@@ -122,22 +122,10 @@ Il existe de nombreuses méthodes pour déployer des modèles.  Dans ce didactic
 
     ![Fichier de chargement du Cloud Shell du portail Azure](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Sélectionnez le modèle que vous avez enregistré précédemment dans ce didacticiel. Le nom par défaut est **azuredeploy.json**.  Si vous avez un fichier portant le même nom de fichier, l’ancien fichier est remplacé sans notification.
-5. Dans le Cloud Shell, exécutez la commande suivante pour vérifier que le fichier est chargé avec succès. 
 
-    ```bash
-    ls
-    ```
+    Vous pouvez éventuellement utiliser la commande **ls $HOME** et la commande **cat $HOME/azuredeploy.json** pour vérifier que les fichiers sont bien chargés. 
 
-    ![Fichier de liste du Cloud Shell du portail Azure](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
-
-    Le nom de fichier affiché sur la capture d’écran est azuredeploy.json.
-
-6. Dans le Cloud Shell, exécutez la commande suivante pour vérifier le contenu du fichier JSON :
-
-    ```bash
-    cat azuredeploy.json
-    ```
-7. Dans Cloud Shell, exécutez les commandes PowerShell suivantes. Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Consultez les [Conditions préalables](#prerequisites).
+5. Dans Cloud Shell, exécutez les commandes PowerShell suivantes. Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Consultez les [Conditions préalables](#prerequisites).
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -146,17 +134,14 @@ Il existe de nombreuses méthodes pour déployer des modèles.  Dans ce didactic
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json
+        -TemplateFile "$HOME/azuredeploy.json"
     ```
-
-    > [!NOTE]
-    > Un problème d’E/S existe avec l’utilisation d’Azure PowerShell dans Cloud shell.  Le message d’erreur est *Impossible de récupérer les paramètres dynamiques pour l’applet de commande. Chemin « Azure:/azuredeploy.json » introuvable, car il n’existe pas.*  Une solution de contournement temporaire consiste à ne pas inclure le commutateur **-TemplateFile** dans la commande `New-AzResourceGroupDeploy`. La commande vous invite ensuite à entrer le nom du fichier.
 
 8. Exécutez la commande PowerShell suivante pour lister les machines virtuelles nouvellement créées :
 

@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346e7ac9a76f4ce4a87565ffc77032b095b2975c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877998"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873812"
 ---
-# <a name="tutorial-identify-common-intents-and-entities"></a>Tutoriel : Identifier les intentions et entités courantes
+# <a name="tutorial-identify-common-intents-and-entities"></a>Didacticiel : Identifier les intentions et entités courantes
 
 Dans ce tutoriel, vous allez ajouter des intentions et des entités prédéfinies à une application de Ressources humaines pour obtenir rapidement une prédiction des intentions et l’extraction de données. Vous n’avez pas besoin de marquer les énoncés avec des entités prédéfinies, car l’entité est détectée automatiquement.
 

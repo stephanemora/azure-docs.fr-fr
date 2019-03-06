@@ -7,28 +7,34 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 01/24/2019
-ms.openlocfilehash: b48ac9cf8eff001e62f54e41b5f76a9d006bc5ba
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.workload: Active
+ms.date: 02/15/2019
+ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328926"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750597"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
 Dans ce tutoriel, vous allez effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks. Vous extrayez des données d’Azure Data Lake Storage Gen2 dans Azure Databricks, exécutez des transformations sur les données dans Azure Databricks, puis chargez les données transformées dans Azure SQL Data Warehouse.
 
 Les étapes décrites dans ce didacticiel utilisent le connecteur SQL Data Warehouse pour Azure Databricks, afin de transférer des données à Azure Databricks. Ce connecteur utilise ensuite le Stockage Blob Azure en tant que stockage temporaire pour les données transférées entre un cluster Azure Databricks et Azure SQL Data Warehouse.
+
+L’illustration suivante montre le flux d’application :
+
+![Azure Databricks avec Data Lake Store et SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks avec Data Lake Store et SQL Data Warehouse")
 
 Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Créez un service Azure Databricks.
 > * Créer un cluster Spark dans Azure Databricks.
-> * Créer un système de fichiers, puis charger les données dans Azure Data Lake Storage Gen2.
+> * Créer un système de fichiers dans le compte Data Lake Storage Gen2.
+> * Chargez des exemples de données dans le compte Azure Data Lake Storage Gen2.
 > * Créer un principal de service.
-> * Extraire des données à partir de Data Lake Store.
+> * Extraire les données du compte Azure Data Lake Storage Gen2.
 > * Transformer des données dans Azure Databricks.
 > * Charger des données dans Azure SQL Data Warehouse.
 
@@ -42,11 +48,40 @@ Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
 * Créez une clé principale de base de données pour l’entrepôt de données SQL Azure. Consultez [Créer une clé principale de base de données](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Créez un compte Azure Data Lake Storage Gen2. Consultez [Créer un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
-
 * Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Consultez [Démarrage rapide : Créez un compte de stockage Blob Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
+* Créez un compte de stockage Azure Data Lake Storage Gen2. Consultez [Créer un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+*  Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
+
+   * Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service.
+
+     > [!IMPORTANT]
+     > Veillez à attribuer le rôle dans l’étendue du compte de stockage Data Lake Storage Gen2. Vous pouvez attribuer un rôle à l’abonnement ou au groupe de ressources parent, mais des erreurs d’autorisation sont générées tant que ces attributions de rôles ne sont pas propagées au compte de stockage.
+
+   * Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
+
 * Connectez-vous au [Portail Azure](https://portal.azure.com/).
+
+## <a name="gather-the-information-that-you-need"></a>Collecter les informations dont vous avez besoin
+
+Vérifiez que vous remplissez les prérequis de ce tutoriel.
+
+   Avant de commencer, vous devez disposer des informations suivantes :
+
+   :heavy_check_mark:  Nom de la base de données, nom du serveur de base de données, nom d’utilisateur et mot de passe de votre entrepôt de données SQL Azure.
+
+   :heavy_check_mark:  Clé d’accès associée à votre compte de stockage d’objets blob.
+
+   :heavy_check_mark:  Nom de votre compte de stockage Data Lake Storage Gen2.
+
+   :heavy_check_mark:  ID de locataire de votre abonnement.
+
+   :heavy_check_mark:  ID de l’application que vous avez inscrite auprès d’Azure Active Directory (Azure AD).
+
+   :heavy_check_mark:  Clé d’authentification pour l’application que vous avez inscrite auprès d’Azure AD.
 
 ## <a name="create-an-azure-databricks-service"></a>Créer un service Azure Databricks
 
@@ -94,40 +129,9 @@ Dans cette section, vous créez un service Azure Databricks en utilisant le port
 
     * Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
-## <a name="create-a-file-system-and-upload-sample-data"></a>Créer un système de fichiers et charger des exemples de données
+## <a name="create-a-file-system-in-the-azure-data-lake-storage-gen2-account"></a>Créer un système de fichiers dans le compte Azure Data Lake Storage Gen2
 
-Tout d’abord, vous créez un système de fichiers dans votre compte Data Lake Storage Gen2. Ensuite, vous allez charger un exemple de fichier de données sur Data Lake Store. Vous allez utiliser ce fichier ultérieurement dans Azure Databricks pour exécuter quelques transformations.
-
-1. Téléchargez l’exemple de fichier de données [small_radio_json.json](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) sur votre système de fichiers local.
-
-2. À partir du [portail Azure](https://portal.azure.com/), accédez au compte Data Lake Storage Gen2 que vous avez créé comme prérequis de ce tutoriel.
-
-3. Dans la page **Vue d’ensemble** du compte de stockage, sélectionnez **Ouvrir dans l’Explorateur**.
-
-   ![Ouvrir l’Explorateur Stockage](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer.png "Ouvrir l’Explorateur Stockage")
-
-4. Sélectionnez **Ouvrir l’Explorateur Stockage Azure** pour ouvrir l’Explorateur de stockage.
-
-   ![Deuxième invite Ouvrir l’Explorateur Stockage](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer-2.png "Deuxième invite Ouvrir l’Explorateur Stockage")
-
-   L’Explorateur Stockage s’ouvre. Vous pouvez créer un système de fichiers et charger des exemples de données en suivant les instructions de cette rubrique : [Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour gérer les données dans un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-explorer.md).
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Créer un principal du service
-
-Créez un principal du service en suivant l’aide fournie dans cette rubrique : [Guide pratique pour Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
-
-:heavy_check_mark: Au cours des étapes indiquées dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le **Rôle Contributeur de Stockage Blob** à votre application.
-
-:heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
-Tout d’abord, vous créez un notebook dans votre espace de travail Azure Databricks, puis vous exécutez des extraits de code pour créer le système de fichiers dans votre compte de stockage.
-
-## <a name="extract-data-from-the-data-lake-store"></a>Extraire des données à partir de Data Lake Store
-
-Dans cette section, vous allez créer un bloc-notes dans l’espace de travail Azure Databricks, puis exécuter les extraits de code afin d’extraire les données de Data Lake Store et les importer dans Azure Databricks.
+Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure Databricks, puis vous exécutez des extraits de code pour configurer le compte de stockage
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez au service Azure Databricks que vous avez créé, puis sélectionnez **Initialiser l’espace de travail**.
 
@@ -149,13 +153,40 @@ Dans cette section, vous allez créer un bloc-notes dans l’espace de travail A
    spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. Dans ce bloc de code, remplacez les valeurs d’espace réservé `application-id`, `authentication-id` et `tenant-id` par les valeurs que vous avez collectées quand vous avez effectué les étapes décrites dans « Mettre de côté la configuration du compte de stockage ». Remplacez la valeur d’espace réservé `storage-account-name` par le nom de votre compte de stockage.
+6. Dans ce bloc de code, remplacez les valeurs d’espace réservé `application-id`, `authentication-id`, `tenant-id` et `storage-account-name` par celles que vous avez collectées au moment de la finalisation des prérequis de ce tutoriel. Remplacez la valeur d’espace réservé `file-system-name` par le nom de système de fichiers de votre choix.
+
+   * `application-id` et `authentication-id` proviennent de l’application que vous avez inscrite auprès d’Active Directory dans le cadre de la création d’un principal de service.
+
+   * `tenant-id` provient de votre abonnement.
+
+   * `storage-account-name` est le nom de votre compte de stockage Azure Data Lake Storage Gen2.
 
 7. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 
-8. Vous pouvez maintenant charger l’exemple de fichier JSON en tant que trame de données dans Azure Databricks. Collez le code suivant dans une nouvelle cellule. Remplacez les espaces réservés indiqués entre crochets par vos valeurs.
+## <a name="ingest-sample-data-into-the-azure-data-lake-storage-gen2-account"></a>Ingérer des exemples de données dans le compte Azure Data Lake Storage Gen2
+
+Avant de commencer cette section, vous devez effectuer les prérequis suivants :
+
+Entrez le code suivant dans une cellule du bloc-notes :
+
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+
+Dans la cellule, appuyez sur **Maj+Entrée** pour exécuter le code.
+
+À présent, dans une nouvelle cellule en dessous de celle-ci, entrez le code suivant et remplacez les valeurs entre crochets par les valeurs que vous avez utilisées plus tôt :
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
+
+Dans la cellule, appuyez sur **Maj+Entrée** pour exécuter le code.
+
+## <a name="extract-data-from-the-azure-data-lake-storage-gen2-account"></a>Extraire les données du compte Azure Data Lake Storage Gen2
+
+1. Vous pouvez maintenant charger l’exemple de fichier JSON en tant que trame de données dans Azure Databricks. Collez le code suivant dans une nouvelle cellule. Remplacez les espaces réservés indiqués entre crochets par vos valeurs.
 
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
@@ -165,9 +196,9 @@ Dans cette section, vous allez créer un bloc-notes dans l’espace de travail A
 
    * Remplacez la valeur d’espace réservé `storage-account-name` par le nom de votre compte de stockage.
 
-9. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
+2. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 
-10. Exécutez le code suivant pour voir le contenu du dataframe :
+3. Exécutez le code suivant pour voir le contenu du dataframe :
 
     ```scala
     df.show()
@@ -300,8 +331,8 @@ Comme mentionné précédemment, le connecteur SQL Data Warehouse utilise le Sto
    val dwPass = "<password>"
    val dwJdbcPort =  "1433"
    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
-   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
 5. Exécutez l’extrait de code suivant pour charger le dataframe transformé, **renamedColumnsDF**, en tant que table dans un entrepôt de données SQL. Cet extrait de code crée une table appelée **SampleTable** dans la base de données SQL.

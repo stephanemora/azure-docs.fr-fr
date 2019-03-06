@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4e4c9ae764e1278251c01d41a0617ed2e88e439
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242312"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879609"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
@@ -60,7 +60,7 @@ Les historiques des exécutions sont maintenant dénommés **expériences**. Vou
 
 Le tableau de bord d’espace de travail du portail est pris en charge uniquement sur les navigateurs Microsoft Edge, Chrome et Firefox :
 
-[ ![Portail en ligne](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Portail en ligne](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Commencez à entraîner vos modèles et à effectuer le suivi des historiques d’exécutions à l’aide de la nouvelle interface CLI et du nouveau SDK. Pour découvrir comment faire, consultez le [Tutoriel : Entraîner des modèles avec le service Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -109,7 +109,7 @@ En utilisant le nouveau SDK Python de la dernière version, vous pouvez interagi
 
 Dans cette dernière version, l’extension a été renommée en Azure Machine Learning pour Visual Studio Code, et a été développée et améliorée de manière à être compatible avec les nouvelles fonctionnalités précédentes.
 
-[ ![Azure Machine Learning pour Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning pour Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Qu’en est-il des packages de domaine ?
 

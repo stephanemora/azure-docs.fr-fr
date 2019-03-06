@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997327"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675039"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -121,7 +121,7 @@ Une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%
 
 ### <a name="application-gateways"></a>Passerelles d’application
 
-Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. Cette adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. Vous pouvez uniquement affecter une adresse IP publique de base *dynamique* à une configuration frontale de passerelle d’application.
+Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. Cette adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. Vous pouvez uniquement affecter une adresse IP publique de base *dynamique* à une configuration front-end V1 de passerelle d’application, et uniquement une adresse IP statique de base (ou référence SKU standard) à une configuration front-end V2.
 
 ### <a name="at-a-glance"></a>Aperçu
 Le tableau ci-dessous présente la propriété spécifique par le biais de laquelle une adresse IP publique peut être associée à une ressource de niveau supérieur, ainsi que les méthodes d’allocation possibles (dynamique ou statique) utilisables.
@@ -131,7 +131,7 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 | Machine virtuelle |interface réseau |OUI |OUI |
 | Équilibreur de charge accessible sur Internet |Configuration frontale |OUI |OUI |
 | passerelle VPN |Configuration IP de la passerelle |OUI |OUI |
-| passerelle d’application |Configuration frontale |OUI |OUI |
+| passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées
 Les adresses IP privées permettent aux ressources Azure de communiquer avec d’autres ressources dans un [réseau virtuel](virtual-networks-overview.md) ou dans un réseau local par le biais d’une passerelle VPN ou d’un circuit ExpressRoute, sans utiliser d’adresse IP accessible via Internet.

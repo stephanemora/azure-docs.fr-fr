@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 9493e8b5d5e02f1408423334ceaa5c5c47ae6668
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1805d54e66187a97bf598734801f0d94895e7490
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867747"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880347"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Tutoriel :  Obtenir le sentiment d’un énoncé
 
@@ -90,9 +90,9 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
     |Mark Mathews a parfaitement rôdé son argumentaire de vente à Harvard|
     |Walter Williams a bien réussi sa présentation à Stanford|
 
-    [ ![Capture d’écran de l’application LUIS avec exemples d’énoncés dans l’intention de RetourEmployés](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [![Capture d’écran de l’application LUIS avec exemples d’énoncés dans l’intention EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Ajouter des exemples d’énoncés à l’intention « None » 
+## <a name="add-example-utterances-to-the-none-intent"></a>Ajouter des exemples d’énoncés à l’intention « None » 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 

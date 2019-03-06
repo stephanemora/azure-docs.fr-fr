@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/26/2019
+ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233402"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888659"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
 
@@ -324,6 +324,8 @@ Dans la tâche Stream Analytics, cliquez sur **Démarrer**, **Maintenant**, puis
 
     ![Capture d’écran de la spécification du titre et du sous-titre de la vignette du tableau de bord.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
+    > [!IMPORTANT]
+    > Quand vous exécutez l’exemple d’application et que vous transmettez des données au hub d’événements, le nombre figurant sur cette vignette change rapidement (chaque seconde). En effet, la requête Stream Analytics met à jour la valeur **chaque seconde**. Mettez à jour la requête vers une fenêtre bascule de 3 minutes pour afficher la somme des dernières minutes. 
 11. Ajoutez une autre visualisation. Répétez les premières étapes :
 
    * Cliquez sur **Ajouter une vignette**.

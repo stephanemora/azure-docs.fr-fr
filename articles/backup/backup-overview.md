@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que la Sauvegarde Azure ?
+title: Qu’est-ce qu’Azure Backup ?
 description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la façon de le déployer dans le cadre de votre stratégie de continuité d’activité et de reprise d’activité (BCDR).
 services: backup
 author: rayne-wiselman
@@ -9,19 +9,19 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 79a53c1b11a1bac0ea83afdd1333423aff4d6aa6
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428464"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864293"
 ---
-# <a name="what-is-azure-backup"></a>Qu’est-ce que la Sauvegarde Azure ?
+# <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
 
 Le service Sauvegarde Azure sauvegarde des données dans le cloud Microsoft Azure. Vous pouvez sauvegarder des machines et charges de travail locales, ainsi que des machines virtuelles Azure.
 
 
-## <a name="why-use-azure-backup"></a>Pourquoi utiliser Sauvegarde Azure ?
+## <a name="why-use-azure-backup"></a>Pourquoi utiliser Azure Backup ?
 
 Le service Sauvegarde Azure offre les principaux avantages suivants :
 

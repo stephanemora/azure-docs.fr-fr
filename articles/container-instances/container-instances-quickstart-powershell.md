@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565851"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806910"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances avec Azure PowerShell
 
@@ -23,42 +23,44 @@ Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.5 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell pour les besoins de ce tutoriel. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Les instances de conteneur Azure, comme toutes les ressources Azure, doivent être déployées dans un groupe de ressources. Les groupes de ressources vous permettent d’organiser et de gérer les ressources Azure connexes.
 
-Commencez par créer un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*, à l’aide de la commande [New-AzureRmResourceGroup][New-AzureRmResourceGroup] suivante :
+Commencez par créer un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*, à l’aide de la commande [New-AzResourceGroup][New-AzResourceGroup] suivante :
 
  ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure PowerShell, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image de conteneur Docker à la cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Dans ce guide de démarrage rapide, vous utilisez l’image Windows `microsoft/iis:nanoserver` à partir du registre Docker Hub public. Cette image contient Internet Information Services (IIS) à exécuter dans Nano Server.
+Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure PowerShell, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image conteneur Docker à l’applet de commande [New-AzContainerGroup][New-AzContainerGroup]. Dans ce guide de démarrage rapide, vous utilisez l’image Windows `microsoft/iis:nanoserver` à partir du registre Docker Hub public. Cette image contient Internet Information Services (IIS) à exécuter dans Nano Server.
 
 Vous pouvez exposer vos conteneurs sur Internet en spécifiant un ou plusieurs ports à ouvrir, une étiquette de nom DNS ou les deux. Dans ce guide de démarrage rapide, vous déployez un conteneur avec une étiquette de nom DNS pour que IIS soit publiquement accessible.
 
 Pour démarrer une instance de conteneur, exécutez la commande suivante. La valeur `-DnsNameLabel` doit être unique au sein de la région Azure dans laquelle vous créez l’instance. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
  ```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Après quelques secondes, vous devez recevoir une réponse d’Azure. L’élément `ProvisioningState` du conteneur est initialement défini sur **Création**, mais doit passer à **Réussite** après une ou deux minutes. Vérifiez l’état du déploiement à l’aide de la cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] :
+Après quelques secondes, vous devez recevoir une réponse d’Azure. L’élément `ProvisioningState` du conteneur est initialement défini sur **Création**, mais doit passer à **Réussite** après une ou deux minutes. Vérifiez l’état du déploiement à l’aide de l’applet de commande [Get-AzContainerGroup][Get-AzContainerGroup] :
 
  ```azurepowershell-interactive
-Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 L’état d’approvisionnement, le nom de domaine complet et l’adresse IP du conteneur apparaissent dans la sortie de l’applet de commande :
 
 ```console
-PS Azure:\> Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+PS Azure:\> Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 
 
 ResourceGroupName        : myResourceGroup
@@ -87,10 +89,10 @@ Une fois que l’élément `ProvisioningState` du conteneur est défini sur **R�
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous avez fini d’utiliser le conteneur, vous pouvez le supprimer avec l’applet de commande [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] :
+Quand vous avez fini d’utiliser le conteneur, vous pouvez le supprimer avec l’applet de commande [Remove-AzContainerGroup][Remove-AzContainerGroup] :
 
  ```azurepowershell-interactive
-Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -104,7 +106,7 @@ Dans ce guide de démarrage rapide, vous avez créé une instance de conteneur A
 [qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
 
 <!-- LINKS -->
-[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
-[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
-[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
+[New-AzResourceGroup]: /powershell/module/az.resources/new-Azresourcegroup
+[New-AzContainerGroup]: /powershell/module/az.containerinstance/new-Azcontainergroup
+[Get-AzContainerGroup]: /powershell/module/az.containerinstance/get-Azcontainergroup
+[Remove-AzContainerGroup]: /powershell/module/az.containerinstance/remove-Azcontainergroup

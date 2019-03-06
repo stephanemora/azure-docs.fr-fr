@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264018"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889543"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser le Portail Azure pour créer une file d’attente Service Bus
 Microsoft Azure Service Bus est un courtier de messages d’intégration d’entreprise qui offre des services de messagerie sécurisée et une fiabilité absolue. Un scénario classique Service Bus implique généralement le découplage de deux ou plusieurs applications, services ou processus, et le transfert des modifications de données ou d’état. Ces scénarios peuvent impliquer la planification de plusieurs traitements par lots dans d’autres applications ou services, ou le déclenchement du traitement des commandes. Par exemple, une société de vente au détail peut envoyer ses données de point de vente à un back-office ou un centre de distribution régional pour des mises à jour de l’inventaire et un réapprovisionnement. Dans ce scénario, l’application cliente envoie et reçoit des messages depuis une file d’attente Service Bus.  
@@ -33,46 +33,9 @@ Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installé
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
 - [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
-## <a name="log-on-to-the-azure-portal"></a>Se connecter au portail Azure
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Tout d’abord, accédez au [portail Azure][Azure portal] et connectez-vous à l’aide de votre abonnement Azure. La première étape consiste à créer un espace de noms Service Bus de type **Messagerie**.
-
-## <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
-
-Un espace de noms de messagerie Service Bus fournit un conteneur d’étendue unique, référencé par son [nom de domaine complet][], dans lequel vous créez une ou plusieurs files d’attente, rubriques et abonnements. L’exemple suivant crée un espace de noms de messagerie Service Bus dans un [groupe de ressources](/azure/azure-resource-manager/resource-group-portal) nouveau ou existant :
-
-1. Dans le volet de navigation gauche du portail, cliquez sur  **+ Créer une ressource**, puis sur **Intégration Entreprise** et sur **Service Bus**.
-2. Dans la boîte de dialogue **Créer un espace de noms**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
-3. Après avoir vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Standard ou Premium).
-4. Dans le champ **Abonnement**, sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
-5. Dans le champ **Groupe de ressources** , choisissez un groupe de ressources existant dans lequel l’espace de noms sera utilisé, ou créez-en un nouveau.      
-6. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
-7. Cliquez sur **Créer**. Le système crée l’espace de noms de service et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
-
-![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Obtenir les informations d’identification de gestion
-
-Créer un espace de noms génère automatiquement une règle de signature d’accès partagé (SAS) initiale comprenant une paire de clés primaire et secondaire qui vous offre un contrôle complet sur tous les aspects de l’espace de noms. Pour copier la règle initiale, effectuez les étapes suivantes : 
-
-1.  Cliquez sur **Toutes les ressources**, puis sur le nom de l’espace de noms que vous venez de créer.
-2. Dans la fenêtre Espace de noms, cliquez sur **Stratégies d’accès partagé**.
-3. Dans l’écran **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
-4. Dans la fenêtre **Stratégie : RootManageSharedAccessKey**, cliquez sur le bouton **Copier** situé en regard de **Chaîne de connexion principale**, pour copier la chaîne de connexion dans le presse-papiers pour une utilisation ultérieure. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire. 
-
-    ![connection-string][connection-string]
-5. Répétez l’étape précédente, en copiant et collant la valeur de **Clé primaire** dans un emplacement temporaire pour l’utiliser ultérieurement.
-
-## <a name="create-a-queue"></a>Créer une file d’attente
-
-Pour créer une file d’attente Service Bus, spécifiez l’espace de noms dans lequel vous souhaitez la créer. L’exemple suivant montre comment créer une file d’attente sur le portail :
-
-1. Dans le volet de navigation gauche du portail, cliquez sur **Service Bus** (si vous ne voyez pas **Service Bus**, cliquez sur **Plus de services**).
-2. Cliquez sur l’espace de noms dans lequel vous souhaitez créer la file d’attente.
-3. Dans la fenêtre de l’espace de noms, cliquez sur **Files d’attente**, puis dans la fenêtre **Files d’attente**, cliquez sur **File d’attente**.
-4. Entrez le **Nom** de la file d’attente et laissez les valeurs par défaut des autres valeurs.
-5. En bas de la fenêtre, cliquez sur **Créer**.
-6. Notez le nom de la file d’attente.
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
 
@@ -82,28 +45,22 @@ Pour exécuter le code, procédez comme suit :
 
 1. Clonez le [référentiel GitHub Service Bus](https://github.com/Azure/azure-service-bus/) en exécutant la commande suivante :
 
-   ```shell
+   ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-
 3. Accédez à l’exemple de dossier `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
-
-4. Copiez la chaîne de connexion et le nom de la file d’attente obtenus dans la section [Obtenir les informations d’identification de gestion](#obtain-the-management-credentials).
-
+4. Copiez la chaîne de connexion et le nom de la file d’attente obtenus dans la section Obtenir les informations d’identification de gestion.
 5.  Saisissez ensuite la commande suivante dans une invite de commandes :
 
-   ```shell
-   dotnet build
-   ```
-
+    ```
+    dotnet build
+    ```
 6.  Accédez au dossier `bin\Debug\netcoreapp2.0`.
-
 7.  Tapez la commande suivante pour exécuter le programme. Veillez à remplacer `myConnectionString` par la valeur que vous avez obtenu précédemment, et `myQueueName` par le nom de la file d’attente que vous avez créée :
 
-   ```shell
-   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
-   ``` 
-
+    ```shell
+    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+    ``` 
 8. Observez les 10 messages envoyés à la file d’attente puis reçus par la file d’attente :
 
    ![sortie du programme](./media/service-bus-quickstart-portal/dotnet.png)
@@ -254,8 +211,7 @@ Dans cet article, vous avez créé un espace de noms Service Bus et d’autres r
 
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[nom de domaine complet]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
-[connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png

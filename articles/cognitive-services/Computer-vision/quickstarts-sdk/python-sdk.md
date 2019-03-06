@@ -8,24 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 3043067f326f782c51be38382070ae0db0e90f4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314169"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889628"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>SDK Vision par ordinateur d’Azure Cognitive Services pour Python
 
-Le service Vision par ordinateur offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations. Les algorithmes du service Vision par ordinateur analysent le contenu d’une image de différentes manières, selon les composants visuels qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient du contenu pour adultes ou choquant, rechercher tous les visages dans une image ou trouver du texte manuscrit ou imprimé. Ce service prend en charge les formats d’image courants, tels que JPEG et PNG. 
+Le service Vision par ordinateur offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations. Les algorithmes du service Vision par ordinateur analysent le contenu d’une image de différentes manières, selon les composants visuels qui vous intéressent. 
 
-Vous pouvez utiliser Vision par ordinateur dans votre application pour :
+* [Analyser une image](#analyze-an-image)
+* [Obtenir une liste de domaines](#get-subject-domain-list)
+* [Analyser une image par domaine](#analyze-an-image-by-domain)
+* [Obtenir la description textuelle d’une image](#get-text-description-of-an-image)
+* [Obtenir le texte manuscrit d’une image](#get-text-from-image)
+* [Générer une miniature](#generate-thumbnail)
 
-- Analyser des images pour obtenir des informations
-- Extraire du texte à partir des images
-- Génération de miniatures
+Pour plus d’informations sur ce service, consultez [Qu’est-ce que le service Vision par ordinateur ?][computervision_docs].
 
 Vous cherchez plus de documentation ?
 
@@ -34,11 +37,21 @@ Vous cherchez plus de documentation ?
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure - [Créer un compte gratuit][azure_sub]
-* [Ressource Vision par ordinateur][computervision_resource] Azure
 * [Python 3.6+][python]
+* [Clé Vision par ordinateur][computervision_resource] gratuite et région associée. Vous avez besoin de ces valeurs quand vous créez l’instance de l’objet client [ComputerVisionAPI][ref_computervisionclient]. Utilisez l’une des méthodes suivantes pour obtenir ces valeurs. 
 
-Si vous avez besoin d’un compte d’API Vision par ordinateur, vous pouvez en créer un avec la commande [Azure CLI][azure_cli] suivante :
+### <a name="if-you-dont-have-an-azure-subscription"></a>Si vous n’avez pas d’abonnement Azure
+
+Créez une clé gratuite valide pendant 7 jours avec l’expérience d’**essai gratuit**. Quand la clé est créée, copiez-la ainsi que le nom de la région. Vous en aurez besoin pour [créer le client](#create-client).
+
+Gardez les éléments suivants une fois que la clé est créée :
+
+* Valeur de la clé : chaîne de 32 caractères au format `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
+* Région de la clé : sous-domaine de l’URL du point de terminaison, https://**westcentralus**.api.cognitive.microsoft.com
+
+### <a name="if-you-have-an-azure-subscription"></a>Si vous avez un abonnement Azure
+
+Si vous avez besoin d’un compte d’API Vision par ordinateur, la méthode la plus simple pour en créer un dans votre abonnement consiste à utiliser la commande [Azure CLI][azure_cli] suivante. Vous devez choisir le nom du groupe de ressources, par exemple, « my-cogserv-group » et le nom de la ressource Vision par ordinateur, comme « my-computer-vision-resource ». 
 
 ```Bash
 RES_REGION=westeurope 
@@ -54,18 +67,20 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="installation"></a>Installation
+<!--
+## Installation
 
-Installez le SDK Vision par ordinateur d’Azure Cognitive Services avec [pip][pip], éventuellement dans un [environnement virtuel][venv].
+Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
 
-### <a name="configure-a-virtual-environment-optional"></a>Configurer un environnement virtuel (facultatif)
+### Configure a virtual environment (optional)
 
-Bien que cela ne soit pas obligatoire, vous pouvez maintenir votre environnement système de base et celui du SDK Azure séparés en utilisant un [environnement virtuel][virtualenv]. Exécutez les commandes suivantes pour configurer un environnement virtuel comme `cogsrv-vision-env` et entrer dans celui-ci avec [venv][venv] :
+Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
 
 ```Bash
 python3 -m venv cogsrv-vision-env
 source cogsrv-vision-env/bin/activate
 ```
+-->
 
 ### <a name="install-the-sdk"></a>Installer le Kit de développement logiciel (SDK)
 
@@ -81,9 +96,20 @@ Une fois votre ressource Vision par ordinateur créée, utilisez sa **région** 
 
 Utilisez ces valeurs quand vous créez l’instance de l’objet client [ComputerVisionAPI][ref_computervisionclient]. 
 
-### <a name="get-credentials"></a>Récupérer les informations d’identification
+<!--
 
-Utilisez l’extrait [Azure CLI][cloud_shell] ci-dessous pour remplir les deux variables d’environnement avec la **région** et l’une des **clés** du compte Vision par ordinateur (ces valeurs sont également disponibles dans le [portail Azure][azure_portal]). L’extrait de code est mis en forme pour l’interpréteur de commandes Bash.
+For example, use the Bash terminal to set the environment variables:
+
+```Bash
+ACCOUNT_REGION=<resourcegroup-name>
+ACCT_NAME=<computervision-account-name>
+```
+
+### For Azure subscription usrs, get credentials for key and region
+
+If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+
+Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -101,44 +127,25 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
+-->
 
 ### <a name="create-client"></a>Créer un client
 
-Une fois les variables d’environnement `ACCOUNT_REGION` et `ACCOUNT_KEY` remplies, vous pouvez créer l’objet client [ComputerVisionAPI][ref_computervisionclient].
+Créez l’objet client [ComputerVisionAPI][ref_computervisionclient]. Remplacez les valeurs de clé et de région indiquées dans l’exemple de code suivant par vos propres valeurs.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-import os
-region = os.environ['ACCOUNT_REGION']
-key = os.environ['ACCOUNT_KEY']
+region = "westcentralus"
+key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-## <a name="usage"></a>Usage
-
-Après avoir initialisé un objet client [ComputerVisionAPI][ref_computervisionclient], vous pouvez :
-
-* Analyser une image : vous pouvez analyser une image à la recherche de certaines caractéristiques comme des visages, des couleurs, des étiquettes, etc.   
-* Générer des miniatures : créez une image JPEG personnalisée à utiliser comme miniature de l’image d’origine.
-* Obtenir la description d’une image : obtenez la description d’une image en fonction de son domaine. 
-
-Pour plus d’informations sur ce service, consultez [Qu’est-ce que le service Vision par ordinateur ?][computervision_docs].
-
-## <a name="examples"></a>Exemples
-
-Les sections suivantes fournissent plusieurs extraits de code qui couvrent quelques-unes des tâches Vision par ordinateur les plus courantes, notamment :
-
-* [Analyser une image](#analyze-an-image)
-* [Obtenir une liste de domaines](#get-subject-domain-list)
-* [Analyser une image par domaine](#analyze-an-image-by-domain)
-* [Obtenir la description textuelle d’une image](#get-text-description-of-an-image)
-* [Obtenir le texte manuscrit d’une image](#get-text-from-image)
-* [Générer une miniature](#generate-thumbnail)
+Vous avez besoin d’un objet client [ComputerVisionAPI][ref_computervisionclient] avant d’utiliser une des tâches suivantes.
 
 ### <a name="analyze-an-image"></a>Analyser une image
 
@@ -169,8 +176,13 @@ for x in models.models_property:
 Vous pouvez analyser une image par domaine avec [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Obtenez la [liste des domaines pris en charge](#get-subject-domain-list) pour utiliser le nom de domaine approprié.  
 
 ```Python
+# type of prediction
 domain = "landmarks"
-url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+
+# Public domain image of Eiffel tower
+url = "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
+
+# English language response
 language = "en"
 
 analysis = client.analyze_image_by_domain(domain, url, language)
@@ -202,6 +214,10 @@ for caption in analysis.captions:
 Vous pouvez obtenir n’importe quel texte manuscrit ou imprimé figurant dans une image. Pour cela, deux appels au SDK sont nécessaires : [`recognize_text`][ref_computervisionclient_recognize_text] et [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. L’appel à recognize_text est asynchrone. Dans les résultats de l’appel à get_text_operation_result, vous devez vérifier si le premier appel s’est terminé avec [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] avant d’extraire les données texte. Les résultats incluent le texte, ainsi que les coordonnées du cadre englobant le texte. 
 
 ```Python
+# import models
+from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
+from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
 raw = True
@@ -231,10 +247,19 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 Vous pouvez générer une miniature (JPG) d’une image avec [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. La miniature ne doit pas forcément être dans les mêmes proportions que l’image d’origine. 
 
-Cet exemple utilise le package [Pillow][pypi_pillow] pour enregistrer la nouvelle image miniature localement.
+Installez **Pillow** pour utiliser cet exemple :
+
+```bash
+pip install Pillow
+``` 
+
+Une fois que Pillow est installé, utilisez le package de l’exemple de code suivant pour générer l’image miniature.
 
 ```Python
+# Pillow package
 from PIL import Image
+
+# IO package to create local image
 import io
 
 width = 50
@@ -281,17 +306,16 @@ except HTTPFailure as e:
 
 Quand vous travaillez avec le client [ComputerVisionAPI][ref_computervisionclient], vous pouvez rencontrer des échecs passagers causés par des [limites de débit][computervision_request_units] appliquées par le service ou d’autres problèmes passagers comme des pannes du réseau. Pour plus d’informations sur la gestion de ces types d’échecs, consultez le [modèle Nouvelle tentative][azure_pattern_retry] dans le guide des modèles de conception de cloud et le [modèle Disjoncteur] [azure_pattern_circuit_breaker] connexe.
 
-## <a name="next-steps"></a>Étapes suivantes
-
 ### <a name="more-sample-code"></a>Autres exemples de code
 
 Plusieurs exemples du SDK Vision par ordinateur pour Python sont disponibles dans le dépôt GitHub du SDK. Vous y trouverez des exemples de code pour d’autres scénarios fréquents associés à l’utilisation du service Vision par ordinateur :
 
 * [recognize_text][recognize-text]
 
-### <a name="additional-documentation"></a>Documentation complémentaire
+## <a name="next-steps"></a>Étapes suivantes
 
-Pour une documentation plus complète sur le service Vision par ordinateur, consultez la [documentation sur le service Azure Vision par ordinateur][computervision_docs] sur docs.microsoft.com.
+> [!div class="nextstepaction"]
+> [Application de balises de contenu aux images](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

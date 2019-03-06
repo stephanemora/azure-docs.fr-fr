@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606246"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675090"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Didacticiel : Détecter des anomalies en périphérie avec l’accélérateur de solution de supervision à distance
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutoriel : Détecter des anomalies en périphérie avec l’accélérateur de solution de supervision à distance
 
 Dans ce tutoriel, vous allez configurer la solution de supervision à distance pour résoudre les anomalies détectées par un appareil IoT Edge. Les appareils IoT Edge vous permettent de traiter la télémétrie à la périphérie afin de réduire le volume des données de télémétrie envoyées à la solution et de répondre plus rapidement aux événements des appareils. Pour connaître les avantages du traitement de données en périphérie, consultez [Qu’est-ce qu’Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
@@ -55,12 +55,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Deux étapes sont nécessaires pour ajouter un appareil IoT Edge à votre accélérateur de solution de supervision à distance. Cette section vous montre comment :
 
-* Ajouter un appareil IoT Edge dans la page **Appareils** de l’interface utilisateur web de la supervision à distance
+* Ajouter un appareil IoT Edge dans la page **Device Explorer** de l’interface utilisateur web de la supervision à distance
 * Installer le runtime IoT Edge sur une machine virtuelle Linux
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Ajouter un appareil IoT Edge à votre solution
 
-Pour ajouter un appareil IoT Edge à l’accélérateur de solution de supervision à distance, accédez à la page **Appareils** dans l’interface utilisateur web, puis cliquez sur **+Nouvel appareil**.
+Pour ajouter un appareil IoT Edge à l’accélérateur de solution de supervision à distance, accédez à la page **Device Explorer** dans l’interface utilisateur web, puis cliquez sur **+ Nouvel appareil**.
 
 Dans le panneau **Nouvel appareil**, choisissez **Appareil IoT Edge**, puis entrez **oil-pump** (pompe à pétrole) comme ID d’appareil. Vous pouvez conserver les valeurs par défaut des autres paramètres. Cliquez alors sur **Appliquer** :
 
@@ -68,13 +68,13 @@ Dans le panneau **Nouvel appareil**, choisissez **Appareil IoT Edge**, puis entr
 
 Notez la chaîne de connexion d’appareil, car vous en aurez besoin dans la section suivante de ce tutoriel.
 
-Lorsque vous inscrivez un appareil auprès du hub IoT dans l’accélérateur de solution de supervision à distance, l’appareil est listé dans la page **Appareils** de l’interface utilisateur web :
+Quand vous inscrivez un appareil auprès du hub IoT dans l’accélérateur de solution Supervision à distance, l’appareil est listé dans la page **Device Explorer** de l’interface utilisateur web :
 
 [![Nouvel appareil IoT Edge](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 Pour faciliter la gestion des appareils IoT Edge dans la solution, créez un groupe d’appareils, puis ajoutez-y l’appareil IoT Edge :
 
-1. Sélectionnez l’appareil **oil-pump** dans la liste de la page **Appareils**, puis cliquez sur **Travaux**.
+1. Sélectionnez l’appareil **oil-pump** dans la liste de la page **Device Explorer**, puis cliquez sur **Travaux**.
 
 1. Créez un travail pour ajouter l’étiquette **IsEdge** à l’appareil en utilisant les paramètres suivants :
 
@@ -84,23 +84,23 @@ Pour faciliter la gestion des appareils IoT Edge dans la solution, créez un gro
     | Nom du travail | AddEdgeTag |
     | Clé     | IsOilPump |
     | Valeur   | O     |
-    | type    | Texte  |
+    | Type    | Texte  |
 
     [![Ajouter une étiquette](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
 1. Cliquez sur **Appliquer**, puis sur **Fermer**.
 
-1. Dans la page **Appareils**, cliquez sur **Gérer les groupes d’appareils**.
+1. Dans la page **Device Explorer**, cliquez sur **Gérer les groupes d’appareils**.
 
 1. Cliquez sur **Créer un groupe d’appareils**. Créez un groupe d’appareils avec les paramètres suivants :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | NOM    | OilPumps |
+    | Nom    | OilPumps |
     | Champ   | Tags.IsOilPump |
     | Operator | = Equals |
     | Valeur    | O |
-    | type     | Texte |
+    | Type     | Texte |
 
     [![Créer un groupe d’appareils](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -275,7 +275,7 @@ Vous êtes maintenant prêt à déployer le package sur votre appareil.
 
     | Option | Valeur |
     | ------ | ----- |
-    | NOM   | OilPumpDevices |
+    | Nom   | OilPumpDevices |
     | Type de package | Manifeste Edge |
     | Package | oil-pump-device.json |
     | Groupe d’appareils | OilPumps |
@@ -300,7 +300,7 @@ La page **Déploiements** affiche les métriques suivantes :
 
 Vous pouvez afficher les données de télémétrie de température du capteur de la pompe à pétrole dans l’interface utilisateur web de la supervision à distance :
 
-1. Accédez à la page **Appareils**, puis sélectionnez votre capteur :
+1. Accédez à la page **Device Explorer**, puis sélectionnez votre dispositif de pompe à huile.
 1. Dans la section **Télémétrie** du panneau **Détails de l’appareil**, cliquez sur **Température** :
 
     [![Afficher les données de télémétrie](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)

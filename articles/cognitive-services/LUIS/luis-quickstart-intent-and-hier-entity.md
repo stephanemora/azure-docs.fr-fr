@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856918"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873915"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutoriel : Extraire des données connexes en fonction du contexte d’un énoncé
 
@@ -74,7 +74,7 @@ L’entité hiérarchique est adaptée à ce type de données, car les deux ense
     |Transférer Steve Standish de San Diego vers Bellevue |
     |Retirer Tanner Thompson de Kansas City et l’envoyer à Chicago|
 
-    [ ![Capture d’écran de LUIS avec les nouveaux énoncés dans l’intention MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Capture d’écran de LUIS avec les nouveaux énoncés dans l’intention MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>Créer une entité d’emplacement
 LUIS a besoin de comprendre ce qu’est un emplacement en étiquetant l’origine et la destination dans les énoncés. Si vous devez voir l’énoncé dans l’affichage du jeton (brut), sélectionnez le bouton bascule dans la barre au-dessus des énoncés dénommé **Entities View** (affichage d’entités). Après avoir activé le bouton bascule , la commande s’appelle **Tokens View** (Vue des jetons).
@@ -91,7 +91,7 @@ Si un seul enfant (origine ou destination) d’une entité hiérarchique est pr�
 
 1. Dans l’énoncé `move John W. Smith leaving Seattle headed to Dallas`, sélectionnez le mot `Seattle`. Un menu déroulant apparaît avec une zone de texte à son sommet. Entrez le nom de l’entité `Location` dans la zone de texte, puis sélectionnez **Créer une entité** dans le menu déroulant. 
 
-    [![Capture d'écran illustrant la création d'une entité sur la page d'intention](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "Capture d'écran illustrant la création d'une entité sur la page d'intention")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Capture d'écran illustrant la création d'une entité sur la page d'intention](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Capture d'écran illustrant la création d'une entité sur la page d'intention")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. Dans la fenêtre contextuelle, sélectionnez le type d’entité **hiérarchique** avec `Origin` et `Destination` comme entités enfants. Sélectionnez **Terminé**.
 
@@ -99,7 +99,7 @@ Si un seul enfant (origine ou destination) d’une entité hiérarchique est pr�
 
 1. L’étiquette de `Seattle` est marquée comme `Location` car LUIS ne sait pas si le terme désigne l’origine ou la destination ou aucun des deux. Sélectionnez `Seattle`, puis **Emplacement**, suivez le menu à droite et cliquez sur `Origin`.
 
-    [![Capture d'écran de la boîte de dialogue contextuelle d'étiquetage des entités permettant de changer l'enfant de l'entité Emplacements](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "Capture d'écran de la boîte de dialogue contextuelle d'étiquetage des entités permettant de changer l'enfant de l'entité Emplacements")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Capture d'écran de la boîte de dialogue contextuelle d'étiquetage des entités permettant de changer l'enfant de l'entité Emplacements](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "Capture d'écran de la boîte de dialogue contextuelle d'étiquetage des entités permettant de changer l'enfant de l'entité Emplacements")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Étiquetez les autres emplacements dans tous les autres énoncés. Quand tous les emplacements sont marqués, les énoncés commencent à ressembler à un modèle. 
 

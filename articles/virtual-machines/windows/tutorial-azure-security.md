@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebb1a3fba95ed5794b3737d75c4ec182163a32fb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4c54383df74d9cfd7941dc52d26856bc8da51457
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984424"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594710"
 ---
-# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutoriel : Utiliser Azure Security Center pour superviser des machines virtuelles Windows
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Didacticiel : Utiliser Azure Security Center pour superviser des machines virtuelles Windows
 
 Azure Security Center peut vous aider à acquérir une meilleure visibilité des pratiques de sécurité de vos ressources Azure. Azure Security Center assure une surveillance intégrée de la sécurité. Il peut détecter des menaces qui sans cela pourraient passer inaperçues. Ce didacticiel décrit Azure Security Center et comment effectuer les opérations suivantes :
 
@@ -65,7 +65,7 @@ Pour configurer une stratégie de sécurité pour l’intégralité d’un abonn
 
 1. Dans le tableau de bord de Security Center, cliquez sur **Stratégie de sécurité**, puis sélectionnez votre abonnement.
 2. Dans le panneau **Stratégie de sécurité**, sélectionnez **Stratégie de sécurité**. 
-3. Dans le panneau** Stratégie de sécurité – Stratégie de sécurité **, activez ou désactivez les éléments de stratégie que vous souhaitez appliquer à l’abonnement.
+3. Dans le panneau **Stratégie de sécurité – Stratégie de sécurité**, activez ou désactivez les éléments de stratégie que vous souhaitez appliquer à l’abonnement.
 4. Lorsque vous avez terminé de sélectionner vos paramètres, sélectionnez **Enregistrer** dans la partie supérieure du panneau. 
 
 

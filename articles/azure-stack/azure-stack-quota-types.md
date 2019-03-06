@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239094"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877943"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
@@ -74,7 +74,7 @@ Il existe deux façons d’afficher un quota existant :
 3.  Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
 4.  Sélectionnez le quota que vous aimeriez voir en cliquant dessus dans la colonne **Nom**.
 
-    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "Afficher les quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "Afficher les quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Fournisseurs de ressources
 
@@ -92,7 +92,7 @@ Il existe deux façons différentes de modifier un quota :
 2.  Sélectionnez le plan pour lequel vous souhaitez modifier un quota, en cliquant sur son nom.
 3.  Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
 4.  Sélectionnez le quota que vous aimeriez modifier en cliquant dessus dans la colonne **Nom**.
-    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "Afficher les quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "Afficher les quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  Dans le panneau qui s’ouvre, sélectionnez **Modifier dans Compute**, **Modifier dans Réseau**, ou **Modifier dans Stockage**.
     ![Quotas](media/azure-stack-quota-types/quotas3.png "Afficher les quotas")    

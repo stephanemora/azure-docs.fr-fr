@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 66640bd60f6ba8c2f612a6bc9b88a07b13012997
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/25/2019
+ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990032"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984881"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Démarrage rapide : créer et interroger une base de données unique dans Azure SQL Database à l’aide du portail Azure
 
@@ -29,7 +29,7 @@ Pour toutes les étapes de ce guide de démarrage rapide, connectez-vous au [Por
 
 ## <a name="create-a-single-database"></a>Créer une base de données unique
 
-Une base de données unique comprend un ensemble défini de ressources (capacité de calcul, mémoire, E/S et stockage) qui varient selon le modèle d’achat choisi. Quand vous créez une base de données unique, vous définissez également un [serveur SQL Database](sql-database-servers.md) pour la gérer et la placer dans le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) d’une région spécifiée.
+Une base de données comprend un ensemble défini de ressources (capacité de calcul, mémoire, E/S et stockage) qui varient selon l’un des deux [modèles d’achat](sql-database-purchase-models.md) choisi. Quand vous créez une base de données unique, vous définissez également un [serveur SQL Database](sql-database-servers.md) pour la gérer et la placer dans le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) d’une région spécifiée.
 
 Pour créer une base de données unique contenant les exemples de données AdventureWorksLT :
 
@@ -42,8 +42,8 @@ Pour créer une base de données unique contenant les exemples de données Adven
    - **Groupe de ressources** : Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez **OK**.
    - **Sélectionner la source** : Sélectionnez **Sample (AdventureWorksLT)** dans la liste.
 
-    >[!IMPORTANT]
-    >Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir facilement suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données.
+    > [!IMPORTANT]
+    > Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir facilement suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données.
   
    ![Créer une base de données unique](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -56,18 +56,18 @@ Pour créer une base de données unique contenant les exemples de données Adven
    - **Confirmer le mot de passe** : Retapez le mot de passe.
    - **Emplacement** : Sélectionnez n’importe quel emplacement valide dans la liste.  
 
-   >[!IMPORTANT]
-   >Mémorisez votre nom d’utilisateur et mot de passe de connexion d’administrateur au serveur, car vous en aurez besoin pour vous connecter au serveur et aux bases de données dans le cadre de ce guide ou d’autres guides de démarrage rapide. Si vous oubliez votre mot de passe ou vos identifiants de connexion, vous pouvez obtenir le nom de connexion ou réinitialiser le mot de passe sur la page **SQL Server**. Pour ouvrir la page **SQL Server** , sélectionnez le nom du serveur sur la page **Vue d’ensemble** de la base de données une fois cette dernière créée.
+   > [!IMPORTANT]
+   > Mémorisez votre nom d’utilisateur et mot de passe de connexion d’administrateur au serveur, car vous en aurez besoin pour vous connecter au serveur et aux bases de données dans le cadre de ce guide ou d’autres guides de démarrage rapide. Si vous oubliez votre mot de passe ou vos identifiants de connexion, vous pouvez obtenir le nom de connexion ou réinitialiser le mot de passe sur la page **SQL Server**. Pour ouvrir la page **SQL Server** , sélectionnez le nom du serveur sur la page **Vue d’ensemble** de la base de données une fois cette dernière créée.
 
     ![Créer un serveur](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. Choisissez **Select**.
 7. Sur le formulaire **SQL Database**, sélectionnez **Niveau tarifaire**. Explorez la quantité de DTU et de stockage disponible pour chaque niveau de service.
 
-   >[!NOTE]
-   >Ce gudie de démarrage rapide utilise le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), mais le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) est également disponible.
-   >[!IMPORTANT]
-   >Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Royaume-Uni Nord, USA Centre-Ouest, Royaume-Uni Sud 2, Chine Est, USDoDCentral, Allemagne Centre, USDoDEast, US Gov Sud-Ouest, US Gov Centre-Sud, Allemagne Nord-Est, Chine Nord et US Gov Est. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > [!NOTE]
+   > Ce gudie de démarrage rapide utilise le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), mais le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) est également disponible.
+   > [!IMPORTANT]
+   > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. Pour ce démarrage rapide, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **10 DTU (S0)** et **1** Go de stockage.
 9. Sélectionnez **Appliquer**.  

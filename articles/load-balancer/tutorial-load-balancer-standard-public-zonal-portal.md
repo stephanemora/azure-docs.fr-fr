@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229810"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985986"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Didacticiel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
 
@@ -48,18 +48,22 @@ Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azur
 Standard Load Balancer prend uniquement en charge une adresse IP publique standard. Lorsque vous créez une nouvelle adresse IP publique en créant l’équilibreur de charge, celle-ci est automatiquement configurée comme version de référence SKU standard. Elle est également automatiquement redondante dans une zone.
 
 1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-2. Dans la page **Créer un équilibreur de charge**, entrez les valeurs suivantes pour l’équilibreur de charge :
-    - **myLoadBalancer** pour le nom de l’équilibreur de charge.
-    - **Public** pour le type de l’équilibreur de charge.
-      - **myPublicIPZonal** : pour la nouvelle adresse IP publique créée. Sélectionnez **Choisir une adresse IP publique**. Sélectionnez ensuite **Créer nouveau**. Pour le nom, entrez **myPublicIP**. La référence SKU est standard par défaut. Pour **Zone de disponibilité**, sélectionnez **Zone 1**.
-    - **myResourceGroupZLB**, pour le nom du nouveau groupe de ressources que vous créez.
-    - **westeurope**, pour l’emplacement.
-3. Sélectionnez **Créer** pour générer l’équilibreur de charge.
-   
-    ![Créer une instance zonale Standard Load Balancer à l’aide du portail Azure](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
 
+    | Paramètre                 | Valeur                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupZLB* dans la zone de texte.|
+    | Nom                   | *myLoadBalancer*                                   |
+    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Type          | Sélectionnez **Public**.                                        |
+    | SKU           | Sélectionnez **Standard**.                          |
+    | Adresse IP publique | Sélectionnez **Créer nouveau**. |
+    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
+    |Zone de disponibilité| Sélectionnez **1**.    |
+3. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**.   
 
-## <a name="create-backend-servers"></a>Créer des serveurs principaux
+ ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
 Dans cette section, vous créez un réseau virtuel. Vous créez également deux machines virtuelles dans la même zone (à savoir, la zone 1) pour la région à ajouter au pool principal de votre équilibreur de charge. Vous installez ensuite IIS sur les machines virtuelles pour faciliter le test de l’équilibreur de charge redondant interzone. Si une machine virtuelle échoue, la sonde d’intégrité de la machine virtuelle dans la même zone échoue. Le trafic continue à être pris en charge par les autres machines virtuelles au sein de la même zone.
 

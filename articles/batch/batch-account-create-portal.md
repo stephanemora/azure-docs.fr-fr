@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193915"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984473"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -42,19 +42,21 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 
     ![Création d’un compte Batch][account_portal]
 
-    a. **Nom du compte** : Le nom que vous choisissez doit être unique dans la région Azure où le compte est créé (voir **Emplacement** ci-dessous). Le nom de compte peut contenir uniquement des caractères minuscules ou des chiffres et doit comporter entre 3 et 24 caractères.
+    a. **Abonnement**: Abonnement où créer le compte Batch. Si vous n’avez qu’un seul abonnement, il est sélectionné par défaut.
 
-    b. **Abonnement**: Abonnement où créer le compte Batch. Si vous n’avez qu’un seul abonnement, il est sélectionné par défaut.
+    b. **Groupe de ressources** : Sélectionnez un groupe de ressources existant pour votre nouveau compte Batch ; vous pouvez aussi en créer un.
 
-    c. **Groupe de ressources** : Sélectionnez un groupe de ressources existant pour votre nouveau compte Batch ; vous pouvez aussi en créer un.
+    c. **Nom du compte** : Le nom que vous choisissez doit être unique dans la région Azure où le compte est créé (voir **Emplacement** ci-dessous). Le nom de compte peut contenir uniquement des caractères minuscules ou des chiffres et doit comporter entre 3 et 24 caractères.
 
     d. **Emplacement** : Région Azure où créer le compte Batch. Seules les régions prises en charge par votre abonnement et votre groupe de ressources sont affichées.
 
-    e. **Compte de stockage** (facultatif) : Compte de stockage Azure à associer à votre compte Batch. Cela est recommandé pour la plupart des comptes Batch. Pour connaître les options de compte de stockage de Batch, consultez [Aperçu des fonctionnalités d’Azure Batch](batch-api-basics.md#azure-storage-account). Dans le portail, sélectionnez un compte de stockage existant ou créez-en un nouveau.
+    e. **Compte de stockage** : Compte de Stockage Azure facultatif à associer à votre compte Batch. Un compte de stockage v2 universel est recommandé pour obtenir des performances optimales. Pour connaître les options de compte de stockage de Batch, consultez la [vue d’ensemble des fonctionnalités d’Azure Batch](batch-api-basics.md#azure-storage-account). Dans le portail, sélectionnez un compte de stockage existant ou créez-en un nouveau.
 
       ![Créez un compte de stockage.][storage_account]
 
-    f. **Mode d’allocation de pool** : Pour la plupart des scénarios, acceptez le **service Batch** par défaut.
+    f. **Mode d’allocation de pool** : Sous l’onglet des paramètres **Avancé**, vous pouvez spécifier le mode d’allocation de pool **Service Batch** ou **Abonnement utilisateur**. Pour la plupart des scénarios, acceptez le **service Batch** par défaut.
+
+      ![Mode d’allocation de pool Batch][pool_allocation]
 
 1. Sélectionnez **Créer** pour créer le compte.
 
@@ -115,7 +117,7 @@ Lors de la création du compte Batch en mode Abonnement utilisateur, utilisez le
 
 ### <a name="configure-subscription-quotas"></a>Configurer les quotas d’abonnement
 
-Les quotas de base ne sont pas définis par défaut sur les comptes Batch d’abonnement utilisateur. Les quotas de base doivent être définis manuellement, car les quotas de base Batch classiques ne s’appliquent pas aux comptes en mode d’abonnement utilisateur.
+Les quotas de base ne sont pas définis par défaut sur les comptes Batch d’abonnement utilisateur. Les quotas de base doivent être définis manuellement, car les quotas de base Batch standard ne s’appliquent pas aux comptes en mode Abonnement utilisateur.
 
 1. Dans le [Portail Azure][azure_portal], sélectionnez votre compte Batch en mode d’abonnement utilisateur pour afficher ses paramètres et ses propriétés.
 
@@ -142,8 +144,8 @@ Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mai
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[pool_allocation]: ./media/batch-account-create-portal/batch-pool-allocation.png
 [account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png

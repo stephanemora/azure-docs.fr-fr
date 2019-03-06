@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9352130eeeb68a87947450cb5616aa59e8e99ae9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341298"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807369"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure
 
@@ -38,9 +38,9 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-1. Dans la liste de navigation, sélectionnez **Groupes de ressources**.
+1. Dans la liste de navigation, cliquez sur **Groupes de ressources**.
 
-1. Choisissez **Ajouter** pour ouvrir le panneau **Groupe de ressources**.
+1. Cliquez sur **Ajouter** pour ouvrir le panneau **Groupe de ressources**.
 
    ![Ajouter un nouveau groupe de ressources](./media/quickstart-assign-role-user-portal/resource-group.png)
 
@@ -48,9 +48,9 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 1. Sélectionnez un abonnement et un emplacement.
 
-1. Choisissez **Créer** pour créer le groupe de ressources.
+1. Cliquez sur **Créer** pour créer le groupe de ressources.
 
-1. Choisissez **Actualiser** pour actualiser la liste des groupes de ressources.
+1. Cliquez sur **Actualiser** pour actualiser la liste des groupes de ressources.
 
    Le nouveau groupe de ressources apparaît dans la liste de vos groupes de ressources.
 
@@ -60,17 +60,19 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès.
 
-1. Dans la liste **Groupes de ressources**, choisissez le nouveau groupe de ressources **rbac-resource-group**.
+1. Dans la liste **Groupes de ressources**, cliquez sur le nouveau groupe de ressources **rbac-resource-group**.
 
 1. Cliquez sur **Contrôle d’accès (IAM)**.
 
-1. Choisissez l’onglet **Attributions de rôles** pour afficher la liste actuelle des attributions de rôles.
+1. Cliquez sur l’onglet **Attributions de rôles** pour afficher la liste actuelle des attributions de rôles.
 
    ![Panneau Contrôle d’accès (IAM) pour le groupe de ressources](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Choisissez **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
 
    Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
+
+   ![Ajoutez un menu](./media/role-assignments-portal/add-menu.png)
 
    ![Volet Ajouter une attribution de rôle](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
@@ -78,7 +80,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
 
 1. Dans la liste **Sélectionner**, sélectionnez un utilisateur : vous-même ou un autre.
 
-1. Sélectionnez **Enregistrer** pour créer l’attribution de rôle.
+1. Cliquez sur **Enregistrer** pour créer l’attribution de rôle.
 
    Après quelques instants, l’utilisateur se voit attribuer le rôle Contributeur de machines virtuelles dans l’étendue du groupe de ressources rbac-resource-group.
 
@@ -90,25 +92,25 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès.
 
 1. Dans la liste des attributions de rôles, ajoutez une coche en regard de l’utilisateur titulaire du rôle Contributeur de machines virtuelles.
 
-1. Choisissez **Supprimer**.
+1. Cliquez sur **Supprimer**.
 
    ![Supprimer le message d’attribution de rôle](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
-1. Dans le message d’attribution de rôle qui s’affiche, choisissez **Oui**.
+1. Dans le message d’attribution de rôle qui s’affiche, cliquez sur **Oui**.
 
 ## <a name="clean-up"></a>Nettoyer
 
-1. Dans la liste de navigation, sélectionnez **Groupes de ressources**.
+1. Dans la liste de navigation, cliquez sur **Groupes de ressources**.
 
-1. Choisissez **rbac-resource-group** pour ouvrir le groupe de ressources.
+1. Cliquez sur **rbac-resource-group** pour ouvrir le groupe de ressources.
 
-1. Choisissez **Supprimez le groupe de ressources** pour supprimer le groupe de ressources.
+1. Cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources.
 
    ![Supprimer un groupe de ressources](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
 1. Dans le panneau **Voulez-vous vraiment supprimer**, tapez le nom du groupe de ressources : **rbac-resource-group**.
 
-1. Choisissez **Supprimer** pour supprimer le groupe de ressources.
+1. Cliquez sur **Supprimer** pour supprimer le groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 5c416b6db5cc7708c5523d6da12af651d706811e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 11b89cd33346c2d6da2269bbc2a4b9550f3120b3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037648"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587383"
 ---
-# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Démarrage rapide : Créer une application web ASP.NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure
+# <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application web ASP.NET à l’aide du compte d’API SQL Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET (préversion)](create-sql-api-dotnet-preview.md)
@@ -89,7 +89,7 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
 
-Notez que si vous avez déjà utilisé la version précédente du SDK Python, vous connaissez peut-être les termes « collection » et « document ». Étant donné qu’Azure Cosmos DB prend en charge plusieurs modèles d’API, les versions postérieures à la version 3.0 du kit SDK .NET utilisent les termes génériques « conteneur » et « élément ». Un conteneur peut être une collection, un graphique ou une table. Un élément peut être un document, arête/sommet ou ligne, et correspond au contenu à l’intérieur d’un conteneur. [Apprenez-en davantage sur les bases de données, les conteneurs et les éléments.](databases-containers-items.md)
+Notez que si vous avez déjà utilisé la version précédente du SDK Python, vous connaissez peut-être les termes « collection » et « document ». Étant donné qu’Azure Cosmos DB prend en charge plusieurs modèles d’API, les versions postérieures à la version 3.0 du kit SDK .NET utilisent les termes génériques « conteneur » et « élément ». Un conteneur peut être une collection, un graphe ou une table. Un élément peut être un document, arête/sommet ou ligne, et correspond au contenu à l’intérieur d’un conteneur. [Apprenez-en davantage sur les bases de données, les conteneurs et les éléments.](databases-containers-items.md)
 
 Tous les extraits de code suivants proviennent du fichier ToDoItemService.cs.
 

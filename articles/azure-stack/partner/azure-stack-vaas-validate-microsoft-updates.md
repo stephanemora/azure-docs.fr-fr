@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 01/14/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e6f5a17544c1419eb6101acdd6590f034ea4aa3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b7fa03cdf52fc3218e9556c9664daafdc60243f3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241456"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593215"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valider les mises à jour logicielles issues de Microsoft
 
@@ -28,25 +28,35 @@ ms.locfileid: "55241456"
 
 Microsoft publie régulièrement des mises à jour du logiciel Azure Stack. Ces mises à jour sont fournies à nos ingénieurs partenaires Azure Stack. Les mises à jour sont fournies avant d’être mises à la disposition du grand public. Vous pouvez vérifier les mises à jour par rapport à votre solution et fournir des commentaires à Microsoft.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
+Les mises à jour logicielles Microsoft pour Azure Stack sont désignées conformément à une convention d’affectation de noms ; par exemple, 1803 indique que la mise à jour date de mars 2018. Pour plus d’informations sur la stratégie de mise à jour, la cadence des mises à jour et les notes de publication concernant Azure Stack, consultez l’article [Stratégie de maintenance Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-servicing-policy).
 
-## <a name="apply-monthly-update"></a>Appliquer la mise à jour mensuelle
+## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+Avant de vous exercer au processus de mise à jour mensuelle dans VaaS, vous devez être familiarisé avec les éléments suivants :
 
-## <a name="create-a-workflow"></a>Créer un workflow
+- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md) (Concepts clés à propos de la validation en tant que service)
+- [Test de vérification des fonctionnalités interactives](azure-stack-vaas-interactive-feature-verification.md)
 
-Les validations de mises à jour utilisent le même workflow que la **validation de la solution**.
+## <a name="required-tests"></a>Tests requis
 
-## <a name="run-tests"></a>Exécuter les tests
+Les tests ci-dessous doivent être exécutés dans l’ordre suivant pour la validation de logiciel mensuelle :
 
-1. Les validations de mises à jour utilisent le même workflow que la **validation de la solution**. 
+1. Vérification de la mise à jour mensuelle Azure Stack
+2. Cloud Simulation Engine
 
-2. Suivez les instructions données dans [Exécuter les tests de validation de la solution](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Sélectionnez plutôt les tests suivants :
-    - Vérification de la mise à jour mensuelle Azure Stack
-    - Moteur de simulation cloud
+## <a name="validating-software-updates"></a>Validation des mises à jour logicielles
 
-Vous n’avez pas besoin de demander la signature du package pour les validations de mises à jour.
+1. Créez un workflow de **validation de package**.
+1. Pour les tests requis ci-dessus, suivez les instructions dans [Exécution des tests de validations du package](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Consultez la section ci-dessous pour obtenir plus d’instructions sur le test **Vérification de la mise à jour mensuelle Azure Stack**.
+
+### <a name="apply-the-monthly-update"></a>Appliquer la mise à jour mensuelle
+
+1. Sélectionnez un agent sur lequel exécuter des tests.
+1. Planifiez la **Vérification de la mise à jour mensuelle Azure Stack**.
+1. Indiquez l’emplacement au package d’extension OEM actuellement déployé sur l’horodatage et l’emplacement au package d’extension OEM qui sera appliqué pendant la mise à jour. Pour configurer les URL pour ces packages, consultez [Gestion des packages pour validation](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
+1. Suivez les étapes de l’interface utilisateur à partir de l’agent sélectionné.
+
+Si vous avez des questions ou rencontrez des problèmes, contactez le [support technique VaaS](mailto:vaashelp@microsoft.com).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

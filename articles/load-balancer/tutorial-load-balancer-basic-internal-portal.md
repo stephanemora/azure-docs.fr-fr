@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232615"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983181"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure
 
@@ -87,20 +87,23 @@ Créez un équilibreur de charge interne de base à l’aide du portail. Le nom 
 
 1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
    
-1. Dans le volet **Créer un équilibreur de charge**, tapez ou sélectionnez les valeurs suivantes :
+2. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
+
+    | Paramètre                 | Valeur                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
+    | Nom                   | *myLoadBalancer*                                   |
+    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Type          | Sélectionnez **Public**.                                        |
+    | SKU           | Sélectionnez **De base**.                          |
+    | Réseau virtuel           | Sélectionnez *MyVNet*.                          |    
+| Adresse IP publique | Sélectionnez **Créer nouveau**. |
+    | Affectation d’adresses IP publiques              | Sélectionnez **Statique**.   |
+    | Adresse IP privée|entrez une adresse qui se trouve dans l'espace d'adressage de votre réseau virtuel et de votre sous-réseau, par exemple *10.3.0.7*.  |
+
+3. Dans l’onglet **Vérifier + créer**, cliquez sur **Créer**. 
    
-   - **Nom** : Entrez *MyLoadBalancer*.
-   - **Type** : sélectionnez **Interne**. 
-   - **SKU** : Sélectionnez **De base**.
-   - **Réseau virtuel** : sélectionnez **Choisir un réseau virtuel**, puis **MyVNet**.
-   - **Sous-réseau** : sélectionnez **Choisir un sous-réseau**, puis **MyBackendSubnet**.
-   - **Affectation d'adresses IP** : sélectionnez **Statique**.
-   - **Adresse IP privée** : entrez une adresse qui se trouve dans l'espace d'adressage de votre réseau virtuel et de votre sous-réseau, par exemple *10.3.0.7*.
-   - **Groupe de ressources** : faites défiler la liste déroulante **Sélectionner** et choisissez **MyResourceGroupLB**. 
-   
-1. Sélectionnez **Créer**.
-   
-![Créer un équilibrage de charge](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## <a name="create-basic-load-balancer-resources"></a>Créer des ressources d’équilibreur de charge de base
 

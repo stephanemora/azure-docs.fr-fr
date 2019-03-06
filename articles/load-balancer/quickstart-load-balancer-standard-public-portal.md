@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 97d1cf2817ebfbf2eb1a6ba5a4d20d457b6369c6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232666"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961735"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge standard pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
@@ -40,21 +40,20 @@ Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azur
 Dans cette section, vous créez un équilibreur de charge public qui équilibre la charge des machines virtuelles. L’équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez un équilibreur de charge standard, vous devez également créer une nouvelle adresse IP publique standard configurée en tant que frontale (nommée *LoadBalancerFrontend* par défaut) pour cet équilibreur de charge standard. 
 
 1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-2. Sur la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
+2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Vérifier + créer** :
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | NOM                   | *myLoadBalancer*                                   |
-    | type          | Public                                        |
-    | SKU           | standard                          |
-    | Adresse IP publique | Sélectionnez **Créer un nouveau**  et tapez *myPublicIP* dans la zone de texte. La référence SKU standard pour l’adresse IP publique est sélectionnée par défaut. Pour **Zone de disponibilité**, sélectionnez **Redondant interzone**. |
-    | Abonnement               | Sélectionnez votre abonnement.    |
-    |Groupe de ressources | Sélectionnez **Créer un nouveau**, puis tapez *myResourceGroupSLB*.    |
-    | Lieu           | Sélectionnez **Europe Ouest**.                          |
-    
-
-![Créer un équilibrage de charge](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-
+    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupSLB* dans la zone de texte.|
+    | Nom                   | *myLoadBalancer*                                   |
+    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Type          | Sélectionnez **Public**.                                        |
+    | SKU           | Sélectionnez **Standard**.                          |
+    | Adresse IP publique | Sélectionnez **Créer nouveau**. |
+    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
+    |Zone de disponibilité| Sélectionnez **Redondant dans une zone**.    |
+3. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**.   
 
 ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
@@ -84,7 +83,7 @@ Dans cette section, vous créez un réseau virtuel ainsi que deux machines virtu
         2. Dans la page **Créer un groupe de sécurité réseau**, pour **Nom**, entrez *myNetworkSecurityGroup*, puis sélectionnez **OK**.
 5. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage.
 6. Cliquez sur **OK**, vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
-7. En utilisant les étapes 1 à 6, créez une deuxième machine virtuelle nommée *VM2* avec *myAvailibilityset* en tant que groupe à haute disponibilité, *myVnet* en tant que réseau virtuel, *myBackendSubnet* en tant que sous-réseau et **myNetworkSecurityGroup* en tant que groupe de sécurité réseau. 
+7. En effectuant les étapes 1 à 6, créez une deuxième machine virtuelle nommée *VM2* avec *myVnet* comme réseau virtuel, *myBackendSubnet* et son sous-réseau et **myNetworkSecurityGroup* comme groupe de sécurité réseau. 
 
 ### <a name="create-nsg-rule"></a>Création de la règle de groupe de sécurité réseau
 

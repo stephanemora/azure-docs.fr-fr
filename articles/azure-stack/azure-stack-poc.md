@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9341eefdbe1eaa8e27394fd4b10f50b1a48bd4c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 65894ccd9514bce1d429b336f8bd5e6674048e65
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247321"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820261"
 ---
 # <a name="what-is-azure-stack"></a>Qu’est-ce qu’Azure Stack ?
 
@@ -33,15 +33,15 @@ Vous disposez de deux options pour déployer Azure Stack.
 
 ## <a name="azure-stack-development-kit"></a>Kit de développement Azure Stack
 
-Le [Kit de développement Azure Stack (ASDK)](./asdk/asdk-what-is.md) Microsoft est un déploiement à un seul nœud d’Azure Stack qui vous permet de découvrir et d’évaluer Azure Stack.  Vous pouvez également l’utiliser comme environnement de développement pour concevoir des applications à l’aide d’API et d’outils cohérents avec Azure.
+Le [Kit de développement Azure Stack (ASDK)](./asdk/asdk-what-is.md) Microsoft est un déploiement à un seul nœud d’Azure Stack qui vous permet de découvrir et d’évaluer Azure Stack.  Vous pouvez également l’utiliser comme environnement de développement pour concevoir des applications à l’aide d’API et d’outils harmonisés avec Azure.
 
 >[!Note]
 >Le kit de développement Azure Stack n’est pas conçu pour être utilisé en tant qu’environnement de production.
 
 L’ASDK présente les limites suivantes :
 
-* L’ASDK est associé à un seul fournisseur d’identité Azure Active Directory (Azure AD) ou de services de fédération Active Directory (AD FS). Vous pouvez créer plusieurs utilisateurs dans ce répertoire et attribuer des abonnements à chaque utilisateur.
-* Étant donné que tous les composants Azure Stack sont déployés sur un seul ordinateur hôte, les ressources physiques disponibles sont limitées pour les abonnés. Cette configuration n’est pas destinée à l’évaluation des performances ou de la mise à l’échelle.
+* Il est associé à un seul fournisseur d’identité Azure Active Directory (Azure AD) ou de services de fédération Active Directory (AD FS). Vous pouvez créer plusieurs utilisateurs dans ce répertoire et attribuer des abonnements à chaque utilisateur.
+* Étant donné que tous les composants Azure Stack sont déployés sur un seul ordinateur hôte, les ressources physiques disponibles sont limitées pour les abonnés. Cette configuration n’est pas destinée à l’évaluation des performances ni à la mise à l’échelle.
 * Les scénarios de mise en réseau sont limités à cause des exigences de déploiement de la carte réseau et de l’hôte unique.
 
 ## <a name="azure-stack-integrated-systems"></a>Systèmes intégrés Azure Stack

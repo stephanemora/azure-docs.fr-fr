@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175725"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958182"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -63,7 +63,7 @@ Lorsque des réseaux virtuels sont homologués dans la même région, vous pouve
 
 ![Transit d’homologation de réseaux virtuels](./media/virtual-networks-peering-overview/figure04.png)
 
-Le transit de la passerelle n’est pas pris en charge dans la relation d’homologation entre les réseaux virtuels créés dans des régions différentes. Les deux réseaux virtuels homologués doivent appartenir à la même région pour que le transit de la passerelle fonctionne. Le transit de la passerelle entre les réseaux virtuels créés par le biais de modèles de déploiement différents (Resource Manager et classique) est pris en charge uniquement si la passerelle se trouve dans le réseau virtuel (Resource Manager). Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configure a VPN gateway for transit in a virtual network peering (Configurer une passerelle VPN pour le transit dans une homologation de réseaux virtuels)](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Le transit de la passerelle n’est pas pris en charge dans la relation d’homologation entre les réseaux virtuels créés dans des régions différentes. Les deux réseaux virtuels homologués doivent appartenir à la même région pour que le transit de la passerelle fonctionne. Le transit de la passerelle entre les réseaux virtuels créés par le biais de modèles de déploiement différents (Resource Manager et classique) est pris en charge uniquement si la passerelle (VPN or ExpressRoute) se trouve dans le réseau virtuel (Resource Manager). Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configure a VPN gateway for transit in a virtual network peering (Configurer une passerelle VPN pour le transit dans une homologation de réseaux virtuels)](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Lorsque des réseaux virtuels qui partagent une même connexion Azure ExpressRoute sont homologués, le trafic entre eux transite via la relation d’homologation (c’est-à-dire via le réseau principal Azure). Vous pouvez toujours utiliser des passerelles locales dans chaque réseau virtuel pour vous connecter au circuit local. Vous pouvez également utiliser une passerelle partagée et configurer le transit pour la connectivité locale.
 
@@ -77,8 +77,7 @@ Vous pouvez également essayer le [Utilitaire de dépannage pour les problèmes 
 
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes
 
-Lorsque des réseaux virtuels sont homologués à l’échelle mondiale, les contraintes ci-après s’appliquent :
-- Les réseaux virtuels peuvent exister dans toutes les régions de cloud public Azure et de cloud Azure Chine, mais pas dans les clouds Azure Government.
+Les contraintes ci-après s’appliquent uniquement quand des réseaux virtuels sont appairés à l’échelle mondiale :
 - Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans le réseau virtuel homologué à l’échelle mondiale. L’équilibreur de charge et les ressources qui communiquent avec lui doivent se trouver dans la même région.
 - Vous ne pouvez pas utiliser de passerelles distantes ni autoriser de transit via une passerelle. Pour utiliser des passerelles distantes ou autoriser un transit par passerelle, les réseaux virtuels homologués doivent appartenir à la même région.
 

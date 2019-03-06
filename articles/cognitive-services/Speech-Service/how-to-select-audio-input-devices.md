@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 359606c6dfe75d9910565cffa555b1e52d29267d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448530"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594081"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Guide pratique pour sélectionner un périphérique d’entrée audio avec le SDK Speech 
+# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Sélectionner un périphérique d’entrée audio avec le SDK Speech
 
 La version 1.3.0 du SDK Speech introduit une API qui permet de sélectionner l’entrée audio. Cet article décrit comment obtenir les ID des périphériques audio connectés à un système.
 Vous pouvez ensuite les utiliser dans le SDK Speech en configurant le périphérique audio par le biais de l’objet `AudioConfig` :
@@ -367,3 +367,13 @@ Par exemple, l’instruction
 ```
 
 permet d’utiliser un casque Bluetooth pour une application à reconnaissance vocale.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Explorer nos exemples sur GitHub](https://aka.ms/csspeech/samples)
+
+## <a name="see-also"></a>Voir aussi
+
+- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
+- [Personnaliser les modèles de langage](how-to-customize-language-model.md)

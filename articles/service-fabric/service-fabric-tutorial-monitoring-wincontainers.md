@@ -3,7 +3,7 @@ title: Surveillance et diagnostics des conteneurs Windows dans Azure Service Fab
 description: Dans ce tutoriel, vous configurez Log Analytics pour la surveillance et les diagnostics des conteneurs Windows orchestré sur Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: twhitney, dekapur
+ms.author: aljo, dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9249c0bb559328c878d784b54af5117b785daffe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: f6aa0dcfa4a4f9e2780c8fb886523da347eeaa31
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300623"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806451"
 ---
-# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutoriel : surveiller des conteneurs Windows sur Service Fabric à l’aide de Log Analytics
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutoriel : Superviser des conteneurs Windows sur Service Fabric à l’aide de Log Analytics
 
 Il s’agit de la troisième partie d’un didacticiel, qui vous guide dans la configuration de Log Analytics pour surveiller vos conteneurs Windows orchestrés sur Service Fabric.
 
@@ -225,7 +225,7 @@ Vous accédez ainsi à votre espace de travail Log Analytics où vous pouvez con
 
 **Actualisez** votre solution de monitorage des conteneurs après quelques minutes : vous devriez commencer à voir arriver des données *Performances de l’ordinateur*. Cela vous aidera à comprendre l’utilisation des ressources. Vous pouvez également utiliser ces mesures pour prendre les décisions adaptées quant à la mise à l’échelle de votre cluster, ou pour vérifier qu’un cluster équilibre votre charge comme prévu.
 
-*Remarque : Vérifiez que vos filtres temporels sont définis de façon à vous permettre d’utiliser ces mesures.*
+*Remarque : Vérifiez que vos filtres de temps sont définis de façon à vous permettre d’utiliser ces métriques.*
 
 ![Compteurs de performances 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 

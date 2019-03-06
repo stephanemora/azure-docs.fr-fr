@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 2af94deaedbafdfa638f5deb3150f1e7f711a238
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093515"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750002"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Didacticiel : Copier des données sur Azure Data Box Disk par le biais de SMB
+# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de SMB
 
 Ce tutoriel explique comment vous connecter à votre ordinateur hôte et copier des données à partir de cet ordinateur à l’aide de l’interface utilisateur web locale.
 
@@ -90,7 +90,11 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
     **Toujours créer un dossier pour les fichiers que vous envisagez de copier sous le partage, puis copier les fichiers dans ce dossier**. Le dossier créé sous les partages d’objets blob de pages et d’objets blob de blocs représente un conteneur dans lequel les données sont chargées en tant qu’objets blob. Vous ne pouvez pas copier de fichiers directement dans le dossier *root* du compte de stockage.
     
-     
+Si vous utilisez un client Linux, utilisez la commande suivante pour monter le partage SMB. Le paramètre « vers » ci-dessous est la version de SMB que votre hôte Linux prend en charge. Utilisez la version appropriée dans la commande ci-dessous. Pour connaître les versions de SMB que le service the Data Box prend en charge, consultez [Systèmes de fichiers pris en charge pour les clients Linux](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients). 
+
+    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    
+
 
 ## <a name="copy-data-to-data-box"></a>Copier des données sur Data Box
 

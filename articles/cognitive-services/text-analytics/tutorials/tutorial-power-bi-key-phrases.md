@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245828"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889475"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Didacticiel : Intégrer Power BI au service cognitif Analyse de texte
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
 
 Microsoft Power BI Desktop est une application gratuite qui vous permet de vous connecter à vos données, de les transformer et de les visualiser. Le service Analyse de texte, qui fait partie de l’offre Microsoft Azure Cognitive Services, fournit des fonctionnalités de traitement en langage naturel. Dans un texte brut non structuré, il est capable d’extraire les phrases les plus importantes, d’analyser les sentiments et d’identifier les entités bien connues, telles que les marques. Utilisés conjointement, ces outils peuvent vous aider à identifier rapidement ce dont parlent vos clients, ainsi que leurs sentiments à ce sujet.
 
@@ -94,7 +94,7 @@ Vous pouvez également envisager de filtrer les messages vides en utilisant le f
 | | |
 | - | - |
 | `id`  | Identificateur unique de ce document dans la requête. La réponse contient également ce champ. De cette façon, si vous traitez plusieurs documents, vous pouvez facilement associer les phrases clés extraites au document dont elles sont issues. Dans ce tutoriel, étant donné que vous ne traitez qu’un seul document par requête, vous pouvez coder en dur la valeur de `id` afin que celle-ci soit la même pour chaque requête.|
-| `text`  | Texte à traiter. La valeur de ce champ provient de la colonne `Merged`que vous avez créée dans la [section précédente](#PreparingData), qui contient la combinaison de la ligne d’objet et du texte de commentaire. L’API Expressions clés exige que ces données ne dépassent pas 5 000 caractères.|
+| `text`  | Texte à traiter. La valeur de ce champ provient de la colonne `Merged`que vous avez créée dans la [section précédente](#PreparingData), qui contient la combinaison de la ligne d’objet et du texte de commentaire. L’API d’extraction de phrases clés exige que ces données ne dépassent pas 5 120 caractères.|
 | `language` | Code représentant le langage naturel dans lequel le document est écrit. Tous les messages des exemples de données sont en anglais. Vous pouvez donc coder en dur la valeur `en` pour ce champ.|
 
 ## <a name="create-a-custom-function"></a>Créer une fonction personnalisée

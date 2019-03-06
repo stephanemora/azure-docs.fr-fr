@@ -12,14 +12,18 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301177"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961310"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Qu’est-ce que l’application Microsoft Authenticator ?
+
+>[!Important]
+>Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 L’application Microsoft Authenticator vous aide à vous connecter à vos comptes si vous utilisez la vérification à deux facteurs. La vérification en deux étapes vous permet d’accéder à vos comptes de façon plus sûre, en particulier quand vous consultez des informations sensibles. Les mots de passe pouvant être oubliés, volés ou compromis, la vérification à deux facteurs est une mesure de sécurité supplémentaire qui renforce la protection de votre compte contre les tentatives d’intrusion.
 
 Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs manières, notamment :
@@ -29,9 +33,9 @@ Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs maniè
 - En fournissant une connexion sans mot de passe, en utilisant votre nom d’utilisateur et votre appareil mobile avec votre empreinte digitale, votre visage ou votre code PIN.
 
 >[!Important]
->L’application Microsoft Authenticator fonctionne avec n’importe quelle application qui utilise la vérification à deux facteurs et n’importe quel compte qui prend en charge les standards des mots de passe à usage unique et durée définie (standards TOTP).
+>L'application Microsoft Authenticator fonctionne avec n'importe quelle application qui utilise la vérification en deux étapes et n'importe quel compte qui prend en charge les mots de passe à usage unique et durée définie (normes TOTP).
 
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Votre organisation peut vous obliger à utiliser une application d’authentification pour vous connecter et accéder à ses données et documents. Même si votre nom d’utilisateur peut apparaître dans l’application, le compte n’est pas réellement configuré comme méthode de vérification tant que vous n’avez pas terminé le processus d’inscription. Pour plus d’informations, consultez [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-overview.md).
 
 >Si vous rencontrez des problèmes de connexion à votre compte, consultez [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429) pour obtenir de l’aide. Obtenez plus d’informations sur la procédure à suivre quand vous recevez le message [« Ce compte Microsoft n’existe pas »](https://support.microsoft.com/help/13811) lors d’une tentative de connexion à votre compte Microsoft.
 

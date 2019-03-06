@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f80f0870400fa7fb46b7787c6c257255a780cf3b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c3c577ce2483c5de3aa458c7fe4b6fced418f684
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244111"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882941"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -50,20 +50,20 @@ Votre déploiement Azure Stack doit être connecté à internet et être [inscri
 
     Pour consulter l’espace disponible dans **Gestion de la région**, sélectionnez la région que vous souhaitez explorer, puis accédez à **Fournisseurs de ressources** > **Stockage**.
 
-    [ ![Examiner l’espace de stockage](media/azure-stack-download-azure-marketplace-item/storagesm.png "Examiner l’espace de stockage") ](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
+    [![Examiner l’espace de stockage](media/azure-stack-download-azure-marketplace-item/storagesm.png "Examiner l’espace de stockage")](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
 
     
 3. Ouvrez Azure Stack Marketplace et connectez-vous à Azure. Pour ce faire, sélectionnez **Gestion de la Place de marché**, puis sélectionnez **Ajouter à partir d’Azure**.
 
-    [ ![Ajouter à partir d’Azure](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "Ajouter à partir d’Azure") ](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
+    [![Ajouter à partir d’Azure](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "Ajouter à partir d’Azure")](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
 
     Le portail affiche la liste des éléments disponibles en téléchargement à partir de la Place de marché Azure. Vous pouvez cliquer sur chaque élément pour afficher sa description et les informations supplémentaires le concernant, y compris sa taille de téléchargement. 
 
-    [ ![Liste de la Place de marché](media/azure-stack-download-azure-marketplace-item/image03sm.png "Liste de la Place de marché") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
+    [![Liste de la Place de marché](media/azure-stack-download-azure-marketplace-item/image03sm.png "Liste de la Place de marché")](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. Sélectionnez les éléments que vous souhaitez, puis sélectionnez **Télécharger**. Le temps de téléchargement varie.
 
-    [ ![Télécharger un message](media/azure-stack-download-azure-marketplace-item/image04.png "Télécharger un message") ](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
+    [![Télécharger un message](media/azure-stack-download-azure-marketplace-item/image04.png "Télécharger un message")](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
 
     Une fois le téléchargement terminé, vous pouvez déployer le nouvel élément de Place de marché en tant qu’opérateur ou utilisateur Azure Stack.
 
@@ -134,7 +134,7 @@ Ce scénario comporte deux parties :
 
 6. Lorsque vous exécutez les outils, vous devriez voir un écran similaire à l’image suivante, avec la liste des éléments de la Place de marché disponibles :
 
-   [ ![Fenêtre contextuelle des éléments de la Place de marché](media/azure-stack-download-azure-marketplace-item/image05.png "Fenêtre contextuelle des éléments de la Place de marché") ](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Fenêtre contextuelle des éléments de la Place de marché Azure](media/azure-stack-download-azure-marketplace-item/image05.png "Éléments de la Place de marché Azure")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
 7. Sélectionnez l’élément que vous souhaitez télécharger, puis notez la *version*. Vous pouvez maintenir la touche *Ctrl* enfoncée pour sélectionner plusieurs images. Vous référencez la *version* lorsque vous importez l’élément dans la procédure suivante. 
    
@@ -158,7 +158,7 @@ Ce scénario comporte deux parties :
 
    L’illustration suivante montre un exemple de structure de dossier. `D:\downloadfolder` contient tous les éléments de place de marché téléchargés. Chaque sous-dossier est un élément de place de marché (par exemple, `microsoft.custom-script-linux-arm-2.0.3`), nommé par l’ID de produit. À l’intérieur de chaque sous-dossier se trouve le contenu téléchargé de l’élément de place de marché.
 
-   [ ![Structure du répertoire de téléchargement de la Place de marché](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Structure du répertoire de téléchargement de la Place de marché") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+   [![Structure du répertoire de téléchargement de la Place de marché](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Structure du répertoire de téléchargement de la Place de marché")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
 2. Pour configurer la session PowerShell de l’opérateur Azure Stack, suivez les instructions de [cet article](azure-stack-powershell-configure-admin.md). 
 
@@ -188,15 +188,15 @@ Ce scénario comporte deux parties :
    1. Dans le portail d’administration d’Azure Stack, accédez à **Tous les services**, puis dans la catégorie **DONNÉES + STOCKAGE**, sélectionnez **Comptes de stockage** .  
    
    2. Sélectionnez un compte de stockage de votre abonnement, puis sous **SERVICE BLOB**, sélectionnez **Conteneurs**.  
-      [ ![Service BLOB](media/azure-stack-download-azure-marketplace-item/blob-service.png "Service BLOB") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
+      [![Service BLOB](media/azure-stack-download-azure-marketplace-item/blob-service.png "Service BLOB")](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. Sélectionnez le conteneur que vous souhaitez utiliser, puis sélectionnez **Télécharger** pour ouvrir le volet **Télécharger des objets blob**.  
-      [ ![Conteneur](media/azure-stack-download-azure-marketplace-item/container.png "Conteneur") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
+      [![Conteneur](media/azure-stack-download-azure-marketplace-item/container.png "Conteneur")](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. Dans le volet Charger l’objet blob, recherchez le package et les fichiers disque que vous souhaitez charger dans le stockage, puis sélectionnez **Charger**: [ ![Charger](media/azure-stack-download-azure-marketplace-item/uploadsm.png "Charger") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. Dans le volet Charger l’objet blob, recherchez le package et les fichiers disque que vous souhaitez charger dans le stockage, puis sélectionnez **Charger**: [![Charger](media/azure-stack-download-azure-marketplace-item/uploadsm.png "Charger")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. Les fichiers que vous téléchargez apparaissent dans le volet du conteneur. Sélectionnez un fichier, puis copiez l’URL à partir du volet **Propriétés d’objets blob**. Vous allez utiliser cette URL à l’étape suivante lorsque vous importez l’élément de Place de marché dans Azure Stack.  Dans l’image suivante, le conteneur est *blob-test-storage* et le fichier est *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  L’URL du fichier est *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
-      [ ![Propriétés de l’objet BLOB](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Propriétés de l’objet BLOB") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
+      [![Propriétés d’objets blob](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Propriétés d’objets blob")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. Importez l’image VHD dans Azure Stack à l’aide de la cmdlet **Add-AzsPlatformimage**. Lorsque vous utilisez cette cmdlet, remplacez les valeurs *publisher*, *offer* et les autres valeurs de paramètre par les valeurs de l’image que vous importez. 
 
@@ -236,7 +236,7 @@ Ce scénario comporte deux parties :
     ```
 5. Une fois que l’élément de la galerie est publié, il est disponible en vue de son utilisation. Pour confirmer la publication de l’élément de la galerie, accédez à **Tous les services**, puis dans la catégorie **GÉNÉRAL**, sélectionnez **Place de 
    marché**.  Si vous avez téléchargé un modèle de solution, veillez également à ajouter toute image VHD dépendante pour ce modèle solution.  
-[ ![Afficher la Place de marché](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "Afficher la Place de marché") ](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
+[![Afficher la Place de marché](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "Afficher la Place de marché")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
 Avec la version 1.3.0 de Azure Stack PowerShell, vous pouvez maintenant ajouter des extensions de machine virtuelle. Par exemple : 
 

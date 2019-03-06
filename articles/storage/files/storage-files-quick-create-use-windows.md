@@ -1,41 +1,45 @@
 ---
-title: 'Démarrage rapide : créer et utiliser un partage de fichiers Azure pour Windows | Microsoft Docs'
-description: Utilisez ce guide de démarrage rapide pour créer et utiliser un partage de fichiers Azure pour Windows.
+title: 'Démarrage rapide : Créer et utiliser un partage Azure Files sur des machines virtuelles Windows | Microsoft Docs'
+description: Dans ce guide de démarrage rapide, vous configurez un partage Azure Files dans le portail Azure, puis vous le connectez à une machine virtuelle Windows. Vous vous connectez au partage Files pour y charger un fichier. Ensuite, vous prenez un instantané du partage Files, modifiez le fichier dans le partage Files et restaurez le précédent instantané du partage Files.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663993"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652465"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>Démarrage rapide : Créer et utiliser un partage de fichiers Azure pour Windows
-L’article décrit les étapes de base à suivre pour créer et utiliser un partage de fichiers Azure. Dans ce guide de démarrage rapide, l’accent est mis sur la configuration rapide d’un partage de fichiers Azure pour vous faire découvrir le fonctionnement du service. Si vous avez besoin d’instructions plus détaillées sur la création et l’utilisation de partages de fichiers Azure dans votre propre environnement, consultez [Utiliser un partage de fichiers Azure avec Windows](storage-how-to-use-files-windows.md).
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Démarrage rapide : Créer et gérer le partage Azure Files avec des machines virtuelles Windows
+
+L’article décrit les étapes de base à suivre pour créer et utiliser un partage Azure Files. Dans ce guide de démarrage rapide, l’accent est mis sur la configuration rapide d’un partage Azure Files, afin de vous faire découvrir le fonctionnement du service. Si vous avez besoin d’instructions plus détaillées sur la création et l’utilisation de partages de fichiers Azure dans votre propre environnement, consultez [Utiliser un partage de fichiers Azure avec Windows](storage-how-to-use-files-windows.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
+
 Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
-Avant de créer un partage de fichiers Azure, vous devez configurer les éléments suivants pour ce guide de démarrage rapide :
+
+Ce démarrage rapide configure les éléments suivants :
 
 - Un compte de stockage Azure et un partage de fichiers Azure
 - Une machine virtuelle Windows Server 2016 Datacenter
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Avant de pouvoir utiliser un partage de fichiers Azure, vous devez créer un compte de stockage Azure. Un compte de stockage est un pool partagé de stockage dans lequel vous pouvez déployer un partage de fichiers Azure, ou d’autres ressources de stockage comme les objets blob ou les files d’attente. Un compte de stockage peut contenir un nombre illimité de partages. Un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage.
+Avant de pouvoir utiliser un partage de fichiers Azure, vous devez créer un compte de stockage Azure. Un compte de stockage v2 universel fournit un accès à tous les services de Stockage Azure : objets blob, fichiers, files d’attente et tables. Le guide de démarrage rapide crée un compte de stockage v2 universel, mais les étapes de création d’un autre type de compte de stockage sont similaires. Un compte de stockage peut contenir un nombre illimité de partages. Un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
+
 Ensuite, créez un partage de fichiers.
 
 1. Une fois le déploiement du compte de stockage Azure terminé, sélectionnez **Accéder à la ressource**.
@@ -58,6 +62,7 @@ Ensuite, créez un partage de fichiers.
 Jusqu’ici, vous avez créé un compte de stockage Azure et un partage de fichiers contenant un seul fichier dans Azure. Vous allez maintenant créer la machine virtuelle Azure avec Windows Server 2016 Datacenter pour représenter le serveur local dans ce guide de démarrage rapide.
 
 ### <a name="deploy-a-vm"></a>Déployer une machine virtuelle
+
 1. Ensuite, développez le menu à gauche du portail Azure et choisissez **Créer une ressource** dans le coin supérieur gauche.
 1. Dans la zone de recherche au-dessus de la liste des ressources de la **Place de marché Azure**, recherchez et sélectionnez **Windows Server 2016 Datacenter**, puis choisissez **Créer**.
 1. Sous l’onglet **De base**, sous **Détails du projet**, sélectionnez le groupe de ressources que vous avez créé pour ce guide de démarrage rapide.
@@ -112,6 +117,7 @@ Jusqu’ici, vous avez créé un compte de stockage Azure et un partage de fichi
       ![Le chemin d’accès UNC du volet Azure Files Connect](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>Créer un instantané de partage
+
 Maintenant que vous avez mappé le lecteur, vous pouvez créer un instantané.
 
 1. Dans le portail, accédez à votre partage de fichiers et sélectionnez **Créer un instantané**.
@@ -132,7 +138,7 @@ Maintenant que vous avez mappé le lecteur, vous pouvez créer un instantané.
 
 ## <a name="restore-from-a-snapshot"></a>Restaurer à partir d’un instantané
 
-1. À partir du portail, sélectionnez *qsTestFile*, puis le bouton **Restaurer**.
+1. Dans le panneau de la capture instantanée du partage de fichiers, cliquez avec le bouton droit sur *qsTestFile*, puis sélectionnez le bouton **Restaurer**.
 1. Sélectionnez **Remplacer le fichier d’origine**.
 
    ![Boutons Télécharger et Restaurer](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Maintenant que vous avez mappé le lecteur, vous pouvez créer un instantané.
    ![Bouton Supprimer](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Utiliser un instantané de partage dans Windows
+
 Comme pour les instantanés VSS locaux, vous pouvez afficher les instantanés à partir de votre partage de fichiers Azure monté à l’aide de l’onglet Versions précédentes.
 
 1. Dans l’Explorateur de fichiers, recherchez le partage monté.

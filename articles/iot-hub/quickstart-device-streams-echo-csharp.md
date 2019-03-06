@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: edd3912b3674f3a80a81fd47ed490479f663852c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830823"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816931"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec des applications d’appareil en C# par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -39,8 +39,7 @@ Vous pouvez vérifier la version actuelle de C# sur votre machine de développem
 dotnet --version
 ```
 
-Téléchargez l’exemple de projet C# à partir de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip et extrayez l’archive ZIP.
-
+Téléchargez l’exemple de projet C# à partir de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip et extrayez l’archive ZIP. Vous en aurez besoin côté appareil et service.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -86,18 +85,17 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     Notez la valeur retournée, qui ressemble à ceci :
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Communiquer entre appareil et service par le biais de flux d’appareil
 
 ### <a name="run-the-service-side-application"></a>Exécuter l’application côté service
 
-Accédez à `device-streams-echo/service` dans votre dossier de projet décompressé. Vous aurez besoin des informations suivantes :
+Accédez à `iot-hub/Quickstarts/device-streams-echo/service` dans votre dossier de projet décompressé. Vous aurez besoin des informations suivantes :
 
 | Nom du paramètre | Valeur du paramètre |
 |----------------|-----------------|
-| `ServiceConnectionString` | Chaîne de connexion de service de votre hub IoT. |
-| `DeviceId` | Identificateur de l’appareil que vous avez créé précédemment. |
+| `ServiceConnectionString` | Indiquez la chaîne de connexion de service de votre hub IoT. |
+| `DeviceId` | Indiquez l’ID de l’appareil que vous avez créé précédemment, par exemple, MyDevice. |
 
 Compilez et exécutez le code comme suit :
 
@@ -109,19 +107,22 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $ServiceConnectionString MyDevice
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run %ServiceConnectionString% MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
+
+> [!NOTE]
+> Un délai d’expiration se produit si l’application côté appareil ne répond pas dans les temps.
 
 ### <a name="run-the-device-side-application"></a>Exécuter l’application côté appareil
 
-Accédez au répertoire `device-streams-echo/device` de votre dossier de projet décompressé. Vous aurez besoin des informations suivantes :
+Accédez au répertoire `iot-hub/Quickstarts/device-streams-echo/device` de votre dossier de projet décompressé. Vous aurez besoin des informations suivantes :
 
 | Nom du paramètre | Valeur du paramètre |
 |----------------|-----------------|
-| `DeviceConnectionString` | Chaîne de connexion d’appareil que vous avez créée précédemment. |
+| `DeviceConnectionString` | Indiquez la chaîne de connexion de service de votre hub IoT. |
 
 Compilez et exécutez le code comme suit :
 
@@ -133,28 +134,23 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run %DeviceConnectionString%
+dotnet run <DeviceConnectionString>
 ```
 
 À la fin de la dernière étape, le programme côté service lance un flux à votre appareil et, une fois établi, envoie un tampon de chaîne au service sur le flux. Dans cet exemple, le programme côté service renvoie simplement les mêmes données à l’appareil, ce qui démontre une communication bidirectionnelle réussie entre les deux applications. Reportez-vous à la figure ci-dessous.
 
 Sortie de console côté appareil : ![Texte de remplacement](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Sortie de console côté appareil")
 
-
 Sortie de console côté service : ![Texte de remplacement](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Sortie de console côté service")
 
-
-
 Le trafic envoyé sur le flux est traité par tunnel par le biais d’IoT Hub au lieu d’être directement envoyé. Ce processus offre [ces avantages](./iot-hub-device-streams-overview.md#benefits).
-
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

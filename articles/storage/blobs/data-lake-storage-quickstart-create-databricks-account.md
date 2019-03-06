@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1b5f05f3cddea986230327165399b0fe530e361b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453024"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588073"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Démarrage rapide : Analyser des données dans Azure Data Lake Storage Gen2 à l’aide d’Azure Databricks
 
@@ -33,7 +33,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
    Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
 
-   :heavy_check_mark: Au cours des étapes indiquées dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service.
+   :heavy_check_mark: Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service.
 
    > [!IMPORTANT]
    > Veillez à attribuer le rôle dans l’étendue du compte de stockage Data Lake Storage Gen2. Vous pouvez attribuer un rôle à l’abonnement ou au groupe de ressources parent, mais des erreurs d’autorisation sont générées tant que ces attributions de rôles ne sont pas propagées au compte de stockage.
@@ -125,7 +125,10 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
 
 5. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `application-id`, `authentication-id` et `tenant-id` par les valeurs que vous avez collectées au moment de la création du principal de service. Affectez le nom de système de fichiers de votre choix à la valeur d’espace réservé `file-system-name`.
 
-6. Appuyez sur les touches **MAJ + ENTRÉE** pour exécuter le code de ce bloc.
+    > [!NOTE]
+    > Dans un environnement de production, songez à stocker votre clé d’authentification dans Azure Databricks. Ensuite, ajoutez une clé de recherche à votre bloc de code au lieu de la clé d’authentification. Après avoir suivi ce guide de démarrage rapide, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks pour voir des exemples de cette approche.
+
+6. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 
 ## <a name="ingest-sample-data"></a>Ingérer des exemples de données
 

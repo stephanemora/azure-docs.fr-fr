@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed94b7571acb0ced124644dafc59d805d5112e8a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 10b74b85235cc47375f6289b52371bc588105ad9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268564"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890094"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Azure AD Graph
 
@@ -43,10 +43,14 @@ Ce didacticiel vous indique comment utiliser une identité managée de machine v
 
 ## <a name="connect-to-azure-ad"></a>Se connecter à Azure AD
 
-Vous devez vous connecter à Azure AD pour assigner la machine virtuelle à un groupe et pour accorder à la machine virtuelle l’autorisation de récupérer ses appartenances aux groupes.
+Vous devez vous connecter à Azure AD pour assigner la machine virtuelle à un groupe et pour accorder à la machine virtuelle l’autorisation de récupérer ses appartenances aux groupes. Vous pouvez utiliser l’applet de commande Connect-AzureAD directement, ou avec le paramètre TenantId si vous avez plusieurs locataires.
 
 ```powershell
 Connect-AzureAD
+```
+Ou
+```powershell
+Connect-AzureAD -TenantId "Object Id of the tenant"
 ```
 
 ## <a name="add-your-vm-identity-to-a-group-in-azure-ad"></a>Ajouter l’identité de votre machine virtuelle à un groupe dans Azure AD
@@ -79,7 +83,13 @@ Vous avez besoin d’Azure AD PowerShell pour utiliser cette option. Si vous ne 
    ```powershell
    Connect-AzureAD
    ```
+   Pour vous connecter à une instance d’Azure Active Directory en particulier, utilisez le paramètre _TenantId_, comme suit :
 
+   ```PowerShell
+   Connect-AzureAD -TenantId "Object Id of the tenant"
+   ```
+
+   
 2. Exécutez les commandes PowerShell suivantes pour assigner la permission d’application ``Directory.Read.All`` au principal de service qui représente l’identité de votre machine virtuelle.
 
    ```powershell

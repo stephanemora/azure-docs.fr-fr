@@ -3,7 +3,7 @@ title: Déployer une application conteneur avec intégration et déploiement con
 description: Dans ce tutoriel, vous allez apprendre à configurer l’intégration et le déploiement continus pour une application conteneur Azure Service Fabric à l’aide de Visual Studio et d’Azure DevOps.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: twhitney
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2da33f2a333529eb7a27a607484a407f869ee540
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872966"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807080"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutoriel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Didacticiel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
 
 Deuxième d’une série, ce tutoriel explique comment configurer l’intégration et le déploiement continus d’une application conteneur Azure Service Fabric à l’aide de Visual Studio et d’Azure DevOps.  Une application Service Fabric existante est requise. L’application créée dans [Déployer une application .NET dans un conteneur Windows sur Azure Service Fabric](service-fabric-host-app-in-a-container.md) est utilisée à titre d’exemple.
 

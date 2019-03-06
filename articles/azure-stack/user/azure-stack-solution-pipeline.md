@@ -15,12 +15,12 @@ ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: deaf7defe5aca4f53df073b19e471a52bd7b8a5d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430248"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878742"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
@@ -335,7 +335,7 @@ Dans cette partie du didacticiel, vous allez :
 > [!Note]
  > Votre environnement Azure Stack a besoin des images correctes syndiquées pour exécuter Windows Server et SQL Server. Le service App Service doit également y être déployé. Lisez la section « Prérequis » de la documentation d’App Service pour connaître la configuration requise de l’opérateur Azure Stack.
 
-La CI/CD hybride peut s’appliquer au code d’application et au code d’infrastructure. Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) comme code d’application web d’Azure DevOps Services pour déployer dans les deux clouds.
+La CI/CD hybride peut s’appliquer au code d’application et au code d’infrastructure. Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) comme code d’application web d’Azure DevOps Services pour déployer sur les deux clouds.
 
 ### <a name="add-code-to-an-azure-devops-services-project"></a>Ajouter du code à un projet Azure DevOps Services
 

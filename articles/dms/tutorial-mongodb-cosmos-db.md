@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : utiliser Azure Database Migration Service pour migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion | Microsoft Docs'
+title: 'Didacticiel : utiliser Azure Database Migration Service pour migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion | Microsoft Docs'
 description: Apprenez à migrer une instance locale de MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide d’Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: b4f8d2bdbce20fc7a932280edc26cb3ddfbe6471
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 5fd3200ab787a26b11feb121b5db125e4a79365c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247603"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960376"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutoriel : migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide de DMS
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Didacticiel : migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour effectuer une migration hors connexion (ponctuelle) de bases de données à partir d’une instance locale ou cloud de MongoDB vers l’API Azure Cosmos DB pour MongoDB.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
@@ -100,7 +100,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 ## <a name="specify-source-details"></a>Spécifier les détails de la source
 1. Sur l'écran **Détails de la source**, spécifiez les détails de connexion du serveur MongoDB source.
     
-   Vous pouvez également utiliser le mode chaîne de connexion et fournir un emplacement pour un conteneur de fichiers de magasin de blog dans lequel vous avez sauvegardé les données que vous souhaitez migrer.
+   Vous pouvez également utiliser le mode chaîne de connexion et fournir un emplacement pour un conteneur de fichiers de magasin d’objets blob dans lequel vous avez vidé les données de collection que vous souhaitez migrer.
 
    > [!NOTE]
    > Azure Database Migration Service peut également migrer des documents bson ou json vers des collections d’API Azure Cosmos DB pour MongoDB.

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Ajouter des utilisateurs invités dans le portail Microsoft AzureAzure'
+title: 'Démarrage rapide : Ajouter des utilisateurs invités dans le portail Azure - Azure Active Directory'
 description: Utilisez ce guide de démarrage rapide pour savoir comment les administrateurs Azure AD peuvent ajouter des utilisateurs invités B2B dans le portail Azure, et pour connaître les étapes du workflow d’une invitation B2B.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8916711ab7d5278f34a3d4ad101a0aabb883f84c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182695"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669973"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Démarrage rapide : Ajouter des utilisateurs invités à votre annuaire dans le portail Azure
 

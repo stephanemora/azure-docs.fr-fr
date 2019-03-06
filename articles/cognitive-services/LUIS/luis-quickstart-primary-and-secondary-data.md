@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867237"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732702"
 ---
-# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutoriel : Extraire des noms avec une entité simple et une liste d’expressions
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Didacticiel : Extraire des noms avec une entité simple et une liste d’expressions
 
 Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité **Simple**. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
 
@@ -233,7 +233,9 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Azure-Samples/cogni
 
     [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Si vous voulez ajouter d’autres mots à la liste d’expressions, passez en revue les **valeurs associées** et ajoutez celles qui sont pertinentes. 
+    Pour ajouter d’autres mots à la liste d’expressions, sélectionnez **Recommand** (Nouvelle commande), puis passez en revue les nouvelles **valeurs associées** et ajoutez celles qui sont pertinentes. 
+
+    Laissez la case **Ces valeurs sont interchangeables** cochée, car ces valeurs doivent être traitées comme des synonymes pour les postes. Découvrez-en plus sur les [concepts de liste d’expressions](luis-concept-feature.md#how-to-use-phrase-lists) interchangeables et non interchangeables.
 
 1. Sélectionnez **Enregistrer** pour activer la liste d’expressions.
 
