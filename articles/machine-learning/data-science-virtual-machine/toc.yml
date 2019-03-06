@@ -9,8 +9,7 @@ items:
     href: deep-learning-dsvm-overview.md
   - name: Qu’est-ce que la machine virtuelle de science des données Geo AI ?
     href: geo-ai-dsvm-overview.md
-  expanded: true
-- name: Prise en main
+- name: Démarrages rapides
   items:
   - name: Créer une machine virtuelle de science des données Windows
     href: provision-vm.md
@@ -22,27 +21,8 @@ items:
     href: provision-deep-learning-dsvm.md
   - name: Créer la machine virtuelle de science des données Geo AI
     href: provision-geo-ai-dsvm.md
-- name: Procédures
-  items:
-  - name: Utiliser une machine virtuelle de science des données Windows
-    href: vm-do-ten-things.md
-  - name: Utiliser une machine virtuelle de science des données Linux
-    href: linux-dsvm-walkthrough.md
-  - name: Utiliser une machine virtuelle d’apprentissage approfondi
-    href: use-deep-learning-dsvm.md
-  - name: Utiliser une machine virtuelle de science des données Geo AI
-    href: use-geo-ai-dsvm.md
-- name: Assistance Entreprise
-  items:
-  - name: Vue d’ensemble
-    href: dsvm-enterprise-overview.md
-  - name: Mise à l'échelle
-    href: dsvm-pools.md
-  - name: Intégration d’Active Directory
-    href: dsvm-common-identity.md
-  - name: Sécuriser les informations d’identification d’accès de ressource
-    href: dsvm-secure-access-keys.md
-- name: Informations de référence
+  expanded: true
+- name: Concepts
   items:
   - name: Découvrir la machine virtuelle de science des données
     href: dsvm-tools-overview.md
@@ -50,7 +30,7 @@ items:
     href: dsvm-deep-learning-ai-frameworks.md
   - name: Outils de science des données et de ML
     href: dsvm-ml-data-science-tools.md
-  - name: Langues
+  - name: Languages
     href: dsvm-languages.md
   - name: Outils de développement
     href: dsvm-tools-development.md
@@ -62,20 +42,39 @@ items:
     href: dsvm-data-platforms.md
   - name: Exemples et procédures pas à pas
     href: dsvm-samples-and-walkthroughs.md
-  expanded: true
+- name: Guides pratiques
+  items:
+  - name: Utiliser une machine virtuelle de science des données Windows
+    href: vm-do-ten-things.md
+  - name: Utiliser une machine virtuelle de science des données Linux
+    href: linux-dsvm-walkthrough.md
+  - name: Utiliser une machine virtuelle d’apprentissage approfondi
+    href: use-deep-learning-dsvm.md
+  - name: Utiliser une machine virtuelle de science des données Geo AI
+    href: use-geo-ai-dsvm.md
+  - name: Assistance Entreprise
+    items:
+    - name: Vue d’ensemble
+      href: dsvm-enterprise-overview.md
+    - name: Mise à l'échelle
+      href: dsvm-pools.md
+    - name: Intégration Active Directory
+      href: dsvm-common-identity.md
+    - name: Sécuriser les informations d’identification d’accès de ressource
+      href: dsvm-secure-access-keys.md
 - name: Ressources
   items:
-  - name: Guide du développeur R
+  - name: Guide du développeur R
     href: ../r-developers-guide.md
   - name: Blog
     href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
   - name: Forum MSDN
     href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
-ms.openlocfilehash: e1617f3f5c36a5b006003e2f375dfac4143af7cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: eddadfc7b10cea364f8235bbd8ba378d9aeaf362
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032562"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431629"

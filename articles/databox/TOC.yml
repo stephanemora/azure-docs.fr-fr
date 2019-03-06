@@ -13,7 +13,7 @@ items:
       - name: Configuration - Portail Azure
         href: data-box-quickstart-portal.md
       expanded: true
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Commander
         href: data-box-deploy-ordered.md
@@ -29,7 +29,9 @@ items:
           href: data-box-deploy-copy-data-via-rest.md
         - name: Via le service de copie de données
           href: data-box-deploy-copy-data-via-copy-service.md
-      - name: 4 - Retourner, charger, vérifier
+        - name: Vers des disques managés
+          href: data-box-deploy-copy-data-from-vhds.md
+      - name: 4 - Renvoyer, télécharger, vérifier
         href: data-box-deploy-picked-up.md
     - name: Concepts
       items:
@@ -59,6 +61,14 @@ items:
         href: data-box-cable-options.md
       - name: Contacter le support technique
         href: data-box-disk-contact-microsoft-support.md
+      - name: Migrer
+        items:
+        - name: Vers SharePoint Online
+          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox
+        - name: Vers Azure File Sync
+          href: https://docs.microsoft.com/azure/storage/files/storage-sync-offline-data-transfer
+        - name: À partir du magasin HDFS
+          href: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster
   - name: Data Box Disk
     items:
     - name: Vue d’ensemble
@@ -70,7 +80,7 @@ items:
       - name: Configuration - Portail Azure
         href: data-box-disk-quickstart-portal.md
       expanded: true
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Commander
         href: data-box-disk-deploy-ordered.md
@@ -112,9 +122,9 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/databox/
     - name: Tarification Data Box Disk
       href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: 3b9479dd43a4d98b5dec28878b16e6c781d39d58
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cd18f6ccbe2115500f19e3bf27e99924c780ccb6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428854"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439296"

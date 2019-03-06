@@ -7,7 +7,7 @@
 ### [.NET Core (Visual Studio 2017)](quickstart-netcore-visualstudio.md)
 ### [Node.js (VS Code & CLI)](quickstart-nodejs.md)
 
-## Didacticiels
+## Tutoriels
 ### Java (VS Code & CLI)
 #### [1 - Prise en main](get-started-java.md)
 #### [2 - Développement multiservice](multi-service-java.md)
@@ -24,6 +24,9 @@
 #### [1 - Prise en main](get-started-nodejs.md)
 #### [2 - Développement multiservice](multi-service-nodejs.md)
 #### [3 - Développement en équipe](team-development-nodejs.md)
+
+## Concepts
+### [Fonctionnement de Dev Spaces](how-dev-spaces-works.md)
 
 ## Procédures
 ### [Créer un cluster Kubernetes à l’aide d’Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
