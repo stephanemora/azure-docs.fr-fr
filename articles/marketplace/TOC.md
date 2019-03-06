@@ -99,12 +99,12 @@
 #### [Supprimer l’offre](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
 
 ### Version d’évaluation
-#### [Qu’est-ce qu’une version d’évaluation ?](./cloud-partner-portal-orig/what-is-test-drive.md)
-#### [Version d’évaluation d’Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-#### [Version d’évaluation hébergée](./cloud-partner-portal-orig/hosted-test-drive.md)
-#### [Version d’évaluation d’application logique](./cloud-partner-portal-orig/logic-app-test-drive.md)
-#### [Transformation des exemples pour la version d’évaluation](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-#### [Marketing et meilleures pratiques](./cloud-partner-portal-orig/marketing-and-best-practices.md)
+#### [Qu’est-ce qu’une version d’évaluation ?](./cloud-partner-portal/test-drive/what-is-test-drive.md)
+#### [Version d’évaluation d’Azure Resource Manager](./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md)
+#### [Version d’évaluation hébergée](./cloud-partner-portal/test-drive/hosted-test-drive.md)
+#### [Version d’évaluation d’application logique](./cloud-partner-portal/test-drive/logic-app-test-drive.md)
+#### [Transformation des exemples pour la version d’évaluation](./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md)
+#### [Marketing et meilleures pratiques](./cloud-partner-portal/test-drive/marketing-and-best-practices.md)
 
 ### [Offre d’application Azure](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Composants requis](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
