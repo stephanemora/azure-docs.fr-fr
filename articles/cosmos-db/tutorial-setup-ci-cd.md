@@ -39,7 +39,7 @@ Ensuite, choisissez l’organisation dans laquelle installer l’extension.
 
 Maintenant que l’extension est installée, connectez-vous à votre compte Azure DevOps et recherchez votre projet dans le tableau de bord de projets. Vous pouvez ajouter un [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) à votre projet ou modifier un pipeline de build existant. Si vous disposez déjà d’un pipeline de build, vous pouvez passer directement à la section [Ajouter la tâche de génération d’émulateur à une définition de build](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Pour créer une définition de build, accédez à l’onglet **Builds** dans Azure DevOps. Sélectionnez **+Nouveau.** > **Nouveau pipeline de build**
+1. Pour créer une définition de build, accédez à l’onglet **Builds** dans Azure DevOps. Sélectionnez **+Nouveau.**  >  **Nouveau pipeline de build**
 
    ![Créer un pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
