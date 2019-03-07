@@ -91,9 +91,7 @@ Pour configurer et tester l’authentification unique Azure AD avec T&E Express
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. 
-  **
-  [Création d’un utilisateur de test T&E Express](#creating-a-te-express-test-user)** : pour avoir un équivalent de Britta Simon dans T&amp;amp;E Express lié à la représentation Azure AD associée.
+1. **[Création d’un utilisateur de test T&E Express](#creating-a-te-express-test-user)** : pour avoir un équivalent de Britta Simon dans T&amp;amp;E Express lié à la représentation Azure AD associée.
 1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 

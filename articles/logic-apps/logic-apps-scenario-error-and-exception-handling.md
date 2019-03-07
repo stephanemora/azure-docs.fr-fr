@@ -99,7 +99,7 @@ Nous devons journaliser la source (requête) du dossier du patient à partir du 
 
 1. Nous devons d’abord obtenir un nouvel enregistrement de rendez-vous de Dynamics CRM Online.
 
-   Le déclencheur provenant de CRM nous fournit les paramètres **ID de patient CRM****Type d’enregistrement**, **Enregistrement nouveau ou mis à jour** (valeur booléenne nouvelle ou mise à jour) et **ID Salesforce**. **L’ID Salesforce** peut être défini sur la valeur Null, car il est utilisé uniquement pour une mise à jour.
+   Le déclencheur provenant de CRM nous fournit les paramètres **ID de patient CRM** **Type d’enregistrement**, **Enregistrement nouveau ou mis à jour** (valeur booléenne nouvelle ou mise à jour) et **ID Salesforce**. **L’ID Salesforce** peut être défini sur la valeur Null, car il est utilisé uniquement pour une mise à jour.
    Nous allons obtenir l’enregistrement CRM à l’aide du **PatientID** et du **type d’enregistrement**.
 
 2. Nous devons ensuite ajouter l’opération **InsertLogEntry** de notre application API SQL Azure Cosmos DB, comme montré ici dans le concepteur d’application logique.

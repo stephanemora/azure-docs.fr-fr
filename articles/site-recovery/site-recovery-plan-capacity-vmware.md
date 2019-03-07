@@ -34,7 +34,7 @@ Composant | Détails
 
 ## <a name="size-recommendations-for-the-configuration-server-and-inbuilt-process-server"></a>Recommandations de taille pour le serveur de configuration et le serveur de processus intégré
 
-Un serveur de configuration qui utiliser un serveur de processus intégré pour protéger la charge de travail peut gérer jusqu’à 200 machines virtuelles en fonction des configurations suivantes :
+Un serveur de configuration qui utilise un serveur de processus intégré pour protéger la charge de travail peut gérer jusqu’à 200 machines virtuelles en fonction des configurations suivantes :
 
 UC | Mémoire | Taille du disque cache | Taux de modification des données | Machines protégées
 --- | --- | --- | --- | ---
@@ -88,7 +88,7 @@ Après avoir exécuté le [Planificateur de déploiement Azure Site Recovery](si
 2. Dans le composant logiciel enfichable, sélectionnez **Modifier les propriétés**.
 
     ![Capture d’écran de l’option de composant logiciel enfichable MMC Sauvegarde Azure pour modifier les propriétés](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Sous l’onglet **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1,023 Mbits/s.
+3. Sous l’onglet **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1 023 Mbits/s.
 
     ![Capture d’écran de la boîte de dialogue Propriétés de Sauvegarde Azure](./media/site-recovery-vmware-to-azure/throttle2.png)
 
