@@ -74,8 +74,7 @@ Vous pouvez utiliser les opérateurs suivants :
 * **Opérateurs de comparaison** : &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Mathématiques** : +, -, \*, -
 * **Chaîne** : &amp; (concaténation)
-* 
-  **Logiques** : &&amp;amp; (et), || (ou)
+* **Logiques** : &&amp;amp; (et), || (ou)
 * **Ordre d’évaluation**: ( )
 
 Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le \* (signe multiplicateur) n’est pas évalué avant - (soustraction). 2\*(5+3) n’est pas la même chose que 2\*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
