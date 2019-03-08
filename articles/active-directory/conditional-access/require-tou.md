@@ -103,7 +103,7 @@ Cette section explique comment configurer des conditions d’utilisation. Lorsqu
 
     d. Dans la zone **langue**, sélectionnez **anglais**.
 
-    e. Activez l’option permettant de **demander aux utilisateurs de développer les conditions d’utilisation****.**
+    e. Activez l’option permettant de **demander aux utilisateurs de développer les conditions d’utilisation** **.**
 
     f. Pour l’option **Appliquer avec des modèles de stratégie d’accès conditionnel**, sélectionnez **Stratégie personnalisée**.
 
