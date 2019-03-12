@@ -40,5 +40,5 @@
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Notes de publication](../active-directory/fundamentals/whats-new.md)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-catalog)
 ## [Terminologie](data-catalog-terminology.md)

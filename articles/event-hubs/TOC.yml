@@ -56,7 +56,7 @@ items:
   - name: Diffuser en continu dans Event Hubs pour Kafka
     href: event-hubs-quickstart-kafka-enabled-event-hubs.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Visualiser les anomalies de données sur les flux de données Event Hubs
     href: event-hubs-tutorial-visualize-anomalies.md
@@ -104,7 +104,7 @@ items:
   - name: Guide du protocole AMQP 1.0
     href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
     maintainContext: true
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Envoyer, recevoir et capturer des événements à l’aide de Python
     href: event-hubs-python.md
@@ -195,13 +195,13 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=event-hubs
-  - name: Dépassement de capacité de la pile
-    href: http://stackoverflow.com/questions/tagged/azure-eventhub
-  - name: vidéos
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-eventhub
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 95e32aa7c38ba5cda4ac6a83bb72f5d28d5b5e9b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3053e474ff88c979287dcbfb666283302ea03ed3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560785"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531213"
