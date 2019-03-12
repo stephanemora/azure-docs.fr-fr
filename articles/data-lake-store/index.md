@@ -1,22 +1,16 @@
 ---
-title: Documentation sur Azure Data Lake Storage Gen1 - Didacticiels, informations de référence sur les API | Microsoft Docs
-description: Découvrez comment configurer, gérer et accéder à un référentiel Data Lake à très grande échelle compatible avec Hadoop pour analyser des données de toute taille, de tout type et de toute vitesse d’ingestion.
+title: 'Documentation sur Azure Data Lake Storage Gen1 - Didacticiels, informations de référence sur les API | Microsoft Docs'
+description: 'Découvrez comment configurer, gérer et accéder à un référentiel Data Lake à très grande échelle compatible avec Hadoop pour analyser des données de toute taille, de tout type et de toute vitesse d’ingestion.'
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869192"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentation sur Azure Data Lake Storage Gen1
 
@@ -198,7 +192,7 @@ Découvrez comment utiliser Azure Data Lake Storage Gen1 (anciennement Azure Dat
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.JS</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (gestion des comptes)</a></p>
-                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (gestion du système de fichiers)</a></p>
+                        <p><a href="https://azure-datalake-store.readthedocs.io/en/latest">Python (gestion du système de fichiers)</a></p>
                     </div>
                 </div>
             </div>

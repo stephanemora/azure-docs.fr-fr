@@ -25,12 +25,14 @@ items:
         href: call-endpoint-nodejs.md
       - name: Utilisation de Python
         href: call-endpoint-python.md
-    - name: Foundation
+    - name: 'Kit SDK '
       items:
       - name: Utilisation de C#
         href: sdk-csharp-quick-start.md
+      - name: Utilisation de Python
+        href: sdk-python-quickstart.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Créer une page web Recherche personnalisée
     href: ./tutorials/custom-search-web-page.md
@@ -38,7 +40,7 @@ items:
   items:
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Configurer votre expérience de recherche personnalisée
     href: define-your-custom-view.md
@@ -71,7 +73,7 @@ items:
   - name: Conditions d’utilisation et d’affichage de l’API Recherche Bing
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
-  - name: Kits de développement logiciel (SDK)
+  - name: Kits SDK
     items:
     - name: .NET
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
@@ -109,9 +111,9 @@ items:
     href: endpoint-custom.md
   - name: Prise en charge de la région et de la langue
     href: language-support.md
-ms.openlocfilehash: 6cba0cdf82b24811753a34441ab1f62bc5e445e7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: eee327b77fa3c0d46d47bb3ac6644fb175249618
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506751"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568880"
