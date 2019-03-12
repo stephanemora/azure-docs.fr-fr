@@ -45,90 +45,106 @@ items:
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
 - name: Guides pratiques
   items:
-  - name: Configurer des connexions de site à site
+  - name: Créer et gérer une passerelle VPN
     items:
-    - name: Portail Azure
-      href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-create-site-to-site-rm-powershell.md
-    - name: Azure CLI
-      href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-  - name: Télécharger des script de configuration de périphérique VPN
-    href: vpn-gateway-download-vpndevicescript.md
-  - name: Configurer des connexions de point à site - authentification par certificat Azure natif
-    items:
-    - name: Configurer un VPN de point à site
+    - name: Création d’une passerelle VPN basée sur un itinéraire
       items:
       - name: Portail Azure
-        href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+        href: create-routebased-vpn-gateway-portal.md
       - name: Azure PowerShell
-        href: vpn-gateway-howto-point-to-site-rm-ps.md
-    - name: Clients et certificats P2S
+        href: create-routebased-vpn-gateway-powershell.md
+      - name: Azure CLI
+        href: create-routebased-vpn-gateway-cli.md
+    - name: Vérifier une connexion de passerelle VPN
+      href: vpn-gateway-verify-connection-resource-manager.md
+    - name: Réinitialiser une passerelle VPN
+      href: vpn-gateway-resetgw-classic.md
+    - name: Supprimer une passerelle VPN
       items:
-      - name: Générer des certificats auto-signés
-        items:
-        - name: Azure PowerShell
-          href: vpn-gateway-certificates-point-to-site.md
-        - name: Makecert
-          href: vpn-gateway-certificates-point-to-site-makecert.md
-        - name: Linux
-          href: vpn-gateway-certificates-point-to-site-linux.md
-    - name: Installer les certificats clients
-      href: point-to-site-how-to-vpn-client-install-azure-cert.md
-    - name: Créer et installer les fichiers de configuration du client VPN
-      href: point-to-site-vpn-client-configuration-azure-cert.md
-  - name: Configurer des connexions de point à site - Authentification RADIUS
-    items:
-    - name: Configurer un VPN de point à site
-      items:
+      - name: Portail Azure
+        href: vpn-gateway-delete-vnet-gateway-portal.md
       - name: Azure PowerShell
-        href: point-to-site-how-to-radius-ps.md
-    - name: Créer et installer les fichiers de configuration du client VPN
-      href: point-to-site-vpn-client-configuration-radius.md
-    - name: Intégrer l’authentification RADIUS VPN P2S avec le serveur NPS
-      href: vpn-gateway-radiuis-mfa-nsp.md
-  - name: Configurer OpenVPN
+        href: vpn-gateway-delete-vnet-gateway-powershell.md
+    - name: Gérer les références SKU de passerelle existantes
+      href: vpn-gateway-about-skus-legacy.md
+  - name: Connexions site à site
     items:
-    - name: Configurer OpenVPN pour les connexions de point à site
-      href: vpn-gateway-howto-openvpn.md
-    - name: Configure clients OpenVPN
-      href: vpn-gateway-howto-openvpn-clients.md
-  - name: Configurer des connexions de réseau virtuel à réseau virtuel
-    items:
-    - name: Portail Azure
-      href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-vnet-vnet-rm-ps.md
-    - name: Azure CLI
-      href: vpn-gateway-howto-vnet-vnet-cli.md
-  - name: Configurer une connexion de réseau virtuel à réseau virtuel entre modèles de déploiement
-    items:
-    - name: Portail Azure
-      href: vpn-gateway-connect-different-deployment-models-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-connect-different-deployment-models-powershell.md
-  - name: Configurer la coexistence de connexions ExpressRoute et de site à site
-    items:
-    - name: Azure PowerShell
-      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-  - name: Configurer plusieurs connexions site à site
-    items:
-    - name: Portail Azure
+    - name: Configurer une connexion S2S
+      items:
+      - name: Portail Azure
+        href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-create-site-to-site-rm-powershell.md
+      - name: Azure CLI
+        href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
+    - name: Configurer plusieurs connexions site à site
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
-  - name: Connecter plusieurs appareils VPN en fonction de stratégies
-    items:
-    - name: Azure PowerShell
+    - name: Se connecter à plusieurs appareils VPN basés sur des stratégies
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-  - name: Configurer des stratégies IPsec/IKE sur des connexions
+    - name: Coexistence de connexions ExpressRoute et de site à site
+      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+  - name: Connexions de réseau virtuel à réseau virtuel
     items:
-    - name: Azure PowerShell
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-  - name: Configurer les connexions haut actif-actif
+    - name: Configurer des connexions de réseau virtuel à réseau virtuel
+      items:
+      - name: Portail Azure
+        href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-vnet-vnet-rm-ps.md
+      - name: Azure CLI
+        href: vpn-gateway-howto-vnet-vnet-cli.md
+    - name: Configurer une connexion de réseau virtuel à réseau virtuel entre modèles de déploiement
+      items:
+      - name: Portail Azure
+        href: vpn-gateway-connect-different-deployment-models-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-connect-different-deployment-models-powershell.md
+  - name: Connexions de point à site
     items:
-    - name: Azure PowerShell
-      href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Authentification par certificat Azure
+      items:
+      - name: Configurer un VPN de point à site
+        items:
+        - name: Portail Azure
+          href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-howto-point-to-site-rm-ps.md
+      - name: Configurer les clients et les certificats P2S
+        items:
+        - name: Générer des certificats auto-signés
+          items:
+          - name: Azure PowerShell
+            href: vpn-gateway-certificates-point-to-site.md
+          - name: Makecert
+            href: vpn-gateway-certificates-point-to-site-makecert.md
+          - name: Linux
+            href: vpn-gateway-certificates-point-to-site-linux.md
+      - name: Installer les certificats clients
+        href: point-to-site-how-to-vpn-client-install-azure-cert.md
+      - name: Créer et installer les fichiers de configuration du client VPN
+        href: point-to-site-vpn-client-configuration-azure-cert.md
+    - name: Authentification RADIUS
+      items:
+      - name: Configurer un VPN de point à site
+        href: point-to-site-how-to-radius-ps.md
+      - name: Créer et installer les fichiers de configuration du client VPN
+        href: point-to-site-vpn-client-configuration-radius.md
+      - name: Intégrer l’authentification RADIUS VPN P2S avec le serveur NPS
+        href: vpn-gateway-radiuis-mfa-nsp.md
+    - name: OpenVPN
+      items:
+      - name: Configurer OpenVPN pour les connexions de point à site
+        href: vpn-gateway-howto-openvpn.md
+      - name: Configure clients OpenVPN
+        href: vpn-gateway-howto-openvpn-clients.md
+    - name: Passer à un certificat de passerelle d’autorité de certification public pour P2S
+      href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
     href: create-zone-redundant-vnet-gateway.md
+  - name: Configurer des stratégies IPsec/IKE sur des connexions
+    href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+  - name: Configurer des connexions entre deux passerelles actives
+    href: vpn-gateway-activeactive-rm-powershell.md
   - name: Routage, BGP et homologation de réseau virtuel
     items:
     - name: Configurer BGP pour une passerelle VPN
@@ -145,7 +161,7 @@ items:
         href: vpn-gateway-about-forced-tunneling.md
     - name: Configurer le transit de passerelle pour l’homologation de réseau virtuel
       href: vpn-gateway-peering-gateway-transit.md
-  - name: Modifier les paramètres de la passerelle réseau locale
+  - name: Modifier une passerelle de réseau local
     items:
     - name: Portail Azure
       href: vpn-gateway-modify-local-network-gateway-portal.md
@@ -153,34 +169,14 @@ items:
       href: vpn-gateway-modify-local-network-gateway.md
     - name: Azure CLI
       href: vpn-gateway-modify-local-network-gateway-cli.md
-  - name: Création d’une passerelle VPN basée sur un itinéraire
-    items:
-    - name: Portail Azure
-      href: create-routebased-vpn-gateway-portal.md
-    - name: Azure PowerShell
-      href: create-routebased-vpn-gateway-powershell.md
-    - name: Azure CLI
-      href: create-routebased-vpn-gateway-cli.md
-  - name: Vérifier une connexion de passerelle VPN
-    href: vpn-gateway-verify-connection-resource-manager.md
-  - name: Réinitialiser une passerelle VPN
-    href: vpn-gateway-resetgw-classic.md
-  - name: Supprimer une passerelle VPN
-    items:
-    - name: Portail Azure
-      href: vpn-gateway-delete-vnet-gateway-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-delete-vnet-gateway-powershell.md
-  - name: SKU de passerelle (hérité)
-    href: vpn-gateway-about-skus-legacy.md
   - name: Configurer les appareils VPN
     items:
     - name: Vue d’ensemble et configuration d’Azure
       href: vpn-gateway-3rdparty-device-config-overview.md
+    - name: Télécharger des script de configuration de périphérique VPN
+      href: vpn-gateway-download-vpndevicescript.md
     - name: 'Exemple : Appareil Cisco ASA (IKEv2/pas de BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-  - name: Passer à un certificat de passerelle d’autorité de certification public pour P2S
-    href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: Résolution des problèmes
     href: vpn-gateway-troubleshoot.md
     items:
@@ -252,9 +248,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
-ms.openlocfilehash: af9469c41660e8f5d98e93a8bfea9af977396d04
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 84c6a8972109e8512e66a5fa6283125534b2e2e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817556"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781287"

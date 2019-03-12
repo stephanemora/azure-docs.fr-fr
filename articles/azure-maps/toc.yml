@@ -63,47 +63,49 @@ items:
       href: how-to-search-for-address.md
     - name: Rendre les données personnalisées sur une carte statique
       href: how-to-render-custom-data.md
-  - name: Créer des cartes JavaScript
+  - name: Développer avec le kit SDK web
     items:
-    - name: Utiliser le contrôle de carte
-      href: how-to-use-map-control.md
-    - name: Créer une carte
-      href: map-create.md
-    - name: Choisir un style de mappage
-      href: choose-map-style.md
-    - name: Ajouter des contrôles de carte
-      href: map-add-controls.md
-    - name: Ajouter un calque de symboles
-      href: map-add-pin.md
-    - name: Ajouter une fenêtre contextuelle
-      href: map-add-popup.md
-    - name: Ajouter un calque de bulles
-      href: map-add-bubble-layer.md
-    - name: Ajouter une forme
-      href: map-add-shape.md
-    - name: Ajouter un calque de carte thermique
-      href: map-add-heat-map-layer.md
-    - name: Ajouter un calque d’images
-      href: map-add-image-layer.md
-    - name: Ajouter un calque de vignettes
-      href: map-add-tile-layer.md
-    - name: Ajouter des marqueurs HTML
-      href: map-add-custom-html.md
-    - name: Services
+    - name: Commandes de la carte
+      items:
+      - name: Utiliser le contrôle de carte
+        href: how-to-use-map-control.md
+      - name: Créer une carte
+        href: map-create.md
+      - name: Choisir un style de carte
+        href: choose-map-style.md
+      - name: Ajouter des commandes à la carte
+        href: map-add-controls.md
+      - name: Ajouter un calque de symboles
+        href: map-add-pin.md
+      - name: Ajouter une fenêtre contextuelle
+        href: map-add-popup.md
+      - name: Ajouter un calque de bulles
+        href: map-add-bubble-layer.md
+      - name: Ajouter des formes
+        href: map-add-shape.md
+      - name: Ajouter un calque de carte thermique
+        href: map-add-heat-map-layer.md
+      - name: Superposer une image
+        href: map-add-image-layer.md
+      - name: Ajouter des couches de vignettes
+        href: map-add-tile-layer.md
+      - name: Marqueurs HTML
+        href: map-add-custom-html.md
+      - name: Afficher le trafic
+        href: map-show-traffic.md
+      - name: Interaction avec les événements de souris
+        href: map-events.md
+      - name: Rendre votre application accessible
+        href: map-accessibility.md
+    - name: Module de services
       items:
       - name: Afficher les résultats de la recherche
         href: map-search-location.md
       - name: Obtenir des informations à partir d’une coordonnée
         href: map-get-information-from-coordinate.md
-      - name: Afficher l’itinéraire de A à B
+      - name: Afficher des directions de A à B
         href: map-route.md
-    - name: Afficher le trafic
-      href: map-show-traffic.md
-    - name: Interaction avec les événements de souris
-      href: map-events.md
-    - name: Applications de cartes accessibles
-      href: map-accessibility.md
-  - name: Créer des cartes Android
+  - name: Développer avec le kit Android SDK
     items:
     - name: Guide pratique pour utiliser les commandes de carte Android
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: Ressources
   items:
   - name: Conditions d’utilisation d’Azure Maps
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Calculatrice de prix
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: Kits de développement logiciel (SDK) IoT Device
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336731"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569227"

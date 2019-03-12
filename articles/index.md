@@ -1034,7 +1034,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                         </li>
                                         <li>
                                             <a href="/azure/spatial-anchors/">
-                                                <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                <img src="media/index/spatial_anchors.png" alt="" />
                                                 <p>Azure Spatial Anchors</p>
                                             </a>
                                         </li>
@@ -1605,6 +1605,12 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                             <a href="/azure/role-based-access-control/">
                                                 <img src="media/index/PersonWithFriend.svg" alt="" />
                                                 <p>Contrôle d’accès en fonction du rôle</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sentinel/">
+                                                <img src="media/index/sentinel.png" alt="" />
+                                                <p>Azure Sentinel</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4750,6 +4756,25 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/sentinel/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sentinel.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sentinel</h3>
+                                                    <p>Découvrir comment utiliser la solution SIEM de Microsoft qui fournit une analytique intelligente de la sécurité pour l’ensemble de votre entreprise à l’échelle du cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5840,7 +5865,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                        <img src="media/index/spatial_anchors.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

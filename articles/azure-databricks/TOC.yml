@@ -12,7 +12,7 @@ items:
   - name: Créer un espace de travail Databricks - Modèle Resource Manager
     href: quickstart-create-databricks-workspace-resource-manager-template.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Effectuer des opérations ETL
     href: databricks-extract-load-sql-data-warehouse.md
@@ -22,7 +22,7 @@ items:
     href: databricks-sentiment-analysis-cognitive-services.md
   - name: Diffuser en continu des données depuis HDInsight Kafka
     href: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Créer un cluster Spark
     href: https://docs.azuredatabricks.net/user-guide/clusters/index.html
@@ -43,6 +43,8 @@ items:
     href: https://docs.azuredatabricks.net/user-guide/bi/index.html
   - name: Planifier la récupération d'urgence
     href: howto-regional-disaster-recovery.md
+  - name: Guide MLflow
+    href: https://docs.azuredatabricks.net/applications/mlflow/index.html
 - name: Informations de référence
   items:
   - name: API REST
@@ -63,15 +65,15 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=analytics
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/databricks/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-databricks
   - name: Disponibilité des régions
     href: https://azure.microsoft.com/regions/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 2281004f4528101d99a3214f440c96e9071ce1d0
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d35ad21cf21b273bb36fa933dac779baf4a5a965
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117297"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551549"
