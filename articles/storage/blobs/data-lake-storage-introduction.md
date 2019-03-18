@@ -27,7 +27,7 @@ Une caractéristique fondamentale de Data Lake Storage Gen2 est l’ajout d’un
 
 Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre les performances, la gestion et la sécurité. Data Lake Storage Gen2 traite chacun de ces aspects de plusieurs manières :
 
--   Les **performances** sont optimisées, car vous n’avez pas besoin de copier ou transformer les données avant l’analyse. L’espace de noms hiérarchique améliore considérablement les performances des opérations de gestion de répertoires, et donc les performances générale du travail.
+-   Les **performances** sont optimisées, car vous n’avez pas besoin de copier ou transformer les données avant l’analyse. L’espace de noms hiérarchique améliore considérablement les performances des opérations de gestion de répertoires, et donc les performances générales du travail.
 
 -   La **gestion** est plus facile, car vous pouvez organiser et manipuler les fichiers dans des répertoires et des sous-répertoires.
 
