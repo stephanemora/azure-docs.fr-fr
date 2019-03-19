@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: c7b0332d2a1df9d61b95b73699bf04f32e3165ff
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cccc646026457648fc477ac4a858cae7504dcc2a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240537"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759353"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Métriques prises en charge avec Azure Monitor sur Azure Stack
 
@@ -51,7 +51,7 @@ Les tableaux suivants répertorient les métriques disponibles avec le pipeline 
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| BlobCapacity | Capacité d’objet blob | Octets | Total | Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets. | /BlobType |
+| BlobCapacity | Capacité d’objet blob | Octets | Total | Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets. | BlobType |
 | BlobCount | Nombre d’objets blob | Nombre | Total | Nombre d’objets blob dans le service BLOB du compte de stockage. | /BlobType |
 | ContainerCount | Nombre de conteneurs d’objets blob | Nombre | Moyenne | Nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage. | Aucune dimension |
 | Transactions | Transactions | Nombre | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
