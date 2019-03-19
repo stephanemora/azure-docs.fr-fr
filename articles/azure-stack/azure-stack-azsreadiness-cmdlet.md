@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992313"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Informations de référence sur l’applet de commande Start-AzsReadinessChecker
 
@@ -299,6 +299,7 @@ Dans cet exemple, l’équipe de déploiement ou de support reçoit le rapport d
 > -RegionName
 
 Spécifie le nom de la région du déploiement Azure Stack.
+
 |  |  |
 |----------------------------|--------------|
 |Tapez :                       |Chaîne        |
@@ -310,6 +311,7 @@ Spécifie le nom de la région du déploiement Azure Stack.
 > -FQDN
 
 Spécifie le FQDN externe du déploiement Azure Stack (alias : ExternalFQDN et ExternalDomainName).
+
 |  |  |
 |----------------------------|--------------|
 |Tapez :                       |Chaîne        |
@@ -321,6 +323,7 @@ Spécifie le FQDN externe du déploiement Azure Stack (alias : ExternalFQDN et E
 > -IdentitySystem
 
 Spécifie les valeurs valides du système d’identité du déploiement Azure Stack : AAD (Azure Active Directory) et ADFS (services de fédération Active Directory).
+
 |  |  |
 |----------------------------|--------------|
 |Tapez :                       |Chaîne        |
@@ -333,6 +336,7 @@ Spécifie les valeurs valides du système d’identité du déploiement Azure St
 > -PfxPassword
 
 Spécifie le mot de passe associé aux fichiers de certificat PFX.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |SecureString |
@@ -344,6 +348,7 @@ Spécifie le mot de passe associé aux fichiers de certificat PFX.
 > -PaaSCertificates
 
 Spécifie la table de hachage contenant les chemins et mots de passe des certificats PaaS.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Hashtable |
@@ -355,6 +360,7 @@ Spécifie la table de hachage contenant les chemins et mots de passe des certifi
 > -DeploymentDataJSONPath
 
 Spécifie le fichier de configuration JSON des données de déploiement Azure Stack. Ce fichier est généré pour le déploiement.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -366,6 +372,7 @@ Spécifie le fichier de configuration JSON des données de déploiement Azure St
 > -PfxPath
 
 Spécifie le chemin à un certificat problématique dont la correction nécessite une routine d’importation/exportation, comme indiqué par la validation du certificat dans cet outil.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -377,6 +384,7 @@ Spécifie le chemin à un certificat problématique dont la correction nécessit
 > -ExportPFXPath  
 
 Spécifie le chemin de destination du fichier PFX résultant de la routine d’importation/exportation.  
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -388,6 +396,7 @@ Spécifie le chemin de destination du fichier PFX résultant de la routine d’i
 > -Subject
 
 Spécifie un dictionnaire ordonné de l’objet pour la génération de demande de certificat.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |OrderedDictionary   |
@@ -415,6 +424,7 @@ Spécifie le type SAN de la demande de certificat. Valeurs valides : MultipleCSR
 > -OutputRequestPath
 
 Spécifie le chemin de destination pour les fichiers de demande de certificat. Le répertoire doit déjà exister.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -426,6 +436,7 @@ Spécifie le chemin de destination pour les fichiers de demande de certificat. L
 > -AADServiceAdministrator
 
 Spécifie l’administrateur du service Azure Active Directory à utiliser pour le déploiement d’Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |PSCredential   |
@@ -437,6 +448,7 @@ Spécifie l’administrateur du service Azure Active Directory à utiliser pour 
 > -AADDirectoryTenantName
 
 Spécifie le nom Azure Active Directory à utiliser pour le déploiement d’Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -448,6 +460,7 @@ Spécifie le nom Azure Active Directory à utiliser pour le déploiement d’Azu
 > -AzureEnvironment
 
 Spécifie l’instance des services Azure contenant les comptes, annuaires et abonnements à utiliser pour l’inscription et le déploiement d’Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -460,6 +473,7 @@ Spécifie l’instance des services Azure contenant les comptes, annuaires et ab
 > -RegistrationAccount
 
 Spécifie le compte d’inscription à utiliser pour l’inscription d’Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -471,6 +485,7 @@ Spécifie le compte d’inscription à utiliser pour l’inscription d’Azure S
 > -RegistrationSubscriptionID
 
 Spécifie l’ID d’abonnement d’inscription à utiliser pour l’inscription d’Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Guid     |
@@ -482,6 +497,7 @@ Spécifie l’ID d’abonnement d’inscription à utiliser pour l’inscription
 > -ReportPath
 
 Spécifie le chemin du rapport de préparation. Le répertoire actif et le nom de rapport par défaut sont utilisés par défaut.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -527,6 +543,7 @@ Spécifie si les noms d’hôte/services PaaS doivent être ajoutés à la ou au
 > -ReportSections
 
 Spécifie d’afficher uniquement le récapitulatif du rapport. Omet les détails.
+
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Chaîne   |
@@ -539,6 +556,7 @@ Spécifie d’afficher uniquement le récapitulatif du rapport. Omet les détail
 > -Summary
 
 Spécifie d’afficher uniquement le récapitulatif du rapport. Omet les détails.
+
 |  |  |
 |----------------------------|------------------|
 |Tapez :                       |SwitchParameter   |
@@ -550,6 +568,7 @@ Spécifie d’afficher uniquement le récapitulatif du rapport. Omet les détail
 > -CleanReport
 
 Supprime l’historique des exécutions et validations précédentes, et écrit les validations dans un nouveau rapport.
+
 |  |  |
 |----------------------------|------------------|
 |Tapez :                       |SwitchParameter   |
@@ -574,6 +593,7 @@ Spécifie le chemin personnalisé pour enregistrer le rapport JSON de préparati
 > -Confirm
 
 Demande confirmation avant d’exécuter l’applet de commande.
+
 |  |  |
 |----------------------------|------------------|
 |Tapez :                       |SwitchParameter   |
@@ -586,6 +606,7 @@ Demande confirmation avant d’exécuter l’applet de commande.
 > -WhatIf
 
 Montre ce qui se passe en cas d’exécution de l’applet de commande. L’applet de commande n’est pas exécutée.
+
 |  |  |
 |----------------------------|------------------|
 |Tapez :                       |SwitchParameter   |
@@ -594,3 +615,4 @@ Montre ce qui se passe en cas d’exécution de l’applet de commande. L’appl
 |Valeur par défaut :              |False             |
 |Accepter l’entrée de pipeline :      |False             |
 |Accepter les caractères génériques : |False             |
+

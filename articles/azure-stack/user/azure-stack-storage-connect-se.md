@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822831"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763365"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack
 
@@ -30,7 +30,7 @@ Dans cet article, vous allez découvrir comment vous connecter à vos comptes de
 > [!NOTE]  
 > Il existe plusieurs outils qui permettent de déplacer des données vers et à partir du stockage Azure Stack. Pour plus d’informations, consultez [Outils de transfert de données pour le stockage Azure Stack](azure-stack-storage-transfer.md).
 
-Si vous ne l’avez pas encore fait, [téléchargez l’Explorateur de stockage](http://www.storageexplorer.com/) et installez-le.
+Si vous ne l’avez pas encore fait, [téléchargez l’Explorateur de stockage](https://www.storageexplorer.com/) et installez-le.
 
 Une fois que vous êtes connecté à votre compte de stockage ou abonnement Azure Stack, vous pouvez consulter les [articles sur l’Explorateur de stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) pour utiliser vos données Azure Stack. 
 

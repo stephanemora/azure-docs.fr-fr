@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 47ba057091f0660bf1449f062edfacde710d2f1a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 34159d059b976043fac415470421970056320acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996491"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
+
 Le terme *fournisseur* s’applique à l’administrateur de services et à tous les fournisseurs délégués. Les opérateurs et fournisseurs délégués Azure Stack peuvent utiliser l’API d’utilisation du fournisseur pour consulter l’utilisation de leurs locataires directs. Par exemple, comme indiqué dans le diagramme, P0 peut appeler l’API du fournisseur pour obtenir des informations sur l’utilisation directe de P1 et de P2, et P1 peut effectuer un appel pour obtenir des informations relatives à l’utilisation de P3 et P4.
 
 ![Modèle conceptuel de la hiérarchie des fournisseurs](media/azure-stack-provider-resource-api/image1.png)
@@ -38,6 +39,7 @@ Cette API d’utilisation est une API de fournisseur. Un rôle Propriétaire, Co
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>Arguments
+
 | **Argument** | **Description** |
 | --- | --- |
 | *armendpoint* |Point de terminaison Azure Resource Manager de votre environnement Azure Stack. La convention Azure Stack est que le nom du point de terminaison Azure Resource Manager soit au format `https://adminmanagement.{domain-name}`. Par exemple, pour le kit de développement, si le nom du domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
@@ -79,6 +81,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Détails de la réponse
+
 | **Argument** | **Description** |
 | --- | --- |
 | *id* |ID unique de l’agrégat d’utilisation. |
@@ -101,9 +104,10 @@ Pour générer les données d’utilisation, vous devez disposer de ressources e
 1. [Installer PowerShell pour Azure Stack.](azure-stack-powershell-install.md)
 2. [Configurer l’environnement PowerShell de l’utilisateur Azure Stack](user/azure-stack-powershell-configure-user.md) ou [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md) 
 3. Pour récupérer les données d’utilisation, utilisez la cmdlet PowerShell [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) :
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
 ### <a name="rest-api"></a>API REST
 
 Vous pouvez collecter des informations d’utilisation pour les abonnements supprimés en appelant le service Microsoft.Commerce.Admin. 
