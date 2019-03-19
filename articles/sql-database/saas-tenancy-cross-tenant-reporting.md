@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476245"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096025"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Création de rapports inter-clients à l’aide de requêtes distribuées
 
@@ -27,7 +27,7 @@ Dans ce didacticiel, vous allez exécuter des requêtes distribuées sur l’ens
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-
+> 
 > * Comment déployer une base de données de création de rapports
 > * Exécuter des requêtes distribuées sur toutes les bases de données client
 > * Comment des vues globales de chaque base de données peuvent permettre des requêtes efficaces sur l’ensemble des clients
@@ -106,7 +106,7 @@ Cet exercice déploie la base de données _adhocreporting_. Cette base de donné
 
 1. Dans *PowerShell ISE*, ouvrez ...\\Modules d’apprentissage\\Analytique opérationnelle\\Génération d’états adhoc\\*Demo-AdhocReporting.ps1*. 
 
-1. Définissez **$DemoScenario = 2**, _Déployer la base de données de génération d’états adhoc_.
+1. Définissez **$DemoScenario = 2**, _déployer Ad hoc reporting de base de données_.
 
 1. Appuyez sur **F5** pour exécuter le script et créer la base de données *adhocreporting*.
 
@@ -148,7 +148,7 @@ Maintenant que la base de données *adhocreporting* est configurée, lancez-vous
 
 Lors de l’inspection du plan d’exécution, passez la souris sur les icônes de plan pour plus d’informations. 
 
-Remarque importante : lorsque nous avons défini la source de données externe, le paramètre **DISTRIBUTION = SHARDED(VenueId)** améliore les performances dans de nombreux scénarios. Étant donné que chaque élément *VenueId* correspond à une base de données individuelle, le filtrage peut être effectué à distance facilement, renvoyant uniquement les données nécessaires.
+Remarque importante : lorsque nous avons défini la source de données externe, le paramètre **DISTRIBUTION = SHARDED(VenueId)** améliore les performances dans de nombreux scénarios. Comme chaque *VenueId* correspond à une base de données, le filtrage est effectué à distance facilement, renvoyant uniquement les données nécessitées.
 
 1. Ouvrir... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* dans SSMS.
 2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting**.
@@ -181,7 +181,7 @@ Remarque importante : lorsque nous avons défini la source de données externe,
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-
+> 
 > * Exécuter des requêtes distribuées sur toutes les bases de données client
 > * Déployer une base de données de création de rapports et définir le schéma nécessaire pour exécuter des requêtes distribuées.
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995125"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Bien démarrer avec Azure Stream Analytics : Détection des fraudes en temps réel
 
@@ -32,7 +32,7 @@ Dans ce didacticiel, nous utilisons l’exemple de la détection de fraudes en t
 
 Une société de télécommunication dispose d’un volume important de données pour les appels entrants. La société souhaite détecter les appels frauduleux en temps réel afin de pouvoir informer ses clients ou arrêter un service à partir d’un nombre donné. Un type de fraude à la carte SIM implique plusieurs appels simultanés provenant d’une même identité, mais à des emplacements géographiquement distincts. Pour détecter ce type de fraude, la société doit examiner les enregistrements téléphoniques entrants et rechercher des modèles spécifiques, dans ce cas précis, des appels passés en même temps dans différents pays. Tous les enregistrements téléphoniques qui s’inscrivent dans cette catégorie sont écrits dans l’espace de stockage en vue d’une analyse ultérieure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Dans ce didacticiel, vous allez simuler des données d’appels téléphoniques à l’aide d’une application cliente générant un exemple de métadonnées d’appel téléphonique. Certains des enregistrements produits par l’application ressemblent à des appels frauduleux. 
 
@@ -68,7 +68,7 @@ Dans cette procédure, vous allez commencer par créer un espace de noms Event 
 
 5. Cliquez sur le nouvel espace de noms, puis, dans le volet d’espace de noms, cliquez sur **Hub d’événements**.
 
-   ![Bouton Ajouter un hub d’événements permettant de créer un concentrateur Event Hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![Bouton Ajouter un hub d’événements permettant de créer un concentrateur Event Hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. Nommez le nouveau concentrateur Event Hub `asa-eh-frauddetection-demo`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note, car vous devrez l’utiliser ultérieurement. Pour le moment, vous n’avez pas besoin de définir d’autres options pour le concentrateur Event Hub.
 
@@ -114,20 +114,20 @@ Avant de démarrer l’application TelcoGenerator, vous devez la configurer afin
 
 ### <a name="configure-the-telcogenerator-app"></a>Configurer l’application TelcoGenerator
 
-1.  Dans l’éditeur dans lequel vous avez copié la chaîne de connexion, prenez note de la valeur `EntityPath`, puis supprimez la paire `EntityPath` (n’oubliez pas de supprimer le point-virgule qui la précède). 
+1. Dans l’éditeur dans lequel vous avez copié la chaîne de connexion, prenez note de la valeur `EntityPath`, puis supprimez la paire `EntityPath` (n’oubliez pas de supprimer le point-virgule qui la précède). 
 
-2.  Dans le dossier où vous avez décompressé le fichier TelcoGenerator.zip, ouvrez le fichier telcodatagen.exe.config dans un éditeur. (Comme il existe plusieurs fichiers .config, veillez à ouvrir celui qui convient.)
+2. Dans le dossier où vous avez décompressé le fichier TelcoGenerator.zip, ouvrez le fichier telcodatagen.exe.config dans un éditeur. (Comme il existe plusieurs fichiers .config, veillez à ouvrir celui qui convient.)
 
-3.  Dans l’élément `<appSettings>` :
+3. Dans l’élément `<appSettings>` :
 
-    * Définissez la valeur de la clé `EventHubName` sur le nom du concentrateur Event Hub (autrement dit, la valeur du chemin d’accès de l’entité).
-    * Définissez la valeur de la clé `Microsoft.ServiceBus.ConnectionString` sur la chaîne de connexion. 
+   * Définissez la valeur de la clé `EventHubName` sur le nom du concentrateur Event Hub (autrement dit, la valeur du chemin d’accès de l’entité).
+   * Définissez la valeur de la clé `Microsoft.ServiceBus.ConnectionString` sur la chaîne de connexion. 
 
-    La section `<appSettings>` doit ressembler à l’exemple qui suit. (Par souci de clarté, les lignes sont incluses dans un wrapper et certains caractères ont été supprimés dans le jeton d’autorisation.)
+   La section `<appSettings>` doit ressembler à l’exemple qui suit. (Par souci de clarté, les lignes sont incluses dans un wrapper et certains caractères ont été supprimés dans le jeton d’autorisation.)
 
    ![Fichier config de TelcoGenerator montrant la chaîne de connexion et le nom du hub d’événements](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.  Enregistrez le fichier . 
+4. Enregistrez le fichier . 
 
 ### <a name="start-the-app"></a>Démarrer l’application
 1.  Ouvrez une fenêtre Commande et accédez au dossier dans lequel l’application TelcoGenerator est décompressée.
@@ -191,6 +191,7 @@ Maintenant que vous disposez d’un flux des événements d’appel, vous pouvez
    |Espace de noms Event Hub  |  asa-eh-ns-demo |  Entrez le nom de l’espace de noms Event Hub.   |
    |Nom de l’Event Hub  | asa-eh-frauddetection-demo | Sélectionnez le nom de votre Event Hub.   |
    |Nom de la stratégie du hub d’événements  | asa-policy-manage-demo | Sélectionnez la stratégie d’accès que vous avez créée précédemment.   |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -359,6 +360,7 @@ Si vous possédez déjà un compte de stockage d’objets blob, vous pouvez l’
    |Abonnement   |  \<Votre abonnement\> |  Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement. |
    |Compte de stockage  |  asaehstorage |  Entrez le nom du compte de stockage que vous avez créé. |
    |Conteneur  | asa-fraudulentcalls-demo | Choisissez Créer et entrez un nom de conteneur. |
+
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     

@@ -10,23 +10,25 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: cae02627c539e543d27ea188d521605f187ea8a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 672bfee600f19661c6bc68535a68fff4a0ccc43f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835365"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Nouveautés dans Azure SQL Data Warehouse Juin 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en juin 2018. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="user-defined-restore-points"></a>Points de restauration définis par l’utilisateur
 SQL Data Warehouse prend automatiquement des instantanés de votre entrepôt de données toutes les 8 heures pour respecter un objectif de point de récupération (RPO) de huit heures. Bien que ces instantanés automatisés facilitent l’administration liée à l’exécution de votre entrepôt de données, il est nécessaire de prendre des instantanés aux moments critiques en fonction des besoins de votre entreprise. Par exemple, prendre un instantané juste avant une charge importante de données ou le déploiement de nouveaux scripts dans l’entrepôt de données pour activer un point de restauration juste avant l’opération. 
 
-SQL Data Warehouse prend désormais en charge les [points de restauration définis par l’utilisateur](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via la cmdlet [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint).
+SQL Data Warehouse prend désormais en charge [points de restauration défini par l’utilisateur](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via la [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) applet de commande.
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName
@@ -124,7 +126,7 @@ start_time                | end_time                | command
 [Blogs de l’équipe de conseil clientèle]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Témoignages de clients]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Forum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

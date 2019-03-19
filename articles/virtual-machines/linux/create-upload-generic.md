@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105520"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle al
 
 * Le disque dur virtuel http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd dispose d’une taille virtuelle non prise en charge de 21 475 270 656 octets. La taille doit être un nombre entier (en Mo).
 
-Le cas échéant, redimensionnez la machine virtuelle à l’aide de la console Gestionnaire Hyper-V ou de la cmdlet PowerShell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx).  Si vous n’utilisez pas un environnement Windows, nous vous recommandons d’utiliser `qemu-img` pour convertir (si nécessaire) le disque dur virtuel et le redimensionner.
+Le cas échéant, redimensionnez la machine virtuelle à l’aide de la console Gestionnaire Hyper-V ou de la cmdlet PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Si vous n’utilisez pas un environnement Windows, nous vous recommandons d’utiliser `qemu-img` pour convertir (si nécessaire) le disque dur virtuel et le redimensionner.
 
 > [!NOTE]
 > Il existe un [bogue connu dans la version 2.2.1 de qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611), qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Nous vous recommandons d’utiliser `qemu-img` 2.2.0 ou inférieur, ou les versions 2.6 ou supérieures.
@@ -125,7 +125,7 @@ Le cas échéant, redimensionnez la machine virtuelle à l’aide de la console 
 
 Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont directement liés au noyau Linux en amont. Ces pilotes sont déjà disponibles dans de nombreuses distributions qui incluent une version récente du noyau Linux (3.x par exemple). Sinon, ces distributions fournissent des versions rétroportées de ces pilotes avec leurs noyaux.  Ces pilotes sont mis à jour en permanence dans le noyau en amont avec de nouveaux correctifs et de nouvelles fonctionnalités. Aussi, dans la mesure du possible, nous vous recommandons d’exécuter une [distribution approuvée](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) comportant ces correctifs et modifications.
 
-Si vous utilisez une variante des versions Red Hat Enterprise Linux 6.0 à 6.3, vous devez installer les [pilotes LIS les plus récents pour Hyper-V](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Depuis RHEL 6.4+ (et les distributions dérivées), les pilotes LIS sont déjà inclus dans le noyau ; aucun package d’installation supplémentaire n’est donc nécessaire.
+Si vous utilisez une variante des versions Red Hat Enterprise Linux 6.0 à 6.3, vous devez installer les [pilotes LIS les plus récents pour Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Depuis RHEL 6.4+ (et les distributions dérivées), les pilotes LIS sont déjà inclus dans le noyau ; aucun package d’installation supplémentaire n’est donc nécessaire.
 
 Si un noyau personnalisé est requis, nous vous recommandons d’utiliser une version plus récente du noyau (par exemple 3.8+). Pour les distributions ou les fournisseurs qui maintiennent leur propre noyau, vous devez rétroporter régulièrement les pilotes LIS du noyau en amont vers votre noyau personnalisé.  Même si vous utilisez déjà une version relativement récente du noyau, nous vous recommandons vivement de conserver une trace des correctifs en amont des pilotes LIS et de les rétroporter en fonction des besoins. Les emplacements des fichiers sources des pilotes LIS sont spécifiés dans le fichier [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) dans l’arborescence source du noyau Linux :
 ```
@@ -144,10 +144,10 @@ Si un noyau personnalisé est requis, nous vous recommandons d’utiliser une ve
 Les correctifs suivants doivent être inclus dans le noyau. Cette liste ne peut pas être complète pour toutes les distributions.
 
 * [ata_piix : reporter des disques dans les pilotes Hyper-V par défaut](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc : compte des paquets en transit dans le chemin RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc : Compte pour les paquets en transit dans le chemin d’accès de réinitialisation](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc : éviter l’utilisation de WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc :désactiver WRITE_SAME pour RAID et les pilotes adaptateurs de l’hôte virtuel](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc : correctif de déréférence du pointeur NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc : Désactiver WRITE_SAME pour RAID et les pilotes de carte hôte virtuel](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc : Correctif de déréférence du pointeur NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc : des défaillances de la mémoire tampon de l’anneau peuvent entraîner un gel des E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs : se protéger contre une double exécution de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
@@ -172,13 +172,13 @@ Les correctifs suivants doivent être inclus dans le noyau. Cette liste ne peut 
     ```
     Le démarrage graphique et en mode silencieux n’est pas utile dans un environnement cloud où nous voulons tous les journaux envoyés au port série. L’option `crashkernel` peut être conservée si nécessaire. Notez cependant que ce paramètre réduit la quantité de mémoire disponible dans la machine virtuelle d’au moins 128 Mo, ce qui peut être problématique pour les machines virtuelles plus petites.
 
-2. Installez l'agent Linux Azure.
+1. Installez l'agent Linux Azure.
   
     L'agent Linux Azure est requis pour approvisionner une image Linux sur Azure.  De nombreuses distributions fournissent cet agent sous forme de package RPM ou Deb (ce package est généralement nommé WALinuxAgent ou walinuxagent).  Il est également possible d'installer manuellement cet agent en suivant les instructions du [Guide de l'agent Linux](../extensions/agent-linux.md).
 
-3. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  Cette configuration est généralement définie par défaut.
+1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  Cette configuration est généralement définie par défaut.
 
-4. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
+1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
   
     L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Le disque de ressources local est un disque *temporaire*, et il peut être vidé quand la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure (étape 2 ci-dessus), modifiez les paramètres suivants dans le fichier /etc/waagent.conf si nécessaire.
     ```  
@@ -188,15 +188,15 @@ Les correctifs suivants doivent être inclus dans le noyau. Cette liste ne peut 
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* Exécutez les commandes suivantes pour déprovisionner la machine virtuelle.
+1. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > Sur Virtualbox, vous pouvez voir l’erreur suivante après l’exécution de `waagent -force -deprovision` qui indique `[Errno 5] Input/output error`. Ce message d’erreur n’est pas critique et peut être ignoré.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > Sur Virtualbox, vous pouvez voir l’erreur suivante après l’exécution de `waagent -force -deprovision` qui indique `[Errno 5] Input/output error`. Ce message d’erreur n’est pas critique et peut être ignoré.
 
 * Arrêtez la machine virtuelle et chargez le disque dur virtuel sur Azure.
 

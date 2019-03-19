@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453294"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309126"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -23,6 +23,8 @@ ms.locfileid: "56453294"
 * [Journaux](#diagnostic-logging) : les journaux permettent d’enregistrer ou d’utiliser les performances, les accès et les autres données à partir d’une ressource à des fins de supervision.
 
 * [Métriques](#metrics) : Application Gateway a actuellement sept métriques pour afficher les compteurs de performances.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="back-end-health"></a>Intégrité du serveur principal
 
@@ -47,10 +49,10 @@ Chaque membre du pool principal est répertorié sur cette page (qu’il s’agi
 
 ### <a name="view-back-end-health-through-powershell"></a>Affichage de l’intégrité du serveur principal via PowerShell
 
-Le code PowerShell suivant montre comment afficher l’intégrité du serveur principal en utilisant l’applet de commande `Get-AzureRmApplicationGatewayBackendHealth` :
+Le code PowerShell suivant montre comment afficher l’intégrité du serveur principal en utilisant l’applet de commande `Get-AzApplicationGatewayBackendHealth` :
 
 ```powershell
-Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
 ### <a name="view-back-end-health-through-azure-cli"></a>Affichage de l’intégrité du serveur principal via Azure CLI
@@ -121,7 +123,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 3. Activez la journalisation des diagnostics à l’aide de l’applet de commande PowerShell suivante :
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
     
 > [!TIP] 

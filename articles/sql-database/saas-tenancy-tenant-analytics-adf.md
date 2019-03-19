@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850290"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database,SQL Data Warehouse, Data Factory et Power BI
 
@@ -65,7 +65,7 @@ Ce didacticiel fournit des exemples simples d’informations que vous pouvez rec
 
 ## <a name="setup"></a>Paramétrage
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 > [!NOTE]
 > Ce didacticiel utilise des fonctionnalités de Azure Data Factory qui sont actuellement en version préliminaire limitée (paramétrage du service lié). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Nous vous enverrons une confirmation dès l’activation de votre abonnement.
@@ -94,7 +94,7 @@ Dans cette étape, vous déployez les ressources supplémentaires utilisées dan
 
 Maintenant, examinez les ressources Azure déployées :
 #### <a name="tenant-databases-and-analytics-store"></a>Bases de données client et magasin d’analytique
-Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter aux serveurs **tenants1-dpt-&lt;utilisateur&gt;** et **catalogue-dpt-&lt;utilisateur&gt;**. Remplacez &lt;utilisateur&gt; par la valeur utilisée lors du déploiement de l’application. Utilisez la connexion = *développeur* et le mot de passe = *P@ssword1*. Consultez le [didacticiel d’introduction](saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
+Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter aux serveurs **tenants1-dpt-&lt;utilisateur&gt;** et **catalogue-dpt-&lt;utilisateur&gt;**. Remplacez &lt;utilisateur&gt; par la valeur utilisée lors du déploiement de l’application. Utiliser une connexion = *développeur* et mot de passe = *P\@ssword1*. Consultez le [didacticiel d’introduction](saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
 
 ![Se connecter au serveur de base de données SQL à partir de SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -113,7 +113,7 @@ Dans l'Explorateur d'objets :
 #### <a name="blob-storage"></a>Stockage d'objets blob
 1. Dans le [portail Azure](https://ms.portal.azure.com), accédez au groupe de ressources que vous avez utilisé pour le déploiement de l’application. Vérifiez qu’un compte de stockage appelé **wingtipstaging\<utilisateur\>** a été ajouté.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. Cliquez sur le compte de stockage **wingtipstaging\<utilisateur\>** pour explorer les objets présents.
 1. Cliquez sur la vignette **Objets blob**
@@ -195,13 +195,13 @@ Utilisez les étapes suivantes pour vous connecter à Power BI et importer les v
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Sélectionnez **Base de données** dans le volet gauche, puis entrez la valeur de *developer*, puis le mot de passe *P@ssword1*. Cliquez sur **Connecter**.  
+5. Sélectionnez **base de données** dans le volet gauche, puis entrez nom d’utilisateur = *développeur*, puis entrez le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. Dans le volet **Navigateur**, sous la base de données analytique, sélectionnez les tables du schéma en étoile : **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** et **dim_Dates**. Sélectionnez ensuite **Charger**. 
 
-Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, explorez les visualisations intéressantes pour obtenir des informations sur vos clients. Examinez ensuite comment les analytiques peuvent permettre de fournir des recommandations basées sur certaines données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
+Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, explorez les visualisations intéressantes pour obtenir des informations sur vos clients. Examinez ensuite comment les analytiques peuvent permettre de fournir des recommandations basées sur certaines données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
 
 Commencez en analysant les données de ventes de ticket pour afficher la variation de l’utilisation sur les systèmes. Sélectionnez les options affichées dans Power BI pour tracer un graphique à barres du nombre total de tickets vendus par emplacement. (En raison d’une variation aléatoire dans le générateur de tickets, vos résultats peuvent être différents.)
  
@@ -258,7 +258,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Interroger l’entrepôt de données d’analyse. 
 > * Power BI permet de visualiser les tendances des données pour tous les clients.
 
-Félicitations !
+Félicitations !
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

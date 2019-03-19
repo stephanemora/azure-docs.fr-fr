@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 5d725cdac93ebdb39437c0b9bcb619488fade0f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090659"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 
@@ -24,7 +24,7 @@ Quand vous créez un pool Azure Batch, vous pouvez configurer le pool dans un so
 
 Un pool Azure Batch comporte des paramètres qui servent à autoriser les nœuds de calcul à communiquer entre eux, par exemple, pour exécuter des tâches multi-instances. Ces paramètres n’exigent pas de réseau virtuel distinct. En revanche, par défaut, les nœuds ne peuvent pas communiquer avec des machines virtuelles qui ne font pas partie du pool Batch, comme un serveur de licences ou un serveur de fichiers. Pour autoriser les nœuds de calcul du pool à communiquer en toute sécurité avec d’autres machines virtuelles, ou avec un réseau local, vous pouvez configurer le pool dans un sous-réseau d’un réseau virtuel Azure. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Authentification**. Pour utiliser un réseau virtuel Azure, l’API du client Batch doit utiliser l’authentification Azure Active Directory (AD). La prise en charge d’Azure Batch pour Azure AD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md). 
 
@@ -48,7 +48,7 @@ Lorsque vous avez créé votre réseau virtuel et lui avez attribué un sous-ré
 6. Spécifiez les autres paramètres obligatoires, notamment **Taille de nœud**, **Nœuds dédiés cibles** et **Nœuds basse priorité** et éventuellement les paramètres facultatifs.
 7. Dans **Réseau virtuel**, sélectionnez le réseau virtuel et le sous-réseau que vous souhaitez utiliser.
   
-  ![Ajouter un pool avec un réseau virtuel](./media/batch-virtual-network/add-vnet-pool.png)
+   ![Ajouter un pool avec un réseau virtuel](./media/batch-virtual-network/add-vnet-pool.png)
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>Routages définis par l’utilisateur pour le tunneling forcé
 

@@ -5,17 +5,17 @@ description: Cet article explique comment évaluer les performances d’un modè
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: e5c85451ca48aab8f980b89de41ebf40f1f97ff3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891584"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Évaluation des performances d’un modèle dans Azure Machine Learning Studio
 
@@ -83,7 +83,7 @@ Après avoir exécuté l’expérience, vous pouvez inspecter les résultats de 
 Figure 4. résultats de la validation croisée d’un modèle de régression
 
 ## <a name="evaluating-a-binary-classification-model"></a>Évaluation d’un modèle de classification binaire
-Dans un scénario de classification binaire, la variable cible ne peut avoir que deux résultats, par exemple : {0, 1} ou {faux, vrai}, {négatif, positif}. Supposons que vous disposiez d’un jeu de données sur des employés incluant certaines variables démographiques et d’emploi, et que vous souhaitiez prédire le niveau de revenu, qui constitue une variable binaire avec les valeurs {« <=50 K », « >50 K »}. En d’autres termes, la classe négative représente les employés dont le revenu annuel est inférieur ou égal à 50 K, tandis que la classe positive représente tous les autres employés. Comme dans le scénario de régression, nous allons former un modèle, noter certaines données, puis évaluer les résultats. La principale différence ici réside dans le choix des métriques calculées et générées en sortie par Azure Machine Learning Studio. Pour illustrer le scénario de prédiction du niveau de revenu, nous allons utiliser le jeu de données [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) afin de créer une expérience Studio et d’évaluer les performances d’un modèle de régression logistique à deux classes, qui constitue un classifieur binaire couramment utilisé.
+Dans un scénario de classification binaire, la variable cible ne peut avoir que deux résultats, par exemple : {0, 1} ou {faux, vrai}, {négatif, positif}. Supposons que vous disposiez d’un jeu de données sur des employés incluant certaines variables démographiques et d’emploi, et que vous souhaitiez prédire le niveau de revenu, qui constitue une variable binaire avec les valeurs {« <=50 K », « >50 K »}. En d’autres termes, la classe négative représente les employés dont le revenu annuel est inférieur ou égal à 50 K, tandis que la classe positive représente tous les autres employés. Comme dans le scénario de régression, nous allons former un modèle, noter certaines données, puis évaluer les résultats. La principale différence ici réside dans le choix des métriques calculées et générées en sortie par Azure Machine Learning Studio. Pour illustrer le scénario de prédiction du niveau de revenu, nous allons utiliser le jeu de données [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) afin de créer une expérience Studio et d’évaluer les performances d’un modèle de régression logistique à deux classes, qui constitue un classifieur binaire couramment utilisé.
 
 ### <a name="creating-the-experiment"></a>Création de l’expérience
 Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio :
@@ -133,7 +133,7 @@ Figure 8. validation croisée d’un modèle de classification binaire
 Figure 9. résultats de la validation croisée d’un classifieur binaire
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Évaluation d’un modèle de classification multiclasse
-Dans cette expérience, nous allons utiliser le fameux jeu de données [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris"), qui contient des instances de 3 différents types (classes) d’iris. Il existe 4 valeurs de caractéristique (longueur et largeur de sépale, longueur et largeur de pétale) pour chaque instance. Dans les expériences précédentes, nous avons formé et testé les modèles à l’aide des mêmes jeux de données. Ici, nous allons utiliser le module [Fractionner les données][split] pour créer 2 sous-échantillons des données, former le modèle sur le premier sous-échantillon, puis noter et évaluer le modèle sur le second sous-échantillon. Le jeu de données Iris est publiquement accessible dans le [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) (Référentiel Machine Learning UCI) et peut être téléchargé à l’aide d’un module [Importer les données][import-data].
+Dans cette expérience, nous allons utiliser le fameux jeu de données [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris"), qui contient des instances de 3 différents types (classes) d’iris. Il existe 4 valeurs de caractéristique (longueur et largeur de sépale, longueur et largeur de pétale) pour chaque instance. Dans les expériences précédentes, nous avons formé et testé les modèles à l’aide des mêmes jeux de données. Ici, nous allons utiliser le module [Fractionner les données][split] pour créer 2 sous-échantillons des données, former le modèle sur le premier sous-échantillon, puis noter et évaluer le modèle sur le second sous-échantillon. Le jeu de données Iris est publiquement accessible dans le [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html) (Référentiel Machine Learning UCI) et peut être téléchargé à l’aide d’un module [Importer les données][import-data].
 
 ### <a name="creating-the-experiment"></a>Création de l’expérience
 Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio :

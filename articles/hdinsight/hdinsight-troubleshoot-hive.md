@@ -8,12 +8,12 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 6d75bf86dab8775e77efb21ecc3b0d60063a9823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088959"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Hive à l’aide d’Azure HDInsight
 
@@ -33,13 +33,13 @@ Découvrez les principaux problèmes rencontrés lors de l’utilisation de char
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-  Cette commande génère un fichier nommé alltables.sql.
+   Cette commande génère un fichier nommé alltables.sql.
 
 3. Copiez le fichier alltables.sql dans le nouveau cluster HDInsight et exécutez la commande suivante :
 
-  ```apache
-  hive -f alltables.sql
-  ```
+   ```apache
+   hive -f alltables.sql
+   ```
 
 Le code présenté dans les étapes de résolution suppose que les chemins de données du nouveau cluster sont les mêmes que sur l’ancien cluster. Si les chemins d’accès aux données sont différents, vous pouvez modifier manuellement le fichier alltables.sql généré pour refléter ces modifications.
 
@@ -56,21 +56,21 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
 
 2. Pour afficher les journaux du client Hive, utilisez la commande suivante :
 
-  ```apache
-  /tmp/<username>/hive.log 
-  ```
+   ```apache
+   /tmp/<username>/hive.log 
+   ```
 
 3. Pour afficher les journaux du metastore Hive, utilisez la commande suivante :
 
-  ```apache
-  /var/log/hive/hivemetastore.log 
-  ```
+   ```apache
+   /var/log/hive/hivemetastore.log 
+   ```
 
 4. Pour afficher les journaux du serveur Hive, utilisez la commande suivante :
 
-  ```apache
-  /var/log/hive/hiveserver2.log 
-  ```
+   ```apache
+   /var/log/hive/hiveserver2.log 
+   ```
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
@@ -83,21 +83,21 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
 
 1. Spécifiez une paire clé-valeur de configuration lorsque vous démarrez l’interpréteur de commandes Hive. Pour plus d’informations, consultez la section [Documentation supplémentaire](#additional-reading-end).
 
-  ```apache
-  hive -hiveconf a=b 
-  ```
+   ```apache
+   hive -hiveconf a=b 
+   ```
 
 2. Pour répertorier toutes les configurations actives sur l’interpréteur de commandes Hive, utilisez la commande suivante :
 
-  ```apache
-  hive> set;
-  ```
+   ```apache
+   hive> set;
+   ```
 
-  Par exemple, utilisez la commande suivante pour démarrer l’interpréteur de commandes Hive avec l’option d’enregistrement de débogage activée sur la console :
+   Par exemple, utilisez la commande suivante pour démarrer l’interpréteur de commandes Hive avec l’option d’enregistrement de débogage activée sur la console :
 
-  ```apache
-  hive -hiveconf hive.root.logger=ALL,console 
-  ```
+   ```apache
+   hive -hiveconf hive.root.logger=ALL,console 
+   ```
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
@@ -113,19 +113,19 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
 
 2. Depuis une invite de commandes, exécutez la commande suivante :
    
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+   ```
 
 3. Pour obtenir la liste des autres analyseurs pouvant être utilisés pour analyser les informations de DAG Tez, utilisez la commande suivante :
 
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+   ```
 
-  Vous devez fournir un exemple de programme comme premier argument.
+   Vous devez fournir un exemple de programme comme premier argument.
 
-  Noms de programme valides :
+   Noms de programme valides :
     - **ContainerReuseAnalyzer** : Imprimer les détails de réutilisation du conteneur dans un DAG
     - **CriticalPath** : Trouver le chemin critique d’un DAG
     - **LocalityAnalyzer** : Imprimer les détails de localité dans un DAG

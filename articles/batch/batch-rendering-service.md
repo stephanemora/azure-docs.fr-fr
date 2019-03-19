@@ -2,22 +2,23 @@
 title: Vue d’ensemble du rendu - Azure Batch
 description: Présentation de l’utilisation d’Azure pour le rendu et vue d’ensemble des fonctionnalités de rendu Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542194"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790338"
 ---
 # <a name="rendering-using-azure"></a>Rendu à l’aide d’Azure
 
 Le rendu correspond au processus visant à récupérer des modèles 3D et à les convertir en images 2D. Les fichiers de scène 3D sont créés dans des applications telles qu’Autodesk 3ds Max, Autodesk Maya et Blender.  Les applications de rendu telles qu’Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray et Blender Cycles produisent des images 2D.  Des images sont parfois créées à partir de fichiers de scène. Toutefois, il est courant de modéliser et d’effectuer le rendu de plusieurs images, puis de les combiner dans une animation.
 
-La charge de travail de rendu est principalement utilisée pour les effets spéciaux (VFX) dans l’industrie du multimédia et du divertissement. Le rendu est également utilisé dans de nombreux autres secteurs comme la publicité, la vente au détail, le pétrole et le gaz, et la fabrication.
+La charge de travail de rendu est principalement utilisée pour les effets spéciaux (VFX) dans l’industrie du multimédia et du divertissement. Rendu est également utilisé dans de nombreux autres secteurs tels que la publicité, de vente au détail, pétrole et gaz et fabrication.
 
 Le processus de rendu est très gourmand en ressources ; le nombre d’images à produire peut être très important et le rendu de chaque image peut prendre plusieurs heures.  Par conséquent, le rendu est une charge de travail de traitement par lots idéale qui peut utiliser Azure et Azure Batch pour exécuter plusieurs rendus en parallèle.
 

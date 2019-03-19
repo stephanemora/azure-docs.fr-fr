@@ -9,18 +9,18 @@ ms.author: xshi
 ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884237"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
 
 Vous pouvez transformer votre logique métier en modules pour Azure IoT Edge. Cet article explique comment utiliser Visual Studio Code comme outil principal pour développer et déboguer des modules.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous pouvez utiliser un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Vous pouvez utiliser un autre appareil physique comme appareil IoT Edge.
 
@@ -154,7 +154,7 @@ Pour configurer et démarrer le simulateur, exécutez la commande **Azure IoT Ed
 
 1. Préparez votre environnement pour le débogage conformément aux exigences de votre langage de développement, définissez un point d'arrêt dans votre module et sélectionnez la configuration de débogage à utiliser :
    - **C#**
-     - Dans le terminal intégré de Visual Studio Code, remplacez le répertoire par le dossier ***&lt;nom de votre module&gt;***, puis exécutez la commande suivante pour générer l'application .Net Core.
+     - Dans le terminal intégré Visual Studio Code, remplacez le répertoire par le ***&lt;le nom de votre module&gt;*** dossier, puis exécutez la commande suivante pour générer l’application .NET Core.
 
        ```cmd
        dotnet build
@@ -165,7 +165,7 @@ Pour configurer et démarrer le simulateur, exécutez la commande **Azure IoT Ed
      - Accédez à l'affichage Débogage de Visual Studio Code en sélectionnant **Affichage > Déboguer**. Sélectionnez la configuration de débogage ***&lt;Débogage local de &gt;* nom de votre module (.NET Core)** dans la liste déroulante.
 
         > [!NOTE]
-        > Si votre `TargetFramework` .Net Core ne correspond pas au chemin de votre programme dans `launch.json`, vous devrez le mettre à jour manuellement dans `launch.json` pour qu'il corresponde au `TargetFramework` de votre fichier .csproj afin que Visual Studio Code puisse lancer ce programme.
+        > Si .NET Core `TargetFramework` n’est pas cohérente avec votre chemin d’accès de programme dans `launch.json`, vous devez mettre à jour manuellement le chemin d’accès de programme dans `launch.json` pour faire correspondre le `TargetFramework` dans votre fichier .csproj afin que Visual Studio Code peut le lancement avec succès programme.
 
    - **Node.JS**
      - Dans le terminal intégré de Visual Studio Code, remplacez le répertoire par le dossier ***&lt;nom de votre module&gt;***, puis exécutez la commande suivante pour installer les packages Node.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9edd243c47c7c0eeeff3b875fccede01806862a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d89886e7cc5fe47013902b281c490b79a07e7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888108"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Faire fonctionner les modèles Machine Learning créés avec Spark
 
@@ -32,7 +32,7 @@ Le notebook Jupyter [pySpark-machine-learning-data-science-spark-model-consumpti
 Pour modifier le notebook Jupyter pour Spark 1.6 afin de l’utiliser avec un cluster HDInsight Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Ce code montre comment utiliser les modèles créés dans Spark 2.0.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 1. Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 (ou Spark 2.0) pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
 2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. 
@@ -190,9 +190,9 @@ Cette section montre comment indexer, encoder et mettre à l’échelle des cara
 ### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Transformation de caractéristiques : indexer et encoder des caractéristiques catégorielles en vue de leur utilisation dans des modèles à noter
 Cette section montre comment indexer les données catégorielles à l’aide d’un `StringIndexer` et encoder les caractéristiques avec entrée de `OneHotEncoder` dans les modèles.
 
-[StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) encode une colonne de libellés en une colonne d’index de libellés. Les index sont classés par fréquence de libellé. 
+[StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) encode une colonne de libellés en une colonne d’index de libellés. Les index sont classés par fréquence de libellé. 
 
-[OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mappe une colonne d’index de libellés à une colonne de vecteurs binaires, contenant au plus une valeur 1. Cet encodage autorise les algorithmes qui appliquent des caractéristiques numériques continues, comme la régression logistique, à des caractéristiques catégorielles.
+[OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mappe une colonne d’index de libellés à une colonne de vecteurs binaires, contenant au plus une valeur 1. Cet encodage autorise les algorithmes qui appliquent des caractéristiques numériques continues, comme la régression logistique, à des caractéristiques catégorielles.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -257,7 +257,7 @@ Cette section montre comment indexer les données catégorielles à l’aide d�
 Durée d’exécution de la cellule ci-dessus : 5,37 secondes
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Créer des objets RDD avec des tableaux de caractéristiques à intégrer dans des modèles
-Cette section contient le code montrant comment indexer des données textuelles catégorielles en un objet RDD et les encoder linéairement pour qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les données indexées sont stockées dans des objets [RDD (Resilient Distributed Dataset)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . Il s’agit de l’abstraction de base dans Spark. Un objet RDD représente une collection immuable et partitionnée d’éléments qui peuvent faire l’objet d’un traitement en parallèle avec Spark.
+Cette section contient le code montrant comment indexer des données textuelles catégorielles en un objet RDD et les encoder linéairement pour qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les données indexées sont stockées dans des objets [RDD (Resilient Distributed Dataset)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . Il s’agit de l’abstraction de base dans Spark. Un objet RDD représente une collection immuable et partitionnée d’éléments qui peuvent faire l’objet d’un traitement en parallèle avec Spark.
 
 Il contient également du code montrant comment mettre à l’échelle des données avec le `StandardScalar` fourni par MLlib, en vue d’une utilisation dans la régression linéaire avec SGD (Stochastic Gradient Descent), un algorithme répandu permettant de former une large gamme de modèles Machine Learning. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) permet de mettre à l’échelle les caractéristiques en fonction de la variance d’unité. La mise à l’échelle des caractéristiques, également appelée normalisation des données, garantit que les caractéristiques aux valeurs très dispersées sont pondérées dans la fonction cible. 
 
@@ -397,9 +397,9 @@ Durée d’exécution de la cellule ci-dessus : 16,63 secondes
 ## <a name="score-classification-and-regression-random-forest-models"></a>Noter les modèles Forêts aléatoires de classification et de régression
 Le code de cette section montre comment charger les modèles Forêts aléatoires de classification et de régression enregistrés dans Azure Blob Storage, noter leurs performances avec des mesures standard de classificateur et de régression, puis réenregistrer les résultats dans Azure Blob Storage.
 
-[forêts aléatoires](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sont des ensembles d’arbres de décision.  Elles combinent de nombreux arbres de décision pour réduire le risque de surajustement. Elles gèrent les caractéristiques catégorielles, prennent en compte le paramètre de classification multiclasse, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Les forêts aléatoires constituent l’un des modèles Machine Learning les plus performants pour la classification et la régression.
+[forêts aléatoires](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sont des ensembles d’arbres de décision.  Elles combinent de nombreux arbres de décision pour réduire le risque de surajustement. Elles gèrent les caractéristiques catégorielles, prennent en compte le paramètre de classification multiclasse, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Les forêts aléatoires constituent l’un des modèles Machine Learning les plus performants pour la classification et la régression.
 
-[spark.mllib](http://spark.apache.org/mllib/) prend en charge les forêts aléatoires pour la classification binaire et multiclasse et pour la régression, à l’aide des caractéristiques continues et catégorielles. 
+[spark.mllib](https://spark.apache.org/mllib/) prend en charge les forêts aléatoires pour la classification binaire et multiclasse et pour la régression, à l’aide des caractéristiques continues et catégorielles. 
 
     # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -445,7 +445,7 @@ Le code de cette section montre comment charger les modèles GBT de classificati
 
 **spark.mllib** prend en charge les arbres GBT pour la classification binaire et la régression, à l’aide des caractéristiques continues et catégorielles. 
 
-[Gradient Boosted Tree](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Ils gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Ils s’utilisent également dans le paramétrage de classification multiclasse.
+[Gradient Boosted Tree](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Ils gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Ils s’utilisent également dans le paramétrage de classification multiclasse.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 

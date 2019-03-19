@@ -1,30 +1,32 @@
 ---
-title: Exemples Log Analytics pour le Pare-feu Azure
-description: Exemples Log Analytics pour le Pare-feu Azure
+title: Exemples analytique de journal de pare-feu Azure
+description: Exemples analytique de journal de pare-feu Azure
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233393"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534001"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Exemples Log Analytics pour le Pare-feu Azure
+# <a name="azure-firewall-log-analytics-samples"></a>Exemples analytique de journal de pare-feu Azure
 
-Vous pouvez utiliser les exemples Log Analytics suivants pour analyser les journaux de votre Pare-feu Azure. L’exemple de fichier est créé dans le Concepteur de vues Log Analytics ; pour plus d’informations sur la notion de conception de vues, consultez l’article [Concepteur de vues Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer).
+Les exemples de journaux Azure Monitor suivants peuvent être utilisés pour analyser vos journaux de pare-feu Azure. L’exemple de fichier est créé dans le Concepteur de vues dans Azure Monitor, les [Concepteur de vues dans Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article contient plus d’informations sur le concept de conception de la vue.
 
-## <a name="log-analytics-view"></a>Vue Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Voici comment vous pouvez configurer un exemple de visualisation Log Analytics. Vous pouvez télécharger l’exemple de visualisation à partir du dépôt [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). Le moyen le plus simple consiste à cliquer avec le bouton droit sur le lien hypertexte dans cette page, à choisir *Enregistrer sous* et à fournir un nom comme **AzureFirewall.omsview**. 
+## <a name="azure-monitor-logs-view"></a>Afficher les journaux Azure Monitor
 
-Effectuez les étapes suivantes pour ajouter la vue à votre espace de travail Log Analytics :
+Voici comment vous pouvez configurer un exemple de visualisation des journaux Azure Monitor. Vous pouvez télécharger l’exemple de visualisation à partir du dépôt [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). Le moyen le plus simple consiste à cliquer avec le bouton droit sur le lien hypertexte dans cette page, à choisir *Enregistrer sous* et à fournir un nom comme **AzureFirewall.omsview**. 
 
-1. Ouvrez un espace de travail Log Analytics dans le portail Azure.
+Exécutez les étapes suivantes pour ajouter la vue à votre espace de travail Analytique de journal :
+
+1. Ouvrez l’espace de travail Analytique de journal dans le portail Azure.
 2. Ouvrez **Concepteur de vues** sous **Général**.
 3. Cliquez sur **Importer**.
 4. Recherchez et sélectionnez le fichier **AzureFirewall.omsview** que vous avez téléchargé.
@@ -98,7 +100,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>Requête portant sur les données du journal de règles de réseau
 
-La requête ci-dessous analyse les données du journal de règles de réseau. Les différentes lignes de commentaire comportent des indications sur la façon dont la requête a été créée :
+La requête suivante analyse les données de journal de règle de réseau. Les différentes lignes de commentaire comportent des indications sur la façon dont la requête a été créée :
 
 ```Kusto
 AzureDiagnostics
@@ -149,6 +151,21 @@ AzureDiagnostics
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
+## <a name="threat-intelligence-log-data-query"></a>Requête de données de journal Threat Intelligence
+
+La requête suivante analyse les données de journal de règle sur les menaces :
+
+```Kusto
+AzureDiagnostics
+| where OperationName  == "AzureFirewallThreatIntelLog"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action "." Message
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir les diagnostics et la supervision du Pare-feu Azure, consultez le [Tutoriel : surveiller les journaux du Pare-feu Azure et les métriques](tutorial-diagnostics.md).
+Pour en savoir plus sur la surveillance de pare-feu Azure et de diagnostics, consultez [didacticiel : Surveiller les journaux de pare-feu d’Azure et les mesures](tutorial-diagnostics.md).

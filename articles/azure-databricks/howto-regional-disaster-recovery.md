@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: 79125e1244170a507e4e209c17b339b2b13a0542
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087616"
+ms.locfileid: "58188099"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Récupération d’urgence régionale pour les clusters Azure Databricks
 
@@ -267,5 +267,10 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
     Si c’est le cas, réappliquez manuellement le contrôle d’accès aux ressources (notebooks, clusters, travaux, tables).
 
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Récupération d’urgence pour votre écosystème Azure
+
+Si vous utilisez des autres services Azure, veillez à implémenter d’urgence récupération meilleures pratiques pour ces services, trop. Par exemple, si vous choisissez d’utiliser une instance de metastore Hive externe, vous devez envisager la récupération d’urgence pour [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), et/ou [Azure Database pour MySQL ](../mysql/concepts-business-continuity.md). Pour obtenir des informations générales sur la récupération d’urgence, consultez [récupération d’urgence pour les applications Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations, voir la [documentation Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

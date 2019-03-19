@@ -1,45 +1,50 @@
 ---
-title: Configurer la page d’accueil de votre application Azure IoT Central | Microsoft Docs
-description: En tant que concepteur, découvrez comment configurer la page d’accueil de votre application Azure IoT Central.
+title: Configurer le tableau de bord d’application Azure IoT Central | Microsoft Docs
+description: Comme un générateur, découvrez comment configurer le tableau de bord par défaut Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2018
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a03ac0ef66f4ffdce53d0bd2a35839bbe1615d0b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199083"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773144"
 ---
-# <a name="configuring-homepage"></a>Configuration de la page d’accueil
+# <a name="configure-the-application-dashboard"></a>Configurer le tableau de bord d’application
 
-La page d’accueil est la page qui se charge quand les utilisateurs autorisés accèdent à l’URL de l’application. Si vous avez sélectionné les modèles d’application « Exemple Contoso » ou « Exemple Devkits » lors de la création de votre application, votre application a des pages d’accueil prédéfinies. Par contre, si vous avez sélectionné le modèle d’application « Application personnalisée », votre page d’accueil est vide.
+Le **tableau de bord** est la page qui charge lorsque les utilisateurs qui ont accès à l’application accèdent à l’URL de l’application. Si vous avez sélectionné le **exemple Contoso** ou **exemple Devkits** modèle d’application pour créer votre application, votre application est un tableau de bord prédéfini. Si vous avez choisi le **Application personnalisée** modèle d’application, votre tableau de bord est vide.
 
-Par exemple, voici la page d’accueil pour les applications basées sur le modèle « Exemple Contoso ». Pour personnaliser la page d’accueil de votre application, commencez par sélectionner **Modifier** en haut à droite. 
+> [!NOTE]
+> Les utilisateurs peuvent également [créer leurs propres tableaux de bord personnels](howto-personalize-dashboard.md) à utiliser au lieu du tableau de bord application par défaut.
 
-![Page d’accueil pour les applications basées sur le modèle « Exemple Contoso »](media/howto-configure-homepage/image1.png)
+## <a name="add-tiles"></a>Ajouter des vignettes
 
-Après que vous avez sélectionné **Modifier**, la bibliothèque de tableaux de bord s’ouvre dans un panneau à gauche. Il existe de nombreux types de vignettes et de primitives de tableau de bord que vous pouvez ajouter pour personnaliser votre page d’accueil.
+La capture d’écran suivante montre le tableau de bord dans une application créée à partir de la **exemple Contoso** modèle. Pour personnaliser le tableau de bord par défaut pour votre application, sélectionnez **modifier** dans la partie supérieure droite de la page.
+
+![Tableau de bord pour les applications basées sur le modèle « Exemple Contoso »](media/howto-configure-homepage/image1.png)
+
+En sélectionnant **modifier**, ouvre le panneau de la bibliothèque du tableau de bord. La bibliothèque contient les vignettes et les primitives de tableau de bord que vous pouvez utiliser pour personnaliser le tableau de bord.
 
 ![Bibliothèque de tableaux de bord](media/howto-configure-homepage/image2.png)
 
-Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** pour montrer une sélection des valeurs actuelles de paramètres et de propriétés. Pour cela, sélectionnez d’abord un **modèle d’appareil**, puis sélectionnez une **instance d’appareil**. Après cela, indiquez un titre pour la vignette, puis sélectionnez un **paramètre** ou une **propriété** à afficher. Dans ce cas, nous avons sélectionné **Set Temperature** (Définir la température). Cliquez sur **Terminé** pour que cette vignette s’affiche dans la page d’accueil.
+Par exemple, vous pouvez ajouter un **paramètres et propriétés** vignette pour afficher une sélection des valeurs de paramètres et les propriétés actuelles pour un appareil. Pour cela, sélectionnez d’abord un **modèle d’appareil**, puis sélectionnez une **instance d’appareil**. Après cela, indiquez un titre pour la vignette, puis sélectionnez un **paramètre** ou une **propriété** à afficher. La capture d’écran suivante montre les paramètres et les propriétés sélectionnées à ajouter à la vignette. Sélectionnez **fait** pour enregistrer la modification au tableau de bord.
 
 ![Formulaire « Configurer les détails de l’appareil » contenant les détails des paramètres et des propriétés](media/howto-configure-homepage/image3.png)
 
-Désormais, quand un opérateur visualise la page d’accueil, il peut voir cette vignette qui affiche les propriétés ou les paramètres de l’appareil :
+Maintenant lorsqu’un opérateur affiche le tableau de bord application par défaut, ils voient la nouvelle vignette avec la **définir la température** définition pour l’appareil :
 
 ![Onglet « Tableau de bord » où figurent les paramètres et les propriétés de la vignette](media/howto-configure-homepage/image4.png)
 
-Familiarisez-vous avec les différents autres types de vignettes de la bibliothèque pour découvrir comment vous pouvez personnaliser encore plus la page d’accueil de votre application.
+Vous pouvez Explorer d’autres types de vignettes dans la bibliothèque pour découvrir comment personnaliser davantage le tableau de bord application par défaut.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez découvert comment configurer votre page d’accueil Azure IoT Central, vous pouvez :
+Maintenant que vous avez appris à configurer votre tableau de bord application par défaut Azure IoT Central, vous pouvez :
 
 > [!div class="nextstepaction"]
 > [Découvrir comment préparer et charger des images](howto-prepare-images.md)

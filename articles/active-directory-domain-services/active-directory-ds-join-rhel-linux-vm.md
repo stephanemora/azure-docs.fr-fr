@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154073"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086647"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Red Hat Enterprise Linux 7 à un domaine géré
 Cet article indique comment joindre une machine virtuelle Red Hat Enterprise Linux (RHEL) 7 à un domaine géré par les services de domaine Azure Active Directory.
@@ -86,12 +86,11 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **Résolution des problèmes :** Si *realm discover* ne parvient pas à trouver votre domaine managé :
-     * Vérifiez que le domaine est accessible à partir de la machine virtuelle (effectuez un test ping).
-     * Vérifiez également que la machine virtuelle a bien été déployée dans le réseau virtuel au sein duquel le domaine managé est disponible.
-     * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.
-     >
+   > [!NOTE]
+   > **Résolution des problèmes :** Si *realm discover* ne parvient pas à trouver votre domaine managé :
+   >   * Vérifiez que le domaine est accessible à partir de la machine virtuelle (effectuez un test ping).
+   >   * Vérifiez également que la machine virtuelle a bien été déployée dans le réseau virtuel au sein duquel le domaine managé est disponible.
+   >   * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.
 
 2. Initialisez Kerberos. Sur votre terminal SSH, saisissez la commande suivante :
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232978"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105088"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Création et gestion des connexions hybrides
 
 > [!IMPORTANT]
 > Les connexions hybrides BizTalk ont été supprimées et remplacées par les connexions hybrides App Service. Pour plus d’informations, notamment sur la procédure à suivre pour gérer vos connexions hybrides BizTalk existantes, consultez l’article [Connexions hybrides d’Azure App Service](../app-service/app-service-hybrid-connections.md).
-
->[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>Vue d’ensemble des étapes
 1. Créez une connexion hybride en spécifiant le **host name** ou **nom de domaine complet** of the on-premises resource in your private netwouk.
@@ -42,7 +42,7 @@ Cette rubrique répertorie ces étapes.
 > Par exemple (pseudo-code), vous définissez **10.4.5.6** comme hôte local :
 > 
 > **Scénario possible :**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **Scénario impossible :**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -55,8 +55,8 @@ Une connexion hybride peut être créée dans [Connexions hybrides d’Azure App
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>Informations complémentaires
-* Il est possible de créer plusieurs connexions hybrides. Consultez la page [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md) pour connaître le nombre de connexions autorisées. 
-* Chaque connexion hybride est créée avec une paire de chaînes de connexion : des clés Application qui envoient (SEND) et des clés locales qui écoutent (LISTEN). Chaque paire possède une clé primaire et une clé secondaire. 
+* Il est possible de créer plusieurs connexions hybrides. Consultez le [BizTalk Services : Tableau comparatif des éditions](biztalk-editions-feature-chart.md) pour le nombre de connexions autorisées. 
+* Chaque connexion hybride est créée avec une paire de chaînes de connexion : Clés de l’application qui envoient et les clés qui ÉCOUTENT sur site. Chaque paire possède une clé primaire et une clé secondaire. 
 
 ## <a name="LinkWebSite"></a>Liaison de votre application mobile ou web Azure App Service
 Pour lier une application web ou une application mobile dans Azure App Service à une connexion hybride existante, sélectionnez **Utiliser une connexion hybride existante** dans le panneau Connexions hybrides. 
@@ -119,9 +119,9 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 
 ## <a name="see-also"></a>Voir aussi
 [API REST pour gérer BizTalk Services sur Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)  
+[BizTalk Services : Tableau comparatif des éditions](biztalk-editions-feature-chart.md)  
 [Créer un service BizTalk](biztalk-provision-services.md)  
-[Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)
+[BizTalk Services : Onglets tableau de bord, surveiller et mettre à l’échelle](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015520"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116807"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrer la télémétrie dans votre application web Java
 
@@ -186,12 +186,12 @@ Filtre les traces de journaux (consignés à l’aide de [TrackTrace()](../../az
 ```
 
 * Les valeurs autorisées `FromSeverityLevel` sont :
- *  OFF             - Exclure TOUTES les traces
- *  TRACE           - Aucun filtrage. équivaut au niveau Trace
- *  INFO            - Exclure le niveau TRACE
- *  WARN            - Exclure TRACE et INFO
- *  ERROR           - Exclure WARN, INFO, TRACE
- *  CRITICAL        - Exclure tout sauf CRITICAL
+  *  OFF             - Exclure TOUTES les traces
+  *  TRACE           - Aucun filtrage. équivaut au niveau Trace
+  *  INFO            - Exclure le niveau TRACE
+  *  WARN            - Exclure TRACE et INFO
+  *  ERROR           - Exclure WARN, INFO, TRACE
+  *  CRITICAL        - Exclure tout sauf CRITICAL
 
 
 ## <a name="custom-filters"></a>Filtres personnalisés

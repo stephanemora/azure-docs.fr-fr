@@ -1,5 +1,5 @@
 ---
-title: Requêtes avancées dans Azure Monitor | Microsoft Docs
+title: Requêtes dans Azure Monitor avancées | Microsoft Docs
 description: Cet article fournit un tutoriel qui explique comment écrire des requêtes dans Azure Monitor à l’aide du portail Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 401a8d527fc3a8d0430e7eff965b6f5e20db8dc0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268014"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451618"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Écriture de requêtes avancées dans Azure Monitor
 
 > [!NOTE]
-> Vous devez suivre [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
+> Vous devez effectuer [prise en main Azure Monitor Log Analytique](get-started-portal.md) et [prise en main des requêtes](get-started-queries.md) avant la fin de cette leçon.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-`print` retourne une table avec une seule colonne et une seule ligne, qui affiche le résultat d’un calcul. Cette commande est souvent utilisée dans les cas où vous avez besoin d’un calcul simple. Par exemple, pour trouver l’heure actuelle en PST et ajouter une colonne avec EST :
+`print` retourne une table avec une seule colonne et une seule ligne, qui affiche le résultat d’un calcul. Cela est souvent utilisé dans les cas où vous avez besoin d’un calcul simple. Par exemple, pour trouver l’heure actuelle en PST et ajouter une colonne avec EST :
 
 ```Kusto
 print nowPst = now()-8h
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête Kusto](/azure/kusto/query/) avec des données de journal Azure Monitor :
+Reportez-vous à d’autres leçons sur l’utilisation du [langage de requête Kusto](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

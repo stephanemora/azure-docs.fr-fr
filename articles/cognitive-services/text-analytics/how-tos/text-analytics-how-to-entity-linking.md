@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 1ea34d69c867d2d14496320f497df2ece5280e0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009343"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte (préversion)
 
@@ -23,7 +23,7 @@ L’[API Reconnaissance d’entité](https://westus.dev.cognitive.microsoft.com/
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Liaison d’entités et reconnaissance d’entité nommée
 
-Le point de terminaison `entities` d’Analyse de texte prend en charge la reconnaissance d’entités nommées (NER) et la liaison d’entités.
+Analytique de texte `entities` prend en charge de point de terminaison toutes deux nommées (NER) la reconnaissance d’entité et de liaison d’entités.
 
 ### <a name="entity-linking"></a>Liaison d’entités
 La liaison d’entités est la possibilité d’identifier une entité présente dans un texte et de lever l’ambiguïté sur son identité (par exemple, en déterminant si « Mars » fait référence à la planète ou au dieu romain de la guerre). Ce processus nécessite la présence d’une base de connaissances à laquelle les entités reconnues sont liées. Wikipédia est utilisé en tant que base de connaissances pour le point de terminaison `entities` d’Analyse de texte.
@@ -62,8 +62,9 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | DateTime      | Duration      | « 1 minute et 45 secondes »   | 
 | DateTime      | Définir           | « Chaque mardi »     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N/A\*         | "http://www.bing.com"    |
+| URL           | N/A\*         | "<https://www.bing.com>"    |
 | Email         | N/A\*         | "support@contoso.com" |
+
 \* Selon les entités entrées et extraites, certaines entités peuvent omettre le `SubType`.
 
 
@@ -74,7 +75,7 @@ Vous devez disposer de documents JSON dans le format : id, texte, langue
 
 Pour connaître les langues actuellement prises en charge, consultez [cette liste](../text-analytics-supported-languages.md).
 
-La taille des documents doit être inférieure à 5 000 caractères par document et vous pouvez avoir jusqu'à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. L’exemple suivant illustre le contenu qui peut être soumis à l’extrémité de la liaison d'entités.
+La taille des documents doit être inférieure à 5 120 caractères par document et vous pouvez avoir jusqu’à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. L’exemple suivant illustre le contenu qui peut être soumis à l’extrémité de la liaison d'entités.
 
 ```
 {"documents": [{"id": "1",

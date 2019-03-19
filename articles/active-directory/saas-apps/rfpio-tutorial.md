@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3af5c3d5d92dea804221b2285d4fa5b9cedae665
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c6b8109c8d3834f932ba492eddb8d6332acc1707
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168088"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443612"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Didacticiel : Intégration d’Azure Active Directory à RFPIO
+# <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutoriel : Intégration d’Azure Active Directory à RFPIO
 
 Dans ce didacticiel, vous allez apprendre à intégrer RFPIO à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de RFPIO dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec RFPIO, vous avez besoin des éléments suivants :
 
@@ -234,7 +234,7 @@ Dans le cas de RFPIO, l’approvisionnement se fait manuellement.
 
     a. Entrez l’**adresse e-mail** dans le champ **Entrer une adresse e-mail par ligne**.
 
-    b. Sélectionnez le **Rôle** selon vos besoins.
+    b. Sélectionnez **rôle** selon vos besoins.
 
     c. Cliquez sur **AJOUTER DES MEMBRES**.
         

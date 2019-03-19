@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839319"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutoriel : Intégration d’Azure Active Directory à Everbridge
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Didacticiel : Intégration d’Azure Active Directory à Everbridge
 
 Dans ce didacticiel, vous allez apprendre à intégrer EverBridge à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration d’EverBridge à Azure AD vous offre les avantages suivants 
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à EverBridge, vous avez besoin des éléments suivants :
 
@@ -127,22 +127,22 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Pour configurer l’application **EverBridge** en tant que **portail de membre EverBridge**, dans la section **Configuration SAML de base**, procédez comme suit :
 
-    * Si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
+   * Si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-        ![Informations d’authentification unique dans Domaine et URL EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![Informations d’authentification unique dans Domaine et URL EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+   * Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-        ![Informations d’authentification unique dans Domaine et URL EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![Informations d’authentification unique dans Domaine et URL EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Contactez [l’équipe de support technique EverBridge](mailto:support@everbridge.com) pour obtenir ces valeurs.
+     > [!NOTE]
+     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Contactez [l’équipe de support technique EverBridge](mailto:support@everbridge.com) pour obtenir ces valeurs.
 
 6. Dans la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -164,21 +164,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 9. Dans le menu situé en haut, cliquez sur l’onglet **Paramètres** et sélectionnez **Authentification unique** sous **Sécurité**.
    
-    ![Configurer l'authentification unique](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Configurer l'authentification unique](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. Dans la zone de texte **Nom**, entrez le nom du fournisseur d’identificateurs (par exemple : le nom de votre entreprise).
+     a. Dans la zone de texte **Nom**, entrez le nom du fournisseur d’identificateurs (par exemple : le nom de votre entreprise).
    
-    b. Dans la zone de texte **nom de l’API** , saisissez le nom de l’API.
+     b. Dans la zone de texte **nom de l’API** , saisissez le nom de l’API.
    
-    c. Cliquez sur le bouton **Choisir un fichier** pour charger le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
+     c. Cliquez sur le bouton **Choisir un fichier** pour charger le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
    
-    d. Dans SAML Identity Location (Emplacement de l’identité SAML), sélectionnez **Identity is in the NameIdentifier element of the Subject statement** (L’identité figure dans l’élément NameIdentifier de l’instruction Subject).
+     d. Dans SAML Identity Location (Emplacement de l’identité SAML), sélectionnez **Identity is in the NameIdentifier element of the Subject statement** (L’identité figure dans l’élément NameIdentifier de l’instruction Subject).
    
-    e. Dans la zone de texte **URL de connexion du fournisseur d'identité**, collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
+     e. Dans la zone de texte **URL de connexion du fournisseur d'identité**, collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
    
-    f. Dans Liaison de demande initiée par le fournisseur de service, sélectionnez **Redirection HTTP**.
+     f. Dans Liaison de demande initiée par le fournisseur de service, sélectionnez **Redirection HTTP**.
 
-    g. Cliquez sur **Enregistrer**.
+     g. Cliquez sur **Enregistrer**.
 
 10. Pour configurer l’authentification unique sur l’application **EverBridge** en tant que **membre de portail EverBridge**, vous devez envoyer le fichier **XML des métadonnées de fédération** à [ L’équipe de support Everbridge](mailto:support@everbridge.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -200,7 +200,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le **nom d’utilisateur** , tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

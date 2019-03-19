@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ddc055be45eae923be31d7d11621c9427660bf74
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422726"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818304"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Intégrer System Center Configuration Manager à Update Management
 
@@ -22,11 +22,11 @@ Les clients qui ont investi dans System Center Configuration Manager pour gérer
 
 Vous pouvez signaler et mettre à jour des serveurs Windows gérés en créant et prédéfinissant des déploiements de mises à jour logicielles dans Configuration Manager et obtenir un état détaillé des déploiements de mises à jour terminés à l’aide de la [solution Update Management](automation-update-management.md). Si vous utilisez Configuration Manager pour générer des rapports de conformité de mises à jour, mais pas pour gérer les déploiements de mises à jour avec vos serveurs Windows, vous pouvez continuer d’adresser des rapports à Configuration Manager tout en gérant les mises à jour de sécurité avec la solution Update Management.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Vous devez avoir ajouté la [solution Update Management](automation-update-management.md) à votre compte Automation.
 * Les serveurs Windows actuellement gérés par votre environnement System Center Configuration Manager doivent aussi adresser des rapports à l’espace de travail Log Analytics dans lequel la solution Update Management est aussi activée.
-* Cette fonctionnalité est activée dans la branche actuelle de System Center Configuration Manager, version 1606 et supérieure. Pour intégrer votre site d’administration centrale Configuration Manager ou un site principal autonome avec Log Analytics et importer des collections, consultez [Connecter Configuration Manager à Log Analytics](../azure-monitor/platform/collect-sccm.md).  
+* Cette fonctionnalité est activée dans la branche actuelle de System Center Configuration Manager, version 1606 et supérieure. Pour intégrer votre site d’administration centrale Configuration Manager ou un site principal autonome avec les journaux d’Azure Monitor et importer des regroupements, passez en revue [connecter Configuration Manager à Azure Monitor enregistre](../azure-monitor/platform/collect-sccm.md).  
 * Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services) ou avoir accès à Microsoft Update s’ils ne reçoivent pas de mises à jour de sécurité de Configuration Manager.   
 
 La façon dont vous gérez les clients hébergés dans Azure IaaS avec votre environnement Configuration Manager existant dépend essentiellement de la connexion dont vous disposez entre les centres de données Azure et votre infrastructure. Cette connexion a une incidence sur les changements de conception que vous pouvez être amené à apporter à votre infrastructure Configuration Manager et sur les coûts liés à la prise en charge de ces changements. Pour comprendre les considérations de planification que vous devez évaluer avant de poursuivre, consultez [Configuration Manager sur Azure - Questions fréquentes (FAQ)](/sccm/core/understand/configuration-manager-on-azure#networking).

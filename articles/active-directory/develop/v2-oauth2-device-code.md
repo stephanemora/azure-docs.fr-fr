@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170192"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443264"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 et le flux de code d’appareil OAuth 2.0
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170192"
 Azure AD prend en charge l’[octroi de code d’appareil](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), ce qui permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante.  Pour activer ce flux, l’appareil exige que l’utilisateur consulte une page web dans son navigateur sur un autre appareil pour se connecter.  Lorsque l’utilisateur est connecté, l’appareil peut obtenir des jetons d’accès et actualiser les jetons si nécessaire.  
 
 > [!Important] 
-> À ce stade, le point de terminaison v2.0 prend uniquement en charge le flux d’appareil pour les locataires Azure AD, mais pas les comptes personnels.  Cela signifie que vous devez utiliser un point de terminaison avec locataire ou le point de terminaison d’organisations.  
+> À ce stade, le point de terminaison v2.0 prend uniquement en charge le flux d’appareil pour les locataires Azure AD, mais pas les comptes personnels.  Cela signifie que vous devez utiliser un point de terminaison configuré en tant que client, ou les organisations.  
 >
 > Les comptes personnels invités sur un locataire Azure AD peuvent utiliser l’octroi de flux d’appareil, mais uniquement dans le contexte du locataire.
 

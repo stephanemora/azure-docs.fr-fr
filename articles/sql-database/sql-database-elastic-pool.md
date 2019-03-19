@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963843"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010240"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Microsoft Azure SQL
 
@@ -200,6 +200,20 @@ Par défaut, le graphique du panneau **Utilisation des ressources de base de don
 Vous pouvez également sélectionner plus de métriques et les afficher côte à côte dans la table de base de données pour obtenir une vue plus complète des performances de vos bases de données.
 
 Pour plus d'informations, voir [Créer des alertes SQL Database dans le portail Azure](sql-database-insights-alerts-portal.md).
+
+## <a name="customer-case-studies"></a>Études de cas clients
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  SnelStart utilisé des pools élastiques avec la base de données SQL Azure pour développer rapidement ses services d’entreprise au rythme de 1 000 nouvelles bases de données SQL par mois.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco utilise des pools élastiques avec la base de données SQL Azure pour rapidement approvisionner services et de mise à l’échelle pour des milliers de locataires dans le cloud.
+
+- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko/CSI utilise des pools élastiques avec la base de données SQL Azure pour accélérer son cycle de développement et améliorer ses performances et services clients.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

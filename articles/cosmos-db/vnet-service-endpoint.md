@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 199e1dda3e4629c0298d4aae1cb5d09e20e4b3b8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860352"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
@@ -47,7 +47,7 @@ Seuls le réseau virtuel et ses sous-réseaux ajoutés au compte Azure Cosmos y 
 Actuellement, vous pouvez avoir au maximum 64 sous-réseaux autorisés pour un compte Azure Cosmos.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Puis-je activer l’accès à partir d’un VPN et d’Express Route ? 
-Pour accéder localement au compte Azure Cosmos via ExpressRoute, vous devez activer l’homologation Microsoft. Lorsque vous activez un pare-feu IP ou définissez des règles d’accès à un réseau virtuel, vous pouvez ajouter les adresses IP publiques utilisées pour l’homologation Microsoft au pare-feu IP de votre compte Azure Cosmos afin d’autoriser l’accès des services locaux au compte Azure Cosmos. 
+Pour accéder au compte Azure Cosmos via Express route à partir en local, vous devez activer l’homologation Microsoft. Lorsque vous activez un pare-feu IP ou définissez des règles d’accès à un réseau virtuel, vous pouvez ajouter les adresses IP publiques utilisées pour l’homologation Microsoft au pare-feu IP de votre compte Azure Cosmos afin d’autoriser l’accès des services locaux au compte Azure Cosmos. 
 
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>Dois-je mettre à jour les règles des groupes de sécurité réseau (NSG) ? 
 Les règles des groupes de sécurité réseau permettent de limiter la connectivité vers et depuis un sous-réseau de réseau virtuel. Lorsque vous ajoutez un point de terminaison de service pour Azure Cosmos DB au sous-réseau, inutile d’ouvrir la connectivité sortante dans le groupe de sécurité réseau pour votre compte Azure Cosmos. 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d98a5ab13c2aecd3b3cef590526031f5bdee594
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094750"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
 Les [zones de disponibilité Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) correspondent à l’une des fonctionnalités de haute disponibilité fournies par Azure. L’utilisation de zones de disponibilité améliore la disponibilité globale des charges de travail SAP dans Azure. Cette fonctionnalité est déjà disponible dans certaines [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Elle le sera demain dans d’autres régions.
@@ -109,8 +109,8 @@ Les considérations suivantes s’appliquent pour cette configuration :
 - Pour toutes les machines virtuelles que vous déployez, vous devez utiliser [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Les disques non managés ne sont pas pris en charge pour les déploiements sur des zones.
 - Le stockage Premium Azure et le [stockage SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) ne prennent en charge aucun type de réplication de stockage entre des zones. L’application (SGBD ou SAP Central Services) doit répliquer des données importantes.
 - Il en va de même pour le répertoire partagé sapmnt, qui est un disque partagé (Windows), un partage CIFS (Windows) ou un partage NFS (Linux). Vous devez utiliser une technologie qui réplique ces disques partagés ou ces partages entre les zones. Ces technologies sont prises en charge :
-    - Pour Windows, une solution de cluster qui utilise SIOS Datakeeper, comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - Pour SUSE Linux, un partage NFS créé comme décrit dans [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+  - Pour Windows, une solution de cluster qui utilise SIOS Datakeeper, comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+  - Pour SUSE Linux, un partage NFS créé comme décrit dans [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
     Actuellement, la solution qui utilise le serveur de fichiers avec montée en puissance parallèle Microsoft, comme décrit dans [Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), n’est pas prise en charge entre plusieurs zones.
 - La troisième zone est utilisée pour héberger le périphérique SBD au cas où vous créez un [cluster Pacemaker SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou d’autres instances d’application.
@@ -123,7 +123,7 @@ Si vous ne trouvez pas un delta acceptable entre la latence réseau au sein d’
 
 La disposition de base de l’architecture ressemble à ceci :
 
-![Déploiement de zone actif/passif](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Déploiement de zone actif/passif](./media/sap-ha-availability-zones/active_passive_zones_deployment.png)
 
 Les considérations suivantes s’appliquent pour cette configuration :
 

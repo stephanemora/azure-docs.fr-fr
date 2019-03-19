@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215114"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003144"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure
 
@@ -44,7 +44,7 @@ Lorsque vous essayez de vous connecter à une machine virtuelle, vous rencontrez
     **Catégorie de tâche** : Aucun</br>
     **Niveau** :         Error</br>
     **Mots clés** :      Classique</br>
-    **Utilisateur** :          N/A</br>
+    **Utilisateur** :          S.O.</br>
     **Ordinateur** :      vm.contoso.com</br>
     **Description** : Le service Services Bureau à distance s’est bloqué au démarrage. 
 
@@ -58,7 +58,7 @@ Ce problème se produit, car les Services Bureau à distance ne s’exécutent p
 
 - Le service TermService est défini sur **Désactivé**. 
 - Le service TermService est en incident ou suspendu. 
-- TermService ne démarre pas raison d’une configuration incorrecte.
+- Le Terminal Server ne démarre pas de raison d’à une configuration incorrecte.
 
 ## <a name="solution"></a>Solution
 
@@ -99,7 +99,8 @@ Pour résoudre ce problème, utilisez la Console série. Vous pouvez également 
 
     |  Error |  Suggestion |
     |---|---|
-    |5- ACCÈS REFUSÉ |Voir [Le service TermService est arrêté en raison d’une erreur d’accès refusé](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Voir [Le service TermService est désactivé](#termService-service-is-disabled).  |  
+    |5- ACCÈS REFUSÉ |Voir [Le service TermService est arrêté en raison d’une erreur d’accès refusé](#termService-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Voir [Le service TermService est désactivé](#termService-service-is-disabled).  |  
     |1058 - ERROR_SERVICE_DISABLED  |Voir [Le service TermService se bloque](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.|
     |1067 - ERROR_PROCESS_ABORTED  |Voir [Le service TermService se bloque](#termService-service-crashes-or-hangs).  |
@@ -108,7 +109,7 @@ Pour résoudre ce problème, utilisez la Console série. Vous pouvez également 
     |1070 - ERROR_SERVICE_START_HANG   | Voir [Le service TermService se bloque](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Voir [Le service TermService est désactivé](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème. |
-    |1753   |[Contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.   |   |5- ACCÈS REFUSÉ |Voir [Le service TermService est arrêté en raison d’une erreur d’accès refusé](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1753   |[Contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Le service TermService est arrêté en raison d’un problème d’accès refusé
 
@@ -205,7 +206,7 @@ Pour résoudre ce problème, utilisez la Console série. Vous pouvez également 
 
 1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
 2. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération. Vérifiez que le disque attaché est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque de système d’exploitation attaché.
-3.  Ouvrez une instance d’invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**). Ensuite, exécutez le script suivant. Supposons que la lettre de lecteur affectée au disque de système d’exploitation attaché est **F**. Remplacez-la par la valeur correspondant à votre machine virtuelle. 
+3. Ouvrez une instance d’invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**). Ensuite, exécutez le script suivant. Supposons que la lettre de lecteur affectée au disque de système d’exploitation attaché est **F**. Remplacez-la par la valeur correspondant à votre machine virtuelle. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

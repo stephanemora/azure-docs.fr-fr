@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 12/14/2018
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: ea508c04660df4ba103a2a0da39b7cd914cd629c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: afa0b6d4f87c4325f116463242c15df9d9b6e7c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471247"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006421"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Utilisation du stockage de files d'attente à partir de Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de files d'attente Azure. Les exemples sont écrits en Python et utilisent le [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]. Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes].
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -133,5 +133,5 @@ Maintenant que vous connaissez les bases du stockage de files d’attente, consu
 * [Centre de développement Python](https://azure.microsoft.com/develop/python/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355)
 
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python

@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084393"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilisation de l’extension Intégrité de l’application avec des groupes de machines virtuelles identiques
 La surveillance de l’intégrité de votre application est un signal important pour la gestion et la mise à niveau votre déploiement. Les groupes de machines virtuelles identiques prennent en charge les [mises à niveau propagées](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), notamment les [mises à niveau automatiques d’image de système d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md), qui reposent sur l’analyse du fonctionnement des instances individuelles pour mettre à niveau votre déploiement.
 
 Cet article décrit comment utiliser l’extension Intégrité de l’application pour analyser le fonctionnement de vos applications déployées sur des groupes de machines virtuelles identiques.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cet article suppose de connaître :
 -   Les [extensions](../virtual-machines/extensions/overview.md) de machine virtuelle Azure
 -   La [modification](virtual-machine-scale-sets-upgrade-scale-set.md) des groupes de machines virtuelles identiques
@@ -64,19 +64,19 @@ Le JSON suivant montre le schéma pour l’extension Intégrité de l’applicat
 ### <a name="property-values"></a>Valeurs de propriétés
 
 | Nom | Valeur/Exemple | Type de données
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publisher | `Microsoft.ManagedServices` | chaîne |
-| Type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | chaîne |
+| publisher | `Microsoft.ManagedServices` | string |
+| Type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Paramètres
 
 | Nom | Valeur/Exemple | Type de données
 | ---- | ---- | ----
-| protocol | `http` ou `tcp` | chaîne |
+| protocol | `http` ou `tcp` | string |
 | port | Facultatif si le protocole est `http`, obligatoire si le protocole est `tcp` | int |
-| requestPath | Obligatoire si le protocole est `http`, non autorisé si le protocole est `tcp` | chaîne |
+| requestPath | Obligatoire si le protocole est `http`, non autorisé si le protocole est `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Déployer l’extension Intégrité de l’application
 Il existe plusieurs façons de déployer l’extension Intégrité de l’application sur vos groupes identiques, comme indiqué dans les exemples ci-dessous.

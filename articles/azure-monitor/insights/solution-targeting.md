@@ -7,18 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989183"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769231"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Ciblage des solutions de supervision dans Azure Monitor (préversion)
 Lorsque vous ajoutez une solution de supervision à votre abonnement, par défaut, celle-ci est automatiquement déployée sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité qui permet d’appliquer une étendue à vos solutions.
@@ -35,7 +35,7 @@ Vous spécifiez les ordinateurs que vous souhaitez inclure dans une étendue en 
 Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, vous devez l’inclure dans une configuration d’étendue qui peut être appliquée à une ou plusieurs solutions.
  
  
- ### <a name="2-create-a-scope-configuration"></a>2. Création d’une configuration d’étendue
+### <a name="2-create-a-scope-configuration"></a>2. Création d’une configuration d’étendue
  Une **configuration d’étendue** inclut un ou plusieurs groupes d’ordinateurs et peut être appliquée à une ou plusieurs solutions. 
  
  Créez une configuration d’étendue à l’aide de la procédure suivante.  
@@ -49,7 +49,7 @@ Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, 
  6. Cliquez sur **OK** pour créer la configuration d’étendue. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Appliquez la configuration d’étendue à une solution.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Appliquez la configuration d’étendue à une solution.
 Une fois que vous avez une configuration d’étendue, vous pouvez l’appliquer à une ou plusieurs solutions.  Notez qu’une seule configuration d’étendue peut être utilisée avec plusieurs solutions, mais chaque solution ne peut utiliser qu’une seule configuration d’étendue.
 
 Appliquez une configuration d’étendue à l’aide de la procédure suivante.  

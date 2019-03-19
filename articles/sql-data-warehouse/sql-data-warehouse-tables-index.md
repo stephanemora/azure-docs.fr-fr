@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244689"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190037"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexation de tables dans SQL Data Warehouse
 Recommandations et exemples relatifs à l’indexation de tables dans Azure SQL Data Warehouse.
@@ -45,12 +45,12 @@ Il existe quelques scénarios où un columnstore en cluster peut ne pas être pa
 
 - Les tables columnstore ne prennent pas en charge varchar(max), nvarchar(max) et varbinary(max). Envisagez plutôt les segments de mémoire ou les index en cluster.
 - Les tables columnstore peuvent être moins efficaces pour les données temporaires. Envisagez les segments de mémoire, voire les tables temporaires.
-- Petites tables avec moins de 100 millions de lignes. Envisagez les tables de segments de mémoire.
+- Tables de petite taille avec moins de 60 millions de lignes. Envisagez les tables de segments de mémoire.
 
 ## <a name="heap-tables"></a>Tables de segments de mémoire
-Lors de l’envoi temporaire de données dans SQL Data Warehouse, vous trouverez peut-être que l’utilisation d’une table de segments de mémoire accélère le processus global. En effet, les charges sur les segments de mémoire sont plus rapides que sur les tables d’index et, dans certains cas, la lecture ultérieure peut être effectuée depuis le cache.  Si vous chargez des données uniquement pour les organiser avant d’exécuter d’autres transformations, le chargement de la table dans la table de segments de mémoire est beaucoup plus rapide que le chargement de données dans une table columnstore en cluster. En outre, le chargement des données dans une [table temporaire](sql-data-warehouse-tables-temporary.md) est plus rapide que le chargement d’une table dans un stockage permanent.  
+Lorsque vous envoyez des données dans SQL Data Warehouse, vous pouvez trouver qu’à l’aide d’une table de segment de mémoire accélère le processus de global plus rapide. En effet, les charges sur les segments de mémoire sont plus rapides que sur les tables d’index et, dans certains cas, la lecture ultérieure peut être effectuée depuis le cache.  Si vous chargez des données uniquement pour les organiser avant d’exécuter d’autres transformations, le chargement de la table dans la table de segments de mémoire est beaucoup plus rapide que le chargement de données dans une table columnstore en cluster. En outre, le chargement des données dans une [table temporaire](sql-data-warehouse-tables-temporary.md) est plus rapide que le chargement d’une table dans un stockage permanent.  
 
-Pour les petites tables de choix de moins de 100 millions de lignes, souvent, l’utilisation de tables de segments de mémoire est judicieuse.  Les tables columnstore en cluster commencent à atteindre une compression optimale une fois qu’elles comptent plus de 100 millions de lignes.
+Pour les petites tables de choix, 60 millions de lignes, souvent les tables de segments de mémoire sens.  Tables columnstore en cluster commencent à atteindre une compression optimale une fois plus de 60 millions de lignes.
 
 Pour créer une table de segments de mémoire, spécifiez simplement HEAP dans la clause WITH :
 
@@ -79,7 +79,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Pour ajouter un index non-cluster sur une table, utilisez simplement la syntaxe suivante :
+Pour ajouter un index non cluster sur une table, utilisez la syntaxe suivante :
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -182,7 +182,7 @@ Si vous avez identifié des tables avec une qualité médiocre des segments, vou
 En raison de ces facteurs, le nombre de lignes par groupe de lignes de l’index columnstore peut être très inférieur à 1 million (chiffre optimal). Ces facteurs peuvent également entraîner le transfert des lignes vers un groupe de lignes delta au lieu d’un groupe de lignes compressé. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Saturation de la mémoire lors de la construction de l’index
-Le nombre de lignes par groupe de lignes compressé est directement lié à la largeur de la ligne et à la quantité de mémoire disponible pour traiter le groupe de lignes.  Lorsque les lignes sont écrites dans les tables columnstore avec une mémoire insuffisante, la qualité du segment columnstore peut être affectée.  Par conséquent, la meilleure pratique consiste à accorder à la session qui écrit sur vos tables d’index columnstore l’accès à autant de mémoire que possible.  Dans la mesure où il existe un compromis entre la mémoire et l’accès concurrentiel, les conseils sur l’allocation de la mémoire appropriée dépendent des données dans chaque ligne de votre table, des unités d’entrepôts de données affectées à votre système et de la quantité d’emplacements de concurrence que vous pouvez donner à la session qui écrit les données sur votre table.  Nous vous recommandons la bonne pratique suivante : commencez avec xlargerc si vous utilisez DW300 ou une base de données inférieure, largerc si vous utilisez des bases de données DW400 à DW600, et mediumrc si vous utilisez DW1000 et des bases de données supérieures.
+Le nombre de lignes par groupe de lignes compressé est directement lié à la largeur de la ligne et à la quantité de mémoire disponible pour traiter le groupe de lignes.  Lorsque les lignes sont écrites dans les tables columnstore avec une mémoire insuffisante, la qualité du segment columnstore peut être affectée.  Par conséquent, la meilleure pratique consiste à accorder à la session qui écrit sur vos tables d’index columnstore l’accès à autant de mémoire que possible.  Dans la mesure où il existe un compromis entre la mémoire et l’accès concurrentiel, les conseils sur l’allocation de la mémoire appropriée dépendent des données dans chaque ligne de votre table, des unités d’entrepôts de données affectées à votre système et de la quantité d’emplacements de concurrence que vous pouvez donner à la session qui écrit les données sur votre table.
 
 ### <a name="high-volume-of-dml-operations"></a>Volume élevé d’opérations DML
 Un volume élevé d’opérations DML qui mettent à jour et suppriment des lignes peut provoquer l’inefficacité du columnstore. Cela est particulièrement vrai lorsque la majorité des lignes dans un groupe de lignes est modifiée.
@@ -205,7 +205,7 @@ Une fois que les tables ont été chargées avec des données, suivez les étape
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Reconstruire des index pour améliorer la qualité de segment
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Étape 1 : Identifier ou créer un utilisateur qui utilise la classe de ressources appropriée
-Un moyen rapide d’améliorer immédiatement la qualité de segment consiste à reconstruire l’index.  La requête SQL renvoyée par la vue ci-dessus renvoie une instruction ALTER INDEX REBUILD, qui peut être utilisée pour reconstruire vos index. Lors de la reconstruction de vos index, veillez à allouer suffisamment de mémoire à la session qui reconstruit votre index.  Pour ce faire, augmentez la classe de ressources d’un utilisateur qui dispose des autorisations pour reconstruire l’index sur cette table conformément aux valeurs minimum recommandées. La classe de ressources de l’utilisateur propriétaire de la base de données ne peut pas être modifiée, donc si vous n’avez pas créé d’utilisateur sur le système, vous devez d’abord le faire. La classe de ressources minimale recommandée est xlargerc si vous utilisez DW300 ou une base de données inférieure, largerc si vous utilisez des bases de données DW400 à DW600, ou mediumrc si vous utilisez DW1000 et des bases de données supérieures.
+Un moyen rapide d’améliorer immédiatement la qualité de segment consiste à reconstruire l’index.  La requête SQL renvoyée par la vue ci-dessus renvoie une instruction ALTER INDEX REBUILD, qui peut être utilisée pour reconstruire vos index. Lors de la reconstruction de vos index, veillez à allouer suffisamment de mémoire à la session qui reconstruit votre index.  Pour ce faire, augmentez la classe de ressources d’un utilisateur qui dispose des autorisations pour reconstruire l’index sur cette table conformément aux valeurs minimum recommandées. 
 
 Voici un exemple montrant comment allouer davantage de mémoire à un utilisateur en augmentant sa classe de ressources. Pour utiliser des classes de ressources, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).
 
@@ -216,7 +216,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Étape 2 : Reconstruire les index columnstore en cluster avec un utilisateur de la classe de ressources la plus élevée
 Connectez-vous en tant qu’utilisateur à l’étape 1 (p. ex., LoadUser), qui utilise maintenant une classe de ressources supérieure, puis exécutez les instructions ALTER INDEX. N’oubliez pas que cet utilisateur possède l’autorisation ALTER sur les tables où l’index est reconstruit. Ces exemples illustrent comment reconstruire l’index columnstore entier ou comment reconstruire une partition unique. Sur des tables volumineuses, il est plus pratique de reconstruire les index une seule partition à la fois.
 
-Au lieu de reconstruire l’index, vous pouvez également copier la table dans une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md). Quelle méthode est la meilleure ? Pour les gros volumes de données, CTAS est généralement plus rapide qu’[ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Pour les volumes de données plus restreints, ALTER INDEX est plus facile à utiliser et ne vous oblige pas à permuter la table. Consultez **Reconstruire des index avec CTAS et le basculement de partitions** ci-dessous pour plus d’informations sur la façon de reconstruire les index avec CTAS.
+Au lieu de reconstruire l’index, vous pouvez également copier la table dans une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md). Quelle méthode est la meilleure ? Pour les gros volumes de données, CTAS est généralement plus rapide qu’[ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Pour les volumes de données plus restreints, ALTER INDEX est plus facile à utiliser et ne vous oblige pas à permuter la table. 
 
 ```sql
 -- Rebuild the entire clustered index
@@ -263,25 +263,8 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
--- Step 2: Create a SWITCH out table
-CREATE TABLE dbo.FactInternetSales_20000101
-    WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
-            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20000101
-                                )
-                            )
-            )
-AS
-SELECT *
-FROM    [dbo].[FactInternetSales]
-WHERE   1=2 -- Note this table will be empty
-
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
-
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 2: Switch IN the rebuilt data with TRUNCATE_TARGET option
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
 Pour plus d’informations sur la recréation de partitions avec CTAS, consultez [Utilisation de partitions dans SQL Data Warehouse](sql-data-warehouse-tables-partition.md).

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490247"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896158"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le diagnostic et la résolution des problèmes dans une application distribuée hébergée dans un environnement cloud peuvent s'avérer plus complexes que dans des environnements traditionnels. Les applications peuvent être déployées dans une infrastructure PaaS ou IaaS, localement, sur un appareil mobile ou dans une combinaison de ces environnements. Le trafic réseau de votre application traverse généralement des réseaux publics et privés, et votre application peut utiliser différentes technologies de stockage, comme Stockage Table, Stockage Blob, Stockage File d’attente ou Stockage Fichier de Microsoft Azure, en plus d’autres magasins de données, comme des bases de données relationnelles et de documents.
 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l'analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
@@ -123,9 +123,9 @@ La suite de cette section décrit quelles métriques vous devriez analyser et po
 Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour afficher l’état du service de stockage (et d’autres services Azure) dans toutes les régions Azure de par le monde. La surveillance vous permet de savoir immédiatement si un problème sur lequel vous n’avez pas de contrôle affecte le service Stockage dans la région que vous utilisez pour l’application.
 
 Le [portail Azure](https://portal.azure.com) peut également envoyer des notifications des incidents qui affectent les divers services Azure.
-Remarque : Ces informations étaient accessibles avec les données d’historique dans le [Tableau de bord des services Azure](http://status.azure.com).
+Remarque : Ces informations étaient accessibles avec les données d’historique dans le [Tableau de bord des services Azure](https://status.azure.com).
 
-Le [portail Azure](https://portal.azure.com) recueille les informations d’état à l’intérieur des centres de données Azure (analyse de l’intérieur vers l’extérieur), mais vous pouvez également adopter une approche de l’extérieur vers l’intérieur et générer des transactions synthétiques qui accèdent périodiquement à votre application web Azure à partir de plusieurs emplacements. Les services offerts par [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) et Application Insights pour Azure DevOps sont des exemples de cette approche. Pour plus d’informations sur Application Insights pour Azure DevOps, consultez « [Annexe 5 : Supervision avec Application Insights pour Azure DevOps](#appendix-5) ».
+Le [portail Azure](https://portal.azure.com) recueille les informations d’état à l’intérieur des centres de données Azure (analyse de l’intérieur vers l’extérieur), mais vous pouvez également adopter une approche de l’extérieur vers l’intérieur et générer des transactions synthétiques qui accèdent périodiquement à votre application web Azure à partir de plusieurs emplacements. Les services offerts par [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) et Application Insights pour Azure DevOps sont des exemples de cette approche. Pour plus d’informations sur Application Insights pour Azure DevOps, consultez « [Annexe 5 : Supervision avec Application Insights pour Azure DevOps](#appendix-5) ».
 
 ### <a name="monitoring-capacity"></a>Analyse de la capacité
 Les métriques de stockage enregistrent uniquement les métriques de capacité pour le service d’objet blob, car les objets blob constituent généralement la majeure partie des données stockées (lors de l'écriture, il n'est pas possible d'utiliser les métriques de stockage pour analyser la capacité de vos tables et files d'attente). Ces données sont accessibles dans la table **$MetricsCapacityBlob** si vous avez activé l'analyse pour le service d'objet blob. Les métriques de stockage enregistrent ces données une fois par jour, et vous pouvez utiliser la valeur de la **RowKey** pour déterminer si la ligne contient une entité associée à des données utilisateur (valeur **data**) ou des données d’analyse (valeur **analytics**). Chaque entité stockée contient des informations sur la quantité de stockage utilisée (**Capacity** mesurée en octets) et le nombre actuel de conteneurs (**ContainerCount**) et d’objets blob (**ObjectCount**) utilisés dans le compte de stockage. Pour plus d’informations sur les métriques de capacité stockées dans la table **$MetricsCapacityBlob** , consultez [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -220,10 +220,10 @@ La bibliothèque cliente de stockage pour .NET vous permet de collecter les donn
 ### <a name="using-network-logging-tools"></a>Utilisation des outils de journalisation réseau
 Vous pouvez capturer le trafic entre le client et le serveur afin d'obtenir des informations détaillées concernant les données échangées entre le client et le serveur, et concernant les conditions réseau sous-jacentes. Parmi les outils de journalisation réseau utiles, on retrouve :
 
-* [Fiddler](http://www.telerik.com/fiddler) est un proxy de débogage web gratuit qui vous permet d’examiner les en-têtes et données de charge utile des messages de requête et de réponse HTTP et HTTPS. Pour plus d’informations, consultez [Annexe 1 : Utilisation de Fiddler pour capturer le trafic HTTP et HTTPS](#appendix-1).
-* Le [Moniteur réseau Microsoft (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) et [Wireshark](http://www.wireshark.org/) sont des analyseurs de protocole réseau gratuits qui vous permettent d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau. Pour plus d’informations sur Wireshark, consultez « [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau](#appendix-2) ».
+* [Fiddler](https://www.telerik.com/fiddler) est un proxy de débogage web gratuit qui vous permet d’examiner les en-têtes et données de charge utile des messages de requête et de réponse HTTP et HTTPS. Pour plus d’informations, consultez [Annexe 1 : Utilisation de Fiddler pour capturer le trafic HTTP et HTTPS](#appendix-1).
+* Le [Moniteur réseau Microsoft (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) et [Wireshark](https://www.wireshark.org/) sont des analyseurs de protocole réseau gratuits qui vous permettent d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau. Pour plus d’informations sur Wireshark, consultez « [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau](#appendix-2) ».
 * L'analyseur de message Microsoft est un outil de Microsoft qui remplace Netmon et qui, en plus de capturer les données des paquets réseau, vous aide à afficher et analyser les données de journalisation capturées à partir d'autres outils. Pour plus d’informations, consultez « [Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau](#appendix-3) ».
-* Si vous souhaitez effectuer un test de connectivité de base pour vérifier que votre ordinateur client peut se connecter au service de stockage Azure via le réseau, vous ne pouvez pas le faire en utilisant l'outil **ping** standard sur le client. Mais l'outil [**tcping**](http://www.elifulkerson.com/projects/tcping.php) vous permet de vérifier la connectivité.
+* Si vous souhaitez effectuer un test de connectivité de base pour vérifier que votre ordinateur client peut se connecter au service de stockage Azure via le réseau, vous ne pouvez pas le faire en utilisant l'outil **ping** standard sur le client. Mais l'outil [**tcping**](https://www.elifulkerson.com/projects/tcping.php) vous permet de vérifier la connectivité.
 
 Dans de nombreux cas, les données de journalisation issues de la journalisation du stockage et de la bibliothèque cliente de stockage seront suffisantes pour diagnostiquer un problème, mais dans certains scénarios, il se peut que vous ayez besoin de plus d’informations que celles fournies par ces outils de journalisation réseau. Par exemple, utiliser Fiddler pour afficher les messages HTTP et HTTPS vous permet d'afficher les données d'en-tête et de charge utile envoyées aux et par les services de stockage, ce qui vous permet de vérifier comment une application cliente effectue les nouvelles tentatives d'opérations de stockage. Les analyseurs de protocole tels que Wireshark fonctionnent au niveau des paquets et vous permettent d'afficher les données TCP afin de résoudre les problèmes de perte de paquets et de connectivité. L’analyseur de message est capable de fonctionner au niveau des couches HTTP et TCP.
 
@@ -469,7 +469,7 @@ Si votre application client génère des erreurs HTTP403 (Forbidden), l'une des 
 | Source | Commentaires | Commentaires | ID de la demande client | Operation Text |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Démarrage de l'opération avec l'emplacement Primary par mode d'emplacement PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Démarrage de la requête synchrone vers https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Démarrage de la requête synchrone vers <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Attente de la réponse. |
 | Microsoft.WindowsAzure.Storage |Avertissement |2 |85d077ab-… |Exception levée pendant l’attente de la réponse : Le serveur distant a retourné une erreur : (403) Interdit. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Réponse reçue. Code d'état = 403, ID de la demande = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -589,7 +589,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 > 
 > 
 
-Ces erreurs sont dues au fait que le navigateur implémente la restriction de sécurité [same origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) , qui empêche une page web d’appeler une API dans un domaine différent de celui dont la page provient.
+Ces erreurs sont dues au fait que le navigateur implémente la restriction de sécurité [same origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) , qui empêche une page web d’appeler une API dans un domaine différent de celui dont la page provient.
 
 Pour contourner le problème JavaScript, vous devez configurer le service Partage des ressources cross-origin (CORS) pour le service de stockage auquel le client accède. Pour plus d’informations, voir [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -708,7 +708,7 @@ Pour plus d’informations sur l’utilisation de Microsoft Message Analyzer, co
 Les annexes décrivent plusieurs outils qui peuvent s’avérer utiles lors du diagnostic et de la résolution des problèmes liés à Azure Storage (et aux autres services). Ces outils ne font pas partie de Azure Storage, et certains d'entre eux sont des produits tiers. En tant que tels, les outils décrits dans les annexes ne sont couverts par aucun contrat de support technique que vous pourriez avoir établi avec Microsoft Azure ou Azure Storage ; vous devez donc procéder à votre propre évaluation et examiner les options de licence et de support technique disponibles proposées par les fournisseurs de ces outils.
 
 ### <a name="appendix-1"></a>Annexe 1 : Utilisation de Fiddler pour capturer le trafic HTTP et HTTPS
-[Fiddler](http://www.telerik.com/fiddler) est un outil utile pour l’analyse du trafic HTTP et HTTPS entre votre application cliente et le service de stockage Azure que vous utilisez.
+[Fiddler](https://www.telerik.com/fiddler) est un outil utile pour l’analyse du trafic HTTP et HTTPS entre votre application cliente et le service de stockage Azure que vous utilisez.
 
 > [!NOTE]
 > Fiddler est capable de décoder le trafic HTTPS ; vous devez lire avec attention la documentation de Fiddler pour vous familiariser avec ce processus et comprendre les implications en matière de sécurité.
@@ -727,14 +727,14 @@ Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des 
 ![][5]
 
 ### <a name="appendix-2"></a>Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau
-[Wireshark](http://www.wireshark.org/) est un analyseur de protocole réseau qui vous permet d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau.
+[Wireshark](https://www.wireshark.org/) est un analyseur de protocole réseau qui vous permet d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau.
 
 La procédure suivante explique comment capturer des informations détaillées concernant les paquets pour le trafic à partir de la machine locale où vous avez installé Wireshark, vers le service de table de votre compte de stockage Azure.
 
 1. Lancez Wireshark sur votre ordinateur local.
 2. Dans la section **Start** , sélectionnez l'interface réseau locale ou des interfaces connectées à Internet.
 3. Cliquez sur **Capture Options**.
-4. Ajoutez un filtre à la zone de texte **Capture Filter** . Par exemple, **host contosoemaildist.table.core.windows.net** configurera Wireshark pour capturer uniquement les paquets envoyés au ou par le point de terminaison de stockage du service de table dans le compte de stockage **contosoemaildist**. Consultez la [liste complète des filtres de capture](http://wiki.wireshark.org/CaptureFilters).
+4. Ajoutez un filtre à la zone de texte **Capture Filter** . Par exemple, **host contosoemaildist.table.core.windows.net** configurera Wireshark pour capturer uniquement les paquets envoyés au ou par le point de terminaison de stockage du service de table dans le compte de stockage **contosoemaildist**. Consultez la [liste complète des filtres de capture](https://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
 5. Cliquez sur **Start**. Wireshark commence à capturer tous les paquets envoyés au ou par le point de terminaison de stockage du service de table lors de l'utilisation de votre application cliente sur votre ordinateur local.
@@ -745,12 +745,12 @@ WireShark met en évidence toutes les erreurs détectées dans la fenêtre **pac
 
 ![][7]
 
-Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit sur les données TCP et en sélectionnant **Suivre le flux TCP**. Cette option est utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, consultez [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(Suivi du flux TCP).
+Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit sur les données TCP et en sélectionnant **Suivre le flux TCP**. Cette option est utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, consultez [Following TCP Streams](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(Suivi du flux TCP).
 
 ![][8]
 
 > [!NOTE]
-> Pour plus d’informations sur l’utilisation de Wireshark, consultez le [Guide d’utilisation de Wireshark](http://www.wireshark.org/docs/wsug_html_chunked).
+> Pour plus d’informations sur l’utilisation de Wireshark, consultez le [Guide d’utilisation de Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
 > 
 > 
 

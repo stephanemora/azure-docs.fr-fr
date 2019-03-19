@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Cisco Spark pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Cisco Spark pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et déprovisionner automatiquement des comptes utilisateur dans Cisco Spark.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fd7145be5f82a90acced0f02e35f6c8880dbcad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120395"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cisco Spark pour l’attribution automatique d’utilisateurs
 
@@ -31,7 +31,7 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Cisc
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -113,28 +113,28 @@ Cette section vous guide tout au long des étapes de configuration du service de
     *   Dans le champ **Jeton secret**, spécifiez le jeton secret comme décrit à l’étape 6.
 
 1. Pour obtenir **l’ID de locataire** et le **jeton secret** de votre compte Cisco Spark, connectez-vous au [site des développeurs Cisco Spark](https://developer.webex.com/) avec votre compte d’administrateur. Une fois connecté :
-    * Accédez à la page [Getting Started](https://developer.webex.com/getting-started.html) (Prise en main).
-    * Faites défiler jusqu’à la [section Authentication (Authentification)](https://developer.webex.com/getting-started.html#authentication)
-    ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/SecretToken.png) (Jeton d’authentification Cisco Spark).
-    * La chaîne alphanumérique dans la zone de texte est votre **jeton secret**. Copiez ce jeton dans le Presse-papiers.
-    * Accédez à la page [Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (Obtenir mes informations).
-        * Vérifiez que le mode Test est activé.
-        * Tapez le mot « Bearer » suivi d’un espace, puis collez le jeton secret dans le champ d’autorisation ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png) (Jeton d’authentification Cisco Spark).
-        * Cliquez sur Exécuter.
-    * Dans le texte de réponse sur la droite, **l’ID de locataire** correspond à « orgId » :
+   * Accédez à la page [Getting Started](https://developer.webex.com/getting-started.html) (Prise en main).
+   * Faites défiler jusqu’à la [section Authentication (Authentification)](https://developer.webex.com/getting-started.html#authentication)
+     ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/SecretToken.png) (Jeton d’authentification Cisco Spark).
+   * La chaîne alphanumérique dans la zone de texte est votre **jeton secret**. Copiez ce jeton dans le Presse-papiers.
+   * Accédez à la page [Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (Obtenir mes informations).
+       * Vérifiez que le mode Test est activé.
+       * Tapez le mot « Bearer » suivi d’un espace, puis collez le jeton secret dans le champ d’autorisation ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png) (Jeton d’authentification Cisco Spark).
+       * Cliquez sur Exécuter.
+   * Dans le texte de réponse sur la droite, **l’ID de locataire** correspond à « orgId » :
 
-    ```json
-    {
-        "id": "(...)",
-        "emails": [
-            "admin.user@contoso.com"
-        ],
-        "displayName": "John Smith",
-        "nickName": "John",
-        "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        (...)
-    }
-    ```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Cisco Spark. Si la connexion échoue, vérifiez que votre compte Cisco Spark dispose des autorisations d’administrateur, puis réessayez.
 

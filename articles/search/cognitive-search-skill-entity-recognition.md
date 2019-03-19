@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452205"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985416"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
 
@@ -43,7 +43,8 @@ Les paramètres respectent la casse et sont tous facultatifs.
 | Catégories    | Tableau des catégories à extraire.  Types de catégorie possibles : `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si aucune catégorie n’est précisée, tous les types sont retournés.|
 |defaultLanguageCode |  Code de langue du texte d’entrée. Langues prises en charge : `de, en, es, fr, it`.|
 |minimumPrecision | Non utilisé. Réservé pour un usage futur. |
-|includeTypelessEntities | Lorsque la valeur est true si le texte contient une entité connue, mais ne peut pas être classé dans les catégories prises en charge, il est retourné dans le cadre du champ de sortie complexe `"entities"`. La valeur par défaut est `false`. |
+|includeTypelessEntities | Lorsque la valeur est true si le texte contient une entité connue, mais ne peut pas être classé dans les catégories prises en charge, il est retourné dans le cadre du champ de sortie complexe `"entities"`. 
+Il s’agit d’entités qui sont bien connues, mais non classées dans le cadre des prise en charge actuelles « catégories ». Par exemple « Windows 10 » est une entité connue (produit), mais « Produits » ne sont pas dans les catégories actuellement prises en charge. La valeur par défaut est `false`. |
 
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
@@ -67,7 +68,7 @@ Uniquement _en_, _es_ prennent en charge l’extraction des types `"Quantity"`, 
 | dateTimes  | Tableau de chaînes représentant chacune une valeur DateTime (telle qu’elle apparaît dans le texte). |
 | urls | Tableau de chaînes représentant chacune une URL. |
 | emails | Tableau de chaînes représentant chacune un e-mail. |
-| namedEntities | Tableau de types complexes contenant les champs suivants : <ul><li>category</li> <li>la valeur (le nom réel de l’entité) ;</li><li>le décalage (l’emplacement où elle a été trouvée dans le texte) ;</li><li>confidence (non utilisé pour l’instant ; sera défini sur la valeur -1)</li></ul> |
+| namedEntities | Tableau de types complexes contenant les champs suivants : <ul><li>category</li> <li>valeur (le nom de l’entité réelle)</li><li>le décalage (l’emplacement où elle a été trouvée dans le texte) ;</li><li>confidence (non utilisé pour l’instant ; sera défini sur la valeur -1)</li></ul> |
 | entities | Tableau de types complexes contenant des informations détaillées sur les entités extraites du texte, avec les champs suivants <ul><li> name (nom réel de l’entité ; il représente une forme « normalisée »)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (lien vers la page Wikipedia relative à l’entité)</li><li>bingId</li><li>type (catégorie de l’entité reconnue)</li><li>subType (disponible uniquement pour certaines catégories ; il offre une vue plus précise du type d’entité)</li><li> matches (collection complexe contenant)<ul><li>text (texte brut pour l’entité)</li><li>offset (emplacement où cela a été trouvé)</li><li>length (longueur du texte brut d’entité)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Exemple de définition

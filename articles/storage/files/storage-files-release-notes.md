@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/12/2019
+ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2bbac21b9ac3e07cbb41ea8aa4cf93dcbd636d15
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181777"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118610"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -25,7 +25,8 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
 | Jalon | Numéro de version de l’agent | Date de lancement | Statut |
 |----|----------------------|--------------|------------------|
-| Version V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 février 2019 | Prise en charge (version recommandée) |
+| Mars 2019 correctif cumulatif - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 mars 2019 | Prise en charge (version recommandée) |
+| Version V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 février 2019 | Pris en charge |
 | Correctif cumulatif de janvier 2019 - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 janvier 2019 | Pris en charge |
 | Correctif cumulatif de décembre 2018 – [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 décembre 2018 | Pris en charge |
 | Correctif cumulatif de décembre 2018 | 4.1.0.0 | 4 décembre 2018 | Pris en charge |
@@ -33,10 +34,20 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 | Correctif cumulatif de septembre 2018 | 3.3.0.0 | 24 septembre 2018 | Pris en charge – La version de l’agent expirera le 19 juillet 2019 |
 | Correctif cumulatif d’août 2018 | 3.2.0.0 | 15 août 2018 | Pris en charge – La version de l’agent expirera le 19 juillet 2019 |
 | Disponibilité générale | 3.1.0.0 | 19 juillet 2018 | Pris en charge – La version de l’agent expirera le 19 juillet 2019 |
-| Agents ayant expiré | 1.1.0.0 - 3.0.13.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 1er octobre 2018 |
+| Agents ayant expiré | 1.1.0.0 - 3.0.13.0 | S.O. | Non pris en charge : les versions de l’agent ont expiré le 1er octobre 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-5100"></a>Version de l’agent 5.1.0.0
+Les notes de publication suivantes concernent la version 5.1.0.0 de l’agent Azure File Sync publiée le 7 mars 2019. Ces notes s’ajoutent les notes de publication répertoriées pour la version 5.0.2.0.
+
+Liste des problèmes résolus dans cette version :  
+- Synchronisation avec l’erreur 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) si l’énumération des modifications échoue sur le serveur de fichiers peuvent échouer
+- Si un fichier ou une session de synchronisation reçoit une erreur 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE), sync maintenant réessaiera l’opération
+- Fichiers de synchronisation avec l’erreur 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE) peuvent échouer
+- L’utilisation élevée de la mémoire peut se produire lors du rappel de fichiers
+- Améliorations de la télémétrie hiérarchisation de cloud 
 
 ## <a name="agent-version-5020"></a>Agent version 5.0.2.0
 Les notes de publication suivantes concernent la version 5.0.2.0 de l’agent Azure File Sync (publiée le 12 février 2019).
@@ -44,7 +55,7 @@ Les notes de publication suivantes concernent la version 5.0.2.0 de l’agent Az
 ### <a name="improvements-and-issues-that-are-fixed"></a>Améliorations et problèmes résolus
 
 - Prise en charge du cloud Azure Government
-    - Nous avons ajouté la prise en charge en préversion du cloud Azure Government, qui exige un abonnement sur liste verte et un téléchargement d’agent spécial auprès de Microsoft. Pour demander l’accès à la préversion, envoyez-nous directement un e-mail à l’adresse [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
+  - Nous avons ajouté la prise en charge en préversion du cloud Azure Government, qui exige un abonnement sur liste verte et un téléchargement d’agent spécial auprès de Microsoft. Pour demander l’accès à la préversion, envoyez-nous directement un e-mail à l’adresse [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
 - Pris en charge de la déduplication des données
     - La déduplication des données est maintenant entièrement prise en charge avec la hiérarchisation cloud sur Windows Server 2016 et 2019. Le fait d’activer la déduplication sur un volume pour lequel la hiérarchisation cloud est activée permet de mettre en cache plus de fichiers en local sans avoir à approvisionner davantage de stockage.
 - Prise en charge du transfert de données hors connexion (par exemple, par Data Box)

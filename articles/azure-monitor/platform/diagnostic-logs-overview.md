@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001969"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310180"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 
@@ -23,7 +23,7 @@ Les **journaux de diagnostic Azure Monitor** sont des journaux émis par un serv
 * **Journaux de locataire** : ces journaux proviennent des services au niveau du locataire qui existent en dehors d’un abonnement Azure, tels que les journaux Azure Active Directory.
 * **Journaux de ressources** : ces journaux proviennent des services Azure qui déploient des ressources au sein d’un abonnement Azure, tels que les groupes de sécurité réseau ou les comptes de stockage.
 
-    ![Comparaison entre les journaux de diagnostic des ressources et les autres types de journaux ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Comparaison entre les journaux de diagnostic des ressources et les autres types de journaux](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 Le contenu de ces journaux varie en fonction du service Azure et du type de ressource. Les compteurs de règles du groupe de sécurité réseau et les audits de coffres de clés sont deux exemples de types de journaux de diagnostic.
 
@@ -113,12 +113,14 @@ Les paramètres de diagnostic de locataire peuvent uniquement être configurés 
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Activer la collecte des journaux de diagnostic des ressources via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Pour activer la collecte des journaux de diagnostic des ressources via Azure PowerShell, utilisez les commandes suivantes :
 
 Pour activer le stockage des journaux de diagnostic dans un compte de stockage, utilisez cette commande :
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 L’ID de compte de stockage est l’ID de ressource du compte de stockage auquel vous souhaitez envoyer les journaux.
@@ -126,7 +128,7 @@ L’ID de compte de stockage est l’ID de ressource du compte de stockage auque
 Pour activer le streaming des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 L’ID de règle Service Bus est une chaîne au format suivant : `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -134,13 +136,13 @@ L’ID de règle Service Bus est une chaîne au format suivant : `{Service Bus r
 Pour activer l’envoi des journaux de diagnostic vers un espace de travail Log Analytics, utilisez cette commande :
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 Vous pouvez obtenir l’ID de ressource de votre espace de travail Log Analytics à l’aide de la commande suivante :
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.

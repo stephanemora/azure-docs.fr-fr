@@ -4,16 +4,16 @@ description: Découvrez comment récupérer et contrôler des jeux de données v
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 8808f42cdd6fb547b70695278993faa0f52cdb61
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338391"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889033"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -22,6 +22,9 @@ Azure Resource Graph est conçu pour obtenir et utiliser des informations sur de
 ## <a name="data-set-result-size"></a>Taille du jeu de résultats
 
 Par défaut, Resource Graph limite à **100** le nombre d’enregistrements que retourne toute requête. Ce contrôle protège l’utilisateur et le service contre des requêtes involontaires qui auraient pour effet de retourner des jeux de données volumineux. Cela se produit le plus souvent quand un client expérimente des requêtes pour rechercher et filtrer des ressources d’une manière correspondant à ses besoins particuliers. Ce contrôle diffère de l’utilisation des opérateurs linguistiques [top](/azure/kusto/query/topoperator) ou [limit](/azure/kusto/query/limitoperator) d’Azure Data Explorer pour limiter les résultats.
+
+> [!NOTE]
+> Lorsque vous utilisez **première**, il est recommandé de classer les résultats au moins une colonne avec `asc` ou `desc`. Sans effectuer de tri, les résultats retournés sont aléatoires et pas reproductibles.
 
 La limite par défaut peut être modifiée via toutes les méthodes d’interaction avec Resource Graph. Les exemples suivants montrent comment modifier la limite de taille de jeu de données en la définissant sur _200_ :
 
@@ -43,6 +46,9 @@ La valeur maximale autorisée de l’opérateur **First** est actuellement de _5
 
 L’option suivante pour la manipulation de jeux de données volumineux est l’utilisation du contrôle **Skip**. Ce contrôle permet à votre requête d’omettre ou d’ignorer le nombre défini d’enregistrements avant de retourner les résultats. Le contrôle **Skip** est utile pour les requêtes qui trient les résultats de façon explicite lorsque l’intention est d’accéder à des enregistrements quelque part au milieu de jeu de résultats. Si les résultats nécessaires figurent à la fin du jeu de données retourné, il est plus efficace d’utiliser une configuration de tri différente afin de récupérer à la place les résultats à partir de la partie supérieure du jeu de données.
 
+> [!NOTE]
+> Lorsque vous utilisez **Skip**, il est recommandé de classer les résultats au moins une colonne avec `asc` ou `desc`. Sans effectuer de tri, les résultats retournés sont aléatoires et pas reproductibles.
+
 Les exemples suivants montrent comment ignorer les _10_ premiers enregistrements qu’une requête retournerait, en retournant le jeu de résultats à partir du 11e enregistrement :
 
 ```azurecli-interactive
@@ -63,7 +69,7 @@ La valeur **resultTruncated** est une valeur booléenne qui informe l’utilisat
 Lorsque la valeur **resultTruncated** est **true**, la propriété **$skipToken** est définie dans la réponse. Cette valeur est utilisée avec les mêmes valeurs de requête et d’abonnement pour obtenir le jeu d’enregistrements suivant correspondant à la requête.
 
 > [!IMPORTANT]
-> Pour que la pagination fonctionne, la requête doit **projeter** le champ **id**. S’il est absent de la requête, la réponse de l’API REST n’inclut pas la propriété **$skipToken**.
+> Pour que la pagination fonctionne, la requête doit **projeter** le champ **id**. S’il est manquant à partir de la requête, la réponse de l’API REST n’inclut pas le **$skipToken**.
 
 Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegraph/resources/resources#next_page_query) dans la documentation de l’API REST.
 

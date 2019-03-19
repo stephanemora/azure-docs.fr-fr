@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099982"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,6 +34,7 @@ Bien que Data Factory soit disponible uniquement dans certaines régions, le ser
 Azure Data Factory ne stocke aucune donnée à l’exception des informations d’identification du service lié pour les banques de données cloud, chiffrées à l’aide de certificats. Grâce à Data Factory, vous créez des workflows pilotés par les données afin d’orchestrer le déplacement de données entre les [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats), ainsi que le traitement des données à l’aide des [services de calcul](compute-linked-services.md) situés dans d’autres régions ou dans un environnement local. Il vous permet également analyser et gérer des workflows au moyen de Kits de développement logiciel (SDK) et d’Azure Monitor.
 
 Data Factory a obtenu les certifications suivantes :
+
 | **[Certification CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
@@ -45,12 +46,14 @@ Data Factory a obtenu les certifications suivantes :
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure sécurise sa propre infrastructure, consultez le [Centre de confidentialité Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Pour obtenir la liste la plus récente de toutes les offres de conformité Azure, consultez http://aka.ms/AzureCompliance.
+Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure sécurise sa propre infrastructure, consultez le [Centre de confidentialité Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Pour obtenir la liste la plus récente de toutes les offres de conformité Azure, consultez https://aka.ms/AzureCompliance.
 
 Cet article présente les principes de sécurité à prendre en compte dans les deux scénarios de déplacement de données suivants : 
 
 - **Scénario cloud** : Dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme le stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles Web tels que FTP et OData. Recherchez une liste complète des sources de données prises en charge dans [Banques de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Scénario hybride** : Dans ce scénario, votre source ou votre destination se trouve derrière un pare-feu ou à l’intérieur d’un réseau d’entreprise local. Ou bien, la banque de données est un réseau ou un réseau virtuel (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Scénarios cloud
 
@@ -89,10 +92,10 @@ Azure Data Lake Store assure également le chiffrement des données stockées da
 Le stockage Blob Azure et le stockage Table Azure prennent en charge le SSE (Storage Service Encryption), qui chiffre automatiquement vos données avant qu’elles ne soient persistantes dans le stockage et les déchiffre avant leur récupération. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 prend en charge le chiffrement des données au repos côté client et côté serveur. Pour plus d’informations, consultez [Protection des données à l’aide du chiffrement](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
+Amazon S3 prend en charge le chiffrement des données au repos côté client et côté serveur. Pour plus d’informations, consultez [Protection des données à l’aide du chiffrement](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift prend en charge le chiffrement du cluster pour les données au repos. Pour plus d’informations, consultez [Amazon Redshift Database Encryption (Chiffrement de base de données Amazon Redshift)](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
+Amazon Redshift prend en charge le chiffrement du cluster pour les données au repos. Pour plus d’informations, consultez [Amazon Redshift Database Encryption (Chiffrement de base de données Amazon Redshift)](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce prend en charge Shield Platform Encryption qui permet de chiffrer tous les fichiers, pièces jointes et champs personnalisés. Pour plus d’informations, consultez [Understanding the Web Server OAuth Authentication Flow (Comprendre le flux d’authentification Web Server OAuth)](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -109,9 +112,9 @@ Les informations d’identification associées à vos banques de données locale
 
 - **Stocker des informations d’identification localement**. Si vous souhaitez chiffrer et stocker des informations d’identification localement sur le runtime d’intégration auto-hébergé, suivez les étapes sur [Chiffrer des informations d’identification pour les banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tous les connecteurs prennent en charge cette option. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) Windows pour chiffrer les données sensibles et les informations d’identification. 
 
-   Utilisez la cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** pour chiffrer les informations d’identification et les informations sensibles du service lié. Vous pouvez ensuite utiliser le JSON retourné (avec l’élément **EncryptedCredential** dans la chaîne de connexion) pour créer un service lié à l’aide de la cmdlet **Set-AzureRmDataFactoryV2LinkedService**.  
+   Utilisez le **New-AzDataFactoryV2LinkedServiceEncryptedCredential** applet de commande pour chiffrer les informations d’identification et les informations sensibles dans le service lié. Vous pouvez ensuite utiliser le JSON retourné (avec le **EncryptedCredential** élément dans la chaîne de connexion) pour créer un service lié à l’aide de la **Set-AzDataFactoryV2LinkedService** applet de commande.  
 
-- **Stocker dans le stockage managé Azure Data Factory**. Si vous utilisez directement la cmdlet **Set-AzureRmDataFactoryV2LinkedService** avec les chaînes de connexion et les informations d’identification incluses dans le JSON, le service lié est chiffré et stocké dans le stockage managé Azure Data Factory. Les informations sensibles sont toujours chiffrées par le certificat et Microsoft gère ces certificats.
+- **Stocker dans le stockage managé Azure Data Factory**. Si vous utilisez directement le **Set-AzDataFactoryV2LinkedService** applet de commande avec la connexion des chaînes et informations d’identification incluses dans le JSON, le service lié est chiffré et stocké dans le stockage managé Azure Data Factory. Les informations sensibles sont toujours chiffrées par le certificat et Microsoft gère ces certificats.
 
 
 
@@ -184,7 +187,7 @@ Les banques de données cloud suivantes exigent que vous mettiez sur liste verte
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 

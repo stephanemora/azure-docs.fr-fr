@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: db6646c2066be940b2c058653fe8f2ceb9bff3a2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871420"
 ---
 # <a name="live-event-latency-in-media-services"></a>Latence de l’événement en direct dans Media Services
 
 Cet article explique comment définir une faible latence sur un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents). Il traite également des résultats généralement obtenus avec des paramètres de faible latence sur différents lecteurs. Les résultats varient en fonction de la latence réseau et du CDN.
 
-Pour utiliser la nouvelle fonction **LowLatency**, définissez le paramètre **StreamOptionsFlag** sur **LowLatency** dans l’événement **LiveEvent**. Lors de la création de [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) pour la lecture HLS, définissez [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) sur 1. Une fois le flux opérationnel, vous pouvez ouvrir la page de démonstration du [Lecteur multimédia Azure](http://ampdemo.azureedge.net/) et configurer les options de lecture afin d’utiliser le profil heuristique à faible latence (« Low Latency Heuristics Profile »).
+Pour utiliser la nouvelle fonction **LowLatency**, définissez le paramètre **StreamOptionsFlag** sur **LowLatency** dans l’événement **LiveEvent**. Lors de la création de [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) pour la lecture HLS, définissez [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) sur 1. Une fois le flux opérationnel, vous pouvez ouvrir la page de démonstration du [Lecteur multimédia Azure](https://ampdemo.azureedge.net/) et configurer les options de lecture afin d’utiliser le profil heuristique à faible latence (« Low Latency Heuristics Profile »).
 
 > [!NOTE]
 > Actuellement, le profil heuristique à faible latence dans le Lecteur multimédia Azure est conçu pour lire des flux dans le protocole DASH ou HLS avec CMAF. Si vous ciblez des appareils MacOS ou iOS via TLS avec TS (par exemple, `format=m3u8-aapl` ou `format=m3u8-aapl-v3`), vous ne devez pas utiliser ce paramètre car AMP utilise directement le lecteur natif fourni par le système d’exploitation dans ce cas.

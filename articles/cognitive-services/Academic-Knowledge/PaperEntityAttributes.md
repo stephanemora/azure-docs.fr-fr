@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 240541dd76221ee19c96b162da02ced90fb0ad90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873085"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437460"
 ---
 # <a name="paper-entity"></a>Entité Article
 
@@ -61,7 +61,7 @@ VSN     | Venue Short Name : nom abrégé du journal ou de la conférence
 V       | Volume : volume du journal
 BV      | Nom du journal
 BT      | 
-PB      | Abréviations du journal
+PB      | Abréviations de journal
 I       | Issue : numéro du journal
 FP      | FirstPage : première page de l’article
 LP      | LastPage : dernière page de l’article

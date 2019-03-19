@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198658"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193318"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync
 Cette rubrique explique comment résoudre les problèmes de synchronisation du hachage de mot de passe. Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs.
@@ -225,7 +225,7 @@ Pour résoudre les problèmes liés à l’absence de synchronisation des mots d
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Aucun mot de passe n’est synchronisé : étapes de dépannage manuel
 Effectuez les étapes suivantes pour déterminer la raison pour laquelle aucun mot de passe n’est synchronisé :
 
-1. Le serveur Connect est-il en [mode intermédiaire](how-to-connect-sync-operations.md#staging-mode) ? Un serveur en mode intermédiaire ne synchronise pas les mots de passe.
+1. Le serveur Connect est-il en [mode intermédiaire](how-to-connect-sync-staging-server.md) ? Un serveur en mode intermédiaire ne synchronise pas les mots de passe.
 
 2. Exécutez le script dans la section [Obtenir l’état des paramètres de synchronisation de mot de passe](#get-the-status-of-password-sync-settings). Cela vous donne une vue d’ensemble de la configuration de la synchronisation de mot de passe.  
 

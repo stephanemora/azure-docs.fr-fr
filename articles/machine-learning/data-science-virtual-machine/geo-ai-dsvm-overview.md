@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890880"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introduction de la machine virtuelle de science des données de l’intelligence artificielle de géoréplication
 
@@ -44,7 +44,7 @@ L’intégration d’informations d’emplacement et géographiques à vos donn�
 
 Le [machine virtuelle de science des données (DSVM)](overview.md) de Microsoft est un environnement de modélisation et d’expérimentation populaire sur Azure, qui héberge des outils d’IA, de machine learning et de science des données. Pour des raisons pratiques, ces outils et plateformes sont tous pré-configurés afin que vous soyez opérationnel immédiatement. 
 
-En combinant les fonctionnalités prédictives de la machine virtuelle de science des données et la mise à l’échelle du Cloud Azure et le logiciel d’analyse géospatiale d’[ESRI](http://www.esri.com), les scientifiques des données et les analystes de données géo-spatiales disposent maintenant d’une plateforme productive sur laquelle obtenir de nouvelles informations sur leurs données et ainsi identifier de nouvelles opportunités. 
+En combinant les fonctionnalités prédictives de la machine virtuelle de science des données et la mise à l’échelle du Cloud Azure et le logiciel d’analyse géospatiale d’[ESRI](https://www.esri.com), les scientifiques des données et les analystes de données géo-spatiales disposent maintenant d’une plateforme productive sur laquelle obtenir de nouvelles informations sur leurs données et ainsi identifier de nouvelles opportunités. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

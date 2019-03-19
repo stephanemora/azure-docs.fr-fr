@@ -3,17 +3,17 @@ title: Utiliser des ensembles d’appareils dans votre application Azure IoT Cen
 description: En tant qu’opérateur, comment utiliser des ensembles d’appareils dans votre application Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004117"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759813"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utiliser des ensembles d’appareils dans votre application Azure IoT Central
 
@@ -27,7 +27,7 @@ Pour créer un ensemble d’appareils :
 
 1. Choisissez **Ensembles d’appareils** dans le menu de navigation gauche.
 
-1. Cliquez sur **+ Nouveau**.
+1. Sélectionnez **+ nouveau**.
 
     ![Nouvel ensemble d’appareils](media/howto-use-device-sets/image1.png)
 
@@ -48,9 +48,11 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **t
 
 1. Choisissez **Ensembles d’appareils** dans le menu de navigation gauche.
 
-1. Choisissez l’onglet **Tableau de bord**.
+1. Sélectionnez votre ensemble d'appareils.
 
-1. Cliquez sur **Modifier le modèle**.
+1. Sélectionnez l'onglet **Tableau de bord** .
+
+1. Sélectionnez **Modifier**.
 
     ![Mode Conception activé](media/howto-use-device-sets/image3.png)
 
@@ -59,7 +61,7 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **t
 1. Ajoutez une vignette de lien :
     1. Choisissez **Lien** dans le volet droit.
     1. Donnez un **Titre** à votre lien.
-    1. Choisissez une URL à ouvrir quand l’utilisateur clique sur le lien.
+    1. Choisir une URL à ouvrir lorsque le lien est sélectionné.
     1. Donnez à votre lien une description qui s’affiche sous le **Titre**.
     1. Choisissez **Enregistrer**.
 
@@ -69,9 +71,6 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **t
 
 1. Ajoutez une grille. Une grille est un tableau des appareils de l’ensemble d’appareils, avec les colonnes que vous choisissez.
     1. Choisissez **Grille** dans le volet droit.
-
-        ![Choisir une grille](media/howto-use-device-sets/image8.png)
-
     1. Donnez un **Titre** à votre grille.
     1. Sélectionnez les colonnes à afficher en cliquant sur **Ajouter/Supprimer**. Dans le panneau qui s’affiche, choisissez la colonne à afficher et cliquez sur la flèche droite pour la sélectionner.
     1. Choisissez **OK**.
@@ -81,31 +80,24 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **t
 
     1. Faites glisser et déposez la grille pour la placer sur le **tableau de bord**.
 
-    > [!NOTE]
-    > Vous pouvez ajouter plusieurs images, liens et grilles.
+        > [!NOTE]
+        > Vous pouvez ajouter plusieurs images, liens et grilles.
   
-    1. Cliquez sur **Done**.
+    1. Sélectionnez **Terminé**.
 
-    ![Mode Conception désactivé](media/howto-use-device-sets/image10.png)
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configuration de la carte des emplacements dans votre tableau de bord d’ensembles d’appareils
 
-
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configuration de la carte des emplacements dans votre tableau de bord d’ensembles d’appareils 
 Vous pouvez ajouter une carte des emplacements pour visualiser l’emplacement de vos ensembles d’appareils sur une carte.
 
 Pour ajouter une carte des emplacements à votre tableau de bord d’ensembles d’appareils, vous devez avoir configuré une propriété d’emplacement dans votre modèle d’appareil. Consultez [Créer une propriété d’emplacement optimisée par Azure Maps](howto-set-up-template.md).
 
-
 1. Dans votre tableau de bord des ensembles d’appareils, sélectionnez le mappage dans la bibliothèque.
-
-    ![Cartes du tableau de bord des ensembles d’appareils](media/howto-use-device-sets/LocationMaps1.png)
-
 2. Donnez un titre et choisissez la propriété d’emplacement que vous avez déjà configurée dans votre propriété d’appareil.
 3. Enregistrez pour afficher la mosaïque de la carte indiquant l’emplacement de vos appareils dans l’ensemble d’appareils.
-4. À présent, lorsqu’un opérateur affiche le tableau de bord des ensembles d’appareils, il peut voir toutes les mosaïques que vous avez configurées, y compris la carte des emplacements, et visualiser ainsi en un clin d’œil l’emplacement de tous les appareils. 
-    
-> [!NOTE] 
-> Vous pouvez redimensionner la carte à la taille désirée. Un clic sur une épingle sur la carte affiche les informations sur l’appareil, ainsi que son nom et son emplacement. Vous pouvez cliquer sur le menu contextuel pour accéder à la page de propriétés de l’appareil.  
+4. À présent, lorsqu’un opérateur affiche le tableau de bord des ensembles d’appareils, il peut voir toutes les mosaïques que vous avez configurées, y compris la carte des emplacements, et visualiser ainsi en un clin d’œil l’emplacement de tous les appareils.
 
+> [!NOTE]
+> Vous pouvez redimensionner la carte à la taille souhaitée. Sélection d’un code confidentiel dans la carte affiche les informations sur l’appareil, le nom et l’emplacement. Vous pouvez sélectionner la fenêtre contextuelle pour accéder à la page de propriétés d’appareil.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurer la liste pour votre ensemble d’appareils
 
@@ -127,7 +119,7 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer la **Li
 
 ## <a name="analytics"></a>Analytics
 
-L’analytique des ensembles d’appareils est identique à celle de l’onglet d’analytique principal dans le menu de navigation gauche. Pour plus d’informations sur l’analytique, consultez [Comment créer une analytique](howto-create-analytics.md).
+L’analytique des ensembles d’appareils est identique à celle de l’onglet d’analytique principal dans le menu de navigation gauche. Pour plus d’informations sur l’analytique, consultez [Comment créer une analytique](howto-use-device-sets.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

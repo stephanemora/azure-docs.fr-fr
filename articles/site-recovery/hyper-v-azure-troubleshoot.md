@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 14d763126cccadf8042da79b20d15e5c93a8ce62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094175"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Résoudre les problèmes de réplication et de basculement de Hyper-V sur Azure
 
@@ -28,9 +28,9 @@ Si vous rencontrez des problèmes lorsque vous activez la protection des machine
 3. Vérifiez que le service de gestion d’ordinateurs virtuels de Hyper-V est en cours d’exécution sur les hôtes Hyper-V.
 4. Recherchez les problèmes de connexion Hyper-V-VMMS\Admin à la machine virtuelle. Ce fichier journal se trouve dans **Journaux des applications et services** > **Microsoft** > **Windows**.
 5. Sur la machine virtuelle invitée, vérifiez que WMI est activé et accessible.
-  - [En savoir plus sur](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) le test de base de WMI.
-  - [Résolvez les problèmes](https://aka.ms/WMiTshooting) de WMI.
-  - [Résolvez les problèmes](https://technet.microsoft.com/library/ff406382.aspx#H22) des scripts et services de WMI.
+   - [En savoir plus sur](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) le test de base de WMI.
+   - [Résolvez les problèmes](https://aka.ms/WMiTshooting) de WMI.
+   - [Résoudre les problèmes](https://technet.microsoft.com/library/ff406382.aspx#H22) des problèmes avec les services et les scripts WMI.
 6. Sur la machine virtuelle invitée, vérifiez que la version d’Integration Services en cours d’exécution est la dernière en date.
     - [Vérifiez](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) que vous avez la version la plus récente.
     - [Conservez](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services à jour.
@@ -41,9 +41,9 @@ Pour résoudre les problèmes liés à la réplication initiale et continue, pro
 
 1. Vérifiez que vous exécutez la [version la plus récente](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) des services Azure Site Recovery.
 2. Vérifiez si la réplication est suspendue :
-  - Vérifiez l’état d’intégrité de la machine virtuelle dans la console du Gestionnaire Hyper-V.
-  - S’il est critique, cliquez avec le bouton droit de la souris sur la machine virtuelle, puis sélectionnez **Réplication** > **Afficher l’intégrité de la réplication**.
-  - Si la réplication est suspendue, cliquez sur **Reprendre la réplication**.
+   - Vérifiez l’état d’intégrité de la machine virtuelle dans la console du Gestionnaire Hyper-V.
+   - S’il est critique, cliquez avec le bouton droit de la souris sur la machine virtuelle, puis sélectionnez **Réplication** > **Afficher l’intégrité de la réplication**.
+   - Si la réplication est suspendue, cliquez sur **Reprendre la réplication**.
 3. Vérifiez que les services nécessaires sont en cours d’exécution. Si tel n’est pas le cas, redémarrez-les.
     - Si vous répliquez Hyper-V sans VMM, vérifiez que ces services sont en cours d’exécution sur l’hôte Hyper-V :
         - Service Gestion d’ordinateurs virtuels
@@ -65,10 +65,10 @@ Les limitations de la bande passante du réseau peuvent affecter la réplication
 2. Exécuter le profileur [Planificateur de déploiement](hyper-v-deployment-planner-run.md).
 3. Après avoir exécuté le profileur, suivez les recommandations en matière de [bande passante](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) et de [stockage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation).
 4. Vérifiez les [limitations de l’activité des données](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Si vous constatez une activité importante des données sur une machine virtuelle, procédez comme suit :
-  - Vérifiez si votre machine virtuelle est concernée par la resynchronisation.
-  - Procédez comme [suit](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) pour déterminer la raison d’une telle activité.
-  - Elle peut survenir lorsque les fichiers journaux de HRL dépassent 50 % de l’espace disque disponible. Si tel est le cas, configurez davantage d’espace de stockage pour toutes les machines virtuelles présentant le problème.
-  - Vérifiez que la réplication n’est pas suspendue. Si tel est le cas, elle continue de modifier le fichier hrl, ce qui peut contribuer à augmenter sa taille.
+   - Vérifiez si votre machine virtuelle est concernée par la resynchronisation.
+   - Procédez comme [suit](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) pour déterminer la raison d’une telle activité.
+   - Elle peut survenir lorsque les fichiers journaux de HRL dépassent 50 % de l’espace disque disponible. Si tel est le cas, configurez davantage d’espace de stockage pour toutes les machines virtuelles présentant le problème.
+   - Vérifiez que la réplication n’est pas suspendue. Si tel est le cas, elle continue de modifier le fichier hrl, ce qui peut contribuer à augmenter sa taille.
  
 
 ## <a name="critical-replication-state-issues"></a>Problèmes d’état de réplication critique
@@ -91,17 +91,17 @@ Une capture instantanée de cohérence des applications est un instantané à un
 
 1. Vérifiez que la version d’Integration Services installée et en cours d’exécution est la plus récente.  Vérifiez si une mise à jour est disponible en exécutant la commande suivante dans une invite PowerShell avec élévation de privilèges sur l’hôte Hyper-V : **get-vm | select Name, State, IntegrationServicesState**.
 2. Vérifiez que les services VSS sont en cours d’exécution et intègres :
-    - Pour vérifier les services, connectez-vous à la machine virtuelle invitée. Puis, ouvrez une invite de commandes administrateur et exécutez les commandes suivantes pour vérifier si tous les enregistreurs VSS sont intègres.
-        - **Enregistreurs de liste Vssadmin**
-        - **Clichés instantanés de liste Vssadmin**
-        - **Fournisseurs de listes vssadmin**
-    - Vérifiez la sortie. Si les enregistreurs sont dans un état d’échec, procédez comme suit :
-        - Recherchez les dysfonctionnements de VSS dans le journal des événements d’application.
-    - Essayez de redémarrer ces services associés à l’enregistreur en état d’échec :
-        - Cliché instantané de volume
-         - Fournisseur VSS d’Azure Site Recovery
-    - Ensuite, attendez quelques heures pour voir si les captures instantanées de cohérence des applications sont bien générées.
-    - En dernier recours, essayez de redémarrer la machine virtuelle. Cela peut résoudre les services qui ne répondent pas.
+   - Pour vérifier les services, connectez-vous à la machine virtuelle invitée. Puis, ouvrez une invite de commandes administrateur et exécutez les commandes suivantes pour vérifier si tous les enregistreurs VSS sont intègres.
+       - **Enregistreurs de liste Vssadmin**
+       - **Clichés instantanés de liste Vssadmin**
+       - **Fournisseurs de listes vssadmin**
+   - Vérifiez la sortie. Si les enregistreurs sont dans un état d’échec, procédez comme suit :
+       - Recherchez les dysfonctionnements de VSS dans le journal des événements d’application.
+   - Essayez de redémarrer ces services associés à l’enregistreur en état d’échec :
+     - Cliché instantané de volume
+       - Fournisseur VSS d’Azure Site Recovery
+   - Ensuite, attendez quelques heures pour voir si les captures instantanées de cohérence des applications sont bien générées.
+   - En dernier recours, essayez de redémarrer la machine virtuelle. Cela peut résoudre les services qui ne répondent pas.
 3. Vérifiez que vous n’avez pas de disques dynamiques dans la machine virtuelle. Les captures instantanées de cohérence des applications ne les prennent pas en charge. Vérifiez dans Gestion des disques (diskmgmt.msc).
 
     ![Disque dynamique](media/hyper-v-azure-troubleshoot/dynamic-disk.png)

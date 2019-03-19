@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092376"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Didacticiel : Configurer Samanage pour l’approvisionnement automatique d’utilisateurs
 
@@ -29,7 +29,7 @@ L’objectif de ce didacticiel est de présenter les étapes à effectuer dans S
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -108,9 +108,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Nom d'utilisateur de l'administrateur** et le **Mot de passe d'administrateur** de votre compte Samanage. Voici des exemples de valeurs :
 
-    *   Dans le champ **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Samanage. Exemple : admin@contoso.com.
+   * Dans le champ **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Samanage. Exemple : admin@contoso.com.
 
-    *   Dans le champ **Mot de passe d’administrateur**, indiquez le mot de passe du compte administrateur correspondant au nom de l’utilisateur administrateur.
+   * Dans le champ **Mot de passe d’administrateur**, indiquez le mot de passe du compte administrateur correspondant au nom de l’utilisateur administrateur.
 
 6. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à Samanage. Si la connexion échoue, vérifiez que votre compte Samanage dispose d’autorisations d’administrateur et réessayez.
 

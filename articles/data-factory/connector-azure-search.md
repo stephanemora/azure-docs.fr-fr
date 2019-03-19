@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023343"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852839"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche Azure à l’aide d’Azure Data Factory
 
@@ -49,7 +49,7 @@ Les propriétés prises en charge pour le service lié Recherche Azure sont les 
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 > [!IMPORTANT]
-> Lors de la copie de données d’une banque de données cloud vers l’index de recherche Azure dans un service lié Azure Search, vous devez référencer un runtime d’intégration Azure avec une région explicite dans connactVia. Définissez la région comme celle dans laquelle votre Recherche Azure réside. En savoir plus dans [Integration Runtime Azure](concepts-integration-runtime.md#azure-integration-runtime).
+> Lors de la copie de données à partir d’un magasin de données cloud dans des index de recherche Azure, dans la recherche Azure, service lié, vous devez faire référence à un Runtime d’intégration Azure avec une région explicite dans connactVia. Définissez la région comme celle dans laquelle votre Recherche Azure réside. En savoir plus dans [Integration Runtime Azure](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Exemple :**
 

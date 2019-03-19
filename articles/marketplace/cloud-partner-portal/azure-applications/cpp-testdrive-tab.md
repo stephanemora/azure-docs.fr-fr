@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: de4c8aecefce334889c3fa6790c0ba42673896c7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: d51c7330acd37d8a861c136ea85a2ff456eb264e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195494"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446484"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Onglet Version d’évaluation d’applications Azure
 
@@ -33,7 +33,7 @@ La version d’évaluation permet aux clients d'essayer les principales fonction
 
 ## <a name="how-a-test-drive-works"></a>Fonctionnement d’une version d’évaluation
 
-Un client potentiel accède à votre application après avoir lancé une recherche sur la Place de marché. Le client se connecte et accepte les conditions d’utilisation. À ce stade, le client reçoit votre environnement préconfiguré afin de l'essayer pendant un nombre d'heures défini, et vous disposez d'un prospect pertinent auquel vous pouvez donner suite. Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’une version d’évaluation ?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+Un client potentiel accède à votre application après avoir lancé une recherche sur la Place de marché. Le client se connecte et accepte les conditions d’utilisation. À ce stade, le client reçoit votre environnement préconfiguré afin de l'essayer pendant un nombre d'heures défini, et vous disposez d'un prospect pertinent auquel vous pouvez donner suite. Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’une version d’évaluation ?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
 ## <a name="setting-up-a-test-drive"></a>Configuration d’une version d’évaluation
 
@@ -64,10 +64,10 @@ Le tableau suivant décrit les champs requis pour configurer la version d’éva
 |  ---------------   |  ---------------  |
 |      Description              |   Décrivez ce qui peut être fait sur votre version d’évaluation. Vous pouvez utiliser des balises HTML de base pour mettre en forme cette description. Par exemple, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;et les en-têtes.                |
 |    Manuel utilisateur                |     Téléchargez un manuel utilisateur que vos clients peuvent utiliser pour se guider au cours de l’expérience d’évaluation. Ce document doit être au format pdf.              |
-|         Vidéo de démonstration de version d’évaluation (facultative)           |       Vous pouvez fournir une vidéo de procédure pas à pas de votre version d’évaluation. Un client peut regarder cette vidéo avant de se procurer une version d’évaluation. Fournissez une URL vers la vidéo sur YouTube ou Vimeo. Si vous sélectionnez **+ Ajouter une vidéo**, vous être invité à fournir les informations suivantes :<ul><li>NOM</li><li>URL</li><li>Miniature (au format PNG, 533 x 324 pixels)</li></ul>            |
-|       Instances             |        Configurez le nombre d’instances que vous désirez, leur(s) région(s), et la vitesse à laquelle vos clients peuvent obtenir la version d’évaluation. Pour plus d’informations, consultez [Publication d’une version d’évaluation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
+|         Vidéo de démonstration de version d’évaluation (facultative)           |       Vous pouvez fournir une vidéo de procédure pas à pas de votre version d’évaluation. Un client peut regarder cette vidéo avant de se procurer une version d’évaluation. Fournissez une URL vers la vidéo sur YouTube ou Vimeo. Si vous sélectionnez **+ Ajouter une vidéo**, vous être invité à fournir les informations suivantes :<ul><li>Nom</li><li>URL</li><li>Miniature (au format PNG, 533 x 324 pixels)</li></ul>            |
+|       Instances             |        Configurez le nombre d’instances que vous désirez, leur(s) région(s), et la vitesse à laquelle vos clients peuvent obtenir la version d’évaluation. Pour plus d’informations, consultez [Publication d’une version d’évaluation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
 |       Durée d’une version d’évaluation (heures)             |       Entrez un nombre entier correspondant au nombre d’heures. La plage autorisée est comprise entre 1 et 999.            |
-|        Modèle ARM de version d’évaluation            |        Téléchargez un fichier compressé (.zip) contenant vos modèles Azure Resource Manager pour votre application. Pour plus d’informations, consultez [Version d’évaluation d’Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive).            |
+|        Modèle ARM de version d’évaluation            |        Téléchargez un fichier compressé (.zip) contenant vos modèles Azure Resource Manager pour votre application. Pour plus d’informations, consultez [Version d’évaluation d’Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).            |
 |        Informations d’accès            |         Fournissez les informations d’accès une fois que votre client a obtenu la version d’évaluation. Par exemple, une URL pour accéder à la version d’évaluation et les informations de connexion. . Vous pouvez utiliser des balises HTML de base pour mettre en forme cette description. Par exemple, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;et les en-têtes.          |
 |       ID d’abonnement Azure             |       Ce paramètre accorde l’accès aux services Azure et au portail Azure. C’est dans l’abonnement que l’utilisation des ressources est signalée et que les services sont facturés. Si vous n’avez pas encore un abonnement Azure distinct uniquement pour les versions d’évaluation, créez-en un.             |
 |          ID de locataire Azure AD          |        Fournissez un locataire existant dans Azure Active Directory ou créez un locataire pour cette version d’évaluation.           |

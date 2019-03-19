@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8844e6ca9effe78f8d98571af2ce59b4e0abee8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 01da5f0798316517869fcc94eed2a7428fffba7b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465314"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850698"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -40,7 +40,7 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 |----------|----------------------------|
 | Récupération d’urgence | [Sauvegardes géoredondantes Azure](sql-database-automated-backups.md) |
 | Mise à l’échelle en lecture | [Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule (préversion)](sql-database-read-scale-out.md) |
-| ETL (OLTP vers OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL (OLTP vers OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migration du serveur local SQL vers la base de données Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -228,7 +228,7 @@ Vous devez mettre à jour le schéma d’une base de données dans un groupe de 
 
 SQL Data Sync s’exécute-t-il comme prévu ? Pour surveiller l’activité et résoudre les problèmes, consultez les articles suivants :
 
-- [Surveiller Azure SQL Data Sync avec Log Analytics](sql-database-sync-monitor-oms.md)
+- [Surveiller Azure SQL Data Sync avec les journaux d’Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>En savoir plus sur Azure SQL Database

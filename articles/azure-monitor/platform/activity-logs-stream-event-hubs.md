@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3d4c1029315e754410f31b13042d1d6acb105da1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429767"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309687"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
 Vous pouvez diffuser en continu le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) en temps quasi réel vers n’importe quelle application :
@@ -58,21 +58,24 @@ Pour mettre à jour le profil de journal d’activité afin d’inclure la diffu
 6. Si vous avez plusieurs abonnements, répétez cette action et envoyez toutes les données au même Hub d’événements.
 
 ### <a name="via-powershell-cmdlets"></a>Via les applets de commande PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, puis créer un nouveau profil de journal.
 
-1. Utilisez `Get-AzureRmLogProfile` pour déterminer s’il existe un profil de journal.  S’il n’existe aucun profil de journal, recherchez la propriété *name*.
-2. Utilisez `Remove-AzureRmLogProfile` pour supprimer le profil de journal à l’aide de la valeur provenant de la propriété *name*.
+1. Utilisez `Get-AzLogProfile` pour déterminer s’il existe un profil de journal.  S’il n’existe aucun profil de journal, recherchez la propriété *name*.
+2. Utilisez `Remove-AzLogProfile` pour supprimer le profil de journal à l’aide de la valeur provenant de la propriété *name*.
 
     ```powershell
     # For example, if the log profile name is 'default'
-    Remove-AzureRmLogProfile -Name "default"
+    Remove-AzLogProfile -Name "default"
     ```
-3. Utilisez `Add-AzureRmLogProfile` pour créer un profil de journal :
+3. Utilisez `Add-AzLogProfile` pour créer un profil de journal :
 
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your event hub belongs to>"
@@ -81,7 +84,7 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
    # Build the service bus rule Id from the settings above
    $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### <a name="via-azure-cli"></a>Via l’interface de ligne de commande Azure

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695025"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532046"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -43,35 +43,38 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 
 > [!IMPORTANT]
 > À compter du 12 décembre 2018, les nouveaux clients ne seront pas en mesure de provisionner les serveurs de calcul de génération 4 dans les zones Brésil Sud, Canada Centre, Canada Est, Asie Est, USA Est 2, Inde Centre, Inde Ouest, Japon Ouest, USA Centre Nord, USA Ouest. Les serveurs de calcul de génération 4 précédemment créés seront migrés vers la génération 5 à compter du 1er février 2019 dans ces régions.
+>
+> [!IMPORTANT]
+> À compter du 19 février 2019, nouveaux clients pas sera en mesure d’approvisionner les serveurs de génération 4 de calcul dans le centre des États-Unis, est des États-Unis, est du Japon, Europe du Nord, sud du centre des États-Unis, Asie du Sud-est, Europe de l’ouest. Génération de calcul 4 serveurs seront migrés pour 5 depuis le 1 avril 2019 ces régions de génération de calcul créées au préalable.
 
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
 | USA Centre |  | X |
 | USA Est |  | X |
-| USA Est 2 | X | X |
-| USA Centre Nord | X | X |
+| USA Est 2 |  | X |
+| USA Centre Nord |  | X |
 | USA Centre Sud | X | X |
-| USA Ouest | X | X |
+| USA Ouest |  | X |
 | USA Ouest 2 |  | X |
-| Brésil Sud | X | X |
-| Centre du Canada | X | X |
-| Est du Canada | X | X |
+| Brésil Sud |  | X |
+| Centre du Canada |  | X |
+| Est du Canada |  | X |
 | Europe Nord | X | X |
 | Europe Ouest |  | X |
 | France Centre |  | X |
 | Sud du Royaume-Uni |  | X |
 | Ouest du Royaume-Uni |  | X |
-| Asie Est | X | X |
+| Asie Est |  | X |
 | Asie Sud-Est | X | X |
 | Australie Est |  | X |
 | Centre de l’Australie |  | X |
 | Centre de l’Australie 2 |  | X |
 | Australie Sud-Est |  | X |
-| Inde Centre | X | X |
+| Inde Centre |  | X |
 | Inde Sud |  | X |
-| Inde Ouest | X | X |
+| Inde Ouest |  | X |
 | Japon Est | X | X |
-| Japon Ouest | X | X |
+| Japon Ouest |  | X |
 | Centre de la Corée |  | X |
 | Corée du Sud |  | X |
 | Chine Est 1 | X |  |

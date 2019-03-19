@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180753"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de surveillance à distance
 
@@ -21,7 +21,7 @@ Cet article fournit des informations sur la façon de configurer les contrôles 
 
 ## <a name="default-settings"></a>Paramètres par défaut
 
-Lorsque vous déployez la solution de surveillance à distance pour la première fois, il existe deux rôles : **administrateur** et **lecture seule**.
+Lorsque vous déployez la solution de surveillance à distance pour la première fois, il existe deux rôles : **Administrateur** et **en lecture seule**.
 
 Tout utilisateur ayant le rôle **administrateur** bénéficie d’un accès total à la solution, avec les autorisations suivantes ci-dessous. Un utilisateur ayant le rôle **lecture seule** a uniquement accès pour afficher la solution.
 
@@ -250,4 +250,4 @@ Consultez [Configurer des contrôles d’accès pour l’explorateur Time Series
 Pour plus d’informations conceptuelles sur l’accélérateur de solution de surveillance à distance, consultez [Architecture de la surveillance à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Pour plus d’informations sur la personnalisation de la solution de surveillance à distance, consultez [Personnaliser et redéployer un microservice](iot-accelerators-microservices-example.md)
-<!-- Next tutorials in the sequence -->.
+<!-- Next tutorials in the sequence -->

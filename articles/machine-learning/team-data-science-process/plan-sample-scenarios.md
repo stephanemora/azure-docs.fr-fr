@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468816"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454942"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scénarios d’analyses avancées dans Azure Machine Learning
 Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus [TDSP (Team Data Science Process)](overview.md). Le processus TDSP fournit une approche systématique permettant aux équipes de collaborer à la création d’applications intelligentes. Les scénarios présentés ici illustrent les options disponibles dans le flux de travail de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
@@ -146,7 +146,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données, le cas échéant, directement dans la requête [Import Data][import-data].
 1. Flux d’expérience Azure Machine Learning simple commençant par le jeu de données téléchargé
 
-## <a name="largedbtodb"></a>Scénario \#6 : jeu de données volumineux dans une base de données SQL Server locale, ciblant SQL Server dans une machine virtuelle Azure
+## <a name="largedbtodb"></a>Scénario \#6 : Jeu de données volumineux dans une base de données de SQL Server locale, ciblant SQL Server dans une Machine virtuelle Azure
 ![Base de données SQL volumineuse sur site vers une base de données SQL dans Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
@@ -154,7 +154,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 1. Utilisez l’une des méthodes d’exportation des données pour exporter les données à partir de SQL Server vers des fichiers de vidage.
    
    > [!NOTE]
-   > Si vous décidez de déplacer toutes les données à partir de la base de données locale, il existe une autre méthode (plus rapide) pour déplacer la base de données entière vers l’instance SQL Server dans Azure. Ignorez les étapes d’exportation des données, de création de la base de données et de chargement/importation des données dans la base de données cible, et suivez l’autre méthode.
+   > Si vous décidez de déplacer toutes les données à partir de la base de données locale, une autre méthode (plus rapide) pour déplacer la base de données complète à l’instance de SQL Server dans Azure. Ignorez les étapes d’exportation des données, de création de la base de données et de chargement/importation des données dans la base de données cible, et suivez l’autre méthode.
    > 
    > 
 1. Téléchargez les fichiers de vidage vers le conteneur de stockage Azure.

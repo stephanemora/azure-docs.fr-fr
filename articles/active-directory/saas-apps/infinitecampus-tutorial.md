@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53eb0c4ad5c0a21f46985062ef8202a87dc0d5e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189359"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutoriel : Intégration d’Azure Active Directory à Infinite Campus
 
@@ -35,12 +35,12 @@ L’intégration d’Infinite Campus avec Azure AD offre les avantages suivants 
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Infinite Campus, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Infinite Campus pour lequel l’authentification unique est activée
+- Un Campus infinie l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -49,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
-- Au minimum, vous devez être administrateur Azure Active Directory pour terminer la configuration.
+- Au minimum, vous devez être un administrateur Azure Active Directory et ont un rôle de sécurité du produit Campus de « Student Information System (SIS) » pour terminer la configuration.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -90,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Infinite Cam
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Infinite Campus](#creating-a-infinite-campus-test-user)** pour obtenir un équivalent de Britta Simon dans Infinite Campus, lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test Campus infinie](#creating-a-infinite-campus-test-user)**  - pour avoir un équivalent de Britta Simon dans Campus infinie qui est lié à la représentation Azure AD de l’utilisateur.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -112,7 +112,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](common/editconfigure.png)
 
-4. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, effectuez les étapes 4.a à 4.d, mais ignorez l’étape 11.c. Si vous ne disposez pas d’un fichier de métadonnées du fournisseur de services, passez à l’étape 5.
+4. Sur le **base SAML Configuration** section, si vous avez un **fichier de métadonnées de fournisseur de services** exporté à partir de Campus infinie, effectuez les étapes 4.a via 4.d, puis passez à l’étape 11.c. Si vous ne disposez pas d’un fichier de métadonnées du fournisseur de services, passez à l’étape 5.
 
     a. Cliquez sur **Charger un fichier de métadonnées**.
 
@@ -168,13 +168,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Sélectionnez **Activer l’authentification unique SAML**.
     
-    b. Dans la section **Select an option to retrieve Identity Provider (IDP) server data** (Sélectionnez une option pour récupérer les données de serveur du fournisseur d’identité), sélectionnez **Metadata URL** (URL des métadonnées), collez l’**URL des métadonnées de fédération d’application** dans la zone, puis cliquez sur **Sync** (Synchroniser).
+    b. Modifier le **nom de l’attribut facultatif** pour contenir **nom**
+    
+    c. Sur le **sélectionnez une option pour récupérer les données de serveur de fournisseur d’identité (IDP)** , sélectionnez **URL des métadonnées**, collez la **Url des métadonnées de fédération application** (à partir de l’étape 6 ci-dessus) dans la zone, puis cliquez sur **synchronisation**.
 
-    c. Cliquez sur le lien **Service Provider Metadata** (Métadonnées du fournisseur de services) pour enregistrer le **fichier de métadonnées du fournisseur de services** sur votre ordinateur, et le charger dans la section **Configuration SAML de base** afin de renseigner automatiquement les valeurs **Identificateur** et **URL de réponse** du portail Azure (reportez-vous à l’étape 4 pour charger et remplir automatiquement les valeurs, ou à l’étape 5 pour les entrer manuellement).
+    d. Cliquez sur le lien **Service Provider Metadata** (Métadonnées du fournisseur de services) pour enregistrer le **fichier de métadonnées du fournisseur de services** sur votre ordinateur, et le charger dans la section **Configuration SAML de base** afin de renseigner automatiquement les valeurs **Identificateur** et **URL de réponse** du portail Azure (reportez-vous à l’étape 4 pour charger et remplir automatiquement les valeurs, ou à l’étape 5 pour les entrer manuellement).
 
-    d. Après avoir cliqué sur **Synchroniser**, les valeurs sont automatiquement renseignées dans la page **Configuration du fournisseur de services d’authentification unique**.
+    e. Après avoir cliqué sur **Synchroniser**, les valeurs sont automatiquement renseignées dans la page **Configuration du fournisseur de services d’authentification unique**.
 
-    e. Cliquez sur **Enregistrer**.
+    f. Cliquez sur **Enregistrer**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 
@@ -194,14 +196,14 @@ L’objectif de cette section est de créer un utilisateur de test _unique_ appe
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le **nom d’utilisateur** , tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Sélectionnez **Créer**.
 
-### <a name="creating-a-infinite-campus-test-user"></a>Création d’un utilisateur de test Infinite Campus
+### <a name="creating-an-infinite-campus-test-user"></a>Création d’un utilisateur de test Campus infinie
 
 L’architecture d’Infinite Campus est centrée sur des données démographiques. Pour ajouter des utilisateurs dans la plateforme Infinite Campus, veuillez contacter l’[équipe de support technique d’Infinite Campus](mailto:sales@infinitecampus.com).
 
@@ -233,7 +235,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Infinite Campus dans le volet d’accès, vous devez être connecté automatiquement à votre application Infinite Campus. Si vous vous connectez à l’application Infinite Campus dans le même navigateur que celui où vous administrez Azure AD, veillez à vous connecter à Azure AD en tant qu’utilisateur de test. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Lorsque vous cliquez sur la vignette Infinite Campus dans le volet d’accès, vous devez être connecté automatiquement à votre application Infinite Campus. Si vous vous connectez à l’application de Campus infinie dans le même navigateur que vous administrez Azure AD, assurez-vous de qu'être connecté à Azure AD en tant que l’utilisateur de test. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23125497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993339"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exemple 1 : Générer une zone DMZ simple en utilisant des groupes de sécurité réseau (NSG) avec Classic PowerShell
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -37,7 +37,7 @@ Cet exemple crée une zone DMZ primitive avec quatre serveurs Windows et des gro
 ## <a name="environment-description"></a>Description de l’environnement
 Dans cet exemple, un abonnement contient les ressources suivantes :
 
-* deux services cloud : « FrontEnd001 », « BackEnd001 »,
+* Deux services cloud : « FrontEnd001 » et « BackEnd001 »
 * Un réseau virtuel « CorpNetwork » avec deux sous-réseaux « FrontEnd » et « BackEnd »
 * un groupe de sécurité réseau est appliqué aux deux sous-réseaux,
 * un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
@@ -98,15 +98,15 @@ Chaque règle est abordée plus en détail par la suite (**Remarque**: tous les 
    * « Priorité » définit l’ordre dans lequel le flux de trafic est évalué. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. Lorsqu’une règle s’applique à un flux de trafic spécifique, aucune autre règle n’est traitée. Donc si une règle de priorité 1 autorise le trafic et une règle de priorité 2 le refuse, si les deux règles s’appliquent, alors le trafic est autorisé à circuler (dans la mesure où la règle 1 a une priorité plus élevée et est appliquée, aucune autre règle n’est prise en compte).
    * « Action » indique si le trafic concerné par cette règle est bloqué ou autorisé.
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
 3. Cette règle autorise le trafic RDP à circuler depuis Internet vers le port RDP de n’importe quel serveur du sous-réseau lié. Cette règle utilise deux types spéciaux de préfixes d’adresses ; « VIRTUAL_NETWORK » et « INTERNET ». Ces balises constituent un moyen simple de traiter une catégorie plus importante de préfixes d’adresses.
 
@@ -544,7 +544,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 Enregistrez ce fichier XML avec l’emplacement mis à jour et ajoutez le lien vers ce fichier à la variable $NetworkConfigFile dans le script précédent.
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
@@ -576,7 +576,7 @@ Enregistrez ce fichier XML avec l’emplacement mis à jour et ajoutez le lien v
 ```
 
 #### <a name="sample-application-scripts"></a>Exemples de scripts d’application
-Si vous souhaitez installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez à l’adresse suivante : [Exemple de script d’application][SampleApp]
+Si vous souhaitez installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez à l’adresse suivante : [Exemple de script d’application][SampleApp]
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Mise à jour et enregistrement du fichier XML

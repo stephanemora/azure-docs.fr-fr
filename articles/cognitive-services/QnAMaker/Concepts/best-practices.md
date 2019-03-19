@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270179"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311693"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 Le [cycle de vie du développement d’une base de connaissances](../Concepts/development-lifecycle-knowledge-base.md) vous guide de bout en bout sur la façon de gérer votre base de connaissances. Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
@@ -78,7 +78,7 @@ Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la pro
 |Un stationnement est-il disponible ?|Vous avez un parking ?|Variante syntaxique|
  |Salut|Bonjour<br>Ça va ?|Variante lexicale ou argot|
 
-<a name="#use-metadata-filters"></a>
+<a name="use-metadata-filters"></a>
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Utiliser des balises de métadonnées pour filtrer les questions et les réponses
 
@@ -108,7 +108,7 @@ QnA Maker permet aux utilisateurs de [travailler en collaboration](../How-to/col
 
 ## <a name="active-learning"></a>Apprentissage actif
 
-L’[apprentissage actif](../How-to/improve-knowledge-base.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure.
+L’[apprentissage actif](../How-to/improve-knowledge-base.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois que les questions sont suggérées dans le portail QnA Maker, vous devez consulter et accepter ou rejeter ces suggestions. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

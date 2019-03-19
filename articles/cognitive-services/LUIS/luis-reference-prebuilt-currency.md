@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f3d4c8aeabb33e9f0f8b53f63c60c8d6ca702a83
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 76531e3ebba5519d9ddab7733abb2890003cbcd5
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876672"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339910"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie currency pour une application LUIS
 L’entité prédéfinie currency détecte une devise dans un grand nombre de  dénominations et de pays, quelle que soit la culture de l’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des devises aux intentions de l’application. L’entité currency est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 

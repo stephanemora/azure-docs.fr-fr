@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084308"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics (préversion)
 
@@ -134,21 +134,46 @@ Avant de déployer la tâche sur Azure, vous pouvez tester la logique de la requ
 
 Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Database](../sql-database/sql-database-temporal-tables.md) sont recommandées.
 
-1. Créez la requête de capture instantanée. 
+1. Créer une table temporelle dans la base de données SQL Azure.
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. Créez la requête de capture instantanée. 
 
-   Utilisez le paramètre **@snapshotTime** pour indiquer au runtime Stream Analytics d’obtenir le jeu de données de référence à partir de la table temporelle de la base de données SQL valide à l’heure système. Si vous ne fournissez pas ce paramètre, vous risquez d’obtenir un jeu de données de référence de base incorrect en raison des décalages d’horloge. Un exemple complet de requête d’instantané est présenté ci-dessous :
-
-   ![Requête d’instantané Stream Analytics](./media/sql-reference-data/snapshot-query.png)
+   Utilisez le  **\@snapshotTime** paramètre pour indiquer à l’exécution du Stream Analytique pour obtenir le jeu de données de référence à partir de la base de données temporel SQL valide à l’heure système. Si vous ne fournissez pas ce paramètre, vous risquez d’obtenir un jeu de données de référence de base incorrect en raison des décalages d’horloge. Un exemple complet de requête d’instantané est présenté ci-dessous :
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. Créez la requête delta. 
    
-   Cette requête récupère toutes les lignes dans votre base de données SQL qui ont été insérées ou supprimées entre l’heure de début **@deltaStartTime** et l’heure de fin **@deltaEndTime**. La requête delta doit retourner les mêmes colonnes que la requête d’instantané, ainsi que l’opération (**_operation_**) de la colonne. Cette colonne définit si la ligne est insérée ou supprimée entre **@deltaStartTime** et **@deltaEndTime**. Les lignes obtenues sont marquées avec le chiffre **1** si les enregistrements ont été insérés ou avec le chiffre **2** s’ils ont été supprimés. 
+   Cette requête récupère toutes les lignes dans votre base de données SQL qui ont été insérées ou supprimées dans une heure de début,  **\@deltaStartTime**et une heure de fin  **\@deltaEndTime**. La requête delta doit retourner les mêmes colonnes que la requête d’instantané, ainsi que l’opération (**_operation_**) de la colonne. Cette colonne définit si la ligne est insérée ou supprimée entre  **\@deltaStartTime** et  **\@deltaEndTime**. Les lignes obtenues sont marquées avec le chiffre **1** si les enregistrements ont été insérés ou avec le chiffre **2** s’ils ont été supprimés. 
 
    Pour les enregistrements qui ont été mis à jour, la table temporelle se charge de la comptabilité en capturant une opération d’insertion et de suppression. Le runtime Stream Analytics applique ensuite les résultats de la requête delta à l’instantané précédent pour conserver les données de référence à jour. Un exemple de requête delta est présenté ci-dessous :
 
-   ![Requête delta Stream Analytics](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
-  Notez que le runtime Stream Analytics peut exécuter périodiquement la requête d’instantané en plus de la requête delta pour stocker des points de contrôle.
+   Notez que le runtime Stream Analytics peut exécuter périodiquement la requête d’instantané en plus de la requête delta pour stocker des points de contrôle.
 
 ## <a name="faqs"></a>FAQ
 
@@ -158,7 +183,7 @@ Le [coût par unité de streaming](https://azure.microsoft.com/pricing/details/s
 
 **Comment faire pour savoir si un instantané de données de référence est interrogé à partir de la base de données SQL et utilisé dans la tâche Azure Stream Analytics ?**
 
-Vous pouvez recourir à deux métriques filtrées par nom logique (sous Métriques, dans le portail Azure) pour superviser l’intégrité de la base de données SQL utilisée comme entrée de données de référence.
+Il existe deux métriques filtrées par nom logique (sous les métriques Azure Portal) que vous pouvez utiliser pour surveiller l’intégrité des données de référence de base de données SQL d’entrée.
 
    * InputEvents : Cette métrique mesure le nombre d’enregistrements chargés à partir du jeu de données de référence de la base de données SQL.
    * InputEventBytes : Cette métrique mesure la taille de l’instantané de données de référence chargé en mémoire de la tâche Stream Analytics. 

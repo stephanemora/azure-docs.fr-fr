@@ -1,19 +1,19 @@
 ---
 title: Présentation des messages Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Messagerie d’appareil-à-cloud et de cloud-à-appareil avec IoT Hub. Comprend des informations sur les formats de message et les protocoles de communication pris en charge.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: d3a7284555fb592956d4e1dc3f56137c88d108e1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: f56332fa7f53c729ffaa28ea375f043d1b4a3678
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584387"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010869"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Envoyer des messages d’appareil-à-cloud et de cloud-à-appareil avec IoT Hub
 

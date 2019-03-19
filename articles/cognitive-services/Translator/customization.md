@@ -7,15 +7,15 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: c2ff97c61cee1f2f773710103ac422fc6f1d8714
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124012"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
@@ -42,7 +42,8 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 
 ## <a name="microsoft-translator-hub"></a>Hub Microsoft Translator
 
-L’ancien hub Microsoft Translator peut être utilisé pour obtenir une traduction automatique basée sur des statistiques. [En savoir plus](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> Microsoft Translator Hub hérité sera retiré le 30 avril 2019. [Afficher des dates et des informations sur la migration important](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator ou hub
 
@@ -50,17 +51,17 @@ L’ancien hub Microsoft Translator peut être utilisé pour obtenir une traduct
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
-| Personnalisation TA statistique | OUI   | Non  |
-| Personnalisation TA neuronale | Non     | OUI |
-| Nouvelle personnalisation unifiée des services vocaux | Non     | OUI |
-| [Sans trace](https://www.aka.ms/notrace) | OUI  | OUI |
+| Personnalisation TA statistique | Oui   | Non  |
+| Personnalisation TA neuronale | Non     | Oui |
+| Nouvelle personnalisation unifiée des services vocaux | Non     | Oui |
+| [Sans trace](https://www.aka.ms/notrace) | Oui  | Oui |
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives
 
 > [!NOTE]
 > Depuis le 1 février 2018, AddTranslation() et AddTranslationArray() ne sont plus disponibles pour l’API de traduction de texte Translator Text v2.0. Ces méthodes échouent, et rien n’est écrit. L’API de traduction de texte Translator Text v3.0 ne prend pas en charge ces méthodes.
-
->Une fonctionnalité similaire est disponible dans l’API du hub Translator. Voir [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> 
+> Une fonctionnalité similaire est disponible dans l’API du hub Translator. Voir [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
