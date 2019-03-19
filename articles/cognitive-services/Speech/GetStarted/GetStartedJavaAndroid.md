@@ -10,26 +10,27 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 147042e300e629dd7e354d4e9079cc4855a8146c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222488"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547012"
 ---
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
-
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Démarrage rapide : Utiliser l’API Reconnaissance vocale Bing en Java sur Android
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Avec l’API Reconnaissance vocale Bing, vous pouvez développer des applications Android qui utilisent le service cloud Reconnaissance vocale Bing pour convertir du contenu audio en texte. L’API prend en charge la diffusion en continu en temps réel, afin que votre application puisse de façon simultanée et asynchrone recevoir des résultats de reconnaissance partiels et envoyer du contenu audio au service.
 
 Cet article utilise un exemple d’application pour expliquer comment utiliser la bibliothèque de client Speech pour Android, afin de développer des applications de reconnaissance vocale en Java pour des appareils Android.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="platform-requirements"></a>Plateforme requise
 
-L’exemple est développé par [Android Studio](http://developer.android.com/sdk/index.html) pour Windows en Java.
+L’exemple est développé par [Android Studio](https://developer.android.com/sdk/index.html) pour Windows en Java.
 
 ### <a name="get-the-client-library-and-sample-application"></a>Obtenir la bibliothèque de client et l’exemple d'application
 

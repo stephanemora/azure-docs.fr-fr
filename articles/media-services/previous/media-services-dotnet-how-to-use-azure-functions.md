@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 428934a6e93ced56274bd27123bea9d92cd45240
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 69099fe1369223871142f74d8f6d1c6a8bd66dab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851760"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Développement de fonctions Azure Functions avec Media Services
 
@@ -27,14 +27,14 @@ Cet article vous montre comment vous familiariser avec la création de fonctions
 
 Si vous souhaitez explorer et déployer des fonctions Azure existantes qui utilisent Azure Media Services, consultez [Fonctions Azure Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Ce référentiel contient des exemples qui utilisent Media Services pour afficher les flux de travail liés à l’ingestion de contenu directement à partir du Stockage Blob, à l’encodage et à l’écriture de contenu dans le Stockage Blob. Il inclut également des exemples décrivant la manière de contrôler les notifications de travail via les WebHooks et les files d’attente Azure. Vous pouvez également développer vos fonctions en fonction des exemples dans le référentiel [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Pour déployer les fonctions, appuyez sur le bouton **Déployer dans Azure**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Pour créer votre première fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 - Si vous souhaitez créer des fonctions Azure Functions qui effectuent des actions sur votre compte Azure Media Services (AMS) ou qui écoutent des événements envoyés par Media Services, vous devez créer un compte AMS, comme décrit [ici](media-services-portal-create-account.md).
     
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
-1. Accédez au [Portail Azure](http://portal.azure.com) et connectez-vous avec votre compte Azure.
+1. Accédez au [Portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 2. Suivez [cette procédure](../../azure-functions/functions-create-function-app-portal.md) pour créer une Function App.
 
 >[!NOTE]

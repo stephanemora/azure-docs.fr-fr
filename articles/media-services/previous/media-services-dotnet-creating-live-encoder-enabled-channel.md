@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 85d32af93586b460c2885d7ed58c0f5aa5df8a44
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 77d37d5fae024c7b50d9eac461c9f609a86f8ed9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100102"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec .NET
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "54828347"
 > 
 > 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce didacticiel vous guide tout au long des étapes de création d’un **canal** qui reçoit un flux continu à débit binaire unique et qui l’encode en flux à débit binaire multiple.
 
 Pour obtenir des informations conceptuelles sur les canaux prenant en charge l’encodage dynamique, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
@@ -42,8 +42,6 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 
 > [!NOTE]
 > Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
-> 
-> 
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur live local qui peut générer un flux à débit unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -88,7 +86,7 @@ L’article montre comment effectuer les opérations suivantes :
 7. Afficher et masquer des slates. Démarrer et arrêter des publicités. Des API de longue durée sont utilisées.
 8. Nettoyer votre canal et toutes les ressources associées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
@@ -230,7 +228,7 @@ namespace EncodeLiveStreamWithAmsClear
             // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
             // IpV4 address with 4 numbers
             // CIDR address range
-        
+
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.FragmentedMP4,
@@ -258,7 +256,7 @@ namespace EncodeLiveStreamWithAmsClear
             // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
             // IpV4 address with 4 numbers
             // CIDR address range
-        
+
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl

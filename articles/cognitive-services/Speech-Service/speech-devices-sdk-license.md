@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 096bc96558f0fe33f8046622dc2443728674e405
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084621"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrat de licence du Kit de développement logiciel (SDK) Speech Devices
 
@@ -52,7 +52,7 @@ e) partager, publier ou prêter le logiciel (à l’exception de tout code distr
 
 f) Vous ne pouvez utiliser le logiciel qu’en association avec le service Speech dans Microsoft Azure Cognitive Services.
 
-**3\. COLLECTE DE DONNÉES.** Ce logiciel est susceptible d’interagir avec d’autres produits Microsoft qui recueillent des données transmises à Microsoft. Pour plus d’informations sur la façon dont Microsoft traite les données personnelles collectées, consultez la déclaration de confidentialité de Microsoft à l’adresse http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. COLLECTE DE DONNÉES.** Ce logiciel est susceptible d’interagir avec d’autres produits Microsoft qui recueillent des données transmises à Microsoft. Pour plus d’informations sur la façon dont Microsoft traite les données personnelles collectées, consultez la déclaration de confidentialité de Microsoft à l’adresse https://go.microsoft.com/fwlink/?LinkId=248681.
 
 **4\. LOGICIEL EN PRÉVERSION.** Le logiciel est en préversion. Il est possible qu’il ne fonctionne pas correctement. Il peut être différent de la version finale commercialisée.
 
@@ -83,9 +83,9 @@ b) Canada. Si vous avez acquis ce logiciel au Canada, vous pouvez cesser de rece
 c) Allemagne et Autriche.
 
 > (i) Garantie. Les logiciels dûment concédés sous licence fonctionneront essentiellement de la manière décrite dans les documents de Microsoft qui les accompagnent. Toutefois, Microsoft n’offre aucune garantie contractuelle en relation avec les logiciels sous licence.
-
+> 
 > (ii) Limitation de responsabilité. En cas de conduite délibérée, de négligence grave, de revendications en vertu de la loi sur la responsabilité des produits, ainsi qu’en cas de décès ou de blessure personnelle ou physique, Microsoft sera tenue pour responsable en vertu de la loi statutaire.
-
+> 
 > Sous réserve de la clause susdite (ii), Microsoft ne pourra être tenue pour responsable d’une négligence légère que si celle-ci constitue un manquement à ses obligations contractuelles importantes, dont le respect facilite l’exécution du présent contrat, dont la violation mettrait en péril la finalité même du présent contrat et dont chaque partie est en droit d’attendre en toute confiance le respect (« obligations fondamentales »). Dans d’autres cas de négligence légère, Microsoft ne pourra pas être tenue pour responsable.
 
 **15\. EXCLUSION DE GARANTIE. LE LOGICIEL EST CONCÉDÉ SOUS LICENCE « EN L’ÉTAT ». VOUS ÊTES SEUL RESPONSABLE DES RISQUES ASSOCIÉS À SON UTILISATION. MICROSOFT N’OFFRE AUCUNE GARANTIE OU CONDITION EXPRESSE. DANS LA MESURE AUTORISÉE PAR VOTRE LÉGISLATION LOCALE, MICROSOFT EXCLUT TOUTE GARANTIE TACITE EN MATIÈRE DE VALEUR MARCHANDE, D’ADÉQUATION À UN USAGE PARTICULIER ET DE NON-CONTRAVENTION À LA LOI.**

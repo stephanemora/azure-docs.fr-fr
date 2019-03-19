@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899347"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de détection des anomalies Machine Learning
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 L’[API de détection des anomalies](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps.
 
 Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
@@ -32,7 +32,7 @@ Ces détecteurs Machine Learning effectuent le suivi de tels changements de vale
 
 L’offre de détection des anomalies inclut des outils utiles pour bien commencer.
 
-* [L’application web](http://anomalydetection-aml.azurewebsites.net/) vous aide à évaluer et à visualiser les résultats de l’exécution de l’API de détection des anomalies sur vos données.
+* [L’application web](https://anomalydetection-aml.azurewebsites.net/) vous aide à évaluer et à visualiser les résultats de l’exécution de l’API de détection des anomalies sur vos données.
 
 > [!NOTE]
 > Essayez la **solution IT Anomaly Insights** basée sur [cette API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).
@@ -110,9 +110,9 @@ L’API de détection des anomalies prend en charge les détecteurs de 3 grandes
 | Catégorie de détecteurs | Détecteur | Description | Paramètres d’entrée | Outputs |
 | --- | --- | --- | --- | --- |
 | Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.sensitivity :* prend une valeur entière comprise entre 1 et 10, par défaut : 3 ; plus la valeur est élevée, moins la sensibilité est importante |TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
-| Détecteurs de pics | Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur entière comprise entre 1 et 10, par défaut : 3 ; plus la valeur est élevée, moins la sensibilité est importante |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) | |
+| Détecteurs de pics | Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur entière comprise entre 1 et 10, par défaut : 3 ; plus la valeur est élevée, moins la sensibilité est importante |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
 | Détecteur de tendances lentes |Détecteur de tendances lentes |Détecter les tendances positives lentes suivant la sensibilité définie |*trenddetector.sensitivity :* seuil sur le score du détecteur (par défaut : 3,25, 3,25 - 5 est une plage raisonnable pour faire une sélection ; plus la valeur est élevée, moins la sensibilité est importante) |tscore : nombre flottant représentant le résultat d’anomalies pour une tendance |
-| Détecteurs de changements de niveau | Détecteur de changements de niveau bidirectionnels |Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie |*bileveldetector.sensitivity :* seuil sur le score du détecteur (par défaut : 3,25, 3,25 - 5 est une plage raisonnable pour faire une sélection ; plus la valeur est élevée, moins la sensibilité est importante) |rscore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas | |
+| Détecteurs de changements de niveau | Détecteur de changements de niveau bidirectionnels |Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie |*bileveldetector.sensitivity :* seuil sur le score du détecteur (par défaut : 3,25, 3,25 - 5 est une plage raisonnable pour faire une sélection ; plus la valeur est élevée, moins la sensibilité est importante) |rscore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas |
 
 ### <a name="parameters"></a>parameters
 Le tableau ci-dessous contient des informations plus détaillées sur ces paramètres d’entrée :
@@ -125,7 +125,7 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 | trenddetector.sensitivity |Sensibilité du détecteur de tendances positives |3.25 |double |Aucune |3.25-5 (plus la valeur est basse, plus la sensibilité est importante) |
 | tspikedetector.sensitivity |Sensibilité du détecteur TSpike |3 |integer |1-10 |3-5 (plus la valeur est basse, plus la sensibilité est importante) |
 | zspikedetector.sensitivity |Sensibilité du détecteur ZSpike |3 |integer |1-10 |3-5 (plus la valeur est basse, plus la sensibilité est importante) |
-| postprocess.tailRows |Nombre de points de données récents à conserver dans les résultats de sortie |0 |integer |0 (conserver tous les points de données) ou spécifier le nombre de points à conserver dans les résultats |N/A |
+| postprocess.tailRows |Nombre de points de données récents à conserver dans les résultats de sortie |0 |integer |0 (conserver tous les points de données) ou spécifier le nombre de points à conserver dans les résultats |S.O. |
 
 ### <a name="output"></a>Sortie
 L’API exécute tous les détecteurs sur vos données de séries chronologiques et renvoie les résultats d’anomalies et les indicateurs de pics binaires pour chaque point dans le temps. Le tableau ci-dessous répertorie les sorties de l’API.
@@ -156,8 +156,8 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 | Paramètres d’entrée | Description | Paramètre par défaut | Type | Plage valide | Plage suggérée |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalle d’agrégation en secondes pour l’agrégation de séries chronologiques d’entrée |0 (aucune agrégation n’est effectuée) |integer |0 : ignorer l’agrégation, > 0 autrement |5 minutes à 1 jour, dépend des séries chronologiques |
-| preprocess.aggregationFunc |Fonction utilisée pour agréger les données dans l’intervalle d’agrégation spécifié |mean |enumerated |mean, sum, length |N/A |
-| preprocess.replaceMissing |Valeurs utilisées pour imputer les données manquantes |lkv (dernière valeur connue) |enumerated |zero, lkv, mean |N/A |
+| preprocess.aggregationFunc |Fonction utilisée pour agréger les données dans l’intervalle d’agrégation spécifié |mean |enumerated |mean, sum, length |S.O. |
+| preprocess.replaceMissing |Valeurs utilisées pour imputer les données manquantes |lkv (dernière valeur connue) |enumerated |zero, lkv, mean |S.O. |
 | detectors.historywindow |Historique (en nombre de points de données) utilisé pour le calcul du résultat d’anomalies |500 |integer |10-2000 |Dépend des séries chronologiques |
 | detectors.spikesdips | Détection des pics uniquement, des creux uniquement ou des deux |Les deux |enumerated |Les deux, pics, creux |Les deux |
 | bileveldetector.sensitivity |Sensibilité du détecteur de changements de niveau bidirectionnels. |3.25 |double |Aucune |3.25-5 (plus la valeur est basse, plus la sensibilité est importante) |
@@ -167,8 +167,8 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 | zspikedetector.sensitivity |Sensibilité du détecteur ZSpike |3 |integer |1-10 |3-5 (plus la valeur est basse, plus la sensibilité est importante) |
 | seasonality.enable |Exécution de l’analyse de saisonnalité |true |booléenne |true, false |Dépend des séries chronologiques |
 | seasonality.numSeasonality |Nombre maximal de cycles périodiques à détecter |1 |integer |1, 2 |1-2 |
-| seasonality.transform |Suppression des composantes de tendances (et) saisonnières avant l’exécution de la détection des anomalies |deseason |enumerated |none, deseason, deseasontrend |N/A |
-| postprocess.tailRows |Nombre de points de données récents à conserver dans les résultats de sortie |0 |integer |0 (conserver tous les points de données) ou spécifier le nombre de points à conserver dans les résultats |N/A |
+| seasonality.transform |Suppression des composantes de tendances (et) saisonnières avant l’exécution de la détection des anomalies |deseason |enumerated |none, deseason, deseasontrend |S.O. |
+| postprocess.tailRows |Nombre de points de données récents à conserver dans les résultats de sortie |0 |integer |0 (conserver tous les points de données) ou spécifier le nombre de points à conserver dans les résultats |S.O. |
 
 ### <a name="output"></a>Sortie
 L’API exécute tous les détecteurs sur vos données de séries chronologiques et renvoie les résultats d’anomalies et les indicateurs de pics binaires pour chaque point dans le temps. Le tableau ci-dessous répertorie les sorties de l’API.

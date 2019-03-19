@@ -3,20 +3,20 @@ title: Création de pipelines de données prédictifs avec Azure Data Factory | 
 description: Découvrez comment créer un pipeline prédictif à l’aide d’Azure Machine Learning - Activité d’exécution par lot dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: a5ba45b8a7bd507552b49b6a18582c393ad07ff5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840560"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "56446033"
 3. **Déployez-la en tant que service web**. Vous pouvez publier votre expérience de notation comme un service web Azure. Vous pouvez envoyer des données à votre modèle via ce point de terminaison de service web et recevoir des prédictions de résultats du modèle.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory et Machine Learning
-Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web [Azure Machine Learning][azure-machine-learning] publié pour l’analytique prédictive. À l’aide de l’**activité d’exécution du lot** dans un pipeline Azure Data Factory, vous pouvez appeler un service web Azure Machine Learning Studio pour effectuer des prédictions sur les données par lots.
+Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un rapport publié [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) web service pour l’analytique prédictive. À l’aide de l’**activité d’exécution du lot** dans un pipeline Azure Data Factory, vous pouvez appeler un service web Azure Machine Learning Studio pour effectuer des prédictions sur les données par lots.
 
 Au fil du temps, les modèles prédictifs dans les expériences de scoring Azure Machine Learning Studio doivent être réentraînés à l’aide de nouveaux jeux de données d’entrée. Vous pouvez réentraîner un modèle à partir d’un pipeline Data Factory en effectuant les étapes suivantes :
 
@@ -126,10 +126,10 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 
 | Propriété          | Description                              | Obligatoire |
 | :---------------- | :--------------------------------------- | :------- |
-| Nom              | Nom de l’activité dans le pipeline     | OUI      |
+| Nom              | Nom de l’activité dans le pipeline     | Oui      |
 | description       | Texte décrivant l’activité.  | Non        |
-| Type              | Pour l'activité U-SQL de Data Lake Analytics, le type d'activité est **AzureMLBatchExecution**. | OUI      |
-| linkedServiceName | Services liés au service lié Azure Machine Learning. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
+| Type              | Pour l'activité U-SQL de Data Lake Analytics, le type d'activité est **AzureMLBatchExecution**. | Oui      |
+| linkedServiceName | Services liés au service lié Azure Machine Learning. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
 | webServiceInputs  | Paires clé/valeur, correspondant aux noms des entrées du service web Azure Machine Learning. La clé doit correspondre aux paramètres d’entrée définis dans le service web Azure Machine Learning publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob d’entrée. | Non        |
 | webServiceOutputs | Paires clé/valeur, correspondant aux noms des sorties du service web Azure Machine Learning. La clé doit correspondre aux paramètres de sortie définis dans le service web Azure Machine Learning publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob de sortie. | Non        |
 | globalParameters  | Paires clé/valeur à passer au point de terminaison du service d’exécution par lot Azure Machine Learning Studio. Les clés doivent correspondre aux noms des paramètres de service web définis dans le service web Azure Machine Learning Studio publié. Les valeurs sont passées dans la propriété GlobalParameters de la demande d’exécution par lot Azure Machine Learning Studio. | Non        |

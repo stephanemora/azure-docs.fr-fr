@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107835"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083952"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
@@ -41,7 +41,7 @@ Chaque fois que le déclencheur de périodicité est activé, Logic Apps crée e
 
 Pour déclencher votre application logique et l’exécuter une seule fois, consultez [Exécuter des travaux une seule fois](#run-once) plus loin dans cette rubrique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, vous pouvez souscrire à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -95,7 +95,7 @@ Pour déclencher votre application logique et l’exécuter une seule fois, cons
 
 Vous pouvez configurer ces propriétés pour le déclencheur de périodicité.
 
-| NOM | Obligatoire | Nom de la propriété | type | Description | 
+| Nom | Obligatoire | Nom de la propriété | type | Description | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Fréquence** | Oui | frequency | Chaîne | Unité de temps à utiliser pour la récurrence : **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois** | 
 | **Intervalle** | Oui | interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>L’intervalle par défaut est de 1 minute. Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est de 6 et que la fréquence soit définie sur « Mois », la périodicité est alors tous les 6 mois. | 
@@ -202,7 +202,7 @@ Dans ce scénario, le moteur Logic Apps calcule les heures d’exécution en fon
 | Heure de début | Première heure d'exécution | Heures d’exécution suivantes | 
 | ---------- | ------------ | ---------- | 
 | **07**/09/2017 à 14h00 | **09**/09/2017 à 14h00 | **11**/09/2017 à 14h00 </br>**13**/09/2017 à 14h00 </br>**15**/09/2017 à 14h00 </br>Etc.
-||||| 
+||||
 
 Par conséquent, pour ce scénario, peu importe si l’heure de début spécifiée remonte à loin ou pas (par exemple, **05**/09/2017 à 14h00 ou **01**/09/2017 à 14h00), votre première heure d’exécution est la même.
 

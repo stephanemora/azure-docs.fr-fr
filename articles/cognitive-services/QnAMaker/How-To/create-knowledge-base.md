@@ -1,26 +1,26 @@
 ---
 title: Créer une base de connaissances
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: Utilisez le portail QnA Maker pour ajouter/créer une base de connaissances avec des échanges de conversation. Votre application s’en trouvera plus attrayante. Ajoutez à votre base de connaissances un ensemble prérempli des principaux échanges comme point de départ de la conversation de votre bot, ce qui vous évitera de les écrire entièrement.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Utiliser le portail de service API QnA Maker, pour ajouter pour créer une base de connaissances et chit-conversation. Votre application s’en trouvera plus attrayante. Ajoutez à votre base de connaissances un ensemble prérempli des principaux échanges comme point de départ de la conversation de votre bot, ce qui vous évitera de les écrire entièrement.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4ba744c3d8cc3a785c04bbbb1b476a857859e244
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116230"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Démarrage rapide : Créer une base de connaissances à partir du portail QnA Maker
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Démarrage rapide : Créer une base de connaissances à l’aide du portail de service API QnA Maker
 
-QnA Maker facilite l’ajout de vos sources de données existantes lors de la création d’une base de connaissances. Vous pouvez créer une base de connaissances QnA Maker à partir des types de documents suivants :
+Le portail du service API QnA Maker vous permet de facilement ajouter vos sources de données existantes lors de la création d’une base de connaissances. Vous pouvez créer une base de connaissances QnA Maker à partir des types de documents suivants :
 
 <!-- added for scanability -->
 * Pages de FAQ
@@ -52,7 +52,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Ajoutez des **échanges de conversation** à votre base de connaissances. Choisissez d’ajouter la prise en charge des échanges de conversation pour votre bot en effectuant un choix parmi les 3 personnalités. 
 
-    ![Ajouter des échanges de conversation à la base de connaissances ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Ajouter des échanges de conversation à la base de connaissances](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Sélectionnez **Create your KB** (Créer votre base de connaissances).
 

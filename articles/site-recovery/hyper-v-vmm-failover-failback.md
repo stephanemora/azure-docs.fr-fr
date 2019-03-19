@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107016"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur votre site local secondaire
 
@@ -49,7 +49,7 @@ Vous pouvez effectuer un basculement régulier ou planifié pour des machines vi
 - Utilisez un basculement régulier pour les interruptions inattendues. Quand vous effectuez ce basculement, Site Recovery crée une machine virtuelle sur le site secondaire et la démarre. Une perte de données peut se produire en fonction des données en attente qui n’ont pas été synchronisées.
 - Un basculement planifié peut être utilisé pour la maintenance ou lors d’une interruption prévue. Cette option permet de ne perdre aucune donnée. Quand un basculement planifié est déclenché, les machines virtuelles sources sont arrêtées. Les données non synchronisées sont synchronisées et le basculement est déclenché. 
 - 
-Cette procédure explique comment effectuer régulièrement un basculement.
+  Cette procédure explique comment effectuer régulièrement un basculement.
 
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculer**.

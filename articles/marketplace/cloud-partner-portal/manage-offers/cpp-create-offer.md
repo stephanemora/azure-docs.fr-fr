@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9b53a26f5163eae17198302fc26c079185cb7bd8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: af9b34d90098409135020fa8a45ecd0253f25b22
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355072"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454542"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Créer des offres sur la Place de marché Microsoft Azure et AppSource
 
@@ -55,7 +55,7 @@ Quand vous créez une offre, fournissez les données obligatoires et facultative
 |      --------       |   -------                                                            |
 | **Paramètres de l’offre**  | Collecte les informations liées à l’offre et à l’identité de l’éditeur.                    |
 | **Références SKU**            | Définit les caractéristiques techniques et commerciales de chaque version de référence SKU de votre offre. |
-| **Version d’évaluation**      | Pour les types qui prennent en charge cette fonctionnalité optionnelle, définit une démonstration de votre offre.  Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’une version d’évaluation ?](../../cloud-partner-portal-orig/what-is-test-drive.md)  |
+| **Version d’évaluation**      | Pour les types qui prennent en charge cette fonctionnalité optionnelle, définit une démonstration de votre offre.  Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’une version d’évaluation ?](../test-drive/what-is-test-drive.md)  |
 | **Marketplace** (Place de marché) ou **Storefront** (Vitrine) | Collecte les chaînes de texte, documents et images servant à référencer l’offre dans la place de marché. |
 | **Support**         | Collecte les informations de contact du client, de l’équipe technique et du support en ligne.  |
 |  |  |

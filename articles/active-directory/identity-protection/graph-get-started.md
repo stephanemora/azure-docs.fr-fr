@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36a2fc9d1ab364d44bd5dd6e7930e5d8ae3fb78d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 70584415d3e0d40219c9a208b7afd73170efc8cc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204744"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120572"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph
 
@@ -166,7 +166,7 @@ Pour l’authentification, envoyez une demande POST à `https://login.microsoft.
 
 - grant_type : « **client_informationsidentification** »
 
--  resource : « **https://graph.microsoft.com** »
+-  resource : `https://graph.microsoft.com`
 
 - client_id : \<votre ID client\>
 

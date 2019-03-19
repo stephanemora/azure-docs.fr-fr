@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f9429e88525e27c0b6bad29d1927d53d05dfbcc8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 3c8fab85d71f5f81bbf81bc3dd7a22d6c0b7f11b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765362"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551838"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilisation d’Azure CDN avec CORS
 ## <a name="what-is-cors"></a>Présentation de CORS
-CORS (Cross Origin Resource Sharing) est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d’accéder aux ressources d’un autre domaine. Pour réduire le risque d’attaques de script entre sites, tous les navigateurs web modernes implémentent une restriction de sécurité appelée [stratégie de même origine](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Celle-ci empêche une page web d’appeler des API dans un autre domaine.  CORS permet à une origine (le domaine d’origine) d’appeler des API dans un autre domaine de façon sécurisée.
+CORS (Cross Origin Resource Sharing) est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d’accéder aux ressources d’un autre domaine. Pour réduire le risque d’attaques de script entre sites, tous les navigateurs web modernes implémentent une restriction de sécurité appelée [stratégie de même origine](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Celle-ci empêche une page web d’appeler des API dans un autre domaine.  CORS permet à une origine (le domaine d’origine) d’appeler des API dans un autre domaine de façon sécurisée.
 
 ## <a name="how-it-works"></a>Fonctionnement
 Il existe deux types de demandes CORS : les *demandes simples* et *les demandes complexes*.
@@ -76,7 +76,7 @@ Dans ce cas, vous allez créer une expression régulière qui inclut toutes les 
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> **CDN Azure Premium fourni par Verizon** utilise [PCRE (Perl Compatible Regular Expressions)](http://pcre.org/) comme moteur pour les expressions régulières.  Vous pouvez utiliser un outil tel que [Regular Expressions 101](https://regex101.com/) pour valider votre expression régulière.  Notez que le caractère « / » est valide dans les expressions régulières et n’a pas besoin d’être échappé ; toutefois, échapper ce caractère est une pratique recommandée et attendue par certains validateurs d’expression régulière.
+> **CDN Azure Premium fourni par Verizon** utilise [PCRE (Perl Compatible Regular Expressions)](https://pcre.org/) comme moteur pour les expressions régulières.  Vous pouvez utiliser un outil tel que [Regular Expressions 101](https://regex101.com/) pour valider votre expression régulière.  Notez que le caractère « / » est valide dans les expressions régulières et n’a pas besoin d’être échappé ; toutefois, échapper ce caractère est une pratique recommandée et attendue par certains validateurs d’expression régulière.
 > 
 > 
 

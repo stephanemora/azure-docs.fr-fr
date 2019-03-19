@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855b9db645721c63abae34422ae6461cea3daab2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097955"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Activation Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -36,7 +36,7 @@ ms.locfileid: "56189818"
 - Les clients mutuels obtiennent un tutoriel de configuration pas à pas.
 - Les clients qui utilisent SCIM peuvent utiliser le provisionnement pour la même application.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Pour des applications fédérées (Open ID et SAML/WS-Fed), l’application doit prendre en charge le modèle SaaS pour être répertorié dans la galerie Azure AD. Les applications de galerie d’entreprise doivent prendre en charge plusieurs configurations de client, non un client spécifique.
 
@@ -47,6 +47,9 @@ ms.locfileid: "56189818"
 - Pour une authentification unique par mot de passe, assurez-vous que votre application prend en charge l’authentification par formulaire de telle sorte que le mot de passe puisse être stocké dans le coffre pour que le travail d’authentification unique soit effectué comme prévu.
 
 - Pour les demandes d’attribution automatique d’utilisateurs, l’application doit être répertoriée dans la galerie avec une fonctionnalité d’authentification unique activée utilisant SAML 2.0/WS-Fed. Vous pouvez demander l’authentification unique et l’attribution d’utilisateur ensemble sur le portail, si elles ne sont pas répertoriées.
+
+>[!NOTE]
+>Nous travaillons avec un nombre élevé de demandes de connecteur SCIM, donc nous avons arrêté de prendre des nouvelles demandes sur notre portail. Merci de patienter vos demandes jusqu'à nouvel ordre. Nous excuser pour ce délai et les désagréments occasionnés.
 
 ## <a name="submit-the-request-in-the-portal"></a>Envoyer la demande dans le portail
 
@@ -80,12 +83,12 @@ Pour lister une application dans la galerie d’applications Azure AD, vous deve
     * Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide d’OpenID Connect, sélectionnez **OpenID Connect & OAuth 2.0** comme indiqué ci-dessus.
     * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** ou **WS-Fed** : Si votre application prend en charge SAML 2.0, vous pouvez l’intégrer directement dans un locataire Azure AD en suivant les [instructions pour ajouter une application personnalisée](../active-directory-saas-custom-apps.md).
+- **SAML 2.0** ou **WS-Fed** : Si votre application prend en charge SAML 2.0, vous pouvez l’intégrer directement dans un locataire Azure AD en suivant les [instructions pour ajouter une application personnalisée](../active-directory-saas-custom-apps.md).
 
-    ![Chronologie de l’énumération des applications SAML 2.0 ou WS-Fed dans la galerie](./media/howto-app-gallery-listing/saml.png)
+  ![Chronologie de l’énumération des applications SAML 2.0 ou WS-Fed dans la galerie](./media/howto-app-gallery-listing/saml.png)
 
-    * Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide de **SAML 2.0** ou **WS-Fed**, sélectionnez **SAMl 2.0/WS-Fed** comme indiqué ci-dessus.
-    * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide de **SAML 2.0** ou **WS-Fed**, sélectionnez **SAMl 2.0/WS-Fed** comme indiqué ci-dessus.
+  * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implementing-sso-using-password-sso"></a>Implémentation de l’authentification unique à l’aide d’une authentification unique du mot de passe
 
@@ -108,6 +111,16 @@ Pour mettre à jour ou supprimer une application existante dans la galerie d’a
     * Si vous souhaitez supprimer une application existante à partir de la galerie Azure AD, sélectionnez **Supprimer le listing des applications existantes**.
     * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
+## <a name="listing-requests-by-customers"></a>Liste de demandes par les clients
+
+Les clients peuvent envoyer la demande de listing d’une application en cliquant sur **application demande par les clients** -> **soumettre une nouvelle demande**.
+
+![Vignette applications demandées de client](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Voici que le flux de client demandé applications-
+
+![Flux d’applications requis par les clients](./media/howto-app-gallery-listing/customer-request.png)
+
 ## <a name="timelines"></a>Chronologies
 
 La durée du processus de listing d’une application SAML 2.0 ou WS-Fed dans la galerie est de 7 à 10 jours ouvrables.
@@ -117,10 +130,6 @@ La durée du processus de listing d’une application SAML 2.0 ou WS-Fed dans l
 La durée du processus de listing d’une application OpenID Connect dans la galerie est de 2 à 5 jours ouvrables.
 
    ![Chronologie de l’énumération des applications SAML dans la galerie](./media/howto-app-gallery-listing/timeline2.png)
-
-La durée du processus de listing d’une application dans la galerie avec l’approvisionnement d’utilisateurs est de 40 à 45 jours ouvrables.
-
-   ![Chronologie de l’énumération des applications SAML dans la galerie](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Escalades
 

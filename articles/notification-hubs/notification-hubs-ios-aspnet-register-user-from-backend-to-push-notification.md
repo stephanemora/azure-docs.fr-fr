@@ -14,19 +14,19 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 67baa204d50d1319559abcc58e0ae00e1810ebaf
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: ff77a955c34941d87a1f653726ab3f19e84aa440
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101973"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Inscription de l’utilisateur actif aux notifications Push à l’aide d’ASP.NET
 
 > [!div class="op_single_selector"]
 > * [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Cette rubrique montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l’inscription est réalisée par l’API Web ASP.NET. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs].
 
@@ -42,9 +42,9 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
    * **Champ texte** : « Mot de passe »
    * **Bouton** : « Connexion »
 
-    À ce stade, votre storyboard a normalement l’aspect suivant :
+     À ce stade, votre storyboard a normalement l’aspect suivant :
 
-    ![][0]
+     ![][0]
 
 2. Dans l’éditeur de l’Assistant, créez des outlets pour tous les contrôles commutés et appelez-les, connectez les champs texte au View Controller (délegué), puis créez une **Action** pour le bouton **login**.
 

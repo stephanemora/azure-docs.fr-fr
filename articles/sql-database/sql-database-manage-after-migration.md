@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417633"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216932"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et en pool dans Azure SQL Database
 
@@ -261,9 +261,9 @@ vous pouvez interroger la vue de gestion dynamique [sys.dm_db_resource_stats](/s
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Analytics (préversion) dans Log Analytics
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Journaux d’Analytique SQL Azure (version préliminaire) dans Azure Monitor
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) vous permet de collecter et de visualiser des métriques de performance clés Azure SQL, prenant en charge jusqu’à 150 000 bases de données SQL et 5 000 pools élastiques SQL par espace de travail. Vous pouvez l’utiliser à des fins de surveillance et pour recevoir des notifications. Vous pouvez surveiller les métriques de SQL Database et des pools élastiques de plusieurs abonnements Azure. De plus, vous pouvez utiliser les pools élastiques pour identifier les problèmes à chaque couche d’une pile d’applications.
+[Journaux d’analyse Azure](../azure-monitor/insights/azure-sql.md) vous permet de collecter et visualiser les métriques de performance clés Azure SQL Azure, prenant en charge jusqu'à 150 000 bases de données SQL et 5 000 pools élastiques SQL par espace de travail. Vous pouvez l’utiliser à des fins de surveillance et pour recevoir des notifications. Vous pouvez surveiller les métriques de SQL Database et des pools élastiques de plusieurs abonnements Azure. De plus, vous pouvez utiliser les pools élastiques pour identifier les problèmes à chaque couche d’une pile d’applications.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Je constate des problèmes de performances : En quoi ma méthodologie de résolution de problèmes SQL Database est-elle différente de celle de SQL Server
 

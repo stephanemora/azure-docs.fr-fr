@@ -6,19 +6,19 @@ ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 019c4eca564c503913a488a1d1ee5e4046ff320a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542125"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089877"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Créer des utilisateurs dans Azure Database for MariaDB 
 Cet article explique comment vous pouvez créer des utilisateurs dans Azure Database for MariaDB.
 
 Quand vous avez créé votre serveur Azure Database for MariaDB, vous avez fourni un nom d’utilisateur et un mot de passe pour la connexion d’administrateur du serveur. Pour plus d’informations, vous pouvez suivre le [Guide de démarrage rapide](quickstart-create-mariadb-server-database-using-azure-portal.md). Vous pouvez localiser le nom d’utilisateur pour la connexion en tant qu’administrateur du serveur dans le portail Azure.
 
-L’utilisateur administrateur du serveur possède les privilèges suivants pour votre serveur : SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
+L’utilisateur administrateur de serveur possède les privilèges suivants pour votre serveur : SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 Une fois le serveur Azure Database for MariaDB créé, vous pouvez utiliser le premier compte d’utilisateur Admin du serveur pour créer des utilisateurs supplémentaires et leur accorder un accès administrateur. Le compte administrateur du serveur peut être utilisé pour créer des utilisateurs possédant moins de privilèges et ayant accès à des schémas de base de données individuels.
 
@@ -80,7 +80,7 @@ Une fois le serveur Azure Database for MariaDB créé, vous pouvez utiliser le p
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-Pour plus d’informations sur la gestion des comptes d’utilisateurs, consultez la documentation MariaDB relative à la [gestion des comptes d’utilisateurs](https://mariadb.com/kb/en/library/user-account-management/), à la [ syntaxe GRANT](https://mariadb.com/kb/en/library/grant/) et aux [privilèges](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+   Pour plus d’informations sur la gestion des comptes d’utilisateurs, consultez la documentation MariaDB relative à la [gestion des comptes d’utilisateurs](https://mariadb.com/kb/en/library/user-account-management/), à la [ syntaxe GRANT](https://mariadb.com/kb/en/library/grant/) et aux [privilèges](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ouvrez le pare-feu pour les adresses IP des machines des nouveaux utilisateurs afin de leur permettre de se connecter : [Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure](howto-manage-firewall-portal.md)  

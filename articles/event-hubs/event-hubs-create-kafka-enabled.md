@@ -1,6 +1,6 @@
 ---
 title: Créer un hub d’événements Apache Kafka - Azure Event Hubs | Microsoft Docs
-description: Cet article décrit la procédure à suivre pour créer un espace de noms Azure Event Hubs Apache Kafka à l’aide du portail Azure.
+description: Cet article fournit une procédure pas à pas pour créer un Apache Kafka activé l’espace de noms Azure Event Hubs à l’aide du portail Azure.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: bf78ac6bce23b739ed661929f6fe90eddc9b4d94
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 125da95349fce0e75b44b5619baba28d34a74be1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090771"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000493"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Créer un espace de noms Azure Event Hubs prenant en charge Apache Kafka
 
@@ -26,7 +26,7 @@ Azure Event Hubs offre un point de terminaison Kafka. Ce point de terminaison pe
 
 Cet article explique comment créer un espace de noms Event Hubs et obtenir la chaîne de connexion requise pour connecter des applications Kafka à des hubs d’événements prenant en charge Kafka.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 

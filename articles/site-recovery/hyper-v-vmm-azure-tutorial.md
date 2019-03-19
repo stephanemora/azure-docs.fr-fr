@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5dfa5bba41785532db07c7b8569f2e1e1d3e0004
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 66490085e00318ed38730bef8c52b6f20af43ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089214"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurer la récupération d’urgence dans Azure de machines virtuelles Hyper-V locales hébergées dans des clouds VMM
 
@@ -60,7 +60,7 @@ Lorsque vous configurez l’environnement source, vous installez le fournisseur 
 4. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lorsque vous exécuterez le programme d’installation du fournisseur. Une fois générée, la clé reste valide pendant 5 jours.
 5. Téléchargez l’agent Recovery Services.
 
-    ![Download](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
+    ![Téléchargement](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>Installer le fournisseur sur le serveur VMM
 
@@ -125,7 +125,7 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
 4. Sélectionnez le compte de stockage **contosovmsacct1910171607** et le réseau Azure **ContosoASRnet**.
 5. Dans **Machines virtuelles** > **Sélectionner**, sélectionnez les machines virtuelles à répliquer. Cliquez ensuite sur **OK**.
 
- Vous pouvez suivre la progression de l’action **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Lorsque le travail de **finalisation de la protection** est terminé, la réplication initiale est également terminée et la machine virtuelle est prête à être basculée.
+   Vous pouvez suivre la progression de l’action **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Lorsque le travail de **finalisation de la protection** est terminé, la réplication initiale est également terminée et la machine virtuelle est prête à être basculée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

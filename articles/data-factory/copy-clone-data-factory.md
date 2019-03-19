@@ -3,20 +3,20 @@ title: Copier ou cloner une fabrique de données dans Azure Data Factory | Micro
 description: Découvrir comment copier ou cloner une fabrique de données dans Azure Data Factory
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: douglasl
-ms.openlocfilehash: c62581447cd395bd48a787fa7dc89659d5172486
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192720"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575611"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copier ou cloner une fabrique de données dans Azure Data Factory
 
@@ -35,6 +35,8 @@ Voici quelques-uns des cas dans lesquels il peut être utile de copier ou cloner
 1. L’interface utilisateur de Data Factory dans le portail Azure vous permet d’exporter toute la charge utile de votre fabrique de données dans un modèle de Resource Manager, ainsi qu’un fichier de paramètres qui vous permet de modifier les valeurs souhaitées lorsque vous clonez votre fabrique.
 
 1. Comme condition préalable, vous devez créer votre fabrique de données cible à partir du portail Azure.
+
+1. Si vous avez un SelfHosted IntegrationRuntime dans votre fabrique de source, vous devez précréer il portant le même nom dans la fabrique de cible. Si vous souhaitez partager l’IRs auto-hébergées entre des fabriques différentes, vous pouvez utiliser le modèle publié [ici](author-visually.md#best-practices-for-git-integration).
 
 1. Si vous êtes en mode GIT, chaque fois que vous publiez à partir du portail, le modèle Resource Manager de la fabrique est enregistré dans la branche adf_publish du référentiel GIT.
 

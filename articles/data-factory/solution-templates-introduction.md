@@ -3,21 +3,20 @@ title: Vue d’ensemble des modèles pour Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser un modèle prédéfini pour démarrer rapidement avec Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: douglasl
-ms.reviewer: douglasl
-ms.openlocfilehash: c3571aec55d5050df01f740a163db18e9c6c1095
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003550"
 ---
 # <a name="templates"></a>Modèles
 
@@ -41,11 +40,13 @@ Vous pouvez commencer à créer un pipeline Data Factory à partir d’un modèl
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modèles Data Factory prêts à l’emploi
 
-Data Factory utilise des modèles Azure Resource Manager pour enregistrer des modèles de pipelines Data Factory. Tous les modèles Resource Manager, ainsi que le fichier manifeste utilisé pour les modèles Data Factory prêts à l’emploi, se trouvent dans le [référentiel GitHub officiel d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Voici quelques exemples de modèles prédéfinis fournis par Microsoft :
+Data Factory utilise des modèles Azure Resource Manager pour enregistrer des modèles de pipelines Data Factory. Vous pouvez voir tous les modèles Resource Manager, ainsi que le fichier manifest utilisé pour mieux des modèles de Data Factory boîte, dans le [officiel référentiel GitHub d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Voici quelques exemples de modèles prédéfinis fournis par Microsoft :
 
 -   Modèles de copie :
 
     -   [Copie en bloc à partir d’une base de données](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [Copier les nouveaux fichiers par LastModifiedDate & gt](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copie de plusieurs conteneurs de fichiers entre différents magasins basés sur des fichiers](solution-template-copy-files-multiple-containers.md)
 

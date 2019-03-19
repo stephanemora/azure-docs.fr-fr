@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 937f6ffb9865419611c35b95ac84832bb2f1f3fe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084096"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Noyaux pour Jupyter Notebook sur des clusters Apache Spark dans Azure HDInsight 
 
@@ -27,7 +27,7 @@ Les clusters Spark HDInsight fournissent des noyaux utilisables avec Jupyter Not
 
 Dans cet article, vous allez apprendre à utiliser ces noyaux et découvrir les avantages de leur utilisation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -59,15 +59,15 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
 
 - **Contextes prédéfinis**. Avec les noyaux **PySpark**, **PySpark3** ou **Spark**, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser vos applications. Ils sont disponibles par défaut. Ces contextes sont les suivants :
    
-   * **sc** : pour le contexte Spark
-   * **sqlContext** : pour le contexte Hive
+  * **sc** : pour le contexte Spark
+  * **sqlContext** : pour le contexte Hive
    
-   Par conséquent, vous n’avez pas à exécuter d’instructions telles que les suivantes pour définir les contextes :
+    Par conséquent, vous n’avez pas à exécuter d’instructions telles que les suivantes pour définir les contextes :
    
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+         sc = SparkContext('yarn-client')
+         sqlContext = HiveContext(sc)
    
-   En revanche, vous pouvez utiliser directement les contextes prédéfinis dans votre application.
+    En revanche, vous pouvez utiliser directement les contextes prédéfinis dans votre application.
 
 - **Commandes magiques de cellule**. Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec `%%` (par exemple, `%%MAGIC` <args>). La commande magique doit se trouver au tout début d’une cellule de code et autoriser plusieurs lignes de contenu. Le mot magic doit être le premier mot de la cellule. Ajouter quoi que ce soit avant la commande magique, même des commentaires, provoque une erreur.     Pour plus d’informations sur les commandes magiques, cliquez [ici](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
@@ -87,7 +87,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
    > [!NOTE]  
    > Outre les commandes magiques ajoutées par le noyau PySpark, vous pouvez également utiliser les [commandes magiques IPython intégrées](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), notamment `%%sh`. Vous pouvez utiliser la commande magique `%%sh` pour exécuter des scripts et des blocs de code sur le nœud principal du cluster.
 
-2. **Visualisation automatique**. Le noyau **Pyspark** visualise automatiquement la sortie des requêtes Hive et SQL. Vous pouvez choisir entre plusieurs types de visualisations, notamment tableau, secteurs, courbes, aires et barres.
+1. **Visualisation automatique**. Le noyau **Pyspark** visualise automatiquement la sortie des requêtes Hive et SQL. Vous pouvez choisir entre plusieurs types de visualisations, notamment tableau, secteurs, courbes, aires et barres.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Paramètres pris en charge avec la commande magique %%sql
 La commande magique `%%sql` prend en charge différents paramètres qui vous permettent de contrôler le type de sortie que vous recevez quand vous exécutez des requêtes. Le tableau suivant répertorie les paramètres de sortie.

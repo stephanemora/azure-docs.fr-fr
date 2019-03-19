@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 55a829f2ed32152d14ef637c8079f7af8c487bea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811294"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097642"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Déplacer des données depuis un serveur SFTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 Le tableau suivant fournit la description des éléments JSON spécifiques du service lié FTP.
 
 | Propriété | Description | Obligatoire |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Type | La propriété de type doit être définie sur `Sftp`. |Oui |
 | host | Nom ou adresse IP du serveur SFTP. |OUI |
 | port |Port sur lequel le serveur SFTP écoute. La valeur par défaut est : 21 |Non  |
@@ -65,7 +65,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 Pour utiliser l’authentification de base, définissez `authenticationType` sur `Basic` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
 
 | Propriété | Description | Obligatoire |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username | Utilisateur ayant accès au serveur SFTP. |OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | Oui |
 
@@ -115,7 +115,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 Pour utiliser l’authentification de clé publique SSH, définissez `authenticationType` sur `SshPublicKey` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
 
 | Propriété | Description | Obligatoire |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username |Utilisateur ayant accès au serveur SFTP |OUI |
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel la passerelle peut accéder. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. <br><br> S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 | privateKeyContent | Une chaîne sérialisée du contenu de la clé privée. L’Assistant de copie peut lire le fichier de clé privée et extraire le contenu de clé privée automatiquement. Si vous utilisez tout autre outil/SDK, utilisez plutôt la propriété privateKeyPath. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. |
@@ -172,7 +172,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| folderPath |Sous-chemin du dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de service liés.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |Oui |
+| folderPath |Sous-chemin du dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |Oui |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : <br/><br/>Data.<Guid>.txt (exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non  |
 | fileFilter |Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers.<br/><br/>Les valeurs autorisées sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/><br/>Exemple 1 : `"fileFilter": "*.log"`<br/>Exemple 2 : `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter s’applique à un jeu de données FileShare d’entrée. Cette propriété n’est pas prise en charge avec HDFS. |Non  |
 | partitionedBy |partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. |Non  |

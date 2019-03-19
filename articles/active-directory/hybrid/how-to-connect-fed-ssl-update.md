@@ -16,16 +16,16 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c83fe4655b3b3d4de04be74c0f3ced1ddac5ec2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 39ac0e9cf11a0c6c212c4beadb6635ad2b6b056d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185551"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734708"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article explique comment utiliser Azure AD Connect pour mettre à jour le certificat SSL d’une batterie de serveurs Active Directory Federation Services (AD FS). Vous pouvez utiliser l’outil Azure AD Connect pour une mise à jour facile du certificat SSL pour la batterie de serveurs AD FS même si la méthode d’authentification sélectionnée n’est pas AD FS.
 
 Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certificat SSL pour la batterie de serveurs AD FS sur l’ensemble des serveurs de fédération et Proxy d’application Web (WAP) en trois étapes simples :
@@ -36,7 +36,7 @@ Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certific
 >[!NOTE]
 >Pour en savoir plus sur les certificats utilisés par AD FS, consultez l’article [Présentation des certificats utilisés par les services ADFS (Active Directory Federation Services)](https://technet.microsoft.com/library/cc730660.aspx).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Batterie de serveurs AD FS** : assurez-vous que votre batterie AD FS est basée sur Windows Server 2012 R2 ou version ultérieure.
 * **Azure AD Connect** : vérifiez qu'Azure AD Connect correspond à la version 1.1.553.0 ou ultérieure. Vous utiliserez la tâche **Mettre à jour le certificat SSL AD FS**.

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124131"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
-## <a name="overview"></a>Vue d’ensemble ##
+## <a name="overview"></a>Présentation ##
 
  [App Service Environment Azure][Intro] est un déploiement d’Azure App Service dans un sous-réseau d’un réseau virtuel Azure (VNet). Il existe deux types de déploiement pour un environnement App Service (ASE) :
 
@@ -54,6 +54,7 @@ Les ports d’accès normaux pour les applications sont les suivants :
 |  HTTP/HTTPS  | Configurable par l’utilisateur |  80, 443 |
 |  FTP/FTPS    | Configurable par l’utilisateur |  21, 990, 10001-10020 |
 |  Débogage distant de Visual Studio  |  Configurable par l’utilisateur |  4020, 4022, 4024 |
+|  Déployer le service Web | Configurable par l’utilisateur | 8172 |
 
 Ces ports s’appliquent aussi bien pour un ASE externe que pour un ASE ILB. Si vous êtes dans un ASE externe, appuyez sur ces ports sur l’adresse IP virtuelle publique. Si vous vous trouvez dans un ASE ILB, vous atteignez ces ports sur l’équilibreur de charge interne. Si vous verrouillez le port 443, certaines fonctionnalités exposées dans le portail peuvent être affectées. Pour plus d’informations, consultez la section [Dépendances du portail](#portaldep).
 

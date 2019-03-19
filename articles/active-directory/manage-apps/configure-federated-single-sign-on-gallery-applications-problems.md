@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5295f2d341ce104ae51776af5c4477304b1dacb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31e9746c0739a2ddd6267428f428e977151077b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099778"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problème de configuration de l’authentification unique fédérée pour une application de la galerie Azure AD
 
@@ -42,33 +42,33 @@ Si vous n’êtes pas en mesure de configurer l’identificateur ou l’URL de r
 
 Pour connaître les modèles préconfigurés pour l’application :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**. Passez à l’étape 7. Si vous êtes déjà dans le panneau de configuration de l’application sur Azure AD.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**. Passez à l’étape 7. Si vous êtes déjà dans le panneau de configuration de l’application sur Azure AD.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+6. Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
+7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Sélectionnez **Authentification basée sur SAML** dans la liste déroulante **Mode**.
+8. Sélectionnez **Authentification basée sur SAML** dans la liste déroulante **Mode**.
 
-9.  Accédez à la zone de texte **Identificateur** ou **URL de réponse** sous la section **Domaine et URL**.
+9. Accédez à la zone de texte **Identificateur** ou **URL de réponse** sous la section **Domaine et URL**.
 
 10. Il existe trois façons de connaître les modèles pris en charge pour l’application :
 
-   * Dans la zone de texte, les modèles pris en charge apparaissent sous forme d’espace réservé. *Exemple :* <https://contoso.com>.
+    * Dans la zone de texte, les modèles pris en charge apparaissent sous forme d’espace réservé. *Exemple :* <https://contoso.com>.
 
-   * Si le modèle n’est pas pris en charge, un point d’exclamation rouge s’affiche lorsque vous essayez d’entrer la valeur dans la zone de texte. Si vous placez le pointeur de la souris sur le point d’exclamation rouge, les modèles pris en charge s’affichent.
+    * Si le modèle n’est pas pris en charge, un point d’exclamation rouge s’affiche lorsque vous essayez d’entrer la valeur dans la zone de texte. Si vous placez le pointeur de la souris sur le point d’exclamation rouge, les modèles pris en charge s’affichent.
 
-   * Vous pouvez également obtenir des informations sur les modèles pris en charge dans le didacticiel dédié à l’application. Sous la section **Configurer Azure AD pour l’authentification unique**, accédez à l’étape de configuration des valeurs sous la section **Domaine et URL**.
+    * Vous pouvez également obtenir des informations sur les modèles pris en charge dans le didacticiel dédié à l’application. Sous la section **Configurer Azure AD pour l’authentification unique**, accédez à l’étape de configuration des valeurs sous la section **Domaine et URL**.
 
 Si les valeurs ne correspondent aux modèles préconfigurés sur Azure AD. Vous pouvez :
 
@@ -86,23 +86,23 @@ Azure AD sélectionne le format de l’attribut NameID (Identificateur d’utili
 
 Pour télécharger les métadonnées ou le certificat de l’application à partir d’Azure AD, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Sélectionnez l’application pour laquelle vous avez configuré l’authentification unique.
+6. Sélectionnez l’application pour laquelle vous avez configuré l’authentification unique.
 
-7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
+7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Accédez à la section **Certificat de signature SAML**, puis cliquez sur la valeur de colonne **Télécharger**. En fonction de ce que l’application nécessite pour configurer l’authentification unique, vous voyez soit l’option de téléchargement des métadonnées XML, soit le certificat.
+8. Accédez à la section **Certificat de signature SAML**, puis cliquez sur la valeur de colonne **Télécharger**. En fonction de ce que l’application nécessite pour configurer l’authentification unique, vous voyez soit l’option de téléchargement des métadonnées XML, soit le certificat.
 
 Azure AD ne fournit pas d’URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
 

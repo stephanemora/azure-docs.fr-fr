@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082838"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
@@ -40,15 +40,15 @@ Une fois la solution ajoutée et l’évaluation effectuée, le résumé des inf
 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 
-La solution fonctionne avec Microsoft System Operations Manager 2012 Service Pack (SP) 1 et 2012 R2.
+La solution fonctionne avec Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager et Microsoft System Center Operations Manager 1807
 
 Utilisez les informations suivantes pour installer et configurer la solution.
 
- - Avant de pouvoir utiliser une solution Health Check dans Log Analytics, vous devez avoir installé cette solution. Installez la solution depuis [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Avant de pouvoir utiliser une solution Health Check dans Log Analytics, vous devez avoir installé cette solution. Installez la solution depuis [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Après avoir ajouté la solution à l’espace de travail, la mosaïque **System Center Operations Manager Health Check** sur le tableau de bord affiche un message de configuration supplémentaire requis. Cliquez sur la mosaïque et suivez les étapes de configuration mentionnées dans la page
+- Après avoir ajouté la solution à l’espace de travail, la mosaïque **System Center Operations Manager Health Check** sur le tableau de bord affiche un message de configuration supplémentaire requis. Cliquez sur la mosaïque et suivez les étapes de configuration mentionnées dans la page
 
- ![Mosaïque du tableau de bord System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
+  ![Mosaïque du tableau de bord System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > La configuration de System Center Operations Manager peut être effectuée via un script en suivant les étapes présentées dans la page de configuration de la solution dans Log Analytics.
@@ -57,9 +57,9 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 1. [Définir le compte d’identification pour System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Configurer la règle System Center Operations Manager Health Check
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Détails de l’évaluation de la collecte de données System Center Operations Manager
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>Détails de collecte de données System Center Operations Manager Health Check
 
-L’évaluation de System Center Operations Manager collecte des données à partir des sources suivantes :
+La solution System Center Operations Manager Health Check collecte les données provenant des sources suivantes :
 
 * Registre
 * Windows Management Instrumentation (WMI)
@@ -97,7 +97,7 @@ Maintenant que le compte d’identification est créé, il doit cibler les serve
 2. Dans l’onglet **Distribution**, cliquez sur **Ajouter** pour **Ordinateurs sélectionnés** et ajoutez le serveur d’administration auquel distribuer le compte.  Cliquez deux fois sur **OK** pour enregistrer vos modifications.
 3. Sous **Configuration d’identification**, cliquez sur **Profils**.
 4. Recherchez *Profil d’évaluation SCOM*.
-5. Le nom du profil doit être le suivant : *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
+5. Le nom du profil doit être le suivant : *Microsoft System Center Operations Manager Health Check exécuter en tant que profil*.
 6. Avec le bouton droit, mettez à jour ses propriétés et ajoutez le nouveau compte d’identification créé précédemment.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL octroyant des autorisations granulaires au compte d’identification
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>Configurer la règle de contrôle d’intégrité
 
-Le pack de gestion de la solution System Center Operations Manager Health Check inclut une règle nommée *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. Cette règle est responsable de l’exécution du contrôle d’intégrité. Pour activer la règle et configurer la fréquence, utilisez les procédures ci-dessous.
+Pack d’administration de la solution System Center Operations Manager Health Check inclut une règle nommée *Microsoft System Center Operations Manager Run d’intégrité vérifier Rule*. Cette règle est responsable de l’exécution du contrôle d’intégrité. Pour activer la règle et configurer la fréquence, utilisez les procédures ci-dessous.
 
-Par défaut, Microsoft System Center Advisor SCOM Assessment Run Assessment Rule est désactivée. Pour exécuter le contrôle d’intégrité, vous devez activer la règle sur un serveur de gestion. Utilisez les étapes suivantes.
+Par défaut, le Microsoft System Center Operations Manager Run d’intégrité vérifier Rule est désactivée. Pour exécuter le contrôle d’intégrité, vous devez activer la règle sur un serveur de gestion. Utilisez les étapes suivantes.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Activation de la règle pour un serveur de gestion spécifique
 
-1. Dans l’espace de travail **Création** de la console Operations Manager, recherchez la règle *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* dans le panneau **Règles**.
+1. Dans le **Authoring** espace de travail de la console Opérateur Operations Manager, recherchez la règle *Microsoft System Center Operations Manager Run d’intégrité vérifier Rule* dans le **règles** volet.
 2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : Serveur d’administration*.
 3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Substitutions** > **Pour un objet spécifique de la classe : Serveur d’administration**.
 4.  Dans la liste de serveurs de gestion disponibles, sélectionnez le serveur de gestion où la règle doit être exécutée.  Il doit s’agir du même serveur d’administration que vous avez configuré précédemment pour y associer le compte d’identification.
@@ -170,7 +170,7 @@ Par défaut, Microsoft System Center Advisor SCOM Assessment Run Assessment Rule
 
 L’évaluation est configurée pour s’exécuter toutes les 10 080 minutes (ou sept jours) par défaut. Vous pouvez substituer la valeur par la valeur minimale de 1 440 minutes (ou un jour). La valeur représente l’intervalle de temps minimal requis entre les exécutions d’évaluation successives. Pour substituer l’intervalle, utilisez les étapes ci-dessous.
 
-1. Dans l’espace de travail **Création** de la console Operations Manager, recherchez la règle *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* dans la section **Règles**.
+1. Dans le **Authoring** espace de travail de la console Operations Manager, recherchez la règle *Microsoft System Center Operations Manager Run d’intégrité vérifier Rule* dans le **règles** section.
 2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : Serveur d’administration*.
 3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Remplacer la règle** > **Pour tous les objets de la classe : Serveur d’administration**.
 4. Modifiez la valeur du paramètre **Intervalle** sur la valeur de l’intervalle souhaité. Dans l’exemple ci-dessous, la valeur est définie sur 1 440 minutes (1 jour).<br><br> ![paramètre d’intervalle](./media/scom-assessment/interval.png)<br>  
@@ -240,7 +240,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Voici une capture d’écran montrant la requête Recherche de journal : <br><br> ![recherche de journal](./media/scom-assessment/scom-log-search.png)<br>
+    Voici une capture d’écran montrant la requête de recherche dans les journaux :<br><br> ![recherche dans les journaux](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 
@@ -277,7 +277,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 
 *Est-il possible de configurer la fréquence d’exécution du contrôle ?* Oui. Consultez [Configuration de la fréquence d’exécution](#configure-the-run-frequency).
 
-*Si un autre serveur est découvert après l’ajout de la solution System Center Operations Manager Assessment, ce serveur sera-t-il évalué ?* Oui, après la découverte, il sera évalué ; par défaut, tous les sept jours.
+*Si un autre serveur est découvert après que j’ai ajouté la solution System Center Operations Manager Health Check, ce serveur sera-t-il évalué ?* Oui, après la découverte, il sera évalué ; par défaut, tous les sept jours.
 
 *Quel est le nom du processus qui effectue la collecte de données ?* AdvisorAssessment.exe
 

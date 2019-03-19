@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: f90ad2707e42c4b5b2c4188d7f0f18bb9c5ea31b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878628"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Protéger App Service avec Azure Security Center
 Cet article vous aide à utiliser Azure Security Center pour surveiller et protéger vos applications s’exécutant au-dessus d’App Service.
@@ -32,7 +32,7 @@ Azure Security Center peut générer des évaluations et des suggestions sur vos
 
 Security Center profite de l’échelle du cloud pour détecter les attaques dirigées contre vos applications App Service et se concentrer sur les attaques émergentes, lorsque les pirates sont en phase de reconnaissance et analysent les vulnérabilités de multiples sites web hébergés sur Azure. Security Center se sert d’analyses et de modèles d’apprentissage pour couvrir toutes les interfaces permettant aux clients d’interagir avec leurs applications, que ce soit via le protocole HTTP ou des méthodes de gestion. De plus, en tant que service principal dans Azure, Security Center occupe également dans une position privilégiée pour proposer des analyses de sécurité basées sur l’hôte, couvrant des nœuds de calcul sous-jacents pour ce PaaS, ce qui permet à Security Center de détecter les attaques dirigées contre des applications web qui ont déjà été exploitées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour surveiller et sécuriser votre App Service, vous devez disposer d’un plan App Service associé à des machines dédiées. Il s’agit des plans suivants : De base, Standard, Premium, Isolé ou Linux. Azure Security Center ne prend pas en charge les plans Gratuit, Partagé ou Consommation. Pour plus d’informations, voir [Plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
@@ -68,4 +68,4 @@ Dans cet article, vous avez vu comment utiliser les fonctionnalités de surveill
 * [App Services](security-center-virtual-machine-protection.md#app-services) :  Consultez une liste de vos environnements App Service avec des résumés d’intégrité.
 * [Supervision des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [FAQ sur Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.

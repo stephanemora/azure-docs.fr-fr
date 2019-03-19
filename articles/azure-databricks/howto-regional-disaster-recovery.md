@@ -8,22 +8,16 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.openlocfilehash: 79125e1244170a507e4e209c17b339b2b13a0542
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748321"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087616"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Récupération d’urgence régionale pour les clusters Azure Databricks
 
 Cet article décrit une architecture de récupération d’urgence utile pour les clusters Azure Databricks, ainsi que les étapes à suivre pour réaliser cette conception.
-
-## <a name="azure-databricks-overview"></a>Présentation d’Azure Databricks
-
-Azure Databricks est un service d’analyse rapide, simple et collaboratif basé sur Apache Spark. Pour un pipeline de Big Data, les données (brutes ou structurées) sont ingérées en lots dans Azure par le biais d’Azure Data Factory ou diffusées en continu en quasi temps réel avec Kafka, Event Hub ou IoT Hub. Elles aboutissent dans un lac de données en vue d’un stockage persistant à long terme, dans le Stockage Blob Azure ou Azure Data Lake Storage. Dans le cadre de votre workflow analytique, utilisez Azure Databricks pour lire des données issues de plusieurs sources de données, comme le [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) ou [Azure SQL Data Warehouse](../sql-data-warehouse/index.md), et les transformer en insights novateurs avec Spark.
-
-![Pipeline Databricks](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## <a name="azure-databricks-architecture"></a>Architecture Azure Databricks
 
@@ -37,7 +31,7 @@ L’un des avantages de cette architecture est que les utilisateurs peuvent conn
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Créer une topologie de récupération d’urgence régionale
 
-Comme on peut le remarquer dans la description de l’architecture précédente, différents composants sont utilisés pour un pipeline de Big Data avec Azure Databricks : le Stockage Azure, Azure Database et d’autres sources de données. Azure Databricks est le volet *calcul* du pipeline de Big Data. Il est *éphémère* par nature, ce qui signifie qu’il est possible de terminer le *calcul* (cluster Azure Databricks) afin de ne pas avoir à le payer inutilement, tandis que les données restent disponibles dans le Stockage Azure. Le *calcul* (Azure Databricks) et les sources de stockage doivent être dans la même région pour éviter que les travaux ne subissent une latence élevée.  
+Comme vous le remarquer dans la description d’architecture ci-dessus, il existe un nombre de composants utilisés pour un pipeline de Big Data avec Azure Databricks :  Stockage Azure, base de données Azure et autres sources de données. Azure Databricks est le volet *calcul* du pipeline de Big Data. Il est *éphémère* par nature, ce qui signifie qu’il est possible de terminer le *calcul* (cluster Azure Databricks) afin de ne pas avoir à le payer inutilement, tandis que les données restent disponibles dans le Stockage Azure. Le *calcul* (Azure Databricks) et les sources de stockage doivent être dans la même région pour éviter que les travaux ne subissent une latence élevée.  
 
 Pour créer votre propre topologie de récupération d’urgence régionale, respectez les exigences suivantes :
 
@@ -269,9 +263,9 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
 10. **Reconfigurez et réappliquez manuellement le contrôle d’accès.**
 
-   Si votre espace de travail principal actuel est configuré pour utiliser le niveau Premium (SKU), il est probable que vous utilisiez également la [fonctionnalité de contrôle d’accès](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Si votre espace de travail principal actuel est configuré pour utiliser le niveau Premium (SKU), il est probable que vous utilisiez également la [fonctionnalité de contrôle d’accès](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   Si c’est le cas, réappliquez manuellement le contrôle d’accès aux ressources (notebooks, clusters, travaux, tables).
+    Si c’est le cas, réappliquez manuellement le contrôle d’accès aux ressources (notebooks, clusters, travaux, tables).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, voir la [documentation Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

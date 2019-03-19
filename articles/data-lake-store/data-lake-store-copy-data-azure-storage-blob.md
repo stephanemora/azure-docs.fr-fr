@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0cf5ace29dabd3a55524fe38403a07e3916ea7d6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390890"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544635"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copier des données d’objets blob de Stockage Azure vers Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "44390890"
 >
 >
 
-Data Lake Storage Gen1 fournit un outil en ligne de commande nommé [AdlCopy](http://aka.ms/downloadadlcopy), qui permet de copier des données à partir des sources suivantes :
+Data Lake Storage Gen1 fournit un outil en ligne de commande nommé [AdlCopy](https://aka.ms/downloadadlcopy), qui permet de copier des données à partir des sources suivantes :
 
 * D’objets blob de Stockage Azure vers Azure Data Lake Storage Gen1. Vous ne pouvez pas utiliser AdlCopy pour copier des données d’Azure Data Lake Storage Gen1 vers des objets blob de Stockage Azure.
 * Entre comptes Azure Data Lake Storage Gen1.
@@ -36,14 +36,14 @@ Vous pouvez également utiliser l’outil AdlCopy dans deux modes différents :
 * **Autonome** : l’outil utilise des ressources Data Lake Storage Gen1 pour effectuer la tâche.
 * **À l’aide d’un compte Data Lake Analytics**: les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **objets blob Azure Storage** avec quelques données.
 * **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Compte Azure Data Lake Analytics (facultatif)**  : voir [Prise en main d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) pour obtenir des instructions sur la création d’un compte Data Lake Analytics.
-* **Outil AdlCopy**. Installez l’outil AdlCopy à partir de [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
+* **Outil AdlCopy**. Installez l’outil AdlCopy à partir de [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Syntaxe de l’outil AdlCopy
 L’outil AdlCopy utilise la syntaxe suivante.

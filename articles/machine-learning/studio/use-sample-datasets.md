@@ -5,30 +5,29 @@ description: Descriptions des jeux de données utilisés dans les exemples de mo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244332"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880991"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d’un certain nombre d’exemples de jeux de données et d’expériences. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles [d’Azure AI Gallery](http://gallery.azure.ai/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
+Lorsque vous créez un nouvel espace de travail dans Azure Machine Learning Studio, un nombre d’exemples de datasets et d’expériences est inclus par défaut. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles [d’Azure AI Gallery](https://gallery.azure.ai/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
 
 Certains de ces jeux de données sont disponibles dans le Stockage Blob Azure. Le tableau ci-dessous fournit un lien direct vers ces jeux de données. Vous pouvez utiliser ces jeux de données dans vos expériences à l’aide du module [Importer les données][import-data].
 
 Les autres exemples de jeux de données sont disponibles dans votre espace de travail, dans **Jeux de données enregistrés**. Vous le trouverez dans la palette de modules, à gauche du canevas de l’expérience, dans Machine Learning Studio.
 Vous pouvez utiliser un de ces jeux de données dans votre propre expérience en le faisant glisser sur le canevas de l'expérience.
 
-
-
+## <a name="datasets"></a>Groupes de données
 
 <table>
 
@@ -44,7 +43,7 @@ Sous-ensemble de la base de données Census de 1994, qui recense les adultes de 
 <p></p>
 <b>Utilisation :</b> classifier des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 $ par an.
 <p></p>
-<b>Recherche associée :</b> Kohavi, R., Becker, B., (1996). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>Recherche associée :</b> Kohavi, R., Becker, B., (1996). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -65,7 +64,7 @@ La note de risque est initialement associée au prix de l’automobile. Elle est
 <p></p>
 <b>Utilisation :</b> prédire le score de risque en fonction des caractéristiques, en utilisant une classification de régression ou multivariée. 
 <p></p>
-<b>Recherche associée :</b> Schlimmer, J.C. (1987). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>Recherche associée :</b> Schlimmer, J.C. (1987). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -96,9 +95,9 @@ Les données associées aux donneurs incluent le nombre de mois depuis le dernie
 <p></p>
 <b>Utilisation :</b> l’objectif est de prédire par la classification si le donneur a donné du sang en mars 2007, 1 indiquant un donneur pendant la période ciblée et 0 une personne n’ayant pas fait de don. 
 <p></p>
-<b>Recherche associée :</b> Yeh, I.C., (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>Recherche associée :</b> Yeh, I.C., (2008). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-Yeh, I-Cheng, Yang, King-Jang et Ting, Tao-Ming, « Détection des connaissances sur le modèle RFM à l’aide de la séquence Bernoulli, » Expert Systems avec Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, I-Cheng, Yang, King-Jang et Ting, Tao-Ming, « Détection des connaissances sur le modèle RFM à l’aide de la séquence Bernoulli, » Expert Systems avec Applications, 2008, <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -109,7 +108,7 @@ Un des trois jeux de données sur le cancer fournis par l’Oncology Institute, 
 <p></p>
 <b>Utilisation :</b> classifier le type de cancer en se basant sur 9 attributs, certains étant linéaires et d’autres catégoriels. 
 <p></p>
-<b>Recherche associée :</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>Recherche associée :</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -162,13 +161,13 @@ Collection de profils d'énergie simulés, basée sur 12 formes différentes de
 <p></p>
 <b>Utilisation :</b> utiliser la régression ou la classification pour prédire la notation de l’efficacité énergétique sous la forme de l’une des deux réponses en valeur réelle. Pour la classification multiclasse, arrondit la variable de la réponse à l’entier le plus proche. 
 <p></p>
-<b>Recherche associée :</b> Xifara, A. & Tsanas, A. (2012). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>Recherche associée :</b> Xifara, A. & Tsanas, A. (2012). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
   <td>Données relatives aux vols retardés</td>
   <td>
-Données de ponctualité des vols passagers provenant de la collection de données TranStats du ministère Ministère des transports des États-Unis (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">à l’heure</a>).
+Données de ponctualité des vols passagers provenant de la collection de données TranStats du ministère Ministère des transports des États-Unis (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">à l’heure</a>).
 <p></p>
 Le jeu de données couvre la période d’avril à octobre 2013. Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :
 <ul>
@@ -187,7 +186,7 @@ Enregistrements des arrivées et départs de vols aux États-Unis à compter d�
 <p></p>
 <b>Utilisation :</b> prédire les retards des vols. 
 <p></p>
-<b>Recherche associée :</b> Provenant du département des transports des États-Unis <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>Recherche associée :</b> Provenant du département des transports des États-Unis <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
@@ -198,7 +197,7 @@ Contient des données météorologiques, par exemple, les indices de températur
 <p></p>
 <b>Utilisation :</b> il s’agit d’une tâche difficile de régression, dont l’objectif est de prédire la zone brûlée par des feux de forêt. 
 <p></p>
-<b>Recherche associée :</b> Cortez, P., & Morais, A. (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>Recherche associée :</b> Cortez, P., & Morais, A. (2008). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 [Cortez et Morais, 2007] P. Cortez et A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Aux éditions J. Neves, M. F. Santos et J. Machado, New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Conférence portugaise sur l’intelligence artificielle, décembre, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponibles sur : <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
@@ -207,7 +206,7 @@ Contient des données météorologiques, par exemple, les indices de températur
 <tr>
   <td>Jeu de données d'UCI pour une carte de crédit allemande</td>
   <td>
-Jeu de données UCI Statlog (carte de crédit allemande) (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog+German+Credit+Data</a>), utilisant le fichier german.data.
+Jeu de données UCI Statlog (carte de crédit allemande) (<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog+German+Credit+Data</a>), utilisant le fichier german.data.
 <p></p>
 Le jeu de données classe les gens, décrits par un ensemble d’attributs, par risque de crédit (faible ou élevé). Chaque exemple représente une personne. Il y a 20 caractéristiques, numériques et catégoriques, ainsi qu’une étiquette binaire (la valeur du risque de crédit). Les entrées avec un risque de crédit élevé portent une étiquette = 2, tandis que les entrées avec un risque de crédit faible portent une étiquette = 1. Le coût d’une erreur de classification d’un risque de crédit faible en risque élevé est de 1 tandis qu’il est de 5 dans le cas inverse (classification d’un risque de crédit élevé en risque faible).
   </td>
@@ -227,13 +226,13 @@ Il s’agit sans doute de l’une des bases de données les plus réputées dans
 <p></p>
 <b>Utilisation :</b> prédire le type d’iris à partir des mesures.  
 <p></p>
-<b>Recherche associée :</b> Fisher, R.A. (1988). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>Recherche associée :</b> Fisher, R.A. (1988). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
   <td>Tweets de films</td>
   <td>
-Ce jeu de données est une version étendue du jeu de données Movie Tweetings. Il contient 170 000 évaluations de film, tirées de tweets structurés publiés sur Twitter. Chaque instance correspond à un tweet et constitue un tuple : ID utilisateur, ID IMDB, évaluation, horodatage, nombre de favoris pour ce tweet et nombre de retweets pour ce tweet. Ce jeu de données a été fourni par A. Said, S. Dooms, B. Loni et D. Tikk dans le cadre du Recommender Systems Challenge 2014.
+Ce jeu de données est une version étendue du jeu de données Movie Tweetings. Il contient 170 000 évaluations de film, tirées de tweets structurés publiés sur Twitter. Chaque instance représente un tweet et constitue un tuple : ID d’utilisateur, ID de film IMDB, évaluation, horodatage, nombre de favoris pour ce tweet et nombre de retweets pour ce tweet. Ce jeu de données a été fourni par A. Said, S. Dooms, B. Loni et D. Tikk dans le cadre du Recommender Systems Challenge 2014.
   </td>
 </tr>
 
@@ -246,7 +245,7 @@ Les données répertorient la consommation de carburant de différentes automobi
 <p></p>
 <b>Utilisation :</b> prédire l’économie de carburant à partir de trois attributs discrets multivalués et de cinq attributs continus. 
 <p></p>
-<b>Recherche associée :</b> StatLib, Carnegie Mellon University, (1993). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>Recherche associée :</b> StatLib, Carnegie Mellon University, (1993). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -256,7 +255,7 @@ Sous-ensemble de la base de données du National Institute of Diabetes and Diges
 <p></p>
 <b>Utilisation :</b> prédire si le sujet a du diabète (classification binaire). 
 <p></p>
-<b>Recherche associée :</b> Sigillito, V. (1990). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml »</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>Recherche associée :</b> Sigillito, V. (1990). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml »</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -266,7 +265,7 @@ Jeu de données sur les clients, comprenant des données démographiques et des 
 <p></p>
 <b>Utilisation :</b> utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -277,7 +276,7 @@ Jeu de métadonnées sur des restaurants et leurs caractéristiques, comme le ty
 <p></p>
 <b>Utilisation :</b> utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -288,7 +287,7 @@ Contient les notes attribuées par les consommateurs à des restaurants sur une 
 <p></p>
 <b>Utilisation :</b> utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -301,7 +300,7 @@ Ce jeu de données contient une série d’enregistrements d’essais de recuit 
 <p></p>
 Les qualités d'acier répondent à un standard défini par la SAE et d'autres organisations. Vous recherchez une qualité d’acier spécifique (variable de classe) et vous cherchez à comprendre les valeurs nécessaires. 
 <p></p>
-<b>Recherche associée :</b> Sterling, D. & Buntine, W. (NA). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>Recherche associée :</b> Sterling, D. & Buntine, W. (NA). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Vous trouverez ici un guide utile sur les qualités d’acier : <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,13 +321,13 @@ Les données ont été prétraitées pour créer un cluster allongé avec l'axe 
 <p></p>
 Notez également que le nombre d’événements de bruit de fond (h, pour douches hadroniques) est sous-estimé. Dans les mesures réelles, la classe h ou classe bruitée représente la majorité des événements. 
 <p></p>
-<b>Recherche associée :</b> Bock, R.K. (1995). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
+<b>Recherche associée :</b> Bock, R.K. (1995). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
 </tr>
 
 <tr>
   <td>Jeu de données météorologiques</td>
   <td>
-Observations météorologiques terrestres effectuées toutes les heures par la NOAA (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">données fusionnées, de 201304 à 201310</a>).
+Observations météorologiques terrestres effectuées toutes les heures par la NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">données fusionnées, de 201304 à 201310</a>).
 <p></p>
 Les données météorologiques couvrent les observations effectuées depuis les stations météo des aéroports, entre les mois d’avril et octobre 2013. Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :
 <ul>
@@ -343,7 +342,7 @@ Les données météorologiques couvrent les observations effectuées depuis les 
 <tr>
   <td>Jeu de données Wikipedia concernant le SP 500</td>
   <td>
-Les données sont extraites de Wikipédia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500 et sont stockées sous forme de données XML.
+Les données sont extraites de Wikipédia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500 et sont stockées sous forme de données XML.
 <p></p>
 Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :
 <ul>
@@ -382,7 +381,7 @@ Caractéristiques des exemples d’apprentissage du jeu de données de presse RC
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
-Jeu de données provenant du KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
+Jeu de données provenant du KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
 <p></p>
 Le jeu de données a été téléchargé et stocké dans le stockage d’objets blob Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) et il inclut à la fois les jeux de données d’apprentissage et de test. Le jeu de données d'apprentissage comporte environ 126 000 lignes et 43 colonnes, étiquettes comprises. Trois colonnes font partie des informations d’étiquette et 40 colonnes, constituées de caractéristiques numériques et catégorielles/de chaîne, sont disponibles pour s’entraîner avec le modèle. Les données de test contiennent environ 22 500 exemples avec les mêmes 43 colonnes que les données d’apprentissage.
   </td>
@@ -398,7 +397,7 @@ Affectation de rubriques aux articles de presse contenus dans le jeu de données
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Ces données proviennent du KDD Cup 2010 Student Performance Evaluation Challenge (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">évaluation des performances des étudiants</a>). Les données utilisées correspondent au jeu d’apprentissage Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Jeu de données issu du KDD Cup 2010 Educational Data Mining Challenge. Pour le trouver, accédez à <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Ces données proviennent du KDD Cup 2010 Student Performance Evaluation Challenge (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">évaluation des performances des étudiants</a>). Les données utilisées correspondent au jeu d’apprentissage Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Jeu de données issu du KDD Cup 2010 Educational Data Mining Challenge. Pour le trouver, accédez à <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 Le jeu de données a été téléchargé et stocké dans le stockage d’objets blob Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) et il contient les fichiers journaux d’un système de tutorat des étudiants. Les caractéristiques fournies incluent l’identifiant du problème avec une description sommaire, l’identifiant de l’étudiant, un horodatage et le nombre de tentatives de résolution du problème avant la réussite. Le jeu de données original comporte 8,9 millions d’enregistrements. Ce jeu de données a été échantillonné pour être réduit aux premières 100 000 lignes. Le jeu de données comporte 23 colonnes séparées par des tabulations de divers types : numérique, catégoriel et horodatage.
   </td>
@@ -406,6 +405,10 @@ Le jeu de données a été téléchargé et stocké dans le stockage d’objets 
 
 </table>
 
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Kickstart vos expériences avec des exemples](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

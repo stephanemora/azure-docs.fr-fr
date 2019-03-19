@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477214"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850041"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To
 
-Cette procédure pas à pas vous explique comment utiliser le processus TDSP (Team Data Science Process) avec un scénario complet au moyen d’un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur un des jeux de données [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), disponibles publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction d’échantillon. Elle utilise Azure Machine Learning pour créer un modèle de classification binaire sur ces données. Elle vous montre également comment publier un de ces modèles en tant que service web.
+Cette procédure pas à pas vous explique comment utiliser le processus TDSP (Team Data Science Process) avec un scénario complet au moyen d’un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur un des jeux de données [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/), disponibles publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction d’échantillon. Elle utilise Azure Machine Learning pour créer un modèle de classification binaire sur ces données. Elle vous montre également comment publier un de ces modèles en tant que service web.
 
 Il est également possible d'utiliser un interpréteur IPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l’aide d’une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
 ## <a name="dataset"></a>Description du groupe de données Criteo
-Les données Criteo représentent un groupe de données de prédiction de clic d'environ 370 Go de fichiers TSV compressés au format gzip (~1,30 To de fichiers non compressés), comprenant plus de 4,3 milliards d'enregistrements. Elles proviennent de 24 jours de données de clic, disponibles via [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Pour la commodité des scientifiques de données, les données mises à notre disposition pour pouvoir les expérimenter ont été décompressées.
+Les données Criteo représentent un groupe de données de prédiction de clic d'environ 370 Go de fichiers TSV compressés au format gzip (~1,30 To de fichiers non compressés), comprenant plus de 4,3 milliards d'enregistrements. Elles proviennent de 24 jours de données de clic, disponibles via [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). Pour la commodité des scientifiques de données, les données mises à notre disposition pour pouvoir les expérimenter ont été décompressées.
 
 Chaque enregistrement de ce groupe de données est constitué de 40 colonnes :
 
@@ -68,7 +68,7 @@ Configurez votre environnement de science des données Azure pour créer des sol
 3. [Créer un espace de travail Azure Machine Learning Studio](../studio/create-workspace.md) : espace de travail Azure Machine Learning utilisé pour créer des modèles d’apprentissage automatique après avoir exploré des données initiales et réduit l’échantillon sur le cluster HDInsight.
 
 ## <a name="getdata"></a>Récupération et utilisation des données provenant d’une source publique
-Pour accéder au groupe de données [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) , cliquez sur le lien, acceptez les conditions d'utilisation et saisissez un nom. Voici une capture de l’écran correspondant :
+Pour accéder au groupe de données [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) , cliquez sur le lien, acceptez les conditions d'utilisation et saisissez un nom. Voici une capture de l’écran correspondant :
 
 ![Accepter les conditions de Criteo](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -307,7 +307,7 @@ Cela donne :
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Notez que Col15 possède des valeurs uniques 19M ! L’utilisation des techniques naïves, telles que « l’encodage à chaud » pour encoder des variables catégorielles de grande dimension, est tout bonnement impossible. Une technique puissante et robuste appelée [Apprentissage à l’aide de compteurs](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) est notamment expliquée et présentée pour résoudre ce problème de manière efficace.
+Notez que Col15 possède des valeurs uniques 19M ! L’utilisation des techniques naïves, telles que « l’encodage à chaud » pour encoder des variables catégorielles de grande dimension, est tout bonnement impossible. Une technique puissante et robuste appelée [Apprentissage à l’aide de compteurs](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) est notamment expliquée et présentée pour résoudre ce problème de manière efficace.
 
 Enfin, examinez le nombre de valeurs uniques pour d’autres colonnes catégorielles. 
   [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) contient :
@@ -407,10 +407,10 @@ Vous êtes ainsi prêt à utiliser nos jeux de données de formation et de test 
 Intéressons-nous à un dernier composant important avant de passer à Azure Machine Learning, qui concerne la table de comptage. Dans la sous-section suivante, la table de comptage est décrite en détail.
 
 ## <a name="count"></a> Une brève discussion sur la table de comptage
-Comme vous l’avez remarqué, plusieurs variables catégorielles ont une dimensionnalité très élevée. Dans la procédure pas à pas, une technique puissante appelée [Apprentissage à l’aide de compteurs](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) est présentée pour encoder ces variables de manière fiable et efficace. Plus d'informations sur cette technique sont indiquées dans le lien fourni.
+Comme vous l’avez remarqué, plusieurs variables catégorielles ont une dimensionnalité très élevée. Dans la procédure pas à pas, une technique puissante appelée [Apprentissage à l’aide de compteurs](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) est présentée pour encoder ces variables de manière fiable et efficace. Plus d'informations sur cette technique sont indiquées dans le lien fourni.
 
 [!NOTE]
->Dans cette procédure pas à pas, penchez-vous sur l’utilisation de tables de comptage permettant de produire des représentations compactes de fonctionnalités catégorielles de grande dimension. Ce n’est pas la seule manière d’encoder des fonctionnalités catégorielles ; pour plus d’informations sur les autres techniques, les utilisateurs intéressés peuvent consulter les rubriques [Encodage à chaud](http://en.wikipedia.org/wiki/One-hot) et [Hachage de caractéristiques](http://en.wikipedia.org/wiki/Feature_hashing).
+>Dans cette procédure pas à pas, penchez-vous sur l’utilisation de tables de comptage permettant de produire des représentations compactes de fonctionnalités catégorielles de grande dimension. Ce n’est pas la seule manière d’encoder des fonctionnalités catégorielles ; pour plus d’informations sur les autres techniques, les utilisateurs intéressés peuvent consulter les rubriques [Encodage à chaud](https://en.wikipedia.org/wiki/One-hot) et [Hachage de caractéristiques](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
 Pour créer des tables de comptage sur les données numériques, utilisez les données dans le dossier raw/count. Dans la rubrique de modélisation, les utilisateurs apprennent à créer de toutes pièces ces tables de comptage pour fonctionnalités catégorielles, ou également à utiliser une table de comptage prédéfinie pour leurs explorations. Dans la suite, lorsque nous utilisons le terme de « tables de comptage prédéfinies », nous entendons par là l’utilisation des tables de comptage fournies. Vous trouverez des instructions détaillées sur l’accès à ces tables dans la section suivante.
@@ -419,7 +419,7 @@ Pour créer des tables de comptage sur les données numériques, utilisez les do
 Notre processus de création de modèles dans Azure Machine Learning se déroule comme suit :
 
 1. [Récupération des données des tables Hive dans Azure Machine Learning](#step1)
-2. [Création de l’expérience : nettoyage des données et caractérisation des tables de comptage](#step2)
+2. [Création de l’expérience : nettoyer les données et une fonctionnalité des tables de comptage](#step2)
 3. [Création, formation et notation du modèle](#step3)
 4. [Évaluation du modèle](#step4)
 5. [Publication du modèle comme service web](#step5)
@@ -453,7 +453,7 @@ Cliquez avec le bouton droit sur le port de sortie du module **Importer des donn
 
 Pour sélectionner le groupe de données enregistré et l’utiliser dans une expérience d’apprentissage automatique, recherchez les groupes de données à l’aide de la zone **Recherche** visible dans l’illustration ci-dessous. Puis tapez simplement une partie du nom attribué au groupe de données pour accéder à celui-ci et faites-le glisser sur le panneau principal. En le déposant sur le panneau principal, ce groupe de données est sélectionné pour être utilisé dans la modélisation de l’apprentissage automatique.
 
-![Faites glisser l’ensemble de données sur le panneau principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Faites glisser de jeu de données sur le panneau principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Réalisez cette opération pour les groupes de données de formation et de test. En outre, n'oubliez pas d'utiliser le nom de la base de données et les noms de tables attribués à cet effet. Les valeurs de la capture d’écran sont utilisées à simple titre d’illustration.\**

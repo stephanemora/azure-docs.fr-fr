@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: d0819b57307fc037b3be6ab04ed9ec6c8720a618
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747456"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103585"
 ---
 # <a name="expressroute-monitor"></a>Moniteur ExpressRoute
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur les Groupes de sécurité réseau, voir  [Group
 
     ![Configuration du moniteur ExpressRoute](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- Une fois la détection terminée, les connexions d’appairages privés sont répertoriées dans une table. L’analyse de ces homologations est initialement à l’état désactivée. 
+   Une fois la détection terminée, les connexions d’appairages privés sont répertoriées dans une table. L’analyse de ces homologations est initialement à l’état désactivée. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>Activer la surveillance des connexions d’appairage ExpressRoute 
 

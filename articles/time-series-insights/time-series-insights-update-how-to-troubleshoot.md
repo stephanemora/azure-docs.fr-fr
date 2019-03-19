@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080435"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnostiquer et résoudre les problèmes
 
@@ -43,16 +43,16 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 
 - Il manque une autorisation requise pour votre clé de source d’événements.
 
-    * Pour IoTHub, vous devez fournir la clé avec l’autorisation **Connexion de service**.
+  * Pour IoTHub, vous devez fournir la clé avec l’autorisation **Connexion de service**.
 
     ![Configuration][3]
 
-    * Comme indiqué dans l’illustration précédente, les stratégies **iothubowner** et **service** sont acceptées, car elles disposent de l’autorisation **Connexion de service**.
-    * Pour Event Hub, vous devez fournir la clé avec l’autorisation **Écouter**.
+  * Comme indiqué dans l’illustration précédente, les stratégies **iothubowner** et **service** sont acceptées, car elles disposent de l’autorisation **Connexion de service**.
+  * Pour Event Hub, vous devez fournir la clé avec l’autorisation **Écouter**.
   
     ![Autorisations][4]
 
-    * Comme indiqué dans l’illustration précédente, les stratégies **read** et **manage** sont acceptées, car elles disposent de l’autorisation **Listen**.
+  * Comme indiqué dans l’illustration précédente, les stratégies **read** et **manage** sont acceptées, car elles disposent de l’autorisation **Listen**.
 
 - Votre groupe de consommateurs fourni n’est pas exclusif à Time Series Insights.
 

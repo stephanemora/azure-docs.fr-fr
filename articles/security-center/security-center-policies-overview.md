@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: f61f5ebf4c0658ff846421682d50ea346c699e01
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 818b3e3b464ecbe8d55367ab5318436a14567263
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108761"
 ---
 # <a name="security-center-settings"></a>Paramètres Security Center
 Cet article offre une vue d’ensemble des paramètres de Security Center.
@@ -51,6 +51,6 @@ Dans cet article, vous avez découvert les stratégies de sécurité dans Azure 
 * [Supervision de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [Supervision des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
-- [Sécurité des données Azure Security Center](security-center-data-security.md) : Découvrez comment Security Center gère et protège les données.
+* [Sécurité des données Azure Security Center](security-center-data-security.md) : Découvrez comment Security Center gère et protège les données.
 * [FAQ sur Azure Security Center](security-center-faq.md) : Obtenez des réponses aux questions fréquentes concernant l’utilisation du service.
 * [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : tenez-vous informé au sujet de la sécurité Azure.

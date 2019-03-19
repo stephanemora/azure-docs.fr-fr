@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 5b1fc44b06dde7c7aa28a251b7250515998ac604
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c3ceb8f130118ee7abdbe801cd3931e9f870ec4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857251"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538882"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Résultats et jeton ImageInsightsToken du kit SDK Recherche visuelle Bing
 
@@ -23,10 +23,10 @@ Le Kit de développement logiciel (SDK) de Recherche visuelle permet de recherch
 
 Le code source complet de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInisghtsTokens.cs) avec une gestion des erreurs et des annotations supplémentaires.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](http://www.mono-project.com/).
+* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 * Les packages Recherche visuelle NuGet et Recherche d’images. 
     - Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur votre projet et sélectionnez `Manage NuGet Packages` dans le menu. Installez le package `Microsoft.Azure.CognitiveServices.Search.CustomSearch` et le package `Microsoft.Azure.CognitiveServices.Search.ImageSearch`. L’installation des packages NuGet installe également les éléments suivants :
         - Microsoft.Rest.ClientRuntime

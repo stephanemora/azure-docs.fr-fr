@@ -1,6 +1,6 @@
 ---
 title: Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et d'Azure PowerShell | Microsoft Docs
-description: Apprenez à gérer la façon dont les utilisateurs, les groupes et les applications accèdent aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et d'Azure PowerShell. Apprenez notamment à lister, à accorder et à supprimer des accès.
+description: Découvrez comment gérer l’accès aux ressources Azure pour les utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle (RBAC) et Azure PowerShell. Apprenez notamment à lister, à accorder et à supprimer des accès.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ace70dea5277b4e9d8c8b0e6e0cdc49da0b674e0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343772"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432224"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell
 
@@ -27,7 +27,7 @@ Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de 
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour gérer les accès, il vous faudra l’un des éléments suivants :
 
@@ -81,9 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-specific-role-in-json-format"></a>Répertorier un rôle au format JSON
+## <a name="list-a-role-definition"></a>Liste d’une définition de rôle
 
-Pour répertorier un rôle au format JSON, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+### <a name="list-a-role-definition-in-json-format"></a>Liste d’une définition de rôle au format JSON
+
+Pour répertorier une définition de rôle au format JSON, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -328,4 +330,4 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 - [Tutoriel : Permettre à un groupe d'accéder aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Gérer les ressources avec Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)
+- [Gérer les ressources avec Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

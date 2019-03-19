@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116773"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 
@@ -32,13 +32,13 @@ La géorestauration est la solution de reprise d’activité la plus économique
 
 Ce tutoriel étudie à la fois les workflows de restauration et de rapatriement. Vous allez apprendre à effectuer les actions suivantes :
 > [!div class="checklist"]
-
->* Synchroniser les informations de configuration des bases de données et du pool élastique dans le catalogue du locataire.
->* Configurer l’environnement d’une image miroir dans une région de récupération, comprenant l’application, les serveurs et les pools.   
->* Récupérer des bases de données de catalogue et de locataire en utilisant la géorestauration.
->* Utiliser la géoréplication pour rapatrier le catalogue du locataire et les bases de données de locataire modifiées une fois la panne résolue.
->* Mettre à jour le catalogue au fur et à mesure que chaque base de données est restaurée (ou rapatriée) pour suivre l’emplacement actuel de la copie active de la base de données de chaque locataire.
->* Vérifier que l’application et la base de données du locataire sont toujours colocalisées dans la même région Azure pour réduire la latence. 
+> 
+> * Synchroniser les informations de configuration des bases de données et du pool élastique dans le catalogue du locataire.
+> * Configurer l’environnement d’une image miroir dans une région de récupération, comprenant l’application, les serveurs et les pools.   
+> * Récupérer des bases de données de catalogue et de locataire en utilisant la géorestauration.
+> * Utiliser la géoréplication pour rapatrier le catalogue du locataire et les bases de données de locataire modifiées une fois la panne résolue.
+> * Mettre à jour le catalogue au fur et à mesure que chaque base de données est restaurée (ou rapatriée) pour suivre l’emplacement actuel de la copie active de la base de données de chaque locataire.
+> * Vérifier que l’application et la base de données du locataire sont toujours colocalisées dans la même région Azure pour réduire la latence. 
  
 
 Avant de commencer ce didacticiel, terminez les éléments suivants :
@@ -194,13 +194,13 @@ Pendant que le point de terminaison de l’application est désactivé dans Traf
 
 * Une fois que la base de données de catalogue a été récupérée, mais avant que les locataires ne soient à nouveau en ligne, actualisez le hub d’événements Wingtip Tickets dans votre navigateur web.
 
-    * Dans le pied de page, remarquez que le nom du serveur de catalogue porte maintenant un suffixe -recovery et se trouve dans la région de récupération.
+  * Dans le pied de page, remarquez que le nom du serveur de catalogue porte maintenant un suffixe -recovery et se trouve dans la région de récupération.
 
-    * Remarquez que les locataires qui ne sont pas encore restaurés sont marqués comme hors connexion et ne peuvent pas être sélectionnés.   
+  * Remarquez que les locataires qui ne sont pas encore restaurés sont marqués comme hors connexion et ne peuvent pas être sélectionnés.   
  
     ![Processus de récupération](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Si vous ouvrez la page Événements d’un locataire directement alors qu’il est hors connexion, la page présente une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
+  * Si vous ouvrez la page Événements d’un locataire directement alors qu’il est hors connexion, la page présente une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processus de récupération](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ Avant même que les bases de données de locataire ne soient restaurées, vous p
 
 4. Ouvrez le groupe de ressources de récupération et notez les éléments suivants :
 
-    * Les versions de récupération des serveurs de catalogue et tenants1, avec le suffixe -recovery. Toutes les bases de données de catalogue et de locataire restaurées sur ces serveurs portent les noms utilisés dans la région d’origine.
+   * Les versions de récupération des serveurs de catalogue et tenants1, avec le suffixe -recovery. Toutes les bases de données de catalogue et de locataire restaurées sur ces serveurs portent les noms utilisés dans la région d’origine.
 
-    * Le serveur SQL tenants2-dpt-&lt;utilisateur&gt;-recovery est utilisé. Ce serveur sert à approvisionner les nouveaux locataires pendant la panne.
+   * Le serveur SQL tenants2-dpt-&lt;utilisateur&gt;-recovery est utilisé. Ce serveur sert à approvisionner les nouveaux locataires pendant la panne.
 
-    * Le service App Service nommé events-wingtip-dpt-&lt;région_récupération&gt;-&lt;utilisateur&gt;, qui est l’instance de récupération de l’application Événements.
+   * Le service App Service nommé events-wingtip-dpt-&lt;région_récupération&gt;-&lt;utilisateur&gt;, qui est l’instance de récupération de l’application Événements.
 
-    ![Ressources Contoso dans la région de récupération](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Ressources Contoso dans la région de récupération](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. Ouvrez le serveur SQL tenants2-dpt-&lt;utilisateur&gt;-recovery. Remarquez qu’il contient la base de données hawthornhall et le pool élastique Pool1. La base de données hawthornhall est configurée comme une base de données élastique dans le pool élastique Pool1.
 
@@ -367,12 +367,12 @@ Les bases de données de locataire peuvent être réparties entre les régions d
 
 Dans ce tutoriel, vous avez appris à :
 > [!div class="checklist"]
-
->* Utiliser le catalogue de locataire pour conserver régulièrement les informations de configuration actualisées, et ainsi créer un environnement de récupération d’image miroir dans une autre région.
->* Récupérer des bases de données SQL Azure dans la région de récupération en utilisant la géorestauration.
->* Mettre à jour le catalogue de locataire pour refléter les emplacements de bases de données de locataire restaurées. 
->* Utiliser un alias DNS pour permettre à une application de se connecter au catalogue de locataire sans reconfiguration.
->* Utiliser la géoréplication pour rapatrier des bases de données récupérées dans leur région d’origine après la résolution d’une panne.
+> 
+> * Utiliser le catalogue de locataire pour conserver régulièrement les informations de configuration actualisées, et ainsi créer un environnement de récupération d’image miroir dans une autre région.
+> * Récupérer des bases de données SQL Azure dans la région de récupération en utilisant la géorestauration.
+> * Mettre à jour le catalogue de locataire pour refléter les emplacements de bases de données de locataire restaurées. 
+> * Utiliser un alias DNS pour permettre à une application de se connecter au catalogue de locataire sans reconfiguration.
+> * Utiliser la géoréplication pour rapatrier des bases de données récupérées dans leur région d’origine après la résolution d’une panne.
 
 Intéressez-vous au didacticiel [Reprise d’activité pour une application SaaS multilocataire à l’aide de la géoréplication de bases de données](saas-dbpertenant-dr-geo-replication.md) pour apprendre à utiliser la géoréplication pour réduire considérablement le temps nécessaire pour récupérer une application multilocataire à grande échelle.
 

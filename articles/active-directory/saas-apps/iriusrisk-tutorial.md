@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à IriusRisk | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à IriusRisk | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et IriusRisk.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e39bdcde896bca094b60b87308127a6ea01f1dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170698"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Didacticiel : Intégration d’Azure Active Directory à IriusRisk
+# <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Tutoriel : Intégration d’Azure Active Directory à IriusRisk
 
 Ce didacticiel vous montrera comment intégrer IriusRisk à Azure Active Directory (Azure AD).
 
@@ -35,12 +35,12 @@ L’intégration d’IriusRisk dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à IriusRisk, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement IriusRisk pour lequel l’authentification unique est activée
+- Un IriusRisk l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -89,7 +89,7 @@ Pour configurer et tester l’authentification unique Azure AD avec IriusRisk, v
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test IriusRisk](#create-a-iriusrisk-test-user)** pour avoir un équivalent de Britta Simon dans IriusRisk, lié à la représentation Azure AD de l’utilisateur.
+1. **[Créer un utilisateur de test IriusRisk](#create-a-iriusrisk-test-user)**  - pour avoir un équivalent de Britta Simon dans IriusRisk, lié à la représentation Azure AD de l’utilisateur.
 1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
@@ -164,7 +164,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Créer**.
  
-### <a name="create-a-iriusrisk-test-user"></a>Créer un utilisateur de test IriusRisk
+### <a name="create-an-iriusrisk-test-user"></a>Créer un utilisateur de test IriusRisk
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans IriusRisk. IriusRisk prend en charge l’approvisionnement juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un nouvel utilisateur est créé lors d’une tentative d’accès à IriusRisk, s’il n’existe pas déjà.
 

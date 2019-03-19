@@ -2,19 +2,19 @@
 title: Résolution des problèmes liés à Azure Container Instances
 description: Découvrez comment résoudre les problèmes liés à Azure Container Instances
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/08/2019
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: c90041f54fc9b4b57885083ec94843b596f48b79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119048"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123264"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
@@ -25,13 +25,13 @@ Cet article explique comment résoudre les problèmes courants de gestion ou de 
 Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans Azure Architecture Center.
 
 | Étendue | Longueur | Casse | Caractères valides | Modèle suggéré | Exemples |
-| --- | --- | --- | --- | --- | --- | --- |
-| Nom du groupe de conteneurs | 1-64 |Non-respect de la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Nom du conteneur | 1-64 |Non-respect de la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| --- | --- | --- | --- | --- | --- |
+| Nom du groupe de conteneurs | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nom du conteneur | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Ports du conteneur | Entre 1 et 65 535 |Entier  |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
-| Étiquette du nom DNS | 5 à 63 |Non-respect de la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>` |`frontend-site1` |
-| Variable d’environnement | 1-63 |Non-respect de la casse |Caractères alphanumériques et trait de soulignement (_) n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
-| Nom du volume | 5 à 63 |Non-respect de la casse |Lettres minuscules, chiffres et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
+| Étiquette du nom DNS | 5 à 63 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>` |`frontend-site1` |
+| Variable d’environnement | 1-63 |Insensible à la casse |Caractères alphanumériques et trait de soulignement (_) n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
+| Nom du volume | 5 à 63 |Insensible à la casse |Lettres minuscules, chiffres et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
 
 ## <a name="os-version-of-image-not-supported"></a>La version du système d’exploitation de l’image n’est pas prise en charge
 
@@ -66,7 +66,7 @@ Des événements tels que les suivants sont alors affichés dans la sortie de [a
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -74,7 +74,7 @@ Des événements tels que les suivants sont alors affichés dans la sortie de [a
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -82,7 +82,7 @@ Des événements tels que les suivants sont alors affichés dans la sortie de [a
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -93,7 +93,7 @@ Des événements tels que les suivants sont alors affichés dans la sortie de [a
 
 Les groupes de conteneurs sont définis par défaut sur la [stratégie de redémarrage](container-instances-restart-policy.md) **Toujours**, de sorte que les conteneurs du groupe de conteneurs redémarrent toujours après avoir été exécutés. Vous devrez peut-être définir ce paramètre sur **OnFailure** ou **Jamais** si vous envisagez d’exécuter des conteneurs basés sur des tâches. Si vous spécifiez **OnFailure** et constatez encore des redémarrages continus, il peut y avoir un problème avec l’application ou le script exécutés dans votre conteneur.
 
-Lors de l’exécution de groupes de conteneurs sans processus au long cours, vous pouvez observer de multiples arrêts et redémarrages avec des images telles que Ubuntu ou Alpine. La connexion via [EXEC](container-instances-exec.md) ne va pas fonctionner car le conteneur n’a aucun processus pour le maintenir actif. Pour résoudre ce problème, ajoutez une commande de démarrage (voir exemple ci-dessous) au déploiement de votre groupe de conteneurs pour que le conteneur continue à s’exécuter.
+Lors de l’exécution de groupes de conteneurs sans processus au long cours, vous pouvez observer de multiples arrêts et redémarrages avec des images telles que Ubuntu ou Alpine. La connexion via [EXEC](container-instances-exec.md) ne va pas fonctionner car le conteneur n’a aucun processus pour le maintenir actif. Pour résoudre ce problème, incluent une commande de démarrage comme suit avec votre déploiement de groupe de conteneurs à conserver le conteneur en cours d’exécution.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -178,11 +178,11 @@ Il existe une autre façon de réduire l’impact de l’extraction de l’image
 
 ### <a name="cached-windows-images"></a>Images Windows mises en cache
 
-Azure Container Instances utilise un mécanisme de mise en cache pour aider à accélérer le démarrage du conteneur pour des images basées sur certaines images Windows.
+Azure Container Instances utilise un mécanisme de mise en cache pour le temps de démarrage de conteneur vitesse pour des images basées sur des images courantes de Windows et Linux. Pour obtenir une liste détaillée des images mis en cache et les balises, utilisez le [liste mise en cache des Images] [ list-cached-images] API.
 
 Pour garantir le meilleur temps de démarrage du conteneur Windows, utilisez une des **trois dernières** versions des **deux images** suivantes en tant qu’image de base :
 
-* [Windows Server 2016][docker-hub-windows-core] (LTS uniquement)
+* [Windows Server Core 2016] [ docker-hub-windows-core] (LTSC uniquement)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### <a name="windows-containers-slow-network-readiness"></a>Disponibilité lente du réseau des conteneurs Windows
@@ -197,7 +197,7 @@ En raison d’une charge de ressources régionales variable dans Azure, vous pou
 
 Cette erreur indique qu’en raison d’une charge importante dans la région dans laquelle vous tentez de déployer, les ressources spécifiées pour votre conteneur ne peuvent pas être allouées à ce moment-là. Utilisez une ou plusieurs des étapes d’atténuation suivantes pour vous aider à résoudre votre problème.
 
-* Vérifier que les paramètres de votre déploiement de conteneur correspondent à ceux définis dans [Quotas et disponibilité des régions pour Azure Container Instances](container-instances-quotas.md#region-availability)
+* Vérifier que les paramètres de votre déploiement de conteneur correspondent à ceux définis dans [Disponibilité des régions pour Azure Container Instances](container-instances-region-availability.md)
 * Spécifier des paramètres de processeur et de mémoire inférieurs pour le conteneur
 * Déployer sur une autre région Azure
 * Déployer plus tard
@@ -207,10 +207,12 @@ Cette erreur indique qu’en raison d’une charge importante dans la région da
 Azure Container Instances n’expose pas un accès direct à l’infrastructure sous-jacente qui héberge les groupes de conteneurs. Cela inclut l’accès à l’API Docker en cours d’exécution sur l’hôte du conteneur et les conteneurs privilégiés en cours d’exécution. Si vous avez besoin d’interaction avec le Docker, vérifiez la [Documentation de référence REST](https://aka.ms/aci/rest) pour voir ce que l’API ACI prend en charge. S’il manque des informations, envoyez une requête sur le [Forum Internet de commentaires ACI](https://aka.ms/aci/feedback).
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Adresses IP éventuellement inaccessibles en raison de ports non correspondants
+
 Azure Container Instances ne prend pas en charge le mappage de ports, contrairement à la configuration Docker classique. Toutefois, ce correctif est sur la feuille de route. Si vous constatez que des adresses IP ne sont pas accessibles alors qu’elles le devraient, vérifiez que vous avez configuré votre image conteneur pour écouter les mêmes ports que ceux que vous exposez dans votre groupe de conteneurs avec la propriété `ports`.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment [récupérer les journaux et événements de conteneur](container-instances-get-logs.md) pour aider à déboguer vos conteneurs.
+
+Découvrez comment [récupérer les journaux de conteneur et les événements](container-instances-get-logs.md) pour aider à déboguer vos conteneurs.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
@@ -221,3 +223,4 @@ Découvrez comment [récupérer les journaux et événements de conteneur](conta
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

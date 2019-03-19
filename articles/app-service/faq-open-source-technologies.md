@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082940"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>FAQ sur les technologies open source pour Azure Web Apps
 
@@ -44,10 +44,10 @@ Pour activer la journalisation PHP :
 9. Sélectionnez **Enregistrer**.
 10. Sélectionnez l’icône du crayon en regard de **wp-config.php**.
 11. Remplacez le texte par le code suivant :
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. Dans le portail Azure, dans le menu de l’application web, redémarrez votre application web.
 
 Pour plus d’informations, consultez [Activer les journaux d’erreurs WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
@@ -59,31 +59,31 @@ Pour plus d’informations, consultez [Activer les journaux d’erreurs WordPres
 
 Pour modifier la version de l’application Node.js, vous pouvez utiliser l’une des options suivantes :
 
-*   Dans le portail Azure, utilisez **Paramètres de l’application**.
-    1. Dans le portail Azure, accédez à votre application web.
-    2. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**.
-    3. Dans **Paramètres de l’application**, vous pouvez inclure WEBSITE_NODE_DEFAULT_VERSION en tant que clé et la version de Node.js souhaitée en tant que valeur.
-    4. Accédez à votre [console Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-    5. Pour vérifier la version de Node.js, entrez la commande suivante :  
-   ```
-   node -v
-   ```
-*   Modifiez le fichier iisnode.yml. La modification de la version de Node.js dans le fichier iisnode.yml configure uniquement l’environnement d’exécution utilisé par iisnode. Votre cmd Kudu et le reste utilisent toujours la version de Node.js définie sous **Paramètres de l’application** dans le portail Azure.
+* Dans le portail Azure, utilisez **Paramètres de l’application**.
+  1. Dans le portail Azure, accédez à votre application web.
+  2. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**.
+  3. Dans **Paramètres de l’application**, vous pouvez inclure WEBSITE_NODE_DEFAULT_VERSION en tant que clé et la version de Node.js souhaitée en tant que valeur.
+  4. Accédez à votre [console Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+  5. Pour vérifier la version de Node.js, entrez la commande suivante :  
+     ```
+     node -v
+     ```
+* Modifiez le fichier iisnode.yml. La modification de la version de Node.js dans le fichier iisnode.yml configure uniquement l’environnement d’exécution utilisé par iisnode. Votre cmd Kudu et le reste utilisent toujours la version de Node.js définie sous **Paramètres de l’application** dans le portail Azure.
 
-    Pour définir le fichier iisnode.yml manuellement, créez un fichier iisnode.yml dans le dossier racine de votre application. Incluez la ligne suivante dans le fichier :
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  Pour définir le fichier iisnode.yml manuellement, créez un fichier iisnode.yml dans le dossier racine de votre application. Incluez la ligne suivante dans le fichier :
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   Définissez le fichier iisnode.yml à l’aide de package.json durant le déploiement de contrôle de code source.
-    Le processus de déploiement de contrôle de code source Azure implique les étapes suivantes :
-    1. Déplace le contenu vers l’application web Azure.
-    2. Crée un script de déploiement par défaut, s’il n’en existe pas (fichiers deploy.cmd, .deployment) dans le dossier racine de l’application web.
-    3. Exécute un script de déploiement dans lequel il crée un fichier iisnode.yml si vous indiquez la version de Node.js dans le fichier package.json > moteur `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. Le fichier iisnode.yml contient la ligne de code suivante :
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* Définissez le fichier iisnode.yml à l’aide de package.json durant le déploiement de contrôle de code source.
+  Le processus de déploiement de contrôle de code source Azure implique les étapes suivantes :
+  1. Déplace le contenu vers l’application web Azure.
+  2. Crée un script de déploiement par défaut, s’il n’en existe pas (fichiers deploy.cmd, .deployment) dans le dossier racine de l’application web.
+  3. Exécute un script de déploiement dans lequel il crée un fichier iisnode.yml si vous indiquez la version de Node.js dans le fichier package.json > moteur `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. Le fichier iisnode.yml contient la ligne de code suivante :
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Le message « Erreur lors de l’établissement d’une connexion à la base de données » s’affiche dans mon application WordPress qui est hébergée dans App Service. Comment puis-je résoudre ce problème ?
 

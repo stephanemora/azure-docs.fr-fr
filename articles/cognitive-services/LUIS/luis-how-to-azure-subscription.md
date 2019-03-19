@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859111"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781695"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Utilisation des clés d’abonnement avec votre application LUIS
 
-Vous n’avez pas besoin de créer de clés d’abonnement pour utiliser vos 1 000 premières requêtes de point de terminaison gratuites. Une fois que ces requêtes de point de terminaison sont utilisées, créez une ressource Azure dans le [portail Azure](http://portal.azure.com), puis affectez cette ressource à une application LUIS dans le [portail LUIS](https://www.luis.ai).
+Vous n’avez pas besoin de créer de clés d’abonnement pour utiliser vos 1 000 premières requêtes de point de terminaison gratuites. Une fois que ces requêtes de point de terminaison sont utilisées, créez une ressource Azure dans le [portail Azure](https://portal.azure.com), puis affectez cette ressource à une application LUIS dans le [portail LUIS](https://www.luis.ai).
 
 Si vous recevez une erreur _hors quota_ sous la forme d’une erreur HTTP 403 ou 429, vous devez créer une clé et l’affecter à votre application. 
 
 Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Pour les systèmes de production, utilisez un niveau [payant](https://aka.ms/luis-price-tier). N’utilisez pas la [clé de création](luis-concept-keys.md#authoring-key) pour les requêtes de point de terminaison en production.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Créer une clé de point de terminaison Language Understanding dans le portail Azure
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Créer la ressource de runtime de point de terminaison de prédiction dans le portail Azure
 
-Cette procédure permet de créer une ressource **Language Understanding**. Si vous souhaitez une ressource utilisable dans Cognitive Services, créez la clé tout-en-un **[Cognitive Service](../cognitive-services-apis-create-account.md)** à la place de la ressource Language Understanding. 
-
-Cette clé doit être utilisée uniquement pour les requêtes de prédiction de point de terminaison. N'utilisez pas cette clé pour apporter des changements au modèle ou à l'application. 
-
-1. Connectez-vous au **[portail Azure](https://ms.portal.azure.com/)**. 
-1. Sélectionnez le signe vert **+** dans le panneau supérieur gauche et recherchez `Language Understanding` sur la Place de marché, puis sélectionnez **Language Understanding** et suivez l’**expérience de création** pour créer un compte d’abonnement LUIS. 
-
-    ![Recherche Azure](./media/luis-azure-subscription/azure-search.png) 
-
-1. Configurez l’abonnement avec des paramètres comme le nom du compte, les niveaux tarifaires, etc. 
-
-    ![Choix d’API Azure](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Une fois que vous avez créé la ressource Language Understanding, vous pouvez voir les clés d’accès générées dans **Gestion des ressources->Clés**. La section suivante vous montre comment connecter cette nouvelle ressource à une application LUIS dans le portail LUIS. Vous avez besoin du nom de la ressource LUIS de l’étape 3.
-
-    ![Clés Azure](./media/luis-azure-subscription/azure-keys.png)
+En savoir plus avec le [générer une application](get-started-portal-build-app.md) Guide de démarrage rapide.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ Cette clé doit être utilisée uniquement pour les requêtes de prédiction de 
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Affecter une clé de ressource à l’application LUIS dans le portail LUIS
 
-1. Connectez-vous au portail LUIS, choisissez une application à laquelle ajouter la nouvelle clé, sélectionnez **Gérer** dans le menu en haut à droite, puis sélectionnez **Clés et points de terminaison**.
-
-    [ ![Page Keys and endpoints](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. Pour ajouter la clé LUIS, sélectionnez **Assign Resource +** (Affecter une ressource).
-
-    ![Affecter une ressource à votre application](./media/luis-manage-keys/assign-key.png)
-
-1. Sélectionnez un locataire dans la boîte de dialogue associée à l'adresse e-mail que vous avez utilisée pour vous connecter au site web LUIS.  
-
-1. Choisissez le **Nom de l’abonnement** associé à la ressource Azure que vous souhaitez ajouter.
-
-1. Sélectionnez le **Nom de la ressource LUIS**. 
-
-1. Sélectionnez **Assign resource** (Affecter une ressource). 
-
-1. Recherchez la nouvelle ligne dans le tableau et copiez l’URL de point de terminaison. Elle est correctement construite pour effectuer une requête HTTP GET au point de terminaison LUIS afin d’obtenir une prédiction. 
+En savoir plus avec le [déploiement](get-started-portal-deploy-app.md) Guide de démarrage rapide.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

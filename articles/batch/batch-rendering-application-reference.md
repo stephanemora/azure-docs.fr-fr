@@ -2,16 +2,17 @@
 title: Utiliser des applications de rendu – Azure Batch
 description: Comment utiliser des applications de rendu avec Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c7fdbfcc34cdb6e10177d50bea707f1fa5f223e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534753"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789588"
 ---
 # <a name="rendering-applications"></a>Applications de rendu
 
@@ -58,7 +59,7 @@ Outre les renderers intégrés à Maya, les renderers suivants sont disponibles 
 
 ### <a name="task-command-line"></a>Ligne de commande de la tâche
 
-Le renderer par ligne de commande `renderer.exe` est utilisé dans la ligne de commande de la tâche. Pour plus d’informations sur le renderer par ligne de commande, reportez-vous à [l’aide de Maya](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+Le renderer par ligne de commande `renderer.exe` est utilisé dans la ligne de commande de la tâche. Pour plus d’informations sur le renderer par ligne de commande, reportez-vous à [l’aide de Maya](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 Dans l’exemple suivant, nous utilisons une tâche de préparation du travail pour copier les fichiers de scènes et d’éléments multimédias dans le répertoire de travail de la préparation du travail. Un dossier de sortie est utilisé pour stocker l’image du rendu, et l’image 10 est rendue.
 

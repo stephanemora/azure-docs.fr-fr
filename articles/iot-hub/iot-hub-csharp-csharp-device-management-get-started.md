@@ -1,20 +1,20 @@
 ---
 title: Bien démarrer avec la gestion des appareils Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Guide d’utilisation de la gestion des appareils Azure IoT Hub pour lancer un redémarrage d’appareil à distance. Vous utilisez Azure IoT device SDK pour .NET afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et Azure IoT service SDK pour .NET afin d’implémenter une application de service qui appelle la méthode directe.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
-ms.author: dobett
-ms.openlocfilehash: 00eda1dc5ad0e455c451fda17cc915ae6c633696
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 7e7d6fad4268200e5410eb3d3ba3c1e2df06e967
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515135"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008608"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Bien démarrer avec la gestion des appareils (.NET/.NET)
 

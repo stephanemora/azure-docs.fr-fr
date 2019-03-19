@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: b569a021dab5e6008dc61af3af8168585c5edc1b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: cf7726d017afd579b1eb227ec0fd3b9710395de6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082260"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
 
@@ -69,26 +69,26 @@ Configuration d’adressage IP de la passerelle = gwipconfig
 ### <a name="1-download-your-network-configuration-file"></a>1. Télécharger votre fichier de configuration réseau
 1. Dans la console PowerShell avec des droits élevés, connectez-vous à votre compte Azure. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l'applet de commande télécharge vos paramètres de compte pour qu'ils soient reconnus par Azure PowerShell. Les applets de commande Azure PowerShell de gestion de service classique sont utilisées dans cette section.
 
-  ```azurepowershell
-  Add-AzureAccount
-  ```
+   ```azurepowershell
+   Add-AzureAccount
+   ```
 
-  Récupérez votre abonnement Azure.
+   Récupérez votre abonnement Azure.
 
-  ```azurepowershell
-  Get-AzureSubscription
-  ```
+   ```azurepowershell
+   Get-AzureSubscription
+   ```
 
-  Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
+   Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
 
-  ```azurepowershell
-  Select-AzureSubscription -SubscriptionName "Name of subscription"
-  ```
+   ```azurepowershell
+   Select-AzureSubscription -SubscriptionName "Name of subscription"
+   ```
 2. Exportez votre fichier de configuration réseau Azure en exécutant la commande suivante. Vous pouvez modifier l’emplacement d’exportation du fichier si nécessaire.
 
-  ```azurepowershell
-  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-  ```
+   ```azurepowershell
+   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+   ```
 3. Ouvrez le fichier .xml que vous avez téléchargé pour le modifier. Pour obtenir un exemple de fichier de configuration réseau, consultez le [schéma de configuration réseau](https://msdn.microsoft.com/library/jj157100.aspx).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. Vérifier le sous-réseau de passerelle
@@ -171,42 +171,42 @@ Les conditions préalables supposent que vous ayez déjà créé un réseau virt
 
 1. Connectez-vous à votre compte Azure dans la console PowerShell. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, vos paramètres de compte sont téléchargés et transmis à Azure PowerShell. Vous pouvez éventuellement utiliser la fonctionnalité de test pour lancer Azure Cloud Shell dans le navigateur.
 
-  Si vous utilisez Azure Cloud Shell, ignorez la cmdlet suivante :
+   Si vous utilisez Azure Cloud Shell, ignorez la cmdlet suivante :
 
-  ```azurepowershell
-  Connect-AzAccount
-  ``` 
-  Pour vérifier que vous utilisez le bon abonnement, exécutez la cmdlet suivante :  
+   ```azurepowershell
+   Connect-AzAccount
+   ``` 
+   Pour vérifier que vous utilisez le bon abonnement, exécutez la cmdlet suivante :  
 
-  ```azurepowershell-interactive
-  Get-AzSubscription
-  ```
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
    
-  Si vous avez plusieurs abonnements, spécifiez celui que vous souhaitez utiliser.
+   Si vous avez plusieurs abonnements, spécifiez celui que vous souhaitez utiliser.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionName "Name of subscription"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionName "Name of subscription"
+   ```
 2. Créer une passerelle de réseau local. Dans un réseau virtuel, la passerelle de réseau local fait généralement référence à votre emplacement local. Dans ce cas, la passerelle de réseau local fait référence à votre réseau virtuel classique. Donnez à cet emplacement un nom auquel Azure pourra se référer, puis spécifiez le préfixe de l’espace d’adressage. Azure utilise le préfixe d’adresse IP que vous spécifiez pour identifier le trafic à envoyer vers votre emplacement local. Si vous avez besoin d’ajuster ces informations ultérieurement, avant de créer votre passerelle, vous pouvez modifier les valeurs et exécuter à nouveau l’exemple.
    
    **-Name** est le nom à affecter pour faire référence à la passerelle de réseau local.<br>
    **-AddressPrefix** est l’espace d’adressage de votre réseau virtuel classique.<br>
    **-GatewayIpAddress** est l’adresse IP publique de la passerelle du réseau virtuel classique. Veillez à remplacer la séquence « n.n.n.n » par l’adresse IP correcte.<br>
 
-  ```azurepowershell-interactive
-  New-AzLocalNetworkGateway -Name ClassicVNetLocal `
-  -Location "West US" -AddressPrefix "10.0.0.0/24" `
-  -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
-  ```
+   ```azurepowershell-interactive
+   New-AzLocalNetworkGateway -Name ClassicVNetLocal `
+   -Location "West US" -AddressPrefix "10.0.0.0/24" `
+   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
+   ```
 3. Demandez qu’une adresse IP publique soit allouée à la passerelle de réseau virtuel pour le réseau virtuel Resource Manager. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. L’adresse IP est allouée de façon dynamique à la passerelle de réseau virtuel. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle de réseau virtuel change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de la passerelle.
 
-  Dans cette étape, nous définissons également une variable qui sera utilisée à une étape ultérieure.
+   Dans cette étape, nous définissons également une variable qui sera utilisée à une étape ultérieure.
 
-  ```azurepowershell-interactive
-  $ipaddress = New-AzPublicIpAddress -Name gwpip `
-  -ResourceGroupName RG1 -Location 'EastUS' `
-  -AllocationMethod Dynamic
-  ```
+   ```azurepowershell-interactive
+   $ipaddress = New-AzPublicIpAddress -Name gwpip `
+   -ResourceGroupName RG1 -Location 'EastUS' `
+   -AllocationMethod Dynamic
+   ```
 
 4. Vérifiez que votre réseau virtuel possède un sous-réseau de passerelle. S’il n’existe aucun sous-réseau de passerelle, ajoutez-en un. Veillez à nommer le sous-réseau de passerelle *GatewaySubnet*.
 5. Récupérez le sous-réseau utilisé pour la passerelle en exécutant la commande suivante. À cette étape, nous définissons également une variable qui sera utilisée à l’étape suivante.
@@ -214,33 +214,33 @@ Les conditions préalables supposent que vous ayez déjà créé un réseau virt
    **-Name** est le nom de votre réseau virtuel Resource Manager.<br>
    **-ResourceGroupName** est le groupe de ressources auquel le réseau virtuel est associé. Pour fonctionner correctement, le sous-réseau de passerelle doit être nommé *GatewaySubnet* .<br>
 
-  ```azurepowershell-interactive
-  $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
-  -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
-  ``` 
+   ```azurepowershell-interactive
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
+   -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
+   ``` 
 
 6. Créez la configuration de l’adressage IP de la passerelle. La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Utilisez l’exemple suivant pour créer la configuration de votre passerelle.
 
-  Dans cette étape, la propriété ID du sous-réseau et des objets d’adresse IP doit être transmise aux paramètres **-SubnetId** et **-PublicIpAddressId**. Vous ne pouvez pas utiliser une chaîne simple. Ces variables sont définies à l’étape de demande d’une adresse IP publique et à l’étape de récupération du sous-réseau.
+   Dans cette étape, la propriété ID du sous-réseau et des objets d’adresse IP doit être transmise aux paramètres **-SubnetId** et **-PublicIpAddressId**. Vous ne pouvez pas utiliser une chaîne simple. Ces variables sont définies à l’étape de demande d’une adresse IP publique et à l’étape de récupération du sous-réseau.
 
-  ```azurepowershell-interactive
-  $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
-  -Name gwipconfig -SubnetId $subnet.id `
-  -PublicIpAddressId $ipaddress.id
-  ```
+   ```azurepowershell-interactive
+   $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
+   -Name gwipconfig -SubnetId $subnet.id `
+   -PublicIpAddressId $ipaddress.id
+   ```
 7. Créez la passerelle de réseau virtuel Resource Manager en exécutant la commande suivante. `-VpnType` doit être défini sur *RouteBased*. La création de la passerelle peut prendre 45 minutes ou davantage.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
-  -Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
-  -IpConfigurations $gwipconfig `
-  -EnableBgp $false -VpnType RouteBased
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
+   -Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
+   -IpConfigurations $gwipconfig `
+   -EnableBgp $false -VpnType RouteBased
+   ```
 8. Copiez l’adresse IP publique une fois que la passerelle VPN a été créée. Elle vous servira lors de la configuration des paramètres de réseau local pour votre réseau virtuel classique. Vous pouvez utiliser l’applet de commande suivante pour récupérer l’adresse IP publique. L’adresse IP publique est répertoriée dans la réponse en tant que *IpAddress*.
 
-  ```azurepowershell-interactive
-  Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
-  ```
+   ```azurepowershell-interactive
+   Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
+   ```
 
 ## <a name="localsite"></a>Section 3 - Modifier les paramètres de site local du réseau virtuel classique
 
@@ -248,46 +248,46 @@ Dans cette section, vous travaillez avec le réseau virtuel classique. Vous remp
 
 1. Exportez le fichier de configuration réseau.
 
-  ```azurepowershell
-  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-  ```
+   ```azurepowershell
+   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+   ```
 2. À l’aide d’un éditeur de texte, modifiez la valeur de l’élément VPNGatewayAddress. Remplacez l’adresse IP avec espace réservé par l’adresse IP publique de la passerelle Resource Manager, puis enregistrez les modifications.
 
-  ```
-  <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
-  ```
+   ```
+   <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
+   ```
 3. Importez le fichier de configuration réseau modifié dans Azure.
 
-  ```azurepowershell
-  Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
-  ```
+   ```azurepowershell
+   Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
+   ```
 
 ## <a name="connect"></a>Section 4 - Créer une connexion entre les passerelles
 La création d’une connexion entre les passerelles nécessite PowerShell. Vous devrez peut-être ajouter votre compte Azure pour utiliser la version classique des cmdlets PowerShell. Pour ce faire, utilisez **Add-AzureAccount**.
 
 1. Dans la console PowerShell, définissez votre clé partagée. Avant d’exécuter les applets de commande, recherchez dans le fichier de configuration réseau que vous avez téléchargé les noms exacts qu’Azure s’attend à voir. Lorsque vous spécifiez le nom d’un réseau virtuel qui contient des espaces, encadrez la valeur avec des guillemets.<br><br>Dans cet exemple, **-VNetName** est le nom du réseau virtuel classique et **-LocalNetworkSiteName** est le nom que vous avez spécifié pour le site du réseau local. **-SharedKey** est une valeur que vous pouvez générer et spécifier. Dans l’exemple, nous avons utilisé « abc123 », mais vous pouvez générer et utiliser quelque chose de plus complexe. L’important, c’est que la valeur que vous spécifiez ici doit être identique à celle spécifiée à l’étape suivante lors de la création de votre connexion. La réponse doit afficher **État : Réussi**.
 
-  ```azurepowershell
-  Set-AzureVNetGatewayKey -VNetName ClassicVNet `
-  -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
-  ```
+   ```azurepowershell
+   Set-AzureVNetGatewayKey -VNetName ClassicVNet `
+   -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
+   ```
 2. Créez la connexion VPN en exécutant les commandes suivantes :
    
-  Définissez les variables.
+   Définissez les variables.
 
-  ```azurepowershell-interactive
-  $vnet01gateway = Get-AzLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
-  $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
-  ```
+   ```azurepowershell-interactive
+   $vnet01gateway = Get-AzLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
+   $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
+   ```
    
-  Créez la connexion. Notez que le type de connexion **-ConnectionType** est IPsec et pas Vnet2Vnet.
+   Créez la connexion. Notez que le type de connexion **-ConnectionType** est IPsec et pas Vnet2Vnet.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
-  -Location "East US" -VirtualNetworkGateway1 `
-  $vnet02gateway -LocalNetworkGateway2 `
-  $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
+   -Location "East US" -VirtualNetworkGateway1 `
+   $vnet02gateway -LocalNetworkGateway2 `
+   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 ## <a name="verify"></a>Section 5 - Vérifier vos connexions
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5696c376ad64df01d7f9d43ff59c87402c334c52
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: ab066fef4bffe35408fdc5f3ad6d66796b4d0818
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034809"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443968"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser Robo 3T avec l’API Azure Cosmos DB pour MongoDB
 
@@ -26,14 +26,14 @@ Pour ajouter votre compte Cosmos au gestionnaire de connexions Robo 3T, procéd
 
 1. Récupérez les informations de connexion pour votre compte Cosmos configuré avec l’API Azure Cosmos DB pour MongoDB en suivant les instructions [ici](connect-mongodb-account.md).
 
-    ![Capture d’écran du panneau Chaîne de connexion](./media/mongodb-robomongo/connectionstringblade.png)
+    ![Capture d’écran du Panneau de la chaîne de connexion](./media/mongodb-robomongo/connectionstringblade.png)
 2. Exécutez *Robomongo.exe*
 
 3. Cliquez sur le bouton de connexion sous **Fichier** pour gérer vos connexions. Ensuite, cliquez sur **Créer** dans la fenêtre **Connexions MongoDB**, ce qui ouvre la fenêtre **Paramètres de connexion**.
 
 4. Dans la fenêtre **Paramètres de connexion**, choisissez un nom. Ensuite, recherchez **Hôte** et **Port** dans vos informations de connexion à l’étape 1 et entrez-les dans les champs **Adresse** et **Port**, respectivement.
 
-    ![Capture d’écran de gestion des connexions avec Robomongo](./media/mongodb-robomongo/manageconnections.png)
+    ![Capture d’écran de la Robomongo gérer les connexions](./media/mongodb-robomongo/manageconnections.png)
 5. Dans l’onglet **Authentification**, cliquez sur **Effectuer l’authentification**. Entrez ensuite votre base de données (la valeur par défaut est *Admin*), le **Nom d’utilisateur** et le **Mot de passe**.
 Le **Nom d’utilisateur** et le **Mot de passe** figurent tous deux dans vos informations de connexion à l’étape 1.
 

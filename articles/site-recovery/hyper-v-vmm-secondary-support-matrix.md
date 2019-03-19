@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103092"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
 
@@ -72,7 +72,7 @@ Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 **Stockage (hôte)** | **Pris en charge**
 --- | --- 
-NFS | N/A
+NFS | S.O.
 SMB 3.0 |  Oui
 SAN (ISCSI) | Oui
 Chemins d’accès multiples (MPIO) | Oui
@@ -81,15 +81,15 @@ Chemins d’accès multiples (MPIO) | Oui
 
 **Configuration** | **Pris en charge**
 --- | --- | 
-VMDK |  N/A
+VMDK |  S.O.
 VHD/VHDX | Oui (jusqu’à 16 disques)
 Machine virtuelle de 2e génération | Oui
 Disque de cluster partagé | Non 
 Disque chiffré | Non 
-UEFI| N/A
+UEFI| S.O.
 NFS | Non 
 SMB 3.0 | Non 
-RDM | N/A
+RDM | S.O.
 Disque > 1 To | Oui
 Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui
 Espaces de stockage | Oui
@@ -109,7 +109,7 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 Le fournisseur coordonne les communications entre les serveurs VMM. 
 
 **La plus récente** | **Mises à jour**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([disponible sur le portail](https://aka.ms/downloaddra)) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
 
 

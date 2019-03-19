@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: b2e8d629f4007729ad0538aee9bdb8e67747b026
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015127"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -26,7 +26,7 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 > [!TIP]
 > Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
 
@@ -166,7 +166,8 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 > Ces étapes utilisent Office 365 Outlook, mais vous pouvez utiliser n’importe quel fournisseur de messagerie pris en charge par Logic Apps. 
 > [Vérifiez la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent. 
 
-1. Créez une application logique vide. Dans le Concepteur d’application logique, sous la zone de recherche, choisissez **Tout**. Recherchez « récurrence ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Récurrence - Planification**
+1. Créez une application logique vide. Dans le Concepteur d’application logique, sous la zone de recherche, choisissez **Tout**. Recherchez « récurrence ». 
+   Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Récurrence - Planification**
 
    ![Ajouter le déclencheur « Récurrence - Planification »](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -181,7 +182,8 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
    | **Aux heures indiquées** | 8 |
    ||| 
 
-1. Sous le déclencheur, choisissez **Nouvelle étape**. Recherchez « variables », puis sélectionnez cette action : **Initialiser la variable - Variables**
+1. Sous le déclencheur, choisissez **Nouvelle étape**. 
+   Recherchez « variables », puis sélectionnez cette action : **Initialiser la variable - Variables**
 
    ![Ajouter une action « Initialiser la variable - Variables »](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -202,7 +204,8 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 
    ![Ajouter une boucle « Until »](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. Générez la condition de sortie de la boucle en sélectionnant la variable **Limite** et l’opérateur **Est égal à**. Entrez **10** comme valeur de comparaison.
+1. Générez la condition de sortie de la boucle en sélectionnant la variable **Limite** et l’opérateur **Est égal à**. 
+   Entrez **10** comme valeur de comparaison.
 
    ![Générer la connexion de sortie pour arrêter la boucle](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
@@ -214,32 +217,33 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 
 1. Comme **Nom**, sélectionnez la variable **Limite**. Comme **Valeur**, entrez « 1 ». 
 
-   ![Incrémenter la variable « Limite » de 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+    ![Incrémenter la variable « Limite » de 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. En dehors et sous la boucle, choisissez **Nouvelle étape**. 
 
-1. Sous la zone de recherche, choisissez **Tout**. Recherchez et ajoutez une action qui envoie un e-mail, par exemple : 
+1. Sous la zone de recherche, choisissez **Tout**. 
+    Recherchez et ajoutez une action qui envoie un e-mail, par exemple : 
 
-   ![Ajouter une action d’envoi de message électronique](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+    ![Ajouter une action d’envoi de message électronique](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. Si vous y êtes invité, connectez-vous à votre compte e-mail.
 
 1. Définissez les propriétés de l’action d’e-mail. Ajoutez la variable **Limite** au sujet. De cette façon, vous pouvez confirmer que la valeur actuelle de la variable corresponde aux conditions que vous avez spécifiées. Par exemple :
 
-    ![Configurer les propriétés du message électronique](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+     ![Configurer les propriétés du message électronique](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Propriété | Valeur | Description |
-    | -------- | ----- | ----------- | 
-    | **To** | *<email-address@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
-    | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
-    | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
-    |||| 
+     | Propriété | Valeur | Description |
+     | -------- | ----- | ----------- | 
+     | **To** | *<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
+     | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
+     | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
+     |||| 
 
 1. Enregistrez votre application logique. Pour tester manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur.
 
-    Lorsque votre application logique s’exécute, vous recevez un message électronique avec le contenu spécifié :
+     Lorsque votre application logique s’exécute, vous recevez un message électronique avec le contenu spécifié :
 
-    ![Message électronique reçu](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+     ![Message électronique reçu](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Empêcher les boucles infinies
 

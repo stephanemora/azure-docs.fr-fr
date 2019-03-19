@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fda6ca26c39d49c0d16c9933cc0a14f0bfea90a9
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857112"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213962"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métriques Azure Service Bus dans Azure Monitor (préversion)
 
@@ -28,7 +28,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 
-Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder aux métriques via le [portail Azure](https://portal.azure.com), ou bien utiliser les API Azure Monitor (REST et .NET) et des solutions d’analyse comme Log Analytics et Event Hubs. Pour plus d’informations, consultez [Supervision des données collectées par Azure Monitor](../azure-monitor/platform/data-collection.md).
+Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder à ces métriques via le [Azure portal](https://portal.azure.com), ou utiliser les API Azure Monitor (REST et .NET) et les solutions d’analyse comme les journaux Azure Monitor et Event Hubs. Pour plus d’informations, consultez [Supervision des données collectées par Azure Monitor](../azure-monitor/platform/data-collection.md).
 
 Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Cette valeur est configurée dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) dans Azure Monitor.
 
@@ -46,7 +46,7 @@ Pour les mesures prenant en charge des dimensions, vous devez filtrer avec la va
 
 ## <a name="billing"></a>Facturation
 
-L’utilisation de mesures dans Azure Monitor est gratuite pendant la période de préversion. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de métriques, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Log Analytics si vous diffusez des données de métriques vers Log Analytics pour une analyse avancée.
+L’utilisation de mesures dans Azure Monitor est gratuite pendant la période de préversion. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de métriques, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par les journaux d’Azure Monitor, si vous diffusez des données de métriques dans les journaux d’Azure Monitor pour une analyse avancée.
 
 Les métriques suivantes vous donnent une vue d’ensemble de l’intégrité de votre service. 
 

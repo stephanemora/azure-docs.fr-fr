@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903791"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Niveau de service Hyperscale (préversion) jusqu’à 100 To
 
@@ -112,7 +112,7 @@ Avec la possibilité d’ajouter ou de supprimer rapidement des nœuds de calcul
 
 ## <a name="create-a-hyperscale-database"></a>Créer une base de données Hyperscale
 
-Une base de données Hyperscale peut être créée à l’aide du [portail Azure](https://portal.azure.com), de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou de [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Les bases de données Hyperscale sont disponibles uniquement avec le [modèle d’achat basé sur le nombre de vCores](sql-database-service-tiers-vcore.md).
+Une base de données de très grande échelle peut être créé à l’aide de la [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Les bases de données Hyperscale sont disponibles uniquement avec le [modèle d’achat basé sur le nombre de vCores](sql-database-service-tiers-vcore.md).
 
 La commande T-SQL suivante crée une base de données Hyperscale. Vous devez spécifier l’édition et l’objectif du service dans l’instruction `CREATE DATABASE`.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Migrer une base de données Azure SQL vers le niveau de service Hyperscale
 
-Vous pouvez déplacer vos bases de données SQL Azure existantes vers Hyperscale à l’aide du [portail Azure](https://portal.azure.com), de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) ou de [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Dans la préversion publique, il s’agit d’une migration unidirectionnelle. Vous ne pouvez pas déplacer des bases de données depuis Hyperscale vers un autre niveau de service. Nous vous recommandons d’effectuer une copie de vos bases de données de production et de migrer vers Hyperscale pour la preuve de concepts.
+Vous pouvez déplacer vos bases de données SQL Azure existantes à très grande échelle à l’aide du [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Dans la préversion publique, il s’agit d’une migration unidirectionnelle. Vous ne pouvez pas déplacer des bases de données depuis Hyperscale vers un autre niveau de service. Nous vous recommandons d’effectuer une copie de vos bases de données de production et de migrer vers Hyperscale pour la preuve de concepts.
 
 La commande T-SQL suivante déplace une base de données vers le niveau de service Hyperscale. Vous devez spécifier l’édition et l’objectif du service dans l’instruction `ALTER DATABASE`.
 
@@ -145,7 +145,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Régions disponibles
 
-Le niveau de service Hyperscale est actuellement disponible en préversion publique dans les régions Azure suivantes : EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Le niveau de service Hyperscale est actuellement disponible en préversion publique dans les régions Azure suivantes : Est des États-Unis 1, est des États-Unis 2, ouest des États-Unis 2, centre des États-Unis, S de CentralU du Nord, Europe de l’ouest, Europe du Nord, est de l’Australie, Sud-est de l’Australie, Asie du Sud-est, est du Japon et Corée
 
 ## <a name="known-limitations"></a>Limites connues
 

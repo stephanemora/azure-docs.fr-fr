@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136510"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Rédiger une requête dans Recherche Azure
 
@@ -38,15 +38,15 @@ Le tableau suivant liste les API et les approches basées sur des outils pour en
 Les exemples sont utiles pour présenter de nouveaux concepts. En tant que requête représentative construite dans [l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), cet exemple cible [l’index immobilier de démonstration](search-get-started-portal.md) et inclut des paramètres communs.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** définit l’analyseur. Dans Recherche Azure, cet analyseur peut être [l’analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou [l’analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques, et bien d’autres encore.
@@ -118,7 +118,7 @@ Recherche Azure prend en charge un large éventail de types de requêtes.
 
 | Type de requête | Usage | Exemples et informations complémentaires |
 |------------|--------|-------------------------------|
-| Recherche de texte de forme libre | Paramètre de recherche et analyseur au choix| Une recherche en texte intégral recherche un ou plusieurs termes dans tous les champs *pouvant faire l’objet d’une recherche* de votre index, et fonctionne à l’instar des moteurs de recherche Google ou Bing. L’exemple dans l’introduction est une recherche en texte intégral.<br/><br/>La recherche en texte intégral fait l’objet d’une analyse de texte à l’aide de l’analyseur Lucene standard (par défaut) pour mettre tous les termes en minuscules et supprimer les mots exclus tels que « the » (les). Vous pouvez remplacer l’analyseur par défaut en choisissant un [analyseur non anglais](index-add-language-analyzers.md#language-analyzer-list) ou un [analyseur spécialisé indépendant des langages](index-add-custom-analyzers.md#AnalyzerTable) qui modifiera les paramètres d’analyse de texte. Un analyseur [mot clé](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) traite par exemple tout le contenu d’un champ comme un jeton unique. Cela est utile pour les données telles que les codes postaux, les numéros d’identification et certains noms de produit. | 
+| Recherche de texte de forme libre | Paramètre de recherche et analyseur au choix| Une recherche en texte intégral recherche un ou plusieurs termes dans tous les champs *pouvant faire l’objet d’une recherche* de votre index, et fonctionne à l’instar des moteurs de recherche Google ou Bing. L’exemple dans l’introduction est une recherche en texte intégral.<br/><br/>La recherche en texte intégral fait l’objet d’une analyse de texte à l’aide de l’analyseur Lucene standard (par défaut) pour mettre tous les termes en minuscules et supprimer les mots exclus tels que « the » (les). Vous pouvez remplacer l’analyseur par défaut en choisissant un [analyseur non anglais](index-add-language-analyzers.md#language-analyzer-list) ou un [analyseur spécialisé indépendant des langages](index-add-custom-analyzers.md#AnalyzerTable) qui modifiera les paramètres d’analyse de texte. Un analyseur [mot clé](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) traite par exemple tout le contenu d’un champ comme un jeton unique. Ceci est utile pour les données comme les codes postaux, les ID et certains noms de produit. | 
 | Recherche filtrée | [Expression de filtre OData](query-odata-filter-orderby-syntax.md) et analyseur au choix | Les requêtes de filtre évaluent une expression booléenne dans tous les champs *filtrables* d’un index. Contrairement à une recherche, une requête de filtre établit une correspondance avec le contenu exact d’un champ, y compris la casse dans les champs de type chaîne. Une autre différence est que les requêtes de filtre sont exprimées dans la syntaxe OData. <br/>[Exemple d’expression de filtre](search-query-simple-examples.md#example-3-filter-queries) |
 | Recherche basée sur la localisation | Champ de [type Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types), expression de filtre et analyseur au choix | Les coordonnées stockées dans un champ de type Edm.GeographyPoint sont utilisées pour les recherches de type « rechercher à proximité » ou basées sur une carte. <br/>[Exemple de recherche sur la localisation](search-query-simple-examples.md#example-5-geo-search)|
 | Recherche de plage | expression de filtre et analyseur simple | Dans Recherche Azure, les requêtes de plage sont créées à l’aide du paramètre de filtre. <br/>[Exemple de filtre de plage](search-query-simple-examples.md#example-4-range-filters) | 
@@ -146,7 +146,7 @@ Parfois, la substance et non la structure de résultats est inattendue. Quand le
 
 + Remplacez **`searchMode=any`** (valeur par défaut) par **`searchMode=all`** pour exiger des correspondances sur tous les critères plutôt que sur un seul d’entre eux. Cela s’applique particulièrement quand des opérateurs booléens sont inclus dans la requête.
 
-+ Changez la technique de requête si l’analyse lexicale ou du texte est nécessaire, mais que le type de requête exclut tout traitement linguistique. Dans la recherche en texte intégral, l’analyse lexicale ou du texte corrige automatiquement les fautes d’orthographe, les formes singulier-pluriel des noms, et même les noms ou les verbes irréguliers. Pour certaines requêtes telles que la recherche approximative ou par caractères génériques, l’analyse de texte ne fait pas partie du pipeline d’analyse de requête. Dans certains scénarios, des expressions régulières ont été utilisées pour contourner ce problème. 
++ Changez la technique de requête si l’analyse lexicale ou du texte est nécessaire, mais que le type de requête exclut tout traitement linguistique. Dans la recherche en texte intégral, texte ou autocorrects analyse lexicale pour les fautes d’orthographe, des formes singulier-plural et des verbes même irréguliers ou des noms. Pour certaines requêtes telles que la recherche approximative ou par caractères génériques, l’analyse de texte ne fait pas partie du pipeline d’analyse de requête. Dans certains scénarios, des expressions régulières ont été utilisées pour contourner ce problème. 
 
 ### <a name="paging-results"></a>Résultats de pagination
 Azure Search facilite l’implémentation de la pagination des résultats de recherche. À l’aide des paramètres **`top`** et **`skip`**, vous pouvez facilement émettre des requêtes de recherche pour recevoir le jeu de résultats complet dans des sous-ensembles gérables, ordonnés qui permettent de bonnes pratiques de recherche dans l’interface utilisateur. Lors de la réception de ces sous-ensembles de résultats plus petits, vous pouvez également recevoir le nombre de documents dans l’ensemble total des résultats de la recherche.
@@ -167,4 +167,4 @@ Dans Recherche Azure, vous pouvez mettre facilement en évidence la partie exact
 + [Fonctionnement de la recherche en texte intégral dans Recherche Azure (architecture d’analyse de requête)](search-lucene-query-architecture.md)
 + [Navigateur de recherche](search-explorer.md)
 + [Guide pratique pour interroger dans .NET](search-query-dotnet.md)
-+ [Guide pratique pour interroger dans REST](search-query-rest-api.md)
++ [Guide pratique pour interroger dans REST](search-create-index-rest-api.md)

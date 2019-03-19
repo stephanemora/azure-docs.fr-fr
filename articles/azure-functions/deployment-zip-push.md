@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086579"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Déploiement zip pour Azure Functions
 
@@ -51,13 +51,13 @@ Toutefois, vous aurez peut-être créé vos fonctions à l’aide de l’éditeu
 
 + **À partir du portail Azure :**
 
-    1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre application de fonction.
+  1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre application de fonction.
 
-    2. Sous l’onglet **Vue d’ensemble**, sélectionnez **Télécharger le contenu de l’application**. Sélectionnez vos options de téléchargement, puis **Télécharger**.
+  2. Sous l’onglet **Vue d’ensemble**, sélectionnez **Télécharger le contenu de l’application**. Sélectionnez vos options de téléchargement, puis **Télécharger**.
 
-        ![Télécharger le projet d’application de fonction](./media/deployment-zip-push/download-project.png)
+      ![Télécharger le projet d’application de fonction](./media/deployment-zip-push/download-project.png)
 
-    Le fichier .zip téléchargé est au format correct pour être republié sur votre application de fonction en utilisant le déploiement Push de fichier .zip. En outre, le téléchargement à partir du portail peut ajouter les fichiers nécessaires pour ouvrir votre application de fonction directement dans Visual Studio.
+     Le fichier .zip téléchargé est au format correct pour être republié sur votre application de fonction en utilisant le déploiement Push de fichier .zip. En outre, le téléchargement à partir du portail peut ajouter les fichiers nécessaires pour ouvrir votre application de fonction directement dans Visual Studio.
 
 + **Utilisation d’API REST :**
 

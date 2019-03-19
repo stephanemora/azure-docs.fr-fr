@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111104"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -86,7 +86,7 @@ Connectez-vous au déploiement RDS en tant qu’administrateur et modifiez le no
 6. Dans l’onglet Passerelle Bureau à distance, modifiez le champ **Nom du serveur** en entrant l’URL externe définie pour le point de terminaison hôte Bureau à distance dans le proxy d’application.
 7. Changez le champ **Méthode de connexion** en **Authentification par mot de passe**.
 
-  ![Écran Propriétés de déploiement sur RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Écran Propriétés de déploiement sur RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Exécutez cette commande pour chaque collection. Remplacez *\<yourcollectionname\>* et *\<proxyfrontendurl\>* par vos propres informations. Cette commande active l’authentification unique entre Site Web Bureau à distance et Passerelle Bureau à distance, et optimise les performances :
 
@@ -98,8 +98,8 @@ Connectez-vous au déploiement RDS en tant qu’administrateur et modifiez le no
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->La commande ci-dessus utilise un accent grave dans « `nrequire ».
+   >[!NOTE]
+   >La commande ci-dessus utilise un accent grave dans « `nrequire ».
 
 9. Pour vérifier la modification des propriétés RDP personnalisées et pour afficher le contenu du fichier RDP téléchargé à partir de RDWeb pour cette collection, exécutez la commande suivante :
     ```

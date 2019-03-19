@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: ac4391b91d818b21e392e134115294fb84473e69
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 8fd43228c5129395f9a61778fb83d32906fc85df
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449646"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311761"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux dans Azure Monitor
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Monitor prend en charge le [type d’alerte de métrique](../../azure-monitor/platform/alerts-metric-near-real-time.md), qui présente certains avantages par rapport aux [alertes classiques](../../azure-monitor/platform/alerts-classic-portal.md). Des métriques sont disponibles pour une [longue liste de services Azure](../../azure-monitor/platform/metrics-supported.md). Cet article explique comment utiliser un sous-ensemble pour une ressource - `Microsoft.OperationalInsights/workspaces`.
 
@@ -360,7 +362,7 @@ En supposant que le fichier de paramètre ci-dessus est enregistré sous le nom 
 Vous pouvez également utiliser la commande Azure PowerShell ci-dessous :
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
 ```
 
 Ou déployez le modèle de ressource avec Azure CLI :
@@ -676,7 +678,7 @@ En supposant que le fichier de paramètre ci-dessus est enregistré sous le nom 
 Vous pouvez également utiliser la commande Azure PowerShell ci-dessous :
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
 ```
 
 Ou déployez le modèle de ressource avec Azure CLI :

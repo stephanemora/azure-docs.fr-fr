@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101463"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Créer des révisions à partir de la console d’API
 
@@ -33,35 +33,35 @@ Pour évaluer l’API à l’aide de la console en ligne, vous devez entrer quel
 
 Pour accéder à une console de test, le plus simple est d’utiliser la fenêtre **Informations d’identification**.
 
-1.  Dans la fenêtre **Informations d’identification**, sélectionnez [Review API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) (Référence de l’API Révision).
+1. Dans la fenêtre **Informations d’identification**, sélectionnez [Review API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) (Référence de l’API Révision).
 
-  La page **Review - Create** (Révision - Créer) s’ouvre.
+   La page **Review - Create** (Révision - Créer) s’ouvre.
 
-2.  Pour l’option **Open API testing console** (Ouvrir la console de test de l’API), sélectionnez la région qui décrit le mieux votre emplacement.
+2. Pour l’option **Open API testing console** (Ouvrir la console de test de l’API), sélectionnez la région qui décrit le mieux votre emplacement.
 
-  ![Sélection d’une région dans la page Review - Create (Révision - Créer)](images/test-drive-region.png)
+   ![Sélection d’une région dans la page Review - Create (Révision - Créer)](images/test-drive-region.png)
 
-  La console de l’API **Review - Create** (Révision - Créer) s’ouvre.
+   La console de l’API **Review - Create** (Révision - Créer) s’ouvre.
   
-3.  Entrez des valeurs pour les paramètres de requête requis, le type de contenu, puis votre clé d’abonnement. Dans la zone **Corps de la demande**, spécifiez le contenu (par exemple, l’emplacement de l’image), les métadonnées et les autres informations associées au contenu.
+3. Entrez des valeurs pour les paramètres de requête requis, le type de contenu, puis votre clé d’abonnement. Dans la zone **Corps de la demande**, spécifiez le contenu (par exemple, l’emplacement de l’image), les métadonnées et les autres informations associées au contenu.
 
-  ![Paramètres de la requête, en-têtes et zone Corps de la demande dans la console Review - Create (Révision - Créer)](images/test-drive-review-1.PNG)
+   ![Paramètres de la requête, en-têtes et zone Corps de la demande dans la console Review - Create (Révision - Créer)](images/test-drive-review-1.PNG)
   
-4.  Sélectionnez **Envoyer**. Un ID de révision est créé. Copiez cet ID pour l’utiliser dans les étapes suivantes.
+4. Sélectionnez **Envoyer**. Un ID de révision est créé. Copiez cet ID pour l’utiliser dans les étapes suivantes.
 
-  ![La zone Contenu de la réponse de la console Review - Create (Révision - Créer) affiche l’ID de révision](images/test-drive-review-2.PNG)
+   ![La zone Contenu de la réponse de la console Review - Create (Révision - Créer) affiche l’ID de révision](images/test-drive-review-2.PNG)
   
-5.  Sélectionnez **Obtenir**, puis ouvrez l’API en sélectionnant le bouton qui correspond à votre région. Sur la page qui s’affiche, entrez les valeurs des paramètres **teamName**, **ReviewID** et **Clé d’abonnement**. Sélectionnez le bouton **Envoyer** sur la page. 
+5. Sélectionnez **Obtenir**, puis ouvrez l’API en sélectionnant le bouton qui correspond à votre région. Sur la page qui s’affiche, entrez les valeurs des paramètres **teamName**, **ReviewID** et **Clé d’abonnement**. Sélectionnez le bouton **Envoyer** sur la page. 
 
-  ![Obtention des résultats dans la console Review - Create (Révision - Créer)](images/test-drive-review-3.PNG)
+   ![Obtention des résultats dans la console Review - Create (Révision - Créer)](images/test-drive-review-3.PNG)
   
-6.  Vous observez les résultats de l’analyse.
+6. Vous observez les résultats de l’analyse.
 
-  ![Zone Contenu de la réponse de la console Review - Create (Révision - Créer)](images/test-drive-review-4.PNG)
+   ![Zone Contenu de la réponse de la console Review - Create (Révision - Créer)](images/test-drive-review-4.PNG)
   
-7.  Dans le tableau de bord Content Moderator, sélectionnez **Réviser** > **Image**. L’image que vous avez analysée s’affiche et peut être révisée.
+7. Dans le tableau de bord Content Moderator, sélectionnez **Réviser** > **Image**. L’image que vous avez analysée s’affiche et peut être révisée.
 
-  ![Image de l’outil de révision présentant un ballon de football](images/test-drive-review-5.PNG)
+   ![Image de l’outil de révision présentant un ballon de football](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 91cabd6601ca8d0c0eabfdb5726d4bd6b37492a6
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216081"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118372"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utiliser Azure Data Box pour envoyer des données au niveau Stockage Blob Azure approprié
 
@@ -31,7 +31,7 @@ Le niveau archive Azure est hors connexion et offre les coûts de stockage les p
 
 Les données de Data Box sont chargées sur un niveau de stockage associé au compte de stockage. Quand vous créez un compte de stockage, vous pouvez spécifier Froid ou Chaud comme niveau d’accès. En fonction du modèle d’accès de votre charge de travail et du coût, vous pouvez déplacer ces données du niveau par défaut vers un autre niveau de stockage.
 
-Vous ne pouvez hiérarchiser vos données de stockage d’objets que dans des comptes de stockage d’objets blob ou v2 à usage général (GPv2). Les comptes v1 à usage général (GPv1) ne prennent pas en charge la hiérarchisation. Pour choisir le niveau de stockage approprié pour vos données, passez en revue les considérations détaillées dans [Stockage Blob Azure : niveaux de stockage Premium, chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Vous ne pouvez hiérarchiser vos données de stockage d’objets que dans des comptes de stockage d’objets blob ou v2 à usage général (GPv2). Les comptes Usage général v1 (GPv1) ne prennent pas en charge la hiérarchisation. Pour choisir le niveau de stockage approprié pour vos données, passez en revue les considérations détaillées dans [Stockage Blob Azure : niveaux de stockage Premium, chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
 ## <a name="set-a-default-blob-tier"></a>Définir un niveau d’objets blob par défaut
 
@@ -109,8 +109,8 @@ Les étapes suivantes décrivent comment affecter les objets blob au niveau Arch
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> Si vous souhaitez que les données soient archivées au moment de l’ingestion, définissez le niveau par défaut du compte sur Chaud. Si le niveau par défaut est Froid, il existe une pénalité de suppression anticipée de 30 jours si les données sont déplacées immédiatement vers le niveau Archive.
+   > [!TIP]
+   > Si vous souhaitez que les données soient archivées au moment de l’ingestion, définissez le niveau par défaut du compte sur Chaud. Si le niveau par défaut est Froid, il existe une pénalité de suppression anticipée de 30 jours si les données sont déplacées immédiatement vers le niveau Archive.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

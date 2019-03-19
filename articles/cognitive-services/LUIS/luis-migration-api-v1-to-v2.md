@@ -1,7 +1,7 @@
 ---
 title: Migration de l’API v1 vers v2
 titleSuffix: Azure Cognitive Services
-description: Les API de point de terminaison et de création de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de point de terminaison et de création.
+description: Le point de terminaison version 1 et la langue compréhension des API de création sont déconseillés. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de point de terminaison et de création.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: dfd30ce148002e32986c58aff607e182033e02b3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087922"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guide de migration d’API v1 vers v2 pour les applications LUIS
 Les API de [point de terminaison](https://aka.ms/v1-endpoint-api-docs) et de [création](https://aka.ms/v1-authoring-api-docs) de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de [point de terminaison](https://aka.ms/luis-endpoint-apis) et de [création](https://aka.ms/luis-authoring-apis). 
 
 ## <a name="new-azure-regions"></a>Nouvelles régions Azure
-LUIS fournit de nouvelles [régions](https://aka.ms/LUIS-regions) pour les API LUIS. LUIS fournit un autre site Web pour les groupes de régions. L’application doit être créée dans la région que vous vous attendez à interroger. Les applications ne migrent pas automatiquement vers d’autres régions. Vous exportez l’application à partir d’une région, puis vous l’importez dans une autre pour qu’elle soit disponible dans une nouvelle région.
+LUIS fournit de nouvelles [régions](https://aka.ms/LUIS-regions) pour les API LUIS. LUIS fournit un autre portail pour les groupes de régions. L’application doit être créée dans la région que vous vous attendez à interroger. Les applications ne migrent pas automatiquement vers d’autres régions. Vous exportez l’application à partir d’une région, puis vous l’importez dans une autre pour qu’elle soit disponible dans une nouvelle région.
 
 ## <a name="authoring-route-changes"></a>Création de modifications d’itinéraires
 L’itinéraire de création d’API passe de l’utilisation de l’itinéraire **prog** à l’utilisation de l’itinéraire **api**.
@@ -35,7 +35,7 @@ L’itinéraire de création d’API passe de l’utilisation de l’itinéraire
 
 
 ## <a name="endpoint-route-changes"></a>Modifications de l’itinéraire de point de terminaison
-L’API du point de terminaison a de nouveaux paramètres de chaîne de requête, ainsi qu’une autre réponse. Si l’indicateur verbose est true, toutes les intentions, quel que soit le score, sont retournées dans un tableau nommé Intentions, outre le topScoringIntent.
+Le point de terminaison API possède les nouveaux paramètres de chaîne de requête ainsi qu’une réponse différente. Si l’indicateur verbose est true, toutes les intentions, quel que soit le score, sont retournées dans un tableau nommé Intentions, outre le topScoringIntent.
 
 | version | OBTENIR un itinéraire |
 |--|--|

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311714"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407083"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager
 
-Cet article explique comment créer plusieurs instances d’une ressource par itérations dans un modèle Azure Resource Manager. Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](resource-manager-templates-resources.md#condition).
+Cet article explique comment créer plusieurs instances d’une ressource par itérations dans un modèle Azure Resource Manager. Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](resource-group-authoring-templates.md#condition).
 
 Pour un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
@@ -272,6 +272,8 @@ Vous pouvez utiliser des itérations de ressource et de propriété ensemble. R�
 
 Pour créer plusieurs instances d’une variable, utilisez la propriété `copy` dans la section des variables. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété `input`. Vous pouvez utiliser la propriété `copy` au sein d’une variable, ou au niveau supérieur de la section des variables. Lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de variable, vous devez fournir le nom de l’itération.
 
+Pour obtenir un exemple simple de création d’un tableau de valeurs de chaîne, consultez [copier le modèle de tableau](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 L’exemple suivant montre plusieurs façons différentes de créer des variables de tableau avec des éléments construits dynamiquement. Il montre comment utiliser la copie à l’intérieur d’une variable pour créer des tableaux d’objets et de chaînes. Il montre également comment utiliser la copie au niveau supérieur pour créer des tableaux d’objets, de chaînes et d’entiers.
 
 ```json
@@ -344,6 +346,50 @@ L’exemple suivant montre plusieurs façons différentes de créer des variable
     }
   }
 }
+```
+
+Le type de variable qui est créé dépend de l’objet d’entrée. Par exemple, la variable nommée **top-niveau--tableau d’objets** dans l’exemple précédent retourne :
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+Et la variable nommée **top-niveau--tableau de chaînes** retourne :
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>En fonction des ressources dans une boucle

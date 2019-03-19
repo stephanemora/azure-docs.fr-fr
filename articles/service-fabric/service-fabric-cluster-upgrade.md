@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: a3778a0b0e5b4b59eb29cb67c0596d9636eb3ccb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166699"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Mise à niveau et mise à jour d’un cluster Azure Service Fabric
 
@@ -101,8 +101,6 @@ De nombreux paramètres de configuration différents peuvent être personnalisé
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Appliquer des correctifs au système d’exploitation dans les nœuds du cluster
 L’application d’orchestration des correctifs est une application Service Fabric qui automatise l’application de correctifs du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt. L’[application d’orchestration des correctifs pour Windows](service-fabric-patch-orchestration-application.md) ou l’[application d’orchestration des correctifs pour Linux](service-fabric-patch-orchestration-application-linux.md) peut être déployée sur votre cluster pour installer des correctifs de manière orchestrée, tout en maintenant les services disponibles en permanence. 
 
-## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Mises à niveau du système d'exploitation sur les machines virtuelles qui composent le cluster
-Si vous devez mettre à niveau l'image du système d'exploitation sur les machines virtuelles du cluster, vous devez procéder une machine virtuelle à la fois. Vous êtes responsable de cette mise à niveau, rien n’est actuellement automatisé à ce sujet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment personnaliser certains [paramètres de la structure du cluster Service Fabric](service-fabric-cluster-fabric-settings.md)

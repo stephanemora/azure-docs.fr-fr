@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006500"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
 La machine virtuelle [DSVM](https://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](https://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue.
@@ -218,8 +218,7 @@ Le démarrage du service prend environ une minute. Démarrez un navigateur web e
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | PyTorch est installé en [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter sont inclus, et vous trouverez aussi des exemples dans /dsvm/samples/pytorch.      |
 | Outils connexes sur la machine virtuelle DSVM      | Torch      |
-| Comment l’utiliser/l’exécuter ? |
-* Sur un terminal : activez l’environnement approprié, puis exécutez le code Python. <br/> * Dans Jupyter : Connectez-vous à [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), puis ouvrez le répertoire PyTorch pour obtenir des exemples.  |
+| Comment l’utiliser/l’exécuter ? |* Sur un terminal : activez l’environnement approprié, puis exécutez le code Python. <br/> * Dans Jupyter : Connectez-vous à [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), puis ouvrez le répertoire PyTorch pour obtenir des exemples.  |
 
 ## <a name="mxnet-model-server"></a>MXNet Model Server
 

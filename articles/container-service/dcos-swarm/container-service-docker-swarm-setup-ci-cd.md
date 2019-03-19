@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331433"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096263"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(DÉPRÉCIÉ) Pipeline CI/CD complet pour déployer une application à plusieurs conteneurs sur Azure Container Service, avec Docker Swarm par le biais d’Azure DevOps Services
 
@@ -41,7 +41,7 @@ Voici une brève explication de ces étapes :
 1. Docker Swarm sur le cluster extrait la dernière version des images. 
 1. La nouvelle version de l’application est déployée à l’aide de Docker Compose. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 
@@ -204,14 +204,14 @@ Le flux de travail de mise en production est composé de deux tâches que vous a
 
     La commande exécutée sur le nœud principal utilise les interfaces de ligne de commande Docker et Docker-Compose pour effectuer les tâches suivantes :
 
-    - connexion au Registre de conteneurs Azure (il utilise trois variables de build qui sont définies sous l’onglet **Variables**) ;
-    - définition de la variable **DOCKER_HOST** pour fonctionner avec le point de terminaison Swarm (:2375) ;
-    - accès au dossier *deploy* qui a été créé par la tâche de copie sécurisée précédente et qui contient le fichier docker-compose.yml ; 
-    - exécution des commandes `docker-compose` qui extraient les nouvelles images, arrêtent les services, suppriment les services et créent les conteneurs.
+   - connexion au Registre de conteneurs Azure (il utilise trois variables de build qui sont définies sous l’onglet **Variables**) ;
+   - définition de la variable **DOCKER_HOST** pour fonctionner avec le point de terminaison Swarm (:2375) ;
+   - accès au dossier *deploy* qui a été créé par la tâche de copie sécurisée précédente et qui contient le fichier docker-compose.yml ; 
+   - exécution des commandes `docker-compose` qui extraient les nouvelles images, arrêtent les services, suppriment les services et créent les conteneurs.
 
-    >[!IMPORTANT]
-    > Comme indiqué dans l’écran précédent, laissez la case **Échec sur STDERR** désactivée. C’est un paramètre important, car `docker-compose` imprime plusieurs messages de diagnostic, par exemple pour les conteneurs en cours d’arrêt ou de suppression, sur la sortie d’erreur standard. Si vous activez la case à cocher, Azure DevOps Services signale que des erreurs se sont produites lors de la mise en production, même si tout s’est bien passé.
-    >
+     >[!IMPORTANT]
+     > Comme indiqué dans l’écran précédent, laissez la case **Échec sur STDERR** désactivée. C’est un paramètre important, car `docker-compose` imprime plusieurs messages de diagnostic, par exemple pour les conteneurs en cours d’arrêt ou de suppression, sur la sortie d’erreur standard. Si vous activez la case à cocher, Azure DevOps Services signale que des erreurs se sont produites lors de la mise en production, même si tout s’est bien passé.
+     >
 1. Enregistrez ce nouveau pipeline de mise en production.
 
 

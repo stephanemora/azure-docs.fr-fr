@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410113"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806986"
 ---
 #   <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
-La compétence **Modélisation** crée un type complexe pour prendre en charge les champs composites (ou champs multipartites). Un champ de type complexe comporte plusieurs parties, mais il est traité en tant qu’élément unique dans un index Recherche Azure. Parmi les exemples de champs regroupés utiles dans les scénarios de recherche, citons la combinaison d’un nom et d’un prénom dans un seul champ, d’une ville et d’un état dans un seul champ, ou du nom et de la date de naissance dans un seul champ pour établir une identité unique.
-
-La compétence **Modélisation** vous permet essentiellement de créer une structure, de définir le nom des membres de cette structure et d’assigner des valeurs à chaque membre.
+Le **modélisateur** compétence consolide plusieurs entrées dans un type complexe qui peut être référencé plus loin dans le pipeline d’enrichissement. La compétence **Modélisation** vous permet essentiellement de créer une structure, de définir le nom des membres de cette structure et d’assigner des valeurs à chaque membre. Exemples de champs consolidées utiles dans les scénarios de recherche incluent l’association d’un prénom et le nom en une structure unique, la ville et l’état dans une structure unique, ou le nom et date de naissance dans une structure unique pour établir une identité unique.
 
 Par défaut, cette technique prend en charge les objets profonds d’un niveau. Pour les objets plus complexes, vous pouvez chaîner plusieurs étapes **Modélisation**.
 
@@ -58,7 +56,7 @@ L’exemple suivant fournit les noms de membre comme entrée. La structure de so
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ La définition de la compétence Modélisation pour ce scénario peut se présen
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c51804748e4313d79cc3a369b659974d2d32e2e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014265"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58163852"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Vous pouvez copier des données d’une source ODBC vers toute banque de donnée
 
 Plus précisément, ce connecteur ODBC prend en charge la copie de données depuis/vers **toute banque de données compatible ODBC** à l’aide d’une authentification **De base** ou **Anonyme**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser ce connecteur ODBC, vous devez :
 
@@ -240,7 +240,7 @@ Configurez un runtime d’intégration auto-hébergé sur une machine ayant acc�
 
 Avant d’utiliser la source Informix dans une solution de fabrique de données, vérifiez si l’Integration Runtime peut se connecter à la banque de données en suivant les instructions de la section [Résoudre les problèmes de connectivité](#troubleshoot-connectivity-issues).
 
-Créez un service lié ODBC pour lier une banque de données IBM Informix à une fabrique de données Azure comme dans l’exemple suivant :
+Créez un service lié ODBC pour lier un magasin de données IBM Informix à Azure data factory comme indiqué dans l’exemple suivant :
 
 ```json
 {

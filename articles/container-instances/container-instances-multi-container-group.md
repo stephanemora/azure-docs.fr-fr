@@ -1,6 +1,6 @@
 ---
 title: Déployer des groupes de plusieurs conteneurs dans Azure Container Instances
-description: Découvrez comment déployer un groupe de conteneurs avec plusieurs conteneurs dans Azure Container Instances.
+description: Découvrez comment déployer un groupe de conteneurs avec plusieurs conteneurs dans Azure Container Instances à l’aide d’un modèle Azure Resource Manager.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856471"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729498"
 ---
-# <a name="deploy-a-container-group"></a>Déployer un groupe de conteneurs
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Déployer un groupe de conteneurs multiples avec un modèle Resource Manager
 
 Azure Container Instances prend en charge le déploiement de plusieurs conteneurs sur un seul hôte à l’aide d’un [groupe de conteneurs](container-instances-container-groups.md). Cela est utile lors de la création d’une annexe d’application pour la journalisation, la surveillance ou toute autre configuration dans laquelle un service a besoin d’un deuxième processus associé.
 
@@ -28,6 +28,8 @@ Le déploiement avec un modèle Resource Manager est recommandé si vous avez be
 
 > [!NOTE]
 > Les groupes à plusieurs conteneurs sont actuellement restreints aux conteneurs Linux. Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences actuelles de la plateforme dans [Disponibilité des régions et quotas pour Azure Container Instances](container-instances-quotas.md).
+
+Pour plus d’exemples de modèles supplémentaires, consultez [modèles Azure Resource Manager pour Azure Container Instances](container-instances-samples-rm.md). 
 
 ## <a name="configure-the-template"></a>Configurer le modèle
 

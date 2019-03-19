@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105550"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098770"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Surveiller l’identité et l’accès dans Azure Security Center (Préversion)
 Cet article vous aide à utiliser Azure Security Center pour surveiller l’identité et l’activité d’accès d’un utilisateur.
@@ -68,11 +68,11 @@ Sous **Vue d’ensemble**, se trouve une liste de recommandations. La première 
 
 1. Sélectionnez une recommandation. La fenêtre de la recommandation s’ouvre pour afficher les informations suivantes :
 
-  - Description de la recommandation
-  - Liste des abonnements intègres et non intègres
-  - Liste des ressources non analysées en raison d’une évaluation ayant échoué, ou de la présence de la ressource sous un abonnement en cours d’exécution dans le niveau Gratuit et qui n’est pas évaluée
+   - Description de la recommandation
+   - Liste des abonnements intègres et non intègres
+   - Liste des ressources non analysées en raison d’une évaluation ayant échoué, ou de la présence de la ressource sous un abonnement en cours d’exécution dans le niveau Gratuit et qui n’est pas évaluée
 
-  ![Fenêtre de la recommandation][3]
+   ![Fenêtre de la recommandation][3]
 
 1. Sélectionnez un abonnement dans la liste pour afficher des précisions supplémentaires.
 
@@ -81,27 +81,27 @@ Sous **Abonnements**, se trouve une liste d’abonnements. La première colonne 
 
 ![Onglet de l’abonnement][4]
 
-1.  Sélectionnez un abonnement. Une vue récapitulative s’ouvre avec trois onglets :
+1. Sélectionnez un abonnement. Une vue récapitulative s’ouvre avec trois onglets :
 
-  - **Recommandations** : basées sur les évaluations effectuées par Security Center et qui ont échoué.
-  - **Évaluations passées** : liste des évaluations effectuées par Security Center et qui ont réussi.
-  - **Évaluations non disponibles** : liste des évaluations qui n’ont pas pu s’exécuter en raison d’une erreur, ou de la présence de plus de 600 comptes dans l’abonnement.
+   - **Recommandations** : basées sur les évaluations effectuées par Security Center et qui ont échoué.
+   - **Évaluations passées** : liste des évaluations effectuées par Security Center et qui ont réussi.
+   - **Évaluations non disponibles** : liste des évaluations qui n’ont pas pu s’exécuter en raison d’une erreur, ou de la présence de plus de 600 comptes dans l’abonnement.
 
-  Sous **Recommandations** se trouve une liste de recommandations pour l’abonnement sélectionné, avec le niveau de gravité pour chaque recommandation.
+   Sous **Recommandations** se trouve une liste de recommandations pour l’abonnement sélectionné, avec le niveau de gravité pour chaque recommandation.
 
-  ![Recommandations pour un abonnement sélectionné][5]
+   ![Recommandations pour un abonnement sélectionné][5]
 
 1. Sélectionnez une recommandation pour obtenir une description de la recommandation, une liste d’abonnements intègres et non intègres, et une liste de ressources non analysées.
 
-  ![Description d’une recommandation][6]
+   ![Description d’une recommandation][6]
 
-  Sous **Évaluations passées** se trouve une liste d’évaluations réussies.  L’état de gravité de ces évaluations est toujours vert.
+   Sous **Évaluations passées** se trouve une liste d’évaluations réussies.  L’état de gravité de ces évaluations est toujours vert.
 
-  ![Évaluations réussies][7]
+   ![Évaluations réussies][7]
 
 1. Sélectionnez une évaluation réussie dans la liste pour obtenir une description de l’évaluation et une liste d’abonnements intègres. Il existe un onglet pour les abonnements non intègres, celui-ci liste tous les abonnements qui ont échoué.
 
-  ![Évaluations réussies][8]
+   ![Évaluations réussies][8]
 
 ## <a name="recommendations"></a>Recommandations
 Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Identité et accès disponibles, et leurs effets.

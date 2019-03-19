@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813838"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119341"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
@@ -169,8 +169,8 @@ La passerelle ne peut pas se connecter au service cloud via Service Bus.
 Suivez ces étapes pour remettre la passerelle en ligne :
 
 1. Autorisez les règles de trafic sortant d’adresse IP sur l’ordinateur de la passerelle et le pare-feu d’entreprise. Vous pouvez trouver les adresses IP dans le journal des événements Windows (ID == 401) : Tentative d’accès à un socket de manière interdite par ses autorisations d’accès XX.XX.XX.XX:9350.
-* Configurez les paramètres de proxy de la passerelle. Pour plus d’informations, consultez la section Considérations relatives aux serveurs proxy.
-* Activez les ports sortants 5671 et 9350 à 9354 sur le pare-feu Windows de l’ordinateur passerelle et le pare-feu d’entreprise. Pour plus d’informations, consultez la section Ports et pare-feu. Cette étape est facultative, mais elle est recommandée pour des questions de performances.
+1. Configurez les paramètres de proxy de la passerelle. Pour plus d’informations, consultez la section Considérations relatives aux serveurs proxy.
+1. Activez les ports sortants 5671 et 9350 à 9354 sur le pare-feu Windows de l’ordinateur passerelle et le pare-feu d’entreprise. Pour plus d’informations, consultez la section Ports et pare-feu. Cette étape est facultative, mais elle est recommandée pour des questions de performances.
 
 ### <a name="3-problem"></a>3. Problème
 Vous obtenez l’erreur suivante.
@@ -184,7 +184,7 @@ erreur temporaire de connectivité réseau.
 Suivez ces étapes pour remettre la passerelle en ligne :
 
 1. Attendez quelques minutes. La connectivité est récupérée automatiquement une fois que l’erreur a disparu.
-* Si l’erreur persiste, redémarrez le service de passerelle.
+1. Si l’erreur persiste, redémarrez le service de passerelle.
 
 ## <a name="failed-to-author-linked-service"></a>Impossible de créer le service lié
 ### <a name="problem"></a>Problème
@@ -282,6 +282,6 @@ Vous pouvez accéder à des informations détaillées sur les journaux de la pas
 1. Démarrez l’**Observateur d’événements** Windows.
 2. Localisez les journaux dans le dossier **Journaux des applications et services** > **Passerelle de gestion des données**.
 
- Lors de la résolution de problèmes liés à la passerelle, recherchez les événements de niveau Erreur dans l’Observateur d’événements.
+   Lors de la résolution de problèmes liés à la passerelle, recherchez les événements de niveau Erreur dans l’Observateur d’événements.
 
 ![Journaux de la passerelle de gestion des données dans l’Observateur d’événements](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

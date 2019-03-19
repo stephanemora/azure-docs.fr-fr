@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0885a469877d0ea9f52f6191b4cd894ddbbce5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165915"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutoriel : Intégration d’Azure Active Directory à InsideView
+# <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Didacticiel : Intégration d’Azure Active Directory à InsideView
 
 Dans ce didacticiel, vous allez apprendre à intégrer InsideView à Azure Active Directory (Azure AD).
 
@@ -34,12 +34,12 @@ L’intégration d’InsideView à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec InsideView, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement InsideView pour lequel l’authentification unique est activée
+- Un InsideView l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -91,7 +91,7 @@ Pour configurer et tester l’authentification unique Azure AD avec InsideView, 
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Création d’un utilisateur de test InsideView](#creating-a-insideview-test-user)** pour obtenir un équivalent de Britta Simon dans InsideView lié à la représentation Azure AD de l’utilisateur.
+1. **[Création d’un utilisateur de test InsideView](#creating-a-insideview-test-user)**  - pour avoir un équivalent de Britta Simon dans InsideView lié à la représentation Azure AD de l’utilisateur.
 1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -116,7 +116,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez [l’équipe de support technique d’InsideView](mailto:support@insideview.com) pour obtenir cette valeur.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contact [l’équipe de support InsideView](mailto:support@insideview.com) pour obtenir cette valeur.
  
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (brut)**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
@@ -191,7 +191,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Créer**.
  
-### <a name="creating-a-insideview-test-user"></a>Création d’un utilisateur de test InsideView
+### <a name="creating-an-insideview-test-user"></a>Création d’un utilisateur de test InsideView
 
 Pour permettre aux utilisateurs Azure AD de se connecter à InsideView, vous devez les configurer dans InsideView. Dans le cas d’InsideView, l’approvisionnement est une tâche manuelle.
 

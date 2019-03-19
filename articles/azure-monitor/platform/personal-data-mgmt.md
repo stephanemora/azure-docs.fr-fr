@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121347"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -53,7 +53,7 @@ Log Analytics est un store flexible qui, tout en prescrivant un schéma pour vos
     ```
     search "[username goes here]"
     ```
-N’oubliez pas de rechercher non seulement les noms d’utilisateur explicites, mais aussi les GUID, qui peuvent permettre de remonter directement à un utilisateur particulier !
+  N’oubliez pas de rechercher non seulement les noms d’utilisateur explicites, mais aussi les GUID, qui peuvent permettre de remonter directement à un utilisateur particulier !
 * *ID d’appareil* : comme les ID d’utilisateur, les ID d’appareil sont parfois considérés « privés ». Utilisez la même approche que ci-dessus pour les ID d’utilisateur, pour identifier les tables où cela peut poser un problème. 
 * *Données personnalisées* : Log Analytics permet la collecte selon différentes méthodes : journaux personnalisés et champs personnalisés, [l’API du collecteur de données HTTP](../../azure-monitor/platform/data-collector-api.md) et les données personnalisées collectées dans le cadre de journaux des événements système. Tous ces éléments sont susceptibles de contenir des données privées et ils doivent être examinés pour vérifier si de telles données s’y trouvent.
 * *Données capturées par les solutions* : comme le mécanisme des solutions est ouvert, nous vous recommandons d’examiner toutes les tables générées par les solutions pour vérifier leur conformité.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: cf3dc71e96dac96a6406c97a433398b31a370869
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309197"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571165"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Cohérence, disponibilité et compromis sur les performances 
 
@@ -30,11 +30,11 @@ Chaque modèle propose des compromis entre disponibilité et performances, et re
 
 ## <a name="consistency-levels-and-latency"></a>Niveaux de cohérence et latence
 
-- La latence de lecture est toujours garantie inférieure à 10 millisecondes au 99e centile pour tous les niveaux de cohérence. La latence de lecture est garantie par le contrat SLA. La latence de lecture moyenne (au 50e centile) est généralement inférieure ou égale à 2 millisecondes. Les comptes Azure Cosmos qui s’étendent sur plusieurs régions et sont configurés avec une cohérence forte constituent une exception à cette garantie.
+La latence de lecture est toujours garantie inférieure à 10 millisecondes au 99e centile pour tous les niveaux de cohérence. La latence de lecture est garantie par le contrat SLA. La latence de lecture moyenne (au 50e centile) est généralement inférieure ou égale à 2 millisecondes. Les comptes Azure Cosmos qui s’étendent sur plusieurs régions et sont configurés avec une cohérence forte constituent une exception à cette garantie.
 
-- La latence d’écriture est toujours garantie inférieure à 10 millisecondes au 99e centile pour les niveaux de cohérence restants. La latence d’écriture est garantie par le contrat SLA. La latence d’écriture moyenne (au 50e centile) est généralement inférieure ou égale à 5 millisecondes.
+La latence d’écriture pour tous les niveaux de cohérence est systématiquement être inférieur à 10 millisecondes au 99e centile. La latence d’écriture est garantie par le contrat SLA. La latence d’écriture moyenne (au 50e centile) est généralement inférieure ou égale à 5 millisecondes.
 
-Certains comptes Azure Cosmos peuvent comporter plusieurs régions configurées avec une cohérence forte. Dans ce cas, la latence d’écriture est garantie inférieure à deux fois la durée des boucles (RTT), plus 10 millisecondes au 99e centile. La durée des boucles entre deux des régions les plus éloignées est associée à votre compte Azure Cosmos. Elle est égale à la durée des boucles entre deux des régions les plus éloignées qui sont associées au compte Azure Cosmos. Cette option est actuellement en préversion.
+Pour les comptes Azure Cosmos configurés avec une cohérence forte avec plusieurs régions, la latence d’écriture est garantie être temps inférieur à deux fois aller-retour (RTT) entre l’un des deux régions plus éloignées, plus 10 millisecondes au 99e centile. Cette option est actuellement en préversion.
 
 La latence exacte de la durée des boucles s’exprime en fonction de la distance à la vitesse de la lumière et de la topologie de réseau Azure. Le réseau Azure ne propose pas de contrat SLA de latence pour la durée des boucles entre deux régions Azure. Pour votre compte Azure Cosmos, les latences de réplication sont affichées dans le portail Azure. Vous pouvez utiliser le portail Azure pour superviser les latences de réplication entre les différentes régions associées à votre compte.
 
@@ -48,7 +48,7 @@ La latence exacte de la durée des boucles s’exprime en fonction de la distanc
 
 Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective).
 
-Le tableau définit la relation entre le modèle de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Il est important de noter que dans un système distribué, même avec une cohérence forte, il s’avère impossible d’avoir une base de données distribuée avec un RPO de zéro en raison du théorème CAP. Pour plus d’informations, consultez  [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md).
+Le tableau définit la relation entre la durabilité de modèle et les données de cohérence en cas de panne large de région. Il est important de noter que dans un système distribué, même avec une cohérence forte, il s’avère impossible d’avoir une base de données distribuée avec un RPO de zéro en raison du théorème CAP. Pour plus d’informations, consultez  [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md).
 
 |**Région(s)**|**Mode de réplication**|**Niveau de cohérence**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
@@ -66,6 +66,6 @@ T = intervalle de temps « T » depuis la dernière mise à jour.
 
 En savoir plus sur les compromis en matière de distribution globale et de cohérence générale dans les systèmes distribués. Consultez les articles suivants :
 
-- [Compromis en matière de cohérence dans la conception des systèmes de base de données distribuées modernes](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Compromis en matière de cohérence dans la conception des systèmes de base de données distribuées modernes](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Haute disponibilité](high-availability.md)
 - [SLA pour Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

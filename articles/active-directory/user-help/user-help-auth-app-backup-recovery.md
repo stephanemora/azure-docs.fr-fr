@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167828"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077766"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator
 
@@ -27,8 +27,10 @@ ms.locfileid: "56167828"
 
 L’application Microsoft Authenticator sauvegarde les informations d’identification de votre compte et les paramètres de l’application associée, comme l’ordre de vos comptes, dans le cloud. Après la sauvegarde, vous pouvez également utiliser l’application pour récupérer vos informations sur un nouvel appareil, ce qui évite de se retrouver bloqué ou d’avoir à recréer des comptes.
 
->[!IMPORTANT]
-> Vous avez besoin d’un compte Microsoft personnel et d’un compte iCloud pour chaque emplacement de stockage de sauvegarde. Mais dans cet emplacement de stockage, vous pouvez sauvegarder plusieurs comptes. Par exemple, vous pouvez avoir un compte personnel, un compte scolaire et un compte tiers comme Facebook, Google ou autre.<br><br>Seules les informations d’identification de votre compte personnel et tiers sont stockées, c’est-à-dire votre nom d’utilisateur et le code de vérification de compte qui est indispensable pour vous identifier. Nous ne stockons aucune autre information liée à vos comptes, notamment des adresses e-mail ou des fichiers. De plus, nous n’associons pas et ne partageons pas vos comptes de quelque manière que ce soit, avec un autre produit ou service. Enfin, votre administrateur informatique n’aura accès à aucune information sur ces comptes.
+> [!IMPORTANT]
+> Vous avez besoin d’un compte Microsoft personnel et d’un compte iCloud pour chaque emplacement de stockage de sauvegarde. Mais dans cet emplacement de stockage, vous pouvez sauvegarder plusieurs comptes. Par exemple, vous pouvez avoir un compte personnel, un compte scolaire et un compte tiers comme Facebook, Google ou autre.
+> 
+> Seules les informations d’identification de votre compte personnel et tiers sont stockées, c’est-à-dire votre nom d’utilisateur et le code de vérification de compte qui est indispensable pour vous identifier. Nous ne stockons aucune autre information liée à vos comptes, notamment des adresses e-mail ou des fichiers. De plus, nous n’associons pas et ne partageons pas vos comptes de quelque manière que ce soit, avec un autre produit ou service. Enfin, votre administrateur informatique n’aura accès à aucune information sur ces comptes.
 
 ## <a name="back-up-your-account-credentials"></a>Sauvegarder les informations d’identification de votre compte
 Pour pouvoir sauvegarder vos informations d’identification, vous devez avoir à la fois :
@@ -84,7 +86,7 @@ Pour des comptes Microsoft personnels, vous pouvez prouver votre identité en sa
     ![Application Microsoft Authenticator vous permettant de lire votre code QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Pour plus d’informations sur l’obtention d’un code QR, consultez [Prise en main de l’application Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [Configurer les informations de sécurité pour utiliser une application d’authentification (préversion)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), selon que votre administrateur a activé des informations de sécurité ou non.
+    >Pour plus d’informations sur l’obtention d’un code QR, consultez [Prise en main de l’application Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [Configurer les informations de sécurité pour utiliser une application d’authentification (préversion)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), selon que votre administrateur a activé des informations de sécurité ou non.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Résoudre les problèmes de sauvegarde et de récupération
 Plusieurs raisons peuvent expliquer le fait que votre sauvegarde ne soit pas disponible :
@@ -98,10 +100,12 @@ Plusieurs raisons peuvent expliquer le fait que votre sauvegarde ne soit pas dis
 -   **Comptes Microsoft Authenticator existants.** Si vous avez déjà créé des comptes dans l’application Microsoft Authenticator, elle ne pourra pas récupérer vos comptes sauvegardés. Bloquer la récupération permet d’éviter que les détails de votre compte ne soient remplacés par des informations obsolètes. Dans ce cas, vous devez supprimer les informations d’identification des comptes existants créés dans votre application Authenticator pour pouvoir récupérer votre sauvegarde.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez sauvegardé et récupéré les informations d’identification de votre compte sur votre nouvel appareil, vous pouvez continuer d’utiliser l’application Microsoft Authenticator pour vérifier votre identité.
+Maintenant que vous avez sauvegardé et récupéré les informations d’identification de votre compte sur votre nouvel appareil, vous pouvez continuer d’utiliser l’application Microsoft Authenticator pour vérifier votre identité. Pour plus d’informations, consultez [se connecter à vos comptes à l’aide de l’application Microsoft Authenticator](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>Rubriques connexes
-- [Prise en main de l’application Microsoft Authenticator](user-help-auth-app-download-install.md)  
+
+- [Qu’est l’application Microsoft Authenticator ?](user-help-auth-app-overview.md)
+
 - [Forum aux questions sur l’application Microsoft Authenticator](user-help-auth-app-faq.md)
 
 - [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

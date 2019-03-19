@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/07/2019
 ms.author: crdun
-ms.openlocfilehash: 11eb06c77fec29bef5329b143fecdfa4bb938d6d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328408"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732113"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
 
@@ -53,12 +53,20 @@ Si vous décidez de ne pas suivre le didacticiel de démarrage rapide, effectuez
 
 Modifiez les deux fichiers **build.gradle** :
 
-1. ajoutez ce code au fichier de niveau *projet* **build.gradle** à l’intérieur de la balise *buildscript* :
+1. Ajoutez ce code à la *projet* niveau **build.gradle** fichier :
 
     ```gradle
     buildscript {
         repositories {
             jcenter()
+            google()
+        }
+    }
+
+    allprojects {
+        repositories {
+            jcenter()
+            google()
         }
     }
     ```
@@ -66,7 +74,7 @@ Modifiez les deux fichiers **build.gradle** :
 2. Ajoutez ce code au fichier de niveau *Module app* **build.gradle** à l’intérieur de la balise *dependencies* :
 
     ```gradle
-    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
+    implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
     La version la plus récente est la 3.4.0. Les versions prises en charge sont répertoriées [sur Bintray][14].
@@ -974,17 +982,17 @@ android {
 }
 ```
 
-Enfin, ajoutez `com.android.support:customtabs:23.0.1` à la liste des dépendances dans le fichier `build.gradle` :
+Enfin, ajoutez `com.android.support:customtabs:28.0.0` à la liste des dépendances dans le fichier `build.gradle` :
 
 ```gradle
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.code.gson:gson:2.3'
-    compile 'com.google.guava:guava:18.0'
-    compile 'com.android.support:customtabs:23.0.1'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.code.gson:gson:2.3'
+    implementation 'com.google.guava:guava:18.0'
+    implementation 'com.android.support:customtabs:28.0.0'
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+    implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```
 
@@ -1091,11 +1099,11 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
         exclude 'META-INF/MSFTSIG.SF'
     }
     dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        compile('com.microsoft.aad:adal:1.1.1') {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation('com.microsoft.aad:adal:1.16.1') {
             exclude group: 'com.android.support'
-        } // Recent version is 1.1.1
-        compile 'com.android.support:support-v4:23.0.0'
+        } // Recent version is 1.16.1
+        implementation 'com.android.support:support-v4:28.0.0'
     }
     ```
 

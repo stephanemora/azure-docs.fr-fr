@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821357"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995302"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -588,7 +588,7 @@ var employees = query.Execute();
 
 Notez comment la requête spécifie à la fois une **RowKey** et une **PartitionKey** pour garantir des performances optimales.  
 
-L’exemple de code suivant montre une fonctionnalité équivalente faisant appel à l’API Fluent (pour plus d’informations sur cette API, consultez [Meilleures pratiques pour la conception d’une API Fluent](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)) :  
+L’exemple de code suivant montre une fonctionnalité équivalente faisant appel à l’API Fluent (pour plus d’informations sur cette API, consultez [Meilleures pratiques pour la conception d’une API Fluent](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)) :  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 993eafd5a0b74be706d13fe8e06483c223f81eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560802"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901183"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Utilisation de Notification Hubs à partir de Java
 
@@ -389,4 +389,4 @@ Cette rubrique vous a montré comment créer un client REST Java simple pour Not
 [Envoi de dernières nouvelles localisées]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Envoi de notifications aux utilisateurs authentifiés]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Envoi de notifications multiplateforme aux utilisateurs authentifiés]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Maven]: http://maven.apache.org/
+[Maven]: https://maven.apache.org/

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à RightScale | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à RightScale | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RightScale.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 301199667d2307bc81da7ef42f3e4f7daa750ee2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutoriel : Intégration d’Azure Active Directory à RightScale
 
@@ -34,7 +34,7 @@ L’intégration de RightScale avec Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec RightScale, vous avez besoin des éléments suivants :
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 1. Dans la section **Configuration de RightScale**, cliquez sur **Configurer RightScale** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**
 
     ![Configurer l’authentification unique](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-<CS>
+   <CS>
 1. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire RightScale en tant qu’administrateur.
 
     a. Dans le menu situé en haut, cliquez sur l’onglet **Paramètres** et sélectionnez **Authentification unique**.
@@ -164,10 +164,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. Cliquez sur **Enregistrer**.
-<CE>
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+   <CE>
+   > [!TIP]
+   > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+   > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.

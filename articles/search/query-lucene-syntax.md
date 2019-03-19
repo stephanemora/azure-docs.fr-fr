@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 59362b28390556f12cce8813635894c9f06b9a20
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007787"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107183"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Syntaxe des requêtes Lucene dans Recherche Azure
 Vous pouvez écrire des requêtes sur Recherche Azure en utilisant la syntaxe riche en fonctionnalités de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières en sont quelques exemples. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans Recherche Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites dans Recherche Azure via des expressions `$filter`. 
@@ -41,20 +41,20 @@ L’exemple suivant recherche les documents dans l’index avec la syntaxe de re
 
 Le paramètre `searchMode=all` est approprié dans cet exemple. Quand des opérateurs se trouvent sur la requête, vous devez généralement définir `searchMode=all` pour garantir que *tous* les critères sont satisfaits.
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  Vous pouvez aussi utiliser POST :  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 Pour d’autres exemples, consultez [Exemples de syntaxe de requête Lucene pour créer des requêtes dans Recherche Azure](search-query-lucene-examples.md). Pour plus d’informations sur la spécification de tous les paramètres des requêtes, consultez [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
@@ -65,13 +65,13 @@ Pour d’autres exemples, consultez [Exemples de syntaxe de requête Lucene pour
 ##  <a name="bkmk_fields"></a> Requêtes sur des champs  
  Vous pouvez spécifier une construction `fieldname:searchterm` pour définir une opération de requête portant sur un champ, où le champ est un mot unique, et où le terme de recherche est également un mot ou une expression unique, éventuellement avec des opérateurs booléens. Voici quelques exemples :  
 
--   genre:jazz NOT history  
+- genre:jazz NOT history  
 
--   artists:("Miles Davis" "John Coltrane")
+- artists:("Miles Davis" "John Coltrane")
 
- Veillez à placer les chaînes multiples entre guillemets si vous voulez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux artistes distincts sont recherchés dans le champ `artists`.  
+  Veillez à placer les chaînes multiples entre guillemets si vous voulez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux artistes distincts sont recherchés dans le champ `artists`.  
 
- Le champ spécifié dans `fieldname:searchterm` doit être un champ `searchable`.  Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index ](https://docs.microsoft.com/rest/api/searchservice/create-index).  
+  Le champ spécifié dans `fieldname:searchterm` doit être un champ `searchable`.  Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index ](https://docs.microsoft.com/rest/api/searchservice/create-index).  
 
 ##  <a name="bkmk_fuzzy"></a> Recherche approximative  
  Une recherche partielle recherche des correspondances dans les termes qui ont une construction similaire. D’après la [documentation Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), les recherches partielles sont basées sur la [Distance Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  

@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 5f421c8949efae5a2488d5bf156a5d3571401bcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996431"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installer le runtime Azure IoT Edge sur Windows
 
@@ -25,10 +25,10 @@ Pour en savoir plus sur le runtime IoT Edge, voir [Présentation du runtime Azur
 
 Cet article répertorie les étapes d’installation du runtime Azure IoT Edge sur votre système Windows x64 (AMD/Intel). La prise en charge de Windows est actuellement assurée en préversion.
 
->[!NOTE]
-L’utilisation de conteneurs Linux sur les systèmes Windows n’est pas une configuration de production recommandée ni prise en charge pour Azure IoT Edge. Cependant, ils peuvent être utilisés à des fins de développement et de test.
+> [!NOTE]
+> L’utilisation de conteneurs Linux sur les systèmes Windows n’est pas une configuration de production recommandée ni prise en charge pour Azure IoT Edge. Cependant, ils peuvent être utilisés à des fins de développement et de test.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cette section a pour but de vous aider à déterminer si votre appareil Windows peut prendre en charge IoT Edge, ainsi qu’à le préparer à un moteur de conteneur avant installation. 
 
@@ -52,6 +52,8 @@ Pour plus d’informations sur qu’inclut la dernière version d’IoT Edge, vo
 
 Azure IoT Edge s’appuie sur un moteur de conteneur [compatible avec OCI](https://www.opencontainers.org/). En production, utilisez le moteur de Moby inclus dans le script d’installation pour exécuter des conteneurs Windows sur votre appareil Windows. Pour développer et tester, vous pouvez exécuter des conteneurs Linux sur votre appareil Windows, mais vous devez installer et configurer un moteur de conteneur avant d’installer IoT Edge. Dans les deux cas, voir les sections suivantes afin de connaître les conditions préalables pour préparer votre appareil. 
 
+Si vous souhaitez installer IoT Edge sur un ordinateur virtuel, activer la virtualisation imbriquée et allouez au moins 2 Go de mémoire. Comment vous activez la virtualisation imbriquée est différente selon l’hyperviseur de votre utilisation. Pour Hyper-V, les ordinateurs virtuels de génération 2 ont imbriquées virtualisation est activée par défaut. Pour VMWare, il existe un bouton bascule pour activer la fonctionnalité sur votre machine virtuelle. 
+
 #### <a name="moby-engine-for-windows-containers"></a>Moteur Moby pour conteneurs Windows
 
 Pour des appareils Windows exécutant IoT Edge en production, Moby est le seul moteur de conteneur officiellement pris en charge. Le script d’installation installe automatiquement le moteur Moby sur votre appareil avant d’installer IoT Edge. Préparez votre appareil en activant la fonctionnalité Conteneurs. 
@@ -64,7 +66,7 @@ Pour des appareils Windows exécutant IoT Edge en production, Moby est le seul m
 
 Si vous utilisez Windows pour développer et tester des conteneurs pour appareils Linux, vous pouvez utiliser [Docker pour Windows](https://www.docker.com/docker-windows) en tant que moteur de conteneur. Vous pouvez configurer Docker pour [utiliser des conteneurs Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). Vous devez installer Docker et le configurer avant d’installer IoT Edge. Les conteneurs Linux ne sont pas pris en charge sur des appareils Windows en production. 
 
-Si votre appareil Azure IoT Edge est un ordinateur Windows, vérifiez qu’il présente la [configuration requise](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) pour Hyper-V. S’il s’agit d’une machine virtuelle, activez la [virtualisation imbriquée](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) et allouez au moins 2 Go de mémoire.
+Si votre appareil Azure IoT Edge est un ordinateur Windows, vérifiez qu’il présente la [configuration requise](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) pour Hyper-V.
 
 ## <a name="install-iot-edge-on-a-new-device"></a>Installer IoT Edge sur un nouvel appareil
 
@@ -213,6 +215,34 @@ Enfin, répertoriez les modules en cours d’exécution à l’aide de la comman
 ```powershell
 iotedge list
 ```
+
+Après une nouvelle installation, le module uniquement, vous devez voir est en cours d’exécution **edgeAgent**. Après avoir [déployer les modules IoT Edge](how-to-deploy-modules-portal.md), vous verrez d’autres. 
+
+## <a name="manage-module-containers"></a>Gérer les conteneurs de module
+
+Le service IoT Edge requiert un moteur de conteneur en cours d’exécution sur votre appareil. Lorsque vous déployez un module à un appareil, le runtime IoT Edge utilise le moteur de conteneur pour extraire l’image de conteneur à partir d’un Registre dans le cloud. Le service IoT Edge vous permet d’interagir avec vos modules et récupérer les fichiers journaux, mais vous pouvez être amené à utiliser le moteur de conteneur pour interagir avec le conteneur lui-même. 
+
+Pour plus d’informations sur les concepts de module, consultez [modules comprendre Azure IoT Edge](iot-edge-modules.md). 
+
+Si vous exécutez les conteneurs Windows sur votre appareil Windows IoT Edge, l’installation de IoT Edge inclus le moteur de conteneur Moby. Si vous développez des conteneurs Linux sur votre ordinateur de développement Windows, vous utilisez probablement le bureau de Docker. Le moteur Moby était basé sur les mêmes normes que Docker et a été conçu pour s’exécuter en parallèle sur le même ordinateur que le bureau de Docker. Pour cette raison, si vous souhaitez les conteneurs cible gérées par le moteur Moby, vous devez cibler spécifiquement ce moteur, au lieu de Docker. 
+
+Par exemple, pour répertorier toutes les images Docker, utilisez la commande suivante :
+
+```powershell
+docker images
+```
+
+Pour répertorier toutes les images Moby, modifiez la même commande avec un pointeur vers le moteur Moby : 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+Le moteur d’URI est répertorié dans la sortie du script d’installation, ou vous pouvez le trouver dans la section de paramètres de runtime de conteneur pour le fichier config.yaml. 
+
+![uri moby_runtime dans config.yaml](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+Pour plus d’informations sur les commandes que vous pouvez utiliser pour interagir avec des conteneurs et des images en cours d’exécution sur votre appareil, consultez [les interfaces de ligne de commande Docker](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## <a name="uninstall-iot-edge"></a>Désinstaller IoT Edge
 

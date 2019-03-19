@@ -6,6 +6,7 @@ documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
 editor: ''
+ms.service: marketplace
 ms.assetid: ''
 ms.workload: ''
 ms.tgt_pltfrm: ''
@@ -13,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2ff5b9e5bbae15b37726ea066474120d9417feba
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: f194b02e5b92ca2de5b58a033c38d4f2e35f93f6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825871"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790914"
 ---
 # <a name="add-bank-and-tax-information"></a>Ajouter des informations fiscales et bancaires  
 Les informations fiscales et bancaires sont requises pour toutes les offres commerciales utilisant le type de référencement transact.  
@@ -42,7 +43,7 @@ Les informations fiscales et bancaires sont requises pour toutes les offres comm
 
 4.  Cliquez sur le bouton Suivant. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>Ajouter des informations fiscales  
 1.  Connectez-vous au Centre de développement à l’aide de votre ID Microsoft.  
@@ -59,4 +60,4 @@ Les informations fiscales et bancaires sont requises pour toutes les offres comm
 ## <a name="next-steps"></a>Étapes suivantes
 *   Consultez la page [Guide de l’éditeur Place de marché Azure et AppSource](./marketplace-publishers-guide.md).  
  
----  
+---

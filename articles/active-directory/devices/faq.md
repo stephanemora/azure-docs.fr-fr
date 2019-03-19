@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845528"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -36,7 +36,7 @@ Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISA
 - Tous les appareils non Windows 10 ou Windows Server 2016.
 - Tous les appareils non Windows. 
 
---- 
+---
 
 **Q : Comment puis-je connaître l’état de l’inscription d’appareils du client ?**
 
@@ -86,6 +86,12 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 -   Pour les versions de système d’exploitation Windows de niveau inférieur des appareils sur site et joints à un domaine Azure Directory, l’inscription automatique crée un nouvel enregistrement d’appareil avec le même nom d’appareil pour chaque utilisateur du domaine qui se connecte à l’appareil. 
 
 -   Une machine jointe Azure AD qui est réinitialisée, réinstallée et jointe à nouveau avec le même nom s’affiche en tant que nouvel enregistrement avec le même nom d’appareil.
+
+---
+
+**Q : Inscription d’appareil Windows 10 dans Azure AD prend-il en charge les modules de plateforme sécurisée en mode FIPS ?**
+
+**R :** Non, actuellement l’inscription sur Windows 10 pour tous les États de l’appareil - jonction hybride Azure AD, Azure AD join et inscrits à Azure AD - ne prend pas en charge TPM en mode FIPS. Pour joindre ou s’inscrire à Azure AD avec succès, le mode FIPS doit être désactivée pour le module de plateforme sécurisée sur ces appareils
 
 ---
 
@@ -231,7 +237,13 @@ La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’A
 
 **Q : Des appareils joints Azure AD hybrides Windows 10 nécessitent-ils une visibilité du contrôleur de domaine pour accéder aux ressources cloud ?**
 
-**R :**  Non. Après qu’une Jointure Azure AD hybride Windows 10 hybride a été établie, et que l’utilisateur s’est connecté au moins une fois, l’appareil ne nécessite pas de visibilité du contrôleur de domaine pour accéder aux ressources cloud. Windows 10 peut obtenir une authentification unique pour des applications Azure AD en tout lieu avec une connexion internet, sauf lorsque le mot de passe est modifié. Si un mot de passe est modifié en dehors du réseau d’entreprise (par exemple, en utilisant Azure AD SSPR), l’utilisateur doit disposer d’une visibilité du contrôleur de domaine pour être en mesure de se connecter à l’appareil avec son nouveau mot de passe. Autrement, il ne peut se connecter qu’avec son ancien mot de passe, ce qui est invalidé par Azure AD et empêche l’authentification unique. Toutefois, ce problème ne se produit pas lorsque vous utilisez Windows Hello Entreprise. Les utilisateurs qui se connectent avec Windows Hello Entreprise pour obtenir une authentification unique se connectent à des applications Azure AD après un changement de mot de passe, même s’ils ne disposent pas d’une visibilité de leur contrôleur de domaine. 
+**R :** En général non, sauf lorsque le mot de passe est modifié. Après qu’une Jointure Azure AD hybride Windows 10 hybride a été établie, et que l’utilisateur s’est connecté au moins une fois, l’appareil ne nécessite pas de visibilité du contrôleur de domaine pour accéder aux ressources cloud. Windows 10 peut obtenir une authentification unique pour des applications Azure AD en tout lieu avec une connexion internet, sauf lorsque le mot de passe est modifié. Les utilisateurs qui continue de se connecter avec Windows Hello entreprise pour obtenir une entité unique connectent à des applications Azure AD même après la modification d’un mot de passe, même s’ils ne disposent d’une visibilité à leur contrôleur de domaine. 
+
+---
+
+**Q : Que se passe-t-il si un utilisateur modifie son mot de passe et tente de se connecter à leurs hybrides Windows 10 Azure AD joint à un appareil en dehors du réseau d’entreprise ?**
+
+**R :** Si un mot de passe est modifié en dehors du réseau d’entreprise (par exemple, en utilisant Azure AD SSPR), l’ouverture de session utilisateur avec le nouveau mot de passe échouera. Pour des appareils hybrides joints à Azure AD, sur site Active Directory est l’autorité principale. Quand un appareil n’a pas de ligne de vue au contrôleur de domaine, il est impossible de valider le nouveau mot de passe. Par conséquent, l’utilisateur a besoin pour établir la connexion avec le contrôleur de domaine (soit via un VPN ou en cours dans le réseau d’entreprise) avant d’être en mesure de se connecter à l’appareil avec son nouveau mot de passe. Sinon, ils peuvent uniquement vous connecter avec leur ancien mot de passe en raison de la fonctionnalité de mise en cache d’ouverture de session dans Windows. Toutefois, l’ancien mot de passe est invalidée par Azure AD lors de demandes de jeton par conséquent, empêche l’authentification unique sur et ne parvient pas les stratégies d’accès conditionnel basé sur l’appareil. Ce problème ne se produit si vous utilisez Windows Hello for Business. 
 
 ---
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248302"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107880"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurer un équilibreur de charge pour un groupe de disponibilité AlwaysOn dans Azure
 Cet article explique comment créer un équilibreur de charge pour un groupe de disponibilité SQL Server AlwaysOn dans des machines virtuelles Azure s’exécutant avec Azure Resource Manager. Un groupe de disponibilité nécessite un équilibreur de charge lorsque les instances SQL Server se trouvent sur des machines virtuelles Azure. Cet équilibrage de charge stocke l’adresse IP de l’écouteur de groupe de disponibilité. Si un groupe de disponibilité englobe plusieurs régions, chaque région a besoin d’un équilibreur de charge.
@@ -50,7 +50,7 @@ Dans cette partie de la tâche, procédez comme suit :
 > 
 > 
 
-### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Étape 1 : Créer l’équilibreur de charge et configurer l’adresse IP
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Étape 1 : Créer l’équilibrage de charge et configurer l’adresse IP
 Créez d’abord l’équilibreur de charge. 
 
 1. Dans le portail Azure, ouvrez le groupe de ressources contenant les machines virtuelles SQL Server. 
@@ -66,7 +66,7 @@ Créez d’abord l’équilibreur de charge.
    | Paramètre | Valeur |
    | --- | --- |
    | **Nom** |Nom de l’équilibrage de charge. Par exemple, **sqlLB**. |
-   | **Type** |**Interne** : la plupart des implémentations utilisent un équilibreur de charge interne, ce qui permet aux applications du même réseau virtuel de se connecter au groupe de disponibilité.  </br> **Externe** : permet aux applications de se connecter au groupe de disponibilité via une connexion Internet publique. |
+   | **Type** |**Interne** : La plupart des implémentations utilisent un équilibreur de charge interne, ce qui permet aux applications du même réseau virtuel de se connecter au groupe de disponibilité.  </br> **Externe** : Permet aux applications de se connecter au groupe de disponibilité par le biais d’une connexion Internet publique. |
    | **Réseau virtuel** |Sélectionnez le réseau virtuel contenant les instances de SQL Server. |
    | **Sous-réseau** |Sélectionnez le sous-réseau contenant les instances de SQL Server. |
    | **Affectation d’adresses IP** |**Statique** |
@@ -79,7 +79,7 @@ Créez d’abord l’équilibreur de charge.
 
 Azure crée l’équilibreur de charge. Cet équilibrage de charge appartient à un réseau, un sous-réseau, un groupe de ressources et un emplacement spécifiques. Une fois qu’Azure a terminé la tâche, vérifiez les paramètres de l’équilibreur de charge dans Azure. 
 
-### <a name="step-2-configure-the-back-end-pool"></a>Étape 2 : Configurer le pool principal
+### <a name="step-2-configure-the-back-end-pool"></a>Étape 2 : Configurez le pool principal
 Azure appelle *pool principal* ce pool d’adresses principal. En l’occurrence, le pool principal est constitué des adresses des deux instances de SQL Server dans votre groupe de disponibilité. 
 
 1. Dans votre groupe de ressources, cliquez sur l’équilibreur de charge que vous avez créé. 
@@ -100,7 +100,7 @@ Azure appelle *pool principal* ce pool d’adresses principal. En l’occurrence
 
 Azure met à jour les paramètres du pool d’adresses principal. Votre groupe à haute disponibilité a maintenant un pool de deux instances de SQL Server.
 
-### <a name="step-3-create-a-probe"></a>Étape 3 : Créer une sonde
+### <a name="step-3-create-a-probe"></a>Étape 3 : Créer une sonde
 La sonde définit la façon dont Azure identifie l’instance de SQL Server qui détient l’écouteur du groupe de disponibilité. Azure sonde le service avec l’adresse IP sur un port que vous définissez lors de la création de la sonde.
 
 1. Dans le panneau **Paramètres** de l’équilibreur de charge, cliquez sur **Sondes d’intégrité**. 
@@ -126,7 +126,7 @@ La sonde définit la façon dont Azure identifie l’instance de SQL Server qui 
 
 Azure crée la sonde puis l’utilise pour identifier l’instance de SQL Server qui a l’écouteur pour le groupe de disponibilité.
 
-### <a name="step-4-set-the-load-balancing-rules"></a>Étape 4 : Définir les règles d’équilibrage de charge
+### <a name="step-4-set-the-load-balancing-rules"></a>Étape 4 : Configurer les règles d’équilibrage de charge
 Les règles d’équilibrage de charge déterminent comment l’équilibreur de charge route le trafic vers les instances de SQL Server. Pour cet équilibreur de charge, vous activez le retour direct du serveur, car une seule des deux instances de SQL Server a la ressource d’écouteur de groupe de disponibilité à un moment donné.
 
 1. Dans le panneau **Paramètres** de l’équilibrage de charge, cliquez sur **Règles d’équilibrage de charge**. 
@@ -167,7 +167,7 @@ L’étape suivante consiste à configurer l’écouteur sur le cluster et à le
 
 2. Mettez l’écouteur en ligne.
 
-### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>Étape 5 : Créer l’écouteur du groupe de disponibilité sur le cluster de basculement
+### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>Étape 5 : Créer l’écouteur de groupe de disponibilité sur le cluster de basculement
 Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibilité dans le Gestionnaire du cluster de basculement et dans SQL Server Management Studio.
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
@@ -235,18 +235,18 @@ Pour ajouter une adresse IP à un équilibreur de charge avec le portail Azure, 
 
 10. Configurez la nouvelle règle d’équilibrage de charge en utilisant les paramètres suivants :
 
-   |Paramètre |Valeur
-   |:-----|:----
-   |**Nom** |Nom destiné à identifier la règle d’équilibrage de charge. 
-   |**Adresse IP du serveur frontal** |Sélectionnez l’adresse IP que vous avez créée. 
-   |**Protocole** |TCP
-   |**Port** |Utilisez le port utilisé par les instances SQL Server. Une instance par défaut utilise le port 1433, à moins que vous l’ayez changé. 
-   |**Port principal** |Utilisez la même valeur que **Port**.
-   |**Pool back-end** |Pool qui contient les machines virtuelles dotées des instances SQL Server. 
-   |**Sonde d’intégrité** |Choisissez la sonde que vous avez créée.
-   |**Persistance de session** |Aucun
-   |**Délai d’inactivité (minutes).** |Valeur par défaut (4)
-   |**Adresse IP flottante (retour direct du serveur)** | activé
+    |Paramètre |Valeur
+    |:-----|:----
+    |**Nom** |Nom destiné à identifier la règle d’équilibrage de charge. 
+    |**Adresse IP du serveur frontal** |Sélectionnez l’adresse IP que vous avez créée. 
+    |**Protocole** |TCP
+    |**Port** |Utilisez le port utilisé par les instances SQL Server. Une instance par défaut utilise le port 1433, à moins que vous l’ayez changé. 
+    |**Port principal** |Utilisez la même valeur que **Port**.
+    |**Pool back-end** |Pool qui contient les machines virtuelles dotées des instances SQL Server. 
+    |**Sonde d’intégrité** |Choisissez la sonde que vous avez créée.
+    |**Persistance de session** |Aucun
+    |**Délai d’inactivité (minutes).** |Valeur par défaut (4)
+    |**Adresse IP flottante (retour direct du serveur)** | activé
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Configurer le groupe de disponibilité pour qu’il utilise la nouvelle adresse IP
 

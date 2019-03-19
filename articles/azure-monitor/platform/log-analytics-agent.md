@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841104"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Collecter des données de journal avec l'agent Azure Log Analytics
 
@@ -26,7 +26,7 @@ L'agent Azure Log Analytics, précédemment appelé Microsoft Monitoring Agent (
 
 Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.   
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 ![Schéma de communication de l’agent Log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
 
@@ -78,11 +78,12 @@ Voici la liste des informations de configuration du proxy et du pare-feu requise
 
 |Ressource de l'agent|Ports |Direction |Ignorer l’inspection HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Règle de trafic sortant|OUI |  
-|*.oms.opinsights.azure.com |Port 443 |Règle de trafic sortant|OUI |  
-|*.blob.core.windows.net |Port 443 |Règle de trafic sortant|OUI |  
-|* .azure-automation.net |Port 443 |Règle de trafic sortant|OUI |  
+|*.ods.opinsights.azure.com |Port 443 |Règle de trafic sortant|Oui |  
+|*.oms.opinsights.azure.com |Port 443 |Règle de trafic sortant|Oui |  
+|*.blob.core.windows.net |Port 443 |Règle de trafic sortant|Oui |  
+|* .azure-automation.net |Port 443 |Règle de trafic sortant|Oui |  
 
+Pour plus d’informations de pare-feu requises pour Azure Government, consultez [gestion d’Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser les runbooks dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

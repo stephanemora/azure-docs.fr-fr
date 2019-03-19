@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116017"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hive dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -39,7 +39,7 @@ ms.locfileid: "54018856"
 L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des requêtes Hive sur [votre propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou cluster [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 > [!NOTE] 
-> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le Tutoriel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
+> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le tutoriel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -242,7 +242,7 @@ Pour utiliser le script Hive paramétré, procédez comme suit :
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>Voir aussi
+  ## <a name="see-also"></a>Voir aussi
 * [Activité pig](data-factory-pig-activity.md)
 * [Activité MapReduce](data-factory-map-reduce.md)
 * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)

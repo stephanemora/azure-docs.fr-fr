@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808457"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102752"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migration de Contoso : Refactoriser une application locale vers une application web Azure et une base de données SQL Azure
 
@@ -113,7 +113,7 @@ Contoso évalue la conception proposée en dressant une liste des avantages et d
 [Azure App Services - Web Apps](https://docs.microsoft.com/azure/app-service/overview) | Créez des applications cloud performantes en utilisant une plateforme entièrement gérée. | Coût en fonction de la taille, de l’emplacement et de la durée d’utilisation. [Plus d’informations](https://azure.microsoft.com/pricing/details/app-service/windows/)
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Fournit un pipeline d’intégration et de déploiement continus (CI/CD) pour le développement d’applications. Le pipeline démarre avec un dépôt Git pour la gestion du code de l’application, un système de build pour la production de packages et d’autres artefacts de build, et un système Release Management pour le déploiement de modifications sur les environnements de production, de test et de développement. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Voici ce dont Contoso a besoin pour exécuter ce scénario :
 
@@ -244,9 +244,9 @@ La base de données étant migrée, les administrateurs Contoso peuvent maintena
 
 Contoso doit générer l’infrastructure et les pipelines DevOps pour l’application.  Pour cela, les administrateurs Contoso créent un projet DevOps, importent le code, puis configurent les pipelines de build et de mise en production.
 
-1.   Dans le compte Azure DevOps de Contoso, ils créent un projet (**ContosoSmartHotelRefactor**) et sélectionnent **Git** pour la gestion de version.
+1. Dans le compte Azure DevOps de Contoso, ils créent un projet (**ContosoSmartHotelRefactor**) et sélectionnent **Git** pour la gestion de version.
 
-    ![Nouveau projet](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![Nouveau projet](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. Ils importent le dépôt Git qui détient actuellement leur code d’application. Il se trouve dans un [dépôt public](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) que vous pouvez télécharger.
 
     ![Télécharger le code d’application](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -277,7 +277,7 @@ Les administrateurs Contoso doivent faire en sorte que les applications web et l
 
     ![Chaîne de connexion](media/contoso-migration-refactor-web-app-sql/strings3.png)
 
-5. Une fois les modifications apportées au code, les administrateurs doivent valider les modifications. Avec Team Explorer dans Visual Studio, ils effectuent la validation et la synchronisation.
+5. Une fois les modifications apportées au code, les administrateurs doivent valider les modifications. À l’aide de Team Explorer dans Visual Studio, ils valider et synchroniser.
 
 
 ## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>Étape 6 : Configurer les pipelines de build et de mise en production dans Azure DevOps
@@ -306,8 +306,8 @@ Les administrateurs de Contoso configurent maintenant Azure DevOps pour lancer l
 
 6. Le dossier **drop** contient les résultats de la build.
 
-    - Les deux fichiers zip sont les packages qui contiennent les applications.
-    - Ces fichiers sont utilisés dans le pipeline de mise en production pour le déploiement sur Azure Web Apps.
+   - Les deux fichiers zip sont les packages qui contiennent les applications.
+   - Ces fichiers sont utilisés dans le pipeline de mise en production pour le déploiement sur Azure Web Apps.
 
      ![Artefact](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -341,7 +341,7 @@ Les administrateurs de Contoso configurent maintenant Azure DevOps pour lancer l
 
 16. Le déclencheur de déploiement continu doit être défini sur **Activé**.
 
-   ![Déploiement continu activé](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![Déploiement continu activé](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. À présent, ils repassent à la phase «1 travail, 1 tâche », puis cliquent sur **Déployer Azure App Service**.
 

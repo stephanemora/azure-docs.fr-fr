@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 79d10a02b02ecb69f656e5b3d7b0c9ae986504d1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438964"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731496"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
@@ -146,7 +146,7 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
                     "currentHealthStatus": "Unavailable",
                     "previousHealthStatus": "Available",
                     "type": "Downtime",
-                    "cause": "PlatformInitiated",
+                    "cause": "PlatformInitiated"
                 },
                 "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
                 "resourceGroupName": "<resource group>",
@@ -175,7 +175,7 @@ Pour obtenir des informations spécifiques au sujet des schémas de toutes les a
 | id |ID de ressource de l’alerte. |
 | description |Description de l’alerte définie à la création de l’alerte. |
 | subscriptionId |ID d’abonnement Azure. |
-|  timestamp |Heure à laquelle l’événement a été généré par le service Azure qui a traité la demande. |
+| timestamp |Heure à laquelle l’événement a été généré par le service Azure qui a traité la demande. |
 | ResourceId |ID de ressource de la ressource affectée. |
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée. |
 | properties |Ensemble de paires `<Key, Value>` (c’est-à-dire, `Dictionary<String, String>`) incluant des détails sur l’événement. |

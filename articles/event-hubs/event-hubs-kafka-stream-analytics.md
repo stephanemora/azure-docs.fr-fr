@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7612e9d6444b61210da5d642530d99423220c0a4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076838"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539155"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
 Cet article décrit comment diffuser des données dans des hubs d’événements Kafka et les traiter avec Azure Stream Analytics. Il vous guide dans les étapes suivantes : 
@@ -30,13 +30,13 @@ Cet article décrit comment diffuser des données dans des hubs d’événements
 Vous n’avez pas besoin de changer vos clients de protocole ou d’exécuter vos propres clusters quand vous utilisez le point de terminaison Kafka exposé par un hub d’événements. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) et versions ultérieures. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 * Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
-* [Téléchargez](http://maven.apache.org/download.cgi) et [installez](http://maven.apache.org/install.html) une archive binaire Maven.
+* [Téléchargez](https://maven.apache.org/download.cgi) et [installez](https://maven.apache.org/install.html) une archive binaire Maven.
 * [Git](https://www.git-scm.com/)
 * Un **compte de stockage Azure**. Si vous n’en avez pas, [créez-en un](../storage/common/storage-quickstart-create-account.md) avant de continuer. Le travail Stream Analytics dans cette procédure pas à pas stocke les données de sortie dans un stockage blob Azure. 
 
@@ -133,7 +133,7 @@ La requête dans le travail Stream Analytics parcourt les données sans effectue
 
 ### <a name="configure-job-input"></a>Configurer les entrées du travail
 
-1. Dans le message de notification, sélectionnez **Atteindre la ressource** pour voir la page **Travail Stream Analytics**. 
+1. Dans le message de notification, sélectionnez **accéder à la ressource** pour voir les **travail d’Analytique de Stream** page. 
 2. Sélectionnez **Entrées** dans la section **TOPOLOGIE DU TRAVAIL** dans le menu de gauche.
 3. Sélectionnez **Ajouter une entrée de flux**, puis sélectionnez **Hub d’événements**. 
 

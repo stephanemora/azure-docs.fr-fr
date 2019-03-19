@@ -1,6 +1,6 @@
 ---
-title: Créer un point de terminaison vocal personnalisé avec le service Speech sur Azure | Microsoft Docs
-description: Découvrez comment créer un point de terminaison de reconnaissance vocale personnalisé avec le service Speech de Cognitive Services.
+title: Créer un point de terminaison de reconnaissance vocale personnalisé avec les Services de reconnaissance vocale sur Azure | Microsoft Docs
+description: Découvrez comment créer un point de terminaison parole-texte personnalisé à l’aide des Services de reconnaissance vocale de Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862996"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Créer un point de terminaison de reconnaissance vocale personnalisé
 
-Une fois que vous avez créé des modèles acoustiques ou des modèles de langage personnalisés, vous pouvez déployer ces derniers dans un point de terminaison de reconnaissance vocale personnalisé. 
+Une fois que vous avez créé des modèles acoustiques ou des modèles de langage personnalisés, vous pouvez déployer ces derniers dans un point de terminaison de reconnaissance vocale personnalisé.
 
 ## <a name="create-an-endpoint"></a>Création d’un point de terminaison
-Pour créer un point de terminaison personnalisé, sélectionnez **Points de terminaison** dans le menu **Custom Speech** en haut de la page. Cette action vous fait accéder à la page **Points de terminaison** qui contient un tableau répertoriant les points de terminaison personnalisés actuels. Si vous n’avez pas encore créé de point de terminaison, le tableau est vide. Les paramètres régionaux actuels sont indiqués dans le titre du tableau. 
+Pour créer un point de terminaison personnalisé, sélectionnez **Points de terminaison** dans le menu **Custom Speech** en haut de la page. Cette action vous fait accéder à la page **Points de terminaison** qui contient un tableau répertoriant les points de terminaison personnalisés actuels. Si vous n’avez pas encore créé de point de terminaison, le tableau est vide. Les paramètres régionaux actuels sont indiqués dans le titre du tableau.
 
 Pour créer un déploiement dans une autre langue, sélectionnez **Modifier les paramètres régionaux**. Pour plus d’informations sur les langues prises en charge.
 
@@ -44,6 +44,6 @@ Dès que le déploiement est prêt, le nom du point de terminaison devient un li
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour les autres tutoriels, consultez :
-- [Obtenir votre abonnement d’essai gratuit à Speech Service](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenir votre abonnement d’essai gratuit à Speech Services](https://azure.microsoft.com/try/cognitive-services/)
 - [Créer des modèles acoustiques personnalisés](how-to-customize-acoustic-models.md)
 - [Créer un modèle linguistique personnalisé](how-to-customize-language-model.md)

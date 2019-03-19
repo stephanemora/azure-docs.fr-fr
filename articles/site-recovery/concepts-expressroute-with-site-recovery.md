@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 3/8/2019
 ms.author: mayg
-ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: f8179f5e647039737a59afdd04d345bf465acfdf
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809928"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726343"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute avec Azure Site Recovery
 
@@ -38,7 +38,7 @@ Pour en savoir plus et comparer les domaines de routage ExpressRoute, [voir ici]
 
 Azure Site Recovery permet une récupération d’urgence et une migration sur Azure de [machines virtuelles Hyper-V](hyper-v-azure-architecture.md), de [machines virtuelles VMware](vmware-azure-architecture.md) et de [serveurs physiques](physical-azure-architecture.md) locaux. Pour tous les scénarios de réplication de service local sur Azure, les données sont envoyées à un compte de stockage Azure et stockées sur celui-ci. Lors d’une réplication, vous ne payez aucuns frais de machine virtuelle. Quand vous exécutez un basculement vers Azure, Site Recovery crée automatiquement des machines virtuelles Azure IaaS.
 
-Azure Site Recovery réplique les données sur un compte de stockage Azure, via un point de terminaison public. Pour utiliser ExpressRoute afin d’effectuer une réplication Site Recovery, vous pouvez utiliser une [homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou une [homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). L’homologation Microsoft est le domaine de routage recommandé pour la réplication. Vérifiez que les [exigences réseau](vmware-azure-configuration-server-requirements.md#network-requirements) sont également remplies pour la réplication. Après que des machines virtuelles ou des serveurs ont basculé vers un réseau virtuel Azure, vous pouvez y accéder à l’aide d’une [homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering). La réplication n’est pas pris en charge via une homologation privée.
+Azure Site Recovery réplique les données sur un compte de stockage Azure, via un point de terminaison public. Pour utiliser ExpressRoute pour la réplication Site Recovery, vous pouvez utiliser [l’homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) (déconseillé pour de nouvelles créations) ou [l’homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). L’homologation Microsoft est le domaine de routage recommandé pour la réplication. Vérifiez que les [exigences réseau](vmware-azure-configuration-server-requirements.md#network-requirements) sont également remplies pour la réplication. Après que des machines virtuelles ou des serveurs ont basculé vers un réseau virtuel Azure, vous pouvez y accéder à l’aide d’une [homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering). La réplication n’est pas pris en charge via une homologation privée.
 
 Le scénario combiné est représenté dans le diagramme suivant : ![De local à Azure avec ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
@@ -56,4 +56,4 @@ Vous pouvez répliquer des machines virtuelles Azure vers n’importe quelle ré
 - En savoir plus sur les [circuits ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
 - En savoir plus sur les [domaines de routage ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - En savoir plus sur les [emplacements ExpressRoute](../expressroute/expressroute-locations.md).
-- En savoir plus sur la récupération d’urgence de [machines virtuelles Azure via ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- En savoir plus sur la récupération d’urgence de [machines virtuelles Azure avec ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

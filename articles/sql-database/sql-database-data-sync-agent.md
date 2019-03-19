@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 78d85239e1e82c290b210d33d3ca7000d6a05a1f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 5d8b3b91771fda3a714112979b8bf9df39c4a9b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088687"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agent de synchronisation des données pour Azure SQL Data Sync
 
@@ -102,8 +102,8 @@ Si vous souhaitez exécuter l’agent local à partir d’un autre ordinateur, p
 
 - **Résolution**. Pour rechercher la cause spécifique de l’échec rencontré, générez et consultez les journaux Windows Installer. Vous pouvez activer la journalisation à partir d’une invite de commandes. Par exemple, si le fichier d'installation est `SQLDataSyncAgent-2.0-x86-ENU.msi`, générez et examinez les fichiers journaux à l'aide des lignes de commande suivantes :
 
-    -   Pour les installations : `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
-    -   Pour les désinstallations : `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - Pour les installations : `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - Pour les désinstallations : `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     Vous pouvez également activer la journalisation pour toutes les installations effectuées par Windows Installer. L’article de la Base de connaissances Microsoft [Guide pratique pour activer la journalisation de Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fournit une solution en un clic pour activer la journalisation pour Windows Installer. Il indique également l’emplacement des journaux.
 
@@ -326,7 +326,7 @@ Pour plus d’informations sur SQL Data Sync, consultez les articles suivants :
         -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Bonnes pratiques - [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Supervision - [Superviser SQL Data Sync avec Log Analytics](sql-database-sync-monitor-oms.md)
+-   Moniteur - [journaux surveiller SQL Data Sync avec Azure Monitor](sql-database-sync-monitor-oms.md)
 -   Résolution des problèmes - [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Mettre à jour le schéma de synchronisation
     -   Avec Transact-SQL - [Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync](sql-database-update-sync-schema.md)

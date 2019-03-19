@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002955"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
-Depuis la version 2013-08-15, les services Azure Storage prennent en charge le partage de ressources cross-origine (CORS) pour les services Blob Storage, Table Storage, Queue Storage et File Storage. CORS est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d'accéder aux ressources d'un autre domaine. Les navigateurs web implémentent une restriction de sécurité appelée [stratégie de même origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) qui empêche une page web d’appeler des API d’un autre domaine ; CORS constitue un moyen sûr pour autoriser un domaine (le domaine d’origine) à appeler des API d’un autre domaine. Pour plus d’informations sur CORS, consultez la [Spécification CORS](http://www.w3.org/TR/cors/) .
+Depuis la version 2013-08-15, les services Azure Storage prennent en charge le partage de ressources cross-origine (CORS) pour les services Blob Storage, Table Storage, Queue Storage et File Storage. CORS est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d'accéder aux ressources d'un autre domaine. Les navigateurs web implémentent une restriction de sécurité appelée [stratégie de même origine](https://www.w3.org/Security/wiki/Same_Origin_Policy) qui empêche une page web d’appeler des API d’un autre domaine ; CORS constitue un moyen sûr pour autoriser un domaine (le domaine d’origine) à appeler des API d’un autre domaine. Pour plus d’informations sur CORS, consultez la [Spécification CORS](https://www.w3.org/TR/cors/) .
 
 Vous pouvez définir des règles CORS individuellement pour chaque service de stockage en appelant [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) et [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Une fois que vous avez défini les règles CORS du service, une requête autorisée exécutée auprès du service à partir d'un autre domaine est évaluée pour déterminer si elle est autorisée conformément aux règles que vous avez spécifiées.
 
@@ -29,7 +29,7 @@ Vous pouvez définir des règles CORS individuellement pour chaque service de st
 ## <a name="understanding-cors-requests"></a>Présentation des demandes CORS
 Une demande CORS d'un domaine d'origine peut comprendre deux demandes distinctes :
 
-* Une demande préliminaire, qui interroge les restrictions CORS imposées par le service. La demande préliminaire est obligatoire, sauf si la méthode de demande est une [méthode simple](http://www.w3.org/TR/cors/), à savoir GET, HEAD ou POST.
+* Une demande préliminaire, qui interroge les restrictions CORS imposées par le service. La demande préliminaire est obligatoire, sauf si la méthode de demande est une [méthode simple](https://www.w3.org/TR/cors/), à savoir GET, HEAD ou POST.
 * La demande réelle, adressée à la ressource souhaitée.
 
 ### <a name="preflight-request"></a>Demande préliminaire
@@ -146,7 +146,7 @@ La troisième demande correspond à la deuxième règle en ce qui concerne le do
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>Présentation de la définition de l'en-tête Vary
-L’en-tête *Vary* est un en-tête HTTP/1.1 standard composé d’un ensemble de champs d’en-tête de demande qui indiquent au navigateur ou à l’agent utilisateur les critères sélectionnés par le serveur pour traiter la demande. L’en-tête *Vary* est principalement utilisé pour la mise en cache par les proxys, les navigateurs et les réseaux de distribution de contenu, qui s’en servent pour déterminer comment la réponse doit être mise en cache. Pour plus d’informations, consultez la spécification de l’ [en-tête Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+L’en-tête *Vary* est un en-tête HTTP/1.1 standard composé d’un ensemble de champs d’en-tête de demande qui indiquent au navigateur ou à l’agent utilisateur les critères sélectionnés par le serveur pour traiter la demande. L’en-tête *Vary* est principalement utilisé pour la mise en cache par les proxys, les navigateurs et les réseaux de distribution de contenu, qui s’en servent pour déterminer comment la réponse doit être mise en cache. Pour plus d’informations, consultez la spécification de l’ [en-tête Vary](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Lorsque le navigateur ou un autre agent utilisateur met en cache la réponse d'une demande CORS, le domaine d'origine est mis en cache comme origine autorisée. Quand un deuxième domaine émet la même demande pour une ressource de stockage pendant que le cache est actif, l'agent utilisateur récupère le domaine d'origine mis en cache. Comme le deuxième domaine ne correspond pas au domaine mis en cache, la demande échoue (alors qu'elle devrait réussir en d'autres circonstances). Dans certains cas, le stockage Azure affecte à l’en-tête Vary la valeur **Origin** pour indiquer à l’agent utilisateur qu’il doit envoyer la demande CORS suivante au service lorsque le domaine demandeur diffère de l’origine mise en cache.
 
@@ -162,7 +162,7 @@ Notez qu'en ce qui concerne les demandes à l'aide de méthodes autres que GET/H
 Le tableau suivant indique comment le stockage Azure répond aux demandes GET/HEAD en fonction des cas mentionnés précédemment :
 
 | Requête | Paramètre de compte et résultat de l'évaluation de la règle |  |  | response |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **En-tête d’origine présent dans la demande** |**Règle(s) CORS spécifiée(s) pour ce service** |**Règle de correspondance existante qui autorise toutes les origines(*)** |**Règle de correspondance existante pour la correspondance exacte d’origine** |**La réponse inclut l’en-tête Vary avec la valeur Origin** |**La réponse inclut l’en-tête Access-Control-Allowed-Origin : « * »** |**La réponse inclut l’en-têteAccess-Control-Exposed-Headers** |
 | Non  |Non  |Non  |Non  |Non  |Non  |Non  |
 | Non  |Oui |Non  |Non  |Oui |Non  |Non  |
@@ -184,5 +184,5 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 
 [Définition des propriétés du service de Table](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
+[Spécification du Partage des ressources cross-origin (W3C)](https://www.w3.org/TR/cors/)
 

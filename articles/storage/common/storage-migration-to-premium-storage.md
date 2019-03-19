@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330577"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006513"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non gérés)
 
@@ -40,7 +40,7 @@ L’exécution du processus de migration dans son intégralité peut nécessiter
 ## <a name="plan-the-migration-to-premium-storage"></a>Planification de la migration vers Premium Storage
 Cette section vous permet de vous assurer que vous êtes prêt à suivre les étapes de migration de cet article et vous permet de prendre la bonne décision sur les types de machines virtuelles et de disques.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 * Vous aurez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez souscrire un abonnement pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/) d’un mois ou visiter [Tarification Azure](https://azure.microsoft.com/pricing/) pour plus d’options.
 * Pour exécuter les applets de commande PowerShell, vous avez besoin du module Microsoft Azure PowerShell. Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour des instructions sur l’installation et le point d’installation.
 * Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles compatibles Premium Storage. Vous pouvez utiliser des disques de Stockage Standard et Premium avec les machines virtuelles compatibles avec Premium Storage. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Tailles des services cloud](../../cloud-services/cloud-services-sizes-specs.md).
@@ -89,7 +89,7 @@ La section suivante fournit des instructions pour la préparation des disques du
 * [Scénario 1 : « Je migre des machines virtuelles Azure existantes vers le stockage Premium Azure. »](#scenario1)
 * [Scénario 2 : « Je migre des machines virtuelles à partir d’autres plateformes vers le stockage Premium Azure. »](#scenario2)
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Pour préparer les disques durs virtuels pour la migration, vous devez :
 
 * Un abonnement Azure, un compte de stockage et un conteneur dans ce compte de stockage sur lequel vous pouvez copier votre disque dur virtuel. Notez que le compte de stockage de destination peut être un compte de stockage Standard ou Premium selon vos besoins.
@@ -138,7 +138,7 @@ Si vous téléchargez un disque dur virtuel qui permet de créer plusieurs insta
 
     ![][1]
 
-Pour une machine virtuelle Ubuntu, utilisez virt-sysprep pour obtenir le même résultat. Pour plus d’informations, consultez la page [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) . Consultez également les informations relatives à certains des [logiciels de configuration du serveur Linux](http://www.cyberciti.biz/tips/server-provisioning-software.html) open source pour d’autres systèmes d’exploitation Linux.
+Pour une machine virtuelle Ubuntu, utilisez virt-sysprep pour obtenir le même résultat. Pour plus d’informations, consultez la page [virt-sysprep](https://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) . Consultez également les informations relatives à certains des [logiciels de configuration du serveur Linux](https://www.cyberciti.biz/tips/server-provisioning-software.html) open source pour d’autres systèmes d’exploitation Linux.
 
 ##### <a name="use-a-unique-operating-system-vhd-to-create-a-single-vm-instance"></a>Utilisation d’un disque dur virtuel de système d’exploitation unique pour créer une seule instance de machine virtuelle
 Si une application exécutée sur la machine virtuelle requiert les données spécifiques de la machine, ne généralisez pas le disque dur virtuel. Un disque dur virtuel non généralisé peut servir à créer une instance de machine virtuelle Azure unique. Par exemple, si vous avez un contrôleur de domaine sur votre disque dur virtuel, l’exécution de sysprep le rend inefficace comme contrôleur de domaine. Passez en revue les applications s’exécutant sur votre machine virtuelle et l’impact de sysprep s’exécutant sur ces dernières avant la généralisation du disque dur virtuel.
@@ -467,9 +467,9 @@ Le script d’automatisation est fourni ci-dessous. Remplacez le texte par vos i
 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
-    http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-    http://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
-    http://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
+    https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+    https://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
+    https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
 
     #>
 
@@ -558,7 +558,7 @@ Le script d’automatisation est fourni ci-dessous. Remplacez le texte par vos i
     }
     else
     {
-        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article http://azure.microsoft.com/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
+        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article https://azure.microsoft.com/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
         Exit
     }
 
@@ -759,7 +759,7 @@ Consultez les ressources suivantes pour des scénarios spécifiques de migration
 * [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure.](../../virtual-machines/windows/upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Création et chargement d’un disque VHD Linux dans Azure](../../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consultez également les ressources suivantes pour en savoir plus sur Azure Storage et les machines virtuelles Azure :
 
@@ -770,4 +770,4 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
-[4]: http://technet.microsoft.com/library/hh831739.aspx
+[4]: https://technet.microsoft.com/library/hh831739.aspx

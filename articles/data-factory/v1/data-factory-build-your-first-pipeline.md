@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015948"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544952"
 ---
-# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutoriel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Didacticiel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
@@ -80,7 +80,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 Dans les échantillons de lignes ci-dessus, la première (avec 2016-01-01) est écrite dans le fichier 000000_0 dans le dossier month=1. De même, la deuxième est écrite dans le fichier du dossier month=2 et la troisième est écrite dans le fichier du dossier month=3.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 1. **Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
@@ -88,7 +88,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 3. Téléchargez et lisez le fichier de requête Hive (**HQL**) à l’adresse : [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Cette requête transforme les données d’entrée pour produire des données de sortie. 
 4. Téléchargez et lisez l’exemple de fichier d’entrée (**input.log**) à l’adresse : [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Créez un conteneur de blobs nommé **adfgetstarted** dans votre stockage Blob Azure. 
-6. Chargez le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Utilisez des outils tels que [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/). 
+6. Chargez le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Utilisez des outils tels que [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com/). 
 7. Chargez le fichier **input.log** dans le dossier **inputdata** du conteneur **adfgetstarted**. 
 
 Si vous disposez de tout ce qui est nécessaire, sélectionnez l’un des outils/kits de développement logiciel (SDK) ci-dessous pour suivre ce didacticiel : 

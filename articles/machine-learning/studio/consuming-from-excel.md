@@ -5,17 +5,17 @@ description: Microsoft Azure Machine Learning Studio permet d’appeler facilem
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ef1d8f1a72c5936ff661636c4c51acf439a0a5ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855195"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Utilisation d’un service web Azure Machine Learning Studio depuis Excel
 
@@ -33,8 +33,8 @@ Quand vous disposez d’un service web, cliquez sur la section **WEB SERVICES**
 **Service web classique**
 
 1. Sur l’onglet **TABLEAU DE BORD** du service web figure une ligne pour le service **REQUÊTE/RÉPONSE**. Si ce service produit une sortie unique, le lien **Télécharger un classeur Excel** doit apparaître sur cette ligne.
-   
-    ![](./media/consuming-from-excel/excellink.png)
+
+    ![Télécharger le classeur Excel à l’aide du portail de Service Web de Studio](./media/consuming-from-excel/excellink.png)
 2. Cliquez sur **Télécharger un classeur Excel**.
 
 **Nouveau service web**
@@ -46,17 +46,17 @@ Quand vous disposez d’un service web, cliquez sur la section **WEB SERVICES**
 
 1. Ouvrez le classeur.
 2. Un avertissement de sécurité s’affiche. Cliquez sur le bouton **Activer la modification**.
-   
-    ![](./media/consuming-from-excel/enableeditting.png)
+
+    ![Activer la modification supprimer l’avertissement de sécurité de mode protégé](./media/consuming-from-excel/enableeditting.png)
 3. Un avertissement de sécurité apparaît. Cliquez sur le bouton **Activer le contenu** pour pouvoir exécuter des macros sur votre feuille de calcul.
-   
-    ![](./media/consuming-from-excel/enablecontent.png)
+
+    ![Activer le contenu ignorer l’avertissement de sécurité que la désactivation des macros](./media/consuming-from-excel/enablecontent.png)
 4. Une fois les macros activées, une table est générée. Les valeurs des colonnes en bleu sont requises en tant qu’entrées dans le service web RRS (Request/Response Service), ou en tant que **PARAMÈTRES**. Notez la sortie du service RRS, appelée **VALEURS PRÉDITES** et affichée en vert. Lorsque toutes les colonnes d’une ligne donnée sont remplies, le classeur appelle automatiquement l’API de notation et affiche les notes résultantes.
-   
-    ![](./media/consuming-from-excel/sampletable.png)
+
+    ![Table pour les entrées de paramètre et le résultat prédit des valeurs](./media/consuming-from-excel/sampletable.png)
 5. Pour noter plusieurs lignes, remplissez la deuxième ligne avec les données ; des valeurs prédites sont produites. Vous pouvez même coller plusieurs lignes à la fois.
 
-Vous pouvez utiliser toutes les fonctionnalités de Microsoft Excel (graphiques, Power Map, mise en forme conditionnelle, etc.) avec les valeurs prédites pour visualiser les données.    
+Vous pouvez utiliser toutes les fonctionnalités de Microsoft Excel (graphiques, Power Map, mise en forme conditionnelle, etc.) avec les valeurs prédites pour visualiser les données.
 
 ## <a name="sharing-your-workbook"></a>Partage de votre classeur
 Pour que les macros fonctionnent, votre Clé API doit faire partie de la feuille de calcul. Cela signifie que vous devez uniquement partager le classeur avec des entités/personnes de confiance.

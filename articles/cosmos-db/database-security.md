@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rimman
-ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: d37f373e98835846c2d29130781706c400086c0e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077239"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Indexation dans Azure Cosmos DB - Vue d’ensemble
 
@@ -57,7 +57,7 @@ Reprenons la liste précédente : combien de ces exigences de sécurité Azure C
 Examinons à présent chacune d’entre elles en détail.
 
 |Exigence de sécurité|Approche de la sécurité d’Azure Cosmos DB|
-|---|---|---|
+|---|---|
 |Sécurité du réseau|L’utilisation d’un pare-feu IP est la première couche de protection pour sécuriser votre base de données. Azure Cosmos DB prend en charge les contrôles d’accès basés sur une stratégie IP pour le pare-feu entrant. Les contrôles d’accès basés sur IP sont semblables aux règles de pare-feu utilisées par les systèmes de base de données traditionnels, mais ils rendent un compte de base de données Azure Cosmos DB accessible uniquement à partir d’un ensemble d’ordinateurs ou de services cloud approuvés. <br><br>Azure Cosmos DB vous permet d’activer une adresse IP spécifique (168.61.48.0), une plage d’adresses IP (168.61.48.0/8) et des combinaisons d’adresses et de plages IP. <br><br>Toutes les demandes provenant d’ordinateurs ne figurant pas dans cette liste sont bloquées par Azure Cosmos DB. Les demandes issues d’ordinateurs et de services cloud approuvés doivent ensuite terminer le processus d’authentification pour bénéficier d’un contrôle d’accès sur les ressources.<br><br>Pour plus d’informations, consultez [Prise en charge du pare-feu dans Azure Cosmos DB](firewall-support.md).|
 |Authorization|Azure Cosmos DB utilise un code d’authentification de message basé sur le hachage (HMAC) pour l’autorisation. <br><br>Chaque demande est hachée à l’aide de la clé secrète du compte, et ce hachage encodé en base 64 suivant est envoyé avec chaque appel à Azure Cosmos DB. Afin de valider la demande, le service Azure Cosmos DB utilise la clé secrète et les propriétés appropriées pour générer un hachage dont il compare la valeur à celle de la demande. Si les deux valeurs correspondent, l’opération est autorisée et la demande est traitée. Dans le cas contraire, un échec d’autorisation est généré et la demande est rejetée.<br><br>Vous pouvez utiliser une [clé principale](secure-access-to-data.md#master-keys) ou un [jeton de ressource](secure-access-to-data.md#resource-tokens) autorisant un accès précis à une ressource telle qu’un document.<br><br>Pour en savoir plus, consultez [Sécurisation de l’accès aux données Azure Cosmos DB](secure-access-to-data.md).|
 |Utilisateurs et autorisations|À l'aide de la clé principale du compte, vous pouvez créer des ressources utilisateur et des ressources d'autorisation par base de données. Dans une base de données, un jeton de ressource est associé à une autorisation et il détermine si l'utilisateur a accès (lecture-écriture, lecture seule ou aucun accès) à une ressource d'application de la base de données. Les ressources d’application comprennent les conteneurs, les documents, les pièces jointes, les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur. La jeton de ressource est ensuite utilisé lors de l’authentification pour autoriser ou refuser l’accès à la ressource.<br><br>Pour en savoir plus, consultez [Sécurisation de l’accès aux données Azure Cosmos DB](secure-access-to-data.md).|

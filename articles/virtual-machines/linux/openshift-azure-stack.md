@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 10/23/2018
 ms.author: haroldw
-ms.openlocfilehash: a2a61015f82cc27dcadf96fbd608e2d3420218ee
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: 91b37753ae80596612eda9d3ccd34858691e35ad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088262"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446943"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Déployer OpenShift Container Platform ou OKD dans Azure Stack
 
@@ -52,9 +52,9 @@ Vérifiez que vous avez un nom d’utilisateur, un mot de passe et un ID de pool
 
 Une image RHEL (OpenShift Container Platform) ou une image CentOS (OKD) doit être ajoutée à votre environnement Azure Stack en vue du déploiement d’un cluster OpenShift. Contactez votre administrateur Azure Stack afin d’ajouter ces images. Les instructions sont disponibles ici :
 
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-marketplace-azure-items
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-redhat-create-upload-vhd
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-marketplace-azure-items
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-redhat-create-upload-vhd
 
 ## <a name="deploy-by-using-the-openshift-container-platform-or-okd-resource-manager-template"></a>Déployer à l’aide du modèle Resource Manager pour OpenShift Container Platform ou OKD
 

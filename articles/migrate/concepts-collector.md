@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080063"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -85,22 +85,22 @@ Vous devez effectuer quelques vérifications de prérequis pour vous assurer que
 - L’adresse IP/le nom FQDN du serveur proxy doit être spécifié sous la forme *http://IPaddress* ou *http://FQDN*.
 - Seuls les proxys HTTP sont pris en charge. Les serveurs proxy HTTPS ne sont pas pris en charge par le Collecteur.
 - Si le serveur proxy est un proxy d’interception, vous devez importer le certificat de proxy sur la machine virtuelle Collecteur.
-    1. Dans la machine virtuelle du collecteur, accédez au **Menu Démarrer** > **Gérer les certificats d’ordinateur**.
-    2. Dans l’outil Certificats, sous **Certificats - Ordinateur Local**, recherchez **Éditeurs approuvés** > **Certificats**.
+  1. Dans la machine virtuelle du collecteur, accédez au **Menu Démarrer** > **Gérer les certificats d’ordinateur**.
+  2. Dans l’outil Certificats, sous **Certificats - Ordinateur Local**, recherchez **Éditeurs approuvés** > **Certificats**.
 
-        ![Outil Certificats](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Outil Certificats](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Copiez le certificat de proxy sur la machine virtuelle du collecteur. Vous devrez peut-être l’obtenir auprès de votre administrateur réseau.
-    4. Double-cliquez pour ouvrir le certificat, puis cliquez sur **Installer le certificat**.
-    5. Dans l’Assistant Importation de certificat > Emplacement du magasin, choisissez **Ordinateur local**.
+  3. Copiez le certificat de proxy sur la machine virtuelle du collecteur. Vous devrez peut-être l’obtenir auprès de votre administrateur réseau.
+  4. Double-cliquez pour ouvrir le certificat, puis cliquez sur **Installer le certificat**.
+  5. Dans l’Assistant Importation de certificat > Emplacement du magasin, choisissez **Ordinateur local**.
 
-    ![Emplacement du magasin de certificats](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Emplacement du magasin de certificats](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Sélectionnez **Placer tous les certificats dans le magasin suivant** > **Parcourir** > **Éditeurs approuvés**. Cliquez sur **Terminer** pour importer le certificat.
+  6. Sélectionnez **Placer tous les certificats dans le magasin suivant** > **Parcourir** > **Éditeurs approuvés**. Cliquez sur **Terminer** pour importer le certificat.
 
-    ![Magasin de certificats](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Magasin de certificats](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Vérifiez que le certificat a été importé normalement, et que la vérification du prérequis relatif à la connectivité Internet fonctionne comme prévu.
+  7. Vérifiez que le certificat a été importé normalement, et que la vérification du prérequis relatif à la connectivité Internet fonctionne comme prévu.
 
 
 ### <a name="urls-for-connectivity"></a>Adresses URL de connectivité
@@ -111,7 +111,7 @@ Vous validez la vérification de la connectivité en vous connectant à une list
 --- | --- | ---
 *. portal.azure.com | S’applique à Azure Global. Vérifie la connectivité avec le service Azure et la synchronisation de l’heure. | Accès à l’URL requise.<br/><br/> La vérification du prérequis échoue s’il n’y a pas de connectivité.
 *.portal.azure.us | S’applique uniquement à Azure Government. Vérifie la connectivité avec le service Azure et la synchronisation de l’heure. | Accès à l’URL requise.<br/><br/> La vérification du prérequis échoue s’il n’y a pas de connectivité.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Permet de télécharger le module PowerShell vCenter PowerCLI. | Accès aux URL facultatives.<br/><br/> La vérification du prérequis n’échoue pas.<br/><br/> L’installation automatique du module sur la machine virtuelle Collecteur échoue. Vous devez installer le module manuellement.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Permet de télécharger le module PowerShell vCenter PowerCLI. | Accès aux URL est obligatoire.<br/><br/> La vérification du prérequis n’échoue pas.<br/><br/> L’installation automatique du module sur la machine virtuelle Collecteur échoue. Vous devez installer le module manuellement sur un ordinateur qui possède une connexion internet, puis copier les modules dans l’appliance. [En savoir plus en accédant à l’étape 4 dans ce guide de dépannage](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Installer le module VMware PowerCLI manuellement

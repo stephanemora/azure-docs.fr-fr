@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 099c7a456e67eae981b2e68e73e2bed7557c7372
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094852"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Approvisionner et gérer la préversion d’Azure Time Series Insights
 
 Cet article explique comment créer et gérer un environnement Azure Time Series Insights en préversion via le [portail Azure](https://portal.azure.com/).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Les environnements Azure Time Series Insights en préversion sont des environnements payants à l’utilisation.
 
@@ -67,7 +67,7 @@ Les étapes suivantes permettent de créer un environnement Azure Time Series In
      > [!TIP]
      > Il est possible que l’heure de placement du message dans la file d’attente ne soit pas le paramètre le mieux configuré à utiliser pour un l’événement de traitement par lots ou des scénarios de chargement des données historiques. Veillez à vérifier votre choix d’utiliser ou non une propriété Timestamp dans de tels cas.
 
-    ![Onglet Source de l’événement][2]
+     ![Onglet Source de l’événement][2]
 
 1. Vérifiez que votre environnement a été approvisionné avec les paramètres souhaités.
 

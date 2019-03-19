@@ -15,12 +15,12 @@ ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 443aef1a7396dc637b656a805b758a62bcfac41d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 45f48b6d8ef29d14606f18d4ccee77bd742a670a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175996"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Comprendre l’interaction entre plusieurs locataires Azure Active Directory
 
@@ -47,7 +47,7 @@ Vous pouvez configurer chaque locataire Azure AD de manière indépendante de s
 Pour ajouter un locataire Azure AD dans le portail Azure, connectez-vous au [portail Azure](https://portal.azure.com) avec un compte qui est un administrateur général Azure AD et, sur la gauche, sélectionnez **Nouveau**.
 
 > [!NOTE]
-> Contrairement aux autres ressources Azure, vos locataires ne sont pas des ressources enfants d’un abonnement Azure. Si votre abonnement Azure est annulé ou qu’il est arrivé à expiration, vous pouvez toujours accéder aux données de votre locataire via Azure PowerShell, l’API Azure Graph ou le centre d’administration Office 365. Vous pouvez aussi [associer un autre abonnement au locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> Contrairement aux autres ressources Azure, vos locataires ne sont pas des ressources enfants d’un abonnement Azure. Si votre abonnement Azure est annulée ou a expiré, vous pouvez toujours accéder à vos données client à l’aide d’Azure PowerShell, l’API Graph Azure ou le centre d’administration Microsoft 365. Vous pouvez aussi [associer un autre abonnement au locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Étapes suivantes

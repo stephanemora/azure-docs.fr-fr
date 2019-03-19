@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fab8ec5a6ca94d2f30ec47da390885339adf8b43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 937346bf6927efe11e43b64b7c9a2111f00c0e0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890822"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -59,28 +59,28 @@ Pour configurer les paramètres de proxy à l’échelle de la machine, suivez l
 
 1. Configurer les paramètres de proxy pour les applications .NET 
 
-  - Modifiez ces deux fichiers :  
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+   - Modifiez ces deux fichiers :  
+     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+     C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-  - Ajoutez la section < system.net > dans les fichiers machine.config (sous la section < system.serviceModel >).  Remplacez 127.0.01:8888 par l’adresse IP et le port du serveur proxy. 
-  ```
+   - Ajoutez la section < system.net > dans les fichiers machine.config (sous la section < system.serviceModel >).  Remplacez 127.0.01:8888 par l’adresse IP et le port du serveur proxy. 
+     ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
           <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
         </defaultProxy>
       </system.net>
-  ```
+     ```
 
 2. Définir les paramètres de proxy WinHTTP 
 
-  - Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell pour afficher les paramètres de proxy existant :   
+   - Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell pour afficher les paramètres de proxy existant :   
 
-    netsh winhttp show proxy
+     netsh winhttp show proxy
 
-  - Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell pour définir le paramètre de proxy (remplacez 127.0.01:8888 par l’adresse IP et le port du serveur proxy) :  
+   - Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell pour définir le paramètre de proxy (remplacez 127.0.01:8888 par l’adresse IP et le port du serveur proxy) :  
 
-    netsh winhttp set proxy 127.0.0.1:8888
+     netsh winhttp set proxy 127.0.0.1:8888
 
 3. Redémarrez le service Agent de synchronisation de stockage en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell : 
 
@@ -93,14 +93,14 @@ Comme mentionné plus haut, le port 443 doit être ouvert en sortie. Selon les s
 
 Le tableau suivant décrit les domaines requis pour la communication :
 
-| de diffusion en continu | Domaine | Usage |
-|---------|----------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | N’importe quel appel utilisateur (par exemple, PowerShell) est acheminé vers/à travers cette URL, y compris l’appel pour l’inscription initiale du serveur. |
-| **Azure Active Directory** | https://login.windows.net | Les appels à Azure Resource Manager doivent être effectués par un utilisateur authentifié. Cette URL est utilisée pour l’authentification utilisateur. |
-| **Azure Active Directory** | https://graph.windows.net/ | Dans le cadre du déploiement d’Azure File Sync, un principal de service est créé dans l’annuaire Azure Active Directory de l’abonnement. Cette URL est utilisée pour cela. Le principal créé sert à déléguer un ensemble minimal de droits au service Azure File Sync. L’utilisateur qui effectue la configuration initiale d’Azure File Sync doit être un utilisateur authentifié avec des privilèges de propriétaire d’abonnement. |
-| **Stockage Azure** | &ast;.core.windows.net | Quand le serveur télécharge un fichier, il effectue ce déplacement de données plus efficacement quand il communique directement avec le partage de fichiers Azure dans le compte de stockage. Le serveur présente une clé SAS qui permet uniquement un accès ciblé au partage de fichiers. |
-| **Azure File Sync** | &ast;.one.microsoft.com | Après l’inscription initiale du serveur, le serveur reçoit une URL régionale pour l’instance du service Azure File Sync dans cette région. Le serveur peut utiliser cette URL pour communiquer directement et plus efficacement avec l’instance qui gère sa synchronisation. |
-| **Infrastructure à clé publique Microsoft** | https://www.microsoft.com/pki/mscorp<br>http://ocsp.msocsp.com | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
+| de diffusion en continu | Point de terminaison de cloud public | Point de terminaison Azure Government | Usage |
+|---------|----------------|---------------|------------------------------|
+| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | N’importe quel appel utilisateur (par exemple, PowerShell) est acheminé vers/à travers cette URL, y compris l’appel pour l’inscription initiale du serveur. |
+| **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Les appels à Azure Resource Manager doivent être effectués par un utilisateur authentifié. Cette URL est utilisée pour l’authentification utilisateur. |
+| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Dans le cadre du déploiement d’Azure File Sync, un principal de service est créé dans l’annuaire Azure Active Directory de l’abonnement. Cette URL est utilisée pour cela. Le principal créé sert à déléguer un ensemble minimal de droits au service Azure File Sync. L’utilisateur qui effectue la configuration initiale d’Azure File Sync doit être un utilisateur authentifié avec des privilèges de propriétaire d’abonnement. |
+| **Stockage Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quand le serveur télécharge un fichier, il effectue ce déplacement de données plus efficacement quand il communique directement avec le partage de fichiers Azure dans le compte de stockage. Le serveur présente une clé SAS qui permet uniquement un accès ciblé au partage de fichiers. |
+| **Azure File Sync** | &ast;.one.microsoft.com | &ast;.afs.azure.us | Après l’inscription initiale du serveur, le serveur reçoit une URL régionale pour l’instance du service Azure File Sync dans cette région. Le serveur peut utiliser cette URL pour communiquer directement et plus efficacement avec l’instance qui gère sa synchronisation. |
+| **Infrastructure à clé publique Microsoft** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
 
 > [!Important]
 > Quand le trafic vers &ast;.one.microsoft.com est autorisé, la destination du trafic à partir du serveur n’est pas limitée au service de synchronisation. Les sous-domaines incluent de nombreux autres services Microsoft.
@@ -109,22 +109,24 @@ Si &ast;.one.microsoft.com est trop vaste, vous pouvez limiter les communication
 
 Pour des raisons de récupération d’urgence et de continuité d’activité (BCDR) vous avez peut-être spécifié des partages de vos fichiers Azure dans un compte de stockage globalement redondant (GRS). Si tel est le cas, vos partages de fichiers Azure basculeront vers la région jumelée en cas de panne régionale durable. Azure File Sync utilise les même paires régionales en tant que stockage. Par conséquent, si vous utilisez des comptes de stockage GRS, vous devez activer des URL supplémentaires pour permettre à votre serveur de communiquer avec la région jumelée pour Azure File Sync. Le tableau ci-dessous appelle cela « Région Jumelée ». De plus, il existe une URL du profil de gestionnaire de trafic qui doit être activée également. Ainsi, le trafic réseau peut être à nouveau routé en toute transparence vers la région jumelée en cas de basculement et est appelé « URL de détection » dans le tableau ci-dessous.
 
-| Région | URL de point de terminaison principal | Région jumelée | URL de détection |
-|--------|---------------------------------------|--------|---------------------------------------|
-| Australie Est | https://kailani-aue.one.microsoft.com | Australie Sud-Est | https://kailani-aue.one.microsoft.com |
-| Australie Sud-Est | https://kailani-aus.one.microsoft.com | Australie Est | https://tm-kailani-aus.one.microsoft.com |
-| Canada Centre | https://kailani-cac.one.microsoft.com | Est du Canada | https://tm-kailani-cac.one.microsoft.com |
-| Est du Canada | https://kailani-cae.one.microsoft.com | Centre du Canada | https://tm-kailani.cae.one.microsoft.com |
-| USA Centre | https://kailani-cus.one.microsoft.com | USA Est 2 | https://tm-kailani-cus.one.microsoft.com |
-| Asie Est | https://kailani11.one.microsoft.com | Asie Sud-Est | https://tm-kailani11.one.microsoft.com |
-| USA Est | https://kailani1.one.microsoft.com | USA Ouest | https://tm-kailani1.one.microsoft.com |
-| USA Est 2 | https://kailani-ess.one.microsoft.com | USA Centre | https://tm-kailani-ess.one.microsoft.com |
-| Europe Nord | https://kailani7.one.microsoft.com | Europe Ouest | https://tm-kailani7.one.microsoft.com |
-| Asie Sud-Est | https://kailani10.one.microsoft.com | Asie Est | https://tm-kailani10.one.microsoft.com |
-| Sud du Royaume-Uni | https://kailani-uks.one.microsoft.com | Ouest du Royaume-Uni | https://tm-kailani-uks.one.microsoft.com |
-| Ouest du Royaume-Uni | https://kailani-ukw.one.microsoft.com | Sud du Royaume-Uni | https://tm-kailani-ukw.one.microsoft.com |
-| Europe Ouest | https://kailani6.one.microsoft.com | Europe Nord | https://tm-kailani6.one.microsoft.com |
-| USA Ouest | https://kailani.one.microsoft.com | USA Est | https://tm-kailani.one.microsoft.com |
+| Cloud  | Région | URL de point de terminaison principal | Région jumelée | URL de détection |
+|--------|--------|----------------------|---------------|---------------|
+| Public |Australie Est | https://kailani-aue.one.microsoft.com | Australie Sud-Est | https://kailani-aue.one.microsoft.com |
+| Public |Australie Sud-Est | https://kailani-aus.one.microsoft.com | Australie Est | https://tm-kailani-aus.one.microsoft.com |
+| Public | Centre du Canada | https://kailani-cac.one.microsoft.com | Est du Canada | https://tm-kailani-cac.one.microsoft.com |
+| Public | Est du Canada | https://kailani-cae.one.microsoft.com | Centre du Canada | https://tm-kailani.cae.one.microsoft.com |
+| Public | USA Centre | https://kailani-cus.one.microsoft.com | USA Est 2 | https://tm-kailani-cus.one.microsoft.com |
+| Public | Asie Est | https://kailani11.one.microsoft.com | Asie Sud-Est | https://tm-kailani11.one.microsoft.com |
+| Public | USA Est | https://kailani1.one.microsoft.com | USA Ouest | https://tm-kailani1.one.microsoft.com |
+| Public | USA Est 2 | https://kailani-ess.one.microsoft.com | USA Centre | https://tm-kailani-ess.one.microsoft.com |
+| Public | Europe Nord | https://kailani7.one.microsoft.com | Europe Ouest | https://tm-kailani7.one.microsoft.com |
+| Public | Asie Sud-Est | https://kailani10.one.microsoft.com | Asie Est | https://tm-kailani10.one.microsoft.com |
+| Public | Sud du Royaume-Uni | https://kailani-uks.one.microsoft.com | Ouest du Royaume-Uni | https://tm-kailani-uks.one.microsoft.com |
+| Public | Ouest du Royaume-Uni | https://kailani-ukw.one.microsoft.com | Sud du Royaume-Uni | https://tm-kailani-ukw.one.microsoft.com |
+| Public | Europe Ouest | https://kailani6.one.microsoft.com | Europe Nord | https://tm-kailani6.one.microsoft.com |
+| Public | USA Ouest | https://kailani.one.microsoft.com | USA Est | https://tm-kailani.one.microsoft.com |
+| Gouvernement américain | Gouvernement des États-Unis – Arizona | https://usgovarizona01.afs.azure.us | Gouvernement des États-Unis – Texas | https://tm-usgovarizona01.afs.azure.us |
+| Gouvernement américain | Gouvernement des États-Unis – Texas | https://usgovtexas01.afs.azure.us | Gouvernement des États-Unis – Arizona | https://tm-usgovtexas01.afs.azure.us |
 
 - Si vous utilisez des comptes de stockage localement redondants (LRS) ou des comptes de stockage de redondants dans une zone (ZRS), vous devez uniquement activer l’URL répertoriée sous « URL de point de terminaison principal ».
 

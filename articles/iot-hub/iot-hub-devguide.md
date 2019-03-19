@@ -1,19 +1,19 @@
 ---
 title: Guide du développeur pour Azure IoT Hub | Microsoft Docs
 description: Le guide du développeur Azure IoT Hub porte sur les points de terminaison, la sécurité, le registre des identités, la gestion des appareils, les méthodes directes, les jumeaux d’appareil, les chargements de fichiers, les tâches, le langage de requête IoT Hub et la messagerie.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: ecbec614bd0d1b043faf6ad002b05d4acdcc4ab4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041745"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450989"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guide du développeur Azure IoT Hub
 
@@ -55,7 +55,7 @@ Ce guide du développeur IoT Hub inclut les articles suivants :
 
 * L’article [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md) décrit le modèle de sécurité utilisé pour autoriser l’accès à la fonctionnalité IoT Hub pour les appareils et les composants du cloud. L’article inclut des informations sur l’utilisation des jetons et des certificats X.509, ainsi que des détails sur les autorisations que vous pouvez accorder.
 
-* L’article [Utiliser des jumeaux d’appareil pour synchroniser l’état et la configuration](iot-hub-devguide-device-twins.md) décrit le concept de *jumeau d’appareil*. L’article décrit également les fonctionnalités exposées par les jumeaux d’appareil, telles que la synchronisation d’un appareil avec son jumeau. L’article inclut des informations sur les données stockées dans un jumeau d’appareil.
+* L’article [Utiliser des jumeaux d’appareil pour synchroniser l’état et la configuration](iot-hub-devguide-device-twins.md) décrit le concept de *jumeau d’appareil*. Cet article décrit également l’appareil de fonctionnalité représentations d’exposent, telles que la synchronisation d’un appareil avec son jumeau d’appareil. L’article inclut des informations sur les données stockées dans un jumeau d’appareil.
 
 * L’article [Appeler une méthode directe sur un appareil](iot-hub-devguide-direct-methods.md) décrit le cycle de vie d’une méthode directe. L’article décrit comment appeler des méthodes sur un appareil à partir de votre application backend, et comment gérer la méthode directe sur votre appareil.
 

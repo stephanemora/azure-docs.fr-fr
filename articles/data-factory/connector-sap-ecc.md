@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352459"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121959"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copier des données de SAP ECC à l’aide d’Azure Data Factory
 
@@ -33,7 +33,7 @@ Plus précisément, ce connecteur SAP ECC prend en charge ce qui suit :
 - Copie de données à partir de tout objet exposé par les services SAP ECC OData (par exemple, vues/tables SAP, BAPI, extracteurs de données, etc.), ou données/IDOC envoyés à SAP PI et pouvant être reçues en tant que OData par le biais d’adaptateurs relatifs
 - Copie de données en utilisant une authentification de base.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 En règle générale, SAP ECC expose des entités par le biais de services OData via la passerelle SAP. Pour utiliser ce connecteur SAP ECC, vous devez :
 
@@ -121,7 +121,7 @@ Pour copier des données de SAP ECC, définissez **SapEccSource** comme type de 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur : **SapEccSource** | Oui |
-| query | Options de requête OData pour filtrer les données. Exemple : "$select=Name,Description&$top=10".<br/><br/>Le connecteur SAP ECC copie les données à partir de l’URL combinée : (URL spécifiée dans le service lié)/(chemin spécifié dans le jeu de données)?(requête spécifiée dans la source de copie d’activité). Voir [Composants d’URL d’OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
+| query | Options de requête OData pour filtrer les données. Exemple : "$select=Name,Description&$top=10".<br/><br/>Le connecteur SAP ECC copie les données à partir de l’URL combinée : (URL spécifiée dans le service lié)/(chemin spécifié dans le jeu de données)?(requête spécifiée dans la source de copie d’activité). Voir [Composants d’URL d’OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
 
 **Exemple :**
 
@@ -160,12 +160,12 @@ Pour copier des données de SAP ECC, définissez **SapEccSource** comme type de 
 Lors de la copie de données de SAP ECC, les mappages suivants sont utilisés entre les types de données OData pour les données SAP ECC et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
 | Type de données OData | Type de données intermédiaires de Data Factory |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | Chaîne |
 | Edm.Boolean | Bool |
 | Edm.Byte | Chaîne |
-| Edm.DateTime | Datetime |
-| Edm.Decimal | Décimal |
+| Edm.DateTime | DateTime |
+| Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
 | Edm.Guid | Chaîne |
@@ -173,9 +173,9 @@ Lors de la copie de données de SAP ECC, les mappages suivants sont utilisés en
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Chaîne |
-| Edm.Time | intervalle de temps |
-| Edm.DateTimeOffset | DatetimeOffset |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]
 > Les types de données complexes ne sont pas pris en charge actuellement.

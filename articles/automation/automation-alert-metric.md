@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185856"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170188"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Surveillance de runbooks avec des alertes de métriques
 
@@ -36,6 +36,9 @@ Dans le portail Azure, accédez à votre compte Automation. Sous **Supervision**
 2. La page **Configurer la logique du signal** vous permet de définir la logique qui déclenche l’alerte. Sous le graphique d’historique, deux dimensions apparaissent : **Nom du Runbook** et **État**. Les dimensions correspondent aux différentes propriétés d’une métrique qui sont utilisables pour le filtrage des résultats. Pour la dimension **Nom du Runbook**, sélectionnez le runbook pour lequel vous souhaitez créer une alerte, ou laissez la dimension vide si vous voulez définir une alerte pour tous les runbooks. Pour la dimension **État**, sélectionnez dans la liste déroulante l’état que vous souhaitez surveiller. Les valeurs de nom et d’état de runbook qui s’affichent dans la liste déroulante s’appliquent uniquement aux travaux qui se sont exécutés la semaine précédente.
 
    Si vous souhaitez créer une alerte pour un état ou un runbook qui ne figurent pas dans la liste déroulante, cliquez sur le signe **\+** en regard de la dimension. Cette action ouvre une boîte de dialogue vous permettant d’entrer une valeur personnalisée non émise récemment pour cette dimension. Si vous entrez une valeur de propriété inexistante, votre alerte ne se déclenchera pas.
+
+   > [!NOTE]
+   > Si vous n’appliquez pas un nom pour le **RunbookName** dimension, l’absence de tous les runbooks qui répondent aux critères de l’état, qui inclut des runbooks du système masqué, vous recevez une alerte.
 
 3. Sous **Logique d’alerte**, définissez la condition et le seuil de votre alerte. Un aperçu de la condition que vous avez définie s’affiche en dessous.
 

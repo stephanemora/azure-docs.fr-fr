@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076154"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Créer une table d’itinéraires de hub virtuel pour diriger le trafic vers une appliance réseau virtuelle
 
@@ -32,6 +32,8 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Vérifiez que vous respectez les critères suivants :
 
 1. Vous disposez d’une appliance réseau virtuelle (soit le logiciel tiers de votre choix) qui est approvisionnée à partir de la Place de marché Azure (Lien) dans un réseau virtuel.
@@ -43,54 +45,54 @@ Vérifiez que vous respectez les critères suivants :
 
 ## <a name="signin"></a>1. Se connecter
 
-Assurez-vous d’avoir installé la dernière version des cmdlets PowerShell de Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/azurerm/overview). Ceci est important, car les versions antérieures des cmdlets ne contiennent pas les valeurs actuelles dont vous avez besoin pour cet exercice. Dans les exemples suivants, les modules suivants concernent Azure RM. Cet article sera mis à jour pour Azure Az dans le futur.
+Assurez-vous d’avoir installé la dernière version des cmdlets PowerShell de Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/install-az-ps). Ceci est important, car les versions antérieures des cmdlets ne contiennent pas les valeurs actuelles dont vous avez besoin pour cet exercice.
 
 1. Ouvrez la console PowerShell avec des privilèges élevés, puis connectez-vous à votre compte Azure. Ce cmdlet vous invite à entrer vos informations d’identification. Une fois que vous êtes connecté, vos paramètres de compte sont téléchargés afin de les mettre à disposition d’Azure PowerShell.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 2. Obtenez la liste de vos abonnements Azure.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 3. Spécifiez l’abonnement à utiliser.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
+   ```powershell
+   Select-AzSubscription -SubscriptionName "Name of subscription"
+   ```
 
 ## <a name="rg"></a>2. Créer des ressources
 
 1. Créez un groupe de ressources.
 
-  ```powershell
-  New-AzureRmResourceGroup -Location "West US" -Name "testRG"
-  ```
+   ```powershell
+   New-AzResourceGroup -Location "West US" -Name "testRG"
+   ```
 2. Créez un WAN virtuel.
 
-  ```powershell
-  $virtualWan = New-AzureRmVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
-  ```
+   ```powershell
+   $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
+   ```
 3. Créez un hub virtuel.
 
-  ```powershell
-  New-AzureRmVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
-  ```
+   ```powershell
+   New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
+   ```
 
 ## <a name="connections"></a>3. Créer des connexions
 
 Créez des connexions de réseau virtuel du hub à partir des réseaux Indirect Spoke VNet et DMZ VNet vers le hub virtuel.
 
   ```powershell
-  $remoteVirtualNetwork1= Get-AzureRmVirtualNetwork -Name “indirectspoke1” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork2= Get-AzureRmVirtualNetwork -Name “indirectspoke2” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork3= Get-AzureRmVirtualNetwork -Name “dmzvnet” -ResourceGroupName “testRG”
+  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name "indirectspoke1" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name "indirectspoke2" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name "dmzvnet" -ResourceGroupName "testRG"
 
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection1” -RemoteVirtualNetwork $remoteVirtualNetwork1
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection2” -RemoteVirtualNetwork $remoteVirtualNetwork2
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection3” -RemoteVirtualNetwork $remoteVirtualNetwork3
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection1" -RemoteVirtualNetwork $remoteVirtualNetwork1
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection2" -RemoteVirtualNetwork $remoteVirtualNetwork2
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
 ## <a name="route"></a>4. Créer un itinéraire de hub virtuel
@@ -98,7 +100,7 @@ Créez des connexions de réseau virtuel du hub à partir des réseaux Indirect 
 Dans cet article, le réseau Indirect Spoke VNet bénéficie des espaces d’adressage 10.0.2.0/24 et 10.0.3.0/24 et l’adresse IP privée de l’interface du réseau DMZ VNet est 10.0.4.5.
 
 ```powershell
-$route1 = New-AzureRmVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
+$route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
 ## <a name="applyroute"></a>5. Créer une table d’itinéraires de hub virtuel
@@ -106,7 +108,7 @@ $route1 = New-AzureRmVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/2
 Créez une table d’itinéraires de hub virtuel, puis appliquez-y l’itinéraire créé.
  
 ```powershell
-$routeTable = New-AzureRmVirtualHubRouteTable -Route @($route1)
+$routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
 ## <a name="commit"></a>6. Valider les modifications
@@ -114,15 +116,15 @@ $routeTable = New-AzureRmVirtualHubRouteTable -Route @($route1)
 Validez les modifications pour le hub virtuel.
 
 ```powershell
-Update-AzureRmVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
+Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="cleanup"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
+Lorsque vous n’avez plus besoin ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

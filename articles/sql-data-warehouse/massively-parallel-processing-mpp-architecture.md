@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f5e140e4f620362ca90a1e1cd06d23719cd2099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0c2ad7e5a707c20db2773324e8047eedaad1a48b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471604"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835031"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - Architecture MPP (Massively Parallel Processing).
 Découvrez comment Azure SQL Data Warehouse combine un traitement massivement parallèle (MPP, Massively Parallel Processing) avec un stockage Azure pour obtenir des performances et une extensibilité élevées. 
@@ -51,7 +51,7 @@ Le nœud de contrôle est le cerveau de l’entrepôt de données. Il s’agit d
 
 Les nœuds de calcul fournissent la puissance de calcul. Les distributions sont mappées aux nœuds de calcul pour traitement. À mesure que vous payez pour davantage de ressources de calcul, SQL Data Warehouse re-mappe les distributions aux nœuds de calcul disponibles. Le nombre de nœuds calcul (entre 1 et 60) est déterminé par le niveau de service de l’entrepôt de données.
 
-Chaque nœud de calcul a un ID de nœud visible dans les vues système. Vous pouvez voir l’ID de nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste de ces vues système, voir [Vues système MPP](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
+Chaque nœud de calcul a un ID de nœud visible dans les vues système. Vous pouvez voir l’ID de nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste de ces vues système, voir [Vues système MPP](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### <a name="data-movement-service"></a>Service de déplacement de données
 Le service de déplacement des données (DMS) est la technologie de transport de données qui coordonne le déplacement de données entre les nœuds de calcul. Certaines requêtes nécessitent un déplacement de données pour garantir que les requêtes parallèles renvoient des résultats précis. Quand un déplacement de données est requis, le service de déplacement des données veille à ce que les bonnes données aillent au bon emplacement. 
@@ -84,7 +84,7 @@ Une table distribuée de type tourniquet (round robin) distribue uniformément l
 ## <a name="replicated-tables"></a>Tables répliquées
 Une table répliquée offre les performances de requête les plus rapides pour des petites tables.
 
-Une copie complète d’une table répliquée est mise en cache sur chaque nœud de calcul. Par conséquent, la réplication d’une table a pour effet d’éviter la nécessité de transférer des données entre nœuds de calcul avant une jointure ou une agrégation. Des tables répliquées sont utilisées de façon optimale avec des tables de petite taille. Un espace de stockage supplémentaire est requis, et des traitements additionnels sont effectués lors de l’écriture de données, qui rendent peu pratique l’usage de tables volumineuses.  
+Une copie complète d’une table répliquée est mise en cache sur chaque nœud de calcul. Par conséquent, la réplication d’une table a pour effet d’éviter la nécessité de transférer des données entre nœuds de calcul avant une jointure ou une agrégation. Des tables répliquées sont utilisées de façon optimale avec des tables de petite taille. Espace de stockage supplémentaire est requis et une charge supplémentaire qui est générée lors de l’écriture des données, qui rendent les grandes tables peu pratique.  
 
 Le diagramme suivant présente une table répliquée. Pour SQL Data Warehouse, la table répliquée est mise en cache sur la première distribution sur chaque nœud de calcul.  
 
@@ -124,9 +124,9 @@ Le diagramme suivant présente une table répliquée. Pour SQL Data Warehouse, l
 [Blogs de l’équipe de conseil clientèle]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Forum MSDN]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
-[Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Forum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

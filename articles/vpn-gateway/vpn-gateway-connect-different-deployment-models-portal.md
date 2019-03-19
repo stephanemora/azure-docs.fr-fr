@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417971"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099169"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 
@@ -114,7 +114,7 @@ Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifie
 1. Dans la page **Nouvelle connexion VPN**, cochez la case **Créer une passerelle immédiatement**.
 2. Cliquez sur **Configuration de passerelle facultative** pour ouvrir la page **Configuration de la passerelle**.
 
-  ![Ouvrir la page Configuration de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Ouvrir la page Configuration de la passerelle")
+   ![Ouvrir la page Configuration de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Ouvrir la page Configuration de la passerelle")
 3. Cliquez sur **Sous-réseau - Configurer les paramètres requis** pour ouvrir la page **Ajouter un sous-réseau**. Le **Nom** est déjà configuré avec la valeur requise : **GatewaySubnet**.
 4. La **Plage d’adresses** fait référence à la plage pour le sous-réseau de passerelle. Bien que vous puissiez créer un sous-réseau de passerelle avec une plage d’adresses /29 (3 adresses), nous vous recommandons de créer un sous-réseau de passerelle qui contient plus d’adresses IP. Cela afin d’accueillir des configurations futures nécessitant la disponibilité d’un plus grand nombre d’adresses IP. Si possible, utilisez /27 ou /28. Si vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous référer aux [exemples de valeurs](#values). Pour cet exemple, nous utilisons « 10.0.0.32/28 ». Cliquez sur **OK** pour créer le sous réseau de passerelle.
 5. Dans la page **Configuration de la passerelle**, le paramètre **Taille** désigne la référence SKU de passerelle. Sélectionnez la référence SKU de passerelle pour votre passerelle VPN.
@@ -192,16 +192,16 @@ Dans cette section, vous remplacez l’adresse IP avec espace réservé que vous
 2. Dans la page de votre réseau virtuel, cliquez sur **Vue d’ensemble**.
 3. Dans la section **Connexions VPN**, cliquez sur le nom de votre site local dans le graphique.
 
-  ![Connexions VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connexions VPN")
+   ![Connexions VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connexions VPN")
 4. Dans la page **Connexions VPN de site à site**, cliquez sur le nom du site.
 
-  ![Nom du site](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nom du site local")
+   ![Nom du site](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nom du site local")
 5. Dans la page de connexion de votre site local, cliquez sur le nom du site local pour ouvrir la page **Site local**.
 
-  ![Ouvrir le site local](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Ouvrir le site local")
+   ![Ouvrir le site local](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Ouvrir le site local")
 6. Dans la page **Site local**, remplacez l’**adresse IP de passerelle VPN** par l’adresse IP de la passerelle Resource Manager.
 
-  ![Adresse IP de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Adresse IP de la passerelle")
+   ![Adresse IP de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Adresse IP de la passerelle")
 7. Cliquez sur **OK** pour mettre à jour l’adresse IP.
 
 ## <a name="RMtoclassic"></a>Section 4 - Créer une connexion entre Resource Manager et le réseau virtuel classique

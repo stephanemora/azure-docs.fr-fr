@@ -5,25 +5,25 @@ description: Apprenez à réentraîner un modèle et à mettre à jour un servic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456552"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822017"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Réentraîner et déployer un service web Studio classique
 
 Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio, [consultez cet article pratique.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-Cet article suppose que vous avez déjà une expérience de réentraînement et une expérience prédictive. Ces étapes sont expliquées dans [Réentraîner et déployer un modèle Machine Learning.](retrain-models-programmatically.md) Toutefois, au lieu de déployer votre modèle Machine Learning comme un nouveau service web, vous allez déployer votre expérience prédictive comme un service web classique.
+Cet article suppose que vous avez déjà une expérience de réentraînement et une expérience prédictive. Ces étapes sont expliquées dans [Réentraîner et déployer un modèle Machine Learning.](/azure/machine-learning/studio/retrain-machine-learning-model) Toutefois, au lieu de déployer votre modèle Machine Learning comme un nouveau service web, vous allez déployer votre expérience prédictive comme un service web classique.
      
 ## <a name="add-a-new-endpoint"></a>Ajouter un point de terminaison
 
@@ -60,7 +60,7 @@ Pour obtenir l’URL PATCH correcte programmatiquement, procédez comme suit :
 1. Exécutez l’exemple de code [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
 1. À partir de la sortie d’AddEndpoint, recherchez la valeur *HelpLocation* et copiez l’URL.
 
-   ![HelpLocation dans la sortie de l’exemple addEndpoint.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
+   ![HelpLocation dans la sortie de l’exemple addEndpoint.](./media/retrain-classic/addEndpoint-output.png)
 1. Collez l’URL dans un navigateur pour accéder à une page qui fournit des liens d’aide pour le service web.
 1. Cliquez sur le lien de **Mettre à jour la ressource** pour ouvrir la page d’aide sur le correctif.
 
@@ -81,7 +81,7 @@ Suivez ces étapes pour obtenir l’URL PATCH correcte à l’aide du portail we
 
 La page d’aide d’application de correctifs contient l’URL d’application de correctifs que vous devez utiliser et fournit un exemple de code que vous pouvez utiliser pour l’appeler.
 
-![URL d’application de correctifs.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
+![URL d’application de correctifs.](./media/retrain-classic/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Mettre à jour le point de terminaison
 
@@ -145,7 +145,7 @@ Lorsque le code a été exécuté avec succès, le nouveau point de terminaison 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la façon de gérer les services web ou d’effectuer le suivi de plusieurs exécutions d’expériences, consultez les articles suivants :
+Pour savoir comment gérer les services web ou effectuer le suivi de plusieurs exécutions d’expériences, voir les articles suivants :
 
-* [Explorer le portail de services web](manage-new-webservice.md)
-* [Gérer des itérations d'expériences](manage-experiment-iterations.md)
+* [Explorer le portail Services web](manage-new-webservice.md)
+* [Gérer des itérations d’expériences](manage-experiment-iterations.md)

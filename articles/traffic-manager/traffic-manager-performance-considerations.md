@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257695"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007945"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
@@ -28,7 +28,7 @@ Vous avez des instances de votre site web dans les régions WestUS et EastAsia. 
 
 Le seul impact sur les performances que Traffic Manager peut avoir sur votre site web est la recherche DNS initiale. Une requête DNS pour le nom de votre profil Traffic Manager est gérée par le serveur racine Microsoft DNS qui héberge la zone trafficmanager.net. Traffic Manager renseigne et met régulièrement à jour les serveurs racine Microsoft DNS en fonction de la stratégie Traffic Manager et des résultats du sondage. Donc, même pendant la recherche DNS initiale, aucune requête DNS n’est envoyée à Traffic Manager.
 
-Traffic Manager est constitué de plusieurs composants : des serveurs de noms DNS, un service d’API, la couche de stockage et le service de surveillance des points de terminaison. Si un composant du service Traffic Manager échoue, cela n’a aucune incidence sur le nom DNS associé à votre profil Traffic Manager. Les enregistrements dans les serveurs DNS Microsoft restent inchangés. Toutefois, la surveillance des points de terminaison et la mise à jour DNS n’ont pas lieu. Par conséquent, Traffic Manager n’est pas en mesure de mettre à jour le DNS pour qu’il pointe vers votre site de basculement lorsque votre site principal tombe en panne.
+Traffic Manager se compose de plusieurs composants : Nom DNS serveurs, un service d’API, la couche de stockage et un point de terminaison de service de surveillance. Si un composant du service Traffic Manager échoue, cela n’a aucune incidence sur le nom DNS associé à votre profil Traffic Manager. Les enregistrements dans les serveurs DNS Microsoft restent inchangés. Toutefois, la surveillance des points de terminaison et la mise à jour DNS n’ont pas lieu. Par conséquent, Traffic Manager n’est pas en mesure de mettre à jour le DNS pour qu’il pointe vers votre site de basculement lorsque votre site principal tombe en panne.
 
 La résolution de noms DNS est rapide et les résultats sont mis en cache. La vitesse de la recherche DNS initiale dépend des serveurs DNS que le client utilise pour la résolution de noms. En règle générale, un client peut effectuer une recherche DNS en environ 50 ms. Les résultats de la recherche sont mis en cache pour la durée de vie (TTL) du DNS. La durée de vie par défaut de Traffic Manager est de 300 secondes.
 
@@ -42,11 +42,11 @@ Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP 
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>Exemples d’outils pour mesurer les performances DNS
 
-* [SolveDNS](http://www.solvedns.com/dns-comparison/)
+* [SolveDNS](https://www.solvedns.com/dns-comparison/)
 
     SolveDNS offre de nombreux outils de performances. L’outil de comparaison de DNS peut vous indiquer la durée nécessaire pour résoudre le nom DNS en effectuant une comparaison avec d’autres fournisseurs de service DNS.
 
-* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+* [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     L’un des outils les plus simples est WebSitePulse. Entrez l’URL pour voir le temps de résolution DNS, le premier octet, le dernier octet et d’autres statistiques de performances. Vous pouvez choisir entre trois emplacements de test différents. Dans cet exemple, vous voyez que la première exécution montre que la recherche DNS dure 0,204 s.
 
@@ -58,19 +58,19 @@ Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP 
 
 * [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 
-    Auparavant nommé Watchmouse Check Website, ce site affiche le temps de résolution DNS à partir de plusieurs zones géographiques simultanément. Entrez l’URL pour voir le temps de résolution DNS, l’heure de la connexion et la vitesse à partir de plusieurs emplacements géographiques. Ce test permet de voir quel service hébergé est retourné pour différents emplacements dans le monde entier.
+    Anciennement appelé l’outil de surveillance de la souris Check Website, ce site affiche le temps de résolution DNS à partir de plusieurs zones géographiques simultanément. Entrez l’URL pour voir le temps de résolution DNS, l’heure de la connexion et la vitesse à partir de plusieurs emplacements géographiques. Ce test permet de voir quel service hébergé est retourné pour différents emplacements dans le monde entier.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
-* [Pingdom](http://tools.pingdom.com/)
+* [Pingdom](https://tools.pingdom.com/)
 
     Cet outil fournit des statistiques de performances pour chaque élément d’une page web. L’onglet Analyse de la page affiche le pourcentage de temps consacré à la recherche DNS.
 
-* [Qu’est-ce que Mon DNS ?](http://www.whatsmydns.net/)
+* [Qu’est-ce que Mon DNS ?](https://www.whatsmydns.net/)
 
     Ce site effectue une recherche DNS à partir de 20 emplacements différents et affiche les résultats sur une carte.
 
-* [Dig Web Interface](http://www.digwebinterface.com)
+* [Dig Web Interface](https://www.digwebinterface.com)
 
     Ce site affiche plus d’informations DNS détaillées, notamment les enregistrements CNAME et A. Veillez à cocher « Coloriser la sortie » et « Statistiques » sous les options et sélectionnez « Tous » sous Noms de serveurs.
 

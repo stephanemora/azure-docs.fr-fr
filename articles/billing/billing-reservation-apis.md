@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: banders
-ms.openlocfilehash: a71c456f017e80da85f27437738aa963ec967a3c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880214"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API dédiées à l’automatisation de la réservation Azure
 
@@ -29,7 +29,7 @@ Utilisez des API Azure afin d’obtenir par programmation des informations pour 
 
 Utilisez l’API de suggestions de réservation pour obtenir des suggestions sur le plan de réservations à acheter en fonction de l’utilisation au sein de votre organisation. Pour plus d’informations, consultez [Get reservation recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) (Obtenir des suggestions de réservation).
 
-Vous pouvez également analyser votre utilisation des ressources grâce aux détails d’utilisation de l’API de consommation. Pour plus d’informations, consultez [Usage Details - List For Billing Period By Billing Account](/rest/api/consumption/usagedetails/listforbillingperiodbybillingaccount) (Détails d’utilisation : liste pour la période de facturation par compte de facturation). Les ressources Azure que vous utilisez de manière régulière sont généralement la meilleure option de réservation.
+Vous pouvez également analyser votre utilisation des ressources grâce aux détails d’utilisation de l’API de consommation. Pour plus d’informations, consultez [Usage Details - List For Billing Period By Billing Account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod) (Détails d’utilisation : liste pour la période de facturation par compte de facturation). Les ressources Azure que vous utilisez de manière régulière sont généralement la meilleure option de réservation.
 
 ## <a name="buy-a-reservation"></a>Acheter une réservation
 

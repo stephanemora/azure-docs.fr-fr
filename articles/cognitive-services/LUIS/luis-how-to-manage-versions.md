@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6444d2ab5265fffd4e3c956a2eec29437911b0e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876706"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110900"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Utiliser les versions pour modifier et tester sans impact sur les applications intermédiaires et de production
 
@@ -39,7 +39,7 @@ La liste des versions montre quelles versions sont publiées, où elles sont pub
      > [!NOTE]
      > L’ID de la version doit être composé uniquement de caractères, chiffres ou de « . » et ne peut pas contenir plus de 10 caractères.
  
- Une nouvelle version avec le nom spécifié est créée et définie en tant que version active.
+   Une nouvelle version avec le nom spécifié est créée et définie en tant que version active.
 
 ## <a name="set-active-version"></a>Définir la version active
 

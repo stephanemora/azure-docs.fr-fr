@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 29e01177d4b096449cd906a22b47223078c6493e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107818"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338278"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planifier la capacité et la mise à l’échelle pour la récupération d’urgence VMware vers Azure
 
@@ -114,7 +114,7 @@ Avant de configurer l’infrastructure Azure Site Recovery, accédez à l’envi
 1. Pour mesurer ces paramètres, exécutez le Planificateur de déploiement Azure Site Recovery dans votre environnement. Pour obtenir des instructions utiles, voir [À propos du planificateur de déploiement Azure Site Recovery pour VMware sur Azure](site-recovery-deployment-planner.md).
 2. Déployez un serveur de configuration respectant les [recommandations de taille pour le serveur de configuration](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Si votre charge de travail de production dépasse 650 machines virtuelles, déployez un autre serveur de configuration.
 3. Selon le taux quotidien de modifications de données mesuré, déployez des [serveurs de processus de scale-out](vmware-azure-set-up-process-server-scale.md#download-installation-file) en suivant les [directives concernant la taille](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Si vous pensez que le taux quotidien de modifications de données pour une machine virtuelle sur disque dépassera 2 Mbits/s, [créez un compte de stockage Premium](tutorial-prepare-azure.md#create-a-storage-account). Le Planificateur de déploiement Azure Site Recovery s’exécute pendant une période spécifique. Il se peut que des pics de taux de modifications de données à d’autres moments ne figurent pas dans le rapport.
+4. Si vous pensez que les données de taux de modification pour un ordinateur virtuel de disque dépasse 2 Mbits/s, assurez-vous d’utiliser des disques gérés premium. Le Planificateur de déploiement Azure Site Recovery s’exécute pendant une période spécifique. Il se peut que des pics de taux de modifications de données à d’autres moments ne figurent pas dans le rapport.
 5. [Définissez la bande passante réseau](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) en fonction de l’objectif de point de récupération à atteindre.
 6. Une fois l’infrastructure configurée, activer la récupération d’urgence pour votre charge de travail. Pour savoir comment procéder, voir [Configurer l’environnement source pour la réplication VMware vers Azure](vmware-azure-set-up-source.md).
 

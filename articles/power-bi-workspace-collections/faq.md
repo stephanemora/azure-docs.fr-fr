@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 83f4ebd9c3f5ad05173b045b3fa15804ddc88df6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 08d0a446fc29bf58da2583cbee8576831914ac09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862710"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI
 
@@ -61,7 +61,7 @@ Consultez notre documentation sur le service Collections d’espaces de travail 
 Oui. Vous pouvez utiliser votre abonnement Azure existant pour provisionner et utiliser le service Collections d’espaces de travail Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>Les utilisateurs de mon application ont-ils besoin d’une licence Power BI ?
- Non. Les utilisateurs finaux de votre application n’ont pas besoin d’acheter un abonnement Power BI distinct pour afficher les visualisations de données incorporées à votre application. Dans le modèle Collections d’espaces de travail Power BI, l’utilisation du service est facturée au fournisseur de l’application sur la base de l’indicateur de consommation Azure. Pour plus d’informations, consultez la [page sur les licences et les tarifs](https://go.microsoft.com/fwlink/?LinkId=760527).
+Non. Les utilisateurs finaux de votre application n’ont pas besoin d’acheter un abonnement Power BI distinct pour afficher les visualisations de données incorporées à votre application. Dans le modèle Collections d’espaces de travail Power BI, l’utilisation du service est facturée au fournisseur de l’application sur la base de l’indicateur de consommation Azure. Pour plus d’informations, consultez la [page sur les licences et les tarifs](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Comment les utilisateurs sont-ils authentifiés par les Collections d’espaces de travail Power BI ?
 Le service Collections d’espaces de travail Power BI utilise des jetons d’application pour l’authentification et l’autorisation. Il n’utilise pas l’authentification explicite des utilisateurs finaux. Dans ce modèle de jetons d’application, votre application gère l’authentification et l’autorisation de vos utilisateurs finaux. Ensuite, quand cela est nécessaire, votre application crée
@@ -77,7 +77,7 @@ Le modèle Collections d’espaces de travail Power BI n’impose pas explicitem
 Les développeurs ou employés qui conçoivent ou utilisent votre application doivent avoir un compte d’utilisateur AAD pour pouvoir gérer votre abonnement Azure et les collections d’espaces de travail par le biais du portail Azure. Les API de programmation utilisées par les développeurs pour importer des rapports, modifier des chaînes de connexion et obtenir des URL incorporées se servent de jetons d’application pour l’authentification. Elles ne nécessitent donc pas AAD.
 
 ## <a name="where-can-i-learn-more"></a>Où en savoir plus ?
-Vous pouvez consulter la [page de documentation des Collections d’espaces de travail Power BI](get-started.md). Vous pouvez aussi rester informé des dernières actualités concernant ce service en consultant le [blog Power BI](https://powerbi.microsoft.com/blog/) ou le centre de développement Power BI à l’adresse dev.powerbi.com. Vous pouvez également poser vos questions sur le site [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi).
+Vous pouvez consulter la [page de documentation des Collections d’espaces de travail Power BI](get-started.md). Vous pouvez aussi rester informé des dernières actualités concernant ce service en consultant le [blog Power BI](https://powerbi.microsoft.com/blog/) ou le centre de développement Power BI à l’adresse dev.powerbi.com. Vous pouvez également poser vos questions sur le site [Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Comment faire pour démarrer ?
 Vous pouvez démarrer gratuitement dès maintenant ! Si vous avez un abonnement Azure, vous pouvez provisionner le service Collections d’espaces de travail Power BI directement à partir du portail Azure. Si vous n’en avez pas, vous pouvez créer votre [compte Azure gratuit](https://azure.microsoft.com/free/). Une fois que vous avez provisionné le service Collections d’espaces de travail Power BI, vous pouvez facilement utiliser directement les API REST de Power BI ou utiliser le SDK disponible sur [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Plusieurs exemples sont fournis pour vous aider à utiliser le Kit SDK.
@@ -89,5 +89,5 @@ Vous pouvez démarrer gratuitement dès maintenant ! Si vous avez un abonnement 
 [Exemple de démarrage](get-started-sample.md)   
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
+Des questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)
 

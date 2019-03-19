@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: e26ec4d268b9bd8852ef8cd2c522995902e15923
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992383"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurer un réseau virtuel (Classic) à l’aide d’un fichier config réseau
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle de déploiement Resource Manager.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle de déploiement Resource Manager.
 
 Vous pouvez créer et configurer un réseau virtuel (classique) avec un fichier de configuration réseau à l’aide de l’interface de ligne de commande (CLI) Azure Classic ou d’Azure PowerShell. Vous ne pouvez pas utiliser de fichier de configuration de réseau pour créer ou modifier un réseau virtuel via le modèle de déploiement Azure Resource Manager. Vous ne pouvez pas utiliser le portail Azure pour créer ou modifier un réseau virtuel (Classic) à l’aide d’un fichier config réseau, mais vous pouvez utiliser le portail Azure pour créer un réseau virtuel (Classic) sans l’aide d’un fichier config réseau.
 
@@ -71,7 +71,7 @@ L’exemple de fichier config réseau suivant crée un réseau virtuel nommé *m
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns />
     <VirtualNetworkSites>

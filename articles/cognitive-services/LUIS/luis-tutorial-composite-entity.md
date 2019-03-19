@@ -1,5 +1,5 @@
 ---
-title: Entité composite
+title: Didacticiel de l’entité composite
 titleSuffix: Azure Cognitive Services
 description: Ajoutez une entité composite pour regrouper les données extraites de différents types dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091577"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Didacticiel : Regrouper et extraire les données associées
 Dans ce tutoriel, vous allez ajouter une entité composite pour regrouper les données extraites dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
@@ -85,18 +85,19 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
 1. Sélectionnez **TransferEmployeeToDepartment** dans la liste des intentions.
 
-1. Dans le premier énoncé, sélectionnez l’entité personName, `John Jackson`, puis **Start wrapping composite entity** (Commencer le wrapping de l’entité composite) dans la liste de menu contextuel pour l’énoncé suivant :
+1. Dans l’énoncé `place John Jackson in engineering`, sélectionnez l’entité personName, `John Jackson`, puis sélectionnez **encapsuler dans une entité composite** dans la liste de menu contextuel pour l’énoncé suivant. 
 
-    `place John Jackson in engineering`
+    ![Capture d’écran de sélection de type wrap composite dans la liste déroulante de boîte de dialogue](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Puis sélectionnez immédiatement la dernière entité, `engineering`, dans l’énoncé. Une barre verte sous les termes sélectionnés indique une entité composite. Dans le menu contextuel, entrez le nom composite `TransferEmployeeInfo`, puis appuyez sur Entrée. 
 
-1. Dans **What type of entity do you want to create?** (Quel type d’entité souhaitez-vous créer ?), tous les champs obligatoires sont dans la liste : `personName` et `Department`. Sélectionnez **Terminé**. 
+    ![Capture d’écran de saisie du nom composite dans la liste déroulante de boîte de dialogue](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    Notez que l’entité prédéfinie, personName, a été ajoutée à l’entité composite. Si vous pouvez avoir une entité prédéfinie apparaissant entre les jetons de début et de fin d’une entité composite, celle-ci doit contenir ces entités prédéfinies. Si les entités prédéfinies ne sont pas incluses, l’entité composite n’est pas correctement prédite mais chaque élément individuel l’est.
+1. Dans **What type of entity do you want to create?** (Quel type d’entité souhaitez-vous créer ?), tous les champs obligatoires sont dans la liste : `personName` et `Department`. Sélectionnez **Terminé**. Notez que l’entité prédéfinie, personName, a été ajoutée à l’entité composite. Si vous pouvez avoir une entité prédéfinie apparaissant entre les jetons de début et de fin d’une entité composite, celle-ci doit contenir ces entités prédéfinies. Si les entités prédéfinies ne sont pas incluses, l’entité composite n’est pas correctement prédite mais chaque élément individuel l’est.
+
+    ![Capture d’écran de saisie du nom composite dans la liste déroulante de boîte de dialogue](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Énoncés d’exemples d’étiquettes avec une entité composite
-
 
 1. Dans chaque exemple d’énoncé, sélectionnez l’entité la plus à gauche, qui devrait se trouver dans le composite. Ensuite, sélectionnez **Inclure dans un wrapper d’entité composite**.
 
@@ -182,7 +183,7 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
     }
     ```
 
-  Cet énoncé retourne un tableau d’entités composites. Chaque entité se voit attribuer un type et une valeur. Pour une plus grande précision de chaque entité enfant, utilisez la combinaison de type et de valeur de l’élément de tableau composite pour trouver l’élément correspondant dans le tableau d’entités.  
+   Cet énoncé retourne un tableau d’entités composites. Chaque entité se voit attribuer un type et une valeur. Pour une plus grande précision de chaque entité enfant, utilisez la combinaison de type et de valeur de l’élément de tableau composite pour trouver l’élément correspondant dans le tableau d’entités.  
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

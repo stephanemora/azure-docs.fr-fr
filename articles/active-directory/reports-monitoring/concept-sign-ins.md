@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190362"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549015"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -37,7 +37,7 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
 
 Cette rubrique présente une vue d’ensemble du rapport de connexions.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité et Lecteur de rapports
@@ -149,23 +149,13 @@ Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiqu
 
 ## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
 
-Vous pouvez [télécharger les données de connexion](quickstart-download-sign-in-report.md) pour les utiliser en dehors du portail Azure. En cliquant sur **Télécharger**, un fichier CSV contenant les 5K enregistrements les plus récents est créé.  En plus d’un bouton de téléchargement, le portail Azure vous propose une option permettant de [générer un script pour télécharger vos données](tutorial-signin-logs-download-script.md).  
+Vous pouvez [télécharger les données de connexion](quickstart-download-sign-in-report.md) pour les utiliser en dehors du portail Azure. En cliquant sur **télécharger** vous donne la possibilité de créer un fichier CSV ou JSCON 250 000 enregistrements plus récente.  
 
 ![Télécharger](./media/concept-sign-ins/71.png "Télécharger")
-
-Si vous avez besoin de davantage de souplesse, vous pouvez utiliser la solution de script. En cliquant sur **Script**, un script PowerShell comprenant tous les filtres que vous avez définis est créé. Téléchargez et exécutez ce script en **mode administrateur** pour générer le fichier CSV. 
 
 > [!IMPORTANT]
 > Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>Exécuter le script sur une machine Windows 10
-
-Si vous souhaitez exécuter le script sur une machine **Windows 10**, vous devez d’abord effectuer quelques étapes supplémentaires. 
-
-1. Installez le [module Az](/powershell/azure/install-az-ps).
-2. Importez le module en ouvrant une invite PowerShell et en exécutant la commande **Import-Module Az**.
-3. Exécutez **Set-ExecutionPolicy unrestricted (Définir la stratégie d’exécution sans restriction)** et choisissez **Yes to All (Oui à tous)**. 
-4. Vous pouvez maintenant exécuter le script PowerShell téléchargé en mode administrateur pour générer le fichier CSV.
 
 ## <a name="sign-ins-data-shortcuts"></a>Raccourcis vers les données de connexions
 

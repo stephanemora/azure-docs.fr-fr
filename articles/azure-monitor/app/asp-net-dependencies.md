@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267715"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888081"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : Suivi des dépendances
 Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.
@@ -50,7 +50,7 @@ Les informations sur les dépendances partielles sont collectées automatiquemen
 
 ## <a name="where-to-find-dependency-data"></a>Où trouver des données sur les dépendances
 * [Mise en correspondance d’applications](#application-map) visualise les dépendances entre votre application et les composants voisins.
-* [Les panneaux de performances, de navigateurs et d’échecs](#performance-and-blades) affichent les données sur les dépendances de serveur.
+* [Les panneaux de performances, de navigateurs et d’échecs](#performance-and-failure-blades) affichent les données sur les dépendances de serveur.
 * [Les panneaux de navigateurs](#ajax-calls) montrent les appels AJAX provenant des navigateurs de vos utilisateurs.
 * Parcourez les requêtes lentes ou ayant échoué pour vérifier leurs appels de dépendance.
 * Vous pouvez utiliser [Analytics](#analytics) pour interroger des données de dépendances.

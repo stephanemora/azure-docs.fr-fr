@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469564"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103330"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
 
@@ -66,16 +66,16 @@ Pour simplifier l’opération de montage, si vous le souhaitez vous pouvez cons
 
 1. Exécutez l’utilitaire en ligne de commande `cmdkey` à l’aide d’une tâche de démarrage dans la configuration du pool. Cela rend persistantes les informations d’identification sur chaque nœud Windows. La ligne de commande de tâche de démarrage ressemble à ceci :
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. Montez le partage sur chaque nœud dans le cadre de chaque tâche à l’aide de `net use`. Par exemple, la ligne de commande de tâche suivante monte le partage de fichiers en tant que lecteur *S:*. Elle serait suivie d’une commande ou d’un script qui référence le partage. Des informations d’identification mises en cache sont utilisées dans l’appel à `net use`. Cette étape part du principe que vous utilisez pour les tâches la même identité d’utilisateur que celle utilisée dans la tâche de démarrage sur le pool, ce qui ne convient pas à tous les scénarios.
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### <a name="c-example"></a>Exemple en code C#
 L’exemple de code C# suivant montre comment conserver les informations d’identification sur un pool Windows à l’aide d’une tâche de démarrage. Le nom du service de fichiers de stockage et les informations d’identification de stockage sont passés en tant que constantes définies. Ici, la tâche de démarrage s’exécute sous un compte d’auto-utilisateur standard (non-administrateur) avec le pool comme étendue.

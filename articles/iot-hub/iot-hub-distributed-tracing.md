@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: d97171003507ea0d7412c0706f9deea02fe06c0d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418367"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100358"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -30,7 +30,7 @@ L’activation du traçage distribué pour IoT Hub vous permet de :
 
 Dans cet article, vous allez utiliser [Azure IoT device SDK pour le langage C](./iot-hub-device-sdk-c-intro.md) avec le traçage distribué. La prise en charge du traçage distribué par les autres SDK est en cours.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Pour le moment, la préversion du traçage distribué est uniquement prise en charge par les hubs IoT créés dans les régions suivantes :
 
@@ -214,7 +214,7 @@ Pour modifier le pourcentage de messages devant être suivis à partir du cloud,
 
     ![Modifier le mode d’échantillonnage](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![Modifier le taux d’échantillonnage ](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![Modifier le taux d’échantillonnage](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### <a name="bulk-update-for-multiple-devices"></a>Mettre à jour plusieurs appareils en bloc
 
@@ -235,8 +235,8 @@ Pour mettre à jour la configuration d’échantillonnage du traçage distribué
 
 | Nom de l'élément | Obligatoire | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | OUI | Entier  | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
-| `sampling_rate` | OUI | Entier  | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
+| `sampling_mode` | Oui | Entier  | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
+| `sampling_rate` | Oui | Entier  | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
 
 ## <a name="query-and-visualize"></a>Interroger et visualiser
 
@@ -269,7 +269,7 @@ Pour connaître les différents types de journaux, consultez [Journaux de diagno
 Pour visualiser le flux de messages IoT, configurez l’exemple d’application Application Map. L’exemple d’application envoie les journaux de traçage distribué à [Application Map](../application-insights/app-insights-app-map.md) à l’aide d’une fonction Azure et d’un hub d’événements.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtenir cet exemple sur GitHub</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtenir cet exemple sur GitHub</a>
 
 L’image ci-dessous montre un traçage distribué dans Application Map, avec trois points de terminaison de routage :
 

@@ -1,6 +1,6 @@
 ---
 title: Utiliser les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel | Microsoft Docs
-description: Utiliser les révisions d’accès Azure Active Directory (Azure AD) pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
+description: Découvrez comment utiliser les révisions d’accès Azure Active Directory (Azure AD) pour gérer les utilisateurs qui ont été exclus de stratégies d’accès conditionnel
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82fdfe598e11415130950443fb0d3e27f5d9d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892714"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Utiliser les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilisez les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
 
-Dans l’idéal, tous les utilisateurs doivent respecter les stratégies d’accès pour sécuriser l’accès aux ressources de votre organisation. Toutefois, certains scénarios métiers nécessitent que vous fassiez des exceptions. Cet article décrit quelques exemples de situations pouvant exiger des exclusions et vous indique comment, en votre qualité d’administrateur informatique, vous pouvez gérer cette tâche, éviter d’avoir à superviser les exceptions de stratégie et fournir aux auditeurs la preuve du passage en revue régulier de ces exceptions à l’aide des révisions d’accès Azure Active Directory (Azure AD).
+Dans l’idéal, tous les utilisateurs doivent respecter les stratégies d’accès pour sécuriser l’accès aux ressources de votre organisation. Toutefois, certains scénarios métiers nécessitent que vous fassiez des exceptions. Cet article décrit quelques exemples où les exclusions peuvent être nécessaire et comment vous, en tant qu’administrateur de l’informatique, pouvez gérer cette tâche, éviter la supervision des exceptions de stratégie et fournir auditeurs avec la preuve que ces exceptions sont révisées régulièrement à l’aide d’Azure Révisions d’accès Active Directory (Azure AD).
 
 > [!NOTE]
 > L’utilisation des révisions d’accès Azure AD requiert une licence payante ou d’essai Azure AD Premium P2 ou Enterprise Mobility + Security E5 valide. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](../fundamentals/active-directory-whatis.md).
@@ -102,7 +102,7 @@ Examinons deux exemples dans lesquels vous pouvez utiliser les révisions d’ac
 Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloque l’accès à partir de certains pays. Vous avez créé un groupe qui est exclu de la stratégie. Voici une révision d’accès recommandée qui passe en revue les membres du groupe.
 
 > [!NOTE]
-> La création des révisions d’accès requiert un rôle Administrateur général ou un rôle Administrateur des comptes d’utilisateur.
+> Un administrateur général ou rôle d’utilisateur administrateur est requis pour créer des révisions d’accès.
 
 1. La révision se reproduit chaque semaine.
 
@@ -158,5 +158,5 @@ En tant qu’administrateur informatique, vous savez que la gestion des groupes 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une révision d’accès des membres du groupe ou un accès aux applications avec Azure AD](create-access-review.md)
+- [Créer une révision d’accès des groupes ou des applications](create-access-review.md)
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)

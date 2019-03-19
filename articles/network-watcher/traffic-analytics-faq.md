@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835314"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -83,6 +83,7 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 - Inde Centre
 - Inde Sud
 - Japon Est
+- Gouvernement américain - Virginie
 
 L’espace de travail Log Analytics doit exister dans les régions suivantes :
 - Centre du Canada
@@ -94,6 +95,7 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
 - Asie Sud-Est 
 - Inde Centre
 - Japon Est
+- Gouvernement américain - Virginie
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Puis-je activer des journaux de flux pour des NSG qui se trouvent dans des régions différentes de mon espace de travail ?
 
@@ -105,7 +107,7 @@ Oui.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Puis-je utiliser un espace de travail existant ?
 
-Oui. Si vous sélectionnez un espace de travail existant, vérifiez qu’il a été migré vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau l’espace de travail, vous devez en créer un autre. Pour plus d’informations sur le nouveau langage de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md).
+Oui. Si vous sélectionnez un espace de travail existant, vérifiez qu’il a été migré vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau l’espace de travail, vous devez en créer un autre. Pour plus d’informations sur le nouveau langage de requête, consultez [Azure Monitor enregistre la mise à niveau vers la nouvelle recherche de journal](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Mon compte Stockage Azure peut-il être dans un abonnement spécifique et mon espace de travail Log Analytics dans un autre abonnement ?
 
@@ -113,11 +115,17 @@ Oui, votre compte Stockage Azure peut être dans un abonnement spécifique et vo
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Puis-je stocker les journaux bruts dans un autre abonnement ?
 
- Non. Vous pouvez stocker des journaux bruts dans n’importe quel compte de stockage dans lequel un NSG est activé pour les journaux de flux. Toutefois, le compte de stockage et les journaux bruts doivent se trouver dans le même abonnement et la même région.
+Non. Vous pouvez stocker des journaux bruts dans n’importe quel compte de stockage dans lequel un NSG est activé pour les journaux de flux. Toutefois, le compte de stockage et les journaux bruts doivent se trouver dans le même abonnement et la même région.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Que faire si je ne peux pas configurer un NSG pour l’analytique du trafic en raison d’une erreur « Introuvable » ?
 
 Sélectionnez une région prise en charge. Si vous sélectionnez une région non prise en charge, vous recevez une erreur « Introuvable ». Les régions prises en charge sont répertoriées plus haut dans cet article.
+
+## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Pourquoi l’erreur « Impossible de mettre à jour les paramètres des journaux de flux pour... InternalServerError... » Lorsque vous activez les groupes de sécurité réseau dans Virginie ?
+
+Il s’agit d’un bogue où le fournisseur de ressources 'Microsoft.Network' n’est pas nouveau inscrit pour un abonnement en Virginie. L’équipe travaille sur la solution à ce problème. Pour résoudre ce problème, vous devez [réinscrire manuellement 'Microsoft.Network' RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
+
+Contactez le support technique si le problème persiste. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Que faire si j’obtiens l’état « Échec de chargement » sous la page de journaux de flux NSG ?
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994629"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Impossible de se connecter à distance à une machine virtuelle Windows 10 ou Windows Server 2016 dans Azure en raison de netvsc.sys
 
@@ -26,9 +26,9 @@ Cet article explique comment résoudre un problème dans lequel vous n’avez au
 
 ## <a name="symptoms"></a>Symptômes
 
-Vous n’arrivez pas à vous connecter à une machine virtuelle Azure Windows 10 ou Windows Server 2016 à l’aide de RDP (Remote Desktop Protocol). Dans [Diagnostics de démarrage](boot-diagnostics.md), l’écran affiche une croix rouge sur la carte d’interface réseau. Cela indique que la machine virtuelle n’a aucune connectivité alors que le système d’exploitation est entièrement chargé.
+Vous ne peut pas se connecter à un Azure Windows 10 ou une machine virtuelle Windows Server 2016 à l’aide du protocole RDP (Remote Desktop). Dans [Diagnostics de démarrage](boot-diagnostics.md), l’écran affiche une croix rouge sur la carte d’interface réseau. Cela indique que la machine virtuelle n’a aucune connectivité alors que le système d’exploitation est entièrement chargé.
 
-En règle générale, ce problème se produit dans Windows [build 14393](http://support.microsoft.com/help/4093120/) et [build 15063](http://support.microsoft.com/help/4015583/). Si la version de votre système d’exploitation est postérieure à ces versions, cet article ne s’applique pas à votre scénario. Pour vérifier la version du système, ouvrez une session CMD dans [la fonctionnalité Console d’accès série](serial-console-windows.md), puis exécutez **Ver**.
+En règle générale, ce problème se produit dans Windows [build 14393](https://support.microsoft.com/help/4093120/) et [build 15063](https://support.microsoft.com/help/4015583/). Si la version de votre système d’exploitation est postérieure à ces versions, cet article ne s’applique pas à votre scénario. Pour vérifier la version du système, ouvrez une session CMD dans [la fonctionnalité Console d’accès série](serial-console-windows.md), puis exécutez **Ver**.
 
 ## <a name="cause"></a>Cause :
 
@@ -55,8 +55,8 @@ Connectez-vous à [la console série, ouvrez une instance PowerShell](serial-con
 
 2. Téléchargez la mise à jour appropriée sur un disque de données nouveau ou existant qui est attaché à une machine virtuelle fonctionnelle de la même région :
 
-   - **10.0.14393.594** : [KB4073562](http://support.microsoft.com/help/4073562)  ou mise à jour ultérieure
-   - **10.0.15063.0** : [KB4016240](http://support.microsoft.com/help/4016240) ou mise à jour ultérieure
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou une mise à jour ultérieure
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou une mise à jour ultérieure
 
 3. Détachez le disque utilitaire de la machine virtuelle fonctionnelle, puis attachez-le à la machine virtuelle qui ne fonctionne plus.
 
@@ -98,22 +98,22 @@ Connectez-vous à [la console série, ouvrez une instance PowerShell](serial-con
 
 12. Téléchargez la mise à jour appropriée :
 
-   - **10.0.14393.594** : [KB4073562](http://support.microsoft.com/help/4073562)  ou mise à jour ultérieure
-   - **10.0.15063.0** : [KB4016240](http://support.microsoft.com/help/4016240) ou mise à jour ultérieure
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou une mise à jour ultérieure
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou une mise à jour ultérieure
 
 13. Attachez le disque système comme disque de données sur une machine virtuelle de secours sur laquelle vous pouvez télécharger la mise à jour.
 
 14. Exécutez la commande suivante pour installer la mise à jour sur la machine virtuelle :
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Exécutez la commande suivante pour démonter les ruches :
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [Détachez le disque système et recréez la machine virtuelle](../windows/troubleshoot-recovery-disks-portal.md).
 

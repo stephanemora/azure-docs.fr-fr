@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10a1f38b2c793bffb6061c6eefdccef7ac5c57b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7f7418c16d5d5312d2a9a7913da49941ef0a7870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090455"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problème de connexion sur le site web du volet d’accès
 
@@ -168,23 +168,23 @@ Pour activer la réinitialisation du mot de passe en libre-service, procédez co
 
 Pour vérifier l’état d’authentification multifacteur d’un utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
+4. Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
-5.  Cliquez sur **Tous les utilisateurs**.
+5. Cliquez sur **Tous les utilisateurs**.
 
-6.  Cliquez sur le bouton **Multi-Factor Authentication** en haut du volet.
+6. Cliquez sur le bouton **Multi-Factor Authentication** en haut du volet.
 
-7.  Une fois le **portail d’administration Multi-Factor Authentication** chargé, assurez-vous de vous trouver sur l’onglet **Utilisateurs**.
+7. Une fois le **portail d’administration Multi-Factor Authentication** chargé, assurez-vous de vous trouver sur l’onglet **Utilisateurs**.
 
-8.  Recherchez l’utilisateur dans la liste des utilisateurs au moyen de la recherche, du filtrage ou du tri.
+8. Recherchez l’utilisateur dans la liste des utilisateurs au moyen de la recherche, du filtrage ou du tri.
 
-9.  Sélectionnez l’utilisateur dans la liste des utilisateurs et **activez**, **désactivez** ou **appliquez** la Multi-Factor Authentication comme souhaité.
+9. Sélectionnez l’utilisateur dans la liste des utilisateurs et **activez**, **désactivez** ou **appliquez** la Multi-Factor Authentication comme souhaité.
 
    >[!NOTE]
    >Si un utilisateur est dans un état **Appliqué**, vous pouvez définir le définir sur **Désactivé** de façon temporaire pour lui permettre de revenir à son compte. Une fois qu’il est revenu dans son compte, vous pouvez ensuite redéfinir son état sur **Activé** pour lui demander d’enregistrer à nouveau ses informations de contact à sa prochaine connexion. Sinon, vous pouvez suivre les étapes décrites dans [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info) pour vérifier ou définir ces données à sa place.

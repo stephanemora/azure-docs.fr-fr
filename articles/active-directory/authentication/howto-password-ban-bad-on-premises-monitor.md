@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a3127cde66ce7de9a3920d238193a3a3b2225be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195785"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451484"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Aperçu : Supervision et journalisation dans la protection par mot de passe Azure AD
 
@@ -317,7 +317,7 @@ Le journal texte est désactivé par défaut. Un redémarrage du service Proxy e
 
 Les applets de commande PowerShell qui connaissent un changement d’état (par exemple, Register-AzureADPasswordProtectionProxy) consignent normalement un événement de résultat dans le journal des opérations.
 
-De plus, la plupart des applets de commande PowerShell de la protection par mot de passe Azure AD consignent un événement dans un journal texte sous :
+En outre, la plupart des applets de commande PowerShell de Protection de mot de passe Azure AD s’écrire dans un journal de texte qui se trouve sous :
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 

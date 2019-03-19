@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 84e0d02f2608a6ee94ee409345e530357d394671
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096569"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Créer un disque dur virtuel compatible avec Azure
 
@@ -48,25 +48,25 @@ Azure offre également toute une gamme de distributions de Linux approuvées.  P
 Dans le [portail Microsoft Azure](https://ms.portal.azure.com/), créez l’image de base en procédant comme suit.
 
 1. Connectez-vous au portail en utilisant le compte Microsoft de l’abonnement Azure souhaité pour publier votre offre de machine virtuelle.
-2. Créez un nouveau groupe de ressources et fournissez le **Nom du groupe de ressources**, l’**Abonnement** et l’**Emplacement du groupe de ressources**.  Pour obtenir plus d’aide, consultez [Gérer les groupes de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Créez un nouveau groupe de ressources et fournissez le **Nom du groupe de ressources**, l’**Abonnement** et l’**Emplacement du groupe de ressources**.  Pour obtenir plus d’aide, consultez [Gérer les groupes de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Cliquez sur **Machines virtuelles** sur la barre de menus de gauche pour afficher la page de détails des machines virtuelles. 
 4. Dans cette nouvelle page, cliquez sur **+ Ajouter** pour afficher le panneau **Calcul**.  Si vous ne voyez pas le type de machine virtuelle sur le premier écran, vous pouvez rechercher le nom de votre machine virtuelle de base. Par exemple :
 
     ![Panneau Calcul de la nouvelle machine virtuelle](./media/publishvm_014.png)
 
 5. Après avoir sélectionné l’image virtuelle appropriée, renseignez les valeurs suivantes :
-  * Dans le panneau **De base**, entrez un **nom** pour la machine virtuelle de 1 à 15 caractères alphanumériques. (Cet exemple utilise `DemoVm009`.)
-  * Entrez un **Nom d’utilisateur** et un **Mot de passe** fort, qui servent à créer un compte local sur la machine virtuelle.  (Ici, `adminUser` est utilisé.)  Le mot de passe doit compter 8 à 123 caractères et répondre à trois des quatre conditions suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. Pour plus d’informations, consultez les [exigences relatives au nom d’utilisateur et au mot de passe](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Sélectionnez le groupe de ressources que vous avez créé (ici, `DemoResourceGroup`).
-  * Sélectionnez un **emplacement** de centre de données Azure (ici, `West US`).
-  * Cliquez sur **OK** pour enregistrer ces valeurs. 
+   * Dans le panneau **De base**, entrez un **nom** pour la machine virtuelle de 1 à 15 caractères alphanumériques. (Cet exemple utilise `DemoVm009`.)
+   * Entrez un **Nom d’utilisateur** et un **Mot de passe** fort, qui servent à créer un compte local sur la machine virtuelle.  (Ici, `adminUser` est utilisé.)  Le mot de passe doit compter 8 à 123 caractères et répondre à trois des quatre conditions suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. Pour plus d’informations, consultez les [exigences relatives au nom d’utilisateur et au mot de passe](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Sélectionnez le groupe de ressources que vous avez créé (ici, `DemoResourceGroup`).
+   * Sélectionnez un **emplacement** de centre de données Azure (ici, `West US`).
+   * Cliquez sur **OK** pour enregistrer ces valeurs. 
 
-6.  Sélectionnez la taille de la machine virtuelle à déployer à l’aide des suggestions suivantes :
-  * Si vous envisagez de développer le disque dur virtuel localement, la taille n’a pas d’importance. Vous pouvez utiliser une des machines virtuelles plus petites.
-  * Si vous envisagez de développer l’image dans Azure, vous pouvez utiliser les tailles de machine virtuelle recommandées pour l’image sélectionnée.
-  * Pour plus d’informations sur la tarification, consultez le sélecteur de **niveaux tarifaires recommandés** inclus dans le portail. Celui-ci affiche les trois tailles recommandées fournies par l’éditeur. (Ici, l’éditeur est Microsoft.)
+6. Sélectionnez la taille de la machine virtuelle à déployer à l’aide des suggestions suivantes :
+   * Si vous envisagez de développer le disque dur virtuel localement, la taille n’a pas d’importance. Vous pouvez utiliser une des machines virtuelles plus petites.
+   * Si vous envisagez de développer l’image dans Azure, vous pouvez utiliser les tailles de machine virtuelle recommandées pour l’image sélectionnée.
+   * Pour plus d’informations sur la tarification, consultez le sélecteur de **niveaux tarifaires recommandés** inclus dans le portail. Celui-ci affiche les trois tailles recommandées fournies par l’éditeur. (Ici, l’éditeur est Microsoft.)
 
-    ![Panneau Taille de la nouvelle machine virtuelle](./media/publishvm_015.png)
+   ![Panneau Taille de la nouvelle machine virtuelle](./media/publishvm_015.png)
 
 7. Dans le panneau **Paramètres**, définissez l’option **Use Managed Disk** (Utiliser un disque managé) sur **Non**.  Vous pouvez ainsi gérer manuellement le nouveau disque dur virtuel. (Le panneau **Paramètres** vous permet également d’apporter d’autres modifications aux options de stockage et de réseau, par exemple, en sélectionnant **Premium (SSD)** dans **Type de disque**.)  Cliquez sur **OK** pour continuer.
 

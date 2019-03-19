@@ -15,32 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: f5ddc4a85148cee3e8c8b4d2bf1955f233ebdbc1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 422a48a3671974248e9e3258be16d3537713f762
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426520"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089996"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Vous pouvez créer une machine virtuelle avec une adresse IP publique statique. Une adresse IP publique vous permet de communiquer avec une machine virtuelle à partir d’Internet. Attribuez une adresse IP publique statique, plutôt qu’une adresse dynamique, pour être certain que l’adresse ne changera jamais. Découvrez plus en détail les [adresses IP publiques statiques](virtual-network-ip-addresses-overview-arm.md#allocation-method). Pour changer le type de l’adresse IP publique attribuée à une machine virtuelle existante (de dynamique à statique), ou pour utiliser des adresses IP privées, consultez [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md). Les adresses IP publiques ont un [coût modique](https://azure.microsoft.com/pricing/details/ip-addresses) et le nombre d’adresses IP publiques que vous pouvez utiliser par abonnement est [limité](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local ou à l’aide d’Azure Cloud Shell. Pour pouvoir utiliser votre ordinateur local, vous devez avoir installé [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour utiliser Azure Cloud Shell, sélectionnez **Essayer** dans l’angle supérieur droit de l’une des zones de commande suivantes. Cloud Shell vous connecte à Azure.
+Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local ou à l’aide d’Azure Cloud Shell. Pour pouvoir utiliser votre ordinateur local, vous devez avoir installé [Azure PowerShell](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour utiliser Azure Cloud Shell, sélectionnez **Essayer** dans l’angle supérieur droit de l’une des zones de commande suivantes. Cloud Shell vous connecte à Azure.
 
-1. Si vous utilisez Cloud Shell, passez à l’étape 2. Ouvrez une session de commande et connectez-vous à Azure avec `Connect-AzureRmAccount`.
-2. Créez un groupe de ressources avec la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L’exemple suivant crée un groupe de ressources dans la région Azure USA Est :
+1. Si vous utilisez Cloud Shell, passez à l’étape 2. Ouvrez une session de commande et connectez-vous à Azure avec `Connect-AzAccount`.
+2. Créez un groupe de ressources avec la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). L’exemple suivant crée un groupe de ressources dans la région Azure USA Est :
 
    ```azurepowershell-interactive
-   New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+   New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Créez une machine virtuelle avec la commande [New-AzureRmVM](/powershell/module/AzureRM.Compute/New-AzureRmVM). L’option `-AllocationMethod "Static"` attribue une adresse IP publique statique à la machine virtuelle. L’exemple suivant crée une machine virtuelle Windows Server avec une adresse IP statique de base (référence SKU) nommée *myPublicIpAddress*. Quand vous y êtes invité, indiquez le nom d’utilisateur et le mot de passe à utiliser comme informations d’identification de connexion pour la machine virtuelle :
+3. Créer une machine virtuelle avec le [New-AzVM](/powershell/module/az.Compute/New-azVM) commande. L’option `-AllocationMethod "Static"` attribue une adresse IP publique statique à la machine virtuelle. L’exemple suivant crée une machine virtuelle Windows Server avec une adresse IP statique de base (référence SKU) nommée *myPublicIpAddress*. Quand vous y êtes invité, indiquez le nom d’utilisateur et le mot de passe à utiliser comme informations d’identification de connexion pour la machine virtuelle :
 
    ```azurepowershell-interactive
-   New-AzureRmVm `
+   New-AzVm `
      -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "East US" `
@@ -50,10 +52,10 @@ Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local 
 
    Si l’adresse IP publique doit être une référence SKU standard, vous devez [créer une adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address), [créer une interface réseau](virtual-network-network-interface.md#create-a-network-interface), [attribuer l’adresse IP publique à l’interface réseau](virtual-network-network-interface-addresses.md#add-ip-addresses), puis [créer une machine virtuelle avec l’interface réseau](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), une étape après l’autre. Découvrez plus en détail les [références SKU d’adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#sku). Si la machine virtuelle doit être ajoutée au pool backend d’un équilibreur de charge Azure public, la référence SKU de l’adresse IP publique de la machine virtuelle doit correspondre à celle de l’équilibreur de charge. Pour plus d’informations, consultez [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-4. Examinez l’adresse IP publique qui a été affectée et vérifiez qu’elle a été créée en tant qu’adresse statique, à l’aide de [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) :
+4. Afficher l’adresse IP publique affectée et vérifiez qu’il a été créé en tant qu’une adresse statique, avec [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
    ```azurepowershell-interactive
-   Get-AzureRmPublicIpAddress `
+   Get-AzPublicIpAddress `
      -ResourceGroupName "myResourceGroup" `
      -Name "myPublicIpAddress" `
      | Select "IpAddress", "PublicIpAllocationMethod" `
@@ -63,14 +65,14 @@ Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local 
    Azure a affecté une adresse IP publique parmi les adresses utilisées dans la région dans laquelle vous avez créé la machine virtuelle. Vous pouvez télécharger la liste des plages (préfixes) pour les clouds Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [Gouvernement américain](https://www.microsoft.com/download/details.aspx?id=57063), [Chine](https://www.microsoft.com/download/details.aspx?id=57062), et [Allemagne](https://www.microsoft.com/download/details.aspx?id=57064).
 
 > [!WARNING]
-Ne modifiez pas les paramètres d’adresse IP dans le système d’exploitation de la machine virtuelle. Le système d’exploitation ne reconnaît pas les adresses IP publiques Azure. Même si vous avez la possibilité d’ajouter des paramètres d’adresse IP privée au système d’exploitation, nous vous déconseillons de le faire, à moins que cela soit nécessaire et pas avant d’avoir lu [Ajouter une adresse IP privée à un système d’exploitation](virtual-network-network-interface-addresses.md#private).
+> Ne modifiez pas les paramètres d’adresse IP dans le système d’exploitation de la machine virtuelle. Le système d’exploitation ne reconnaît pas les adresses IP publiques Azure. Même si vous avez la possibilité d’ajouter des paramètres d’adresse IP privée au système d’exploitation, nous vous déconseillons de le faire, à moins que cela soit nécessaire et pas avant d’avoir lu [Ajouter une adresse IP privée à un système d’exploitation](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour le supprimer et toutes les ressources qu’il contient :
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient :
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108795"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervision, métriques et alertes ExpressRoute
 
@@ -43,18 +43,18 @@ Vous pouvez afficher des mesures pour l’homologation privée, publique et Micr
 
 1. Pour configurer des alertes, accédez à **Azure Monitor**, puis cliquez sur **Alertes**.
 
-  ![alertes](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alertes](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Cliquez sur **+Sélectionner la cible** et sélectionnez la ressource de connexion de passerelle ExpressRoute.
 
-  ![cible]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![cible]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Définissez les détails de l’alerte.
 
-  ![groupe d’actions](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![groupe d’actions](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. Définissez et ajoutez le groupe d’actions.
 
-  ![ajouter un groupe d'actions](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![ajouter un groupe d'actions](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>Alertes basées sur chaque homologation
 

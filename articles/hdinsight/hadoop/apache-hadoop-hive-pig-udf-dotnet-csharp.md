@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 139fe946b013b1c86404bdef6ed06314af349c89
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 08910cbae9f370dde7b8718ca4868dc7b3510f8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108897"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
 
@@ -25,7 +25,7 @@ Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec 
 
 Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_. Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN, et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Des connaissances en écriture et en génération de code C# qui cible .NET Framework 4.5.
 
@@ -172,13 +172,13 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
 6. Pour charger les fichiers .exe, appliquez l’une des méthodes suivantes :
 
-    * Si vous utilisez un __compte de stockage Azure__, cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\debug** pour le projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
+   * Si vous utilisez un __compte de stockage Azure__, cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\debug** pour le projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
 
-        ![icône télécharger](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![icône télécharger](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Si vous utilisez __Azure Data Lake Storage__, cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez __Charger__. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ouvrir**.
+   * Si vous utilisez __Azure Data Lake Storage__, cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez __Charger__. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ouvrir**.
 
-    Une fois le chargement de __HiveCSharp.exe__ terminé, répétez le processus de chargement pour le fichier __PigUDF.exe__.
+     Une fois le chargement de __HiveCSharp.exe__ terminé, répétez le processus de chargement pour le fichier __PigUDF.exe__.
 
 ## <a name="run-an-apache-hive-query"></a>Exécuter une requête Apache Hive
 

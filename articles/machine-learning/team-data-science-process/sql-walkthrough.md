@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 953f2cdac41dcd610afbde39a318c0237b0b9099
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114737"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890847"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
-Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
+Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
 
 ## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
 Les données NYC Taxi Trip se présentent sous la forme de fichiers CSV compressés d’une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), contenant plus de 173 millions de courses et le prix de chacune. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
@@ -82,7 +82,7 @@ Pour configurer votre environnement de science des données Azure :
 Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario \#5 : Jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Récupérer les données de la source publique
-Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](move-azure-blob.md) afin de copier les données dans votre nouvelle machine virtuelle.
+Pour récupérer le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](move-azure-blob.md) afin de copier les données dans votre nouvelle machine virtuelle.
 
 Pour copier les données à l’aide d’AzCopy :
 
@@ -622,8 +622,8 @@ Pour résumer, ce didacticiel pas à pas vous a décrit comment créer un enviro
 Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui sont associés sont partagés par Microsoft sous licence MIT. Pour plus d’informations, consultez le fichier LICENSE.txt figurant dans le répertoire de l’exemple de code sur GitHub.
 
 ### <a name="references"></a>Références
-•    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-•    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](https://www.andresmh.com/nyctaxitrips/)  
+•    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png

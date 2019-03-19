@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f11d680330a43dd49b3c36c864f50b9dc869d172
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c4516e86e25bb31b113b495a239c9eae9df8c9f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094767"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Se connecter aux services et communiquer avec eux dans Service Fabric.
 Dans Service Fabric, un service s’exécute quelque part dans un cluster Service Fabric, généralement réparti sur plusieurs machines virtuelles. Il peut être déplacé d’un endroit à un autre, soit par le propriétaire du service, soit automatiquement par Service Fabric. Les services ne sont pas liés statiquement à une machine ou une adresse particulière.
@@ -78,26 +78,31 @@ Par exemple : les éléments suivants doivent être configurés pour accepter le
 
 1. Écrivez un service qui écoute sur le port 80. Configurez le port 80 dans le fichier ServiceManifest.xml du service et ouvrez un écouteur dans le service, tel qu’un serveur web auto-hébergé.
 
-    ```xml    <Resources> <Endpoints> <Endpoint Name="WebEndpoint" Protocol="http" Port="80" /> </Endpoints> </Resources>
+    ```xml
+    <Resources>
+        <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="80" />
+        </Endpoints>
+    </Resources>
     ```
     ```csharp
-        class HttpCommunicationListener : ICommunicationListener
+        class HttpCommunicationListener : ICommunicationListener
         {
             ...
 
             public Task<string> OpenAsync(CancellationToken cancellationToken)
             {
-                EndpointResourceDescription endpoint =
+                EndpointResourceDescription endpoint =
                     serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
 
-                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
+                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
 
-                this.httpListener = new HttpListener();
+                this.httpListener = new HttpListener();
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
 
-                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-                return Task.FromResult(publishUri);
+                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                return Task.FromResult(publishUri);
             }
 
             ...
@@ -109,7 +114,7 @@ Par exemple : les éléments suivants doivent être configurés pour accepter le
 
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
-                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
 
             ...

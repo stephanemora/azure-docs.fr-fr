@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119494"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide de .NET
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Dans cet article, vous allez découvrir comment réaliser des opérations de ges
 
 Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -49,7 +49,7 @@ L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/dat
    | --- | --- |
    | Catégorie |Modèles/Visual C#/Windows |
    | Modèle |Application console |
-   | NOM |CreateADLApplication |
+   | Nom |CreateADLApplication |
 
 4. Cliquez sur **OK** pour créer le projet.
 
@@ -62,7 +62,7 @@ L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/dat
       * `Microsoft.Azure.DataLake.Store` : ce didacticiel utilise v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` : ce didacticiel utilise v2.3.1.
     
-    Fermez le **Gestionnaire de package NuGet**.
+      Fermez le **Gestionnaire de package NuGet**.
 
 6. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
 
@@ -90,7 +90,7 @@ L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/dat
 
 Dans les sections suivantes de cet article, vous pouvez découvrir comment utiliser les méthodes .NET pour effectuer des opérations telles que l’authentification des utilisateurs et le chargement de fichiers.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 * Pour en savoir plus sur l’authentification des utilisateurs accédant à votre application, consultez la section relative à [l’authentification de l’utilisateur avec Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 * Pour en savoir plus sur l’authentification entre les services dans le cadre de votre application, consultez la section relative à [l’authentification entre les services avec Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).

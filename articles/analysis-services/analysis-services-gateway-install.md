@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190372"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110866"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 
 Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Pour en savoir plus sur la passerelle, consultez la page [Passerelle de données locale](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 **Configuration minimale requise :**
 
@@ -90,19 +90,19 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 
 2. Dans **Créer une passerelle connexion**, entrez les paramètres suivants:
 
-    * **Nom** : entrez un nom pour votre ressource de passerelle. 
+   * **Nom** : entrez un nom pour votre ressource de passerelle. 
 
-    * **Abonnement**: sélectionnez l’abonnement Azure à associer à votre ressource de passerelle. 
+   * **Abonnement**: sélectionnez l’abonnement Azure à associer à votre ressource de passerelle. 
    
-      L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter.
+     L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter.
 
-    * **Groupe de ressources** : Sélectionnez un groupe de ressources existant ou créez-en un.
+   * **Groupe de ressources** : Sélectionnez un groupe de ressources existant ou créez-en un.
 
-    * **Emplacement** : sélectionnez la région dans laquelle vous avez inscrit votre passerelle.
+   * **Emplacement** : sélectionnez la région dans laquelle vous avez inscrit votre passerelle.
 
-    * **Nom de l’installation** : si votre installation de passerelle n’est pas encore sélectionnée, sélectionnez la passerelle que vous avez inscrite. 
+   * **Nom de l’installation** : si votre installation de passerelle n’est pas encore sélectionnée, sélectionnez la passerelle que vous avez inscrite. 
 
-    Une fois ces opérations effectuées, cliquez sur **Créer**.
+     Une fois ces opérations effectuées, cliquez sur **Créer**.
 
 ## <a name="connect-servers"></a>Connecter les serveurs à la ressource de passerelle
 

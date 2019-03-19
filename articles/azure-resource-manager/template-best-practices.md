@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490377"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440470"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Meilleures pratiques relatives aux modèles Azure Resource Manager
 
@@ -26,10 +26,28 @@ Pour obtenir des suggestions sur la façon de gérer vos abonnements Azure, cons
 
 Pour obtenir des suggestions sur la création de modèles qui fonctionnent dans tous les environnements cloud Azure, voir [Développer des modèles Azure Resource Manager de cohérence du cloud](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>Limites de modèle
+
+Limitez la taille de votre modèle à 1 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 1 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. 
+
+Vous devez également respecter les limites suivantes :
+
+* 256 paramètres
+* 256 variables
+* 800 ressources (incluant le nombre de copies)
+* 64 valeurs de sortie
+* 24 576 caractères dans une expression de modèle
+
+Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez l’article [Utilisation de modèles liés lors du déploiement des ressources Azure](resource-group-linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](resource-manager-objects-as-parameters.md) (Utiliser un objet en tant que paramètre).
+
+## <a name="resource-group"></a>Groupe de ressources
+
+Lorsque vous déployez des ressources à un groupe de ressources, le groupe de ressources stocke des métadonnées sur les ressources. Les métadonnées sont stockées dans l’emplacement du groupe de ressources.
+
+Si la région du groupe de ressources est temporairement indisponible, vous ne peut pas mettre à jour les ressources dans le groupe de ressources, car les métadonnées ne sont pas disponible. Les ressources dans d’autres régions vont continuer de fonctionner comme prévu, mais vous ne pouvez pas mettre à jour. Pour réduire le risque, localisez votre groupe de ressources et les ressources dans la même région.
 
 ## <a name="parameters"></a>parameters
-Les informations de cette section peuvent être utiles lorsque vous travaillez avec des [paramètres](resource-manager-templates-parameters.md).
+Les informations de cette section peuvent être utiles lorsque vous travaillez avec des [paramètres](resource-group-authoring-templates.md#parameters).
 
 ### <a name="general-recommendations-for-parameters"></a>Suggestions générales pour les paramètres
 
@@ -131,7 +149,7 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
 
 ## <a name="variables"></a>variables
 
-Les informations suivantes peuvent être utiles lorsque vous travaillez avec des [variables](resource-manager-templates-variables.md) :
+Les informations suivantes peuvent être utiles lorsque vous travaillez avec des [variables](resource-group-authoring-templates.md#variables) :
 
 * Utilisez des variables pour les valeurs que vous devez utiliser plusieurs fois dans un modèle. Si une valeur est utilisée une seule fois, une valeur codée en dur rend votre modèle plus facile à lire.
 
@@ -155,7 +173,7 @@ Lorsque vous décidez des [dépendances](resource-group-define-dependencies.md) 
 
 * Définissez une ressource enfant comme dépendante de sa ressource parent.
 
-* Les ressources avec l’[élément condition](resource-manager-templates-resources.md#condition) défini sur false sont automatiquement supprimées de l’ordre de dépendance. Définissez les dépendances comme si la ressource était toujours déployée.
+* Les ressources avec l’[élément condition](resource-group-authoring-templates.md#condition) défini sur false sont automatiquement supprimées de l’ordre de dépendance. Définissez les dépendances comme si la ressource était toujours déployée.
 
 * Ajoutez les dépendances l’une après l’autre sans les définir explicitement. Par exemple, votre machine virtuelle dépend d’une interface de réseau virtuel, et l’interface de réseau virtuelle dépend d’un réseau virtuel et d’adresses IP publiques. Par conséquent, la machine virtuelle est déployée après les trois ressources. Cependant, ne définissez pas explicitement la machine virtuelle comme dépendante de ces trois ressources. Cette approche permet de clarifier l’ordre des dépendances et de simplifier les modifications ultérieures du modèle.
 
@@ -163,7 +181,7 @@ Lorsque vous décidez des [dépendances](resource-group-define-dependencies.md) 
 
 ## <a name="resources"></a>Ressources
 
-Les informations suivantes peuvent être utiles lorsque vous travaillez avec des [ressources](resource-manager-templates-resources.md) :
+Les informations suivantes peuvent être utiles lorsque vous travaillez avec des [ressources](resource-group-authoring-templates.md#resources) :
 
 * Spécifiez des **commentaires** pour chaque ressource dans le modèle pour aider les autres contributeurs à comprendre l’objectif de la ressource :
    
@@ -277,7 +295,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 ## <a name="outputs"></a>Outputs
 
-Si vous utilisez un modèle pour créer des adresses IP publiques, il doit comporter une [section outputs](resource-manager-templates-outputs.md) qui renvoie les détails de l’adresse IP et le nom de domaine complet (FQDN). Vous pouvez utiliser des valeurs de sortie pour récupérer facilement plus d’informations sur les adresses IP publiques et sur les noms de domaine complets après le déploiement.
+Si vous utilisez un modèle pour créer des adresses IP publiques, il doit comporter une [section outputs](resource-group-authoring-templates.md#outputs) qui renvoie les détails de l’adresse IP et le nom de domaine complet (FQDN). Vous pouvez utiliser des valeurs de sortie pour récupérer facilement plus d’informations sur les adresses IP publiques et sur les noms de domaine complets après le déploiement.
 
 ```json
 "outputs": {

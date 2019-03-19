@@ -1,5 +1,5 @@
 ---
-title: Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory | Microsoft Docs
+title: Éléments de l’e-mail d’invitation B2B - Azure Active Directory | Microsoft Docs
 description: Modèle d’e-mail d’invitation de collaboration d’Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014915"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -31,7 +32,7 @@ Examinons quelques-uns des éléments de l’e-mail pour savoir comment utiliser
 L’objet de l’e-mail suit le modèle suivant : vous êtes invité à l’organisation &lt;nom_tenant&gt;.
 
 ### <a name="from-address"></a>Adresse de l’expéditeur
-Nous utilisons un modèle similaire à LinkedIn pour l’adresse De.  Vous devez faire apparaître clairement qui est l’inviteur et à quelle entreprise il appartient, mais aussi indiquer que l’e-mail provient d’une adresse e-mail Microsoft. Le format est le suivant : &lt;nom complet de l’inviteur&gt; de &lt;nom_tenant&gt; (par le biais de Microsoft)<invites@microsoft.com>.
+Nous utilisons un modèle similaire à LinkedIn pour l’adresse De.  Vous devez faire apparaître clairement qui est l’inviteur et à quelle entreprise il appartient, mais aussi indiquer que l’e-mail provient d’une adresse e-mail Microsoft. Le format est le suivant : Les Invitations Microsoft <invites@microsoft.com> ou &lt;nom d’affichage de l’inviteur&gt; de &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Adresse de réponse
 L’adresse e-mail de réponse est définie sur l’adresse e-mail de l’inviteur quand elle est disponible : ainsi, répondre à l’e-mail envoie un e-mail en retour à l’inviteur.
@@ -55,8 +56,12 @@ Si vous n’avez pas encore configuré votre image de profil, une icône comport
 ### <a name="body"></a>body
 Le corps contient le message composé par l’inviteur pour [inviter un utilisateur invité dans un répertoire, un groupe ou une application](add-users-administrator.md) ou [avec l’API d’invitation](customize-invitation-api.md). Il s’agit d’une simple zone de texte qui ne traite pas les balises HTML pour des raisons de sécurité.
 
+  ![image du corps de l’e-mail](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Section Pied de page
-Le pied de page contient la marque de la société Microsoft et permet au destinataire de savoir si l’e-mail a été envoyé à partir d’un alias non surveillé. Cas particuliers :
+Le pied de page contient la marque de la société Microsoft et permet au destinataire de savoir si l’e-mail a été envoyé à partir d’un alias non surveillé. 
+
+Cas particuliers :
 
 - L’inviteur n’a pas d’adresse e-mail dans la location de l’inviteur
 

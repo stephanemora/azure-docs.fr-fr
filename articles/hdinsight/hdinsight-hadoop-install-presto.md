@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084825"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installer et utiliser Presto sur des clusters HDInsight Hadoop
 
@@ -42,11 +42,11 @@ Cette section explique comment utiliser l’exemple de script quand vous créez 
 
 1. Commencez à provisionner un cluster en effectuant les étapes décrites dans [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Veillez à créer le cluster avec le flux de création de cluster **Personnalisé**. Le cluster doit répondre aux exigences suivantes :
 
-    * Il doit s’agir d’un cluster Hadoop créé avec HDInsight version 3.6.
+   * Il doit s’agir d’un cluster Hadoop créé avec HDInsight version 3.6.
 
-    * Il doit utiliser Stockage Azure comme banque de données. Il n’est pas possible d’utiliser Presto sur un cluster qui utilise Azure Data Lake Storage comme option de stockage.
+   * Il doit utiliser Stockage Azure comme banque de données. Il n’est pas possible d’utiliser Presto sur un cluster qui utilise Azure Data Lake Storage comme option de stockage.
 
-    ![HDInsight, Personnalisé (taille, paramètres, applications)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, Personnalisé (taille, paramètres, applications)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. Dans la zone **Paramètres avancés**, sélectionnez **Actions de script**. Fournissez les informations suivantes. Vous pouvez également choisir l’option **Installer Presto** comme type de script :
    
@@ -55,7 +55,7 @@ Cette section explique comment utiliser l’exemple de script quand vous créez 
    * **HEAD**. Sélectionnez cette option.
    * **WORKER**. Sélectionnez cette option.
    * **ZOOKEEPER**. Ne cochez pas cette case.
-   * **PARAMETERS**. Laissez ce champ vide.
+   * **PARAMETERS**. laissez ce champ vide.
 
 
 3. En bas de la zone **Actions de script**, choisissez le bouton **Sélectionner** pour enregistrer la configuration. Pour terminer, choisissez le bouton **Sélectionner** au bas de la zone **Paramètres personnalisés** afin d’enregistrer les informations de configuration.
@@ -162,7 +162,6 @@ Pour personnaliser l’installation, effectuez les étapes suivantes :
     `sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
 5. Attendez que la nouvelle instance soit démarrée. Notez l’adresse du coordinateur Presto :
-
 
     `sudo slider registry --name presto1 --getexp presto`
 

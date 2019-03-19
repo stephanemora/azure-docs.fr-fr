@@ -1,5 +1,5 @@
 ---
-title: Obtenir de l’aide sur l’accès au portail MyApps dans Azure Active Directory et sur son utilisation | Microsoft Docs
+title: Obtenir de l’aide de l’accès et à l’aide du portail MyApps - Azure Active Directory | Microsoft Docs
 description: Obtenez de l’aide sur la connexion et l’exécution de tâches courantes dans le volet d’accès.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64090e67c7bdc019498d35d7e9f5dfc8402ea57e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cad68afd02694ec471d032a554ed468691ff914b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105469"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Résoudre des problèmes liés à l’accès au portail MyApps et à son utilisation
 
@@ -95,8 +96,8 @@ Si vous avez installé l’extension et que vous rencontrez toujours des problè
 
 ## <a name="how-do-i-add-a-new-app"></a>Comment ajouter une nouvelle application ?
 
-1.  Dans la page **Applications**, sélectionnez **Ajouter une application**.
-2.  Recherchez l’application que vous souhaitez ajouter, puis sélectionnez **Ajouter**.
+1. Dans la page **Applications**, sélectionnez **Ajouter une application**.
+2. Recherchez l’application que vous souhaitez ajouter, puis sélectionnez **Ajouter**.
 
    > [!NOTE]
    > * Vous ne pouvez accéder à cette option que si votre administrateur l’a activée pour votre compte.

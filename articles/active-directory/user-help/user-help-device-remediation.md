@@ -1,5 +1,5 @@
 ---
-title: Raisons possibles du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici » dans Azure Active Directory | Microsoft Docs
+title: Résoudre l’erreur « Vous ne pouvez pas y accéder à partir d’ici » - Azure Active Directory | Microsoft Docs
 description: Identifiez et traitez les raisons potentielles du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7cd67a9a7027e8567e470acab006fd09748de54
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181709"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452022"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Raisons potentielles du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 Lorsque vous accédez aux applications ou services web internes de votre organisation, le message d’erreur **Vous ne pouvez pas y accéder à partir d’ici** peut s’afficher. Ce message signifie que votre organisation a mis en place une stratégie qui empêche votre appareil d’accéder à ses ressources. Avant de contacter votre service d’assistance pour résoudre le problème, voici un certain nombre de choses que vous pouvez essayer préalablement.

@@ -5,24 +5,24 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 2/4/2019
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 9097f2b70a80431cf3302555ad2c835338cf8d8e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 3e6bde63c5f759ec711b243fc25fa0ed8bde634a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736110"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58016471"
 ---
 | Ressource | Limite par défaut |
 | --- | --- |
-| Données traitées |1000 To/pare-feu/mois <sup>1</sup> |
-|Règles|10k : combinaison de tous les types de règles|
+| Débit de données |30 Gbits/s<sup>1</sup> |
+|Règles|10 000, tous les règles des types associés.|
 |Homologation globale|Non pris en charge. Vous devez avoir au moins un déploiement de pare-feu par région.|
 |Taille minimale d’AzureFirewallSubnet |/26|
 |Plage de ports dans les règles de réseau et d’application|0-64,000. Nous nous efforçons actuellement d’assouplir cette limitation.|
 |
 
 
-<sup>1</sup> Pour relever ces limites, contactez le support technique Azure.
+<sup>1</sup>si vous avez besoin d’augmenter ces limites, contactez le Support Azure.

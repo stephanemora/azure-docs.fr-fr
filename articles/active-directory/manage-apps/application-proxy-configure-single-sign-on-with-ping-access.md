@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16763827c043d56ea9a3d461873dc78456cf678d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164922"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084079"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -76,8 +76,8 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 5. Saisissez les informations concernant votre nouvelle application dans les champs requis. Suivez les conseils ci-dessous pour les paramètres :
    - **URL interne** : logiquement, vous devez indiquer l’URL de la page de connexion de l’application lorsque vous êtes sur le réseau d’entreprise. Pour les besoins de ce partenariat, le connecteur doit traiter le proxy PingAccess en tant que première page de l’application. Utilisez le format suivant : `https://<host name of your PA server>:<port>`. Le port par défaut est 3000, mais vous pouvez le configurer dans PingAccess.
 
-    > [!WARNING]
-    > Pour ce type d’authentification unique, l’URL interne doit utiliser le protocole https et ne peut pas utiliser le protocole http.
+     > [!WARNING]
+     > Pour ce type d’authentification unique, l’URL interne doit utiliser le protocole https et ne peut pas utiliser le protocole http.
 
    - **Méthode de pré-authentification** : Azure Active Directory
    - **Traduire l’URL dans les en-têtes** : Non 
@@ -91,49 +91,49 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 9. Dans le panneau de gestion de l’application, sélectionnez **Authentification unique**.
 10. Choisissez **Authentification basée sur un en-tête** dans le menu déroulant. Sélectionnez **Enregistrer**.
 
-   >[!TIP]
-   >S’il s’agit votre première authentification unique basée sur un en-tête, vous devez installer PingAccess. Pour vous assurer que votre abonnement Azure est automatiquement associé à votre installation PingAccess, utilisez le lien de cette page d’authentification unique afin de télécharger PingAccess. Vous pouvez ouvrir le site de téléchargement maintenant ou revenir sur cette page ultérieurement. 
+    >[!TIP]
+    >S’il s’agit votre première authentification unique basée sur un en-tête, vous devez installer PingAccess. Pour vous assurer que votre abonnement Azure est automatiquement associé à votre installation PingAccess, utilisez le lien de cette page d’authentification unique afin de télécharger PingAccess. Vous pouvez ouvrir le site de téléchargement maintenant ou revenir sur cette page ultérieurement. 
 
-   ![Sélectionner l’authentification basée sur un en-tête](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+    ![Sélectionner l’authentification basée sur un en-tête](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
 11. Fermez le panneau des applications d’entreprise ou faites défiler vers la gauche pour revenir au menu Azure Active Directory.
 12. Sélectionnez **Inscriptions d’applications**.
 
-   ![Sélectionner Inscriptions d’applications](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+    ![Sélectionner Inscriptions d’applications](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 
 13. Sélectionnez l’application que vous venez d’ajouter, puis sélectionnez **Reply URLs (URL de réponse)**.
 
-   ![Sélectionner URL de réponse](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+    ![Sélectionner URL de réponse](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
 14. Vérifiez si l’URL externe que vous avez affectée à votre application à l’étape 5 figure dans la liste des URL de réponse. Si tel n’est pas le cas, ajoutez-la maintenant.
 15. Dans le panneau Paramètres d’application, sélectionnez **Required permissions (Autorisations requises)**.
 
-  ![Sélectionner Autorisations requises](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+    ![Sélectionner Autorisations requises](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 16. Sélectionnez **Ajouter**. Pour l’API, choisissez **Windows Azure Active Directory**, puis **Sélectionner**. Pour les autorisations, choisissez **Lire et écrire toutes les applications** et **Se connecter et lire le profil utilisateur**, puis **Sélectionner** et **Terminé**.  
 
-  ![Sélectionner les autorisations](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![Sélectionner les autorisations](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. Attribuez les autorisations avant de fermer la fenêtre des autorisations. 
-![Accorder des autorisations](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![Accorder des autorisations](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Collecter les informations pour la procédure PingAccess
 
 1. Dans le panneau des paramètres de l’application, sélectionnez **Propriétés**. 
 
-  ![Sélectionner Propriétés](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+   ![Sélectionner Propriétés](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
 2. Enregistrez la valeur figurant dans **ID de l’Application**. Cette information est utilisée comme ID de client lors de la configuration de PingAccess.
 3. Dans le panneau des paramètres de l’application, sélectionnez **Clés**.
 
-  ![Sélectionner Clés](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+   ![Sélectionner Clés](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
 
 4. Créez une clé en entrant une description et en choisissant une date d’expiration dans le menu déroulant.
 5. Sélectionnez **Enregistrer**. Un GUID s’affiche dans le champ **Valeur**.
 
-  Enregistrez cette valeur maintenant, car vous ne la reverrez plus, une fois cette fenêtre fermée.
+   Enregistrez cette valeur maintenant, car vous ne la reverrez plus, une fois cette fenêtre fermée.
 
-  ![Créer une clé](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+   ![Créer une clé](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
 
 6. Fermez le panneau des inscriptions d’application ou faites défiler vers la gauche pour revenir au menu Azure Active Directory.
 7. Sélectionner **Propriétés**.

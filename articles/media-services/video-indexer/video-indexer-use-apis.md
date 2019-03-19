@@ -9,21 +9,21 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc3e654e741fd1a326c83e51c72284f41ad74798
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862714"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Tutoriel : Utiliser l’API Video Indexer
+# <a name="tutorial-use-the-video-indexer-api"></a>Didacticiel : Utiliser l’API Video Indexer
 
 > [!Note]
 > L’API Video Indexer v1 est déconseillée depuis le 1er août 2018. Vous devez désormais utiliser l’API Video Indexer v2. <br/>Pour développer avec les API Video Indexer V2, consultez les instructions fournies [ici](https://api-portal.videoindexer.ai/). 
 
 Video Indexer consolide plusieurs technologies audio et vidéo d’intelligence artificielle (IA) proposées par Microsoft dans un seul service intégré, ce qui simplifie le développement. Les API sont conçues pour permettre aux développeurs de se concentrer sur l’utilisation des technologies d’intelligence artificielle multimédia sans vous soucier de la mise à l’échelle, de la portée mondiale, de la disponibilité ou de la fiabilité de la plateforme cloud. Vous pouvez utiliser l’API, entre autres, pour charger vos fichiers, obtenir des aperçus détaillés des vidéos et obtenir les URL des widgets de lecteur et des informations, afin de les incorporer dans votre application.
 
-Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte Azure Media Services. 
+Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte Azure Media Services. 
 
 Cet article explique comment les développeurs peuvent tirer parti de l’[API Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -33,10 +33,10 @@ Cet article explique comment les développeurs peuvent tirer parti de l’[API V
     
     ![Se connecter](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * Vous devez utiliser le même fournisseur que lorsque vous vous êtes inscrit à Video Indexer.
-    > * Les comptes Google et Microsoft (live/outlook) personnels ne peuvent être utilisés que pour les comptes d’évaluation. Les comptes connectés à Azure nécessitent Azure AD.
-    > * Il ne peut y avoir qu’un seul compte actif par adresse électronique. Si un utilisateur tente de se connecter avec user@gmail.com pour LinkedIn et après avec user@gmail.com pour Google, ce dernier affiche une page d’erreur, indiquant que l’utilisateur existe déjà.
+   > [!Important]
+   > * Vous devez utiliser le même fournisseur que lorsque vous vous êtes inscrit à Video Indexer.
+   > * Les comptes Google et Microsoft (live/outlook) personnels ne peuvent être utilisés que pour les comptes d’évaluation. Les comptes connectés à Azure nécessitent Azure AD.
+   > * Il ne peut y avoir qu’un seul compte actif par adresse électronique. Si un utilisateur tente de se connecter avec user@gmail.com pour LinkedIn et après avec user@gmail.com pour Google, ce dernier affiche une page d’erreur, indiquant que l’utilisateur existe déjà.
 
 2. Abonnez-vous.
 
@@ -72,7 +72,7 @@ Pour faciliter les choses, vous pouvez utiliser l’API **Autorisation** > **Ge
 
 Les jetons d’accès expirent au bout d’une heure. Assurez-vous que votre jeton d’accès est valide avant d’utiliser l’API Opérations. S’il a expiré, rappelez l’API Autorisation pour obtenir un nouveau jeton d’accès.
  
-Vous êtes prêt à commencer l’intégration avec l’API. Rechercher [la description détaillée de chaque API REST Video Indexer](http://api-portal.videoindexer.ai/).
+Vous êtes prêt à commencer l’intégration avec l’API. Rechercher [la description détaillée de chaque API REST Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="location"></a>Lieu
 

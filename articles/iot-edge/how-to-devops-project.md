@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122890"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Créer un pipeline CI/CD pour IoT Edge avec Azure DevOps Projects (préversion)
 
@@ -127,7 +127,7 @@ Dans les précédentes sections, Azure DevOps Projects a configuré automatiquem
 
 12. Dans le menu de votre pipeline de mise en production, sélectionnez **Tâches**, puis la phase **dev** dans la liste déroulante. DevOps Projects a mis en place une phase de mise en production qui crée un IoT hub, crée un appareil IoT Edge dans ce hub, déploie l'exemple de module provenant du pipeline de build et configure une machine virtuelle à exécuter en tant qu'appareil IoT Edge. Pour plus d’informations sur les tâches Azure IoT Edge pour le déploiement continu, consultez [Configurer Azure Pipelines pour le déploiement continu](how-to-ci-cd.md#configure-continuous-deployment).
 
-   ![Afficher les tâches de déploiement continu](media/how-to-devops-project/dev-release.png)
+    ![Afficher les tâches de déploiement continu](media/how-to-devops-project/dev-release.png)
 
 13. Sur la droite, sélectionnez **Afficher les mises en production**. Cette vue affiche un historique des mises en production.
 

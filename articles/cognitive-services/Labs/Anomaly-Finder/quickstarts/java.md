@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 7b85faf2e1803b40f3f2f0e49c5672b96e7961f5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0f96ee13e6020bc69508f8ced45741fe7dec396a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224341"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732877"
 ---
 # <a name="use-the-anomaly-finder-api-with-java"></a>Utiliser l’API Recherche d’anomalies avec Java
 
@@ -22,7 +22,7 @@ ms.locfileid: "55224341"
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Détection d’anomalies à l’aid de Java en vue d’obtenir les résultats de détection d’anomalies sur des données de série chronologique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

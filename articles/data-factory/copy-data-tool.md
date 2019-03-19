@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 8941ec26cef5e3dc2f17faf0d7eb843b76f8926f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331835"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101752"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Outil Copier des données dans Azure Data Factory
 L’outil Copier des données d’Azure Data Factory facilite et optimise le processus de réception des données dans Azure Data Lake, qui est généralement la première étape dans un scénario d’intégration des données de bout en bout.  Il permet de gagner du temps, surtout lorsque vous utilisez Azure Data Factory pour réceptionner des données à partir d’une source de données pour la première fois. Voici certains des avantages de l’utilisation de cet outil :
@@ -48,7 +48,7 @@ Cet outil vous permet de déplacer facilement et en quelques minutes des donnée
 5. Examinez le **résumé** des entités Data Factory à créer. 
 6. **Modifiez** le pipeline pour mettre à jour les paramètres de l’activité de copie, selon les besoins. 
 
- La conception de l’outil est particulièrement adaptée au Big Data, avec la prise en charge de divers types d’objet et de données. Vous pouvez l’utiliser pour déplacer des centaines de dossiers, fichiers ou tables. L’outil prend en charge l’aperçu des données automatique, la capture et le mappage automatique de schéma, ainsi que le filtrage des données.
+   La conception de l’outil est particulièrement adaptée au Big Data, avec la prise en charge de divers types d’objet et de données. Vous pouvez l’utiliser pour déplacer des centaines de dossiers, fichiers ou tables. L’outil prend en charge l’aperçu des données automatique, la capture et le mappage automatique de schéma, ainsi que le filtrage des données.
 
 ![Outil Copier des données](./media/copy-data-tool/copy-data-tool.png)
 

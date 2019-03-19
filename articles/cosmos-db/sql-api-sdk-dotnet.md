@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 92d5d458615b029553dee2f8047c85e3fb5f9696
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838916"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Kit de développement logiciel .NET Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -47,6 +47,10 @@ ms.locfileid: "55892593"
 * Nouveau modèle d’objet, avec le CosmosClient de niveau supérieur et les méthodes réparties entre les classes CosmosDatabases, CosmosContainers et CosmosItems appropriées. 
 * Prise en charge des flux. 
 * Mise à jour de CosmosResponseMessage à partir du serveur pour renvoyer le code d’état, et levée d’une seule exception si aucune réponse n’est retournée. 
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+
+* Améliorations des Diagnostics
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -357,6 +361,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |11 février 2019 |--- |
 | [2.2.2](#2.2.2) |06 février 2019 |--- |
 | [2.2.1](#2.2.1) |24 décembre 2018 |--- |
 | [2.2.0](#2.2.0) |7 décembre 2018 |--- |

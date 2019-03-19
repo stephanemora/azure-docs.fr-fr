@@ -7,14 +7,14 @@ manager: shivamg
 keywords: récupération au niveau élément ; récupération de fichiers à partir d’une sauvegarde de machine virtuelle Azure ; restaurer des fichiers à partir d’une machine virtuelle Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2018
-ms.author: pvrk
-ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.date: 3/01/2019
+ms.author: pullabhk
+ms.openlocfilehash: 25c78e4050f1f5fdb02500fa1f206f6cf05e7134
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488490"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111954"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -29,7 +29,7 @@ La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles 
 
 Pour restaurer des fichiers ou dossiers à partir du point de récupération, accédez à la machine virtuelle et choisissez le point de récupération.
 
-1. Connectez-vous au [Portail Azure](http://portal.Azure.com), puis, dans le volet de gauche, cliquez sur **Machines virtuelles**. Dans la liste des machines virtuelles, sélectionnez la machine virtuelle pour ouvrir son tableau de bord.
+1. Connectez-vous au [Portail Azure](https://portal.Azure.com), puis, dans le volet de gauche, cliquez sur **Machines virtuelles**. Dans la liste des machines virtuelles, sélectionnez la machine virtuelle pour ouvrir son tableau de bord.
 
 2. Dans le menu de la machine virtuelle, cliquez sur **Sauvegarder** pour ouvrir le tableau de bord de sauvegarde.
 
@@ -73,11 +73,17 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
         - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Pour Azure Allemagne)
     - port sortant 3260
 
-    Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.
+> [!Note]
+> 
+> * Le nom de fichier de script téléchargé aura le **géo-name** doivent être remplis dans l’URL. Pour, par exemple : Le nom de script téléchargé commence par \'VMname\'\_\'geoname\'_\'GUID\', telles que ContosoVM_wcus_12345678...<br><br>
+> * L’URL serait «<https://pod01-rec2.wcus.backup.windowsazure.com>»
 
-    L’accès à download.microsoft.com est nécessaire pour télécharger les composants servant à créer un canal sécurisé entre l’ordinateur sur lequel est exécuté le script et les données du point de récupération.
 
-    Vous pouvez exécuter le script sur n’importe quelle machine dotée du même système d’exploitation (ou d’un système d’exploitation compatible) que la machine virtuelle sauvegardée. Consultez le [tableau de compatibilité des systèmes d’exploitation](backup-azure-restore-files-from-vm.md#system-requirements) pour connaître les systèmes d’exploitation compatibles. Si la machine virtuelle Azure protégée utilise des espaces de stockage Windows (pour les machines virtuelles Azure Windows) ou le LVM/des baies RAID (pour les machines virtuelles Linux), vous ne pouvez pas exécuter le script exécutable sur cette machine virtuelle. Au lieu de cela, exécutez le fichier exécutable ou le script sur n’importe quelle autre machine avec un système d’exploitation compatible.
+   Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.
+
+   L’accès à download.microsoft.com est nécessaire pour télécharger les composants servant à créer un canal sécurisé entre l’ordinateur sur lequel est exécuté le script et les données du point de récupération.
+
+   Vous pouvez exécuter le script sur n’importe quelle machine dotée du même système d’exploitation (ou d’un système d’exploitation compatible) que la machine virtuelle sauvegardée. Consultez le [tableau de compatibilité des systèmes d’exploitation](backup-azure-restore-files-from-vm.md#system-requirements) pour connaître les systèmes d’exploitation compatibles. Si la machine virtuelle Azure protégée utilise des espaces de stockage Windows (pour les machines virtuelles Azure Windows) ou le LVM/des baies RAID (pour les machines virtuelles Linux), vous ne pouvez pas exécuter le script exécutable sur cette machine virtuelle. Au lieu de cela, exécutez le fichier exécutable ou le script sur n’importe quelle autre machine avec un système d’exploitation compatible.
 
 ### <a name="identifying-volumes"></a>Identification des volumes
 
@@ -92,7 +98,7 @@ Lorsque vous exécutez l’exécutable, le système d’exploitation monte les n
 Sous Linux, les volumes de point de récupération sont montés sur le dossier dans lequel le script est exécuté. Les disques attachés, les volumes et les chemins d’accès de montage correspondants sont affichés en conséquence. Ces chemins de montage sont visibles aux utilisateurs ayant un accès root. Parcourez les volumes mentionnés dans la sortie du script.
 
   ![Menu Récupération de fichier Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
-  
+
 ## <a name="closing-the-connection"></a>Fermeture de la connexion
 
 Après avoir identifié les fichiers et les avoir copiés dans un emplacement de stockage local, supprimez (ou démontez) les lecteurs supplémentaires. Pour démonter les lecteurs, dans le menu **Récupération de fichier** du portail Azure, cliquez sur **Démonter les disques**.
@@ -109,8 +115,8 @@ Sous Linux, une fois la connexion au point de récupération interrompue, le sys
 
 Si la machine virtuelle Azure protégée dispose de volumes ayant une ou plusieurs des caractéristiques suivantes, vous ne pouvez pas exécuter le script exécutable sur la même machine virtuelle.
 
-    - Volumes qui s’étendent sur plusieurs disques (volumes fractionnés et agrégés par bandes)
-    - Volumes à tolérance de pannes (volumes RAID-5 ou en miroir) sur des disques dynamiques
+- Volumes qui s’étendent sur plusieurs disques (volumes fractionnés et agrégés par bandes)
+- Volumes à tolérance de pannes (volumes RAID-5 ou en miroir) sur des disques dynamiques
 
 Au lieu de cela, exécutez le script exécutable sur n’importe quel autre ordinateur disposant d’un système d’exploitation compatible.
 
@@ -200,6 +206,11 @@ Sur Linux, le système d’exploitation de l’ordinateur utilisé pour restaure
 | SLES | 12 et versions ultérieures |
 | openSUSE | 42.2 et versions ultérieures |
 
+> [!Note]
+> Nous avons trouvé certains problèmes dans le script de récupération de fichier en cours d’exécution sur des ordinateurs avec le système d’exploitation de SLES 12 SP4. Examen avec l’équipe SLES.
+> Actuellement, en cours d’exécution, le script de récupération de fichier travaille sur les machines avec les versions de SLES 12 SP2 et SP3 du système d’exploitation.
+>
+
 Le script requiert également les composants Python et bash pour exécuter et établir une connexion sécurisée avec le point de récupération.
 
 |Composant | Version  |
@@ -221,3 +232,41 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 | Sortie de l’exécutable : Le script est exécuté avec succès, mais le message « New volumes attached » (Nouveaux volumes connectés) ne s’affiche pas dans la sortie du script |    Il s’agit d’une erreur temporaire.    | Les volumes seraient déjà connectés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez toujours le même ordinateur pour exécuter les scripts, essayez de le redémarrer et la liste devrait s’afficher lors des prochaines exécutions du fichier exécutable. |
 | Propre à Linux : Impossible d’afficher les volumes souhaités | Le système d’exploitation de la machine sur laquelle est exécuté le script peut ne pas reconnaître le système de fichiers sous-jacent de la machine virtuelle protégée | Vérifiez si le point de récupération est cohérent en cas d’incident ou cohérent avec les fichiers. S’il est cohérent avec les fichiers, exécutez le script sur une autre machine dont le système d’exploitation reconnaît le système de fichiers de la machine virtuelle protégée |
 | Propre à Windows : Impossible d’afficher les volumes souhaités | Les disques ont peut-être été attachés, mais les volumes n’ont pas été configurés. | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si l’état de l’un de ces disques est hors connexion, essayez de le mettre en ligne en cliquant avec le bouton droit sur le disque, puis sur « En ligne ».|
+
+## <a name="security"></a>Sécurité
+
+Cette section décrit les diverses mesures de sécurité nécessaire pour l’implémentation de la récupération de fichier à partir de sauvegardes de machine virtuelle Azure, telles que les utilisateurs soient informés des aspects de sécurité de la fonctionnalité.
+
+### <a name="feature-flow"></a>Flux de fonctionnalité
+
+Cette fonctionnalité a été conçue pour accéder aux données de machine virtuelle sans avoir besoin de restaurer la machine virtuelle ou machine virtuelle entière des disques et dans la procédure minimale. Accès aux données de la machine virtuelle est fourni par un script (qui monte le volume de récupération lors de l’exécuter comme indiqué ci-dessous) et par conséquent, elle constitue la pierre angulaire de toutes les implémentations de sécurité
+
+  ![Flux de fonctionnalité de sécurité](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
+
+### <a name="security-implementations"></a>Implémentations de sécurité
+
+#### <a name="select-recovery-point-who-can-generate-script"></a>Sélectionnez le point de récupération (qui peut générer un script)
+
+Le script fournit l’accès aux données de la machine virtuelle, il convient de réglementer qui peut la générer en premier lieu. Un doit se connecter au portail Azure et doit être [RBAC autorisée](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) pour être en mesure de générer le script.
+
+Récupération de fichier doit le même niveau d’autorisation en fonction des besoins de la restauration de disques et de restauration de la machine virtuelle. En d’autres termes, seuls les utilisateurs autorisés permettre visualiser les données de la machine virtuelle peut générer le script.
+
+Le script généré est signé avec un certificat officiel de Microsoft pour le service sauvegarde Azure. Toute tentative de falsification avec le script signifie que la signature est rompue et toute tentative pour exécuter le script est mis en surbrillance comme un risque potentiel par le système d’exploitation.
+
+#### <a name="mount-recovery-volume-who-can-run-script"></a>Volume de récupération de montage (qui peut s’exécuter script)
+
+Seul l’administrateur peut exécuter le script et doit l’exécuter en mode élevé. Le script exécute un ensemble prégénéré des étapes uniquement et n’accepte pas d’entrée à partir de n’importe quelle source externe.
+
+Pour exécuter le script, une nécessite un mot de passe qui est uniquement visibles par l’utilisateur autorisé au moment de la génération du script dans le portail Azure ou PowerShell/CLI. Il s’agit pour vous assurer que l’utilisateur autorisé qui télécharge le script est également chargé d’exécuter le script.
+
+#### <a name="browse-files-and-folders"></a>Parcourir les fichiers et dossiers
+
+Pour parcourir les fichiers et dossiers, le script utilise l’initiateur iSCSI sur l’ordinateur et vous connecter au point de récupération qui est configuré en tant qu’une cible iSCSI. Ici, on peut supposer les scénarios où l'on veut imiter/usurpation d’identité soit/tous les composants.
+
+Nous utilisons le mécanisme d’authentification CHAP mutuels afin que chaque composant s’authentifie à l’autre. Cela signifie qu’il est extrêmement difficile pour un initiateur factice pour se connecter à la cible iSCSI et une cible de fausse à être connecté à l’ordinateur où le script est exécuté.
+
+Le flux de données entre le service de récupération et de l’ordinateur est protégé par la création d’un tunnel SSL sécurisé sur TCP ([TLS 1.2 doit être pris en charge](#system-requirements) sur l’ordinateur où le script est exécuté)
+
+N’importe quel fichier contrôle liste accès (ACL) présents dans le parent/sauvegardé une machine virtuelle sont également conservés dans le système de fichiers monté.
+
+Le script donne accès en lecture seule à un point de récupération et n’est valide pendant 12 heures seulement. Si l’utilisateur souhaite supprimer l’accès précédemment, puis connectez-vous à Azure Portal/PowerShell/CLI et effectuer le **démonter les disques** pour ce point de récupération particulier. Le script est invalidé immédiatement.

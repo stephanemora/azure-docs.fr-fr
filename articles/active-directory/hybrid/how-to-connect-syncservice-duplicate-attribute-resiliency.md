@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd05913a982d88a1e4fe4ff72bca0387e280e230
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838389"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronisation des identités et résilience d’attribut en double
 La résilience d’attribut en double est une fonctionnalité d’Azure Active Directory qui élimine les problèmes liés aux conflits entre **UserPrincipalName** et **ProxyAddress** lors de l’exécution de l’un des outils de synchronisation de Microsoft.
@@ -40,7 +40,7 @@ En cas de tentative d’approvisionnement d’un nouvel objet avec une valeur UP
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportement avec une résilience d’attribut en double
 Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est  
-« ***<OriginalPrefix>+<4chiffres>@<InitialTenantDomain>.onmicrosoft.com*** ».  
+«***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***».  
 Si l’attribut n’est pas obligatoire, comme **ProxyAddress**, Azure Active Directory met simplement en quarantaine l’attribut à l’origine du conflit et poursuit la création ou la mise à jour de l’objet.
 
 Lorsque l’attribut est mis en quarantaine, des informations sur le conflit sont envoyées dans le même e-mail de rapport d’erreur utilisé avec l’ancien comportement. Toutefois, ces informations n’apparaissent qu’une fois dans le rapport d’erreurs (lors de la mise en quarantaine) ; elles ne sont pas consignées dans les e-mails suivants. En outre, étant donné que l’exportation de cet objet a réussi, le client de synchronisation ne consigne pas d’erreur et ne retente pas la création/la mise à jour lors des cycles de synchronisation suivants.
@@ -144,9 +144,9 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 1. Les objets ayant une configuration d’attribut spécifique continuent à recevoir des erreurs d’exportation ; les attributs dupliqués ne sont pas mis en quarantaine.  
    Par exemple : 
    
-    a. Le nouvel utilisateur est créé dans AD avec les attributs UPN **Joe@contoso.com** et ProxyAddress **smtp:Joe@contoso.com**
+    a. Nouvel utilisateur est créé dans AD avec un nom UPN **Joe\@contoso.com** et ProxyAddress **smtp:Joe\@contoso.com**
    
-    b. Les propriétés de cet objet sont en conflit avec un Groupe existant, où ProxyAddress est **SMTP:Joe@contoso.com**.
+    b. Les propriétés de cet objet sont en conflit avec un groupe existant, où ProxyAddress est **SMTP:Joe\@contoso.com**.
    
     c. Lors de l’exportation, une erreur de **conflit ProxyAddress** est générée au lieu de la mise en quarantaine des attributs à l’origine du conflit. L’opération est retentée à chaque cycle de synchronisation, comme cela était le cas avant l’activation de la fonction de résilience.
 2. Si deux Groupes sont créés en local avec la même adresse SMTP, l’approvisionnement de l’un d’entre eux échoue à la première tentative, ce qui génère une erreur standard d’attribut **ProxyAddress** en double. Toutefois, la valeur en double est bien mise en quarantaine lors du prochain cycle de synchronisation.
@@ -156,13 +156,13 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 1. Le message d’erreur détaillé pour deux objets dans un ensemble de conflit UPN est le même. Cela indique que l’UPN des deux objets a changé/été mis en quarantaine, alors que seules les données de l’un d’entre eux ont changé.
 2. Le message d’erreur détaillé d’un conflit UPN affiche une propriété displayName incorrecte pour un utilisateur dont l’UPN a changé/été mis en quarantaine. Par exemple : 
    
-    a. **L’utilisateur A** est synchronisé en premier avec **UPN = User@contoso.com**.
+    a. **L’utilisateur A** se synchronise en premier avec **UPN = utilisateur\@contoso.com**.
    
-    b. **L’utilisateur B** fait ensuite l’objet d’une tentative de synchronisation avec **UPN = User@contoso.com**.
+    b. **L’utilisateur B** est tentée à synchroniser maintenant avec **UPN = utilisateur\@contoso.com**.
    
-    c. L’UPN de **lutilisateur B** est remplacé par **User1234@contoso.onmicrosoft.com** et **User@contoso.com** est ajouté dans **DirSyncProvisioningErrors**.
+    c. **L’utilisateur B** UPN est remplacée par **User1234\@contoso.onmicrosoft.com** et **utilisateur\@contoso.com** est ajouté à **DirSyncProvisioningErrors** .
    
-    d. Le message d’erreur de **l’utilisateur B** doit indiquer que **l’utilisateur A** a déjà **User@contoso.com** comme UPN, mais il affiche le paramètre displayName de **l’utilisateur B**.
+    d. Le message d’erreur pour **utilisateur B** doit indiquer que **utilisateur A** a déjà **utilisateur\@contoso.com** comme un UPN, mais il montre **l’utilisateur B** propre displayName.
 
 **Rapport d’erreur de synchronisation d’identité** :
 

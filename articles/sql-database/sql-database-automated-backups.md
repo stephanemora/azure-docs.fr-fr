@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453577"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882707"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -42,7 +42,7 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
 
-Chaque base de données SQL Database a une période de rétention de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du modèle d’achat et du niveau de service. Vous pouvez mettre à jour la période de rétention des sauvegardes d’une base de données sur le serveur SQL Database. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
+Chaque base de données SQL Database a une période de rétention de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du modèle d’achat et du niveau de service. Vous pouvez mettre à jour de la période de rétention des sauvegardes pour une base de données sur le serveur de base de données SQL. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
 
 Si vous supprimez une base de données, SQL Database conserve les sauvegardes de la même façon que s’il s’agissait d’une base de données en ligne. Par exemple, si vous supprimez une base de données De base dont la période de conservation est de sept jours, une sauvegarde datant de quatre jours est enregistrée pendant encore trois jours.
 
@@ -66,7 +66,7 @@ La période de conservation par défaut pour une base de données créée à l�
 Si vous utilisez le [modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md), la période de conservation des sauvegardes par défaut est de 7 jours (pour les bases de données uniques, regroupées et d'instances). Pour toutes les bases de données SQL Azure (uniques, regroupées et d'instances), vous pouvez [modifier la période de conservation des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
-> Si vous réduisez la période de rétention actuelle, toutes les sauvegardes antérieures à la nouvelle période de rétention ne seront plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
+> Si vous réduisez la période de rétention en cours, toutes les sauvegardes antérieures à la nouvelle période de rétention ne sont plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
 
 ## <a name="how-often-do-backups-happen"></a>À quelle fréquence les sauvegardes se produisent-elles ?
 
@@ -126,12 +126,13 @@ Pour changer la période de conservation des sauvegardes PITR dans le portail Az
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Modifier la période de conservation des sauvegardes PITR et à l’aide de PowerShell
 
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Cette API est incluse dans AzureRM.Sql PowerShell Module depuis la version [4.7.0-préversion](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview).
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>Modifier la période de conservation PITR à l’aide de l’API REST
 
@@ -145,9 +146,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
-      "retentionDays":28
-   }
+  "properties":{
+    "retentionDays":28
+  }
 }
 ```
 
@@ -174,4 +175,4 @@ Pour plus d’informations, consultez [API REST de conservation des sauvegardes]
 - Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez [Restauration d’une base de données à un point dans le temps à l’aide du portail Azure](sql-database-recovery-using-backups.md).
 - Pour effectuer une restauration à un point dans le temps à l’aide de PowerShell, consultez [Restauration d’une base de données à un point dans le temps à l’aide de PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Pour configurer, gérer et restaurer depuis la conservation à long terme de sauvegardes automatisées dans Stockage Blob Azure avec le portail Azure, consultez [Gestion de la rétention des sauvegardes à long terme à l’aide du Portail Azure](sql-database-long-term-backup-retention-configure.md).
-- Pour configurer, gérer et restaurer depuis la conservation à long terme de sauvegardes automatisées dans Stockage Blob Azure avec PowerShell, consultez [Gestion de la conservation des sauvegardes à long terme avec PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Pour configurer, gérer et restaurer depuis la rétention à long terme des sauvegardes automatisées dans le stockage Blob Azure à l’aide de PowerShell, consultez [gérer la rétention à long terme des sauvegardes à l’aide de PowerShell](sql-database-long-term-backup-retention-configure.md).

@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: 1b5991b7e9bb870fdace4418e23c7f8ff9bf8636
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 2bf9f75442ccf57aa28e6a12f415fb6e4ede78ec
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102009"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553651"
 ---
-Voici la limite d’utilisation du **niveau tarifaire S0** du service Azure Maps. Elle dépend du niveau tarifaire. 
+Le tableau suivant présente la limite d’utilisation pour le niveau de tarification d’Azure Maps S0. Elle dépend du niveau tarifaire. 
 
 | Ressource                              | Limite du niveau tarifaire S0 |
 |---------------------------------------|:---------------------:|
 | Taux de requête maximal par abonnement |   50 requêtes par seconde  |
 
 
-Vous trouverez ci-dessous la limite de taille de données pour le service de données Azure Maps. Le service de données Azure Maps est uniquement disponible au **niveau tarifaire S1**.
+Le tableau suivant présente la limite de taille des données pour Azure Maps. Le service de données Azure Maps est disponible uniquement au niveau de tarification S1.
 
 | Ressource                              | Limite |
 |---------------------------------------|:---------------------:|
 | Taille maximale des données |   50 Mo  |
 
-Pour plus d’informations sur les niveaux tarifaires Azure Maps, voir [Informations sur la tarification d’Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).
+Pour plus d’informations sur les niveaux tarifaires Azure Maps, consultez [tarification d’Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).

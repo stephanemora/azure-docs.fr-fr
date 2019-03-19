@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 12/06/2018
-ms.openlocfilehash: 45cd4e884530836d515e0c6cce8a6fc9be109d88
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 760b292e75b4cc64b85eaf51ffad0521b721dabf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895649"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Faire pivoter le protecteur Chiffrement transparent des données (TDE) à l’aide de PowerShell
 
@@ -33,15 +33,47 @@ Ce guide décrit deux options pour faire pivoter le protecteur TDE sur le serveu
 > **Ne supprimez pas** les versions précédentes de la clé après une substitution.  Lorsque les clés sont substituées, certaines données sont toujours chiffrées avec les clés précédentes, comme les anciennes sauvegardes de base de données. 
 >
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-- Ce guide pratique part du principe que vous utilisez déjà une clé Azure Key Vault comme protecteur TDE pour une entité SQL Azure Database ou Data Warehouse. Voir [Transparent Data Encryption avec l’intégration d’Azure Key Vault - Prise en charge BYOK](transparent-data-encryption-byok-azure-sql.md).
-- Azure PowerShell version 3.7.0.x ou ultérieure doit être installé et en cours d’exécution. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+
+- Ce guide pratique part du principe que vous utilisez déjà une clé Azure Key Vault comme protecteur TDE pour une entité SQL Azure Database ou Data Warehouse. Consultez [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md) (Chiffrement transparent des données avec prise en charge BYOK).
+- Vous devez disposer d’Azure PowerShell est installé et en cours d’exécution.
 - [Recommandé mais facultatif] Créez tout d’abord le matériel de clé pour le protecteur TDE dans un module de sécurité matériel (HSM) ou le magasin de clés local, puis importez le matériel de clé dans Azure Key Vault. Suivez le [instructions sur l’utilisation d’un module de sécurité matériel (HSM) et Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) pour en savoir plus.
 
 ## <a name="manual-key-rotation"></a>Rotation des clés manuelle
 
-La rotation des clés manuelle utilise les applets de commande [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) et [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) pour ajouter une toute nouvelle clé, qui peut être créée sous un nouveau nom de clé, voire un autre coffre de clés. L’utilisation de cette approche prend en charge l’ajout de la même clé à différents coffres de clés afin de prendre en charge les scénarios de haute disponibilité et de géo-reprise.
+Rotation des clés manuelle utilise le [Add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), et [AzSqlServerTransparentDataEncryptionProtector de jeu](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) applets de commande pour ajouter un clé entièrement nouvelle, qui peut être sous un nouveau nom de clé ou même un autre coffre de clés. L’utilisation de cette approche prend en charge l’ajout de la même clé à différents coffres de clés afin de prendre en charge les scénarios de haute disponibilité et de géo-reprise.
+
+>[!NOTE]
+>La longueur combinée du nom du coffre de clés et du nom de la clé ne peut pas dépasser 94 caractères.
+
+   ```powershell
+   # Add a new key to Key Vault
+   Add-AzKeyVaultKey `
+   -VaultName <KeyVaultName> `
+   -Name <KeyVaultKeyName> `
+   -Destination <HardwareOrSoftware>
+
+   # Add the new key from Key Vault to the server
+   Add-AzSqlServerKeyVaultKey `
+   -KeyId <KeyVaultKeyId> `
+   -ServerName <LogicalServerName> `
+   -ResourceGroup <SQLDatabaseResourceGroupName>
+  
+   <# Set the key as the TDE protector for all resources under the server #>
+   Set-AzSqlServerTransparentDataEncryptionProtector `
+   -Type AzureKeyVault `
+   -KeyId <KeyVaultKeyId> `
+   -ServerName <LogicalServerName> `
+   -ResourceGroup <SQLDatabaseResourceGroupName>
+   ```
+
+## <a name="option-2-manual-rotation"></a>Option 2 : rotation manuelle
+
+Les utilisations de l’option la [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), et [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) applets de commande pour ajouter un complètement nouvelle clé, qui peut être sous un nouveau nom de clé ou même un autre coffre de clés. 
 
 >[!NOTE]
 >La longueur combinée du nom du coffre de clés et du nom de la clé ne peut pas dépasser 94 caractères.
@@ -49,42 +81,42 @@ La rotation des clés manuelle utilise les applets de commande [Add-AzureKeyVaul
 
    ```powershell
    # Add a new key to Key Vault
-   Add-AzureKeyVaultKey `
+   Add-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -Destination <HardwareOrSoftware>
 
    # Add the new key from Key Vault to the server
-   Add-AzureRmSqlServerKeyVaultKey `
+   Add-AzSqlServerKeyVaultKey `
    -KeyId <KeyVaultKeyId> `
    -ServerName <LogicalServerName> `
    -ResourceGroup <SQLDatabaseResourceGroupName>   
   
    <# Set the key as the TDE protector for all resources 
    under the server #>
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -Type AzureKeyVault `
    -KeyId <KeyVaultKeyId> `
    -ServerName <LogicalServerName> `
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
   
-## <a name="other-useful-powershell-cmdlets"></a>Autres applets de commande PowerShell utiles
+## <a name="other-useful-powershell-cmdlets"></a>Autres cmdlets PowerShell utiles
 
-- Pour faire passer le protecteur TDE du mode géré par Microsoft au mode BYOK, utilisez l’applet de commande [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector).
+- Pour faire passer le protecteur de chiffrement transparent des données à partir de centres de données au mode BYOK, utilisez le [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) applet de commande.
 
    ```powershell
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -Type AzureKeyVault `
    -KeyId <KeyVaultKeyId> `
    -ServerName <LogicalServerName> `
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-- Pour faire passer le protecteur TDE du mode BYOK au mode géré par Microsoft, utilisez l’applet de commande [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector).
+- Pour faire passer le protecteur de TDE du mode BYOK à gérés par Microsoft, utilisez le [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) applet de commande.
 
    ```powershell
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -Type ServiceManaged `
    -ServerName <LogicalServerName> `
    -ResourceGroup <SQLDatabaseResourceGroupName> 

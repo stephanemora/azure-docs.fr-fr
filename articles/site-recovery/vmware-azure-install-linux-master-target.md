@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217983"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099050"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -24,7 +24,7 @@ Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’
 > À partir de la version 9.10.0, le serveur cible maître le plus récent ne peut être installé que sur un serveur Ubuntu 16.04. Les nouvelles installations ne sont pas autorisées sur les serveurs de CentOS6.6. Toutefois, vous pouvez continuer la mise à niveau de vos anciens serveurs cible maître à l’aide de la version 9.10.0.
 > Un serveur cible maître sur une machine virtuelle Linux n’est pas pris en charge.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article fournit la marche à suivre pour installer un serveur cible maître Linux.
 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -62,7 +62,7 @@ Les noyaux Ubuntu suivants sont pris en charge.
 
 Procédez comme suit pour installer le système d’exploitation Ubuntu 16.04.2 64 bits.
 
-1.   Accédez au [lien de téléchargement](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) et choisissez le miroir le plus proche à partir duquel télécharger un fichier ISO Ubuntu 16.04.2 Minimal 64 bits.
+1.   Accédez à la [lien de téléchargement](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choisissez le miroir le plus proche et télécharger un ISO Ubuntu 16.04.2 minimal 64 bits.
 Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et démarrez le système.
 
 1.  Sélectionnez **French** (Français) comme langue par défaut, puis appuyez sur **Entrée**.
@@ -168,15 +168,15 @@ Pour obtenir l’ID de chaque disque dur SCSI d’une machine virtuelle Linux, v
 
 5. Vérifiez si une ligne comportant **disk.EnableUUID** existe.
 
-    - Si le paramètre est présent et a pour valeur **False**, remplacez-la par **True**. (Les valeurs ne respectent pas la casse.)
+   - Si le paramètre est présent et a pour valeur **False**, remplacez-la par **True**. (Les valeurs ne respectent pas la casse.)
 
-    - Si le paramètre existe et a pour valeur **True**, sélectionnez **Cancel** (Annuler).
+   - Si le paramètre existe et a pour valeur **True**, sélectionnez **Cancel** (Annuler).
 
-    - Si le paramètre n’existe pas, sélectionnez **Add Row** (Ajouter une ligne).
+   - Si le paramètre n’existe pas, sélectionnez **Add Row** (Ajouter une ligne).
 
-    - Dans la colonne de nom, ajoutez **disk.EnableUUID**, puis définissez la valeur sur **TRUE**.
+   - Dans la colonne de nom, ajoutez **disk.EnableUUID**, puis définissez la valeur sur **TRUE**.
 
-    ![Vérification de la présence de disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Vérification de la présence de disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Désactiver les mises à niveau du noyau
 
@@ -287,7 +287,6 @@ Pour créer un disque de rétention, procédez comme suit :
 2. Notez l’adresse IP du serveur de configuration. Exécutez la commande suivante pour installer le serveur cible maître et l’inscrire auprès du serveur de configuration.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 

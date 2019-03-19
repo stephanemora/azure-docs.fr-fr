@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2364715bfeaea473db292baff2eb1e1cce3203b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 63fd8f75cb22a4dec888b7765c7515bfb68a4a6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999026"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Déplacer des données depuis Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Pour l’instant, Data Factory permet uniquement de déplacer des données de Sa
 ## <a name="supported-versions"></a>Versions prises en charge
 Ce connecteur prend en charge les éditions suivantes de Salesforce : Developer Edition, Professional Edition, Enterprise Edition et Unlimited Edition. Et il prend en charge la copie de production Salesforce, bac à sable (sandbox) et domaine personnalisé.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * L’autorisation d’API doit être activée. Consultez l’article [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Pour copier des données depuis Salesforce vers des magasins de données locaux, la passerelle de gestion des données version 2.0 doit être au moins installée dans votre environnement local.
 
@@ -45,7 +45,7 @@ Salesforce prend en charge un nombre limité de requêtes d’API totales et de 
 - Si le nombre de requêtes simultanées dépasse la limite autorisée, les nouvelles requêtes seront bloquées avec un risque de défaillances aléatoires.
 - Si le nombre total de requêtes dépasse la limite autorisée, le compte Salesforce sera bloqué pendant 24 heures.
 
-Vous pouvez également recevoir l’erreur « REQUEST_LIMIT_EXCEEDED » dans les deux scénarios. Pour plus de détails, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce).
+Vous pouvez également recevoir l’erreur « REQUEST_LIMIT_EXCEEDED » dans les deux scénarios. Pour plus de détails, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce).
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données de Salesforce en utilisant différents outils/API.
@@ -69,11 +69,11 @@ Le tableau suivant décrit les éléments JSON spécifiques au service lié Sale
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **Salesforce**. |OUI |
+| Type |La propriété type doit être définie sur : **Salesforce**. |Oui |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> - La valeur par défaut est « https://login.salesforce.com ». <br> - Pour copier des données du bac à sable, spécifiez « https://test.salesforce.com ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non  |
-| username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
-| password |Spécifiez le mot de passe du compte d’utilisateur. |OUI |
-| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). |OUI |
+| username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
+| password |Spécifiez le mot de passe du compte d’utilisateur. |Oui |
+| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md) . Les sections comme la structure, la disponibilité et la stratégie d’un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
@@ -283,6 +283,7 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, vo
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mappage de type pour Salesforce
+
 | Type Salesforce | Type basé sur .NET |
 | --- | --- |
 | Numérotation automatique |Chaîne |

@@ -1,21 +1,21 @@
 ---
-author: dominicbetts
+author: wesmc7777
+ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: 13eddced155eab6dedfbce77330e7a178ecfb3cb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165646"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011813"
 ---
 > [!div class="op_single_selector"]
-> * [Device: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Appareil : Service C# : C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
-> * [Appareil : service Java : Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
-> * [Appareil : service Python : Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
+> * [APPAREIL : Service Node.js : Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [APPAREIL : C#Service : C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [APPAREIL : Service Java : Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [APPAREIL : Service Python : Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 Les applications principales peuvent utiliser des primitives Azure IoT Hub, comme [jumeau d’appareil][lnk-devtwin] et [méthodes directes][lnk-c2dmethod], afin de démarrer et surveiller à distance les actions de gestion d’appareil sur les appareils. Ce didacticiel illustre la manière dont une application principale et une application pour périphérique fonctionnent conjointement afin de lancer et de surveiller le redémarrage à distance d’un appareil à l’aide de IoT Hub.
 

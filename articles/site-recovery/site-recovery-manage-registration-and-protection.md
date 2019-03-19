@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810318"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122788"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Supprimer des serveurs et désactiver la protection
 
@@ -55,18 +55,18 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
         pushd .
         try
         {
-             $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
-             $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
-             $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
-             $isAdmin=$principal.IsInRole($administrators)
-             if (!$isAdmin)
-             {
+            $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
+            $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
+            $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
+            $isAdmin=$principal.IsInRole($administrators)
+            if (!$isAdmin)
+            {
                 "Please run the script as an administrator in elevated mode."
                 $choice = Read-Host
-                return;       
-             }
+                return;
+            }
 
-            $error.Clear()    
+            $error.Clear()
             "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
             $choice =  Read-Host
 
@@ -95,24 +95,24 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."    
+                    "Removing registration related registry keys."
                     Remove-Item -Recurse -Path $registrationPath
                 }
 
                 if (Test-Path $proxySettingsPath)
-            {
+                {
                     "Removing proxy settings"
                     Remove-Item -Recurse -Path $proxySettingsPath
                 }
 
                 $regNode = Get-ItemProperty -Path $asrHivePath
                 if($regNode.DraID -ne $null)
-                {            
+                {
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
                 }
                 if($regNode.IdMgmtCloudContainerId -ne $null)
-                {            
+                {
                     "Removing IdMgmtCloudContainerId"
                     Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
@@ -131,7 +131,7 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
                 $store.Remove($cert)
             }
         }catch
-        {    
+        {
             [system.exception]
             Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
@@ -158,11 +158,11 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
 
 1. Dans **Éléments protégés** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine et sélectionnez **Désactiver la réplication**.
 2. Dans **Désactiver la réplication**, vous pouvez sélectionner les options suivantes :
-     - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur la machine virtuelle locale est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée.
-    - **Supprimer** : cette option n’est censée être utilisée que si l’environnement source est supprimé ou est inaccessible (non connecté). Elle supprime l’élément répliqué d’Azure Site Recovery (la facturation est arrêtée). La configuration de la réplication sur la machine virtuelle locale **n’est pas** nettoyée. 
+   - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur la machine virtuelle locale est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée.
+   - **Supprimer** : cette option n’est censée être utilisée que si l’environnement source est supprimé ou est inaccessible (non connecté). Elle supprime l’élément répliqué d’Azure Site Recovery (la facturation est arrêtée). La configuration de la réplication sur la machine virtuelle locale **n’est pas** nettoyée. 
 
-    > [!NOTE]
-    > Si vous avez choisi l’option **Supprimer**, exécutez le jeu de scripts suivant pour nettoyer les paramètres de réplication du serveur Hyper-V local.
+     > [!NOTE]
+     > Si vous avez choisi l’option **Supprimer**, exécutez le jeu de scripts suivant pour nettoyer les paramètres de réplication du serveur Hyper-V local.
 1. Sur le serveur hôte Hyper-V source, pour supprimer la réplication de la machine virtuelle, remplacez SQLVM1 par le nom de votre machine virtuelle, puis exécutez le script à partir d’une console PowerShell d’administration.
 
 ```powershell
@@ -177,11 +177,11 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
 1. Dans **Éléments protégés** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine et sélectionnez **Désactiver la réplication**.
 2. Dans **Désactiver la réplication**, sélectionnez une des options suivantes :
 
-    - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur la machine virtuelle locale est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée.
-    - **Supprimer** : cette option n’est censée être utilisée que si l’environnement source est supprimé ou est inaccessible (non connecté). Elle supprime l’élément répliqué d’Azure Site Recovery (la facturation est arrêtée). La configuration de la réplication sur la machine virtuelle locale **n’est pas** nettoyée. 
+   - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur la machine virtuelle locale est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée.
+   - **Supprimer** : cette option n’est censée être utilisée que si l’environnement source est supprimé ou est inaccessible (non connecté). Elle supprime l’élément répliqué d’Azure Site Recovery (la facturation est arrêtée). La configuration de la réplication sur la machine virtuelle locale **n’est pas** nettoyée. 
 
-    > [!NOTE]
-    > Si vous avez choisi l’option **Supprimer**, exécutez les scripts suivants pour nettoyer les paramètres de réplication du serveur VMM local.
+     > [!NOTE]
+     > Si vous avez choisi l’option **Supprimer**, exécutez les scripts suivants pour nettoyer les paramètres de réplication du serveur VMM local.
 3. Exécutez ce script sur le serveur VMM source, en utilisant PowerShell (autorisations d’administrateur requises) à partir de la console VMM. Remplacez l’espace réservé **SQLVM1** par le nom de votre machine virtuelle.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
@@ -201,15 +201,15 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
 1. Dans **Éléments protégés** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine et sélectionnez **Désactiver la réplication**.
 2. Dans **Désactiver la réplication**, sélectionnez une des options suivantes :
 
-    - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur la machine virtuelle locale est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée.
-    - **Supprimer** : cette option n’est censée être utilisée que si l’environnement source est supprimé ou est inaccessible (non connecté). Elle supprime l’élément répliqué d’Azure Site Recovery (la facturation est arrêtée). La configuration de la réplication sur la machine virtuelle locale **n’est pas** nettoyée. Exécutez le jeu de scripts suivant pour nettoyer les paramètres de réplication des machines virtuelles locales.
-> [!NOTE]
-> Si vous avez choisi l’option **Supprimer**, exécutez les scripts suivants pour nettoyer les paramètres de réplication du serveur VMM local.
+   - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur la machine virtuelle locale est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée.
+   - **Supprimer** : cette option n’est censée être utilisée que si l’environnement source est supprimé ou est inaccessible (non connecté). Elle supprime l’élément répliqué d’Azure Site Recovery (la facturation est arrêtée). La configuration de la réplication sur la machine virtuelle locale **n’est pas** nettoyée. Exécutez le jeu de scripts suivant pour nettoyer les paramètres de réplication des machines virtuelles locales.
+     > [!NOTE]
+     > Si vous avez choisi l’option **Supprimer**, exécutez les scripts suivants pour nettoyer les paramètres de réplication du serveur VMM local.
 
 3. Exécutez ce script sur le serveur VMM source, en utilisant PowerShell (autorisations d’administrateur requises) à partir de la console VMM. Remplacez l’espace réservé **SQLVM1** par le nom de votre machine virtuelle.
 
-         $vm = get-scvirtualmachine -Name "SQLVM1"
-         Set-SCVirtualMachine -VM $vm -ClearDRProtection
+        $vm = get-scvirtualmachine -Name "SQLVM1"
+        Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. Sur le serveur VMM secondaire, exécutez ce script pour nettoyer les paramètres de la machine virtuelle secondaire :
 
         $vm = get-scvirtualmachine -Name "SQLVM1"

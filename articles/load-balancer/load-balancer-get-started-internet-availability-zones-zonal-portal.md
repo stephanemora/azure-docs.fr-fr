@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0a746ace4806495b17462b506f030811247240e2
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: c81ff5ea330c4c0ba26a92a3b5399cfa961e4b2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856856"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Créer une instance Standard Load Balancer avec un front-end interzone à l’aide du portail Azure
 
@@ -36,7 +36,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>Créez un équilibreur de charge avec une adresse IP de frontend zonal
 
-1. Dans un navigateur, accédez au portail Azure [http://portal.azure.com](http://portal.azure.com) et connectez-vous avec votre compte Azure.
+1. Dans un navigateur, accédez au portail Azure [https://portal.azure.com](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibrage de charge**.
 3. Dans la page **Créer un équilibreur de charge**, sous **Nom**, tapez **myLoadBalancer**.
 4. Sous **Type**, sélectionnez **Public**.
@@ -46,8 +46,8 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 >[!NOTE] 
 > L’adresse IP publique créée à cette étape a la référence (SKU) Standard par défaut.
 
-7. Pour **Groupe de ressources**, cliquez sur **Créer nouveau**, puis tapez **myResourceGroupZLB** comme nom du groupe de ressources.
-8. Pour **Emplacement**, sélectionnez **Europe Ouest**, puis cliquez sur **OK**. L’équilibreur de charge commence ensuite le déploiement, qui peut prendre plusieurs minutes.
+1. Pour **Groupe de ressources**, cliquez sur **Créer nouveau**, puis tapez **myResourceGroupZLB** comme nom du groupe de ressources.
+1. Pour **Emplacement**, sélectionnez **Europe Ouest**, puis cliquez sur **OK**. L’équilibreur de charge commence ensuite le déploiement, qui peut prendre plusieurs minutes.
 
     ![Créer une instance de Standard Load Balancer redondante interzone à l’aide du portail Azure](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3664e231ad8aabe37fe350ac1eb7be2d27bbcbaa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 71d97481b4d3bff1ef93839f57939875ac9268ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734672"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450058"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de fonctions du langage de définition de workflow dans Azure Logic Apps
 
@@ -3085,7 +3085,7 @@ Et retourne ce tableau avec les éléments restants : `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Retourne un tableau qui contient des sous-chaînes, séparées par des virgules, extraites sur la base du caractère délimiteur spécifié dans la chaîne d’origine.
+Retourne un tableau qui contient les sous-chaînes, séparés par des virgules, selon le caractère délimiteur spécifié dans la chaîne d’origine.
 
 ```
 split('<text>', '<delimiter>')
@@ -3250,7 +3250,7 @@ Et retourne ce résultat : `false`
 
 <a name="string"></a>
 
-### <a name="string"></a>chaîne
+### <a name="string"></a>string
 
 Retourne la version de type chaîne d’une valeur.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56246850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125354"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Architecture de sécurité de l’Internet des objets (IdO)
 
@@ -182,11 +182,11 @@ Dans chacune des catégories présentées dans l’architecture Azure IoT, cet e
 | **Composant** | **Menace** | **Atténuation** | **Risque** | **Implémentation** |
 | --- | --- | --- | --- | --- |
 | Appareil |S |Affectation d’une identité au périphérique et authentification de ce dernier. |Remplacement du périphérique ou d’une partie du périphérique par un autre périphérique. Comment savoir si vous vous adressez à l’appareil approprié ? |Authentification du périphérique à l’aide du protocole TLS (Transport Layer Security) ou IPSec. L’infrastructure doit prendre en charge l’utilisation d’une clé prépartagée (PSK) sur les périphériques qui ne peuvent pas gérer le chiffrement asymétrique complet. Exploitation d’Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
-|| TRID |Application de mécanismes inviolables à l’appareil, par exemple, en rendant difficile, voire impossible, l’extraction des clés et des autres éléments de chiffrement de cet appareil. |Falsification du périphérique (interférence physique) par un tiers. Comment être sûr de la non-falsification de l’appareil. |La prévention la plus efficace consiste à utiliser la fonctionnalité de module de plateforme sécurisée (TPM) qui permet de stocker des clés dans un ensemble de circuits de processeur spécial à partir duquel les clés ne peuvent pas être lues, et peuvent être utilisées uniquement pour les opérations de chiffrement qui utilisent la clé sans jamais la divulguer. Chiffrement de la mémoire du périphérique. Gestion des clés du périphérique. Signature du code. | |
-|| E |Disposer du contrôle d’accès du périphérique. Schéma d’autorisation. |Si l’appareil permet d’effectuer des actions individuelles basées sur des commandes provenant d’une source externe, voire de capteurs compromis, il permet aux personnes malveillantes d’effectuer des opérations non accessibles par ailleurs. |Disposer du schéma d’autorisation pour le périphérique. | |
+|| TRID |Application de mécanismes inviolables à l’appareil, par exemple, en rendant difficile, voire impossible, l’extraction des clés et des autres éléments de chiffrement de cet appareil. |Falsification du périphérique (interférence physique) par un tiers. Comment être sûr de la non-falsification de l’appareil. |La prévention la plus efficace consiste à utiliser la fonctionnalité de module de plateforme sécurisée (TPM) qui permet de stocker des clés dans un ensemble de circuits de processeur spécial à partir duquel les clés ne peuvent pas être lues, et peuvent être utilisées uniquement pour les opérations de chiffrement qui utilisent la clé sans jamais la divulguer. Chiffrement de la mémoire du périphérique. Gestion des clés du périphérique. Signature du code. |
+|| E |Disposer du contrôle d’accès du périphérique. Schéma d’autorisation. |Si l’appareil permet d’effectuer des actions individuelles basées sur des commandes provenant d’une source externe, voire de capteurs compromis, il permet aux personnes malveillantes d’effectuer des opérations non accessibles par ailleurs. |Disposer du schéma d’autorisation pour le périphérique. |
 | Passerelle de champ |S |Authentification de la passerelle de champ auprès de la passerelle cloud (par ex. basée sur les certificats, clé prépartagée, basée sur les revendications...) |Si quelqu’un peut usurper l’identité de la passerelle de champ, elle peut alors se présenter comme un périphérique. |TLS RSA/PSK, IPSe, [RFC 4279](https://tools.ietf.org/html/rfc4279). Mêmes préoccupations de stockage et d’attestation de clés des périphériques en général ; la meilleure approche consiste à utiliser le module de plateforme sécurisée. Extension 6LowPAN pour IPSec afin de prendre en charge des réseaux de capteurs sans fil (WSN). |
-|| TRID |Protection de la passerelle de champ contre la falsification (TPM ?) |Les attaques par usurpation d’identité qui induisent la passerelle cloud en erreur en lui faisant « croire » qu’elle communique avec une passerelle de champ peuvent entraîner la divulgation d’informations et la falsification des données. |Chiffrement de la mémoire, module de plateforme sécurisée, authentification. | |
-|| E |Mécanisme de contrôle d’accès pour la passerelle de champ | | | |
+|| TRID |Protection de la passerelle de champ contre la falsification (TPM ?) |Les attaques par usurpation d’identité qui induisent la passerelle cloud en erreur en lui faisant « croire » qu’elle communique avec une passerelle de champ peuvent entraîner la divulgation d’informations et la falsification des données. |Chiffrement de la mémoire, module de plateforme sécurisée, authentification. |
+|| E |Mécanisme de contrôle d’accès pour la passerelle de champ | | |
 
 Voici quelques exemples de menaces existant dans cette catégorie :
 

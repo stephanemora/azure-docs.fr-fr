@@ -15,12 +15,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e1d3058600bca6630c3efcbb860b7f8eeeaf57
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096858"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Immersion dans la sécurité de l’authentification directe Azure Active Directory
 
@@ -195,8 +195,8 @@ Pour mettre à jour automatiquement un agent d’authentification :
 3. Le programme de mise à jour vérifie que le MSI est signé par Microsoft.
 4. Le programme de mise à jour exécute le MSI. Cette action implique les étapes suivantes :
 
- > [!NOTE]
- > Le programme de mise à jour s’exécute avec les privilèges [Système Local](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
+   > [!NOTE]
+   > Le programme de mise à jour s’exécute avec les privilèges [Système Local](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
 
     - Arrête le service Agent d’authentification
     - Installe la nouvelle version de l’agent d’authentification sur le serveur

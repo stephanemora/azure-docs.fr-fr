@@ -7,16 +7,16 @@ author: cynthn
 manager: jeconnoc
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: howto
+ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 6a116c2f3d92b19f266be4d3b467a93fdeaced2c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888972"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766527"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
@@ -26,7 +26,7 @@ Cet article parcourt l’activation de Hyper-V sur une machine virtuelle Azure e
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Créer une machine virtuelle Azure prenant en charge l’imbrication
 
-Créer une machine virtuelle Azure Windows Server 2016.  Pour référence, toutes les machines virtuelles v3 prennent en charge la virtualisation imbriquée. Pour obtenir la liste complète des tailles de machine virtuelle prenant en charge l’imbrication, consultez l’[article sur l’unité Compute Azure](acu.md).
+Créer une machine virtuelle Azure Windows Server 2016.  Pour référence rapide, toutes les machines virtuelles de v3 prend en charge la virtualisation imbriquée. Pour obtenir la liste complète des tailles de machine virtuelle prenant en charge l’imbrication, consultez l’[article sur l’unité Compute Azure](acu.md).
 
 Veillez à choisir une taille de machine virtuelle suffisante pour prendre en charge les demandes d’une machine virtuelle invitée. Dans cet exemple, nous utilisons une machine virtuelle Azure de taille D3_v3. 
 

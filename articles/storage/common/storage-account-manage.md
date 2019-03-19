@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 768fd4a715d4c0df154f823d159fd63898c9715b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981329"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444053"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gérer les paramètres de compte de stockage dans le portail Azure
 
@@ -27,7 +27,7 @@ Avec les paramètres **Contrôle d’accès** disponibles dans le portail Azure,
 > [!NOTE]
 > L’authentification des utilisateurs et des applications à l’aide des informations d’identification Azure AD est plus sécurisée et plus facile à utiliser que les autres modes d’autorisation. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises. 
 
-## <a name="tags"></a>Étiquettes
+## <a name="tags"></a>Balises
 
 Le stockage Azure prend en charge les étiquettes Azure Resource Manager pour organiser vos ressources Azure avec une taxonomie personnalisée. Vous pouvez ajouter des étiquettes à vos comptes de stockage pour les regrouper de manière logique dans votre abonnement. 
 
@@ -51,9 +51,9 @@ Pour afficher les informations d’identification de votre compte de stockage :
 4. Recherchez la valeur de **Clé** sous **clé1**, puis cliquez sur le bouton **Copier** pour copier la clé de compte.
 5. Vous pouvez aussi copier la chaîne de connexion complète. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis cliquez sur le bouton **Copier** pour copier la chaîne de connexion.
 
-    ![Capture d’écran montrant l’affichage des clés d’accès dans le portail Azure](media/storage-manage-account/portal-connection-string.png)
+    ![Capture d’écran montrant comment afficher les clés d’accès dans le portail Azure](media/storage-manage-account/portal-connection-string.png)
 
-### <a name="regenerate-access-keys"></a>Regénération des clés d’accès
+### <a name="regenerate-access-keys"></a>Régénération de clés d'accès
 
 Microsoft vous recommande de regénérer vos clés d’accès régulièrement pour garantir une sécurité optimale de votre compte de stockage. Deux clés d’accès sont assignées pour vous permettre de les permuter. Quand vous permutez vos clés, vous vous assurez que votre application maintient l’accès au stockage Azure tout au long du processus. 
 
@@ -63,9 +63,9 @@ Microsoft vous recommande de regénérer vos clés d’accès régulièrement po
 Effectuez les étapes suivantes pour permuter vos clés de compte de stockage :
 
 1. Mettez à jour les chaînes de connexion dans votre code d’application pour utiliser la clé secondaire.
-2. Regénérez la clé d’accès principale de votre compte de stockage. Dans le panneau **Clés d’accès**, cliquez sur **Regénérer la clé 1** dans le portail Azure, puis cliquez sur **Oui** pour confirmer la regénération d’une nouvelle clé.
+2. Régénérez la clé d'accès principale de votre compte de stockage. Dans le panneau **Clés d’accès**, cliquez sur **Regénérer la clé 1** dans le portail Azure, puis cliquez sur **Oui** pour confirmer la regénération d’une nouvelle clé.
 3. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
-4. Regénérez la clé d’accès secondaire de la même manière.
+4. Régénérez la clé d’accès secondaire de la même manière.
 
 ## <a name="account-configuration"></a>Configuration du compte
 
@@ -85,4 +85,4 @@ Si vous essayez de supprimer un compte de stockage associé à une machine virtu
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md)
-- [Créer un compte de stockage](storage-quickstart-create-account.md)
+- [Créez un compte de stockage](storage-quickstart-create-account.md)

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122197"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Apparence des applications dans le volet d’accès
 
@@ -46,41 +46,41 @@ Un utilisateur peut voir une application sur son volet d’accès car il y a ét
 
 Pour vérifier si un utilisateur est affecté à l’application, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
-6.  **Recherchez** le nom de l’application en question.
+6. **Recherchez** le nom de l’application en question.
 
-7.  Sélectionnez **Utilisateurs et groupes**.
+7. Sélectionnez **Utilisateurs et groupes**.
 
-8.  Vérifiez si votre utilisateur est affecté à l’application.
+8. Vérifiez si votre utilisateur est affecté à l’application.
 
-  * Si vous souhaitez supprimer l’utilisateur de l’application, **cliquez sur la ligne** de l’utilisateur et sélectionnez **Supprimer**.
+   * Si vous souhaitez supprimer l’utilisateur de l’application, **cliquez sur la ligne** de l’utilisateur et sélectionnez **Supprimer**.
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Vérifier si un utilisateur est affecté à une licence liée à l’application
 
 Pour vérifier les licences affectées à un utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
+4. Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
-5.  Cliquez sur **Tous les utilisateurs**.
+5. Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
+6. **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
-7.  Cliquez sur **Licences** pour voir quelles licences sont actuellement affectées à l’utilisateur.
+7. Cliquez sur **Licences** pour voir quelles licences sont actuellement affectées à l’utilisateur.
 
    * Si l’utilisateur est affecté à une licence Office, les applications Office internes apparaîtront dans le volet d’accès de l’utilisateur.
 
@@ -96,45 +96,45 @@ Un utilisateur peut ne pas voir une application sur son volet d’accès, car il
 
 Pour vérifier l’appartenance d’un utilisateur à un groupe, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
+4. Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
-5.  Cliquez sur **Tous les utilisateurs**.
+5. Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
+6. **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
-7.  Cliquez sur **Groupes.**
+7. Cliquez sur **Groupes.**
 
-8.  Vérifiez si votre utilisateur fait partie d’un groupe affecté à l’application.
+8. Vérifiez si votre utilisateur fait partie d’un groupe affecté à l’application.
 
    * Si vous souhaitez supprimer l’utilisateur du groupe, **cliquez sur la ligne** du groupe et sélectionnez Supprimer.
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Vérifier si un utilisateur fait partie d’un groupe affecté à une licence
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
+4. Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
-5.  Cliquez sur **Tous les utilisateurs**.
+5. Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
+6. **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
-7.  Cliquez sur **Groupes.**
+7. Cliquez sur **Groupes.**
 
-8.  Cliquez sur la ligne d’un groupe spécifique.
+8. Cliquez sur la ligne d’un groupe spécifique.
 
-9.  Cliquez sur **Licences** pour voir quelles licences sont affectées au groupe.
+9. Cliquez sur **Licences** pour voir quelles licences sont affectées au groupe.
 
-  * Si le groupe est affecté à une licence Office, certaines applications Office internes pourront apparaître dans le volet d’accès de l’utilisateur.
+   * Si le groupe est affecté à une licence Office, certaines applications Office internes pourront apparaître dans le volet d’accès de l’utilisateur.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Si ces étapes de dépannage ne résolvent pas le problème

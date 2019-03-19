@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: cc4893837feeec6116750a7e37e7621af11ab0a4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a8566e41934b5d78d8be60b385ea4148e1cb60c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087038"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -28,9 +28,11 @@ La gestion des API Azure peut être déployée à l’intérieur du réseau virt
 > [!NOTE]
 > La gestion des API Azure prend en charge les réseaux virtuels classiques et Azure Resource Manager.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -51,26 +53,26 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     ![Menu Réseau virtuel du service Gestion des API][api-management-using-vnet-menu]
 4. Sélectionnez le type d’accès souhaité :
 
-    * **Externe** : la passerelle Gestion des API et le portail des développeurs sont accessibles à partir de l’Internet public via un équilibreur de charge externe. La passerelle peut accéder aux ressources au sein du réseau virtuel.
+   * **Externe** : la passerelle Gestion des API et le portail des développeurs sont accessibles à partir de l’Internet public via un équilibreur de charge externe. La passerelle peut accéder aux ressources au sein du réseau virtuel.
 
-    ![Homologation publique][api-management-vnet-public]
+     ![Homologation publique][api-management-vnet-public]
 
-    * **Interne** : la passerelle Gestion des API et le portail des développeurs sont accessibles uniquement sur le réseau virtuel via un équilibreur de charge interne. La passerelle peut accéder aux ressources au sein du réseau virtuel.
+   * **Interne** : la passerelle Gestion des API et le portail des développeurs sont accessibles uniquement sur le réseau virtuel via un équilibreur de charge interne. La passerelle peut accéder aux ressources au sein du réseau virtuel.
 
-    ![Homologation privée][api-management-vnet-private]`
+     ![Homologation privée][api-management-vnet-private]`
 
-    Vous voyez maintenant une liste de toutes les régions où votre service Gestion des API est créé. Sélectionnez un réseau VNET et un sous-réseau pour chaque région. La liste contient les réseaux virtuels classiques et Resource Manager, disponibles dans vos abonnements Azure, qui sont installés dans la région que vous configurez.
+     Vous voyez maintenant une liste de toutes les régions où votre service Gestion des API est créé. Sélectionnez un réseau VNET et un sous-réseau pour chaque région. La liste contient les réseaux virtuels classiques et Resource Manager, disponibles dans vos abonnements Azure, qui sont installés dans la région que vous configurez.
 
-    > [!NOTE]
-    > Le **point de terminaison de service** du diagramme ci-dessus inclut la passerelle/le proxy, le portail Azure, le portail des développeurs, GIT et le point de terminaison de gestion directe.
-    > Le **point de terminaison de gestion** du diagramme ci-dessus est le point de terminaison hébergé sur le service pour gérer la configuration via le portail Azure et Powershell.
-    > Veuillez également noter que, bien que le diagramme contient les adresses IP de ses différents points de terminaison, le service Gestion des API répond **uniquement** à ses noms d’hôtes configurés.
+     > [!NOTE]
+     > Le **point de terminaison de service** du diagramme ci-dessus inclut la passerelle/le proxy, le portail Azure, le portail des développeurs, GIT et le point de terminaison de gestion directe.
+     > Le **point de terminaison de gestion** du diagramme ci-dessus est le point de terminaison hébergé sur le service pour gérer la configuration via le portail Azure et Powershell.
+     > Veuillez également noter que, bien que le diagramme contient les adresses IP de ses différents points de terminaison, le service Gestion des API répond **uniquement** à ses noms d’hôtes configurés.
 
-    > [!IMPORTANT]
-    > Lorsque vous déployez une instance de la gestion des API Azure sur un réseau virtuel Resource Manager, le service doit se trouver dans un sous-réseau dédié qui ne contient aucune autre ressource à l’exception des instances de la gestion des API Azure. Si vous essayez de déployer une instance de gestion des API Azure sur un sous-réseau virtuel Resource Manager qui contient d’autres ressources, le déploiement échouera.
-    >
+     > [!IMPORTANT]
+     > Lorsque vous déployez une instance de la gestion des API Azure sur un réseau virtuel Resource Manager, le service doit se trouver dans un sous-réseau dédié qui ne contient aucune autre ressource à l’exception des instances de la gestion des API Azure. Si vous essayez de déployer une instance de gestion des API Azure sur un sous-réseau virtuel Resource Manager qui contient d’autres ressources, le déploiement échouera.
+     >
 
-    ![Sélectionner le VPN][api-management-setup-vpn-select]
+     ![Sélectionner le VPN][api-management-setup-vpn-select]
 
 5. Cliquez sur **Enregistrer** dans la partie supérieure de l’écran.
 
@@ -85,9 +87,9 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 ## <a name="enable-vnet-powershell"></a>Activation de la connexion au réseau virtuel à l’aide d’applets de commande PowerShell
 Vous pouvez également activer la connectivité de réseau virtuel à l’aide d’applets de commande PowerShell.
 
-* **Création d’un service de gestion des API au sein d’un réseau virtuel** : utilisez l’applet de commande [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) pour créer un service de gestion des API Azure au sein d’un réseau virtuel.
+* **Création d’un service de gestion des API au sein d’un réseau virtuel** : Utilisez l’applet de commande [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) pour créer un service de gestion des API Azure à l’intérieur d’un réseau virtuel.
 
-* **Déploiement d’un service de gestion des API existant au sein d’un réseau virtuel** : utilisez l’applet de commande [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) pour déplacer un service de gestion des API Azure existant au sein d’un réseau virtuel.
+* **Déploiement d’un service de gestion des API existant au sein d’un réseau virtuel** : Utilisez l’applet de commande [AzApiManagementRegion de mise à jour](/powershell/module/az.apimanagement/update-azapimanagementregion) pour déplacer un service de gestion des API Azure existant à l’intérieur d’un réseau virtuel.
 
 ## <a name="connect-vnet"></a>Se connecter à un service web hébergé sur un réseau virtuel
 Une fois que votre service Gestion des API est connecté au réseau virtuel, l’accès aux services principaux de ce réseau est similaire à l’accès aux services publics. Tapez simplement l’adresse IP locale ou le nom d’hôte (si un serveur DNS est configuré pour le réseau virtuel) de votre service web dans le champ **URL du service web** lorsque vous créez ou modifiez une API.
@@ -130,7 +132,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 
 + **Accès DNS** : L’accès sortant sur le port 53 est nécessaire pour la communication avec des serveurs DNS. S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau hébergeant la gestion de l’API.
 
-+ **Métriques et supervision de l’intégrité** : connectivité réseau sortante aux points de terminaison de la supervision Azure, qui se résolvent sous les domaines suivants : 
++ **Métriques et supervision de l’intégrité** : connectivité réseau sortante aux points de terminaison de la supervision Azure, qui se résolvent sous les domaines suivants :
 
     | Environnement Azure | Points de terminaison                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -138,26 +140,25 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-+ **Relais SMTP** : connectivité réseau sortante pour le relais SMTP, qui se résout sur l’hôte `ies.global.microsoft.com`.
++ **Relais SMTP** : Connectivité réseau sortante pour le relais SMTP, qui se résout sur l’hôte `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` et `ies.global.microsoft.com`
 
 + **CAPTCHA du portail des développeurs** : Connectivité réseau sortante pour CAPTCHA du portail de développeur, qui se résout sur l’hôte `client.hip.live.com`.
 
 + **Diagnostics du portail Azure** : pour activer le flux des journaux de diagnostic à partir du portail Azure lors de l’utilisation de l’extension de la gestion des API depuis l’intérieur d’un réseau virtuel, un accès sortant vers `dc.services.visualstudio.com` sur le port 443 est requis. Cela permet de résoudre les problèmes que vous pouvez rencontrer lors de l’utilisation d’extension.
 
-+ **Configuration d’Express Route** : une configuration cliente courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force le trafic Internet sortant à évoluer sur site. Ce flux de trafic interrompt la connectivité avec la gestion des API Azure, car le trafic sortant peut être bloqué sur site, ou faire l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure. La solution consiste à définir un (ou plusieurs) itinéraires définis par l’utilisateur ([UDR][UDRs]) sur le sous-réseau qui contient la gestion des API Azure. Un itinéraire défini par l'utilisateur définit des itinéraires spécifiques au sous-réseau qui seront respectés au lieu de l'itinéraire par défaut.
++ **Forcer le mode Tunneling de trafic vers le pare-feu local à l’aide d’Appliance virtuelle réseau ou Express Route**: Une configuration client courante est de définir leur propre itinéraire par défaut (0.0.0.0/0), ce qui force tout le trafic à partir de l’API de gestion déléguée sous-réseau au flux via un pare-feu en local ou vers une appliance virtuelle réseau. Ce flux de trafic interrompt la connectivité avec la gestion des API Azure, car le trafic sortant peut être bloqué sur site, ou faire l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure. La solution vous oblige à faire deux choses :
 
-    Si possible, il est recommandé d'utiliser la configuration suivante :
+  * Activer les points de terminaison de service sur le sous-réseau dans lequel le service de gestion des API est déployé. [Points de terminaison de service] [ ServiceEndpoints] doivent être activés pour Sql Azure, stockage Azure, Azure EventHub et Azure ServiceBus. L’activation de points de terminaison directement à partir de la gestion des API sous-réseau déléguée à ces services leur permet d’utiliser le réseau principal Microsoft Azure en fournissant un routage optimal pour le trafic de service. Si vous utilisez des points de terminaison de Service avec une gestion des Api en tunnel forcé, les services Azure ci-dessus, le trafic n’est pas forcé par tunnel. Les autres API de gestion du trafic de dépendance de service est forcé par tunnel et ne peut être perdue ou le service de gestion des API ne fonctionnerait pas correctement.
+    
+  * Tout le contrôle plan le trafic à partir d’Internet vers le point de terminaison de gestion de votre service de gestion des API sont acheminées via un ensemble spécifique d’adresses IP d’entrant hébergé par la gestion des API. Lorsque le trafic est tunnélisé de force les réponses symétriquement ne copiera pas à ces adresses IP sources entrantes. Pour surmonter la limitation, nous devons ajouter les itinéraires suivants définis par l’utilisateur ([UDR][UDRs]) pour diriger le trafic vers Azure en définissant la destination de ces itinéraires d’hôte pour « Internet ». L’ensemble des adresses IP de trafic entrant pour le trafic du plan de contrôle est comme suit :
+    
+    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-     * La configuration ExpressRoute annonce 0.0.0.0/0 et par défaut, tunnelise de force tout le trafic sortant sur site.
-     * L’itinéraire défini par l'utilisateur appliqué au sous-réseau contenant la gestion des API Azure définit 0.0.0.0/0 avec un type de tronçon Internet suivant.
-
-    Le résultat est que l’itinéraire défini par l'utilisateur au niveau du sous-réseau a la priorité sur le tunneling forcé ExpressRoute, garantissant ainsi un accès Internet sortant à partir de la gestion des API Azure.
-
-+ **Routage par le biais d’appliances virtuelles réseau** : les configurations utilisant un routage défini par l’utilisateur avec un itinéraire par défaut (0.0.0.0/0) pour acheminer le trafic destiné à Internet à partir du sous-réseau Gestion des API par le biais d’une appliance virtuelle réseau s’exécutant dans Azure bloqueront le trafic de gestion d’Internet vers l’instance de service Gestion des API déployée au sein du sous-réseau du réseau virtuel. Cette configuration n’est pas prise en charge.
-
->[!WARNING]
->La gestion des API Azure n’est pas prise en charge avec les configurations ExpressRoute qui **publient incorrectement de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée**. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les annonces de routage depuis Microsoft pour un grand ensemble de plages d'adresses IP Microsoft Azure. Si ces plages d’adresses sont incorrectement publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’instance de la gestion des API Azure sont incorrectement acheminés de force vers l’infrastructure réseau sur site d’un client. Ce flux réseau interrompt la gestion des API Azure. La solution à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée.
-
+  * Pour d’autres de gestion des API de service les dépendances qui sont tunnélisés de force, leurs doit être permet de résoudre le nom d’hôte et d’atteindre le point de terminaison. Citons notamment
+      - Contrôle d’intégrité et métriques
+      - Portail Azure Diagnostics
+      - Relais SMTP
+      - Portail des développeurs CAPTCHA
 
 ## <a name="troubleshooting"> </a>Résolution des problèmes
 * **Installation initiale** : si le déploiement initial du service Gestion des API sur un sous-réseau échoue, nous vous recommandons de commencer par déployer une machine virtuelle sur ce sous-réseau. Ensuite, utilisez le Bureau à distance pour vous connecter à la machine virtuelle et confirmez qu’il existe une connectivité à chacune des ressources de votre abonnement Azure mentionnées ci-dessous.
@@ -165,10 +166,10 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
     * Azure SQL Database
     * Azure Storage Table
 
- > [!IMPORTANT]
- > Après avoir validé la connectivité, veillez à supprimer toutes les ressources déployées sur le sous-réseau avant d’y déployer le service Gestion des API.
+  > [!IMPORTANT]
+  > Après avoir validé la connectivité, veillez à supprimer toutes les ressources déployées sur le sous-réseau avant d’y déployer le service Gestion des API.
 
-* **Mises à jour incrémentielles** : quand vous changez votre réseau, consultez [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus) pour vérifier que le service de la gestion de l’API n’a pas perdu l’accès aux ressources critiques dont il dépend. L’état de connectivité doit être mis à jour toutes les 15 minutes.
+* **Mises à jour incrémentielles** : Pour apporter des modifications à votre réseau, reportez-vous à [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), pour vérifier que le service de gestion des API n’a pas perdu l’accès à toutes les ressources critiques, dont il dépend. L’état de connectivité doit être mis à jour toutes les 15 minutes.
 
 * **Liens de navigation de ressources** : pendant le déploiement sur le sous-réseau de réseau virtuel de type Gestionnaire des ressources, le service Gestion des API réserve le sous-réseau, en créant un lien de navigation de ressource. Si le sous-réseau contient déjà une ressource d’un autre fournisseur, le déploiement **échoue**. De même, quand vous déplacez un service Gestion des API vers un autre sous-réseau ou que vous le supprimez, nous supprimons ce lien de navigation de ressource.
 
@@ -177,7 +178,7 @@ Azure réserve dans chaque sous-réseau des adresses IP qui ne peuvent pas être
 
 Outre les adresses IP utilisées par l’infrastructure de réseau virtuel Azure, chaque instance Gestion des API du sous-réseau utilise deux adresses IP par unité de référence SKU Premium ou une adresse IP pour la référence SKU Développeur. Chaque instance réserve une adresse IP supplémentaire pour l’équilibreur de charge externe. Lors du déploiement dans un réseau virtuel interne, une adresse IP supplémentaire est requise pour l’équilibreur de charge interne.
 
-D’après le calcul ci-dessus, la taille minimale du sous-réseau, dans lequel Gestion des API peut être déployée, est de /29, donnant ainsi 3 adresses IP.
+Le calcul ci-dessus, la taille minimale du sous-réseau, dans lequel la gestion des API peut être déployée est/29, donnant offre trois adresses IP.
 
 ## <a name="routing"> </a> Routage
 + Une adresse IP publique à charge équilibrée (adresse IP virtuelle) est réservée pour fournir l’accès à tous les points de terminaison de service.
@@ -200,7 +201,6 @@ D’après le calcul ci-dessus, la taille minimale du sous-réseau, dans lequel 
 * [Balises de service](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
-[api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
 [api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png
@@ -212,3 +212,5 @@ D’après le calcul ci-dessus, la taille minimale du sous-réseau, dans lequel 
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/security-overview.md
+[ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags

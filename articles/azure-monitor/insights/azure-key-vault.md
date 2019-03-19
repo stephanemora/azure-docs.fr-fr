@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078759"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solution Azure Key Vault Analytics dans Log Analytics
 
 ![Symbole de Key Vault](media/azure-key-vault/key-vault-analytics-symbol.png)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Vous pouvez utiliser la solution Azure Key Vault dans Log Analytics pour consulter les journaux AuditEvent d’Azure Key Vault.
 
@@ -55,13 +57,13 @@ Suivez les instructions suivantes pour installer et configurer la solution Azure
 8. Cliquez sur *Enregistrer* pour activer la journalisation des diagnostics dans Log Analytics.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Activer les diagnostics Key Vault avec PowerShell
-Le script PowerShell suivant fournit un exemple illustrant comment utiliser `Set-AzureRmDiagnosticSetting` pour activer la journalisation des diagnostics pour Key Vault :
+Le script PowerShell suivant fournit un exemple illustrant comment utiliser `Set-AzDiagnosticSetting` pour activer la journalisation des diagnostics pour Key Vault :
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 
@@ -103,7 +105,7 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 
 | Propriété | Description |
 |:--- |:--- |
-| type |*AzureDiagnostics* |
+| Type |*AzureDiagnostics* |
 | SourceSystem |*Microsoft Azure* |
 | callerIpAddress |Adresse IP du client qui a effectué la demande. |
 | Catégorie | *AuditEvent* |
@@ -136,13 +138,13 @@ Pour utiliser la solution mise à jour :
 1. [Configurez les diagnostics pour qu’ils soient directement envoyés à Log Analytics à partir de Key Vault](#enable-key-vault-diagnostics-in-the-portal).  
 2. Activez la solution Azure Key Vault en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
 3. Mettez à jour les requêtes, les tableaux de bord et les alertes enregistrés pour qu’ils utilisent le nouveau type de données.
-  + Le type KeyVaults est remplacé par : AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux Key Vault.
-  - Au lieu de `KeyVaults`, utilisez `AzureDiagnostics | where ResourceType'=="VAULTS"`.
-  + Champs : (les noms de champs sont sensibles à la casse)
-  - Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.
-  - Pour tous les champs dont le suffixe est \_o, les données sont réparties sur plusieurs champs, selon les noms de champs imbriqués. Par exemple, l’UPN de l’appelant est stocké dans un champ `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
-   - Le champ CallerIpAddress est remplacé par CallerIPAddress
-   - Le champ RemoteIPCountry n’est plus présent
+   + Le type KeyVaults est remplacé par : AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux Key Vault.
+   + Au lieu de `KeyVaults`, utilisez `AzureDiagnostics | where ResourceType'=="VAULTS"`.
+   + Champs : (les noms de champs sont sensibles à la casse)
+   + Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.
+   + Pour tous les champs dont le suffixe est \_o, les données sont réparties sur plusieurs champs, selon les noms de champs imbriqués. Par exemple, l’UPN de l’appelant est stocké dans un champ `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
+   + Le champ CallerIpAddress est remplacé par CallerIPAddress
+   + Le champ RemoteIPCountry n’est plus présent
 4. Supprimez la solution *Key Vault Analytics (déprécié)*. Avec PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`.
 
 Les données collectées avant la modification ne seront pas visibles dans la nouvelle solution. Vous pouvez continuer à interroger ces données à l’aide de l’ancien type et des anciens noms de champs.

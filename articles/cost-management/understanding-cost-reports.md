@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109812"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Compréhension des rapports de gestion des coûts Cloudyn
 
@@ -41,7 +41,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
       - Gestion des ressources
       - Optimisation
 
-  Saisissez un nom de filtre et cliquez sur **Enregistrer**.
+   Saisissez un nom de filtre et cliquez sur **Enregistrer**.
 
 3. **Balises**
 
@@ -71,55 +71,55 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
       - Balises des entités de coûts Cloudyn
       - Catégories de balises d’abonnement à des fins d’allocation des coûts
 
-  Les exemples doivent inclure :
-     - Centre de coûts
-     - department
-     - Application
-     - Environnement
-     - Code de coût
+   Les exemples doivent inclure :
+   - Centre de coûts
+   - department
+   - Application
+   - Environnement
+   - Code de coût
 
-    Voici une liste des groupes intégrés disponibles dans les rapports :
+     Voici une liste des groupes intégrés disponibles dans les rapports :
 
-    - **Type de coût**
-      - Sélectionnez un type de coût ou de plusieurs types de coûts, ou sélectionnez tout. Les types de coûts comprennent :
-        - Frais ponctuels
-        - Support
-        - Coût d’utilisation
-    - **Client**
-        - Sélectionnez un client spécifique, plusieurs clients, ou tous les clients.
-    - **Nom du compte**
-        - Le nom du compte ou abonnement. Dans Azure, il s’agit du nom de l’abonnement Azure.
-    - **No. de compte**
-        - Sélectionnez un compte, plusieurs comptes ou tous les comptes. Dans Azure, il s’agit du GUID de l’un abonnement Azure.
-    - **Compte parent**
-        - Sélectionnez le compte parent, plusieurs comptes ou sélectionnez tout.
-    - **Service**
-        - Sélectionnez un service, plusieurs services, ou tous les services.
-    - **Fournisseur**
-        - Le fournisseur cloud auquel les ressources et les frais sont associés.
-    - **Région**
-        - Région dans laquelle la ressource est hébergée.
-    - **Zone de disponibilité**
-        - Emplacements AWS isolés dans une région.
-    - **Type de ressource**
-        - Le type de ressource en cours d’utilisation.
-    - **Sub-Type**
-        - Sélectionnez le sous-type.
-    - **opération**
-        - Sélectionnez l’opération ou **Afficher tout**.
-    - **Modèle de prix**
-        - Frais de démarrage uniquement
-        - Aucun frais de démarrage
-        - Frais de démarrage partiels
-        - À la demande
-        - Réservation
-        - Zone
-    - **Type de frais**
-        - Sélectionnez le type de frais, négatif, positif ou les deux.
-    - **Location**
-        - Indique si une machine est utilisée comme une machine dédiée.
-    -   **Type d'utilisation**
-          - Le type d’utilisation peut être à frais uniques ou à frais d’abonnement.
+     - **Type de coût**
+     - Sélectionnez un type de coût ou de plusieurs types de coûts, ou sélectionnez tout. Les types de coûts comprennent :
+       - Frais ponctuels
+       - Support
+       - Coût d’utilisation
+     - **Client**
+       - Sélectionnez un client spécifique, plusieurs clients, ou tous les clients.
+     - **Nom du compte**
+       - Le nom du compte ou abonnement. Dans Azure, il s’agit du nom de l’abonnement Azure.
+     - **No. de compte**
+       - Sélectionnez un compte, plusieurs comptes ou tous les comptes. Dans Azure, il s’agit du GUID de l’un abonnement Azure.
+     - **Compte parent**
+       - Sélectionnez le compte parent, plusieurs comptes ou sélectionnez tout.
+     - **Service**
+       - Sélectionnez un service, plusieurs services, ou tous les services.
+     - **Fournisseur**
+       - Le fournisseur cloud auquel les ressources et les frais sont associés.
+     - **Région**
+       - Région dans laquelle la ressource est hébergée.
+     - **Zone de disponibilité**
+       - Emplacements AWS isolés dans une région.
+     - **Type de ressource**
+       - Le type de ressource en cours d’utilisation.
+     - **Sub-Type**
+       - Sélectionnez le sous-type.
+     - **opération**
+       - Sélectionnez l’opération ou **Afficher tout**.
+     - **Modèle de prix**
+       - Frais de démarrage uniquement
+       - Aucun frais de démarrage
+       - Frais de démarrage partiels
+       - À la demande
+       - Réservation
+       - Zone
+     - **Type de frais**
+       - Sélectionnez le type de frais, négatif, positif ou les deux.
+     - **Location**
+       - Indique si une machine est utilisée comme une machine dédiée.
+     - **Type d'utilisation**
+       - Le type d’utilisation peut être à frais uniques ou à frais d’abonnement.
 
 5. **Filtres**
 
@@ -139,7 +139,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
     - les frais d’achat des instances réservées ;
     - certains éléments de Place de Marché Azure.
 
-  Sous Amortissement, sélectionnez **Coût amorti** ou **Coût réel**.
+   Sous Amortissement, sélectionnez **Coût amorti** ou **Coût réel**.
 
 8. **Résolution :**
 
@@ -162,7 +162,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     L’option Afficher/masquer n’a aucun impact sur les rapports.
 
-12.   **Formats d’affichage**
+12. **Formats d’affichage**
 
     Utilisez Formats d’affichage pour sélectionner différentes vues de tableau ou de graphique.
 

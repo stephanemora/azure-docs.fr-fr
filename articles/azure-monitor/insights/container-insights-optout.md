@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b462a2baecbaf9aaf3634964ca279b320b77dc1b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 16abcd2130e92f182dc129c2d7f5cd07ac04a766
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330684"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313529"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Guide pratique pour arrêter la supervision de votre cluster Azure Kubernetes Service (AKS) avec Azure Monitor pour conteneurs
 
@@ -26,7 +26,7 @@ Après avoir activé la supervision de votre cluster AKS, vous pouvez l'arrêter
 
 
 ## <a name="azure-cli"></a>Azure CLI
-Utilisez la commande [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) pour désactiver Azure Monitor pour conteneurs. La commande supprime l’agent des nœuds du cluster, mais ne supprime pas la solution ou les données déjà collectées et stockées dans votre ressource Log Analytics.  
+Utilisez la commande [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) pour désactiver Azure Monitor pour conteneurs. La commande supprime l’agent à partir des nœuds de cluster, il ne supprime pas la solution ou les données déjà collectées et stockées dans votre ressource Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -134,12 +134,14 @@ ProvisioningState       : Succeeded
 
 ### <a name="remove-the-solution-using-powershell"></a>Supprimer la solution à l’aide de PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Exécutez les commandes PowerShell suivantes dans le dossier contenant le modèle pour supprimer la solution et effacer la configuration de votre cluster AKS.    
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
-New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
 Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message similaire au suivant s’affiche avec les résultats :

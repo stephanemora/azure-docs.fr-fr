@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5d2f195c50750a5c7685f62c909f77b2960613e6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123230"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Équilibrage de votre cluster Service Fabric
 Service Fabric Cluster Resource Manager permet de modifier la charge dynamique, de réagir aux ajouts ou aux suppressions de nœuds ou de services. Il corrige également automatiquement les violations de contrainte et rééquilibre de façon proactive le cluster. Mais à quelle fréquence ces actions sont-elles effectuées, et quel en est l’élément déclencheur ?
@@ -85,7 +85,7 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 
 Par exemple, lorsque des nœuds échouent, ils se produisent simultanément dans des domaines d’erreur entiers. Tous ces échecs sont capturés à la prochaine mise à jour de l’état après *PLBRefreshGap*. Les corrections sont déterminées lorsque les prochaines opérations de placement, de contrôle des contraintes et d’équilibrage sont exécutées. Par défaut, Cluster Resource Manager n’analyse pas les modifications qui ont eu lieu sur plusieurs heures dans le cluster et n’essaie pas de les traiter toutes en même temps. En effet, cela entraînerait des pics d’activité momentanés.
 
-Cluster Resource Manager a également besoin d’informations supplémentaires pour déterminer si le cluster est déséquilibré. Nous disposons pour cela de deux autres éléments de configuration : *BalancingThresholds* et *ActivityThresholds*.
+Cluster Resource Manager a également besoin d’informations supplémentaires pour déterminer si le cluster est déséquilibré. Pour ce faire, nous avons deux autres éléments de configuration : *BalancingThresholds* et *ActivityThresholds*.
 
 ## <a name="balancing-thresholds"></a>Seuils d’équilibrage
 Un seuil d’équilibrage est le principal contrôle utilisé pour déclencher le rééquilibrage. Le seuil d’équilibrage pour une métrique est un _ratio_. Si la charge d’une mesure sur le nœud le plus chargé, divisée par la quantité de charge sur le nœud le moins chargé, dépasse la valeur *BalancingThreshold* de cette mesure, le cluster est considéré comme déséquilibré. L’équilibrage est alors déclenché lorsque Cluster Resource Manager effectue sa vérification suivante. Le minuteur *MinLoadBalancingInterval* détermine la fréquence à laquelle Cluster Resource Manager doit vérifier si un rééquilibrage est nécessaire. Cette vérification ne signifie pas que quelque chose se produit. 
@@ -122,7 +122,8 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 ```
 
 <center>
-Exemple de seuil d’équilibrage![][Image1]
+
+![Exemple de seuil d’équilibrage][Image1]
 </center>
 
 Dans cet exemple, chaque service utilise une unité d’une mesure donnée. Dans l’exemple du haut, la charge maximale sur un nœud est égale à 5 et la valeur minimale à 2. Supposons que le seuil d’équilibrage pour cette mesure soit égal à 3. Étant donné que le ratio dans le cluster est de 5/2 = 2,5, soit une valeur inférieure au seuil d’équilibrage de 3, le cluster est équilibré. Aucun équilibrage n’est déclenché lorsque Cluster Resource Manager effectue sa vérification.
@@ -130,7 +131,8 @@ Dans cet exemple, chaque service utilise une unité d’une mesure donnée. Dans
 Dans l’exemple du bas, la charge maximale sur un nœud est égale à 10 et la valeur minimale à 2, ce qui donne un ratio de 5. Cette valeur étant supérieure au seuil d’équilibrage de 3 spécifié pour cette mesure, l’exécution d’un rééquilibrage sera planifiée lors du prochain déclenchement du minuteur d’équilibrage. Dans une telle situation, une partie de la charge est généralement répartie sur le nœud Node3. Comme Service Fabric Cluster Resource Manager utilise une approche prudente, une partie de la charge peut également être répartie sur le nœud Node2. 
 
 <center>
-Actions de l’exemple de seuil d’équilibrage![][Image2]
+
+![Actions d’exemple de seuil d’équilibrage][Image2]
 </center>
 
 > [!NOTE]
@@ -145,7 +147,8 @@ Parfois, même si les nœuds sont relativement déséquilibrés, la quantité *t
 Supposons que nous conservons notre seuil d’équilibrage de 3 pour cette mesure. Supposons également que nous avons un seuil d’activité de 1 536. Dans le premier cas, bien que le cluster soit déséquilibré selon le seuil d’équilibrage, comme aucun nœud n’atteint le seuil d’activité, il ne se passe rien. Dans l’exemple du bas, le nœud Node1 dépasse le seuil d’activité. Comme le seuil d’équilibrage et le seuil d’activité pour la mesure sont tous deux dépassés, un équilibrage est planifié. Prenons pour exemple le schéma suivant : 
 
 <center>
-Exemple de seuil d’activité![][Image3]
+
+![Exemple de seuil d’activité][Image3]
 </center>
 
 Au même titre que les seuils d’équilibrage, les seuils d’activité sont définis par métrique par l’intermédiaire de la définition du cluster :
@@ -191,10 +194,11 @@ Occasionnellement pourtant, un service qui n’était pas déséquilibré lui-m�
 - Service3 signale les mesures Metric3 et Metric4.
 - Service4 signale la mesure Metric99. 
 
-Vous voyez certainement où je veux en venir : il s’agit d’une chaîne ! Nous n’avons pas vraiment quatre services indépendants, mais plutôt trois services qui sont liés et un qui est indépendant.
+Vous voyez certainement où nous allons ici : Il existe une chaîne ! Nous n’avons pas vraiment quatre services indépendants, mais plutôt trois services qui sont liés et un qui est indépendant.
 
 <center>
-![Équilibrage de plusieurs services en même temps][Image4]
+
+![Équilibrage des Services en même temps][Image4]
 </center>
 
 En raison de cette chaîne, il est donc possible qu’un déséquilibre dans les mesures 1 à 4 provoque le déplacement de réplicas ou d’instances appartenant aux services 1 à 3. Nous savons également qu’un déséquilibre de la mesure Metric1, Metric2 ou Metric3 ne peut pas provoquer de déplacements pour le service Service4. Cela n’aurait aucun intérêt, puisque le déplacement de réplicas ou d’instances appartenant au service Service4 n’a pas la moindre incidence sur l’équilibre de la mesure Metric1, Metric2 ou Metric3.
@@ -202,7 +206,8 @@ En raison de cette chaîne, il est donc possible qu’un déséquilibre dans les
 Cluster Resource Manager identifie automatiquement les services associés. Ajouter, supprimer ou modifier les mesures des services peut avoir un impact sur leurs relations. Par exemple, entre deux équilibrages, la mesure Metric2 peut avoir été mise à jour pour être supprimée de la configuration du service Service2. La chaîne entre Service1 et Service2 est alors rompue. Au lieu de deux groupes de services liés, vous en avez à présent trois :
 
 <center>
-![Équilibrage de plusieurs services en même temps][Image5]
+
+![Équilibrage des Services en même temps][Image5]
 </center>
 
 ## <a name="next-steps"></a>Étapes suivantes

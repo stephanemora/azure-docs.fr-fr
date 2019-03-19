@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 663864837e2847125d0925b9b82d8962e54290b3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746912"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726480"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Créer des machines virtuelles à l’aide d’un modèle Azure Resource Manager 
 
 Lorsque vous créez une machine virtuelle dans DevTest Labs via le [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), vous pouvez voir le modèle Azure Resource Manager avant d’enregistrer la machine virtuelle. Le modèle peut alors être utilisé comme base pour créer d’autres machines virtuelles lab avec les mêmes paramètres.
 
 Cet article décrit les modèles Resource Manager utilisant une ou plusieurs machines virtuelles et vous montre comment afficher et enregistrer un modèle lors de la création d’une machine virtuelle.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Modèles Resource Manager à plusieurs machines virtuelles ou à machine virtuelle unique
 Il existe deux façons de créer des machines virtuelles dans DevTest Labs à l’aide d’un modèle Resource Manager : configurer la ressource Microsoft.DevTestLab/labs/virtualmachines ou configurer la ressource Microsoft.Commpute/virtualmachines. Chaque méthode est utilisée dans des scénarios différents et nécessite des autorisations différentes.
@@ -34,7 +36,7 @@ Il existe deux façons de créer des machines virtuelles dans DevTest Labs à l�
 
    ![Liste des machines virtuelles qui apparaissent comme un seul élément dans la liste de machines virtuelles DevTest Lab](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   Ce type de modèle Resource Manager peut être configuré via la commande Azure PowerShell **New-AzureRmResourceGroupDeployment** ou via la commande Azure CLI **az group deployment create**. Il requiert des autorisations d’administrateur. Les utilisateurs assignés à un rôle d’utilisateur DevTest Labs ne peuvent donc pas effectuer le déploiement. 
+   Ce type de modèle Resource Manager peut être configuré via la commande Azure PowerShell **New-AzResourceGroupDeployment** ou via la commande CLI Azure **créer de déploiement de groupe az**. Il requiert des autorisations d’administrateur. Les utilisateurs assignés à un rôle d’utilisateur DevTest Labs ne peuvent donc pas effectuer le déploiement. 
 
 - Les modèles Resource Manager qui utilisent un type de ressource Microsoft.Compute/virtualmachines peuvent configurer plusieurs machines virtuelles en tant qu’environnement unique dans la liste des machines virtuelles DevTest Labs :
 

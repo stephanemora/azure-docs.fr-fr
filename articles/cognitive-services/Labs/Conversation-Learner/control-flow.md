@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 07f4506b7dd0ac8ca0462e2a418983e561859c91
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: e0a0a88e249c0a032e5afaeea14b9b3cfcbdc319
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080658"
 ---
 ## <a name="control-flow"></a>Flux de contrôle
 
@@ -25,13 +25,13 @@ Ce document décrit le flux de contrôle de Conversation Learner (CL) tel qu’i
 
 1. L’utilisateur entre un terme ou une phrase dans le bot, par exemple « what’s the weather in Seattle ? »
 1. CL passe l’entrée d’utilisateur à un modèle d’apprentissage automatique qui extrait des entités.
-    - Ce modèle est généré par Conversation Learner et hébergé par www.luis.ai.
+   - Ce modèle est généré par Conversation Learner et hébergé par www.luis.ai.
 1. Toutes les entités extraites, ainsi que le texte d’entrée d’utilisateur, sont passés à la méthode de rappel de détection d’entités dans le code du bot.
     - Ce code peut définir/effacer/manipuler des valeurs d’entités.
 1. Le réseau neuronal de CL prend ensuite la sortie de l’extraction d’entités et l’entrée d’utilisateur, et attribue un score à toutes les actions définies dans le bot.
-    - Dans cet exemple, l’action de probabilité la plus élevée consiste à fournir les prévisions météorologiques :
+   - Dans cet exemple, l’action de probabilité la plus élevée consiste à fournir les prévisions météorologiques :
 
-    ![](media/controlflow_forecast.PNG)
+     ![](media/controlflow_forecast.PNG)
 
 1. L’action sélectionnée, dans ce cas, nécessite un appel d’API pour extraire les prévisions météorologiques. 
 1. Cette API, qui avait été inscrite à l’aide de la méthode CL.AddCallback, est alors appelée.  Le résultat de cette API est ensuite retourné à l’utilisateur sous forme de message, par exemple, « Sunny with a high of 67 ».
@@ -41,4 +41,4 @@ Ce document décrit le flux de contrôle de Conversation Learner (CL) tel qu’i
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour enseigner avec Conversation Learner](./how-to-teach-cl.md)
+> [Comment animer avec apprenant de Conversation](./how-to-teach-cl.md)

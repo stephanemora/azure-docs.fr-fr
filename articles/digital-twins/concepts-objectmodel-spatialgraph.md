@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436923"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542945"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Comprendre les modèles objet Digital Twins et le graphe d’intelligence spatiale
 
@@ -82,7 +82,7 @@ Une fois que vous avez déployé Digital Twins à partir du [portail Azure](http
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOM | Remplacer par |
+| Nom | Remplacer par |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Nom de votre instance Digital Twins |
 | YOUR_LOCATION | Région de serveur dans laquelle votre instance est hébergée |
@@ -99,7 +99,7 @@ Pour plus d’informations sur l’utilisation des graphes d’intelligence spat
 
 Découvrez-en plus sur l’[utilisation de Swagger](how-to-use-swagger.md).
 
-Tous les appels d’API doivent être authentifiés via [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). Les API suivent les [conventions indiquées dans les directives relatives aux API REST Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). La plupart des API qui retournent des collections prennent en charge les options de requête système [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData).
+Tous les appels d’API doivent être authentifiés via [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). Les API suivent les [conventions indiquées dans les directives relatives aux API REST Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). La plupart des API qui retournent des collections prennent en charge les options de requête système [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

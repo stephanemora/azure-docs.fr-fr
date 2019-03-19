@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199321"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112753"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Confidentialité des utilisateurs et Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Regardez [comment supprimer un serveur d’Azure AD Connect Health](how-to-conne
 Azure AD Connect Health fournit également la possibilité d’arrêter la collecte de données de **tous** les services inscrits dans le locataire. Nous vous recommandons d’être très prudent et de bénéficier de l’assentiment complet de tous les administrateurs généraux avant de prendre des mesures. Une fois le processus démarré, le service Connect Health cessera de recevoir, de traiter et de créer des rapports sur les données pour tous vos services. Les données existantes dans le service Connect Health seront conservées pendant 30 jours maximum.
 Si vous souhaitez arrêter la collecte de données pour un serveur spécifique, suivez les étapes de suppression de serveurs spécifiques. Pour arrêter la collecte de données pour un locataire, suivez les étapes qui décrivent comment arrêter la collecte de données et supprimez tous les services du locataire.
 
-1.  Cliquez sur **Paramètres généraux** sous Configuration dans le panneau principal. 
-2.  Cliquez sur le bouton **Arrêter la collecte de données** en haut du panneau. Les autres options des paramètres de configuration du locataire seront désactivées une fois le processus démarré.  
+1. Cliquez sur **Paramètres généraux** sous Configuration dans le panneau principal. 
+2. Cliquez sur le bouton **Arrêter la collecte de données** en haut du panneau. Les autres options des paramètres de configuration du locataire seront désactivées une fois le processus démarré.  
  
- ![Arrêter la collecte de données](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Arrêter la collecte de données](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  Vérifiez la liste des services intégrés qui sont affectés par l’arrêt de la collecte de données. 
-4.  Entrez le nom exact du locataire pour activer le bouton **Supprimer**.
-5.  Cliquez sur **Supprimer** pour déclencher la suppression de tous les services. Connect Health cessera de recevoir, de traiter et de créer des rapports pour toutes les données envoyées à partir de vos services intégrés. L’ensemble du processus peut prendre jusqu’à 24 heures. Notez que cette étape n’est pas réversible. 
-6.  Une fois le processus terminé, vous ne verrez plus aucun service inscrit dans Connect Health. 
+3. Vérifiez la liste des services intégrés qui sont affectés par l’arrêt de la collecte de données. 
+4. Entrez le nom exact du locataire pour activer le bouton **Supprimer**.
+5. Cliquez sur **Supprimer** pour déclencher la suppression de tous les services. Connect Health cessera de recevoir, de traiter et de créer des rapports pour toutes les données envoyées à partir de vos services intégrés. L’ensemble du processus peut prendre jusqu’à 24 heures. Notez que cette étape n’est pas réversible. 
+6. Une fois le processus terminé, vous ne verrez plus aucun service inscrit dans Connect Health. 
 
- ![Après l’arrêt de la collecte de données](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![Après l’arrêt de la collecte de données](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Réactiver la collecte et la surveillance des données dans Azure AD Connect Health
 Si vous souhaitez réactiver la surveillance dans Azure AD Connect Health pour un service surveillé ayant été supprimé, vous devez désinstaller puis [réinstaller Health Agent](how-to-connect-health-agent-install.md) sur tous les serveurs.
@@ -85,14 +85,14 @@ Vous pouvez reprendre la collecte des données pour un locataire dans Azure AD C
 > Les étapes suivantes seront disponibles 24 heures après l’exécution de l’action de désactivation.
 > Après l’activation de la collecte de données, les données de surveillance présentées dans Connect Health n’afficheront aucune donnée héritée collectée auparavant. 
 
-1.  Cliquez sur **Paramètres généraux** sous Configuration dans le panneau principal. 
-2.  Cliquez sur le bouton **Activer la collecte de données** en haut du panneau. 
+1. Cliquez sur **Paramètres généraux** sous Configuration dans le panneau principal. 
+2. Cliquez sur le bouton **Activer la collecte de données** en haut du panneau. 
  
- ![Activer la collecte des données](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Activer la collecte des données](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  Entrez le nom exact du locataire pour activer le bouton **Activer**.
-4.  Cliquez sur le bouton **Activer** pour accorder l’autorisation de collecte de données dans le service Connect Health. La modification sera appliquée quelques instants plus tard. 
-5.  Suivez le [processus d’installation](how-to-connect-health-agent-install.md) pour réinstaller l’agent sur les serveurs à surveiller, et les services seront présents dans le portail.  
+3. Entrez le nom exact du locataire pour activer le bouton **Activer**.
+4. Cliquez sur le bouton **Activer** pour accorder l’autorisation de collecte de données dans le service Connect Health. La modification sera appliquée quelques instants plus tard. 
+5. Suivez le [processus d’installation](how-to-connect-health-agent-install.md) pour réinstaller l’agent sur les serveurs à surveiller, et les services seront présents dans le portail.  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

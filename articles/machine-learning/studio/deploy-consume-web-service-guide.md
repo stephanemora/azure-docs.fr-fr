@@ -5,17 +5,17 @@ description: Vous pouvez utiliser Azure Machine Learning Studio pour déployer d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: a1ddf6aae9fdd661e30719fafb6000fb6559df20
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116705"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio : Déploiement et consommation
 
@@ -37,7 +37,7 @@ Les liens suivants fournissent des informations générales sur le processus de 
 * Pour des exemples spécifiques de déploiement d’un service web, consultez :
 
   * [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md)
-  * [Comment déployer un service web dans plusieurs régions](how-to-deploy-to-multiple-regions.md)
+  * [Comment déployer un service web dans plusieurs régions](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Avec les API du fournisseur de ressources des services web (API Azure Resource Manager)
 
@@ -49,7 +49,7 @@ Le fournisseur de ressources Azure Machine Learning Studio pour les services web
 
 Le fournisseur de ressources Azure Machine Learning Studio pour les services web permet le déploiement et la gestion des services web au moyen de cmdlets PowerShell.
 
-Pour utiliser les applets de commande, vous devez d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Si vous ne savez pas comment appeler les commandes PowerShell basées sur Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Pour utiliser les applets de commande, vous devez d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Si vous ne savez pas comment appeler les commandes PowerShell basées sur Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
 Pour exporter votre expérience prédictive, utilisez cet [exemple de code](https://github.com/ritwik20/AzureML-WebServices). Après avoir créé le fichier .exe à partir du code, vous pouvez taper :
 

@@ -4,16 +4,16 @@ description: Découvrez comment utiliser un partage de fichiers Azure avec Windo
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076341"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -40,12 +40,14 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 > [!Note]  
 > Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 * **Nom du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
 
 * **Clé du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
-* **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. La code PowerShell suivant suppose que vous avez installé le module AzureRM PowerShell, consultez [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installer un module Azure PowerShell) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
+* **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. Vous pouvez en savoir plus sur [différentes manières de solution de contournement bloqué le port 445 ici](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+
+    La code PowerShell suivant suppose que vous avez installé le module AzureRM PowerShell, consultez [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installer un module Azure PowerShell) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -301,5 +303,5 @@ Après avoir créé cette clé de Registre, vous devez redémarrer votre serveur
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez ces liens pour en savoir plus sur Azure Files :
 - [Planification d’un déploiement Azure Files](storage-files-planning.md)
-* [FORUM AUX QUESTIONS](../storage-files-faq.md)
-* [Résolution des problèmes sur Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [FORUM AUX QUESTIONS](../storage-files-faq.md)
+- [Résolution des problèmes sur Windows](storage-troubleshoot-windows-file-connection-problems.md)      

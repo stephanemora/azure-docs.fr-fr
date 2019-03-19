@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 5f8f282db9468d84c3a1fa16c5cd481f2dd0970e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 9fc20c97e19ef3a651bc6df36118bc85fefcaec3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118729"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour l’homologation de réseaux virtuels
 
@@ -64,7 +64,7 @@ Les comptes que vous utilisez pour créer une homologation de réseaux virtuels 
 |Réseau virtuel|Modèle de déploiement|Rôle|Autorisations|
 |---|---|---|---|
 |Hub-RM|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
+| |Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|S.O.|
 |Spoke-Classic|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classique|[Collaborateur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 La procédure est similaire à celle de l’exemple impliquant deux réseaux virtuels Resource Manager, à ceci près que les opérations s’appliquent au réseau virtuel Hub-RM uniquement.
 
 1. Créez ou mettez à jour l’homologation de réseaux virtuels de Hub-RM à Spoke-RM à partir du portail Azure. Accédez à la ressource du réseau virtuel Hub-RM, cliquez sur Homologations, puis sur Ajouter :
-    - Définissez l’option Classic pour le modèle de déploiement du réseau virtuel.
-    - Sélectionnez le réseau virtuel Spoke-Classic dans l’abonnement correspondant.
-    - Vérifiez que l’option Autoriser l’accès au réseau virtuel est activée.
-    - Définissez l’option **Autoriser le trafic par passerelle**.
-    - Cliquez sur OK.
+   - Définissez l’option Classic pour le modèle de déploiement du réseau virtuel.
+   - Sélectionnez le réseau virtuel Spoke-Classic dans l’abonnement correspondant.
+   - Vérifiez que l’option Autoriser l’accès au réseau virtuel est activée.
+   - Définissez l’option **Autoriser le trafic par passerelle**.
+   - Cliquez sur OK.
 
-    ![Homologation de Hub-RM à Spoke-Classic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![Homologation de Hub-RM à Spoke-Classic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. Si l’homologation est déjà créée, accédez à la ressource de l’homologation, puis activez l’option **Autoriser le trafic par passerelle**, comme dans la capture d’écran présentée à l’étape 1.
 

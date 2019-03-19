@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: aab0e5eab0edcbc0a26b673730f9fef5a5b01fde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122704"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901999"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10
 
@@ -28,7 +28,7 @@ Azure Media Services prend en charge le téléchargement/la lecture hors connexi
 - [Diffusion en continu de FairPlay en mode hors connexion pour iOS](offline-fairplay-for-ios.md)
 - [Diffusion en continu de Widevine en mode hors connexion pour Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Cette section donne des précisions sur la lecture en mode hors connexion, notamment sur les points suivants :
 
@@ -41,7 +41,7 @@ Le défi auquel nous sommes confrontés pour l’implémentation du mode hors co
 * Le format MP4 est pris en charge par la plupart des lecteurs et outils d’encodeur, mais il n’y a aucune liaison entre le conteneur MP4 et DRM.
 * À terme, il conviendra d’utiliser CFF avec CENC. Toutefois, à l’heure actuelle, l’écosystème de prise en charge des outils/lecteurs n’existe pas encore. Nous devons trouver une solution rapidement.
  
-L’idée est la suivante : le format de fichier de diffusion en continu lisse ([PIFF](http://go.microsoft.com/?linkid=9682897)) avec H264/AAC possède une liaison avec PlayReady (AES-128 CTR). Un fichier .ismv de diffusion en continu lisse individuel (en admettant que l’audio soit multiplexé dans la vidéo) est en soi un fichier fMP4 et peut être utilisé pour la lecture. Si un contenu de diffusion en continu lisse subit un chiffrement PlayReady, chaque fichier .ismv devient un fichier MP4 fragmenté protégé PlayReady. Il est possible de choisir le fichier .ismv ayant la vitesse de transmission souhaitée et de le renommer en .mp4 pour le téléchargement.
+L’idée est la suivante : le format de fichier de diffusion en continu lisse ([PIFF](https://go.microsoft.com/?linkid=9682897)) avec H264/AAC possède une liaison avec PlayReady (AES-128 CTR). Un fichier .ismv de diffusion en continu lisse individuel (en admettant que l’audio soit multiplexé dans la vidéo) est en soi un fichier fMP4 et peut être utilisé pour la lecture. Si un contenu de diffusion en continu lisse subit un chiffrement PlayReady, chaque fichier .ismv devient un fichier MP4 fragmenté protégé PlayReady. Il est possible de choisir le fichier .ismv ayant la vitesse de transmission souhaitée et de le renommer en .mp4 pour le téléchargement.
 
 Deux options sont disponibles pour héberger le fichier MP4 protégé PlayReady pour le téléchargement progressif :
 
@@ -57,13 +57,13 @@ Voici deux jeux de ressources de test. Le premier utilise la distribution de lic
 
 Ressource 1 :
 
-* URL de téléchargement progressif : [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* URL de téléchargement progressif : [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
 * PlayReady LA_URL (AMS) : [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Ressource 2 :
 
-* URL de téléchargement progressif : [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (local) : [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* URL de téléchargement progressif : [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* LA_URL PlayReady (en local) : [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Pour tester la lecture, nous avons utilisé une application Windows universelle sur Windows 10. Dans [Exemples Windows 10 Universel](https://github.com/Microsoft/Windows-universal-samples) se trouve un exemple de lecteur de base appelé [Exemple de diffusion en continu adaptative](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Il suffit d’ajouter le code pour sélectionner la vidéo téléchargée et l’utiliser comme source, à la place d’une source de diffusion en continu adaptative. Les modifications figurent dans le gestionnaire d’événements Click :
 

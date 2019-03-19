@@ -8,17 +8,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084740"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installer le client Chef à partir du portail Azure
 Vous pouvez ajouter l’extension du client Chef directement sur une machine Linux ou Windows à partir du portail Azure. Cet article vous guide tout au long du processus, qui utilise une machine virtuelle Linux.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
@@ -30,7 +30,7 @@ Vous pouvez ajouter l’extension du client Chef directement sur une machine Lin
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Installer l’extension Chef sur une nouvelle machine virtuelle Linux
 Dans cette section, vous allez utiliser le portail Azure pour créer une machine Linux. Au cours de ce processus, vous allez également apprendre à installer l’extension Chef sur la nouvelle machine virtuelle.
 
-1. Accédez au [portail Azure](http://portal.azure.com).
+1. Accédez au [portail Azure](https://portal.azure.com).
 
 1. Dans le menu de gauche, sélectionnez l’option **Machines virtuelles**. Si l’option **Machines virtuelles** ne s’affiche pas, sélectionnez **Tous les services**, puis **Machines virtuelles**.
 
@@ -52,31 +52,31 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
 
 1. Sous l’onglet **De base**, spécifiez les valeurs suivantes, puis sélectionnez **OK**.
 
-    - **Nom** : Entrez le nom de la nouvelle machine virtuelle.
-    - **Type de disque de machine virtuelle** : spécifiez **SSD** ou **HDD** pour le type de disque de stockage. Pour plus d’informations sur les types de disques de machine virtuelle dans Azure, consultez l’article [Sélectionner un type de disque](../virtual-machines/windows/disks-types.md).
-    - **Nom d’utilisateur** : entrez le nom d’un utilisateur qui dispose de privilèges d’administrateur sur la machine virtuelle.
-    - **Authentication type (Type d’authentification)** : sélectionnez **Password (Mot de passe)**. Vous pouvez également sélectionner **Clé publique SSH** et fournir une valeur pour cette clé. Pour cette démonstration (et dans les captures d’écran), **Mot de passe** est sélectionné.
-    - **Mot de passe** et **Confirmer le mot de passe** : entrez un mot de passe pour l’utilisateur.
-    - **Se connecter avec Azure Active Directory** : sélectionnez **Désactivé**.
-    - **Abonnement** : sélectionnez l’abonnement Azure que vous souhaitez utiliser, si vous en avez plusieurs.
-    - **Groupe de ressources** : entrez un nom pour votre groupe de ressources.
-    - **Location (Emplacement)** : sélectionnez **USA Est**.
+   - **Nom** : Entrez le nom de la nouvelle machine virtuelle.
+   - **Type de disque de machine virtuelle** : spécifiez **SSD** ou **HDD** pour le type de disque de stockage. Pour plus d’informations sur les types de disques de machine virtuelle dans Azure, consultez l’article [Sélectionner un type de disque](../virtual-machines/windows/disks-types.md).
+   - **Nom d’utilisateur** : entrez le nom d’un utilisateur qui dispose de privilèges d’administrateur sur la machine virtuelle.
+   - **Authentication type (Type d’authentification)** : sélectionnez **Password (Mot de passe)**. Vous pouvez également sélectionner **Clé publique SSH** et fournir une valeur pour cette clé. Pour cette démonstration (et dans les captures d’écran), **Mot de passe** est sélectionné.
+   - **Mot de passe** et **Confirmer le mot de passe** : entrez un mot de passe pour l’utilisateur.
+   - **Se connecter avec Azure Active Directory** : sélectionnez **Désactivé**.
+   - **Abonnement** : sélectionnez l’abonnement Azure que vous souhaitez utiliser, si vous en avez plusieurs.
+   - **Groupe de ressources** : entrez un nom pour votre groupe de ressources.
+   - **Location (Emplacement)** : sélectionnez **USA Est**.
 
-    ![Onglet De base pour la création d’une machine virtuelle](./media/chef-extension-portal/add-vm-basics.png)
+     ![Onglet De base pour la création d’une machine virtuelle](./media/chef-extension-portal/add-vm-basics.png)
 
 1. Sous l’onglet **Choisir une taille**, sélectionnez une taille de machine virtuelle, puis sélectionnez **Sélectionner**.
 
 1. Sous l’onglet **Paramètres**, la plupart des valeurs sont renseignées automatiquement, selon les valeurs que vous avez sélectionnées sous les onglets précédents. Sélectionnez **Extensions**.
 
-    ![Des extensions sont ajoutées aux machines virtuelles via l’onglet Paramètres](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![Des extensions sont ajoutées aux machines virtuelles via l’onglet Paramètres](./media/chef-extension-portal/add-vm-select-extensions.png)
 
 1. Sous l’onglet **Extensions**, sélectionnez **Ajouter une extension**.
 
-    ![Sélection de l’option Ajouter une extension pour ajouter une extension à une machine virtuelle](./media/chef-extension-portal/add-vm-add-extension.png)
+     ![Sélection de l’option Ajouter une extension pour ajouter une extension à une machine virtuelle](./media/chef-extension-portal/add-vm-add-extension.png)
 
 1. Sous l’onglet **Nouvelle ressource**, sélectionnez **Linux Chef Extension (1.2.3)**.
 
-    ![Chef comprend des extensions pour les machines virtuelles Linux et Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef comprend des extensions pour les machines virtuelles Linux et Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
 
 1. Sous l’onglet **Linux Chef Extension**, sélectionnez **Créer**.
 
@@ -94,7 +94,7 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
     - **Encrypted Databag Secret** (Secret du conteneur de données chiffrées) : sélectionnez un fichier contenant le secret du conteneur de données chiffrées auquel cet ordinateur doit avoir accès. Cela champ peut être vide.
     - **Chef Server SSL Certificate** (Certificat SSL du serveur Chef) : sélectionnez le certificat SSL attribué à votre serveur Chef. Cela champ peut être vide.
 
-    ![Installation du serveur Chef sur une machine virtuelle Linux](./media/chef-extension-portal/install-extension.png)
+      ![Installation du serveur Chef sur une machine virtuelle Linux](./media/chef-extension-portal/install-extension.png)
 
 1. De retour sous l’onglet **Extensions**, sélectionnez **OK**.
 

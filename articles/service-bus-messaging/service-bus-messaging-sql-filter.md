@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 7bac115ab3215a7dde625f194bdf325f9e0af318
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118133"
 ---
 # <a name="sqlfilter-syntax"></a>Syntaxe SQLFilter
 
@@ -119,9 +119,9 @@ Un `<regular_identifier>` ne peut pas être un mot-clé réservé.
   
 `<pattern>` doit être une expression évaluée comme chaîne. Il est utilisé comme modèle pour l’opérateur LIKE.      Il peut contenir les caractères génériques suivants :  
   
--   `%` : toute chaîne de zéro caractère ou plus.  
+-   `%`:  toute chaîne de zéro caractère ou plus.  
   
--   `_` : n’importe quel caractère unique.  
+-   `_`: N’importe quel caractère unique.  
   
 ## <a name="escapechar"></a>escape_char  
   
@@ -223,29 +223,29 @@ Tenez compte de la sémantique [SqlFilter](/dotnet/api/microsoft.servicebus.mess
   
 ### <a name="property-evaluation-semantics"></a>Sémantique d’évaluation de la propriété  
   
--   Toute tentative pour évaluer une propriété de système qui n’existe pas lève une exception [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
+- Toute tentative pour évaluer une propriété de système qui n’existe pas lève une exception [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
   
--   Une propriété qui n’existe pas est évaluée en interne comme **inconnue**.  
+- Une propriété qui n’existe pas est évaluée en interne comme **inconnue**.  
   
- Évaluation « inconnue » dans les opérateurs arithmétiques :  
+  Évaluation « inconnue » dans les opérateurs arithmétiques :  
   
--   Pour les opérateurs binaires, si le côté gauche et/ou droit des opérandes est évalué comme **inconnu**, le résultat est **inconnu**.  
+- Pour les opérateurs binaires, si le côté gauche et/ou droit des opérandes est évalué comme **inconnu**, le résultat est **inconnu**.  
   
--   Pour les opérateurs unaires, si un opérande est évalué comme **inconnu**, le résultat est **inconnu**.  
+- Pour les opérateurs unaires, si un opérande est évalué comme **inconnu**, le résultat est **inconnu**.  
   
- Évaluation « inconnue » dans les opérateurs de comparaison binaires :  
+  Évaluation « inconnue » dans les opérateurs de comparaison binaires :  
   
--   Si l’opérande de gauche ou de droite est évalué comme **inconnu**, le résultat est **inconnu**.  
+- Si l’opérande de gauche ou de droite est évalué comme **inconnu**, le résultat est **inconnu**.  
   
- Évaluation « inconnue » dans `[NOT] LIKE` :  
+  Évaluation « inconnue » dans `[NOT] LIKE` :  
   
--   Si un opérande est évalué comme **inconnu**, le résultat est **inconnu**.  
+- Si un opérande est évalué comme **inconnu**, le résultat est **inconnu**.  
   
- Évaluation « inconnue » dans `[NOT] IN` :  
+  Évaluation « inconnue » dans `[NOT] IN` :  
   
--   Si l’opérande gauche est évalué comme **inconnu**, le résultat est **inconnu**.  
+- Si l’opérande gauche est évalué comme **inconnu**, le résultat est **inconnu**.  
   
- Évaluation « inconnue » dans l’opérateur **AND** :  
+  Évaluation « inconnue » dans l’opérateur **AND** :  
   
 ```  
 +---+---+---+---+  

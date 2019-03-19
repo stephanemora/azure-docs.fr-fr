@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 689ab38f2fc2d7643fb61c7137a4d88c297615db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834181"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI
 
@@ -122,4 +122,4 @@ report.switchMode("edit");
 [Référentiel Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Référentiel Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
+Des questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)

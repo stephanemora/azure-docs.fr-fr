@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699344"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307987"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge (préversion)
 
@@ -73,7 +73,7 @@ Pour améliorer la robustesse, il est recommandé de spécifier les adresses de 
 
 ```json
 {
-    "dns": [“1.1.1.1”]
+    "dns": ["1.1.1.1"]
 }
 ```
 
@@ -136,7 +136,7 @@ Vous pouvez configurer des variables d’environnement et les options de créati
 
 Remplacez `<HostStoragePath>` et `<ModuleStoragePath>` par le chemin de stockage de votre hôte et de votre module. Les deux chemins doivent être des chemins absolus. Dans les options de création, liez les chemins d’accès de stockage de l’hôte et du module. Ensuite, créez une variable d’environnement qui pointe vers le chemin d’accès de stockage du module.  
 
-Par exemple, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` signifie que le répertoire **/etc/iotedge/storage** sur votre système hôte est mappé au répertoire **/iotedge/stockage/** sur le conteneur. Ou autre exemple pour les systèmes Windows, `"Binds":["C:\\temp:C:\\contemp]"` signifie que le répertoire **C:\\temp** sur votre système hôte est mappé au répertoire **C:\\contemp** sur le conteneur. 
+Par exemple, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` signifie que le répertoire **/etc/iotedge/storage** sur votre système hôte est mappé au répertoire **/iotedge/stockage/** sur le conteneur. Ou autre exemple pour les systèmes Windows, `"Binds":["C:\\temp:C:\\contemp"]` signifie que le répertoire **C:\\temp** sur votre système hôte est mappé au répertoire **C:\\contemp** sur le conteneur. 
 
 Vous trouverez aussi plus de détails sur les options de création dans la [documentation de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 

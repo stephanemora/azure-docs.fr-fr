@@ -7,25 +7,28 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: monitoring
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102582"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Collecter des données dans Log Analytics avec un runbook Azure Automation
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Vous pouvez collecter une quantité importante de données dans Log Analytics à partir de diverses sources, y compris des [sources de données](../../azure-monitor/platform/agent-data-sources.md) sur les agents et les [données recueillies à partir d’Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md). Il existe cependant des cas où vous devez recueillir des données qui ne sont pas accessibles via ces sources standard. Dans ce cas, vous pouvez utiliser l’[API Collecte de données HTTP](../../azure-monitor/platform/data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client API REST. Une méthode courante pour effectuer cette collecte de données consiste à utiliser un runbook dans Azure Automation.
 
 Ce didacticiel vous guide dans le processus de création et de planification d’un runbook dans Azure Automation pour écrire des données dans Log Analytics.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Ce scénario nécessite que les ressources suivantes soient configurées dans votre abonnement Azure. Les deux peuvent être des comptes gratuits.
 
 - [Espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
@@ -62,8 +65,8 @@ Les [variables Automation](../../automation/automation-variables.md) contiennent
 
 | Propriété | Valeur d’ID d’espace de travail | Valeur de clé d’espace de travail |
 |:--|:--|:--|
-| NOM | WorkspaceID | WorkspaceKey |
-| type | Chaîne | Chaîne |
+| Nom | WorkspaceID | WorkspaceKey |
+| Type | Chaîne | Chaîne |
 | Valeur | Collez l’ID de votre espace de travail Log Analytics. | Collez la clé principale ou secondaire de votre espace de travail Log Analytics. |
 | Chiffré | Non  | Oui |
 
@@ -92,7 +95,7 @@ Azure Automation fournit un éditeur dans le portail, où vous pouvez modifier e
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ Azure Automation fournit un éditeur dans le portail, où vous pouvez modifier e
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json
@@ -128,13 +131,13 @@ Azure Automation inclut un environnement permettant de [tester votre runbook](..
 
 ![Tester le runbook](media/runbook-datacollect/test-runbook.png)
 
-6. Cliquez sur **Enregistrer** pour enregistrer le runbook.
+1. Cliquez sur **Enregistrer** pour enregistrer le runbook.
 1. Cliquez sur **Volet de test** pour ouvrir le runbook dans l’environnement de test.
-3. Étant donné que votre runbook possède des paramètres, vous êtes invité à entrer les valeurs de ces derniers. Entrez le nom du groupe de ressources et du compte Automation à partir desquels vous allez collecter des informations sur les tâches.
-4. Cliquez sur **Démarrer** pour démarrer le runbook.
-3. Le runbook démarre avec l’état **Mis en file d’attente** avant de passer à l’état **Exécution**.
-3. Le runbook doit afficher une sortie détaillée avec les tâches collectées au format json. Si aucune tâche n’est répertoriée, il se peut qu’aucune tâche n’ait été créée dans le compte Automation dans la dernière heure. Essayez de démarrer un autre runbook dans le compte Automation, puis effectuez de nouveau le test.
-4. Vérifiez que la sortie n’affiche pas d’erreur dans la commande post pour Log Analytics. Un message similaire à celui ci-dessous doit s’afficher.
+1. Étant donné que votre runbook possède des paramètres, vous êtes invité à entrer les valeurs de ces derniers. Entrez le nom du groupe de ressources et du compte Automation à partir desquels vous allez collecter des informations sur les tâches.
+1. Cliquez sur **Démarrer** pour démarrer le runbook.
+1. Le runbook démarre avec l’état **Mis en file d’attente** avant de passer à l’état **Exécution**.
+1. Le runbook doit afficher une sortie détaillée avec les tâches collectées au format json. Si aucune tâche n’est répertoriée, il se peut qu’aucune tâche n’ait été créée dans le compte Automation dans la dernière heure. Essayez de démarrer un autre runbook dans le compte Automation, puis effectuez de nouveau le test.
+1. Vérifiez que la sortie n’affiche pas d’erreur dans la commande post pour Log Analytics. Un message similaire à celui ci-dessous doit s’afficher.
 
     ![Sortie post](media/runbook-datacollect/post-output.png)
 
@@ -178,7 +181,7 @@ La méthode la plus courante pour démarrer un runbook qui collecte les données
 
 | Propriété | Valeur |
 |:--|:--|
-| NOM | AutomationJobs-Hourly |
+| Nom | AutomationJobs-Hourly |
 | Démarrages | Sélectionnez une heure au moins 5 minutes après l’heure actuelle. |
 | Périodicité | Récurrent |
 | Répéter toutes les | 1 heure |
@@ -186,9 +189,9 @@ La méthode la plus courante pour démarrer un runbook qui collecte les données
 
 Une fois que la planification est créée, vous devez définir les valeurs de paramètre qui seront utilisées chaque fois que cette planification démarre le runbook.
 
-6. Cliquez sur **Configure parameters and run settings (Configurer les paramètres et les paramètres d’exécution)**.
-7. Renseignez les valeurs pour **ResourceGroupName** et **AutomationAccountName**.
-8. Cliquez sur **OK**.
+1. Cliquez sur **Configure parameters and run settings (Configurer les paramètres et les paramètres d’exécution)**.
+1. Renseignez les valeurs pour **ResourceGroupName** et **AutomationAccountName**.
+1. Cliquez sur **OK**.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Vérifier la conformité du démarrage du runbook avec la planification
 À chaque démarrage d’un runbook, [un travail est créé](../../automation/automation-runbook-execution.md) et toute sortie est enregistrée. En fait, il s’agit des mêmes travaux que ceux que le runbook collecte. Vous pouvez vérifier que le runbook démarre comme prévu en vérifiant les travaux du runbook après l’heure de démarrage indiquée dans la planification.

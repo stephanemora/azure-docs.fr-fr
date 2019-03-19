@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5949016281b5f8ba5d8770403a146e52d279c73
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: b3c9f2f8671d5a7aa313a9f49e07230a4f9b6220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079985"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109339"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -66,7 +66,7 @@ Dans cette section, exécutez la procédure ci-après pour mettre à jour votre 
 
 ## <a name="create-run-as-account-using-powershell"></a>Créer un compte d’identification avec PowerShell
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 La liste suivante indique les configurations requises pour créer un compte d’identification dans PowerShell :
 
@@ -197,6 +197,12 @@ Ce script PowerShell prend en charge les configurations suivantes :
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias 
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -320,13 +326,13 @@ Cette section décrit comment supprimer et recréer votre compte d’identificat
 
 3. Sur la page de propriétés **Comptes d’identification**, sélectionnez le compte d’identification standard ou le compte d’identification Classic que vous voulez supprimer. Ensuite, dans le volet **Propriétés** du compte sélectionné, cliquez sur **Supprimer**.
 
- ![Supprimer un compte d’identification](media/manage-runas-account/automation-account-delete-runas.png)
+   ![Supprimer un compte d’identification](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. Pour suivre la progression de la suppression du compte, accédez à l’onglet **Notifications** du menu.
 
 1. Une fois le compte supprimé, vous pouvez le recréer sur la page de propriétés **Comptes d’identification** en sélectionnant l’option de création **Compte d’identification Azure**.
 
- ![Recréer le compte d’identification Automation](media/manage-runas-account/automation-account-create-runas.png)
+   ![Recréer le compte d’identification Automation](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>Renouvellement de certificat auto-signé
 

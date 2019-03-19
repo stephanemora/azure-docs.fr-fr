@@ -1,5 +1,5 @@
 ---
-title: Accès conditionnel pour utilisateurs Azure Active Directory B2B Collaboration | Microsoft Docs
+title: Accès conditionnel pour les utilisateurs de collaboration B2B - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B Collaboration prend en charge l’authentification multifacteur (MFA) pour un accès sélectif à vos applications d’entreprise
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 720f107b9a3908ebbc6dcbeca71b448c10cb8c6b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a5234443e234d232a9711274bea2f73427266f6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199389"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113484"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
@@ -48,26 +48,26 @@ Actuellement, l’administrateur peut exiger que les utilisateurs B2B Collaborat
 
 1. Se connecter à Azure AD
 
-  ```
-  $cred = Get-Credential
-  Connect-MsolService -Credential $cred
-  ```
+   ```
+   $cred = Get-Credential
+   Connect-MsolService -Credential $cred
+   ```
 2. Obtenir tous les utilisateurs avec des méthodes d'authentification
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
-  Voici un exemple : 
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
+   Voici un exemple : 
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
 
 3. Réinitialisez la méthode d’authentification multifacteur pour qu’un utilisateur spécifique oblige l’utilisateur B2B Collaboration à définir de nouveau des méthodes d’authentification. Exemple :
 
-  ```
-  Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
-  ```
+   ```
+   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
+   ```
 
 ### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Pourquoi effectuer l’authentification MFA au niveau de la location de la ressource ?
 

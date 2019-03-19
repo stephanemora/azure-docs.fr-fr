@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c47b45db95d428e9817220099368c14a31b4a528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ab1f54ee8c3ebb5ae41d28b70f1cffcb244af39f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192096"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076001"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+<center>
+
+![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Si votre organisation a fédéré votre Active Directory local avec Azure Active Directory à l’aide d’AD FS, vous disposez de deux options pour l’utilisation d’Azure Multi-Factor Authentication.
 
@@ -30,7 +32,7 @@ Si votre organisation a fédéré votre Active Directory local avec Azure Active
 Le tableau suivant résume le processus de vérification avec la sécurisation des ressources à l’aide d’Azure Multi-Factor Authentication et AD FS
 
 | Processus de vérification : applications basées sur le navigateur | Processus de vérification : applications hors navigateur |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Sécurisation des ressources Azure AD à l'aide d’Azure Multi-Factor Authentication |<li>La première étape de vérification est effectuée en local à l’aide d’AD FS.</li> <li>La seconde étape est une méthode par téléphone effectuée à l’aide de l’authentification cloud.</li> |
 | Sécurisation des ressources Azure AD à l'aide des services ADFS |<li>La première étape de vérification est effectuée en local à l’aide d’AD FS.</li><li>La seconde étape est effectuée localement en répondant à la demande.</li> |
 

@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: a229011617239b829ce2622a0482fd9b4908aca6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 020c957baf6673365d64c613bd908a440bc3d05c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224205"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735031"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Utiliser l’API Recherche d’anomalies avec Ruby
 
@@ -22,7 +22,7 @@ ms.locfileid: "55224205"
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de Ruby en vue d’obtenir les résultats de détection d’anomalies sur les données de série chronologique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

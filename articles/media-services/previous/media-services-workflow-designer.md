@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fb24c856138bb9e59d9cb3ea07c9182454e6463a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993705"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080199"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Créer des flux de travail d’encodage avancé avec le Concepteur de flux de travail  
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le **Concepteur de flux de travail** est un outil de bureau Windows qui permet de concevoir et de générer des flux de travail personnalisés à encoder avec **Media Encoder Premium Workflow**.
 À l'aide de la puissance de l'outil de conception de flux de travail, vous pouvez concevoir et créer des flux de travail complexes qui seront exécutés dans **Media Encoder Premium**.  
 
@@ -37,8 +37,6 @@ Cet outil permet aussi de modifier nos [flux de travail publiés](media-services
 
 > [!NOTE]
 > Pour obtenir une copie de l'outil Concepteur de flux de travail, contactez mepd@microsoft.com.
-> 
-> 
 
 Une fois créé, un fichier de flux de travail peut être téléchargé comme ressource et être utilisé pour l'encodage de fichiers multimédias. Pour plus d'informations sur l'encodage avec **Media Encoder Premium Workflow** en utilisant **.NET**, consultez la page [Encodage avancé avec Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 

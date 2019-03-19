@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed0912e8d4705b6cbefa9eb8f7a712a37d8b0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8d2001e221ef9c02ee2ab80b647a9bafe6490432
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183176"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Tutoriel : Intégration d’Azure Active Directory à TINFOIL SECURITY
 
@@ -35,7 +35,7 @@ L’intégration de TINFOIL SECURITY à Azure AD vous fait bénéficier des avan
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à TINFOIL SECURITY, vous avez besoin des éléments suivants :
 
@@ -186,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
-    ![Utilisateurs et groupes -> Tous les utilisateurs ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+    ![Utilisateurs et groupes -> Tous les utilisateurs](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  

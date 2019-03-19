@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 40557d4e71dfea5996396cde634f7a1c80913556
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089775"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle
 
@@ -44,18 +44,18 @@ Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une ex
 3. Dans la liste des machines virtuelles, sélectionnez celle à sauvegarder.
 4. Dans le menu de la machine virtuelle, cliquez sur **Sauvegarder**. 
 5. Dans **Coffre Recovery Services**, effectuez les étapes suivantes :
-  - Si vous disposez déjà d’un coffre, cliquez sur **Sélectionner** et choisissez un coffre.
-  - Si vous n’avez pas de coffre, cliquez sur **Créer**. Nommez le coffre. Il est créé dans la même région et le même groupe de ressources que la machine virtuelle. Vous ne pouvez pas modifier ces paramètres quand vous activez la sauvegarde directement à partir des paramètres de la machine virtuelle.
+   - Si vous disposez déjà d’un coffre, cliquez sur **Sélectionner** et choisissez un coffre.
+   - Si vous n’avez pas de coffre, cliquez sur **Créer**. Nommez le coffre. Il est créé dans la même région et le même groupe de ressources que la machine virtuelle. Vous ne pouvez pas modifier ces paramètres quand vous activez la sauvegarde directement à partir des paramètres de la machine virtuelle.
 
-  ![Assistant Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![Assistant Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. Dans **Choisir une stratégie de sauvegarde**, effectuez les étapes suivantes :
 
-  - Conservez la stratégie par défaut. La machine virtuelle est sauvegardée une fois par jour à l’heure spécifiée, et les sauvegardes sont conservées dans le coffre pendant 30 jours.
-  - Sélectionnez une stratégie de sauvegarde existante si vous en avez une.
-  - Créez une stratégie et définissez ses paramètres.  
+   - Conservez la stratégie par défaut. La machine virtuelle est sauvegardée une fois par jour à l’heure spécifiée, et les sauvegardes sont conservées dans le coffre pendant 30 jours.
+   - Sélectionnez une stratégie de sauvegarde existante si vous en avez une.
+   - Créez une stratégie et définissez ses paramètres.  
 
-  ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Cliquez sur **Activer la sauvegarde**. La stratégie de sauvegarde est alors associée à la machine virtuelle. 
 
@@ -64,9 +64,9 @@ Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une ex
 8. Vous pouvez suivre la progression de la configuration dans les notifications du portail.
 9. Une fois le travail terminé, cliquez sur **Sauvegarder** dans le menu de la machine virtuelle. La page affiche l’état de la sauvegarde de la machine virtuelle, des informations sur les points de récupération, les travaux en cours d’exécution et les alertes émises.
 
-  ![État de la sauvegarde](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![État de la sauvegarde](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. Une fois la sauvegarde activée, une [sauvegarde initiale](#run-the-initial-backup) s’exécute. Vous pouvez démarrer la sauvegarde initiale immédiatement ou attendre qu’elle démarre selon la planification de la sauvegarde.
+10. Après avoir activé la sauvegarde, une sauvegarde initiale s’exécute. Vous pouvez démarrer la sauvegarde initiale immédiatement ou attendre qu’elle démarre selon la planification de la sauvegarde.
     - Tant que la sauvegarde initiale n’est pas terminée, la zone **État de la dernière sauvegarde** indique **Avertissement (Sauvegarde initiale en attente)**.
     - Pour savoir quand la prochaine sauvegarde planifiée va s’exécuter, cliquez sur le nom de la stratégie de sauvegarde.
     

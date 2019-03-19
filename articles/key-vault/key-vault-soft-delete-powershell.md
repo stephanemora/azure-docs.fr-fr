@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault - Utilisation de la suppression réversible avec PowerShell
 description: Exemples d’utilisation de la suppression réversible avec extraits de code PowerShell
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: bryanla
-ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081030"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -21,7 +21,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 - Prise en charge de la suppression récupérable d’un coffre de clés
 - Prise en charge de la suppression récupérable d’objets de coffre de clés (clés, secrets et certificats)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -177,19 +177,19 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 Comme les clés, les secrets sont gérés avec leurs propres commandes :
 
 - Supprimer un secret nommé SQLPassword : 
-```powershell
-Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - Énumérer tous les secrets supprimés dans un coffre de clés : 
-```powershell
-Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - Récupérer un secret à l’état supprimé : 
-```powershell
-Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - Vider un secret à l’état supprimé : 
 
@@ -205,7 +205,7 @@ Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 > [!IMPORTANT]
 > Le vidage d'un coffre de clés ou d'un des objets qui y est contenu entraîne sa suppression définitive, ce qui signifie que vous ne pourrez pas le récupérer !
 
-La fonction de vidage permet de supprimer définitivement un objet du coffre de clés ou un coffre de clés tout entier précédemment supprimé de façon réversible. Comme démontré à la section précédente, les objets stockés dans un coffre de clés et pour lesquels la fonction de suppression réversible est activée peuvent passer par différents états :
+La fonction de purge est utilisée pour supprimer définitivement un objet key vault ou un coffre de clés entier, ce qui a été précédemment supprimé. Comme démontré à la section précédente, les objets stockés dans un coffre de clés et pour lesquels la fonction de suppression réversible est activée peuvent passer par différents états :
 - **Actif** : avant la suppression.
 - **Supprimé de manière réversible** : après la suppression ; l'objet peut être répertorié et rétabli à l'état Actif.
 - **Supprimé définitivement** : après le vidage ; il impossible de récupérer l'objet.
@@ -236,5 +236,5 @@ L’énumération des objets du coffre de clés supprimés indique également qu
 ## <a name="other-resources"></a>Autres ressources
 
 - Pour obtenir une présentation de la fonctionnalité de suppression réversible, consultez [Présentation de la suppression réversible d’Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Pour une vue d'ensemble de l'utilisation d'Azure Key Vault, consultez [Présentation d'Azure Key Vault](key-vault-overview.md).
+- Pour une vue d’ensemble de l’utilisation d’Azure Key Vault, consultez [Présentation d’Azure Key Vault](key-vault-overview.md).
 

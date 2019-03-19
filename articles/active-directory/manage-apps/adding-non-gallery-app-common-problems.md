@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a07ca553aee2a6267af5a33836e85b2a12d8ae3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842455"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problème d’ajout d’une application hors galerie
 
@@ -46,20 +46,20 @@ Si vous avez besoin d’aide pour en savoir plus sur les applications personnali
 
 Vous pouvez afficher les détails d’une notification provenant du portail en suivant les étapes ci-dessous :
 
-1.  Cliquez sur l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure.
+1. Cliquez sur l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure.
 
-2.  Sélectionnez n’importe quelle notification avec l’état **Erreur**, signalée par un (!) rouge.
+2. Sélectionnez n’importe quelle notification avec l’état **Erreur**, signalée par un (!) rouge.
 
    >[!NOTE]
    >Vous ne pouvez pas cliquer sur les notifications affichant l’état **Réussi** ou **En cours**.
    >
    >
 
-4.  Utilisez les informations sous **Détails de la notification** pour comprendre plus de détails sur le problème.
+4. Utilisez les informations sous **Détails de la notification** pour comprendre plus de détails sur le problème.
 
-5.  Si vous avez encore besoin d’aide, vous pouvez également partager ces informations avec un ingénieur du support technique ou du groupe de produits qui vous assistera pour résoudre votre problème.
+5. Si vous avez encore besoin d’aide, vous pouvez également partager ces informations avec un ingénieur du support technique ou du groupe de produits qui vous assistera pour résoudre votre problème.
 
-6.  Cliquez sur l **’icône de copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
+6. Cliquez sur l **’icône de copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique
 
@@ -71,63 +71,63 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 ### <a name="essential-notification-items"></a>Éléments essentiels de la notification
 
--   **Titre** : titre descriptif de la notification
-   *  Exemple : **Paramètres de proxy d’application**
+- **Titre** : titre descriptif de la notification
+  *  Exemple : **Paramètres de proxy d’application**
 
--   **Description** : description de ce qui s’est produit suite à l’opération
+- **Description** : description de ce qui s’est produit suite à l’opération
 
-   *  Exemple : **L’URL interne entrée est déjà utilisée par une autre application**
+  *  Exemple : **L’URL interne entrée est déjà utilisée par une autre application**
 
--   **ID de notification** : ID unique de la notification
+- **ID de notification** : ID unique de la notification
 
-   *  Exemple : **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  *  Exemple : **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID de demande client** : ID de la demande spécifique effectuée par votre navigateur
+- **ID de demande client** : ID de la demande spécifique effectuée par votre navigateur
 
-   *  Exemple : **302fd775-3329-4670-a9f3-bea37004f0bc**
+  *  Exemple : **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Horodatage UTC** : horodatage de l’affichage de la notification, au format UTC
+- **Horodatage UTC** : horodatage de l’affichage de la notification, au format UTC
 
-   *  Exemple : **2017-03-23T19:50:43.7583681Z**
+  *  Exemple : **2017-03-23T19:50:43.7583681Z**
 
--   **ID de transaction interne** : ID interne nous permettant de rechercher l’erreur dans nos systèmes
+- **ID de transaction interne** : ID interne nous permettant de rechercher l’erreur dans nos systèmes
 
-   *  Exemple : **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  *  Exemple : **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** : utilisateur qui a effectué l’opération
+- **UPN** : utilisateur qui a effectué l’opération
 
-   *  Exemple : **tperkins@f128.info**
+  *  Exemple – **tperkins\@f128.info**
 
--   **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
+- **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
 
-   *  Exemple : **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  *  Exemple : **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **ID de l’objet utilisateur** : ID unique de l’utilisateur ayant effectué l’opération
+- **ID de l’objet utilisateur** : ID unique de l’utilisateur ayant effectué l’opération
 
- *  Exemple : **17f84be4-51f8-483a-b533-383791227a99**
+  *  Exemple : **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Éléments détaillés de la notification
 
--   **Nom d’affichage** : **(peut être vide)** nom d’affichage plus détaillé de l’erreur
+- **Nom d’affichage** : **(peut être vide)** nom d’affichage plus détaillé de l’erreur
 
   *  Exemple : **paramètres de proxy d’application**
 
--   **État** : état spécifique de la notification
+- **État** : état spécifique de la notification
 
-   *  Exemple : **Échec**
+  *  Exemple : **Échec**
 
--   **ID de l’objet** : **(peut être vide)** ID de l’objet sur lequel l’opération a été effectuée
+- **ID de l’objet** : **(peut être vide)** ID de l’objet sur lequel l’opération a été effectuée
 
-   *  Exemple : **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+  *  Exemple : **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Détails** : description détaillée de ce qui s’est produit suite à l’opération
+- **Détails** : description détaillée de ce qui s’est produit suite à l’opération
 
-   *  Exemple : **L’URL interne « https://bing.com/ » n’est pas valide car elle est déjà en cours d’utilisation**
+  *  Exemple – **url interne `https://bing.com/` n’est pas valide car elle est déjà en cours d’utilisation**
 
--   **Erreur de copie** : cliquez sur l **’icône de copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec le support technique ou du groupe de produits 
--   ingénierie
+- **Erreur de copie** : cliquez sur l **’icône de copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec le support technique ou du groupe de produits 
+- ingénierie
 
-   *  Exemple ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+  *  Exemple ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

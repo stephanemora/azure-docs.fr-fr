@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Microsoft Docs'
+title: 'Tutoriel : Traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Microsoft Docs'
 description: Comment créer et configurer le connecteur Box ou une application API et l'utiliser dans une application logique d’Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244489"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550120"
 ---
-# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Didacticiel : Processus de facturation EDIFACT à l’aide des Services BizTalk Azure
+# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Didacticiel : Traiter les factures EDIFACT à l’aide d’Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -54,14 +54,14 @@ Pour réaliser ce scénario d’entreprise, Contoso utilise les fonctionnalités
 
 Pour achever le scénario, nous utilisons des files d’attente Service Bus pour envoyer la facture de Contoso à Northwind ou recevoir l’accusé de réception de la part de Northwind. Ces files d’attente peuvent être créées à l’aide d’une application cliente disponible au téléchargement incluse dans l’exemple de package disponible dans le cadre de ce didacticiel.  
 
-## <a name="prerequisites"></a>Prérequis
-* Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
+## <a name="prerequisites"></a>Conditions préalables
+* Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [How To : Créer ou modifier un Namespace de Service Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
 * Vous devez posséder un abonnement BizTalk Services. Pour ce didacticiel, supposons que vous disposez d’un abonnement BizTalk Services, appelé **contosowabs**.
 * Enregistrez votre abonnement BizTalk Services sur le portail BizTalk Services. Pour obtenir des instructions, consultez la page [Enregistrement d’un déploiement de BizTalk Services sur le portail BizTalk Services](https://msdn.microsoft.com/library/hh689837.aspx)
 * Visual Studio doit être installé sur votre machine.
-* Vous devez disposer du kit de développement logiciel BizTalk Services. Vous pouvez télécharger le Kit de développement logiciel (SDK) à partir de [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* Vous devez disposer du kit de développement logiciel BizTalk Services. Vous pouvez télécharger le Kit de développement logiciel (SDK) à partir de [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
-## <a name="step-1-create-the-service-bus-queues"></a>Étape 1 : créer les files d’attente Service Bus
+## <a name="step-1-create-the-service-bus-queues"></a>Étape 1 : Créer les files d’attente Service Bus
 Cette solution utilise des files d’attente Service Bus pour l’échange de messages entre partenaires commerciaux. Contoso et Northwind envoient aux files d’attente des messages qui sont ensuite utilisés par les ponts IAE et/ou EDI. Pour cette solution, vous avez besoin de trois files d’attente Service Bus :
 
 * **northwindreceive** : c’est celle sur laquelle Northwind reçoit la facture de Contoso.
@@ -78,7 +78,7 @@ Vous pouvez créer ces files d’attente Service Bus à l’aide d’une applica
 4. Un message vous informe que trois files d’attente vont être créées dans votre espace de noms Service Bus. Cliquez sur **OK**.
 5. Quittez le client de didacticiel en cours d’exécution. Ouvrez, cliquez sur **Service Bus** > ***Votre espace de noms Service Bus*** > **Files d’attente** et vérifiez que les trois files d’attente ont bien été générées.  
 
-## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>Étape 2 : créer et déployer l’accord de partenariat commercial
+## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>Étape 2 : Créer et déployer l’accord de partenariat commercial
 Créez un accord de partenariat commercial entre Contoso et Northwind. Un accord de partenariat commercial définit un contrat commercial entre les deux partenaires commerciaux, par exemple, le schéma de message et le protocole de messagerie à utiliser, etc. Un accord de partenariat commercial comprend deux ponts EDI, l’un servant à envoyer des messages à des partenaires commerciaux (appelé **pont d’envoi EDI**) et l’autre, à recevoir des messages de partenaires commerciaux (appelé **pont de réception EDI**).
 
 Dans le cadre de cette solution, le pont d’envoi EDI correspond au côté envoi de l’accord et est utilisé pour envoyer la facture EDIFACT de Contoso à Northwind. De même, le pont de réception EDI est associé au côté réception de l’accord et est utilisé pour recevoir des accusés de réception de la part de Northwind.  
@@ -106,7 +106,7 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
    3. Sur l’onglet **Protocole**, sous la section **Schémas**, chargez le schéma **EFACT_D93A_INVOIC.xsd**. Ce schéma est disponible avec l’exemple de package.
       
       ![][4]  
-   4. Sur l’onglet **Transport** , spécifiez les détails pour les files d’attente Service Bus. Pour le côté envoi de l’accord, nous utilisons la file d’attente **northwindreceive** pour envoyer la facture EDIFACT à Northwind, et la file d’attente **Exécution suspendue** pour acheminer les messages ayant échoué en cours de traitement et suspendus. Vous avez créé ces files d’attente à l’ **Étape 1 : créer les files d’attente Service Bus** (dans cette rubrique).
+   4. Sur l’onglet **Transport** , spécifiez les détails pour les files d’attente Service Bus. Pour le côté envoi de l’accord, nous utilisons la file d’attente **northwindreceive** pour envoyer la facture EDIFACT à Northwind, et la file d’attente **Exécution suspendue** pour acheminer les messages ayant échoué en cours de traitement et suspendus. Vous avez créé ces files d’attente dans **étape 1 : Créer les files d’attente Service Bus** (dans cette rubrique).
       
       ![][5]  
       
@@ -128,7 +128,7 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
    * Sur l’onglet **Paramètres d’envoi**, sous **URL entrante**, notez le point de terminaison. Pour envoyer un message de Contoso vers Northwind avec le pont d’envoi EDI, vous devez envoyer un message à ce point de terminaison.
    * Sur l’onglet **Paramètres de réception**, sous **Transport**, notez le point de terminaison. Pour envoyer un message de Northwind vers Contoso avec le pont de réception EDI, vous devez recevoir un message à ce point de terminaison.  
 
-## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Étape 3 : créer et déployer le projet BizTalk Services
+## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Étape 3 : Créer et déployer le projet BizTalk Services
 Au cours de l’étape précédente, vous avez déployé les accords d’envoi et de réception EDI pour traiter les accusés de réception et les factures EDIFACT. Ces accords peuvent également traiter des messages conformes au schéma de message EDIFACT standard. Toutefois, selon le scénario de cette solution, Contoso envoie à Northwind une facture respectant un schéma propriétaire interne. Donc, avant que le message soit envoyé vers le pont d’envoi EDI, il doit être converti au schéma de facture EDIFACT standard. C’est à ça que sert le projet IAE BizTalk Services.
 
 Le projet BizTalk Services **InvoiceProcessingBridge**qui transforme le message fait lui aussi partie de l’exemple que vous avez téléchargé. Le projet inclut les artefacts suivants :
@@ -223,7 +223,7 @@ Le projet BizTalk Services **InvoiceProcessingBridge**qui transforme le message 
    
    Dans le panneau de sortie, copiez le point de terminaison sur lequel le pont IAE est déployé, par exemple, `https://contosowabs.biztalk.windows.net/default/ProcessInvoiceBridge`. Vous aurez besoin de cette URL de point de terminaison ultérieurement.  
 
-## <a name="step-4-test-the-solution"></a>Étape 4 : tester la solution
+## <a name="step-4-test-the-solution"></a>Étape 4 : Tester la solution
 Dans cette rubrique, nous allons étudier comment tester la solution à l’aide de l’application **Client de didacticiel** fournie dans le cadre de l’exemple.  
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour lancer le **Client du didacticiel**.
@@ -246,7 +246,7 @@ Dans cette rubrique, nous allons étudier comment tester la solution à l’aide
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Étape 5 (facultatif) : envoyer la facture EDIFACT en lots
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Étape 5 (facultatif) : Envoyer la facture EDIFACT en lots
 Les ponts EDI BizTalk Services prennent également en charge le traitement par lots des messages sortants. Cette fonctionnalité est utile pour la réception de partenaires qui préfèrent recevoir un lot de messages (respectant certains critères) plutôt que des messages individuels.
 
 L’aspect le plus important du travail avec des lots est la publication réelle du lot, également appelée critère de publication. Les critères de publication peuvent être déterminés en fonction de la façon dont les partenaires de réception veulent recevoir leurs messages. Si le traitement par lots est activé, le pont EDI n’envoie pas de message sortant vers le partenaire de réception jusqu’à ce que les critères de déclenchement soient atteints. Par exemple, un critère de traitement par lot basé sur la taille des messages distribue un lot uniquement lorsque « n » messages sont regroupés. Un critère de traitement par lots peut également être basé sur le temps, et faire en sorte qu’un lot soit envoyé à heure fixe chaque jour. Dans cette solution, nous essayons des critères basés sur la taille des messages.

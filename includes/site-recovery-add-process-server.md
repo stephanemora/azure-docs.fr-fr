@@ -4,24 +4,24 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: b6e3abb56ebd02131fac78c2a8f03ddcbf50958a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114429"
 ---
 1. Lancer le fichier UnifiedSetup.exe d’Azure Site Recovery
 2. Dans la zone **Avant de commencer**, sélectionnez **l’ajout de serveurs de traitement supplémentaires pour effectuer un déploiement avec montée en puissance**.
 
-  ![Ajouter un serveur de traitement](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![Ajouter un serveur de traitement](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. Dans **Détails du serveur de configuration**, spécifiez l’adresse IP du serveur de configuration et la phrase secrète.
 
-  ![Ajouter un serveur de traitement 2](./media/site-recovery-add-process-server/ps-page-2.png)
+   ![Ajouter un serveur de traitement 2](./media/site-recovery-add-process-server/ps-page-2.png)
 4. Dans **Paramètres Internet**, indiquez de quelle manière le fournisseur qui s’exécute sur le serveur de configuration doit se connecter à Azure Site Recovery par le biais d’Internet.
 
-  ![Ajouter un serveur de traitement 3](./media/site-recovery-add-process-server/ps-page-3.png)
+   ![Ajouter un serveur de traitement 3](./media/site-recovery-add-process-server/ps-page-3.png)
 
    * Si vous voulez vous connecter avec le proxy actuellement configuré sur la machine, sélectionnez **Se connecter avec les paramètres de proxy existants**.
    * Si vous voulez que le fournisseur se connecte directement, sélectionnez **Se connecter directement sans proxy**.

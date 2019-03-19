@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842446"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
 
@@ -45,23 +45,23 @@ Une fois inscrit, enregistrez l’ID Microsoft Partner Network de votre organisa
 *   Découvrez les avantages de [Microsoft Partner Network](https://partner.microsoft.com/commercial).
 *   Si votre organisation dispose d’un abonnement existant, vous joindrez votre organisation lors de l’inscription. Si vous utilisez l’[Espace partenaires](https://partnercenter.microsoft.com/partner/home), vous pourrez voir l’ID dans votre compte d’Espace partenaires. Si vous utilisez [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), vous pourrez le voir dans votre compte Partner Membership Center. 
 
----  
+---
 
 ## <a name="2-create-a-microsoft-account"></a>2. Créer un compte Microsoft  
 | 15 mn |  
-Un compte Microsoft, par exemple, *@outlook.com ou @live.com*, est utilisé pour accéder à nombreux services et appareils Microsoft. Il est obligatoire pour les offres de transaction de la Place de marché Azure et nous recommandons son utilisation à tous les éditeurs cloud. Pour plus d’informations sur les avantages et les utilisations d’un compte Microsoft, [visitez cette page](https://account.microsoft.com/account/). Vous utiliserez un compte Microsoft personnel pour accéder au portail Cloud Partner, la plateforme de publication que vous utiliserez pour créer et gérer vos offres sur la place de marché. 
+Compte Microsoft, par exemple,  *\@outlook.com ou \@live.com*, est utilisé pour accéder à nombreux services et appareils de Microsoft. Il est obligatoire pour les offres de transaction de la Place de marché Azure et nous recommandons son utilisation à tous les éditeurs cloud. Pour plus d’informations sur les avantages et les utilisations d’un compte Microsoft, [visitez cette page](https://account.microsoft.com/account/). Vous utiliserez un compte Microsoft personnel pour accéder au portail Cloud Partner, la plateforme de publication que vous utiliserez pour créer et gérer vos offres sur la place de marché. 
 
 [! IMPORTANT] Notez qu’un compte Microsoft associé à votre e-mail professionnel ne vous autorise pas à accéder à ce portail.
 
->[!Note]
->Si vous avez déjà un compte Microsoft, passez en revue les [Instructions pour la création d’un ID Microsoft dans le but de gérer un compte de place de marché](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) afin de déterminer s’il peut être utilisé pour la publication sur la place de marché. 
-
->Les utilisateurs avec un compte d’entreprise fédéré Azure Active Directory doivent lire [cet article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) avant d’essayer de créer ou d’utiliser votre compte Microsoft existant.
+> [!Note]
+> Si vous avez déjà un compte Microsoft, passez en revue les [Instructions pour la création d’un ID Microsoft dans le but de gérer un compte de place de marché](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) afin de déterminer s’il peut être utilisé pour la publication sur la place de marché. 
+> 
+> Les utilisateurs avec un compte d’entreprise fédéré Azure Active Directory doivent lire [cet article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) avant d’essayer de créer ou d’utiliser votre compte Microsoft existant.
 
 *   Pour obtenir de l’aide pour créer ou gérer votre compte Microsoft, visitez les [pages de support technique du compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
----  
+---
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Envoyer le formulaire d’inscription sur la place de marché  
 | 15 mn |  
@@ -72,7 +72,7 @@ Il vous sera demandé de fournir les informations suivantes :
 *   Une brève description de votre offre initiale d’application ou de services de conseil que vous prévoyez de publier, notamment le produit ou le service Microsoft auquel votre offre correspond le mieux
 *   Le public cible de votre application ou service 
 
----  
+---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Se connecter au Portail Cloud Partner
 | 1 à 3 jours | <br>
 Notre équipe d’intégration de la Place de marché validera les détails de l’inscription à la Place de marché fournis à l’étape 3. Une fois ces détails approuvés, vous recevrez un e-mail de bienvenue avec des informations d’identification de compte et des conseils de connexion au [portail Cloud Partner](https://cloudpartner.azure.com).
@@ -108,4 +108,4 @@ Une fois l’inscription au [Centre de développement](https://developer.microso
 *   [Déterminer le type de référencement pour votre solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

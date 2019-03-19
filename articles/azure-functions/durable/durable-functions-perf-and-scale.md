@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138114"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -48,6 +48,15 @@ Il existe une file d’attente des éléments de travail par hub de tâches dans
 Il existe plusieurs *files d’attente de contrôle* par hub de tâches dans Fonctions durables. Une *file d’attente de contrôle* est plus sophistiquée et complexe que la file d’attente des éléments de travail. Les files d’attente de contrôle servent à déclencher les fonctions d’orchestrateur avec état. Étant donné que les instances de fonction d’orchestrateur sont des singletons avec état, il est impossible d’utiliser un modèle de consommateur concurrent pour distribuer la charge sur les machines virtuelles. À la place, la charge des messages d’orchestrateur est équilibrée sur les files d’attente de contrôle. Vous trouverez plus d’informations sur ce comportement dans les sections suivantes.
 
 Les files d’attente de contrôle contiennent différents types de message couvrant le cycle de vie de l’orchestration, tels que des [messages de contrôle d’orchestrateurs](durable-functions-instance-management.md), des messages de *réponse* de fonctions d’activité et des messages de minuteurs. Au maximum, 32 messages seront enlevés d’une file d’attente de contrôle lors d’une seule interrogation. Ces messages contiennent des données de charge utile ainsi que des métadonnées, et notamment l’instance d’orchestration de destination. Si plusieurs messages enlevés de la file d’attente sont prévus pour la même instance d’orchestration, ils seront traités en tant que lot.
+
+### <a name="queue-polling"></a>Interrogation de file d’attente
+
+L’extension tâche durable implémente un algorithme exponentiel et aléatoire temporisation pour réduire l’effet d’inactivité-file d’attente d’interrogation sur les coûts de stockage. Lorsqu’un message est trouvé, le runtime recherche immédiatement un autre message ; Quand aucun message n’est trouvé, il attend pendant une période de temps avant de réessayer. Après plusieurs échecs de tentatives pour obtenir un message de file d’attente, le temps d’attente continue d’augmenter jusqu'à ce qu’il atteigne le délai d’attente maximal par défaut est 30 secondes.
+
+Le délai d’interrogation maximal est configurable via la `maxQueuePollingInterval` propriété dans le [fichier host.json](../functions-host-json.md#durabletask). Affectation d’une valeur plus élevée peut entraîner une latence de traitement des messages plus élevé. Latences supérieures peuvent être attendus uniquement après les périodes d’inactivité. Affectation d’une valeur inférieure peut entraîner des coûts de stockage plus élevés en raison de transactions de stockage.
+
+> [!NOTE]
+> Lors de l’exécution dans les plans de consommation Azure Functions et Premium, le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-plan-works) interroge chaque file d’attente de contrôle et d’élément de travail une fois toutes les 10 secondes. Cette interrogation supplémentaire est nécessaire pour déterminer le moment d’activation d’instances d’application de fonction et de prendre des décisions de mise à l’échelle. Au moment de la rédaction de, cette deuxième intervalle 10 est constant et ne peut pas être configuré.
 
 ## <a name="storage-account-selection"></a>Sélection du compte de stockage
 

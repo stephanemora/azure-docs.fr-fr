@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359865"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117249"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -43,9 +43,6 @@ Dans un plan App Service, vous pouvez adapter les niveaux pour allouer différen
 
 Quand vous utilisez un plan Consommation, les instances de l’hôte Azure Functions sont ajoutées et supprimées de façon dynamique en fonction du nombre d’événements entrants. Ce plan serverless est mis à l’échelle automatiquement, et vous êtes facturé pour les ressources de calcul uniquement lorsque vos fonctions sont exécutées. Dans un plan Consommation, le délai d’attente de l’exécution d’une fonction arrive à expiration après une période configurable.
 
-> [!NOTE]
-> Le délai d’expiration par défaut pour les fonctions dans un plan Consommation est de 5 minutes. Pour l’application de fonction, vous pouvez augmenter cette valeur jusqu’à un maximum de 10 minutes en changeant la propriété `functionTimeout` dans le fichier projet [host.json](functions-host-json.md#functiontimeout).
-
 La facturation est basée sur le nombre d’exécutions, la durée d’exécution et la mémoire utilisée. La facturation est unifiée pour toutes les fonctions d’une même application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions].
 
 Le plan d’hébergement par défaut (le plan Consommation) présente les avantages suivants :
@@ -62,7 +59,7 @@ Pensez à un plan App Service dans les cas suivants :
 * Vous disposez de machines virtuelles existantes, sous-utilisées qui exécutent déjà d’autres instances App Service.
 * Vos applications de fonction s’exécutent en continu ou presque. Dans ce cas, un plan App Service peut être plus économique.
 * Vous avez besoin de plus d’options de mémoire ou de processeur que celles qui sont proposées dans le plan Consommation.
-* Votre code doit s’exécuter pendant une durée supérieure à celle autorisée dans le plan Consommation, qui est de 10 minutes maximum.
+* Votre code doit s’exécuter plus de temps que le [durée d’exécution maximale autorisée](#timeout) sur le plan de consommation.
 * Vous avez besoin de fonctionnalités qui sont disponibles uniquement dans un plan App Service, telles que la prise en charge d’App Service Environment, la connectivité des réseaux virtuels/VPN et la configuration de machines virtuelles volumineuses.
 * Vous souhaitez exécuter votre application de fonction sur Linux, ou voulez fournir une image personnalisée sur laquelle exécuter vos fonctions.
 
@@ -70,13 +67,15 @@ L’utilisation d’une machine virtuelle dissocie le coût du nombre d’exécu
 
 Avec un plan App Service, vous pouvez augmenter manuellement la taille des instances en ajoutant des instances de machine virtuelle, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/web-sites-scale.md). 
 
-Lorsque vous exécutez des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans App Service à cœur unique](functions-reference-node.md#considerations-for-javascript-functions).  
+Lorsque vous exécutez des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [choisir des plans App Service à cœur unique](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Always On
+
+### <a name="always-on"></a> Always On
 
 Si vous utilisez un plan App Service, vous devez activer le paramètre **Always On** afin que l’application de fonction s’exécute correctement. Dans un plan App Service, comme le runtime des fonctions devient inactif après quelques minutes d’inactivité, seuls des déclencheurs HTTP peuvent « relancer » vos fonctions. Le paramètre Always On est disponible uniquement dans un plan App Service. Dans un plan Consommation, la plateforme active automatiquement les applications de fonction.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>Quel est mon plan d’hébergement
 
@@ -125,7 +124,8 @@ L’unité de mise à l’échelle est l’application de fonction. Quand les in
 La mise à l’échelle peut varier en fonction de certains facteurs et selon le déclencheur et le langage sélectionnés. Toutefois, quelques aspects de la mise à l’échelle sont notables dans le système aujourd’hui :
 
 * Une application de fonction peut évoluer jusqu’à 200 instances maximum. Une seule instance, par contre, peut traiter plusieurs messages ou requêtes à la fois, ainsi il n’y a pas de limite définie sur le nombre d’exécutions simultanées.
-* Les nouvelles instances ne sont tout au plus allouées qu’une fois toutes les 10 secondes.
+* Pour les déclencheurs HTTP, les nouvelles instances sont uniquement affectés au maximum une fois toutes les secondes.
+* Pour les déclencheurs non-HTTP, nouvelles instances sont uniquement affectés au maximum une fois toutes les 30 secondes.
 
 Différents déclencheurs peuvent également avoir des limites de mise à l’échelle différentes, comme documentées ci-dessous :
 

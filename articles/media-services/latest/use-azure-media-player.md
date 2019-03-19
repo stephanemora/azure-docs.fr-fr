@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 4dd0f697d16d7a2fbeec8f712d98e6a7c439cb4e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896991"
 ---
 # <a name="azure-media-player-overview"></a>Présentation du lecteur multimédia Azure
 
@@ -24,13 +24,13 @@ Le lecteur multimédia Azure est un lecteur vidéo web conçu pour lire du conte
 
 Microsoft Azure Media Services permet au contenu d’être diffusé dans les formats de streaming HLS, DASH et Smooth Streaming. Azure Media Player prend en compte des différents formats et lit automatiquement le lien le mieux adapté aux capacités de la plateforme/du navigateur. Media Services assure également le chiffrement dynamique des ressources avec le chiffrement PlayReady ou le chiffrement d’enveloppe AES 128 bits. Lorsqu’il est configuré de manière appropriée, Azure Media Player permet le déchiffrement du contenu chiffré avec PlayReady et AES 128 bits. 
 
-[Démarrez votre essai gratuit](http://azure.microsoft.com/en-us/pricing/free-trial/)
+[Démarrez votre essai gratuit](https://azure.microsoft.com/en-us/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Utiliser la page de démonstration du lecteur multimédia Azure
 
 ### <a name="start-using"></a>Démarrer l’utilisation
 
-Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](http://aka.ms/amp) pour lire les exemples Azure Media Services ou votre propre flux de données.  
+Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](https://aka.ms/amp) pour lire les exemples Azure Media Services ou votre propre flux de données.  
 
 Pour lire une nouvelle vidéo, collez une autre URL et appuyez sur **Mettre à jour**.
 
@@ -40,7 +40,7 @@ Pour configurer diverses options de lecture (relatives à la technologie, à la 
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Superviser les diagnostics d’un flux vidéo
 
-Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](http://aka.ms/amp) pour superviser les diagnostics d’un flux vidéo. 
+Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](https://aka.ms/amp) pour superviser les diagnostics d’un flux vidéo. 
 
 ![Diagnostics Azure Media Player](./media/azure-media-player/diagnostics.png)
 

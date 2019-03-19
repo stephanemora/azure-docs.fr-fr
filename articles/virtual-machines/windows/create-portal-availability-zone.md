@@ -10,18 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3d3561cf1ad760930821fabeef9839c25d55f2a9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 23d1e53785ece50943d732db12b4cf460ba6752a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30321986"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767479"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Créer une machine virtuelle Windows dans une zone de disponibilité avec le portail Azure
 
@@ -39,7 +39,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
 
-3. Saisissez les informations de la machine virtuelle. Le nom d’utilisateur et le mot de passe que vous avez entrés vous serviront pour vous connecter à la machine virtuelle. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm). Choisissez un emplacement, par exemple Est des États-Unis 2, qui prend en charge des zones de disponibilité. Lorsque vous avez terminé, cliquez sur **OK**.
+3. Saisissez les informations de la machine virtuelle. Le nom d’utilisateur et le mot de passe que vous avez entrés vous serviront pour vous connecter à la machine virtuelle. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm). Choisissez un emplacement, par exemple USA Est 2, qui prend en charge des zones de disponibilité. Lorsque vous avez terminé, cliquez sur **OK**.
 
     ![Saisie des informations de base sur votre machine virtuelle dans le panneau du portail](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 

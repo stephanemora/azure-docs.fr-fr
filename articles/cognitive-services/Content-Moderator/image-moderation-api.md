@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1dba848be0c24ef26dcefd23d4fc3f7201420449
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 17e4d576d4c524321fd19c589868a323f97c48a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873510"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079711"
 ---
 # <a name="learn-image-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération d'image
 
@@ -35,12 +35,11 @@ L’opération **Évaluer** renvoie un score de confiance entre 0 et 1. Il renvo
       ],
 
 > [!NOTE]
-
+> 
 > - `isImageAdultClassified` représente la présence d’images pouvant être considérées comme sexuellement explicites ou réservées aux adultes dans certaines situations.
 > - `isImageRacyClassified` représente la présence d’images pouvant être considérées comme sexuellement suggestives ou réservées aux adultes dans certaines situations.
 > - Les scores sont compris entre 0 et 1. Plus le score est élevé, plus le modèle prédit que la catégorie peut être applicable. Cette préversion s’appuie sur un modèle statistique plutôt que sur des résultats codés manuellement. Nous vous recommandons d’effectuer le test avec votre propre contenu afin de déterminer comment chaque catégorie correspond à vos besoins.
 > - Les valeurs booléennes sont true ou false, selon les seuils de score internes. Les clients doivent évaluer l’opportunité d’utiliser cette valeur ou choisir des seuils personnalisés en fonction de leurs stratégies de contenu.
->
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Détecter le texte à l’aide de la reconnaissance optique de caractères (OCR)
 

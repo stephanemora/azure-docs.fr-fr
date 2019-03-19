@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855402"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
-La création d’environnements cohérents à l’échelle n’est vraiment utile que s’il existe un mécanisme pour gérer cette cohérence. Cet article explique le fonctionnement du verrouillage de ressources dans les blueprints Azure.
+La création d’environnements cohérents à l’échelle n’est vraiment utile que s’il existe un mécanisme pour gérer cette cohérence. Cet article explique le fonctionnement du verrouillage de ressources dans les blueprints Azure. Pour voir un exemple de verrouillage de ressources et l’application de _refuser affectations_, consultez le [protégeant les ressources nouvelles](../tutorials/protect-new-resources.md) didacticiel.
 
 ## <a name="locking-modes-and-states"></a>Modes et états de verrouillage
 
@@ -58,8 +58,9 @@ Une action de refus de type [Refuser les attributions](../../../role-based-acces
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
-- Comprendre comment utiliser les [paramètres statiques et dynamiques](parameters.md)
-- Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md)
-- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md)
-- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md)
+- Suivez le [protéger les nouvelles ressources](../tutorials/protect-new-resources.md) didacticiel.
+- En savoir plus sur la [blueprint de cycle de vie](lifecycle.md).
+- Comprendre comment utiliser [paramètres statiques et dynamiques](parameters.md).
+- Apprenez à personnaliser le [blueprint ordre de classement](sequencing-order.md).
+- Découvrez comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
+- Résoudre les problèmes de l’attribution d’un plan avec [dépannage général](../troubleshoot/general.md).

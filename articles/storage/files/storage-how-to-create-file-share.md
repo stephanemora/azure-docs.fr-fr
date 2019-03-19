@@ -4,16 +4,16 @@ description: Créer un partage de fichiers Azure dans Azure Files à l’aide du
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 084a5c8113e73590e3e7b9603542a0d866606f96
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1620683f4bc02d607afd8e0371e8d4a5461612b3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818955"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772328"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Créer un partage de fichiers dans Azure Files
 Vous pouvez créer des partages de fichiers Azure à l’aide du  [portail Azure](https://portal.azure.com/), des applets de commande PowerShell du Stockage Azure, des bibliothèques clientes du Stockage Azure ou de l’API REST du Stockage Azure. Ce tutoriel vous apprendra à effectuer les opérations suivantes :
@@ -21,7 +21,7 @@ Vous pouvez créer des partages de fichiers Azure à l’aide du  [portail Azur
 * [Création d’un partage de fichiers Azure avec PowerShell](#create-file-share-through-powershell)
 * [Création d’un partage de fichiers Azure avec l’interface CLI](#create-file-share-through-command-line-interface-cli)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour créer un partage de fichiers Azure, vous pouvez utiliser un compte de stockage existant ou [créer un compte de stockage Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Pour créer un partage de fichiers Azure avec PowerShell, vous avez besoin de la clé de compte et du nom de votre compte de stockage. Si vous envisagez d’utiliser Powershell ou l’interface CLI, vous aurez besoin de la clé du compte de stockage.
 
 ## <a name="create-a-file-share-through-the-azure-portal"></a>Créer un partage de fichiers via le portail Azure

@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848923"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passer à un certificat de passerelle d’autorité de certification public pour P2S
 
 La Passerelle VPN Azure n'émet plus de certificats auto-signés de niveau Azure vers ses passerelles pour les connexions P2S. Les certificats délivrés sont maintenant signés par une autorité de certification publique. Toutefois, certaines des passerelles les plus anciennes peuvent encore utiliser des certificats auto-signés. Ces certificats auto-signés approchent de leur date d'expiration et doivent être remplacés par des certificats d'autorité de certification publics.
 
 >[!NOTE]
-> Les certificats auto-signés utilisés pour l'authentification des clients P2S ne sont pas concernés par ce changement de certificats de niveau Azure. Vous pouvez continuer à émettre et à utiliser des certificats auto-signés normalement.
+> * Les certificats auto-signés utilisés pour l'authentification des clients P2S ne sont pas concernés par ce changement de certificats de niveau Azure. Vous pouvez continuer à émettre et à utiliser des certificats auto-signés normalement.
 >
 
 Dans ce contexte, les certificats constituent des certificats supplémentaires de niveau Azure. Il ne s'agit pas des chaînes de certificats que vous utilisez lors de la génération de vos propres certificats racine auto-signés et des certificats clients pour l'authentification. Ces certificats ne sont pas concernés ; ils expireront aux dates que vous avez définies.
@@ -38,7 +38,7 @@ Seules les passerelles les plus anciennes sont concernées par ce changement. Si
 >
 > **Pour toutes les autres passerelles, la mise à jour aura lieu le 12 mars 2019 à partir de 18:00 UTC**.
 >
-> Le processus de remplacement de passerelle prendra jusqu'à 2 heures. Les clients recevront un e-mail au terme du processus de remplacement de leur passerelle.
+> Les clients recevront un e-mail au terme du processus de remplacement de leur passerelle.
 > 
 
 ## <a name="1-verify-your-certificate"></a>1. Vérifiez votre certificat
@@ -50,8 +50,8 @@ Seules les passerelles les plus anciennes sont concernées par ce changement. Si
 2. Ouvrez ou extrayez le fichier zip, puis accédez au dossier « Generic ». Dans le dossier Generic, vous verrez deux fichiers, dont *VPNSettings.xml*.
 3. Ouvrez le fichier *VPNSettings.xml* dans la visionneuse ou l'éditeur de votre choix. Dans le fichier xml, recherchez les champs suivants :
 
-  * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
-  * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
+   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
+   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Si la mention « DigiCert Global Root CA » apparaît pour les champs *ServerCertRotCn* et *ServerCertIssuerCn*, cela signifie que vous n'êtes pas concerné par cette mise à jour et que vous n'avez pas besoin de suivre les étapes décrites dans cet article. Si une autre mention apparaît, en revanche, le certificat de votre passerelle est concerné par la mise à jour et sera remplacé.
 
 ### <a name="classic"></a>Classique

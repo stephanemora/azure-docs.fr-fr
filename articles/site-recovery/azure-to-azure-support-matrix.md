@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093869"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -33,7 +33,7 @@ Cet article récapitule les composants et les configurations pris en charge lors
 ## <a name="resource-support"></a>Prise en charge des ressources
 
 **Action de ressource** | **Détails**
---- | --- | ---
+--- | --- 
 **Déplacer le coffre entre plusieurs groupes de ressources** | Non pris en charge
 **Déplacer le calcul/le stockage/les ressources réseau entre plusieurs groupes de ressources** | Non pris en charge.<br/><br/> Si vous déplacez une machine virtuelle ou des composants associés tels que le stockage/réseau après la réplication de la machine virtuelle, vous devez désactiver et réactiver la réplication pour la machine virtuelle.
 **Répliquer des machines virtuelles Azure d’un abonnement à un autre pour la reprise d’activité** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
@@ -83,6 +83,7 @@ Site Recovery prend en charge la réplication de machines virtuelles Azure exéc
 
 **Système d’exploitation** | **Détails**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | Server Core, Server avec Expérience utilisateur
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -194,7 +195,7 @@ Chiffrement au repos (SSE) | Pris en charge | SSE est le paramètre par défaut 
 Azure Disk Encryption (ADE) pour système d’exploitation Windows | Prise en charge des machines virtuelles activées pour le [chiffrement avec Azure AD app](https://aka.ms/ade-aad-app) |
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Non pris en charge |
 Ajout/suppression de disque à chaud | Non pris en charge | Si vous ajoutez ou supprimez un disque de données sur la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
-Exclure le disque | [prise en charge via powershell](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  Le disque temporaire est exclu par défaut.
+Exclure le disque | [prise en charge via powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   Le disque temporaire est exclu par défaut.
 Espaces de stockage direct  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 Serveur de fichiers avec montée en puissance parallèle  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 LRS | Prise en charge |

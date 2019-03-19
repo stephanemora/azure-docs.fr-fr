@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191059"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109135"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guide de l’administrateur Atlassian Jira et Confluence pour Azure Active Directory
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Le plug-in d’authentification unique (SSO) Azure Active Directory (Azure AD) permet aux clients Microsoft Azure AD d’utiliser leur compte professionnel ou scolaire pour se connecter aux produits serveur Atlassian Jira et Confluence. Il implémente l’authentification unique basée sur SAML 2.0.
 
@@ -53,7 +53,7 @@ Les administrateurs de Jira et Confluence peuvent utiliser le plug-in pour activ
 * Jira ou Confluence sont également disponibles à l’extérieur du réseau d’entreprise.
 * Le plug-in fonctionne uniquement avec la version locale de Jira et Confluence.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant d’installer le plug-in, tenez compte des informations suivantes :
 
@@ -110,33 +110,33 @@ L’image suivante montre l’écran de configuration dans Jira et Confluence :
 
 ![Écran de configuration du plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **URL de métadonnées** : URL pour obtenir les métadonnées de fédération à partir d’Azure AD.
+* **URL de métadonnées** : URL pour obtenir les métadonnées de fédération à partir d’Azure AD.
 
-*   **Identificateurs** : URL utilisée par Azure AD pour valider la source de la requête. Elle correspond à l’élément **Identificateur** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/.
+* **Identificateurs** : URL utilisée par Azure AD pour valider la source de la requête. Elle correspond à l’élément **Identificateur** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/.
 
-*   **URL de réponse** : URL de réponse dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **URL de réponse** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/plugins/servlet/saml/auth.
+* **URL de réponse** : URL de réponse dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **URL de réponse** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/plugins/servlet/saml/auth.
 
-*   **URL d’authentification** : URL de connexion dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **Connexion** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/plugins/servlet/saml/auth.
+* **URL d’authentification** : URL de connexion dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **Connexion** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/plugins/servlet/saml/auth.
 
-*   **ID d'entité de fournisseur d'identité** : identifiant d’entité utilisé par votre fournisseur d’identité. Cette case est renseignée quand l’URL des métadonnées est résolue.
+* **ID d'entité de fournisseur d'identité** : identifiant d’entité utilisé par votre fournisseur d’identité. Cette case est renseignée quand l’URL des métadonnées est résolue.
 
-*   **URL de connexion** : URL de connexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
+* **URL de connexion** : URL de connexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
 
-*   **URL de déconnexion** : URL de déconnexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
+* **URL de déconnexion** : URL de déconnexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
 
-*   **Certificat X.509** : certificat X.509 de votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
+* **Certificat X.509** : certificat X.509 de votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
 
-*   **Nom du bouton Connexion** : nom du bouton de connexion que votre organisation souhaite que les utilisateurs visualisent sur la page de connexion.
+* **Nom du bouton Connexion** : nom du bouton de connexion que votre organisation souhaite que les utilisateurs visualisent sur la page de connexion.
 
-*   **Emplacements des ID utilisateur SAML** : emplacement auquel l’ID d’utilisateur Jira ou Confluence est attendu dans la réponse SAML. Il peut apparaître sous la forme **NameID** ou dans un nom d’attribut personnalisé.
+* **Emplacements des ID utilisateur SAML** : emplacement auquel l’ID d’utilisateur Jira ou Confluence est attendu dans la réponse SAML. Il peut apparaître sous la forme **NameID** ou dans un nom d’attribut personnalisé.
 
-*   **Nom de l’attribut** : nom de l’attribut sur lequel l’ID utilisateur est attendu.
+* **Nom de l’attribut** : nom de l’attribut sur lequel l’ID utilisateur est attendu.
 
-*   **Activer la découverte du domaine d’accueil** : sélection à effectuer si l’entreprise utilise une connexion basée sur Active Directory Federation Services (AD FS).
+* **Activer la découverte du domaine d’accueil** : sélection à effectuer si l’entreprise utilise une connexion basée sur Active Directory Federation Services (AD FS).
 
-*   **Nom de domaine** : nom de domaine si la connexion est basée sur AD FS.
+* **Nom de domaine** : nom de domaine si la connexion est basée sur AD FS.
 
-*   **Activer la déconnexion unique** : sélection à effectuer si vous souhaitez vous déconnecter d’Azure AD lorsqu’un utilisateur se déconnecte de Jira ou Confluence.
+* **Activer la déconnexion unique** : sélection à effectuer si vous souhaitez vous déconnecter d’Azure AD lorsqu’un utilisateur se déconnecte de Jira ou Confluence.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -180,7 +180,7 @@ Le plug-in fonctionne avec les versions locales de Jira et Confluence.
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>Le plug-in fonctionne-t-il sur les versions cloud ?
 
- Non. Le plug-in prend uniquement en charge les versions locales de Jira et Confluence.
+Non. Le plug-in prend uniquement en charge les versions locales de Jira et Confluence.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Quelles versions de Jira et Confluence le plug-in prend-il en charge ?
 
@@ -224,7 +224,7 @@ Nous avons testé le plug-in uniquement sur des installations de Jira et Conflue
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>Le plug-in fonctionne-t-il avec des IdP autres qu’Azure AD ?
 
- Non. Il fonctionne uniquement avec Azure AD.
+Non. Il fonctionne uniquement avec Azure AD.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>Avec quelle version de SAML le plug-in fonctionne-t-il ?
 
@@ -232,12 +232,12 @@ Il fonctionne avec SAML 2.0.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>Le plug-in procède-t-il à l’approvisionnement des utilisateurs ?
 
- Non. Le plug-in fournit uniquement l’authentification unique basée sur SAML 2.0. L’utilisateur doit être provisionné dans l’application avant la connexion avec authentification unique.
+Non. Le plug-in fournit uniquement l’authentification unique basée sur SAML 2.0. L’utilisateur doit être provisionné dans l’application avant la connexion avec authentification unique.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>Le plug-in prend-il en charge les versions cluster de Jira et Confluence ?
 
- Non. Le plug-in fonctionne avec les versions locales de Jira et Confluence.
+Non. Le plug-in fonctionne avec les versions locales de Jira et Confluence.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>Le plug-in fonctionne-t-il avec les versions HTTP de Jira et Confluence ?
 
- Non. Le plug-in fonctionne uniquement avec les installations HTTPS.
+Non. Le plug-in fonctionne uniquement avec les installations HTTPS.

@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814886"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730407"
 ---
 # <a name="test-your-app-in-azure"></a>Tester votre application dans Azure 
 Cet article décrit la procédure de test de votre application dans Azure à l’aide de DevTest Labs. Tout d’abord, dans le cadre d’un labo, vous configurez un partage de fichiers et le montez en tant que lecteur sur votre ordinateur de développement local et une machine virtuelle. Ensuite, vous utilisez Visual Studio 2017 pour déployer votre application sur le partage de fichiers afin de pouvoir exécuter l’application sur la machine virtuelle.  
 
-## <a name="prerequisites"></a>Prérequis 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="prerequisites"></a>Conditions préalables 
 1. [Créez un abonnement Azure](https://azure.microsoft.com/free/) si vous n’en avez pas, puis connectez-vous au [portail Azure](https://portal.azure.com).
 2. Suivez les instructions de [cet article](devtest-lab-create-lab.md) pour créer un labo à l’aide d’Azure DevTest Labs. Épinglez le labo à votre tableau de bord afin de pouvoir le retrouver facilement lors de la prochaine connexion. Azure DevTest Labs vous permet de créer rapidement des ressources dans Azure en minimisant le gaspillage et en contrôlant les coûts. Pour en savoir plus sur DevTest Labs, voir [Vue d’ensemble](devtest-lab-overview.md). 
 3. Créez un compte Stockage Azure dans le groupe de ressources du labo en suivant les instructions de l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md). Dans la page **Créer un compte de stockage**, sélectionnez **Utiliser l’existant** pour **Groupe de ressources**, puis sélectionnez le **groupe de ressources du labo**. 
@@ -56,7 +58,7 @@ Cet article décrit la procédure de test de votre application dans Azure à l�
 
     ![Sélectionner la machine virtuelle de labo](media/test-app-in-azure/select-lab-vm.png)
 2. Sélectionnez **Connexion** dans la barre d’outils pour vous connecter à la machine virtuelle. 
-3. [Installez Azure PowerShell](https://azure.microsoft.com/downloads/) en suivant le lien d’**installation de Windows** dans la section **Outils en ligne de commande**. Pour d’autres méthodes d’installation d’Azure PowerShell, voir [cet article](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Installez Azure PowerShell](/powershell/azure/install-az-ps).
 4. Suivez les instructions de la section Monter le partage de fichiers. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publier votre application à partir de Visual Studio

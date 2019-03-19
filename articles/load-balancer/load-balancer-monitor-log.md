@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164124"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847142"
 ---
-# <a name="log-analytics-for-public-basic-load-balancer"></a>Log Analytics pour une instance publique de Basic Load Balancer
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Journaux d’analyse Azure pour l’équilibreur de charge de base public
 
 >[!IMPORTANT] 
->Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez [Présentation de Standard Load Balancer](load-balancer-standard-overview.md), qui expose les données de télémétrie par le biais de plusieurs métriques multidimensionnelles dans Azure Monitor.
+>Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez [Présentation de Standard Load Balancer](load-balancer-standard-overview.md), qui expose les données de télémétrie par le biais de plusieurs métriques multidimensionnelles dans Azure Monitor.
 
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les instances de Basic Load Balancer et résoudre les problèmes associés. Certains de ces journaux sont accessibles via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
 
@@ -32,13 +32,13 @@ Vous pouvez utiliser différents types de journaux dans Azure pour gérer les in
 * **Journaux de sonde d’intégrité** : Vous pouvez utiliser ces journaux pour connaître les problèmes détectés par votre sonde d’intégrité, tels que le nombre d’instances du pool principal qui ne reçoivent pas les demandes de l’équilibreur de charge en raison d’échecs de sonde d’intégrité. Toute modification de l’état de la sonde d’intégrité est indiquée dans ce journal.
 
 > [!IMPORTANT]
-> Log Analytics fonctionne uniquement avec les instances publiques de Basic Load Balancer. Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor enregistre actuellement s’applique uniquement aux équilibreurs de charge de base publique. Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 
 La journalisation d’audit est automatiquement activée pour chaque ressource Resource Manager. Vous devez activer la journalisation des événements et des sondes d’intégrité pour commencer à collecter les données disponibles dans ces journaux. Utilisez les étapes suivantes pour activer la journalisation.
 
-Connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne disposez pas déjà d'un équilibreur de charge, [créez un équilibreur de charge](load-balancer-get-started-internet-arm-ps.md) avant de continuer.
+Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez pas déjà d'un équilibreur de charge, [créez un équilibreur de charge](load-balancer-get-started-internet-arm-ps.md) avant de continuer.
 
 1. Dans le portail, cliquez sur **Parcourir**.
 2. Sélectionnez **Équilibreurs de charge**.

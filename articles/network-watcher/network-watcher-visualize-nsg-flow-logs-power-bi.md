@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079024"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisation des journaux de flux des groupes de sécurité réseau Azure avec Power BI
 
@@ -56,10 +56,10 @@ Le client Power BI Desktop doit également être installé sur votre ordinateur,
 
 1. Téléchargez et ouvrez le modèle Power BI suivant dans l’application Power BI Desktop : [Modèle de journaux de flux Network Watcher PowerBI](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Entrez les paramètres de requête obligatoires
-    1. **StorageAccountName** : spécifie le nom du compte de stockage contenant les journaux de flux NSG que vous souhaitez charger et visualiser.
-    1. **NumberOfLogFiles** : spécifie le nombre de fichiers journaux que vous souhaitez télécharger et visualiser dans Power BI. Par exemple, si vous spécifiez 50, il s’agit des 50 derniers fichiers journaux. Si vous avez activé 2 groupes de sécurité réseau et que vous les avez configurés pour envoyer des journaux de flux NSG sur ce compte, vous pourrez visualiser les 25 dernières heures de journaux.
+   1. **StorageAccountName** : spécifie le nom du compte de stockage contenant les journaux de flux NSG que vous souhaitez charger et visualiser.
+   1. **NumberOfLogFiles** : spécifie le nombre de fichiers journaux que vous souhaitez télécharger et visualiser dans Power BI. Par exemple, si vous spécifiez 50, il s’agit des 50 derniers fichiers journaux. Si vous avez activé 2 groupes de sécurité réseau et que vous les avez configurés pour envoyer des journaux de flux NSG sur ce compte, vous pourrez visualiser les 25 dernières heures de journaux.
 
-    ![page d’accueil Power BI][2]
+      ![page d’accueil Power BI][2]
 
 1. Entrez la clé d'accès de votre compte de stockage. Pour trouver les clés d’accès valides, accédez à votre compte de stockage dans le portail Azure et sélectionnez **Clés d’accès** dans le menu Paramètres. Cliquez sur **Connecter**, puis appliquez les modifications.
 
@@ -67,7 +67,7 @@ Le client Power BI Desktop doit également être installé sur votre ordinateur,
 
     ![clé d’accès 2][4]
 
-4.  Vos journaux sont téléchargés et analysés. Vous pouvez maintenant utiliser les éléments visuels créés au préalable.
+4. Vos journaux sont téléchargés et analysés. Vous pouvez maintenant utiliser les éléments visuels créés au préalable.
 
 ## <a name="understanding-the-visuals"></a>Vue d’ensemble des éléments visuels
 

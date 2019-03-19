@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ddf56e4c72e7e59778fc43a808b9800bc3b9b3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 602dd0fd4050a3b4336c560bbd82b32f3903b93c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850194"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Didacticiel : Intégration d’Azure Active Directory avec PolicyStat
+# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutoriel : Intégration d’Azure Active Directory avec PolicyStat
 
 Dans ce didacticiel, vous allez apprendre à intégrer PolicyStat avec Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de PolicyStat avec Azure AD vous offre les avantages suivants 
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec PolicyStat, vous avez besoin des éléments suivants :
 
@@ -176,7 +176,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     c. Dans la zone de texte **Last Name Attribute**, entrez la valeur **lastname** de l’utilisateur **Simon**.
 
-    d. Dans la zone de texte **Email Attribute**, entrez la valeur **emailaddress** de l’utilisateur **BrittaSimon@contoso.com**.
+    d. Dans le **Email Attribute** zone de texte, tapez **emailaddress** de l’utilisateur **BrittaSimon\@contoso.com**.
 
     e. Cliquez sur **Enregistrer les modifications**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Authentification de service à service : Python avec Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory | Microsoft Docs'
+title: 'Authentification de service à service : Python avec Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory | Microsoft Docs'
 description: Découvrez comment procéder à une authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory et Python
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a51eb8f560d598f86caf57b7b24737b0a3574b68
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 4cad09877a3fc4f586db2d92ce97a64b6efe295e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957211"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537148"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "49957211"
 Dans cet article, vous allez apprendre à utiliser le kit de développement logiciel (SDK) Python pour effectuer une authentification de service à service auprès d’Azure Data Lake Storage Gen1. Pour plus d’informations sur l’authentification des utilisateurs finaux auprès de Data Lake Storage Gen1 à l’aide de Python, consultez [Authentification des utilisateurs finaux auprès de Data Lake Storage Gen1 avec Python](data-lake-store-end-user-authenticate-python.md).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
@@ -44,7 +44,7 @@ Pour utiliser Data Lake Storage Gen1 avec Python, vous devez installer trois mod
 
 * Le module `azure-mgmt-resource`, qui inclut des modules Azure pour Active Directory, etc.
 * Le module `azure-mgmt-datalake-store`, qui inclut les opérations de gestion du compte Data Lake Storage Gen1. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules de gestion Azure Data Lake Storage Gen1](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Data Lake Storage Gen1. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules du système de fichiers azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Data Lake Storage Gen1. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules du système de fichiers azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilisez les commandes suivantes pour installer les modules.
 

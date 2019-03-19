@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094941"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738145"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promouvoir votre entreprise avec Microsoft  
 Microsoft a pour objectif de soutenir ses partenaires (vous) et de simplifier la vente de votre application ou offre dans les vitrines de la Place de marché. Grâce au référencement sur la Place de marché, vous accédez aux programmes et ressources sur la Place de marché. 
@@ -40,4 +40,4 @@ Pour promouvoir votre offre ou application, utilisez le tableau suivant pour acc
 | Obtenir votre compétence Cloud Platform | L’obtention d’une compétence vous permet de vous distinguer au sein des partenaires Microsoft. L’obtention d’une compétence vous permet également de montrer l’expertise technique et la réussite du client sur le marché. La compétence fait également partie des conditions nécessaires pour accéder à de nombreux programmes partenaires clés, tels que le programme de covente.<ul> <li>Pour plus d’informations sur la compétence Cloud Platform, consultez la page Compétence Cloud Platform à l’adresse [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
 | Se préparer pour devenir Co-Sell Ready | Le programme de covente Co-Sell Ready vous permet de collaborer directement avec les commerciaux et autres partenaires Microsoft concernant des opportunités de clientèle cible ou la planification des comptes. Votre solution devient visible pour les vendeurs Microsoft dans leurs catalogues de solutions. Les vendeurs Microsoft sont récompensés pour leur collaboration et réussite avec vous.<ul> <li>Pour plus d’informations sur la préparation à devenir Co-Sell Ready, consultez la page Promouvoir votre entreprise à l’adresse [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
----  
+---

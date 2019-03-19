@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: b645b444d62ae0f1834006a41190c417cee35963
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2bf5825d3f13044d1c9bde2b05d1c93ecd967a0f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081691"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782035"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-core"></a>Bien démarrer avec l'envoi de messages vers Azure Event Hubs dans .NET Core
 Event Hubs constitue un service qui traite de grandes quantités de données d'événement (télémétrie) à partir de périphériques et d'applications connectés. Après avoir collecté des données dans les concentrateurs d’événements, vous pouvez les stocker à l’aide d’un cluster de stockage ou les transformer à l’aide d’un fournisseur d’analyses en temps réel. Cette fonctionnalité de collecte et de traitement d’événements à grande échelle représente un élément clé des architectures d’applications modernes, notamment l’Internet des objets (IoT). Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -30,7 +30,7 @@ Ce didacticiel montre également comment envoyer des événements vers un concen
 > [!NOTE]
 > Vous pouvez télécharger ce démarrage rapide sous forme d’exemple depuis [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), remplacer les chaînes `EventHubConnectionString` et `EventHubName` par vos valeurs de concentrateur d’événements, puis l’exécuter. Ou, vous pouvez suivre les étapes de ce didacticiel pour créer le vôtre.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * [Microsoft Visual Studio 2015 ou 2017](https://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017, mais Visual Studio 2015 est également pris en charge.
 * [Outils Visual Studio 2015 ou 2017 .NET Core](https://www.microsoft.com/net/core). 
 
@@ -194,7 +194,7 @@ Ajoutez le package NuGet de bibliothèque .NET Core [`Microsoft.Azure.EventHubs`
 
 6. Exécutez le programme et assurez-vous qu’il n’y a aucune erreur.
 
-Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
+Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez envoyé des messages à un hub d'événements à l'aide de .NET Core. Pour découvrir comment recevoir des événements depuis un hub d'événements à l'aide de .NET Core, consultez [Recevoir des événements depuis un hub d'événements - .NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md).

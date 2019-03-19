@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338520"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082175"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure dans le système Red Hat Enterprise Linux
 
@@ -79,7 +79,7 @@ Commencez par lire les notes et publications SAP suivantes :
   * [Installation et configuration d’un cluster à haute disponibilité Red Hat Enterprise Linux 7.4 (et versions ultérieures) sur Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Installation de SAP HANA sur Red Hat Enterprise Linux pour une utilisation dans Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Pour atteindre la haute disponibilité, SAP HANA est installé sur deux machines virtuelles. Les données sont répliquées à l’aide de la réplication de système HANA.
 
@@ -182,6 +182,10 @@ Suivez ces étapes pour déployer le modèle :
    1. Répétez ces étapes pour les ports 3**03**41 et 3**03**42.
 
 Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) dans le guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la [Note SAP 2388694][2388694].
+
+> [!IMPORTANT]
+> N’activez pas les horodatages TCP sur des machines virtuelles Azure placé derrière un équilibreur de charge Azure. L’activation TCP horodatages entraîne les sondes d’intégrité à échouer. Définissez le paramètre **net.ipv4.tcp_timestamps** à **0**. Pour plus d’informations, consultez [sondes d’intégrité d’équilibreur de charge](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421) contient actuellement instruction contradictoires, vous invitant à net.ipv4.tcp_timestamps la valeur 1. Pour les machines virtuelles Azure placé derrière un équilibreur de charge d’Azure, définissez le paramètre **net.ipv4.tcp_timestamps** à **0**.
 
 ## <a name="install-sap-hana"></a>Installer SAP HANA
 
@@ -357,21 +361,21 @@ Les étapes de cette section utilisent les préfixes suivants :
    Créez des règles de pare-feu pour autoriser le trafic de réplication de système HANA et client. Les ports indispensables sont répertoriés ici : [Ports TCP/IP de tous les produits SAP](https://help.sap.com/viewer/ports). Les commandes suivantes sont simplement un exemple pour autoriser le trafic de réplication de système HANA 2.0 et client vers la base de données SYSTEMDB, HN1 et NW1.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40302/tcp
-sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40301/tcp
-sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40307/tcp
-sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40303/tcp
-sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40340/tcp
-sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30340/tcp
-sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30341/tcp
-sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30342/tcp
+   sudo firewall-cmd --zone=public --add-port=40302/tcp
+   sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40301/tcp
+   sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40307/tcp
+   sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40303/tcp
+   sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40340/tcp
+   sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30340/tcp
+   sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30341/tcp
+   sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30342/tcp
    </code></pre>
 
 1. **[1]** Créer une base de données locataire.
@@ -643,7 +647,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 Vous pouvez tester l’installation de l’agent de délimitation Azure en désactivant l’interface réseau sur le nœud sur lequel SAP HANA s’exécute en tant que nœud principal.
-Consultez [l’article de la base de connaissances Red Hat 79523](https://access.redhat.com/solutions/79523) pour savoir comment simuler une panne réseau. Dans cet exemple, nous utilisons le script net_breaker pour bloquer tout accès au réseau.
+Consultez [l’article de la base de connaissances Red Hat 79523](https://access.redhat.com/solutions/79523) pour obtenir une description sur la façon de simuler une panne réseau. Dans cet exemple, nous utilisons le script net_breaker pour bloquer tout accès au réseau.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>

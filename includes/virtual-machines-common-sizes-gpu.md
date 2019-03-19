@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: fd37c0c118812bb3554b19fec9bf5ae3f33a2fdc
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bbf619f27c9239ea1b42287c7e81f23da1d43fcb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54314097"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57350522"
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement. 
 
@@ -52,7 +52,7 @@ Premium Storage :  Pris en charge
 
 Mise en cache du Stockage Premium :  Pris en charge
 
-Les machines virtuelles de série NCv2 sont optimisées par les GPU [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf). Ces GPU peuvent fournir des performances de calcul deux fois supérieures à celles de la série NC. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. La configuration NC24rs v2 fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
+Les machines virtuelles de série NCv2 sont optimisées par les GPU [NVIDIA Tesla P100](https://www.nvidia.com/data-center/tesla-p100/). Ces GPU peuvent fournir des performances de calcul deux fois supérieures à celles de la série NC. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. La configuration NC24rs v2 fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
 
 > [!IMPORTANT]
 > Pour cette famille de tailles, le quota de processeurs virtuels (cœurs) dans votre abonnement est défini au départ sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../articles/azure-supportability/resource-manager-core-quotas-request.md) pour cette famille dans une [région disponible](https://azure.microsoft.com/regions/services/).
@@ -110,7 +110,7 @@ Les machines virtuelles de la série NDv2 rejoignent la famille de processeurs g
 
 | Taille              | Processeurs virtuels | GPU              | Mémoire  | Cartes réseau (max) | Bande passante taille du disque           | Bande passante disques de données (1 023 Go chacun) | Bande passante réseau maximale | 
 |-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
-| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 Gio | 8          | 1344 / 2948XIO temporaires | 32                             | 24 000 Mbits/s           |
+| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 Gio | 8          | 1344 / 2948XIO temporaires | 32                             | 24 000 Mbits/s           |
 
 ## <a name="nd-series"></a>Série ND
 

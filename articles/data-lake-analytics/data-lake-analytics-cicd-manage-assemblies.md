@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 0d9192e5ca4dba202ca5287481072bb0f8ae5621
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598517"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768023"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Bonnes pratiques pour gérer les assemblys U-SQL dans un pipeline CI/CD
 
@@ -56,9 +56,9 @@ Suivez ces étapes pour créer des projets et ajouter des références.
 
     ![Data Lake Tools pour Visual Studio - Créer un assembly à partir de la référence](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. Ajoutez des **dépendances gérées** et des **fichiers supplémentaires**, le cas échéant. Lorsque vous ajoutez des fichiers supplémentaires, l'outil utilise le chemin d'accès relatif pour garantir que les assemblys seront trouvés aussi bien sur votre ordinateur local qu'ultérieurement sur l'ordinateur de build. 
+7. Ajoutez des **dépendances gérées** et des **fichiers supplémentaires**, le cas échéant. Lorsque vous ajoutez des fichiers supplémentaires, l'outil utilise le chemin d'accès relatif pour garantir que les assemblys seront trouvés aussi bien sur votre ordinateur local qu'ultérieurement sur l'ordinateur de build.
 
-**@_DeployTempDirectory** en bas de la fenêtre de l’éditeur est une variable prédéfinie qui pointe l’outil vers le dossier de sortie de build. Dans le dossier de sortie de build, chaque assembly a un sous-dossier portant son nom. Toutes les DLL et tous les fichiers supplémentaires se trouvent dans ce sous-dossier. 
+**\@_DeployTempDirectory** dans l’éditeur de fenêtre en bas est une variable prédéfinie qui pointe de l’outil dans le dossier de sortie de génération. Dans le dossier de sortie de build, chaque assembly a un sous-dossier portant son nom. Toutes les DLL et tous les fichiers supplémentaires se trouvent dans ce sous-dossier.
 
 ## <a name="build-a-u-sql-database-project"></a>Générer un projet de base de données U-SQL
 

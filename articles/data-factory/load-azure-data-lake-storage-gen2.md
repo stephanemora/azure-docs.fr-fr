@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: c4f32113c0750b825f217330f94b45484dc3be29
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101089"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory
 
@@ -31,7 +31,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 >[!TIP]
 >Pour copier des données à partir d’Azure Data Lake Storage Gen1 dans Gen2, reportez-vous à [cette procédure pas à pas spécifique](load-azure-data-lake-storage-gen2-from-gen1.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Compte de stockage Azure avec Data Lake Storage Gen2 activé : Si vous n’avez pas de compte de stockage, cliquez [ici](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) pour en créer un.
@@ -77,12 +77,12 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
     
 4. Sur la page **Spécifier la connexion Amazon S3**, procédez comme suit :
 
-    1. Spécifiez la valeur du champ **ID de clé d’accès**.
-    2. Spécifiez la valeur **Clé d’accès secrète**.
-    3. Cliquez sur **Tester la connexion** pour vérifier les paramètres, puis sélectionnez **Terminer**.
-    4. Vous voyez qu’une nouvelle connexion est créée. Sélectionnez **Suivant**.
+   1. Spécifiez la valeur du champ **ID de clé d’accès**.
+   2. Spécifiez la valeur **Clé d’accès secrète**.
+   3. Cliquez sur **Tester la connexion** pour vérifier les paramètres, puis sélectionnez **Terminer**.
+   4. Vous voyez qu’une nouvelle connexion est créée. Sélectionnez **Suivant**.
    
-    ![Spécification du compte Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![Spécification du compte Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. Sur la page de **sélection du fichier ou dossier d’entrée**, accédez au dossier et au fichier sur lesquels effectuer la copie. Sélectionnez le dossier/fichier, puis sélectionnez **Choisir** :
 

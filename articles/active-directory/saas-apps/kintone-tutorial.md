@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Kintone | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Kintone | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kintone.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c4c4bb924ed6faf1b194273a3cf8c17b16d741
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6e425efda49e02c895d288b517635525e7fa444e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895683"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutoriel : Intégration d’Azure Active Directory à Kintone
+# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Didacticiel : Intégration d’Azure Active Directory à Kintone
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer Kintone avec Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ Intégrer Kintone avec Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Kintone, vous avez besoin des éléments suivants :
 
@@ -116,6 +116,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.kintone.com`
 
     b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant :
+    
     | |
     |--|
     | `https://<companyname>.cybozu.com`|

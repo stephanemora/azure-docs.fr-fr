@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750322"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314311"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
-Si vous lisez ce document, c'est que vous connaissez l’importance de la sécurité. Vous êtes sans doute déjà responsable de la sécurisation de votre organisation. Si vous avez besoin de convaincre d’autres utilisateurs de l’importance de la sécurité, demandez-leur de lire le dernier [Rapport de renseignement sur la sécurité (SIR) de Microsoft](https://www.microsoft.com/security/intelligence-report).
+Si vous lisez ce document, c'est que vous connaissez l’importance de la sécurité. Vous êtes sans doute déjà responsable de la sécurisation de votre organisation. Si vous avez besoin de convaincre d’autres utilisateurs de l’importance de la sécurité, demandez-leur de lire le dernier [Rapport de renseignement sur la sécurité (SIR) de Microsoft](https://go.microsoft.com/fwlink/p/?linkid=2073747).
 
 Ce document vous aidera à obtenir une position plus sécurisée à l’aide des fonctionnalités d’Azure Active Directory grâce à une liste de vérification en cinq étapes pour protéger votre organisation contre les cyberattaques.
 

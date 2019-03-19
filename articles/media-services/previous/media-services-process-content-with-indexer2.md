@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 12d188b39375bce88d3adc244d217854c75f436d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861281"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le processeur multimédia **Azure Media Indexer 2 Preview** permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes de sous-titrage. Par rapport à la version précédente d’ [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** effectue une indexation plus rapide et offre une prise en charge plus large des langues. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin, simplifié), le portugais, l’arabe, le russe et le japonais.
 
 Le processeur multimédia **Azure Media Indexer 2 Preview** est actuellement disponible en version préliminaire.
@@ -301,5 +301,5 @@ namespace IndexContent
 ## <a name="related-links"></a>Liens connexes
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Démonstrations Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

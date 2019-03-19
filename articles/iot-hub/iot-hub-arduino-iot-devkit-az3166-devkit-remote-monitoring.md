@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 954a57bb9253e4f18d61c3a699b6e721568da292
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157407"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100783"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Connecter MXChip IoT DevKit à l’accélérateur de solution de surveillance à distance Azure IoT
 
@@ -76,8 +76,8 @@ Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire v
 
 3. Connectez le kit DevKit à votre ordinateur. VS Code détecte automatiquement votre kit DevKit et ouvre les pages suivantes :
 
-  * La page d’introduction du kit DevKit.
-  * Exemples Arduino : exemples pratiques pour démarrer avec le kit DevKit.
+   * La page d’introduction du kit DevKit.
+   * Exemples Arduino : Obtenir des exemples pratiques pour bien démarrer avec le Kit de développement.
 
 4. Développez la section **EXEMPLES ARDUINO** à gauche, accédez à **Exemples pour MXCHIP AZ3166 > AzureIoT** et sélectionnez **RemoteMonitoring**. Une nouvelle fenêtre VS Code s’ouvre avec le dossier de projet qu’elle contient.
 
@@ -126,8 +126,8 @@ Si vous souhaitez remplacer la valeur **AZ3166** codée en dur par un ID d’app
 
 Si vous rencontrez des problèmes, consultez les [FAQ IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contactez-nous par le biais des canaux suivants :
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55735952"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114736"
 ---
 Pour utiliser l’interface de ligne de commande Azure avec les commandes et modèles de Resource Manager afin de déployer des ressources et charges de travail Azure à l’aide de groupes de ressources, vous devez disposer d’un compte Azure. Si vous ne disposez pas d’un compte, vous pouvez obtenir une [version d’essai gratuite d’Azure ici](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -31,7 +31,7 @@ Cet article traite des commandes de base que vous pouvez utiliser avec l’inter
 > 
 
 | Tâche | Gestionnaire de ressources |
-| --- | --- | --- |
+| --- | --- |
 | Créer la machine virtuelle de base |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenez l’élément `image-urn` à partir de la commande `azure vm image list`. Consultez [cet article](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour découvrir des exemples.) |
 | Créer une machine virtuelle Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Créer une machine virtuelle Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |

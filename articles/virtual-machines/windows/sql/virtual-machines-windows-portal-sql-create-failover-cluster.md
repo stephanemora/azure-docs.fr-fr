@@ -3,7 +3,7 @@ title: Instance de cluster de basculement (FCI) SQL Server - Machines virtuelles
 description: Cet article explique comment créer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842751"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -74,12 +74,12 @@ Vous devez avoir une compréhension opérationnelle des technologies suivantes 
 - [Technologies de cluster Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Instances de cluster de basculement SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Une différence très importante est que sur un cluster de basculement invité de machine virtuelle IaaS Azure, nous vous recommandons d’utiliser une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure. 
+Une différence importante est que sur un cluster de basculement invité de machine virtuelle Azure IaaS, nous vous recommandons une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure. 
 
 De plus, vous devez également avoir une compréhension générale des technologies suivantes :
 
 - [Solution hyper-convergée utilisant les Espaces de stockage direct dans Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Groupes de ressources Azure](../../../azure-resource-manager/resource-group-portal.md)
+- [Groupes de ressources Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > À ce stade, l’[extension Agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md) n’est pas prise en charge pour l’ICF SQL Server sur Azure. Nous vous recommandons de désinstaller l’extension des machines virtuelles qui participent à l’ICF. Cette extension prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées, ainsi que certaines fonctionnalités du portail pour SQL. Ces fonctionnalités n’opèrent pas pour les machines virtuelles SQL une fois l’agent désinstallé.
@@ -101,7 +101,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
 ## <a name="step-1-create-virtual-machines"></a>Étape 1 : Créer des machines virtuelles
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) avec votre abonnement.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre abonnement.
 
 1. [Créez un groupe à haute disponibilité Azure](../tutorial-availability-sets.md).
 

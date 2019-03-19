@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342114"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816557"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
@@ -131,6 +131,8 @@ Pour ajouter un rôle à l’identité managée de l’affectation, effectuez le
 
 ## <a name="create-a-remediation-task"></a>Créer une tâche de correction
 
+### <a name="create-a-remediation-task-through-portal"></a>Créer une tâche de mise à jour via le portail
+
 Durant l’évaluation, l’affectation de stratégie avec l’effet **deployIfNotExists** détermine s’il existe des ressources non conformes. Quand des ressources non conformes sont trouvées, les détails sont fournis dans la page **Correction**. Outre la liste des stratégies qui ont des ressources non conformes se trouve l’option permettant de déclencher une **tâche de correction**. Cette option crée un déploiement à partir du modèle **deployIfNotExists**.
 
 Pour créer une **tâche de correction**, effectuez les étapes suivantes :
@@ -163,6 +165,32 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
    ![Corriger : menu contextuel lié aux tâches réalisables pour une ressource](../media/remediate-resources/resource-task-context-menu.png)
 
 Les ressources déployées par le biais d’une **tâche de correction** sont ajoutées à l’onglet **Ressources déployées** sur la page de conformité à la stratégie.
+
+### <a name="create-a-remediation-task-through-azure-cli"></a>Créer une tâche de mise à jour via Azure CLI
+
+Pour créer un **tâche de mise à jour** avec Azure CLI, utilisez la `az policy remediation` commandes. Remplacez `{subscriptionId}` avec votre ID d’abonnement et `{myAssignmentId}` avec votre **deployIfNotExists** ID d’affectation de stratégie.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Pour les autres commandes de mise à jour et des exemples, consultez le [mise à jour de la stratégie az](/cli/azure/policy/remediation) commandes.
+
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Créer une tâche de mise à jour via Azure PowerShell
+
+Pour créer un **tâche de mise à jour** avec Azure PowerShell, utilisez la `Start-AzPolicyRemediation` commandes. Remplacez `{subscriptionId}` avec votre ID d’abonnement et `{myAssignmentId}` avec votre **deployIfNotExists** ID d’affectation de stratégie.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Pour les autres applets de commande de mise à jour et des exemples, consultez le [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) module.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

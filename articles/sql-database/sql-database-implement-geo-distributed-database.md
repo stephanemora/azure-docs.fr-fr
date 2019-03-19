@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/10/2019
-ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844141"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutoriel : Implémenter une base de données géo-distribuée
 
@@ -30,7 +30,11 @@ Configurez une application et une base de données SQL Azure pour le basculement
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés :
 
@@ -72,14 +76,14 @@ Pour créer un groupe de basculement, exécutez le script suivant :
     $myfailovergroupname = "<your globally unique failover group name>"
 
     # Create a backup server in the failover region
-    New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
+    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
        -ServerName $mydrservername `
        -Location $mydrlocation `
        -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
           -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
     # Create a failover group between the servers
-    New-AzureRMSqlDatabaseFailoverGroup `
+    New-AzSqlDatabaseFailoverGroup `
        –ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -PartnerServerName $mydrservername  `
@@ -88,11 +92,11 @@ Pour créer un groupe de basculement, exécutez le script suivant :
        -GracePeriodWithDataLossHours 2
 
     # Add the database to the failover group
-    Get-AzureRmSqlDatabase `
+    Get-AzSqlDatabase `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -DatabaseName $mydatabasename | `
-     Add-AzureRmSqlDatabaseToFailoverGroup `
+     Add-AzSqlDatabaseToFailoverGroup `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -FailoverGroupName $myfailovergroupname
@@ -300,7 +304,7 @@ Exécutez les scripts suivants pour simuler un basculement et observer les résu
 Vous pouvez également vérifier le rôle du serveur de reprise d’activité pendant le test avec la commande suivante :
 
    ```powershell
-   (Get-AzureRMSqlDatabaseFailoverGroup `
+   (Get-AzSqlDatabaseFailoverGroup `
       -FailoverGroupName $myfailovergroupname `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername).ReplicationRole
@@ -311,7 +315,7 @@ Pour tester un basculement :
 1. Démarrer un basculement manuel du groupe de basculement :
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername `
       -FailoverGroupName $myfailovergroupname
@@ -320,7 +324,7 @@ Pour tester un basculement :
 1. Rétablir le groupe de basculement sur le serveur principal :
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname

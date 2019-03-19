@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f34b2fd2ba5f6e3e1433fb8dac04d931a36920d0
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 5eb80051052138924cdb30655609215974435839
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188961"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729914"
 ---
 # <a name="create-hierarchies"></a>Créer des hiérarchies
 
@@ -23,7 +23,7 @@ Pour créer des hiérarchies, utilisez le Générateur de modèles disponible da
   
 Durée estimée pour suivre cette leçon : **20 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 8 : Créer des perspectives](../tutorials/aas-lesson-8-create-perspectives.md).  
   
 ## <a name="create-hierarchies"></a>Créer des hiérarchies  
@@ -72,7 +72,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
- ## <a name="whats-next"></a>Et ensuite ?
+## <a name="whats-next"></a>Et ensuite ?
 [Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

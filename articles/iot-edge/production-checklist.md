@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652603"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433448"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -186,7 +186,7 @@ Si vos appareils sont destinés à être déployés sur un réseau qui utilise u
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurer les journaux et les diagnostics
 
-Sous Linux, le démon IoT Edge utilise journald comme pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux du démon avec `Get-WinEvent`. Les modules IoT Edge utilisent le pilote JSON (pilote par défaut de Docker) pour la journalisation.  
+Sur Linux, le démon IoT Edge utilise les journaux en tant que le pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux du démon avec `Get-WinEvent`. Les modules IoT Edge utilisent le pilote JSON (pilote par défaut de Docker) pour la journalisation.  
 
 Lorsque vous testez un déploiement IoT Edge, vous pouvez généralement accéder à vos appareils pour récupérer les journaux et résoudre les problèmes. Dans un scénario de déploiement, vous n’avez pas forcément cette option. Réfléchissez à la façon dont vous allez collecter des informations sur vos appareils en production. Il est possible d’utiliser un module de journalisation, par exemple, [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), qui recueille des informations auprès des autres modules et les envoie vers le cloud. Vous pouvez également concevoir votre propre module de journalisation. 
 
@@ -194,7 +194,7 @@ Si vous craignez que les journaux ne deviennent trop volumineux sur un appareil 
 
 * Vous pouvez en particulier limiter la taille de tous les fichiers journaux Docker dans le démon Docker proprement dit. Pour Linux, configurez le démon à l’adresse `/etc/docker/daemon.json` ; pour Windows, à l’adresse `C:\ProgramData\docker\confige\daemon.json`. 
 * Si vous souhaitez ajuster la taille du fichier journal de chaque conteneur, vous pouvez utiliser les options de création de chaque module. 
-* Configurez Docker de façon à ce qu’il gère automatiquement les journaux en définissant journald comme pilote de journalisation par défaut de Docker. 
+* Configurer Docker pour gérer automatiquement les journaux en définissant des journaux en tant que le pilote de journalisation par défaut pour Docker. 
 * Supprimez régulièrement les anciens journaux de votre appareil en installant un outil logrotate pour Docker. Utilisez la spécification de fichier suivante : 
 
    ```
