@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ed2205455c4d3c82554f3d552bacc059fffa68e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 09805719262f0a1d30f3b38af4b5209667d25e5a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174654"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195368"
 ---
 # <a name="add-public-ip-addresses"></a>Ajouter des adresses IP publiques
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
@@ -53,11 +53,6 @@ Vous devez en premier lieu obtenir le bloc d’adresses que vous souhaitez ajout
 8.   Entrez le bloc d’adresses que vous voulez ajouter dans la notation CIDR.  Par exemple :  192.168.203.0/24
 9.  Lorsque vous fournissez une plage CIDR valide dans le champ Plage d’adresses (bloc CIDR), les champs Adresse IP de début, Adresse IP de fin et Adresses IP disponibles sont automatiquement renseignés.  Ils sont en lecture seule et générés automatiquement. Vous ne pouvez donc pas les modifier sans modifier la valeur dans le champ Plage d’adresses.
 10. Après avoir vérifié les informations sur le panneau et confirmé que tout est correct, cliquez sur OK pour valider les modifications et ajouter la plage d’adresses à Azure Stack.
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>Mettre à jour les listes de contrôle d’accès sur vos commutateurs Top-of-Rack
-La dernière chose dont vous avez besoin pour activer la plage d’adresses IP récemment ajoutée est de mettre à jour les listes de contrôle d’accès sur vos commutateurs Top-of-Rack.  Les listes de contrôle d’accès sur les commutateurs ToR sont verrouillées de sorte que la connectivité en dehors d’Azure Stack avec la plage d’adresses IP ne fonctionne pas tant que la nouvelle plage n’a pas été ajoutée aux listes de contrôle d’accès sur le commutateur.  
-
-Vous devez contacter votre fabricant OEM et collaborer avec lui pour mettre à jour les listes de contrôle d’accès sur les commutateurs ToR.  Ils disposent des outils nécessaires pour réaliser cette tâche de façon appropriée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes 
