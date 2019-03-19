@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 940a5839fe2c2eea11d9570d3dca48cd514e21af
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417242"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454899"
 ---
 # <a name="azure-automation-runbook-types"></a>Types de Runbooks Azure Automation
 
@@ -22,10 +22,10 @@ Azure Automation prend en charge plusieurs types de Runbook qui sont brièvemen
 
 | Type | Description |
 |:--- |:--- |
-| [Graphique](#graphical-runbooks) |Basé sur Windows PowerShell et créé et modifié entièrement dans l'éditeur graphique du portail Azure. |
-| [Graphique workflow PowerShell](#graphical-runbooks) |Basé sur le workflow Windows PowerShell et créé et modifié entièrement dans l'éditeur graphique du portail Azure. |
+| [Graphique](#graphical-runbooks)|Basé sur Windows PowerShell et créé et modifié entièrement dans l'éditeur graphique du portail Azure. |
+| [Graphique workflow PowerShell](#graphical-runbooks)|Basé sur le workflow Windows PowerShell et créé et modifié entièrement dans l'éditeur graphique du portail Azure. |
 | [PowerShell](#powershell-runbooks) |Runbook texte basé sur le script Windows PowerShell. |
-| [Workflow PowerShell](#powershell-workflow-runbooks) |Runbook texte basé sur le workflow Windows PowerShell. |
+| [Workflow PowerShell](#powershell-workflow-runbooks)|Runbook texte basé sur le workflow Windows PowerShell. |
 | [Python](#python-runbooks) |Runbook de texte basé sur Python. |
 
 ## <a name="graphical-runbooks"></a>Runbooks graphiques
@@ -45,6 +45,7 @@ Azure Automation prend en charge plusieurs types de Runbook qui sont brièvemen
 * Impossible de modifier le Runbook en dehors du portail Azure.
 * Peut nécessiter une activité de code contenant le code PowerShell pour exécuter une logique complexe.
 * Impossible d'afficher ou de modifier directement le code PowerShell créé par le workflow graphique. Vous pouvez afficher le code créé dans toute activité de code.
+* Ne peut pas être exécuté sur un Runbook Worker hybride de Linux
 
 ## <a name="powershell-runbooks"></a>Runbooks PowerShell
 
@@ -54,6 +55,7 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell.  Vous modifiez direc
 
 * Implémentez tout type de la logique complexe avec le code PowerShell sans la complexité supplémentaire liée au workflow PowerShell.
 * Le Runbook démarre plus rapidement que les Runbooks de workflow PowerShell dans la mesure où il n'a pas besoin d'être compilé avant l'exécution.
+* Peut être exécuté dans Azure ou sur Linux et Windows des runbooks Workers hybrides
 
 ### <a name="limitations"></a>Limites
 
@@ -88,6 +90,7 @@ Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workf
 * Un Runbook doit pouvoir gérer la complexité supplémentaire liée au workflow PowerShell, notamment les [objets désérialisés](automation-powershell-workflow.md#code-changes).
 * Un Runbook prend plus de temps à démarrer que les Runbooks PowerShell car il doit être compilé avant l'exécution.
 * Les runbooks PowerShell peuvent uniquement être inclus en tant que runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook, ce qui crée un travail.
+* Ne peut pas être exécuté sur un Runbook Worker hybride de Linux
 
 ## <a name="python-runbooks"></a>Runbooks Python
 
@@ -96,6 +99,7 @@ Compilation de runbooks Python sous Python 2.  Vous pouvez modifier directement 
 ### <a name="advantages"></a>Avantages
 
 * Utilisez les bibliothèques Python robustes.
+* Peut être exécuté dans Azure ou sur les deux Workers hybrides de Linux. Runbooks Workers hybrides de Windows sont prises en charge avec [Python 2.7](https://www.python.org/downloads/release/latest/python2) installé.
 
 ### <a name="limitations"></a>Limites
 

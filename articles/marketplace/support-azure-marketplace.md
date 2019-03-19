@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: ae3716654f40322205212ca02a99993326a1cf35
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073354"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727432"
 ---
 # <a name="support-for-the-marketplace"></a>Prise en charge de la Place de marché  
 Voici la liste des options de prise en charge pour la Place de marché.  
@@ -57,4 +57,4 @@ Ouvrez un ticket avec le [support des éditeurs de la Place de marché Microsoft
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez la page [Guide de l’éditeur Place de marché Azure et AppSource](./marketplace-publishers-guide.md).  
  
----  
+---

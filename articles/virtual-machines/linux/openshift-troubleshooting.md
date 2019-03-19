@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085793"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447272"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Résoudre les problèmes de déploiement d’OpenShift dans Azure
 
 Si le cluster OpenShift ne se déploie pas correctement, le portail Azure retourne une sortie d’erreur. La sortie peut être compliquée à lire, ce qui rend difficile l’identification du problème. Examinez rapidement cette sortie pour rechercher le code de sortie 3, 4 ou 5. Ces trois codes de sortie ont les significations suivantes :
 
-- Code de sortie 3 : vos nom d’utilisateur/mot de passe ou ID d’organisation/clé d’activation d’abonnement Red Hat sont incorrects
-- Code de sortie 4 : votre ID de pool Red Hat est incorrect ou aucun droit n’est disponible
-- Code de sortie 5 : impossible de provisionner le volume de pool dynamique Docker
+- Code de sortie 3 : Votre nom d’utilisateur abonnement Red Hat / mot de passe ou ID d’organisation / clé d’Activation est incorrecte
+- Code de sortie 4 : Votre ID de Pool Red Hat est incorrect ou aucun droit n’est disponible
+- Code de sortie 5 : Impossible d’approvisionner le Volume de Pool dynamique Docker
 
 Pour tous les autres codes de sortie, vous pouvez afficher les fichiers journaux correspondants en vous connectant aux hôtes via SSH.
 

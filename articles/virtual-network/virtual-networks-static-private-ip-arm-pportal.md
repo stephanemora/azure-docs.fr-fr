@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff9d025980f80cb77246ea12dbf2e9bcedd73f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: e5efe0516d1b2dd387532d31a0a6654e6651fe41
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705882"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011741"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-> * [interface de ligne de commande Azure](virtual-networks-static-private-ip-arm-cli.md)
+> * [Interface de ligne de commande Azure](virtual-networks-static-private-ip-arm-cli.md)
 > * [Portail Azure (classique)](virtual-networks-static-private-ip-classic-pportal.md)
 > * [PowerShell (classique)](virtual-networks-static-private-ip-classic-ps.md)
 > * [Interface de ligne de commande Azure (classique)](virtual-networks-static-private-ip-classic-cli.md)
@@ -49,14 +49,14 @@ Vous ne pouvez pas définir une adresse IP privée statique lors de la création
 
 Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd* d’un réseau virtuel nommé *TestVNet*, suivez les étapes décrites ici.
 
-1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
+1. Dans un navigateur, accédez à https://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
 2. Cliquez sur **Créer une ressource** > **Compute** > **Windows Server 2012 R2 Datacenter**, remarquez que la liste **Sélectionnez un modèle de déploiement** contient déjà **Resource Manager**, puis cliquez sur **Créer**, comme le montre la figure suivante.
    
     ![Création d'une machine virtuelle dans le portail Azure](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
 3. Dans le volet **Informations de base**, entrez le nom de la machine virtuelle à créer (*DNS01* dans le scénario), le compte d’administrateur local et un mot de passe, comme illustré dans la figure suivante.
    
     ![Volet Informations de base](./media/virtual-networks-static-ip-arm-pportal/figure02.png)
-4. Vérifiez que l’**emplacement** sélectionné est *Centre des États-Unis*. Ensuite, sous **Groupe de ressources**, cliquez sur **Sélectionner un groupe existant**, cliquez de nouveau sur **Groupe de ressources**, sur *TestRG* et enfin sur **OK**.
+4. Assurez-vous que l’**Emplacement** sélectionné est *USA Centre*. Sous **Groupe de ressources**, cliquez sur **Sélectionner un groupe existant**, cliquez de nouveau sur **Groupe de ressources**, cliquez sur *TestRG*, puis sur **OK**.
    
     ![Volet Informations de base](./media/virtual-networks-static-ip-arm-pportal/figure03.png)
 5. Dans le volet **Choisir une taille**, sélectionnez **A1 Standard**, puis cliquez sur **Sélectionner**.
@@ -66,8 +66,8 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
    
     -**Compte de stockage**: *vnetstorage*
    
-   * **Réseau**: *TestVNet*
-   * **Sous-réseau**: *FrontEnd*
+   * **Réseau** : *TestVNet*
+   * **Sous-réseau** : *FrontEnd*
      
      ![Volet Choisir une taille](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     
 7. Dans le volet **Résumé**, cliquez sur **OK**. Remarquez la vignette suivante affichée dans votre tableau de bord.

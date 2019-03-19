@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852958"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -68,7 +68,7 @@ Azure AD Connect Health n’est pas pris en charge dans Germany Cloud à l’exc
 | contrôleur | Caractéristiques | Prise en charge dans Germany Cloud |
 | ------ | --------------- | --- |
 | Connect Health pour la synchronisation | Supervision/Insight/Alertes/Analyse | Non  |
-|  | Rapport d’erreurs de synchronisation | OUI |
+|  | Rapport d’erreurs de synchronisation | Oui |
 | Connect Health pour ADFS | Supervision/Insight/Alertes/Analyse | Non  |
 | Connect Health pour ADDS | Supervision/Insight/Alertes/Analyse | Non  |
 
@@ -155,7 +155,7 @@ Azure AD Connect Health pour AD FS génère cette alerte lorsque l’agent d’i
 
 Le plus souvent, ce test échoue lorsque l’agent d’intégrité ne parvient pas à résoudre le nom de la batterie de serveurs AD FS. Cela peut se produire si les serveurs AD FS se trouvent derrière un équilibreur de charge réseau et si la requête est lancée depuis un nœud qui se trouve également derrière l’équilibreur de charge (par opposition à un client normal qui est placé devant l’équilibreur). Pour corriger ce problème, mettez à jour le fichier « hosts » situé sous « C:\Windows\System32\drivers\etc » en incluant l’adresse IP du serveur AD FS ou une adresse IP de bouclage (127.0.0.1) pour le nom de la batterie de serveurs AD FS (par exemple, sts.contoso.com). L’ajout du fichier hôte a pour effet de court-circuiter l’appel réseau, ce qui permet à l’agent d’intégrité d’obtenir le jeton.
 
-**Q : J’ai reçu un e-mail m’informant que mes machines ne disposaient PAS du correctif destiné à les protéger des dernières attaques de type ransomeware. Pourquoi ai-je reçu cet e-mail ?**
+**Q : J’ai reçu un e-mail indiquant que mes machines ne sont pas corrigées pour récentes attaques ransomware. Pourquoi ai-je reçu cet e-mail ?**
 
 Le service Azure AD Connect Health a analysé toutes les machines qu’il surveille pour vérifier que les correctifs nécessaires y ont été installés. L’e-mail est envoyé à l’administrateur des locataires si au moins l’une des machines qu’il gère ne dispose pas des correctifs nécessaires. La logique suivante a été utilisée pour déterminer si les correctifs ont été installés sur les machines :
 1. Rechercher tous les correctifs logiciels installés sur la machine
@@ -192,6 +192,9 @@ CheckForMS17-010
 **Q : Pourquoi mes audits ADFS ne sont-ils pas générés ?**
 
 Utilisez l’applet de commande PowerShell <i>Get-AdfsProperties - AuditLevel</i> pour vérifier que les journaux d’audit ne sont pas désactivés. En savoir plus sur les [journaux d’audit ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notez que si des paramètres d’audit avancés sont transmis au serveur ADFS, les modifications apportés à auditpol.exe seront écrasées (même si l’application générée n’est pas configurée). Dans ce cas, définissez la stratégie de sécurité locale pour enregistrer les succès et échecs de l’application générée.
+
+**Q : Lorsque le certificat de l’agent sera renouvelée avant l’expiration automatique ?**
+La certification de l’agent sera automatique renouvelé **6 mois** avant sa date d’expiration. Si elle n’est pas renouvelé, vérifiez que la connexion réseau de l’agent est stable. Redémarrez les services de l’agent ou la mise à jour vers la dernière version peut également résoudre le problème.
 
 
 ## <a name="related-links"></a>Liens connexes

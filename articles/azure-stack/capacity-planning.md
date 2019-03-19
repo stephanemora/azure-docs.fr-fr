@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095515"
 ---
 # <a name="azure-stack-capacity-planning"></a>Planification de capacité Azure Stack
 Lorsque vous envisagez d’adopter une solution Azure Stack, vous devez savoir que certaines options de configuration matérielle ont un impact direct sur la capacité globale du cloud Azure Stack. Parmi ces choix se trouvent celui de l’UC, de la densité de mémoire, de la configuration du stockage et de la mise à l’échelle globale de la solution (ou nombre de serveurs). Contrairement à une solution de virtualisation traditionnelle, l’arithmétique simple de ces composants pour déterminer la capacité utilisable ne s’applique pas. La première raison est que l’architecture d’Azure Stack permet d’héberger les composants de gestion ou d’infrastructure au sein-même de la solution. La deuxième raison est qu’une partie de la capacité de la solution est réservée pour prendre en charge la résilience ; la mise à jour des logiciels de la solution de manière à minimiser l’interruption de charges de travail des locataires.
@@ -49,7 +49,7 @@ Vous trouverez une description plus détaillée des difficultés de calcul de la
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> Machines virtuelles Standard D2.
-
+> 
 > <sup>2</sup> Ratio cœurs virtuels/cœurs physiques.
 
 Comme mentionné ci-dessus, la capacité de la machine virtuelle est déterminée par la mémoire disponible. Les ratios cœurs virtuels/cœurs physiques illustrent comment la densité de la machine virtuelle va modifier la capacité de processeur disponible, sauf si la solution est dotée d’un plus grand nombre de cœurs physiques (un autre processeur est choisi). Il en est de même pour la capacité de stockage et la capacité de stockage du cache.

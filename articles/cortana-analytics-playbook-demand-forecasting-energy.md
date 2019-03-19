@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: bb5ef610e55495c372a47ff78e3252c9d8ec7055
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078778"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435914"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manuel du modèle de solution Microsoft Cortana Intelligence de prévision de la demande d’énergie
 ## <a name="executive-summary"></a>Résumé
@@ -28,7 +28,7 @@ Ce manuel regroupe les instructions liées aux analyses et aux activités métie
 >
 >
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce document traite de l’utilisation de Cortana Intelligence, et plus particulièrement d’Azure Machine Learning (AML), dans l’implémentation et le déploiement de solutions de prévision d’énergie du point de vue de l’entreprise, des données et de la technique. Le document se compose de trois parties principales :
 
 1. Présentation de l’entreprise
@@ -187,7 +187,7 @@ C’est ce qu’indique le diagramme suivant :
 
 Le paragraphe suivant décrit ce processus en 4 étapes :
 
-1. **Collecte des données** : toute solution d’analyse avancée repose sur des données (voir **Présentation des données**). Plus précisément, lorsqu’il s’agit d’analyse prédictive et de prévisions, nous nous basons sur flux de données continu et dynamique. Dans le cas de prévisions de demande d’énergie, ces données peuvent être issues directement de capteurs intelligents, ou être déjà agrégées sur une base de données en local. Nous utilisons également d’autres sources de données externes, notamment pour la météo et la température. Ce flux de données continu doit être orchestré, planifié et stocké. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) est le principal moteur pour accomplir cette tâche.
+1. **Collecte des données** : toute solution d’analyse avancée repose sur des données (voir **Présentation des données**). Plus précisément, lorsqu’il s’agit d’analyse prédictive et de prévisions, nous nous basons sur flux de données continu et dynamique. Dans le cas de prévision de la demande d’énergie, ces données peuvent provenir directement capteurs intelligents, ou être déjà agrégées sur une base de données locale. Nous utilisons également d’autres sources de données externes, notamment pour la météo et la température. Ce flux de données continu doit être orchestré, planifié et stocké. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) est le principal moteur pour accomplir cette tâche.
 2. **Modélisation** : pour obtenir des prévisions d’énergie précises et fiables, il convient de développer (former) et de gérer un excellent modèle utilisant les données d’historique et extraire les schémas de données significatifs et prédictifs. Le domaine de Machine Learning (ML) a rapidement augmenté grâce à des algorithmes plus avancés qui sont développés constamment. Azure ML Studio offre une expérience utilisateur satisfaisante, qui permet d’utiliser les algorithmes ML plus avancés dans un workflow complet. Ce workflow figure dans un diagramme de flux intuitif et inclut la préparation des données, l’extraction des fonctionnalités, la modélisation et l’évaluation du modèle. L’utilisateur peut extraire les centaines de modèles différents inclus dans cet environnement. À la fin de cette phase, un spécialiste des données dispose d’un modèle opérationnel parfaitement évalué et prêt au déploiement.
 
    Le diagramme qui suit représente un workflow classique :

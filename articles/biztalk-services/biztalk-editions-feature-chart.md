@@ -1,6 +1,6 @@
 ---
 title: En savoir plus sur les fonctionnalités des éditions BizTalk Services | Microsoft Docs
-description: 'Comparer les fonctions des éditions BizTalk Services : Gratuite, Développeur, De base, Standard et Premium. MABS, WABS.'
+description: 'Comparez les fonctionnalités des éditions BizTalk Services : Gratuit, Developer, Basic, Standard et Premium. MABS, WABS.'
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -11,17 +11,17 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d16bf73c1d9871e4de8940e4ab9bbd7ed0f39384
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240509"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765626"
 ---
-# <a name="biztalk-services-editions-chart"></a>Tableau comparatif des éditions de BizTalk Services
+# <a name="biztalk-services-editions-chart"></a>BizTalk Services : Tableau comparatif des éditions
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -34,7 +34,7 @@ Création et gestion des connexions hybrides. Une connexion hybride offre un moy
 
 **Développeur**
 
-Cette édition permet le traitement des messages des connexions hybrides, EAI et EDI grâce à un portail de gestion de partenaire commercial simple à utiliser, une prise en charge des schémas EDI répandus et des capacités de traitement EDI enrichies sur X12 et AS2. Permet également de créer des services de connexion au cloud pour les scénarios IAE les plus répandus, avec les protocoles HTTP/S, REST, FTP, WCF et SFTP pour lire et écrire des messages.  Les adaptateurs SAP, Oracle eBusiness, Oracle DB, Siebel et SQL Server prêts à l'emploi de cette édition permettent d'utiliser la connectivité vers les systèmes métiers locaux. Utilisez un environnement conçu pour les développeurs, doté d'outils Visual Studio, facilitant le développement et le déploiement. Cette édition est limitée à des fins de développement et de test uniquement, sans contrat de niveau de service (SLA).
+Cette édition permet le traitement des messages des connexions hybrides, EAI et EDI grâce à un portail de gestion de partenaire commercial simple à utiliser, une prise en charge des schémas EDI répandus et des capacités de traitement EDI enrichies sur X12 et AS2. Permet également de créer des services de connexion au cloud pour les scénarios IAE les plus répandus, avec les protocoles HTTP/S, REST, FTP, WCF et SFTP pour lire et écrire des messages.  Les adaptateurs SAP, Oracle eBusiness, Oracle DB, Siebel et SQL Server prêts à l'emploi de cette édition permettent d'utiliser la connectivité vers les systèmes métiers locaux. Utiliser un environnement centré sur le développement avec Visual Studio tools pour le déploiement et facilitent le développement. Cette édition est limitée à des fins de développement et de test uniquement, sans contrat de niveau de service (SLA).
 
 **De base**
 
@@ -162,7 +162,7 @@ Pour le contrat de niveau de service (SLA), consultez <a HREF="https://go.micros
 <td>Inclus</td>
 </tr>
 <tr>
-<td><strong>Sauvegarde et restauration</strong></td>
+<td><strong>Sauvegarder et restaurer</strong></td>
 <td>Non inclus</td>
 <td>Inclus</td>
 <td>Inclus</td>
@@ -239,20 +239,20 @@ Vous ne pourrez plus déployer d'autres ponts ou créer d'autres contrats. Pour 
 #### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Comment migrer d'un niveau de BizTalk Services à un autre ?
 L’édition gratuite ne peut pas être migrée ou « mise à l’échelle » vers un autre niveau ; de même, la sauvegarde et la restauration sur un autre niveau sont impossibles. Si vous avez besoin d’un autre niveau, créez un service BizTal en utilisant le nouveau niveau. Tous les artefacts créés à l’aide de l’édition gratuite, y compris les connexions hybrides, doivent être recréés dans le nouveau service BizTalk. 
 
-Pour les autres éditions, utilisez la fonction de sauvegarde et restauration pour migrer vos artefacts d’un niveau à l’autre. Par exemple, sauvegardez vos artefacts de niveau Standard avant de les restaurer au niveau Premium. [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md) décrit les chemins de migration pris en charge et dresse la liste des artefacts sauvegardés. Notez que les connexions hybrides ne sont pas sauvegardées. Après la sauvegarde et la restauration vers un nouveau niveau, vous devez recréer les connexions hybrides.  
+Pour les autres éditions, utilisez la fonction de sauvegarde et restauration pour migrer vos artefacts d’un niveau à l’autre. Par exemple, sauvegardez vos artefacts de niveau Standard avant de les restaurer au niveau Premium. [BizTalk Services : Sauvegarde et restauration](biztalk-backup-restore.md) décrit les chemins de migration pris en charge et répertorie les artefacts sont sauvegardés. Notez que les connexions hybrides ne sont pas sauvegardées. Après la sauvegarde et la restauration vers un nouveau niveau, vous devez recréer les connexions hybrides.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Un service d'adaptateur BizTalk est-il inclus dans le service ? Comment recevoir le logiciel ?
 Oui, le service d'adaptateur BizTalk livré avec le Pack adaptateurs BizTalk vous est fourni lorsque vous [téléchargez](https://www.microsoft.com/download/details.aspx?id=39087)le Kit de développement logiciel (SDK) Azure BizTalk Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour créer Azure BizTalk Services dans le portail Azure, accédez à [Approvisionnement de BizTalk Services avec le portail Azure](biztalk-provision-services.md). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
+Pour créer Azure BizTalk Services dans le portail Azure, accédez à [BizTalk Services : Approvisionnement à l’aide du portail Azure](biztalk-provision-services.md). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Approvisionnement de BizTalk Services avec le portail Azure](biztalk-provision-services.md)<br/>
-* [Tableau comparatif des états d’approvisionnement BizTalk Services](biztalk-service-state-chart.md)<br/>
-* [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)<br/>
-* [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
-* [Limitation dans BizTalk Services](biztalk-throttling-thresholds.md)<br/>
-* [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
+* [BizTalk Services : Approvisionnement à l’aide du portail Azure](biztalk-provision-services.md)<br/>
+* [BizTalk Services : Graphique de l’état d’approvisionnement](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services : Onglets tableau de bord, surveiller et mettre à l’échelle](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+* [BizTalk Services : Sauvegarde et restauration](biztalk-backup-restore.md)<br/>
+* [BizTalk Services : la limitation](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services : Nom de l’émetteur et la clé de l’émetteur](biztalk-issuer-name-issuer-key.md)<br/>
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

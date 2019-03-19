@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 06b917c956507de3eb3b1536356285d7a954fb8b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730074"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540009"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Event Grid vous permet de créer des applications basées sur des événem
 
 Le numéro de séquence est la représentation d’un nombre hexadécimal sous la forme d’une chaîne. Vous pouvez utiliser la comparaison de chaînes pour identifier le plus grand nombre. Si vous convertissez la chaîne en hexadécimal, vous obtenez un nombre de 256 bits. Le numéro de séquence est strictement croissante, et le dernier événement aura un nombre plus élevé que les autres événements. Cela est utile en cas de connexion et de déconnexion fréquentes d’appareils, et si vous souhaitez vous assurer que seul le dernier événement est utilisé pour déclencher une action en aval, étant donné que Azure Event Grid ne prend pas en charge la commande d’événements.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -315,7 +315,7 @@ Vous pouvez voir des résultats de la procédure stockée exécutée dans votre 
 
 ## <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
-Au lieu d’utiliser le [portail Azure](http://portal.azure.com), vous pouvez effectuer les étapes IoT Hub à l’aide de l’interface Azure CLI. Pour plus d’informations, consultez les pages de l’interface de ligne de commande Azure consacrées à la [création d’un abonnement aux événements](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) et à la [création d’un appareil IoT](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+Au lieu d’utiliser le [portail Azure](https://portal.azure.com), vous pouvez effectuer les étapes IoT Hub à l’aide de l’interface Azure CLI. Pour plus d’informations, consultez les pages de l’interface de ligne de commande Azure consacrées à la [création d’un abonnement aux événements](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) et à la [création d’un appareil IoT](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

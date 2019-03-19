@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 57b20f9d694ae0581988762735c35cb65012fd8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992369"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console série de machine virtuelle pour Windows
 
@@ -31,7 +31,7 @@ Pour en savoir plus sur la console série des machines virtuelles Linux, consult
 > La console série de machines virtuelles est généralement disponible dans les régions Azure globales. Elle n’est pas encore disponible dans les clouds Azure Government, ni dans les clouds Azure - Chine.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * La machine virtuelle dans laquelle vous accédez à une console série doit utiliser le modèle de déploiement de gestion des ressources. Les déploiements classiques ne sont pas pris en charge.
 
@@ -196,14 +196,14 @@ Toutes les données envoyées sur les canaux sont chiffrées.
 ### <a name="audit-logs"></a>Journaux d’audit
 Tous les accès à la console série sont journalisés dans les journaux [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la machine virtuelle. L’accès à ces journaux est détenu et contrôlé par l’administrateur de la machine virtuelle Azure.
 
->[!CAUTION]
-Aucun mot de passe d’accès pour la console n’est journalisé. Toutefois, si des commandes exécutées dans la console contiennent ou affichent des mots de passe, des secrets, des noms d’utilisateur ou toute autre forme d’informations d’identification personnelle (PII), ces derniers sont écrits dans les journaux Diagnostics de démarrage de la machine virtuelle. Ils sont accompagnés de tout autre texte visible dans le cadre de l’implémentation de la fonctionnalité de scrollback de la console série. Ces journaux sont circulaires et seules les personnes disposant d’autorisations de lecture pour le compte de stockage de diagnostics peuvent y accéder. Toutefois, nous vous recommandons de suivre les bonnes pratiques concernant l’utilisation du Bureau à distance pour tout élément susceptible d’impliquer des secrets et/ou des informations d’identification personnelle.
+> [!CAUTION]
+> Aucun mot de passe d’accès pour la console n’est journalisé. Toutefois, si des commandes exécutées dans la console contiennent ou affichent des mots de passe, des secrets, des noms d’utilisateur ou toute autre forme d’informations d’identification personnelle (PII), ces derniers sont écrits dans les journaux Diagnostics de démarrage de la machine virtuelle. Ils sont accompagnés de tout autre texte visible dans le cadre de l’implémentation de la fonctionnalité de scrollback de la console série. Ces journaux sont circulaires et seules les personnes disposant d’autorisations de lecture pour le compte de stockage de diagnostics peuvent y accéder. Toutefois, nous vous recommandons de suivre les bonnes pratiques concernant l’utilisation du Bureau à distance pour tout élément susceptible d’impliquer des secrets et/ou des informations d’identification personnelle.
 
 ### <a name="concurrent-usage"></a>Utilisation simultanée
 Si un utilisateur est connecté à la console série alors qu’un autre utilisateur demande l’accès à la même machine virtuelle, le premier utilisateur est déconnecté pendant que le second utilisateur est connecté.
 
->[!CAUTION]
-Cet utilisateur n’est pas réellement déconnecté. La possibilité d’appliquer une déconnexion réelle (par le biais de SIGHUP ou d’un mécanisme similaire) est en cours d’étude. Pour Windows, un délai d’expiration automatique est activé dans la console SAC. Pour Linux, vous pouvez configurer le délai d’expiration de terminal.
+> [!CAUTION]
+> Cet utilisateur n’est pas réellement déconnecté. La possibilité d’appliquer une déconnexion réelle (par le biais de SIGHUP ou d’un mécanisme similaire) est en cours d’étude. Pour Windows, un délai d’expiration automatique est activé dans la console SAC. Pour Linux, vous pouvez configurer le délai d’expiration de terminal.
 
 ## <a name="accessibility"></a>Accessibilité
 L’accessibilité est un point central de la console série Azure. Nous avons donc fait en sorte que la console série soit accessible aux personnes présentant des déficiences visuelles ou auditives ainsi qu’aux personnes qui ne peuvent pas utiliser une souris.
@@ -215,6 +215,7 @@ Utilisez la touche **Tabulation** de votre clavier pour naviguer dans l’interf
 La console série comprend une prise en charge intégrée des lecteurs d’écran. Quand le lecteur d’écran est activé, le texte de remplacement du bouton sélectionné est lu à voix haute.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Scénarios courants d’accès à la console série
+
 Scénario          | Actions à effectuer dans la console série
 :------------------|:-----------------------------------------
 Règles de pare-feu incorrectes | Accès à la console série et correction des règles de pare-feu Windows.
@@ -254,7 +255,7 @@ Serial console ne fonctionne pas avec un pare-feu de compte de stockage. | Seria
 
 **Q. Comment puis-je envoyer des commentaires ?**
 
-R. Envoyez vos commentaires en créant un problème GitHub sur https://aka.ms/serialconsolefeedback. Vous pouvez également envoyer des commentaires par le biais de azserialhelp@microsoft.com ou dans la catégorie Machine virtuelle de la page http://feedback.azure.com.
+R. Envoyez vos commentaires en créant un problème GitHub sur https://aka.ms/serialconsolefeedback. Vous pouvez également envoyer des commentaires par le biais de azserialhelp@microsoft.com ou dans la catégorie Machine virtuelle de la page https://feedback.azure.com.
 
 **Q. Est-ce que la console série prend en charge l’opération Copier/Coller ?**
 

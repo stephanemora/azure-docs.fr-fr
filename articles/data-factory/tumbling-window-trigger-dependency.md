@@ -3,22 +3,21 @@ title: Créer des dépendances envers des déclencheurs de fenêtre bascule dans
 description: Découvrez comment créer une dépendance envers un déclencheur de fenêtre bascule dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: douglasl
-ms.openlocfilehash: c51c1056869cbd7741fae2ed1a554a7c794d1a39
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: f3a547f5b953262d7263d1be0897161cf4091a1d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966588"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574387"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Créer une dépendance de déclencheur de fenêtre bascule
 
@@ -77,7 +76,7 @@ Le tableau suivant donne la liste des attributs nécessaires pour définir une d
 
 | **Nom de la propriété** | **Description**  | **Type** | **Obligatoire** |
 |---|---|---|---|
-| Déclencheur  | Tous les déclencheurs de fenêtre bascule existants s’affichent dans cette liste déroulante. Choisissez le déclencheur sur lequel portera la dépendance.  | TumblingWindowTrigger | OUI |
+| Déclencheur  | Tous les déclencheurs de fenêtre bascule existants s’affichent dans cette liste déroulante. Choisissez le déclencheur sur lequel portera la dépendance.  | TumblingWindowTrigger | Oui |
 | Offset | Décalage du déclencheur de dépendance. Indiquez une valeur au format TimeSpan ; sont autorisés les décalages positifs et négatifs. Ce paramètre est obligatoire si le déclencheur dépend de lui-même, facultatif dans tous les autres cas. L’autodépendance doit toujours correspondre à un décalage négatif. | Timespan | Autodépendance : Oui / Autres : Non  |
 | Taille de la fenêtre | Taille de la fenêtre bascule de dépendance. Indiquez une valeur au format TimeSpan. Ce paramètre est facultatif. | Timespan | Non   |
 |||||

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171641"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961293"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,7 +49,7 @@ L’élément **UserJourney** contient les éléments suivants :
 
 Un parcours utilisateur est représenté en tant que séquence d’orchestration qui doit être suivie pour que la transaction réussisse. Si une étape échoue, la transaction échoue. Ces étapes d’orchestration référencent à la fois les composants et les fournisseurs de revendications autorisés dans le fichier de stratégie. Toute étape d’orchestration responsable de l’affichage d’une expérience utilisateur a également une référence à l’identificateur de définition de contenu correspondant.
 
-Les étapes d’orchestration peuvent être exécutées de manière conditionnelle, en fonction de conditions préalables définies dans l’élément d’étape d’orchestration. Par exemple, vous pouvez effectuer une étape d’orchestration uniquement si une revendication spécifique existe, ou si une revendication est égale ou non à la valeur spécifiée. 
+Étapes d’orchestration peuvent être conditionnelle exécutées, selon les conditions préalables définies dans l’élément d’étape d’orchestration. Par exemple, vous pouvez vérifier pour effectuer une étape d’orchestration uniquement si des revendications spécifiques existe, si une revendication est égale ou ne pas la valeur spécifiée. 
 
 Pour spécifier la liste ordonnée d’étapes d’orchestration, un élément **OrchestrationSteps** est ajouté à la stratégie. Cet élément est obligatoire.
 
@@ -77,7 +77,7 @@ L’élément **OrchestrationStep** peut contenir les éléments suivants :
 | ClaimsProviderSelections | 0:n | Liste de sélection de fournisseur de revendications pour l’étape d’orchestration. | 
 | ClaimsExchanges | 0:n | Liste d’échanges de revendications pour l’étape d’orchestration. | 
 
-#### <a name="preconditions"></a>Preconditions
+### <a name="preconditions"></a>Preconditions
 
 L’élément **Preconditions** contient l’élément suivant :
 
@@ -86,7 +86,7 @@ L’élément **Preconditions** contient l’élément suivant :
 | Precondition | 0:n | En fonction du profil technique utilisé, redirige le client d’après la sélection de fournisseur de revendications ou effectue un appel au serveur pour échanger des revendications. | 
 
 
-##### <a name="precondition"></a>Precondition
+#### <a name="precondition"></a>Precondition
 
 L’élément **Precondition** contient l’attribut suivant :
 
@@ -102,7 +102,7 @@ L’élément **Precondition** contient les éléments suivants :
 | Valeur | 1:n | ClaimTypeReferenceId à interroger. Un autre élément de valeur contient la valeur à vérifier.</li></ul>|
 | Action | 1:1 | Action à effectuer si la vérification de condition préalable dans une étape d’orchestration a la valeur true. Si la valeur de `Action` est `SkipThisOrchestrationStep`, l’élément `OrchestrationStep` associé ne doit pas être exécuté. | 
 
-### <a name="preconditions-examples"></a>Exemples de conditions préalables
+#### <a name="preconditions-examples"></a>Exemples de conditions préalables
 
 Les conditions préalables suivantes vérifient l’existence de l’objectId de l’utilisateur. Dans le parcours utilisateur, l’utilisateur a choisi de se connecter à l’aide d’un compte local. Si l’objectId existe, ignorez cette étape d’orchestration.
 
@@ -226,20 +226,3 @@ L’élément **ClaimsExchange** contient les attributs suivants :
 | --------- | -------- | ----------- |
 | ID | Oui | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. | 
 | TechnicalProfileReferenceId | Oui | Identificateur du profil technique qui doit être exécuté. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

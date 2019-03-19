@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447529"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342120"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Activer la journalisation dans Azure Machine Learning service
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Pour connaître d’autres fonctions de journalisation, voir la [documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) de référence de la classe `Run`.
+Consultez la documentation de référence pour le [exécuter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) classe pour les fonctions de journalisation supplémentaire.
 
 Pour activer la journalisation locale de l’état de l’application pendant la progression de l’apprentissage, utilisez le paramètre `show_output`. La journalisation détaillée permet d’afficher les détails du processus d’apprentissage, ainsi que des informations sur les éventuelles cibles de calcul ou ressources à distance. Utilisez le code suivant pour activer la journalisation lors de la soumission de l’expérience.
 

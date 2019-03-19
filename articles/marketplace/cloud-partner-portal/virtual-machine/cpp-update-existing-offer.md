@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852472"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Mettre à jour une offre de machine virtuelle existante dans Place de marché Azure
 
@@ -35,6 +35,8 @@ Plusieurs raisons peuvent motiver la mise à jour d’une offre :
 
 Le portail contient les fonctions **Comparer** et **Historique** qui vous aident à apporter ces modifications.  
 
+>[!Note]
+>Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Modifications non autorisées apportées à l’offre ou à la référence SKU de machine virtuelle
 
@@ -63,7 +65,7 @@ Il est courant qu’une image de machine virtuelle soit régulièrement mise à 
 
 4.  Sous **Version disque**, cliquez sur **+Nouvelle version disque** pour ajouter une nouvelle image de machine virtuelle.
 
-5.  Fournissez la **version disque** des nouvelles images de machine virtuelle. La version disque doit suivre le format [version sémantique](http://semver.org/). Les versions doivent être au format X.Y.Z, où X, Y et Z sont des entiers. Vérifiez que la nouvelle version indiquée est ultérieure à toutes les versions précédentes. Sinon, après la republication, la nouvelle version ne s’affiche pas dans le portail ou dans Place de marché Azure.
+5.  Fournissez la **version disque** des nouvelles images de machine virtuelle. La version disque doit suivre le format [version sémantique](https://semver.org/). Les versions doivent être au format X.Y.Z, où X, Y et Z sont des entiers. Vérifiez que la nouvelle version indiquée est ultérieure à toutes les versions précédentes. Sinon, après la republication, la nouvelle version ne s’affiche pas dans le portail ou dans Place de marché Azure.
 
 6.  Dans le champ **URL de disque dur virtuel de système d’exploitation**, saisissez [l’URI de signature d’accès partagé (SAS)](./cpp-get-sas-uri.md) créé pour le disque dur virtuel du système d’exploitation. 
 
@@ -147,14 +149,14 @@ S’ils ont déjà été facturés pour le cycle correspondant à la réduction 
 <!-- TD: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
 ### <a name="simplified-currency-pricing"></a>Tarification simplifiée des devises
 
-Depuis le 1er septembre 2018, vous pouvez consulter une nouvelle section intitulée **Tarification simplifiée des devises**. Microsoft simplifie les activités de la Place de marché Microsoft Azure en améliorant la prévisibilité de la tarification et des prélèvements de vos clients dans le monde entier. Pour ce faire, nous réduisons le nombre de devises dans lesquelles nous facturons vos clients.
+Depuis le 1er septembre 2018, une nouvelle section intitulée **Simplified Currency Pricing (Tarification simplifiée en devise)** est ajoutée dans le portail. Microsoft simplifie les activités de la Place de marché Microsoft Azure en améliorant la prévisibilité de la tarification et des prélèvements de vos clients dans le monde entier. Pour ce faire, nous réduisons le nombre de devises dans lesquelles nous facturons vos clients.
 
-La nouvelle section prendra en compte la tarification dans ces nouvelles devises. Lorsque tous les clients seront passés aux devises de ce nouvel accord, la section de tarification initiale sera supprimée et seule la section Tarification simplifiée des devises sera conservée.
+La nouvelle section prendra en compte la tarification dans ces nouvelles devises. Lorsque tous les clients seront passés aux devises de ce nouvel accord, la section de tarification initiale sera supprimée et seule la section Tarification simplifiée des devises sera conservée.
 
 Vous aurez jusqu’au 1er novembre 2018 pour fixer un nouveau prix dans les régions où l’accord modifie la devise. Vous ne pourrez pas augmenter le prix dans les régions où l’accord ne modifie pas la devise.
 
 > [!NOTE] 
-> Si vous publiez votre offre à l’aide d’API, une nouvelle section s’affiche dans l’offre JSON. Elle indiquera `virtualMachinePricingV2` ou `monthlyPricingV2`, selon le type d’offre. 
+> Si vous publiez votre offre à l’aide d’API, une nouvelle section s’affiche dans l’offre JSON. Elle indiquera `virtualMachinePricingV2` ou `monthlyPricingV2`, selon le type d’offre. 
 
 Pour toute question concernant cette modification, contactez le support de la [Place de marché Microsoft Azure](../../support-azure-marketplace.md).
 

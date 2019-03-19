@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 57a8a89c73e2be51e54130d9c37194a7513a47d8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896940"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Approvisionner et cataloguer de nouveaux clients à l’aide du modèle SaaS d’application par client
 
@@ -68,7 +68,7 @@ Un modèle Azure Resource Manager est utilisé pour déployer et configurer l’
 
 À la fin de ce didacticiel, vous avez un ensemble d’applications clientes autonomes, avec chaque base de données inscrite dans le catalogue.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis : 
 
@@ -99,7 +99,7 @@ Une fois l’exécution du script terminée, le catalogue existe et tous les exe
 Examinez à présent les ressources que vous avez créées.
 
 1. Ouvrez le [portail Azure](https://portal.azure.com/) et parcourez les groupes de ressources.  Ouvrez le groupe de ressources **wingtip-sa-catalog-\<user\>** et notez le serveur de catalogue ainsi que la base de données.
-1. Ouvrez la base de données dans le portail, puis sélectionnez l’*explorateur de données* à partir du menu de gauche.  Cliquez sur la commande de connexion, puis entrez le mot de passe = **P@ssword1**.
+1. Ouvrez la base de données dans le portail, puis sélectionnez l’*explorateur de données* à partir du menu de gauche.  Cliquez sur la commande de connexion, puis entrez le mot de passe = **P\@ssword1**.
 
 
 1. Explorez le schéma de la base de données *tenantcatalog*.  

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4f08b728198d6ee508cbd8267c593abc59e4cb37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075251"
 ---
 # <a name="translator-text-api-v20"></a>API de traduction de texte Translator Text v2.0
 
@@ -70,7 +70,7 @@ Si vous avez utilisé précédemment `AddTranslation` ou `AddTranslationArray` p
 
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml 
 
@@ -78,14 +78,14 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description    |Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid  |(empty)    |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query|chaîne|
-|texte|(empty)   |Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
-|from|(empty)   |facultatif. Chaîne représentant le code de langue du texte source. Par exemple, en pour l’anglais.|query|chaîne|
-|to|(empty) |Requis. Chaîne représentant le code de langue du texte cible.|query|chaîne|
-|contentType|(empty)    |facultatif. Format du texte en cours de traduction. Les formats pris en charge sont text/plain (par défaut) et text/html. Tout code HTML doit être un élément bien formé et complet.|query|chaîne|
-|category|(empty)   |facultatif. Chaîne contenant la catégorie (domaine) de la traduction. La valeur par défaut est « general ».|query|chaîne|
-|Authorization|(empty)  |Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|chaîne|
+|appid  |(empty)    |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query|string|
+|texte|(empty)   |Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
+|from|(empty)   |facultatif. Chaîne représentant le code de langue du texte source. Par exemple, en pour l’anglais.|query|string|
+|to|(empty) |Requis. Chaîne représentant le code de langue du texte cible.|query|string|
+|contentType|(empty)    |facultatif. Format du texte en cours de traduction. Les formats pris en charge sont text/plain (par défaut) et text/html. Tout code HTML doit être un élément bien formé et complet.|query|string|
+|category|(empty)   |facultatif. Chaîne contenant la catégorie (domaine) de la traduction. La valeur par défaut est « general ».|query|string|
+|Authorization|(empty)  |Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|string|
 
 
 ### <a name="response-messages"></a>Messages de réponse
@@ -157,7 +157,7 @@ Le format du corps de la réponse est le suivant.
 
 ```
 <ArrayOfTranslateArrayResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
-  xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <TranslateArrayResponse>
     <From>language-code</From>
     <OriginalTextSentenceLengths xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -175,7 +175,7 @@ Le format du corps de la réponse est le suivant.
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 Une réponse correcte inclut un tableau `TranslateArrayResponse` au format décrit ci-dessus.
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
 
@@ -183,8 +183,8 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|Authorization|(empty) |Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|chaîne|
+|Authorization|(empty) |Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -205,7 +205,7 @@ L’URI de demande est `https://api.microsofttranslator.com/V2/Http.svc/GetLangu
 Le corps de la demande inclut un tableau de chaînes représentant les codes de langue ISO 639-1 dont il s’agit de récupérer les noms conviviaux. Par exemple : 
 
 ```
-<ArrayOfstring xmlns:i="http://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+<ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
     <string>zh</string>
     <string>en</string>
 </ArrayOfstring>
@@ -216,7 +216,7 @@ Le corps de la demande inclut un tableau de chaînes représentant les codes de 
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 Tableau de chaînes contenant les noms des langues prises en charge par le service Translator, localisées dans la langue demandée.
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
  
@@ -224,10 +224,10 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|locale|(empty) |Requis. Chaîne représentant une combinaison d’un code de culture ISO 639 à deux lettres minuscules associé à une langue et d’un code de sous-culture ISO 3166 à deux lettres majuscules pour localiser les noms de langue, ou n code de culture en lettres minuscules ISO 639 autosuffisant.|query|chaîne|
-|Authorization|(empty)  |Obligatoire si le champ appid ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ appid ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
+|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
+|locale|(empty) |Requis. Chaîne représentant une combinaison d’un code de culture ISO 639 à deux lettres minuscules associé à une langue et d’un code de sous-culture ISO 3166 à deux lettres majuscules pour localiser les noms de langue, ou n code de culture en lettres minuscules ISO 639 autosuffisant.|query|string|
+|Authorization|(empty)  |Obligatoire si le champ appid ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ appid ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -250,7 +250,7 @@ L’URI de demande est `https://api.microsofttranslator.com/V2/Http.svc/GetLangu
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 Tableau de chaînes contenant les codes de langue pris en charge par le service Translator.
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
  
@@ -258,9 +258,9 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|Authorization|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
+|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
+|Authorization|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -283,7 +283,7 @@ L’URI de demande est `https://api.microsofttranslator.com/V2/Http.svc/GetLangu
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 Tableau de chaînes contenant les codes de langue pris en charge pour la synthèse vocale par le service Translator.
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
 
@@ -291,9 +291,9 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
+|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
+|Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
  
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -323,13 +323,13 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|texte|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|chaîne|
-|Langage|(empty)   |Requis. Chaîne représentant le code de la langue prise en charge dans laquelle prononcer le texte. Le code doit être présent dans la liste des codes renvoyée par la méthode `GetLanguagesForSpeak`.|query|chaîne|
-|format|(empty)|facultatif. Chaîne spécifiant l’ID de type de contenu. Actuellement, `audio/wav` et `audio/mp3` sont disponibles. La valeur par défaut est `audio/wav`.|query|chaîne|
-|options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le genre souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale `|` pour inclure plusieurs options. Par exemple : `MaxQuality|Male`.</li></li></ul> |query|chaîne|
-|Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
+|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
+|texte|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|string|
+|Langage|(empty)   |Requis. Chaîne représentant le code de la langue prise en charge dans laquelle prononcer le texte. Le code doit être présent dans la liste des codes renvoyée par la méthode `GetLanguagesForSpeak`.|query|string|
+|format|(empty)|facultatif. Chaîne spécifiant l’ID de type de contenu. Actuellement, `audio/wav` et `audio/mp3` sont disponibles. La valeur par défaut est `audio/wav`.|query|string|
+|options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le genre souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale <code>\|</code> pour inclure plusieurs options. Par exemple : `MaxQuality|Male`.</li></li></ul> |query|string|
+|Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -351,7 +351,7 @@ L’URI de demande est `https://api.microsofttranslator.com/V2/Http.svc/Detect`.
 
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
 
@@ -359,10 +359,10 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid|(empty)  |Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|texte|(empty)|Requis. Chaîne contenant du texte dont la langue doit être identifiée. La taille du texte ne peut pas dépasser 10 000 caractères.|query| chaîne|
-|Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key  |(empty)    |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
+|appid|(empty)  |Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
+|texte|(empty)|Requis. Chaîne contenant du texte dont la langue doit être identifiée. La taille du texte ne peut pas dépasser 10 000 caractères.|query| string|
+|Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
+|Ocp-Apim-Subscription-Key  |(empty)    |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -397,7 +397,7 @@ La taille du texte ne peut pas dépasser 10 000 caractères.
 Le format du corps de la réponse est le suivant.
 
 ```
-<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <string>language-code-1</string>
   <string>language-code-2</string>
 </ArrayOfstring>
@@ -406,7 +406,7 @@ Le format du corps de la réponse est le suivant.
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 La méthode DetectArray a réussi. Renvoie un tableau de chaînes contenant des codes de langue de deux caractères pour chaque ligne du tableau d’entrée.
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
  
@@ -414,9 +414,9 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|chaîne|
+|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
+|Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -440,7 +440,7 @@ L’URI de demande est `https://api.microsofttranslator.com/V2/Http.svc/AddTrans
 
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 
-chaîne
+string
 
 Type de contenu de réponse : application: xml
  
@@ -448,18 +448,18 @@ Type de contenu de réponse : application: xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données   |
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|originalText|(empty)|Requis. Chaîne contenant le texte à traduire. La chaîne ne peut pas contenir plus de 1 000 caractères.|query|chaîne|
-|translatedText|(empty) |Requis. Chaîne contenant le texte traduit dans la langue cible. La chaîne ne peut pas contenir plus de 2 000 caractères.|query|chaîne|
-|from|(empty)   |Requis. Chaîne représentant le code de langue du texte source. fr = français, de = allemand, etc...|query|chaîne|
-|to|(empty)|Requis. Chaîne représentant le code de langue du texte cible.|query|chaîne|
+|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
+|originalText|(empty)|Requis. Chaîne contenant le texte à traduire. La chaîne ne peut pas contenir plus de 1 000 caractères.|query|string|
+|translatedText|(empty) |Requis. Chaîne contenant le texte traduit dans la langue cible. La chaîne ne peut pas contenir plus de 2 000 caractères.|query|string|
+|from|(empty)   |Requis. Chaîne représentant le code de langue du texte source. fr = français, de = allemand, etc...|query|string|
+|to|(empty)|Requis. Chaîne représentant le code de langue du texte cible.|query|string|
 |rating|(empty) |facultatif. Entier représentant la notation de qualité pour cette chaîne. Valeur comprise entre -10 et 10. La valeur par défaut est de 1.|query|integer|
-|contentType|(empty)    |facultatif. Format du texte en cours de traduction. Les formats pris en charge sont « text/plain » et « text/html ». Tout code HTML doit être un élément bien formé et complet.   |query|chaîne|
-|category|(empty)|facultatif. Chaîne contenant la catégorie (domaine) de la traduction. La valeur par défaut est « general ».|query|chaîne|
-|user|(empty)|Requis. Chaîne utilisée pour effectuer le suivi de l’expéditeur de l’envoi.|query|chaîne|
-|URI|(empty)|facultatif. Chaîne contenant l’emplacement du contenu de cette traduction.|query|chaîne|
-|Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.    |en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
+|contentType|(empty)    |facultatif. Format du texte en cours de traduction. Les formats pris en charge sont « text/plain » et « text/html ». Tout code HTML doit être un élément bien formé et complet.   |query|string|
+|category|(empty)|facultatif. Chaîne contenant la catégorie (domaine) de la traduction. La valeur par défaut est « general ».|query|string|
+|user|(empty)|Requis. Chaîne utilisée pour effectuer le suivi de l’expéditeur de l’envoi.|query|string|
+|URI|(empty)|facultatif. Chaîne contenant l’emplacement du contenu de cette traduction.|query|string|
+|Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.    |en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -517,7 +517,7 @@ Les éléments contenus dans l’élément AddtranslationsRequest sont les suiva
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 La méthode AddTranslationArray a réussi. Depuis le 31 janvier 2018, les envois de phrase ne seront plus acceptés. Le service répond avec le code d’erreur 410.
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
  
@@ -525,8 +525,8 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|chaîne|
+|Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -558,11 +558,11 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid|(empty)  |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query| chaîne|
-|texte|(empty)   |Requis. Chaîne représentant le texte à fractionner en phrases. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
-|Langage   |(empty)    |Requis. Chaîne représentant le code de langue du texte d’entrée.|query|chaîne|
-|Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».    |en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|chaîne|
+|appid|(empty)  |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query| string|
+|texte|(empty)   |Requis. Chaîne représentant le texte à fractionner en phrases. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
+|Langage   |(empty)    |Requis. Chaîne représentant le code de langue du texte d’entrée.|query|string|
+|Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».    |en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -611,7 +611,7 @@ La demande `Content-Type` doit être `text/xml`.
 
 ```
 <GetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
-  xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <From>Two character language code</From>
   <State/>
   <Translations>
@@ -644,7 +644,7 @@ MatchedOriginalText : Texte d’origine mis en correspondance pour ce résultat.
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 Objet `GetTranslationsResponse` au format décrit ci-dessus.
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
  
@@ -652,13 +652,13 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|texte|(empty)|Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
-|from|(empty)|Requis. Chaîne représentant le code de langue du texte source.|query|chaîne|
-|to |(empty)    |Requis. Chaîne représentant le code de langue du texte cible.|query|chaîne|
+|appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
+|texte|(empty)|Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
+|from|(empty)|Requis. Chaîne représentant le code de langue du texte source.|query|string|
+|to |(empty)    |Requis. Chaîne représentant le code de langue du texte cible.|query|string|
 |maxTranslations|(empty)|Requis. Entier représentant le nombre maximal de traductions à renvoyer.|query|integer|
-|Authorization| (empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|chaîne| en-tête|
-|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
+|Authorization| (empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|string| en-tête|
+|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
@@ -723,7 +723,7 @@ La demande `Content-Type` doit être `text/xml`.
 **Valeur renvoyée** : Le format de la réponse est le suivant.
 
 ```
-<ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <GetTranslationsResponse>
     <From>language-code</From>
     <State/>
@@ -764,7 +764,7 @@ Un objet `TranslationMatch` comprend les éléments suivants :
 
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 
-chaîne
+string
 
 Type de contenu de réponse : application/xml
  
@@ -772,8 +772,8 @@ Type de contenu de réponse : application/xml
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
-|Authorization  |(empty)    |Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
-|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
+|Authorization  |(empty)    |Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
+|Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 

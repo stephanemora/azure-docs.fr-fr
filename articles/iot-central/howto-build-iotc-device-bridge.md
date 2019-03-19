@@ -8,12 +8,12 @@ ms.author: viviali
 ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163359"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730322"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Générer le pont d’appareil IoT Central pour connecter d’autres clouds IoT à IoT Central
 
@@ -26,7 +26,9 @@ Le pont d’appareil IoT Central est une solution open source dans GitHub. Elle 
 -   Application Azure Function
 -   Compte Stockage Azure
 -   Plan de consommation
--   Azure Key Vault. L’application de fonction est l’élément essentiel du pont d’appareil. Elle reçoit les requêtes HTTP POST à partir d’autres plateformes IoT ou plateformes personnalisées via une intégration webhook simple. Nous vous proposons des exemples qui montrent comment vous connecter aux clouds Sigfox, Particle et TTN. Vous pouvez facilement étendre cette solution pour vous connecter à votre cloud IoT personnalisé si votre plateforme peut envoyer des requêtes HTTP POST à votre application de fonction.
+-   Azure Key Vault
+
+L’application de fonction est l’élément essentiel de la passerelle de l’appareil. Elle reçoit les requêtes HTTP POST à partir d’autres plateformes IoT ou plateformes personnalisées via une intégration webhook simple. Nous vous proposons des exemples qui montrent comment vous connecter aux clouds Sigfox, Particle et TTN. Vous pouvez facilement étendre cette solution pour vous connecter à votre cloud IoT personnalisé si votre plateforme peut envoyer des requêtes HTTP POST à votre application de fonction.
 L’application de fonction convertit les données dans un format accepté par IoT Central et les transfère via des API DPS.
 
 ![Capture d’écran d’Azure Functions](media/howto-build-iotc-device-bridge/azfunctions.png)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: c456f8f7f08fdbd0020bfc49ceeec262fa0ac773
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 14c9a453913a9a8080c840df3f23751487b86c34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006157"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -219,6 +219,26 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
 Dans cet exemple, la configuration utilisée par `ApplicationInsightsLoggerProvider` est identique à celle utilisée par l’analyse d’application régulière. Par conséquent, les deux traces `ILogger` et les autres données de télémétrie (requêtes, dépendances, etc.) exécutent le même ensemble de `TelemetryInitializers`, `TelemetryProcessors` et `TelemetryChannel`. Ils seront mis en corrélation et échantillonnés/non échantillonnés de la même façon.
 
 Toutefois, il existe une exception à ce comportement. La valeur par défaut `TelemetryConfiguration` n’est pas entièrement configurée lors de la journalisation d’un élément à partir de `Program.cs` ou `Startup.cs`, alors ces journaux n’auront pas la configuration par défaut. Toutefois, les autres journaux (par exemple, les journaux à partir des contrôleurs, des modèles, etc.) partagent la configuration.
+
+## <a name="control-logging-level"></a>Niveau de journalisation de contrôle
+
+Outre le filtrage des journaux sur le code comme dans les exemples ci-dessus, il est également possible de contrôler le niveau de journalisation Application Insights capture, en modifiant le `appsettings.json`. Le [ASP.NET journalisation documentation des notions de base](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) montre comment y parvenir. Spécifiquement pour Application Insights, le nom de l’alias de fournisseur est `ApplicationInsights`, comme illustré dans l’exemple qui configure ci-dessous `ApplicationInsights` pour capturer uniquement les journaux de `Warning` et versions ultérieures de toutes les catégories.
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

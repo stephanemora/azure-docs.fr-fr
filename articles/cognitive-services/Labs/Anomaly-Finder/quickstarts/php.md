@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: e5262de518e6cdf5a131fa9a84a3aa8ce9ce9236
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f65f389d93a90df1bc16d2228586beead5f96a73
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213682"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728741"
 ---
 # <a name="use-the-anomaly-finder-api-with-php"></a>Utiliser l’API Recherche d’anomalies avec PHP
 
@@ -22,7 +22,7 @@ ms.locfileid: "55213682"
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de PHP en vue d’obtenir les résultats d’anomalies de données de série chronologique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

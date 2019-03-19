@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845118"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de 
 
 Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque .NET de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec l’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md). 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer le développement Azure lors de l’installation de Visual Studio.
 
@@ -194,7 +194,7 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
       </listeners>
     </trace>
   </system.diagnostics>
-```
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur les packages Nuget et les notes de publication de la bibliothèque de l’exécuteur en vrac .NET, consultez les [détails sur le SDK BulkExecutor](sql-api-sdk-bulk-executor-dot-net.md). 
+* Pour en savoir plus sur les détails du package Nuget et notes de publication de la bibliothèque .NET d’exécuteur en bloc, consultez[en bloc des détails sur le SDK exécuteur](sql-api-sdk-bulk-executor-dot-net.md). 

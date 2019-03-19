@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5afc434ccd7a41c6fa1f4fec300941458c84889e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 25eb111871bbe3b18f59b0d6c123c72f3e55c859
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629564"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737108"
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
 
@@ -40,8 +40,10 @@ Un administrateur de serveur doit être un utilisateur ou un groupe valide prés
 
 ## <a name="powershell"></a>PowerShell
 
-Utilisez la cmdlet [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) pour spécifier le paramètre Administrateur au moment de la création d’un nouveau serveur. <br>
-Utilisez la cmdlet [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) pour modifier le paramètre Administrateur d’un serveur existant.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Utilisez [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) applet de commande pour spécifier le paramètre de l’administrateur lors de la création d’un nouveau serveur. <br>
+Utilisez [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) applet de commande pour modifier le paramètre de l’administrateur d’un serveur existant.
 
 ## <a name="rest-api"></a>API REST
 

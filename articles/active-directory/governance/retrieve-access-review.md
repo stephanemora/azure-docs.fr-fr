@@ -1,6 +1,6 @@
 ---
-title: Récupérer les résultats d’une révision d’accès Azure AD | Microsoft Docs
-description: Procédure de récupération des résultats des révisions d’accès Azure Active Directory.
+title: Récupérer les résultats de révision d’accès pour les groupes ou des applications dans les révisions d’accès Azure AD | Microsoft Docs
+description: Découvrez comment récupérer les résultats de révision d’accès pour les membres du groupe ou l’accès aux applications dans les révisions d’accès Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dccacb82b34e7e257fcee9632045f12839b5425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210796"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839642"
 ---
-# <a name="retrieve-access-review-results"></a>Récupérer les résultats d’une révision d’accès
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Récupérer les résultats de révision d’accès pour les groupes ou des applications dans les révisions d’accès Azure AD
 
-Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application.  Un utilisateur disposant du rôle **Administrateur général**, **Administrateur des comptes d’utilisateur** , **Administrateur de la sécurité** ou **Lecteur Sécurité** peut également lire les résultats d’une révision d’accès.  Pour assigner des utilisateurs à l’un de ces rôles, un Administrateur de rôle privilégié peut utiliser Azure AD Privileged Identity Management (PIM) afin de définir un utilisateur comme éligible à l’activation du rôle, ou un Administrateur général peut [assigner un utilisateur au rôle](../fundamentals/active-directory-users-assign-role-azure-portal.md) de façon permanente.
+Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application.  Un utilisateur qui est dans le **administrateur général**, **utilisateur administrateur**, **administrateur de sécurité** ou **lecteur sécurité** rôle peut également lire les résultats d’une révision d’accès.  Pour affecter des utilisateurs à un de ces rôles, un administrateur de rôle privilégié peut utiliser Azure AD PIM à faire éligible pour activer le rôle d’un utilisateur ou un administrateur Global peut définitivement [affecter un utilisateur au rôle](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -55,7 +55,7 @@ Par défaut, un utilisateur supprimé conserve cet état dans Azure AD pendant 3
 - [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md) (Gérer l’accès des utilisateurs avec les révisions d’accès Azure AD)
 - [Manage guest access with Azure AD access reviews](manage-guest-access-with-access-reviews.md) (Gérer l’accès des invités avec les révisions d’accès Azure AD)
 - [Manage programs and controls for Azure AD access reviews](manage-programs-controls.md) (Gérer les programmes et les contrôles pour la révision d’accès Azure AD)
-- [Create an access review for members of a group or access to an application](create-access-review.md) (Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application)
+- [Créer une révision d’accès des groupes ou des applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)
 
 

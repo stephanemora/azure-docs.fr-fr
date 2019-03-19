@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 88efa6b16e33fe928ad9354b7283f7c651e6710c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877698"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
-Avez-vous commencé à explorer les fonctionnalités du service Speech ? Implémentez-vous une nouvelle fonctionnalité à votre application ? Voici quelques suggestions d’endroits où vous pouvez obtenir de l’aide en tant que développeur.
+Vous débutez à Explorer les fonctionnalités des Services de reconnaissance vocale ? Implémentez-vous une nouvelle fonctionnalité à votre application ? Voici quelques suggestions d’endroits où vous pouvez obtenir de l’aide en tant que développeur.
 
 > [!div class="checklist"]
 > * Tenez-vous informé des nouvelles évolutions d’*Azure Cognitive Services* ou recherchez les dernières informations sur le *service Speech*.
@@ -30,7 +30,7 @@ Avez-vous commencé à explorer les fonctionnalités du service Speech ? Implém
 
 ## <a name="stay-informed"></a>Restez informé
 
-Les actualités relatives à Cognitive Services sont rassemblées dans le [blog Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Pour obtenir les dernières informations sur le service Speech, suivez le [blog du service Speech](https://azure.microsoft.com/blog/tag/speech-service/).
+Les actualités relatives à Cognitive Services sont rassemblées dans le [blog Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Pour obtenir les dernières informations sur les Services de reconnaissance vocale, suivre le [blog des Services de reconnaissance vocale](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="search"></a>Recherche
 
@@ -61,11 +61,11 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 
 |Composant/Zone  |Balises  |
 |---------|---------|
-|Reconnaissance vocale |[[microsoft-cognitive+speech-to-text]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Synthèse vocale |[[microsoft-cognitive+text-to-speech]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Traduction vocale |[[microsoft-cognitive+translation]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Intention vocale |[[microsoft-cognitive+luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|Kit de développement logiciel (SDK) Speech général |[[microsoft-cognitive+microsoft-speech-api]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Reconnaissance vocale |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Synthèse vocale |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Traduction vocale |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Intention vocale |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|Kit de développement logiciel (SDK) Speech général |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > Les publications suivantes de Stack Overflow présentent des conseils sur la façon de formuler des questions et d’ajouter du code source. En suivant ces recommandations, vous augmentez vos chances que des membres de la communauté comprennent votre question et y répondent rapidement :  

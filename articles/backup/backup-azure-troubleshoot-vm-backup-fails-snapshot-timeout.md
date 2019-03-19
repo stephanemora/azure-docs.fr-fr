@@ -9,18 +9,20 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236972"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890856"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
 Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauvegarde Azure liées à la communication avec l’agent et l’extension de machine virtuelle.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable : L’agent de machine virtuelle ne peut pas communiquer avec le service Sauvegarde Azure
 
@@ -54,7 +56,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 Action recommandée :<br>
 Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la machine virtuelle et recommencez l’opération pour déclencher le nettoyage.
 > [!NOTE]
-    > Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde. Le format d’affectation des noms du groupe de ressources créé par le service de sauvegarde est : AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+> Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde. Le format d’affectation des noms du groupe de ressources créé par le service de sauvegarde est : AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Étape 1 : [Supprimer le verrou du groupe de ressources des points de restauration](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Étape 2 : [ Nettoyer la collection de points de restauration](#clean_up_restore_point_collection)**<br>
@@ -64,7 +66,7 @@ Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la m
 **Code d’erreur** : UserErrorKeyvaultPermissionsNotConfigured <br>
 **Message d’erreur** : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées. <br>
 
-Pour que l’opération de sauvegarde puisse réussir sur des machines virtuelles chiffrées, elle doit avoir les autorisations d’accès au coffre de clés. Cela est possible par l’intermédiaire du [portail Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Pour que l’opération de sauvegarde puisse réussir sur des machines virtuelles chiffrées, elle doit avoir les autorisations d’accès au coffre de clés. Cela est possible à l’aide de la [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou via [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork : L’opération de capture instantanée a échoué, car la machine virtuelle ne présente aucune connectivité réseau
 
@@ -126,12 +128,12 @@ L’une de vos dernières tâches de sauvegarde a échoué, car il y a déjà un
 3. Dans le menu du tableau de bord du coffre, cliquez sur **Tâches de sauvegarde** pour afficher toutes les tâches de sauvegarde.
 
     * Si une tâche de sauvegarde est en cours, attendez qu’elle se termine ou annulez-la.
-        * Pour annuler la tâche de sauvegarde, cliquez dessus avec le bouton droit, puis cliquez sur **Annuler** ou utilisez [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * Pour annuler la tâche de sauvegarde, cliquez dessus avec le bouton droit, puis cliquez sur **Annuler** ou utilisez [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Si vous avez reconfiguré la sauvegarde dans un autre coffre, vérifiez qu’aucune tâche de sauvegarde n’est en cours d’exécution dans l’ancien coffre. S’il y en a une, annulez-la.
-        * Pour annuler la tâche de sauvegarde, cliquez dessus avec le bouton droit, puis cliquez sur **Annuler** ou utilisez [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * Pour annuler la tâche de sauvegarde, cliquez dessus avec le bouton droit, puis cliquez sur **Annuler** ou utilisez [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
 4. Réessayez l’opération de sauvegarde.
 
-Si l’opération de sauvegarde planifiée empiète sur la configuration de sauvegarde suivante, voir [Meilleures pratiques](backup-azure-vms-introduction.md#best-practices), [Performances de sauvegarde](backup-azure-vms-introduction.md#backup-performance) et [Considérations sur la restauration](backup-azure-vms-introduction.md#restore-considerations).
+Si l’opération de sauvegarde planifiée empiète sur la configuration de sauvegarde suivante, voir [Meilleures pratiques](backup-azure-vms-introduction.md#best-practices), [Performances de sauvegarde](backup-azure-vms-introduction.md#backup-performance) et [Considérations sur la restauration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 
 ## <a name="causes-and-solutions"></a>Causes et solutions
@@ -166,15 +168,15 @@ La plupart des échecs des machines virtuelles Linux liés aux agents ou aux ext
 
 1. Suivez les instructions fournies pour la [mise à jour d’un agent de machine virtuelle Linux](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > Nous *recommandons vivement* la mise à jour de l’agent uniquement par le biais de référentiel de distribution. Nous ne recommandons pas de télécharger le code de l’agent à partir de GitHub directement et d’effectuer la mise à jour. Si la dernière version de l’agent n’est pas disponible pour la distribution, contactez le support de distribution pour savoir comment l’installer. Pour rechercher l’agent le plus récent, accédez à la page relative à l’[agent Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) du référentiel GitHub.
+   > [!NOTE]
+   > Nous *recommandons vivement* la mise à jour de l’agent uniquement par le biais de référentiel de distribution. Nous ne recommandons pas de télécharger le code de l’agent à partir de GitHub directement et d’effectuer la mise à jour. Si la dernière version de l’agent n’est pas disponible pour la distribution, contactez le support de distribution pour savoir comment l’installer. Pour rechercher l’agent le plus récent, accédez à la page relative à l’[agent Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) du référentiel GitHub.
 
 2. Vérifiez que l’agent Azure s’exécute sur la machine virtuelle à l’aide de la commande suivante : `ps -e`.
 
- Si le processus ne s’exécute pas, redémarrez-le à l’aide des commandes suivantes :
+   Si le processus ne s’exécute pas, redémarrez-le à l’aide des commandes suivantes :
 
- * Pour Ubuntu : `service walinuxagent start`
- * Pour les autres distributions : `service waagent start`
+   * Pour Ubuntu : `service walinuxagent start`
+   * Pour les autres distributions : `service waagent start`
 
 3. [Configurez l’agent de redémarrage automatique](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Exécutez une nouvelle sauvegarde de test. Si la défaillance persiste, collectez les journaux suivants à partir de la machine virtuelle :
@@ -198,7 +200,7 @@ Voici les causes possibles de l’échec de la tâche de capture instantanée :
 | Cause : | Solution |
 | --- | --- |
 | L’état de la machine virtuelle est rapporté de manière incorrecte, car la machine virtuelle est arrêtée dans le protocole RDP (Remote Desktop Protocol). | Si vous avez arrêté la machine virtuelle dans le protocole RDP, retournez sur le portail pour vérifier que son état est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle dans le portail à l’aide de l’option **Arrêter** dans le tableau de bord de la machine virtuelle. |
-| La machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir de la réponse 245 DHCP, elle ne peut ni télécharger, ni exécuter des extensions. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer dans le **portail Azure** ou **PowerShell** et vérifier que l’option DHCP dans la machine virtuelle est activée. Pour plus d’informations sur la configuration d’une adresse IP statique dans PowerShell, consultez [Machine virtuelle classique](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) et [Machine virtuelle Resource Manager](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
+| La machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir de la réponse 245 DHCP, elle ne peut ni télécharger, ni exécuter des extensions. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer dans le **portail Azure** ou **PowerShell** et vérifier que l’option DHCP dans la machine virtuelle est activée. [En savoir plus](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sur la configuration d’une adresse IP statique avec PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>L’extension de sauvegarde ne peut être ni mise à jour ni chargée
 Si les extensions ne sont pas chargées, la sauvegarde échoue, car il n’est pas possible de capturer un instantané.
@@ -220,36 +222,36 @@ Pour les machines virtuelles Linux, si l’extension VMSnapshot ne figure pas da
 Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Supprimer le verrou du groupe de ressources des points de récupération
-1. Connectez-vous au [Portail Azure](http://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Sélectionnez l’option **Toutes les ressources**, puis le groupe de ressources de la collection de points de restauration au format suivant : AzureBackupRG_`<Geo>`_`<number>`.
 3. Dans la section **Paramètres**, sélectionnez **Verrous** pour afficher les verrous.
 4. Pour supprimer le verrou, sélectionnez les points de suspension, puis cliquez sur **Supprimer**.
 
-    ![Supprimer un verrou ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+    ![Supprimer un verrou](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Nettoyer la collection de points de restauration
 Après avoir supprimé le verrou, vous devez nettoyer les points de restauration. Pour nettoyer les points de restauration, suivez l’une des méthodes suivantes :<br>
-* [Nettoyer la collection de points de restauration en exécutant une sauvegarde ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Restauration de nettoyage collection de points en exécutant la sauvegarde ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Nettoyer la collection de points de restauration sur le portail Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup">Nettoyer la collection de points de restauration en exécutant une sauvegarde ad hoc</a>
-Après avoir supprimé le verrou, déclenchez une sauvegarde ad hoc/manuelle. Ce faisant, les points de restauration sont automatiquement nettoyés. Attendez-vous à ce que cette opération ad hoc/manuelle échoue la première fois. Toutefois, elle garantit le nettoyage automatique à la place de la suppression manuelle des points de restauration. La sauvegarde ultérieure planifiée doit réussir après le nettoyage.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Restauration de nettoyage collection de points en exécutant la sauvegarde ad hoc
+Après avoir supprimé le verrou, déclencher une sauvegarde de hoc/manuelles ad. Ce faisant, les points de restauration sont automatiquement nettoyés. Attendre cette opération ad hoc/manuelles échouer la première fois. Toutefois, elle garantit le nettoyage automatique au lieu de la suppression manuelle des points de restauration. La sauvegarde ultérieure planifiée doit réussir après le nettoyage.
 
 > [!NOTE]
-    > Le nettoyage automatique a lieu quelques heures après le déclenchement de la sauvegarde ad hoc/manuelle. Si votre sauvegarde planifiée échoue à nouveau, essayez de supprimer manuellement la collection de points de restauration à l’aide de la procédure indiquée [ici](#clean-up-restore-point-collection-from-azure-portal).
+> Le nettoyage automatique aura lieu après les heures de déclenchement de la sauvegarde de hoc/manuelles ad. Si votre sauvegarde planifiée échoue à nouveau, essayez de supprimer manuellement la collection de points de restauration à l’aide de la procédure indiquée [ici](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Nettoyer la collection de points de restauration sur le portail Azure <br>
 
 Pour effacer manuellement la collection des points de restauration qui ne sont pas effacés en raison du verrou du groupe de ressources, procédez comme suit :
-1. Connectez-vous au [Portail Azure](http://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le menu **Hub**, cliquez sur **Toutes les ressources**, sélectionnez le groupe de ressources au format suivant AzureBackupRG_`<Geo>`_`<number>` où se trouve votre machine virtuelle.
 
-    ![Supprimer un verrou ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Supprimer un verrou](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Cliquez sur le groupe de ressources ; le panneau **Vue d’ensemble** s’affiche.
 4. Sélectionnez l’option **Afficher les types masqués** pour afficher toutes les ressources masquées. Sélectionnez les collections de points de restauration au format suivant : AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Supprimer un verrou ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Supprimer un verrou](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Cliquez sur **Supprimer** pour nettoyer la collection de points de restauration.
 6. Renouvelez l’opération de sauvegarde.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001574"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
 
@@ -35,7 +35,7 @@ Pour bien comprendre ce qu’est un blueprint et quelles sont les phases de son 
 
 Quand vous créez un blueprint, vous y ajoutez des artefacts, vous l’enregistrez dans un groupe d’administration ou un abonnement, et vous spécifiez un nom unique et une version unique. Le blueprint est à présent en mode **Brouillon** et ne peut pas encore être affecté. Pendant qu’il est en mode **Brouillon**, il peut continuer d’être mis à jour et modifié.
 
-Un blueprint en mode **Brouillon** qui n’a jamais été publié affiche une icône dans la page **Définitions de blueprint** qui est différente de ceux qui ont été **publiés**. Le champ **Dernière version** indique également **Brouillon** pour les blueprints qui n’ont jamais été publiés.
+Un blueprint en mode **Brouillon** qui n’a jamais été publié affiche une icône dans la page **Définitions de blueprint** qui est différente de ceux qui ont été **publiés**. Le **Version la plus récente** s’affiche en tant que **Draft** pour ces jamais publié plans.
 
 Vous créez et modifiez un blueprint avec le [portail Azure](../create-blueprint-portal.md#create-a-blueprint) ou l’[API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -68,13 +68,13 @@ Chaque version d’un blueprint est un objet unique qui peut être **publié** i
 > [!NOTE]
 > Il n’est pas possible de supprimer un blueprint ayant des affectations actives. Supprimez d’abord les affectations, puis supprimez la version du blueprint.
 
-1. Cliquez sur **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, cliquez sur **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Sélectionnez **Définitions de blueprint** dans la page de gauche et utilisez les options de filtre pour trouver le blueprint dont vous souhaitez supprimer une version. Cliquez dessus pour ouvrir la page de modification.
+1. Sélectionnez **Blueprint définitions** à partir de la page sur la gauche et l’utilisation du filtre options pour localiser le plan que vous souhaitez supprimer une version de. Cliquez dessus pour ouvrir la page de modification.
 
 1. Cliquez sur l’onglet **Versions publiées** et recherchez la version que vous souhaitez supprimer.
 
-1. Cliquez avec le bouton droit sur la version à supprimer, puis sélectionnez **Supprimer cette version**.
+1. Avec le bouton droit sur la version à supprimer, puis sélectionnez **supprimer cette version**.
 
 ## <a name="deleting-the-blueprint"></a>Suppression du blueprint
 
@@ -103,8 +103,8 @@ Pour découvrir comment procéder, consultez [Mettre à jour des affectations ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir comment utiliser les [paramètres statiques et dynamiques](parameters.md)
-- Apprendre à personnaliser [l’ordre de séquencement des blueprints](sequencing-order.md)
-- Découvrir comment utiliser le [verrouillage des ressources de blueprint](resource-locking.md)
-- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md)
-- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md)
+- Comprendre comment utiliser [paramètres statiques et dynamiques](parameters.md).
+- Apprenez à personnaliser le [blueprint ordre de classement](sequencing-order.md).
+- Découvrez comment rendre utiliser [blueprint verrouillage de ressources](resource-locking.md).
+- Découvrez comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
+- Résoudre les problèmes de l’attribution d’un plan avec [dépannage général](../troubleshoot/general.md).

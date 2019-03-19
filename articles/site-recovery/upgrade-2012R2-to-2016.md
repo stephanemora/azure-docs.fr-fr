@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853271"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Mettre à niveau des hôtes Windows Server 2012 R2 et des serveurs SCVMM 2012 R2 configurés avec Azure Site Recovery vers Windows Server 2016 et SCVMM 2016
 
@@ -50,8 +50,8 @@ Avant de procéder à la mise à jour, notez ce qui suit :
     - Vérifiez que les nouveaux serveurs SCVMM que vous ajoutez au cluster portent les mêmes noms qu'auparavant. 
 
 - Si vous procédez à une réplication entre deux de vos sites managés des deux côtés par des serveurs SCVMM, veillez à mettre à niveau le côté récupération avant de mettre à niveau le côté principal.
-> [!WARNING]
-> Lors de la mise à niveau d'un serveur SCVMM 2012 R2, sous Gestion distribuée de clés, choisissez de **stocker les clés de chiffrement dans Active Directory**. Choisissez avec soin les paramètres du compte de service et de la gestion distribuée de clés. Selon votre sélection, les données chiffrées telles que les mots de passe des modèles peuvent ne plus être disponibles après la mise à niveau, et peuvent potentiellement affecter la réplication avec Azure Site Recovery.
+  > [!WARNING]
+  > Lors de la mise à niveau d'un serveur SCVMM 2012 R2, sous Gestion distribuée de clés, choisissez de **stocker les clés de chiffrement dans Active Directory**. Choisissez avec soin les paramètres du compte de service et de la gestion distribuée de clés. Selon votre sélection, les données chiffrées telles que les mots de passe des modèles peuvent ne plus être disponibles après la mise à niveau, et peuvent potentiellement affecter la réplication avec Azure Site Recovery.
 
 > [!IMPORTANT]
 > Veuillez vous reporter aux [conditions préalables](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations) détaillées dans la documentation SCVMM.
@@ -79,8 +79,8 @@ Avant de mettre à niveau vos hôtes Windows Server 2012 R2, vous devez procé
 
 4. [Installez VMM 2016](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016).
 5. Lancez SCVMM et de vérifiez l'état de chaque hôte sous l'onglet **Structures**. Cliquez sur **Actualiser** pour obtenir l'état le plus récent. L'état « Nécessite une attention » doit être affiché. 
-17. Installez la dernière version du [fournisseur Microsoft Azure Site Recovery](http://aka.ms/downloaddra) sur le serveur SCVMM.
-16. Installez la dernière version de l'[agent Microsoft Azure Recovery Service (MARS)](http://aka.ms/latestmarsagent) sur chacun des hôtes du cluster. Actualisez pour vous assurer que le serveur SCVMM est en mesure d'interroger les hôtes.
+17. Installez la dernière version du [fournisseur Microsoft Azure Site Recovery](https://aka.ms/downloaddra) sur le serveur SCVMM.
+16. Installez la dernière version de l'[agent Microsoft Azure Recovery Service (MARS)](https://aka.ms/latestmarsagent) sur chacun des hôtes du cluster. Actualisez pour vous assurer que le serveur SCVMM est en mesure d'interroger les hôtes.
 
 **Mise à niveau d'hôtes Windows Server 2012 R2 vers Windows Server 2016**
 
@@ -97,8 +97,8 @@ Avant de mettre à niveau vos hôtes Windows Server 2012 R2, vous devez procé
 1.  Désinstallez le fournisseur ASR en sélectionnant Panneau de configuration -> Programmes -> Programmes et fonctionnalités -> Microsoft Azure Site Recovery, puis en cliquant sur Désinstaller.
 2. Suivez les étapes mentionnées [ici](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) en fonction du mode de mise à niveau que vous souhaitez exécuter.
 3. Lancez la console SCVMM et vérifiez l'état de chaque hôte sous l'onglet **Structures**. Cliquez sur **Actualiser** pour obtenir l'état le plus récent. L'état « Nécessite une attention » doit être affiché.
-4. Installez la dernière version du [fournisseur Microsoft Azure Site Recovery](http://aka.ms/downloaddra) sur le serveur SCVMM.
-5. Installez la dernière version de l'[agent MARS (Microsoft Azure Recovery Service)](http://aka.ms/latestmarsagent) sur chacun des hôtes du cluster. Actualisez pour vous assurer que le serveur SCVMM est en mesure d'interroger les hôtes.
+4. Installez la dernière version du [fournisseur Microsoft Azure Site Recovery](https://aka.ms/downloaddra) sur le serveur SCVMM.
+5. Installez la dernière version de l'[agent MARS (Microsoft Azure Recovery Service)](https://aka.ms/latestmarsagent) sur chacun des hôtes du cluster. Actualisez pour vous assurer que le serveur SCVMM est en mesure d'interroger les hôtes.
 
 
 **Mise à niveau d'hôtes Windows Server 2012 R2 vers Windows Server 2016**

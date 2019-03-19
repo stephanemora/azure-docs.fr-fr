@@ -1,6 +1,6 @@
 ---
 title: Documentation Azure Data Box
-description: La famille Azure Data Box propose des produits de différentes capacités de stockage pour faciliter l’envoi de téraoctets de données vers Azure de manière rapide, économique et fiable. Microsoft accélère le transfert de données sécurisé en vous envoyant des appareils de stockage propriétaires qui permettent le transfert de données hors connexion ou via le réseau.
+description: 'La famille Azure Data Box propose des produits de différentes capacités de stockage pour faciliter l’envoi de téraoctets de données vers Azure de manière rapide, économique et fiable. Microsoft accélère le transfert de données sécurisé en vous envoyant des appareils de stockage propriétaires qui permettent le transfert de données hors connexion ou via le réseau.'
 services: databox
 author: alkohli
 manager: twooley
@@ -11,16 +11,10 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157103"
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>La famille Azure Data Box propose des produits de différentes capacités de stockage pour faciliter l’envoi de téraoctets (To) de données vers Azure de manière rapide, économique et fiable. Microsoft accélère le transfert de données sécurisé en vous envoyant des appareils de stockage propriétaires qui permettent le transfert de données hors connexion ou via le réseau.</p>
-
 <h2>Transfert de données hors connexion</h2>
 <p>Pour une bande passante réseau limitée ou aucune</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -79,7 +73,6 @@ ms.locfileid: "54157103"
         </a>
     </li>
 </ul>
-
 <h2>Transfert de données en ligne</h2>
 <p>Transfert via le réseau</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -120,3 +113,4 @@ ms.locfileid: "54157103"
         </a>
     </li>
 </ul>
+</div>

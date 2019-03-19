@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145752"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536776"
 ---
 # <a name="tpm-attestation"></a>Attestation TPM
 
 Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui vous permet de configurer l’approvisionnement sans contact des appareils dans un hub IoT spécifié. Avec le service Device Provisioning, vous pouvez approvisionner des millions d’appareils de manière sécurisée.
 
-Cet article décrit le processus d’attestation d’identité lorsque vous utilisez un [TPM](./concepts-device.md). L’acronyme TPM signifie module de plateforme sécurisée, qui désigne un module de sécurité matériel (HSM). Cet article suppose que vous utilisez un microprogramme discret, ou un TPM intégré. Les TPM émulés logiciels sont parfaitement adaptés pour le prototypage ou le test, mais ils n’offrent pas le même niveau de sécurité que les TPM intégrés ou les microprogrammes discrets. Nous vous déconseillons d’utiliser les TPM logiciels en production. Pour plus d’informations sur les types de TPM, consultez la section [Brève introduction au TPM](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+Cet article décrit le processus d’attestation d’identité lorsque vous utilisez un [TPM](./concepts-device.md). L’acronyme TPM signifie module de plateforme sécurisée, qui désigne un module de sécurité matériel (HSM). Cet article suppose que vous utilisez un microprogramme discret, ou un TPM intégré. Les TPM émulés logiciels sont parfaitement adaptés pour le prototypage ou le test, mais ils n’offrent pas le même niveau de sécurité que les TPM intégrés ou les microprogrammes discrets. Nous vous déconseillons d’utiliser les TPM logiciels en production. Pour plus d’informations sur les types de TPM, consultez la section [Brève introduction au TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Cet article concerne uniquement les appareils utilisant un TPM 2.0 avec la prise en charge de clé HMAC et leurs paires de clés de type EK. Il n’est pas destiné aux appareils utilisant des certificats X.509 pour l’authentification. TPM est une norme ISO du secteur issue de Trusted Computing Group, et vous pouvez en apprendre davantage sur TPM en lisant la [spécification TPM 2.0 complète](https://trustedcomputinggroup.org/tpm-library-specification/) ou la [spécification ISO/IEC 11889](https://www.iso.org/standard/66510.html). Cet article suppose également que vous connaissez les paires de clés privées et publiques, ainsi que la façon dont elles sont utilisées pour le chiffrement.
 
 Les Kits de développement logiciel (SDK) d’appareil du service Device Provisioning gèrent pour vous tout ce qui est décrit dans cet article. Vous n’avez pas besoin d’implémenter quoi que ce soit si vous utilisez les Kits de développement logiciel (SDK) sur vos appareils. Cet article vous aidera à comprendre, d’un point de vue conceptuel, ce qui se passe avec votre processeur de sécurité TPM lorsque votre appareil est approvisionné et pourquoi cette opération est si sécurisée.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Les TPM utilisent une paire de clés de type EK en tant que clé racine sécurisée de confiance. La paire de clés de type EK est unique au TPM et sa modification transforme l’appareil en un autre appareil.
 
@@ -35,7 +35,7 @@ Une fois qu’un appareil a été configuré et qu’il est prêt à être utili
 
 ![Prise de possession d’un TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Un point à noter sur la prise de possession du TPM : prendre possession d’un TPM dépend de nombreux facteurs, y compris du fabricant du TPM, de l’ensemble d’outils de TPM utilisés et du SE de l’appareil. Suivez les instructions relatives à votre système pour la prise de possession.
+Une remarque sur la prise de possession du module TPM : Appropriation d’un module de plateforme sécurisée dépend de nombreux facteurs, notamment le fabricant, le jeu d’outils de module de plateforme sécurisée utilisée et la système d’exploitation de périphérique TPM. Suivez les instructions relatives à votre système pour la prise de possession.
 
 Le service Device Provisioning utilise la partie publique de la paire de clés de type EK (EK_pub) pour identifier et inscrire des appareils. Le fournisseur de l’appareil peut lire la partie EK_pub pendant la fabrication ou le test final et charger la partie EK_pub dans le service d’approvisionnement de façon que l’appareil soit reconnu lorsqu’il se connecte pour l’approvisionnement. Le service Device Provisioning ne vérifie pas la clé racine de stockage ni le propriétaire. Par conséquent, le TPM efface les données clientes mais la paire de clés de type EK (et les autres données du fournisseur) est conservée et l’appareil sera toujours reconnu par le service Device Provisioning lorsqu’il se connecte pour l’approvisionnement.
 

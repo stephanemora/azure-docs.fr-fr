@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 084a921123badb786503ce6696eb4ace14dd59b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a26418a5159781eab96cf7730d669ccb65742d86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutoriel : Intégration d'Azure Active Directory à Pingboard
 
@@ -35,7 +35,7 @@ L’intégration de Pingboard avec Azure AD offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Pingboard, vous avez besoin des éléments suivants :
 
@@ -202,7 +202,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     a. Dans la zone de texte **Nom complet**, tapez le nom complet d’un utilisateur, par exemple, **Britta Simon**.
 
-    b. Dans la zone de texte **E-mail**, tapez l’adresse e-mail d’un utilisateur, par exemple, **brittasimon@contoso.com**.
+    b. Dans le **E-mail** zone de texte, tapez l’adresse de messagerie de l’utilisateur comme **brittasimon\@contoso.com**.
 
     c. Dans la zone de texte **Poste**, tapez le poste de Britta Simon.
 

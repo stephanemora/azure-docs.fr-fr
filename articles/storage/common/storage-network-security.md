@@ -5,15 +5,15 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/22/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699174"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750648"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -352,6 +352,7 @@ Si vous activez l’exception **Services Microsoft approuvés**, les services su
 |Sauvegarde Azure|Microsoft.Backup|Effectuez des sauvegardes et des restaurations de disques non managés dans des machines virtuelles IAAS. (non requis pour les disques managés). [Plus d’informations](/azure/backup/backup-introduction-to-azure-backup)|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configurez la récupération d’urgence en activant la réplication pour les machines virtuelles Azure IaaS. Cela est nécessaire si vous utilisez un compte de stockage de cache avec pare-feu activé, un compte de stockage source ou un compte de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
 |Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact. [Plus d’informations](/azure/devtest-lab/devtest-lab-overview)|
+|Azure Data Box|Microsoft.DataBox|Permet l’importation des données vers Azure à l’aide de la zone de données. [Plus d’informations](/azure/databox/data-box-overview)|
 |Azure Event Grid|Microsoft.EventGrid|Permettez la publication d’événements Stockage Blob et autorisez Event Grid à effectuer des publications dans les files d’attente de stockage. En savoir plus sur les [événements Stockage Blob](/azure/event-grid/event-sources) et la [publication dans les files d’attente](/azure/event-grid/event-handlers).|
 |Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture. [En savoir plus](/azure/event-hubs/event-hubs-capture-overview)|
 |Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|

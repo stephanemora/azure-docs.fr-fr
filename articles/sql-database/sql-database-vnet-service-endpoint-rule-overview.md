@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 6ded590ac5a9c30655d8ed19c370ce476d1c9631
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 4af27ad4fb5096f3ccac5de901c76e8d7464e1f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456280"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887117"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour les serveurs de base de données
 
@@ -172,59 +172,63 @@ Stockage Azure a implémenté la même fonctionnalité qui vous permet de limite
 
 La technologie PolyBase est couramment utilisée pour charger des données dans Azure SQL Data Warehouse à partir de comptes Stockage Azure. Si le compte Stockage Azure à partir duquel vous chargez des données limite l’accès à un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Pour autoriser les scénarios d’importation et d’exportation PolyBase dans lesquels Azure SQL Data Warehouse se connecte de manière sécurisée à Stockage Azure au réseau virtuel, suivez les étapes indiquées ci-dessous :
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 1.  Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez commencer par le mettre à niveau avec un compte v2 universel en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. Pour plus d’informations, consultez ce [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
  
 #### <a name="steps"></a>Étapes
-1.  Dans PowerShell, **inscrivez votre serveur SQL Database** auprès d’Azure Active Directory (AAD) :
+1. Dans PowerShell, **inscrivez votre serveur SQL Database** auprès d’Azure Active Directory (AAD) :
 
-    ```powershell
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
-    ```
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
     
- 1. Créez un **compte de stockage v2 universel** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+   1. Créez un **compte de stockage v2 universel** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-    > [!NOTE]
-    > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-    > - Pour examiner les problèmes connus liés à Azure Data Lake Storage Gen2, consultez ce [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > [!NOTE]
+   > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - Pour examiner les problèmes connus liés à Azure Data Lake Storage Gen2, consultez ce [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)**, puis cliquez sur **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Contributeur aux données Blob de stockage (préversion)** à votre serveur SQL Database.
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)**, puis cliquez sur **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Contributeur aux données Blob de stockage (préversion)** à votre serveur SQL Database.
 
-    > [!NOTE] 
-    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > [!NOTE] 
+   > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1.  **Connectivité PolyBase au compte Stockage Azure :**
+1. **Connectivité PolyBase au compte Stockage Azure :**
 
-    1. Créez une **[clé principale](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** de base de données si vous n’en avez pas déjà créée une :
-        ```SQL
-        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
-        ```
+   1. Créez une **[clé principale](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** de base de données si vous n’en avez pas déjà créée une :
+       ```SQL
+       CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+       ```
     
-    1. Créez des informations d’identification incluses dans l’étendue de la base de données avec **IDENTITY = 'Managed Service Identity'**  :
+   1. Créez des informations d’identification incluses dans l’étendue de la base de données avec **IDENTITY = 'Managed Service Identity'**  :
 
-        ```SQL
-        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-        ```
-        > [!NOTE] 
-        > - Il est inutile de spécifier SECRET avec la clé d’accès Stockage Azure, car ce mécanisme utilise l’[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en arrière-plan.
-        > - Le nom d’IDENTITY doit être **'Managed Service Identity'** pour que la connectivité PolyBase entre le compte Stockage Azure et le réseau virtuel fonctionne de manière sécurisée.    
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Il est inutile de spécifier SECRET avec la clé d’accès Stockage Azure, car ce mécanisme utilise l’[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en arrière-plan.
+       > - Le nom d’IDENTITY doit être **'Managed Service Identity'** pour que la connectivité PolyBase entre le compte Stockage Azure et le réseau virtuel fonctionne de manière sécurisée.    
     
-    1. Créez la source de données externe avec le schéma abfss:// pour vous connecter à votre compte de stockage v2 universel en utilisant PolyBase :
+   1. Créez la source de données externe avec le schéma abfss:// pour vous connecter à votre compte de stockage v2 universel en utilisant PolyBase :
 
-        ```SQL
-        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
-        ```
-        > [!NOTE] 
-        > - Si des tables externes sont déjà associées au compte de stockage d’objets blob ou v1 universel, vous devez dans un premier temps supprimer ces tables externes et dans un deuxième temps supprimer la source de données externe correspondante. Créez ensuite la source de données externe en faisant en sorte que le schéma abfss:// se connecte au compte de stockage v2 universel comme indiqué ci-dessus, puis recréez toutes les tables externes en utilisant cette nouvelle source de données externe. Vous pouvez utiliser l’[Assistant Générer et publier des scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) pour générer des scripts de création pour toutes les tables externes.
-        > - Pour plus d’informations sur le schéma abfss://, consultez ce [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-        > - Pour plus d’informations sur CREATE EXTERNAL DATA SOURCE, consultez ce [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       ```SQL
+       CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+       ```
+       > [!NOTE] 
+       > - Si des tables externes sont déjà associées au compte de stockage d’objets blob ou v1 universel, vous devez dans un premier temps supprimer ces tables externes et dans un deuxième temps supprimer la source de données externe correspondante. Créez ensuite la source de données externe en faisant en sorte que le schéma abfss:// se connecte au compte de stockage v2 universel comme indiqué ci-dessus, puis recréez toutes les tables externes en utilisant cette nouvelle source de données externe. Vous pouvez utiliser l’[Assistant Générer et publier des scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) pour générer des scripts de création pour toutes les tables externes.
+       > - Pour plus d’informations sur le schéma abfss://, consultez ce [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Pour plus d’informations sur CREATE EXTERNAL DATA SOURCE, consultez ce [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
         
-    1. Exécutez des requêtes comme vous le faites habituellement en utilisant des [tables externes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Exécutez des requêtes comme vous le faites habituellement en utilisant des [tables externes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Audit d’objets blob Azure SQL Database
 
@@ -273,7 +277,7 @@ Cette section montre comment vous pouvez utiliser le [portail Azure][http-azure-
 
 ## <a name="powershell-alternative"></a>Alternative PowerShell
 
-Un script PowerShell peut également créer des règles de réseau virtuel avec l’applet de commande essentielle **New-AzureRmSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Un script PowerShell peut également créer des règles de réseau virtuel L’applet de commande essentielle **New-AzSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>API REST de remplacement
 
@@ -281,7 +285,7 @@ En interne, les applets de commande PowerShell pour les actions de réseau virtu
 
 - [Règles de réseau virtuel : opérations][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* de point de terminaison de service de réseau virtuel particulier approprié pour Azure SQL Database.
 

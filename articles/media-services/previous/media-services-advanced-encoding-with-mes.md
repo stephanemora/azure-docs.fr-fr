@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850358"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Effectuer un encodage avancé en personnalisant les présélections MES 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Cette rubrique montre comment personnaliser des présélections Media Encoder Standard. La rubrique [Encodage avec Media Encoder Standard à l’aide de présélections personnalisées](media-services-custom-mes-presets-with-dotnet.md) explique comment utiliser .NET pour créer une tâche de codage et une tâche qui exécute cette tâche. Une fois que vous avez personnalisé une présélection, fournissez les présélections personnalisées pour la tâche d’encodage. 
 
@@ -160,7 +160,7 @@ Assurez-vous d’examiner la section [Considérations](#considerations) .
 
 ### <a id="xml"></a>Présélection XML
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <H264Video>
           <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -238,7 +238,7 @@ Les considérations suivantes s'appliquent :
 * L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
 * Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
 
-  * Entiers non négatifs : nombre d’images, par exemple "Start": "120",
+  * Entiers non négatifs : nombre d'images, par exemple "Start": "120",
   * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%", OU
   * Horodatage, s’il est exprimé au format HH:MM:SS, par exemple "Start" : "00:01:00"
 
@@ -246,7 +246,7 @@ Les considérations suivantes s'appliquent :
 
     En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : (Step et Range sont ignorés quand Start est défini sur {Best})
   * Configuration par défaut : Start:{Best}
-* Le format de sortie doit être fourni explicitement pour chaque format d’image : Jpg/Png/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+* Le format de sortie doit être explicitement fourni pour chaque format d'image : Jpg/Png/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
 ## <a id="trim_video"></a>Rognage d’une vidéo (extrait)
 Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou rogner un élément multimédia capturé ou archivé à partir d’un streaming en direct. Pour obtenir des détails à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
@@ -376,7 +376,7 @@ Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES
 Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES documentées [ici](media-services-mes-presets-overview.md) et modifier l’élément **Sources** (comme indiqué ci-dessous).
 
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source StartTime="PT4S" Duration="PT14S"/>
       </Sources>
@@ -581,8 +581,7 @@ Si vous utilisez .NET, ajoutez les deux fonctions suivantes à l’exemple .NET 
                 },
                 {
                   "IsOverlay": true,
-                  "OverlayLoopCount": 1,
-                  "InputLoop": true
+                  "OverlayLoopCount": 1
                 }
               ],
               "Source": "Image001.png",
@@ -639,7 +638,7 @@ Si vous utilisez .NET, ajoutez les deux fonctions suivantes à l’exemple .NET 
 
 ### <a name="xml-preset"></a>Présélection XML
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source>
           <Streams />
@@ -656,12 +655,10 @@ Si vous utilisez .NET, ajoutez les deux fonctions suivantes à l’exemple .NET 
                 <MediaParam>
                   <IsOverlay>false</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>false</InputLoop>
                 </MediaParam>
                 <MediaParam>
                   <IsOverlay>true</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>true</InputLoop>
                 </MediaParam>
               </MediaParams>
             </VideoOverlay>

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3fbbf688f6de7c3fceb6695a6b085f917dbec242
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195486"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216889"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Mettre à jour une offre d’application Azure existante
 
@@ -75,6 +75,9 @@ Pour mettre à jour les métadonnées de Place de marché associées à votre of
 2. Sous **Toutes les offres**, recherchez l’offre que vous souhaitez mettre à jour.
 3. Accédez à l’onglet **Place de marché**. Suivez les instructions de la section [Publier une offre d’application Azure](./cpp-publish-offer.md) pour apporter des modifications aux métadonnées.
 4. Cliquez sur **Publier** pour démarrer le flux de travail et publier vos modifications.
+ 
+>[!Note]
+>Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
 
 ## <a name="deleting-an-existing-offer"></a>Suppression d’une offre existante
 

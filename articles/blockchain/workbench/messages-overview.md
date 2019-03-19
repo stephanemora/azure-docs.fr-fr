@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fd723304e2219c457e982cbe54529d00afe526f4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896007"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878079"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Intégration des messages Azure Blockchain Workbench
 
@@ -375,7 +375,7 @@ Des rubriques Service Bus peuvent être utilisées pour informer les utilisateur
 
 ## <a name="notification-message-reference"></a>Référence sur les messages de notification
 
-En fonction de **OperationName**, les messages de notification ont l’un des types de messages suivants.
+Selon le **messageName**, les messages de notification ont un des types de messages suivants.
 
 ### <a name="block-message"></a>Message de bloc
 
@@ -678,7 +678,7 @@ Contient des informations indiquant quand une application est chargée sur Workb
 | id | Identificateur unique pour le workflow d’application dans Azure Blockchain Workbench |
 | Nom | Nom du workflow d’application |
 | displayName | Nom d’affichage du workflow d’application |
-| functions | Collection de [fonctions pour le workflow d’application](#workflow-function-information)|
+| functions | Collection de [fonctions pour le flux de travail d’application](#workflow-function-information)|
 | unis | Collection d’[états pour le workflow d’application](#workflow-state-information) |
 | properties | [Informations des propriétés de workflow](#workflow-property-information) d’application |
 

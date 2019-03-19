@@ -1,34 +1,36 @@
 ---
-title: Utiliser Log Analytics pour surveiller les clusters Azure HDInsight
-description: Découvrez comment utiliser Azure Log Analytics pour surveiller les travaux en cours d’exécution dans un cluster HDInsight.
+title: Journaux d’utiliser Azure Monitor pour surveiller les clusters Azure HDInsight
+description: Découvrez comment utiliser les journaux Azure Azure Monitor pour surveiller les travaux en cours d’exécution dans un cluster HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: cd129ea68315223516ac1cd3e7577b5ee4bf92e5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b7e0dba70d7f3a201c5f3491f0bc906977fbf229
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005112"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886449"
 ---
-# <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Utiliser Azure Log Analytics pour surveiller les clusters HDInsight
+# <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Journaux d’utiliser Azure Monitor pour surveiller les clusters HDInsight
 
-Découvrez comment activer Azure Log Analytics pour surveiller les opérations de cluster Hadoop dans HDInsight, et comment ajouter une solution de surveillance HDInisght.
+Découvrez comment activer les journaux d’Azure Monitor surveiller les opérations de cluster Hadoop dans HDInsight et comment ajouter une solution de surveillance de HDInisght.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) est un service Azure Monitor qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
+[Journaux d’analyse Azure](../log-analytics/log-analytics-overview.md) est un service dans Azure Monitor qui surveille votre cloud locales et dans des environnements pour maintenir leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-* **Un espace de travail Log Analytics**. Considérez cet espace de travail comme un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Pour obtenir des instructions, consultez la rubrique [Créer un espace de travail Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* **Un espace de travail Log Analytics**. Vous pouvez considérer cet espace de travail comme un environnement de journaux Azure Monitor unique avec son propre référentiel de données, sources de données et des solutions. Pour obtenir des instructions, consultez la rubrique [Créer un espace de travail Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
-* Un **cluster Azure HDInsight**. Vous pouvez actuellement utiliser Log Analytics avec les types de clusters HDInsight suivants :
+* Un **cluster Azure HDInsight**. Actuellement, vous pouvez utiliser les journaux Azure Monitor avec les types de cluster HDInsight suivants :
 
   * Hadoop
   * hbase
@@ -37,12 +39,14 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
   * Spark
   * Storm
 
-  Pour savoir comment créer un cluster HDInsight, consultez [Bien démarrer avec Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+  Pour savoir comment créer un cluster HDInsight, consultez [Bien démarrer avec Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
+
+* **Module PowerShell Az Azure**.  Consultez [présentation du nouveau module Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 > [!NOTE]  
-> Il est recommandé de placer le cluster HDInsight et l’espace de travail Log Analytics dans la même région pour obtenir de meilleures performances. Notez qu’Azure Log Analytics n’est pas disponible dans toutes les régions Azure.
+> Il est recommandé de placer le cluster HDInsight et l’espace de travail Log Analytics dans la même région pour obtenir de meilleures performances. Journaux d’Azure Monitor n’est pas disponible dans toutes les régions Azure.
 
-## <a name="enable-log-analytics-by-using-the-portal"></a>Activer Log Analytics à l’aide du portail
+## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Activer les journaux d’Azure Monitor à l’aide du portail
 
 Cette section vous explique comment configurer un cluster Hadoop HDInsight existant pour utiliser un espace de travail Azure Log Analytics pour surveiller les travaux, les journaux de débogage, etc.
 
@@ -52,45 +56,48 @@ Cette section vous explique comment configurer un cluster Hadoop HDInsight exist
 
 3. Sous **ANALYTIQUE**, sélectionnez **Clusters HDInsight**.
 
-4. À partir de la gauche, sous **Supervision**, sélectionnez **Operations Management Suite**.
+4. Sélectionnez votre cluster dans la liste.
 
-5. À partir de la vue principale, sous **Supervision OMS**, sélectionnez **Activer**.
+5. À partir de la gauche, sous **Supervision**, sélectionnez **Operations Management Suite**.
 
-6. Dans la liste déroulante **Sélectionner un espace de travail**, sélectionnez un espace de travail Log Analytics existant.
+6. À partir de la vue principale, sous **Supervision OMS**, sélectionnez **Activer**.
 
-7. Sélectionnez **Enregistrer**.
+7. Dans la liste déroulante **Sélectionner un espace de travail**, sélectionnez un espace de travail Log Analytics existant.
+
+8. Sélectionnez **Enregistrer**.  L’enregistrement du paramètre prend quelques instants.
 
     ![Activer la surveillance des clusters HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Activer la surveillance des clusters HDInsight")
 
-    L’enregistrement du paramètre prend quelques instants.
+## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Activer les journaux d’Azure Monitor à l’aide d’Azure PowerShell
 
-## <a name="enable-log-analytics-by-using-azure-powershell"></a>Activer Log Analytics à l’aide d’Azure PowerShell
-
-Vous pouvez activer Log Analytics à l’aide d’Azure PowerShell. L’applet de commande est :
+Vous pouvez activer les journaux d’Azure Monitor à l’aide du module Azure PowerShell Az [Enable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightoperationsmanagementsuite) applet de commande.
 
 ```powershell
-Enable-AzureRmHDInsightOperationsManagementSuite
-      [-Name] <CLUSTER NAME>
-      [-WorkspaceId] <LOG ANALYTICS WORKSPACE NAME>
-      [-PrimaryKey] <LOG ANALYTICS WORKSPACE PRIMARY KEY>
-      [-ResourceGroupName] <RESOURCE GROUIP NAME>
+# Enter user information
+$resourceGroup = "<your-resource-group>"
+$cluster = "<your-cluster>"
+$LAW = "<your-Log-Analytics-workspace>"
+# End of user input
+
+# obtain workspace id for defined Log Analytics workspace
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $LAW).CustomerId
+
+# obtain primary key for defined Log Analytics workspace
+$PrimaryKey = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $LAW | Get-AzOperationalInsightsWorkspaceSharedKeys).PrimarySharedKey
+
+# Enables Operations Management Suite
+Enable-AzHDInsightOperationsManagementSuite -ResourceGroupName $resourceGroup -Name $cluster -WorkspaceId $WorkspaceId -PrimaryKey $PrimaryKey
 ```
 
-Consultez [Enable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0).
-
-Pour la désactivation, la cmdlet est :
+Pour désactiver, l’utilisation du [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite) applet de commande :
 
 ```powershell
-Disable-AzureRmHDInsightOperationsManagementSuite
-       [-Name] <CLUSTER NAME>
-       [-ResourceGroupName] <RESOURCE GROUP NAME>
+Disable-AzHDInsightOperationsManagementSuite -Name "<your-cluster>"
 ```
-
-Consultez [Disable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0).
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installer des solutions de gestion de clusters HDInsight
 
-HDInsight fournit des solutions de gestion de clusters que vous pouvez ajouter pour Azure Log Analytics. Les [solutions de gestion](../log-analytics/log-analytics-add-solutions.md) ajoutent des fonctionnalités à Log Analytics en fournissant des données et des outils d’analyse supplémentaires. Ces solutions collectent des indicateurs de performance importants de vos clusters HDInsight et fournissent les outils pour rechercher les indicateurs. Elles fournissent également des visualisations et des tableaux de bord pour la plupart des types de cluster pris en charge dans HDInsight. En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes personnalisées de surveillance.
+HDInsight fournit des solutions de gestion de cluster spécifiques que vous pouvez ajouter pour les journaux d’Azure Monitor. [Solutions de gestion](../log-analytics/log-analytics-add-solutions.md) ajouter des fonctionnalités pour les journaux Azure Monitor, fournissant des données et les outils d’analyse. Ces solutions collectent des indicateurs de performance importants de vos clusters HDInsight et fournissent les outils pour rechercher les indicateurs. Elles fournissent également des visualisations et des tableaux de bord pour la plupart des types de cluster pris en charge dans HDInsight. En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes personnalisées de surveillance.
 
 Voici les solutions HDInsight disponibles :
 
@@ -101,7 +108,7 @@ Voici les solutions HDInsight disponibles :
 * HDInsight Spark Monitoring
 * HDInsight Storm Monitoring
 
-Pour obtenir des instructions sur l’installation d’une solution de gestion, consultez la rubrique sur les [solutions de gestion dans Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Pour faire des essais, installez une solution HDInsight Hadoop Monotiring. Vous voyez alors une vignette **HDInsightHadoop** sous **Résumé**. Sélectionnez la vignette **HDInsightHadoop**. La solution HDInsightHadoop ressemble à ceci :
+Pour obtenir des instructions sur l’installation d’une solution de gestion, consultez la rubrique sur les [solutions de gestion dans Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Pour faire des essais, installer une solution de surveillance de HDInsight Hadoop. Vous voyez alors une vignette **HDInsightHadoop** sous **Résumé**. Sélectionnez la vignette **HDInsightHadoop**. La solution HDInsightHadoop ressemble à ceci :
 
 ![Vue de la solution de surveillance HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
@@ -109,4 +116,4 @@ Pour obtenir des instructions sur l’installation d’une solution de gestion, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Requête Azure Log Analytics pour surveiller les clusters HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+* [Journaux de requête Azure Monitor pour surveiller des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)

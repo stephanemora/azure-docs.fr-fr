@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994918"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
 
@@ -47,7 +47,7 @@ N’importe quel utilisateur peut télécharger le code source C# et PowerShell
 
 Une série de didacticiels associés, basés sur ce déploiement initial, est disponible. Les didacticiels explorent une gamme de modèles de conception et de gestion de SaaS. Lorsque vous utilisez les didacticiels, vous êtes encouragé à parcourir les scripts fournis pour voir comment les différents modèles SaaS sont implémentés.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
@@ -66,9 +66,9 @@ Choisissez vos noms maintenant et notez-les.
 ### <a name="steps"></a>Étapes
 
 1. Cliquez sur le bouton bleu **Déployer dans Azure** suivant.
-    - Il ouvre le portail Azure avec le modèle de déploiement Wingtip Tickets SaaS.
+   - Il ouvre le portail Azure avec le modèle de déploiement Wingtip Tickets SaaS.
 
-    [![Bouton pour Déployer dans Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Bouton pour Déployer dans Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Entrez les valeurs de paramètre requises pour le déploiement.
 
@@ -125,9 +125,9 @@ Chaque lieu bénéficie d’un site web personnalisé pour répertorier ses év�
 Une page web centrale de **concentrateur d’événements** fournit une liste de liens vers les locataires de votre déploiement. Réalisez les étapes suivantes pour vous familiariser avec la page web de **concentrateur d’événements** et une application web individuelle :
 
 1. Ouvrez le **concentrateur d’événements** dans votre navigateur web :
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(remplacez &lt;user&gt; par la valeur de l’utilisateur de votre déploiement.)*
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(remplacez &lt;user&gt; par la valeur de l’utilisateur de votre déploiement.)*
 
-    ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Cliquez sur **Fabrikam Jazz Club** dans le **concentrateur d’événements**.
 
@@ -208,7 +208,7 @@ Ensuite, nous approvisionnerons un autre locataire, dans sa propre base de donn�
 
 Examinons maintenant quelques-unes des ressources qui ont été déployées :
 
-1. Dans le [portail Azure](http://portal.azure.com), accédez à la liste des groupes de ressources. Ouvrez le groupe de ressources que vous avez créé lors du déploiement de l’application.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à la liste des groupes de ressources. Ouvrez le groupe de ressources que vous avez créé lors du déploiement de l’application.
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Bouton pour le déploiement dans Azure."

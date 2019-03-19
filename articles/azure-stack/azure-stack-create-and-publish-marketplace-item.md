@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 81f06e0f5d5201b902504d8275f356f9a1731065
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098897"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
 
@@ -69,19 +69,19 @@ ms.locfileid: "55243638"
 
 10. Remplacez **Mes articles de Place de marché** par la liste des catégories dans lesquelles votre article de Marketplace doit apparaître :
 
-   ```json
-   "categories":[
-   "My Marketplace Items"
-   ],
-   ```
+    ```json
+    "categories":[
+    "My Marketplace Items"
+    ],
+    ```
 
 11. Pour toute autre modification apportée à manifest.json, consultez la page [Référence : manifest.json d’un article de Place de marché](#reference-marketplace-item-manifestjson).
 
 12. Pour créer un package dans un fichier .azpkg, ouvrez une invite de commandes et exécutez la commande suivante :
 
-   ```shell
-   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-   ```
+    ```shell
+    AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+    ```
 
     > [!NOTE]
     > Le chemin d’accès complet au package de sortie doit exister. Par exemple, si le chemin de sortie est C:\MarketPlaceItem\votrepackage.azpkg, le dossier C:\MarketPlaceItem doit exister.
@@ -129,15 +129,15 @@ ms.locfileid: "55243638"
 
 ### <a name="identity-information"></a>Informations d’identité
 
-| NOM | Obligatoire | Type | Contraintes | Description |
+| Nom | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
-| NOM |X |Chaîne |[A-Za-z0-9]+ | |
+| Nom |X |Chaîne |[A-Za-z0-9]+ | |
 | Publisher |X |Chaîne |[A-Za-z0-9]+ | |
 | Version |X |Chaîne |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Métadonnées
 
-| NOM | Obligatoire | Type | Contraintes | Description |
+| Nom | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |Recommandation : 80 caractères |Le portail risque de ne pas afficher correctement le nom de votre élément s’il comporte plus de 80 caractères. |
 | PublisherDisplayName |X |Chaîne |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
@@ -150,7 +150,7 @@ ms.locfileid: "55243638"
 
 La Marketplace utilise les icônes suivantes :
 
-| NOM | Largeur | Hauteur | Notes |
+| Nom | Largeur | Hauteur | Notes |
 | --- | --- | --- | --- |
 | Large |255 px |115 px |Toujours obligatoire |
 | grand |115 px |115 px |Toujours obligatoire |
@@ -166,7 +166,7 @@ Chaque article de Marketplace doit être étiqueté avec une catégorie qui iden
 
 Chaque article de Marketplace peut comporter différents liens vers du contenu supplémentaire. Les liens sont spécifiés comme une liste de noms et d’URI :
 
-| NOM | Obligatoire | Type | Contraintes | Description |
+| Nom | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |64 caractères maximum | |
 | Uri |X |URI | | |
@@ -175,7 +175,7 @@ Chaque article de Marketplace peut comporter différents liens vers du contenu s
 
 En plus des métadonnées précédentes, les auteurs de la Marketplace peuvent fournir des données de paire clé-valeur personnalisées sous la forme suivante :
 
-| NOM | Obligatoire | Type | Contraintes | Description |
+| Nom | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |25 caractères maximum | |
 | Valeur |X |Chaîne |30 caractères maximum | |
@@ -192,8 +192,8 @@ Voici les icônes et le texte des articles de Marketplace qui s’affichent sur 
 
 ### <a name="create-blade"></a>Panneau Créer
 
-![Panneau Créer](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![Panneau Créer](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Panneau Détails de l’élément du Marketplace
 
-![Panneau Détails de l’élément du Marketplace](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Panneau Détails de l’élément du Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)

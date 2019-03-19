@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163068"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792036"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 L’authentification unique (SSO) est plus sûre et plus pratique quand les utilisateurs s’authentifient auprès d’applications dans Azure Active Directory (Azure AD). Cet article décrit les différentes méthodes d’authentification unique et vous aide à choisir la méthode SSO la plus appropriée lors de la configuration de vos applications.
@@ -35,14 +35,14 @@ Vous pouvez configurer une application pour l’authentification unique de plusi
 
 Ce diagramme de flux vous permet de décider quelle méthode d’authentification unique est la plus adaptée à votre situation. 
 
-![Choisir une méthode d’authentification unique](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![Choisir une méthode d’authentification unique](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 Le tableau suivant récapitule les méthodes d’authentification unique et contient des liens vers plus d’informations. 
 
 | Méthode d’authentification unique | Types d’applications | Quand utiliser |
 | :------ | :------- | :----- |
 | [OpenID Connect et OAuth](#openid-connect-and-oauth) | Cloud uniquement | Utilisez OpenID Connect et OAuth lors du développement d’une nouvelle application. Ce protocole simplifie la configuration de l’application, propose des kits SDK faciles à utiliser et permet à votre application d’utiliser MS Graph.
-| [SAML](#saml-sso) | Cloud uniquement | Choisissez SAML autant que possible pour les applications existantes qui n’utilisent pas OpenID Connect ou OAuth. SAML fonctionne pour les applications qui s’authentifient par le biais d’un protocole SAML.|
+| [SAML](#saml-sso) | Cloud et locales | Choisissez SAML autant que possible pour les applications existantes qui n’utilisent pas OpenID Connect ou OAuth. SAML fonctionne pour les applications qui s’authentifient par le biais d’un protocole SAML.|
 | [Par mot de passe](#password-based-sso) | Cloud et locales | Choisissez la méthode par mot de passe quand l’application authentifie avec un nom d’utilisateur et un mot de passe. L’authentification unique par mot de passe permet de sécuriser le stockage et la lecture des mots de passe des applications avec une extension de navigateur web ou une application mobile. Cette méthode utilise le processus de connexion existant fourni par l’application, mais permet aux administrateurs de gérer les mots de passe. |
 | [Liée](#linked-sso) | Cloud et locales | Choisissez l’authentification unique liée quand l’application est configurée pour l’authentification unique dans un autre service de fournisseur d’identité. Cette option n’ajoute pas l’authentification unique à l’application. Cependant, il se peut que l’authentification unique soit déjà implémentée dans l’application avec un autre service, comme les services de fédération Active Directory (AD FS).|
 | [Désactivé](#disabled-sso) | Cloud et locales | Choisissez l’authentification unique désactivée quand l’application n’est pas prête à être configurée pour l’authentification unique. Les utilisateurs doivent entrer leur nom d’utilisateur et leur mot de passe chaque fois qu’ils lancent cette application.|
@@ -69,7 +69,9 @@ L’authentification unique SAML est prise en charge pour les applications qui u
 - SAML 2.0
 - Un certificat de fournisseur d'identité WS-Federation
 
-Pour configurer une application pour l’authentification unique SAML, consultez [Configurer l’authentification unique SAML](configure-single-sign-on-portal.md). De plus, de nombreuses applications SaaS (Software as a service) offrent un [tutoriel spécifique à l’application](../saas-apps/tutorial-list.md) qui vous guide dans la configuration de l’authentification unique basée sur SAML. 
+Pour configurer une application pour l’authentification unique SAML, consultez [Configurer l’authentification unique SAML](configure-single-sign-on-portal.md). De plus, de nombreuses applications SaaS (Software as a service) offrent un [tutoriel spécifique à l’application](../saas-apps/tutorial-list.md) qui vous guide dans la configuration de l’authentification unique basée sur SAML.
+
+Pour configurer une application pour WS-Federation, suivez les mêmes recommandations pour configurer l’application pour basée sur SAML SSO, consultez [basée sur SAML configurer SSO](configure-single-sign-on-portal.md). À l’étape pour configurer l’application pour utiliser Azure AD, vous devez remplacer l’URL de connexion Azure AD pour le point de terminaison WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 Pour plus d’informations sur le protocole SAML, consultez [Protocole d’authentification unique SAML](../develop/single-sign-on-saml-protocol.md).
 
@@ -151,11 +153,11 @@ Ce diagramme explique le flux quand un utilisateur accède à une application lo
 
 ![Diagramme de flux de l’authentification Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. L’utilisateur entre l’URL pour accéder à l’application locale via le proxy d’application.
+1. L’utilisateur entre l’URL pour accéder à l’application locale via le Proxy d’Application.
 2. Le proxy d’application redirige la demande vers les services d’authentification d’Azure AD pour effectuer la préauthentification. À ce stade, Azure AD applique les stratégies d’authentification et d’autorisation applicables, comme l’authentification multifacteur. Si l’utilisateur est validé, Azure AD crée un jeton et l’envoie à l’utilisateur.
 3. L’utilisateur transmet le jeton au proxy d’application.
 4. Le proxy d’application valide le jeton et récupère le nom d’utilisateur principal auprès du jeton. Il envoie ensuite la demande, le nom d’utilisateur principal et le nom de principal du service au connecteur, via un canal sécurisé doublement authentifié.
-5. Le connecteur utilise la négociation de délégation contrainte Kerberos avec Active Directory local, en empruntant l’identité de l’utilisateur pour obtenir un jeton Kerberos pour l’application.
+5. Le connecteur utilise la négociation de la délégation Kerberos (KCD) avec l’Active Directory, en empruntant l’identité de l’utilisateur pour obtenir un jeton Kerberos pour l’application local.
 6. Active Directory envoie le jeton Kerberos de l’application au connecteur.
 7. Le connecteur envoie la demande d’origine au serveur d’applications, en utilisant le jeton Kerberos reçu d’Active Directory.
 8. L’application envoie la réponse au connecteur, qui est ensuite retournée au service de proxy d’application et enfin à l’utilisateur.

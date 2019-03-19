@@ -1,6 +1,6 @@
 ---
-title: Copier des fichiers issus de plusieurs conteneurs avec Azure Data Factory | Microsoft Docs
-description: Découvrez comment utiliser un modèle de solution pour copier des fichiers provenant de plusieurs conteneurs avec Azure Data Factory.
+title: Copier des fichiers à partir de plusieurs conteneurs à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment utiliser un modèle de solution pour copier des fichiers à partir de plusieurs conteneurs à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,51 +12,52 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.openlocfilehash: aa5f32594c295ab6a8e60af8359370f64f75a72d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: a52729adf8d6df3f4e44e561b45b854db433628c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966558"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543421"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copier des fichiers issus de plusieurs conteneurs avec Azure Data Factory
 
-Le modèle de solution décrit dans cet article aide à copier des fichiers provenant de plusieurs fichiers, conteneurs ou compartiments entre différents magasins de fichiers. Il est conçu pour plusieurs cas d’usage, par exemple, migrer un Data Lake d’AWS S3 vers Azure Data Lake Store ou tout répliquer d’un compte de Stockage Blob Azure vers un autre .
+Cet article décrit un modèle de solution que vous pouvez utiliser pour copier des fichiers à partir de plusieurs conteneurs entre les magasins de fichiers. Par exemple, vous pouvez l’utiliser pour migrer votre lac de données à partir d’AWS S3 à Azure Data Lake Store. Ou bien, vous pouvez utiliser le modèle pour répliquer tous les éléments à partir d’un compte de stockage d’objets Blob Azure vers un autre.
 
-Si vous souhaitez copier des fichiers provenant d’un même conteneur ou compartiment, il est plus efficace d’utiliser **l’outil Copier des données** pour créer un pipeline avec une seule activité de copie. Ce modèle dépasse les besoins de ce cas d’utilisation simple.
+> [!NOTE]
+> Si vous souhaitez copier des fichiers à partir d’un seul conteneur, il est plus efficace d’utiliser le [outil Copier des données](copy-data-tool.md) pour créer un pipeline avec une seule activité de copie. Le modèle dans cet article est plus que vous avez besoin pour ce scénario simple.
 
 ## <a name="about-this-solution-template"></a>À propos de ce modèle de solution
 
-Ce modèle énumère les conteneurs du magasin de stockage source, puis copie chacun d’eux dans le magasin de destination. 
+Ce modèle énumère les conteneurs à partir de votre magasin de stockage source. Elle copie ensuite ces conteneurs vers le magasin de destination.
 
 Le modèle comporte trois activités :
--   une activité **GetMetadata** visant à analyser le magasin de stockage source et à dresser la liste des conteneurs ;
--   une activité **ForEach** permettant d’obtenir la liste des conteneurs auprès de l’activité **GetMetadata**, puis de transmettre chaque conteneur de la liste à l’activité Copy ;
--   une activité **Copy** servant à copier chaque conteneur du magasin de stockage source vers le magasin de destination.
+- **GetMetadata** analyse votre magasin de stockage source et obtient la liste de conteneurs.
+- **ForEach** Obtient la liste de conteneurs à partir de la **GetMetadata** activité effectue une itération sur la liste et transmet chaque conteneur à l’activité de copie.
+- **Copie** copie chaque conteneur du magasin de stockage source vers le magasin de destination.
 
 Le modèle définit deux paramètres :
--   Le paramètre *SourceFilePath* est le chemin d’accès du magasin de données source, qui permet d’obtenir une liste des conteneurs ou des compartiments. Dans la plupart des cas, il s’agit du répertoire racine, qui comporte plusieurs dossiers de conteneur. La valeur par défaut de ce paramètre est `/`.
--   Le paramètre *DestinationFilePath* est le chemin d’accès où les fichiers seront copiés dans la magasin de destination. La valeur par défaut de ce paramètre est `/`.
+- *CheminAccèsFichierSource* est le chemin d’accès de votre magasin de source de données, où vous pouvez obtenir une liste des conteneurs. Dans la plupart des cas, il s’agit du répertoire racine, qui comporte plusieurs dossiers de conteneur. La valeur par défaut de ce paramètre est `/`.
+- *CheminAccèsFichierDestination* est le chemin d’accès où les fichiers seront copiés dans votre magasin de destination. La valeur par défaut de ce paramètre est `/`.
 
 ## <a name="how-to-use-this-solution-template"></a>Utiliser ce modèle de solution
 
-1. Accédez au modèle **Copier plusieurs conteneurs de fichiers entre différents magasins de fichiers**, puis créez une **nouvelle connexion** à votre magasin de stockage source. C’est dans ce magasin que seront copiés les fichiers provenant de plusieurs conteneurs ou compartiments.
+1. Accédez à la **copier plusieurs conteneurs de fichiers entre les magasins de fichiers** modèle. Créer un **New** connexion à votre magasin de stockage source. Le magasin de stockage source est où vous souhaitez copier des fichiers à partir de plusieurs conteneurs à partir de.
 
     ![Créer une connexion à la source](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
-2. Créez une **nouvelle connexion** au magasin de stockage de destination.
+2. Créer un **New** connexion à votre magasin de stockage de destination.
 
     ![Créer une connexion à la destination](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Cliquez sur **Utiliser ce modèle**.
+3. Sélectionnez **utiliser ce modèle**.
 
     ![Utiliser ce modèle](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
-4. Le pipeline apparaît comme disponible dans le panneau, comme le montre l’exemple suivant :
+4. Vous verrez le pipeline, comme dans l’exemple suivant :
 
     ![Afficher le pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Cliquez sur **Déboguer**, entrez **Paramètres**, puis cliquez sur **Terminer**.
+5. Sélectionnez **déboguer**, entrez la **paramètres**, puis sélectionnez **Terminer**.
 
     ![Exécuter le pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
@@ -66,4 +67,6 @@ Le modèle définit deux paramètres :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Présentation du service Azure Data Factory](introduction.md)
+- [Copie en bloc à partir d’une base de données à l’aide d’une table de contrôle avec Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+
+- [Copier des fichiers à partir de plusieurs conteneurs avec Azure Data Factory](solution-template-copy-files-multiple-containers.md)

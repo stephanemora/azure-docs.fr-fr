@@ -2,16 +2,17 @@
 title: Rechercher les erreurs des pools et des nœuds - Azure Batch
 description: Erreurs à rechercher et comment les éviter lors de la création de pools et de nœuds
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 9/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4e1e645c25d2f1e49e222e39ecd719a414e1404e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790467"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791339"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Rechercher les erreurs des pools et des nœuds
 

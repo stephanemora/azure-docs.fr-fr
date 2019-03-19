@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064370"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453471"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -94,10 +94,13 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 Pour obtenir un exemple complet, consultez [Démarrage rapide : Créer une fabrique de données à l’aide de l’API REST](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 L’exemple de commande suivant vous montre comment exécuter manuellement votre pipeline à l’aide d’Azure PowerShell :
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
 ```
 
 Vous pouvez transmettre des paramètres dans le corps de la charge utile de la demande. Dans le kit de développement logiciel (SDK) .NET, Azure PowerShell et le kit de développement logiciel (SDK) Python, les valeurs se transmettent dans un dictionnaire transmis sous forme d’argument à l’appel :
@@ -274,12 +277,12 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
+| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | chaîne | Oui | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | string | Oui | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | objet | Oui | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | Non  | 1 | 1 à 1000 | `"interval":10` |
-| **endTime** | chaîne | Oui | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | Oui | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | objet | Non  | Aucun | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>propriété startTime

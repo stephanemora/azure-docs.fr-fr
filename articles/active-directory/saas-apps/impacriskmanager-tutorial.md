@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à IMPAC Risk Manager | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à IMPAC Risk Manager | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et IMPAC Risk Manager.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec119c9e11b21828b1b056fb97598ca7434cfc68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9f987c6803f6ca538f4ae7470caaff597c9596c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197707"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900741"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutoriel : Intégration d’Azure Active Directory à IMPAC Risk Manager
+# <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Didacticiel : Intégration d’Azure Active Directory à IMPAC Risk Manager
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer IMPAC Risk Manager à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration d’IMPAC Risk Manager à Azure AD vous offre les avantages sui
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à IMPAC Risk Manager, vous avez besoin des éléments suivants :
 
@@ -114,6 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     a. Dans la zone de texte **Identificateur**, tapez une valeur fournie par IMPAC
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
+
     | Environnement | Modèle d’URL |
     | ---------------|--------------- |    
     | Pour la production |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -127,6 +128,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL d’IMPAC Risk Manager](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+    
     | Environnement | Modèle d’URL |
     | ---------------|--------------- |    
     | Pour la production |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|

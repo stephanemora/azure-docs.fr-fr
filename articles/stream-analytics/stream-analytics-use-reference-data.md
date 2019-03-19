@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329811"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546472"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
 Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Par exemple, dans un scénario IoT, vous pourriez stocker des métadonnées sur les capteurs (qui ne changent pas souvent) dans les données de référence et les associer à des flux de données IoT en temps réel. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. 
@@ -78,7 +78,7 @@ Les données de référence Azure SQL Database sont récupérées par votre tâc
 
 Si vos données de référence sont un jeu de données à variation lente, vous devez régulièrement actualiser l’instantané qui est utilisé dans votre tâche. Stream Analytics vous permet de définir une fréquence de rafraîchissement lorsque vous configurez votre connexion d’entrée Azure SQL Database. Le runtime Stream Analytics va interroger votre base de données SQL Azure à l’intervalle spécifié par la fréquence d’actualisation. La fréquence de rafraîchissement la plus rapide prise en charge correspond à une fois par minute. Pour chaque actualisation, Stream Analytics stocke un nouvel instantané dans le compte de stockage fourni.
 
-Stream Analytics fournit deux options pour l’interrogation de votre base de données SQL Azure. Une requête de capture instantanée est obligatoire et doit être incluse dans chaque tâche. Stream Analytics exécute la requête de capture instantanée régulièrement selon votre intervalle d’actualisation et utilise le résultat de la requête (la capture instantanée) en tant que jeu de données de référence. La requête de capture instantanée devrait convenir à la plupart des scénarios, mais si vous rencontrez des problèmes de performances avec les jeux de données volumineux et les fréquences d’actualisation rapides, vous pouvez utiliser l’option de requête delta.
+Stream Analytics fournit deux options pour l’interrogation de votre base de données SQL Azure. Une requête de capture instantanée est obligatoire et doit être incluse dans chaque tâche. Stream Analytics exécute la requête de capture instantanée régulièrement selon votre intervalle d’actualisation et utilise le résultat de la requête (la capture instantanée) en tant que jeu de données de référence. La requête de capture instantanée devrait convenir à la plupart des scénarios, mais si vous rencontrez des problèmes de performances avec les jeux de données volumineux et les fréquences d’actualisation rapides, vous pouvez utiliser l’option de requête delta. Les requêtes qui prennent plus de 60 secondes pour retourner le jeu de données de référence entraîne un délai d’expiration.
 
 Avec l’option de requête delta, Stream Analytics exécute la requête de capture instantanée initialement pour obtenir un jeu de données de référence de ligne de base. Ensuite, Stream Analytics exécute la requête delta régulièrement selon votre intervalle d’actualisation pour récupérer les modifications incrémentielles. Ces modifications incrémentielles sont appliquées en permanence au jeu de données de référence pour le maintenir à jour. L’utilisation de requêtes delta peut permettre de réduire les coûts de stockage et les opérations d’e/s réseau.
 

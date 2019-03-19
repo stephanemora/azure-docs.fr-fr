@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997968"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux
 
@@ -23,7 +23,7 @@ Ce document décrit la version 3.0 et les versions ultérieures de l’extension
 > [!IMPORTANT]
 > Pour plus d’informations sur la version 2.3 et les versions antérieures, consultez [ce document](../linux/classic/diagnostic-extension-v2.md).
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
 L’extension de diagnostic Linux aide l’utilisateur à surveiller l’intégrité d’une machine virtuelle Linux s’exécutant sur Microsoft Azure. Elle présente les fonctionnalités suivantes :
 
@@ -49,7 +49,7 @@ Ces instructions d’installation et un [exemple de configuration téléchargeab
 
 La configuration téléchargeable est seulement un exemple. Modifiez-la selon vos besoins.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 * **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
 * **Azure CLI**. [Configurez l’environnement Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.
@@ -386,7 +386,7 @@ Cette section facultative contrôle l’exécution des requêtes [OMI](https://g
 
 Élément | Valeur
 ------- | -----
-namespace | (facultatif) L’espace de noms OMI dans lequel la requête doit être exécutée. Si elle n’est pas spécifiée, la valeur par défaut est « root/scx », implémentée par les [fournisseurs multiplateformes System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namespace | (facultatif) L’espace de noms OMI dans lequel la requête doit être exécutée. Si elle n’est pas spécifiée, la valeur par défaut est « root/scx », implémentée par les [fournisseurs multiplateformes System Center](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | Requête OMI à exécuter.
 table | (facultatif) La table de stockage Azure, dans le compte de stockage désigné (consultez [Paramètres protégés](#protected-settings)).
 frequency | (facultatif) Le nombre de secondes entre chaque exécution de la requête. La valeur par défaut est 300 (5 minutes). La valeur minimale est de 15 secondes.

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997691"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 
@@ -94,7 +94,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](https://msdn.microsoft.com/library/ms186259.aspx), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
 
-Le tableau suivant présente quelques résultats des tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
+Le tableau suivant présente certains résultats des tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
 **Local vers Azure**:
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Dans l’exemple précédent, l’objet **SqlCommand** insère des lignes à partir d’un paramètre table, **@TestTvp**. L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add**. Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
+Dans l’exemple précédent, le **SqlCommand** objet insère des lignes à partir d’un paramètre table,  **\@TestTvp**. L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add**. Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
 
 Pour améliorer l’exemple précédent, utilisez une procédure stockée au lieu d’une commande de texte. La commande Transact-SQL suivante crée une procédure stockée qui utilise le paramètre table **SimpleTestTableType** .
 
@@ -192,7 +192,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 Dans la plupart des cas, les paramètres table présentent des performances équivalentes ou supérieures à celles des autres techniques de traitement par lots. Les paramètres table sont souvent préférables car ils apportent davantage de flexibilité que les autres options. Par exemple, les autres techniques, telles que la copie en bloc SQL, autorisent uniquement l’insertion de nouvelles lignes. Mais avec les paramètres table, vous pouvez utiliser une logique dans la procédure stockée pour déterminer quelles lignes sont des mises à jour et quelles lignes sont des insertions. Le type de table peut aussi être modifié pour contenir une colonne « Opération » qui indique si la ligne spécifiée doit être insérée, mise à jour ou supprimée.
 
-Le tableau suivant présente les résultats des tests ad hoc pour l’utilisation des paramètres table en millisecondes.
+Le tableau suivant présente les résultats des tests ad hoc pour l’utilisation de paramètres table en millisecondes.
 
 | Opérations | Local vers Azure (ms) | Azure (même centre de données) |
 | --- | --- | --- |
@@ -277,7 +277,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Cet exemple vise à illustrer le concept de base. Un scénario plus réaliste effectuerait une boucle via les entités nécessaires à la construction simultanée de la chaîne de requête et des paramètres de commande. Vous êtes limité à un total de paramètres de 2 100 paramètres de requête, ce qui limite le nombre total de lignes pouvant être traitées de cette manière.
 
-Les résultats des tests ad hoc suivants montrent les performances de ce type d’instruction d’insertion en millisecondes.
+Les résultats des tests ad hoc suivants montrent les performances de ce type d’instruction insert en millisecondes.
 
 | Opérations | Paramètres table (ms) | Instruction INSERT unique (ms) |
 | --- | --- | --- |
@@ -298,7 +298,7 @@ La classe **DataAdapter** vous permet de modifier un objet **DataSet** puis de s
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework ne prend pas actuellement en charge le traitement par lots. Différents développeurs de la communauté ont tenté de démontrer des solutions de contournement, telles que la substitution de la méthode **SaveChanges** . Mais les solutions sont généralement complexes et adaptées à l’application et au modèle de données. Le projet codeplex Entity Framework possède actuellement une page de discussion sur cette demande de fonctionnalité. Pour afficher cette discussion, consultez les [Notes de réunion de conception du 2 août 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+Entity Framework ne prend pas actuellement en charge le traitement par lots. Différents développeurs de la communauté ont tenté de démontrer des solutions de contournement, telles que la substitution de la méthode **SaveChanges** . Mais les solutions sont généralement complexes et adaptées à l’application et au modèle de données. Le projet codeplex Entity Framework possède actuellement une page de discussion sur cette demande de fonctionnalité. Pour afficher cette discussion, consultez les [Notes de réunion de conception du 2 août 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 

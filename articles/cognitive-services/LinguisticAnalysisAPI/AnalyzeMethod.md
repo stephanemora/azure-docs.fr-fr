@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861678"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431136"
 ---
 # <a name="analyze-method"></a>Méthode d’analyse
 
@@ -24,7 +24,7 @@ ms.locfileid: "55861678"
 > La préversion de l’analyse linguistique a été désactivée le 9 août 2018. Nous vous recommandons d’utiliser les [modules d’analyse de texte Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) pour le traitement et l’analyse de texte.
 
 L’API REST **analyse**est utilisée pour analyser une entrée donnée en langage naturel.
-Cela implique simplement la recherche de [phrases et jetons](Sentences-and-Tokens.md) dans cette entrée, la recherche de [balises morphosyntaxiques](POS-tagging.md), ou la recherche de l’[arbre de circonscription](Constituency-Parsing.md).
+Qui peut impliquer simplement rechercher la [phrases et jetons](Sentences-and-Tokens.md) au sein de ces entrées, de la recherche de la [morphosyntaxiques de balises](POS-tagging.md), ou la recherche de la [arborescence de la circonscription](Constituency-Parsing.md).
 Vous pouvez spécifier les résultats que vous souhaitez obtenir en choisissant les analyseurs appropriés.
 Pour répertorier tous les analyseurs disponibles, consultez les **[analyseurs](AnalyzersMethod.md)**.
 
@@ -40,9 +40,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 Nom | Type | Obligatoire | Description
 -----|-------|----------|------------
-**language**    | chaîne | OUI | Les deux lettres du code de langue ISO à utiliser pour l’analyse Par exemple, le code de langue anglais est « en ».
-**analyzerIds** | liste de valeurs string | OUI | Liste des GUID des analyseurs à appliquer. Pour plus d’informations, consultez la documentation Analyseurs.
-**text**        | chaîne | OUI | Entrée brute à analyser. Il peut s’agir d’une chaîne courte comme un mot ou une expression, une phrase complète, un paragraphe entier ou un discours.
+**language**    | string | Oui | Les deux lettres du code de langue ISO à utiliser pour l’analyse Par exemple, le code de langue anglais est « en ».
+**analyzerIds** | liste de valeurs string | Oui | Liste des GUID des analyseurs à appliquer. Pour plus d’informations, consultez la documentation Analyseurs.
+**text**        | string | Oui | Entrée brute à analyser. Il peut s’agir d’une chaîne courte comme un mot ou une expression, une phrase complète, un paragraphe entier ou un discours.
 
 ## <a name="response-json"></a>Réponse (JSON)
 
@@ -52,7 +52,7 @@ Les résultats se présentent comme suit :
 
 Nom | type | Description
 -----|------|--------------
-analyzerId | chaîne | GUID de l’analyseur spécifié
+analyzerId | string | GUID de l’analyseur spécifié
 result | objet | résultat de l’analyseur
 
 Notez que le type de résultat varie selon le type de l’analyseur d’entrée.
@@ -67,8 +67,8 @@ result[x].Len | int | longueur de chaque phrase en caractères |
 result[x].Tokens | liste des objets de jeton | limites de longueur de jeton identifiées dans la phrase |
 result[x].Tokens[y].Offset | int | décalage du caractère de début du jeton |
 result[x].Tokens[y].Len | int | longueur du jeton en caractères |
-result[x].Tokens[y].RawToken | chaîne | les caractères à l’intérieur du jeton, avant la normalisation |
-result[x].Tokens[y].NormalizedToken | chaîne | une forme normalisée du caractère, à utiliser dans [l’arborescence d’analyse](Constituency-Parsing.md) ; par exemple, une parenthèse ouvrante « ( » devient « -LRB- » |
+result[x].Tokens[y].RawToken | string | les caractères à l’intérieur du jeton, avant la normalisation |
+result[x].Tokens[y].NormalizedToken | string | une forme normalisée du caractère, à utiliser dans [l’arborescence d’analyse](Constituency-Parsing.md) ; par exemple, une parenthèse ouvrante « ( » devient « -LRB- » |
 
 Exemple d’entrée : « il s’agit d’un test. Hello. »
 Exemple de réponse JSON :

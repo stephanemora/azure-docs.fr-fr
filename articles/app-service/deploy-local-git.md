@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c547eba931e23b6ffc7cae176e19959d43bcf5e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602492"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405024"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
 
@@ -27,7 +27,7 @@ Ce guide de procédures vous montre comment déployer votre code sur [Azure App 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre les étapes décrites dans ce guide de procédures :
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>Déployer à partir de Git local avec les builds Kudu
+## <a name="deploy-with-kudu-builds"></a>Déployer avec des builds Kudu
 
 Pour permettre un déploiement Git local pour votre application avec le serveur de build Kudu, le plus simple consiste à utiliser Cloud Shell.
 
@@ -102,7 +102,7 @@ Vous pouvez voir une automation spécifique au runtime dans la sortie, comme MSB
 
 Accédez à votre application pour vérifier que le contenu a été déployé.
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Déployer à partir de Git local avec des builds Azure DevOps Services
+## <a name="deploy-with-azure-devops-builds"></a>Déployer avec des builds Azure DevOps
 
 > [!NOTE]
 > Pour qu’App Service puisse créer les Azure Pipelines nécessaires dans votre organisation Azure DevOps Services, votre compte Azure doit avoir le rôle de **propriétaire** dans votre abonnement Azure.
@@ -110,22 +110,20 @@ Accédez à votre application pour vérifier que le contenu a été déployé.
 
 Pour permettre un déploiement Git local pour votre application avec le serveur de build Kudu, accédez à votre application dans le [portail Azure](https://portal.azure.com).
 
-Dans le volet de navigation de gauche de la page de votre application, cliquez sur **Centre de déploiement** > **Git local** > **Continuer**. 
+Dans le volet de navigation de gauche de la page de votre application, cliquez sur **Centre de déploiement** > **Git local** > **Continuer**.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Cliquez sur **Livraison continue d’Azure DevOps Services** > **Continuer**.
+Cliquez sur **Azure Pipelines (aperçu)** > **continuer**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-Dans la page **Configurer**, configurez une nouvelle organisation Azure DevOps Services ou spécifiez une organisation existante. Lorsque vous avez terminé, cliquez sur **Continuer**.
+Dans le **configurer** page, configurez une nouvelle organisation d’Azure DevOps ou spécifiez une organisation existante. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
 > [!NOTE]
-> Si vous souhaitez utiliser une organisation Azure DevOps Services existante non répertoriée, vous devez [lier l’organisation Azure DevOps Services à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Si vous souhaitez utiliser une organisation Azure DevOps existante qui n’est pas répertoriée, vous devez [lier l’organisation Azure DevOps Services à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-Sur la page **Test**, choisissez si vous voulez activer les tests de charge, puis cliquez sur **Continuer**.
-
-En fonction du [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, une page proposant un **déploiement intermédiaire** s’affiche parfois. Choisissez si vous voulez activer des emplacements de déploiement, puis cliquez sur **Continuer**.
+En fonction de la [tarification](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, il peut arriver qu’une page proposant un **déploiement intermédiaire** s’affiche. Choisissez si vous voulez activer des emplacements de déploiement, puis cliquez sur **Continuer**.
 
 Sur la page **Résumé**, vérifiez les options, puis cliquez sur **Terminer**.
 

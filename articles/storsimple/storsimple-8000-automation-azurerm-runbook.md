@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: cfd0e4dbb6a4f24df5ba42cd45f9c16fbe5b493c
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 93c77b5f678c4e6b3170d2c7612bef3f104f0b6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
-ms.locfileid: "23493129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002596"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Utiliser des runbooks Azure Automation pour gérer des appareils StorSimple
 
@@ -30,9 +30,9 @@ Cet article décrit comment des runbooks Azure Automation vous permettent de gé
 
 Cette section prend un exemple de script Windows PowerShell pour StorSimple, et décrit en détail les différentes étapes requises pour importer le script dans un runbook, puis publier et exécuter celui-ci.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Conditions préalables
 
-Avant de commencer, assurez-vous que vous disposez des éléments suivants :
+Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 
 * un abonnement Azure actif associé à votre service StorSimple Device Manager inscrit avec un appareil StorSimple série 8000 ;
 
@@ -50,7 +50,7 @@ Pour créer un module Automation pour la gestion d’appareils StorSimple série
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Télécharger l’interface de ligne de commande NuGet](http://www.nuget.org/downloads) sous le dossier créé à l’étape précédente. Il existe différentes versions de _nuget.exe_. Choisissez la version correspondant à votre kit de développement logiciel (SDK). Chaque lien de téléchargement pointe directement vers un fichier _.exe_. Veillez à cliquer avec le bouton droit et à enregistrer le fichier sur votre ordinateur plutôt que de l’exécuter à partir du navigateur.
+2. [Télécharger l’interface de ligne de commande NuGet](https://www.nuget.org/downloads) sous le dossier créé à l’étape précédente. Il existe différentes versions de _nuget.exe_. Choisissez la version correspondant à votre kit de développement logiciel (SDK). Chaque lien de téléchargement pointe directement vers un fichier _.exe_. Veillez à cliquer avec le bouton droit et à enregistrer le fichier sur votre ordinateur plutôt que de l’exécuter à partir du navigateur.
 
     Vous pouvez également exécuter la commande suivante pour télécharger et stocker le script dans le même dossier que vous avez créé précédemment.
     
@@ -187,16 +187,16 @@ Pour créer un module Automation pour la gestion d’appareils StorSimple série
 
 2. Dans le panneau **Ajouter un compte Automation** :
 
-    1. Entrez le **Nom** de votre compte Automation.
-    2. Sélectionnez l’**Abonnement** lié à votre service StorSimple Device Manager.
-    3. Créez un groupe de ressources ou sélectionnez un groupe de ressources existant.
-    4. Sélectionnez un **Emplacement** (si possible celui où votre service est en cours d’exécution).
-    5. Laissez l’option par défaut **Créer un compte d’identification** activée.
-    5. Vous pouvez également activer l’option **Épingler au tableau de bord**. Cliquez sur **Créer**.
+   1. Entrez le **Nom** de votre compte Automation.
+   2. Sélectionnez l’**Abonnement** lié à votre service StorSimple Device Manager.
+   3. Créez un groupe de ressources ou sélectionnez un groupe de ressources existant.
+   4. Sélectionnez un **Emplacement** (si possible celui où votre service est en cours d’exécution).
+   5. Laissez l’option par défaut **Créer un compte d’identification** activée.
+   5. Vous pouvez également activer l’option **Épingler au tableau de bord**. Cliquez sur **Créer**.
 
-        ![créer-compte-automation](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![créer-compte-automation](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-    Une fois le compte Automation créé, vous êtes averti. Pour plus d’informations sur la façon de créer un compte Automation, accédez à [Créer un compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      Une fois le compte Automation créé, vous êtes averti. Pour plus d’informations sur la façon de créer un compte Automation, accédez à [Créer un compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
 3. Pour vous assurer que le compte Automation créé peut accéder au service StorSimple Device Manager, vous devez assigner les autorisations appropriées au compte Automation. Accédez à **Contrôle d’accès** dans votre service StorSimple Device Manager. Cliquez sur **+ Ajouter**, puis entrez le nom de votre compte Azure Automation. **Enregistrez** les paramètres.
 

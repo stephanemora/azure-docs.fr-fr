@@ -2,21 +2,22 @@
 title: Azure IoT Hub et Event Grid | Microsoft Docs
 description: Azure Event Grid permet de déclencher des processus en fonction d’actions qui se produisent dans IoT Hub.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249466"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673851"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
-Azure IoT Hub s’intègre à Azure Event Grid pour vous permettre d’envoyer des notifications d’événements à d’autres services et de déclencher des processus en aval. Configurez vos applications métier pour écouter les événements IoT Hub, afin de pouvoir réagir aux événements critiques de manière fiable, scalable et sécurisée. Vous pouvez par exemple créer une application pour effectuer plusieurs actions telles que la mise à jour d’une base de données, la création d’un ticket et la remise d’une notification par e-mail chaque fois qu’un nouvel appareil IoT est inscrit auprès de votre hub IoT. 
+Azure IoT Hub s’intègre à Azure Event Grid pour vous permettre d’envoyer des notifications d’événements à d’autres services et de déclencher des processus en aval. Configurez vos applications métier pour écouter les événements IoT Hub, afin de pouvoir réagir aux événements critiques de manière fiable, scalable et sécurisée. Par exemple, créer une application qui met à jour une base de données, crée un ticket de travail et remet une notification par e-mail chaque fois qu’un nouvel appareil IoT est inscrit à votre IoT hub. 
 
 [Azure Event Grid](../event-grid/overview.md) est un service de routage d’événement entièrement géré qui utilise le modèle publication-abonnement. Event Grid offre une prise en charge intégrée des services Azure comme [Azure Functions](../azure-functions/functions-overview.md) et [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), et peut fournir des alertes d’événements à des services non-Azure à l’aide de webhooks. Pour obtenir une liste complète des gestionnaires d’événements qui prennent en charge Event Grid, consultez [Présentation d’Azure Event Grid](../event-grid/overview.md). 
 
@@ -118,7 +119,7 @@ L’exemple suivant montre le schéma d’un événement de création d’appare
 }]
 ```
 
-Pour obtenir une description détaillée de chaque propriété, consultez [Schéma d’événement Azure Event Grid pour IoT Hub](../event-grid/event-schema-iot-hub.md).
+Pour obtenir une description détaillée de chaque propriété, consultez [schéma d’événement Azure Event Grid pour IoT Hub](../event-grid/event-schema-iot-hub.md).
 
 ## <a name="filter-events"></a>Filtrer les événements
 
@@ -131,15 +132,15 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitations pour les événements d’état de la connexion et de la déconnexion d’appareils
 
-Pour recevoir les événements de connexion et de déconnexion d’appareils, vous devez ouvrir le lien D2C ou C2D pour votre appareil. Si votre appareil utilise le protocole MQTT, IoT Hub gardera le lien C2D ouvert. Pour AMQP, vous pouvez ouvrir le lien C2D en appelant l’[API Receive Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+Pour recevoir les événements de connexion et de déconnexion d’appareils, vous devez ouvrir le lien D2C ou C2D pour votre appareil. Si votre appareil utilise le protocole MQTT, IoT Hub gardera le lien C2D ouvert. Pour AMQP, vous pouvez ouvrir le lien C2D en appelant le [recevoir les API asynchrones](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
 
-Le lien D2C est ouvert si vous envoyez des données de télémétrie. Si la connexion de l’appareil est intermittente (l’appareil se connecte et se déconnecte fréquemment), nous n’enverrons pas chaque état de connexion, mais nous publierons l’état de connexion capturé chaque minute. En cas de panne de IoT Hub, nous publierons l’état de connexion d’appareil une fois celle-ci terminée. Si l’appareil se déconnecte pendant la panne, l’événement de déconnexion d’appareil est publié dans les 10 minutes.
+Le lien D2C est ouvert si vous envoyez des données de télémétrie. Si la connexion de l’appareil est scintillement, ce qui signifie que l’appareil se connecte et se déconnecte fréquemment, nous n’enverront pas de chaque état de la connexion unique, mais publie l’état de connexion qui est pris toutes les minutes. En cas de panne de IoT Hub, nous publierons l’état de connexion d’appareil une fois celle-ci terminée. Si l’appareil se déconnecte pendant la panne, l’événement de déconnexion d’appareil est publié dans les 10 minutes.
 
 ## <a name="tips-for-consuming-events"></a>Conseils relatifs à la consommation d’événements
 
 Les applications qui gèrent des événements IoT Hub doivent suivre ces pratiques suggérées :
 
-* Plusieurs abonnements peuvent être configurés pour acheminer les événements vers le même gestionnaire d’événements. Il est donc important de ne pas présupposer que les événements proviennent d’une source particulière. Vérifiez toujours la rubrique du message pour être sûr qu’il provient du hub IoT prévu. 
+* Plusieurs abonnements peuvent être configurés pour acheminer les événements vers le même gestionnaire d’événements, ne déduisez que les événements proviennent d’une source particulière. Vérifiez toujours la rubrique du message pour être sûr qu’il provient du hub IoT prévu. 
 
 * Ne supposez pas que tous les événements reçus sont des types attendus. Vérifiez toujours eventType avant de traiter le message.
 

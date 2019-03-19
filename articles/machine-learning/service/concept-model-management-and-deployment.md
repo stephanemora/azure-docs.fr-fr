@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: chris-lauren
 ms.author: clauren
-ms.date: 09/24/2018
+ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7f24e242168fc969d0f0d920dce0e6d9562a295
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241837"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403683"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
 
 Dans cet article, vous pouvez découvrir comment utiliser le service Azure Machine Learning pour déployer, gérer et surveiller vos modèles afin de les améliorer en permanence. Vous pouvez déployer les modèles que vous avez entraînés avec Azure Machine Learning, sur votre machine locale ou depuis d’autres sources. 
 
-Le diagramme suivant illustre le flux de travail de déploiement complet : [ ![Flux de travail de déploiement Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+Le diagramme suivant illustre le flux de travail de déploiement complet : [![Flux de travail de déploiement pour Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 Le workflow de déploiement comprend les étapes suivantes :
 1. **Inscrire le modèle** dans un registre hébergé dans votre espace de travail du service Azure Machine Learning
@@ -33,9 +33,9 @@ Le workflow de déploiement comprend les étapes suivantes :
 
 Chaque étape peut être effectuée indépendamment ou dans le cadre d’une même commande de déploiement. En outre, vous pouvez intégrer le déploiement dans un **flux de travail CI/CD**, comme illustré dans ce graphique.
 
-[ ![« Cycle d’intégration continue/déploiement continu (CI/CD) d’Azure Machine Learning »](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[![« Cycle de déploiement (CI/CD) une intégration continus azure Machine Learning »](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-## <a name="step-1-register-model"></a>Étape 1 : Inscrire le modèle
+## <a name="step-1-register-model"></a>Étape 1 : Inscrire le modèle
 
 L’inscription de modèle vous permet de stocker vos modèles dans le cloud Azure, au sein de votre espace de travail, et d’en gérer les versions. Le registre de modèle facilite l’organisation et le suivi de vos modèles entraînés.
  
@@ -73,7 +73,7 @@ Vous pouvez déployer des images inscrites dans le cloud ou sur des périphériq
 
 Les déploiements de service web peuvent également faire l’objet de recherches. Par exemple, vous pouvez rechercher tous les déploiements d’un modèle ou d’une image spécifique.
 
-[ ![Inférence des cibles](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Cibles d’inférence](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Vous pouvez déployer vos images sur les cibles de déploiement suivantes dans le cloud :
 
@@ -105,6 +105,6 @@ Les mises à jour de votre modèle ne sont pas inscrites automatiquement. De mê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez plus d’informations sur [comment et où vous pouvez déployer des modèles](how-to-deploy-and-where.md) avec le service Azure Machine Learning.
+Découvrez plus d’informations sur [comment et où vous pouvez déployer des modèles](how-to-deploy-and-where.md) avec le service Azure Machine Learning. Pour obtenir un exemple de déploiement, consultez [didacticiel : Déployer un modèle de classification d’image dans Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 Découvrez comment créer des applications et services clients qui [utilisent un modèle déployé en tant que service web](how-to-consume-web-service.md).

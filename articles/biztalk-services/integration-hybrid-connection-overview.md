@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: HT
+ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26629684"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765541"
 ---
 # <a name="hybrid-connections-overview"></a>Aperçu des connexions hybrides
 
@@ -94,9 +94,9 @@ Les ports TCP suivants sont utilisés par les connexions hybrides :
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Voir aussi
-[API REST pour gérer BizTalk Services sur Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)  
+[API REST pour gérer BizTalk Services sur Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[BizTalk Services : Tableau comparatif des éditions](biztalk-editions-feature-chart.md)  
 [Créer un service BizTalk](biztalk-provision-services.md)  
-[Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)  
+[BizTalk Services : Onglets tableau de bord, surveiller et mettre à l’échelle](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

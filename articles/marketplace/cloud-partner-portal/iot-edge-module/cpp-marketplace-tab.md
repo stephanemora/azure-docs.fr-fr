@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432704"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010956"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Onglet Place de marché d’un module IoT Edge
 
 
-L’onglet **Place de marché** se trouvant sur la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce long formulaire est divisé en quatre sections : **Vue d’ensemble**, **Artefacts marketing**, **Gestion des prospects** et **Informations légales**.
+L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Cette forme longue est divisée en quatre sections : **Vue d’ensemble**, **Marketing artefacts**, **gestion des prospects**, et **juridique**.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Dans cette section, vous entrez les informations générales sur votre offre de la Place de marché Microsoft Azure.  Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 
@@ -39,8 +39,8 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs.
 | **Titre**                 | Titre de l’offre. Il est affiché de façon visible dans la Place de marché.  Longueur maximale de 50 caractères. <!--ADD PICTURE IN ACTION-->|
 | **Résumé**               | Court résumé de l’offre. Longueur maximale de 100 caractères. <!--ADD PICTURE IN ACTION-->|
 | **Long Summary** (Résumé long)          | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ **Résumé**).  Longueur maximale de 256 caractères. <!--ADD PICTURE IN ACTION-->|
-| **Description**           | Description de l’offre.  Longueur maximale de 3 000 caractères, prend en charge la mise en forme HTML simple.<br/> Un paragraphe *Conditions matérielles minimales requises* doit être inclus dans la partie inférieure. Par exemple : <br/> <p><u>Conditions matérielles minimales requises :</u> système d’exploitation Linux x64 ry arm32, 1 Go de RAM, 500 Mo de stockage</p>
-| **Marketing Identifier** (Identificateur marketing)  | Une URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple :  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Description**           | Description de l’offre.  Longueur maximale de 3 000 caractères, prend en charge la mise en forme HTML simple.<br/> Un paragraphe *Conditions matérielles minimales requises* doit être inclus dans la partie inférieure. Par exemple : <br/> <p><u>Configuration matérielle minimale requise :</u> Linux x64 et arm32 système d’exploitation, 1 Go de RAM, 500 Mo de stockage</p>
+| **Marketing Identifier** (Identificateur marketing)  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple :  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **ID d’abonnement pour préversion** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
 | **Liens utiles**          | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Un maximum de 10 est autorisé. Veillez à ajouter au moins un lien vers votre documentation et un lien vers les appareils IoT Edge compatibles du [catalogue d’appareils Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Catégories suggérées** | Choisissez cinq catégories maximum. Elles sont affichées sur la page des détails de votre produit. Sur les pages de navigation, tous les modules IoT Edge sont répertoriés dans la catégorie *Internet of Things \> Module IoT Edge*.|
@@ -78,7 +78,7 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs.
 
 ## <a name="marketing-artifacts"></a>Artefacts marketing
 
-Cette section contient les sous-sections suivantes : **Logos**, **Captures d’écran** et **Vidéos**. 
+Cette section contient les sous-sections suivantes : **Logos**, **capture d’écran**, et **vidéos**. 
 
 >[!Note]
 >Les logos sont les seuls artefacts marketing obligatoires ; néanmoins, nous vous recommandons d’ajouter les autres artefacts pour mieux attirer les clients.
@@ -104,7 +104,7 @@ Cette section contient les sous-sections suivantes : **Logos**, **Captures d’�
 
 ### <a name="logo-guidelines"></a>Instructions concernant le logo
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Tous les logos chargés sur le Portail Cloud Partner doivent respecter ces instructions :
@@ -141,10 +141,10 @@ As an example, the following hero icon is for the Azure Container Service.
 Cette section vous permet de configurer les options de collecte des prospects générés à partir de vos offres de la Place de marché Microsoft Azure. Vous pouvez sélectionner les options de stockage suivantes à partir d’une liste déroulante.
 
 * **Aucun** - la valeur par défaut, les informations relatives aux prospects ne sont pas collectées.
-* Table Azure - les informations sont écrites dans la table Azure spécifiée par une chaîne de connexion.
-* Dynamics CRM Online - les informations sont écrites dans l’instance [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) spécifiée par une URL et des informations d’identification.
-* Point de terminaison HTTPS - les informations sont écrites dans le point de terminaison HTTPS spécifié en tant que charge utile JSON.
-* Marketo - les informations sont écrites dans l’instance [Marketo](https://www.marketo.com/) spécifiée par l’ID du serveur, l’ID munchkin et l’ID de formulaire.
+* Table Azure : les informations sont écrites dans la table Azure spécifiée par une chaîne de connexion.
+* Dynamics CRM Online : les informations sont écrites dans l’instance [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) spécifiée par une URL et des informations d’identification d’authentification.
+* Point de terminaison HTTPS : les informations sont écrites dans le point de terminaison HTTPS spécifié en tant que charge utile JSON.
+* Marketo : les informations sont écrites dans l’instance [Marketo](https://www.marketo.com/) spécifiée par l’ID du serveur, l’ID munchkin et l’ID de formulaire.
 * Salesforce - les informations sont écrites dans une base de données [Salesforce](https://www.salesforce.com/), spécifiée par un identificateur d’objet.
 
 Après avoir publié votre offre, la connexion de prospect est vérifiée et un prospect test est automatiquement envoyé vers la destination que vous avez configurée. 
@@ -160,7 +160,7 @@ Après avoir publié votre offre, la connexion de prospect est vérifiée et un 
 
 ## <a name="legal"></a>Informations juridiques
 
-Cette section vous permet de fournir les deux documents juridiques nécessaires pour chaque offre : la politique de confidentialité et les conditions d’utilisation.
+Cette section vous permet de fournir les deux documents juridiques qui sont requis pour chaque offre : la politique de confidentialité et les conditions d’utilisation.
 
 |  **Champ**                |     **Description**                                                          |
 |  ---------                |     ---------------                                                          |

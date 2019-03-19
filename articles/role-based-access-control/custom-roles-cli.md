@@ -11,26 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338136"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56584894"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI
 
 Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec Azure CLI.
 
-## <a name="prerequisites"></a>Prérequis
+Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md).
+
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour créer des rôles personnalisés, vous avez besoin des éléments suivants :
 
 - autorisations nécessaires pour créer des rôles personnalisés, par exemple, [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ;
-- [Azure CLI](/cli/azure/install-azure-cli) installé en local.
+- [Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure CLI](/cli/azure/install-azure-cli)
 
 ## <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
 
@@ -61,6 +63,78 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 ...
 ```
 
+## <a name="list-a-custom-role-definition"></a>Liste d’une définition de rôle personnalisé
+
+Pour répertorier une définition de rôle personnalisé, utilisez [liste des définitions de rôle az](/cli/azure/role/definition#az-role-definition-list). Il s’agit de la même commande que vous utiliseriez pour un rôle intégré.
+
+```azurecli
+az role definition list --name <role_name>
+```
+
+L’exemple suivant liste les *opérateur de Machine virtuelle* définition de rôle :
+
+```azurecli
+az role definition list --name "Virtual Machine Operator"
+```
+
+```Output
+[
+  {
+    "assignableScopes": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111"
+    ],
+    "description": "Can monitor and restart virtual machines.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000",
+    "name": "00000000-0000-0000-0000-000000000000",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/*/read",
+          "Microsoft.Network/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Insights/diagnosticSettings/*",
+          "Microsoft.Support/*"
+        ],
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Virtual Machine Operator",
+    "roleType": "CustomRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+L’exemple suivant répertorie uniquement les actions de la *opérateur de Machine virtuelle* rôle :
+
+```azurecli
+az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
+```
+
+```Output
+[
+  "Microsoft.Storage/*/read",
+  "Microsoft.Network/*/read",
+  "Microsoft.Compute/*/read",
+  "Microsoft.Compute/virtualMachines/start/action",
+  "Microsoft.Compute/virtualMachines/restart/action",
+  "Microsoft.Authorization/*/read",
+  "Microsoft.ResourceHealth/availabilityStatuses/read",
+  "Microsoft.Resources/subscriptions/resourceGroups/read",
+  "Microsoft.Insights/alertRules/*",
+  "Microsoft.Insights/diagnosticSettings/*",
+  "Microsoft.Support/*"
+]
+```
+
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 
 Pour créer un rôle personnalisé, utilisez [az role definition create](/cli/azure/role/definition#az-role-definition-create). La définition de rôle peut être une description JSON ou le chemin d’un fichier contenant une description JSON.
@@ -85,6 +159,7 @@ vmoperator.json
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Support/*"
@@ -127,6 +202,7 @@ vmoperator.json
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",

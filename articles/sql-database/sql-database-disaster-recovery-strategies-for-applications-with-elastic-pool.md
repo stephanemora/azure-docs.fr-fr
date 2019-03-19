@@ -3,7 +3,7 @@ title: Concevoir des solutions de récupération d’urgence - Azure SQL Databas
 description: Apprenez à concevoir votre solution cloud pour la récupération d’urgence en choisissant le modèle de basculement approprié.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-poolss
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2e1ceda45e756220bf08bc32039da2123f782f4a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6a332ce265a4bb41a9ad3c0c3a29683187a0f0d4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454190"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760493"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Stratégies de récupération d’urgence pour les applications utilisant les pools élastiques de bases de données SQL
 

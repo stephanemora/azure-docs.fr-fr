@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 459398f5f40ae5fb28dfa4ac73b94aecca7304eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240984"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099414"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner est un tableur utilisé pour la planification de la capacité des ressources Azure Stack. Un planificateur de capacité vous permet de concevoir diverses allocations de ressources de calcul afin de voir comment celles-ci pourraient s’inscrire dans une offre de matériel. Vous trouverez ci-dessous des instructions détaillées pour l’utilisation de la calculatrice Azure Stack.
@@ -61,8 +61,8 @@ Pour créer un modèle utilisant une collection simple de diverses tailles et qu
 2. Si vous souhaitez modéliser diverses allocations de ressources de machine virtuelle pour une configuration matérielle spécifique, accédez à la zone de liste de déroulante bleue juste sous l’étiquette « Current SKU » (Référence SKU actuelle) dans l’angle supérieur droit de la page. Déroulez cette zone de liste, puis sélectionnez la référence SKU du matériel de votre choix.
 3. Vous êtes maintenant prêt à commencer à ajouter des machines virtuelles de différentes tailles à votre modèle. Pour inclure un type particulier de machine virtuelle, entrez une quantité dans la zone au contour bleu à gauche de cette entrée de machine virtuelle.
 
-  > [!NOTE]
-  > Le stockage total de machine virtuelle fait référence à la capacité totale du disque de données de la machine virtuelle (nombre de disques pris en charge * la capacité maximale d’un disque (1 To)). Sur la base des indicateurs de configuration, nous avons rempli la table Configurations de stockage disponibles afin que vous puissiez choisir votre niveau souhaité de ressource de stockage pour chaque machine virtuelle Azure Stack. Notez toutefois que vous pouvez ajouter ou modifier le tableau Configurations de stockage disponibles si nécessaire.<br><br>Chaque machine virtuelle démarre avec un volume de stockage temporaire attribué initialement. Pour adapter l’approvisionnement dynamique de volume de stockage temporaire, celui-ci peut être modifié dans le menu déroulant, ainsi que la quantité maximale autorisée de stockage temporaire.
+   > [!NOTE]
+   > Le stockage total de machine virtuelle fait référence à la capacité totale du disque de données de la machine virtuelle (nombre de disques pris en charge * la capacité maximale d’un disque (1 To)). Sur la base des indicateurs de configuration, nous avons rempli la table Configurations de stockage disponibles afin que vous puissiez choisir votre niveau souhaité de ressource de stockage pour chaque machine virtuelle Azure Stack. Notez toutefois que vous pouvez ajouter ou modifier le tableau Configurations de stockage disponibles si nécessaire.<br><br>Chaque machine virtuelle démarre avec un volume de stockage temporaire attribué initialement. Pour adapter l’approvisionnement dynamique de volume de stockage temporaire, celui-ci peut être modifié dans le menu déroulant, ainsi que la quantité maximale autorisée de stockage temporaire.
 
 4. Lorsque vous ajoutez des machines virtuelles, des graphiques s’affichent, qui reflètent le changement des ressources en références SKU disponibles. Cela vous permet de voir l’effet des ajouts de différentes tailles et quantités de machines virtuelles durant le processus de modélisation. Une autre façon de suivre l’effet les modifications consiste à regarder les chiffres des volumes consommés et encore disponibles répertoriés directement dans la liste des machines virtuelles disponibles. Ces chiffres sont des valeurs estimées sur la base de la référence SKU de matériel actuellement sélectionnée.
 5. Une fois que vous avez créé votre ensemble de machines virtuelles, vous pouvez trouver la référence SKU de matériel suggérée en cliquant sur le bouton « Référence SKU suggérée » dans l’angle supérieur droit de la page, juste sous l’étiquette « Current SKU » (Référence SKU actuelle). Ce bouton vous permet ensuite de modifier vos configurations de machine virtuelle et de voir quel matériel prend en charge chaque configuration.

@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312525"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339009"
 ---
 # <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
 
-Outre le balisage et la catégorisation de haut niveau, le service Vision par ordinateur prend également en charge d'autres analyses spécifiques à un domaine en utilisant des modèles formés à partir de données spécialisées. 
+Outre le balisage et la catégorisation de haut niveau, le service Vision par ordinateur prend également en charge d'autres analyses spécifiques à un domaine en utilisant des modèles formés à partir de données spécialisées.
 
 Les modèles spécifiques à un domaine peuvent être utilisés de deux façons : en l'état (analyse élargie) ou en tant qu'amélioration de la fonctionnalité de catégorisation.
 
 ### <a name="scoped-analysis"></a>Analyse élargie
 
-Vous pouvez analyser une image à l'aide du modèle spécifique au domaine choisi en appelant l'API [Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200). 
+Vous pouvez analyser une image à l'aide du modèle spécifique au domaine choisi en appelant l'API [Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200).
 
 Voici un exemple de réponse JSON renvoyé par l'API **models/celebrities/analyze** pour l'image donnée :
 
@@ -55,28 +55,28 @@ Voici un exemple de réponse JSON renvoyé par l'API **models/celebrities/analyz
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Analyse de catégorisation améliorée  
+### <a name="enhanced-categorization-analysis"></a>Analyse de catégorisation améliorée
 
-Vous pouvez également utiliser des modèles spécifiques à un domaine pour compléter l'analyse d'image générale. Pour ce faire, dans le cadre de la [catégorisation de haut niveau](concept-categorizing-images.md), vous devez spécifier des modèles spécifiques à un domaine dans le paramètre *details* de l'appel d'API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). 
+Vous pouvez également utiliser des modèles spécifiques à un domaine pour compléter l'analyse d'image générale. Pour ce faire, dans le cadre de la [catégorisation de haut niveau](concept-categorizing-images.md), vous devez spécifier des modèles spécifiques à un domaine dans le paramètre *details* de l'appel d'API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 
-Dans ce cas, le classifieur de la taxonomie des 86 catégories est appelé en premier. Si l'une des catégories détectées possède un modèle spécifique au domaine correspondant, l'image est également transmise à travers ce modèle et les résultats sont ajoutés. 
+Dans ce cas, le classifieur de la taxonomie des 86 catégories est appelé en premier. Si l'une des catégories détectées possède un modèle spécifique au domaine correspondant, l'image est également transmise à travers ce modèle et les résultats sont ajoutés.
 
 La réponse JSON suivante montre comment une analyse spécifique à un domaine peut être incluse en tant que nœud `detail` dans une analyse de catégorisation plus large.
 
 ```json
-"categories":[  
-  {  
+"categories":[
+  {
     "name":"abstract_",
     "score":0.00390625
   },
-  {  
+  {
     "name":"people_",
     "score":0.83984375,
-    "detail":{  
-      "celebrities":[  
-        {  
+    "detail":{
+      "celebrities":[
+        {
           "name":"Satya Nadella",
-          "faceRectangle":{  
+          "faceRectangle":{
             "left":597,
             "top":162,
             "width":248,
@@ -85,8 +85,8 @@ La réponse JSON suivante montre comment une analyse spécifique à un domaine p
           "confidence":0.999028444
         }
       ],
-      "landmarks":[  
-        {  
+      "landmarks":[
+        {
           "name":"Forbidden City",
           "confidence":0.9978346
         }
@@ -108,20 +108,20 @@ Le service Vision par ordinateur prend actuellement en charge les modèles spéc
 L'appel de l'API [Models](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) renvoie ces informations, ainsi que les catégories auxquelles chaque modèle peut s'appliquer :
 
 ```json
-{  
-  "models":[  
-    {  
+{
+  "models":[
+    {
       "name":"celebrities",
-      "categories":[  
+      "categories":[
         "people_",
         "人_",
         "pessoas_",
         "gente_"
       ]
     },
-    {  
+    {
       "name":"landmarks",
-      "categories":[  
+      "categories":[
         "outdoor_",
         "户外_",
         "屋外_",

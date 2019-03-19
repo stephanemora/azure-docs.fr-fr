@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: fff484f2ee6722083a34383b8960931cb37b8316
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 206cca95c590a01f69d3664fb87398bc2fcb4ad9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700444"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445787"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Authentification et autorisation Azure Relay
 
@@ -29,7 +29,7 @@ Les applications peuvent s’authentifier auprès d’Azure Relay à l’aide de
 
 [L’authentification par signature d’accès partagé](../service-bus-messaging/service-bus-sas.md) vous permet d’accorder un accès utilisateur aux ressources Azure Relay avec des droits spécifiques. L’authentification SAP implique la configuration d’une clé de chiffrement avec les droits associés sur une ressource. Les clients peuvent alors accéder à cette ressource en présentant un jeton SAP qui se compose de l’URI de ressource correspondant et d’une expiration signée avec la clé configurée.
 
-Vous pouvez configurer des clés pour SAP dans un espace de noms Relay. Contrairement à la messagerie Service Bus, les [connexions hybrides Relay](relay-hybrid-connections-protocol.md) prennent en charge les expéditeurs non autorisés ou anonymes. Vous pouvez activer l’accès anonyme pour l’entité lors de sa création, comme indiqué dans la capture d’écran suivante du portail :
+Vous pouvez configurer des clés pour SAP dans un espace de noms Relay. Contrairement à la messagerie Service Bus, les [connexions hybrides Relay](relay-hybrid-connections-protocol.md) prennent en charge les expéditeurs non autorisés ou anonymes. Vous pouvez activer l’accès anonyme pour l’entité lorsque vous créez, comme illustré dans la capture d’écran suivante à partir du portail :
 
 ![][0]
 

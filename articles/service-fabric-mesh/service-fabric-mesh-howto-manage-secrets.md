@@ -6,15 +6,15 @@ keywords: secrets
 author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900639"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gérer les secrets d’application Service Fabric Mesh
 Service Fabric Mesh prend en charge les secrets comme des ressources Azure. Un secret Service Fabric Mesh peut correspondre à n’importe quel type de texte sensible, comme des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs devant être stockées et transmises de manière sécurisée. Cet article explique comment utiliser le service Banque d’informations sécurisé de Service Fabric pour déployer et gérer des secrets.
@@ -24,20 +24,20 @@ Un secret d’application Mesh comprend :
 * Une ou plusieurs ressources **Secrets/Valeurs** qui sont stockées dans le conteneur de ressources **Secrets**. Chaque ressource **Secrets/Valeurs** se distingue par son numéro de version. Vous ne pouvez pas modifier la version d’une ressource **Secrets/Valeurs**. Vous pouvez seulement ajouter une nouvelle version.
 
 La gestion des secrets comprend les étapes suivantes :
-1. Déclarer une ressource **Secrets** Mesh dans un fichier YAML ou JSON de modèle de ressource Azure à l’aide des définitions inlinedValue kind et SecretsStoreRef contentType
-2. Déclarer les ressources **Secrets/Valeurs** Mesh dans un fichier YAML ou JSON de modèle de ressource Azure, qui seront stockées dans la ressource **Secrets** (à l’étape 1)
+1. Déclarer une maille **Secrets** ressource dans un fichier YAML de modèle de ressource Azure ou JSON à l’aide d’inlinedValue type et les définitions contentType SecretsStoreRef.
+2. Déclarer la maille **Secrets/valeurs** ressources dans un fichier YAML de modèle de ressource Azure ou JSON qui seront stockées dans le **Secrets** ressource (à l’étape 1).
 3. Modifier l’application Mesh pour référencer les valeurs de secret Mesh
 4. Déployer ou effectuer une mise à niveau propagée de l’application Mesh pour consommer les valeurs de secret
 5. Utiliser les commandes « az » de l’interface CLI Azure pour la gestion du cycle de vie du service Banque d’informations sécurisé
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Déclarer une ressource Secrets Mesh
-Une ressource Secrets Mesh est déclarée dans un fichier YAML ou JSON de modèle de ressource Azure à l’aide des définitions inlinedValue kind et SecretsStoreRef contentType. La ressource Secrets Mesh prend en charge les secrets provenant du service Banque d’informations sécurisé. 
+Une ressource de Secrets de maillage est déclarée dans un JSON de modèle de ressource Azure ou un fichier YAML inlinedValue type et les définitions contentType SecretsStoreRef. La ressource Secrets Mesh prend en charge les secrets provenant du service Banque d’informations sécurisé. 
 >
 Voici un exemple montrant comment déclarer des ressources Secrets Mesh dans un fichier JSON :
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -103,7 +103,7 @@ Voici un exemple montrant comment déclarer des ressources Secrets/Valeurs Mesh 
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -215,9 +215,9 @@ az mesh secret show --Resource-group <myResourceGroup> --secret-name <mySecret>
 
 - Vous ne pouvez pas supprimer un secret tant que celui-ci est référencé par une application Mesh.
 - La suppression d’une ressource Secrets supprime également toutes les versions des ressources Secrets/Valeurs.
-```azurecli-interactive
-az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
-```
+  ```azurecli-interactive
+  az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
+  ```
 
 ### <a name="list-secrets-in-subscription"></a>Lister les secrets d’un abonnement
 ```azurecli-interactive

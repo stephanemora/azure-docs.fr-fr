@@ -5,17 +5,17 @@ description: Un aide-mémoire imprimable d'algorithme d'apprentissage automatiqu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
-ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: 51a743e7578ea5bbc2acb9094bbf704a09f3cd6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858790"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Aide-mémoire d’algorithme d’apprentissage automatique pour Azure Machine Learning Studio
 
@@ -36,9 +36,9 @@ Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning Stud
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Remarques et définitions terminologiques pour l’aide-mémoire d’algorithme Machine Learning Studio
 
-* Les suggestions proposées dans cet aide-mémoire d'algorithme sont des règles de base approximatives. Certaines peuvent être contournées et d’autres ignorées. Elles visent à proposer un point de départ. N’hésitez pas à comparer plusieurs algorithmes avec vos données. Il est tout simplement indispensable de comprendre les principes de chaque algorithme et le système qui a généré les données.
+* Les suggestions proposées dans cet aide-mémoire d'algorithme sont des règles de base approximatives. Certaines peuvent être contournées et d’autres ignorées. Elles visent à proposer un point de départ. N’hésitez pas à comparer plusieurs algorithmes avec vos données. Il n’est tout simplement aucune substitution pour comprendre les principes de chaque algorithme et le système qui a généré les données.
 
-* Chaque algorithme d’apprentissage automatique a son propre style ou *décalage inductif*. Plusieurs algorithmes peuvent être appropriés pour un problème spécifique et un algorithme peut être un meilleur choix que d’autres. Mais il n’est pas toujours possible de savoir au préalable lequel convient le mieux. Dans ce cas, plusieurs algorithmes sont affichés dans l’aide-mémoire. Une stratégie appropriée consiste à essayer un algorithme et, si les résultats ne sont pas satisfaisants, à essayer les autres. Voici un exemple tiré d’[Azure AI Gallery](http://gallery.azure.ai/). Cette expérience teste plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) (Comparer des classifieurs multiclasses : reconnaissance de lettres).
+* Chaque algorithme d’apprentissage automatique a son propre style ou *décalage inductif*. Plusieurs algorithmes peuvent être appropriés pour un problème spécifique et un algorithme peut être un meilleur choix que d’autres. Mais il n’est pas toujours possible de savoir au préalable lequel convient le mieux. Dans ce cas, plusieurs algorithmes sont affichés dans l’aide-mémoire. Une stratégie appropriée consiste à essayer un algorithme et, si les résultats ne sont pas satisfaisants, à essayer les autres. Voici un exemple tiré d’[Azure AI Gallery](https://gallery.azure.ai/). Cette expérience teste plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) (Comparer des classifieurs multiclasses : reconnaissance de lettres).
 
 * Il existe trois catégories principales d’apprentissage automatique : l’**apprentissage supervisé**, l’**apprentissage non supervisé** et l’**apprentissage par renforcement**.
 
@@ -52,7 +52,7 @@ Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning Stud
 
 * **La régression de l’arbre de décision optimisé** tire parti du chevauchement de fonctionnalités ou de l’interaction entre les fonctionnalités. Cela signifie que, dans tout point de données spécifique, la valeur d’une fonctionnalité est prédictive de la valeur d’une autre. Par exemple, pour les données de températures minimales et maximales quotidiennes, connaître la température minimale du jour vous permet de faire une estimation raisonnable de la température maximale. Les informations contenues dans ces deux fonctionnalités sont quelque peu redondantes.
 
-* La classification des données en plus de deux catégories peut être effectuée en utilisant un classifieur à plusieurs classes par nature ou en combinant un ensemble de classifieurs à deux classes dans un **ensemble**. Dans l’approche de l’ensemble, il existe un classifieur à deux classes distinct pour chaque classe, chacun d’entre eux séparant les données en deux catégories : « cette classe » et « pas cette classe ». Puis ces classifieurs votent pour l’affectation correcte du point de données. C’est le principe de fonctionnement sur lequel repose le modèle [à plusieurs classes de un contre tous][one-vs-all-multiclass].
+* Classification des données en plus de deux catégories peut être effectuée à l’aide d’un classifieur de plusieurs class par nature, soit en combinant un ensemble de classifieurs à deux classes dans un **ensemble**. Dans l’approche de l’ensemble, il existe un classifieur à deux classes distinct pour chaque classe, chacun d’entre eux séparant les données en deux catégories : « cette classe » et « pas cette classe ». Puis ces classifieurs votent pour l’affectation correcte du point de données. C’est le principe de fonctionnement sur lequel repose le modèle [à plusieurs classes de un contre tous][one-vs-all-multiclass].
 
 * Plusieurs méthodes, notamment la régression logistique et l’ordinateur de point de Bayes, supposent l’existence de **limites de classe linéaire**. Autrement dit, que les limites entre les classes sont plus ou moins des lignes droites (ou des hyperplans dans le cas le plus général). Il s’agit souvent d’une caractéristique des données que vous ne connaissez pas avant d’avoir essayé de les séparer. Toutefois, vous pouvez généralement la découvrir avec une visualisation au préalable. Si les limites de la classe semblent très irrégulières, utilisez des arbres de décision, des jungles de décision, des machines à vecteurs de support ou des réseaux neuronaux.
 
@@ -69,7 +69,7 @@ Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning Stud
 
 
 <!-- Module References -->
-[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
-[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
-[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
-[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

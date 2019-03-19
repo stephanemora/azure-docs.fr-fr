@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005894"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
@@ -32,12 +32,18 @@ Le Magasin des requêtes étant une fonctionnalité avec option d’adhésion, e
 ### <a name="enable-query-store-using-the-azure-portal"></a>Activer le Magasin des requêtes à l’aide du portail Azure
 1. Connectez-vous au portail Azure, puis sélectionnez votre serveur Azure Database pour PostgreSQL.
 2. Sélectionnez **Paramètres du serveur** dans la section **Paramètres** du menu.
-3. Recherchez le paramètre **pg_qs.query_capture_mode**.
-4. Remplacez la valeur NONE par TOP, puis enregistrez.
+3. Recherchez le paramètre `pg_qs.query_capture_mode`.
+4. Définissez la valeur sur `TOP` et **enregistrer**.
 
-Vous pouvez également définir ce paramètre à l’aide de l’interface Azure CLI.
+Pour activer les statistiques d’attente dans votre requête de Store : 
+1. Recherchez le paramètre `pgms_wait_sampling.query_capture_mode`.
+1. Définissez la valeur sur `ALL` et **enregistrer**.
+
+
+Vous pouvez également définir ces paramètres à l’aide de l’interface CLI.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Autoriser jusqu’à 20 minutes de conservation pour le premier lot de données dans la base de données azure_sys.
@@ -81,6 +87,7 @@ Voici quelques exemples illustrant la façon d’obtenir plus d’insights dans 
 Quand le Magasin des requêtes est activé, il enregistre les données dans des fenêtres d’agrégation de 15 minutes, avec jusqu’à 500 requêtes distinctes par fenêtre. 
 
 Les options suivantes sont disponibles pour la configuration des paramètres du Magasin des requêtes.
+
 | **Paramètre** | **Description** | **Par défaut** | **Plage**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Définit les instructions qui sont suivies. | Aucun | none, top, all |
@@ -89,6 +96,7 @@ Les options suivantes sont disponibles pour la configuration des paramètres du 
 | pg_qs.track_utility | Définit si les commandes d’utilitaire sont suivies | sur | on, off |
 
 Les options suivantes s’appliquent spécifiquement aux statistiques d’attente.
+
 | **Paramètre** | **Description** | **Par défaut** | **Plage**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Définit les instructions qui sont suivies pour les statistiques d’attente. | Aucun | none, all|

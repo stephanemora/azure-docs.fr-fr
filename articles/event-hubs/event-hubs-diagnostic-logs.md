@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540314"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957519"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
@@ -48,7 +48,7 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
     ![Modifier l’état des journaux de diagnostic](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un Event Hub ou Azure Log Analytics.
+5.  Définir la cible d’archivage que vous le souhaitez. par exemple, un compte de stockage, un concentrateur d’événements ou Azure Monitor enregistre.
 
 6.  Enregistrez les nouveaux paramètres de diagnostic.
 

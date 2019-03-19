@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011190"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd : métriques de performances Linux dans Application Insights
 
@@ -26,14 +26,12 @@ Pour explorer les métriques de performances d’un système Linux dans [Applica
 
 De manière générale, vous utilisez collectd lorsque vous avez déjà [instrumenté votre service web Java avec Application Insights][java]. Il vous donne davantage de données pour vous aider à améliorer les performances de votre application ou à diagnostiquer les problèmes. 
 
-![Exemples de graphiques](./media/java-collectd/sample.png)
-
 ## <a name="get-your-instrumentation-key"></a>Récupérer votre clé d’instrumentation
 Dans le [Portail Microsoft Azure](https://portal.azure.com), ouvrez la ressource [Application Insights](../../azure-monitor/app/app-insights-overview.md) dans laquelle vous souhaitez afficher les données. (Ou [créez une ressource](../../azure-monitor/app/create-new-resource.md ).)
 
 Effectuez une copie de la clé d’instrumentation, qui identifie la ressource.
 
-![Parcourez tous les éléments, ouvrez votre ressource, puis, dans la liste déroulante « Essentials », sélectionnez et copiez la clé d’instrumentation.](./media/java-collectd/02-props.png)
+![Parcourez tous les éléments, ouvrez votre ressource, puis, dans la liste déroulante « Essentials », sélectionnez et copiez la clé d’instrumentation.](./media/java-collectd/instrumentation-key-001.png)
 
 ## <a name="install-collectd-and-the-plug-in"></a>Installer le plug-in et collectd
 Sur vos ordinateurs serveurs Linux :
@@ -93,9 +91,7 @@ Configurez d’autres [plug-ins collectd](https://collectd.org/wiki/index.php/Ta
 Redémarrez collectd selon les instructions de son [manuel](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visualiser les données dans Application Insights
-Dans votre ressource Application Insights, ouvrez [Metrics Explorer et ajoutez des graphiques][metrics] en sélectionnant les métriques que vous souhaitez afficher à partir de la catégorie Personnalisé.
-
-![](./media/java-collectd/result.png)
+Dans votre ressource Application Insights, ouvrez [métriques et ajoutez des graphiques][metrics], en sélectionnant les métriques que vous souhaitez afficher à partir de la catégorie personnalisé.
 
 Par défaut, les métriques sont agrégés sur toutes les machines hôtes à partir desquelles ils ont été collectés. Pour visualiser les métriques par hôte, dans le panneau des détails du graphique, activez le regroupement, puis choisissez un groupement de type CollectD-Host.
 

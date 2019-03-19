@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190906"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443400"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -79,7 +79,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50027|Jeton JWT non valide pour l’une des raisons suivantes :<ul><li>Aucune (sous-)revendication nonce</li><li>Non-concordance de l’identificateur du sujet</li><li>Revendication en double pour idToken</li><li>Émetteur inattendu</li><li>Audience inattendue</li><li>Intervalle de temps non valide </li><li>format de jeton incorrect</li><li>Échec du jeton d’ID externe de l’émetteur lors de la vérification de la signature.</li></ul>Contactez le propriétaire de l’application.|
 |50029|URI non valide. Le nom du domaine contient des caractères non valides. Contactez l’administrateur du locataire.|
 |50034|L’utilisateur n’existe pas dans le répertoire. Contactez l’administrateur du locataire.|
-|50042|La valeur salt nécessaire pour générer un identificateur par paire est manquante dans le principal. Contactez l’administrateur du locataire.|
+|50042|Il manque la valeur salt nécessaire pour générer un identificateur par paire en principe. Contactez l’administrateur du locataire.|
 |50048|L’objet ne correspond pas à la revendication d’émetteur dans l’assertion du client. Contactez l’administrateur du locataire.|
 |50050|Le format de la requête est incorrect. Contactez le propriétaire de l’application.|
 |50053|Le compte est verrouillé, car l’utilisateur a essayé de se connecter un trop grand nombre de fois avec un ID d’utilisateur ou un mot de passe incorrect.|
@@ -129,7 +129,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50180|L’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente.|
 |51001|L’indicateur de domaine n’est pas présent avec identificateur de sécurité local - UPN local.|
 |51004|Le compte d’utilisateur n’existe pas dans le répertoire.|
-|51006|L’authentification Windows intégrée est nécessaire. L’utilisateur s’est connecté à l’aide d’un jeton de session ne contenant pas de revendication wia. Demandez à l’utilisateur de se connecter à nouveau.|
+|51006|L’authentification Windows intégrée est nécessaire. Utilisateur connecté à l’aide du jeton de session est manquant via la revendication. Demandez à l’utilisateur de se connecter à nouveau.|
 |52004|L’utilisateur n’a pas donné son consentement pour l’accès aux ressources de LinkedIn. |
 |53000|Une stratégie d’accès conditionnel nécessite un appareil conforme, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’inscrire ses appareils auprès d’un fournisseur approuvé de gestion des appareils mobiles, comme Intune.|
 |53001|Une stratégie d’accès conditionnel nécessite un appareil de jonction de domaine, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’utiliser un appareil de jonction de domaine.|
@@ -138,7 +138,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |53004|L’utilisateur doit terminer le processus d’inscription de l’authentification multifacteur pour accéder à ce contenu. L’utilisateur doit s’inscrire à l’authentification multifacteur.|
 |65 001|L’application X n’est pas autorisée à accéder à l’application Y, ou l’autorisation a été révoquée. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation à l’administrateur du locataire pour agir au nom de l’application : Y pour la ressource : Z.|
 |65004|L’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|
-|65005|La liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|La liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Octroi non valide pour l’une des raisons suivantes :<ul><li>L’assertion SAML 2.0 demandée a une méthode de confirmation d’objet non valide.</li><li>Le flux OnBehalfOf de l’application n’est pas pris en charge sur V2.</li><li>Le jeton d’actualisation principal n’est pas signé avec la clé de session.</li><li>Le jeton d’actualisation externe n’est pas valide.</li><li>L’octroi d’accès a été obtenu pour un autre locataire.</li></ul>|
 |70001|L’application nommée X est introuvable dans le locataire nommé Y. Cela peut se produire si l’application associée à l’identificateur X n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être configuré de manière incorrecte la valeur d’identificateur de l’application ou envoyé votre requête d’authentification à un locataire incorrect.|
 |70002|L’application a renvoyé des informations d’identification client non valides. Contactez le propriétaire de l’application.|

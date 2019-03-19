@@ -3,23 +3,23 @@ title: Supervision d’intégrité de fichier dans Azure Security Center | Micro
 description: " Découvrez comment activer le monitoring d’intégrité de fichier dans Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
-editor: ''
+editor: monhaber
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.author: monhaber
+ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310723"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901579"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -36,15 +36,12 @@ Le Monitoring d’intégrité de fichier dans Security Center valide l’intégr
 Security Center vous recommande des entités à surveiller, pour lesquelles vous pouvez facilement activer la fonctionnalité FIM. Vous pouvez également définir vos propres stratégies FIM ou entités à surveiller. Cette procédure pas à pas vous explique comment procéder.
 
 > [!NOTE]
-> La fonctionnalité Monitoring d’intégrité de fichier (FIM) est prise en charge sur les ordinateurs et les machines virtuelles Windows et Linux, et est disponible dans le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
-La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
->
->
+> La fonctionnalité Monitoring d’intégrité de fichier (FIM) est prise en charge sur les ordinateurs et les machines virtuelles Windows et Linux, et est disponible dans le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center. La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. Lors de l’analyse de l’intégrité de fichier est activée, vous avez un **Change Tracking** ressource de type **Solution**. Pour plus d’informations de fréquence de collecte de données, consultez [détails de la collection de suivi des modifications de données](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) pour Azure Change Tracking.
 
 > [!NOTE]
-> La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. Lorsque la fonctionnalité FIM est activée, vous disposez d’une ressource **Change Tracking** de type Solution. Si vous supprimez la ressource **Change Tracking**, vous désactivez la fonctionnalité FIM dans Security Center.
->
->
+> Si vous supprimez le **Change Tracking** ressource, vous serez également désactiver la fonctionnalité dans Security Center analyse l’intégrité du fichier.
 
 ## <a name="which-files-should-i-monitor"></a>Quels fichiers dois-je surveiller ?
 Sélectionnez les fichiers qui sont essentiels au fonctionnement de votre système et de vos applications. Nous vous recommandons de choisir des fichiers qui ne sont pas susceptibles d’être modifiés sans planification. La sélection de fichiers qui sont fréquemment modifiés par des applications ou le système d’exploitation (par exemple, les fichiers journaux et les fichiers texte) va surcharger le processus et compromettre la détection des attaques.
@@ -134,15 +131,15 @@ La fenêtre **Détails des modifications** s’ouvre lorsque vous saisissez une 
 
 1. Revenez au **tableau de bord Monitoring d’intégrité de fichier** et sélectionnez **Paramètres**.
 
-  ![Paramètres][11]
+   ![Paramètres][11]
 
-  La page **Configuration de l’espace de travail** s’ouvre. Elle contient trois onglets : **Registre Windows**, **Fichiers Windows** et **Fichiers Linux**. Chaque onglet répertorie les entités que vous pouvez modifier dans cette catégorie. Pour chaque entité répertoriée, Security Center identifie si la fonctionnalité FIM est activée (true) ou désactivée (false).  La modification de l’entité vous permet d’activer ou de désactiver la fonctionnalité FIM.
+   La page **Configuration de l’espace de travail** s’ouvre. Elle contient trois onglets : **Registre Windows**, **Fichiers Windows** et **Fichiers Linux**. Chaque onglet répertorie les entités que vous pouvez modifier dans cette catégorie. Pour chaque entité répertoriée, Security Center identifie si la fonctionnalité FIM est activée (true) ou désactivée (false).  La modification de l’entité vous permet d’activer ou de désactiver la fonctionnalité FIM.
 
-  ![Configuration de l’espace de travail][12]
+   ![Configuration de l’espace de travail][12]
 
-2. Sélectionnez un élément IdentityProtection. Dans cet exemple, nous avons sélectionné un élément dans le Registre Windows. La fenêtre **Modification pour Change Tracking** s’affiche.
+2. Sélectionnez une protection d’identité. Dans cet exemple, nous avons sélectionné un élément dans le Registre Windows. La fenêtre **Modification pour Change Tracking** s’affiche.
 
-  ![Modification pour Change Tracking][13]
+   ![Modification pour Change Tracking][13]
 
 Sous **Modification pour Change Tracking**, vous pouvez :
 
@@ -155,11 +152,11 @@ Sous **Modification pour Change Tracking**, vous pouvez :
 1. Revenez au **tableau de bord Monitoring d’intégrité de fichier**, puis sélectionnez **Paramètres** en haut de la page. La fenêtre **Configuration de l’espace de travail** s’affiche.
 2. Sous **Configuration de l’espace de travail**, sélectionnez l’onglet correspondant au type d’entité que vous souhaitez ajouter : Registre Windows, Fichiers Windows ou Fichiers Linux. Dans cet exemple, nous avons sélectionné **Fichiers Linux**.
 
-  ![Ajoutez un nouvel élément à surveiller][14]
+   ![Ajoutez un nouvel élément à surveiller][14]
 
 3. Sélectionnez **Ajouter**. La fenêtre **Ajout pour Change Tracking** s’affiche.
 
-  ![Saisir les informations requises][15]
+   ![Saisir les informations requises][15]
 
 4. Sur la page **Ajouter**, saisissez les informations requises, puis sélectionnez **Enregistrer**.
 
@@ -167,19 +164,19 @@ Sous **Modification pour Change Tracking**, vous pouvez :
 1. Revenez au tableau de bord **Monitoring d’intégrité de fichier**.
 2. Sélectionnez un espace de travail pour lequel la fonctionnalité FIM est actuellement activée. Un espace de travail pour lequel la fonctionnalité FIM est activée ne contient pas de bouton Activer ou Mettre à niveau le plan.
 
-  ![Sélectionner un espace de travail pour lequel la fonctionnalité FIM est activée][16]
+   ![Sélectionner un espace de travail pour lequel la fonctionnalité FIM est activée][16]
 
 3. Sous Monitoring d’intégrité de fichier, cliquez sur **Paramètres**.
 
-  ![Sélectionner les paramètres][17]
+   ![Sélectionner les paramètres][17]
 
 4. Sous **Configuration de l’espace de travail**, sélectionnez un groupe dans lequel la valeur **Activé** est définie sur true.
 
-  ![Configuration de l’espace de travail][18]
+   ![Configuration de l’espace de travail][18]
 
 5. Dans la fenêtre **Modification pour Change Tracking**, définissez la valeur **Activé** sur false.
 
-  ![Définir la valeur Activé sur false][19]
+   ![Définir la valeur Activé sur false][19]
 
 6. Sélectionnez **Enregistrer**.
 
@@ -198,7 +195,7 @@ Vous pouvez désactiver la fonctionnalité FIM. La fonctionnalité FIM utilise l
 2. Sélectionnez un espace de travail.
 3. Sous **Monitoring d’intégrité de fichier**, cliquez sur **Désactiver**.
 
-  ![Désactiver la fonctionnalité FIM][20]
+   ![Désactiver la fonctionnalité FIM][20]
 
 4. Sélectionnez **Supprimer** pour confirmer la désactivation.
 

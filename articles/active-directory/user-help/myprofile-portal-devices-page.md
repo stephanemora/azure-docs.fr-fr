@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd6db6b8dbbe051dba129b0d9f3e87f293d6706
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458306"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729099"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gérer vos appareils connectés à partir du portail Mon profil (préversion)
 Vous pouvez gérer les appareils auxquels vous êtes connecté à l’aide de votre compte professionnel ou scolaire, en désactivant ceux que vous ne possédez plus, à partir de la page **Appareils** du portail **Mon profil**.
@@ -29,14 +29,14 @@ Vous pouvez gérer les appareils auxquels vous êtes connecté à l’aide de vo
 
 2. Sélectionnez **Appareils** dans le volet de navigation gauche ou sélectionnez le lien **Gérer les appareils** à partir du bloc **Appareils**.
 
-    ![Page Mon profil, montrant les liaisons d’appareils mises en surbrillance](media/myprofile-portal/myprofile-portal-devices-links.png)
+    ![Page Mon profil, montrant les liaisons d’appareils mises en surbrillance](media/myprofile-portal/myprofile-portal-devices.png)
 
 3. Passez en revue les informations de vos appareils connectés, en veillant à les reconnaître tous. 
 
     ![Page Appareils, montrant les appareils connectés](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Désactiver un appareil
-À tout moment, vous pouvez désactiver l’un de vos appareils connectés. Cela est particulièrement important si vous ne connaissez pas un appareil particulier ou si un appareil est perdu ou volé.
+À tout moment, vous pouvez désactiver l’un de vos appareils connectés. Cela est particulièrement important si vous ne connaissez pas un appareil particulier ou si un appareil est perdu ou volé. Une fois que vous désactivez un appareil, il peut ne plus être authentifié par votre organisation et ne pourront pas accéder aux ressources de votre organisation.
 
 >[!Important]
 >Si vous désactivez un appareil par erreur, il n’existe aucun moyen d’annuler cette action. Il vous faudra contacter l’administrateur de votre organisation pour ajouter l’appareil à nouveau.
@@ -49,4 +49,4 @@ Vous pouvez gérer les appareils auxquels vous êtes connecté à l’aide de vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Après avoir consulté votre activité de connexion récente, vous pouvez choisir d’afficher ou de gérer vos [informations de sécurité](user-help-security-info-overview.md), vos [activités de connexion récentes](myprofile-portal-recent-activity-page.md), vos [organisations](myprofile-portal-organizations-page.md) connectées, ou d’afficher la façon dont votre organisation [utilise vos données](myprofile-portal-privacy-page.md).
+- Après l’affichage de vos appareils connectés, vous pouvez sélectionner pour afficher ou gérer votre [des informations de sécurité](user-help-security-info-overview.md), votre [organisations](myprofile-portal-organizations-page.md), ou une vue comment votre organisation [utilise vos données](myprofile-portal-privacy-page.md).

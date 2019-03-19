@@ -1,19 +1,20 @@
 ---
 title: Bien démarrer avec la gestion des appareils Azure IoT Hub (Java) | Microsoft Docs
 description: Guide d’utilisation de la gestion des appareils Azure IoT Hub pour lancer un redémarrage d’appareil à distance. Vous utilisez Azure IoT device SDK pour Java afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et Azure IoT service SDK pour Java afin d’implémenter une application de service qui appelle la méthode directe.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 46b094e8436d74915a1cd5a0ccec402bee03e33b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515282"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538100"
 ---
 # <a name="get-started-with-device-management-java"></a>Prise en main de la gestion d’appareils (Java)
 
@@ -56,7 +57,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Maven 3.  <br/> [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) décrit l’installation de [Maven](https://maven.apache.org/what-is-maven.html) pour ce tutoriel sur Windows ou Linux.
 
-* [Node.js version 0.10.0 ou supérieure](http://nodejs.org).
+* [Node.js version 0.10.0 ou supérieure](https://nodejs.org).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -100,7 +101,7 @@ Cette application console se connecte à votre hub IoT pour appeler la méthode 
     ```
 
     > [!NOTE]
-    > Vous pouvez rechercher la dernière version de **iot-service-client** avec la [recherche Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Vous pouvez rechercher la dernière version de **iot-service-client** avec la [recherche Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Ajoutez le nœud **build** suivant après le nœud **dependencies**. Cette configuration ordonne à Maven d’utiliser Java 1.8 pour générer l’application :
 
@@ -246,7 +247,7 @@ Dans cette section, vous créez une application console Java qui simule un appar
     ```
 
     > [!NOTE]
-    > Vous pouvez rechercher la dernière version de **iot-device-client** avec la [recherche Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Vous pouvez rechercher la dernière version de **iot-device-client** avec la [recherche Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Ajoutez le nœud **build** suivant après le nœud **dependencies**. Cette configuration ordonne à Maven d’utiliser Java 1.8 pour générer l’application :
 

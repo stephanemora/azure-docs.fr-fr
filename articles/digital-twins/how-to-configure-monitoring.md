@@ -9,18 +9,20 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 23759a6c3d920e2b791a10ddd5ac5c5285ed1889
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807582"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959865"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Guide pratique pour configurer la supervision dans Azure Digital Twins
 
-Azure Digital Twins prend en charge de solides fonctionnalités de journalisation, de supervision et d’analytique. Les développeurs de solutions peuvent utiliser Azure Log Analytics, les journaux de diagnostic, la journalisation de l’activité et d’autres services pour prendre en charge les besoins de supervision complexes d’une application IoT. Vous pouvez combiner les options de journalisation afin d’interroger ou d’afficher des enregistrements entre plusieurs services et de fournir une couverture de journalisation précise pour de nombreux services.
+Azure Digital Twins prend en charge de solides fonctionnalités de journalisation, de supervision et d’analytique. Les développeurs de solutions peuvent utiliser des journaux Azure Monitor, journaux de diagnostic, journal d’activité et d’autres services pour prendre en charge les besoins d’analyse complexes d’une application IoT. Vous pouvez combiner les options de journalisation afin d’interroger ou d’afficher des enregistrements entre plusieurs services et de fournir une couverture de journalisation précise pour de nombreux services.
 
 Cet article récapitule les options de journalisation et de supervision, puis explique comment les combiner spécifiquement pour Azure Digital Twins.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="review-activity-logs"></a>Examiner les journaux d’activité
 
@@ -75,7 +77,7 @@ Pour activer les journaux de diagnostic pour une instance :
 
     ![Paramètres de diagnostic (2)][5]
 
-    Les journaux de diagnostic sont souvent enregistrés à l’aide de [Stockage Fichier Azure](../storage/files/storage-files-deployment-guide.md) et partagés avec [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Les deux options peuvent être sélectionnées.
+    Journaux de diagnostic sont souvent enregistrés à l’aide de [stockage fichier Azure](../storage/files/storage-files-deployment-guide.md) et partagées avec [Azure Monitor enregistre](../azure-monitor/log-query/get-started-portal.md). Les deux options peuvent être sélectionnées.
 
 >[!TIP]
 >Utilisez des **journaux de diagnostic** pour connaître les opérations de ressource.
@@ -84,7 +86,7 @@ Pour activer les journaux de diagnostic pour une instance :
 
 Les applications IoT unifient des ressources, des appareils, des emplacements et des données disparates. La journalisation affinée fournit des informations détaillées sur chaque élément, service ou composant de l’architecture globale de l’application, mais une vue d’ensemble unifiée est souvent nécessaire pour la maintenance et le débogage.
 
-Azure Monitor inclut le puissant service Log Analytics, qui permet de voir et d’analyser les sources de journalisation dans un seul emplacement. Azure Monitor est donc très utile pour l’analyse des journaux dans des applications IoT sophistiquées.
+Azure Monitor inclut le service d’analytique de journaux puissant, qui permet la journalisation des sources pour afficher et analyser dans un emplacement. Azure Monitor est donc très utile pour l’analyse des journaux dans des applications IoT sophistiquées.
 
 Voici quelques exemples d’utilisation :
 
@@ -92,32 +94,32 @@ Voici quelques exemples d’utilisation :
 * Visualisation des journaux relatifs à plusieurs fonctions définies par l’utilisateur
 * Affichage des journaux relatifs à deux ou plusieurs services dans un intervalle de temps spécifique
 
-[Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) prend en charge l’interrogation complète des journaux. Pour configurer ces fonctionnalités puissantes :
+Interrogation du journal complet est fourni via [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md). Pour configurer ces fonctionnalités puissantes :
 
 1. Recherchez **Log Analytics** dans le portail Azure.
-1. Vos instances **Log Analytics** disponibles apparaissent. Choisissez-en une et sélectionnez les **Journaux** à interroger :
+1. Vous verrez votre disponible **espace de travail Analytique de journal** instances. Choisissez-en une et sélectionnez les **Journaux** à interroger :
 
     ![Log Analytics][6]
 
-1. Si vous n’avez pas d’instance **Log Analytics**, vous pouvez créer un espace de travail en cliquant sur le bouton **Ajouter** :
+1. Si vous n’avez pas déjà un **espace de travail Analytique de journal** instance, vous pouvez créer un espace de travail en cliquant sur le **ajouter** bouton :
 
     ![Créer un espace de travail OMS][7]
 
-Une fois votre instance **Log Analytics** provisionnée, vous pouvez utiliser des requêtes puissantes pour rechercher des entrées dans plusieurs journaux ou effectuer une recherche à l’aide de critères spécifiques au moyen de la **Gestion des journaux** :
+Une fois votre **espace de travail Analytique de journal** instance est approvisionnée, vous pouvez utiliser des requêtes puissantes pour rechercher des entrées dans les journaux de multiples ou à l’aide des critères spécifiques à l’aide de **gestion des journaux**:
 
    ![Gestion du journal][8]
 
 Pour plus d’informations sur les opérations de requêtes puissantes, consultez [Bien démarrer avec les requêtes](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Le premier envoi d’événements à **Log Analytics** peut prendre 5 minutes.
+> Vous pouvez rencontrer un délai de 5 minutes lors de l’envoi d’événements à **espace de travail Analytique de journal** pour la première fois.
 
-Azure Log Analytics fournit également des services de notification d’erreur et d’alerte puissants, que vous pouvez voir en cliquant sur **Diagnostiquer et résoudre les problèmes** :
+Journaux d’Azure Monitor fournit également des erreurs puissante et les services de notification d’alerte, qui peuvent être affichés en cliquant sur **diagnostiquer et résoudre les problèmes**:
 
    ![Notifications d’alerte et d’erreur][9]
 
 >[!TIP]
->Utilisez **Log Analytics** pour interroger les historiques de journal de plusieurs services, abonnements ou fonctionnalités d’application.
+>Utilisez **espace de travail Analytique de journal** à historiques de journal de requête pour plusieurs fonctionnalités de l’application, les abonnements ou les services.
 
 ## <a name="other-options"></a>Autres options
 
@@ -129,7 +131,7 @@ Azure Digital Twins prend également en charge la journalisation et l’audit de
 
 - Approfondissez votre connaissance des paramètres de diagnostic Azure en lisant une [présentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-- Découvrez-en plus sur [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- En savoir plus sur [Azure Monitor enregistre](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: 945d8690ccb61916455ba4137f59c67c9a3d9f76
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237686"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440996"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article explique les étapes à suivre pour configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services. Il montre également comment accéder aux rapports à l’aide de Power BI. Une fois que vous avez terminé ces étapes, vous pouvez accéder directement à Power BI pour afficher, personnaliser et créer des rapports.
@@ -31,7 +31,7 @@ Téléchargez la dernière application (version 1.8) pour éviter ce problème.
 - Vous pouvez afficher des rapports sur différents coffres et abonnements, à condition que le même compte de stockage soit configuré pour chacun des coffres. Le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
 - La fréquence d’actualisation planifiée des rapports est de 24 heures dans Power BI. Vous pouvez également effectuer une actualisation ad hoc des rapports dans Power BI. Dans ce cas, les données les plus récentes dans le compte de stockage client sont utilisées pour restituer des rapports.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 - Créez un [compte de stockage Azure](../storage/common/storage-quickstart-create-account.md) afin de le configurer pour les rapports. Il est utilisé pour stocker des données associées aux rapports.
 - [Créez un compte Power BI](https://powerbi.microsoft.com/landing/signin/) pour afficher, personnaliser et créer vos propres rapports à l’aide du portail Power BI.
 - Inscrivez le fournisseur de ressources **Microsoft.insights**, s’il n’est pas déjà inscrit. Utilisez les abonnements pour le compte de stockage et le coffre Recovery Services afin que les données de rapports puissent être transmises au compte de stockage. Pour faire cette étape, accédez au Portail Azure, sélectionnez **Abonnement** > **Fournisseurs de ressources**, et cochez ce fournisseur pour l’inscrire.

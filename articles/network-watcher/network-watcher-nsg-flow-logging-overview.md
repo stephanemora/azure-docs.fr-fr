@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 62b526950367987e26c1c67394bc0720ae895fa6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341043"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983793"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -286,5 +286,5 @@ Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir
 
 - Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
 - Pour savoir comment lire les journaux de flux, consultez [Lire des journaux de flux NSG](network-watcher-read-nsg-flow-logs.md).
-- Pour en savoir plus sur la journalisation du groupe de sécurité réseau, consultez [Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Pour en savoir plus sur la journalisation du groupe de sécurité réseau, consultez [Azure Monitor les journaux des groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Pour déterminer si le trafic est autorisé ou refusé vers ou à partir d’une machine virtuelle, consultez [Diagnostiquer un problème de filtre de trafic réseau de machines virtuelles](diagnose-vm-network-traffic-filtering-problem.md)

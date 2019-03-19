@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811084"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433431"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Cet article décrit les jeux de données, comment ils sont définis au format JS
 > [!NOTE]
 > Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md) pour obtenir une vue d’ensemble. Si vous n’avez pas d’expérience pratique de la création de fabriques de données, vous pouvez obtenir une meilleure compréhension en lisant le [tutoriel de transformation des données](data-factory-build-your-first-pipeline.md) et le [tutoriel de déplacement des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local vers un stockage Blob Azure. Ensuite, vous pouvez utiliser une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter les données du stockage Blob afin de produire des données de sortie. Enfin, vous pouvez utiliser une deuxième activité de copie pour copier les données de sortie dans Azure SQL Data Warehouse sur lequel des solutions de génération de rapports décisionnelles sont développées. Pour plus d’informations sur les pipelines et les activités, voir [Pipelines et activités dans Azure Data Factory](data-factory-create-pipelines.md).
 
 Une activité peut inclure zéro ou plusieurs **jeux de données** d’entrée et produire un ou plusieurs jeux de données de sortie. Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets Blob Azure spécifie le conteneur et le dossier du stockage Blob à partir duquel le pipeline doit lire les données.
@@ -238,7 +238,7 @@ Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la sec
 | frequency |Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/><b>Fréquence prise en charge</b> : Minute, Hour, Day, Week, Month |Oui |N/D |
 | interval |Spécifie un multiplicateur de fréquence.<br/><br/>« Frequency x interval » déterminent la fréquence à laquelle la tranche est produite. Par exemple, si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/>Notez que si vous spécifiez **frequency** sur **Minute**, vous devez définir l’intervalle sur une valeur au minimum égale à 15. |Oui |N/D |
 | style |Spécifie si le segment doit être généré au début ou à la fin de l’intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Si **frequency** est défini sur **Month** et **style** défini sur **EndOfInterval**, le segment est généré le dernier jour du mois. Si **style** est défini sur **StartOfInterval**, le segment est généré le premier jour du mois.<br/><br/>Si **frequency** est défini sur **Day** et **style** est défini sur **EndOfInterval**, le segment est généré la dernière heure du jour.<br/><br/>Si **frequency** est défini sur **Hour** et **style** défini sur **EndOfInterval**, le segment est généré à la fin de l’heure. Par exemple, pour un segment de la période 13 h-14 h, le segment est généré à 14 h. |Non  |EndOfInterval |
-| anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/>Notez que si cette propriété comporte des éléments de date plus précis que la fréquence spécifiée, les éléments plus précise sont ignorés. Par exemple, si **interval** est **hourly** (frequency: hour et interval: 1), et que **anchorDateTime** contient **minutes and seconds**, les éléments minutes et seconds d’**anchorDateTime** sont ignorés. |Non  |01/01/0001 |
+| anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/>Notez que si cette propriété a des parties de date plus précis que la fréquence spécifiée, ces éléments plus précis sont ignorés. Par exemple, si **interval** est **hourly** (frequency: hour et interval: 1), et que **anchorDateTime** contient **minutes and seconds**, les éléments minutes et seconds d’**anchorDateTime** sont ignorés. |Non  |01/01/0001 |
 | Offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/>Notez que si **anchorDateTime** et **offset** sont spécifiés, un décalage combiné est obtenu. |Non  |N/D |
 
 ### <a name="offset-example"></a>exemple offset

@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838310"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI
 
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l’accès aux ressources Azure. Cet article décrit comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour gérer les accès, il vous faudra l’un des éléments suivants :
 
@@ -89,9 +89,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role"></a>Répertorier les actions d'un rôle
+## <a name="list-a-role-definition"></a>Liste d’une définition de rôle
 
-Pour lister les actions d’une définition de rôle, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
+Pour répertorier une définition de rôle, utilisez [liste des définitions de rôle az](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -104,6 +104,7 @@ az role definition list --name "Contributor"
 ```
 
 ```Output
+[
   {
     "additionalProperties": {},
     "assignableScopes": [
@@ -134,7 +135,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-L’exemple suivant liste les *actions* et les *notActions* du rôle *Contributeur* :
+### <a name="list-actions-of-a-role"></a>Répertorier les actions d'un rôle
+
+L’exemple suivant répertorie uniquement les *actions* et *notActions* de la *contributeur* rôle :
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -153,7 +156,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-L’exemple suivant liste les actions du rôle *Contributeur de machine virtuelle* :
+L’exemple suivant répertorie uniquement les actions de la *collaborateur de Machine virtuelle* rôle :
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -191,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 Par défaut, seules sont affichées les attributions étendues à un abonnement. Pour afficher les attributions étendues par ressource ou groupe, utilisez `--all`.
 
-L’exemple suivant liste les attributions de rôles octroyées directement à l’utilisateur *patlong@contoso.com* :
+L’exemple suivant répertorie les attributions de rôles qui sont affectées directement à la *patlong\@contoso.com* utilisateur :
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -249,7 +252,7 @@ Pour créer une attribution de rôle pour un utilisateur dans l’étendue du gr
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à l’utilisateur *patlong@contoso.com* dans l’étendue du groupe de ressources *pharma-sales-projectforecast* :
+L’exemple suivant affecte la *collaborateur de Machine virtuelle* rôle *patlong\@contoso.com* utilisateur à la *pharma-sales-projectforecast* étendue du groupe de ressources :
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -297,7 +300,7 @@ Dans le contrôle d’accès en fonction du rôle, vous supprimez une attributio
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-L’exemple suivant retire l’attribution de rôle *Collaborateur de machine virtuelle* à l’utilisateur *patlong@contoso.com* dans le groupe de ressources *pharma-sales-projectforecast*.
+L’exemple suivant supprime le *collaborateur de Machine virtuelle* attribution de rôle à partir de la *patlong\@contoso.com* utilisateur sur le *pharma-sales-projectforecast* groupe de ressources :
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

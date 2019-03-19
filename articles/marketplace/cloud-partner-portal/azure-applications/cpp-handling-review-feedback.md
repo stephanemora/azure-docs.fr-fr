@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106951"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882686"
 ---
 # <a name="handling-review-feedback"></a>Gestion des commentaires de révision
 
@@ -58,14 +58,14 @@ Utilisez la procédure suivante pour passer en revue les problèmes décrits dan
 
 1. Dans la section **Révision Microsoft** du formulaire **Étapes de publication**, cliquez sur le lien d’une demande de tirage pour lancer votre navigateur et accéder à la page **Vue d’ensemble** (accueil) pour cette demande de tirage.  L’image suivante illustre un exemple de page d’accueil de problème critique pour l’exemple d’offre d’application Contoso.  Cette page contient des informations récapitulatives utiles sur les problèmes de révision trouvés dans l’application Azure.  
 
-    [ ![Page d’accueil de la demande de tirage](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Page d’accueil de demande de tirage](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Cliquez sur l’image pour la développer.*
     
 2. (Facultatif) Sur le côté droit de la fenêtre, dans la section **Stratégies**, cliquez sur le message du problème (dans cet exemple : **Échec de la validation de la stratégie**) pour examiner les détails du problème, notamment les fichiers journaux associés.  Les erreurs sont généralement affichées en bas des fichiers journaux.
 
 3. Dans le menu sur le côté gauche de la page d’accueil, sélectionnez **Fichiers** pour afficher les fichiers qui composent les ressources techniques pour cette offre.  Les réviseurs de Microsoft doivent avoir ajoutés des commentaires décrivant les problèmes critiques détectés.  Dans l’exemple suivant, deux problèmes ont été détectés. 
 
-    [ ![Page d’accueil de la demande de tirage](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Page d’accueil de demande de tirage](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Cliquez sur l’image pour la développer.*
 
 4. Cliquez sur chaque nœud de commentaire dans l’arborescence de gauche pour accéder au commentaire dans le contexte du code environnant.  Corrigez votre code source dans le projet de votre équipe pour corriger le problème décrit par le commentaire.

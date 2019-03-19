@@ -1,6 +1,6 @@
 ---
 title: Comment interroger des journaux des requête à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
-description: La solution Azure Monitor pour les machines virtuelles transfère des métriques et des données de journal à Log Analytics. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
+description: Azure Monitor pour les machines virtuelles solution collecte les mesures et les données de journal et de cet article décrit les enregistrements et inclut des exemples de requêtes.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864415"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983776"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
-Azure Monitor pour les machines virtuelles collecte des métriques de performances et de connexion, les données d’inventaire des ordinateurs et processus et des informations concernant l’état d’intégrité, puis les transfère au magasin de données Log Analytics dans Azure Monitor.  Ces données peuvent faire l’objet de [recherches](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Azure Monitor pour les machines virtuelles collecte des performances et métriques de connexion, ordinateur et traiter les données de l’inventaire et informations d’état d’intégrité et la transfère à l’espace de travail Analytique de journal dans Azure Monitor.  Ces données sont disponibles pour [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 ## <a name="map-records"></a>Mapper des enregistrements
 Un enregistrement est généré par heure pour chaque ordinateur et processus, en plus des enregistrements générés lorsqu’un processus ou un ordinateur démarre ou est intégré à la fonctionnalité Map d’Azure Monitor pour les machines virtuelles. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
@@ -34,7 +34,7 @@ Il existe des propriétés générées en interne que vous pouvez utiliser pour 
 Étant donné que plusieurs enregistrements peuvent exister pour un processus et un ordinateur donnés au cours d’une période spécifique, les requêtes peuvent renvoyer plusieurs enregistrements pour un même ordinateur ou processus. Pour inclure uniquement l’enregistrement le plus récent, ajoutez "| dedup ResourceId" à la requête.
 
 ### <a name="connections"></a>connexions
-Les métriques de connexion sont écrites dans une nouvelle table dans Log Analytics (VMConnection). Cette table fournit des informations sur les connexions relatives à une machine (entrantes et sortantes). Les métriques de connexion sont également exposées avec des API offrant le moyen d’obtenir une métrique spécifique dans une fenêtre de temps.  Les connexions TCP résultant de l’acceptation (*accept*) sur un socket d’écoute sont des connexions entrantes, tandis que celles créées par le biais d’une connexion (*connect*) à une adresse IP et un port spécifiques sont des connexions sortantes. La direction d’une connexion est représentée par la propriété Direction, qui peut être définie avec la valeur **inbound** ou **outbound**. 
+Métriques de connexion sont écrites dans une nouvelle table dans les journaux d’Azure Monitor - VMConnection. Cette table fournit des informations sur les connexions relatives à une machine (entrantes et sortantes). Les métriques de connexion sont également exposées avec des API offrant le moyen d’obtenir une métrique spécifique dans une fenêtre de temps.  Les connexions TCP résultant de l’acceptation (*accept*) sur un socket d’écoute sont des connexions entrantes, tandis que celles créées par le biais d’une connexion (*connect*) à une adresse IP et un port spécifiques sont des connexions sortantes. La direction d’une connexion est représentée par la propriété Direction, qui peut être définie avec la valeur **inbound** ou **outbound**. 
 
 Les enregistrements inclus dans ces tables sont générés à partir des données rapportées par Dependency Agent. Chaque enregistrement représente une observation sur un intervalle de temps d’une minute. La propriété TimeGenerated indique le début de l’intervalle de temps. Chaque enregistrement contient des informations identifiant l’entité respective (à savoir la connexion ou le port), ainsi que des métriques associées à cette entité. Actuellement, seule l’activité réseau utilisant TCP sur IPv4 est rapportée.
 
@@ -255,5 +255,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Si vous débutez dans l’écriture de requêtes dans Log Analytics, voyez [comment utiliser la page Log Analytics](../../azure-monitor/log-query/get-started-portal.md) dans le Portail Azure pour écrire des requêtes Log Analytics.
+* Si vous ne savez pas comment rédiger des requêtes de journal dans Azure Monitor, consultez [comment utiliser l’Analytique de journal](../../azure-monitor/log-query/get-started-portal.md) dans le portail Azure pour écrire des requêtes de journal.
 * Découvrez [l’écriture de requêtes de recherche](../../azure-monitor/log-query/search-queries.md).

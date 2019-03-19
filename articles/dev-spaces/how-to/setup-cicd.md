@@ -1,22 +1,21 @@
 ---
-title: Utilisation de CI/CD avec Azure Dev Spaces | Microsoft Docs
+title: À l’aide de CI/CD avec des espaces de développement Azure
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
-ms.topic: article
+ms.topic: conceptual
 manager: yuvalm
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
-ms.openlocfilehash: 0abe2902248c8203046cfe891d136ca7d5d0a75b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665970"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768278"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utiliser CI/CD avec Azure Dev Spaces
 
@@ -26,7 +25,7 @@ Cet article vous guide tout au long de la configuration de l’intégration cont
 
 Bien que cet article vous guide avec Azure DevOps, les mêmes concepts sont applicables aux systèmes CI/CD tels que Jenkins, TeamCity, etc.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * [Cluster AKS (Azure Kubernetes Service) avec Azure Dev Spaces activé](../get-started-netcore.md)
 * [Interface CLI Azure Dev Spaces installée](upgrade-tools.md)
 * [Organisation Azure DevOps avec un projet](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -45,6 +44,17 @@ azds space select -n dev
 ```
 
 Quand vous êtes invité à sélectionner un espace dev parent, sélectionnez _\<aucun\>_.
+
+Une fois que votre espace de développement a été créé, vous devez déterminer le suffixe de l’hôte. Utilisez le `azds show-context` commande pour afficher le suffixe d’hôte du contrôleur d’entrée Azure Dev espaces.
+
+```cmd
+$ azds show-context
+Name   ResourceGroup    DevSpace  HostSuffix
+-----  ---------------  --------  ----------------------
+MyAKS  MyResourceGroup  dev       fedcba098.eus.azds.io
+```
+
+Dans l’exemple ci-dessus, le suffixe de l’hôte est _fedcba098.eus.azds.io_. Cette valeur est utilisée ultérieurement lors de la création de votre définition de version.
 
 L’espace _dev_ contient toujours le dernier état du dépôt, une base de référence, afin que les développeurs puissent créer des _espaces enfants_ de _dev_ pour tester leurs modifications isolées dans le contexte de l’application plus volumineuse. Ce concept est décrit plus en détail dans les tutoriels Dev Spaces.
 
@@ -65,17 +75,17 @@ Dans la branche _azds_updates_, nous avons inclus un simple [pipeline YAML Azure
 Selon le langage que vous avez choisi, le pipeline YAML a été archivé dans un chemin semblable à : `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
 Pour créer un pipeline à partir de ce fichier :
-1. Dans la page principale de votre projet DevOps, accédez à Pipelines > Builds
-1. Sélectionnez l’option permettant de créer un **Nouveau** pipeline de build
-1. Sélectionnez **GitHub** comme source, donnez l’autorisation avec votre compte GitHub si nécessaire, puis sélectionnez la branche _azds_updates_ à partir de votre version dupliquée du dépôt dev-spaces sampleapp
-1. Sélectionnez **Configuration sous forme de code** ou **YAML** comme modèle
-1. Une page de configuration s’affiche à présent pour votre pipeline de build. Comme mentionné ci-dessus, entrez le chemin spécifique au langage pour **Chemin du fichier YAML**. Par exemple, `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
-1. Accédez à l’onglet Variables
+1. Sur votre page principale de projet DevOps, accédez à des Pipelines > génère.
+1. Sélectionnez l’option permettant de créer un **New** pipeline de build.
+1. Sélectionnez **GitHub** comme source, autoriser avec votre compte GitHub si nécessaire, puis sélectionnez le _azds_updates_ branche à partir de votre version dupliquée du référentiel sampleapp espaces de développement.
+1. Sélectionnez **Configuration en tant que code**, ou **YAML**, en tant que votre modèle.
+1. Une page de configuration s’affiche à présent pour votre pipeline de build. Comme mentionné ci-dessus, naviguez jusqu'à l’emplacement spécifique à la langue pour le **chemin d’accès du fichier YAML** à l’aide de la **...**  bouton. Par exemple : `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Accédez à la **Variables** onglet.
 1. Ajoutez manuellement _dockerId_ comme variable, qui correspond au nom d’utilisateur de votre [compte d’administrateur Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). (Élément mentionné dans les prérequis de l’article)
 1. Ajoutez manuellement _dockerPassword_ comme variable, qui correspond au mot de passe de votre [compte d’administrateur Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). Veillez à spécifier _dockerPassword_ en tant que Secret (en sélectionnant l’icône de verrou) pour des raisons de sécurité.
-1. Sélectionnez **Enregistrer et mettre en file d’attente**
+1. Sélectionnez **Enregistrer & file d’attente**.
 
-Vous disposez maintenant d’une solution CI qui va générer automatiquement *mywebapi* et *webfrontend* pour toute mise à jour envoyée vers la branche _azds_updates_ de votre duplication GitHub. Vous pouvez vérifier que les images Docker ont été envoyées en accédant au portail Azure, en sélectionnant votre registre Azure Container Registry et en parcourant l’onglet _Dépôts_ :
+Vous disposez maintenant d’une solution CI qui va générer automatiquement *mywebapi* et *webfrontend* pour toute mise à jour envoyée vers la branche _azds_updates_ de votre duplication GitHub. Vous pouvez vérifier les images Docker ont été déplacées en accédant au portail Azure, en sélectionnant votre Registre de conteneurs Azure et en parcourant le **référentiels** onglet. Il peut prendre plusieurs minutes pour les images générer et apparaissent dans votre Registre de conteneurs.
 
 ![Dépôts Azure Container Registry](../media/common/ci-cd-images-verify.png)
 
@@ -83,31 +93,44 @@ Vous disposez maintenant d’une solution CI qui va générer automatiquement *m
 
 1. Dans la page principale de votre projet DevOps, accédez à Pipelines > Mises en production
 1. Si vous travaillez sur un tout nouveau projet DevOps qui ne contient pas encore une définition de mise en production, vous devez d’abord en créer une vide avant de continuer. L’option d’importation ne s’affiche pas dans l’interface utilisateur tant que vous n’avez pas de définition de mise en production existante.
-1. Sur la gauche, cliquez sur le bouton **+ Nouveau**, puis sur **Importer un pipeline**
-1. Sélectionnez le fichier .json sur `samples/release.json`
-1. Cliquez sur OK. Notez que le volet Pipeline est chargé avec la page de modification de définition de mise en production. Notez aussi la présence de certaines icônes d’avertissement rouges indiquant des détails spécifiques au cluster qui doivent toujours être configurés.
+1. Sur la gauche, cliquez sur le **+ nouveau** , puis cliquez sur **importer un pipeline**.
+1. Cliquez sur **Parcourir** et sélectionnez `samples/release.json` à partir de votre projet.
+1. Cliquez sur **OK**. Notez que le volet Pipeline est chargé avec la page de modification de définition de mise en production. Notez aussi la présence de certaines icônes d’avertissement rouges indiquant des détails spécifiques au cluster qui doivent toujours être configurés.
 1. Sur la gauche du volet Pipeline, cliquez sur la bulle **Ajouter un artefact**.
-1. Dans la liste déroulante **Source**, sélectionnez le pipeline de build que nous avons créé un peu plus tôt dans ce document.
-1. Pour **Version par défaut**, nous vous recommandons de choisir **Latest from the build pipeline default branch** (La dernière de la branche par défaut du pipeline de build avec les étiquettes). Vous n’avez pas besoin de spécifier des étiquettes.
-1. Affectez à **Alias source** la valeur `drop`. Comme les tâches de mise en production prédéfinies utilisent **Alias source**, cette option doit être définie.
+1. Dans le **Source** liste déroulante, sélectionnez la build pipeline que vous avez créé précédemment.
+1. Pour le **version par défaut**, choisissez **plus récente à partir de la branche de par défaut de pipeline de build avec les balises**.
+1. Laissez **balises** vide.
+1. Affectez à **Alias source** la valeur `drop`. Le **alias Source** valeur est utilisée par les tâches de mise en production prédéfinies, elle doit être définie.
 1. Cliquez sur **Add**.
 1. Cliquez maintenant sur l’icône représentant un éclair sur la source d’artefact `drop` nouvellement créée, comme indiqué ci-dessous :
 
     ![Configuration du déploiement continu de l’artefact de mise en production](../media/common/release-artifact-cd-setup.png)
-1. Activez le **déclencheur de déploiement continu**
-1. Accédez maintenant au volet des tâches. La phase _dev_ doit être sélectionnée et trois contrôles de liste déroulante rouges doivent s’afficher comme ci-dessous :
-
-    ![Configuration de la définition de mise en production](../media/common/release-setup-tasks.png)
-1. Spécifiez l’abonnement Azure, le groupe de ressources et le cluster que vous utilisez avec Azure Dev Spaces.
-1. Une seule autre section doit être en rouge à ce stade : la section **Travail d’agent**. Accédez-y et indiquez **Hosted Ubuntu 1604** comme pool d’agents pour cette phase.
-1. Pointez sur le sélecteur de tâches dans la partie supérieure et sélectionnez _prod_.
-1. Spécifiez l’abonnement Azure, le groupe de ressources et le cluster que vous utilisez avec Azure Dev Spaces.
-1. Sous **Travail d’agent**, configurez **Hosted Ubuntu 1604** comme pool d’agents.
+1. Activer la **déclencheur de déploiement continu**.
+1. Placez le curseur sur le **tâches** onglet regard **Pipeline** et cliquez sur _dev_ pour modifier la _dev_ tâches à l’étape.
+1. Vérifiez **Azure Resource Manager** est sélectionné sous **Type de connexion.** et vous voyez les trois contrôles de liste déroulante en surbrillance en rouge : ![Configuration de la définition mise en production](../media/common/release-setup-tasks.png)
+1. Sélectionnez l’abonnement Azure que vous utilisez avec des espaces de développement Azure. Vous devrez peut-être également cliquez sur **Authorize**.
+1. Sélectionnez le groupe de ressources et le cluster que vous utilisez avec des espaces de développement Azure.
+1. Cliquez sur **travail de l’Agent**.
+1. Sélectionnez **1604 de Ubuntu hébergé** sous **pool d’agents**.
+1. Placez le curseur sur le **tâches** sélecteur en haut, cliquez sur _prod_ pour modifier la _prod_ tâches à l’étape.
+1. Vérifiez **Azure Resource Manager** est sélectionné sous **Type de connexion.** et sélectionnez l’abonnement Azure, le groupe de ressources et le cluster que vous utilisez avec des espaces de développement Azure.
+1. Cliquez sur **travail de l’Agent**.
+1. Sélectionnez **1604 de Ubuntu hébergé** sous **pool d’agents**.
+1. Cliquez sur le **Variables** onglet mettre à jour les variables pour votre version.
+1. Mettre à jour la valeur de **DevSpacesHostSuffix** de **UPDATE_ME** à votre suffixe de l’hôte. Le suffixe d’hôte s’affiche lorsque vous avez exécuté le `azds show-context` commande précédemment.
 1. Cliquez sur **Enregistrer** dans le coin supérieur droit, puis sur **OK**.
 1. Cliquez sur **+ Mise en production** (en regard du bouton Enregistrer) et **Créer une mise en production**.
-1. Vérifiez que la build la plus récente de votre pipeline de build est sélectionnée dans la section des artefacts et cliquez sur **Créer**.
+1. Sous **artefacts**, vérifiez la build la plus récente à partir de votre pipeline de build est sélectionnée.
+1. Cliquez sur **Créer**.
 
-Un processus de mise en production automatisé commence, déployant les graphiques *mywebapi* et *webfrontend* sur votre cluster Kubernetes dans l’espace de niveau supérieur _dev_. Vous pouvez superviser la progression de votre mise en production sur le portail web Azure DevOps.
+Un processus de mise en production automatisé commence, déployant les graphiques *mywebapi* et *webfrontend* sur votre cluster Kubernetes dans l’espace de niveau supérieur _dev_. Vous pouvez surveiller la progression de votre version sur le portail web Azure DevOps :
+
+1. Accédez à la **versions** section sous **Pipelines**.
+1. Cliquez sur le pipeline de mise en production pour l’exemple d’application.
+1. Cliquez sur le nom de la dernière version.
+1. Placez le curseur sur **dev** sous **étapes** et cliquez sur **journaux**.
+
+La version est terminée lorsque toutes les tâches sont terminées.
 
 > [!TIP]
 > Si votre mise en production échoue avec un message d’erreur de type *ÉCHEC DE LA MISE À NIVEAU : expiration du délai d’attente pour la condition*, essayez d’inspecter les pods dans votre cluster [à l’aide du tableau de bord Kubernetes](../../aks/kubernetes-dashboard.md). Si vous voyez que les pods ne parviennent pas à démarrer avec des messages d’erreur comme *Échec de l’extraction de l’image « azdsexample.azurecr.io/mywebapi:122 » : erreur rpc : code = inconnu desc = Réponse d’erreur du démon : Obtention de https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: non autorisée : authentification obligatoire*, cela peut signifier que votre cluster n’a pas été autorisé à tirer de votre registre Azure Container Registry. Vérifiez que vous avez rempli le prérequis [Autoriser votre cluster AKS à tirer (pull) de votre registre Azure Container Registry](../../container-registry/container-registry-auth-aks.md).
@@ -115,31 +138,37 @@ Un processus de mise en production automatisé commence, déployant les graphiqu
 Vous disposez maintenant d’un pipeline CI/CD entièrement automatisé pour votre duplication GitHub des exemples d’applications Dev Spaces. Chaque fois que vous validez et envoyez le code, le pipeline de build va générer et transmettre les images *mywebapi* et *webfrontend* à votre instance ACR personnalisée. Ensuite, le pipeline de mise en production va déployer le graphique Helm pour chaque application dans l’espace _dev_ sur votre cluster compatible Dev Spaces.
 
 ## <a name="accessing-your-dev-services"></a>Accès à vos services _dev_
-Après le déploiement, la version _dev_ de *webfrontend* est accessible avec une URL publique comme : `http://dev.webfrontend.<hash>.<region>.aksapp.io`.
+Après le déploiement, la version _dev_ de *webfrontend* est accessible avec une URL publique comme : `http://dev.webfrontend.fedcba098.eus.azds.io`. Vous pouvez trouver cette URL en exécutant la `azds list-uri` commande : 
 
-Vous pouvez trouver cette URL à l’aide de l’interface CLI *kubectl* :
 ```cmd
-kubectl get ingress -n dev webfrontend -o=jsonpath="{.spec.rules[0].host}"
+$ azds list-uris
+
+Uri                                           Status
+--------------------------------------------  ---------
+http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ```
 
 ## <a name="deploying-to-production"></a>Déploiement en production
-Cliquez sur **Modifier** sur votre définition de mise en production et notez la présence d’une phase _prod_ définie :
-
-![Phase de production](../media/common/prod-env.png)
 
 Pour promouvoir manuellement une mise en production particulière en _prod_ en utilisant le système CI/CD créé dans ce tutoriel :
-1. Ouvrez une mise en production précédemment réussie sur le portail DevOps
-1. Pointez sur la phase « prod »
-1. Sélectionnez Déployer
+1. Accédez à la **versions** section sous **Pipelines**.
+1. Cliquez sur le pipeline de mise en production pour l’exemple d’application.
+1. Cliquez sur le nom de la dernière version.
+1. Placez le curseur sur le **prod** sous **étapes** et cliquez sur **déployer**.
+    ![Passez en production](../media/common/prod-promote.png)
+1. Placez le curseur sur **prod** zone à nouveau sous **étapes** et cliquez sur **journaux**.
 
-![Promouvoir en production](../media/common/prod-promote.png)
+La version est terminée lorsque toutes les tâches sont terminées.
 
-Notre exemple de pipeline CI/CD utilise des variables pour modifier le préfixe DNS de *webfrontend* en fonction de l’environnement déployé. Pour accéder à vos services « prod », vous pouvez donc utiliser une URL telle que : `http://prod.webfrontend.<hash>.<region>.aksapp.io`.
+Le _prod_ étape du pipeline CI/CD utilise un équilibreur de charge au lieu du contrôleur d’entrée des espaces de développement pour fournir l’accès à _prod_ services. Les services déployés dans le _prod_ étape sont accessibles en tant qu’adresses IP au lieu de noms DNS. Dans un environnement de production, vous pouvez choisir de créer votre propre contrôleur d’entrée pour héberger vos services selon la configuration de votre DNS.
 
-Après le déploiement, vous pouvez trouver cette URL à l’aide de l’interface CLI *kubectl* : <!-- TODO update below to use list-uris when the product has been updated to list non-azds ingresses #769297 -->
+Pour déterminer l’adresse IP du service de webfrontend, cliquez sur le **imprimer l’adresse IP publique webfrontend** étape pour développer la sortie du journal. Utiliser l’adresse IP affichée dans le journal de sortie pour accéder à la **webfrontend** application.
 
 ```cmd
-kubectl get ingress -n prod webfrontend -o=jsonpath="{.spec.rules[0].host}"
+...
+2019-02-25T22:53:02.3237187Z webfrontend can be accessed at http://52.170.231.44
+2019-02-25T22:53:02.3320366Z ##[section]Finishing: Print webfrontend public IP
+...
 ```
 
 ## <a name="dev-spaces-instrumentation-in-production"></a>Instrumentation Dev Spaces en production

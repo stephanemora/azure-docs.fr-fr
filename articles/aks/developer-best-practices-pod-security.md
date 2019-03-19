@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559074"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651956"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la sécurité des pods dans Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,7 @@ Consultez votre opérateur de cluster pour déterminer les paramètres de contex
 
 Pour limiter le risque d’exposition d’informations d’identification dans le code de votre application, évitez d’utiliser des informations d’identification fixes ou partagées. Vous ne devez inclure aucune information d’identification ou clé directement dans votre code. Si ces informations d’identification sont exposées, l’application doit être mise à jour et redéployée. Une meilleure approche consiste à attribuer aux pods leur propre identité ainsi qu’un moyen de s’authentifier d’eux-mêmes, ou de récupérer automatiquement les informations d’identification à partir d’un coffre numérique.
 
-AKS offre deux manières d’authentifier automatiquement des pods ou de demander des informations d’identification et des clés à partir d’un coffre numérique :
+Ce qui suit [AKS associés projets open source] [ aks-associated-projects] vous permettent d’authentifier automatiquement pods ou les informations d’identification de la demande et les clés à partir d’un coffre numérique :
 
 * Identités managées pour les ressources Azure
 * Pilote Azure Key Vault FlexVol
@@ -83,7 +83,7 @@ Une identité gérée pour les ressources Azure permet à un pod de s’authenti
 
 Avec une identité managée, il n’est pas nécessaire d’inclure des informations d’identification dans le code de votre application pour accéder à un service, tel que Stockage Azure. Puisque chaque pod s’authentifie avec sa propre identité, vous pouvez contrôler et réviser les accès. Si votre application se connecte auprès d’autres services Azure, utilisez des identités managées pour limiter la réutilisation d’informations d’identification et le risque d’exposition.
 
-Pour plus d’informations sur les identités de pod, consultez [Configure an AKS cluster to use pod managed identities][aad-pod-identity] (Configurer un cluster AKS pour utiliser des identités de pod managées) et [Assign and use pod managed identities in your code][aad-pod-identity] (Affecter et utiliser des identités de pod managées dans votre code).
+Pour plus d’informations sur les identités de pod, consultez [configurer un cluster AKS pour utiliser des identités de pod géré et avec vos applications][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Utiliser Azure Key Vault avec FlexVol
 
@@ -107,6 +107,7 @@ Cet article était dédié à la sécurisation de vos pods. Pour implémenter qu
 [aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

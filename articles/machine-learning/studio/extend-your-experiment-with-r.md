@@ -5,17 +5,17 @@ description: Comment étendre les fonctionnalités d'Azure Machine Learning Stud
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 98f5922cc329aedc8deeffbcb042bddf90405883
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 8c1292d0d36874892a286d91b1e367c7336b99aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848794"
 ---
 # <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio : Prolongez votre expérience avec R 
 Comment étendre les fonctionnalités d’Azure Machine Learning Studio en utilisant le langage R et le module [Exécuter le script R][execute-r-script].
@@ -41,7 +41,7 @@ Pour afficher la liste des packages, connectez un module de conversion comme [Co
 
 
 <!--
-For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+For convenience, here is the [current full list with version numbers in Excel format](https://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
 ## <a name="importing-packages"></a>Importation de packages

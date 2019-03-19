@@ -6,28 +6,26 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895531"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194706"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
-Cet article contient les problèmes connus et les limitations temporaires avec Azure Data Lake Storage Gen2.
+Cet article contient des problèmes connus et limitations temporaires avec Data Lake Storage Gen2.
 
-## <a name="api-interoperability"></a>Interopérabilité d’API
+## <a name="sdk-support-for-data-lake-storage-gen2-accounts"></a>Prise en charge du Kit de développement logiciel pour les comptes Data Lake Storage Gen2
 
-Les API Stockage Blob et Azure Data Lake Gen2 APIs ne sont pas interopérables.
-
-Si vous disposez d’outils, d’applications, de services ou de scripts qui utilisent des API Blob et que vous souhaitez les utiliser pour travailler avec tout le contenu que vous téléchargez sur votre compte, n’activez pas les espaces de noms hiérarchiques sur votre compte de stockage Blob avant que les API Blob deviennent interopérables avec les API Azure Data Lake Gen2. L’utilisation d’un compte de stockage sans espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités spécifiques de Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au système de fichiers.
+Il n’existe pas de kits de développement logiciel disponibles qui fonctionnent avec les comptes Data Lake Storage Gen2.
 
 ## <a name="blob-storage-apis"></a>API Stockage Blob
 
-Les API Stockage Blob ne sont pas encore disponibles pour les comptes Azure Data Lake Storage Gen2.
+API de stockage BLOB ne sont pas encore disponibles pour les comptes Data Lake Storage Gen2.
 
 Ces API sont désactivées pour éviter les problèmes d’accès accidentel aux données qui peuvent se produire, car les API Stockage Blob ne sont pas encore interopérables avec les API Azure Data Lake Gen2.
 
@@ -45,6 +43,12 @@ Dans ces circonstances, nous pouvons restaurer l’accès à l’API Blob pour u
 
 Les disques de machines virtuelles non managés dépendent des API de Stockage Blob désactivées. Par conséquent, si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machines virtuelles non managés dans un compte de stockage pour lequel la fonctionnalité d'espace de noms hiérarchique n'est pas activée.
 
+## <a name="api-interoperability"></a>Interopérabilité d’API
+
+Les API Stockage Blob et Azure Data Lake Gen2 APIs ne sont pas interopérables.
+
+Si vous disposez d’outils, d’applications, de services ou de scripts qui utilisent des API Blob et que vous souhaitez les utiliser pour travailler avec tout le contenu que vous téléchargez sur votre compte, n’activez pas les espaces de noms hiérarchiques sur votre compte de stockage Blob avant que les API Blob deviennent interopérables avec les API Azure Data Lake Gen2. L’utilisation d’un compte de stockage sans espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités spécifiques de Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au système de fichiers.
+
 ## <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 
 Pour afficher ou gérer des comptes Data Lake Storage Gen2 à l’aide de l’Explorateur Stockage Azure, vous devez avoir au moins la version `1.6.0` de l’outil qui est disponible en tant que [téléchargement gratuit](https://azure.microsoft.com/features/storage-explorer/).
@@ -53,19 +57,19 @@ Notez qu’actuellement la version de l’Explorateur Stockage qui se trouve dan
 
 ## <a name="blob-viewing-tool"></a>Outil d’affichage Blob
 
-L’outil d’affichage Blob sur le portail Azure n’offre qu’une prise en charge limitée d’Azure Data Lake Storage Gen2.
+Objet BLOB de l’outil d’affichage sur le portail Azure prend uniquement en charge limitée pour le stockage Data Lake Gen2.
 
 ## <a name="third-party-applications"></a>Applications tierces
 
-Les applications tierces peuvent ne pas prendre en charge Azure Data Lake Storage Gen2.
+Les applications tierces ne peuvent pas en charge le stockage Data Lake Gen2.
 
-La prise en charge est à la discrétion de chaque fournisseur d’application tierce. Actuellement, les API Stockage Blob et Azure Data Lake Storage Gen2 ne peuvent pas être utilisées pour gérer le même contenu. Pendant que nous travaillons en vue d’activer l’interopérabilité, il est possible que de nombreux outils tiers prennent automatiquement en charge Azure Data Lake Storage Gen2.
+La prise en charge est à la discrétion de chaque fournisseur d’application tierce. Actuellement, les API de stockage de Blob et Data Lake Storage Gen2 API ne peut pas être utilisé pour gérer le même contenu. Pendant que nous travaillons pour activer l’interopérabilité, il est possible que de nombreux outils tiers seront automatiquement prennent en charge le stockage Data Lake Gen2.
 
 ## <a name="azcopy-support"></a>Prise en charge d’AzCopy
 
-AzCopy version 8 ne prend pas en charge Azure Data Lake Storage Gen2.
+AzCopy version 8 ne prend pas en charge le stockage Data Lake Gen2.
 
-À la place, utilisez la dernière préversion d’AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ), car elle prend en charge les points de terminaison Azure Data Lake Storage Gen2.
+Au lieu de cela, utilisez la dernière version de la version préliminaire d’AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) comme il prend en charge les points de terminaison Data Lake Storage Gen2.
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
@@ -73,7 +77,7 @@ AzCopy version 8 ne prend pas en charge Azure Data Lake Storage Gen2.
 
 ## <a name="soft-delete-and-snapshots"></a>Captures instantanées et suppression réversible
 
-Les captures instantanées et la suppression réversible ne sont pas disponibles pour les comptes Azure Data Lake Storage Gen2.
+Captures instantanées et suppression réversible ne sont pas disponibles pour les comptes Data Lake Storage Gen2.
 
 Toutes les fonctionnalités de gestion des versions, notamment les [captures instantanées](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) et la [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) ne sont pas encore disponibles pour les comptes de stockage pour lesquels la fonctionnalité d'espace de noms hiérarchique est activée.
 
@@ -83,10 +87,10 @@ Les niveaux de stockage au niveau objet (chaud, froid et archive) ne sont pas en
 
 ## <a name="azure-blob-storage-lifecycle-management-policies"></a>Stratégies de gestion du cycle de vie du Stockage Blob Azure
 
-Les stratégies de gestion du cycle de vie du Stockage Blob Azure ne sont pas encore disponibles pour les comptes Azure Data Lake Storage Gen2.
+Stratégies de gestion de cycle de vie du stockage d’objets Blob Azure ne sont pas encore disponibles pour les comptes Data Lake Storage Gen2.
 
 Ces stratégies sont disponibles pour les comptes de stockage dont la fonctionnalité d'espace de noms hiérarchique n'est pas activée.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Les journaux de diagnostic ne sont pas disponibles pour les comptes Azure Data Lake Storage Gen2.
+Journaux de diagnostic ne sont pas disponibles pour les comptes Data Lake Storage Gen2.

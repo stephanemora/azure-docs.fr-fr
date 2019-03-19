@@ -8,12 +8,12 @@ ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 12b8161cc5845bca749c34188835cef1d92b299a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 60c5b7b55e417a5703010ea34cf75dcb20146c37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404549"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531677"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Notes de publication sur Azure Data Catalog
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Notes pour la version du 20 novembre 2015 d’Azure Data Catalog
@@ -29,7 +29,7 @@ Pour chaque cas, le problème peut être résolu en téléchargeant et en instal
 ### <a name="registering-and-connecting-to-teradata"></a>Inscription et connexion sur Teradata
 Lors de la connexion aux sources de données Teradata, les utilisateurs doivent avoir installé le pilote ODBC Teradata qui correspond au nombre de bits (32 ou 64) du logiciel utilisé.
 
-À compter de cette date de version d’ADC, le [pilote ODBC de Teradata pour Windows (version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) le plus récent est compatible avec Office 2013, mais pas avec Office 2016.
+À compter de cette date de version d’ADC, le [pilote ODBC de Teradata pour Windows (version 15.10)](https://downloads.teradata.com/download/connectivity/odbc-driver/windows) le plus récent est compatible avec Office 2013, mais pas avec Office 2016.
 
 ## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Notes pour la version du 13 juillet 2015 d’Azure Data Catalog
 ### <a name="registering-and-connecting-to-oracle-database"></a>Inscription et connexion à Oracle Database
@@ -53,13 +53,13 @@ Les utilisateurs parviennent parfois à se connecter au portail d’Azure Data�
 
 Deux causes possibles à ce problème de comportement :
 
-**Cause n°1 : configuration d’Active Directory Federation Services** L’outil d’inscription de la source de données utilise l’authentification par formulaire pour valider les connexions utilisateur avec Active Directory. Pour une ouverture de session réussie, l'authentification par formulaire doit être activée dans la stratégie d'authentification globale par un administrateur Active Directory.
+**Cause 1 : Configuration de Active Directory Federation Services** l’outil d’inscription de sources de données utilise l’authentification par formulaire pour valider les connexions utilisateur par rapport à Active Directory. Pour une ouverture de session réussie, l'authentification par formulaire doit être activée dans la stratégie d'authentification globale par un administrateur Active Directory.
 
 Cette erreur peut également survenir lorsque l'utilisateur est connecté au réseau d'entreprise ou lorsque l'utilisateur se connecte en dehors du réseau d'entreprise. La stratégie d'authentification globale permet d’activer séparément des méthodes d'authentification pour les connexions intranet et extranet. Des erreurs de connexion peuvent survenir si l'authentification par formulaire n'est pas activée pour le réseau à partir duquel l'utilisateur se connecte.
 
 Pour plus d’informations, consultez [Configuration des stratégies d’authentification](https://technet.microsoft.com/library/dn486781.aspx).
 
-**Cause n°2 : configuration du proxy réseau** Si le réseau d’entreprise utilise un serveur proxy, l’outil d’inscription ne peut peut-être pas se connecter à Azure Active Directory via le proxy. Les utilisateurs peuvent s’assurer de l'outil d'inscription en modifiant le fichier de configuration de l'outil, et en ajoutant au fichier la section suivante :
+**Cause 2 : Configuration du proxy réseau** si le réseau d’entreprise utilise un serveur proxy, l’outil d’inscription ne peut pas être en mesure de se connecter à Azure Active Directory via le proxy. Les utilisateurs peuvent s’assurer de l'outil d'inscription en modifiant le fichier de configuration de l'outil, et en ajoutant au fichier la section suivante :
 
       <system.net>
         <defaultProxy useDefaultCredentials="true" enabled="true">

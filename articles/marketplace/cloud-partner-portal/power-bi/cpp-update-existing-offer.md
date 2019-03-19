@@ -1,5 +1,5 @@
 ---
-title: Mettre à jour une offre d'application Power BI existante - Place de marché Microsoft Azure | Microsoft Docs
+title: Mettre à jour une offre d’application Power BI - place de marché Azure | Microsoft Docs
 description: Mettez à jour une offre d'application Power BI après sa publication sur la Place de marché Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
@@ -14,69 +14,61 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 635e2e71bb952aaee761df6a1d5d87c46db531f6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 953c53b4ef2244b3444abb745f52e125306468f2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665700"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807114"
 ---
-# <a name="update-an-existing-power-bi-app-offer"></a>Mettre à jour une offre d'application Power BI existante
+# <a name="update-a-power-bi-app-offer"></a>Mettre à jour une offre d’application Power BI
 
-Cet article vous explique les différents aspects de la mise à jour de votre offre d'application Power BI sur le [Portail Cloud Partner](https://cloudpartner.azure.com/), puis de la republication de l'offre.  Différentes raisons peuvent motiver la mise à jour d'une offre :
+Cet article vous montre comment mettre à jour votre offre d’application Microsoft Power BI dans le [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) , puis republier l’offre. Voici quelques-unes des raisons pour mettre à jour une offre :
 
-- Mise à jour du contenu de l'application dans Power BI et obtention d'une nouvelle URL d'installation à partir de l'application nouvellement empaquetée
-- Mise à jour des métadonnées de la Place de marché pour l'offre : informations et ressources relatives aux ventes, au marketing ou au support
+- Pour mettre à jour le contenu de l’application dans Power BI et obtenir une URL d’installation à partir de l’application récemment empaquetée
+- Pour mettre à jour les métadonnées de la place de marché Azure de l’offre (ventes, marketing, ou les informations de prise en charge et les ressources)
  
-Le portail contient les fonctions **Comparer** et **Historique** qui vous aident à apporter ces modifications.
-
-
-## <a name="unpermitted-changes-to-offer"></a>Modifications non autorisées apportées à l'offre
-
-Une fois l'offre d'application Power BI publiée dans AppSource, certains de ses attributs (comme l'**ID de l'offre** et l'**ID de l'éditeur**) ne peuvent plus être modifiés.
-
+Utiliser le portail **comparer** et **historique** telles fonctionnalités pour effectuer le suivi des modifications.
 
 ## <a name="common-update-operations"></a>Opérations de mise à jour courantes
 
-Bien qu'il existe un large éventail de caractéristiques que vous pouvez modifier sur une offre d'application Power BI, les opérations suivantes sont les plus courantes.
-
+Certains attributs d’une offre d’application Power BI ne peut pas être modifiées une fois que l’offre est publiée dans AppSource. Modifications non autorisées incluent **ID de l’offre** et **ID de l’éditeur**. Mais vous pouvez toujours modifier un large éventail de caractéristiques. Voici certaines modifications courantes.
 
 ### <a name="update-app-content-in-power-bi"></a>Mettre à jour le contenu de l'application dans Power BI
 
-Des mises à jour régulières de l'application Power BI avec de nouveaux contenus, des correctifs de sécurité, des fonctionnalités supplémentaires et autres sont souvent nécessaires. Vous pouvez alors mettre à jour l'URL d'installation du nouveau contenu en procédant comme suit :
+Applications Power BI sont souvent mises à jour régulièrement avec le nouveau contenu, les correctifs de sécurité, les fonctionnalités et ainsi de suite. Lorsqu’une application est modifiée, mettez à jour son URL d’installation en suivant ces étapes :
 
-1.  Connectez-vous au [Portail Cloud Partner](https://cloudpartner.azure.com/).
-2.  Sous **Toutes les offres**, recherchez l’offre à mettre à jour.
-3.  Dans l'onglet **Informations techniques**, entrez une nouvelle URL d'installation.
-4.  Cliquez sur **Publier** pour démarrer le flux de travail et publier la nouvelle version de votre application sur AppSource.
-
-
-### <a name="update-offer-marketplace-metadata"></a>Mettre à jour les métadonnées de Place de marché d’une offre
-
-Pour mettre à jour les métadonnées de Place de marché (nom de l’entreprise, logos, etc.) associées à votre offre, procédez comme suit :
-
-1.  Connectez-vous au [Portail Cloud Partner](https://cloudpartner.azure.com/).
+1.  Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/).
 2.  Sous **Toutes les offres**, recherchez l’offre que vous souhaitez mettre à jour.
-3.  Accédez à l'onglet **Détails de la vitrine**, puis suivez les instructions de l'onglet [Détails de la vitrine d'applications Power BI](./cpp-storefront-details-tab.md) pour apporter des modifications aux métadonnées.
+3.  Sur le **informations techniques** , entrez une nouvelle URL d’installation.
+4.  Sélectionnez **publier** pour démarrer le flux de travail pour publier la nouvelle version de l’application dans AppSource.
+
+
+### <a name="update-the-offers-marketplace-metadata"></a>Mettre à jour les métadonnées de la place de marché de l’offre
+
+Métadonnées de la place de marché de votre offre incluent le nom de votre société, logos et autres informations. Pour mettre à jour des métadonnées, procédez comme suit :
+
+1.  Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/).
+2.  Sous **Toutes les offres**, recherchez l’offre que vous souhaitez mettre à jour.
+3.  Sur le **détails de la vitrine** , modifiez les métadonnées en suivant les instructions dans l’article [onglet Détails de la vitrine d’application Power BI](./cpp-storefront-details-tab.md).
 4.  Cliquez sur **Publier** pour démarrer le flux de travail et publier vos modifications.
 
 
-## <a name="compare-feature"></a>Fonctionnalité Comparer
+## <a name="the-compare-feature"></a>La fonctionnalité de comparaison
 
-Lorsque vous apportez des modifications à une offre déjà publiée, vous pouvez utiliser la fonction **Comparer** pour les vérifier. Quand utiliser cette fonction :
+Quand vous mettez à jour une offre publiée, vous pouvez vérifier les modifications que vous avez apportées. Pour utiliser le **comparer** fonctionnalité :
 
-1.  À tout moment dans le processus de modification, cliquez sur le bouton **Comparer** de votre offre.
+1.  À tout moment dans le processus de modification, sélectionnez l’offre **comparer** bouton.
 
-    ![Bouton de la fonction Comparer](./media/compare-feature-button.png)
+    ![Comparaison du bouton](./media/compare-feature-button.png)
 
 2.  Affichez côte à côte les versions des ressources marketing et des métadonnées.
 
 
 ## <a name="history-of-publishing-actions"></a>Historique des actions de publication
 
-Pour afficher tout l'historique des activités de publication, cliquez sur l'onglet **Historique** de la barre du menu de navigation sur le côté gauche du Portail Cloud Partner. Vous pouvez consulter ici les actions horodatées qui ont été effectuées pendant la durée de vie de vos offres sur AppSource.
-
+Pour afficher votre offre de publication de l’historique, sur le côté gauche du portail Cloud Partner, ouvrez le **historique** onglet. Ici, vous verrez qu'un historique des actions de horodatée sur votre AppSource propose.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous devez régulièrement utiliser la fonctionnalité [Seller Insights](../../cloud-partner-portal-orig/si-getting-started.md) du [Portail Cloud Partner](https://cloudpartner.azure.com/#insights) pour fournir des informations sur les clients et leur utilisation de votre Place de marché.  
+Dans le portail Cloud Partner, utilisent régulièrement [Insights de vendeur](../../cloud-partner-portal-orig/si-getting-started.md) pour trouver des informations utiles sur vos clients de la place de marché et votre utilisation.  

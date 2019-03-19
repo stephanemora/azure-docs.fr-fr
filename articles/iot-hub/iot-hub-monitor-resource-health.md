@@ -2,39 +2,39 @@
 title: Surveiller l’intégrité de votre Azure IoT Hub | Microsoft Docs
 description: Utilisez Azure Monitor et Azure Resource Health pour surveiller votre IoT Hub et diagnostiquer rapidement les problèmes
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 0a230ff1c4d5c6bb36003f07cc1c411f7e2c3629
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446781"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240998"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
-Les entreprises qui implémentent Azure IoT Hub s’attendent à ce que leurs ressources fournissent des performances fiables. Pour vous aider à garder un œil attentif sur vos opérations, IoT Hub est entièrement intégré dans [Azure Monitor][lnk-AM] et [Azure Resource Health][lnk-ARH]. Ces deux services fonctionnent de concert pour vous fournir les données nécessaires au bon fonctionnement de vos solutions IoT. 
+Les entreprises qui implémentent Azure IoT Hub s’attendent à ce que leurs ressources fournissent des performances fiables. Pour vous aider à garder un œil attentif sur vos opérations, IoT Hub est entièrement intégré à [Azure Monitor](../azure-monitor/index.yml) et [Azure Resource Health](../service-health/resource-health-overview.md). Ces deux services fonctionnent pour vous fournir les données que vous souhaitez conserver vos solutions IoT et en cours d’exécution dans un état sain. 
 
-Azure Monitor constitue une source unique pour la surveillance et la journalisation de tous vos services Azure. Vous pouvez envoyer les journaux de diagnostic générés par Azure Monitor à Log Analytics, Event Hubs ou au stockage Azure pour un traitement personnalisé. Les paramètres des mesures et des diagnostics d’Azure Monitor vous permettent de visualiser les performances de vos ressources. Poursuivez la lecture de cet article pour savoir comment [utiliser Azure Monitor](#use-azure-monitor) avec votre IoT Hub. 
+Azure Monitor constitue une source unique pour la surveillance et la journalisation de tous vos services Azure. Vous pouvez envoyer les journaux de diagnostic générés par Azure Monitor pour les journaux Azure Monitor, Event Hubs ou stockage Azure pour un traitement personnalisé. Les paramètres des mesures et des diagnostics d’Azure Monitor vous permettent de visualiser les performances de vos ressources. Poursuivez la lecture de cet article pour savoir comment [utiliser Azure Monitor](#use-azure-monitor) avec votre IoT Hub. 
 
 > [!IMPORTANT]
 > Ni la fiabilité ni l’ordre des événements émis par le service IoT Hub à l’aide des journaux de diagnostic Azure Monitor ne sont garantis. Certains événements peuvent être perdus ou remis de manière désordonnée. De même, les journaux de diagnostic ne sont pas censés être en temps réel, et l’enregistrement des événements dans la destination de votre choix peut prendre plusieurs minutes.
 
-Azure Resource Health vous aide à diagnostiquer les problèmes et à accéder au support quand un problème Azure a une incidence sur vos ressources. Un tableau de bord personnalisé indique l’état d’intégrité actuel et passé de votre IoT Hub. Poursuivez la lecture de cet article pour savoir comment [utiliser Azure Resource Health](#use-azure-resource-health) avec votre IoT Hub. 
+Azure Resource Health vous aide à diagnostiquer les problèmes et à accéder au support quand un problème Azure a une incidence sur vos ressources. Un tableau de bord fournit l’état d’intégrité actuelles et passées pour chacune de vos hubs IoT. Passez à la section en bas de cet article pour découvrir comment [utiliser Azure Resource Health](#use-azure-resource-health) avec votre IoT hub. 
 
-IoT Hub propose également ses propres métriques pour vous aider à comprendre l’état de vos ressources IoT. Pour plus d’informations, consultez [Comprendre les mesures IoT Hub][lnk-metrics].
+IoT Hub propose également ses propres métriques pour vous aider à comprendre l’état de vos ressources IoT. Pour plus d’informations, consultez [métriques comprendre IoT Hub](iot-hub-metrics.md).
 
 ## <a name="use-azure-monitor"></a>Utiliser Azure Monitor
 
 Azure Monitor fournit des informations de diagnostic pour les ressources Azure, ce qui vous permet de contrôler les opérations qui ont lieu au sein de votre IoT Hub. 
 
-Les paramètres de diagnostic d’Azure Monitor remplacent le moniteur d’opérations d’IoT Hub. Si vous utilisez actuellement la surveillance des opérations, vous devez migrer vos flux de travail. Pour plus d’informations, consultez [Migrer de la surveillance des opérations vers les paramètres de diagnostic][lnk-migrate].
+Les paramètres de diagnostic d’Azure Monitor remplacent le moniteur d’opérations d’IoT Hub. Si vous utilisez actuellement la surveillance des opérations, vous devez migrer vos flux de travail. Pour plus d’informations, consultez [migrer à partir de la surveillance des opérations vers diagnostics paramètres](iot-hub-migrate-to-diagnostics-settings.md).
 
-Pour en savoir plus sur les mesures et les événements spécifiques surveillés par Azure Monitor, consultez [Mesures prises en charge avec Azure Monitor][lnk-AM-metrics] et [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure][lnk-AM-schemas].
+Pour en savoir plus sur les mesures spécifiques et les événements surveillés par Azure Monitor, consultez [mesures avec Azure Monitor prises en charge](../azure-monitor/platform/metrics-supported.md) et [prise en charge des services, des schémas et des catégories pour les journaux de Diagnostic Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -47,7 +47,7 @@ Azure Monitor effectue le suivi des différentes opérations qui se produisent d
 La catégorie de connexions suit les événements de connexions et de déconnexion des appareils à partir d’un hub IoT, ainsi que les erreurs. Cette catégorie est utile pour identifier les tentatives de connexion non autorisées et/ou donner l’alerte lorsque vous êtes déconnecté des appareils.
 
 > [!NOTE]
-> Pour l’état de connexion fiable des appareils, voir [Pulsation des appareils][lnk-devguide-heartbeat].
+> Pour l’état de connexion fiable des appareils, consultez [pulsation de l’appareil](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
 
 ```json
@@ -311,9 +311,9 @@ La catégorie des méthodes directes assure le suivi des interactions demande-r�
 
 #### <a name="distributed-tracing-preview"></a>Traçage distribué (préversion)
 
-La catégorie de traçage distribué suit les ID de corrélation pour les messages comportant l’en-tête de contexte de trace. Pour activer pleinement ces journaux, le code côté client doit être mis à jour en suivant [Analyser et diagnostiquer les applications IoT de bout en bout avec le traçage distribué IoT Hub (preview)](iot-hub-distributed-tracing.md).
+La catégorie de traçage distribué suit les ID de corrélation pour les messages comportant l’en-tête de contexte de trace. Pour bénéficier de ces journaux, code côté client doit être mis à jour suivant [analyser et diagnostiquer IoT applications end-to-end avec traçage distribué IoT Hub (version préliminaire)](iot-hub-distributed-tracing.md).
 
-Notez que `correlationId` est conforme à la proposition [Trace Context du W3](https://github.com/w3c/trace-context), car il contient un `trace-id` ainsi qu’un `span-id`. 
+Notez que `correlationId` est conforme à la [W3C Trace contexte](https://github.com/w3c/trace-context) proposition, où qu’il contient un `trace-id` ainsi qu’un `span-id`. 
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Journaux appareil à cloud (D2C) IoT Hub
 
@@ -446,7 +446,7 @@ class Program 
     { 
         Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
         CancellationTokenSource cts = new CancellationTokenSource(); 
         var tasks = new List<Task>(); 
         foreach (string partition in d2cPartitions) 
@@ -487,28 +487,18 @@ class Program 
 
 Utilisez Azure Resource Health pour vérifier si votre IoT Hub est opérationnel. Vous pouvez également vérifier si une panne régionale affecte l’intégrité de votre IoT Hub. Pour obtenir des détails spécifiques sur l’état d’intégrité de votre Azure IoT Hub, nous vous recommandons d[’utiliser Azure Monitor](#use-azure-monitor). 
 
-Azure IoT Hub indique l’intégrité au niveau régional. Si une panne régionale affecte votre IoT Hub, l’état d’intégrité prend l’état **Inconnu**. Pour en savoir plus, consultez l’article [Types de ressources et contrôles d’intégrité dans Azure Resource Health][lnk-ARH-checks].
+Azure IoT Hub indique l’intégrité au niveau régional. Si une panne régionale affecte votre IoT Hub, l’état d’intégrité prend l’état **Inconnu**. Pour plus d’informations, consultez [types de ressources et contrôles d’intégrité dans Azure resource health](../service-health/resource-health-checks-resource-types.md).
 
 Pour vérifier l’intégrité de vos IoT Hubs, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Accédez à **Service Health** > **Resource Health**.
-1. Dans les listes déroulantes, sélectionnez votre abonnement et **IoT Hub**.
+1. Dans les zones de liste déroulante, sélectionnez votre abonnement, puis sélectionnez **IoT Hub** en tant que le type de ressource.
 
-Pour en savoir plus sur la façon d’interpréter les données d’intégrité, consultez [Vue d’ensemble d’Azure Resource Health][lnk-ARH]
+Pour en savoir plus sur l’interprétation des données d’intégrité, consultez [vue d’ensemble du contrôle d’intégrité des ressources Azure](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comprendre les mesures IoT Hub][lnk-metrics]
-- [Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres][lnk-monitoring-notifications]
+- [Comprendre les métriques IoT Hub](iot-hub-metrics.md)
+- [Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT hub et votre boîte aux lettres](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-
-[lnk-AM]: ../azure-monitor/index.yml
-[lnk-ARH]: ../service-health/resource-health-overview.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
-[lnk-AM-metrics]: ../azure-monitor/platform/metrics-supported.md
-[lnk-AM-schemas]: ../azure-monitor/platform/diagnostic-logs-schema.md
-[lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
-[lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

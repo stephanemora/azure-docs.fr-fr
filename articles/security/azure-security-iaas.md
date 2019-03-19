@@ -4,7 +4,7 @@ description: " La migration des charges de travail vers Azure IaaS nous offre l�
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341214"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409747"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
@@ -39,7 +39,7 @@ Ces meilleures pratiques font l’objet d’un consensus et sont compatibles ave
 La première étape dans la protection de vos machines virtuelles consiste à vous assurer que seuls les utilisateurs autorisés peuvent configurer de nouvelles machines virtuelles et y accéder.
 
 **Meilleure pratique** : contrôler l’accès à la machine virtuelle.   
-**Détails** : utilisez des [stratégies Azure](../governance/policy/overview.md) pour établir des conventions pour les ressources de votre organisation et créer des stratégies personnalisées. Appliquez ces stratégies à vos ressources, telles que les [groupes de ressources](../azure-resource-manager/resource-group-overview.md). Les machines virtuelles qui appartiennent à un groupe de ressources héritent des stratégies de ce dernier.
+**Détails** : utilisez des [stratégies Azure](../azure-policy/azure-policy-introduction.md) pour établir des conventions pour les ressources de votre organisation et créer des stratégies personnalisées. Appliquez ces stratégies à vos ressources, telles que les [groupes de ressources](../azure-resource-manager/resource-group-overview.md). Les machines virtuelles qui appartiennent à un groupe de ressources héritent des stratégies de ce dernier.
 
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. [Les groupes d’administration Azure](../azure-resource-manager/management-groups-overview.md) fournissent un niveau d’étendue au-delà des abonnements. Vous organisez les abonnements en groupes d’administration (conteneurs) et vous appliquez vos conditions de gouvernance à ces groupes. Tous les abonnements d’un groupe d’administration héritent automatiquement des conditions appliquées au groupe. Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.
 
@@ -128,7 +128,7 @@ Pour surveiller l’état de la sécurité de vos [machines virtuelles Windows](
 
 Security Center peut surveiller activement les menaces qui apparaissent alors sous la forme d’alertes de sécurité. Les menaces corrélées sont regroupées sous la forme d’un incident de sécurité.
 
-Security Center stocke les données dans [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics fournit un langage de requête et le moteur analytique vous donne des informations sur le fonctionnement de vos applications et de vos ressources. Les données sont également collectées à partir d’[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), de solutions de gestion et d’agents installés sur des machines virtuelles hébergées dans le cloud ou localement. Cette fonctionnalité partagée vous permet de constituer une image complète de votre environnement.
+Security Center stocke des données dans [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md). Journaux d’Azure Monitor fournit un moteur de langage et d’analytique de requête qui vous donne un aperçu du fonctionnement de vos applications et ressources. Les données sont également collectées à partir d’[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), de solutions de gestion et d’agents installés sur des machines virtuelles hébergées dans le cloud ou localement. Cette fonctionnalité partagée vous permet de constituer une image complète de votre environnement.
 
 Les organisations qui n’appliquent pas une sécurité renforcée à leurs machines virtuelles ne parviennent pas à détecter les actions des utilisateurs non autorisés visant à contourner les contrôles de sécurité mis en place.
 
@@ -153,10 +153,10 @@ Voici les meilleures pratiques en matière d’utilisation d’Azure Disk Encryp
 **Détails** : Azure Disk Encryption génère et écrit les clés de chiffrement dans votre coffre de clés. La gestion des clés de chiffrement dans votre coffre de clés nécessite l’authentification Azure AD. Créez une application Azure AD à cet effet. Pour l’authentification, vous pouvez utiliser soit l’authentification par clé secrète client, soit [l’authentification Azure AD par certificat client](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Meilleure pratique** : utiliser une clé de chiffrement à clé pour renforcer la sécurité des clés de chiffrement, et ajouter une clé de chiffrement à clé à votre coffre de clés.   
-**Détails** : Utilisez la cmdlet [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
+**Détail** : Utilisez le [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) applet de commande pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
 
 **Meilleure pratique** : prendre un [instantané](../virtual-machines/windows/snapshot-copy-managed-disk.md) ou faire une sauvegarde avant de chiffrer les disques. Les sauvegardes offrent une possibilité de récupération en cas de défaillance inattendue au cours du chiffrement.   
-**Détails** : Les machines virtuelles avec des disques managés imposent une sauvegarde avant que le chiffrement soit effectué. Une fois la sauvegarde effectuée, vous pouvez utiliser la cmdlet **Set-AzureRmVMDiskEncryptionExtension** pour chiffrer des disques managés en spécifiant le paramètre *-skipVmBackup*. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarde Azure](../backup/backup-azure-vms-encryption.md).
+**Détails** : Les machines virtuelles avec des disques managés imposent une sauvegarde avant que le chiffrement soit effectué. Après une sauvegarde est effectuée, vous pouvez utiliser la **Set-AzVMDiskEncryptionExtension** applet de commande pour chiffrer des disques gérés en spécifiant le *- skipVmBackup* paramètre. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarde Azure](../backup/backup-azure-vms-encryption.md).
 
 **Meilleure pratique** : faire en sorte, pour Azure Disk Encryption, que le coffre de clés se trouve dans la même région que les machines virtuelles pour que les secrets de chiffrement ne franchissent pas les limites régionales.   
 **Détails** : créez et utilisez un coffre de clés situé dans la même région que la machine virtuelle à chiffrer.

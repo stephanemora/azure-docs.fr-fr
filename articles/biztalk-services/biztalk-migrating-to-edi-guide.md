@@ -10,24 +10,24 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253820"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983028"
 ---
-# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrer des solutions EDI BizTalk Server vers BizTalk Services : guide technique
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrer des Solutions EDI BizTalk Server vers BizTalk Services : Guide technique
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Auteurs : Tim Wieman et Nitin Mehrotra
+Auteur : Tim Wieman et Nitin Mehrotra
 
-Relecteurs : Karthik Bharthy
+Relecteurs : Karthik Bharthy
 
-Écrit avec : Microsoft Azure BizTalk Services : version de février 2014.
+Écrit à l’aide de :  Microsoft Azure BizTalk Services : version de février 2014.
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 L'échange de données informatisé (EDI) est un des moyens les plus courants d’échange de données par voie électronique pour les entreprises, également appelé transactions entreprise-entreprise ou B2B. BizTalk Server prend en charge EDI depuis plus de dix ans, c’est-à-dire, depuis la première version de BizTalk Server. Avec BizTalk Services, Microsoft maintient la prise en charge des solutions EDI sur la plateforme Microsoft Azure. Les transactions B2B sont principalement externes à une organisation : par conséquent, elles sont plus faciles à effectuer si elles sont implémentées sur une plateforme cloud. Microsoft Azure fournit cette fonctionnalité via BizTalk Services.
 
 Si pour certains clients, BizTalk Services est une toute nouvelle plateforme destinée à accueillir les solutions EDI, de nombreux clients disposent déjà de solutions EDI BizTalk Server qu’ils souhaitent migrer vers Azure. Étant donné que l'architecture d’EDI BizTalk Services repose sur les mêmes entités clés que l'architecture EDI BizTalk Server (partenaires commerciaux, entités, accords), il est possible de migrer des artefacts EDI BizTalk Server vers BizTalk Services.
@@ -102,7 +102,7 @@ Si vous avez besoin de migrer le traitement d'orchestration BizTalk Server vers 
 
 * [*How to integrate a WCF Workflow Service with Service Bus Queues and Topics (Intégration d’un service de workflow WCF aux files d’attente et aux rubriques Service Bus)*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) par Paolo Salvatori. 
 * [Session *Building apps with Windows Workflow Foundation and Azure (Création d’applications à l’aide de Windows Workflow Foundation et d’Azure)*](https://go.microsoft.com/fwlink/p/?LinkId=237314) de la conférence Build 2011.
-* [*Centre de développement Windows Workflow Foundation*](https://go.microsoft.com/fwlink/p/?LinkId=237315) sur MSDN.
+* [*Centre de développement Windows Workflow Foundation*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10)).
 * [*Documentation de Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) sur MSDN.
 
 ## <a name="other-considerations"></a>Autres considérations

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 94d49edb93e4c7b2daff3c58c02b349612f1ee92
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998281"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Moonitor
 Cet article explique comment paramétrer des déclencheurs pour vous permettre d’appeler des URL web spécifiques ou d’envoyer des courriers électroniques en fonction d’actions de mise à l’échelle automatique dans Azure.  
@@ -59,6 +59,7 @@ Lorsque vous utilisez l’API REST ou le modèle Resource Manager, incluez l’�
       }
     ]
 ```
+
 | Champ | Obligatoire ? | Description |
 | --- | --- | --- |
 | operation |Oui |la valeur doit être « Scale » |
@@ -107,7 +108,7 @@ Lorsque la notification de mise à l’échelle automatique est générée, les 
 | status |Oui |L’état qui indique qu’une action de mise à l’échelle automatique a été générée. |
 | operation |Oui |Pour une augmentation des instances, l’option est « augmenter la taille des instances » ; pour une diminution des instances, l’option est « Diminuer la taille des instances » |
 | context |Oui |Le contexte de l’action de mise à l’échelle automatique |
-|  timestamp |Oui |Horodatage du déclenchement de l’action de mise à l’échelle automatique. |
+| timestamp |Oui |Horodatage du déclenchement de l’action de mise à l’échelle automatique. |
 | id |Oui |ID Resource Manager du paramètre de mise à l’échelle automatique |
 | Nom |Oui |Le nom du paramètre de mise à l’échelle automatique |
 | détails |Oui |Explication de l’action exécutée par le service de mise à l’échelle automatique et de la modification du nombre d’instances |

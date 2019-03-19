@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468136"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888517"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Utiliser des bases de données, des conteneurs et des éléments
 
@@ -92,7 +92,7 @@ Un conteneur Azure Cosmos comprend un ensemble de propriétés définies par le 
 Un conteneur Azure Cosmos prend en charge les opérations suivantes, qui peuvent être effectuées avec l’une des API Azure Cosmos.
 
 | **opération** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin** | **API de table** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Énumérer les conteneurs d’une base de données | Oui* | Oui | OUI | Oui | N/D | N/D |
 | Lire le contenu d’un conteneur | Oui | OUI | OUI | Oui | N/D | N/D |
 | Créer un conteneur | Oui | OUI | OUI | Oui | N/D | N/D |
@@ -125,15 +125,15 @@ Chaque élément Azure Cosmos comprend des propriétés définies par le systèm
 Un élément Azure Cosmos prend en charge les opérations suivantes, qui peuvent être effectuées avec l’une des API Azure Cosmos.
 
 | **opération** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin** | **API de table** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Insérer, remplacer, supprimer, upsert, lire | Non  | OUI | OUI | OUI | OUI | OUI |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 À présent, découvrez comment provisionner le débit d’un compte Azure Cosmos ou découvrez d’autres concepts :
 
-* [Comment configurer le débit provisionné pour une base de données Azure Cosmos](how-to-provision-database-throughput.md)
-* [Comment configurer le débit provisionné pour un conteneur Azure Cosmos](how-to-provision-container-throughput.md)
+* [Comment configurer le débit approvisionné sur une base de données Azure Cosmos](how-to-provision-database-throughput.md)
+* [Comment configurer le débit approvisionné sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md)
 * [Partitions logiques](partition-data.md)
 * [Comment configurer la durée de vie d’un conteneur Azure Cosmos](how-to-time-to-live.md)
 * [Comment créer des applications réactives à l’aide du flux de modification](change-feed.md)

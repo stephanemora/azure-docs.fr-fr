@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045479"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959123"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
 
@@ -41,7 +41,7 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
      * Sélectionnez **Stream to an Event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Utilisez cette option si vous disposez d’un pipeline de traitement en aval qui analyse les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
-     * Sélectionnez __Send to Log Analytics (Envoyer à Log Analytics)__ pour envoyer les données au service Log Analytics. Utilisez cette option si vous souhaitez utiliser Log Analytics pour collecter et analyser les journaux.
+     * Sélectionnez __envoyer à Log Analytique__ pour envoyer les données au service Azure Monitor. Utilisez cette option si vous souhaitez utiliser des journaux Azure Monitor pour collecter et analyser les journaux.
    * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.  Un journal des requêtes capture chaque demande d’API. Un journal d’audit enregistre toutes les opérations qui sont déclenchées par cette demande d’API.
 
    * Pour __Archiver dans un compte de stockage__, spécifiez le nombre de jours pendant lesquels conserver les données.
@@ -125,7 +125,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 
 #### <a name="request-log-schema"></a>Schéma du journal de requête
 
-| NOM | type | Description |
+| Nom | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
 | ResourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
@@ -139,7 +139,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 
 #### <a name="request-log-properties-schema"></a>Schéma des propriétés de journal de demande
 
-| NOM | type | Description |
+| Nom | type | Description |
 | --- | --- | --- |
 | HttpMethod |Chaîne |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
 | path |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
@@ -177,7 +177,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 #### <a name="audit-log-schema"></a>Schéma du journal d’audit
 
-| NOM | type | Description |
+| Nom | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
 | ResourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
@@ -185,7 +185,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, JobSubmitted. |
 | resultType |Chaîne |Un sous-état de l’état de la tâche (operationName). |
 | resultSignature |Chaîne |Informations supplémentaires sur l’état de la tâche (operationName). |
-| identité |Chaîne |L’utilisateur qui a demandé l’opération. Par exemple : susan@contoso.com. |
+| identité |Chaîne |L’utilisateur qui a demandé l’opération. Par exemple : susan@contoso.com. |
 | properties |JSON |Consultez la section suivante (Schéma des propriétés de journal d’audit) pour plus d’informations |
 
 > [!NOTE]
@@ -195,7 +195,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 #### <a name="audit-log-properties-schema"></a>Schéma des propriétés de journal d’audit
 
-| NOM | type | Description |
+| Nom | type | Description |
 | --- | --- | --- |
 | JobId |Chaîne |L’ID affecté à la tâche. |
 | JobName |Chaîne |Le nom fourni pour la tâche. |

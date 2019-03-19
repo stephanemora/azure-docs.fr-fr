@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431212"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821351"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
 La plupart des Runbooks Azure Automation ont une certaine forme de sortie. Cette sortie peut être un message d’erreur destiné à l’utilisateur ou un objet complexe que vous souhaitez utiliser avec un autre Runbook. Windows PowerShell fournit [plusieurs flux](/powershell/module/microsoft.powershell.core/about/about_redirection) pour l’envoi d’une sortie à partir d’un script ou d’un flux de travail. Azure Automation fonctionne différemment avec chaque flux. Vous devez suivre les meilleures pratiques d’utilisation lorsque vous créez un Runbook.
@@ -220,8 +220,8 @@ La capture d’écran précédente illustre le fait que lorsque vous activez la 
    
    ![Page Journalisation et suivi de la création graphique](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
-Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Avec Log Analytics, vous pouvez :
+### <a name="microsoft-azure-monitor-logs"></a>Journaux Microsoft Azure Monitor
+Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Avec les journaux d’Azure Monitor, vous pouvez,
 
 * Obtenir des informations sur vos travaux Automation 
 * Déclencher un e-mail ou une alerte basé(e) sur le statut de votre travail de runbook (par exemple, échec ou état suspendu) 
@@ -229,7 +229,7 @@ Automation peut envoyer un état de tâche du runbook et des flux de tâches à 
 * Mettre en corrélation des travaux sur différents comptes Automation 
 * Visualiser l’historique de vos travaux dans le temps    
 
-Pour plus d’informations sur la configuration de l’intégration à Log Analytics pour collecter, mettre en corrélation et modifier des données de travail, voir [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Pour plus d’informations sur la façon de configurer l’intégration avec les journaux Azure Monitor pour collecter, mettre en corrélation et agir sur les données de travail, consultez [transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)

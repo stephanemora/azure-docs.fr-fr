@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25711bd09adf17fa82f9177f4badad723e590b12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6c8cd7a2cfc96af791e4b07ae4c6d35b645acba0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835796"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutoriel : Intégration d’Azure Active Directory à iQualify LMS
+# <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Didacticiel : Intégration d’Azure Active Directory à iQualify LMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer iQualify LMS avec Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration d’iQualify LMS avec Azure AD vous offre les avantages suivan
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec iQualify LMS, vous avez besoin des éléments suivants :
 
@@ -112,12 +112,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL iQualify LMS](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : 
+
     | |
     |--|--|
     | Environnement de production : `https://<yourorg>.iqualify.com/`|
     | Environnement de test : `https://<yourorg>.iqualify.io`|
     
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : 
+
     | |
     |--|--|
     | Environnement de production : `https://<yourorg>.iqualify.com/auth/saml2/callback` |
@@ -128,6 +130,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL iQualify LMS](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+    
     | |
     |--|--|
     | Environnement de production : `https://<yourorg>.iqualify.com/login` |

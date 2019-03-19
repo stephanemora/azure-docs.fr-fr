@@ -14,12 +14,12 @@ ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ffcb6d6d7955a2b276850d6db9d08a2cc5c16adb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176257"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
 
@@ -135,14 +135,14 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 ### <a name="fsv2-series"></a>Série Fsv2
 *Nécessite Azure Stack version 1804 ou ultérieure* 
 
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) |
-|---------------------|----|----|-----|-----|-------|--------------|
-|**Standard_F2s_v2**  |2   |4   |16   |1 000 |4000   |4 / 4x2 300    |
-|**Standard_F4s_v2**  |4   |8   |32   |1 000 |8000   |8 / 8x2 300    |
-|**Standard_F8s_v2**  |8   |16  |64   |1 000 |16000  |16 / 16x2 300  |
-|**Standard_F16s_v2** |16  |32  |128  |1 000 |32000  |32 / 32x2 300  |
-|**Standard_F32s_v2** |32  |64  |256  |1 000 |64 000  |32 / 32x2 300  |
-|**Standard_F64s_v2** |64  |128 |512  |1 000 |128000 |32 / 32x2 300  |
+|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|---------------------|----|----|-----|-----|-------|--------------|---------|
+|**Standard_F2s_v2**  |2   |4   |16   |1 000 |4000   |4 / 4x2 300    |2 |
+|**Standard_F4s_v2**  |4   |8   |32   |1 000 |8000   |8 / 8x2 300    |4 |
+|**Standard_F8s_v2**  |8   |16  |64   |1 000 |16000  |16 / 16x2 300  |8 |
+|**Standard_F16s_v2** |16  |32  |128  |1 000 |32000  |32 / 32x2 300  |8 |
+|**Standard_F32s_v2** |32  |64  |256  |1 000 |64 000  |32 / 32x2 300  |8 |
+|**Standard_F64s_v2** |64  |128 |512  |1 000 |128000 |32 / 32x2 300  |8 |
 
 
 ## <a name="memory-optimized"></a>Mémoire optimisée

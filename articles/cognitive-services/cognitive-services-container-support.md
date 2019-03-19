@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 6d3895ab288b7826e54e75c7518d325800a9a238
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a60013bce63ed234e15dfddb13c07fbdc33a4073
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875703"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339621"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
@@ -57,7 +57,7 @@ Les conteneurs Azure Cognitive Services sont accessibles publiquement via votre 
 > [!IMPORTANT]
 > Actuellement, vous devez effectuer un processus d’inscription pour accéder aux conteneurs [Visage](Face/face-how-to-install-containers.md) et [Reconnaître le texte](Computer-vision/computer-vision-how-to-install-containers.md), dans laquelle vous remplissez et soumettez un questionnaire comportant des questions sur vous, votre entreprise et le cas d’utilisation pour lequel vous souhaitez implémenter les conteneurs. Une fois que l’accès et des informations d’identification vous sont fournis, vous pouvez alors extraire les images conteneur pour les conteneurs Visage et Reconnaître le texte à partir d’un Registre de conteneurs privé hébergé par Azure Container Registry.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous devez respecter les prérequis suivants avant d’utiliser des conteneurs Azure Cognitive Services :
 

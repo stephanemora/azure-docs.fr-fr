@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337855"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960211"
 ---
 # <a name="cloud-upload-and-storage"></a>Chargement et stockage sur le cloud
 
@@ -31,14 +31,14 @@ Vous devez disposer d’un compte de stockage **principal** et vous pouvez avoir
 
 Nous vous recommandons d’utiliser GPv2 pour pouvoir choisir entre des niveaux de stockage chaud ou froid. Pour plus d’informations sur les comptes de stockage, consultez la [présentation générale du compte de stockage Azure](../../storage/common/storage-account-overview.md). 
 
+Il existe différentes références SKU, vous pouvez choisir pour votre compte de stockage. Pour plus d’informations, consultez [Comptes de stockage](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Si vous voulez faire des expériences avec des comptes de stockage, utilisez `--sku Standard_LRS`. Cependant, lors de la sélection d’une référence SKU pour la production, envisagez `--sku Standard_RAGRS`, qui offre la réplication géographique pour la continuité de l’activité. 
+
 ## <a name="assets-in-a-storage-account"></a>Ressources d’un compte de stockage
 
-Dans Media Services v3, les API Stockage sont utilisées pour charger des fichiers.
+Dans Media Services v3, les API de stockage sont utilisés pour charger des fichiers dans les ressources. Pour plus d’informations, consultez [concept de ressources](assets-concept.md).
 
 > [!Note]
 > Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob qui ont été générés par le SDK Media Services sans utiliser les API Media Services.
-
-Pour savoir comment utiliser les API Stockage avec Media Services pour charger vos fichiers d’entrée, consultez [Create a job input from a local file](job-input-from-local-file-how-to.md) (Créer une entrée de travail à partir d’un fichier local). 
  
 ## <a name="next-steps"></a>Étapes suivantes
 

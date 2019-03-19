@@ -8,12 +8,12 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011073"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Pilote Azure Blob FileSystem (ABFS) : un pilote Stockage Azure dédié pour Hadoop
 
@@ -21,7 +21,7 @@ ms.locfileid: "55962432"
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Fonctionnalité préalable : pilote Windows Azure Storage Blob
 
-Au départ, c’est le [pilote WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) (Windows Azure Storage Blob) qui prenait en charge le stockage Blob Azure. Il avait pour tâche complexe de mapper la sémantique du système de fichiers (conformément à l’interface Hadoop FileSystem) à celle de l’interface de style « magasin d’objets » exposée par Stockage Blob Azure. Ce pilote continue à prendre en charge ce modèle et fournit un accès très performant aux données stockées dans les objets blob. Il est toutefois difficile de le tenir à jour, car la quantité de code nécessaire au mappage est très importante. Par ailleurs, quand certaines opérations comme [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) et [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) sont appliquées à des répertoires, le pilote doit effectuer un grand nombre d’opérations (les magasins d’objet ne prenant pas en charge les répertoires), ce qui aboutit souvent à une dégradation des performances. Le pilote ABFS a été conçu pour combler les lacunes inhérentes à WASB.
+Au départ, c’est le [pilote WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) (Windows Azure Storage Blob) qui prenait en charge le stockage Blob Azure. Il avait pour tâche complexe de mapper la sémantique du système de fichiers (conformément à l’interface Hadoop FileSystem) à celle de l’interface de style « magasin d’objets » exposée par Stockage Blob Azure. Ce pilote continue à prendre en charge ce modèle et fournit un accès très performant aux données stockées dans les objets blob. Il est toutefois difficile de le tenir à jour, car la quantité de code nécessaire au mappage est très importante. Par ailleurs, quand certaines opérations comme [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) et [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) sont appliquées à des répertoires, le pilote doit effectuer un grand nombre d’opérations (les magasins d’objet ne prenant pas en charge les répertoires), ce qui aboutit souvent à une dégradation des performances. Le pilote ABFS a été conçu pour combler les lacunes inhérentes à WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Pilote Azure Blob File System
 
@@ -52,13 +52,13 @@ Le pilote ABFS prend en charge deux types d’authentification. L’application 
 
 ### <a name="configuration"></a>Configuration
 
-La configuration du pilote ABFS est entièrement stockée dans le fichier de configuration <code>core-site.xml</code>. Sur les distributions Hadoop proposant [Ambari](http://ambari.apache.org/), la configuration peut également être gérée à l’aide du portail web ou de l’API REST Ambari.
+La configuration du pilote ABFS est entièrement stockée dans le fichier de configuration <code>core-site.xml</code>. Sur les distributions Hadoop proposant [Ambari](https://ambari.apache.org/), la configuration peut également être gérée à l’aide du portail web ou de l’API REST Ambari.
 
-Les détails de toutes les entrées de configuration prises en charge sont spécifiés dans la [documentation Hadoop officielle](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Les détails de toutes les entrées de configuration prises en charge sont spécifiés dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
 
 ### <a name="hadoop-documentation"></a>Documentation Hadoop
 
-Le pilote ABFS est présenté au complet dans la [documentation Hadoop officielle](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Le pilote ABFS est présenté au complet dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

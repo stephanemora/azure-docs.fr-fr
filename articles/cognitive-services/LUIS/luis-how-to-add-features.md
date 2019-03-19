@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: f3376b8077302eb6bd9a96710f92d692b641cac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866778"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874883"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Utiliser des listes d’expressions pour améliorer le signal de liste de mots
 
@@ -44,7 +44,7 @@ LUIS permet jusqu’à 10 listes de phrases par application.
 
 5. Cliquez sur **Ces valeurs sont interchangeables** si les valeurs ajoutées à la liste d’expressions sont des alternatives pouvant être utilisées indifféremment.
 
-    ![Liste d’expressions, valeurs proposées - sélectionner la case interchangeable ](./media/luis-add-features/interchangeable.png)
+    ![Liste d’expressions, valeurs proposées - sélectionner la case interchangeable](./media/luis-add-features/interchangeable.png)
 
 6. Cliquez sur **Enregistrer**. La liste d’expressions « Villes » est ajoutée à la page **Listes d’expressions**.
 

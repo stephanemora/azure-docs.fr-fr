@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991393"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888812"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell
 
@@ -33,7 +33,7 @@ Cet article explique comment gérer les enregistrements DNS pour votre zone DNS 
 
 Les exemples de cet article supposent que vous avez déjà [installé Azure PowerShell, ouvert une session et créé une zone DNS](dns-operations-dnszones.md).
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -238,7 +238,7 @@ Vous pouvez également *canaliser* cette séquence d’opérations, c’est-à-d
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Les exemples ci-dessus montrent comment ajouter un enregistrement « A » à un jeu existant d’enregistrements de type « A ». Une séquence similaire d’opérations est utilisée pour ajouter des enregistrements à des jeux d’enregistrements d’autres types, en remplaçant le paramètre `-Ipv4Address` de l’applet de commande `Add-AzDnsRecordConfig` par d’autres paramètres spécifiques de chaque type d’enregistrement. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzDnsRecordConfig`, comme indiqué dans les [autres exemples de types d’enregistrements](#additional-record-type-examples) ci-dessus.
+Les exemples ci-dessus montrent comment ajouter un enregistrement « A » à un jeu existant d’enregistrements de type « A ». Une séquence similaire d’opérations est utilisée pour ajouter des enregistrements à des jeux d’enregistrements d’autres types, en remplaçant le paramètre `-Ipv4Address` de l’applet de commande `Add-AzDnsRecordConfig` par d’autres paramètres spécifiques de chaque type d’enregistrement. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzDnsRecordConfig`, comme indiqué dans les autres exemples de types d’enregistrements ci-dessus.
 
 Les jeux d’enregistrements de type « CNAME » ou « SOA » ne peuvent pas contenir plusieurs enregistrements. Cette contrainte résulte des normes DNS. Il ne s’agit pas d’une limitation d’Azure DNS.
 
@@ -272,7 +272,7 @@ Comme pour l’ajout d’enregistrements à un jeu d’enregistrements, vous pou
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Différents types d’enregistrements sont pris en charge en transmettant les paramètres spécifiques du type approprié à `Remove-AzDnsRecordSet`. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzDnsRecordConfig`, comme indiqué dans les [autres exemples de types d’enregistrements](#additional-record-type-examples) ci-dessus.
+Différents types d’enregistrements sont pris en charge en transmettant les paramètres spécifiques du type approprié à `Remove-AzDnsRecordSet`. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzDnsRecordConfig`, comme indiqué dans les autres exemples de types d’enregistrements ci-dessus.
 
 
 ## <a name="modify-an-existing-record-set"></a>Modifier un jeu d’enregistrements

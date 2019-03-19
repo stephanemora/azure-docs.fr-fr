@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013037"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -33,13 +33,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créez un budget dans le portail Azure
 > * Modifier un budget
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Les budgets sont pris en charge pour divers types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données Cost Management](understand-cost-mgt-data.md). Pour afficher les budgets, vous devez au minimum disposer d'un accès en lecture à votre compte Azure.
 
  Dans le cadre des abonnements Azure EA, vous devez disposer d'un accès en lecture pour afficher les budgets. Pour créer et gérer des budgets, vous devez disposer d’une autorisation de contributeur. Vous pouvez créer des budgets individuels pour les abonnements EA et les groupes de ressources. En revanche, il n’est pas possible d’en créer pour les comptes de facturation EA.
 
-Les autorisations Azure suivantes sont prises en charge par abonnement aux budgets par utilisateur et par groupe :
+Les autorisations Azure suivantes ou les étendues, sont pris en charge par abonnement pour les budgets par utilisateur et groupe. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
 
 - Propriétaire : peut créer, modifier ou supprimer des budgets pour un abonnement.
 - Contributeur et Contributeur Cost Management : peut créer, modifier ou supprimer ses propres budgets. Peut modifier le montant des budgets créés par d’autres utilisateurs.
@@ -53,7 +53,9 @@ Pour plus d’informations sur l’affectation d’une autorisation d’accès a
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Créez un budget dans le portail Azure
 
-Vous pouvez créer un budget d’abonnement Azure pour un mois, un trimestre ou un an. Votre navigation dans le portail Azure détermine si vous créez un budget pour un abonnement ou pour un groupe de ressources. Par exemple, dans le portail Azure, accédez à **Abonnements** &gt; sélectionnez un abonnement &gt; **Budgets**. Dans cet exemple, le budget que vous créez est pour l’abonnement que vous avez sélectionné. Si vous voulez créer un budget pour un groupe de ressources, accédez à **Groupes de ressources** > sélectionnez un groupe de ressources > **Budgets**.
+Vous pouvez créer un budget d’abonnement Azure pour un mois, un trimestre ou un an. Votre contenu de navigation dans le portail Azure détermine si vous créez un budget pour un abonnement ou pour un groupe d’administration.
+
+Pour créer ou afficher un budget, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Par exemple, accédez à **abonnements**, sélectionnez un abonnement à partir de la liste, puis **Budgets** dans le menu. Utilisez le **étendue** pilule pour basculer vers une portée différente, comme un groupe d’administration, dans les Budgets. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
 
 Une fois des budgets créés, ils affichent une vue simple de vos dépenses actuelles par rapport à ces budgets.
 
@@ -85,6 +87,28 @@ Selon le niveau d’accès dont vous disposez, vous pouvez modifier un budget po
 
 ![Exemple de modification de plusieurs propriétés du budget](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>Un groupe d’actions de déclencheur
+
+Lorsque vous créez ou modifiez un budget pour un abonnement ou un groupe de ressources, vous pouvez le configurer pour appeler un groupe d’actions. Le groupe d’actions peut effectuer diverses actions différentes quand votre budget de seuil est atteint. Pour plus d’informations sur les groupes d’actions, consultez [créer et gérer des groupes d’actions dans le portail Azure](../azure-monitor/platform/action-groups.md). Pour plus d’informations sur l’utilisation d’une automatisation basée sur le budget avec des groupes d’actions, consultez [gérer les coûts des budgets Azure](../billing/billing-cost-management-budget-scenario.md).
+
+Pour créer ou mettre à jour des groupes d’actions, cliquez sur **gérer des groupes d’actions** pendant que vous créez ou modifiez un budget.
+
+![Exemple de création d’un budget pour afficher les groupes d’actions de gestion](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+Ensuite, cliquez sur **ajouter un groupe d’action** et créer le groupe d’actions.
+
+
+![Image de la zone de groupe d’action Ajouter](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+Après l’action de groupe est créé, fermez la boîte pour revenir à votre budget.
+
+Configurer votre budget pour utiliser votre groupe d’actions lorsqu’un seuil individuel est remplie. Jusqu'à cinq des seuils différents sont pris en charge.
+
+![Exemple illustrant la sélection de groupe d’action pour une condition d’alerte](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+L’exemple suivant montre les seuils budgétaires définies sur 50 %, 75 % et 100 %. Chacun est configuré pour déclencher les actions spécifiées dans le groupe d’actions désigné.
+
+![Exemple illustrant les conditions d’alerte configurées avec différents groupes d’actions et le type d’actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

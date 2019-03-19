@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090965"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
 
@@ -42,15 +42,15 @@ Pour afficher l’état d’une unité d’échelle :
 3. Dans les résultats, sélectionnez l’unité d’échelle.
 4. Sur la gauche, sous **Général**, sélectionnez **Nœuds**.
 
-  Examinez les informations suivantes :
+   Examinez les informations suivantes :
 
-  - Liste des nœuds individuels
-  - État opérationnel (voir la liste ci-dessous)
-  - État d’alimentation (en cours d’exécution ou arrêté)
-  - Modèle de serveur
-  - Adresse IP du contrôleur de gestion de la carte de base (BMC)
-  - Nombre total de cœurs
-  - Quantité totale de mémoire
+   - Liste des nœuds individuels
+   - État opérationnel (voir la liste ci-dessous)
+   - État d’alimentation (en cours d’exécution ou arrêté)
+   - Modèle de serveur
+   - Adresse IP du contrôleur de gestion de la carte de base (BMC)
+   - Nombre total de cœurs
+   - Quantité totale de mémoire
 
 ![état d’une unité d’échelle](media/azure-stack-node-actions/multinodeactions.png)
 

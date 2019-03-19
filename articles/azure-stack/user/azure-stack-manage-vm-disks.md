@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4edaf782b193e99dfe4002eedb6f3a046fb7dcd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326508"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081455"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Créer un stockage sur disque pour machines virtuelles dans Azure Stack
 
@@ -68,56 +68,56 @@ Chaque disque non managé que vous ajoutez doit être placé dans un conteneur d
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Utiliser le portail pour créer et attacher un disque de données
 
-1.  Dans le portail, choisissez **Tous les services** > **Machines virtuelles**.    
-    ![Exemple : tableau de bord de machine virtuelle](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. Dans le portail, choisissez **Tous les services** > **Machines virtuelles**.    
+   ![Exemple : tableau de bord de machine virtuelle](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  Sélectionnez une machine virtuelle qui a déjà été créée.   
-    ![Exemple : sélectionner une machine virtuelle dans le tableau de bord](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. Sélectionnez une machine virtuelle qui a déjà été créée.   
+   ![Exemple : sélectionner une machine virtuelle dans le tableau de bord](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Pour la machine virtuelle, sélectionnez **Disques** > **Ajouter un disque de données**.       
-    ![Exemple : attacher un nouveau disque à la machine virtuelle](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. Pour la machine virtuelle, sélectionnez **Disques** > **Ajouter un disque de données**.       
+   ![Exemple : attacher un nouveau disque à la machine virtuelle](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  Pour le disque de données :
-    -  Entrez le **LUN** (numéro d’unité logique). Le numéro d’unité logique doit être un nombre valide.
-    -  Sélectionnez **Créer un disque**.
-    ![Exemple : attacher un nouveau disque à la machine virtuelle](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. Pour le disque de données :
+   -  Entrez le **LUN** (numéro d’unité logique). Le numéro d’unité logique doit être un nombre valide.
+   -  Sélectionnez **Créer un disque**.
+   ![Exemple : attacher un nouveau disque à la machine virtuelle](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  Dans le panneau Créer un disque géré :
-    -  Entrez le **Nom** du disque.
-    -  Créez un **Groupe de ressources** ou sélectionnez-en un.
-    -  Sélectionnez un **Emplacement**. Par défaut, l’emplacement est défini sur le conteneur qui renferme le disque du système d’exploitation.
-    -  Sélectionnez le **Type de compte**. 
-        ![Exemple : attacher un nouveau disque à la machine virtuelle](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. Dans le panneau Créer un disque géré :
+   - Entrez le **Nom** du disque.
+   - Créez un **Groupe de ressources** ou sélectionnez-en un.
+   - Sélectionnez un **Emplacement**. Par défaut, l’emplacement est défini sur le conteneur qui renferme le disque du système d’exploitation.
+   - Sélectionnez le **Type de compte**. 
+      ![Exemple : attacher un nouveau disque à la machine virtuelle](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **SSD Premium**  
-        Les disques Premium (SSD) sont associés à des disques SSD afin d’offrir des performances constantes et une faible latence. Ils proposent le meilleur rapport prix/performances et conviennent parfaitement aux applications d’E/S intensives et aux charges de travail de production.
+      **SSD Premium**  
+      Les disques Premium (SSD) sont associés à des disques SSD afin d’offrir des performances constantes et une faible latence. Ils proposent le meilleur rapport prix/performances et conviennent parfaitement aux applications d’E/S intensives et aux charges de travail de production.
        
-        **HDD Standard**  
-        Les disques standard (HDD) sont associés à des lecteurs magnétiques et conviennent davantage aux applications dont les données sont rarement utilisées. Les disques redondants interzones sont associés à un stockage redondant interzone (ZRS) qui réplique vos données sur plusieurs zones, et restent disponibles même si une zone n’est pas disponible. 
+      **HDD Standard**  
+      Les disques standard (HDD) sont associés à des lecteurs magnétiques et conviennent davantage aux applications dont les données sont rarement utilisées. Les disques redondants interzones sont associés à un stockage redondant interzone (ZRS) qui réplique vos données sur plusieurs zones, et restent disponibles même si une zone n’est pas disponible. 
 
-    -  Sélectionnez le **Type de source**.
+   - Sélectionnez le **Type de source**.
 
-       Créez un disque à partir d’un instantané d’un autre disque ou d’un objet blob d’un compte de stockage, ou créez un disque vide.
+     Créez un disque à partir d’un instantané d’un autre disque ou d’un objet blob d’un compte de stockage, ou créez un disque vide.
 
-        **Instantané**  
-        Sélectionnez un instantané, si disponible. L’instantané doit être disponible dans l’abonnement et l’emplacement de la machine virtuelle.
+      **Instantané**  
+      Sélectionnez un instantané, si disponible. L’instantané doit être disponible dans l’abonnement et l’emplacement de la machine virtuelle.
 
-        **Objet blob de stockage**  
-        - Ajoutez l’URI de l’objet blob de stockage qui contient l’image disque.  
-        - Sélectionnez **Parcourir** pour ouvrir le panneau Comptes de stockage. Pour obtenir des instructions, consultez [Ajouter un disque de données à partir d’un compte de stockage](#add-a-data-disk-from-a-storage-account).
-        - Sélectionnez le type du système d’exploitation de l’image : **Windows**, **Linux** ou **Aucun (disque de données)**.
+      **Objet blob de stockage**  
+     - Ajoutez l’URI de l’objet blob de stockage qui contient l’image disque.  
+     - Sélectionnez **Parcourir** pour ouvrir le panneau Comptes de stockage. Pour obtenir des instructions, consultez [Ajouter un disque de données à partir d’un compte de stockage](#add-a-data-disk-from-a-storage-account).
+     - Sélectionnez le type du système d’exploitation de l’image : **Windows**, **Linux** ou **Aucun (disque de données)**.
 
-        **Aucun (disque vide)**
+       **Aucun (disque vide)**
 
-    -  Sélectionnez la **Taille (Gio)**.
+   - Sélectionnez la **Taille (Gio)**.
 
-       Le coût d’un disque standard augmente avec sa taille. Le coût et les performances d’un disque Premium augmentent avec sa taille. Pour plus d’informations, consultez [Tarification Managed Disks](https://go.microsoft.com/fwlink/?linkid=843142).
+     Le coût d’un disque standard augmente avec sa taille. Le coût et les performances d’un disque Premium augmentent avec sa taille. Pour plus d’informations, consultez [Tarification Managed Disks](https://go.microsoft.com/fwlink/?linkid=843142).
 
-    -  Sélectionnez **Créer**. Azure Stack crée et valide le disque managé.
+   - Sélectionnez **Créer**. Azure Stack crée et valide le disque managé.
 
-5.  Après qu’Azure Stack a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **DISQUES DE DONNÉES**.   
+5. Après qu’Azure Stack a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **DISQUES DE DONNÉES**.   
 
-    ![Exemple : Afficher le disque](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![Exemple : Afficher le disque](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Ajouter un disque de données à partir d’un compte de stockage
 

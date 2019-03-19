@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 91d34065753ae29b14aad8580bf922b8213a7988
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191834"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738621"
 ---
 # <a name="create-partitions"></a>Créer des partitions
 
@@ -21,7 +21,7 @@ Dans cette leçon, vous allez créer des partitions pour diviser la table FactIn
   
 Durée estimée pour suivre cette leçon : **15 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
 ## <a name="create-partitions"></a>Créer des partitions  
@@ -108,5 +108,5 @@ Dans le Gestionnaire de partition, notez que la colonne **Dernier traitement** d
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
- ## <a name="whats-next"></a>Et ensuite ?
+## <a name="whats-next"></a>Et ensuite ?
 Accédez à la leçon suivante : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md). 

@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8080355bebf00c9f37c28ae8ed54bba092f8dc17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890601"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099931"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Déployer Azure Cognitive Services sur Azure Stack
 
@@ -67,12 +67,12 @@ Avant de commencer, vous devrez :
 
 Créez une ressource Cognitive Services sur Azure pour afficher un aperçu des conteneurs Visage, LUIS ou Reconnaître le texte, respectivement. Vous devrez utiliser la clé d’abonnement et l’URL de point de terminaison de la ressource pour instancier les conteneurs Cognitive Services.
 
-1.  Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
-    >  [!Note]  
-    >  La ressource Visage ou Vision par ordinateur doit utiliser le niveau tarifaire F0.
+   > [!Note]
+   >  La ressource Visage ou Vision par ordinateur doit utiliser le niveau tarifaire F0.
 
-2.  Obtenez l’URL de point de terminaison et la clé d’abonnement pour la ressource Azure. Une fois la ressource Azure créée, vous devez utiliser la clé d’abonnement et l’URL de point de terminaison de cette ressource pour instancier le conteneur Visage, LUIS ou Reconnaître le texte correspondant pour l’aperçu.
+2. Obtenez l’URL de point de terminaison et la clé d’abonnement pour la ressource Azure. Une fois la ressource Azure créée, vous devez utiliser la clé d’abonnement et l’URL de point de terminaison de cette ressource pour instancier le conteneur Visage, LUIS ou Reconnaître le texte correspondant pour l’aperçu.
 
 ## <a name="create-a-kubernetes-secret"></a>Créer un secret Kubernetes 
 

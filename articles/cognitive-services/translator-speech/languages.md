@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873040"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673697"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Langues prises en charge par l’API de traduction de conversation Translator Speech
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Les langues prises en charge pour la traduction vocale sont les suivantes. Si les deux langues sont prises en charge pour la traduction vocale, la traduction de parole en parole ou de parole en texte est disponible. Si la langue cible n’est pas prise en charge pour la traduction vocale, seule la traduction de parole en texte est disponible. 
+Les langues prises en charge pour la traduction vocale sont les suivantes. Si les deux langues sont prises en charge pour la traduction vocale, la traduction de parole en parole ou de parole en texte est disponible. Si la langue cible n’est pas prise en charge pour la traduction vocale, seule la traduction de parole en texte est disponible.
 
 | Langue de synthèse vocale    |
 |:----------- |
@@ -34,9 +35,9 @@ Les langues prises en charge pour la traduction vocale sont les suivantes. Si le
 | Japonais      |
 | Portugais (Brésil)     |
 | Russe      |
-| Espagnol      | 
+| Espagnol      |
 
-L’API de traduction de conversation Translator Speech prend en charge les langues cibles suivantes pour la reconnaissance vocale. 
+L’API de traduction de conversation Translator Speech prend en charge les langues cibles suivantes pour la reconnaissance vocale.
 
 | Langue de texte    | Code de langue |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ L’API de traduction de conversation Translator Speech prend en charge les lang
 | Bulgare      | `bg`          |
 | Cantonais (traditionnel)      | `yue`          |
 | Catalan      | `ca`          |
-| Chinois simplifié      | `zh-Hans`          | 
+| Chinois simplifié      | `zh-Hans`          |
 | Chinois traditionnel      | `zh-Hant`          |
 | Croate      | `hr`          |
 | Tchèque      | `cs`          |
@@ -116,4 +117,4 @@ La ressource Langues renvoie la liste des langues prises en charge pour la parol
 
 Si vous souhaitez examiner rapidement les langues, le site web de Microsoft Translator présente toutes les langues prises en charge par les API de traduction de texte Translator Text et Speech. Cette liste ne contient pas d’informations spécifiques pour les développeurs, telles que des codes de langue.
 
-[Voir la liste des langues](https://www.microsoft.com/translator/languages.aspx) 
+[Voir la liste des langues](https://www.microsoft.com/translator/languages.aspx)

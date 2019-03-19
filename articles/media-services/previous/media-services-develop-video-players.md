@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ba8d9fd54b8b29a3e58f170402a64f5899fec002
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880685"
 ---
 # <a name="develop-video-player-applications"></a>Développement d’applications de lecteur vidéo
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Azure Media Services fournit les outils dont vous avez besoin pour créer des applications de lecteur clientes riches et dynamiques pour la plupart des plateformes, notamment : appareils iOS, Android, Windows, Windows Phone, Xbox et décodeurs. Cette rubrique fournit également des liens vers les Kits de développement logiciel (SDK) et les infrastructures de lecteur que vous pouvez utiliser pour développer vos propres applications clientes afin d’utiliser la diffusion en continu de médias à partir d’Azure Media Services.
 
 >[!NOTE]
@@ -44,10 +44,10 @@ Pour plus d'informations :
 ## <a name="other-tools-for-creating-player-applications"></a>Autres outils pour la création d’applications de lecteur
 Vous pouvez également utiliser un des Kits de développement logiciel (SDK) suivants :
 
-* [Kit de développement logiciel (SDK) de client de diffusion en continu lisse](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+* [Kit de développement logiciel (SDK) de client de diffusion en continu lisse](https://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [Didacticiel d’application Windows Store de diffusion en continu lisse](media-services-build-smooth-streaming-apps.md)
-* [Plateforme multimédia Microsoft : infrastructure de lecteur](http://playerframework.codeplex.com/) 
-* [Documentation de l’infrastructure de lecteur HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Plateforme multimédia Microsoft : infrastructure de lecteur](https://playerframework.codeplex.com/) 
+* [Documentation de l’infrastructure de lecteur HTML5](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Plug-in de diffusion en continu lisse Microsoft pour OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licence du kit de portage du client de diffusion en continu lisse Microsoft®](https://aka.ms/sspk) 
 * [Développement d’applications vidéo pour XBOX](https://xbox.create.msdn.com/) 

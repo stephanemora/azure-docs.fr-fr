@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339258"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405519"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -37,7 +37,7 @@ Cet article décrit certaines erreurs courantes liées au déploiement Azure et 
 | AllocationFailed | Le cluster ou la région n’a pas de ressources disponibles ou ne prend pas en charge la taille de machine virtuelle demandée. Renouvelez la demande plus tard ou demandez une taille de machine virtuelle différente. | [Problèmes d’approvisionnement et d’allocation pour Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problèmes d’approvisionnement et d’allocation pour Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) et [Résoudre des échecs d’allocation](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendez que l’opération simultanée soit terminée. | |
 | AuthorizationFailed | Votre compte ou principal du service ne dispose pas de droits d’accès suffisants pour terminer le déploiement. Vérifiez le rôle auquel votre compte appartient et son accès dans le cadre du déploiement.<br><br>Cette erreur peut s’afficher quand un fournisseur de ressources requis n’est pas inscrit. | [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |
-| BadRequest | Vous avez envoyé des valeurs de déploiement qui ne correspondent pas aux valeurs attendues par Resource Manager. Vérifiez le message d’état interne pour résoudre plus facilement le problème. | [Référence de modèle](/azure/templates/) et [Emplacements pris en charge](resource-manager-templates-resources.md#location) |
+| BadRequest | Vous avez envoyé des valeurs de déploiement qui ne correspondent pas aux valeurs attendues par Resource Manager. Vérifiez le message d’état interne pour résoudre plus facilement le problème. | [Référence de modèle](/azure/templates/) et [Emplacements pris en charge](resource-group-authoring-templates.md#resource-location) |
 | Conflit | Vous demandez une opération qui n’est pas autorisée dans l’état actuel de la ressource. Par exemple, un redimensionnement de disque est autorisé uniquement durant la création ou la libération d’une machine virtuelle. | |
 | DeploymentActive | Attendez le déploiement simultané sur ce groupe de ressources soit terminé. | |
 | DeploymentFailed | L’erreur DeploymentFailed est une erreur générale qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Pour en savoir plus, recherchez un code d’erreur dans les détails de l’erreur. | [Rechercher un code d’erreur](#find-error-code) |
@@ -58,7 +58,7 @@ Cet article décrit certaines erreurs courantes liées au déploiement Azure et 
 | InvalidTemplateCircularDependency | Supprimez les dépendances inutiles. | [Résoudre les dépendances circulaires](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Vérifiez si votre compte appartient au même client que le groupe de ressources que vous déployez. | |
 | LinkedInvalidPropertyId | L’ID de ressource pour une ressource particulière n’est pas correctement résolu. Assurez-vous de bien fournir toutes les valeurs requises pour l’ID de ressource, notamment l’ID d’abonnement, le nom du groupe de ressources, le type de ressource, le nom de la ressource parente (si nécessaire) et le nom de la ressource. | |
-| LocationRequired | Indiquez un emplacement pour votre ressource. | [Définir un emplacement](resource-manager-templates-resources.md#location) |
+| LocationRequired | Indiquez un emplacement pour votre ressource. | [Définir un emplacement](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | Assurez-vous que la ressource imbriquée a un nombre correct de segments dans le nom et le type. | [Résoudre les segments de la ressource](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Vérifiez l’état d’inscription du fournisseur de ressources ainsi que les emplacements pris en charge. | [Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Inscrivez votre abonnement auprès du fournisseur de ressources. | [Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |

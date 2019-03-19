@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205594"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431170"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilisation de connecteurs avec Azure AD Connect Sync Service Manager
 
@@ -86,7 +86,7 @@ Pour résoudre ce problème, mettez à jour le compte d’utilisateur AD DS en 
 3. Sélectionnez le connecteur Active Directory configuré pour utiliser le compte AD DS.
 4. Sous Actions, sélectionnez **Propriétés**.
 5. Dans la boîte de dialogue contextuelle, sélectionnez Se connecter à la forêt Active Directory :
-6. Le nom de la forêt indique le répertoire Active Directory local correspondant.
+6. Le nom de la forêt indique le correspondantes Active Directory local.
 7. Le nom d’utilisateur indique le compte AD DS utilisé pour la synchronisation.
 8. Entrez le nouveau mot de passe du compte AD DS dans la zone de texte Mot de passe ![Utilitaire de clé de chiffrement Azure AD Connect Sync](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Cliquez sur OK pour enregistrer le nouveau mot de passe et redémarrez le service de synchronisation pour supprimer l’ancien mot de passe du cache mémoire.

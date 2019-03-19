@@ -1,52 +1,54 @@
 ---
 title: Partitionnement dans Azure Cosmos DB
-description: Vue d’ensemble du partitionnement dans Azure Cosmos DB
+description: Vue d’ensemble du partitionnement dans Azure Cosmos DB.
 ms.author: mjbrown
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: d9bd1bec6d1df6fab634c5d929cb778abbd3d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a8db510bea57fa3d6ee873571e586bcef7508b26
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478404"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961633"
 ---
-# <a name="partitioning-in-azure-cosmos-db---overview"></a>Partitionnement dans Azure Cosmos DB - Vue d’ensemble
+# <a name="partitioning-in-azure-cosmos-db"></a>Partitionnement dans Azure Cosmos DB
 
-Le partitionnement est la technique utilisée par Cosmos DB pour procéder à la mise à l'échelle des conteneurs individuels au sein d'une base de données afin de répondre aux besoins de performances de votre application. Grâce au partitionnement, les éléments d'un conteneur sont répartis en sous-ensembles distincts, appelés partitions logiques. Les partitions logiques sont créées en fonction de la valeur d'une propriété de clé de partition associée à chaque élément.
+Azure Cosmos DB utilise le partitionnement à l’échelle des conteneurs individuels dans une base de données en fonction des besoins de performances de votre application. Dans le partitionnement, les éléments dans un conteneur sont divisées en sous-ensembles distincts appelés *partitions logiques*. Partitions logiques sont formées en fonction de la valeur d’un *clé de partition* qui est associé à chaque élément dans un conteneur. Tous les éléments dans une partition logique ont la même valeur de clé de partition.
 
-Une partition logique est un sous-ensemble distinct d'éléments situés dans un conteneur. Les éléments présents dans une partition logique sont identifiés par la valeur de la clé de partition partagée par tous les éléments de la partition logique.  Prenons l'exemple d'un conteneur incluant des documents qui comportent chacun une propriété `UserID`.  Si `UserID` sert de clé de partition pour les éléments présents dans un conteneur et qu'il existe 1 000 valeurs `UserID` uniques, 1 000 partitions logiques seront créées pour le conteneur.
+Par exemple, un conteneur contient des documents. Chaque document possède une valeur unique pour le `UserID` propriété. Si `UserID` sert de la partition de clé pour les éléments dans le conteneur et il y a 1 000 `UserID` valeurs, 1 000 partitions logiques sont créées pour le conteneur.
 
-Chacun des éléments présents dans un conteneur possède une **clé de partition** qui détermine la **partition logique** de l'élément. Il possède également un **identifiant d'élément** (unique dans une partition logique).  L'**index** d'un élément l'identifie de manière unique, et il est formé en combinant la clé de partition et l'identifiant de l'élément.
+En plus d’une clé de partition qui détermine la partition logique de l’élément, chaque élément dans un conteneur a un *ID de l’élément* (unique au sein d’une partition logique). Combinaison de la clé de partition et l’ID d’élément crée l’élément *index*, qui identifie de façon unique l’élément.
 
-Le choix d’une clé de partition est une décision importante qui déterminera les performances de votre application.  Pour des instructions détaillées, consultez l'article [Choix d'une clé de partition](partitioning-overview.md#choose-partitionkey).
+[Choix d’une clé de partition](partitioning-overview.md#choose-partitionkey) est une décision importante qui affecte les performances de votre application.
 
-## <a name="logical-partition-management"></a>Gestion des partitions logiques
+## <a name="managing-logical-partitions"></a>La gestion des partitions logiques
 
-Cosmos DB gère de manière transparente et automatique le positionnement des partitions logiques sur les partitions physiques (infrastructure de serveur) afin de répondre efficacement aux besoins d'extensibilité et de performances du conteneur. À mesure que les exigences de l'application augmentent en matière de débit et de stockage, Cosmos DB déplace les partitions logiques afin de répartir automatiquement la charge sur un plus grand nombre de serveurs. Pour en savoir plus sur la façon dont Cosmos DB gère les partitions, consultez l'article [Partitions logiques](partition-data.md). Il n'est pas nécessaire de connaître ces détails pour créer ou exécuter vos applications.
+Azure Cosmos DB en toute transparence et automatiquement gère le positionnement des partitions logiques sur les partitions physiques (votre infrastructure de serveur) pour traiter efficacement les besoins d’évolutivité et les performances du conteneur. Comme les exigences de débit et le stockage d’une application augmentent, Azure Cosmos DB déplace des partitions logiques automatiquement répartir la charge sur un plus grand nombre de serveurs. 
 
-Cosmos DB utilise un partitionnement basé sur un hachage pour répartir les partitions logiques sur des partitions physiques.  La valeur de la clé de partition d'un élément est hachée par Cosmos DB, et le résultat du hachage détermine la partition physique. Cosmos DB alloue l’espace des hachages de clé de partition uniformément entre les « N » partitions physiques.
+Azure Cosmos DB utilise le partitionnement basé sur le hachage pour répartir les partitions logiques sur les partitions physiques. Azure Cosmos DB hache la valeur de clé de partition d’un élément. Le résultat haché détermine la partition physique. Ensuite, Azure Cosmos DB alloue l’espace de clé de partition de hachages de clé uniformément entre les partitions physiques.
 
-Les requêtes qui accèdent aux données d'une même partition sont plus économiques que les requêtes qui accèdent à plusieurs partitions. Les transactions (dans les procédures stockées ou dans les déclencheurs) ne sont autorisées que pour les éléments d'une même partition logique.  
+Les requêtes qui accèdent aux données d'une même partition sont plus économiques que les requêtes qui accèdent à plusieurs partitions. Transactions (dans les procédures stockées ou déclencheurs) sont autorisées uniquement sur les éléments dans une partition logique unique.
+
+Pour en savoir plus sur la façon dont Azure Cosmos DB gère les partitions, consultez [partitions logiques](partition-data.md). (Il n’est pas nécessaire de comprendre les détails suivants pour créer ou exécuter vos applications.)
 
 ## <a id="choose-partitionkey"></a>Choix d’une clé de partition
 
-Lors du choix d’une clé de partition, tenez compte des détails suivants :
+Lorsque vous choisissez une clé de partition, prenez en compte les informations suivantes :
 
-* La limite supérieure de stockage d'une même partition logique est de 10 Go.  
+* Une partition logique unique a une limite supérieure de 10 Go de stockage.  
 
-* Les conteneurs partitionnés sont configurés avec un débit minimum de 400 unités de requête/seconde. Les requêtes pour la même clé de partition ne peuvent pas dépasser le débit alloué à une partition. Si elles dépassent le débit alloué, elles sont limitées. Il est donc important de choisir une clé de partition qui ne crée pas de « zones réactives » au sein de votre application.
+* Les conteneurs partitionnés ont un débit minimum de 400 unités de requête par seconde (RU/s). Requêtes sur la même clé de partition ne peut pas dépasser le débit est alloué à une partition. Si les requêtes dépassent le débit alloué, les demandes sont limitées. Il est donc important de choisir une clé de partition qui ne crée pas de « zones réactives » au sein de votre application.
 
-* Choisissez une clé de partition qui répartit la charge de travail de manière uniforme sur toutes les partitions et dans le temps.  Votre choix de clé de partition doit équilibrer le besoin de requêtes et/ou de transactions de partition efficaces par rapport à l'objectif de répartition des éléments sur plusieurs partitions afin de garantir l'extensibilité.
+* Choisir une clé de partition qui répartit la charge de travail uniformément entre toutes les partitions et uniforme au fil du temps. Votre choix de clé de partition doit équilibrer la nécessité pour les requêtes de partition efficace et les transactions par rapport à l’objectif à atteindre une évolutivité de la distribution des éléments sur plusieurs partitions.
 
-* Choisissez une clé de partition dotée d'un large éventail de valeurs et de modèles d'accès répartis uniformément sur les partitions logiques. L'idée de base est de répartir les données et l'activité de votre conteneur sur l'ensemble des partitions logiques afin que les ressources de débit et de stockage des données puissent être réparties sur les partitions logiques.
+* Choisissez une clé de partition dotée d'un large éventail de valeurs et de modèles d'accès répartis uniformément sur les partitions logiques. Cela permet de répartir les données et l’activité dans votre conteneur sur l’ensemble des partitions logiques, afin que les ressources de stockage de données et le débit peuvent être répartis sur les partitions logiques.
 
-* Les candidats aux clés de partition peuvent inclure les propriétés qui apparaissent fréquemment en tant que filtre dans vos requêtes. Les requêtes peuvent être efficacement acheminées en incluant la clé de partition dans le prédicat de filtre.
+* Candidats pour les clés de partition peuvent inclure des propriétés qui apparaissent fréquemment en tant que filtre dans vos requêtes. Les requêtes peuvent être efficacement acheminées en incluant la clé de partition dans le prédicat de filtre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [partitions](partition-data.md)
-* Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md)
-* En savoir plus sur la [distribution globale dans Azure Cosmos DB](distribute-data-globally.md)
+* En savoir plus sur [partitions](partition-data.md).
+* Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md).
+* Renseignez-vous sur la [distribution globale dans Azure Cosmos DB](distribute-data-globally.md).

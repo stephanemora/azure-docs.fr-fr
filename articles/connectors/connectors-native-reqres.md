@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27960559"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552178"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Familiarisation avec les composants de requête et de réponse
 Avec les composants de requête et réponse dans une application logique, vous pouvez répondre en temps réel aux événements.
@@ -38,7 +38,7 @@ Un déclencheur est un événement qui peut être utilisé pour lancer le flux d
 
 Voici un exemple de séquence de configuration d’une requête HTTP dans le concepteur d’application logique.
 
-1. Ajoutez le déclencheur **Requête quand une demande HTTP est reçue** à votre application logique. Vous pouvez éventuellement fournir un schéma JSON (à l’aide d’un outil tel que [JSONSchema.net](http://jsonschema.net)) pour le corps de texte de la requête. Ainsi, le concepteur peut générer des jetons pour les propriétés dans la requête HTTP.
+1. Ajoutez le déclencheur **Requête quand une demande HTTP est reçue** à votre application logique. Vous pouvez éventuellement fournir un schéma JSON (à l’aide d’un outil tel que [JSONSchema.net](https://jsonschema.net)) pour le corps de texte de la requête. Ainsi, le concepteur peut générer des jetons pour les propriétés dans la requête HTTP.
 2. Ajoutez une autre action afin d’enregistrer l’application logique.
 3. Après l’enregistrement de l'application logique, vous pouvez obtenir l’URL de la requête HTTP à partir de la carte de requête.
 4. Une requête HTTP POST (vous pouvez utiliser un outil tel que [Postman](https://www.getpostman.com/)) à l’URL déclenche l’application logique.
@@ -109,6 +109,6 @@ Les éléments suivants sont des champs d’entrée pour l’action Réponse HTT
 | headers |headers |Un objet JSON de tout en-tête de réponse à inclure |
 | body |body |Le corps de texte de la réponse |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

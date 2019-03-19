@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892402"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimiser les coûts de stockage dans Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Si vous souhaitez stocker des types de contenus multimédias enrichis, par exemp
 
 ## <a name="check-storage-consumed"></a>Vérifier le stockage utilisé
 
-Pour vérifier la consommation du stockage d’un conteneur Azure Cosmos, vous pouvez exécuter une requête HEAD ou GET sur le conteneur et inspecter les en-têtes `x-ms-request-quota` et `x-ms-request-usage`. Sinon, lorsque vous utilisez le SDK .Net, vous pouvez utiliser les propriétés [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)) et [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) propriétés pour connaître la quantité de stockage utilisée.
+Pour vérifier la consommation du stockage d’un conteneur Azure Cosmos, vous pouvez exécuter une requête HEAD ou GET sur le conteneur et inspecter les en-têtes `x-ms-request-quota` et `x-ms-request-usage`. Lorsque vous travaillez avec le SDK .NET, vous pouvez également utiliser le [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), et [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) propriétés permettant d’obtenir le stockage consommé.
 
 ## <a name="using-sdk"></a>Utiliser le kit de développement logiciel (SDK)
 

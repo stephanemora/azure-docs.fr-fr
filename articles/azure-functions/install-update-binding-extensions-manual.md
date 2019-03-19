@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: 77b863bc32442261e220b5dd3f11c0bd33b4fa7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806066"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727109"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installer ou mettre à jour manuellement des extensions de liaison d’Azure Functions à partir du portail
 
-Le runtime version 2.x d’Azure Functions utilise des extensions de liaison afin d’implémenter un code pour des déclencheurs et des liaisons. Les extensions de liaison sont fournies dans des packages NuGet. Pour inscrire une extension, vous installez essentiellement un package. Lorsque vous développez des fonctions, la façon d’installer des extensions de liaison dépend de l’environnement de développement. Pour plus d’informations, consultez [Inscrire des extensions de liaison](functions-triggers-bindings.md#register-binding-extensions) dans l’article des liaisons et des déclencheurs.
+Le runtime version 2.x d’Azure Functions utilise des extensions de liaison afin d’implémenter un code pour des déclencheurs et des liaisons. Les extensions de liaison sont fournies dans des packages NuGet. Pour inscrire une extension, vous installez essentiellement un package. Lorsque vous développez des fonctions, la façon d’installer des extensions de liaison dépend de l’environnement de développement. Pour plus d’informations, consultez [Inscrire des extensions de liaison](./functions-bindings-register.md) dans l’article des liaisons et des déclencheurs.
 
 Parfois, vous devez installer ou mettre à jour manuellement vos extensions de liaison dans le portail Azure. Par exemple, vous devrez peut-être mettre à jour une liaison inscrite vers une version plus récente. Vous devrez peut-être également inscrire une liaison prise en charge qui ne peut pas être installée dans l’onglet **Intégrer** du portail.
 

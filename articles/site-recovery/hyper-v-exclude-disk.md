@@ -8,17 +8,18 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216963"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992342"
 ---
 # <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
 Cet article décrit comment exclure des disques de la réplication. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
+
 **Fonctionnalité** | **VMware vers Azure** | **Hyper-V vers Azure** | **Azure vers Azure**| **Hyper-V vers Hyper-V** 
 --|--|--|--|--
 Exclure le disque | OUI | Oui | Non  | Non 
@@ -72,7 +73,7 @@ Les disques sur la machine virtuelle source sont les suivants :
 DB-Disk0-OS | DISK0 | C:\ | Disque de système d’exploitation
 DB-Disk1| Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
 DB-Disk2 (disque exclu de la protection) | Disk2 | E:\ | Fichiers temporaires
-DB-Disk3 (disque exclu de la protection) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\) </br /></br />Notez le chemin du dossier avant de procéder au basculement.
+DB-Disk3 (disque exclu de la protection) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\) <br /> <br />Notez le chemin d’accès de dossier avant le basculement.
 DB-Disk4 | Disk4 |G:\ |Base de données utilisateur 2
 
 Étant donné que l’évolution des données sur deux disques de la machine virtuelle est temporaire, lorsque vous protégez la machine virtuelle SalesDB, excluez les disques Disk2 et Disk3 de la réplication. Azure Site Recovery ne répliquera pas ces disques. Lors du basculement, ces disques ne seront pas présents sur la machine virtuelle de basculement sur Azure.
@@ -82,7 +83,7 @@ Les disques sur la machine virtuelle Azure après le basculement sont les suivan
 **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | ---
 DISK0 | C:\ | Disque de système d’exploitation
-Disk1 | E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
+Disk1 | E:\ | Stockage temporaire<br /> <br />Azure ajoute ce disque et attribue la première lettre de lecteur disponible.
 Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
 Disk3 | G:\ | Base de données utilisateur 2
 
@@ -146,7 +147,7 @@ Dans l’exemple précédent, les disques de la machine virtuelle Azure sont con
 **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | ---
 DISK0 | C:\ | Disque de système d’exploitation
-Disk1 | E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
+Disk1 | E:\ | Stockage temporaire<br /> <br />Azure ajoute ce disque et attribue la première lettre de lecteur disponible.
 Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
 Disk3 | G:\ | Base de données utilisateur 2
 
@@ -186,7 +187,7 @@ Après le basculement de la machine virtuelle Hyper-V vers Azure, les disques su
 **Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disque de système d’exploitation
-DB-Disk1 | Disk1 | D:\ | Stockage temporaire</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Stockage temporaire<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Données utilisateur 1
 DB-Disk3 | Disk3 | F:\ | Données utilisateur 2
 
@@ -213,10 +214,10 @@ Voici les paramètres du fichier d’échange sur la machine virtuelle locale :
 
 Après le basculement de la machine virtuelle Hyper-V vers Azure, les disques sur la machine virtuelle Azure se présentent comme suit :
 
-**Nom du disque**| **Numéro du disque du système d’exploitation invité**| **Lettre de lecteur** | **Type de données sur le disque**
+**Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Disque de système d’exploitation
-DB-Disk1 | Disk1 | D:\ | Stockage temporaire</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Stockage temporaire<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Données utilisateur 1
 DB-Disk3 | Disk3 | F:\ | Données utilisateur 2
 

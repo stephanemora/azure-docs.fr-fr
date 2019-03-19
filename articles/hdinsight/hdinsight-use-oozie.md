@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 961103b787cf42170fc3022fc33d8eb218b7a4bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984254"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998334"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Utilisation d’Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow dans HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -52,7 +52,7 @@ Le workflow que vous implémentez en suivant les instructions de ce didacticiel 
 > 
 > 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer de l’élément suivant :
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**. 
@@ -126,7 +126,7 @@ RunHiveScript a plusieurs variables. Vous transmettez ces valeurs lors de l’en
 |Variable de workflow|Description|
 |---|---|
 |${jobTracker}|Spécifie l'URL du suivi des tâches Hadoop. Utilisez **jobtrackerhost:9010** dans les versions 3.0 et 2.1 de HDInsight.|
-|${nameNode}|Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse du système de fichiers par défaut, par exemple, *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+|${nameNode}|Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse du système de fichiers par défaut, par exemple, *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net*.|
 |${queueName}|Spécifie le nom de la file d’attente auquel est envoyée la tâche. Utilisez la **valeur par défaut**.|
 
 |Variable d'action Hive|Description|

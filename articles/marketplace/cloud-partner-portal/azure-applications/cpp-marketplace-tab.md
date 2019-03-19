@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74b21a9dd8faa8eb35aa8a2ef738bd6303e4cdd7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195493"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870735"
 ---
 # <a name="azure-application-marketplace-tab"></a>Onglet Place de marché - Application Azure
 
@@ -66,7 +66,7 @@ Le tableau suivant décrit les artefacts marketing.
 
 La capture d’écran suivante montre un exemple de résultat de recherche dans la Place de marché.
 
-![Résultat de recherche d’offre dans la Place de marché ](./media/azureapp-marketplace-example-browse.png)
+![Résultat de recherche d’offre dans la Place de marché](./media/azureapp-marketplace-example-browse.png)
 
 L’illustration suivante montre comment l’offre apparaît sur la Place de marché lorsqu'un client clique sur le titre de l'offre dans le résultat de la recherche.
 
@@ -113,7 +113,7 @@ Le formulaire Gestion des prospects a un champ facultatif pour configurer la ges
 ![Sélectionnez la destination de la gestion des prospects](./media/azureapp-marketplace-leadmgmt.png)
 
 >[!TIP]
->Sélectionnez l’icône d’information pour afficher ce message : « Sélectionnez le système dans lequel vos prospects seront stockés. Apprenez à connecter votre système CRM [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads). »
+>Sélectionnez l’icône d’information pour afficher ce message : « Sélectionnez le système dans lequel vos prospects seront stockés. Apprenez à connecter votre système CRM [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads). »
 
 
 Pour plus d’informations, voir [Configurer des prospects](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads).

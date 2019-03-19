@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 4a9c7221fbb549494e3ed112e2ab4e66c4b7dadd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cb5b64869a26133e1c08095a816c2d2854f85b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770633"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103500"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gérer la capacité de mémoire physique pour Azure Stack
 
@@ -39,11 +39,11 @@ L’organigramme suivant illustre la procédure générale d’ajout de mémoire
 ## <a name="add-memory-to-an-existing-node"></a>Ajouter de la mémoire à un nœud existant
 Les étapes suivantes fournissent une vue d’ensemble globale du processus d’ajout de mémoire. 
 
-> [!Warning]  
-Ne suivez pas ces étapes sans consulter la documentation fournie par votre fournisseur OEM.
-
-> [!Warning]  
-L’unité d’échelle doit être arrêtée dans son ensemble, car la mise à niveau propagée de la mémoire n’est pas prise en charge.
+> [!Warning]
+> Ne suivez pas ces étapes sans consulter la documentation fournie par votre fournisseur OEM.
+> 
+> [!Warning]
+> L’unité d’échelle doit être arrêtée dans son ensemble, car la mise à niveau propagée de la mémoire n’est pas prise en charge.
 
 1. Arrêtez Azure Stack en suivant la procédure décrite dans l’article [Démarrer et arrêter Azure Stack](azure-stack-start-and-stop.md).
 2. Mettez la mémoire à niveau sur chaque ordinateur physique à l’aide de la documentation de votre fabricant de matériel.

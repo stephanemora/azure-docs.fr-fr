@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874080"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870650"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Comprendre comment et quand utiliser une version de LUIS
 
@@ -35,7 +35,7 @@ La version d’origine (0.1) est la version active par défaut.
 
 Le nom de la version active est affiché dans le volet supérieur gauche, après le nom de l’application. 
 
-[ ![Modifier la version active](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Modifier la version active](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>Versions et emplacements de publication
 Vous publiez dans l’emplacement intermédiaire ou l’emplacement produit. Chaque emplacement peut avoir une version différente ou la même version. Cela est utile pour vérifier les modifications entre les versions du modèle via le point de terminaison, qui est disponible pour les bots ou autres applications appelantes LUIS. 

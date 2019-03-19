@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313481"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550768"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -40,19 +40,13 @@ Certaines limitations s’appliquent lorsque vous déployez des groupes de conte
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
-Cette fonctionnalité est en préversion, mais les limitations suivantes s’appliquent lors du déploiement d’instances de conteneur dans un réseau virtuel. 
+Bien que cette fonctionnalité est disponible en version préliminaire, les limitations suivantes s’appliquent lors du déploiement de groupes de conteneurs à un réseau virtuel. 
 
-**Régions prises en charge et limites de ressources**
-
-| Lieu | SE | UC | Mémoire (Go) |
-| -------- | :---: | :---: | :-----------: |
-| Europe Ouest | Linux | 4 | 14 |
-| USA Est, USA Ouest | Linux | 2 | 3,5 |
-| Australie Est, Europe Nord | Linux | 1 | 1.5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Les limites des ressources de conteneur peuvent différer des limites des instances de conteneur non connectées au réseau dans ces régions. Les conteneurs Linux sont actuellement les seuls pris en charge pour cette fonctionnalité. La prise en charge de Windows est prévue.
 
-**Fonctionnalités et ressources réseau non prises en charge**
+### <a name="unsupported-network-resources-and-features"></a>Fonctionnalités et ressources réseau non pris en charge
 
 * Azure Load Balancer
 * Homologation de réseaux virtuels

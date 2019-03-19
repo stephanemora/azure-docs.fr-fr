@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 86404f4eb2eb2de4243c6bb725f4292e7b560d18
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271258"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569890"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Transformation d'ajout de tableau croisé dynamique de mappage de flux de données pour Azure Data Factory
 
@@ -42,7 +42,7 @@ Pour finir, vous choisirez l’agrégation que vous souhaitez utiliser pour les 
 
 (Facultatif) Vous pouvez définir un modèle d’affectation de noms avec un préfixe, un milieu et un suffixe à ajouter à chaque nouveau nom de colonne à partir des valeurs de ligne.
 
-Par exemple, l’ajout d’un tableau croisé dynamique « Ventes » par « Région » génère de nouvelles valeurs de colonne à partir de chaque valeur des ventes, à savoir "25", "50", "1000", etc. Toutefois, si vous définissez une valeur de préfixe « Ventes » 
+Par exemple, l’ajout d’un tableau croisé dynamique « Ventes » par « Région » génère de nouvelles valeurs de colonne à partir de chaque valeur des ventes, à savoir "25", "50", "1000", etc. Toutefois, si vous définissez une valeur de préfixe de « Sales- », chaque valeur de colonne ajouteriez « Sales- » au début de la valeur.
 
 ![Options d’ajout de tableau croisé dynamique](media/data-flow/pivot5.png "ajout de tableau croisé dynamique 5")
 
@@ -56,4 +56,8 @@ Utiliser le langage d’expression ADF Data Flow pour décrire les transformatio
 
 ### <a name="how-to-rejoin-original-fields"></a>Comment rejoindre des champs d’origine
 > [!NOTE]
-> La transformation par ajout de tableau croisé dynamique projettera uniquement les colonnes utilisées dans l’agrégation, le regroupement et l’action d’ajout de tableau croisé dynamique. Si vous souhaitez inclure les autres colonnes de l’étape précédente dans votre flux, utilisez une nouvelle branche de l’étape précédente et le modèle de jointure réflexive pour connecter le flux aux métadonnées d’origine
+> La transformation par ajout de tableau croisé dynamique projettera uniquement les colonnes utilisées dans l’agrégation, le regroupement et l’action d’ajout de tableau croisé dynamique. Si vous souhaitez inclure les autres colonnes à partir de l’étape précédente dans votre flux, utilisez une nouvelle branche à partir de l’étape précédente et utiliser le modèle de jointure réflexive pour connecter le flux avec les métadonnées d’origine.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Essayez le [transformation unpivot](data-flow-unpivot.md) pour transformer les valeurs de colonne en valeurs de ligne. 

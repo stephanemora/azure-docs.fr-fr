@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6083237426e86220f8a3cb7fbe0cdfc30f44f8cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208824"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003901"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à jour automatique
 Cette fonctionnalité date de la build [1.1.105.0 (publiée en février 2016)](reference-connect-version-history.md#111050).  Cette fonctionnalité a été mise à jour dans la [build 1.1.561](reference-connect-version-history.md#115610) et prend désormais en charge des scénarios supplémentaires.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Grâce à la fonctionnalité de **mise à niveau automatique** , vous pouvez facilement vous assurer que votre installation Azure AD Connect est à jour. Cette fonctionnalité est activée par défaut pour les installations expresses et les mises à niveau de DirSync. Quand une nouvelle version est publiée, votre installation est mise à niveau automatiquement.
 La mise à niveau automatique est activée par défaut pour les éléments suivants :
 
@@ -43,7 +43,7 @@ L’état actuel de la mise à niveau automatique peut être affiché avec l’a
 | Interrompu |Défini par le système uniquement. **Actuellement, le système n’est pas autorisé à recevoir des mises à niveau automatiques.** |
 | Désactivé |La mise à niveau automatique est désactivée. |
 
-Vous pouvez passer de **Activé** à **Désactivé** avec `Set-ADSyncAutoUpgrade`. Seul le système doit définir l’état **Interrompu**.
+Vous pouvez passer de **Activé** à **Désactivé** avec `Set-ADSyncAutoUpgrade`. Seul le système doit définir l’état **Interrompu**.  Avant 1.1.750.0 l’applet de commande Set-ADSyncAutoUpgrade bloquait Autoupgrade si l’état de mise à niveau automatique a été défini sur Suspended. Cette fonctionnalité a maintenant changé afin qu’il ne bloque pas la mise à niveau automatique.
 
 La mise à niveau automatique utilise Azure AD Connect Health pour l’infrastructure de mise à niveau. Pour qu’une mise à niveau automatique fonctionne, assurez-vous d’avoir ouvert les URLs dans votre serveur proxy pour **Azure AD Connect Health** comme indiqué dans la rubrique [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -89,18 +89,18 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeAbortedSyncExeInUse |L’ [interface utilisateur du gestionnaire des services de synchronisation](how-to-connect-sync-service-manager-ui.md) est ouverte sur le serveur. |
 | UpgradeAbortedSyncOrConfigurationInProgress |L'Assistant Installation est en cours d'exécution ou une synchronisation a été planifiée à l'extérieur du planificateur. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | Vous avez sélectionné AD FS en tant que méthode de connexion. | 
+| UpgradeNotSupportedAdfsSignInMethod | Vous avez sélectionné AD FS en tant que méthode de connexion. |
 | UpgradeNotSupportedCustomizedSyncRules |Vous avez ajouté vos propres règles de personnalisation à la configuration. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée des appareils](how-to-connect-device-writeback.md) . |
 | UpgradeNotSupportedGroupWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de groupe](how-to-connect-preview.md#group-writeback) . |
 | UpgradeNotSupportedInvalidPersistedState |L’installation n’est pas une configuration rapide ou une mise à niveau DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Vous avez plus de 100 000 objets dans le métaverse. |
 | UpgradeNotSupportedMultiForestSetup |Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt. |
-| UpgradeNotSupportedNonLocalDbInstall |Vous n’utilisez pas une base de données LocalDB SQL Server Express. |d
+| UpgradeNotSupportedNonLocalDbInstall |Vous n’utilisez pas une base de données LocalDB SQL Server Express. |
 | UpgradeNotSupportedNonMsolAccount |Le [compte de connecteur AD DS](reference-connect-accounts-permissions.md#ad-ds-connector-account) n’est plus le compte MSOL_ par défaut. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Lorsque vous configurez AAD Connect, vous avez choisi *Ne pas configurer* lors de la sélection de la méthode d’authentification unique. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | Lorsque vous configurez AAD Connect, vous avez choisi *Ne pas configurer* lors de la sélection de la méthode d’authentification unique. |
 | UpgradeNotSupportedPtaSignInMethod | Vous avez sélectionné Authentification directe comme mode d’authentification. |
-| UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](how-to-connect-sync-operations.md#staging-mode). |
+| UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](how-to-connect-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Étapes suivantes

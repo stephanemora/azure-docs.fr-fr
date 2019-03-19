@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: b88d850b708a10d0e0fdff2f54b68cb9b39988f5
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
-ms.translationtype: HT
+ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142399"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437103"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure Version 1 avec des machines virtuelles Linux
 
@@ -119,17 +119,17 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| NOM | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.OSTCExtensions | chaîne |
-| Type | CustomScriptForLinux | chaîne |
+| publisher | Microsoft.OSTCExtensions | string |
+| Type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (p. ex.) | python MyPythonScript.py \<my-param1\> | chaîne |
+| commandToExecute (p. ex.) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | booléenne |
-| storageAccountName (p. ex.) | examplestorageacct | chaîne |
-| storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | chaîne |
+| storageAccountName (p. ex.) | examplestorageacct | string |
+| storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Détails des valeurs de propriété
 
@@ -305,7 +305,7 @@ L’étape suivante consiste à rechercher le fichier journal, selon le format s
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Vous devez rechercher l’exécution individuelle, qui doit se présenter ainsi :
+Vous devez rechercher une exécution individuelle, il doit ressembler à :
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

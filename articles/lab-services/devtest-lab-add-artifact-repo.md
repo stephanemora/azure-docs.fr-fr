@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852489"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 
@@ -30,7 +30,7 @@ Nous mettons à votre disposition un [dépôt GitHub d’artefacts](https://gith
 Quand vous créez une machine virtuelle, vous pouvez enregistrer le modèle Resource Manager, le personnaliser éventuellement, puis l’utiliser pour créer des machines virtuelles supplémentaires. Vous devez créer votre propre dépôt privé afin de stocker vos modèles Resource Manager personnalisés.  
 
 * Pour découvrir comment créer un dépôt GitHub, consultez [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Pour découvrir comment créer un projet Azure DevOps Services qui a un dépôt Git, voir [Se connecter à Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Pour savoir comment créer un projet Azure DevOps Services qui a un dépôt Git, consultez [se connecter à Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La figure suivante illustre un dépôt contenant des artefacts dans GitHub :  
 
@@ -78,18 +78,18 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 
     ![Bouton pour ajouter un dépôt](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Sur la seconde page **Référentiels**, spécifiez les informations suivantes :
-  1. **Nom**. Entrez un nom pour le dépôt.
-  2. **URL Git Clone**. Entrez l’URL de clonage Git HTTPS que vous avez précédemment copiée à partir de GitHub ou d’Azure DevOps Services.
-  3. **Branche**. Pour obtenir vos définitions, entrez la branche.
-  4. **Jeton d’accès personnel**. Entrez le jeton d’accès personnel que vous avez obtenu à partir de GitHub ou Azure DevOps Services.
-  5. **Chemins de dossiers**. Entrez au moins un chemin de dossier relatif à l’URL du clone contenant votre artefact ou vos définitions de modèle Resource Manager. Quand vous spécifiez un sous-répertoire, veillez à inclure la barre oblique dans le chemin du dossier.
+   1. **Nom**. Entrez un nom pour le dépôt.
+   2. **URL Git Clone**. Entrez l’URL de clonage Git HTTPS que vous avez précédemment copiée à partir de GitHub ou d’Azure DevOps Services.
+   3. **Branche**. Pour obtenir vos définitions, entrez la branche.
+   4. **Jeton d’accès personnel**. Entrez le jeton d’accès personnel que vous avez obtenu à partir de GitHub ou Azure DevOps Services.
+   5. **Chemins de dossiers**. Entrez au moins un chemin de dossier relatif à l’URL du clone contenant votre artefact ou vos définitions de modèle Resource Manager. Quand vous spécifiez un sous-répertoire, veillez à inclure la barre oblique dans le chemin du dossier.
 
-     ![Zone Référentiels](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![Zone Référentiels](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Sélectionnez **Enregistrer**.
 
 ### <a name="related-blog-posts"></a>Billets de blog connexes
 * [Résoudre les échecs des artefacts dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Joindre une machine virtuelle à un domaine Active Directory existant à l’aide d’un modèle Resource Manager dans DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Joindre une machine virtuelle à un domaine Active Directory existant à l’aide d’un modèle Resource Manager dans DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 35b5f1e29ae125dcac79c278578e900a73ffc7be
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085329"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771381"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Démarrage rapide : Créer un projet avec un environnement personnalisé
 
@@ -28,20 +28,20 @@ Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fich
 
 1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez la rubrique [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
 
-1. En haut de votre page de profil public, sélectionnez **Mes projets** :
+1. En haut de votre page de profil public, sélectionnez **Mes projets** :
 
     ![Lien Mes projets en haut de la fenêtre du navigateur](media/quickstarts/my-projects-link.png)
 
-1. Sur la page **Mes projets**, sélectionnez **+ Nouveau projet** (raccourci clavier : n). Le bouton peut apparaître uniquement sous la forme **+** si la fenêtre du navigateur est étroite :
+1. Dans la page **Mes projets**, sélectionnez **+ Nouveau projet** (raccourci clavier : n). Le bouton peut apparaître uniquement sous la forme **+** si la fenêtre du navigateur est étroite :
 
-    ![Commande Nouveau projet sur la page Mes projets](media/quickstarts/new-project-command.png)
+    ![Commande Nouveau projet dans la page Mes projets](media/quickstarts/new-project-command.png)
 
-1. Dans la fenêtre contextuelle **Créer un projet** qui s’affiche, entrez ou définissez les détails suivants, puis sélectionnez **Créer** :
+1. Dans la fenêtre contextuelle **Créer un projet** qui s’affiche, entrez ou définissez les détails suivants, puis sélectionnez **Créer** :
 
     - **Nom du projet** : Projet avec un environnement personnalisé
     - **ID de projet** : project-custom-environment
     - **Projet public** : (désactivé)
-    - **Créer un fichier README.md** : (désactivé)
+    - **Créer un fichier README.md** : (désactivé)
 
 1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+**), puis **Notebook**.
 

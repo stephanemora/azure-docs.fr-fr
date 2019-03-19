@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a9a38d30ec2a8e9139470531960d47fef1025269
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a14912c48f27c4f4d0e54239f8e0523ffa62324f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888500"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
 
@@ -50,7 +50,7 @@ Le tableau suivant montre les différences entre les trois niveaux :
 |||
 
 > [!NOTE]
-> Vous pouvez obtenir une base de données Azure SQL Database gratuite au niveau de service De base avec un compte Azure gratuit pour explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Vous pouvez obtenir une base de données SQL Azure gratuit au niveau de service de base en conjonction avec un compte Azure gratuit pour Explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 - Pour plus d’informations, consultez [Limites de ressources vCore dans une base de données unique](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources vCore dans une instance gérée](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Pour plus d’informations sur les niveaux de service Usage général et Critique pour l’entreprise, consultez l’article [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md) (Niveaux de service Usage général et Critique pour l’entreprise).

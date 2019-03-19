@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104150"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990032"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Event Hubs - Modèle de sécurité et d’authentification
 
@@ -68,13 +68,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Générer des jetons
 
-Vous pouvez générer des jetons à l'aide de la clé SAS. Vous ne devez produire qu’un seul jeton par client. Les jetons peuvent ensuite être générés à l'aide de la méthode suivante. Tous les jetons sont générés à l'aide de la clé **EventHubSendKey** . Une URI unique est affectée à chaque jeton.
+Vous pouvez générer des jetons à l'aide de la clé SAS. Vous ne devez produire qu’un seul jeton par client. Les jetons peuvent ensuite être générés à l'aide de la méthode suivante. Tous les jetons sont générés à l'aide de la clé **EventHubSendKey** . Une URI unique est affectée à chaque jeton. Le paramètre « resource » correspond au point de terminaison URI du service (concentrateur d’événements dans le cas présent).
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-Lors de l'appel de cette méthode, l'URI doit être spécifiée en tant que `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Pour tous les jetons, l'URI est identique, à l'exception de `PUBLISHER_NAME`, qui doit être différent pour chaque jeton. Dans l’idéal, `PUBLISHER_NAME` représente l’ID du client qui reçoit ce jeton.
+Lors de l'appel de cette méthode, l'URI doit être spécifiée en tant que `https://<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Pour tous les jetons, l'URI est identique, à l'exception de `PUBLISHER_NAME`, qui doit être différent pour chaque jeton. Dans l’idéal, `PUBLISHER_NAME` représente l’ID du client qui reçoit ce jeton.
 
 Cette méthode génère un jeton avec la structure suivante :
 

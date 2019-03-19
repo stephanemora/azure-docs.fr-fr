@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002369"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
@@ -190,7 +190,7 @@ Installez à présent le serveur de configuration :
 
 > [!NOTE]
 > Vous pouvez également installer le serveur de configuration à partir de la ligne de commande. [Plus d’informations](physical-manage-configuration-server.md#install-from-the-command-line)
-
+> 
 > L’affichage du nom de compte dans le portail peut prendre plus de 15 minutes. Pour procéder à une mise à jour immédiate, sélectionnez **Serveurs de configuration** > ***nom du serveur*** > **Actualiser le serveur**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Étape 4 : Configurer l’environnement cible
@@ -214,7 +214,7 @@ Sélectionnez et vérifiez les ressources cibles.
 4. Dans **Rétention des points de récupération**, spécifiez le temps de rétention de chaque point de récupération. Les machines virtuelles répliquées peuvent être restaurées à n’importe quel point de récupération dans la fenêtre de temps spécifiée.
 5. Dans **Fréquence des captures instantanées de cohérence d’application**, spécifiez la fréquence de création d’instantanés de cohérence de l’application.
 
-    - Un instantané de cohérence d’application est une capture instantanée à un point dans le temps des données d’application à l’intérieur de la machine virtuelle.
+    - Un instantané cohérent au niveau de l’application est un instantané de point-à-temps des données de l’application à l’intérieur de la machine virtuelle.
     - Le service VSS s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la capture instantanée.
 6. Sélectionnez **OK** pour créer la stratégie.
 
@@ -249,9 +249,9 @@ Vérifiez que vous avez accompli toutes les tâches décrites dans [Étape 1 :
 
 > [!NOTE]
 > Site Recovery installe le service Mobilité quand la réplication est activée pour une machine virtuelle.
-
+> 
 > Il peut être nécessaire d’attendre 15 minutes ou plus avant que les modifications prennent effet et qu’elles apparaissent dans le portail.
-
+> 
 > Pour surveiller les machines virtuelles que vous ajoutez, consultez l’heure de la dernière découverte des machines virtuelles dans **Serveurs de configuration** > **Dernier contact à**. Pour ajouter des machines virtuelles sans attendre la découverte planifiée, mettez en surbrillance le serveur de configuration (sans le sélectionner) et sélectionnez **Actualiser**.
 
 

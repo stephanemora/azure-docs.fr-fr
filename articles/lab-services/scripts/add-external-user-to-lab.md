@@ -1,5 +1,5 @@
 ---
-title: 'Script PowerShell : Ajouter un utilisateur externe à un lab dans Azure DevTest Labs | Microsoft Docs'
+title: 'Script PowerShell : Ajouter un utilisateur externe à un laboratoire dans Azure DevTest Labs | Microsoft Docs'
 description: Ce script PowerShell ajoute un utilisateur externe à un lab dans Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0acff1eb4cee441187205b11a7e07cc718072cbf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248187"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738349"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Utiliser PowerShell pour ajouter un utilisateur externe à un lab dans Azure DevTest Labs
 
 Cet exemple de script PowerShell ajoute un utilisateur externe à un lab dans Azure DevTest Labs. 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * **Un lab**. Le script vous demande d’avoir un lab. 
 
 ## <a name="sample-script"></a>Exemple de script
@@ -38,8 +40,8 @@ Ce script utilise les commandes suivantes :
 
 | Commande | Notes |
 |---|---|
-| [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Tente une nouvelle fois d’obtenir l’objet utilisateur à partir d’Azure Active Directory. |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Affecte le rôle spécifié au principal spécifié, dans l’étendue spécifiée. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Tente une nouvelle fois d’obtenir l’objet utilisateur à partir d’Azure Active Directory. |
+| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Affecte le rôle spécifié au principal spécifié, dans l’étendue spécifiée. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

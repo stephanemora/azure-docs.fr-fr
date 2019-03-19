@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9910155b439b5ee6d0e5abd96d750943605098a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88839598b3ae11f0041b3451ba5481547c019c9d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211595"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449612"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Intégration d'annuaires entre le serveur Azure MFA et Active Directory
 
@@ -61,7 +61,7 @@ Azure Multi-Factor Authentication comporte les trois options de filtre suivantes
 * **Filtre d'utilisateur** : spécifiez les critères de filtre utilisés pour qualifier les enregistrements utilisateur lorsque vous effectuez une recherche dans l'annuaire.  Pour Active Directory et ADAM, (&(objectClass=user)(objectCategory=person)) est généralement utilisé.  Pour d’autres répertoires LDAP, utilisez (objectClass=inetOrgPerson) ou autre paramètre similaire en fonction du schéma du répertoire. <br>Remarque :  Si ce champ n’est pas renseigné, (&(objectCategory=person)(objectClass=user)) est utilisé par défaut.
 
 ## <a name="attributes"></a>Attributs
-Vous pouvez personnaliser les attributs pour un répertoire spécifique.  Cela vous permet d’ajouter des attributs personnalisés et de régler avec précision la synchronisation uniquement avec les attributs dont vous avez besoin. Utilisez le nom de l’attribut, tel que défini dans le schéma du répertoire pour la valeur de chaque champ d’attribut. Le tableau suivant fournit des informations supplémentaires sur chaque fonctionnalité.
+Vous pouvez personnaliser les attributs pour un répertoire spécifique.  Cela vous permet d’ajouter des attributs personnalisés et de régler avec précision la synchronisation uniquement avec les attributs dont vous avez besoin. Utilisez le nom de l’attribut tel que défini dans le schéma de répertoire pour la valeur de chaque champ d’attribut. Le tableau suivant fournit des informations supplémentaires sur chaque fonctionnalité.
 
 Les attributs peuvent être entrés manuellement et ne doivent pas nécessairement correspondre à un attribut de la liste d’attributs.
 
@@ -71,7 +71,7 @@ Les attributs peuvent être entrés manuellement et ne doivent pas nécessaireme
 | --- | --- |
 | Identificateur unique |Entrez le nom de l'attribut qui sert d'identificateur unique pour le conteneur, le groupe de sécurité et les enregistrements utilisateur.  Dans Active Directory, il s'agit généralement de objectGUID. Les autres implémentations LDAP peuvent utiliser entryUUID ou autre paramètre similaire.  La valeur par défaut est objectGUID. |
 | Type d'identificateur unique |Sélectionnez le type de l'attribut d'identificateur unique.  Dans Active Directory, l'attribut objectGUID est du type GUID. Les autres implémentations LDAP peuvent utiliser Chaîne ou Tableau d’octets ASCII.  La valeur par défaut est GUID. <br><br>Il est important de définir correctement ce type dans la mesure où les éléments de synchronisation sont référencés par leur identificateur unique. Le type d’identificateur unique est utilisé pour trouver directement l’objet dans le répertoire.  La définition de ce type sur Chaîne alors que le répertoire stocke la valeur sous forme de tableau d’octets de caractères ASCII empêche la synchronisation de fonctionner correctement. |
-| Nom unique |Entrez le nom de l'attribut qui contient le nom unique de chaque enregistrement.  Dans Active Directory, il s'agit généralement de distinguishedName. Les autres implémentations LDAP peuvent utiliser entryDN ou autre paramètre similaire.  La valeur par défaut est distinguishedName. <br><br>Si un attribut contenant seulement le nom unique n’existe pas, l’attribut adspath peut être utilisé.  La partie « LDAP://\<server\>/ » du chemin d’accès est automatiquement supprimée. Seul le nom unique de l’objet est conservé. |
+| Nom unique |Entrez le nom de l'attribut qui contient le nom unique de chaque enregistrement.  Dans Active Directory, il s'agit généralement de distinguishedName. Les autres implémentations LDAP peuvent utiliser entryDN ou autre paramètre similaire.  La valeur par défaut est distinguishedName. <br><br>Si un attribut contenant simplement le nom unique n’existe pas, l’attribut de chemin d’accès de publicités peut être utilisé.  La partie « LDAP://\<server\>/ » du chemin d’accès est automatiquement supprimée. Seul le nom unique de l’objet est conservé. |
 | Nom du conteneur |Entrez le nom de l'attribut qui contient le nom d'un enregistrement de conteneur.  La valeur de cet attribut s’affiche dans la hiérarchie de conteneur lors de l’importation à partir d’Active Directory ou l’ajout d’éléments de synchronisation.  La valeur par défaut est name. <br><br>Si des conteneurs différents utilisent des attributs différents pour leurs noms, séparez les attributs de nom de conteneur par des points-virgules.  Le premier attribut de nom de conteneur trouvé sur un objet de conteneur est utilisé pour afficher son nom. |
 | Nom de groupe de sécurité |Entrez le nom de l'attribut qui contient le nom d'un enregistrement de groupe de sécurité.  La valeur de cet attribut s’affiche dans la liste des groupes de sécurité lors de l’importation à partir d’Active Directory ou lors de l’ajout d’éléments de synchronisation.  La valeur par défaut est name. |
 | Nom d’utilisateur |Entrez le nom de l'attribut qui contient le nom d'utilisateur dans un enregistrement utilisateur.  La valeur de cet attribut est utilisée comme nom d’utilisateur du serveur MFA.  Un deuxième attribut peut être spécifié en tant que sauvegarde.  Le deuxième attribut n’est utilisé que si le premier attribut ne contient pas de valeur pour l’utilisateur.  Les valeurs par défaut sont userPrincipalName et sAMAccountName. |

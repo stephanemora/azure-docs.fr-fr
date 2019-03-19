@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Zscaler Private Access Administrator | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Zscaler Private Access Administrator | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Private Access Administrator.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cdb842c4cebe48f2f6534417a7fe6aa4686d1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Didacticiel : Intégration d'Azure Active Directory à Zscaler Private Access Administrator
 
@@ -35,7 +35,7 @@ L’intégration de Zscaler Private Access Administrator dans Azure AD vous offr
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Zscaler Private Access Administrator, vous avez besoin des éléments suivants :
 
@@ -217,7 +217,7 @@ Pour permettre à des utilisateurs Azure AD de se connecter à Zscaler Private A
 
     ![Administrateur d’utilisateurs Zscaler Private Access Administrator](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. Dans la zone de texte **Nom d’utilisateur**, entrez l’adresse e-mail de l’utilisateur, par exemple **BrittaSimon@contoso.com**.
+    a. Dans le **nom d’utilisateur** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **BrittaSimon\@contoso.com**.
 
     b. Dans la zone de texte **Mot de passe**, tapez le mot de passe.
 
@@ -225,7 +225,7 @@ Pour permettre à des utilisateurs Azure AD de se connecter à Zscaler Private A
 
     d. Sélectionnez **Rôle** pour **Zscaler Private Access Administrator**.
 
-    e. Dans la zone de texte **E-mail**, entrez l’adresse de messagerie de l’utilisateur, par exemple **BrittaSimon@contoso.com**.
+    e. Dans le **E-mail** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **BrittaSimon\@contoso.com**.
 
     f. Dans la zone de texte **Téléphone**, tapez le numéro de téléphone.
 

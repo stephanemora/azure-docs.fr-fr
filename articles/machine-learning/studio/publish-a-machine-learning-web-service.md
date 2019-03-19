@@ -5,17 +5,17 @@ description: Comment convertir une expérience d’entraînement en expérience 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895724"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Déployer un service web Azure Machine Learning Studio
 
@@ -93,23 +93,23 @@ La page de test RRS affiche les entrées, les sorties et tous les paramètres gl
 
 Pour tester le service en tant que Service de requête-réponse (RRS), en mode d’affichage liste, entrez les valeurs appropriées pour les entrées et cliquez sur **Test Request-Response**(Tester la requête-réponse). Vos résultats de prédiction s’affichent dans la colonne de sortie à gauche de la page.
 
-![Déploiement du service web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Entrez les valeurs appropriées pour tester votre service web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Pour tester votre service d’exécution de lots (BES), cliquez sur **Lot**. Sur la page de test BES, cliquez sur Parcourir en dessous de votre entrée et sélectionnez un fichier CSV contenant les exemples de valeurs appropriés. Si vous n’avez pas de fichier CSV et que vous avez créé votre expérience prédictive à l’aide de Machine Learning Studio, vous pouvez télécharger le jeu de données à utiliser pour votre expérience prédictive.
 
 Pour télécharger le jeu de données, ouvrez Machine Learning Studio. Ouvrez votre expérience prédictive et cliquez avec le bouton droit sur l’entrée correspondant à votre expérience. Dans le menu contextuel, sélectionnez **Jeu de données**, puis **Télécharger**.
 
-![Déploiement du service web](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Télécharger votre jeu de données à partir de la zone de dessin de Studio](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Cliquez sur **Test**. L’état de votre travail de traitement par lots s’affiche à droite sous **Test Batch Jobs**(Travaux de test de traitement par lots).
 
-![Déploiement du service web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Tester votre travail de l’exécution par lots avec le portail de service web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
 Dans la page **CONFIGURATION**, vous pouvez modifier la description et le titre, mettre à jour la clé du compte de stockage et activer les exemples de données pour votre service web.
 
-![Configuration du service web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![Configurer votre service web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 ### <a name="access-your-new-web-service"></a>Accès à votre nouveau service web
 
@@ -161,7 +161,7 @@ Maintenant que l’expérience prédictive est correctement préparée, vous pou
 
 Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas du canevas de l’expérience, puis cliquez sur **Déployer le service web**. Le service web est configuré et vous êtes placé dans le tableau de bord du service web.
 
-![Déploiement du service web](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Déployer votre service web à partir de Studio](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>Test de votre service web classique
 
@@ -181,7 +181,7 @@ Vous pouvez fournir une description de vos données d’entrée, de vos données
 
 Vous pouvez activer la journalisation pour diagnostiquer toute défaillance que vous observez lors de l’accès à votre service web. Pour plus d'informations, consultez [Activation de la journalisation pour les services web de Machine Learning Studio](web-services-logging.md).
 
-![Configuration du service web](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Activer la journalisation dans le portail de services web](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 Vous pouvez également configurer les points de terminaison pour le service web dans le portail des services web Azure Machine Learning en procédant de façon similaire à la procédure décrite précédemment dans la section relative au nouveau service web. Les options sont différentes. Vous pouvez ajouter ou modifier la description du service, activer la journalisation et activer des exemples de données à des fins de test.
 
@@ -209,7 +209,7 @@ Pour mettre à jour le service web, ouvrez l'expérience prédictive d'origine u
 > [!NOTE]
 > Si vous avez apporté des modifications de configuration dans le service web d'origine, par exemple, si vous saisissez un nouveau nom d'affichage ou une description, vous devrez saisir ces valeurs à nouveau.
 
-Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d'informations, consultez la page [Reformation des modèles Machine Learning Studio programmatiquement](retrain-models-programmatically.md).
+Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d'informations, consultez la page [Reformation des modèles Machine Learning Studio programmatiquement](/azure/machine-learning/studio/retrain-machine-learning-model).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -219,13 +219,12 @@ Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’ai
 
 * Il existe plusieurs moyens d’utiliser l’API REST et d’accéder au service web. Consultez [Guide pratique pour utiliser un service web Azure Machine Learning Studio](consume-web-services.md).
 
-
 <!-- internal links -->
 [Créez une expérience d'apprentissage]: #create-a-training-experiment
 [Convertissez-la en une expérience prédictive]: #convert-the-training-experiment-to-a-predictive-experiment
 [Nouveau service web]: #deploy-it-as-a-new-web-service
 [Service web classique]: #deploy-it-as-a-classic-web-service
-[nouveau]: #deploy-the-predictive-experiment-as-a-new-web-service
+[nouveau]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

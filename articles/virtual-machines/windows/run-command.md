@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ecf19da59e91edd08953296d96ca68ca62f008e1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983711"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195351"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run
 
@@ -85,7 +85,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 Répertorier les commandes Run ou afficher les détails d’une commande nécessite l’autorisation `Microsoft.Compute/locations/runCommands/read`, disponible avec le rôle intégré [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et les rôles supérieurs.
 
-L’exécution d’une commande nécessite l’autorisation `Microsoft.Compute/virtualMachines/runCommand/action`, disponible avec le rôle [Collaborateur](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) et les rôles supérieurs.
+Nécessite l’exécution d’une commande le `Microsoft.Compute/virtualMachines/runCommand/action` autorisation, ce qui le [collaborateur de Machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rôle et ont une version ultérieure.
 
 Vous pouvez utiliser un des rôles [intégrés](../../role-based-access-control/built-in-roles.md) ou créer un rôle [personnalisé](../../role-based-access-control/custom-roles.md) afin d’exécuter la commande Run.
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2c6ca05e2a76cb6fbf7aabc1e9d801a2639665d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850324"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure (hérité)
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure 
 
 ## <a name="encoding-overview"></a>Vue d’ensemble de l’encodage
 Azure Media Services fournit plusieurs options pour l’encodage de fichiers multimédias dans le cloud.
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez [Création de superpositions à l’aide d
 [Blog sur Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Présentation
 [Présentation de l’encodage Premium dans Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>Utilisation
@@ -95,4 +95,4 @@ Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multim
 * [Quotas et limitations](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

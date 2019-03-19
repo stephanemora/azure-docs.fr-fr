@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: b49df76bc5b9c4d5f469e702b65ffd5762e49a39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035912"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455834"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Service DNS dans Azure Service Fabric
 Le service DNS est un service système facultatif que vous pouvez activer dans votre cluster pour détecter d’autres services utilisant le protocole DNS. 
@@ -53,7 +53,7 @@ Quand vous créez un cluster à l’aide du portail, le service DNS est activé 
 Si vous n’utilisez pas le portail pour créer votre cluster ou si vous mettez à jour un cluster existant, vous devez activer le service DNS dans un modèle :
 
 - Pour déployer un nouveau cluster, vous pouvez utiliser les [exemples de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) ou créer votre propre modèle Resource Manager. 
-- Pour mettre à jour un cluster existant, vous pouvez accéder au groupe de ressources du cluster dans le portail et cliquer sur **Script d’automatisation** pour travailler avec un modèle qui reflète l’état actuel du cluster et d’autres ressources du groupe. Pour plus d’informations, consultez [Exportation du modèle à partir d’un groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+- Pour mettre à jour un cluster existant, vous pouvez accéder au groupe de ressources du cluster dans le portail et cliquer sur **Script d’automatisation** pour travailler avec un modèle qui reflète l’état actuel du cluster et d’autres ressources du groupe. Pour plus d’informations, consultez [Exportation du modèle à partir d’un groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 Une fois que vous avez un modèle, vous pouvez activer le service DNS en effectuant les étapes suivantes :
 

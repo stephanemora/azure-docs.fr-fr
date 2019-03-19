@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 1d092f03013d98106138f35734d960567121a5bf
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692716"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881853"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensions et fonctionnalités des machines virtuelles Azure
 Les extensions de machine virtuelle Azure sont de petites applications qui assurent des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Vous pouvez utiliser des images existantes et les personnaliser dans le cadre de vos déploiements, pour vous dispenser de créer des images personnalisées.
@@ -54,6 +54,6 @@ Les extensions installent des applications, et comme pour toute application, il 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur le fonctionnement des extensions avec l’agent Linux, consultez [Fonctionnalités et extensions des machines virtuelles Azure pour Linux](features-linux.md).
 * Pour plus d’informations sur le fonctionnement des extensions avec l’agent invité de Windows, consultez [Fonctionnalités et extensions des machines virtuelles Azure pour Windows](features-windows.md).  
-* Pour installer l’agent invité de Windows, consultez [Vue d’ensemble de l’agent de machine virtuelle Azure pour Windows](agent-windows.md).  
-* Pour installer l’agent Linux, consultez [Vue d’ensemble de l’agent de machine virtuelle Azure pour Linux](agent-linux.md).  
+* Pour installer l’Agent invité de Windows, consultez [présentation de l’Agent de Machine virtuelle Windows Azure](agent-windows.md).  
+* Pour installer le Linux Agent, consultez [présentation de l’Agent de Machine virtuelle Linux Azure](agent-linux.md).  
 

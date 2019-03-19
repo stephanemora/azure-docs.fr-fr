@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341530"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404768"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activité Delete dans Azure Data Factory
 
@@ -37,21 +37,20 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
 
 -   Veillez à ne pas supprimer de fichiers en cours d’écriture. 
 
--   Si vous souhaitez supprimer des fichiers ou un dossier d’un système local, veillez à utiliser un runtime d’intégration auto-hébergé avec une version supérieure à 3.13.
+-   Si vous souhaitez supprimer des fichiers ou un dossier à partir d’un système de site, assurez-vous que vous utilisez un runtime d’intégration auto-hébergé avec une version supérieure à 3.14.
 
 ## <a name="supported-data-stores"></a>Magasins de données pris en charge
 
-### <a name="azure-data-stores"></a>Magasins de données Azure
-
 -   [stockage d’objets blob Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (préversion)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>Magasins de données de système de fichiers
 
 -   [Système de fichiers](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -61,7 +60,7 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -82,12 +81,12 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| dataset | Fournit la référence au jeu de données pour déterminer les fichiers ou le dossier à supprimer. | OUI |
+| dataset | Fournit la référence au jeu de données pour déterminer les fichiers ou le dossier à supprimer. | Oui |
 | recursive | Indique si les fichiers sont supprimés de manière récursive des sous-dossiers ou uniquement du dossier spécifié.  |  Non. Par défaut, il s’agit de `false`. |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage pour supprimer un dossier ou des fichiers.   |   Non. Par défaut, il s’agit de `1`. |
 | enablelogging | Indique si vous devez enregistrer les noms des dossiers ou fichiers qui ont été supprimés. Si la valeur est true, vous devez fournir un compte de stockage pour enregistrer le fichier journal dans lequel vous pouvez suivre les comportements de l’activité Delete. | Non  |
 | logStorageSettings | S’applique seulement quand enablelogging = true.<br/><br/>Groupe de propriétés de stockage vous permettant de spécifier où enregistrer le fichier journal contenant les noms des dossiers ou fichiers supprimés par l’activité Delete. | Non  |
-| linkedServiceName | S’applique seulement quand enablelogging = true.<br/><br/>Service lié de [Stockage Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) utilisé pour stocker le fichier journal qui contient les noms des dossiers ou fichiers supprimés par l’activité Delete. | Non  |
+| linkedServiceName | S’applique seulement quand enablelogging = true.<br/><br/>Service lié de [stockage Azure](connector-azure-blob-storage.md#linked-service-properties), [Gen1 de stockage Azure Data Lake](connector-azure-data-lake-store.md#linked-service-properties), ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) pour stocker le fichier journal qui contient le dossier ou noms de fichier a été supprimée par l’activité de suppression. | Non  |
 | chemin d’accès | S’applique seulement quand enablelogging = true.<br/><br/>Chemin utilisé pour enregistrer le fichier journal dans votre compte de stockage. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non  |
 
 ## <a name="monitoring"></a>Surveillance
@@ -100,13 +99,15 @@ Vous pouvez voir et superviser les résultats de l’activité Delete dans deux 
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ Vous pouvez voir et superviser les résultats de l’activité Delete dans deux 
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Exemple de fichier journal de l’activité Delete
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| Nom | Catégorie | Statut | Error |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | Fichier | Deleted |  |
+| test2/hello789.txt | Fichier | Deleted |  |
+| test2/test3/hello000.txt | Fichier | Deleted |  |
+| test2/test3/zzz.json | Fichier | Deleted |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Exemples d’utilisation de l’activité Delete
 
@@ -322,7 +313,7 @@ Vous pouvez créer un pipeline pour nettoyer les fichiers anciens ou ayant expir
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -332,7 +323,7 @@ Vous pouvez créer un pipeline pour nettoyer les fichiers anciens ou ayant expir
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Déplacer des fichiers par chaînage des activités Copy et Delete
 
-Vous pouvez déplacer un fichier en utilisant une activité Copy pour copier un fichier, puis une activité Delete pour supprimer un fichier d’un pipeline.  Pour déplacer plusieurs fichiers, vous pouvez utiliser les activités GetMetadata, Filter, Foreach, Copy et Delete comme dans l’exemple suivant :
+Vous pouvez déplacer un fichier à l’aide d’une activité de copie pour copier un fichier, puis une activité de suppression pour supprimer un fichier dans un pipeline.  Pour déplacer plusieurs fichiers, vous pouvez utiliser les activités GetMetadata, Filter, Foreach, Copy et Delete comme dans l’exemple suivant :
 
 > [!NOTE]
 > Soyez très prudent si, pour déplacer la totalité d’un dossier, vous définissez un jeu de données contenant un chemin de dossier uniquement, puis utilisez une activité Copy et une activité Delete pour faire référence au même jeu de données représentant un dossier. En effet, vous devez veiller à ce qu’aucun nouveau fichier n’arrive dans le dossier entre l’opération de copie et l’opération de suppression.  Si de nouveaux fichiers arrivent dans le dossier au moment où votre activité Copy vient juste d’achever la copie mais avant le démarrage de l’activité Delete, il est possible que cette dernière, en supprimant la totalité du dossier, supprime le nouveau fichier qui n’a pas encore été copié dans la destination. 
@@ -572,12 +563,14 @@ Jeu de données utilisé comme destination de données par l’activité Copy.
     }
 }
 ```
+## <a name="known-limitation"></a>Limitation connue
+
+-   Supprimer activité ne prend pas en charge la liste de suppression de dossiers décrite par le caractère générique.
+
+-   Lorsque vous utilisez le filtre d’attribut de fichier : modifiedDatetimeStart et modifiedDatetimeEnd pour sélectionner les fichiers à supprimer, veillez à définir « fileName » : « * » dans le jeu de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez-en plus sur la copie de fichiers dans Azure Data Factory.
-
--   [Activité Copy dans Azure Data Factory](copy-activity-overview.md)
+En savoir plus sur le déplacement des fichiers dans Azure Data Factory.
 
 -   [Outil Copier des données dans Azure Data Factory](copy-data-tool.md)
-- 

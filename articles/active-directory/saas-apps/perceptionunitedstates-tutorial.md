@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e208f899ff26135d3ce26bfa18096210513381
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bcc93254b50da9bff6f687034d39d0058aa514e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192045"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutoriel : Intégration d’Azure Active Directory à Perception United States (Non-UltiPro)
 
@@ -35,7 +35,7 @@ L’intégration de Perception United States (Non-UltiPro) à Azure AD vous offr
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Perception United States (Non-UltiPro), vous avez besoin des éléments suivants :
 
@@ -166,7 +166,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     c. Dans la zone de texte **Nom du fournisseur d’identité**, collez la valeur de l’**ID d’entité SAML** copié à partir du portail Azure. 
 
-    d. Dans la zone de texte **Domaine SAML**, entrez le domaine comme **@contoso.com**.
+    d. Dans **zone de texte domaine SAML**, entrez le domaine comme  **\@contoso.com**.
 
     e. Cliquez sur **Télécharger à nouveau** pour télécharger le fichier de **XML de métadonnées**.
 

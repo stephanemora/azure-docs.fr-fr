@@ -3,16 +3,15 @@ title: Azure Data Factory - Transformation de réception des flux de données de
 description: Azure Data Factory - Transformation de réception des flux de données de mappage
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 381dc2f9f6d3a074af00ba047472719c086f5811
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408406"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852438"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformation de réception des flux de données de mappage
 
@@ -35,27 +34,17 @@ Pour les récepteurs Azure Storage Blob et Data Lake, vous allez envoyer les don
 
 ![Options de réception](media/data-flow/opt001.png "Options de réception")
 
-### <a name="output-settings"></a>Paramètres de sortie
-
-L’option de remplacement tronque la table si celle-ci existe, puis la recrée et charge les données. L’option d’ajout insère de nouvelles lignes. Si la table correspondant au nom de la table du jeu de données n’existe pas dans l’ADW cible, Data Flow crée la table, puis charge les données.
-
-Si vous désactivez l’option « Mappage automatique », vous pouvez mapper manuellement les champs vers votre table de destination.
-
-![Options de réception ADW](media/data-flow/adw2.png "Réception ADW")
-
-#### <a name="field-mapping"></a>Mappages de champs
+## <a name="field-mapping"></a>Mappage de champs
 
 Sous l’onglet Mappage de la transformation de réception, vous pouvez mapper les colonnes entrantes (côté gauche) vers la destination (à droite). Lorsque des fichiers réceptionnent des flux de données, ADF écrit toujours les nouveaux fichiers dans un dossier. Lorsque vous effectuez un mappage vers un jeu de données de base de données, vous pouvez choisir soit de générer une nouvelle table avec ce schéma (pour cela, définissez Enregistrer la stratégie sur « Remplacer »), soit d’insérer de nouvelles lignes dans une table et de mapper les champs vers le schéma existant.
 
-Vous pouvez utiliser la sélection multiple dans la table de mappage pour lier plusieurs colonnes en un clic, pour annuler la liaison de plusieurs colonnes ou pour mapper plusieurs lignes vers le même nom de colonne.
+Vous pouvez utiliser la sélection multiple dans la table de mappage pour lier plusieurs colonnes avec un seul clic, détachent plusieurs colonnes ou mapper plusieurs lignes pour le même nom de colonne.
+
+Lorsque vous souhaitez toujours prendre l’ensemble entrant de champs et les mapper à une cible en tant que-, définissez le paramètre « Autoriser les dérives de schéma ».
 
 ![Mappages de champs](media/data-flow/multi1.png "Plusieurs options")
 
 Si vous souhaitez réinitialiser vos mappages de colonnes, appuyez sur le bouton « Remapper ».
-
-![Connexions](media/data-flow/maxcon.png "Connexions")
-
-### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>Mises à jour apportées à la transformation de réception pour la version en disponibilité générale d’ADF v2
 
 ![Options de réception](media/data-flow/sink1.png "Récepteur 1")
 
@@ -65,7 +54,7 @@ Si vous souhaitez réinitialiser vos mappages de colonnes, appuyez sur le bouton
 
 * Effacer le contenu du dossier. ADF va tronquer le contenu du dossier récepteur avant d’écrire les fichiers de destination dans le dossier cible.
 
-* Options de nom de fichier
+## <a name="file-name-options"></a>Options de nom de fichier
 
    * Valeur par défaut : autoriser Spark à nommer les fichiers en fonction des valeurs par défaut de la partition
    * Modèle : entrez un nom pour vos fichiers de sortie.
@@ -75,14 +64,19 @@ Si vous souhaitez réinitialiser vos mappages de colonnes, appuyez sur le bouton
 > [!NOTE]
 > Les opérations de fichier ne seront exécutées que lorsque vous exécuterez l’activité Exécuter le flux de données. Elles ne le seront pas lorsque vous serez en mode de débogage Data Flow.
 
-Avec les types de récepteurs SQL, vous pouvez choisir les options suivantes :
+## <a name="database-options"></a>Options de la base de données
 
-* Tronquer la table
-* Recréer la table (supprime puis crée la table)
-* Taille du lot (pour faciliter le chargement de données volumineuses). Entrez le nombre de lots à créer pour diviser les données en plusieurs blocs de données.
+* Autoriser insert, update, delete, upserts. La valeur par défaut est de permettre les insertions. Si vous souhaitez effectuer la mise à jour, d’upsert ou d’insérer des lignes, vous devez d’abord ajouter une transformation de ligne alter aux lignes de balise pour les actions spécifiques.
+* TRUNCATE table (supprime toutes les lignes à partir de la table cible avant la fin du flux de données)
+* Recréez la table (effectue suppriment/créent de la table cible avant la fin du flux de données)
+* Taille du lot (pour faciliter le chargement de données volumineuses). Entrez le nombre des écritures de compartiment en segments
+* Activer la mise en lots : Cela indiquera ADF pour utiliser Polybase lors du chargement de l’entrepôt de données Azure en tant que votre jeu de données récepteur
 
-![Mappage de champs](media/data-flow/sql001.png "Options SQL")
+![Options du récepteur SQL](media/data-flow/alter-row2.png "Options SQL")
+
+> [!NOTE]
+> Lorsque la mise à jour ou suppression de lignes dans votre récepteur de base de données, vous devez définir la colonne clé. De cette façon, Alter ligne est en mesure de déterminer la ligne unique dans l’instruction DML.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez créé votre flux de données, ajoutez une [activité Exécuter un flux de données à votre pipeline](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
+Maintenant que vous avez créé votre flux de données, ajoutez une [activité Exécuter un flux de données à votre pipeline](concepts-data-flow-overview.md).

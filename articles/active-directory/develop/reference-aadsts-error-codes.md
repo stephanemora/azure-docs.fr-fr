@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234286"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452011"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation
 
@@ -68,7 +68,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS50032 | WeakRsaKey : indique la tentative erronée de l’utilisateur pour utiliser une clé RSA faible. |
 | AADSTS50033 | RetryableError : indique une erreur temporaire qui n’est pas liée aux opérations de base de données. |
 | AADSTS50034 | UserAccountNotFound : pour se connecter à cette application, le compte doit être ajouté au répertoire. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt : la valeur salt nécessaire pour générer un identificateur par paire est manquante dans le principal. Contactez l’administrateur du locataire. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - la valeur salt nécessaire pour générer un identificateur par paire est manquante en principe. Contactez l’administrateur du locataire. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer : l’objet ne correspond pas à la revendication d’émetteur dans l’assertion du client. Contactez l’administrateur du locataire. |
 | AADSTS50049 | NoSuchInstanceForDiscovery : instance inconnue ou non valide. |
@@ -140,7 +140,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist : l’utilisateur ou l’administrateur n’a pas accepté d’utiliser l’application avec ID X. Envoyez une requête d’autorisation interactive pour cet utilisateur et cette ressource. |
 | AADSTS65004 | UserDeclinedConsent : l’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|
-| AADSTS65005 | MisconfiguredApplication : la liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication : la liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant : échec d’authentification. Le jeton d’actualisation n'est pas valide. L’erreur peut être due à l’une des raisons suivantes :<ul><li>L’en-tête de liaison de jeton est vide</li><li>Le hachage de liaison de jeton ne correspond pas</li></ul> |
 | AADSTS70001 | UnauthorizedClient : l’application est désactivée. |
@@ -255,6 +255,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource : la ressource n’est pas configurée pour accepter des jetons d’appareil uniquement. |
 | AADSTS240001 | BulkAADJTokenUnauthorized : l’utilisateur n’est pas autorisé à inscrire des appareils dans Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing : id_token ne peut pas être utilisé comme octroi `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - l’administrateur client a configuré une stratégie de sécurité qui empêche cette demande. Vérifiez les stratégies de sécurité qui sont définis au niveau du client pour déterminer si votre demande répond aux exigences de la stratégie. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest : l’application est introuvable dans le répertoire/locataire. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être configuré de manière incorrecte la valeur d’identificateur de l’application ou envoyé votre requête d’authentification à un locataire incorrect. |
 | AADSTS700020 | InteractionRequired : l’octroi d’accès nécessite une interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope : la valeur fournie pour l’étendue du paramètre d’entrée n’est pas valide car elle contient plusieurs ressources. |

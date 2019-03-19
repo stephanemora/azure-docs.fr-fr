@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191417"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867097"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 
@@ -83,7 +83,7 @@ Le processus d’approvisionnement de votre domaine managé peut prendre jusqu�
 
 3. L’onglet **Vue d’ensemble** montre que le domaine géré est actuellement en cours d’approvisionnement. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement approvisionné. L’approvisionnement complet de votre domaine managé peut prendre jusqu’à une heure.
 
-    ![Domain Services - Onglet Vue d’ensemble durant l’approvisionnement ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services - Onglet Vue d’ensemble durant l’approvisionnement](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. Lorsque le domaine managé est entièrement approvisionné, l’onglet **Vue d’ensemble** affiche l’état du domaine comme **En cours d’exécution**.
 

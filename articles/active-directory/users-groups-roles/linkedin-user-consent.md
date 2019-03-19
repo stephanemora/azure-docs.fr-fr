@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e96c7da9ac53927ed48003370f40f5861f48d3d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204767"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442220"
 ---
 # <a name="linkedin-integration-data-sharing-and-consent"></a>Partage de données et consentement d’intégration LinkedIn
 
@@ -76,7 +76,7 @@ Lorsque vous connectez vos comptes Microsoft et LinkedIn, vous autorisez Microso
 
 Les données accessibles à partir de Microsoft ne sont pas stockées définitivement avec LinkedIn, à l’exception des Contacts. Les Contacts Microsoft sont stockés sur LinkedIn jusqu’à ce que les utilisateurs les suppriment. En savoir plus sur la [suppression des contacts importés à partir de LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-Pour plus d’informations sur l’utilisation des données personnelles de LinkedIn, consultez la [politique de confidentialité LinkedIn](https://www.linkedin.com/legal/privacy-policy). Pour les services LinkedIn, le transfert de données et le stockage, les données peuvent circuler de l’Union européenne vers les États-Unis et inversement, et votre vie privée est protégée conformément aux [directives européennes de transfert des données](https://www.linkedin.com/help/linkedin/answer/62533).
+Pour plus d’informations sur l’utilisation des données personnelles de LinkedIn, consultez la [politique de confidentialité LinkedIn](https://www.linkedin.com/legal/privacy-policy). Pour les services LinkedIn, transfert de données et stockage, les données peuvent circuler à partir de l’Union européenne vers les États-Unis et inversement, et votre vie privée est protégée, comme décrit dans [les transferts de données de l’Union européenne](https://www.linkedin.com/help/linkedin/answer/62533).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 6024a11f518432b735ccec6a3d89db687aed8ae6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332589"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452689"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
 
@@ -55,7 +55,7 @@ La logique métier d’une application peut être modélisée comme une machine 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| NOM | Nom unique du workflow. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la classe de contrat applicable. | Oui | 50 |
+| Nom | Nom unique du workflow. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la classe de contrat applicable. | Oui | 50 |
 | DisplayName | Nom d’affichage convivial du workflow. | Oui | 255 |
 | Description | Description du workflow. | Non  | 255 |
 | Initiateurs | Collection d’[ApplicationRoles](#application-roles). Rôles attribués aux utilisateurs qui sont autorisés à créer des contrats dans le workflow. | Oui | |
@@ -67,11 +67,11 @@ La logique métier d’une application peut être modélisée comme une machine 
 
 Pour obtenir un exemple, consultez l’[exemple de fichier de configuration](#configuration-file-example).
 
-## <a name="type"></a>type
+## <a name="type"></a>Type
 
 Types de données pris en charge.
 
-| type | Description |
+| Type | Description |
 |-------|-------------|
 | address  | Type d’adresse blockchain, par exemple *contracts* ou *users*. |
 | array    | Tableau à un seul niveau de type integer, bool, money ou time. Les tableaux peuvent être statiques ou dynamiques. Utilisez **ElementType** pour spécifier le type de données des éléments dans le tableau. Consultez [l’exemple de configuration](#example-configuration-of-type-array). |
@@ -81,7 +81,7 @@ Types de données pris en charge.
 | int      | Type de données Integer. |
 | money    | Type de données Money. |
 | state    | État du workflow. |
-| chaîne  | Type de données String. 4 000 caractères au maximum. Consultez [l’exemple de configuration](#example-configuration-of-type-string). |
+| string  | Type de données String. 4 000 caractères au maximum. Consultez [l’exemple de configuration](#example-configuration-of-type-string). |
 | user     | Adresse de type user. |
 | time     | Type de données Time. |
 |`[ Application Role Name ]`| N’importe quel nom spécifié dans le rôle d’application. Limite les utilisateurs à ce type de rôle. |
@@ -209,7 +209,7 @@ Définit les fonctions qui peuvent être exécutées dans le workflow.
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| NOM | Nom unique de la fonction. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la fonction applicable. | Oui | 50 |
+| Nom | Nom unique de la fonction. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la fonction applicable. | Oui | 50 |
 | DisplayName | Nom d’affichage convivial de la fonction. | Oui | 255 |
 | Description | Description de la fonction | Non  | 255 |
 | parameters | Collection d’[identificateurs](#identifiers) correspondant aux paramètres de la fonction. | Oui | |
@@ -257,7 +257,7 @@ Collection d’états uniques au sein d’un workflow. Chaque état capture une 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| NOM | Nom unique de l’état. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour l’état applicable. | Oui | 50 |
+| Nom | Nom unique de l’état. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour l’état applicable. | Oui | 50 |
 | DisplayName | Nom d’affichage convivial de l’état. | Oui | 255 |
 | Description | Description de l’état. | Non  | 255 |
 | PercentComplete | Valeur entière qui apparaît dans l’interface utilisateur Blockchain Workbench pour afficher la progression dans le flux de contrôle de logique métier. | Oui | |
@@ -312,7 +312,7 @@ Collection d’états uniques au sein d’un workflow. Chaque état capture une 
     {
       "Name": "Terminated",
       "DisplayName": "Terminated",
-      "Description": "Asset transfer has been cancelled",
+      "Description": "Asset transfer has been canceled",
       "PercentComplete": 100,
       "Style": "Failure",
       "Transitions": []
@@ -371,7 +371,7 @@ Les rôles d’application définissent un ensemble de rôles qui peuvent être 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| NOM | Nom unique du rôle d’application. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour le rôle applicable. Les noms de type de base sont réservés. Vous ne pouvez pas nommer un rôle d’application de la même manière que [Type](#type)| Oui | 50 |
+| Nom | Nom unique du rôle d’application. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour le rôle applicable. Les noms de type de base sont réservés. Vous ne pouvez pas nommer un rôle d’application de la même manière que [Type](#type)| Oui | 50 |
 | Description | Description du rôle d’application. | Non  | 255 |
 
 ### <a name="application-roles-example"></a>Exemple de rôles d’application
@@ -394,7 +394,7 @@ Les identificateurs représentent une collection d’informations utilisées pou
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| NOM | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | Oui | 50 |
+| Nom | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | Oui | 50 |
 | DisplayName | Nom d’affichage convivial pour la propriété ou le paramètre. | Oui | 255 |
 | Description | Description de la propriété ou du paramètre. | Non  | 255 |
 
@@ -988,7 +988,7 @@ Le fichier de configuration suivant est destiné à l’exemple de transfert de 
         {
           "Name": "Terminated",
           "DisplayName": "Terminated",
-          "Description": "Asset transfer has been cancelled",
+          "Description": "Asset transfer has been canceled",
           "PercentComplete": 100,
           "Style": "Failure",
           "Transitions": []

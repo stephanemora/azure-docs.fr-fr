@@ -5,16 +5,16 @@ description: À l’aide de la fonctionnalité de chargement de documents, vous 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 7df7dd44716e98c74282bd0f0700ec7881ef31ef
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217218"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766942"
 ---
 # <a name="upload-a-document"></a>Charger un document
 

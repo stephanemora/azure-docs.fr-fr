@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2364152cc897ac02c3fcdff68423c64737bb1a78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 104caa001f773c48a708879f3f9b50b74190fc74
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187661"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite
 
@@ -35,7 +35,7 @@ L’intégration de ForeSee CX Suite à Azure AD offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à ForeSee CX Suite, vous aurez besoin des éléments suivants :
 
@@ -120,7 +120,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
     ![Informations d’authentification unique dans Domaine et URL ForeSee CX Suite](./media/foreseecxsuite-tutorial/urlupload.png)
 
-1. Si vous n’avez pas de **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
+1. Si vous n’avez pas **fichier de métadonnées de fournisseur de services**, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL ForeSee CX Suite](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 

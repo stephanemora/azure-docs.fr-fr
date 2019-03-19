@@ -4,15 +4,15 @@ description: Créer et gérer un principal de service Azure Active Directory pou
 services: container-service
 author: iainfoulds
 ms.service: container-service
-ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.topic: conceptual
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308752"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778550"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Cet article montre comment créer et utiliser un principal de service pour vos c
 
 Pour créer un principal de service Azure AD, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si vous n’avez pas les privilèges nécessaires, vous devriez demander à votre administrateur Azure AD ou administrateur d’abonnement de vous attribuer les privilèges nécessaires, de ou créer au préalable un principal de service que vous pourrez utiliser avec le cluster AKS.
 
-Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou ultérieure. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Créer et utiliser un principal de service automatiquement
 
@@ -33,7 +33,7 @@ Lorsque vous créez un cluster AKS dans le portail Azure ou à l’aide de la co
 Dans l’exemple d’Azure CLI suivant, un principal de service n’est pas spécifié. Dans ce scénario, Azure CLI crée un principal de service pour le cluster AKS. Pour effectuer cette opération, votre compte Azure doit disposer des droits nécessaires pour la création d’un principal de service.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## <a name="manually-create-a-service-principal"></a>Créer manuellement un principal de service
@@ -49,8 +49,8 @@ Le résultat ressemble à l’exemple qui suit. Prenez note de vos propres valeu
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2018-09-25-21-10-19",
-  "name": "http://azure-cli-2018-09-25-21-10-19",
+  "displayName": "azure-cli-2019-03-04-21-35-28",
+  "name": "http://azure-cli-2019-03-04-21-35-28",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -77,9 +77,9 @@ Si vous déployez un cluster AKS à l’aide du portail Azure, sur la page *Auth
 
 ## <a name="delegate-access-to-other-azure-resources"></a>Déléguer l’accès à d’autres ressources Azure
 
-Vous pouvez utiliser le principal du service du cluster AKS pour accéder à d’autres ressources. Par exemple, si vous souhaitez utiliser le réseau avancé pour vous connecter à des réseaux virtuels existants, ou vous connecter à Azure Container Registry (ACR), vous devez déléguer l’accès au principal du service.
+Vous pouvez utiliser le principal du service du cluster AKS pour accéder à d’autres ressources. Par exemple, si vous souhaitez déployer votre cluster AKS dans un sous-réseau de réseau virtuel Azure existant ou vous connecter à Azure Container Registry (ACR), vous devez déléguer l’accès à ces ressources au principal du service.
 
-Pour déléguer des autorisations, vous créez une attribution de rôle avec la commande [az role assignment create][az-role-assignment-create]. Vous affectez `appId` à une étendue spécifique, tel qu’un groupe de ressources ou une ressource de réseau virtuel. Un rôle définit ensuite les autorisations dont le principal du service dispose sur la ressource, comme indiqué dans l’exemple suivant :
+Pour déléguer des autorisations, créez une attribution de rôle à l’aide de la [créer d’attribution de rôle az] [ az-role-assignment-create] commande. Affecter le `appId` à une étendue spécifique, tel qu’un groupe de ressources ou d’une ressource de réseau virtuel. Un rôle définit ensuite les autorisations dont le principal du service dispose sur la ressource, comme indiqué dans l’exemple suivant :
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -123,6 +123,7 @@ Si vous utilisez Virtual Kubelet pour intégrer à AKS et choisissez d’exécut
 Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez les points suivants à l’esprit.
 
 - Le principal de service pour Kubernetes fait partie de la configuration du cluster. Toutefois, n’utilisez pas l’identité pour déployer le cluster.
+- Par défaut, les informations d’identification du principal de service sont valides pendant un an. Vous pouvez [mettre à jour ou faire pivoter les informations d’identification du principal de service] [ update-credentials] à tout moment.
 - Chaque principal de service est associé à une application Azure AD. Le principal de service pour un cluster Kubernetes peut être associé à tout nom d’application Azure AD valide (par exemple : *https://www.contoso.org/example*). L’URL de l’application ne doit pas être un point de terminaison réel.
 - Lorsque vous spécifiez **l’ID client** du principal de service, utilisez la valeur de `appId`.
 - Sur les machines virtuelles principales et de nœud du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier `/etc/kubernetes/azure.json`
@@ -136,7 +137,9 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les principaux de service Azure Active Directory, consultez [Objets application et principal de service][service-principal]
+Pour plus d’informations sur les principaux de service Azure Active Directory, consultez [objets Application et service principal][service-principal].
+
+Pour plus d’informations sur la façon de mettre à jour les informations d’identification, consultez [mettre à jour ou faire pivoter les informations d’identification pour un principal de service dans ACS][update-credentials].
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
@@ -154,3 +157,4 @@ Pour plus d’informations sur les principaux de service Azure Active Directory,
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[update-credentials]: update-credentials.md

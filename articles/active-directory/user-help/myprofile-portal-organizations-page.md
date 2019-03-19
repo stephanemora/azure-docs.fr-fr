@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458296"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339740"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gérer vos organisations à partir du portail Mon profil (préversion)
 Vous pouvez gérer vos organisations à partir de la page **Organisations** page du portail **Mon profil**.
@@ -35,7 +35,7 @@ Il existe deux types d’organisations, indiqués à la page **Organisations** 
 
 2. Sélectionnez **Organisations** à partir du volet de navigation gauche, ou sélectionnez le lien **Gérer les organisations** à partir du bloc **Organisations**.
 
-    ![Page Mon profil affichant les liaisons des organisations en surbrillance](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![Page Mon profil affichant les liaisons des organisations en surbrillance](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. Vérifiez les informations sur votre **Organisation d’origine**. 
 
@@ -57,4 +57,4 @@ Vous pouvez quitter toute organisation qui n’est pas votre organisation d’or
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Après avoir consulté votre activité de connexion récente, vous pouvez choisir d’afficher ou de gérer vos [informations de sécurité](user-help-security-info-overview.md), vos [activités de connexion récentes](myprofile-portal-recent-activity-page.md), vos [appareils](myprofile-portal-devices-page.md) connectés, ou d’afficher la façon dont votre organisation [utilise vos données](myprofile-portal-privacy-page.md).
+- Après l’affichage de votre organisation, vous pouvez sélectionner pour afficher ou gérer votre [des informations de sécurité](user-help-security-info-overview.md)et connectées [appareils](myprofile-portal-devices-page.md), ou une vue comment votre organisation [utilise vos données](myprofile-portal-privacy-page.md).

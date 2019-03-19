@@ -2,16 +2,17 @@
 title: Stockage et déplacement des données pour le rendu – Azure Batch
 description: Options de stockage et de déplacement des données pour les charges de travail de rendu
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546094"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790244"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Options de stockage et de déplacement des données pour les fichiers d’éléments multimédias et de sortie destinés au rendu
 
@@ -25,7 +26,7 @@ Plusieurs options permettent de rendre les fichiers de scènes et d’éléments
   * Cette option a pour avantage d’être particulièrement économique. En effet, aucune machine virtuelle n’est requise pour le système de fichiers. De plus, la mise en cache de blobfuse sur les machines virtuelles évite les téléchargements répétés des mêmes fichiers pour plusieurs travaux et tâches.  Le déplacement des données s’effectue également de façon simple. En effet, les fichiers sont simplement des blobs, et des API et outils standard comme azcopy peuvent être utilisés pour copier un fichier entre un système de fichiers local et le Stockage Azure.
 * Système de fichiers ou partage de fichiers :
   * Plusieurs options sont disponibles selon le système d’exploitation des machines virtuelles et les exigences en matière de performances/mise à l’échelle : [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), utilisation d’une machine virtuelle avec des disques attachés pour NFS, utilisation de plusieurs machines virtuelles avec des disques attachés pour un système de fichiers distribués comme GlusterFS ou utilisation d’une offre tierce.
-  * [Avere Systems](http://www.averesystems.com/) fait désormais partie de Microsoft et proposera bientôt des solutions idéales pour le rendu hautes performances à grande échelle.  La solution Avere permettra de créer un cache SMB ou NFS Azure fonctionnant conjointement avec le stockage d’objets blob ou avec des périphériques de stockage NAS locaux.
+  * [Avere Systems](https://www.averesystems.com/) fait désormais partie de Microsoft et proposera bientôt des solutions idéales pour le rendu hautes performances à grande échelle.  La solution Avere permettra de créer un cache SMB ou NFS Azure fonctionnant conjointement avec le stockage d’objets blob ou avec des périphériques de stockage NAS locaux.
   * Avec un système de fichiers, les fichiers peuvent être lus ou écrits directement sur le système de fichiers ou peuvent être copiés entre le système de fichiers et les machines virtuelles du pool.
   * Un système de fichiers partagé permet d’utiliser un grand nombre d’éléments multimédias partagés entre les projets et travaux avec des tâches de rendu accédant uniquement aux éléments nécessaires.
 

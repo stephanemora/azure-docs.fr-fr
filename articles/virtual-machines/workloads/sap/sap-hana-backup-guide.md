@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: HT
+ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866999"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013346"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guide de sauvegarde pour SAP HANA sur Machines Virtuelles Azure
 
@@ -63,8 +63,8 @@ _Non, actuellement vous pouvez uniquement effectuer des sauvegardes de données 
 
 - [Introduction to SAP HANA Administration](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US) (Introduction à l’administration de HANA SAP)
 - [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) (Planification de votre stratégie de sauvegarde et de récupération)
-- [Schedule HANA Backup using ABAP DBACOCKPIT](http://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html) (Planifier la sauvegarde HANA avec ABAP DBACOCKPIT)
-- [Schedule Data Backups (SAP HANA Cockpit)](http://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm) (Planifier des sauvegardes de données (cockpit SAP HANA))
+- [Schedule HANA Backup using ABAP DBACOCKPIT](https://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html) (Planifier la sauvegarde HANA avec ABAP DBACOCKPIT)
+- [Schedule Data Backups (SAP HANA Cockpit)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm) (Planifier des sauvegardes de données (cockpit SAP HANA))
 - FAQ sur la sauvegarde SAP HANA dans la [note SAP 1642148](https://launchpad.support.sap.com/#/notes/1642148)
 - FAQ sur les captures instantanées de base de données et de stockage SAP HANA dans la [note SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883)
 - Systèmes de fichiers en réseau inappropriés pour la sauvegarde et la récupération dans la [note SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529)
@@ -80,7 +80,7 @@ Lorsque vous utilisez des captures instantanées de stockage, il est recommandé
 
 Gardez à l’esprit qu’il ne suffit pas d’effectuer une simple restauration et de vérifier si HANA est opérationnel et en cours d’exécution. Dans l’idéal, il convient d’exécuter une vérification de cohérence de table pour s’assurer que la base de données restaurée est correcte. SAP HANA offre plusieurs types de vérifications de cohérence. Ceux-ci sont décrits dans la [note SAP 1977584](https://launchpad.support.sap.com/#/notes/1977584).
 
-Vous trouverez également des informations sur la vérification de cohérence de table sur le site web SAP à la page [Table and Catalog Consistency Checks](http://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b) (Vérifications de cohérence de table et de catalogue).
+Vous trouverez également des informations sur la vérification de cohérence de table sur le site web SAP à la page [Table and Catalog Consistency Checks](https://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b) (Vérifications de cohérence de table et de catalogue).
 
 Pour les sauvegardes de fichiers standard, il n’est pas nécessaire d’effectuer un test de restauration. Deux outils SAP HANA permettent de vérifier la sauvegarde qui peut être utilisée pour la restauration : hdbbackupdiag et hdbbackupcheck. Consultez la page [Manually Checking Whether a Recovery is Possible](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm) (Vérifier manuellement si une récupération est possible) pour plus d’informations sur ces outils.
 
@@ -90,7 +90,7 @@ SAP ne privilégie pas la sauvegarde HANA par rapport à la capture instantanée
 
 Sur Azure, tenez compte du fait que la fonctionnalité de capture instantanée d’objets blob Azure ne garantit pas la cohérence du système de fichiers (voir la page [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/) (Utilisation des captures instantanées d’objets blob avec PowerShell) pour plus d’informations). La section suivante, _Cohérence des données SAP HANA lors de la création de captures instantanées de stockage_, aborde certaines considérations relatives à cette fonctionnalité.
 
-Il faut également comprendre les implications liées à la facturation en cas d’utilisation fréquente de captures instantanées d’objets blob, comme décrit dans l’article : [Understanding How Snapshots Accrue Charges](/rest/api/storageservices/understanding-how-snapshots-accrue-charges) (Comment les captures instantanées augmentent les frais). Cet aspect n’est pas aussi évident que lors de l’utilisation des disques virtuels Azure.
+En outre, un doit comprendre les implications de facturation lorsque vous utilisez fréquemment des instantanés d’objet blob comme décrit dans cet article : [Comprendre comment des captures instantanées accumulent les frais](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— il n ' est&#39;aussi évident que lors de l’utilisation de disques virtuels Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Cohérence des données SAP HANA lors de la création de captures instantanées de stockage
 
@@ -137,7 +137,7 @@ Le guide d’administration HANA fournit un exemple de liste. Il suggère de ré
 Il n’est pas possible de fournir une recommandation générale quant à la planification exacte et à la fréquence d’un type de sauvegarde spécifique. Cela dépend beaucoup du client et du nombre de modifications de données se produisant sur le système. SAP fournit cependant une recommandation de base pouvant être considérée comme une directive générale. Celle-ci consiste à créer une sauvegarde HANA complète une fois par semaine.
 Pour ce qui concerne les sauvegardes de fichiers journaux, consultez la documentation SAP HANA [Log Backups](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm) (Sauvegardes de fichiers journaux).
 
-SAP recommande également de nettoyer le catalogue de sauvegarde pour ne pas le laisser croître indéfiniment (voir [Housekeeping for Backup Catalog and Backup Storage](http://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm) (Nettoyage pour le catalogue et le stockage de sauvegarde) pour plus d’informations).
+SAP recommande également de nettoyer le catalogue de sauvegarde pour ne pas le laisser croître indéfiniment (voir [Housekeeping for Backup Catalog and Backup Storage](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm) (Nettoyage pour le catalogue et le stockage de sauvegarde) pour plus d’informations).
 
 ### <a name="sap-hana-configuration-files"></a>Fichiers de configuration SAP HANA
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/22/2018
-ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: 5cca15e609a723870be7a564bf61fcd0d88e5706
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724134"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790541"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour PostgreSQL
 
@@ -97,7 +97,7 @@ Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour PostgreSQL, l
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solution de contournement** : Si vous disposez d’un objet LOB de plus de 32 Ko, contactez l’équipe d’ingénierie à l’adresse [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+    **Solution de contournement** : Si vous disposez d’objet métier qui est supérieure à 32 Ko, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitation** : Si la table contient des colonnes LOB et si aucune clé primaire n’est définie pour la table, les données de cette table peuvent ne pas être migrées.
 

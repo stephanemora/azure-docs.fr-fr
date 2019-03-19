@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881059"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration comme un serveur de fichiers via le portail Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Cet article décrit comment effectuer la configuration initiale, inscrire votre serveur de fichiers StorSimple, finaliser la configuration de l’appareil, créer des partages SMB et s’y connecter. Il s’agit du dernier article de la série de didacticiels sur le déploiement nécessaires pour déployer complètement votre tableau virtuel en tant que serveur de fichiers ou serveur iSCSI.
 
 Le processus d’installation et de configuration peut prendre jusqu’à 10 minutes. Les informations fournies dans cet article s’appliquent uniquement au déploiement de la solution StorSimple Virtual Array. Pour le déploiement d'appareils StorSimple 8000, accédez à : [Déployer un appareil StorSimple 8000 exécutant Update 2](storsimple-deployment-walkthrough-u2.md).
@@ -129,15 +129,15 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
     ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Cliquez sur **Configurer** dans la barre de commandes. Le panneau **Configurer** s’affiche. Dans le panneau **Configurer**, procédez comme suit :
    
-    1. Le nom du serveur de fichiers est automatiquement renseigné.
+   1. Le nom du serveur de fichiers est automatiquement renseigné.
     
-    2. Assurez-vous que le chiffrement du stockage cloud est défini sur **Activé**. Cette fonctionnalité chiffre toutes les données qui sont envoyées au cloud. 
+   2. Assurez-vous que le chiffrement du stockage cloud est défini sur **Activé**. Cette fonctionnalité chiffre toutes les données qui sont envoyées au cloud. 
     
-    3. Une clé AES de 256 bits est utilisée avec la clé définie par l’utilisateur pour le chiffrement. Spécifiez une clé de 32 caractères, puis entrez de nouveau la clé pour la confirmer. Enregistrez la clé dans une application de gestion de clés à des fins de référence ultérieure.
+   3. Une clé AES de 256 bits est utilisée avec la clé définie par l’utilisateur pour le chiffrement. Spécifiez une clé de 32 caractères, puis entrez de nouveau la clé pour la confirmer. Enregistrez la clé dans une application de gestion de clés à des fins de référence ultérieure.
     
-    4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**. **Vérifiez que le compte de stockage que vous utilisez prend en charge les objets blob de blocs. Les objets blob de pages ne sont pas pris en charge.** En savoir plus sur [les objets blob de blocs et de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**. **Vérifiez que le compte de stockage que vous utilisez prend en charge les objets blob de blocs. Les objets blob de pages ne sont pas pris en charge.** En savoir plus sur [les objets blob de blocs et de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Dans le panneau **Ajouter les informations d’identification d’un compte de stockage**, procédez comme suit : 
 
     1. Si le compte de stockage figure dans le même abonnement que le service, choisissez l’abonnement actuel. Si le compte de stockage ne se trouve pas dans le même abonnement, spécifiez un autre abonnement. 
@@ -175,26 +175,26 @@ Pour créer un partage, procédez comme suit dans le [Portail Azure](https://por
    ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Spécifiez les paramètres de partage suivants :
 
-    1. Nom unique pour votre partage. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
+   1. Nom unique pour votre partage. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
     
-    2. Une **Description** facultative pour le partage. La description permet d'identifier les propriétaires du partage.
+   2. Une **Description** facultative pour le partage. La description permet d'identifier les propriétaires du partage.
     
-    3. **Type** du partage. Le partage peut présenter le type **Hiérarchisé** (valeur par défaut) ou **Attaché localement**. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un partage **épinglé localement** . Pour toutes les autres données, sélectionnez un partage **à plusieurs niveaux** .
-    La configuration d’un partage épinglé localement est complète, et garantit que les données principales sur le partage sont conservées en local sur l’appareil et ne débordent pas sur le cloud. D’autre part, la configuration d’un partage à plusieurs niveaux est légère. Lorsque vous créez un partage à plusieurs niveaux, 10 % de l'espace sont configurés au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n'avez plus d'espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux.
+   3. **Type** du partage. Le partage peut présenter le type **Hiérarchisé** (valeur par défaut) ou **Attaché localement**. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un partage **épinglé localement** . Pour toutes les autres données, sélectionnez un partage **à plusieurs niveaux** .
+      La configuration d’un partage épinglé localement est complète, et garantit que les données principales sur le partage sont conservées en local sur l’appareil et ne débordent pas sur le cloud. D’autre part, la configuration d’un partage à plusieurs niveaux est légère. Lorsque vous créez un partage à plusieurs niveaux, 10 % de l'espace sont configurés au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n'avez plus d'espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux.
    
-    4. Dans le champ **Affecter une autorisation d’accès total par défaut**, attribuez les autorisations à l’utilisateur ou au groupe qui doivent accéder à ce partage. Spécifiez le nom de l’utilisateur ou du groupe d’utilisateurs au format *john@contoso.com*. Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
+   4. Dans le champ **Affecter une autorisation d’accès total par défaut**, attribuez les autorisations à l’utilisateur ou au groupe qui doivent accéder à ce partage. Spécifiez le nom de l’utilisateur ou le groupe d’utilisateurs dans *john\@contoso.com* format. Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
    
-    5. Cliquez sur **Ajouter** pour créer le partage. 
+   5. Cliquez sur **Ajouter** pour créer le partage. 
     
-        ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        Vous êtes averti que le partage est en cours de création.
+       Vous êtes averti que le partage est en cours de création.
    
-        ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    Une fois le partage créé avec les paramètres spécifiés, le panneau **Partages** est actualisé pour refléter le nouveau partage. Par défaut, la surveillance et la sauvegarde sont activées pour le partage.
+      Une fois le partage créé avec les paramètres spécifiés, le panneau **Partages** est actualisé pour refléter le nouveau partage. Par défaut, la surveillance et la sauvegarde sont activées pour le partage.
    
-    ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Étape 4 : Se connecter au partage
 Vous devez à présent vous connecter aux partages que vous avez créés à l’étape précédente. Exécutez cette procédure sur votre hôte Windows Server connecté à votre baie StorSimple Virtual Array.

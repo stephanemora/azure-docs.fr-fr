@@ -1,6 +1,6 @@
 ---
 title: Utiliser Apache Pig avec PowerShell dans HDInsight - Azure
-description: Découvrez comment soumettre des tâches Apache Pig vers un cluster Apache Hadoop sur HDInsight à l’aide d’Azure Powershell.
+description: Découvrez comment envoyer des travaux Apache Pig à un cluster Apache Hadoop sur HDInsight à l’aide d’Azure PowerShell.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 84780d7c432e818153f964522063f29d8540e0ec
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012621"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Utiliser Azure PowerShell pour exécuter des tâches Apache Pig avec HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Ce document fournit un exemple d’utilisation d’Azure PowerShell pour soumettre des tâches Apache Pig à un Apache Hadoop sur un cluster HDInsight. Pig vous permet d’écrire des tâches MapReduce en utilisant un langage (Pig Latin) qui modélise les transformations de données, plutôt que de mapper et de réduire les fonctions.
+Ce document fournit un exemple d’utilisation d’Azure PowerShell pour envoyer des travaux Apache Pig à un Hadoop Apache sur un cluster HDInsight. Pig vous permet d’écrire des tâches MapReduce en utilisant un langage (Pig Latin) qui modélise les transformations de données, plutôt que de mapper et de réduire les fonctions.
 
 > [!NOTE]  
 > Ce document ne fournit pas une description détaillée de ce que font les instructions Pig Latin utilisées dans les exemples. Pour plus d’informations sur le langage Pig Latin utilisé dans cet exemple, consultez [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md).

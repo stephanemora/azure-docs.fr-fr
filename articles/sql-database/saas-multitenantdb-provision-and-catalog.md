@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835779"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionner et inscrire dans un catalogue de nouveaux locataires dans une application SaaS utilisant une base de données Azure SQL Database multilocataire
 
@@ -123,7 +123,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Provisionner un groupe de locataires dans des bases de données à la fois multilocataires et à locataire unique
 > * Inscrire un mappage base de données/locataire dans un catalogue
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
@@ -237,7 +237,7 @@ La liste complète des locataires et la base de données correspondante à chacu
 - Le nom du locataire est stocké dans la table Tenants.
 - Le nom de la base de données est stocké dans les tables de gestion des partitions.
 
-1. Dans SQL Server Management Studio (SSMS), connectez-vous au serveur de locataires à l’adresse **catalog-mt.\<USER\>.database.windows.net**, avec l’ID de connexion **developer** et le mot de passe **P@ssword1**.
+1. Dans SQL Server Management Studio (SSMS), se connecter au serveur de locataires à **catalog-MT.\<utilisateur\>. database.windows.net**, avec connexion = **développeur**et le mot de passe =  **P\@ssword1**
 
     ![Boîte de dialogue de connexion de SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

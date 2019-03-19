@@ -1,33 +1,19 @@
 ---
-title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - Portail Azure | Microsoft Docs
+title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - portail Azure
 description: Cet article fournit des informations sur la personnalisation des règles de pare-feu d’applications web dans Application Gateway avec le portail Azure.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: 30df26dc3a9697d3435779f91c32b2d99a747b88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990465"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733714"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personnaliser les règles de pare-feu d’applications web via le portail Azure
-
-> [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [interface de ligne de commande Azure](application-gateway-customize-waf-rules-cli.md)
 
 Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une protection pour les applications web. Ces protections sont fournies par le jeu de règles (Core Rule Set, CRS) de l’Open Web Application Security Project (OWASP). Certaines règles peuvent entraîner des faux positifs et bloquer le trafic réel. Par conséquent, Application Gateway permet de personnaliser des règles et des groupes de règles. Pour plus d’informations sur les règles et groupes de règles spécifiques, consultez la [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md) (Liste de règles et groupes de règles CRS de pare-feu d’applications web).
 
@@ -53,7 +39,7 @@ Le panneau des **paramètres de pare-feu d’applications web** permet de filtre
 
 ## <a name="disable-rule-groups-and-rules"></a>Désactiver les règles et les groupes de règles
 
-Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier, ou des règles spécifiques sous un ou plusieurs groupes de règles. 
+Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier ou des règles spécifiques sous un ou plusieurs groupes de règles. 
 
 **Pour désactiver des groupes de règles ou des règles spécifiques**
 
@@ -62,6 +48,19 @@ Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règl
    2. Sélectionnez **Enregistrer**. 
 
 ![Enregistrer les modifications][3]
+
+## <a name="mandatory-rules"></a>Règles obligatoires
+
+La liste suivante contient des conditions qui entraînent le WAF bloquer la demande en mode de prévention (en Mode de détection ils sont enregistrés en tant qu’exceptions). Il ne peut pas être configurées ou désactivés :
+
+* Échec d’analyser le corps de la requête entraîne la demande est bloquée, à moins que l’inspection du corps est mis sous tension (XML, JSON, les données de formulaire)
+* Longueur de données de corps (avec aucun fichier) de la demande est supérieure à la limite configurée
+* Demande de corps (y compris les fichiers) est supérieure à la limite
+* Une erreur interne s’est produite dans le moteur de WAF
+
+CRS 3.x spécifiques :
+
+* Trafic entrant de seuil du score dépassé d’anomalie
 
 ## <a name="next-steps"></a>Étapes suivantes
 

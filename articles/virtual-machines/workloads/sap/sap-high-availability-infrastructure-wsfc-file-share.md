@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf0f06528b3571ce8307a2fed2fb9c43f608d15d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008360"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP ASCS/SCS
 
@@ -46,7 +46,7 @@ ms.locfileid: "34656711"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -213,7 +213,7 @@ Ce document décrit les étapes de préparation d’infrastructure Azure nécess
 
 Avant de commencer l’installation, consultez l’article suivant :
 
-* [Guide d’architecture : Clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichier][sap-high-availability-guide-wsfc-file-share]
+* [Guide d'architecture : Instances de cluster SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Noms d’hôtes et adresses IP
@@ -226,13 +226,13 @@ Avant de commencer l’installation, consultez l’article suivant :
 | Nom réseau du cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/a |
 
 
-**Tableau 1** : Cluster ASCS/SCS
+**Tableau 1**: Cluster ASCS/SCS
 
 | SID \<SAP> | Numéro de l’instance SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tableau 2 :** Détails de l’instance SAP ASCS/SCS
+**Tableau 2**: Détails de l’instance SAP ASCS/SCS
 
 
 | Rôle du nom d’hôte virtuel | Nom d’hôte virtuel | Adresse IP statique | Groupe à haute disponibilité |
@@ -243,7 +243,7 @@ Avant de commencer l’installation, consultez l’article suivant :
 | Nom réseau du cluster | sofs-cl | 10.0.6.13 | n/a |
 | Nom d’hôte global SAP | sapglobal | Utiliser les adresses IP de tous les nœuds de cluster | n/a |
 
-**Tableau 3** : Cluster de serveur de fichiers avec montée en puissance parallèle
+**Tableau 3**: Cluster de serveur de fichiers avec montée en puissance
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Déployer des machines virtuelles pour un cluster SAP ASCS/SCS, un cluster de système de gestion de base de données (SGBD) et des instances de serveur d’applications SAP
@@ -271,9 +271,9 @@ Pour préparer l’infrastructure Azure, procédez comme suit :
 * Lorsque vous utilisez Windows Server 2016, nous vous recommandons de configurer un [témoin Azure Cloud][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Déployer manuellement le cluster de serveur de fichiers avec montée en puissance parallèle 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Déployer manuellement le cluster de serveur de fichiers avec montée en puissance parallèle 
 
-Vous pouvez déployer manuellement le cluster de serveur de fichiers avec montée en puissance parallèle Microsoft, comme décrit dans le blog [Espaces de stockage direct dans Azure][ms-blog-s2d-in-azure], en exécutant le code suivant :  
+Vous pouvez déployer manuellement le cluster de serveur de fichiers avec montée en puissance parallèle Microsoft, comme décrit dans le blog [Espaces de stockage direct dans Azure][ms-blog-s2d-in-azure], en exécutant le code suivant :  
 
 
 ```PowerShell
@@ -322,9 +322,9 @@ Le modèle Azure Resource Manager permettant de déployer le serveur de fichiers
 
 Nous vous recommandons d’utiliser des disques Managed Disks.
 
-![Figure 1 : Écran de l’interface utilisateur pour le modèle Resource Manager de serveur de fichiers avec montée en puissance parallèle avec disques managés][sap-ha-guide-figure-8010]
+![Figure 1 : Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Resource Manager avec des disques gérés][sap-ha-guide-figure-8010]
 
-_**Figure 1** : Écran de l’interface utilisateur pour le modèle Resource Manager de serveur de fichiers avec montée en puissance parallèle avec disques gérés_
+_**Figure 1**: Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Resource Manager avec des disques gérés_
 
 Dans le modèle, procédez comme suit :
 1. Dans la zone **Nombre de machines virtuelles**, entrez le nombre minimal **2**.
@@ -336,9 +336,9 @@ Dans le modèle, procédez comme suit :
 
 Le modèle Azure Resource Manager permettant de déployer le serveur de fichiers avec montée en puissance parallèle avec des espaces de stockage direct et des disques non gérés Azure est disponible sur [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figure 2 : Écran de l’interface utilisateur pour le modèle Azure Resource Manager de serveur de fichiers avec montée en puissance parallèle sans disques managés][sap-ha-guide-figure-8011]
+![Figure 2 : Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Azure Resource Manager sans disques gérés][sap-ha-guide-figure-8011]
 
-_**Figure 2** : Écran de l’interface utilisateur pour le modèle Azure Resource Manager de serveur de fichiers avec montée en puissance parallèle sans disques gérés_
+_**Figure 2**: Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Azure Resource Manager sans disques gérés_
 
 Dans la zone **Type de compte de stockage**, sélectionnez **Stockage Premium**. Les autres paramètres sont les identiques aux paramètres des disques managés.
 

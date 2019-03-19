@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af2628e1da24bd790e94306703aab797a0d56a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f166555e2f21ed38e78e659ec181c2d5d90d6bf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886998"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 Cet article décrit deux façons de prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré dans Azure Active Directory. Quand un utilisateur en libre-service s’inscrit à un service cloud qui utilise Azure AD, il est ajouté à un annuaire Azure AD non géré en fonction de son domaine de messagerie. Pour plus d’informations sur l’inscription en libre-service ou « virale » pour un service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory](directory-self-service-signup.md)
@@ -44,11 +44,11 @@ Certains produits qui incluent SharePoint et OneDrive, comme Office 365, ne perm
 
 4. Connectez-vous au [Centre d’administration Office 365](https://portal.office.com/admintakeover) avec le compte d’utilisateur Power BI. Vous recevez un message qui vous indique de **devenir l’administrateur** du nom de domaine qui a été déjà vérifié dans le locataire non géré. Sélectionnez **Oui, je veux être l’administrateur**.
   
-  ![Première capture d’écran pour Devenir l’administrateur](./media/domains-admin-takeover/become-admin-first.png)
+   ![Première capture d’écran pour Devenir l’administrateur](./media/domains-admin-takeover/become-admin-first.png)
   
 5. Ajoutez un enregistrement TXT pour prouver que vous êtes propriétaire du nom de domaine **fourthcoffee.xyz** à votre bureau d’enregistrement de nom de domaine. Dans cet exemple, il s’agit de GoDaddy.com.
   
-  ![Ajouter un enregistrement TXT pour le nom de domaine](./media/domains-admin-takeover/become-admin-txt-record.png)
+   ![Ajouter un enregistrement TXT pour le nom de domaine](./media/domains-admin-takeover/become-admin-txt-record.png)
 
 Quand les enregistrements TXT DNS sont vérifiés au niveau de votre bureau d’enregistrement de nom de domaine, vous pouvez gérer le locataire Azure AD.
 
@@ -57,22 +57,22 @@ Une fois les étapes précédentes terminées, vous êtes l’administrateur gé
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Ajout du nom de domaine à un locataire géré dans Azure AD
 
 1. Ouvrez le [Centre d’administration Office 365](https://portal.office.com/admintakeover).
-2. Sélectionnez l’onglet **Utilisateurs** et créez un compte d’utilisateur avec un nom comme *user@fourthcoffeexyz.onmicrosoft.com* qui n’utilise pas le nom de domaine personnalisé. 
+2. Sélectionnez **utilisateurs** onglet et créer un nouveau compte d’utilisateur avec un nom tel que *utilisateur\@fourthcoffeexyz.onmicrosoft.com* qui n’utilise pas le nom de domaine personnalisé. 
 3. Vérifiez que le compte d’utilisateur dispose des privilèges d’administrateur général pour le locataire Azure AD.
 4. Ouvrez l’onglet **Domaines** dans le Centre d’administration d’Office 365, sélectionnez le nom de domaine, puis sélectionnez **Supprimer**. 
   
-  ![Supprimer le nom de domaine d’Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Supprimer le nom de domaine d’Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Si vous avez des utilisateurs ou des groupes dans Office 365 qui référencent le nom de domaine supprimés, ils doivent être renommés pour le domaine onmicrosoft.com. Si vous forcez la suppression du nom de domaine, tous les utilisateurs sont automatiquement renommés, dans cet exemple en  *user@fourthcoffeexyz.onmicrosoft.com*.
+5. Si vous avez des utilisateurs ou des groupes dans Office 365 qui référencent le nom de domaine supprimés, ils doivent être renommés pour le domaine onmicrosoft.com. Si vous forcez la suppression du nom de domaine, tous les utilisateurs sont automatiquement renommés, dans cet exemple pour *utilisateur\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Connectez-vous au [Centre d’administration d’Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte d’administrateur général pour le locataire Azure AD.
   
 7. Sélectionnez **Noms de domaine personnalisés**, puis ajoutez le nom de domaine. Vous devrez entrer les enregistrements TXT DNS pour confirmer la propriété du nom de domaine. 
   
-  ![Domaine ajouté à Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![Domaine ajouté à Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Les utilisateurs du service Power BI ou Azure Rights Management qui ont des licences affectées dans le locataire Office 365 doivent enregistrer leurs tableaux de bord si le nom de domaine est supprimé. Ils doivent se connecter avec un nom d’utilisateur comme  *user@fourthcoffeexyz.onmicrosoft.com*, au lieu de *user@fourthcoffee.xyz*.
+> Les utilisateurs du service Power BI ou Azure Rights Management qui ont des licences affectées dans le locataire Office 365 doivent enregistrer leurs tableaux de bord si le nom de domaine est supprimé. Ils doivent se connecter avec un nom d’utilisateur comme *utilisateur\@fourthcoffeexyz.onmicrosoft.com* plutôt que *utilisateur\@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Prise de contrôle par administrateur externe
 
@@ -132,42 +132,42 @@ Applet de commande | Usage
 ### <a name="powershell-example"></a>Exemple PowerShell
 
 1. connectez-vous à Azure AD en utilisant les informations d’identification qui ont été utilisées pour répondre à l’offre en libre-service :
-  ```
+   ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ```
+   ```
 2. Obtenez une liste de domaines :
   
-  ```
+   ```
     Get-MsolDomain
-  ```
+   ```
 3. Exécutez l’applet de commande Get-MsolDomainVerificationDns pour créer un test :
-  ```
+   ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ```
+   ```
 
 4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Par exemple : 
-  ```
+   ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ```
+   ```
 5. Dans votre espace de noms DNS public, créez un enregistrement DNS txt qui contient la valeur que vous avez copiée lors de l'étape précédente. Le nom de cet enregistrement est le nom du domaine parent : ainsi, si vous créez cet enregistrement de ressource en utilisant le rôle DNS de Windows Server, laissez vide le nom de l’enregistrement et collez simplement la valeur dans la zone de texte.
 6. Exécutez l'applet de commande Confirm-MsolDomain pour vérifier le test :
   
-  ```
+   ```
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ```
+   ```
   
-  Par exemple : 
+   Par exemple : 
   
-  ```
+   ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ```
+   ```
 
 Un test réalisé avec succès vous renvoie à l'invite sans erreur.
 

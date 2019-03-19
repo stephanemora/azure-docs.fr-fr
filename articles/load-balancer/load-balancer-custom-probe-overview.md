@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: fb8b3ac69797400af962ae40816943d6a32b8ec6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245546"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450445"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -212,9 +212,9 @@ N’activez pas les [horodatages TCP](https://tools.ietf.org/html/rfc1323).  L�
 
 ## <a name="monitoring"></a>Surveillance
 
-Les [Standard Load Balancer](load-balancer-standard-overview.md) publics et internes exposent l’état des sondes d’intégrité par point de terminaison et par instance principale comme des métriques multidimensionnelles via Azure Monitor. Ces métriques peuvent être utilisées par d’autres services Azure ou par des applications tierces. 
+Les [Standard Load Balancer](load-balancer-standard-overview.md) publics et internes exposent l’état des sondes d’intégrité par point de terminaison et par instance principale comme des métriques multidimensionnelles via Azure Monitor. Ces mesures peuvent être consommées par d’autres services Azure ou les applications partenaires. 
 
-Un Load Balancer public de base expose l’état de la sonde d’intégrité résumé par pool principal via Log Analytics.  Log Analytics n’est pas disponible pour les équilibreurs de charge de base internes.  Vous pouvez utiliser [Log Analytics](load-balancer-monitor-log.md) pour vérifier le nombre et l’état d’intégrité des sondes d’équilibreurs de charge publics. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
+Équilibreur de charge public expose l’état de la sonde d’intégrité cumulé par pool back-end via les journaux Azure Monitor.  Journaux d’analyse Azure ne sont pas disponibles pour les équilibreurs de charge de base interne.  Vous pouvez utiliser [Azure Monitor enregistre](load-balancer-monitor-log.md) pour vérifier l’état de charge public équilibrage de la sonde d’intégrité et de nombre de sonde. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
 
 ## <a name="limitations"></a>Limites
 

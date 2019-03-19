@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327555"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432632"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -63,10 +63,30 @@ La façon la plus simple d’accéder à votre service à l’extérieur du clus
 
 Si vous ne voyez pas le tableau de bord Kubernetes, vérifiez si le pod `kube-proxy` est en cours d’exécution dans l’espace de noms `kube-system`. S’il n’est pas en cours d’exécution, supprimez-le afin qu’il redémarre.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Je ne parviens pas à obtenir les journaux à l’aide des journaux de kubectl, ou à me connecter au serveur API. J’obtiens le message « Error from server: error dialing backend: dial tcp… » Que dois-je faire ?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Je ne parviens pas à obtenir les journaux à l’aide des journaux de kubectl, ou à me connecter au serveur API. J’obtiens « erreur de serveur : back-end de l’erreur de numérotation : composer tcp... ». Que dois-je faire ?
 
-Assurez-vous que le groupe de sécurité de réseau (NSG) par défaut n’est pas modifié et que le port 22 est ouvert pour la connexion au serveur d’API. Vérifiez si le pod `tunnelfront` est en cours d’exécution dans l’espace de noms `kube-system`. Si ce n’est pas le cas, forcez la suppression du pod pour qu’il redémarre.
+Assurez-vous que le groupe de sécurité réseau par défaut n’est pas modifié et que le port 22 est ouvert pour la connexion au serveur d’API. Vérifiez si le `tunnelfront` pod est en cours d’exécution le *kube-system* à l’aide de l’espace de noms le `kubectl get pods --namespace kube-system` commande. Si ce n’est pas le cas, forcez la suppression du pod pour qu’il redémarre.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>J’essaie d’effectuer une mise à niveau ou une mise à l’échelle et j’obtiens l’erreur suivante : « Changing property 'imageReference' is not allowed » (La modification de la propriété 'imageReference' n’est pas autorisée).  Comment résoudre ce problème ?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>J’essaie d’effectuer une mise à niveau ou une mise à l’échelle et j’obtiens l’erreur suivante : « Changing property 'imageReference' is not allowed » (La modification de la propriété 'imageReference' n’est pas autorisée). Comment résoudre ce problème ?
 
 Cette erreur s’affiche peut-être parce que vous avez modifié les balises dans les nœuds d’agent à l’intérieur du cluster AKS. La modification et la suppression de balises et d’autres propriétés de ressources dans le groupe de ressources MC_ peuvent entraîner des résultats inattendus. La modification des ressources du groupe MC_ * dans le cluster AKS empêche d’atteindre l’objectif de niveau de service (SLO).
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Je reçois des erreurs que mon cluster est en état d’échec et de la mise à niveau ou mise à l’échelle ne fonctionnera pas jusqu'à la résolution
+
+*Cette assistance de dépannage est redirigée via https://aka.ms/aks-cluster-failed*
+
+Cette erreur se produit lorsque des clusters permet d’entrer un état d’échec pour plusieurs raisons. Suivez les étapes ci-dessous pour résoudre l’état de votre cluster a échoué avant de recommencer l’opération ayant échouée précédemment :
+
+1. Jusqu'à ce que le cluster est hors `failed` état, `upgrade` et `scale` opérations ne réussissent. Problèmes courants de la racine et de résolutions sont les suivantes :
+    * Mise à l’échelle avec **quota insuffisant calcul (CRP)**. Pour résoudre, tout d’abord mettre à l’échelle votre cluster à un état stable d’objectif dans le quota. Puis suivez ces [étapes pour demander un quota de calcul augmentation](../azure-supportability/resource-manager-core-quotas-request.md) avant d’essayer de monter en puissance à nouveau les limites de quota initiale d’au-delà.
+    * Mise à l’échelle un cluster avec advanced mise en réseau et **ressources de sous-réseau insuffisant (mise en réseau)**. Pour résoudre, tout d’abord mettre à l’échelle votre cluster à un état stable d’objectif dans le quota. Puis suivez [ces étapes pour demander un quota de ressources augmentation](../azure-resource-manager/resource-manager-quota-errors.md#solution) avant d’essayer de monter en puissance à nouveau les limites de quota initiale d’au-delà.
+2. Une fois que la cause sous-jacente de l’échec de mise à niveau est résolue, votre cluster doit être dans un état de réussite. Une fois que l’état réussi est vérifié, recommencez l’opération d’origine.
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Je reçois des erreurs lors de la mise à niveau ou mise à l’échelle que l’état de mon cluster actuellement étant mis à niveau ou l’échec de mise à niveau
+
+*Cette assistance de dépannage est redirigée via https://aka.ms/aks-pending-upgrade*
+
+Opérations de cluster sont limitées lors des opérations de mise à niveau actives sont en cours ou une mise à niveau a été tentée, mais par la suite a échoué. Pour diagnostiquer ce problème, exécutez `az aks show -g myResourceGroup -n myAKSCluster -o table` pour récupérer l’état détaillé sur votre cluster. En fonction du résultat :
+
+* Si le cluster est activement mise à niveau, patientez jusqu'à ce que l’opération se termine. Si elle a réussi, recommencez l’opération ayant échouée précédemment.
+* Si le cluster a échoué mise à niveau, suivez les étapes présentées ci-dessus

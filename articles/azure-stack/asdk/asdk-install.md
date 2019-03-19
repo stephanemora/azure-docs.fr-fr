@@ -16,12 +16,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a58f5a3794d352fa8671321f5a30d74d2598df75
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 509dafb02d456e3f612e1de8a5bc1cf4b010a05a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113854"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installer le Kit de développement Azure Stack (ASDK)
 Après la [préparation de l’ordinateur hôte ASDK](asdk-prepare-host.md), le kit ASDK peut être déployé dans l’image CloudBuilder.vhdx en suivant les étapes de cet article.
@@ -44,8 +44,8 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
   
    Si vous choisissez un fournisseur d'identité d’abonnement Azure, vous avez besoin d’une connexion Internet, du nom complet d’un locataire d’annuaire Azure AD au format *nomdomaine*.onmicrosoft.com ou d’un nom de domaine personnalisé vérifié Azure AD et des informations d’identification d’administrateur général de l’annuaire spécifié.<br><br>Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent demander des informations d’identification d’administrateur général. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de l’*abonnement fournisseur par défaut*.<br><br>Lors de l’utilisation d’AD FS en tant que fournisseur d’identité, le service d’annuaire de marquage par défaut est sélectionné. Le compte par défaut avec lequel se connecter est azurestackadmin@azurestack.local et le mot de passe à utiliser est celui que vous avez fourni dans le cadre de la configuration.
 
-  > [!NOTE]
-  > Pour un résultat optimal, même si vous voulez utiliser un environnement Azure Stack déconnecté et AD FS comme fournisseur d’identité, il est préférable d’installer le kit ASDK en étant connecté à Internet. De cette façon, la version d’évaluation de Windows Server 2016 incluse avec l’installation du kit de développement peut être activée au moment du déploiement.
+   > [!NOTE]
+   > Pour un résultat optimal, même si vous voulez utiliser un environnement Azure Stack déconnecté et AD FS comme fournisseur d’identité, il est préférable d’installer le kit ASDK en étant connecté à Internet. De cette façon, la version d’évaluation de Windows Server 2016 incluse avec l’installation du kit de développement peut être activée au moment du déploiement.
 
 4. Sélectionnez une carte réseau à utiliser pour le Kit de développement, puis cliquez sur **Suivant**.
 

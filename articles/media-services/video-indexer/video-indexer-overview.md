@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890780"
 ---
 # <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?
 
@@ -24,7 +24,7 @@ Azure Video Indexer est une application cloud créée à l’aide d’Azure Medi
 
 - **Détection de visage** : Détecte et regroupe les visages qui apparaissent dans la vidéo.
 - **Identification de célébrités** : Video Indexer identifie automatiquement plus de 1 million de célébrités : dirigeants, acteurs et actrices, athlètes, chercheurs, dirigeants d’entreprise et spécialistes techniques du monde entier. Les données relatives à ces célébrités figurent également sur plusieurs sites Web connus, par exemple, IMDB et Wikipedia.
-- **Identification des visages basée sur le compte** : Video Indexer effectue l’apprentissage d’un modèle pour un compte spécifique. Il reconnaît alors les visages dans la vidéo selon le modèle entraîné en particulier pour les vidéos de ce compte.
+- **Identification des visages basée sur le compte** : Video Indexer effectue l’apprentissage d’un modèle pour un compte spécifique. Il reconnaît alors les visages dans la vidéo selon le modèle formé. Pour plus d’informations, consultez [personnaliser un modèle de personne depuis le site Web de Video Indexer](customize-person-model-with-website.md) et [personnaliser un modèle de la personne avec l’API Video Indexer](customize-person-model-with-api.md).
 - **Extraction de miniatures pour les visages (« meilleurs visages »)**  : Identifie automatiquement le meilleur visage capturé dans chaque groupe de visages (en fonction de la qualité, de la taille et de la position frontale) et l’extrait en tant qu’actif d’image.
 - **Reconnaissance visuelle du texte** (OCR) : Extrait le texte qui s’affiche visuellement dans la vidéo.
 - **Modération du contenu visuel** : Détecte les contenus choquants et/ou destinés aux adultes.
@@ -40,7 +40,7 @@ Azure Video Indexer est une application cloud créée à l’aide d’Azure Medi
 - **Sous-titrage** : Crée un sous-titrage dans trois formats : VTT, TTML, SRT.
 - **Traitement en deux canaux** : Détecte automatiquement, sépare la transcription et fusionne en une chronologie unique.
 - **Réduction du bruit** : Nettoie les enregistrements contenant du bruit ou de l’audio de téléphonie (en fonction des filtres Skype).
-- **Personnalisation de la transcription** (CRIS) : Entraîne et exécute des modèles de reconnaissance vocale personnalisés étendus pour créer des transcriptions spécifiques au secteur.
+- **Personnalisation de la transcription** (CRIS) : Effectue l’apprentissage vocal personnalisé aux modèles de texte pour créer des relevés de notes spécifiques du secteur. Pour plus d’informations, consultez [personnaliser un modèle de langage depuis le site Web de Video Indexer](customize-language-model-with-website.md) et [personnaliser un modèle de langage avec les API d’indexeur vidéo](customize-language-model-with-api.md).
 - **Énumération de l’orateur** : Mappe et comprend quel orateur a prononcé tels mots et à quel moment.
 - **Statistiques de l’orateur** : Fournit des statistiques pour les ratios de parole des orateurs.
 - **Modération du contenu textuel** : Détecte le texte explicite dans la transcription audio.
@@ -58,8 +58,6 @@ Lorsque l’indexation par le résultat partiel d’un canal pour ces modèles s
 - **Artefacts** : Extrait un ensemble complet d’artefacts d’un « niveau suivant de détails » pour chacun des modèles.
 - **Analyse des sentiments** : Identifie les sentiments positifs, négatifs et neutres à partir de la reconnaissance vocale et visuelle du texte.
  
-  
- 
 Une fois le traitement et l’analyse terminés par Video Indexer, vous pouvez consulter, organiser, rechercher et publier des aperçus de la vidéo.
 
 Si votre rôle est gestionnaire de contenu ou développeur, le service Video Indexer peut répondre à vos besoins. Les gestionnaires de contenu peuvent utiliser le portail web de Video Indexer pour utiliser le service sans avoir à écrire une seule ligne de code, voir [Prise en main à l’aide du site web Video Indexer](video-indexer-get-started.md). Les développeurs peuvent tirer parti des API pour traiter le contenu à l’échelle, voir [Utiliser l’API REST Video Indexer](video-indexer-use-apis.md). Le service permet également aux clients d’utiliser des widgets pour publier des flux vidéo et des aperçus extraits dans leurs propres applications, voir [Incorporer des widgets visuels dans votre application](video-indexer-embed-widgets.md).
@@ -75,8 +73,6 @@ Voici quelques scénarios où Video Indexer peut être utile
 - Monétisation : Video Indexer peut aider à améliorer la valeur des vidéos. Par exemple, les secteurs d’activité s’appuyant sur le chiffre d’affaires publicitaire (par exemple, les médias d’information, les médias sociaux, etc.), peuvent fournir des publicités plus pertinentes en utilisant les informations extraites comme des signaux supplémentaires pour le serveur publicitaire (le fait de présenter des chaussures de sport est plus pertinent au milieu d’un match de football que lors d’une compétition de natation).
 
 - Engagement utilisateur : les aperçus de vidéo peuvent être utilisés pour améliorer l’engagement utilisateur en leur présentant les moments pertinents d’une vidéo. Par exemple, imaginez une vidéo de formation donnant des explications sur des sphères au cours des 30 premières minutes, puis sur les pyramides au cours des 30 minutes suivantes. Le fait que la vidéo soit positionnée automatiquement pour démarrer au début des 30 dernières minutes pourrait bénéficier à un étudiant se documentant sur les pyramides.
-
-Pour plus d’informations, consultez ce [blog](https://aka.ms/videoindexerblog).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

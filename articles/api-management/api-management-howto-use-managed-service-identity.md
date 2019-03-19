@@ -1,6 +1,6 @@
 ---
-title: Utiliser l’identité du service administré Azure dans Gestion des API Azure | Microsoft Docs
-description: Découvrez comment utiliser l’identité du service administré Azure dans Gestion des API
+title: Utiliser des identités gérées dans Gestion des API Azure | Microsoft Docs
+description: Découvrez comment utiliser des identités gérées dans Gestion des API
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,27 +11,27 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730745"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310554"
 ---
-# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Utiliser l’identité du service administré Azure dans Gestion des API Azure
+# <a name="use-managed-identities-in-azure-api-management"></a>Utiliser des identités gérées dans Gestion des API Azure
 
-Cet article vous montre comment créer une identité de service administré pour une instance de service Gestion des API et comment accéder à d’autres ressources. Une identité de service administré générée par Azure Active Directory (Azure AD) permet à votre instance Gestion des API d’accéder facilement et en toute sécurité aux autres ressources protégées par Azure AD telles qu’Azure Key Vault. Gérée par Azure, cette identité de service administré ne vous oblige pas à approvisionner ou permuter des secrets. Pour plus d’informations sur l’identité du service administré Azure, consultez [Identité du service administré pour les ressources Azure](../active-directory/msi-overview.md).
+Cet article vous montre comment créer une identité gérée pour une instance de service de gestion des API et comment accéder aux autres ressources. Une identité gérée générée par Azure Active Directory (Azure AD) permet à votre instance gestion des API pour facilement et en toute sécurité accéder aux autres ressources protégées par AD Azure, telles qu’Azure Key Vault. Cette identité est gérée par Azure et vous dispense à approvisionner ou permuter des clés secrètes. Pour plus d’informations sur les identités, consultez [What ' s des identités gérées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>Créer une identité de service managée pour une instance du service Gestion des API
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Créer une identité gérée pour une instance de la gestion des API
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Pour configurer une identité de service managée dans le portail, vous devez d’abord créer une instance Gestion des API application selon la procédure habituelle, puis activer la fonctionnalité.
+Pour configurer une identité gérée dans le portail, vous serez tout d’abord créer une instance de la gestion des API comme d’habitude, puis activez la fonctionnalité.
 
 1. Créez une instance Gestion des API dans le portail comme vous le faites en temps normal. Accédez-y dans le portail.
-2. Sélectionnez **Identité de service managée**.
+2. Sélectionnez **identités de service managées**.
 3. Définissez Inscrire auprès d’Azure Active Directory sur Activé. Cliquez sur Enregistrer.
 
 ![Activer MSI](./media/api-management-msi/enable-msi.png)
@@ -80,14 +80,14 @@ Par exemple, un modèle complet Azure Resource Manager peut se présenter comme 
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Utiliser l’identité de service managée pour accéder à d’autres ressources
 
 > [!NOTE]
-> À l’heure actuelle, l’identité de service managée peut être utilisée pour obtenir des certificats pour les noms de domaine personnalisés Gestion des API à partir d’Azure Key Vault. D’autres scénarios seront bientôt pris en charge.
+> Actuellement, les identités gérées peuvent être utilisées pour obtenir des certificats à partir d’Azure Key Vault pour les noms de domaine personnalisé de gestion des API. D’autres scénarios seront bientôt pris en charge.
 >
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obtenir un certificat à partir d’Azure Key Vault
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables
 1. Le coffre de clés contenant le certificat pfx doit être dans le même abonnement Azure et le même groupe de ressources que le service Gestion des API. C’est une exigence du modèle Azure Resource Manager.
 2. Le type de contenu du secret doit être *application/x-pkcs12*. Vous pouvez utiliser le script suivant pour charger le certificat :
 
@@ -110,7 +110,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 L’exemple suivant illustre un modèle Azure Resource Manager qui contient les étapes suivantes :
 
-1. Créer une instance Gestion des API avec une identité de service managée.
+1. Créez une instance de la gestion des API avec une identité gérée.
 2. Mettre à jour les stratégies d’accès d’une instance Azure Key Vault et permettre à l’instance Gestion des API d’obtenir des secrets à partir de cette dernière.
 3. Mettre à jour l’instance Gestion des API en définissant un nom de domaine personnalisé à l’aide d’un certificat obtenu à partir de l’instance Key Vault.
 
@@ -166,7 +166,7 @@ L’exemple suivant illustre un modèle Azure Resource Manager qui contient les 
         "keyVaultIdToCertificate": {
             "type": "string",
             "metadata": {
-                "description": "Reference to the KeyVault certificate."
+                "description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
             }
         }
     },
@@ -238,7 +238,7 @@ L’exemple suivant illustre un modèle Azure Resource Manager qui contient les 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur l’identité du service administré Azure :
+En savoir plus sur les identités pour les ressources Azure :
 
-* [Identité du service administré (MSI) pour les ressources Azure](../active-directory/msi-overview.md)
+* [Nouveautés d’identités gérées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md)
 * [Modèles Microsoft Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)

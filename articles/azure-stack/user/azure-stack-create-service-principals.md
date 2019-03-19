@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121551"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Permettre à des applications d’accéder à des ressources Azure Stack en créant des principaux de service
 
@@ -56,8 +56,8 @@ Les étapes d’assignation d’un principal de service à un rôle sont identiq
 
 Si votre Azure Stack utilise Azure AD en tant que le magasin d’identités, vous pouvez créer un service principal en procédant de la même façon que dans Azure, en utilisant le portail Azure.
 
->[!NOTE]
-Avant de commencer à créer un principal de service, vérifiez que vous disposez des [autorisations Azure AD requises](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+> [!NOTE]
+> Avant de commencer à créer un principal de service, vérifiez que vous disposez des [autorisations Azure AD requises](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 ### <a name="create-service-principal"></a>Créer un principal du service
 
@@ -75,15 +75,15 @@ Si vous vous connectez par programmation, utilisez l’ID de votre application e
 
 2. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les exemples d’applications utilisent un **ID de client** pour faire référence à l’**ID d’application**.
 
-     ![ID d’application pour l’application](./media/azure-stack-create-service-principal/image12.png)
+     ![ID d’application pour l’application](./media/azure-stack-create-service-principals/image12.png)
 3. Pour générer une clé d’authentification, sélectionnez **Clés**.
 
 4. Fournissez une description de la clé et la durée de la clé. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
->[!IMPORTANT]
-Une fois la clé enregistrée, la clé **VALUE** s’affiche. Notez cette valeur, car vous ne pourrez pas récupérer la clé ultérieurement. Stockez la valeur de la clé à un emplacement où votre application peut la récupérer.
+> [!IMPORTANT]
+> Une fois la clé enregistrée, la clé **VALUE** s’affiche. Notez cette valeur, car vous ne pourrez pas récupérer la clé ultérieurement. Stockez la valeur de la clé à un emplacement où votre application peut la récupérer.
 
-![Avertissement de valeur de clé pour la clé enregistrée.](./media/azure-stack-create-service-principal/image15.png)
+![Avertissement de valeur de clé pour la clé enregistrée.](./media/azure-stack-create-service-principals/image15.png)
 
 L’étape finale consiste à [assigner votre application à un rôle](azure-stack-create-service-principals.md).
 
@@ -101,8 +101,8 @@ Pour plus d’informations sur la façon de créer le principal du service, cons
 
 Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
 
->[!NOTE]
-Vous pouvez définir l’étendue d’un rôle au niveau d’un abonnement, d’un groupe de ressources ou d’une ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue Par exemple, une application avec le rôle Lecteur pour un groupe de ressources peut lire toutes les ressources de ce groupe.
+> [!NOTE]
+> Vous pouvez définir l’étendue d’un rôle au niveau d’un abonnement, d’un groupe de ressources ou d’une ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue Par exemple, une application avec le rôle Lecteur pour un groupe de ressources peut lire toutes les ressources de ce groupe.
 
 Pour attribuer un rôle à un principal de service, procédez comme suit.
 
@@ -110,7 +110,7 @@ Pour attribuer un rôle à un principal de service, procédez comme suit.
 
 2. Sélectionnez l’abonnement auquel assigner l’application. Dans cet exemple, l’abonnement est Visual Studio Enterprise.
 
-     ![Sélectionner l’abonnement Visual Studio Enterprise pour l’attribution](./media/azure-stack-create-service-principal/image16.png)
+     ![Sélectionner l’abonnement Visual Studio Enterprise pour l’attribution](./media/azure-stack-create-service-principals/image16.png)
 
 3. Sélectionnez **Contrôle d’accès (IAM)** pour l’abonnement.
 

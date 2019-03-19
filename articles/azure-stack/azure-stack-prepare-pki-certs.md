@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6e11df8bedb88d3e505b7fa3c55ade13282911a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106481"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack à utiliser dans le cadre du déploiement ou de la rotation
 
@@ -32,23 +32,23 @@ Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack qui
 
 ### <a name="import-the-certificate"></a>Importer le certificat
 
-1.  Copiez les versions du certificat d’origine [obtenues auprès de l’autorité de certification de votre choix](azure-stack-get-pki-certs.md) dans un répertoire de l’ordinateur hôte de déploiement. 
-  > [!WARNING]
-  > Ne copiez pas les fichiers qui ont déjà été importés, exportés ou modifiés d’une façon ou d’une autre à partir des fichiers fournis directement par l’autorité de certification.
+1. Copiez les versions du certificat d’origine [obtenues auprès de l’autorité de certification de votre choix](azure-stack-get-pki-certs.md) dans un répertoire de l’ordinateur hôte de déploiement. 
+   > [!WARNING]
+   > Ne copiez pas les fichiers qui ont déjà été importés, exportés ou modifiés d’une façon ou d’une autre à partir des fichiers fournis directement par l’autorité de certification.
 
-1.  Cliquez avec le bouton droit sur le certificat, puis sélectionnez **Installer le certificat** ou **Installer PFX** selon la façon dont le certificat a été remis par votre autorité de certification.
+1. Cliquez avec le bouton droit sur le certificat, puis sélectionnez **Installer le certificat** ou **Installer PFX** selon la façon dont le certificat a été remis par votre autorité de certification.
 
 1. Dans **l’Assistant Importation de certificat**, sélectionnez **Ordinateur local** en tant qu’emplacement d’importation. Sélectionnez **Suivant**. Sur l’écran suivant, cliquez à nouveau sur Suivant.
 
     ![Emplacement d’importation sur l’ordinateur local](./media/prepare-pki-certs/1.png)
 
-1.  Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis sélectionnez **Approbation de l’entreprise** comme emplacement. Cliquez sur **OK** pour fermer la boîte de dialogue de sélection du magasin de certificats, puis cliquez sur **Suivant**.
+1. Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis sélectionnez **Approbation de l’entreprise** comme emplacement. Cliquez sur **OK** pour fermer la boîte de dialogue de sélection du magasin de certificats, puis cliquez sur **Suivant**.
 
-    ![Configurer le magasin de certificats](./media/prepare-pki-certs/3.png)
+   ![Configurer le magasin de certificats](./media/prepare-pki-certs/3.png)
 
-    a. Si vous importez un PFX, une boîte de dialogue supplémentaire s’affiche. Sur la page **Protection de la clé privée**, entrez le mot de passe correspondant à vos fichiers de certificat, puis activez l’option **Marquer cette clé comme exportable. Cela vous permet de sauvegarder ou transporter vos clés ultérieurement**. Sélectionnez **Suivant**.
+   a. Si vous importez un PFX, une boîte de dialogue supplémentaire s’affiche. Sur la page **Protection de la clé privée**, entrez le mot de passe correspondant à vos fichiers de certificat, puis activez l’option **Marquer cette clé comme exportable. Cela vous permet de sauvegarder ou transporter vos clés ultérieurement**. Sélectionnez **Suivant**.
 
-    ![Marquer la clé comme exportable](./media/prepare-pki-certs/2.png)
+   ![Marquer la clé comme exportable](./media/prepare-pki-certs/2.png)
 
 1. Cliquez sur Terminer pour effectuer l’importation.
 
@@ -70,19 +70,19 @@ Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasi
 
 1. Dans la barre des tâches de la console Gestionnaire de certificats, sélectionnez **Actions** > **Toutes les tâches** > **Exporter**. Sélectionnez **Suivant**.
 
-  > [!NOTE]
-  > Selon le nombre de certificats Azure Stack, vous devrez peut-être suivre cette procédure plusieurs fois.
+   > [!NOTE]
+   > Selon le nombre de certificats Azure Stack, vous devrez peut-être suivre cette procédure plusieurs fois.
 
 1. Sélectionnez **Oui, exporter la clé privée**, puis cliquez sur **Suivant**.
 
 1. Dans la section Format du fichier d’exportation :
     
-    - Sélectionnez **Inclure tous les certificats dans le certificat si possible**.  
-    - Sélectionnez **Exporter toutes les propriétés étendues**.  
-    - Sélectionnez **Activer la confidentialité de certificat**.  
-    - Cliquez sur **Suivant**.  
+   - Sélectionnez **Inclure tous les certificats dans le certificat si possible**.  
+   - Sélectionnez **Exporter toutes les propriétés étendues**.  
+   - Sélectionnez **Activer la confidentialité de certificat**.  
+   - Cliquez sur **Suivant**.  
     
-    ![Assistant Exportation du certificat avec options sélectionnées](./media/prepare-pki-certs\azure-stack-save-cert.png)
+     ![Assistant Exportation du certificat avec options sélectionnées](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
 1. Sélectionnez **Mot de passe** et indiquez un mot de passe pour les certificats. Créez un mot de passe qui répond aux exigences suivantes en matière de complexité des mots de passe. Longueur minimale de huit caractères. Le mot de passe contient au moins trois des éléments suivants : majuscules, minuscules, chiffres de 0 à 9, caractères spéciaux, caractères alphabétiques autres que des majuscules ou des minuscules. Notez ce mot de passe. Vous l'utiliserez comme paramètre de déploiement.
 

@@ -3,7 +3,7 @@ title: Le démarrage d’une machine virtuelle Azure est bloqué au niveau de la
 description: Découvrez comment résoudre le blocage du processus de démarrage d’une machine virtuelle Azure au niveau de la mise à jour de Windows.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 7c516781f7d0c80dc7185585a29278820ab9a46e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063658"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777564"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Le démarrage de la machine virtuelle Azure est bloqué au niveau de la mise à jour de Windows
 
@@ -27,7 +27,7 @@ Cet article vous aide à résoudre le blocage de votre machine virtuelle au stad
 > [!NOTE] 
 > Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements au lieu du modèle de déploiement classique.
 
- ## <a name="symptom"></a>Symptôme
+## <a name="symptom"></a>Symptôme
 
  Une machine virtuelle Windows ne démarre pas. Quand vous examinez les captures d’écran de la fenêtre [Diagnostics de démarrage](../troubleshooting/boot-diagnostics.md), vous constatez que le démarrage est bloqué au niveau du processus de mise à jour. Voici quelques exemples de messages qui peuvent s’afficher :
 

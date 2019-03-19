@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189206"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119919"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Intégration du centre de données Azure Stack
 
@@ -116,32 +116,32 @@ Le partenaire doit effectuer plusieurs étapes avant que la solution soit remise
 
 Les actions qui doivent être effectuées par le partenaire OEM sont les suivantes :
 
--   [Exécution de l’applet de commande test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Exécution de l’applet de commande test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Inscription auprès d’Azure](azure-stack-registration.md)
+- [Inscription auprès d’Azure](azure-stack-registration.md)
 
--   [Syndication de la Place de marché](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Syndication de la Place de marché](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Sauvegarde des fichiers de configuration de commutateur et des fichiers de configuration HLH
+- Sauvegarde des fichiers de configuration de commutateur et des fichiers de configuration HLH
 
--   Suppression de DVM
+- Suppression de DVM
 
--   Préparation d’une synthèse client pour le déploiement
+- Préparation d’une synthèse client pour le déploiement
 
--   [Vérification des mises à jour pour s’assurer que le logiciel de la solution est mis à jour vers la dernière version](.\azure-stack-updates.md)
+- [Vérification des mises à jour pour s’assurer que le logiciel de la solution est mis à jour vers la dernière version](./azure-stack-updates.md)
 
 Plusieurs étapes peuvent être obligatoires ou facultatives, en fonction du type d’installation.
 
--   Si le déploiement a été effectué à l’aide d’[AD FS](azure-stack-integrate-identity.md), le tampon Azure Stack devra être intégré aux propres services AD FS du client.
+- Si le déploiement a été effectué à l’aide d’[AD FS](azure-stack-integrate-identity.md), le tampon Azure Stack devra être intégré aux propres services AD FS du client.
 
   > [!NOTE]
   > C’est le client qui est responsable de l’exécution de cette étape, bien que le partenaire puisse pour cela choisir de proposer des services.
 
--   Intégration avec un système de supervision existant du partenaire concerné.
+- Intégration avec un système de supervision existant du partenaire concerné.
 
-    -   L’[intégration de System Center Operations Manager](azure-stack-integrate-monitor.md) prend également en charge les fonctionnalités de gestion de flotte.
+  -   L’[intégration de System Center Operations Manager](azure-stack-integrate-monitor.md) prend également en charge les fonctionnalités de gestion de flotte.
 
-    -   [Intégration de Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Intégration de Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>Chronologie globale
 

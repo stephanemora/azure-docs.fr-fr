@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6b8587313a4e98bfefa6489d9698052d312a6d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 274675c3b9f04877f5665efbcbf7951a5bbb0e27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194544"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833178"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Forum aux questions (FAQ) sur les rapports Azure Active Directory
 
@@ -29,17 +29,17 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 ## <a name="getting-started"></a>Prise en main 
 
-**Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) programmatiquement les rapports d’audit Azure AD et les rapports d’utilisation des applications intégrées dans nos systèmes de création de rapports. Que dois-je utiliser à présent ?**
+**Q : J’utilise actuellement le `https://graph.windows.net/<tenant-name>/reports/` point de terminaison API d’audit pull Azure AD et l’utilisation des applications intégrées dans nos systèmes de création de rapports par programme des rapports. Que dois-je utiliser à présent ?**
 
 **R :** Consultez les [Informations de référence sur les API](https://developer.microsoft.com/graph/) pour savoir comment [utiliser les API dans le but d’accéder aux rapports d’activité](concept-reporting-api.md). Ce point de terminaison comporte deux rapports (un d’**audit** et un autre sur les **connexions**) qui fournissent toutes les données dont vous disposiez dans l’ancien point de terminaison d’API. Ce nouveau point de terminaison comporte également un rapport sur les connexions, relatif à la licence Azure AD Premium, que vous pouvez utiliser pour obtenir des informations sur l’utilisation des applications, l’utilisation des appareils et les connexions utilisateur.
 
---- 
+---
 
-**Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) programmatiquement les rapports de sécurité Azure AD (concernant certains types de détections, telles que les fuites d’informations d’identification ou les connexions à partir d’adresses IP anonymes) dans notre système de création de rapports. Que dois-je utiliser à présent ?**
+**Q : J’utilise actuellement le `https://graph.windows.net/<tenant-name>/reports/` point de terminaison API pour extraire des rapports de sécurité Azure AD (types spécifiques de détections, telles que les informations d’identification volées ou les connexions depuis des adresses IP anonymes) dans nos systèmes de création de rapports par programme. Que dois-je utiliser à présent ?**
 
 **R :** Vous pouvez utiliser  [l’API Identity Protection relative aux événements à risque](../identity-protection/graph-get-started.md)  pour accéder aux détections de sécurité par le biais de Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les événements à risque sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), qui est désormais la plateforme standard de Microsoft pour les API telles qu’Office 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements MS Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
 
---- 
+---
 
 **Q : Comment obtenir une licence Premium ?**
 
@@ -76,10 +76,10 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 | Rapport                 | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Journaux d’audit             | 7 jours        | 30 jours             | 30 jours             |
-| Connexions               | N/A           | 30 jours             | 30 jours             |
+| Connexions               | S.O.           | 30 jours             | 30 jours             |
 | Utilisation d’Azure MFA        | 30 jours       | 30 jours             | 30 jours             |
 
---- 
+---
 
 **Q : Au bout de combien de temps puis-je voir les données d’activité une fois la tâche terminée ?**
 
@@ -89,7 +89,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : Puis-je obtenir des informations du journal d’activité d’Office 365 avec le Portail Azure ?**
 
-**R :** Bien que les journaux d’activité d’Office 365 et d’Azure AD partagent une grande partie des ressources du répertoire, vous devez accéder au Centre d’administration Office 365 pour obtenir une vue complète des journaux d’activité d’Office 365.
+**R :** Même si Office 365 Azure AD activité et journaux partagent un grand nombre de ressources du répertoire, si vous souhaitez une vue complète des journaux d’activité de Office 365, vous devez accéder à la [centre d’administration Microsoft 365](https://admin.microsoft.com) obtention du journal d’activité d’Office 365 plus d’informations.
 
 ---
 
@@ -140,24 +140,27 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 **Q : Comment faire pour démarrer ?**
 
 **R :** Pour commencer :
-    * Accédez au rapport de connexion dans le [portail Azure](https://portal.azure.com). 
-    * Cliquez sur la connexion que vous souhaitez dépanner.
-    * Accédez à l’onglet **Accès conditionnel**. Cet onglet permet de consulter toutes les stratégies ayant eu une incidence sur des connexions, ainsi que le résultat de chaque stratégie. 
+
+* Accédez au rapport de connexion dans le [portail Azure](https://portal.azure.com).
+* Cliquez sur la connexion que vous souhaitez dépanner.
+* Accédez à l’onglet **Accès conditionnel**. Cet onglet permet de consulter toutes les stratégies ayant eu une incidence sur des connexions, ainsi que le résultat de chaque stratégie. 
     
 **Q : Quelles sont toutes les valeurs acceptées par l’état de l’accès conditionnel ?**
 
 **R :** L’état de l’accès conditionnel peut prendre les valeurs suivantes :
-    * **Non applicable** : Aucune stratégie d’accès conditionnel ne s’appliquait à l’utilisateur et à l’application. 
-    * **Réussite** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel ont été respectées. 
-    * **Échec** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel n’ont pas été respectées. 
+
+* **Non applicable** : Aucune stratégie d’accès conditionnel ne s’appliquait à l’utilisateur et à l’application. 
+* **Réussite** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel ont été respectées. 
+* **Échec** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel n’ont pas été respectées. 
     
 **Q : Quelles sont toutes les valeurs acceptées par les résultats de la stratégie d’accès conditionnel ?**
 
 **R :** Une stratégie d’accès conditionnel peut aboutir aux résultats suivants :
-    * **Réussite** : La stratégie a été respectée.
-    * **Échec** : La stratégie n’a pas été respectée.
-    * **Non applicable** : Ce résultat peut découler du non-respect des conditions de la stratégie.
-    * **Inactive** : La stratégie se trouve dans un état désactivé. 
+
+* **Réussite** : La stratégie a été respectée.
+* **Échec** : La stratégie n’a pas été respectée.
+* **Non applicable** : Ce résultat peut découler du non-respect des conditions de la stratégie.
+* **Inactive** : La stratégie se trouve dans un état désactivé. 
     
 **Q : Le nom de la stratégie dans le rapport de connexion ne correspond pas tout le temps au nom de la stratégie d’accès conditionnel. Pourquoi ?**
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412187"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447844"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Créer une machine virtuelle Linux utilisant l’authentification SSH avec l’API REST
 
@@ -63,10 +63,10 @@ Pour obtenir des informations générales sur l’utilisation des requêtes d’
 
 Les définitions courantes suivantes permettent de générer un corps de demande :
 
-| NOM                       | Obligatoire | type                                                                                | Description  |
+| Nom                       | Obligatoire | Type                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | chaîne                                                                              | Emplacement de la ressource. |
-| Nom                       |          | chaîne                                                                              | Nom de la machine virtuelle. |
+| location                   | True     | string                                                                              | Emplacement de la ressource. |
+| Nom                       |          | string                                                                              | Nom de la machine virtuelle. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Spécifie les paramètres matériels de la machine virtuelle. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Spécifie les paramètres de stockage des disques de machine virtuelle. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Spécifie les paramètres du système d’exploitation de la machine virtuelle. |
@@ -127,7 +127,7 @@ Un exemple de corps de requête figure ci-dessous. Veillez à spécifier le nom 
 }
 ```
 
-Pour obtenir la liste complète des définitions disponibles dans le corps de la demande, consultez [Virtual machines create or update request body definitions](/rest/api/compute/virtualmachines/createorupdate#definitions) (Création ou mise à jour des définitions de corps de demande par les machines virtuelles).
+Pour obtenir une liste complète des définitions disponibles dans le corps de la demande, consultez [machines virtuelles, créer ou mettre à jour des définitions de corps de demande](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Envoi de la requête
 
@@ -137,7 +137,7 @@ Vous pouvez utiliser le client de votre choix pour l’envoi de cette requête H
 
 Il existe deux réponses de réussite pour l’opération de création ou de mise à jour d’une machine virtuelle :
 
-| NOM        | type                                                                              | Description |
+| Nom        | type                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Créé | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Date de création     |

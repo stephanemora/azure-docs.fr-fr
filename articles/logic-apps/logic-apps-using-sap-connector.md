@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887083"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
-Cet article explique comment accéder à vos ressources SAP locales à partir d’une application logique en utilisant le connecteur SAP ERP Central Component (ECC). Le connecteur SAP ECC prend en charge l’intégration de messages ou de données vers et depuis des systèmes SAP Netweaver via IDoc (Intermediate Document), BAPI (Business Application Programming Interface) ou RFC (Remote Function Call).
+Cet article explique comment accéder à vos ressources SAP locales à partir d’une application logique en utilisant le connecteur SAP ERP Central Component (ECC). Le connecteur fonctionne avec les systèmes ECC et s/4 HANA en local. Le connecteur SAP ECC prend en charge l’intégration de messages ou de données vers et depuis des systèmes SAP Netweaver via IDoc (Intermediate Document), BAPI (Business Application Programming Interface) ou RFC (Remote Function Call).
 
-Le connecteur SAP ECC utilise la <a href="https://support.sap.com/en/product/connectors/msnet.html">bibliothèque NCo (.Net Connector) SAP</a>, et fournit ces opérations ou actions :
+Le connecteur SAP ECC utilise le <a href="https://support.sap.com/en/product/connectors/msnet.html">bibliothèque du connecteur SAP .NET (NCo)</a> et fournit ces opérations ou les actions :
 
 - **Envoyer à SAP** : envoyer un IDoc ou appeler des fonctions BAPI sur tRFC dans des systèmes SAP.
 - **Recevoir de SAP** : recevoir des IDoc ou des appels de fonction BAPI sur tRFC à partir de systèmes SAP.
@@ -32,7 +32,7 @@ De même, dans les scénarios de réception, la passerelle de données agit en t
 
 Cet article explique comment créer des exemples d’applications logiques qui s’intègrent à SAP en couvrant les scénarios d’intégration décrits précédemment.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre cet article, vous avez besoin de ces éléments :
 

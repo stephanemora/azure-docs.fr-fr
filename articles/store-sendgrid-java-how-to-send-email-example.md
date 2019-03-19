@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421945"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442459"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Envoi de courriers électroniques à l'aide de SendGrid à partir de Java dans un déploiement Azure
-L'exemple qui suit montre comment vous pouvez utiliser SendGrid pour envoyer des courriers électroniques depuis une page Web hébergée sur Azure. L'application finale demande à l'utilisateur les valeurs du courrier électronique, comme illustré dans la capture d'écran qui suit.
+L'exemple qui suit montre comment vous pouvez utiliser SendGrid pour envoyer des courriers électroniques depuis une page Web hébergée sur Azure. L’application résultante invitera l’utilisateur pour les valeurs de la messagerie, comme indiqué dans la capture d’écran suivante.
 
 ![Formulaire de courrier électronique][emailform]
 
-Le courrier électronique obtenu est semblable à la capture d'écran suivante.
+Le courrier électronique obtenu doit ressembler à la capture d’écran suivante.
 
 ![Message électronique][emailsent]
 
@@ -204,7 +204,7 @@ Le code suivant, qui est appelé lorsque vous remplissez le formulaire dans emai
     </body>
     </html>
 
-En plus d'envoyer le courrier électronique, emailform.jsp fournit un résultat à l'utilisateur. La capture d'écran suivante présente un exemple :
+Outre l’envoi du courrier électronique, emailform.jsp fournit un résultat de l’utilisateur ; par exemple, la capture d’écran suivante :
 
 ![Résultat de l'envoi d'un courrier électronique][emailresult]
 

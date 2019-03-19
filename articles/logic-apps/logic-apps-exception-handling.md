@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308721"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779145"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -223,9 +223,9 @@ Pour les limites sur les étendues, consultez [Limites et configuration](../logi
 
 Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés. L’expression `@result()` fournit un contexte sur le résultat de toutes les actions d’une étendue.
 
-L’expression `@result()` accepte un paramètre unique (le nom de l’étendue), et renvoie un tableau de tous les résultats d’action contenus dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet  **@actions()**, tels que l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. Vous pouvez facilement associer une fonction **@result()** à une propriété **runAfter** pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue.
+L’expression `@result()` accepte un paramètre unique (le nom de l’étendue), et renvoie un tableau de tous les résultats d’action contenus dans cette étendue. Ces objets d’action incluent les mêmes attributs que la  **\@actions()** objet, comme l’action de l’heure de début, heure de fin, état, entrées, ID de corrélation et les sorties. Pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue, vous pouvez facilement associer une  **\@result()** fonctionne avec un **runAfter** propriété.
 
-Pour exécuter une action pour chaque action d’une étendue dont le résultat est **Failed**, et filtrer le tableau de résultats sur les actions ayant échoué, vous pouvez associer **@result()** à une action **[Filter Array](../connectors/connectors-native-query.md)** et à une boucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md). Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle **For each**. 
+Pour exécuter une action pour chaque action dans une étendue qui a un **échec** résultat, et pour filtrer les résultats sur les actions ayant échoué, vous pouvez associer  **\@result()** avec un **[ Filtrer un tableau](../connectors/connectors-native-query.md)** action et un [ **pour chaque** ](../logic-apps/logic-apps-control-flow-loops.md) boucle. Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle **For each**. 
 
 Cet exemple, suivi d’une explication détaillée, envoie une requête HTTP POST avec le corps de réponse pour toutes les actions qui ont échoué dans l’étendue « My_Scope » :
 
@@ -317,7 +317,7 @@ Pour référence, voici un exemple d’un seul élément `@result()`, montrant l
 }
 ```
 
-Vous pouvez utiliser les expressions décrites plus haut dans cet article pour exécuter différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs, et de supprimer l’action **For each**. Vous pouvez également inclure d’autres propriétés utiles à partir de la réponse **@result()** comme décrit précédemment.
+Vous pouvez utiliser les expressions décrites plus haut dans cet article pour exécuter différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs, et de supprimer l’action **For each**. Vous pouvez également inclure d’autres propriétés utiles à partir de la  **\@result()** réponse comme décrit précédemment.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Métriques et diagnostics Azure
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187743"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984847"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles (préversion) dans le but de comprendre les composants d’application
 Lorsque vous visualisez les composants d’application détectés sur des machines virtuelles Windows et Linux s’exécutant dans Azure, vous pouvez observer votre environnement de deux manières avec Azure Monitor pour machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
@@ -39,7 +39,7 @@ Lorsque vous cliquez sur la machine virtuelle, le volet **Propriétés** se dév
 
 ![Propriétés système de l’ordinateur](./media/vminsights-maps/properties-pane-01.png)
 
-Dans la partie droite du volet, cliquez sur l’icône **Journaux d’événements** pour afficher, dans le volet, une liste des tables envoyées à Log Analytics par les données collectées à partir de la machine virtuelle, disponible pour interrogation.  Lorsque vous cliquez sur l’un des types d’enregistrement répertoriés, la page **Journaux** s’affiche. Elle présente les résultats correspondant à ce type avec une requête préconfigurée filtrée selon la machine virtuelle concernée.  
+Dans la partie droite du volet, cliquez sur le **les événements du journal** icône pour basculer le focus du volet pour afficher une liste de tables dont les données collectées à partir de la machine virtuelle a envoyé à Azure Monitor et est disponible pour l’interrogation.  Lorsque vous cliquez sur l’un des types d’enregistrement répertoriés, la page **Journaux** s’affiche. Elle présente les résultats correspondant à ce type avec une requête préconfigurée filtrée selon la machine virtuelle concernée.  
 
 ![Liste de recherche dans les journaux dans le volet Propriétés](./media/vminsights-maps/properties-pane-logs-01.png)
 

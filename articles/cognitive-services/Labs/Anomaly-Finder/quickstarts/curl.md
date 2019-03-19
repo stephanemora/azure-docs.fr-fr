@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: e055bff430c0d090b4d527a79a22922da2eb90d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 7a4996c83d57b34fcfcff43650b21359acb4e65e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207053"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730883"
 ---
 # <a name="use-the-anomaly-finder-api-with-curl"></a>Utiliser l’API Recherche d’anomalies avec cURL
 
@@ -22,7 +22,7 @@ ms.locfileid: "55207053"
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de cURL en vue d’obtenir les résultats d’anomalies de données de série chronologique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

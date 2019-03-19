@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/202018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: b092509c1029bbff028da6bf94b9f7dbd1068b16
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020028"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670841"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-http-connector.md)
 > * [Version actuelle](connector-http.md)
 
@@ -198,7 +198,7 @@ Pour copier des données de HTTP, définissez la propriété **type** du jeu de 
 }
 ```
 
-**Exemple 2 : utilisation de la méthode Post**
+**Exemple 2 : Utilisation de la méthode Post**
 
 ```json
 {

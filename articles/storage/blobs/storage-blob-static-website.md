@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/18
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cff8b8af4ca40d428edf7c6e35976bcb154a28f1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328688"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867732"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 Les comptes GPv2 du service Stockage Azure vous permettent de distribuer du contenu statique (fichiers HTML, CSS, JavaScript et image) directement à partir d’un conteneur de stockage nommé *$web*. La fonctionnalité d’hébergement dans Stockage Azure vous permet d’utiliser des architectures serverless, notamment [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services PaaS.
@@ -51,6 +51,7 @@ Lorsqu’un nom de fichier n’est pas fourni, le nom de fichier par défaut sé
 
 Pour faire en sorte que vos fichiers de site web statique soient accessibles sur HTTPS, consultez l’article [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md). Dans le cadre de ce processus, vous devez *pointer votre CDN sur le point de terminaison web* plutôt que sur le point de terminaison d’objet blob. Vous devrez peut-être patienter quelques minutes avant que votre contenu soit visible, car la configuration du CDN n’est pas exécutée immédiatement.
 
+Lorsque vous mettez à jour votre site Web statique, veillez à effacer le contenu mis en cache sur les serveurs de périphérie CDN en supprimant le point de terminaison CDN. Pour plus d’informations, consultez [Purger un point de terminaison CDN Azure](../../cdn/cdn-purge-endpoint.md).
 
 ## <a name="custom-domain-names"></a>Noms de domaine personnalisés
 

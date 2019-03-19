@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Tangoe Command Premium Mobile | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Tangoe Command Premium Mobile | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Tangoe Command Premium Mobile.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986afa1239ad0efd9ccb936252ead37c8379b447
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c9f410fa890df7aac3c3bf4d89468b92e69ba38
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192895"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Didacticiel : Intégration d’Azure Active Directory à Tangoe Command Premium Mobile
 
@@ -35,7 +35,7 @@ L’intégration de Tangoe Command Premium Mobile à Azure AD vous offre les av
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Tangoe Command Premium Mobile, vous avez besoin des éléments suivants :
 
@@ -75,7 +75,7 @@ Pour configurer l’intégration de Tangoe Command Premium Mobile à Azure AD, 
 
 1. Dans la zone de recherche, tapez **Tangoe Command Premium Mobile**, sélectionnez **Tangoe Command Premium Mobile** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Ajouter Tangoe Command Premium Mobile à partir de la galerie ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
+    ![Ajouter Tangoe Command Premium Mobile à partir de la galerie](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Tangoe Command Premium Mobile pour un utilisateur de test appelé « Britta Simon ».

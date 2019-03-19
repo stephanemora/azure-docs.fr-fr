@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e20623c015f8bc80b61f07e28c49d49df73887b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189436"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436372"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimisez votre environnement SQL avec la solution SQL Server Health Check dans Log Analytics
 
@@ -38,7 +38,7 @@ Une fois la solution ajoutée et l’évaluation terminée, le récapitulatif de
 
 ![image du tableau de bord SQL Health Check](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * La solution SQL Health Check nécessite l’installation d’une version prise en charge de .NET Framework 4 sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 - Operations Manager, Operations Manager 2012 R2 et le service Log Analytics.  
 * La solution prend en charge SQL Server 2012, 2014 et 2016.
@@ -186,7 +186,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Voici une capture d’écran montrant la requête Recherche de journal : <br><br> ![recommandations ayant échoué](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Voici une capture d’écran montrant la requête de recherche dans les journaux :<br><br> ![recommandations ayant échoué](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 

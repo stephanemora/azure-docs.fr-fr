@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/15/2019
 ms.author: saudas
-ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: aafc6c5a240a1dd3e3c75dd33da26bde918b2288
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313447"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403207"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Par exemple, si AKS introduit *1.12.x* aujourd'hui, la prise en charge est égal
 
 Quand une nouvelle version mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont mises hors service. 15 jours avant la publication de la nouvelle version mineure et la mise hors service à venir de la version, une annonce est faite via les [canaux de mise à jour d’Azure][azure-update-channel]. Dans l'exemple ci-dessus où *1.12.x* est publiée, les versions mises hors service sont *1.8.g* + *1.8.h*.
 
-Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d* , *1.9.e* + *1.9f*, la version par défaut pour les nouveaux clusters est *1.10.b*.
+Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d* , *1.9.e* + *1.9F*, est la version par défaut pour les nouveaux clusters *1.11.b*.
 
 ## <a name="list-currently-supported-versions"></a>Répertorier les versions prises en charge
 

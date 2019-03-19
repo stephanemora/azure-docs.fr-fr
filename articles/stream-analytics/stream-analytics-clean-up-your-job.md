@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090242"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588718"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Supprimer une tâche Azure Stream Analytics
 
-Vous pouvez facilement supprimer les tâches Azure Stream Analytics via le portail Azure, Azure PowerShell, Azure SDK pour .NET ou l’API REST.
+Vous pouvez facilement supprimer les tâches Azure Stream Analytics via le portail Azure, Azure PowerShell, Azure SDK pour .NET ou l’API REST. Un travail d’Analytique de Stream ne peut pas être récupéré une fois qu’il a été supprimé.
 
 >[!NOTE] 
 >Quand vous arrêtez votre tâche Azure Stream Analytics, les données sont seulement conservées dans le stockage d’entrée et de sortie, comme Event Hubs ou Azure SQL Database. Si vous devez supprimer des données dans Azure, veillez à suivre le processus de suppression des ressources d’entrée et de sortie de votre tâche Azure Stream Analytics.
@@ -47,7 +47,9 @@ Vous pouvez facilement supprimer les tâches Azure Stream Analytics via le porta
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>Arrêter ou supprimer une tâche avec PowerShell
 
-Pour arrêter une tâche avec PowerShell, utilisez l’applet de commande [Stop-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob?view=azurermps-5.7.0). Pour supprimer une tâche avec PowerShell, utilisez l’applet de commande [Remove-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/Remove-AzureRmStreamAnalyticsJob?view=azurermps-5.7.0).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Pour arrêter un travail à l’aide de PowerShell, utilisez le [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) applet de commande. Pour supprimer un travail à l’aide de PowerShell, utilisez le [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) applet de commande.
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>Arrêter ou supprimer une tâche avec Azure SDK pour .NET
 

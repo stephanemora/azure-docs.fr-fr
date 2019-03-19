@@ -11,22 +11,22 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767433"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455800"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformer des données XML à l’aide de mappages dans Azure Logic Apps avec Enterprise Integration Pack
 
-Si vous souhaitez convertir des données XML dans un autre format dans un scénario d’intégration entreprise Azure Logic Apps, votre application logique peut utiliser des mappages XSLT. Un mappage est un document XML qui décrit comment convertir les données d’un document XML dans un autre format. 
+Pour transférer des données XML entre les formats pour les scénarios d’intégration entreprise dans Azure Logic Apps, votre application logique peut utiliser maps, ou plus précisément, de feuille de Style Extensible Language Transformations (XSLT) est mappé. Un mappage est un document XML qui décrit comment convertir les données d’un document XML dans un autre format. 
 
 Par exemple, imaginons que vous receviez régulièrement des commandes ou des factures B2B de la part d’un client qui utilise le format de date AAAMMJJ. Votre organisation, quant à elle, utilise le format de date MMJJAAA. Vous pouvez définir et utiliser un mappage qui transforme le format de date AAAMMJJ au format MMJJAAA avant d’enregistrer les détails de la commande ou de la facture dans votre base de données clients.
 
 Pour connaître les limites associées aux comptes d’intégration et aux artefacts tels que les mappages, consultez [Limites et informations de configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>.
 

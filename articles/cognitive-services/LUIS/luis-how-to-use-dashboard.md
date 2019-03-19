@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869957"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338431"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Statistiques de modèle et d’utilisation dans le tableau de bord
 Le tableau de bord d’application permet de surveiller votre application d’un seul coup d’œil. Le **tableau de bord** s’affiche lorsque vous ouvrez une application en cliquant sur son nom sur la page **Mes applications**, puis choisissez **Tableau de bord** dans le panneau supérieur. 
@@ -69,21 +69,8 @@ La **répartition des intentions** repose sur les énoncés étiquetés ou les a
 
 ![Répartition des intentions](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Pour déterminer si la répartition est basée sur les énoncés étiquetés ou les accès de point de terminaison :
-
-1. Cliquez sur **Paramètres supplémentaires** ![bouton Paramètres supplémentaires pour accéder à la liste](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) pour accéder à la liste comme dans l’image suivante :
-
-    ![Liste de répartition des intentions](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Sélectionnez une valeur dans la liste, puis cliquez sur la flèche vers la gauche ![Flèche vers la gauche](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) pour afficher le graphique.
-
 ## <a name="entity-breakdown"></a>Répartition des entités
 Le tableau de bord affiche la répartition des entités selon les énoncés étiquetés ou les accès de point de terminaison. Ce graphique de synthèse indique l’importance relative de chaque entité dans l’application. Lorsque vous placez le pointeur de la souris sur un secteur, vous voyez le nom de l’entité et son pourcentage par rapport aux énoncés étiquetés ou accès de point de terminaison. 
 
 ![Répartition des entités](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Pour déterminer si la répartition est basée sur les énoncés étiquetés ou les accès de point de terminaison :
-
-1. Cliquez sur **Paramètres supplémentaires** ![bouton Paramètres supplémentaires pour accéder à la liste](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) pour accéder à la liste comme dans l’image suivante :
-
-    ![Liste de répartition des entités](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Sélectionnez une valeur dans la liste, puis cliquez sur la flèche vers la gauche ![Flèche vers la gauche](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) pour afficher le graphique en conséquence.

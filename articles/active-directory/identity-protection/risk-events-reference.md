@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1509f40b88e3dc9c51bd00ed379c5b0130230a99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b1c69705131cfea4e5ace9b5b9e829b3fdfa87e4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178836"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991646"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Référence des événements à risque Azure Active Directory Identity Protection
 
@@ -83,6 +83,7 @@ Ce type d’événement à risque indique les connexions depuis des adresses IP 
 **Type de détection :** Temps réel  
 **Ancien nom :** Connexions depuis des emplacements non connus
 
-Ce type d’événement à risque prend en compte les propriétés de connexion antérieures (par exemple, appareil, emplacement, réseau) pour déterminer les connexions avec des propriétés inhabituelles. Le système stocke les propriétés d’emplacements précédents utilisés par un utilisateur et les considère comme « habituels ». L’événement à risque est déclenché lorsque la connexion se fait avec des propriétés qui ne figurent pas dans la liste des propriétés habituelles. Le système a une période d’apprentissage initiale de 30 jours, durant laquelle il ne signale pas les nouvelles détections.
+Prend en compte de ce type d’événement à risque passés historique des connexions (IP, Latitude / Longitude et NSA) pour rechercher des anomalies de connexion. Le système stocke les informations sur les emplacements précédents d’un utilisateur et considère ces emplacements comme « connus ». L’événement à risque est déclenché quand la connexion se fait depuis un emplacement qui ne figure pas dans la liste des emplacements connus. Les utilisateurs nouvellement créés sera en « mode d’apprentissage » pendant une période de temps dans les propriétés de connexion inconnues événements à risque seront désactivées alors que nos algorithmes apprendre le comportement de l’utilisateur. L’apprentissage durée du mode est dynamique et varie sur combien de temps il faut l’algorithme pour collecter suffisamment d’informations sur les modèles de connexion de l’utilisateur. La durée minimale est de 5 jours. Un utilisateur peut revenir en arrière en mode d’apprentissage après une longue période d’inactivité. Le système ignore également les connexions depuis les appareils connus et les emplacements géographiquement proches d’un emplacement connu. 
+
 Nous exécutons également cette détection pour l’authentification de base (ou les protocoles existants). Étant donné que ces protocoles ne proposent pas les propriétés modernes, telles que l’ID client, les données de télémétrie pour réduire le nombre de faux positifs sont limitées. Nous recommandons à nos clients de passer à l’authentification moderne.
 

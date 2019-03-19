@@ -14,33 +14,33 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d96ef2fd318d6164e1b7dfc5c4b72d6957af0f3e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744432"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806484"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Onglet Informations techniques des applications Power BI
 
-L’onglet **Informations techniques** de la page **Nouvelle offre** est l’endroit où vous fournissez l’URL du package d’installation Power BI et toutes les informations supplémentaires requises pour la validation de la nouvelle offre.  Pour la version initiale, toutes les applications Power BI sont gratuites, disponibles en téléchargement à partir d’AppSource sans frais supplémentaires. Par conséquent, vous ne serez pas en mesure de définir les références SKU pour ce type d’offre.
+Sur le **nouvelle offre** page, utilisez la **informations techniques** onglet pour fournir le programme d’installation de Power BI, l’URL du package et autres informations que vous avez besoin valider la nouvelle offre.  Pour la version initiale, toutes les applications Power BI sont gratuites et sont disponibles en téléchargement à partir de AppSource. Pour cette raison, vous ne pouvez pas définir les unités de stock (SKU) pour ce type d’offre.
 
-![Onglet Informations techniques](./media/technical-info-tab.png)
+![L’onglet informations techniques](./media/technical-info-tab.png)
 
 
 ## <a name="technical-info-fields"></a>Champs Informations techniques 
 
-Dans l’onglet **Informations techniques**, vous devez fournir les champs suivants.  Un astérisque (*) en regard de l’étiquette de champ indique que ce champ est obligatoire.
+Sur le **informations techniques** onglet, renseignez les champs décrits dans le tableau suivant. Un astérisque (*) à la fin d’une étiquette de champ signifie que le champ est obligatoire.
 
 |        Champ          |  Description                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **URL du programme d’installation**     | Adresse généré par Power BI lorsque vous publiez l’application et passez en production.  Pour plus d’informations sur la façon de générer l’URL, consultez [Publier des applications de service dans Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
-|  **Instructions de validation**  |  Instructions textuelles facultatives (maximum 3 000 caractères) permettant à l'équipe de validation Microsoft de vous aider à configurer, connecter et tester votre application, notamment : paramètres de configuration standard, comptes de test ou paramètres pouvant être utilisés pour tester l'option « Connecter les données », etc. Ces informations sont uniquement visibles par l’équipe de validation et servent uniquement à des fins de validation.  |
-| **Cette application est-elle créée comme pack de contenu Power BI ?** | Actuellement, il s’agit d’un champ utilisé en interne. Laissez la valeur définie sur sa valeur par défaut, `No` ; sinon, la modification de ce champ sur `Yes` risque d’entraver la publication.  |  
+| **URL du programme d’installation**     | Power BI génère cette URL lorsque vous publiez l’application et passez en production.  Pour plus d’informations, consultez [publier des applications avec des tableaux de bord et rapports dans Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
+|  **Instructions de validation**  |  Si vous le souhaitez, ajoutez des instructions (jusqu'à 3 000 caractères) pour aider l’équipe de validation de Microsoft de configurer, de se connecter et de tester votre application. Inclure les paramètres de configuration courants, des comptes, des paramètres ou d’autres informations qui peuvent être utilisées pour tester l’option de connexion de données. Ces informations sont visibles uniquement par l’équipe de validation, et il est utilisé uniquement à des fins de validation.  |
+| **Cette application est-elle créée comme pack de contenu Power BI ?** | Actuellement, ce champ est utilisé uniquement en interne. Laissez le paramètre par défaut **non**. Si vous modifiez le paramètre pour **Oui**, vous pouvez arrêter le processus de publication.  |  
 |  |  |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans l’onglet [Détails de la vitrine](./cpp-storefront-details-tab.md) suivant, vous fournissez des informations marketing et juridiques relatives à votre application.
+Sur le [détails de la vitrine](./cpp-storefront-details-tab.md) onglet, fournissez les informations légales et marketing pour votre application.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2650bdf70c160e848703daca824bf54e897a64e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0a9c1d13c1d51eeadae3ef9dad71e64618d1a5fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161386"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444699"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutoriel : Intégration d'Azure Active Directory à Workstars
 
@@ -35,7 +35,7 @@ L’intégration de Workstars dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Workstars, vous avez besoin des éléments suivants :
 

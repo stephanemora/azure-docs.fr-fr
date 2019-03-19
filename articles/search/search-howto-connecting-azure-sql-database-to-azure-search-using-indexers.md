@@ -1,7 +1,7 @@
 ---
 title: Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs - Recherche Azure
 description: Découvrez comment analyser des données dans Azure SQL Database à l’aide d’indexeurs pour la recherche en texte intégral dans Recherche Azure. Cet article traite des connexions, de la configuration des indexeurs et de l’ingestion des données.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752890"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315212"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
 
@@ -297,15 +297,15 @@ Lorsque vous utilisez la technique de suppression réversible, vous pouvez spéc
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geography |Edm.GeographyPoint |Seules les instances Geography de type POINT avec SRID 4326 (valeur par défaut) sont prises en charge |
-| rowversion |N/A |Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais peuvent être utilisées pour le suivi des modifications |
-| time, timespan, binary, varbinary, image, xml, geometry, types CLR |N/A |Non pris en charge |
+| rowversion |S.O. |Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais peuvent être utilisées pour le suivi des modifications |
+| time, timespan, binary, varbinary, image, xml, geometry, types CLR |S.O. |Non pris en charge |
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 L’indexeur SQL expose plusieurs paramètres de configuration :
 
 | Paramètre | Type de données | Objectif | Valeur par défaut |
 | --- | --- | --- | --- |
-| queryTimeout |chaîne |Définit le délai d’expiration de l’exécution de la requête SQL |5 minutes ("00:05:00") |
+| queryTimeout |string |Définit le délai d’expiration de l’exécution de la requête SQL |5 minutes ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Indique que la requête SQL utilisée par la stratégie de limite supérieure doit omettre la clause ORDER BY. Consultez [Stratégie de limite supérieure](#HighWaterMarkPolicy) |false |
 
 Ces paramètres sont utilisés dans l’objet `parameters.configuration`, dans la définition de l’indexeur. Par exemple, pour fixer un délai d’expiration de la requête de 10 minutes, créez ou mettez à jour l’indexeur avec la configuration suivante :

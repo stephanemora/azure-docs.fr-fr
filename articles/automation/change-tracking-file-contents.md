@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074741"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Voir le contenu d’un fichier suivi avec Change Tracking
 
@@ -62,11 +62,11 @@ Les étapes suivantes vous indiquent comment activer le suivi des changements po
 
 1. Dans la page **Détails du changement**, vous voyez les informations standard du fichier avant et après, en haut à gauche, cliquez sur **Voir les changements de contenu de fichier** pour voir le contenu du fichier.
 
-  ![Détails du changement](./media/change-tracking-file-contents/change-details.png)
+   ![Détails du changement](./media/change-tracking-file-contents/change-details.png)
 
 1. La nouvelle page montre le contenu du fichier dans une vue côte à côte. Vous pouvez aussi sélectionner **Inline** pour avoir une vue inline des changements.
 
-  ![voir les changements de fichier](./media/change-tracking-file-contents/view-file-changes.png)
+   ![voir les changements de fichier](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -75,5 +75,5 @@ Consultez le didacticiel sur Change Tracking pour en savoir plus sur l’utilisa
 > [!div class="nextstepaction"]
 > [Dépanner les modifications apportées à votre environnement](automation-tutorial-troubleshoot-changes.md)
 
-* Utilisez les [recherches de journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
+* Utilisez [recherches de journal dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour afficher les données de suivi détaillé.
 

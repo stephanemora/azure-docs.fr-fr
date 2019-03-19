@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999566"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -234,10 +234,10 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
 ```
 
 nom d’élément linuxConfiguration | Obligatoire | Type | Description
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 ssh | Non  | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
-chemin d’accès | OUI | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
-keyData | OUI | Chaîne | Spécifie une clé publique SSH encodée en base64
+chemin d’accès | Oui | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
+keyData | Oui | Chaîne | Spécifie une clé publique SSH encodée en base64
 
 Pour obtenir un exemple, consultez [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -309,7 +309,7 @@ La documentation Azure Key Vault indique que l’API REST Get Secret doit retour
 
 Méthode | URL
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Remplacez {*secret-name*} par le nom et {*secret-version*} par la version du secret que vous souhaitez récupérer. La version du secret peut être exclue. Dans ce cas, la version actuelle est récupérée.
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 Vous trouverez la valeur extensionName dans `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Existe-t-il un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre à Log Analytics ?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Existe-t-il qu'une machine virtuelle modèle exemple identiques qui s’intègre avec les journaux d’Azure Monitor ?
 
-Pour obtenir un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre à Log Analytics, consultez le deuxième exemple sous [Déployer un cluster Azure Service Fabric et activer le monitoring à l’aide de Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Pour une machine virtuelle modèle exemple identiques qui s’intègre avec les journaux d’Azure Monitor, consultez le deuxième exemple dans [déployer un cluster Azure Service Fabric et activer l’analyse à l’aide des journaux Azure Monitor](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Les extensions semblent s’exécuter en parallèle sur des groupes de machines virtuelles identiques. Ceci entraîne l’échec de mon extension de script personnalisé. Que puis-je faire pour résoudre ce problème ?
 
@@ -535,7 +535,7 @@ Pour déployer un groupe de machines virtuelles identiques sur un réseau virtue
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Comment ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle ?
 
-Pour ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle, consultez [Azure Resource Manager : obtenir les adresses IP privées du groupe de machines virtuelles identiques](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Pour ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle, consultez [Azure Resource Manager : obtenir les adresses IP privées du groupe de machines virtuelles identiques](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Puis-je me servir de groupes identiques lors d’une mise en réseau accélérée ?
 
@@ -658,15 +658,18 @@ Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialise
 
 Pour plus d’informations, consultez [Gérer toutes les machines virtuelles dans un groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Est-il possible d’intégrer des groupes identiques à Log Analytics ?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Il est possible d’intégrer des jeux de mise à l’échelle avec les journaux d’Azure Monitor ?
 
-Oui, vous pouvez le faire en installant l’extension Log Analytics sur les machines virtuelles du groupe identique. Voici un exemple d’interface de ligne de commande Azure :
+Oui, vous pouvez en installant l’extension Azure Monitor sur l’échelle de définir les machines virtuelles. Voici un exemple d’interface de ligne de commande Azure :
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 Vous trouverez les éléments workspaceId et workspaceKey requis dans l’espace de travail Log Analytics du portail Azure. Dans la page de présentation, cliquez sur la vignette Paramètres. Cliquez sur l’onglet Sources connectées, situé en haut de la page.
 
-Remarque : Si la valeur _upgradePolicy_ du groupe identique est définie sur Manuel, vous devez appliquer l’extension à toutes les machines virtuelles du groupe en appelant une mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par _az vmss update-instances_.
+> [!NOTE]
+> Si votre groupe identique _upgradePolicy_ est défini sur manuel, vous devez appliquer l’extension à toutes les machines virtuelles dans le jeu en appelant la mise à niveau sur ces derniers. Dans l’interface de ligne de commande, cela se traduirait par _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -718,3 +721,26 @@ La principale différence entre la suppression d’une machine virtuelle dans un
 - Vous souhaitez démarrer un groupe de machines virtuelles plus rapidement par rapport à la montée en puissance d’un groupe de machines virtuelles identiques.
   - En relation avec ce scénario, vous avez peut-être créé votre propre moteur de mise à l’échelle automatique et souhaitez obtenir une mise à l’échelle de bout en bout plus rapide.
 - Vous avez un groupe de machines virtuelles identiques qui est distribué inégalement entre les domaines d’erreur ou les domaines de mise à jour. Cela peut être dû au fait que vous avez supprimé sélectivement des machines virtuelles, ou parce que des machines virtuelles ont été supprimées après le sur-approvisionnement. Exécutez `stop deallocate` suivi de `start` sur le groupe de machines virtuelles identiques pour distribuer uniformément les machines virtuelles entre les domaines d’erreur ou les domaines de mise à jour.
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>Comment pour prendre un instantané d’une instance VMSS ?
+Créer un instantané d’une instance de VMSS.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+Créer un disque géré à partir de l’instantané.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

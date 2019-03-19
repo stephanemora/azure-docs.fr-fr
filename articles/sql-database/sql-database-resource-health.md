@@ -11,21 +11,21 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039093"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889373"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utiliser Resource Health pour résoudre des problèmes de connectivité avec Azure SQL Database
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 [Resource Health](../service-health/resource-health-overview.md#getting-started) vous aide à diagnostiquer les problèmes et à accéder au support quand un problème Azure a une incidence sur vos ressources SQL. Il vous informe de l’intégrité (actuelle et passée) de vos ressources et vous aide à atténuer les problèmes. Resource Health propose un support technique dès lors que vous êtes confronté à des problèmes de service Azure et que vous avez besoin d’aide.
 
-![Vue d’ensemble](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
+![Présentation](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
 ## <a name="health-checks"></a>Contrôles d'intégrité
 
@@ -53,9 +53,9 @@ Un état **Détérioré** signifie que Resource Health a détecté une majorité
 
 ### <a name="unknown"></a>Unknown
 
-L’état d’intégrité **Inconnu** indique que Resource Health n’a reçu aucune information sur cette ressource depuis plus de 10 minutes. Même si cet état n’est pas une indication définitive de l’état de la ressource, il s’agit d’un point de données important dans le processus de dépannage.
-Si la ressource fonctionne comme prévu, son état devient Disponible après quelques minutes.
-Si vous rencontrez des problèmes avec la ressource, l’état d’intégrité Inconnu peut suggérer qu’un événement de la plateforme influe sur la ressource.
+L’état d’intégrité **Inconnu** indique que Resource Health n’a reçu aucune information sur cette ressource depuis plus de 10 minutes. Même si cet état n’est pas une indication définitive de l’état de la ressource, il s’agit d’un point de données important dans le processus de dépannage. Si la ressource fonctionne comme prévu, son état devient Disponible après quelques minutes. Si vous rencontrez des problèmes avec la ressource, l’état d’intégrité Inconnu peut suggérer qu’un événement de la plateforme influe sur la ressource.
+
+![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Informations d’historique
 

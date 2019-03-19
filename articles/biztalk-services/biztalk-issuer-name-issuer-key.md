@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eac98ec88b960956c9a0931673e67f530aef8da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238707"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542180"
 ---
-# <a name="biztalk-services-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur dans BizTalk Services
+# <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services : Nom de l’émetteur et la clé de l’émetteur
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -38,8 +38,8 @@ La présente rubrique répertorie les étapes permettant de récupérer le nom e
 ## <a name="access-control-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur Access Control
 Le nom et la clé de l'émetteur Access Control sont utilisés par les éléments suivants :
 
-* Votre application Azure BizTalk Service créée dans Visual Studio : pour déployer correctement votre application BizTalk Service dans Visual Studio sur Azure, entrez le nom et la clé de l’émetteur Access Control. 
-* Portail Azure BizTalk Services : lorsque vous créez un service BizTalk et que vous ouvrez le portail BizTalk Services, votre nom et votre clé de l’émetteur Access Control sont automatiquement inscrits pour vos déploiements avec les mêmes valeurs Access Control.
+* Votre application de Service Azure BizTalk créée dans Visual Studio : Pour déployer correctement votre application de BizTalk Service dans Visual Studio vers Azure, vous entrez le nom de l’émetteur de contrôle d’accès et la clé de l’émetteur. 
+* Le portail Azure BizTalk Services : Lorsque vous créez un BizTalk Service et ouvrez le portail BizTalk Services, votre nom de l’émetteur de contrôle d’accès et la clé d’émetteur sont automatiquement inscrits pour vos déploiements avec les mêmes valeurs de contrôle d’accès.
 
 ### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Obtenir le nom et la clé de l’émetteur Access Control
 
@@ -77,7 +77,7 @@ Informations complémentaires sur l’applet de commande [New-AzureSBNamespace](
 Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter Services. Dans votre projet BizTalk Services dans Visual Studio, vous utilisez les services d'adaptateur BizTalk pour vous connecter à un système métier local. Pour vous connecter, vous créez le relais métier et entrez les détails relatifs à votre système métier. À cette occasion, vous entrez également le nom et la clé de l'émetteur Service Bus.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Pour récupérer le nom et la clé de l'émetteur Service Bus
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Recherchez **Service Bus**, puis sélectionnez votre espace de noms. 
 3. Ouvrez les propriétés **Stratégies d’accès partagé**, sélectionnez votre stratégie et affichez la **Chaîne de connexion** pour le nom et les valeurs de clé.  
 
@@ -85,16 +85,16 @@ Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter 
 Autres rubriques Azure BizTalk Services :
 
 * [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Didacticiels : Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Didacticiels : Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Voir aussi
-* [Utilisation du service de gestion ACS pour configurer des identités de service](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services : Provisionnement](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [Tableau comparatif des états d'approvisionnement BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Sauvegarde et restauration de BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Limitation dans BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Guide pratique pour Utiliser le Service de gestion ACS pour configurer des identités de Service](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [BizTalk Services : Graphique de développeur, les éditions de base, Standard et Premium](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services : L’approvisionnement](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services : Graphique de l’état d’approvisionnement](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services : Onglets tableau de bord, surveiller et mettre à l’échelle](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services : Sauvegarde et restauration](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services : la limitation](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

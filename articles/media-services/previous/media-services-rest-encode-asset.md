@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 608abd09227014513a0ad358d7a2c225b5ab2b97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863370"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Encodage d’une ressource à l’aide de Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "56005146"
 >
 >
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop importants pour être fournis sur Internet ou pour que les appareils de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia.
 
@@ -61,7 +61,7 @@ Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’A
 >
 > Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d’informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 >
-> Lors de l’utilisation de JSON pour la spécification de l’utilisation du mot clé **__metadata** dans la requête (par exemple pour faire référence à un objet lié), vous devez définir l’en-tête **Accept** au [format JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) : Accept: application/json;odata=verbose.
+> Lors de l’utilisation de JSON pour la spécification de l’utilisation du mot clé **__metadata** dans la requête (par exemple pour faire référence à un objet lié), vous devez définir l’en-tête **Accept** au [format JSON Verbose](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) : Accept: application/json;odata=verbose.
 >
 >
 
@@ -151,7 +151,7 @@ Pour activer le chaînage des tâches :
 * Il doit y avoir au moins une tâche dont l’entrée correspond à la sortie d’une autre tâche du travail.
 
 ## <a name="use-odata-batch-processing"></a>Utiliser le traitement par lots OData
-L’exemple suivant illustre l’utilisation du traitement par lots OData pour créer un travail et des tâches. Pour plus d’informations sur le traitement par lots, consultez [Traitement par lots d’Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+L’exemple suivant illustre l’utilisation du traitement par lots OData pour créer un travail et des tâches. Pour plus d’informations sur le traitement par lots, consultez [Traitement par lots d’Open Data Protocol (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx

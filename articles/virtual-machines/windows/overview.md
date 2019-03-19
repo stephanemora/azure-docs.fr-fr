@@ -12,16 +12,16 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f4c9e256c3b3f2f5df8ef49f26c927250f376421
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 24914cc3ff673d04e8c181082e13c087aeabe709
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327049"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765746"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Vue d’ensemble des machines virtuelles Windows dans Azure
 
@@ -103,11 +103,11 @@ Les ressources de cette table sont utilisées par la machine virtuelle et doiven
 
 | Ressource | Obligatoire | Description |
 | --- | --- | --- |
-| [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) |OUI |La machine virtuelle doit être contenue dans un groupe de ressources. |
-| [Compte de stockage](../../storage/common/storage-create-storage-account.md) |OUI |La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage. |
-| [Réseau virtuel](../../virtual-network/virtual-networks-overview.md) |OUI |La machine virtuelle doit faire partie d’un réseau virtuel. |
+| [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) |Oui |La machine virtuelle doit être contenue dans un groupe de ressources. |
+| [Compte de stockage](../../storage/common/storage-create-storage-account.md) |Oui |La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage. |
+| [Réseau virtuel](../../virtual-network/virtual-networks-overview.md) |Oui |La machine virtuelle doit faire partie d’un réseau virtuel. |
 | [Adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Non  |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance. |
-| [Interface réseau](../../virtual-network/virtual-network-network-interface.md) |OUI |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
+| [Interface réseau](../../virtual-network/virtual-network-network-interface.md) |Oui |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
 | [Disques de données](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non  |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Comment créer sa première machine virtuelle ?

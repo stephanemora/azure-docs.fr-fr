@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 73c3c57df215a66d914f5ea75475f74eff05a1f0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 22e9954e66c05bfb2e425a01ffa6f9e3b93b761e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200290"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313716"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>En tant que fournisseur de solutions cloud, créer et gérer une application Azure IoT Central pour le compte de votre client 
 
@@ -25,7 +25,7 @@ Pour commencer, connectez-vous à votre compte sur le portail des partenaires Mi
 
 ![Microsoft Partner Center, vue Client](media/howto-create-application-asCSP/image1.png)
 
-Azure IoT Central apparaît en tant que service pouvant être administré. Cliquez sur le lien Azure IoT Central sur la page pour créer de nouvelles applications ou pour gérer des applications existantes pour ce client.
+Azure IoT Central apparaît en tant que service pouvant être administré. Sélectionnez le lien Azure IoT Central sur la page pour créer de nouvelles applications ou gérer des applications existantes pour ce client.
 
 ![Azure IoT Central disponible pour la gestion](media/howto-create-application-asCSP/image2.png)
 
@@ -33,7 +33,7 @@ Vous êtes dirigé vers la page Gestionnaire d’applications d’Azure IoT Cent
 
 ![Gestionnaire de création pour les fournisseurs de services cloud](media/howto-create-application-asCSP/image3.png)
 
-Pour créer une application Azure IoT Central, cliquez sur la vignette **Nouvelle application**. Ceci charge la page de création d’application. Vous devez renseigner tous les champs de cette page, puis choisir **Créer**. Vous pouvez trouver plus d’informations sur chacun des champs ci-dessous.
+Pour créer une application Azure IoT Central, sélectionnez le **nouvelle Application** vignette. Ceci charge la page de création d’application. Vous devez renseigner tous les champs de cette page, puis choisir **Créer**. Vous pouvez trouver plus d’informations sur chacun des champs ci-dessous.
 
 ![Page Créer une application pour les fournisseurs de solutions cloud](media/howto-create-application-asCSP/image4.png)
 

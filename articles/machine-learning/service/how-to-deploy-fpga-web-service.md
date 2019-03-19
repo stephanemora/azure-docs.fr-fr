@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: abf1ed8e06bf9f78c7df07194567ffb5bfdc2709
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842717"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Comment déployer un modèle en tant que service web sur un FPGA avec Azure Machine Learning service
 
@@ -26,9 +26,9 @@ Vous pouvez déployer un modèle en tant que service web sur des [FPGA (Field Pr
   - DenseNet-121
   - VGG-16   
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
+- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree) dès aujourd’hui.
 
 - Un espace de travail du service Azure Machine Learning et le kit SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis à l’aide du document [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
  
@@ -51,7 +51,7 @@ Vous pouvez déployer un modèle en tant que service web sur des [FPGA (Field Pr
 Pour des raisons pratiques, ce tutoriel est disponible en tant que notebook Jupyter. Suivez le code ici ou exécutez le [notebook de démarrage rapide](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Créer et déployer votre modèle
-Créez un pipeline pour prétraiter l’image en entrée, caractérisez-la à l’aide de ResNet 50 sur un FPGA, puis exécutez les fonctions par le biais d’un classifieur entraîné sur le jeu de données ImageNet.
+Créer un pipeline à l’image d’entrée de prétraitement, faire une fonction à l’aide de ResNet 50 sur un FPGA et ensuite exécuter les fonctionnalités via un classifieur formé sur le jeu de données ImageNet.
 
 Suivez les instructions pour :
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c14b6e16a16f325681722203eaa05a435b141208
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978937"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990623"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
 Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP) depuis un bureau Windows. Tout d'abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
@@ -32,7 +32,7 @@ Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous 
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle dans la liste.
 4. Dans la partie supérieure de la page de la machine virtuelle, sélectionnez **Connecter**.
-2. Sur la page **Connexion à la machine virtuelle**, sélectionnez l'adresse IP et le port appropriés. Dans la plupart des cas, l'adresse IP et le port par défaut doivent être utilisés. Sélectionnez **Télécharger le fichier RDP**Télécharger le fichier RDP**. Si la machine virtuelle dispose d'un ensemble de stratégies juste-à-temps, vous devez d'abord sélectionner le bouton **Demander l'accès** avant de pouvoir télécharger le fichier RDP. Pour plus d'informations sur la stratégie juste-à-temps, consultez [Gérer l'accès à la machine virtuelle à l'aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
+2. Sur la page **Connexion à la machine virtuelle**, sélectionnez l'adresse IP et le port appropriés. Dans la plupart des cas, l'adresse IP et le port par défaut doivent être utilisés. Sélectionnez **Télécharger le fichier RDP**. Si la machine virtuelle dispose d'un ensemble de stratégies juste-à-temps, vous devez d'abord sélectionner le bouton **Demander l'accès** avant de pouvoir télécharger le fichier RDP. Pour plus d'informations sur la stratégie juste-à-temps, consultez [Gérer l'accès à la machine virtuelle à l'aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
 2. Ouvrez le fichier RDP téléchargé et, à l’invite, sélectionnez **Connecter**. 
 2. Un message vous avertit que le fichier `.rdp` provient d'un éditeur inconnu. Ceci est normal. Sélectionnez **Connecter** dans la fenêtre **Connexion Bureau à distance** pour continuer.
    

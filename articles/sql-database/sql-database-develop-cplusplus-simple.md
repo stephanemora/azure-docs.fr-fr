@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755150"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316487"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Se connecter à SQL Database à l’aide de C et C++
 
@@ -37,7 +37,7 @@ Reposant sur Microsoft SQL Server, SQL Azure est conçu pour fournir un service 
 Azure propose actuellement deux options d’hébergement pour les charges de travail SQL Server : Azure SQL Database, base de données en tant que service, et SQL Server sur des machines virtuelles. Nous ne détaillerons pas les différences entre ces deux options, mais sachez que si vous développez de nouvelles applications cloud, Azure SQL Database vous permettra de tirer parti des économies et de l’optimisation des performances assurées par les services cloud. Si vous envisagez de migrer ou d’étendre vos applications locales vers le cloud, SQL Server sur une machine virtuelle Azure vous offrira sans doute de meilleurs résultats. Pour simplifier les choses dans le cadre de cet article, nous allons créer une base de données SQL Azure.
 
 ## <a id="ODBC"></a>Technologies d’accès aux données : ODBC et OLE DB
-Se connecter à SQL Azure DB n’est en rien différent et il existe actuellement deux façons de se connecter à des bases de données : ODBC (Open Database Connectivity) et OLE DB (Object Linking and Embedding Database). Ces dernières années, Microsoft s’est aligné sur [ODBC pour l’accès aux données relationnelles natives](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC est relativement simple, mais aussi beaucoup plus rapide qu’OLE DB. Le seul inconvénient ici est qu’ODBC utilise une API de style C ancienne.
+Se connecter à SQL Azure DB n’est en rien différent et il existe actuellement deux façons de se connecter à des bases de données : ODBC (Open Database Connectivity) et OLE DB (Object Linking and Embedding Database). Ces dernières années, Microsoft s’est aligné sur [ODBC pour l’accès aux données relationnelles natives](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC est relativement simple, mais aussi beaucoup plus rapide qu’OLE DB. Le seul inconvénient ici est qu’ODBC utilise une API de style C ancienne.
 
 ## <a id="Create"></a>Étape 1 :  Création de votre base de données SQL Azure
 Consultez la [page de prise en main](sql-database-single-database-get-started.md) pour apprendre à créer un exemple de base de données.  Sinon, vous pouvez suivre cette [vidéo de deux minutes](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) pour créer une base de données SQL Azure à l’aide du portail Azure.
@@ -75,10 +75,10 @@ Vous pouvez aussi créer un fichier DSN à l’aide de l’assistant qui est lan
 
 ![Création d’un fichier DSN](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-Félicitations ! Vous avez réussi à vous connecter à Azure SQL à l’aide de C++ et ODBC sur Windows. Vous pouvez poursuivre la lecture pour faire de même sur une plateforme Linux.
+Félicitations ! Vous avez réussi à vous connecter à Azure SQL à l’aide de C++ et ODBC sur Windows. Vous pouvez poursuivre la lecture pour faire de même sur une plateforme Linux.
 
 ## <a id="Linux"></a>Étape 5 : Connexion à partir d’une application C/C++ Linux
-Si vous ne le saviez pas déjà, Visual Studio permet maintenant de développer également des applications C++ Linux. Vous trouverez plus d’informations sur ce nouveau scénario sur le blog consacré à [Visual C++ pour le développement Linux](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/). Pour générer des applications pour Linux, vous avez besoin d’un ordinateur distant sur lequel s’exécute votre distribution Linux. Si vous n’en avez pas, vous pouvez en configurer un rapidement à l’aide de [machines virtuelles Azure Linux](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Si vous ne le saviez pas déjà, Visual Studio permet maintenant de développer également des applications C++ Linux. Vous trouverez plus d’informations sur ce nouveau scénario sur le blog consacré à [Visual C++ pour le développement Linux](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/). Pour générer des applications pour Linux, vous avez besoin d’un ordinateur distant sur lequel s’exécute votre distribution Linux. Si vous n’en avez pas, vous pouvez en configurer un rapidement à l’aide de [machines virtuelles Azure Linux](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Pour ce didacticiel, nous partirons du principe que vous disposez d’une distribution Linux Ubuntu 16.04. Les étapes ci-dessous s’appliquent également à Ubuntu 15.10, Red Hat 6 et Red Hat 7.
 
@@ -120,7 +120,7 @@ Si votre connexion a réussi, le nom de la base de données actuelle doit être 
 
 ![Sortie de la fenêtre de la Console Linux](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-Félicitations ! Vous avez terminé le didacticiel et pouvez maintenant vous connecter à votre base de données SQL Azure à partir de C++ sur les plateformes Windows et Linux.
+Félicitations ! Vous avez terminé le didacticiel et pouvez maintenant vous connecter à votre base de données SQL Azure à partir de C++ sur les plateformes Windows et Linux.
 
 ## <a id="GetSolution"></a>Obtenir la solution complète du didacticiel C/C++
 Vous trouverez la solution GetStarted qui contient tous les exemples de cet article sur GitHub :

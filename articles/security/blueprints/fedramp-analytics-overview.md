@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 0e5beb89f3ea2a5c14fc56af35112710964bdb16
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406566"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451873"
 ---
-# <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Programme Blueprint Security and Compliance Azure : analyse pour FedRAMP
+# <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Analytique pour FedRAMP
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 [FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov/) est un programme déployé à l’échelle de l’administration américaine, visant à rationaliser l’approche en matière d’évaluation de la sécurité, d’autorisation et de surveillance continue des services et produits cloud. Ce document Azure Blueprint Security and Compliance vous fournit des instructions pour proposer une architecture d’analyse Microsoft Azure permettant d’implémenter un sous-ensemble de contrôles FedRAMP High. Cette solution fournit des instructions pour le déploiement et la configuration des ressources Azure pour une architecture de référence commune, illustrant diverses façons dont les clients peuvent satisfaire à des exigences de conformité et de sécurité spécifiques, et sert de base aux clients souhaitant générer et configurer leurs propres solutions d’analyse dans Azure.
 
@@ -37,7 +37,7 @@ Une fois les données chargées dans Azure SQL Database et assimilées par Azure
 
 L’ensemble de la solution repose sur le service Stockage Azure que les clients de compte configurent à partir du portail Azure. Le service Stockage Azure chiffre toutes les données à l’aide de la fonctionnalité Storage Service Encryption pour garantir la confidentialité des données au repos.  Le stockage géoredondant (GRS) garantit qu’un événement indésirable survenu dans le centre de données principal du client n’occasionnera aucune perte de données, grâce au stockage d’une seconde copie des données à un autre emplacement distant de plusieurs centaines de kilomètres.
 
-Pour renforcer la sécurité, cette architecture gère les ressources à l’aide d’Azure Active Directory et d’Azure Key Vault. L’intégrité du système est supervisée par le biais de Log Analytics et d’Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable.
+Pour renforcer la sécurité, cette architecture gère les ressources à l’aide d’Azure Active Directory et d’Azure Key Vault. L’intégrité du système est surveillée dans Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable.
 
 Le service Azure SQL Database est généralement géré par le biais de la suite d’outils SQL Server Management Studio (SSMS), qui s’exécute à partir d’une machine locale configurée pour accéder à Azure SQL Database par l’intermédiaire d’une connexion VPN ou ExpressRoute sécurisée. **Azure recommande de configurer une connexion VPN ou Azure ExpressRoute pour la gestion et l’importation de données dans le groupe de ressources de l’architecture de référence.**
 
@@ -63,8 +63,7 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 - Azure Analysis Services
 - Azure Active Directory
 - Azure Key Vault
-- Azure Log Analytics
-- Azure Monitor
+- Azure Monitor (journaux)
 - Stockage Azure
 - ExpressRoute/Passerelle VPN
 - tableau de bord Power BI
@@ -74,18 +73,18 @@ La section suivante décrit en détail les éléments de développement et d’i
 
 ![texte de remplacement](images/fedramp-analytics-components.png?raw=true "Diagramme d’analytique des composants FedRAMP")
 
-**Azure Functions** : [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) regroupe des solutions pour l’exécution de petits segments de code dans le cloud en utilisant la plupart des langages de programmation. Les fonctions de cette solution s’intègrent avec Stockage Azure pour extraire automatiquement les données des clients dans le cloud, facilitant ainsi l’intégration à d’autres services Azure. Les fonctions, très évolutives, sont facturées uniquement lorsqu’elles sont exécutées.
+**Azure Functions** : [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) sont des solutions pour l’exécution de petits morceaux de code dans le cloud via la plupart des langages de programmation. Les fonctions de cette solution s’intègrent avec Stockage Azure pour extraire automatiquement les données des clients dans le cloud, facilitant ainsi l’intégration à d’autres services Azure. Les fonctions, très évolutives, sont facturées uniquement lorsqu’elles sont exécutées.
 
-**Azure Analysis Service** : [Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) fournit une modélisation des données d’entreprise et une intégration aux services de plateforme de données Azure. Azure Analysis Service accélère la navigation dans de gros volumes de données en combinant les données provenant de plusieurs sources dans un seul modèle de données.
+**Azure Analysis Service**: [Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) fournit la modélisation de données d’entreprise et l’intégration avec les services de plateforme de données Azure. Azure Analysis Service accélère la navigation dans de gros volumes de données en combinant les données provenant de plusieurs sources dans un seul modèle de données.
 
-**Power BI** : [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) fournit des fonctions d’analytique et de création de rapports aux clients qui souhaitent tirer le meilleur parti de leurs efforts de traitement des données.
+**Power BI** : [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) fournit analytique et création de rapports pour les clients tentant d’extraire une meilleure perception en dehors de leurs efforts de traitement des données.
 
 ### <a name="networking"></a>Mise en réseau
-**Groupes de sécurité réseau** : les [NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sont configurés pour gérer le trafic dirigé vers les services et les ressources déployés. Les groupes de sécurité réseau sont définis selon un schéma de refus par défaut et autorisent uniquement le trafic figurant dans la liste de contrôle d’accès (ACL) préconfigurée.
+**Groupes de sécurité réseau** : [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sont configurés pour gérer le trafic dirigé ressources déployées et aux services. Les groupes de sécurité réseau sont définis selon un schéma de refus par défaut et autorisent uniquement le trafic figurant dans la liste de contrôle d’accès (ACL) préconfigurée.
 
 Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts afin que la solution puisse fonctionner correctement et en toute sécurité. En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
   - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
-  - [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) est connecté aux journaux de diagnostic du groupe de sécurité réseau.
+  - [Journaux d’analyse Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) est connecté aux journaux de diagnostic du groupe de sécurité réseau.
 
 ### <a name="data-at-rest"></a>Données au repos
 L’architecture protège les données au repos à l’aide d’un chiffrement, d’un audit de base de données et d’autres mesures.
@@ -110,17 +109,17 @@ La **réplication des données** d’Azure Government offre deux options de [ré
 
 ### <a name="logging-and-audit"></a>Journalisation et audit
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) génère un affichage de toutes les données de surveillance, y compris les journaux d’activité, les métriques et les données de diagnostic, ce qui permet aux clients de créer une image complète de l’intégrité du système.  
-[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) assure une journalisation complète de l’activité système et utilisateur, ainsi que de l’intégrité du système. Ce service collecte et analyse les données générées par les ressources des environnements Azure et locaux.
-- **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des informations relatives aux opérations effectuées sur les ressources d’un abonnement.
-- **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) comprennent tous les journaux émis par chacune des ressources. Ces journaux incluent les journaux système des événements Windows, ainsi que les journaux du service Stockage Blob Azure, des tables et des files d’attente.
-- **Journaux du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux de pare-feu sont disponibles pour les ressources Application Gateway pour lesquelles WAF est activé.
-- **Archivage des journaux** : tous les journaux de diagnostic sont enregistrés dans un compte de stockage Azure centralisé et chiffré à des fins d’archivage, avec une période de rétention définie de 2 jours. Ces journaux se connectent à Azure Log Analytics à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
+[Journaux d’analyse Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fournit une journalisation complète de l’activité système et utilisateur, ainsi que l’intégrité du système. Ce service collecte et analyse les données générées par les ressources des environnements Azure et locaux.
+- **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement.
+- **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux générés par chaque ressource. Ces journaux incluent les journaux système des événements Windows, ainsi que les journaux du service Stockage Blob Azure, des tables et des files d’attente.
+- **Journaux du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux de pare-feu sont disponibles pour les ressources Application Gateway pour lesquelles WAF est activé.
+- **Archivage des journaux** : tous les journaux de diagnostic sont archivés dans un compte de stockage Azure centralisé et chiffré, et sont conservés pendant une période prédéfinie de deux jours. Ces journaux se connecter aux journaux d’Azure Monitor pour traitement, de stockage et les rapports de tableau de bord.
 
 En outre, cette architecture intègre également les solutions de supervision suivantes :
--   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) : la solution d’automatisation Azure stocke, exécute et gère les runbooks.
--   [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) : le tableau de bord Security and Audit donne une vue d’ensemble de l’état de sécurité des ressources en affichant des métriques concernant des domaines de sécurité, des problèmes notables, des détections, des menaces et des requêtes de sécurité courantes.
--   [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de recommandations spécifiques pour l’infrastructure de serveur déployée.
--   [Journaux d’activité Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité de tous les abonnements Azure d’un client.
+-   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) : la solution Azure Automation stocke, exécute et gère les runbooks.
+-   [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) : le tableau de bord Security and Audit donne une vue d’ensemble de l’état de sécurité des ressources en affichant des métriques concernant des domaines de sécurité, des problèmes notables, des détections, des menaces et des requêtes de sécurité courantes.
+-   [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
+-   [Journaux d’activité Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité Azure de tous les abonnements Azure d’un client.
 
 ### <a name="identity-management"></a>Gestion des identités
 -   L’authentification auprès de l’application est effectuée à l’aide d’Azure AD. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). En outre, le chiffrement des colonnes de base de données utilise Azure AD pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, découvrez comment [protéger les données sensibles dans SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
@@ -141,24 +140,24 @@ Il convient de configurer [ExpressRoute](https://docs.microsoft.com/azure/expres
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) joue un rôle essentiel dans la gestion du déploiement et de la configuration des accès des membres du personnel qui interagissent avec l’environnement. Une instance Windows Server Active Directory existante peut être intégrée à AAD en [quatre clics](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Les clients peuvent également associer l’infrastructure (contrôleurs de domaine) Active Directory déployée à un service AAD existant en définissant cette infrastructure comme sous-domaine d’une forêt AAD.
 
 ### <a name="additional-services"></a>Services supplémentaires
-#### <a name="iaas---vm-vonsiderations"></a>IaaS - Considérations sur les machines virtuelles
-Cette solution PaaS n’intègre pas toutes les machines virtuelles Azure IaaS. Un client peut créer une machine virtuelle Azure pour exécuter la plupart de ces services PaaS. Dans ce cas, il est possible de tirer profit de fonctionnalités et services spécifiques pour la continuité d’activité et Log Analytics :
+#### <a name="iaas---vm-considerations"></a>IaaS - considérations relatives à la machine virtuelle
+Cette solution PaaS n’intègre pas toutes les machines virtuelles Azure IaaS. Un client peut créer une machine virtuelle Azure pour exécuter la plupart de ces services PaaS. Dans ce cas, les fonctionnalités spécifiques et des services pour la continuité d’activité et les journaux d’Azure Monitor pourrait être utilisés :
 
 ##### <a name="business-continuity"></a>Continuité de l’activité
-- **Haute disponibilité** : les charges de travail serveur sont regroupées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour garantir la haute disponibilité des machines virtuelles dans Azure. Au moins une machine virtuelle est disponible pendant un événement de maintenance planifié ou non, ce qui est conforme au contrat de niveau de service Azure garantissant une disponibilité de 99,95 %.
+- **Haute disponibilité** : Charges de travail serveur sont regroupés dans un [à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) afin de garantir une haute disponibilité des machines virtuelles dans Azure. Au moins une machine virtuelle est disponible pendant un événement de maintenance planifié ou non, ce qui est conforme au contrat de niveau de service Azure garantissant une disponibilité de 99,95 %.
 
-- **Coffre Recovery Services** : le [coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) héberge les données de sauvegarde et protège toutes les configurations des machines virtuelles Azure dans cette architecture. Grâce au coffre Recovery Services, les clients peuvent restaurer des fichiers et dossiers d’une machine virtuelle IaaS sans avoir à restaurer l’intégralité de celle-ci, ce qui permet d’accélérer les temps de restauration.
+- **Coffre Recovery Services** : le [coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) héberge les données de sauvegarde et protège toutes les configurations des machines virtuelles Azure dans cette architecture. Grâce au coffre Recovery Services, les clients peuvent restaurer des fichiers et dossiers d’une machine virtuelle IaaS sans avoir à restaurer l’intégralité de celle-ci, ce qui permet d’accélérer les temps de restauration.
 
 ##### <a name="monitoring-solutions"></a>Solutions de supervision
--   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de recommandations spécifiques pour l’infrastructure de serveur déployée.
--   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware) : la solution de logiciel anti-programme malveillant signale les programmes malveillants, les menaces et l’état de protection.
--   [Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) : la solution de gestion des mises à jour permet au client de gérer les mises à jour de sécurité du système d’exploitation, notamment en lui indiquant l’état des mises à jour disponibles et le processus d’installation des mises à jour requises.
--   [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : la solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas et qui envoient des données opérationnelles.
--   [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) : la solution de suivi des modifications permet aux clients d’identifier facilement des modifications dans l’environnement.
+-   [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
+-   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware) : la solution de logiciel anti-programme malveillant signale les programmes malveillants, les menaces et l’état de protection.
+-   [Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) : cette solution de gestion des mises à jour aide les clients à gérer les mises à jour de sécurité du système d’exploitation, notamment en leur indiquant l’état des mises à jour disponibles et le processus d’installation des mises à jour requises.
+-   [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : cette solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas ou qui envoient des données opérationnelles.
+-   [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) : cette solution de suivi des modifications permet aux clients d’identifier facilement des modifications dans l’environnement.
 
 ##### <a name="security"></a>Sécurité
-- **Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer des virus, des logiciels espions et d’autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
-- **Gestion des correctifs** : les machines virtuelles Windows déployées dans le cadre de cette architecture de référence sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution inclut également le service [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) qui permet de créer des déploiements mis à jour pour corriger des machines virtuelles si nécessaire.
+- **Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
+- **Gestion des correctifs** : les machines virtuelles Windows déployées dans le cadre de cette architecture de référence sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution inclut également le service [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) qui permet de créer des déploiements mis à jour pour corriger des machines virtuelles si nécessaire.
 
 #### <a name="azure-commercial"></a>Azure Commercial
 Bien que cette architecture d’analytique des données ne soit pas conçue pour être déployée dans l’environnement [Azure Commercial](https://azure.microsoft.com/overview/what-is-azure/), des résultats similaires peuvent être obtenus en utilisant les services décrits dans cette architecture de référence, ainsi que par le biais de services uniquement disponibles dans l’environnement Azure Commercial. Veuillez noter qu’Azure Commercial conserve une autorisation provisoire d’exploitation (P-ATO) JAB FedRamp au niveau Moderate Impact (impact modéré), ce qui permet aux partenaires et organismes gouvernementaux de déployer de façon modérée des informations sensibles dans le cloud en utilisant l’environnement Azure Commercial.

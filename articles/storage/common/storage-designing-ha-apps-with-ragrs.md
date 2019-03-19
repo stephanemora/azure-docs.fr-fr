@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009070"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)
 
@@ -216,7 +216,7 @@ Pour déterminer que ses données sont potentiellement incohérentes, le client 
 
 Il est important de tester si votre application se comporte comme prévu lorsqu’elle rencontre des erreurs renouvelables. Par exemple, vous devez tester si l’application bascule vers la région secondaire et le mode lecture seule lorsqu’elle détecte un problème et bascule de nouveau lorsque la région primaire est à nouveau disponible. Pour ce faire, il vous faut un moyen de simuler les erreurs renouvelables et de contrôler la fréquence à laquelle elles se produisent.
 
-Vous pouvez utiliser [Fiddler](http://www.telerik.com/fiddler) pour intercepter et modifier les réponses HTTP dans un script. Ce script peut identifier les réponses provenant de votre point de terminaison principal et remplacer le code d’état HTTP par un code que la bibliothèque cliente de stockage reconnaît comme une erreur renouvelable. Cet extrait de code offre un exemple simple de script Fiddler, qui intercepte les réponses aux demandes de lecture portant sur la table **employeedata** pour retourner un état 502 :
+Vous pouvez utiliser [Fiddler](https://www.telerik.com/fiddler) pour intercepter et modifier les réponses HTTP dans un script. Ce script peut identifier les réponses provenant de votre point de terminaison principal et remplacer le code d’état HTTP par un code que la bibliothèque cliente de stockage reconnaît comme une erreur renouvelable. Cet extrait de code offre un exemple simple de script Fiddler, qui intercepte les réponses aux demandes de lecture portant sur la table **employeedata** pour retourner un état 502 :
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,7 +228,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-Vous pouvez étendre cet exemple pour intercepter un plus grand nombre de demandes et modifier le **responseCode** uniquement sur certaines d’entre elles pour mieux simuler un scénario réel. Pour plus d’informations sur la personnalisation des scripts Fiddler, consultez [Modifying a Request or Response](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) (Modification d’une demande ou d’une réponse) dans la documentation Fiddler.
+Vous pouvez étendre cet exemple pour intercepter un plus grand nombre de demandes et modifier le **responseCode** uniquement sur certaines d’entre elles pour mieux simuler un scénario réel. Pour plus d’informations sur la personnalisation des scripts Fiddler, consultez [Modifying a Request or Response](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) (Modification d’une demande ou d’une réponse) dans la documentation Fiddler.
 
 Si vous avez rendu configurables les seuils de basculement de votre application en mode lecture seule, il sera plus facile de tester le comportement avec des volumes de transaction hors production.
 

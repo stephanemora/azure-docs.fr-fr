@@ -1,19 +1,20 @@
 ---
 title: Charger des fichiers sur Azure IoT Hub à partir d’appareils en Java | Microsoft Docs
 description: Guide pratique pour charger des fichiers sur le cloud à partir d’un appareil avec Azure IoT device SDK pour Java. Les fichiers téléchargés sont stockés dans un conteneur d’objets blob de stockage Azure.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
-ms.openlocfilehash: 11b283bf3557fd14663e1789ce19af48b9aa9db2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824062"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548981"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -28,7 +29,7 @@ Ce didacticiel s’appuie sur le code du didacticiel [Envoyer des messages du cl
 Les tutoriels [Envoyer des données de télémétrie à IoT Hub (Java)](quickstart-send-telemetry-java.md) et [Envoyer des messages cloud-à-appareil avec IoT Hub](iot-hub-java-java-c2d.md) présentent les fonctionnalités de base d’envoi de messages appareil-à-cloud et cloud-à-appareil d’IoT Hub. Le tutoriel [Configurer le routage des messages avec IoT Hub](tutorial-routing.md) décrit un moyen de stocker de façon fiable les messages appareil-à-cloud dans le stockage d’objets blob Azure. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple : 
 
 * Fichiers volumineux qui contiennent des images
-* vidéos
+* Videos
 * Données de vibration échantillonnées à une fréquence élevée
 * Un certain type de données prétraitées.
 
@@ -144,7 +145,7 @@ Vous avez besoin de la chaîne de connexion **iothubowner** de votre hub IoT pou
     ```
 
     > [!NOTE]
-    > Vous pouvez rechercher la dernière version de **iot-service-client** avec la [recherche Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Vous pouvez rechercher la dernière version de **iot-service-client** avec la [recherche Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Enregistrez et fermez le fichier `pom.xml`.
 

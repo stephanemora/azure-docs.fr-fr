@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099324"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431113"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Qu’est-ce qu’une base de données Azure SQL Database unique
 
@@ -26,9 +26,9 @@ L'option de déploiement d'une base de données unique crée dans Azure SQL Data
 > [!IMPORTANT]
 > Une base de données unique est l’une des trois options de déploiement Azure SQL Database. Les deux autres sont [les pools élastiques](sql-database-elastic-pool.md) et [l’instance gérée](sql-database-managed-instance.md).
 > [!NOTE]
-> Pour connaître la signification des termes d’Azure SQL Database, consultez le [Lexique SQL Database](sql-database-glossary-terms.md).
+> Pour connaître la signification des termes utilisés dans Azure SQL Database, consultez le [Lexique SQL Database](sql-database-glossary-terms.md).
 
-## <a name="dynamic-scalabilty"></a>Évolutivité dynamique
+## <a name="dynamic-scalability"></a>Évolutivité dynamique
 
 Vous pouvez créer votre première application dans une petite base de données unique pour un coût mensuel modique avec le niveau de service prix faible/performances, puis [remplacer ce niveau de service](sql-database-single-database-scale.md) manuellement ou par programmation à tout moment par le niveau de service prix supérieur/performances, afin de répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
 
@@ -42,7 +42,7 @@ Vous utilisez les outils intégrés de [surveillance](sql-database-performance.m
 
 ## <a name="availability-capabilities"></a>Fonctionnalités de disponibilité
 
-Les bases de données uniques, les pools élastiques et les instances gérées fournissent un grand nombre de caractéristiques de disponibilité. Pour plus d’informations, consultez [Caractéristiques de disponibilité](sql-database-technical-overview.md#availability-capabilities).
+Bases de données uniques, les pools élastiques et des instances gérées fournissent de nombreuses caractéristiques de disponibilité. Pour plus d’informations, consultez [Caractéristiques de disponibilité](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Différences Transact-SQL
 

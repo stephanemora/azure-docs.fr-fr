@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538803"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195096"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Journaux de serveur dans Azure Database pour PostgreSQL 
 La base de données Azure pour PostgreSQL génère des journaux des requêtes et des erreurs. Les journaux des requêtes et des erreurs peuvent être utilisés pour identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. (L’accès aux journaux des transactions n’est pas pris en charge.) 
@@ -28,8 +28,10 @@ Si vous avez activé les journaux, vous pouvez y accéder à partir d’Azure Da
 
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
-Azure Database pour PostgreSQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux sur votre serveur PostgreSQL, vous pouvez choisir qu’ils soient transmis vers [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs ou le stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database pour PostgreSQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux sur votre serveur PostgreSQL, vous pouvez choisir pour qu’elles soient émis vers [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md), Event Hubs ou stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
+> [!IMPORTANT]
+> Cette fonctionnalité de diagnostique pour les journaux de serveur est uniquement disponible dans l’usage général et à mémoire optimisée [niveaux tarifaires](concepts-pricing-tiers.md).
 
 Le tableau suivant décrit ce que contient chaque journal. En fonction du point de terminaison de sortie choisi, les champs et l’ordre dans lequel ils apparaissent peuvent varier. 
 
@@ -38,7 +40,7 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction du point 
 | TenantId | Votre ID d’abonné |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Horodatage du moment où le journal a été enregistré en UTC |
-| type | Type de journal. Toujours `AzureDiagnostics` |
+| Type | Type de journal. Toujours `AzureDiagnostics` |
 | SubscriptionId | GUID de l’abonnement auquel appartient le serveur |
 | ResourceGroup | Nom du groupe de ressources auquel le serveur appartient |
 | ResourceProvider | Nom du fournisseur de ressources. Toujours `MICROSOFT.DBFORPOSTGRESQL` |

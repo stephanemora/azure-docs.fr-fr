@@ -6,16 +6,16 @@ services: cognitive-services
 author: lewlu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 5eb198ecf76556e632c5f42bc22362b2f20f8916
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55771527"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448779"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrer vos données de visage vers un autre abonnement API Visage
 
@@ -23,7 +23,7 @@ Ce guide vous montre comment déplacer des données de visage (comme un objet **
 
 Cette même stratégie de migration s’applique également aux objets **LargePersonGroup** et **LargeFaceList**. Si vous ne connaissez pas bien les concepts utilisés dans ce guide, lisez les définitions correspondantes dans ce [glossaire](../Glossary.md). Ce guide utilise la bibliothèque cliente .NET de l’API Visage en C#.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Deux clés d’abonnement API Visage (une avec les données existantes et une pour les données migrées). Suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
 - La chaîne de l’ID d’abonnement API Visage correspondant à l’abonnement cible (disponible dans le panneau **Vue d’ensemble** dans le portail Azure). 
@@ -83,7 +83,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Récupérer l’ID de l’instantané
 
-La méthode de prise d’instantané est asynchrone, ce qui signifie que vous devez attendre la fin de son exécution (les opérations d’instantané ne peuvent pas être annulées). Dans ce code, la méthode `WaitForOperation` supervise l’appel asynchrone, en vérifiant l’état toutes les 100 ms. À la fin de l’opération, vous serez en mesure de récupérer l’ID de l’opération. Vous pouvez le trouver dans le champ `OperationLocation`. 
+La capture instantanée en prenant la méthode est asynchrone,. vous devrez donc attendre son achèvement (instantané opérations ne peut pas être annulées). Dans ce code, la méthode `WaitForOperation` supervise l’appel asynchrone, en vérifiant l’état toutes les 100 ms. À la fin de l’opération, vous serez en mesure de récupérer l’ID de l’opération. Vous pouvez le trouver dans le champ `OperationLocation`. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
@@ -231,5 +231,5 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 - [Documentation de référence sur les instantanés (SDK .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Exemple d’instantané de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Comment ajouter des visages](how-to-add-faces.md)
-- [Comment détecter des visages dans une image](HowtoDetectFacesinImage.md)
+- [How to Detect Faces in Image](HowtoDetectFacesinImage.md) (Comment détecter des visages dans l’image)
 - [Comment identifier des visages dans une image](HowtoIdentifyFacesinImage.md)

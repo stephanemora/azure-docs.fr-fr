@@ -3,21 +3,21 @@ title: Création visuelle dans Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser la création visuelle dans Azure Data Factory
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
+author: sharonlo101
 ms.author: shlo
-ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.reviewer: ''
+manager: craigg
+ms.openlocfilehash: 77eb109b8826bcb6136e91ac610235f74551cecb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188492"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853084"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 L’expérience utilisateur Azure Data Factory vous permet de créer et de déployer visuellement des ressources dans votre fabrique de données sans avoir à écrire du code. Vous pouvez glisser-déposer des activités sur le canevas d’un pipeline, effectuer des séries de tests, déboguer de manière itérative, mais aussi déployer et surveiller les exécutions de votre pipeline. Vous pouvez utiliser l’expérience utilisateur pour la création visuelle de deux manières :
@@ -31,7 +31,7 @@ Deux éléments distinguent la création visuelle avec le service Data Factory d
 - Le service Data Factory n’inclut pas un référentiel pour stocker les entités JSON de vos modifications.
 - Le service Data Factory n’est pas optimisé pour la collaboration ou le contrôle de version.
 
-![Configurer le service Data Factory ](media/author-visually/configure-data-factory.png)
+![Configurer le service Data Factory](media/author-visually/configure-data-factory.png)
 
 Lorsque vous utilisez les **Canevas de création** UX pour une création directe avec le service Data Factory, seul le mode **Tout publier** est disponible. Les modifications que vous apportez sont publiées directement dans le service Data Factory.
 
@@ -204,7 +204,7 @@ Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 | **Paramètre**                                              | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Valeur**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | **Type de référentiel**                                      | Type du dépôt de code Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
-| **Compte GitHub**                                       | Le nom de votre compte GitHub. Vous pouvez trouver ce nom dans https://github.com/{account nom}/{nom du référentiel}. En naviguant sur cette page, vous êtes invité à entrer les informations d’identification GitHub OAuth sur votre compte GitHub.                                                                                                                                                                                                                                               |                    |
+| **Compte GitHub**                                       | Le nom de votre compte GitHub. Ce nom puisse être récupéré à partir de https :\//github.com/{account nom} / {nom du référentiel}. En naviguant sur cette page, vous êtes invité à entrer les informations d’identification GitHub OAuth sur votre compte GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | Le nom de votre référentiel de code GitHub. Les comptes GitHub contiennent des référentiels Git pour gérer votre code source. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le compte.                                                                                                                                                                                                                              |                    |
 | **Branche de collaboration**                                 | Votre branche de collaboration GitHub utilisée pour la publication. Maître par défaut. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche.                                                                                                                                                                                                                                                               |                    |
 | **Dossier racine**                                          | Votre dossier racine de votre branche de collaboration GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
@@ -221,7 +221,7 @@ Un volet de configuration apparaît. Pour plus d’informations sur les paramèt
 
 Vous pouvez configurer un référentiel GitHub Enterprise avec une fabrique de données via deux méthodes.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Méthode de configuration 1 (référentiel Entreprise) : Page Prise en main
+#### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Méthode de configuration 1 (référentiel Entreprise) : Page Prise en main
 
 Dans Azure Data Factory, accédez à la page  **Let's get started**  (Prise en main). Sélectionnez  **Configurer le référentiel de code** :
 
@@ -238,7 +238,7 @@ Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 | **Type de référentiel**                                      | Type du dépôt de code Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Utiliser GitHub Enterprise**                                | Cochez la case pour sélectionner GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **URL GitHub Enterprise**                                | L’URL racine de GitHub Enterprise. Par exemple : https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
-| **Compte GitHub**                                       | Le nom de votre compte GitHub. Vous pouvez trouver ce nom dans https://github.com/{account nom}/{nom du référentiel}. En naviguant sur cette page, vous êtes invité à entrer les informations d’identification GitHub OAuth sur votre compte GitHub.                                                                                                                                                                                                                                               |                    |
+| **Compte GitHub**                                       | Le nom de votre compte GitHub. Ce nom puisse être récupéré à partir de https :\//github.com/{account nom} / {nom du référentiel}. En naviguant sur cette page, vous êtes invité à entrer les informations d’identification GitHub OAuth sur votre compte GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | Le nom de votre référentiel de code GitHub. Les comptes GitHub contiennent des référentiels Git pour gérer votre code source. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le compte.                                                                                                                                                                                                                              |                    |
 | **Branche de collaboration**                                 | Votre branche de collaboration GitHub utilisée pour la publication. Maître par défaut. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche.                                                                                                                                                                                                                                                               |                    |
 | **Dossier racine**                                          | Votre dossier racine de votre branche de collaboration GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |

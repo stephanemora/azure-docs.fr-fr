@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: be3843dc8dfbb45ebb981123bf3df4bb741c82d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 96f6da7e081430768b5a6f8fd874e289b8256271
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466080"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308480"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Conception d’une stratégie de chargement de données PolyBase pour Azure SQL Data Warehouse
 
@@ -40,7 +40,7 @@ Les étapes de base pour implémenter un processus ELT PolyBase pour SQL Data Wa
 
 Pour suivre un didacticiel sur le chargement, consultez l’article [Utiliser PolyBase pour charger des données du Stockage Blob Azure dans Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-Pour en savoir plus, voir l’article de blog [Loading patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/) (Modèles de charge). 
+Pour en savoir plus, voir l’article de blog [Loading patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/) (Modèles de charge). 
 
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. Extraire les données sources dans des fichiers texte

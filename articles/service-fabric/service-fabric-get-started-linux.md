@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3454f9eecf1f06391b21bc7a3dcd89b7f8e78853
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 13746779d37f6faa6d25f73d6c78523f174b658c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105353"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835236"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ La procédure décrite dans cet article suppose que vous effectuez une installat
 L’installation du runtime Service Fabric et du Kit de développement logiciel (SDK) sur le sous-système Windows pour Linux n’est pas prise en charge. L’interface de ligne de commande (CLI) Azure Service Fabric est prise en charge. Elle vous permet de gérer les entités Service Fabric hébergées ailleurs dans le cloud ou en local. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Installation de l’interface de ligne de commande Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Ces versions de système d’exploitation sont prises en charge pour le développement.
 
@@ -74,7 +74,7 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
 2. Ajoutez le référentiel Service Fabric à votre liste de sources.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. Ajoutez le référentiel `dotnet` à votre liste de sources.
@@ -162,7 +162,7 @@ Après avoir mis à jour vos sources, vous pouvez installer le SDK. Installez le
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   Les commandes suivantes automatisent la validation de la licence pour les packages Service Fabric :
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
@@ -219,7 +219,7 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
     nvm install node
     ```
-2. Installez le générateur de modèles [Yeoman](http://yeoman.io/) sur votre machine à partir de npm.
+2. Installez le générateur de modèles [Yeoman](https://yeoman.io/) sur votre machine à partir de npm.
 
     ```bash
     npm install -g yo
@@ -276,7 +276,7 @@ Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’en
 
 2. Pour installer le plug-in Service Fabric, sélectionnez **Aide** > **Installer un nouveau logiciel**.
 
-3. Dans le champ **Work with** (Utiliser), tapez **http://dl.microsoft.com/eclipse**.
+3. Dans le champ **Work with** (Utiliser), tapez **https://dl.microsoft.com/eclipse**.
 
 4. Sélectionnez **Ajouter**.
 

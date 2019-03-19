@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88fc78a1263ac4587a98288dc71df26385bc81ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164055"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453641"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -66,10 +66,10 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Révisions d’accès|Mettre à jour une révision d’accès|
 |Révisions d’accès|Mettre à jour l'état d'intégration des révisions d'accès Azure AD|
 |Révisions d’accès|Mettre à jour les paramètres de notification par e-mail pour la révision d’accès|
-|Révisions d’accès|Mettre à jour le paramètre du nombre de récurrences pour la révision d’accès|
-|Révisions d’accès|Mettre à jour le paramètre de durée en jour de la récurrence pour la révision d’accès|
-|Révisions d’accès|Mettre à jour le paramètre de type de fin de la récurrence pour la révision d’accès|
-|Révisions d’accès|Mettre à jour le paramètre de type de récurrence pour la révision d’accès|
+|Révisions d’accès|Mettre à jour le paramètre de nombre de la périodicité de révision de l’accès|
+|Révisions d’accès|Mettre à jour le paramètre de durée de la périodicité de révision de l’accès en jours|
+|Révisions d’accès|Mettre à jour le paramètre de type de fin de la périodicité de révision de l’accès|
+|Révisions d’accès|Mettre à jour le paramètre de type de la périodicité de révision de l’accès|
 |Révisions d’accès|Mettre à jour les paramètres de rappel pour la révision d’accès|
 |Révisions d’accès|Mettre à jour le programme|
 |Révisions d’accès|Mettre à jour une approbation de demande|

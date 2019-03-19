@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9f818715895c2ff2c5d0e1758aaf17a2393287d2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050642"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534938"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -35,6 +35,8 @@ Par exemple, vous pouvez utiliser Traffic View pour comprendre quelles régions 
 
 Le fonctionnement de Traffic View est alimenté par l’observation que Traffic Manager effectue sur les requêtes entrantes, reçues au cours des sept derniers jours sur un profil pour lequel cette fonctionnalité a été activée. À partir des informations sur les requêtes entrantes, la Vue du trafic extrait l’adresse IP source est extraite de la résolution DNS, qui est alors utilisée comme représentation de l’emplacement des utilisateurs. Ceux-ci sont alors regroupés ensemble, selon une granularité fixée au niveau de la résolution DNS, afin de créer des régions de bases d’utilisateurs en utilisant les informations géographiques des adresses IP gérées par Traffic Manager. Traffic Manager examine ensuite les régions Azure vers lesquelles la requête a été routée, et constitue une carte des flux de trafic pour les utilisateurs à partir de ces régions.  
 À l’étape suivante, Traffic Manager met en corrélation la région des bases d’utilisateurs avec le mappage des régions Azure au moyen des tables de latence de l’intelligence réseau qu’il tient à jour, pour que les différents réseaux d’utilisateurs finals comprennent la latence moyenne rencontrée par les utilisateurs de ces régions lorsqu’ils se connectent à des régions Azure. Tous ces calculs sont ensuite regroupés sous forme de tableaux au niveau de l’adresse IP de la résolution DNS locale avant de vous être présentés. Vous pouvez utiliser les informations de différentes manières.
+
+La fréquence de mise à jour des données de vue du trafic dépend de plusieurs variables de service interne. Toutefois, les données sont actualisées généralement toutes les 24 heures.
 
 >[!NOTE]
 >La latence décrite dans la Vue du trafic correspond à la latence représentative entre l’utilisateur final et les régions Azure auxquelles il est connecté. Il ne s’agit pas de la latence des recherches DNS. Vue du trafic permet une meilleure estimation de la latence entre le programme de résolution DNS locale et la région Azure vers laquelle la requête est acheminée, s’il n’y a pas suffisamment de données disponible, la latence retournée est null. 

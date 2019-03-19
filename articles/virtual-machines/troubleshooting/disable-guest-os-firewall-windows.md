@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318978"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820023"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Désactiver le pare-feu du système d’exploitation invité dans une machine virtuelle Azure
 
@@ -33,7 +33,7 @@ Le processus qui est décrit dans cet article est destiné à être utilisé com
 
 Si la machine virtuelle est en ligne et accessible sur une autre machine virtuelle sur le même réseau virtuel, vous pouvez atténuer les risques à l’aide de l’autre machine virtuelle.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Atténuation 1 : Fonctionnalité Extension de script personnalisée ou Exécuter une commande
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Atténuation 1 : Fonctionnalité d’Extension de Script ou exécuter une commande personnalisée
 
 Si vous avez un agent Azure fonctionnel, vous pouvez utiliser la fonctionnalité [Extension de script personnalisée](../extensions/custom-script-windows.md) ou [Exécuter des commandes](../windows/run-command.md) (machines virtuelles Resource Manager uniquement) pour exécuter à distance les scripts suivants.
 
@@ -54,7 +54,7 @@ Si vous avez un agent Azure fonctionnel, vous pouvez utiliser la fonctionnalité
 >   ```
 >   Toutefois, dès que la stratégie est appliquée à nouveau, vous serez exclu de la session à distance. Le correctif permanent pour ce problème consiste à modifier la stratégie qui est appliquée sur cet ordinateur.
 
-#### <a name="mitigation-2-remote-powershell"></a>Atténuation 2 : PowerShell à distance
+#### <a name="mitigation-2-remote-powershell"></a>Atténuation 2 : PowerShell à distance
 
 1.  Connectez-vous à une machine virtuelle qui se trouve sur le même réseau virtuel que la machine virtuelle que vous ne pouvez pas atteindre à l’aide de la connexion RDP.
 
@@ -70,9 +70,9 @@ Si vous avez un agent Azure fonctionnel, vous pouvez utiliser la fonctionnalité
     ```
 
 > [!Note]
-> Si le pare-feu est défini via un objet stratégie de groupe, cette méthode peut ne pas fonctionner, car cette commande modifie uniquement les entrées de Registre local. Si une stratégie est en place, elle remplace cette modification. 
+> Si le pare-feu est défini via un objet de stratégie de groupe, cette méthode peut ne pas fonctionne, car cette commande modifie uniquement les entrées de Registre local. Si une stratégie est en place, elle remplace cette modification. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Atténuation 3 : Commandes PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Atténuation 3 : Commandes PSTools
 
 1.  Sur la machine virtuelle de dépannage, téléchargez [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
@@ -86,7 +86,7 @@ Si vous avez un agent Azure fonctionnel, vous pouvez utiliser la fonctionnalité
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Atténuation 4 : Registre à distance 
+#### <a name="mitigation-4-remote-registry"></a>Atténuation 4 : Registre distant 
 
 Procédez comme suit pour utiliser le [Registre à distance](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 

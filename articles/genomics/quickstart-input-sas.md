@@ -1,24 +1,26 @@
 ---
-title: Envoyer un workflow à l’aide d’un SAS, pas d’une clé de compte de stockage - Microsoft Genomics
+title: Soumettre un workflow à l’aide de signatures d’accès partagé - Microsoft Genomics
 titleSuffix: Azure
-description: Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
+description: L’article suppose que vous avez le client msgen est installé et que vous avez exécuté les exemples de données via le service.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749016"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451380"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
-Ce guide de démarrage rapide montre comment envoyer un flux de travail au service Microsoft Genomics à l’aide d’un fichier config.txt contenant des [signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) au lieu de clés de compte de stockage. Cette fonctionnalité peut être utile si avoir la clé de compte de stockage visible dans le fichier config.txt pose des problèmes de sécurité. Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à exécuter ce démarrage rapide. 
+Cet article montre comment soumettre un workflow dans le service Microsoft Genomics à l’aide d’un fichier config.txt contenant [partagé (SAP) des signatures d’accès](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) au lieu de clés de compte de stockage. Cette fonctionnalité peut être utile si avoir la clé de compte de stockage visible dans le fichier config.txt pose des problèmes de sécurité. 
+
+Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à poursuivre cet article. 
 
 ## <a name="what-is-a-sas"></a>Qu’est ce qu’une SAP ?
 Une [signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) fournit un accès délégué aux ressources de votre compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. C’est tout l’intérêt d’utiliser des signatures d’accès partagé dans vos applications : une SAP est un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
@@ -54,7 +56,7 @@ Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du
  ![Explorateur de stockage SAP Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorateur de stockage SAP Genomics")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>Configuration : Créer une SAP par programmation
+### <a name="set-up-create-a-sas-programmatically"></a>Configuration : Créer une SAP par programme
 
 Pour créer une SAP à l’aide du kit de développement logiciel (SDK) Stockage Azure, consultez la documentation existante dans plusieurs langages, notamment [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
