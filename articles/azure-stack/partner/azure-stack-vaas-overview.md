@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 12/20/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0694a3839ae6b843abd1ddc8b67d1f3e3322e0e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ca22f29597cb452d6d33338b8ba0367c9377f6fb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246039"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772515"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Qu’est-ce que la validation en tant que service pour Azure Stack ?
 
@@ -43,19 +43,19 @@ Pour plus d’informations, consultez [Valider une nouvelle solution Azure Stack
 
 ## <a name="validate-changes-to-the-azure-stack-software"></a>Valider les modifications apportées au logiciel Azure Stack
 
-Les partenaires utilisent le workflow de **validation de solution** pour vérifier que leur solution fonctionne avec les dernières mises à jour du logiciel Azure Stack. Le workflow de validation de solution doit être exécuté sur un environnement matériel recommandé par Microsoft où les correctifs et mises à jour ont été utilisés pour appliquer la mise à jour. Il est recommandé d’exécuter également le workflow sur le build de la ligne de base.
+Les partenaires utilisent le workflow de **validation de package** pour vérifier que leur solution fonctionne avec les dernières mises à jour du logiciel Azure Stack. Le workflow de validation de package doit être exécuté sur un environnement matériel recommandé par Microsoft où les correctifs et mises à jour ont été utilisés pour appliquer la mise à jour. Il est recommandé d’exécuter également le workflow sur le build de la ligne de base.
 
 Pour plus d’informations, consultez [Valider les mises à jour logicielles issues de Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Obtenir les packages des partenaire de solutions signés numériquement
 
-En plus de la validation des mises à jour Azure Stack, les partenaires utilisent le workflow de **validation de solution** pour valider les mises à jour des packages de personnalisation OEM, qui incluent les pilotes, les microprogrammes et d’autres logiciels spécifiques au partenaire Azure Stack, et qui sont utilisés pendant le déploiement du logiciel Azure Stack. Déployez le package que vous validez sur la version actuelle du logiciel Azure Stack, avec au moins la solution de taille minimale pouvant être prise en charge. Le package est envoyé à VaaS avant l’exécution de tests. Une fois les tests réussis, informez [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) que le package a passé les tests et qu’il va être approuvé numériquement avec la signature numérique Azure Stack. Microsoft signe le package et notifie le partenaire Azure Stack que celui-ci est disponible au téléchargement dans le portail VaaS.
+En plus de la validation des mises à jour Azure Stack, les partenaires utilisent le workflow de **validation de package** pour valider les mises à jour des packages de personnalisation OEM, qui incluent les pilotes, les microprogrammes et d’autres logiciels spécifiques au partenaire Azure Stack, et qui sont utilisés pendant le déploiement du logiciel Azure Stack. Déployez le package que vous validez sur la version actuelle du logiciel Azure Stack, avec au moins la solution de taille minimale pouvant être prise en charge. Le package est envoyé à VaaS avant l’exécution de tests. Une fois les tests réussis, informez [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) que le package a passé les tests et qu’il va être approuvé numériquement avec la signature numérique Azure Stack. Microsoft signe le package et notifie le partenaire Azure Stack que celui-ci est disponible au téléchargement dans le portail VaaS.
 
 Pour plus d’informations, consultez [Valider les packages OEM](azure-stack-vaas-validate-oem-package.md).
 
 ## <a name="preview-vaas-test-collateral"></a>Utiliser des outils annexes de test en préversion dans la validation en tant que service Azure Stack
 
-Microsoft propose régulièrement de nouvelles fonctionnalités dans Azure Stack. Dans le cadre du processus de développement pour la mise sur le marché de ces fonctionnalités, de nouveaux outils de test annexes sont proposés dans le workflow de **passe de test**. Ce workflow comprend des outils de test annexes provenant d’autres workflows pour permettre l’exécution de tests non officiels. N’utilisez pas le workflow de passe de test pour soumettre les résultats en vue d’une approbation. Pour obtenir une approbation officielle de votre solution, utilisez le workflow de validation de solution.
+Microsoft propose régulièrement de nouvelles fonctionnalités dans Azure Stack. Dans le cadre du processus de développement pour la mise sur le marché de ces fonctionnalités, de nouveaux outils de test annexes sont proposés dans le workflow de **passe de test**. Ce workflow comprend des outils de test annexes provenant d’autres workflows pour permettre l’exécution de tests non officiels. N’utilisez pas le workflow de passe de test pour soumettre les résultats en vue d’une approbation. Pour obtenir une approbation officielle de votre solution, utilisez le workflow de validation de solution et de validation de package.
 
 Pour plus d’informations, consultez [Démarrage rapide : Utiliser le portail de validation en tant que service pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md).
 
