@@ -1,74 +1,81 @@
-- name: Vue d'ensemble
+items:
+- name: Vue d’ensemble
   items:
-    - name: Qu’est-ce qu’une collection d’espaces de travail Power BI ?
-      href: what-are-power-bi-workspace-collections.md
-    - name: Nouveautés dans les collections d’espaces de travail Power BI
-      href: whats-new.md
+  - name: Qu’est-ce qu’une collection d’espaces de travail Power BI ?
+    href: what-are-power-bi-workspace-collections.md
+  - name: Nouveautés dans les collections d’espaces de travail Power BI
+    href: whats-new.md
 - name: Prise en main
   items:
-    - name: Prendre en main les collections d’espaces de travail Power BI
-      href: get-started.md
-    - name: Prise en main d’un exemple
-      href: get-started-sample.md
-    - name: Forum Aux Questions
-      href: faq.md
+  - name: Prendre en main les collections d’espaces de travail Power BI
+    href: get-started.md
+  - name: Prise en main d’un exemple
+    href: get-started-sample.md
+  - name: Forum Aux Questions
+    href: faq.md
 - name: Procédures
   items:
-    - name: Planifier et concevoir
-      items:
-        - name: Scénarios courants
-          href: scenarios.md
-    - name: gérer
-      items:
-        - name: Se connecter à une source de données
-          href: connect-datasource.md
-        - name: Incorporer un rapport Power BI
-          href: embed-report.md
-        - name: Interagir avec les rapports
-          href: interact-with-reports.md
-        - name: Créer un rapport à partir d’un jeu de données
-          href: create-report-from-dataset.md
-        - name: Enregistrer des rapports
-          href: save-reports.md
-        - name: Basculer entre l’affichage et la modification
-          href: toggle-mode.md
-    - name: Sécuriser
-      items:
-        - name: Authentification et autorisation
-          href: app-token-flow.md
-        - name: Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
-          href: row-level-security.md
+  - name: Planifier et concevoir
+    items:
+    - name: Scénarios courants
+      href: scenarios.md
+  - name: gérer
+    items:
+    - name: Se connecter à une source de données
+      href: connect-datasource.md
+    - name: Incorporer un rapport Power BI
+      href: embed-report.md
+    - name: Interagir avec les rapports
+      href: interact-with-reports.md
+    - name: Créer un rapport à partir d’un jeu de données
+      href: create-report-from-dataset.md
+    - name: Enregistrer des rapports
+      href: save-reports.md
+    - name: Basculer entre l’affichage et la modification
+      href: toggle-mode.md
+  - name: Sécuriser
+    items:
+    - name: Authentification et autorisation
+      href: app-token-flow.md
+    - name: Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
+      href: row-level-security.md
 - name: Informations de référence
   items:
-    - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?service=power-bi-embedded'
-    - name: PowerShell
-      href: /powershell/module/azurerm.powerbiembedded
-    - name: .NET Azure Resource Manager
-      href: /dotnet/api/microsoft.azure.management.powerbiembedded
-    - name: Téléchargement du Kit de développement logiciel (SDK) .NET
-      href: 'https://www.nuget.org/profiles/powerbi'
-    - name: JavaScript
-      href: 'https://github.com/Microsoft/PowerBI-JavaScript/wiki'
-    - name: API REST de gestion
-      href: 'https://docs.microsoft.com/rest/api/power-bi-workspace-collections/'
-    - name: API REST
-      href: 'https://msdn.microsoft.com/library/azure/mt711507.aspx'
+  - name: Exemples de code
+    href: https://azure.microsoft.com/resources/samples/?service=power-bi-embedded
+  - name: PowerShell
+    href: /powershell/module/azurerm.powerbiembedded
+  - name: .NET Azure Resource Manager
+    href: /dotnet/api/microsoft.azure.management.powerbiembedded
+  - name: Téléchargement du Kit de développement logiciel (SDK) .NET
+    href: https://www.nuget.org/profiles/powerbi
+  - name: JavaScript
+    href: https://github.com/Microsoft/PowerBI-JavaScript/wiki
+  - name: API REST de gestion
+    href: https://docs.microsoft.com/rest/api/power-bi-workspace-collections/
+  - name: API REST
+    href: https://msdn.microsoft.com/library/azure/mt711507.aspx
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
-    - name: Exemple d’incorporation JavaScript
-      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
-    - name: Référentiel Git JavaScript
-      href: 'https://github.com/Microsoft/PowerBI-JavaScript'
-    - name: 'Référentiel Git Power BI C#'
-      href: 'https://github.com/Microsoft/PowerBI-CSharp'
-    - name: Communauté Power BI
-      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
-    - name: Calculatrice de prix
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Exemple d’application
-      href: 'https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/'
-    - name: Dépassement de capacité de la pile
-      href: 'http://stackoverflow.com/questions/tagged/powerbi'
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+  - name: Exemple d’incorporation JavaScript
+    href: https://microsoft.github.io/PowerBI-JavaScript/demo/
+  - name: Référentiel Git JavaScript
+    href: https://github.com/Microsoft/PowerBI-JavaScript
+  - name: Référentiel Git Power BI C#
+    href: https://github.com/Microsoft/PowerBI-CSharp
+  - name: Communauté Power BI
+    href: https://community.powerbi.com/t5/Developer/bd-p/Developer
+  - name: Calculatrice de prix
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Exemple d’application
+    href: https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/powerbi
+ms.openlocfilehash: ceef0dc6803c8c4edcfa9e3a76b849a67f8bc27f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849582"

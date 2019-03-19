@@ -10,7 +10,7 @@
 # Concepts
 ## [Concepts, termes et entités](scheduler-concepts-terms.md)
 
-# Procédures
+# Guides pratiques
 ## Planifier et concevoir
 ### [Plans et facturation](scheduler-plans-billing.md)
 ### [Limites, quotas et valeurs par défaut](scheduler-limits-defaults-errors.md)
@@ -32,7 +32,7 @@
 ## [Feuille de route Azure Scheduler](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Feuille de route Azure](https://azure.microsoft.com/updates/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Tarification](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=scheduler)
