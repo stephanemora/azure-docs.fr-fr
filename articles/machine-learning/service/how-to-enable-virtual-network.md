@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840441"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Exécuter en toute sécurité des expériences et des inférences à l'intérieur d'un réseau virtuel Azure
 
 Dans cet article, vous allez apprendre à exécuter vos expériences et inférence à l’intérieur d’un réseau virtuel. Un réseau virtuel agit en tant que limite de sécurité, isolant vos ressources Azure de l’Internet public. Vous pouvez également joindre un réseau virtuel Azure à votre réseau local. Cela vous permet d’entraîner vos modèles et d’accéder à vos modèles déployés à des fins d’inférence de façon sécurisée.
 
 Le service Azure Machine Learning s’appuie sur d’autres services Azure pour les ressources de calcul. Les ressources de calcul (cibles de calcul) sont utilisées pour entraîner et déployer des modèles. Ces cibles de calcul peuvent être créées à l’intérieur d’un réseau virtuel. Par exemple, vous pouvez utiliser la machine virtuelle Microsoft Data Science Virtual Machine pour entraîner un modèle, puis déployer le modèle sur Azure Kubernetes Service (AKS). Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+## <a name="prerequisites"></a>Conditions préalables
+
+Ce document suppose que vous êtes familiarisé avec les réseaux virtuels Azure, IP mise en réseau et en général. Ce document suppose également que vous avez créé un réseau virtuel et un sous-réseau à utiliser avec vos ressources de calcul. Si vous n’êtes pas familiarisé avec les réseaux virtuels Azure, lisez les articles suivants pour en savoir plus sur le service :
+
+* [Adressage IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Démarrage rapide : Créer un réseau virtuel](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Filtrer le trafic réseau](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>Compte de stockage pour votre espace de travail
 
@@ -51,15 +60,17 @@ Pour utiliser Capacité de calcul Azure Machine Learning dans un réseau virtuel
 
     - Un seul équilibreur de charge
 
-   Ces ressources sont limitées par les [quotas de ressources](https://docs.microsoft.com/azure/azure-subscription-service-limits) de l’abonnement.
+  Ces ressources sont limitées par les [quotas de ressources](https://docs.microsoft.com/azure/azure-subscription-service-limits) de l’abonnement.
 
 ### <a id="mlcports"></a> Ports requis
 
 Capacité de calcul Machine Learning utilise le service Azure Batch pour provisionner les machines virtuelles dans le réseau virtuel spécifié. Le sous-réseau doit autoriser les communications entrantes à partir du service Batch. Ces communications servent à planifier les exécutions sur les nœuds Capacité de calcul Machine Learning et à communiquer avec Stockage Azure et d’autres ressources. Azure Batch ajoute des NSG au niveau des cartes réseau attachées aux machines virtuelles. Ces groupes de sécurité réseau configurent automatiquement des règles de trafic entrant et sortant pour autoriser le trafic suivant :
 
-- Le trafic TCP entrant sur les ports 29876 et 29877 à partir d’adresses IP du rôle de service Batch.
+- Le trafic TCP sur les ports 29876 et 29877 à partir d’entrant un __balise de Service__ de __BatchNodeManagement__.
+
+    ![Image du portail Azure montrant une règle de trafic entrant à l’aide de la balise de service BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- Le trafic TCP entrant sur le port 22 pour autoriser l’accès à distance.
+- (facultatif) Trafic TCP entrant sur le port 22 pour autoriser l’accès à distance. Cela est uniquement nécessaire si vous souhaitez vous connecter à l’aide de SSH sur l’adresse IP publique.
  
 - Le trafic sortant sur n’importe quel port vers le réseau virtuel.
 

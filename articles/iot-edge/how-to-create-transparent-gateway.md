@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096705"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -38,14 +38,17 @@ La passerelle présente son certificat d’autorité de certification d’appare
 
 Les étapes suivantes vous guident tout au long du processus de création des certificats et de leur installation au bon endroit.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Un appareil Azure IoT Edge à configurer comme passerelle. Vous pouvez utiliser votre ordinateur de développement ou une machine virtuelle comme appareil IoT Edge. Pour cela, suivez les étapes correspondant à votre système d’exploitation :
 * [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-Vous pouvez utiliser n’importe quel ordinateur pour générer les certificats, puis les copier sur votre appareil IoT Edge. 
+Vous pouvez utiliser n’importe quel ordinateur pour générer les certificats, puis les copier sur votre appareil IoT Edge.
+
+>[!NOTE]
+>Le « nom de passerelle » permet de créer les certificats dans cette instruction, doit être le même nom que celles utilisées en tant que nom d’hôte dans votre fichier de config.yaml IoT Edge et GatewayHostName dans la chaîne de connexion de l’appareil en aval. Le « nom de passerelle » doit être résolu en une adresse IP, à l’aide de DNS ou une entrée de fichier hôte. Communication basée sur le protocole utilisé (MQTTS:8883 / AMQPS:5671 / HTTPS:433) doit être possible entre l’appareil en aval et le soit transparent IoT Edge. Si un pare-feu est entre les deux, le port correspondant doit être ouvert.
 
 ## <a name="generate-certificates-with-windows"></a>Générer des certificats avec Windows
 
@@ -60,7 +63,7 @@ Installez OpenSSL pour Windows sur l’ordinateur que vous utilisez pour génér
    >[!NOTE]
    >Si vous avez déjà installé OpenSSL sur votre appareil Windows, vous pouvez ignorer cette étape. Vérifiez en revanche que openssl.exe est disponible dans votre variable d’environnement PATH.
 
-* **Plus facile :** Téléchargez et installez des fichiers binaires OpenSSL tiers, par exemple, à partir de [ce projet sur SourceForge](https://sourceforge.net/projects/openssl/). Ajoutez le chemin d’accès complet à openssl.exe à votre variable d’environnement PATH. 
+* **Plus facile :** Téléchargez et installez des [fichiers binaires OpenSSL tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir de [ce projet sur SourceForge](https://sourceforge.net/projects/openssl/). Ajoutez le chemin d’accès complet à openssl.exe à votre variable d’environnement PATH. 
    
 * **Recommandé :** Téléchargez le code source OpenSSL et générez les fichiers binaires sur votre machine vous-même ou en utilisant [vcpkg](https://github.com/Microsoft/vcpkg). Les instructions ci-dessous utilisent vcpkg pour télécharger le code source, compiler et installer OpenSSL sur votre machine Windows en suivant des étapes simples.
 
@@ -178,7 +181,7 @@ Suivez les étapes de cette section pour générer des certificats de test sur u
 
 Cette section vise à créer trois certificats, puis à les connecter dans une chaîne. Le fait de placer les certificats dans un fichier de chaîne permet de les installer facilement sur un appareil de passerelle IoT Edge et tous les appareils en aval.  
 
-1.  Créez le certificat d’autorité de certification propriétaire et un certificat intermédiaire. Ces certificats sont placés dans *\<WRKDIR>*.
+1. Créez le certificat d’autorité de certification propriétaire et un certificat intermédiaire. Ces certificats sont placés dans *\<WRKDIR>*.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -190,7 +193,7 @@ Cette section vise à créer trois certificats, puis à les connecter dans une c
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  Créez la clé privée et le certificat d’autorité de certification d’appareil Edge avec la commande suivante. Donnez un nom à l’appareil de passerelle, qui sera utilisé pour nommer les fichiers et lors de la génération du certificat. 
+2. Créez la clé privée et le certificat d’autorité de certification d’appareil Edge avec la commande suivante. Donnez un nom à l’appareil de passerelle, qui sera utilisé pour nommer les fichiers et lors de la génération du certificat. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

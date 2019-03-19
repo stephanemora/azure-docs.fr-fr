@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 03340dc8f3be2465f20756dc9799b9c1e4293521
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889945"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
@@ -128,7 +128,7 @@ Le service web peut accepter plusieurs jeux de données dans une même demande. 
 
 ### <a name="binary-data"></a>Données binaires
 
-Si votre modèle accepte les données binaires, comme une image, vous devez modifier le fichier `score.py` utilisé pour votre déploiement afin d’accepter les demandes HTTP brutes. Voici un exemple de `score.py` qui accepte des données binaires et retourne les octets inversés pour les requêtes POST. Pour les requêtes GET, il retourne l’URL complète dans le corps de réponse :
+Si votre modèle accepte les données binaires, comme une image, vous devez modifier le fichier `score.py` utilisé pour votre déploiement afin d’accepter les demandes HTTP brutes. Voici un exemple d’un `score.py` qui accepte des données binaires :
 
 ```python 
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -142,14 +142,16 @@ def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
     if request.method == 'GET':
+        # For this example, just return the URL for GETs
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        respBody = bytearray(reqBody)
-        respBody.reverse()
-        respBody = bytes(respBody)
-        return AMLResponse(respBody, 200)
+        # For a real world solution, you would load the data from reqBody 
+        # and send to the model. Then return the response.
+        
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
     else:
         return AMLResponse("bad request", 500)
 ```
@@ -157,7 +159,7 @@ def run(request):
 > [!IMPORTANT]
 > L’espace de noms `azureml.contrib` change fréquemment car nous travaillons à améliorer le service. Par conséquent, tout ce qui est compris dans cet espace de noms doit être considéré comme une préversion et n’est pas entièrement pris en charge par Microsoft.
 >
-> Si vous avez besoin d’effectuer ce test sur votre environnement de développement local, vous pouvez installer les composants dans l’espace de noms à l’aide de la commande suivante :
+> Si vous avez besoin d’effectuer ce test sur votre environnement de développement local, vous pouvez installer les composants dans l’espace de noms `contrib` à l’aide de la commande suivante :
 > 
 > ```shell
 > pip install azureml-contrib-services
