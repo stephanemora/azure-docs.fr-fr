@@ -15,12 +15,12 @@ ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6f2a2eb9902e8567b5fa27ed93dd8be2fe3a01b3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002044"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587070"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gérer l’inscription des locataires dans Azure Stack
 
@@ -60,7 +60,7 @@ Pour plus d’informations sur Azure Stack et les profils d’API, consultez [G�
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez l’applet de commande New-AzureRmResource pour ajouter un locataire. [Connectez-vous à Azure Stack](/azure-stack-powershell-configure-admin.md), puis à partir d'une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
+Utilisez l’applet de commande New-AzureRmResource pour ajouter un locataire. [Connectez-vous à Azure Stack](azure-stack-powershell-configure-admin.md), puis à partir d'une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -91,7 +91,7 @@ Obtenez une liste de tous les locataires qui ont été ajoutés à une inscripti
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez l’applet de commande Get-AzureRmResource pour répertorier tous les locataires inscrits. [Connectez-vous à Azure Stack](/azure-stack-powershell-configure-admin.md), puis à partir d'une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
+Utilisez l’applet de commande Get-AzureRmResource pour répertorier tous les locataires inscrits. [Connectez-vous à Azure Stack](azure-stack-powershell-configure-admin.md), puis à partir d'une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -142,7 +142,7 @@ Vous pouvez supprimer un locataire qui a été ajouté à une inscription. Si ce
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez l’applet de commande Remove-AzureRmResource pour supprimer un abonné. [Connectez-vous à Azure Stack](/azure-stack-powershell-configure-admin.md), puis à partir d'une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
+Utilisez l’applet de commande Remove-AzureRmResource pour supprimer un abonné. [Connectez-vous à Azure Stack](azure-stack-powershell-configure-admin.md), puis à partir d'une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

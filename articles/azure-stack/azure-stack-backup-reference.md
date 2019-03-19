@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b35b069f05f117b227a2edbf5595f2682b7f6e86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997275"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
@@ -89,17 +89,20 @@ La configuration requise inclut :
 Infrastructure Backup Controller sauvegarde les données à la demande. La recommandation est de sauvegarder au moins deux fois par jour et de conserver au plus sept jours de sauvegarde. 
 
 **1811 et au-delà**
+
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nœuds        | 20 Go                    | 280 Go                        |
 | ASDK              | 10 Go                    | 140 Go                        |
 
 **Avant 1811**
+
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nœuds, ASDK  | 10 Go                     | 140 Go                        |
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
+
 | Emplacement de stockage                                                                 | Détails                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Partage de fichiers SMB hébergé sur un périphérique de stockage dans l’environnement réseau approuvé | Le port 445 est obligatoire si l’instance Azure Stack se trouve dans un environnement de pare-feu. Infrastructure Backup Controller se connecte au serveur de fichiers SMB sur le port 445. |
@@ -131,6 +134,7 @@ Le certificat utilisé lors de la récupération du cloud avec la clé privée (
 Tenez compte de ces limites quand vous planifiez, déployez et utilisez vos instances Microsoft Azure Stack. Le tableau suivant décrit ces limites.
 
 ### <a name="infrastructure-backup-limits"></a>Limites d’Infrastructure Backup
+
 | Identificateur de la limite                                                 | Limite        | Commentaires                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Type de sauvegarde                                                      | Complète uniquement    | Infrastructure Backup Controller prend en charge seulement les sauvegardes complètes. Les sauvegardes incrémentielles ne sont pas prises en charge.                                          |

@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Machines virtuelles SQL Server Windows](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [FORUM AUX QUESTIONS](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
@@ -16,12 +16,12 @@
 ### [Configurer un écouteur interne pour un groupe de disponibilité](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Configurer un écouteur externe pour un groupe de disponibilité](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 ### [Étendre un groupe de disponibilité local à Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
-## Gérer
+## gérer
 ### [Utiliser l’extension SQL Server IaaS Agent](virtual-machines-windows-classic-sql-server-agent-extension.md)
 ### [Mise à jour corrective automatisée](virtual-machines-windows-classic-sql-automated-patching.md)
 ### [Configurer l’intégration d’Azure Key Vault](virtual-machines-windows-classic-ps-sql-keyvault.md)
 ### [Utiliser Stockage Premium](virtual-machines-windows-classic-sql-server-premium-storage.md)
-### [Considérations relatives à la sécurité](../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+### [Security Considerations](../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## Sauvegarde et restauration
 ### [Sauvegarde et restauration](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ### [Sauvegarde automatisée](virtual-machines-windows-classic-sql-automated-backup.md)
@@ -33,7 +33,7 @@
 ## [Meilleures pratiques pour les performances](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Modèles d’application](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
-# Référence
+# Informations de référence
 ## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Interface de ligne de commande Azure](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
@@ -46,5 +46,5 @@
 ## [Outils SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [Outils SQL Server](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
 
