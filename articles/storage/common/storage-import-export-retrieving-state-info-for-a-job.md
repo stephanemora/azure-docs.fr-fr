@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890533"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437240"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Récupération des informations d’état d’un travail Import/Export
 Vous pouvez appeler l’opération [Get Job](/rest/api/storageimportexport/jobs) pour récupérer des informations sur les travaux d’importation et d’exportation. Les informations renvoyées incluent :
@@ -45,7 +45,7 @@ Le tableau suivant décrit chacun des états par lesquels un travail peut passer
 |`Completed`|Une fois que tous les disques ont été renvoyés au client, si le travail s’est terminé sans erreur, son état est défini sur `Completed`. Le travail est automatiquement supprimé au bout de 90 jours dans l’état `Completed`.|
 |`Closed`|Une fois que tous les disques ont été renvoyés au client, si des erreurs sont survenues pendant le traitement du travail, son état est défini sur `Closed`. Le travail est automatiquement supprimé au bout de 90 jours dans l’état `Closed`.|
 
-Vous pouvez annuler un travail uniquement lorsqu’il est défini sur certains états. Un travail annulé ignore l’étape de copie des données, mais il passe quand même par toutes les étapes d’un travail qui n’a pas été annulé.
+Vous pouvez annuler un travail uniquement lorsqu’il est défini sur certains états. Un travail annulé ignore l’étape de copie de données, mais sinon il suit les transitions d’état même en tant que tâche qui n’a pas été annulé.
 
 Le tableau suivant décrit les erreurs qui peuvent se produire pour chaque état, ainsi que leur effet sur le travail lorsqu’elles se produisent.
 

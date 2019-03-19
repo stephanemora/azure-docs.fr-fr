@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116671"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
 Une limite de 1 500 machines par projet s’applique pour Azure Migrate. Cet article décrit comment évaluer un grand nombre de machines virtuelles locales avec [Azure Migrate](migrate-overview.md).   
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - **VMware** : les machines virtuelles à migrer doivent être gérées par vCenter Server version 5.5, 6.0, 6.5 ou 6.7. De plus, vous avez besoin d’un hôte ESXi exécutant la version 5.5 ou ultérieure pour déployer la machine virtuelle du collecteur.
 - **Compte vCenter** : vous avez besoin d’un compte en lecture seule pour accéder au serveur vCenter Server. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
@@ -38,7 +38,7 @@ Azure Migrate doit accéder à des serveurs VMware pour découvrir automatiqueme
 
 Si vous effectuez un déploiement dans un environnement de locataire, voici une façon de procéder :
 
-1.  Créez un utilisateur par locataire et, à l’aide de [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assignez des autorisations en lecture seule à toutes les machines virtuelles appartenant à un locataire particulier. Utilisez ensuite ces informations d’identification pour la découverte. RBAC garantit que l’utilisateur vCenter correspondant aura accès uniquement aux machines virtuelles spécifiques d’un locataire.
+1. Créez un utilisateur par locataire et, à l’aide de [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assignez des autorisations en lecture seule à toutes les machines virtuelles appartenant à un locataire particulier. Utilisez ensuite ces informations d’identification pour la découverte. RBAC garantit que l’utilisateur vCenter correspondant aura accès uniquement aux machines virtuelles spécifiques d’un locataire.
 2. Pour configurer RBAC pour des utilisateurs de locataires différents, procédez comme indiqué dans l’exemple suivant pour Utilisateur n°1 et Utilisateur n°2 :
 
     - Dans **User name** (Nom d’utilisateur) et **Password** (Mot de passe), spécifiez les informations d’identification du compte en lecture seule que le collecteur doit utiliser pour découvrir les machines virtuelles dans

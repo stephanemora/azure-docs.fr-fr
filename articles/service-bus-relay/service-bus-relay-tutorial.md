@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890965"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
 
@@ -31,7 +31,7 @@ Lorsque vous avez exécuté la suite des rubriques présentes dans ce tutoriel, 
 
 Les trois dernières étapes expliquent comment créer une application cliente, la configurer et créer et utiliser un client pouvant accéder à la fonctionnalité de l’hôte.
 
-Dans ce tutoriel, vous effectuez les étapes suivantes :
+Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer un espace de noms Relay
@@ -43,13 +43,13 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Implémentation du client WCF
 > * Exécutez les applications. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 - Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- [Visual Studio 2015 ou version ultérieure](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
-- SDK Azure pour .NET Installez-le à partir de la [page de téléchargement des SDK](https://azure.microsoft.com/downloads/).
+- [Visual Studio 2015 ou version ultérieure](https://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
+- SDK Azure pour .NET. Installez-le à partir de la [page de téléchargement des SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="create-a-relay-namespace"></a>Créer un espace de noms Relay
 La première étape consiste à créer un espace de noms et à obtenir une clé de [signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md). Un espace de noms fournit une limite d’application pour chaque application exposée via le service de relais. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Azure des informations d’identification permettant d’authentifier l’accès à une application.
@@ -84,10 +84,10 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
    > Ce didacticiel utilise l’espace de noms C# **Microsoft.ServiceBus.Samples**, qui est l’espace de noms du type géré par contrat utilisé dans le fichier de configuration à l’étape [Configurer le client WCF](#configure-the-wcf-client). Vous pouvez spécifier n’importe quel espace de noms lorsque vous générez cet exemple ; toutefois, le didacticiel ne fonctionnera que si vous modifiez les espaces de noms du contrat et le service en conséquence, dans le fichier de configuration d’application de service. L’espace de noms spécifié dans le fichier App.config doit être identique à l’espace de noms spécifié dans vos fichiers C#.
    >
    >
-7. Définissez directement après la déclaration d’espace de noms `Microsoft.ServiceBus.Samples`, mais à l’intérieur de l’espace de noms, une nouvelle interface nommée `IEchoContract` et appliquez l’attribut `ServiceContractAttribute` à cette interface avec une valeur d’espace de noms de `http://samples.microsoft.com/ServiceModel/Relay/`. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. En revanche, la valeur de l’espace de noms est utilisée comme identificateur unique pour ce contrat. Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut. Collez le code suivant après la déclaration de l’espace de noms :
+7. Définissez directement après la déclaration d’espace de noms `Microsoft.ServiceBus.Samples`, mais à l’intérieur de l’espace de noms, une nouvelle interface nommée `IEchoContract` et appliquez l’attribut `ServiceContractAttribute` à cette interface avec une valeur d’espace de noms de `https://samples.microsoft.com/ServiceModel/Relay/`. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. En revanche, la valeur de l’espace de noms est utilisée comme identificateur unique pour ce contrat. Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut. Collez le code suivant après la déclaration de l’espace de noms :
 
     ```csharp
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
     }
@@ -122,7 +122,7 @@ using System.ServiceModel;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -158,7 +158,7 @@ La création d’un relais Azure nécessite la création au préalable du contra
 2. Appliquez l’attribut [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) à l’interface `IEchoContract`. L’attribut spécifie le nom du service ainsi que son espace de noms. Ensuite, la classe `EchoService` apparaît comme suit :
 
     ```csharp
-    [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class EchoService : IEchoContract
     {
     }
@@ -211,7 +211,7 @@ La création d’un relais Azure nécessite la création au préalable du contra
 Le code suivant illustre l’implémentation du contrat de service.
 
 ```csharp
-[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+[ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
 
     class EchoService : IEchoContract
     {
@@ -354,7 +354,7 @@ using Microsoft.ServiceBus.Description;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -363,7 +363,7 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
-    [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -442,7 +442,7 @@ L’étape suivante consiste à créer une application cliente et à définir le
 6. Ajoutez la définition de contrat de service à l’espace de noms, comme illustré dans l’exemple suivant. Notez que cette définition est identique à celle qui est utilisée dans le projet **Service**. Vous devez ajouter ce code en haut de l’espace de noms `Microsoft.ServiceBus.Samples`.
 
     ```csharp
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -465,7 +465,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -631,7 +631,7 @@ using System.ServiceModel;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]

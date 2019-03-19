@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168241"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894085"
 ---
 <a name="create-a-microsoft-developer-account"></a>Créer un compte de développeur Microsoft
 ====================================
@@ -90,7 +90,7 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
 
 1. Ouvrez une nouvelle session de navigation Internet Explorer InPrivate ou Chrome Incognito pour vérifier que vous n’êtes pas connecté à un compte personnel.
 
-2. Accédez au [Centre de développement Windows](http://dev.windows.com/registration?accountprogram=azure) pour vous inscrire en tant que vendeur. Veuillez lire la remarque importante ci-dessous avant de continuer.
+2. Accédez au [Centre de développement Windows](https://dev.windows.com/registration?accountprogram=azure) pour vous inscrire en tant que vendeur. Veuillez lire la remarque importante ci-dessous avant de continuer.
 
    ![Vérification du compte Microsoft](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
@@ -157,7 +157,7 @@ Pour mettre en vente des offres commerciales, vous devez ajouter vos information
 
 **Pour fournir des informations bancaires**
 
-1.  Connectez-vous au [Centre de développement Microsoft](http://dev.windows.com/registration?accountprogram=azure) avec votre compte Microsoft.
+1.  Connectez-vous au [Centre de développement Microsoft](https://dev.windows.com/registration?accountprogram=azure) avec votre compte Microsoft.
 2.  Sélectionnez **Compte de paiement** dans le menu de gauche, puis, sous **Choisir le moyen de paiement**, sélectionnez **Compte bancaire** ou sur **PayPal**.
 
     >[!NOTE]
@@ -173,7 +173,7 @@ Pour mettre en vente des offres commerciales, vous devez ajouter vos information
 
 **Pour fournir des informations fiscales**
 
-1.  Connectez-vous au [Centre de développement Microsoft](http://dev.windows.com/registration?accountprogram=azure) avec votre compte Microsoft (si nécessaire).
+1.  Connectez-vous au [Centre de développement Microsoft](https://dev.windows.com/registration?accountprogram=azure) avec votre compte Microsoft (si nécessaire).
 2.  Dans le menu de gauche, sélectionnez **Profil fiscal**.
 3.  Dans la page **Configurer votre formulaire fiscal** :
     - Sélectionnez le pays ou la région de votre résidence permanente.

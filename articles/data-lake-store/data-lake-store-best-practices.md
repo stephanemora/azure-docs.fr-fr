@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745841"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961888"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen1
 
@@ -104,7 +104,7 @@ Vous trouverez ci-dessous les trois options les plus recommandées pour orchestr
 |**Prend en charge la copie des valeurs delta**     |   Oui      | Non          | Non          |
 |**Orchestration intégrée**     |  NON (utiliser Oozie Airflow ou les tâches Cron)       | Oui        | NON (utiliser Azure Automation ou le Planificateur de tâches Windows)         |
 |**Systèmes de fichiers pris en charge**     | ADL, HDFS, WASB, S3, GS, CFS        |Nombreux, voir [Connecteurs](../data-factory/connector-azure-blob-storage.md).         | ADL vers ADL, WASB vers ADL (même région uniquement)        |
-|**Système d’exploitation pris en charge**     |N’importe quel système d’exploitation prenant en charge Hadoop         | N/A          | Windows 10         |
+|**Système d’exploitation pris en charge**     |N’importe quel système d’exploitation prenant en charge Hadoop         | S.O.          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Utiliser Distcp pour déplacer des données entre deux emplacements
 
@@ -140,7 +140,7 @@ Si l’envoi de journaux Azure Data Lake Storage Gen1 n’est pas activé, Azure
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Une fois la propriété définie et les nœuds redémarrés, les diagnostics Data Lake Storage Gen1 sont écrits dans les journaux YARN sur les nœuds (/tmp/\<utilisateur\>/yarn.log) et les informations importantes comme les erreurs ou les limites (code d’erreur HTTP 429) peuvent être analysées. Ces mêmes informations peuvent aussi être surveillées dans Log Analytics ou n’importe quel emplacement où sont envoyés les journaux dans le panneau [Diagnostics](data-lake-store-diagnostic-logs.md) du compte Data Lake Storage Gen1. Il est recommandé de disposer d’au moins un journal côté client activé ou d’utiliser l’option d’envoi de journaux avec Data Lake Storage Gen1 pour une visibilité opérationnelle et un débogage simplifié.
+Une fois la propriété définie et les nœuds redémarrés, les diagnostics Data Lake Storage Gen1 sont écrits dans les journaux YARN sur les nœuds (/tmp/\<utilisateur\>/yarn.log) et les informations importantes comme les erreurs ou les limites (code d’erreur HTTP 429) peuvent être analysées. Ces mêmes informations peuvent aussi être surveillées dans les journaux Azure Monitor ou, là où sont envoyés les journaux dans le [Diagnostics](data-lake-store-diagnostic-logs.md) panneau du compte Data Lake Storage Gen1. Il est recommandé de disposer d’au moins un journal côté client activé ou d’utiliser l’option d’envoi de journaux avec Data Lake Storage Gen1 pour une visibilité opérationnelle et un débogage simplifié.
 
 ### <a name="run-synthetic-transactions"></a>Exécuter des transactions synthétiques
 

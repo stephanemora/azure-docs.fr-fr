@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/27/201
+ms.date: 11/13/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 8c405941417ad1a4e877cfd8fd0bdb53e186f6d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102763"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452298"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installer et configurer un proxy inverse dans Azure Service Fabric
 Un proxy inverse est un service Azure Service Fabric facultatif qui aide des microservices s’exécutant dans un cluster Service Fabric à découvrir d’autres services ayant des points de terminaison HTTP, et à communiquer avec ces services. Pour en savoir plus, voir [Proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy.md). Cet article vous montre comment installer et configurer un proxy inverse dans votre cluster. 
@@ -47,7 +47,7 @@ Pour un nouveau cluster, vous pouvez [créer un modèle Resource Manager personn
 
 Pour trouver des exemples de modèles Resource Manager qui pourront vous aider à configurer un proxy inverse sécurisé pour un cluster Azure, voir la rubrique [Secure Reverse Proxy Sample Templates](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) (exemples de modèles de proxy inverse sécurisé) sur GitHub. La section [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) (Configurer un proxy inverse HTTPS dans un cluster sécurisé) du fichier README contient des instructions et les modèles à utiliser pour configurer un proxy inverse sécurisé avec un certificat ainsi que pour procéder à la substitution de certificat.
 
-Pour un cluster existant, vous pouvez exporter le modèle Resource Manager pour le groupe de ressources du cluster à l’aide du [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template) ou d’[Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
+Pour un cluster existant, vous pouvez exporter le modèle Resource Manager pour le groupe de ressources du cluster à l’aide du [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) ou d’[Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
 Une fois que vous disposez d’un modèle Resource Manager, vous pouvez activer le proxy inverse en procédant comme suit :
 
@@ -334,7 +334,7 @@ Par exemple, vous pouvez spécifier la valeur de **DefaultHttpRequestTimeout** p
 
 Pour plus d’informations sur la mise à jour des paramètres de structure pour des clusters Azure, voir [Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Pour des clusters autonomes, voir [Personnaliser les paramètres de cluster pour les clusters autonomes](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Plusieurs paramètres de structure sont utilisés pour aider à établir une communication sécurisée entre un proxy inverse et des services. Pour obtenir des informations détaillées sur ces paramètres, voir [Se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md).
+Plusieurs paramètres de structure sont utilisés pour aider à établir une communication sécurisée entre un proxy inverse et des services. Pour obtenir des informations détaillées sur ces paramètres, consultez [se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configurer le transfert vers un service HTTP sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md)

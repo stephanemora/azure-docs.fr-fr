@@ -4,17 +4,17 @@ description: Analyser le contenu textuel dans le Stockage Blob Azure pour l’in
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 7bd7bcf66f0d91a87519a5d5bff7df7c73e2603f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310872"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759389"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Recherche dans le Stockage Blob avec la Recherche Azure
 
@@ -38,7 +38,7 @@ Un scénario courant qui facilite le tri dans les objets blob comportant tout ty
 ## <a name="image-search"></a>Recherche d’images
 La recherche de texte intégral de Recherche Azure, la navigation à facettes et les capacités de tri peuvent désormais être appliquées aux métadonnées des images stockées dans les objets blob.
 
-Si ces images sont traitées au préalable à l’aide de l’[API Vision par ordinateur](https://www.microsoft.com/cognitive-services/computer-vision-api) à partir de Microsoft Cognitive Services, il est possible d’indexer le contenu visuel de chaque image, y compris la reconnaissance de l’écriture manuscrite et la reconnaissance optique de caractères. Nous travaillons sur l’ajout de la reconnaissance optique de caractères et d’autres fonctionnalités de traitement d’images directement dans Recherche Azure. Si ces fonctionnalités vous intéressent, formulez une demande via [UserVoice](https://aka.ms/azsuv) ou par [e-mail](mailto:azscustquestions@microsoft.com).
+Recherche COGNITIVE inclut des compétences de traitement d’image comme [reconnaissance optique de caractères (OCR)](cognitive-search-skill-ocr.md) et d’identification de [fonctionnalités visual](cognitive-search-skill-image-analysis.md) qui permettent d’indexer le contenu visuel identifiée dans chaque image.
 
 ## <a name="index-and-search-through-json-blobs"></a>Indexation et recherche à l’aide des objets blob JSON
 Recherche Azure peut être configuré pour extraire le contenu structuré des objets blob qui contiennent des objets JSON. Recherche Azure peut lire les objets blob JSON et analyser le contenu structuré dans les champs adaptés du document Recherche Azure. Recherche Azure peut également extraire les objets blob contenant des objets JSON et mapper chaque élément avec un document Recherche Azure différent.
@@ -52,5 +52,5 @@ Il est possible d’ajouter directement Recherche Azure à des objets Blob, à p
 
 Cliquez sur **Ajouter Recherche Azure** pour lancer un flux dans lequel vous pouvez sélectionner un service Recherche Azure existant ou créer un nouveau service. Si vous créez un nouveau service, vous quittez l’expérience portail de votre compte Stockage. Vous pouvez revenir à la page Stockage du portail, sélectionner à nouveau l’option **Ajouter Recherche Azure**, puis sélectionner le service existant.
 
-### <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez la [documentation](https://aka.ms/azsblobindexer) pour en savoir plus sur l’indexeur d’objets blob Recherche Azure.

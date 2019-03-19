@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5eb5a24d6126e9609d1c653948c2db6b0a4feb55
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822440"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821932"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -25,11 +25,13 @@ Les règles de sécurité dans les groupes de sécurité réseau permettent de f
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Avant de suivre les étapes décrites dans les sections de cet article, accomplissez les tâches suivantes :
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.4.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 - Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.28 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des actions appropriées répertoriées dans [Autorisations ](#permissions).
@@ -49,7 +51,7 @@ Le nombre de groupes de sécurité réseau que vous pouvez créer par abonnement
 **Commandes**
 
 - Azure CLI : [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)
-- PowerShell : [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
+- PowerShell : [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
 
 ### <a name="view-all-network-security-groups"></a>Voir tous les groupes de sécurité réseau
 
@@ -58,7 +60,7 @@ Dans la zone de recherche située en haut du portail, entrez *groupes de sécuri
 **Commandes**
 
 - Azure CLI : [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list)
-- PowerShell : [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
+- PowerShell : [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
 
 ### <a name="view-details-of-a-network-security-group"></a>Voir les détails d’un groupe de sécurité réseau
 
@@ -69,12 +71,12 @@ Dans la zone de recherche située en haut du portail, entrez *groupes de sécuri
     *   [Contrôle d’accès (IAM)](../role-based-access-control/overview.md)
     *   [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [Script Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+    *   [Script Automation](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Commandes**
 
 - Azure CLI : [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show)
-- PowerShell : [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
+- PowerShell : [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
 
 ### <a name="change-a-network-security-group"></a>Changer un groupe de sécurité réseau
 
@@ -84,7 +86,7 @@ Dans la zone de recherche située en haut du portail, entrez *groupes de sécuri
 **Commandes**
 
 - Azure CLI : [az network nsg update](/cli/azure/network/nsg#az-network-nsg-update)
-- PowerShell : [Set-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)
+- PowerShell : [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)
 
 ### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>Associer un groupe de sécurité réseau à un sous-réseau ou à une interface réseau ou l’en dissocier
 
@@ -101,7 +103,7 @@ Si un groupe de sécurité réseau est associé à des sous-réseaux ou à des i
 **Commandes**
 
 - Azure CLI : [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete)
-- PowerShell : [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
+- PowerShell : [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup)
 
 ## <a name="work-with-security-rules"></a>Utiliser des règles de sécurité
 
@@ -131,7 +133,7 @@ Le nombre de règles par groupe de sécurité réseau que vous pouvez créer par
 **Commandes**
 
 - Azure CLI : [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
-- PowerShell : [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
+- PowerShell : [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)
 
 ### <a name="view-all-security-rules"></a>Voir toutes les règles de sécurité
 
@@ -146,7 +148,7 @@ La liste contient toutes les règles que vous avez créées et le groupe de séc
 **Commandes**
 
 - Azure CLI : [az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-list)
-- PowerShell : [Get-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
+- PowerShell : [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
 
 ### <a name="view-details-of-a-security-rule"></a>Voir les détails d’une règle de sécurité
 
@@ -158,7 +160,7 @@ La liste contient toutes les règles que vous avez créées et le groupe de séc
 **Commandes**
 
 - Azure CLI : [az network nsg rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-show)
-- PowerShell : [Get-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
+- PowerShell : [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
 
 ### <a name="change-a-security-rule"></a>Changer une règle de sécurité
 
@@ -168,7 +170,7 @@ La liste contient toutes les règles que vous avez créées et le groupe de séc
 **Commandes**
 
 - Azure CLI : [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
-- PowerShell : [Set-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
+- PowerShell : [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig)
 
 ### <a name="delete-a-security-rule"></a>Supprimer une règle de sécurité
 
@@ -178,7 +180,7 @@ La liste contient toutes les règles que vous avez créées et le groupe de séc
 **Commandes**
 
 - Azure CLI : [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
-- PowerShell : [Remove-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
+- PowerShell : [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig)
 
 ## <a name="work-with-application-security-groups"></a>Utiliser des groupes de sécurité d’application
 
@@ -200,7 +202,7 @@ Un groupe de sécurité d’application contient zéro interface réseau, ou plu
 **Commandes**
 
 - Azure CLI : [az network asg create](/cli/azure/network/asg#az-network-asg-create)
-- PowerShell : [New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
+- PowerShell : [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup)
 
 ### <a name="view-all-application-security-groups"></a>Voir tous les groupes de sécurité d’application
 
@@ -210,7 +212,7 @@ Un groupe de sécurité d’application contient zéro interface réseau, ou plu
 **Commandes**
 
 - Azure CLI : [az network asg list](/cli/azure/network/asg#az-network-asg-list)
-- PowerShell : [Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
+- PowerShell : [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>Voir les détails d’un groupe de sécurité d’application spécifique
 
@@ -221,7 +223,7 @@ Un groupe de sécurité d’application contient zéro interface réseau, ou plu
 **Commandes**
 
 - Azure CLI : [az network asg show](/cli/azure/network/asg#az-network-asg-show)
-- PowerShell : [Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
+- PowerShell : [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
 
 ### <a name="change-an-application-security-group"></a>Changer un groupe de sécurité d’application
 
@@ -244,7 +246,7 @@ Vous ne pouvez pas supprimer un groupe de sécurité d’application s’il cont
 **Commandes**
 
 - Azure CLI : [az network asg delete](/cli/azure/network/asg#az-network-asg-delete)
-- PowerShell : [Remove-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/remove-azurermapplicationsecuritygroup)
+- PowerShell : [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup)
 
 ## <a name="permissions"></a>Autorisations
 

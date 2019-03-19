@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: adsolank
-ms.openlocfilehash: c3ef977e7e8742f4d6de0f85d2d1684aa7eaa887
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6179d9eba43498ec8c101cb10a922d5bad332772
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877341"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Fichiers multimédia hyperlapse avec Azure Media Hyperlapse
 
@@ -52,7 +52,7 @@ Voici un exemple de fichier de configuration conforme au format XML et JSON :
 **Présélection XML :**
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
             <Source StartFrame="0" NumFrames="10000" />
         </Sources>
@@ -219,5 +219,5 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
 ## <a name="related-links"></a>Liens connexes
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Démonstrations Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

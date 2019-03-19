@@ -1,6 +1,6 @@
 ---
-title: Interroger Azure Log Analytics pour surveiller les clusters Azure HDInsight
-description: Découvrez comment exécuter des requêtes sur Azure Log Analytics pour surveiller les travaux en cours d’exécution dans un cluster HDInsight.
+title: Journaux de requête Azure Monitor pour surveiller les clusters Azure HDInsight
+description: Découvrez comment exécuter des requêtes sur les journaux Azure Monitor pour surveiller les travaux en cours d’exécution dans un cluster HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: e1187867fc9da9a89f92d7b321c8703ee7a8a407
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386500"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889254"
 ---
-# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Interroger Azure Log Analytics pour surveiller les clusters HDInsight
+# <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Journaux de requête Azure Monitor pour surveiller des clusters HDInsight
 
-Découvrez certains scénarios d’utilisation de base d’Azure Log Analytics pour surveiller des clusters Azure HDInsight :
+Découvrez des scénarios de base sur l’utilisation des journaux Azure Monitor pour surveiller les clusters Azure HDInsight :
 
 * [Analyser les métriques du cluster HDInsight](#analyze-hdinsight-cluster-metrics)
 * [Rechercher des messages de journal spécifiques](#search-for-specific-log-messages)
 * [Créer des alertes d’événement](#create-alerts-for-tracking-events)
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-* Vous devez avoir configuré un cluster HDInsight pour utiliser Azure Log Analytics et ajouté les solutions de gestion Log Analytics propres au cluster HDInsight à l’espace de travail. Pour obtenir des instructions, consultez [Utiliser Azure Log Analytics avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+## <a name="prerequisites"></a>Conditions préalables
+
+* Vous devez avoir configuré un cluster HDInsight pour utiliser des journaux Azure Monitor et ajouté les journaux d’Azure Monitor spécifiques au cluster HDInsight surveillance des solutions à l’espace de travail. Pour obtenir des instructions, consultez [utiliser Azure Monitor enregistre avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analyser les métriques du cluster HDInsight
 
@@ -34,7 +36,7 @@ Découvrez comment rechercher des métriques spécifiques pour votre cluster HDI
 
 1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
 2. Sélectionnez la vignette **Recherche dans les journaux**.
-3. Saisissez la requête suivante dans la zone de recherche afin de rechercher toutes les mesures disponibles dans tous les clusters HDInsight configurés pour utiliser Azure Log Analytics, puis sélectionnez **EXÉCUTER**.
+3. Tapez la requête suivante dans la zone de recherche pour rechercher toutes les mesures pour toutes les mesures disponibles pour tous les clusters HDInsight configurés pour utiliser les journaux d’Azure Monitor, puis sélectionnez **exécuter**.
 
         search *
 
@@ -67,7 +69,7 @@ Découvrez comment rechercher des messages d’erreur pendant une fenêtre de te
 
 1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
 2. Sélectionnez la vignette **Recherche dans les journaux**.
-3. Saisissez la requête suivante afin de rechercher tous les messages d’erreur dans tous les clusters HDInsight configurés pour utiliser Azure Log Analytics, puis sélectionnez **EXÉCUTER**. 
+3. Type de ce qui suit une requête pour rechercher tous les messages d’erreur pour tous les clusters HDInsight configurés pour utiliser les journaux d’Azure Monitor, puis sélectionnez **exécuter**. 
 
          search "Error"
 
@@ -117,11 +119,11 @@ Pour modifier ou supprimer une alerte existante :
 3. Sélectionnez l’alerte à modifier ou à supprimer.
 4. Vous disposez des options suivantes : **Enregistrer**, **Ignorer**, **Désactiver** et **Supprimer**.
 
-    ![Modification et suppression d’une alerte HDInsight Log Analytics](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![Modification de suppression d’une alerte de journaux HDInsight Azure Monitor](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-Pour plus d’informations, voir [Utilisation des règles d’alerte dans Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
+Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Utilisation de Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Création de règles d’alerte dans Log Analytics](../log-analytics/log-analytics-alerts-creating.md)
+* [Analytique de journal OMS : Concepteur de vues](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Créer, afficher et gérer les alertes de métriques avec Azure Monitor](../azure-monitor/platform/alerts-metric.md)

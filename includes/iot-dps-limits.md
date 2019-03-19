@@ -4,33 +4,33 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 62f5c1a1f6184feddad7f2b57bcfc1c4bb5bc339
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279599"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553503"
 ---
-Le tableau suivant répertorie les limites qui s’appliquent aux ressources du service d’approvisionnement d’appareil Azure IoT Hub :
+Le tableau suivant répertorie les limites qui s’appliquent aux ressources de Service Azure IoT Hub Device Provisioning.
 
 | Ressource | Limite |
 | --- | --- |
-| Nombre maximal de services d’approvisionnement d’appareil par abonnement Azure | 10 |
+| Maximale services device provisioning par abonnement Azure | 10 |
 | Nombre maximal d’inscriptions | 500 000 |
 | Nombre maximal d’inscriptions | 500 000 |
 | Nombre maximal de groupes d’inscription | 100 |
 | Nombre maximal d’autorités de certification | 25 |
 
 > [!NOTE]
-> Vous pouvez contacter [Support Microsoft](https://azure.microsoft.com/support/options/) pour augmenter le nombre d’instances dans votre abonnement.
+> Pour augmenter le nombre d’instances dans votre abonnement, contactez [Support Microsoft](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> Vous pouvez contacter le [Support Microsoft](https://azure.microsoft.com/support/options/) pour augmenter le nombre d’abonnements et d’inscriptions sur votre service de provisionnement.
+> Pour augmenter le nombre d’inscriptions et les inscriptions sur votre service d’approvisionnement, contactez [Support Microsoft](https://azure.microsoft.com/support/options/).
 
-Le service d’approvisionnement d’appareil limite les demandes lorsque les quotas suivants sont dépassés :
+Le Service Device Provisioning limite les demandes cas de dépassement des quotas suivants.
 
 | Limitation | Valeur par unité |
 | --- | --- |
 | Opérations | 200/min/service |
 | Inscriptions d’appareil | 200/min/service |
-| Opération d’interrogation des appareils | 5/10sec/appareil |
+| Opération d’interrogation des appareils | 5/10 s/appareil |

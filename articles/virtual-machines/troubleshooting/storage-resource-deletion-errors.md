@@ -11,22 +11,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089979"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage
 
 Dans certains scénarios, vous pouvez rencontrer l’une des erreurs suivantes lorsque vous essayez de supprimer un compte de stockage Azure, un conteneur ou un blob dans un déploiement Azure Resource Manager :
 
->**Échec de la suppression du compte de stockage « StorageAccountName ». Error: Impossible de supprimer le compte de stockage, car ses artefacts sont en cours d'utilisation.**
-
->**Impossible de supprimer # sur # conteneur(s) :<br>disques durs virtuels : Il existe actuellement un bail sur le conteneur et aucun ID de bail n’a été spécifié dans la demande.**
-
->**Impossible de supprimer # sur # objets blob :<br>BlobName.vhd : Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande.**
+> **Échec de la suppression du compte de stockage « StorageAccountName ». Error: Impossible de supprimer le compte de stockage, car ses artefacts sont en cours d'utilisation.**
+> 
+> **Impossible de supprimer # sur # conteneur(s) :<br>disques durs virtuels : Il existe actuellement un bail sur le conteneur et aucun ID de bail n’a été spécifié dans la demande.**
+> 
+> **Impossible de supprimer # sur # objets blob :<br>BlobName.vhd : Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande.**
 
 Les VHD utilisés dans des machines virtuelles Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour plus d'informations sur les disques Azure, consultez [Présentation des disques managés](../linux/managed-disks-overview.md).
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896551"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438480"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Mettre à l’échelle la migration de machines virtuelles à l’aide d’Azure Site Recovery
 
@@ -25,13 +25,13 @@ Cet article vous aide à comprendre le processus d’utilisation de scripts pour
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Avant de commencer, vous devez effectuer les étapes suivantes :
 - Vérifiez que le coffre Site Recovery est créé dans votre abonnement Azure
 - Vérifier que le serveur de configuration et le serveur de processus sont installés dans l’environnement source et que le coffre est en mesure de détecter l’environnement
 - Vérifier qu’une stratégie de réplication est créée et associée au serveur de configuration
-- Vérifier que vous avez ajouté le compte d’administrateur de machine virtuelle au serveur de configuration (qui sera utilisé pour répliquer les machines virtuelles locales)
-- Vérifier que les artefacts cibles dans Azure sont créés
+- Vérifiez que vous avez ajouté le compte d’administrateur de machine virtuelle sur le serveur de configuration (qui sera utilisé pour répliquer l’ordinateur local des machines virtuelles)
+- Assurez-vous que les artefacts de la cible dans Azure sont créés.
     - Groupe de ressources cible
     - Compte de stockage cible (et son groupe de ressources)
     - Réseau virtuel cible pour le basculement (et son groupe de ressources)
@@ -59,7 +59,7 @@ Une fois que le fichier CSV prêt, vous pouvez exécuter les étapes suivantes p
 4 | asr_propertiescheck.ps1 | Vérifier si les propriétés sont correctement mises à jour
 5. | asr_testmigration.ps1 |  Démarrer le test de basculement des machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle
 6. | asr_cleanuptestmigration.ps1 | Après avoir validé manuellement les machines virtuelles dont le test de basculement a échoué, vous pouvez utiliser ce script pour nettoyer les machines virtuelles du test de basculement
-7 | asr_migration.ps1 | Effectuer un basculement non planifié pour les machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle. Le script n’arrête pas les machines virtuelles locales avant de déclencher le basculement. Pour la cohérence des applications, il est recommandé d’arrêter manuellement les machines virtuelles avant l’exécution du script.
+7 | asr_migration.ps1 | Effectuer un basculement non planifié pour les machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle. Le script ne s’arrête pas l’ordinateur local des machines virtuelles avant de déclencher le basculement, pour la cohérence des applications, il est recommandé que vous arrêtez manuellement les machines virtuelles avant l’exécution du script.
 8 | asr_completemigration.ps1 | Effectuer l’opération de validation sur les machines virtuelles et supprimer les entités ASR
 9 | asr_postmigration.ps1 | Si vous envisagez d’attribuer des groupes de sécurité réseau aux cartes réseau après le basculement, vous pouvez, pour cela, utiliser ce script. Cela attribue un groupe de sécurité réseau à n’importe quelle carte réseau de la machine virtuelle cible.
 

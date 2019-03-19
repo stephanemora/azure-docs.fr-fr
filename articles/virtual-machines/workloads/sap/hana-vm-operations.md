@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 74b1ed79e04bcca05dcb5308b844622e4dd413ce
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328841"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410296"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -352,7 +352,7 @@ En plus des certifications SAP HANA sur les machines virtuelles Azure de série 
 SAP HANA Dynamic Tiering 2.0 n’est pas pris en charge par SAP BW ou S4HANA. Les cas d’utilisation principaux sont actuellement des applications HANA natives.
 
 
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Présentation
 
 L’image ci-dessous donne une vue d’ensemble de la prise en charge de DT 2.0 sur Microsoft Azure. Il existe un ensemble de conditions obligatoires, qui doivent être suivies pour être conforme à la certification officielle :
 
@@ -442,7 +442,7 @@ Comme pour la montée en puissance parallèle de SAP HANA, le répertoire /Hana/
 ### <a name="links-to-dt-20-documentation"></a>Liens vers la documentation de DT 2.0 
 
 - [SAP HANA Dynamic Tiering installation and update guide (Guide d’installation et de mise à jour de SAP HANA Dynamic Tiering)](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
-- [SAP HANA Dynamic Tiering tutorials and resources (Tutoriels et ressources pour SAP HANA Dynamic Tiering)](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [SAP HANA Dynamic Tiering tutorials and resources (Tutoriels et ressources pour SAP HANA Dynamic Tiering)](https://help.sap.com/viewer/fb9c3779f9d1412b8de6dd0788fa167b/2.0.03/en-US)
 - [SAP HANA Dynamic Tiering PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
 - [SAP HANA 2.0 SPS 02 dynamic tiering enhancements](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
 

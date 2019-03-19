@@ -5,16 +5,16 @@ description: Fournit des réponses aux questions les plus fréquentes sur Custom
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 4d63eb817f7dc1ff957223cb5e9181fbc441fe29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: d3e3d12e572c939fb2ddd5bc671aede434ca7d8a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227486"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760322"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -25,7 +25,6 @@ Cet article contient des réponses aux questions fréquemment posées sur [Custo
 Il existe des restrictions et des limites concernant la taille du fichier, l’apprentissage du modèle et le déploiement du modèle. N’oubliez pas ces restrictions lorsque vous configurez votre outil de formation pour générer un modèle dans Custom Translator.
 
 - Les fichiers envoyés doivent être inférieurs à 100 Mo.
-
 - Les données monolingues ne sont pas prises en charge.
 
 ## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Quand dois-je demander le déploiement d’un système de traduction qui a été formé ?

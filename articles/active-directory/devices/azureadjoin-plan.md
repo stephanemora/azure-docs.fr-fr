@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a299c5cf59a3c5b7a994303c9d85783ecfbb424
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b681915eb3ad9960f335d46508b857fa6ec2e20
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201888"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551770"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
@@ -32,7 +32,7 @@ La jonction Azure AD vous permet de joindre des appareils directement à Azure A
 Cet article vous fournit les informations nécessaires pour planifier votre implémentation de la jonction Azure AD.
 
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 
@@ -40,7 +40,7 @@ Cet article suppose que vous avez lu la [Présentation de la gestion des apparei
 
 ## <a name="plan-your-implementation"></a>Planifier l’implémentation
 
-Pour planifier votre implémentation Azure AD hybride, prenez connaissance de ces étapes :
+Pour planifier votre implémentation de la jointure Azure AD, vous devez vous familiariser avec :
 
 |   |   |
 |---|---|
@@ -237,11 +237,11 @@ Voici une comparaison de ces trois approches
  
 ||Configuration en libre-service|Windows Autopilot|Inscription en bloc|
 |---|---|---|---|
-|Nécessite une interaction utilisateur pour la configuration|OUI|OUI|Non |
-|Nécessite du travail de la part du département informatique|Non |OUI|OUI|
+|Nécessite une interaction utilisateur pour la configuration|Oui|Oui|Non |
+|Nécessite du travail de la part du département informatique|Non |OUI|Oui|
 |Flux applicables|OOBE et Paramètres|OOBE uniquement|OOBE uniquement|
 |Droits d’administrateur local pour l’utilisateur principal|Oui, par défaut|Configurable|Non |
-|Nécessite une prise en charge OEM|Non |OUI|Non |
+|Nécessite une prise en charge OEM|Non |Oui|Non |
 |Versions prises en charge|1511+|1709+|1703+|
  
 Choisissez votre ou vos approches de déploiement en consultant le tableau ci-dessus, et en examinant les points suivants pour l’adoption de l’une ou l’autre approche :  

@@ -3,15 +3,15 @@ title: Rôle d’accès du contrôleur personnalisé - Avere vFXT pour Azure
 description: Créer un rôle d’accès personnalisé pour le contrôleur de cluster Avere vFXT
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7ed20ccac879ec8eba1c3fbd91e38d05b08a12d2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c408efa7ca01928e25ac03f5ca63d0aef7d88839
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302943"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770033"
 ---
 # <a name="customized-controller-access-role"></a>Rôle d’accès du contrôleur personnalisé
 

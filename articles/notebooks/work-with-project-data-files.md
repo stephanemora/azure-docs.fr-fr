@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ae50581404dceb7b59b2ca145207f7d4ade23440
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: c5f8b6db77cabdf5e7af66063cbd9a058bd01800
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082770"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Utiliser des fichiers de données dans les projets Azure Notebooks
 
@@ -42,13 +42,13 @@ Vous pouvez déplacer des fichiers dans un projet depuis le tableau de bord du p
 
 1. Sélectionnez la commande **Charger**, puis **À partir d'une URL** ou **À partir de l'ordinateur** et les détails correspondant aux données du projet que vous souhaitez importer :
 
-    - **À partir d'une URL** : Entrez l’adresse source dans le champ **URL du fichier** ainsi que le nom de fichier à des fins d'affectation au notebook de votre projet dans le champ **Nom de fichier**. Sélectionnez ensuite **+ Ajouter un fichier** pour ajouter l’URL à la liste de téléchargement. Répétez la procédure pour les URL supplémentaires, puis sélectionnez **Terminé**.
+   - **À partir d'une URL** : Entrez l’adresse source dans le champ **URL du fichier** ainsi que le nom de fichier à des fins d'affectation au notebook de votre projet dans le champ **Nom de fichier**. Sélectionnez ensuite **+ Ajouter un fichier** pour ajouter l’URL à la liste de téléchargement. Répétez la procédure pour les URL supplémentaires, puis sélectionnez **Terminé**.
 
-    ![Charger à partir d'une fenêtre contextuelle d’URL](media/quickstarts/upload-from-url-popup.png)
+     ![Charger à partir d'une fenêtre contextuelle d’URL](media/quickstarts/upload-from-url-popup.png)
 
-    - **À partir de l'ordinateur** : Faites glisser les fichiers dans la fenêtre contextuelle ou sélectionnez **Choisir des fichiers**, puis recherchez et sélectionnez les fichiers de données que vous souhaitez importer. Vous pouvez supprimer ou choisir le nombre de fichiers de votre choix, de même que leur type et leur format puisqu'il incombe au code du notebook d'ouvrir ces fichiers et d'analyser les données qu'ils contiennent.
+   - **À partir de l'ordinateur** : Faites glisser les fichiers dans la fenêtre contextuelle ou sélectionnez **Choisir des fichiers**, puis recherchez et sélectionnez les fichiers de données que vous souhaitez importer. Vous pouvez supprimer ou choisir le nombre de fichiers de votre choix, de même que leur type et leur format puisqu'il incombe au code du notebook d'ouvrir ces fichiers et d'analyser les données qu'ils contiennent.
 
-    ![Charger à partir de la fenêtre contextuelle de l'ordinateur](media/quickstarts/upload-from-computer-popup.png)
+     ![Charger à partir de la fenêtre contextuelle de l'ordinateur](media/quickstarts/upload-from-computer-popup.png)
 
 1. Une fois importés, les fichiers apparaissent dans le tableau de bord du projet et sont accessibles dans le code du notebook à l’aide de chemins d’accès menant au dossier correspondant.
 

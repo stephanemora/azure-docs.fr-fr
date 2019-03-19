@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217286"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076188"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocole WebSocket pour la reconnaissance vocale Bing
 
@@ -77,7 +78,7 @@ Content-Length: 0
 
 Les informations d’en-tête suivantes sont requises pour l’accès au moyen d’un jeton.
 
-| NOM | Format | Description |
+| Nom | Format | Description |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Votre clé d’abonnement |
 
@@ -91,7 +92,7 @@ Les clients *doivent* prendre en charge les cookies HTTP comme spécifié dans l
 
 ### <a name="http-redirection"></a>Redirection HTTP
 
-Les clients *doivent* prendre en charge les mécanismes de redirection standard définis par la [spécification du protocole HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
+Les clients *doivent* prendre en charge les mécanismes de redirection standard définis par la [spécification du protocole HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
 ### <a name="speech-endpoints"></a>Points de terminaison du service Speech
 
@@ -99,9 +100,9 @@ Les clients *doivent* utiliser un point de terminaison approprié du service Spe
 
 | Mode | path | URI de service |
 | -----|-----|-----|
-| Interactive | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversation | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| Dictation | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Interactive | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| Dictation | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 Pour plus d’informations, consultez la page [URI du service](../GetStarted/GetStartedREST.md#service-uri).
 
@@ -131,13 +132,13 @@ Les messages WebSocket à encodage texte doivent spécifier un chemin de message
 
 ### <a name="binary-websocket-messages"></a>Messages WebSocket à encodage binaire
 
-Les messages WebSocket à encodage binaire comportent une charge utile binaire. Dans le protocole du service Speech, le contenu audio est transmis au service et reçu de ce dernier à l’aide de messages WebSocket à encodage binaire. Tous les autres messages sont des messages WebSocket à encodage texte. 
+Les messages WebSocket à encodage binaire comportent une charge utile binaire. Dans le protocole du service Speech, le contenu audio est transmis au service et reçu de ce dernier à l’aide de messages WebSocket à encodage binaire. Tous les autres messages sont des messages WebSocket à encodage texte.
 
 Comme les messages WebSocket à encodage texte, les messages WebSocket à encodage binaire se composent d’une section d’en-tête et d’une section de corps. Les 2 premiers octets du message WebSocket à encodage binaire spécifient, dans l’ordre [big-endian](https://en.wikipedia.org/wiki/Endianness), la taille de la section d’en-tête sous la forme d’un entier de 16 bits. La taille minimale de la section d’en-tête est de 0 octet. La taille maximale est de 8 192 octets. Le texte dans les en-têtes des messages WebSocket à encodage binaire *doit* utiliser l’encodage [US-ASCII](https://tools.ietf.org/html/rfc20).
 
 Le format de l’encodage des en-têtes dans un message WebSocket à encodage binaire est le même format que celui utilisé dans les messages WebSocket à encodage texte. Le format *nom:valeur* est séparé par une paire de sauts de ligne à simple retour chariot. Les messages WebSocket à encodage binaire doivent spécifier un chemin de message dans l’en-tête *Path*. La valeur de cet en-tête doit être un des types de messages de protocole de reconnaissance vocale définis plus loin dans ce document.
 
-Les deux types de messages WebSocket (à encodage texte et à encodage binaire), sont utilisés dans le protocole du service Speech. 
+Les deux types de messages WebSocket (à encodage texte et à encodage binaire), sont utilisés dans le protocole du service Speech.
 
 ## <a name="client-originated-messages"></a>Messages provenant du client
 
@@ -187,7 +188,7 @@ Les clients *doivent* envoyer un message `speech.config` dès qu’ils ont étab
 À l’image de tous les messages provenant d’un client dans le protocole du service Speech, le message `speech.config` *doit* inclure un en-tête *X-Timestamp* qui enregistre l’heure d’horloge UTC cliente à laquelle le message a été envoyé au service. Le message `speech.config` *ne requiert pas* un en-tête *X-RequestId*, car il n’est pas associé à une demande de reconnaissance vocale particulière.
 
 #### <a name="message-payload"></a>Charge utile du message
-La charge utile du message `speech.config` est une structure JSON qui contient des informations sur l’application. L’exemple ci-après illustre ces informations. Les informations du contexte du client et de l’appareil sont incluses dans l’élément *context* de la structure JSON. 
+La charge utile du message `speech.config` est une structure JSON qui contient des informations sur l’application. L’exemple ci-après illustre ces informations. Les informations du contexte du client et de l’appareil sont incluses dans l’élément *context* de la structure JSON.
 
 ```JSON
 {
@@ -507,7 +508,7 @@ La métrique `Connection` spécifie des détails sur les tentatives de connexion
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| NOM | `Connection` | Obligatoire |
+| Nom | `Connection` | Obligatoire |
 | ID | Valeur d’identificateur de connexion qui a été utilisée dans l’en-tête *X-ConnectionId* pour cette demande de connexion | Obligatoire |
 | Démarrer | Heure à laquelle le client a envoyé la demande de connexion | Obligatoire |
 | Terminer | Heure à laquelle le client a reçu la notification selon laquelle la connexion a été établie ou, en cas d’erreur, heure de son rejet, refus ou échec | Obligatoire |
@@ -527,7 +528,7 @@ La description de l’erreur ne doit pas dépasser 50 caractères et doit idéal
 | ServerUnavailable | Le client n’a pas pu se connecter au service, car ce dernier a retourné un code d’état HTTP `503 Server Unavailable` sur la demande de mise à niveau WebSocket. |
 | ServerError | Le client n’a pas pu se connecter au service, car ce dernier a retourné un code d’état d’erreur interne `HTTP 500` sur la demande de mise à niveau WebSocket. |
 | Délai d'expiration | La demande de connexion du client est arrivé à expiration sans réponse de la part du service. Le champ *End* contient l’heure à laquelle le client a expiré et a arrêté d’attendre la connexion. |
-| ClientError | Le client a mis fin à la connexion en raison d’une erreur cliente interne. | 
+| ClientError | Le client a mis fin à la connexion en raison d’une erreur cliente interne. |
 
 ### <a name="metric-microphone"></a>Métrique `Microphone`
 
@@ -547,7 +548,7 @@ La valeur d’heure *End* de la métrique `Microphone` enregistre l’heure à l
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| NOM | Microphone | Obligatoire |
+| Nom | Microphone | Obligatoire |
 | Démarrer | Heure à laquelle le client a commencé à utiliser l’entrée audio du microphone ou un autre flux audio ou a reçu un déclencheur du détecteur de mots clés | Obligatoire |
 | Terminer | Heure à laquelle le client a arrêté d’utiliser le microphone ou le flux audio | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. En cas d’échec des opérations de microphone, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
@@ -567,7 +568,7 @@ Appuyez-vous sur les exemples suivants pour enregistrer les valeurs d’heure *S
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| NOM | ListeningTrigger | Facultatif |
+| Nom | ListeningTrigger | Facultatif |
 | Démarrer | Heure à laquelle a démarré le déclencheur d’écoute du client | Obligatoire |
 | Terminer | Heure à laquelle a terminé le déclencheur d’écoute du client | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. Si l’opération du déclencheur a réussi, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
@@ -636,7 +637,7 @@ Si le service Speech détecte des violations de protocole émanant d’un client
 
 #### <a name="incorrect-message-format"></a>Format de message incorrect
 
-Si un client envoie au service un message texte ou binaire qui n’est pas encodé au format approprié indiqué dans cette spécification, le service ferme la connexion avec un code d’état *1007 (données de charge utile non valides)*. 
+Si un client envoie au service un message texte ou binaire qui n’est pas encodé au format approprié indiqué dans cette spécification, le service ferme la connexion avec un code d’état *1007 (données de charge utile non valides)*.
 
 Le service retourne ce code d’état pour diverses raisons, comme indiqué dans les exemples suivants :
 

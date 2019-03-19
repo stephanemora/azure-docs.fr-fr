@@ -4,29 +4,27 @@ description: Étapes à suivre pour déployer le cluster Avere vFXT dans Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745433"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409684"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
 
-Cette procédure explique comment utiliser l'Assistant de déploiement disponible sur la Place de marché Microsoft Azure. L'Assistant déploie automatiquement le cluster à l'aide d'un modèle Azure Resource Manager. Une fois que vous avez entré les paramètres dans le formulaire et cliqué sur **Créer**, Azure exécute automatiquement les étapes suivantes : 
+Cette procédure explique comment utiliser l'Assistant de déploiement disponible sur la Place de marché Microsoft Azure. L'Assistant déploie automatiquement le cluster à l'aide d'un modèle Azure Resource Manager. Une fois que vous avez entré les paramètres dans le formulaire et cliqué sur **Créer**, Azure exécute automatiquement les étapes suivantes :
 
-* Créez le contrôleur de cluster ; il s'agit d'une machine virtuelle de base contenant le logiciel nécessaire au déploiement et à la gestion du cluster.
-* Configurez l'infrastructure du réseau virtuel et du groupe de ressources, notamment en créant de nouveaux éléments si nécessaire.
-* Créez les machines virtuelles du nœud de cluster et configurez-les en tant que cluster Avere.
-* Si nécessaire, créez un conteneur d'objets Blob Azure et configurez-le en tant que système de stockage principal du cluster.
+* Crée le contrôleur de cluster, qui est une machine virtuelle de base qui contient le logiciel nécessaire pour déployer et gérer le cluster.
+* Configure le groupe de ressources et l’infrastructure de réseau virtuel, y compris la création de nouveaux éléments.
+* Crée des machines virtuelles à nœud du cluster et les configure en tant que le cluster Avere.
+* Si nécessaire, crée un nouveau conteneur d’objets Blob Azure et le configure en tant qu’un serveur de fichiers de base de cluster.
 
-Après avoir suivi les instructions de ce document, vous disposerez d’un réseau virtuel, d’un sous-réseau, d’un contrôleur et d’un cluster vFXT, comme le montre le diagramme suivant :
+Après avoir suivi les instructions fournies dans ce document, vous aurez un réseau virtuel, un sous-réseau, un contrôleur et un cluster vFXT comme indiqué dans le diagramme suivant. Ce diagramme illustre le facultatif Blob Azure core serveur de fichiers, ce qui inclut un nouveau conteneur de stockage Blob (dans un compte de stockage, non illustré) et un point de terminaison de service pour le stockage de Microsoft à l’intérieur du sous-réseau. 
 
-![Diagramme montrant un réseau virtuel contenant un stockage d’objets blob facultatif et un sous-réseau contenant trois machines virtuelles regroupées, étiquetées « nœuds vFXT/cluster vFXT », et une machine virtuelle étiquetée « contrôleur de cluster »](media/avere-vfxt-deployment.png)
-
-Après avoir créé le cluster, vous devez [créer un point de terminaison de stockage](#create-a-storage-endpoint-if-using-azure-blob) sur votre réseau virtuel si vous utilisez le stockage d'objets Blob. 
+![diagramme montrant trois concentriques rectangles avec Avere les composants de cluster. Le rectangle externe est étiqueté « Groupe de ressources » et contient un hexagone étiqueté « (facultatif) de stockage d’objets Blob ». Le rectangle suivant en est étiqueté « réseau virtuel : 10.0.0.0/16' et ne contient pas tous les composants uniques. Le rectangle plus profond est étiqueté « Subnet:10.0.0.0/24 » et contient une machine virtuelle étiquetée « controller Cluster », une pile de trois machines virtuelles étiquetés « vFXT nœuds (cluster vFXT) » et un hexagone étiqueté « Point de terminaison de Service ». Il existe une flèche reliant le point de terminaison de service (qui est à l’intérieur du sous-réseau) et le stockage d’objets blob (situé à l’extérieur du sous-réseau et le réseau virtuel, dans le groupe de ressources). La flèche traverse le sous-réseau et les limites du réseau virtuel.](media/avere-vfxt-deployment.png)  
 
 Avant d'utiliser le modèle de création, vérifiez que les conditions préalables suivantes sont réunies :  
 
@@ -34,6 +32,7 @@ Avant d'utiliser le modèle de création, vérifiez que les conditions préalabl
 1. [Autorisations du propriétaire de l’abonnement](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota pour le cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Rôles d'accès personnalisés](avere-vfxt-prereqs.md#create-access-roles) : vous devez créer un rôle de contrôle d'accès en fonction du rôle à affecter aux nœuds du cluster. Vous pouvez également créer un rôle d'accès personnalisé pour le contrôleur de cluster, mais la plupart des utilisateurs choisiront le rôle par défaut, Propriétaire, qui confère au contrôleur les mêmes privilèges qu'un propriétaire de groupe de ressources. Pour plus d'informations, consultez [Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md#owner).
+1. [Point de terminaison de service de stockage (si nécessaire)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) : requis pour déploie à l’aide d’un réseau virtuel existant et la création de stockage d’objets blob
 
 Pour plus d’informations sur la planification du déploiement du cluster et les étapes à suivre, consultez [Planifier votre système Avere vFXT](avere-vfxt-deploy-plan.md) et [Vue d’ensemble du déploiement](avere-vfxt-deploy-overview.md).
 
@@ -105,13 +104,13 @@ La deuxième page du modèle de déploiement vous permet de définir la taille d
 
 * **Nom du cluster Avere vFXT** : attribuez un nom unique au cluster. 
 
-* **Taille** : spécifiez le type de machine virtuelle à utiliser lors de la création des nœuds de cluster. 
+* **Taille** -cette section affiche le type de machine virtuelle qui sera utilisé pour les nœuds de cluster. Bien qu’il n'existe qu’une seule option recommandée, le **modifier la taille** lien ouvre une table avec des détails sur ce type d’instance et un lien vers un calculateur de coût.  
 
 * **Taille du cache par nœud** : le cache du cluster est réparti sur les nœuds du cluster. La taille totale du cache de votre cluster Avere vFXT correspondra donc à la taille du cache par nœud multipliée par le nombre de nœuds. 
 
-  La configuration recommandée est d'utiliser 1 To par nœud si vous utilisez des nœuds de cluster Standard_D16s_v3, et 4 To par nœud si vous utilisez des nœuds Standard_E32s_v3.
+  La configuration recommandée consiste à utiliser les 4 To par nœud pour les nœuds de Standard_E32s_v3.
 
-* **Réseau virtuel** : sélectionnez un réseau virtuel existant pour héberger le cluster, ou définissez un nouveau réseau virtuel à créer. 
+* **Réseau virtuel** : définir un nouveau réseau virtuel pour héberger le cluster, ou sélectionnez un réseau virtuel existant qui remplit les conditions préalables décrites dans [planifier votre système de vFXT Avere](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure). 
 
   > [!NOTE]
   > Si vous créez un réseau virtuel, le contrôleur de cluster dispose d'une adresse IP publique pour vous permettre d'accéder au nouveau réseau privé. Si vous choisissez un réseau virtuel existant, le contrôleur de cluster est configuré sans adresse IP publique. 
@@ -121,17 +120,21 @@ La deuxième page du modèle de déploiement vous permet de définir la taille d
   >  * Si vous ne configurez aucune adresse IP publique sur le contrôleur, vous devez utiliser un autre hôte de saut, une connexion VPN ou ExpressRoute pour accéder au cluster. Par exemple, créez le contrôleur au sein d'un réseau virtuel sur lequel une connexion VPN a déjà été configurée.
   >  * Si vous créez un contrôleur avec une adresse IP publique, vous devez protéger la machine virtuelle du contrôleur avec un groupe de sécurité réseau. Par défaut, le déploiement Avere vFXT pour Azure crée un groupe de sécurité réseau et limite l'accès entrant au seul port 22 pour les contrôleurs dotés d'adresses IP publiques. Vous pouvez renforcer la protection du système en verrouillant l'accès à votre plage d'adresses IP sources, c'est-à-dire autoriser uniquement les connexions des machines que vous avez l'intention d'utiliser pour l'accès au cluster.
 
+  Le modèle de déploiement configure également le nouveau réseau virtuel avec un point de terminaison de service de stockage pour stockage Blob Azure et contrôle d’accès réseau verrouillé sur seules les adresses IP à partir du sous-réseau de cluster. 
+
 * **Sous-réseau** : choisissez un sous-réseau de votre réseau virtuel existant, ou créez-en un. 
 
-* **Utiliser le stockage d'objets blob** : choisissez **true** afin de créer un nouveau conteneur d'objets Blob Azure et configurez-le en tant que stockage principal pour le nouveau cluster Avere vFXT. Cette option crée également un nouveau compte de stockage dans le même groupe de ressources que le cluster. 
+* **Créer et utiliser le stockage d’objets blob** -choisissez **true** pour créer un nouveau conteneur d’objets Blob Azure et le configurer en tant que stockage principal pour le nouveau cluster de vFXT Avere. Cette option crée également un nouveau compte de stockage dans le même groupe de ressources que le cluster et un point de terminaison du service de stockage de Microsoft dans le sous-réseau de cluster. 
+  
+  Si vous fournissez un réseau virtuel existant, il doit avoir un point de terminaison de service de stockage avant de créer le cluster. (Pour plus d’informations, consultez [planifier votre système de vFXT Avere](avere-vfxt-deploy-plan.md).)
 
   Définissez ce champ sur **false** si vous ne souhaitez pas créer de nouveau conteneur. Dans ce cas, vous devez joindre et configurer le stockage après la création du cluster. Pour obtenir des instructions, consultez [Configurer le stockage](avere-vfxt-add-storage.md). 
 
-* **Compte de stockage** : si vous créez un nouveau conteneur d'objets Blob Azure, entrez un nom pour le nouveau compte de stockage. 
+* **(Nouveau) Compte de stockage** : si la création d’un conteneur d’objets Blob Azure, entrez un nom pour le nouveau compte de stockage. 
 
 ## <a name="validation-and-purchase"></a>Validation et achat
 
-La troisième page récapitule la configuration et valide les paramètres. Au terme de la validation, cliquez sur le bouton **OK** pour continuer. 
+Page trois résume la configuration et valide les paramètres. Au terme de la validation, cliquez sur le bouton **OK** pour continuer. 
 
 ![Troisième page du modèle de déploiement - Validation](media/avere-vfxt-deploy-3.png)
 
@@ -159,20 +162,6 @@ Pour accéder à ces informations, procédez comme suit :
 1. À gauche, cliquez sur **Sorties**. Copiez les valeurs dans chacun des champs. 
 
    ![page affichant les valeurs SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs et MGMT_IP dans des champs, à droite des étiquettes](media/avere-vfxt-outputs-values.png)
-
-
-## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Créer un point de terminaison de stockage (si vous utilisez Stockage Blob Azure)
-
-Si vous utilisez Stockage Blob Azure pour le stockage de vos données back-end, vous devez créer un point de terminaison de service de stockage dans votre réseau virtuel. Ce [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) conserve le trafic des objets blob Azure au niveau local au lieu de l'acheminer à l'extérieur du réseau virtuel.
-
-1. Dans le portail, cliquez sur **Réseaux virtuels** à gauche.
-1. Sélectionnez le réseau virtuel pour votre contrôleur. 
-1. Cliquez sur **Points de terminaison de service** à gauche.
-1. Cliquez sur **Ajouter** dans la partie supérieure.
-1. Conservez le service ``Microsoft.Storage`` et choisissez le sous-réseau du contrôleur.
-1. Dans la partie inférieure, cliquez sur **Ajouter**.
-
-  ![Capture d’écran du portail Azure montrant les étapes de création du point de terminaison de service](media/avere-vfxt-service-endpoint.png)
 
 ## <a name="next-step"></a>Étape suivante
 

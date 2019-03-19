@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089962"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Exécuter et tester U-SQL à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
 
@@ -32,11 +32,11 @@ Le kit SDK U-SQL Data Lake requiert les dépendances suivantes :
 - [Microsoft .NET Framework 4.6 ou une version ultérieure](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 et le Kit SDK Windows 10.0.10240.0 ou une version plus récente (appelé CppSDK dans cet article). Il existe deux façons d’obtenir CppSDK :
 
-    - Installez [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Vous devez disposer d’un sous-dossier \Windows Kits\10 dans le dossier Program Files, par exemple C:\Program Files (x86)\Windows Kits\10\. Vous trouverez également la version du SDK Windows 10 sous \Windows Kits\10\Lib. Si vous ne voyez pas ces dossiers, réinstallez Visual Studio et veillez à sélectionner le kit SDK Windows 10 lors de l’installation. S’il est installé avec Visual Studio, le compilateur local U-SQL le trouvera automatiquement.
+  - Installez [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Vous devez disposer d’un sous-dossier \Windows Kits\10 dans le dossier Program Files, par exemple C:\Program Files (x86)\Windows Kits\10\. Vous trouverez également la version du SDK Windows 10 sous \Windows Kits\10\Lib. Si vous ne voyez pas ces dossiers, réinstallez Visual Studio et veillez à sélectionner le kit SDK Windows 10 lors de l’installation. S’il est installé avec Visual Studio, le compilateur local U-SQL le trouvera automatiquement.
 
     ![Data Lake Tools pour Visual Studio exécution locale Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Installez [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). Vous trouverez les fichiers Visual C++ et le kit SDK Windows préconfigurés sous C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Dans ce cas, le compilateur U-SQL local ne trouve pas ces dépendances automatiquement. Vous devez spécifier le chemin d’accès CppSDK pour lui. Vous pouvez copier les fichiers vers un autre emplacement ou les utiliser tels quels.
+  - Installez [Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs). Vous trouverez les fichiers Visual C++ et le kit SDK Windows préconfigurés sous C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Dans ce cas, le compilateur U-SQL local ne trouve pas ces dépendances automatiquement. Vous devez spécifier le chemin d’accès CppSDK pour lui. Vous pouvez copier les fichiers vers un autre emplacement ou les utiliser tels quels.
 
 ## <a name="understand-basic-concepts"></a>Comprendre les concepts de base
 
@@ -223,7 +223,7 @@ Voici un exemple d’utilisation :
 
 Les interfaces de programmation se trouvent toutes dans LocalRunHelper.exe. Vous pouvez les utiliser pour intégrer les fonctionnalités du kit SDK U-SQL, et l’infrastructure de test C# pour mettre à l’échelle votre test local du script SQL-U. Dans cet article, je vais utiliser le projet de test unitaire C# standard pour montrer comment utiliser ces interfaces afin de tester un script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Étape 1 : Créer une configuration et un projet de test unitaire C#
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Étape 1 : Créer C# configuration et un projet de test unitaire
 
 - Créez un projet de test unitaire C# dans Fichier > Nouveau > Projet > Visual C# > Test > Projet de test unitaire.
 - Ajoutez LocalRunHelper.exe comme référence du projet. LocalRunHelper.exe se trouve dans \build\runtime\LocalRunHelper.exe, dans le package NuGet.
@@ -240,7 +240,7 @@ Les interfaces de programmation se trouvent toutes dans LocalRunHelper.exe. Vous
 
 - Veillez à copier tous les fichiers de dépendance sous NugetPackage\build\runtime\ dans le répertoire de travail qui se trouve généralement sous ProjectFolder\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Étape 2 : Créer des cas de test du script U-SQL
+### <a name="step-2-create-u-sql-script-test-case"></a>Étape 2 : Créer des cas de test du script U-SQL
 
 Voici l’exemple de code de test du script U-SQL. Pour le test, vous devez préparer les scripts, les fichiers d’entrée et les fichiers sortie attendus.
 
@@ -332,34 +332,34 @@ LocalRunHelper.exe fournit les interfaces de programmation pour la compilation, 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Paramètre|type|Description|
+|Paramètre|Type|Description|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|pour les messages de sortie, donner la valeur null pour utiliser la Console|
 
 **Propriétés**
 
-|Propriété|type|Description|
+|Propriété|Type|Description|
 |--------|----|-----------|
-|AlgebraPath|chaîne|Chemin d’accès du fichier d’algèbre (le fichier d’algèbre est un des résultats de la compilation)|
-|CodeBehindReferences|chaîne|Si le script a des références code-behind supplémentaires, spécifiez les chemins d’accès séparés par « ; »|
-|CppSdkDir|chaîne|Répertoire CppSDK|
-|CurrentDir|chaîne|Répertoire actif|
-|DataRoot|chaîne|Chemin d’accès de la racine de données|
-|DebuggerMailPath|chaîne|Chemin d’accès du port d’insertion/éjection du débogueur|
+|AlgebraPath|string|Chemin d’accès du fichier d’algèbre (le fichier d’algèbre est un des résultats de la compilation)|
+|CodeBehindReferences|string|Si le script a des références code-behind supplémentaires, spécifiez les chemins d’accès séparés par « ; »|
+|CppSdkDir|string|Répertoire CppSDK|
+|CurrentDir|string|Répertoire actif|
+|DataRoot|string|Chemin d’accès de la racine de données|
+|DebuggerMailPath|string|Chemin d’accès du port d’insertion/éjection du débogueur|
 |GenerateUdoRedirect|bool|Si vous souhaitez générer une configuration de remplacement de redirection de chargement d’assembly|
 |HasCodeBehind|bool|Si le script a du code-behind|
-|InputDir|chaîne|Répertoire des données d’entrée|
-|MessagePath|chaîne|Chemin d’accès du fichier de vidage des messages|
-|OutputDir|chaîne|Répertoire des données de sortie|
+|InputDir|string|Répertoire des données d’entrée|
+|MessagePath|string|Chemin d’accès du fichier de vidage des messages|
+|OutputDir|string|Répertoire des données de sortie|
 |Parallélisme|int|Parallélisme pour exécuter l’algèbre|
 |ParentPid|int|PID du parent que le service surveille pour quitter, donner la valeur 0 ou une valeur négative pour ignorer|
-|ResultPath|chaîne|Chemin d’accès du fichier de vidage des résultats|
-|RuntimeDir|chaîne|Répertoire du runtime|
-|ScriptPath|chaîne|Emplacement du script|
+|ResultPath|string|Chemin d’accès du fichier de vidage des résultats|
+|RuntimeDir|string|Répertoire du runtime|
+|ScriptPath|string|Emplacement du script|
 |Shallow|bool|Compilation superficielle ou non|
-|TempDir|chaîne|Répertoire Temp|
-|UseDataBase|chaîne|Spécifiez la base de données à utiliser pour l’inscription des assemblys temporaires du code-behind, MASTER par défaut|
-|WorkDir|chaîne|Répertoire de travail favori|
+|TempDir|string|Répertoire Temp|
+|UseDataBase|string|Spécifiez la base de données à utiliser pour l’inscription des assemblys temporaires du code-behind, MASTER par défaut|
+|WorkDir|string|Répertoire de travail favori|
 
 
 **Méthode**
@@ -379,7 +379,7 @@ E_CSC_SYSTEM_INTERNAL : Erreur interne ! Impossible de charger le fichier ou l
 
 Vérifiez les éléments suivants :
 
-- Assurez-vous que vous avez un environnement x64. La plateforme cible de build et de l’environnement de test doit être x64. Consultez la section **Étape 1 : Créer une configuration et un projet de test unitaire C#** ci-dessus.
+- Assurez-vous que vous avez un environnement x64. La plateforme cible de génération et de l’environnement de test doit être x64, reportez-vous à **étape 1 : Créer C# configuration et un projet de test unitaire** ci-dessus.
 - Vérifiez que vous avez copié tous les fichiers de dépendance sous NugetPackage\build\runtime\ dans le répertoire de travail du projet.
 
 

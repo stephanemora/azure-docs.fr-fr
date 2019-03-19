@@ -12,24 +12,36 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 3/3/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ec3784a91f8aeb7f0fedd13c9ab86a844832a578
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 7df96d53b02e80283f263901dc7e26ed4edb947d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806034"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342375"
 ---
-<a name="seller-insights-release-notes"></a>Notes de publication de Seller Insights 
-===============================
-(Date de publication : 28 juillet 2018)
+# <a name="seller-insights-release-notes"></a>Notes de publication de Seller Insights 
+
+(Date de publication : Le 1 mars 2019)
 
 Cet article fournit des informations sur les modifications apportées à la fonctionnalité Seller Insights dans le [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/#insights).
 
+## <a name="release-highlights-for-march-1-2019"></a>Met en évidence de version pour le 1 mars 2019
 
-<a name="release-highlights"></a>Présentation de la nouvelle version
-------------------
+* *Tendance de client* ajouté au résumé
+* *Meilleurs cinq clients* résumé refléter tous les abonnements Azure a un client
+* *Normalisée des tendances d’utilisation et les tendances de commandes Active* sur Résumé rattaché *commandes mensuelles en un clin de œil*
+* *Rapport de rapprochement des paiements* mis à jour
+* *Meilleurs cinq clients* sur paiement refléter tous les abonnements Azure a un client
+* *Rapport d’utilisation* mis à jour avec l’ID de client
+* *Ancienneté du client* sur les commandes et utilisation reflète tous les abonnements Azure a un client
+
+
+(Date de publication : Le 28 juillet 2018)
+
+## <a name="release-highlights-for-july-28-2018"></a>Met en évidence de version pour le 28 juillet 2018
+
 
 -   L’option *Estimation du prix* donne au client une estimation du coût et des frais de change associés.
 -   *Paiements prévus* fournit une vue anticipée des paiements potentiels.
@@ -37,8 +49,7 @@ Cet article fournit des informations sur les modifications apportées à la fonc
 -   *Utilisation quotidienne* permet une meilleure analyse et une connaissance plus approfondie de l’utilisation par les clients.
 
 
-<a name="changes-to-data-structure-and-taxonomy"></a>Modifications apportées à la structure de données et à la taxonomie
---------------------------------------
+### <a name="changes-to-data-structure-and-taxonomy"></a>Modifications apportées à la structure de données et à la taxonomie
 
 Le tableau suivant répertorie les métriques qui ont été ajoutées ou modifiées dans cette version. 
 

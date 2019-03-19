@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007597"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441558"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Syntaxe des requêtes simples dans Recherche Azure
 Recherche Azure implémente deux langages de requête basés sur Lucene : L’[analyseur de requêtes simples](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) et l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Dans Recherche Azure, la syntaxe des requêtes simples exclut les options fuzzy/slop.  
@@ -46,7 +46,7 @@ En règle générale, vous voyez plus probablement ces comportements dans les mo
 
 ## <a name="operators-in-simple-search"></a>Opérateurs dans une recherche simple
 
-Vous pouvez incorporer des opérateurs dans une chaîne de requête pour créer un ensemble substantiel de critères pour lesquels des documents correspondants sont trouvés. 
+Vous pouvez incorporer des opérateurs dans une chaîne de requête pour générer un ensemble de critères par rapport à laquelle sont trouvent les documents correspondants. 
 
 ## <a name="and-operator-"></a>Opérateur AND `+`
 

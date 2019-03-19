@@ -10,26 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/22/2018
-ms.author: cephalin
+ms.date: 03/10/2019
+ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: a92440e97f47f0778eb73b81b239b45476d4e733
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884385"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ils ne sont pas les mêmes que vos informations d’identification Azure Active Directory.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas le même que vos informations d’identification Azure Active Directory.
 
-* **Informations d’identification au niveau de l’utilisateur** : un seul ensemble d’informations d’identification pour l’intégralité du compte Azure. Il peut être utilisé pour déployer sur App Service pour n’importe quelle application et dans n’importe quel abonnement auxquels le compte Azure est autorisé à accéder. C’est l’ensemble par défaut qui est présenté dans l’interface utilisateur graphique du portail, comme la **vue d’ensemble** et les **propriétés** de la [page Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de l’application. Quand un utilisateur est autorisé à accéder à l’application via le contrôle d’accès en fonction du rôle (RBAC) ou des autorisations de coadmin, il peut se servir de ses propres informations d’identification tant que l’accès n’est pas révoqué. Ne partagez pas ces informations d’identification avec d’autres utilisateurs d’Azure.
+* **Informations d’identification au niveau de l’utilisateur** : un seul ensemble d’informations d’identification pour l’intégralité du compte Azure. Il peut être utilisé pour déployer sur App Service pour n’importe quelle application et dans n’importe quel abonnement auxquels le compte Azure est autorisé à accéder. C’est l’ensemble par défaut qui est présenté dans l’interface utilisateur graphique du portail, comme la **vue d’ensemble** et les **propriétés** de la [page Ressources](../azure-resource-manager/manage-resources-portal.md#manage-resources) de l’application. Quand un utilisateur est autorisé à accéder à l’application via le contrôle d’accès en fonction du rôle (RBAC) ou des autorisations de coadmin, il peut se servir de ses propres informations d’identification tant que l’accès n’est pas révoqué. Ne partagez pas ces informations d’identification avec d’autres utilisateurs d’Azure.
 
 * **Informations d’identification au niveau de l’application** : un seul ensemble d’informations d’identification pour chaque application. Celui-ci peut être utilisé pour déployer sur cette application uniquement. Les informations d’identification de chaque application sont générées automatiquement à la création de l’application. Elles ne peuvent pas être configurées manuellement, mais peuvent être réinitialisées à tout moment. Pour qu’un utilisateur puisse accéder aux informations d’identification de niveau application via RBAC, il doit avoir un rôle de contributeur ou supérieur sur l’application. Les lecteurs ne sont pas autorisés à publier et n’ont pas accès à ces informations d’identification.
 
 ## <a name="userscope"></a>Définir et réinitialiser les informations d’identification au niveau de l’utilisateur
 
-Vous pouvez configurer vos informations d’identification au niveau de l’utilisateur dans la [page Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) d’une application. Quelle que soit l’application dans laquelle vous configurez ces informations d’identification, ces dernières s’appliquent à toutes les applications et à tous les abonnements de votre compte Azure. 
+Vous pouvez configurer vos informations d’identification au niveau de l’utilisateur dans la [page Ressources](../azure-resource-manager/manage-resources-portal.md#manage-resources) d’une application. Quelle que soit l’application dans laquelle vous configurez ces informations d’identification, ces dernières s’appliquent à toutes les applications et à tous les abonnements de votre compte Azure. 
 
 Pour configurer les informations d’identification au niveau de l’utilisateur :
 
@@ -53,6 +53,12 @@ et le nom d’utilisateur de déploiement *FTP* dans les **propriétés** de vot
 > Azure n’affiche pas votre mot de passe du déploiement au niveau de l’utilisateur. Si vous oubliez le mot de passe, vous pouvez réinitialiser vos informations d’identification en suivant les étapes décrites dans cette section.
 >
 >  
+
+## <a name="use-user-level-credentials-with-ftpftps"></a>Utiliser les informations d’identification au niveau de l’utilisateur avec FTP/FTPS
+
+L’authentification auprès d’un point de terminaison FTP/FTPS utilisant requirers des informations d’identification au niveau de l’utilisateur un nom d’utilisateur au format suivant : `<app-name>\<user-name>`
+
+Dans la mesure où les informations d’identification au niveau de l’utilisateur sont liées à l’utilisateur et pas une ressource spécifique, le nom d’utilisateur doit être au format suivant pour diriger l’action de connexion au point de terminaison d’application appropriée.
 
 ## <a name="appscope"></a>Obtenir et réinitialiser les informations d’identification au niveau de l’application
 Pour obtenir les informations d’identification au niveau de l’application :

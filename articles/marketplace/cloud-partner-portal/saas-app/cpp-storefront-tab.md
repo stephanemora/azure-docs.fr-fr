@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 25fdce2381cc6dd65559a2450a42de5389589863
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7c4bd326c597b8e989dfc7aac5239ddb2d38376a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195561"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884764"
 ---
 # <a name="saas-application-storefront-details-tab"></a>Onglet Détails de la vitrine d’une application SaaS
 
 Cet article explique comment utiliser l’onglet Détails de la vitrine pour décrire votre application SaaS et fournir des ressources marketing. Cet onglet comprend les formulaires suivants : Overview (Vue d’ensemble), Marketing Artifacts (Artefacts marketing), Lead Management (Gestion des prospects) et Legal (Informations juridiques). 
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Le formulaire Overview (Vue d’ensemble) contient les champs obligatoires et facultatifs illustrés dans la capture d’écran suivante. Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 
@@ -37,8 +37,8 @@ Le tableau suivant décrit les détails de la vitrine que vous pouvez fournir po
 |  **Champs de l’offre**   |  **Description**  |
 |  ---------------   |  ---------------  |
 |      Résumé de l’offre              |        Résumé de la proposition de valeur de votre offre. Celui-ci apparaîtra sur la page de recherche de votre offre. Elle ne doit pas dépasser 100 caractères.           |
-|      Description de l’offre              |      Description qui apparaît sur la page des détails de votre application. Le maximum autorisé est de 1 300 caractères. Vous pouvez utiliser des balises HTML de base pour mettre en forme le contenu. Par exemple, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; et &lt;li&gt;. Pour obtenir un aperçu de la mise en forme de la description, utilisez un outil HTML en ligne et en temps réel, comme [http://htmledit.squarefree.com](http://htmledit.squarefree.com)             |
-|          Secteurs d’activité          |        Sélectionnez les secteurs d'activité le mieux adaptés à votre offre. Si votre application convient à plusieurs secteurs d’activité, vous pouvez en sélectionner deux.           |
+|      Description de l’offre              |      Description qui apparaît sur la page des détails de votre application. Le maximum autorisé est de 1 300 caractères. Vous pouvez utiliser des balises HTML de base pour mettre en forme le contenu. Par exemple, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; et &lt;li&gt;. Pour obtenir un aperçu de la mise en forme de la description, utilisez un outil HTML en ligne et en temps réel, comme [http://htmledit.squarefree.com](https://htmledit.squarefree.com)             |
+|          Secteurs d’activité          |        Sélectionnez les secteurs d'activité les mieux adaptés à votre offre. Si votre application convient à plusieurs secteurs d’activité, vous pouvez en sélectionner deux.           |
 |          Catégories suggérées (3 maximum)         |        Sélectionnez les catégories les mieux adaptées à votre offre. Vous pouvez en sélectionner trois.           |
 |           Version de l’application         |        Entrez le numéro de version de votre application.           |
 |          Mots clés de recherche (3 max.)          |      Entrez un maximum de trois mots clés que les clients pourront utiliser pour rechercher votre application sur le site web de la vitrine de la Place de marché.             |
@@ -57,7 +57,7 @@ Le tableau suivant décrit les champs du formulaire Marketing Artifacts (Artefac
 |                    |                   |
 |                    |                   |
 |          Logos          |        Si vous disposez d’une application de vente par le biais de Microsoft SaaS, vous devez fournir tous les logos. S’il s’agit d’un listing, seuls 2 logos sont requis. Suivez les instructions ci-après pour les logos chargés sur le Portail Microsoft Cloud Partner :<br><ul><li>Limitez le nombre de couleurs primaires et secondaires sur votre logo. Le design Azure a une palette de couleurs simple. </li><li>Évitez d’utiliser du noir ou du blanc comme couleur d’arrière-plan pour votre logo. Les couleurs de thème du Portail Azure sont le noir et le blanc. Utilisez plutôt des couleurs qui mettent vos logos en évidence sur le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. Si vous utilisez un arrière-plan transparent, assurez-vous que le logo et le texte ne sont ni noirs ni blancs ni bleus. </li><li>N’utilisez pas d’arrière-plan dégradé sur le logo. </li><li>Évitez de placer du texte, même s’il s’agit du nom votre société ou de votre marque, sur le logo. L'apparence de votre logo doit être « plate » et éviter les dégradés.</li><li>Le logo ne doit pas être étiré.</li></ul>            |
-|          vidéos          |         Vous permet d’ajouter des liens d'accès à des vidéos relatives à votre offre. Vous pouvez utiliser des liens de vidéos YouTube et/ou Vimeo, qui seront présentées aux clients en même temps que votre offre. Vous devez également inclure une miniature de la vidéo, avec une image PNG de 1 280 x 720 pixels. Vous pouvez ajouter un maximum de quatre vidéos par offre.          |
+|          Videos          |         Vous permet d’ajouter des liens d'accès à des vidéos relatives à votre offre. Vous pouvez utiliser des liens de vidéos YouTube et/ou Vimeo, qui seront présentées aux clients en même temps que votre offre. Vous devez également inclure une miniature de la vidéo, avec une image PNG de 1 280 x 720 pixels. Vous pouvez ajouter un maximum de quatre vidéos par offre.          |
 |          Documents          |          Vous permet d’ajouter des documents marketing à votre offre. Tous les documents doivent être au format PDF, et vous pouvez ajouter un maximum de trois documents par offre.         |
 |        Captures d’écran.            |         Vous permet d’ajouter des captures d’écran de votre offre. Vous pouvez ajouter un maximum de cinq captures d’écran par offre. La taille maximale est de 1 280 x 720 pixels par image.          |
 |       Liens utiles             |       Vous permet d'ajouter des URL externes pour que votre offre pointe vers des diagrammes d'architecture ou d'autres sites susceptibles d'intéresser les clients.            |

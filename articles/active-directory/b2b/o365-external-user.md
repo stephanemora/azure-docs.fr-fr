@@ -1,5 +1,5 @@
 ---
-title: Partage externe dans Office 365 et Azure Active Directory B2B Collaboration | Microsoft Docs
+title: Partage externe dans Office 365 et collaboration B2B - Azure Active Directory | Microsoft Docs
 description: Décrit le partage de ressources avec des partenaires externes à l’aide d’Office 365 et Azure Active Directory B2B Collaboration.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e2263155dbff3f7f35243c88fa0638afccadfb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 388d42cd41d34a8aebed41dafc48e42006a78457
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202806"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673441"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Partage externe dans Office 365 et Azure Active Directory B2B Collaboration
 

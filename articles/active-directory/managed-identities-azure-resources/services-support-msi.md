@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aa25d2e0fe4700eab69d383d1ec8b57fca86bd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9a332e532c689c4183d79962e501ed619c7e0551
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887474"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -30,10 +30,10 @@ Les services Azure prenant en charge les identités managées pour les ressource
 
 ### <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 
-|Type d'identité managée |  Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
+| Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Disponible | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE
+| Attribuée par le système | Disponible | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | 
+| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des machines virtuelles Azure (dans les régions où elles sont disponibles) :
 
@@ -45,10 +45,10 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des mach
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Groupes de machines virtuelles identiques Azure
 
-|Type d'identité managée |  Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
+|Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE
+| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des groupes Azure Virtual Machine Scale Sets (dans les régions où ils sont disponibles) :
 
@@ -60,10 +60,10 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des grou
 
 ### <a name="azure-app-service"></a>Azure App Service
 
-|Type d'identité managée |  Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
+| Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible
+| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure App Service (dans les régions où il est disponible) :
 
@@ -72,12 +72,24 @@ Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure 
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+### <a name="azure-blueprints"></a>Azure Blueprints
+
+|Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| Attribuée par le système | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible |
+
+Reportez-vous à la liste suivante pour utiliser une identité gérée avec [Azure plans](../../governance/blueprints/overview.md):
+
+- [Portail Azure - affectation de plan](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [API REST - affectation de plan](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+
 ### <a name="azure-functions"></a>Azure Functions
 
-Type d'identité managée |  Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
+Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible
+| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Functions (dans les régions où il est disponible) :
 
@@ -88,10 +100,10 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
 
-Type d'identité managée |  Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible
+| Attribuée par le système | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | Non disponible | VERSION PRÉLIMINAIRE |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Logic Apps (dans les régions où il est disponible) :
 
@@ -100,24 +112,24 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
-Type d'identité managée |  Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Non disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Data Factory V2 (dans les régions où il est disponible) :
 
-- [Portail Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)
-- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)
-- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)
-- [Kit SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk)
+- [Portail Azure](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
+- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
+- [Kit SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-api-management"></a>Gestion des API Azure
 
-Type d'identité managée |  Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service de gestion des API Azure (dans les régions où il est disponible) :
 
@@ -125,10 +137,10 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-Type d'identité managée |  Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Linux : VERSION PRÉLIMINAIRE<br>Windows : Non disponible | Non disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | Linux : VERSION PRÉLIMINAIRE<br>Windows : Non disponible | Non disponible | Non disponible | Non disponible
+| Attribuée par l'utilisateur | Linux : VERSION PRÉLIMINAIRE<br>Windows : Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Container Instances (dans les régions où il est disponible) :
 
@@ -136,13 +148,12 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 - [Modèle Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
-
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD
 
 Les services suivants prennent en charge l’authentification Azure AD et ont été testés avec des services client qui utilisent des identités managées pour ressources Azure.
 
 | de diffusion en continu | ID de ressource | Statut | Attribuer l’accès |
-| ------- | ----------- | ------ | ---- | ------------- |
+| ------- | ----------- | ------ | ------------- |
 | Azure Resource Manager | `https://management.azure.com/` | Disponible | [Portail Azure](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Interface de ligne de commande Azure](howto-assign-access-CLI.md) <br>[Modèle Azure Resource Manager](../../role-based-access-control/role-assignments-template.md) |
 | Azure Key Vault | `https://vault.azure.net` | Disponible |  
 | Azure Data Lake | `https://datalake.azure.net/` | Disponible |

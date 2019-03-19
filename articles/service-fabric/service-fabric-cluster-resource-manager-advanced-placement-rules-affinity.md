@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 9c4af55a5ddb05335f8acfdd23711df2290e217b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085692"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuration et utilisation de l’affinité de service dans Service Fabric
 L’affinité est un contrôle qui permet principalement de faciliter la transition d’applications volumineuses monolithiques vers le cloud et les microservices. Elle peut également servir pour améliorer les performances des services, même si cela peut avoir des conséquences.
@@ -59,6 +59,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 L’affinité est représentée par un des jeux de corrélations et comporte deux modes différents. Le mode d’affinité courant est ce que nous appelons « affinité non alignée ». Dans ce mode, les réplicas ou instances des différents services sont placés sur les mêmes nœuds. L’autre mode est appelé « affinité alignée ». L’affinité alignée est utilisée uniquement avec les services avec état. La configuration de deux services avec état pour obtenir une affinité alignée garantit que les serveurs primaires de ces services sont placés sur les mêmes nœuds que d’autres. Par conséquent, chaque paire de serveurs secondaires est placée sur les mêmes nœuds. Il est également possible (bien que moins fréquent) de configurer l’affinité non alignée pour les services avec état. Pour NonAlignedAffinity les différents réplicas des deux services avec état s’exécuteraient sur les mêmes nœuds, mais leurs serveurs primaires seraient installés sur des nœuds différents.
 
 <center>
+
 ![Modes d’affinité et leurs effets][Image1]
 </center>
 
@@ -69,7 +70,8 @@ Une relation d’affinité est conseillée. Elle n’offre pas les mêmes garant
 Actuellement, Cluster Resource Manager ne peut pas modéliser les chaînes de relations d’affinité. Cela signifie qu’un service qui est un service enfant dans une relation d’affinité ne peut pas être un parent dans une autre relation d’affinité. Si vous souhaitez modéliser ce type de relation, vous devez le modéliser en étoile plutôt qu’en chaîne. Pour passer d’une chaîne à une étoile, l’enfant le plus bas est apparenté au parent du premier enfant. En fonction de la disposition de vos services, il est possible que vous deviez effectuer cette opération plusieurs fois. S’il n’existe aucun service parent naturel, il est possible que vous deviez en créer un qui sert d’espace réservé. Selon vos besoins, vous pouvez également opter pour les [Groupes d’applications](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
-![Chaînes et étoiles dans le contexte des relations d’affinité][Image2]
+
+![Chaînes et. étoiles dans le contexte des relations d’affinité][Image2]
 </center>
 
 Notez également que les relations d’affinité sont aujourd’hui directionnelles par défaut. Cela signifie que la règle d’affinité implique que l’enfant se trouve au même endroit que le parent. Elle ne garantit pas que le parent se trouve au même endroit que l’enfant. Par conséquent, s’il existe une violation d’affinité et que, pour corriger la violation, il n’est pas possible pour une raison quelconque de déplacer l’enfant vers le nœud du parent, le parent n’est pas déplacé vers le nœud de l’enfant, même si le déplacement du parent vers le nœud de l’enfant aurait corrigé la violation. La définition du paramètre de configuration [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) sur true supprime la directionalité. Il est également important de noter que la relation d’affinité ne peut pas être idéale ou instantanément appliquée car différents services ont différents cycles de vie et peuvent échouer et se déplacer indépendamment. Par exemple, supposons que le parent bascule soudainement vers un autre nœud suite à un plantage. Cluster Resource Manager et Failover Manager gèrent d’abord le basculement puisque le maintien, la cohérence et la disponible des services restent la priorité. Une fois le basculement terminé, la relation d’affinité est brisée, mais Cluster Resource Manager pense que tout fonctionne correctement, jusqu’à ce qu’il remarque que l’enfant ne se trouve pas avec le parent. Ces types de vérifications sont effectuées régulièrement. Vous trouverez plus d’informations sur la façon dont Cluster Resource Manager évalue les contraintes dans [cet article](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), et [celui-ci](service-fabric-cluster-resource-manager-balancing.md) explique comment configurer la cadence à laquelle ces contraintes sont évaluées.   

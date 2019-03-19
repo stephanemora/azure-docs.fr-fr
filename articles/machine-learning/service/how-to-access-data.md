@@ -9,89 +9,122 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: af36f38bf206da588d327dc319d2418460f79b13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165026"
 ---
-# <a name="access-data-during-training-from-your-datastores"></a>Accéder aux données durant l’entraînement à partir de vos banques de données
-Utiliser une banque de données pour accéder à vos données et interagir avec elles dans des flux de travail Azure Machine Learning.
+# <a name="access-data-from-your-datastores"></a>Accéder aux données à partir de vos banques de données
 
-Dans le service Azure Machine Learning, la banque de données est une abstraction sur [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction). La banque de données peut référencer un conteneur d’[objets blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) ou un [partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) en tant que stockage sous-jacent. 
+Magasins de données vous permettent d’interagir avec et accéder à vos données si vous exécutez votre code localement, sur un cluster de calcul, ou sur une machine virtuelle. Dans cet article, vous découvrez les flux de travail Azure Machine Learning qui garantissent que vos banques de données est accessibles et disponibles pour votre contexte de calcul.
 
-## <a name="create-a-datastore"></a>Créer une banque de données
-Pour utiliser des banques de données, vous devez tout d’abord disposer d’un [espace de travail](concept-azure-machine-learning-architecture.md#workspace). Commencez soit par [créer un espace de travail](quickstart-create-workspace-with-python.md), soit par en récupérer un existant :
+Cette procédure montre des exemples pour les tâches suivantes :
+* [Choisissez une banque de données](#access)
+* [Obtenir des données](#get)
+* [Charger et télécharger des données aux magasins de données](#up-and-down)
+* [Accès de banque de données pendant la formation](#train)
+
+## <a name="prerequisites"></a>Conditions préalables
+
+Pour utiliser des magasins de données, vous devez un [espace de travail](concept-azure-machine-learning-architecture.md#workspace) première. 
+
+Commencez soit par [créer un espace de travail](quickstart-create-workspace-with-python.md), soit par en récupérer un existant :
 
 ```Python
 import azureml.core
-from azureml.core import Workspace
+from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
 
-### <a name="use-the-default-datastore"></a>Utiliser la banque de données par défaut
-Il n’est pas nécessaire de créer ou de configurer un compte de stockage.  Chaque espace de travail a une banque de données par défaut que vous pouvez commencer à utiliser immédiatement.
+Ou, [suivent ce démarrage rapide Python](quickstart-create-workspace-with-python.md) pour utiliser le SDK pour créer votre espace de travail et de prise en main.
+
+<a name="access"></a>
+
+## <a name="choose-a-datastore"></a>Choisissez une banque de données
+
+Vous pouvez utiliser le magasin de données par défaut ou apportez votre propre.
+
+### <a name="use-the-default-datastore-in-your-workspace"></a>Utiliser le magasin de données par défaut dans votre espace de travail
+
+Pas nécessaire de créer ou configurer un compte de stockage dans la mesure où chaque espace de travail a une banque de données par défaut. Vous pouvez utiliser que la banque de données immédiatement tel qu’il est déjà inscrit dans l’espace de travail. 
 
 Pour obtenir la banque de données par défaut de l’espace de travail :
 ```Python
 ds = ws.get_default_datastore()
 ```
 
-### <a name="register-a-datastore"></a>Inscrire une banque de données
-Si vous avez du stockage Azure, vous pouvez l’inscrire en tant que banque de données sur votre espace de travail. Vous pouvez inscrire un conteneur d’objets blob Azure ou un partage de fichiers Azure comme banque de données. Toutes les méthodes d’inscription sont sur la classe `Datastore` et ont la forme `register_azure_*`.
+### <a name="register-your-own-datastore-with-the-workspace"></a>Inscrire votre propre magasin de données avec l’espace de travail
+Si vous avez du stockage Azure, vous pouvez l’inscrire en tant que banque de données sur votre espace de travail.   Toutes les méthodes d’inscription sont sur le [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) classe et ont la forme register_azure_ *. 
 
-#### <a name="azure-blob-container-datastore"></a>Banque de données de conteneur d’objets blob Azure
-Pour inscrire une banque de données de conteneur d’objets blob Azure :
+Les exemples suivants montrent que vous enregistriez un conteneur d’objets Blob Azure ou un partage de fichiers Azure comme banque de données.
+
++ Pour un **banque de données Azure Blob conteneur**, utiliser [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
+
+  ```Python
+  ds = Datastore.register_azure_blob_container(workspace=ws, 
+                                               datastore_name='your datastore name', 
+                                               container_name='your azure blob container name',
+                                               account_name='your storage account name', 
+                                               account_key='your storage account key',
+                                               create_if_not_exists=True)
+  ```
+
++ Pour un **Datastore de partage de fichiers Azure**, utilisez [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Par exemple :  
+  ```Python
+  ds = Datastore.register_azure_file_share(workspace=ws, 
+                                           datastore_name='your datastore name', 
+                                           container_name='your file share name',
+                                           account_name='your storage account name', 
+                                           account_key='your storage account key',
+                                           create_if_not_exists=True)
+  ```
+
+<a name="get"></a>
+
+## <a name="find--define-datastores"></a>Rechercher et définir des banques de données
+
+Pour obtenir un magasin de données spécifié inscrit dans l’espace de travail actuel, utilisez [ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
 ```Python
-ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                             datastore_name='your datastore name', 
-                                             container_name='your azure blob container name',
-                                             account_name='your storage account name', 
-                                             account_key='your storage account key',
-                                             create_if_not_exists=True)
-```
-
-#### <a name="azure-file-share-datastore"></a>Banque de données de partage de fichiers Azure
-Pour inscrire une banque de données de partage de fichiers Azure :
-
-```Python
-ds = Datastore.register_azure_file_share(workspace=ws, 
-                                         datastore_name='your datastore name', 
-                                         container_name='your file share name',
-                                         account_name='your storage account name', 
-                                         account_key='your storage account key',
-                                         create_if_not_exists=True)
-```
-
-### <a name="get-an-existing-datastore"></a>Obtenir une banque de données existante
-Pour interroger une banque de données inscrite par nom :
-```Python
+#get named datastore from current workspace
 ds = Datastore.get(ws, datastore_name='your datastore name')
 ```
 
-Vous pouvez également obtenir toutes les banques de données pour un espace de travail :
+Pour obtenir une liste de tous les magasins de données dans un espace de travail donné, utilisez ce code :
+
 ```Python
+#list all datastores registered in current workspace
 datastores = ws.datastores
 for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
-Pour des raisons pratiques, définissez l’une de vos banques de données inscrites comme banque de données par défaut pour votre espace de travail :
+Pour définir une banque de données par défaut différent pour l’espace de travail actuel, utilisez [ `set_default_datastore()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-):
+
 ```Python
+#define default datastore for current workspace
 ws.set_default_datastore('your datastore name')
 ```
 
-## <a name="upload-and-download-data"></a>Charger et télécharger des données
+<a name="up-and-down"></a>
+## <a name="upload--download-data"></a>Charger et télécharger des données
+Le [ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) et [ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) méthodes décrites dans les exemples suivants sont spécifiques à et fonctionner de manière identique pour le [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) et [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) classes.
+
 ### <a name="upload"></a>Télécharger
-Chargez un répertoire ou des fichiers individuels dans la banque de données avec le kit de développement logiciel (SDK) Python.
+
+ Chargez un répertoire ou des fichiers individuels dans la banque de données avec le kit de développement logiciel (SDK) Python.
 
 Pour charger un répertoire dans une banque de données `ds` :
+
 ```Python
+import azureml.data
+from azureml.data import AzureFileDatastore, AzureBlobDatastore
+
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,
@@ -111,21 +144,46 @@ ds.download(target_path='your target path',
 ```
 `target_path` est l’emplacement du répertoire local dans lequel télécharger les données. Pour spécifier un chemin au dossier dans le partage de fichiers (ou le conteneur d’objets blob) où effectuer le téléchargement, fournissez ce chemin à `prefix`. Si `prefix` est `None`, tout le contenu de votre partage de fichiers (ou conteneur d’objets blob) est téléchargé.
 
-## <a name="access-datastores-for-training"></a>Accéder à des banques de données pour l’entraînement
-Vous pouvez accéder à une banque de données pendant une exécution de formation (par exemple, pour des données de formation ou de validation) sur une cible de calcul distante par le biais du kit de développement logiciel (SDK) Python. 
+<a name="train"></a>
+## <a name="access-datastores-during-training"></a>Accès des magasins de données pendant la formation
 
-Deux méthodes sont prises en charge pour rendre votre banque de données accessible sur la cible de calcul distante :
-* **Montage**  
-`ds.as_mount()` : avec ce mode de montage, la banque de données sera montée pour vous sur la cible de calcul distante. 
-* **Téléchargement/chargement**  
-    * `ds.as_download(path_on_compute='your path on compute')` : les données sont téléchargées de votre banque de données vers la cible de calcul distante à l’emplacement spécifié par `path_on_compute`.
-    * `ds.as_upload(path_on_compute='yourfilename'` transfère les données vers la banque de données.  Supposons que votre script de formation crée un fichier `foo.pkl` dans le répertoire de travail actuel de la cible de calcul distante. Chargez ce fichier dans votre banque de données avec `ds.as_upload(path_on_compute='./foo.pkl')` après que le script a créé le fichier. Le fichier est chargé à la racine de votre banque de données.
-    
-Pour référencer un dossier ou fichier spécifique dans votre banque de données, utilisez la fonction **`path`** de la banque de données. Par exemple, pour télécharger le contenu du répertoire `./bar` du magasin de données vers votre cible de calcul, utilisez `ds.path('./bar').as_download()`.
+Une fois que vous apportez votre banque de données disponibles sur le calcul à distance, vous pouvez l’accéder lors des exécutions d’apprentissage (par exemple, les données de formation ou de validation) en passant simplement le chemin d’accès à celui-ci en tant que paramètre dans votre script de formation.
 
-Tout objet `ds` ou `ds.path` est résolu en un nom de variable d’environnement au format `"$AZUREML_DATAREFERENCE_XXXX"`, dont la valeur représente le chemin de montage/téléchargement sur la cible de calcul distante. Le chemin de la banque de données sur la cible de calcul distante peut ne pas être identique au chemin d’exécution du script.
+Le tableau suivant répertorie le commun [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) ou les méthodes qui rendent les banques de données disponibles sur le calcul à distance.
 
-Pour accéder à votre banque de données pendant la formation, transmettez-la à votre script de formation en tant qu’argument de ligne de commande par le biais de `script_params` :
+##
+
+moyen|Méthode|Description
+----|-----|--------
+Monter| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Permet de monter une banque de données sur le calcul à distance. Mode par défaut pour les banques de données.
+Téléchargement|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Utilisez pour télécharger des données à partir de l’emplacement spécifié par `path_on_compute` dans votre banque de données pour le calcul à distance.
+Télécharger|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Utiliser pour charger des données à la racine de votre banque de données à partir de l’emplacement spécifié par `path_on_compute`.
+
+```Python
+import azureml.data
+from azureml.data import DataReference
+
+ds.as_mount()
+ds.as_download(path_on_compute='your path on compute')
+ds.as_upload(path_on_compute='yourfilename')
+```  
+
+Pour référencer un dossier ou fichier spécifique dans votre banque de données, utilisez la fonction [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) de la banque de données.
+
+```Python
+#download the contents of the `./bar` directory from the datastore to the remote compute
+ds.path('./bar').as_download()
+```
+
+
+
+> [!NOTE]
+> Tout objet `ds` ou `ds.path` est résolu en un nom de variable d’environnement au format `"$AZUREML_DATAREFERENCE_XXXX"`, dont la valeur représente le chemin de montage/téléchargement sur la cible de calcul distante. Le chemin d’accès de banque de données sur le calcul à distance ne peut pas être le même que le chemin d’accès de l’exécution du script de formation.
+
+### <a name="examples"></a>Exemples 
+
+Les éléments suivants illustrent des exemples spécifiques à la [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe pour accéder à votre banque de données pendant la formation.
+
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -139,9 +197,13 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py')
 ```
-`as_mount()` étant le mode par défaut pour une banque de données, vous pourriez aussi passer simplement et directement `ds` à l’argument `'--data_dir'`.
 
-Ou transmettez une liste de banques de données au paramètre `inputs` du constructeur de l’outil de sizing afin de les monter ou de les copier à partir de/vers vos banques de données :
+Dans la mesure où `as_mount()` est le mode par défaut pour une banque de données, vous pourriez également directement passer `ds` à la `'--data_dir'` argument.
+
+Ou passer dans la liste des banques de données au constructeur estimateur `inputs` paramètre à monter ou à copier vers/à partir de vos banques de données. Cet exemple de code :
+* Télécharge le contenu de la banque de données `ds1` pour le calcul à distance avant votre script de formation `train.py` est exécuté
+* Le dossier Téléchargements `'./foo'` dans le magasin de données `ds2` pour le calcul à distance avant `train.py` est exécuté
+* Télécharge le fichier `'./bar.pkl'` à partir du calcul à distance jusqu'à la banque de données `ds3` après l’exécution de votre script
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -149,10 +211,10 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
-Le code ci-dessus :
-* téléchargera tout le contenu dans la banque de données `ds1` vers la cible de calcul distante avant que votre script d’entraînement `train.py` soit exécuté.
-* téléchargera le dossier `'./foo'` dans la banque de données `ds2` vers la cible de calcul distante avant que `train.py` soit exécuté.
-* chargera le fichier `'./bar.pkl'` à partir de la cible de calcul distante vers la banque de données `d3` après l’exécution de votre script.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Entraîner un modèle](how-to-train-ml-models.md)
+
+* [Déployer un modèle](how-to-deploy-and-where.md)

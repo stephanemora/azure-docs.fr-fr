@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228383"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003124"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Windows PowerShell pour StorSimple fournit une interface de ligne de commande que vous pouvez utiliser pour gérer votre appareil Microsoft Azure StorSimple. Comme son nom l’indique, il s’agit d’une interface de ligne de commande basée sur Windows PowerShell, qui est créée dans une instance d’exécution avec restriction. Du point de vue de l’utilisateur au niveau de la ligne de commande, une instance d’exécution avec restriction apparaît comme une version limitée de Windows PowerShell. Tout en conservant certaines fonctionnalités de base de Windows PowerShell, cette interface a des applets de commande dédiées supplémentaires orientées vers la gestion de votre appareil Microsoft Azure StorSimple.
 
@@ -47,7 +47,7 @@ Vous pouvez accéder à Windows PowerShell pour StorSimple selon une des méthod
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Se connecter à Windows PowerShell pour StorSimple via la console série de l’appareil
 
-Vous pouvez [télécharger PuTTY](http://www.putty.org/) ou un logiciel d’émulation de terminal similaire pour vous connecter à Windows PowerShell pour StorSimple. Vous devez configurer PuTTY de façon spécifique pour accéder à l’appareil Microsoft Azure StorSimple. Les rubriques suivantes décrivent en détail comment configurer PuTTy et se connecter à l’appareil. Différentes options de menu de la console série sont également expliquées.
+Vous pouvez [télécharger PuTTY](https://www.putty.org/) ou un logiciel d’émulation de terminal similaire pour vous connecter à Windows PowerShell pour StorSimple. Vous devez configurer PuTTY de façon spécifique pour accéder à l’appareil Microsoft Azure StorSimple. Les rubriques suivantes décrivent en détail comment configurer PuTTy et se connecter à l’appareil. Différentes options de menu de la console série sont également expliquées.
 
 ### <a name="putty-settings"></a>Paramètres puTTY
 
@@ -110,8 +110,8 @@ Vous pouvez choisir parmi les paramètres suivants :
    * Appliquer des mises à jour
    * Installer des correctifs
 
-    > [!NOTE]
-    > Il s’agit de l’option préférée si vous avez oublié le mot de passe administrateur et que vous ne pouvez pas vous connecter via l’option 1 ou 2.
+     > [!NOTE]
+     > Il s’agit de l’option préférée si vous avez oublié le mot de passe administrateur et que vous ne pouvez pas vous connecter via l’option 1 ou 2.
 
 4. **Changer la langue** : cette option vous permet de changer la langue d’affichage de l’interface Windows PowerShell. Les langues prises en charge sont : anglais, japonais, russe, français, coréen du sud, espagnol, italien, allemand, chinois et portugais (Brésil).
 
@@ -159,7 +159,7 @@ Le tableau suivant récapitule toutes les tâches de gestion courantes et les fl
 
 Dans Windows PowerShell pour StorSimple, une aide sur les applets de commande est disponible. Une version en ligne et à jour de cette aide est également disponible, que vous pouvez utiliser pour mettre à jour l’aide sur votre système.
 
-Obtenir de l’aide dans cette interface est similaire à ce qu’il faut faire dans Windows PowerShell, et la plupart des applets de commande relatives à l’aide fonctionnent. Vous pouvez trouver de l’aide pour Windows PowerShell en ligne dans la bibliothèque TechNet : [Écriture de scripts avec Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
+Obtenir de l’aide dans cette interface est similaire à ce qu’il faut faire dans Windows PowerShell, et la plupart des applets de commande relatives à l’aide fonctionnent. Vous pouvez trouver l’aide sur pour Windows PowerShell en ligne dans la bibliothèque TechNet : [Écriture de scripts avec Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
 
 Voici une brève description des types d’aide pour cette interface Windows PowerShell, y compris la mise à jour de l’aide.
 

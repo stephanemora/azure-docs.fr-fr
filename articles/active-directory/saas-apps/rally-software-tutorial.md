@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Rally Software | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Rally Software | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Rally Software.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4f1d41497af8f57a343eacc92c5da7d2488d07
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e7264792a123a8f8ce6c4a08a6c502de578d374c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163697"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891958"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Didacticiel : Intégration d’Azure Active Directory à Rally Software
+# <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutoriel : Intégration d’Azure Active Directory à Rally Software
 
 Dans ce didacticiel, vous allez apprendre à intégrer Rally Software à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Rally Software à Azure AD vous offre les avantages suivants
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Rally Software, vous avez besoin des éléments suivants :
 
@@ -206,7 +206,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être attr
 
     a. Dans la zone de texte **User Name** (Nom d’utilisateur), tapez le nom complet d’un utilisateur, par exemple **Britta Simon**.
    
-    b. Dans la zone de texte **E-mail Address** (Adresse e-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    b. Dans **adresse de messagerie** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     c. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 

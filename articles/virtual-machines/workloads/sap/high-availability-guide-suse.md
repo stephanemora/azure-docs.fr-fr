@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: f65a6a0f9564eafda36b8a8f4988e064e39a3bb1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007850"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -79,7 +79,7 @@ Commencez par lire les notes et publications SAP suivantes
 * [Guides sur les meilleures pratiques pour SUSE SAP HA][suse-ha-guide] Les guides contiennent toutes les informations nécessaires pour configurer la réplication locale des systèmes Netweaver HP et SAP HANA. Utilisez ces guides comme planning de référence. Ils fournissent des informations beaucoup plus détaillées.
 * [Notes de publication de SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Pour obtenir une haute disponibilité, SAP NetWeaver nécessite un serveur NFS. Le serveur NFS est configuré dans un cluster distinct et peut être utilisé par plusieurs systèmes SAP.
 
@@ -94,15 +94,15 @@ Le serveur NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la b
 * Configuration du backend
   * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
-  * Port 620**&lt;nr&gt;**
+  * Port 620<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
-  * TCP 32**&lt;nr&gt;**
-  * TCP 36**&lt;nr&gt;**
-  * TCP 39**&lt;nr&gt;**
-  * TCP 81**&lt;nr&gt;**
-  * TCP 5**&lt;nr&gt;** 13
-  * TCP 5**&lt;nr&gt;** 14
-  * TCP 5**&lt;nr&gt;** 16
+  * TCP 32<strong>&lt;nr&gt;</strong>
+  * TCP 36<strong>&lt;nr&gt;</strong>
+  * TCP 39<strong>&lt;nr&gt;</strong>
+  * TCP 81<strong>&lt;nr&gt;</strong>
+  * TCP 5<strong>&lt;nr&gt;</strong>13
+  * TCP 5<strong>&lt;nr&gt;</strong>14
+  * TCP 5<strong>&lt;nr&gt;</strong>16
 
 ### <a name="ers"></a>ERS
 
@@ -111,12 +111,12 @@ Le serveur NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la b
 * Configuration du backend
   * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
-  * Port 621**&lt;nr&gt;**
+  * Port 621<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
-  * TCP 33**&lt;nr&gt;**
-  * TCP 5**&lt;nr&gt;** 13
-  * TCP 5**&lt;nr&gt;** 14
-  * TCP 5**&lt;nr&gt;** 16
+  * TCP 33<strong>&lt;nr&gt;</strong>
+  * TCP 5<strong>&lt;nr&gt;</strong>13
+  * TCP 5<strong>&lt;nr&gt;</strong>14
+  * TCP 5<strong>&lt;nr&gt;</strong>16
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configuration d’un serveur NFS à haute disponibilité
 
@@ -212,6 +212,9 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
       1. Ports supplémentaires pour les instances ASCS ERS
          * Répéter les étapes ci-dessus pour les ports 33**02**, 5**02**13, 5**02**14, 5**02**16 et TCP pour les instances ASCS ERS
 
+> [!IMPORTANT]
+> N’activez pas les horodatages TCP sur des machines virtuelles Azure placé derrière un équilibreur de charge Azure. L’activation TCP horodatages entraîne les sondes d’intégrité à échouer. Définissez le paramètre **net.ipv4.tcp_timestamps** à **0**. Pour plus d’informations, consultez [sondes d’intégrité d’équilibreur de charge](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+
 ### <a name="create-pacemaker-cluster"></a>Créer le cluster Pacemaker
 
 Suivez les étapes décrites à la page [Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure](high-availability-guide-suse-pacemaker.md) pour créer un cluster Pacemaker de base pour ce serveur (A)SCS.
@@ -230,7 +233,8 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
    Vérifiez que vous avez installé la nouvelle version du connecteur de cluster SUSE SAP. L’ancienne version s’appelle sap_suse_cluster_connector et la nouvelle **sap-suse-cluster-connector**.
 
-   <pre><code>sudo zypper info sap-suse-cluster-connector
+   ```
+   sudo zypper info sap-suse-cluster-connector
    
    Information for package sap-suse-cluster-connector:
    ---------------------------------------------------
@@ -245,7 +249,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    Status         : up-to-date
    Source package : sap-suse-cluster-connector-3.0.0-2.2.src
    Summary        : SUSE High Availability Setup for SAP Products
-   </code></pre>
+   ```
 
 1. **[A]** Mettre à jour les agents de ressources SAP  
    
@@ -685,7 +689,7 @@ Suivez ces étapes pour installer un serveur d’applications SAP.
 
 1. Préparer le serveur d’applications
 
-Pour préparer le serveur d’applications, suivez la procédure décrite dans la section [Préparation du serveur d’applications SAP NetWeaver](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) ci-dessus.
+   Pour préparer le serveur d’applications, suivez la procédure décrite dans la section [Préparation du serveur d’applications SAP NetWeaver](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) ci-dessus.
 
 1. Installer le serveur d’applications SAP NetWeaver
 

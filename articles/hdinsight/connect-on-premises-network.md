@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59d32657b3f65ee3e087ea8da3b95fff8a79a6fd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 3041fba89ef29cb40cbdfdf9cd3d261ffeae816f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975421"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450003"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connecter HDInsight à votre réseau local
 
@@ -135,7 +135,7 @@ Une fois la machine virtuelle créée, vous recevrez une notification **Déploie
     sudo apt-get install bind9 -y
     ```
 
-3. Pour configurer Bind afin de transférer les demandes de résolution de noms à votre serveur DNS local, utilisez le texte suivant en tant que contenu du fichier `/etc/bind/named.conf.options` :
+3. Pour configurer Bind afin de transférer les demandes de résolution de nom à votre serveur DNS sur site, utilisez le texte suivant comme contenu de la `/etc/bind/named.conf.options` fichier :
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network

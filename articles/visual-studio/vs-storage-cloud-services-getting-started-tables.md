@@ -12,29 +12,29 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44056ae1bca2595965abd3a47b4a2aa29d221623
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: cec8ab9d678ff559176580fa8eccc261f449f4c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012887"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Prendre en main le stockage de tables Azure et les services connectés de Visual Studio (projets services cloud)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article décrit comment prendre en main Azure Table Storage dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet de services cloud via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. L’opération **Ajouter des services connectés** installe les packages NuGet appropriés pour accéder au stockage Azure de votre projet et ajoute la chaîne de connexion pour le compte de stockage aux fichiers de configuration de votre projet.
 
 Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
 
 Pour commencer, vous devez créer une table dans votre compte de stockage. Nous vous montrerons comment créer une table Azure dans le code et effectuer des opérations de base sur les tables et les entités, comme l’ajout, la modification et la lecture d’entités de table. Les exemples sont écrits en code C\# et utilisent la [bibliothèque cliente Stockage Microsoft Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**REMARQUE :** parmi les API qui effectuent des appels au stockage Azure, certaines sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](https://msdn.microsoft.com/library/hh191443.aspx) . Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
+**REMARQUE :** Certaines des API qui effectuent des appels vers le stockage Azure sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](https://msdn.microsoft.com/library/hh191443.aspx) . Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
 
 * Pour plus d’informations sur la manipulation des tables par programme, consultez la page [Prise en main du stockage de tables Azure à l’aide de .NET](../storage/storage-dotnet-how-to-use-tables.md) .
 * Pour des informations générales sur Azure Storage, consultez la [documentation relative au stockage](https://azure.microsoft.com/documentation/services/storage/) .
 * Pour des informations générales sur les services cloud Azure, consultez la [documentation des services cloud](https://azure.microsoft.com/documentation/services/cloud-services/) .
-* Pour plus d’informations sur la programmation d’applications ASP.NET, consultez la page [ASP.NET](http://www.asp.net) .
+* Pour plus d’informations sur la programmation d’applications ASP.NET, consultez la page [ASP.NET](https://www.asp.net) .
 
 ## <a name="access-tables-in-code"></a>Accès aux tables dans le code
 Pour accéder aux tables dans les projets de service cloud, vous devez inclure les éléments suivants dans les fichiers sources C# qui accèdent au stockage de tables Azure.

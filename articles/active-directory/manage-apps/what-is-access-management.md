@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14957a94dbe8330553a4090e22d80d6cc2ee06eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109322"
 ---
 # <a name="managing-access-to-apps"></a>Gestion de l’accès aux applications
 La gestion de l’accès, l’évaluation de l’utilisation et la création de rapports en continu demeurent un défi quand une application vient d’être intégrée au système d’identité de votre organisation. Dans de nombreux cas, les administrateurs informatiques ou le support technique doivent en permanence jouer un rôle actif dans la gestion de l’accès à vos applications. Parfois, l’affectation est effectuée par une équipe informatique générale ou rattachée à une division. Souvent, il revient au décideur d’entreprise de décider d’une affectation, que l’équipe informatique ne pourra mettre en œuvre qu’avec son approbation.  D’autres organisations investissent dans l’intégration à un système automatisé de gestion des identités et des accès, tel que le contrôle d’accès en fonction du rôle (RBAC) ou le contrôle d’accès en fonction de l’attribut (ABAC). L’intégration et le développement de règles ont tous deux tendance à être spécialisés et coûteux. Quelle que soit la méthode de gestion, l’analyse ou la création de rapports suppose un investissement distinct, coûteux et complexe.
@@ -29,7 +29,7 @@ La gestion de l’accès, l’évaluation de l’utilisation et la création de 
 
 * [Ajout d’applications nouvelles ou existantes](configure-single-sign-on-portal.md)
 
- L’affectation d’applications Azure AD se concentre sur deux modes d’affectation principaux :
+  L’affectation d’applications Azure AD se concentre sur deux modes d’affectation principaux :
 
 * **Affectation individuelle** : un administrateur informatique détenant des autorisations d’administrateur général de l’annuaire peut sélectionner différents comptes d’utilisateurs et leur octroyer un accès à l’application.
 * **Affectation basée sur le groupe (version payante d’Azure AD uniquement)** : un administrateur informatique détenant des autorisations d’administrateur général de l’annuaire peut affecter un groupe à l’application. L’accès dont bénéficie un utilisateur dépend de son appartenance éventuelle au groupe au moment où il essaie d’accéder à l’application. En d’autres termes, un administrateur peut créer efficacement une règle d’affectation indiquant « tout membre actuel du groupe affecté a accès à l’application ». Avec cette option d’affectation, les administrateurs peuvent tirer parti des options de gestion de groupe Azure AD, notamment des [groupes dynamiques basés sur l’attribut](../fundamentals/active-directory-groups-create-azure-portal.md), des groupes de systèmes externes (par exemple, Active Directory local ou Workday) ou des groupes gérés par un administrateur ou en libre-service. Un même groupe peut être facilement affecté à plusieurs applications ; de la sorte, celles qui présentent une affinité d’affectation peuvent partager des règles d’affectation, réduisant ainsi la complexité globale de la gestion. Notez que des appartenances à des groupes imbriquées ne sont pas prises en charge pour l’affectation basée sur le groupe à des applications à ce stade.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094158"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Déclencheur Event Grid pour Azure Functions
 
@@ -30,17 +30,17 @@ Si vous préférez, vous pouvez utiliser un déclencheur HTTP pour gérer les é
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Packages - Functions 1.x
-
-Le déclencheur Event Grid est fourni dans le package [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet, version 1.x. Le code source pour le package se trouve dans le référentiel [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
 Le déclencheur Event Grid est fourni dans le package [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet, version 2.x. Le code source pour le package se trouve dans le référentiel [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>Packages - Functions 1.x
+
+Le déclencheur Event Grid est fourni dans le package [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet, version 1.x. Le code source pour le package se trouve dans le référentiel [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exemples
 
@@ -53,31 +53,6 @@ Consultez l’exemple de déclencheur Event Grid correspondant au langage souhai
 * [Python](#python-example)
 
 Vous trouverez un exemple de déclencheur HTTP dans la section [Guide pratique pour utiliser un déclencheur HTTP](#use-an-http-trigger-as-an-event-grid-trigger) dans la suite de cet article.
-
-### <a name="c-version-1x"></a>C# (version 1.x)
-
-L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) Functions 1.x liée à `JObject` :
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C# (2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 Pour plus d'informations, consultez Packages, [Attributs](#attributes), [Configuration](#configuration) et [Utilisation](#usage).
 
+### <a name="c-version-1x"></a>C# (version 1.x)
+
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) Functions 1.x liée à `JObject` :
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>Exemple de script C#
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison.
@@ -124,22 +124,6 @@ Voici les données de liaison dans le fichier *function.json* :
 }
 ```
 
-#### <a name="c-script-version-1x"></a>Script C# (version 1.x)
-
-Voici le code de script C# Functions 1.x qui lie à `JObject` :
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>Script C# (version 2.x)
 
 Voici le code de script C# Functions 2.x qui lie à `EventGridEvent` :
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 Pour plus d'informations, consultez Packages, [Attributs](#attributes), [Configuration](#configuration) et [Utilisation](#usage).
+
+#### <a name="c-script-version-1x"></a>Script C# (version 1.x)
+
+Voici le code de script C# Functions 1.x qui lie à `JObject` :
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>Exemple JavaScript
 
@@ -321,7 +321,7 @@ Vous trouverez un exemple complet sur la page Exemple C#.
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*. Il n’y a aucun paramètre de constructeur ni aucune propriété à définir dans l’attribut `EventGridTrigger`.
 
 |Propriété function.json |Description|
-|---------|---------|----------------------|
+|---------|---------|
 | **type** | Obligatoire : doit être défini sur `eventGridTrigger`. |
 | **direction** | Obligatoire : doit être défini sur `in`. |
 | **name** | Obligatoire : nom de variable utilisé dans le code de fonction pour le paramètre qui reçoit les données de l’événement. |
@@ -484,10 +484,10 @@ Vous pouvez également envoyer une requête HTTP PUT pour spécifier la valeur d
 
 Pour qu’un déclencheur Event Grid soit testé en local, les requêtes HTTP Event Grid doivent partir de leur origine dans le cloud et arriver sur l’ordinateur local. Vous pouvez pour cela capturer les requêtes en ligne et les renvoyer manuellement sur votre ordinateur local :
 
-2. [Créez une application web de visionneuse](#create-a-viewer-web-app) qui capture les messages d’événement.
-3. [Créez un abonnement Event Grid](#create-an-event-grid-subscription) qui envoie les événements à l’application de visionneuse.
-4. [Générez une requête](#generate-a-request) et copiez le corps de la requête à partir de l’application de visionneuse.
-5. [Publiez (POST) manuellement la requête](#manually-post-the-request) sur l’URL localhost de votre fonction de déclenchement Event Grid.
+1. [Créez une application web de visionneuse](#create-a-viewer-web-app) qui capture les messages d’événement.
+1. [Créez un abonnement Event Grid](#create-an-event-grid-subscription) qui envoie les événements à l’application de visionneuse.
+1. [Générez une requête](#generate-a-request) et copiez le corps de la requête à partir de l’application de visionneuse.
+1. [Publiez (POST) manuellement la requête](#manually-post-the-request) sur l’URL localhost de votre fonction de déclenchement Event Grid.
 
 À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
@@ -528,11 +528,18 @@ Utilisez un outil comme [Postman](https://www.getpostman.com/) ou [curl](https:/
 * Définissez un en-tête `Content-Type: application/json`.
 * Définissez un en-tête `aeg-event-type: Notification`.
 * Collez les données RequestBin dans le corps de la requête.
-* Publiez (POST) sur l’URL de votre fonction de déclenchement Event Grid, suivant ce modèle :
+* Publier sur l’URL de votre fonction de déclencheur Event Grid.
+  * Pour 2.x, utilisez le modèle suivant :
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * Pour 1.x, utilisez :
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 Le paramètre `functionName` doit être le nom spécifié dans l’attribut `FunctionName`.
 
@@ -550,10 +557,10 @@ La fonction de déclenchement Event Grid s’exécute et affiche des journaux de
 
 Une autre possibilité, pour tester un déclencheur Event Grid en local, consiste à automatiser la connexion HTTP entre Internet et l’ordinateur de développement. Vous pouvez pour cela utiliser un outil open source nommé [ngrok](https://ngrok.com/) :
 
-3. [Créez un point de terminaison ngrok](#create-an-ngrok-endpoint).
-4. [Exécutez la fonction de déclenchement Event Grid](#run-the-event-grid-trigger-function).
-5. [Créez un abonnement Event Grid](#create-a-subscription) qui envoie les événements au point de terminaison ngrok.
-6. [Déclenchez un événement](#trigger-an-event).
+1. [Créez un point de terminaison ngrok](#create-an-ngrok-endpoint).
+1. [Exécutez la fonction de déclenchement Event Grid](#run-the-event-grid-trigger-function).
+1. [Créez un abonnement Event Grid](#create-a-subscription) qui envoie les événements au point de terminaison ngrok.
+1. [Déclenchez un événement](#trigger-an-event).
 
 À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
@@ -591,19 +598,19 @@ L’URL ngrok ne fait l’objet d’aucun traitement spécial de la part d’Eve
 
 Créez un abonnement Event Grid du type à tester, et donnez-lui votre point de terminaison ngrok.
 
-Utilisez ce modèle de point de terminaison pour Functions 1.x :
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 Utilisez ce modèle de point de terminaison pour Functions 2.x :
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-Le paramètre `functionName` doit être le nom spécifié dans l’attribut `FunctionName`.
+Utilisez ce modèle de point de terminaison pour Functions 1.x :
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+Le paramètre `{FUNCTION_NAME}` doit être le nom spécifié dans l’attribut `FunctionName`.
 
 Voici un exemple utilisant Azure CLI :
 

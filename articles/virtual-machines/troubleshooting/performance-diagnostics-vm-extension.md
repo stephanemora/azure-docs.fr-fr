@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980021"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002734"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
@@ -28,7 +28,7 @@ L’extension de machine virtuelle Diagnostics des performances Azure permet de 
 > [!NOTE]
 > Si vous souhaitez exécuter des diagnostics sur votre machine virtuelle à partir du portail Azure pour les machines virtuelles non classiques, il est recommandé d’utiliser la nouvelle expérience. Pour plus d’informations, consultez [Diagnostics de performances pour les machines virtuelles Azure](performance-diagnostics.md) 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cette extension peut s’installer sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016, de même que sur Windows 8.1 et Windows 10.
 
@@ -89,7 +89,7 @@ Le code JSON suivant montre le schéma de l’extension de machine virtuelle Dia
 
 Suivez ces instructions pour installer l’extension sur des machines virtuelles Windows :
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez la machine virtuelle sur laquelle vous voulez installer cette extension.
 
     ![Capture du Portail Azure, avec les machines virtuelles mises en surbrillance](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Suivez ces instructions pour installer l’extension sur des machines virtuelles
 ## <a name="remove-the-extension"></a>Supprimer l’extension
 Pour supprimer l’extension d’une machine virtuelle, effectuez ces étapes :
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com), sélectionnez la machine virtuelle sur laquelle vous voulez supprimer cette extension, puis sélectionnez le panneau **Extensions**. 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com), sélectionnez la machine virtuelle sur laquelle vous voulez supprimer cette extension, puis sélectionnez le panneau **Extensions**. 
 2. Sélectionnez (**...** ) à côté de l’entrée Extension Diagnostics des performances dans la liste, puis sélectionnez **Désinstaller**.
 
     ![Capture d’écran du panneau Extensions, avec l’option Désinstaller mise en surbrillance](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

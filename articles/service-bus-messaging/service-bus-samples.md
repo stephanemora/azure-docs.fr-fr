@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: eefe624462609a69296ec6d6e409d72745da0846
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7b34233e10c5d622b598d35c6eb136b88daf8eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880158"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemples de messagerie Service Bus
+Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de la [messagerie Service Bus](https://azure.microsoft.com/services/service-bus/). Actuellement, vous pouvez trouver les exemples dans les emplacements suivants :
 
-Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de la [messagerie Service Bus](https://azure.microsoft.com/services/service-bus/). Actuellement, vous trouverez les exemples à deux emplacements :
-
-- [.NET et Java](https://github.com/Azure/azure-service-bus/tree/master/samples). Consultez le [fichier readme .NET](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) dans le référentiel pour une description des exemples .NET, et le [fichier readme Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) pour une description des exemples Java.
-- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+| Langage de programmation | Emplacement du SDK ou des exemples |
+| -------------------- | ----------------------- |
+| .NET, Java et la gestion | https://github.com/Azure/azure-service-bus/ |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>Explorateur Service Bus
 

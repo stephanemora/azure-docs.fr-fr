@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2a1785b9c749a8c413987974446190aafc08ed3a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105588"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -29,16 +29,16 @@ La capacité *Event Hubs Dedicated* offre des déploiements à locataire unique 
 Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’offre Event Hubs Dedicated consiste en un tarif mensuel fixe par rapport à la tarification à l’utilisation pour la plupart des fonctionnalités de l’offre Standard. Le niveau Dedicated offre toutes les fonctionnalités du plan Standard, mais avec la capacité de mise à l’échelle de classe entreprise pour les clients avec des charges de travail exigeantes. 
 
 | Fonctionnalité | standard | Dédié |
-| --- |:---:|:---:|:---:|
+| --- |:---:|:---:|
 | Événements d’entrée | Paiement par million d’événements | Inclus |
 | Unité de débit (1 Mo/s en entrée, 2 Mo/s en sortie) | Paiement par heure | Inclus |
 | Taille des messages | 1 Mo | 1 Mo |
-| Stratégies d’éditeur | OUI | OUI |   
+| Stratégies d’éditeur | Oui | Oui |   
 | Groupes de consommateurs | 20 | 20 |
-| Relecture des messages | OUI | OUI |
+| Relecture des messages | Oui | Oui |
 | Unités de débit maximales | 20 (flexible jusqu’à 100)   | 1 unité de capacité ≈ 50 |
 | Connexions réparties | 1 000 inclus | 100 K inclus |
-| Connexions négociées supplémentaires | OUI | OUI |
+| Connexions négociées supplémentaires | Oui | Oui |
 | Rétention des messages | 1 jour inclus | Jusqu’à 7 jours inclus |
 | Capture | Paiement par heure | Inclus |
 

@@ -3,22 +3,22 @@ title: Transformer des données à l’aide d’un script U-SQL - Azure | Micros
 description: Découvrez comment traiter ou transformer les données en exécutant des scripts U-SQL sur le service de calcul Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020844"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777292"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Les valeurs des paramètres **@in** et **@out** dans le script U-SQL sont passées dynamiquement par ADF en utilisant la section « parameters ». Consultez la section « parameters » dans la définition du pipeline.
+Les valeurs de  **\@dans** et  **\@out** paramètres dans le script U-SQL sont passées dynamiquement par ADF à l’aide de la section « parameters ». Consultez la section « parameters » dans la définition du pipeline.
 
 Vous pouvez aussi spécifier d’autres propriétés comme degreeOfParallelism et priority dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 

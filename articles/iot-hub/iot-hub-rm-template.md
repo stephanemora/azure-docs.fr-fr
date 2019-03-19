@@ -1,20 +1,20 @@
 ---
 title: Créer un IoT Hub Azure à l’aide d’un modèle (.NET) | Microsoft Docs
 description: Comment utiliser un modèle Azure Resource Manager pour créer un IoT Hub avec un programme C#.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 2f9728fc3304534619fbd3a8b44abf6bab78887a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 4acf7a8bbc02a10468004092152b1d7c5c4d621f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075916"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Créer un IoT Hub avec un modèle Azure Resource Manager (.NET)
 
@@ -24,6 +24,8 @@ Vous pouvez utiliser Azure Resource Manager pour créer et gérer des hubs Azure
 
 > [!NOTE]
 > Azure a deux modèles de déploiement différents pour créer et utiliser des ressources :  [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite de l’utilisation du modèle de déploiement Azure Resource Manager.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -123,7 +125,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
       }
     }
     ```
-  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 5. Dans l’**Explorateur de serveurs**, connectez-vous à votre abonnement Azure et, dans votre compte de stockage Azure, créez un conteneur appelé **modèles**. Dans le panneau **Propriétés**, définissez les autorisations **Accès public en lecture** pour le conteneur **modèles** sur **Blob**.
 
@@ -193,10 +195,10 @@ Vous pouvez maintenant terminer l’application en appelant la méthode **Create
 
 3. Cliquez sur **Déboguer**, puis **Démarrer le débogage** pour exécuter l’application. Le déploiement peut prendre plusieurs minutes.
 
-4. Pour vérifier que votre application a bien ajouté le nouvel IoT Hub, accédez au [portail Azure][lnk-azure-portal] et affichez votre liste de ressources. Vous pouvez également utiliser l’applet de commande PowerShell **Get-AzureRmResource**.
+4. Pour vérifier que votre application a bien ajouté le nouvel IoT Hub, accédez au [portail Azure][lnk-azure-portal] et affichez votre liste de ressources. Vous pouvez également utiliser le **Get-AzResource** applet de commande PowerShell.
 
 > [!NOTE]
-> Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous est facturé. Lorsque vous avez terminé, vous pouvez supprimer le IoT Hub via le [portail Azure][lnk-azure-portal] ou à l’aide de l’applet de commande PowerShell **Remove-AzureRmResource**.
+> Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous est facturé. Vous pouvez supprimer le hub IoT via le [Azure portal] [ lnk-azure-portal] ou à l’aide de la **Remove-AzResource** applet de commande PowerShell lorsque vous avez terminé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez déployé un IoT Hub à l’aide d’un modèle Azure Resource Manager avec un programme C#, vous pouvez aller encore plus loin :
@@ -218,7 +220,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md

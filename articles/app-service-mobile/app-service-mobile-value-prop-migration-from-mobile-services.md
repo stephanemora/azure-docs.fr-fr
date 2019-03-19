@@ -11,18 +11,18 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: HT
+ms.openlocfilehash: 8a0bf1c39977d1659d398fce7c4bb3ae0024c88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29460410"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771138"
 ---
 # <a name="getting-started"></a>J'utilise Mobile Services. Comment App Service peut-il m'aider ?
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Votre service Mobile Service existant est sécurisé et restera pris en charge. Toutefois, des avantages fournis par la plateforme *Azure App Service* pour votre application mobile ne sont pas disponibles aujourd'hui avec Mobile Services :
 
 * Offre plus simple, plus facile et plus économique pour les applications qui incluent à la fois des clients web et mobiles

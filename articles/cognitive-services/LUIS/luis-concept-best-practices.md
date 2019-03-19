@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428905"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984201"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
 Suivez le processus de création d’applications pour générer votre application LUIS. 
@@ -78,7 +78,9 @@ Pour plus d'informations :
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Ajouter des listes d’expressions et des modèles dans les itérations ultérieures
 
-Il est préférable de ne pas appliquer ces pratiques tant que votre application n'a pas été testée. Vous devez comprendre le comportement de l’application avant d’ajouter des listes d’expressions et des motifs. Cela permet de comprendre comment votre application se comporte sans ces éléments ; vous pouvez ensuite ajouter ces fonctionnalités selon les besoins. Il n'est pas nécessaire d'ajouter ces fonctionnalités à chaque [itération](luis-concept-app-iteration.md) ou de les modifier à chaque version. 
+Il est préférable de ne pas appliquer ces pratiques tant que votre application n'a pas été testée. Vous devez comprendre le comportement de l’application avant d’ajouter des modèles et des listes d’expression, car ces fonctionnalités sont pondérées plus fortement que les énoncés d’exemple et faussera confiance. 
+
+Cela permet de comprendre comment votre application se comporte sans ces éléments ; vous pouvez ensuite ajouter ces fonctionnalités selon les besoins. Il n'est pas nécessaire d'ajouter ces fonctionnalités à chaque [itération](luis-concept-app-iteration.md) ou de les modifier à chaque version. 
 
 Rien ne vous empêche de les ajouter au début de la conception de votre modèle, mais il est plus aisé de constater les changements produits par chaque fonctionnalité une fois le modèle testé avec des énoncés. 
 
@@ -124,7 +126,7 @@ Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point d
 
 Pour plus d'informations :
 * Concept : [Concepts pour l’activation de l’apprentissage actif en passant en revue les énoncés de point de terminaison](luis-concept-review-endpoint-utterances.md)
-* Tutoriel : [Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison](luis-tutorial-review-endpoint-utterances.md)
+* Didacticiel : [Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison](luis-tutorial-review-endpoint-utterances.md)
 * Procédure : [Comment passer en revue les énoncés de point de terminaison dans le portail LUIS](luis-how-to-review-endoint-utt.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Analyser les performances de l’application

@@ -3,7 +3,7 @@ title: Utilisation de la fenêtre Azure Cloud Shell | Microsoft Docs
 description: Vue d’ensemble de l’utilisation de la fenêtre Azure Cloud Shell.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
-ms.author: juluk
-ms.openlocfilehash: 43da2bf5b66ff7db03a6fb5c2e1ceaebe322bcbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: a02642540e6eb39f35b9cc0d38d187a7afa36b7a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919992"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243446"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Utilisation de la fenêtre Azure Cloud Shell
 
@@ -62,7 +62,7 @@ Lorsque vous quittez une session, veillez à fermer chaque fenêtre de session d
 ## <a name="exit-command"></a>Commande Quitter
 Cliquez sur `exit` pour mettre un terme à la session active. Ce comportement se produit par défaut au bout de 20 minutes en l’absence d’interaction.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md)
 [Démarrage rapide de PowerShell dans Cloud Shell](quickstart-powershell.md)

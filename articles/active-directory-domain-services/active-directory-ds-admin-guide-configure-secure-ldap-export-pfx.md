@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: 18c91b0bfee3f423e2d60e3c9893e8e5208aa292
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164603"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883451"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Créer un fichier .PFX avec le certificat LDAP sécurisé (LDAPS) d’un domaine managé
 
@@ -82,7 +82,7 @@ Pour exporter le certificat LDAPS vers un fichier .PFX :
 
 14. Sur la page **Sécurité**, sélectionnez l’option **Mot de passe** et saisissez le mot de passe de protection du fichier .PFX. N’oubliez pas ce mot de passe, car il est nécessaire pour la tâche suivante. Cliquez sur **Suivant**.
 
-    ![Exportation du certificat - Mot de passe ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Exportation du certificat - Mot de passe](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
     > Notez ce mot de passe. Vous en aurez besoin pour activer le protocole LDAP sécurisé pour ce domaine managé dans le cadre de la [Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine managé](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md).

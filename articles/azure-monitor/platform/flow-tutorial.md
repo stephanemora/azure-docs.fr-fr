@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993773"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123145"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus de journal Azure Monitor avec le connecteur Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) vous permet de créer des flux de travail automatisés à l’aide de centaines d’actions issues d’une grande variété de services. La sortie d’une action peut être utilisée en tant qu’entrée dans un autre service. Ainsi, vous pouvez créer une intégration entre différents services.  Le connecteur Azure Log Analytics pour Microsoft Flow permet de créer des flux de travail comprenant des données récupérées par des requêtes de journal à partir d’un espace de travail Log Analytics dans Azure Monitor.
@@ -48,13 +48,13 @@ Le didacticiel de cet article vous montre comment créer un flux qui envoie auto
 
 1. Spécifiez les détails de votre espace de travail, y compris l’ID d’abonnement, le groupe de ressources et le nom de l’espace de travail.
 2. Dans la zone **Requête**, ajoutez la requête de journal suivante.  Ceci est un exemple de requête. Vous pouvez donc la remplacer par n’importe quelle autre requête retournant des données.
-```
+   ```
     Event
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
     | sort by Computer
-```
+   ```
 
 2. Comme **Type de graphique**, sélectionnez **Tableau HTML**.<br><br>![Action Log Analytics](media/flow-tutorial/flow03.png)
 

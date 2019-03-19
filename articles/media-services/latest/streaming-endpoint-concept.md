@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104552"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845601"
 ---
 # <a name="streaming-endpoints"></a>Points de terminaison de diffusion en continu
 
@@ -33,13 +33,13 @@ Pour les points de terminaison supplémentaires : `{EndpointName}-{AccountName}
 
 ## <a name="types"></a>Types  
 
-Il existe deux types de **points de terminaison de streaming** : **Standard** et **Premium**. Le type est défini par le nombre d’unités d’échelle (`scaleUnits`) que vous allouez pour le point de terminaison de streaming. 
+Il existe deux **le point de terminaison de diffusion en continu** types : **Standard** et **Premium**. Le type est défini par le nombre d’unités d’échelle (`scaleUnits`) que vous allouez pour le point de terminaison de streaming. 
 
 Le tableau décrit les types :  
 
 |Type|Unités d’échelle|Description|
 |--------|--------|--------|  
-|**Point de terminaison de streaming Standard** (recommandé)|0|Le type **Standard** est l’option recommandée pour pratiquement tous les scénarios de streaming et toutes les tailles d’audience. Le type **Standard** met automatiquement à l’échelle la bande passante sortante. <br/>Pour les clients avec des exigences extrêmement fortes, Media Services offre des points de terminaison de streaming **Premium**, qui peuvent être utilisés pour faire monter en charge la capacité pour les audiences Internet les plus étendues. Si vous attendez des audiences importantes et un grand nombre de visiteurs simultanés, contactez-nous à l’adresse amsstreaming@microsoft.com pour obtenir des conseils sur la nécessité de passer au type **Premium**. |
+|**Point de terminaison de streaming Standard** (recommandé)|0|Le type **Standard** est l’option recommandée pour pratiquement tous les scénarios de streaming et toutes les tailles d’audience. Le type **Standard** met automatiquement à l’échelle la bande passante sortante. <br/>Pour les clients avec extrêmement exigeantes en matière de Media Services propose des **Premium** diffusion en continu des points de terminaison qui peuvent être utilisés pour monter en charge de la capacité pour le plus grand public internet. Si vous pensez que le grand public et des utilisateurs simultanés, contactez-nous à amsstreaming\@microsoft.com pour obtenir des conseils sur la nécessité de déplacer vers le **Premium** type. |
 |**Point de terminaison de streaming Premium**|>0|Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et scalable. Vous passez à un type **Premium** en ajustant les `scaleUnits`. Les `scaleUnits` vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbits/s. Quand vous utilisez le type **Premium**, chaque unité activée fournit une capacité de bande passante supplémentaire à l’application. |
 
 ## <a name="working-with-cdn"></a>Utilisation avec un CDN
@@ -57,19 +57,58 @@ Vous devez également prendre en compte le fonctionnement du streaming adaptif. 
  
 ## <a name="properties"></a>properties 
 
-Cette section fournit des détails sur certaines propriétés du point de terminaison de streaming. Pour obtenir des exemples montrant comment créer un nouveau point de terminaison de streaming et les descriptions de toutes les propriétés, consultez [Point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
+Cette section fournit des détails sur certaines des propriétés de la diffusion en continu du point de terminaison. Pour obtenir des exemples montrant comment créer un nouveau point de terminaison de streaming et les descriptions de toutes les propriétés, consultez [Point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-|Propriété|Description|  
-|--------------|----------|
-|`accessControl`|Permet de configurer les paramètres de sécurité suivants pour ce point de terminaison de diffusion en continu : Les clés d’authentification d’en-tête de signature Akamai et les adresses IP qui sont autorisées à se connecter à ce point de terminaison.<br />Cette propriété peut être définie quand `cdnEnabled` est défini sur false.|  
-|`cdnEnabled`|Indique si l’intégration d’Azure CDN pour ce point de terminaison de streaming est ou non activée (elle est désactivée par défaut).<br /><br /> Si vous définissez `cdnEnabled` sur true, les configurations suivantes sont désactivées : `customHostNames` et `accessControl`.<br /><br />Certains centres de données ne prennent pas en charge l’intégration d’Azure CDN. Pour vérifier si l’intégration d’Azure CDN est disponible pour votre centre de données, procédez comme suit :<br /><br /> - Essayez de définir `cdnEnabled` sur true.<br /><br /> - Vérifiez le résultat retourné pour `HTTP Error Code 412` (PreconditionFailed) avec un message de « La propriété CdnEnabled du point de terminaison de streaming ne peut pas être définie sur true, car la fonctionnalité CDN n’est pas disponible dans la région actuelle. »<br /><br /> Si vous recevez cette erreur, cela signifie que le centre de données ne la prend pas en charge. Vous devez essayer un autre centre de données.|  
-|`cdnProfile`|Quand `cdnEnabled` est définie sur true, vous pouvez également passer des valeurs de `cdnProfile` valeurs. `cdnProfile` est le nom du profil CDN où le point du point de terminaison CDN doit être créé. Vous pouvez fournir un cdnProfile existant ou en utiliser un nouveau. Si la valeur est NULL et que `cdnEnabled` est true, la valeur par défaut « AzureMediaStreamingPlatformCdnProfile » est utilisée. Si le `cdnProfile` fourni existe déjà, un point de terminaison est créé sous celui-ci. Si le profil n’existe pas, un nouveau profil est créé automatiquement.|
-|`cdnProvider`|Quand le CDN est activé, vous pouvez également passer des valeurs de `cdnProvider`. `cdnProvider` contrôle les fournisseurs à utiliser. Actuellement, trois valeurs sont prises en charge : « StandardVerizon », « PremiumVerizon » et « StandardAkamai ». Si aucune valeur n’est fournie et que `cdnEnabled` a la valeur true, « StandardVerizon » est utilisé (c’est la valeur par défaut).|
-|`crossSiteAccessPolicies`|Utilisée pour spécifier des stratégies d’accès entre sites pour différents clients. Pour plus d’informations, consultez [Cross-domain policy file specification](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) et [Rendre un service disponible entre des limites de domaine](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).|  
-|`customHostNames`|Utilisée pour configurer un point de terminaison de streaming de pour qu’il accepte le trafic dirigé vers un nom d’hôte personnalisé. Ceci permet une configuration plus facile de la gestion du trafic via un gestionnaire de trafic global, ainsi que l’utilisation de noms de domaines personnalisés comme nom du point de terminaison de streaming.<br /><br /> La propriété du nom de domaine doit être vérifiée par Azure Media Services. Azure Media Services vérifie la propriété du nom de domaine en demandant un enregistrement `CName` qui contient l’ID de compte Azure Media Services comme composant à ajouter au domaine utilisé. Par exemple, pour utiliser « sports.contoso.com » comme nom d’hôte personnalisé pour le point de terminaison de streaming, un enregistrement pour `<accountId>.contoso.com` doit être configuré de façon à pointer vers un des noms d’hôte de vérification de Media Services. Le nom d’hôte de vérification est composé de verifydns.\<mediaservices-dns-zone>. Le tableau suivant contient les zones DNS attendues dans l’enregistrement de vérification pour les différentes régions Azure.<br /><br /> Amérique du Nord, Europe, Singapour, Hong Kong, Japon :<br /><br /> - mediaservices.windows.net<br /><br /> - verifydns.mediaservices.windows.net<br /><br /> Chine :<br /><br /> - mediaservices.chinacloudapi.cn<br /><br /> - verifydns.mediaservices.chinacloudapi.cn<br /><br /> Par exemple, un enregistrement `CName` qui mappe « 945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com » à « verifydns.mediaservices.windows.net » prouve que l’ID Azure Media Services 945a4c4e-28ea-45cd-8ccb-a519f6b700ad est propriétaire du domaine contoso.com, permettant ainsi l’utilisation de n’importe quel nom sous contoso.com comme nom d’hôte personnalisé pour un point de terminaison de streaming sous ce compte.<br /><br /> Pour rechercher la valeur de l’ID du Service multimédia, accédez au [portail Azure](https://portal.azure.com/) et sélectionnez votre compte Service multimédia. L’ID DE SERVICE MULTIMÉDIA apparaît à droite de la page TABLEAU DE BORD.<br /><br /> **Avertissement** : si vous tentez de définir un nom d’hôte personnalisé sans vérification appropriée de l’enregistrement `CName`, la réponse DNS échoue, puis elle est mise en cache pendant un certain temps. Une fois qu’un enregistrement approprié est en place, un certain temps peut être nécessaire pour que la réponse mise en cache soit revalidée. Selon le fournisseur DNS pour le domaine personnalisé, quelques minutes à une heure peuvent être nécessaires pour revalider l’enregistrement.<br /><br /> En plus du `CName` qui mappe `<accountId>.<parent domain>` à `verifydns.<mediaservices-dns-zone>`, vous devez créer un autre `CName` qui mappe le nom d’hôte personnalisé (par exemple `sports.contoso.com`) au nom d’hôte de votre point de terminaison de streaming Media Services (par exemple `amstest.streaming.mediaservices.windows.net`).<br /><br /> **Remarque**: des points de terminaison de streaming qui se trouvent dans le même centre de données ne peuvent pas partager le même nom d’hôte personnalisé.<br /> Cette propriété est valide pour les points de terminaison de streaming Standard et Premium, et elle peut être définie quand « cdnEnabled » est définie sur false<br/><br/> Actuellement, AMS ne prend pas en charge SSL avec les domaines personnalisés.  |  
-|`maxCacheAge`|Remplace l’en-tête de contrôle du cache HTTP max-age par défaut défini par le point de terminaison de streaming sur des fragments de médias et des manifestes à la demande. La valeur est définie en secondes.|
-|`resourceState`|Les valeurs de la propriété peuvent être :<br /><br /> - Arrêté. État initial d’un point de terminaison de streaming après sa création.<br /><br /> - Démarrage en cours. Le point de terminaison de streaming est en transition vers l’état « Exécution en cours ».<br /><br /> - Exécution en cours. Le point de terminaison de streaming peut diffuser du contenu aux clients.<br /><br /> - Mise à l’échelle. Les unités d’échelle sont augmentées ou diminuées.<br /><br /> - Arrêt en cours. Le point de terminaison de streaming est en transition vers l’état « Arrêté ».<br/><br/> - Suppression en cours. Le point de terminaison de streaming est en cours de suppression.|
-|`scaleUnits `|Les unités d’échelle vous fournissent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbits/s. Si vous devez passer à un type **Premium**, ajustez `scaleUnits`. |
+- `accessControl` -Permet de configurer les paramètres de sécurité suivants pour ce point de terminaison de diffusion en continu : Les clés d’authentification d’en-tête de signature Akamai et les adresses IP qui sont autorisées à se connecter à ce point de terminaison.<br />Cette propriété peut être définie lorsque `cdnEnabled` est défini sur false.
+- `cdnEnabled` : Indique si l’intégration d’Azure CDN pour ce point de terminaison de diffusion en continu est activée (désactivée par défaut). Si vous définissez `cdnEnabled` sur true, les configurations suivantes sont désactivées : `customHostNames` et `accessControl`.
+  
+    Certains centres de données ne prennent pas en charge l’intégration d’Azure CDN. Pour vérifier si votre centre de données a l’intégration d’Azure CDN disponible, procédez comme suit :
+ 
+  - Essayez de définir le `cdnEnabled` sur true.
+  - Vérifiez le résultat renvoyé pour une `HTTP Error Code 412` (ne) avec un message de « Diffusion en continu de la propriété CdnEnabled de point de terminaison ne peut pas être définie sur true comme fonctionnalité CDN n’est pas disponible dans la région actuelle. » 
+
+    Si vous recevez cette erreur, cela signifie que le centre de données ne la prend pas en charge. Vous devez essayer un autre centre de données.
+- `cdnProfile` -Lorsque `cdnEnabled` est définie sur true, vous pouvez également passer `cdnProfile` valeurs. `cdnProfile` est le nom du profil CDN où le point du point de terminaison CDN doit être créé. Vous pouvez fournir un cdnProfile existant ou en utiliser un nouveau. Si la valeur est NULL et que `cdnEnabled` est true, la valeur par défaut « AzureMediaStreamingPlatformCdnProfile » est utilisée. Si le `cdnProfile` fourni existe déjà, un point de terminaison est créé sous celui-ci. Si le profil n’existe pas, un nouveau profil est automatiquement créé.
+- `cdnProvider` -Lorsque le CDN est activé, vous pouvez également transmettre `cdnProvider` valeurs. `cdnProvider` contrôle les fournisseurs à utiliser. Actuellement, trois valeurs sont prises en charge : « StandardVerizon », « PremiumVerizon » et « StandardAkamai ». Si aucune valeur n’est fournie et `cdnEnabled` a la valeur true, « StandardVerizon » est utilisé (ce qui est la valeur par défaut).
+- `crossSiteAccessPolicies` -Permet de spécifier des stratégies d’accès entre sites pour différents clients. Pour plus d’informations, consultez [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) et [Rendre un service disponible entre des limites de domaine](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `customHostNames` -Permet de configurer un point de terminaison de diffusion en continu pour accepter le trafic dirigé vers un nom d’hôte personnalisé.  Cette propriété est valide pour Standard et les points de terminaison de Streaming Premium et peut être définie lorsque `cdnEnabled`: false.
+    
+    La propriété du nom de domaine doit être vérifiée par Media Services. Media Services vérifie la propriété de nom de domaine en demandant un `CName` enregistrement qui contient l’ID de compte Media Services en tant que composant à ajouter au domaine en cours d’utilisation. Par exemple, pour utiliser « sports.contoso.com » comme nom d’hôte personnalisé pour le point de terminaison de streaming, un enregistrement pour `<accountId>.contoso.com` doit être configuré de façon à pointer vers un des noms d’hôte de vérification de Media Services. Le nom d’hôte de vérification est composé de verifydns.\<mediaservices-dns-zone>. 
+
+    Les zones DNS attendues à utiliser dans l’enregistrement de vérification pour les différentes régions Azure sont les suivantes :
+  
+  - Amérique du Nord, Europe, Singapour, Hong Kong (R.A.S.), Japon :
+      
+    - `media.azure.net`
+    - `verifydns.media.azure.net`
+      
+  - Chine :
+        
+    - `mediaservices.chinacloudapi.cn`
+    - `verifydns.mediaservices.chinacloudapi.cn`
+        
+    Par exemple, un `CName` enregistrement qui mappe « 945a4c4e-28ea-45 cd-8ccb-a519f6b700ad.contoso.com » à « verifydns.media.azure.net » prouve que l’ID de Media Services 945a4c4e-28ea-45cd-8ccb-a519f6b700ad est propriétaire du domaine contoso.com, par conséquent, l’activation de n’importe quel nom sous contoso.com à utiliser comme nom d’hôte personnalisé pour un point de terminaison de diffusion en continu sous ce compte. Pour rechercher la valeur de l’ID du Service multimédia, accédez au [portail Azure](https://portal.azure.com/) et sélectionnez votre compte Service multimédia. Le **ID de compte** s’affiche dans le coin supérieur droit de la page.
+        
+    si vous tentez de définir un nom d’hôte personnalisé sans vérification appropriée de l’enregistrement `CName`, la réponse DNS échoue, puis elle est mise en cache pendant un certain temps. Une fois qu’un enregistrement approprié est en place, un certain temps peut être nécessaire pour que la réponse mise en cache soit revalidée. Selon le fournisseur DNS pour le domaine personnalisé, quelques minutes à une heure peuvent être nécessaires pour revalider l’enregistrement.
+        
+    Outre le `CName` qui mappe `<accountId>.<parent domain>` à `verifydns.<mediaservices-dns-zone>`, vous devez créer un autre `CName` qui mappe le nom d’hôte personnalisé (par exemple, `sports.contoso.com`) au nom d’hôte de votre Media Services de diffusion en continu du point de terminaison (par exemple, `amstest-usea.streaming.media.azure.net`).
+ 
+    > [!NOTE]
+    > Points de terminaison situés dans le même centre de données de diffusion en continu ne peuvent pas partager le même nom d’hôte personnalisé.
+
+    Actuellement, Media Services ne prend en charge SSL avec des domaines personnalisés. 
+    
+- `maxCacheAge` -Les remplacements de cache HTTP MaxAge par défaut contrôler en-tête défini par le point de terminaison de diffusion en continu sur des fragments multimédias et les manifestes à la demande. La valeur est définie en secondes.
+- `resourceState` -
+
+    - Arrêté - l’état initial d’un point de terminaison de diffusion en continu après sa création
+    - Démarrage - passe à l’état en cours d’exécution
+    - En cours d’exécution - est en mesure de diffuser du contenu aux clients
+    - Échelle - les unités sont en cours augmentée ou réduite
+    - Arrêt en cours - est en transition vers l’état arrêté
+    - Suppression – est en cours de suppression
+    
+- `scaleUnits ` -Vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbits/s. Si vous devez passer à un type **Premium**, ajustez `scaleUnits`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

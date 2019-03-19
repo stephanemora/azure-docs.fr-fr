@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: a6607fa91d9c8556881a5532527a63b6f21ad4d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111444"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Déployer un cluster Service Fabric utilisant un nom commun de certificat au lieu d’une empreinte
 Deux certificats ne peuvent pas avoir la même empreinte, ce qui complique la gestion ou le renouvellement des certificats de cluster. Toutefois, plusieurs certificats peuvent avoir le même nom commun ou objet.  Un cluster utilisant des noms communs de certificat facilite grandement la gestion des certificats. Cet article décrit le déploiement d’un cluster Service Fabric pour utiliser le nom commun d’un certificat à la place de son empreinte.
@@ -158,36 +158,36 @@ Ouvrez le fichier *azuredeploy.json* dans un éditeur de texte et effectuez troi
           },
     ```
 
-4.  Dans la ressource **Microsoft.ServiceFabric/clusters**, mettez à jour la version de l’API vers « 2018-02-01 ».  Ajoutez également un paramètre **certificateCommonNames** avec une propriété **commonNames** et supprimez le paramètre **certificate** (avec la propriété d’empreinte) comme dans l’exemple suivant :
-    ```json
-    {
-        "apiVersion": "2018-02-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
-            }
-            ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
-        ...
-    ```
-> [!NOTE]
-> Le champ « certificateIssuerThumbprint » permet de spécifier les émetteurs de certificats attendus avec le nom commun d’un objet donné. Ce champ accepte une énumération séparée par des virgules d’empreintes numériques SHA-1. Il est à noter qu'il s’agit d’un renforcement de la validation du certificat : dans le cas où l’émetteur est vide ou non spécifié, le certificat est accepté pour l’authentification si sa chaîne peut être générée et se retrouve dans une racine approuvée par le validateur. Lorsque l’émetteur est spécifié, le certificat est accepté si l’empreinte de son émetteur direct correspond à l’une des valeurs spécifiées dans ce champ, que la racine soit ou non approuvée. Il faut savoir qu’une infrastructure à clé publique (PKI) peut utiliser différentes autorités de certification pour émettre des certificats portant sur le même objet ; il est donc important de spécifier toutes les empreintes d’émetteur attendues pour un objet donné.
->
-> Il est recommandé de spécifier l’émetteur ; même s’il continue de fonctionner lorsqu’il est omis (pour les certificats en chaînage sur une racine approuvée), ce comportement comporte des limitations et risque d’être progressivement supprimé dans un avenir proche. Sachez également que les clusters déployés dans Azure et sécurisés avec des certificats X509 émis par une infrastructure PKI et déclarés par objet ne sont pas forcément validables par le service Azure Service Fabric (pour les communications de cluster à service) si la stratégie de certificat de l’infrastructure n’est pas détectable, disponible et accessible. 
+4. Dans la ressource **Microsoft.ServiceFabric/clusters**, mettez à jour la version de l’API vers « 2018-02-01 ».  Ajoutez également un paramètre **certificateCommonNames** avec une propriété **commonNames** et supprimez le paramètre **certificate** (avec la propriété d’empreinte) comme dans l’exemple suivant :
+   ```json
+   {
+       "apiVersion": "2018-02-01",
+       "type": "Microsoft.ServiceFabric/clusters",
+       "name": "[parameters('clusterName')]",
+       "location": "[parameters('clusterLocation')]",
+       "dependsOn": [
+       "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+       ],
+       "properties": {
+       "addonFeatures": [
+           "DnsService",
+           "RepairManager"
+       ],        
+       "certificateCommonNames": {
+           "commonNames": [
+           {
+               "certificateCommonName": "[parameters('certificateCommonName')]",
+               "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
+           }
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+       },
+       ...
+   ```
+   > [!NOTE]
+   > Le champ « certificateIssuerThumbprint » permet de spécifier les émetteurs de certificats attendus avec le nom commun d’un objet donné. Ce champ accepte une énumération séparée par des virgules d’empreintes numériques SHA-1. Il est à noter qu'il s’agit d’un renforcement de la validation du certificat : dans le cas où l’émetteur est vide ou non spécifié, le certificat est accepté pour l’authentification si sa chaîne peut être générée et se retrouve dans une racine approuvée par le validateur. Lorsque l’émetteur est spécifié, le certificat est accepté si l’empreinte de son émetteur direct correspond à l’une des valeurs spécifiées dans ce champ, que la racine soit ou non approuvée. Il faut savoir qu’une infrastructure à clé publique (PKI) peut utiliser différentes autorités de certification pour émettre des certificats portant sur le même objet ; il est donc important de spécifier toutes les empreintes d’émetteur attendues pour un objet donné.
+   >
+   > Il est recommandé de spécifier l’émetteur ; même s’il continue de fonctionner lorsqu’il est omis (pour les certificats en chaînage sur une racine approuvée), ce comportement comporte des limitations et risque d’être progressivement supprimé dans un avenir proche. Sachez également que les clusters déployés dans Azure et sécurisés avec des certificats X509 émis par une infrastructure PKI et déclarés par objet ne sont pas forcément validables par le service Azure Service Fabric (pour les communications de cluster à service) si la stratégie de certificat de l’infrastructure n’est pas détectable, disponible et accessible. 
 
 ## <a name="deploy-the-updated-template"></a>Déployer le modèle mis à jour
 Redéployez le modèle mis à jour après avoir apporté les modifications.

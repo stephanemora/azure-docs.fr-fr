@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0990ae2c21017c0d6ff25478eb4b5e3bfb4f0d11
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251433"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994372"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Guide pratique pour créer un modèle Conversation Learner avec Node.js
 
@@ -27,13 +27,13 @@ Conversation Learner simplifie la création de bots. Il permet un flux de travai
 
 Project Conversation Learner se compose d’un kit de développement logiciel (SDK) que vous ajoutez à votre bot et d’un service cloud auquel le kit de développement logiciel (SDK) accède pour la Machine Learning.  Actuellement, l’accès au service cloud Project Conversation Learner nécessite une invitation.  Si vous n’avez pas encore été invité, [demandez une invitation](https://aka.ms/conversation-learner-request-invite).  Si vous n’avez pas reçu d’invitation, vous ne pourrez pas accéder à l’API cloud.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Node 8.5.0 ou version ultérieure et npm 5.3.0 ou version ultérieure. Installer à partir de [https://nodejs.org](https://nodejs.org).
   
 - Clé de création LUIS :
 
-  1. Connectez-vous à [http://www.luis.ai](http://www.luis.ai).
+  1. Connectez-vous à [https://www.luis.ai](https://www.luis.ai).
 
   2. Cliquez sur votre nom dans le coin supérieur droit, puis sur « paramètres »
 
@@ -78,35 +78,35 @@ Project Conversation Learner se compose d’un kit de développement logiciel (S
 
     Cette commande exécute le bot vide générique dans `cl-bot-01/src/app.ts`.
 
-3. Ouvrez http://localhost:3978 dans la fenêtre du navigateur
+3. Ouvrez `http://localhost:3978` dans la fenêtre du navigateur
 
 Vous utilisez maintenant Conversation Learner et pouvez créer et enseigner un modèle Conversation Learner.  
 
 > [!NOTE]
-> Au démarrage, Project Conversation Learner est disponible sur invitation.  Si http://localhost:3978/ui affiche une erreur `403` HTTP, cela signifie que votre compte n’a pas été invité.  Veuillez [demander une invitation](https://aka.ms/conversation-learner-request-invite).
+> Au démarrage, Project Conversation Learner est disponible sur invitation.  Si `http://localhost:3978/ui` affiche une erreur `403` HTTP, cela signifie que votre compte n’a pas été invité.  Veuillez [demander une invitation](https://aka.ms/conversation-learner-request-invite).
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>Didacticiels, démonstrations et changement de bot
 
 Les instructions ci-dessus permettent de démarrer le bot générique vide.  Pour exécuter un bot de didacticiel ou de démonstration à la place :
 
-1. Si l’interface utilisateur web Conversation Learner est ouverte, revenez à la liste des modèles : http://localhost:3978/ui/home.
+1. Si l’interface utilisateur web Conversation Learner est ouverte, revenez à la liste des modèles : `http://localhost:3978/ui/home`.
     
 2. Si un autre bot est en cours d’exécution (comme `npm start` ou `npm run demo-pizza`), arrêtez-le.  Vous n’avez pas besoin d’arrêter le processus de l’interface utilisateur ni de fermer le navigateur web.
 
 3. Exécutez un bot de démonstration à partir de la ligne de commande (étape 2 ci-dessus).  Les démonstrations incluent :
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
-4. Si vous ne l’avez pas déjà fait, basculez sur l’interface utilisateur web Conversation Learner dans Chrome en chargeant http://localhost:3978/ui/home. 
+4. Si vous ne l’avez pas déjà fait, basculez sur l’interface utilisateur web Conversation Learner dans Chrome en chargeant `http://localhost:3978/ui/home`. 
 
 5. Cliquez sur « Importer des tutoriels » et sélectionnez le modèle de démonstration dans l’interface utilisateur Conversation Learner qui correspond à la démonstration que vous avez démarrée.
 
@@ -114,7 +114,7 @@ Les fichiers sources des démonstrations sont sous `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Créer un bot qui inclut le code principal
 
-1. Si l’interface utilisateur web Conversation Learner est ouverte, revenez à la liste des modèles : http://localhost:3978/ui/home.
+1. Si l’interface utilisateur web Conversation Learner est ouverte, revenez à la liste des modèles : `http://localhost:3978/ui/home`.
     
 2. Si un bot est en cours d’exécution (comme `npm run demo-pizza`), arrêtez-le.  Vous n’avez pas besoin d’arrêter le processus de l’interface utilisateur ni de fermer le navigateur web.
 
@@ -127,7 +127,7 @@ Les fichiers sources des démonstrations sont sous `cl-bot-01/src/demos`
     npm start
     ```
 
-5. Si vous ne l’avez pas déjà fait, basculez sur l’interface utilisateur web Conversation Learner dans Chrome en chargeant http://localhost:3978/ui/home. 
+5. Si vous ne l’avez pas déjà fait, basculez sur l’interface utilisateur web Conversation Learner dans Chrome en chargeant `http://localhost:3978/ui/home`. 
 
 6. Créez un modèle Conversation Learner dans l’interface utilisateur et commencez l’apprentissage.
 

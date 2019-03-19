@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715339"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897586"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Ajouter des bibliothèques Apache Hive personnalisées lors de la création de votre cluster HDInsight
 
@@ -51,7 +51,7 @@ Pour les **clusters Windows** : [https://hdiconfigactions.blob.core.windows.net/
 
 * Le compte de stockage contenant la bibliothèque de fichiers jar **doit** être lié au cluster HDInsight lors de la création. Il doit s’agir du compte de stockage par défaut ou d’un compte ajouté via la __configuration facultative__.
 
-* Le chemin WASB vers le conteneur doit être spécifié en tant que paramètre à l'action de script. Par exemple, si les fichiers jar sont stockés dans un conteneur nommé **libs** sur un compte de stockage nommé **mystorage**, le paramètre serait **wasb://libs@mystorage.blob.core.windows.net/**.
+* Le chemin WASB vers le conteneur doit être spécifié en tant que paramètre à l'action de script. Par exemple, si les fichiers JAR sont stockés dans un conteneur nommé **libs** sur un compte de stockage nommé **mystorage**, le paramètre serait **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/**.
 
   > [!NOTE]  
   > Ce document suppose que vous avez déjà créé un compte de stockage et un conteneur d'objets blob et que vous avez déjà chargé les fichiers dans ce dernier.
@@ -79,7 +79,7 @@ Pour les **clusters Windows** : [https://hdiconfigactions.blob.core.windows.net/
 
    * **ZOOKEEPER** : Laissez ce champ vide.
 
-   * **PARAMÈTRES** : entrez l’adresse WASB du compte de stockage et du conteneur qui contiennent les fichiers jar. Par exemple : **wasb://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMÈTRES** : entrez l’adresse WASB du compte de stockage et du conteneur qui contiennent les fichiers jar. Par exemple, **wasb://libs\@mystorage.blob.core.windows.net/**.
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration.
 

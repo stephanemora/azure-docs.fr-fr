@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 18cb4aae9470766b75c3c6519473660ac24ad4f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4be33b809ee2e620a565c9907a5b77833a279567
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848811"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Créer un espace de travail Log Analytics avec Azure CLI 2.0
 
@@ -43,6 +43,8 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 Créez un espace de travail avec [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). L’exemple suivant montre comment créer un espace de travail nommé *TestWorkspace* dans le groupe de ressources *Lab* à l’emplacement *eastus* à l’aide d’un modèle Resource Manager à partir de votre ordinateur local. Le modèle JSON est configuré pour vous demander uniquement le nom de l’espace de travail et spécifie une valeur par défaut pour les autres paramètres susceptibles d’être utilisés comme configuration standard dans votre environnement. Vous pouvez aussi stocker le modèle dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation. Pour plus d’informations sur le fonctionnement des modèles, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+
+Pour plus d’informations sur les régions prises en charge, consultez [Analytique de journal est disponible dans des régions](https://azure.microsoft.com/regions/services/) et recherchez Azure Monitor à partir de la **rechercher un produit** champ. 
 
 Les paramètres suivants sont définis comme une valeur par défaut :
 
@@ -96,7 +98,7 @@ Les paramètres suivants sont définis comme une valeur par défaut :
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -111,12 +113,12 @@ Les paramètres suivants sont définis comme une valeur par défaut :
     }
     ```
 
-2. Modifiez le modèle en fonction de vos besoins.  Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
+2. Modifiez le modèle en fonction de vos besoins. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
 3. Enregistrez ce fichier au format **deploylaworkspacetemplate.json** dans un dossier local.   
 4. Vous êtes prêt à déployer ce modèle. Utilisez les commandes suivantes à partir du dossier qui contient le modèle :
 
     ```azurecli
-    azure group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 Le déploiement peut prendre plusieurs minutes. Lorsqu’il est terminé, vous voyez un message similaire au message suivant qui inclut le résultat :

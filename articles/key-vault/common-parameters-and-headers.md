@@ -3,7 +3,7 @@ title: Paramètres et en-têtes communs
 description: Paramètres et en-têtes communs à toutes les opérations que vous pouvez effectuer concernant les ressources Key Vault.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 1ac0f54aa4dfdc9db4724629c4dbfe7a4982838f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: cc6c937e37ebb7919ca271e765ad6460c104e43b
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301228"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405043"
 ---
 # <a name="common-parameters-and-headers"></a>Paramètres et en-têtes communs
 
@@ -45,8 +45,8 @@ Le service utilise les codes d’état HTTP pour indiquer la réussite ou l’é
 
 |Nom de l'élément | Type | Description |
 |---|---|---|
-| code | chaîne | Type d’erreur qui s’est produit.|
-| Message | chaîne | Description de ce qui a provoqué l’erreur. |
+| code | string | Type d’erreur qui s’est produit.|
+| Message | string | Description de ce qui a provoqué l’erreur. |
 
 
 

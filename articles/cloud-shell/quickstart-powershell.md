@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: df9dc7d25ff0304effadbf27751042e9961c75c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106404"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Démarrage rapide de PowerShell dans Azure Cloud Shell
 
@@ -34,11 +34,11 @@ Ce document explique comment utiliser PowerShell dans Cloud Shell dans le [porta
 
 1. Cliquez sur le bouton **Cloud Shell** dans la barre de navigation supérieure du portail Azure
 
-  ![](media/quickstart-powershell/shell-icon.png)
+   ![](media/quickstart-powershell/shell-icon.png)
 
 2. Sélectionnez l’environnement PowerShell à partir de la liste déroulante pour basculer vers le lecteur Azure`(Azure:)`
 
-  ![](media/quickstart-powershell/environment-ps.png)
+   ![](media/quickstart-powershell/environment-ps.png)
 
 ## <a name="run-powershell-commands"></a>Exécuter des commandes PowerShell
 
@@ -105,7 +105,7 @@ PS Azure:\MySubscriptionName> dir AllResources
 
  Vous pouvez accéder au répertoire `ResourceGroups` et à l’intérieur d’un groupe de ressources spécifique rechercher des machines virtuelles.
 
-```azureowershell-interactive
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
 
 PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
@@ -129,7 +129,7 @@ Toutefois, vous pouvez toujours utiliser `dir -Force` pour obtenir des données 
 
 En accédant au répertoire `StorageAccounts`, vous pouvez facilement parcourir la totalité de vos ressources de stockage.
 
-```azureowershell-interactive
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
 
     Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files

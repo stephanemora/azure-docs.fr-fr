@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229487"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763604"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
 > [!NOTE]
@@ -29,10 +29,10 @@ ms.locfileid: "54229487"
 Les [solutions de gestion]( solutions.md) comprennent généralement des runbooks dans Azure Automation pour automatiser des processus tels que la collecte et le traitement de l’analyse des données.  En plus des runbooks, les comptes Automation incluent des ressources telles que des variables et des planifications qui prennent en charge les runbooks utilisés dans la solution.  Cet article explique comment inclure des runbooks et leurs ressources associées dans une solution.
 
 > [!NOTE]
-> Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure ]( solutions-creating.md) 
+> Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure]( solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cet article suppose que vous êtes déjà familiarisé avec les informations suivantes.
 
 - Comment [créer une solution de gestion]( solutions-creating.md).
@@ -281,7 +281,7 @@ Si vous définissez la valeur initiale pour la variable, elle doit être configu
 
 | Type de données | Description | Exemples | Est résolu en |
 |:--|:--|:--|:--|
-| chaîne   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
+| string   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
 | numérique  | Valeur numérique avec des guillemets simples.| "64" | 64 |
 | booléenne  | **true** ou **false** entre guillemets.  Notez que cette valeur doit être en minuscules. | "true" | true |
 | Datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

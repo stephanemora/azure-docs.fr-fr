@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237550"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897508"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -27,7 +27,7 @@ LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](
 Si votre application dépasse les limites du modèle LUIS, envisagez d’utiliser une application de [distribution LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) ou un [conteneur LUIS](luis-container-howto.md). 
 
 |Domaine|Limite|
-|--|:--|--|
+|--|:--|
 | [Nom de l’application][luis-get-started-create-app] | * Nombre maximum de caractère par défaut |
 | [Test par lot][batch-testing]| jeux de 10 données, 1 000 énoncés par jeu de données|
 | Liste explicite | 50 par application|
@@ -41,7 +41,7 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 | [Entité d’expression régulière](./luis-concept-entity-types.md)|20 entités<br>500 caractères maximum par modèle d’entité d’expression régulière|
 | [Rôles](luis-concept-roles.md)|300 rôles par application. 10 rôles par entité|
 | [Énoncé][utterances] | 500 caractères|
-| [Énoncés][utterances] | 15 000 par application|
+| [Énoncés][utterances] | 15 000 par application - il n’existe aucune limite sur le nombre d’énoncés par intention|
 | [Versions](luis-concept-version.md)| aucune limite |
 | [Nom de version][luis-how-to-manage-versions] | 10 caractères restreints à l’alphanumérique et point (.) |
 

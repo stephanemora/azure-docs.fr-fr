@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c09df2a15fbd0bdfdd1478fad587e6a18695002c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207498"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082498"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -33,19 +33,19 @@ Lorsque vous utilisez une licence basée sur le groupe, les mêmes erreurs peuve
 ## <a name="how-to-find-license-assignment-errors"></a>Comment rechercher des erreurs d’affectation de licence
 **Rechercher des erreurs d’affectation de licence**
 
-   1. Pour rechercher des données utilisateur à l’état d’erreur dans un groupe spécifique, ouvrez le volet du groupe. Sous **Licences**, une notification s’affiche si des données utilisateur se trouvent à l’état d’erreur.
+1. Pour rechercher des données utilisateur à l’état d’erreur dans un groupe spécifique, ouvrez le volet du groupe. Sous **Licences**, une notification s’affiche si des données utilisateur se trouvent à l’état d’erreur.
 
    ![Groupe, notification d’erreur](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. Sélectionnez la notification pour ouvrir la liste de tous les utilisateurs concernés. Vous pouvez sélectionner chaque utilisateur individuellement pour afficher plus de détails.
+2. Sélectionnez la notification pour ouvrir la liste de tous les utilisateurs concernés. Vous pouvez sélectionner chaque utilisateur individuellement pour afficher plus de détails.
 
    ![Groupe, liste des utilisateurs en état d’erreur](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory**, sélectionnez **Licences**, puis **Vue d’ensemble**. Une fenêtre d’informations s’affiche lorsque des groupes nécessitent votre attention.
+3. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory**, sélectionnez **Licences**, puis **Vue d’ensemble**. Une fenêtre d’informations s’affiche lorsque des groupes nécessitent votre attention.
 
    ![Vue d’ensemble, informations sur les groupes en état d’erreur](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. Cliquez sur la zone pour afficher la liste de tous les groupes contenant des erreurs. Vous pouvez sélectionner chaque groupe pour afficher des détails supplémentaires.
+4. Cliquez sur la zone pour afficher la liste de tous les groupes contenant des erreurs. Vous pouvez sélectionner chaque groupe pour afficher des détails supplémentaires.
 
    ![Vue d’ensemble, liste des groupes contenant des erreurs](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
@@ -104,9 +104,9 @@ Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre loca
 
 > [!TIP]
 > Pour cela, exécutez la cmdlet PowerShell suivante par rapport à Exchange Online :
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
+> ```
+> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
 > Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](https://technet.microsoft.com/library/jj984289.aspx). Consultez cet article pour plus d’informations sur la [façon dont l’attribut proxyAddresses est rempli dans Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs concernés, veillez à forcer le traitement des licences sur le groupe, pour vous assurer que les licences peuvent désormais être appliquées.

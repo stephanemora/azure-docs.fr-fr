@@ -4,14 +4,14 @@ description: Prérequis pour Avere vFXT pour Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 5642f3acd108d0d3f504fc132522936d1b5ab870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299202"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082583"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Se préparer à la création du système Avere vFXT
 
@@ -57,7 +57,7 @@ Vous devez disposer d’un quota suffisant pour les composants Azure suivants. S
 
 |Composant Azure|Quota|
 |----------|-----------|
-|Machines virtuelles|Au moins trois D16s_v3 ou E32s_v3|
+|Machines virtuelles|E32s_v3 3 ou plus|
 |Stockage SSD Premium|200 Go d’espace de système d’exploitation, et de 1 To à 4 To d’espace de cache par nœud |
 |Compte de stockage (facultatif) |v2|
 |Stockage back-end de données (facultatif) |Un nouveau conteneur d’objets blob LRS |
@@ -151,6 +151,30 @@ Vous devez créer le rôle du nœud de cluster avant de pouvoir créer le cluste
    ```
 
 Le nom du rôle est utilisé lors de la création du cluster. Dans cet exemple, il s'agit du nom ``avere-operator``.
+
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Créer un point de terminaison de service de stockage dans votre réseau virtuel (si nécessaire)
+
+Un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) conserve le trafic d’objets Blob Azure en local au lieu de le routage en dehors du réseau virtuel. Il est recommandé de n’importe quel vFXT Avere pour un cluster Azure qui utilise des objets Blob Azure pour le stockage de données back-end. 
+
+Si vous êtes en fournissant un réseau virtuel existant et la création d’un conteneur d’objets Blob Azure pour votre stockage back-end dans le cadre de la création du cluster, vous devez disposer d’un point de terminaison de service dans le réseau virtuel pour le stockage de Microsoft. Ce point de terminaison doit exister avant de créer le cluster, ou la création échoue. 
+
+Un point de terminaison de service de stockage est recommandée pour n’importe quel vFXT Avere pour un cluster Azure qui utilise le stockage Blob Azure, même si vous ajoutez le stockage ultérieurement. 
+
+> [!TIP] 
+> * Ignorez cette étape si vous créez un nouveau réseau virtuel dans le cadre de la création du cluster. 
+> * Cette étape est facultative si vous ne créez pas de stockage d’objets Blob lors de la création du cluster. Dans ce cas, vous pouvez créer le point de terminaison de service ultérieurement si vous décidez d’utiliser des objets Blob Azure.
+
+Créer le point de terminaison de service de stockage à partir du portail Azure. 
+
+1. Dans le portail, cliquez sur **Réseaux virtuels** à gauche.
+1. Sélectionnez le réseau virtuel pour votre cluster. 
+1. Cliquez sur **Points de terminaison de service** à gauche.
+1. Cliquez sur **Ajouter** dans la partie supérieure.
+1. Laissez le service en tant que ``Microsoft.Storage`` et choisissez le sous-réseau du cluster.
+1. Dans la partie inférieure, cliquez sur **Ajouter**.
+
+   ![Capture d’écran du portail Azure montrant les étapes de création du point de terminaison de service](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Étape suivante : Créer le cluster vFXT
 

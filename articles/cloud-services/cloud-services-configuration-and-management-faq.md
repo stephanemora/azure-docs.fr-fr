@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835518"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -143,7 +143,7 @@ Pour plus d’informations, consultez les documents suivants :
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Comment activer la journalisation des diagnostics Microsoft Azure pour les Services cloud ?
 Vous pouvez activer la journalisation des diagnostics Microsoft Azure par le biais des options suivantes :
 1. [Activer à partir de Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Activer par le biais du code .Net](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Activer via le code .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Activer par le biais de PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Pour obtenir les paramètres actuels des diagnostics Microsoft Azure de votre service cloud, vous pouvez utiliser la cmd ps [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ou les voir dans le portail en accédant au panneau « Services cloud --> Extensions ».

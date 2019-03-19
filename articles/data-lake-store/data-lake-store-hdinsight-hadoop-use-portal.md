@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 25e4c308b55b66038be6825a239f185e5e813af5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817034"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085760"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Créer des clusters HDInsight avec Azure Data Lake Storage Gen1 à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "55817034"
 
 Découvrez comment utiliser le portail Azure pour créer un cluster HDInsight avec un compte Azure Data Lake Storage Gen1 en tant que stockage par défaut ou stockage supplémentaire. Bien que le stockage supplémentaire soit facultatif pour les clusters HDInsight, il est recommandé de stocker vos données d’entreprise dans les comptes de stockage supplémentaires.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer le didacticiel, veillez à ce que vos mots de passe répondent aux exigences suivantes :
 
 * **Un abonnement Azure**. Consultez [Créez votre compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/).
@@ -136,7 +136,7 @@ La configuration diffère selon que le compte est utilisé en tant que compte de
 
     ![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Ajouter un principal du service à un cluster HDInsight")
 
-  Par défaut, __READ__, __WRITE__ ET __EXECUTE__ sont tous sélectionnés.
+   Par défaut, __READ__, __WRITE__ ET __EXECUTE__ sont tous sélectionnés.
 
 3. Cliquez sur **Sélectionner** en bas de la page.
 4. Cliquez sur **Exécuter** pour assigner des autorisations.

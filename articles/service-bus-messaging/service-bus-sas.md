@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895854"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308854"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
@@ -84,7 +84,7 @@ Le calcul de hachage est similaire au code de pseudo suivant et retourne une val
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Le jeton contient les valeurs non hachées afin que le destinataire puisse recalculer le hachage avec les mêmes paramètres, en vérifiant que l’émetteur est en possession d’une clé de signature valide. 
+Le jeton contient les valeurs non hachées afin que le destinataire puisse recalculer le hachage avec les mêmes paramètres, en vérifiant que l’émetteur est en possession d’une clé de signature valide.
 
 L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>` ; qui est, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. L’URI doit être [encodée en pourcentage](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
@@ -156,7 +156,7 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-Vous pouvez aussi utiliser le fournisseur de jetons directement pour l’émission de jetons à transmettre à d’autres clients. 
+Vous pouvez aussi utiliser le fournisseur de jetons directement pour l’émission de jetons à transmettre à d’autres clients.
 
 Les chaînes de connexion peuvent inclure un nom de règle (*SharedAccessKeyName*) et la clé de la règle (*SharedAccessKey*) ou un jeton émis précédemment (*SharedAccessSignature*). Lorsque ceux-ci sont présents dans la chaîne de connexion transmise à un constructeur ou une méthode de fabrique acceptant une chaîne de connexion, le fournisseur de jetons SAP est automatiquement créé et renseigné.
 
@@ -171,7 +171,7 @@ POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
 Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
-``` 
+```
 
 N’oubliez pas que cela fonctionne pour tout. Vous pouvez créer une signature d’accès partagé pour une file d’attente, une rubrique ou un abonnement.
 
@@ -183,7 +183,7 @@ Dans la section précédente, vous avez vu comment utiliser le jeton SAS avec un
 
 Avant de commencer à envoyer des données vers Service Bus, le serveur de publication doit envoyer le jeton SAP dans un message AMQP à un nœud AMQP bien défini nommé **$cbs** (il s’agit d’une sorte de file d’attente « spéciale » que le service utilise pour acquérir et valider tous les jetons SAP). Le serveur de publication doit spécifier le champ **ReplyTo** dans le message AMQP. Il s’agit du nœud sur lequel le service répond au serveur de publication avec le résultat de la validation du jeton (système de demande/réponse simple entre le serveur de publication et le service). Ce nœud de réponse est créé « à la volée » en ce qui concerne la « création dynamique du nœud à distance », comme le décrit la spécification AMQP 1.0.  Après avoir vérifié que le jeton SAS est valide, le serveur de publication peut continuer et commencer à envoyer des données au service.
 
-Les étapes suivantes montrent comment envoyer le jeton SAP avec le protocole AMQP à l'aide de la bibliothèque [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) . C’est utile si vous ne pouvez pas utiliser le Kit de développement logiciel (SDK) Service Bus officiel (par exemple sur WinRT, .NET Compact Framework, .NET Micro Framework et Mono) pour le développement en C\#. Bien évidemment, cette bibliothèque est utile pour comprendre comment la sécurité basée sur les revendications fonctionne au niveau AMQP, tout comme vous avez pu voir comment cela fonctionne au niveau HTTP (avec une demande HTTP POST et le jeton SAP envoyé dans l’en-tête « Autorisation »). Si vous n’avez pas besoin de ces connaissances aussi approfondies concernant AMQP, vous pouvez utiliser le Kit de développement logiciel (SDK) Service Bus officiel avec des applications .NET Framework qui s’en occuperont pour vous.
+Les étapes suivantes montrent comment envoyer le jeton SAP avec à l’aide du protocole AMQP le [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) bibliothèque. Cela est utile si vous ne pouvez pas utiliser le développement du SDK de Bus de Service (par exemple sur WinRT, .NET Compact Framework, .NET Micro Framework et Mono) officielle en C\#. Bien évidemment, cette bibliothèque est utile pour comprendre comment la sécurité basée sur les revendications fonctionne au niveau AMQP, tout comme vous avez pu voir comment cela fonctionne au niveau HTTP (avec une demande HTTP POST et le jeton SAP envoyé dans l’en-tête « Autorisation »). Si vous n’avez pas besoin ces connaissances aussi approfondies concernant AMQP, vous pouvez utiliser le Kit de développement logiciel officiel Service Bus avec les applications .NET Framework qui seront en occuperont pour vous.
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,12 +236,12 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-La méthode `PutCbsToken()` reçoit la *connexion* (instance de classe de connexion AMQP telle que fournie par la [bibliothèque AMQP .NET Lite](https://github.com/Azure/amqpnetlite)) qui représente la connexion TCP au service et le paramètre *sasToken* correspondant au jeton SAP à envoyer. 
+La méthode `PutCbsToken()` reçoit la *connexion* (instance de classe de connexion AMQP telle que fournie par la [bibliothèque AMQP .NET Lite](https://github.com/Azure/amqpnetlite)) qui représente la connexion TCP au service et le paramètre *sasToken* correspondant au jeton SAP à envoyer.
 
 > [!NOTE]
 > Il est important que la connexion soit créée avec le **mécanisme d’authentification SASL défini sur ANONYMOUS** (et non sur le paramètre par défaut PLAIN avec le nom d’utilisateur et le mot de passe utilisés lorsque vous n’avez pas besoin d’envoyer le jeton SAP).
-> 
-> 
+>
+>
 
 Le serveur de publication crée ensuite deux liens AMQP pour envoyer le jeton SAP et recevoir la réponse (résultat de validation du jeton) depuis le service.
 
@@ -295,7 +295,7 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | **Règles** | | |
 | Créer une règle |gérer |../myTopic/Subscriptions/mySubscription |
 | Supprimer une règle |gérer |../myTopic/Subscriptions/mySubscription |
-| Énumérer des règles |Gérer ou écouter |.. /myTopic/Subscriptions/mySubscription/Rules 
+| Énumérer des règles |Gérer ou écouter |.. /myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Étapes suivantes
 

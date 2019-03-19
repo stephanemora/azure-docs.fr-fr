@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871011"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649439"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glossaire de la base de connaissances et du service QnA Maker
 
@@ -42,4 +42,4 @@ Une requête de l’utilisateur est la question que l’utilisateur final ou le 
 La réponse est la réponse telle que récupérée dans la base de connaissances. Il s’agit de la meilleure correspondance pour une requête utilisateur donnée.
 
 ## <a name="confidence-score"></a>Score de confiance
-Le score de confiance de la réponse est une valeur numérique comprise entre 0 et 100. Une valeur de 100 équivaut à une correspondance exacte entre la requête de l’utilisateur et une question dans la base de connaissances. De plus, la réponse fournie à la requête de l’utilisateur est la réponse correcte et appropriée. Les réponses sont généralement classées selon le score de confiance et celle dont le score de confiance est supérieur est considérée comme la réponse par défaut.
+Le score de confiance de la réponse est une valeur numérique comprise entre 0 et 100. Une valeur de 100 équivaut à une correspondance exacte entre la requête de l’utilisateur et une question dans la base de connaissances. De plus, la réponse fournie à la requête de l’utilisateur est la réponse correcte et appropriée. Des réponses sont généralement classés par le score de confiance et celui dont le score de confiance plus élevé est pris en charge en tant que le [réponse par défaut](concepts/confidence-score.md#change-default-answer).

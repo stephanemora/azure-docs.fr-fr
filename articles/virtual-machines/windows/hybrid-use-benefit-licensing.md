@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 4de6e4429543ea4f691cc3a38c15b896b866075b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980718"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570366"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,7 +33,7 @@ Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Serv
 >
 
 > [!NOTE]
-> Pour les machines virtuelles classiques, seul le déploiement d’une nouvelle machine virtuelle à partir des images personnalisées locales est pris en charge. Pour tirer parti des fonctionnalités prises en charge dans cet article, vous devez d’abord migrer des machines virtuelles classiques vers le modèle Resource Manager.
+> Pour les machines virtuelles classiques, seul déploiement nouvelle machine virtuelle à partir d’images personnalisées du site est pris en charge. Pour tirer parti des fonctionnalités prises en charge dans cet article, vous devez d’abord migrer des machines virtuelles classiques vers le modèle Resource Manager.
 >
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
@@ -77,11 +77,11 @@ az vm create \
 ### <a name="template"></a>Modèle
 Dans vos modèles Resource Manager, vous pouvez spécifier un paramètre supplémentaire `licenseType`. Pour en savoir plus sur la création de modèles Azure Resource Manager, [cliquez ici](../../resource-group-authoring-templates.md).
 ```json
-"properties": {  
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Convertir une machine virtuelle existante pour utiliser Azure Hybrid Benefit pour Windows Server
@@ -161,7 +161,7 @@ Pour afficher et compter toutes les machines virtuelles déployées avec Azure H
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Déployer un groupe de machines virtuelles identiques avec Azure Hybrid Benefit pour Windows Server
-Au sein des modèles Resource Manager de votre groupe de machines virtuelles identiques, vous devez spécifier un paramètre supplémentaire `licenseType` dans votre propriété VirtualMachineProfile. Vous pouvez le faire durant la création ou la mise à jour de votre groupe identique avec un modèle ARM, Powershell, Azure CLI ou REST.
+Au sein des modèles Resource Manager de votre groupe de machines virtuelles identiques, vous devez spécifier un paramètre supplémentaire `licenseType` dans votre propriété VirtualMachineProfile. Vous pouvez le faire lors de la création ou mise à jour pour votre groupe identique via le modèle ARM, PowerShell, Azure CLI ou REST.
 
 L’exemple qui suit utilise un modèle ARM avec une image Windows Server 2016 Datacenter :
 ```json

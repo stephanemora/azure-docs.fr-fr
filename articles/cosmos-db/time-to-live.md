@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461166"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549185"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>Durée de vie dans Azure Cosmos DB 
 
@@ -30,7 +30,7 @@ La valeur de durée de vie est définie en secondes et interprétée en tant qu'
 
    - Si ce paramètre est présent et que sa valeur est définie sur un nombre quelconque (« n »), les éléments expirent « n » secondes après leur dernière modification.
 
-2. **Durée de vie sur un élément** (définie via `TimeToLive`) :
+2. **Durée de vie sur un élément** (définie via `ttl`) :
 
    - Cette propriété s'applique uniquement si la propriété `DefaultTimeToLive` est présente et qu'elle n'est pas définie sur null pour le conteneur parent.
 
@@ -48,6 +48,6 @@ La suppression d'éléments basée sur la durée de vie est gratuite. Aucun coû
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à configurer la durée de vie dans les articles suivants :
+Découvrez comment configurer la durée de vie dans les articles suivants :
 
 * [Configurer la durée de vie](how-to-time-to-live.md)

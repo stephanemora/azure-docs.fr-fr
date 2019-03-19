@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: e6ab51d568c950ca7fd503150557df288d84174f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867730"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593420"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Ajouter des intentions pour déterminer l’intention de l’utilisateur des énoncés
 
@@ -50,21 +50,14 @@ Un énoncé dans une intention peut présenter une différence de prédiction d�
 
 Dans la barre de navigation supérieure, sélectionnez **Train** (Entraîner). La différence de prédiction a désormais disparu.
 
+> [!Note]
+> Lorsqu’une ligne rouge est soumis à un mot ou une phrase dans l’énoncé de l’exemple, un [erreur de prédiction d’entité](luis-how-to-add-example-utterances.md#entity-status-predictions) s’est produite. Vous avez besoin résoudre ce problème. 
+
 ## <a name="add-a-custom-entity"></a>Ajouter une entité personnalisée
 
 Une fois qu’un énoncé a été ajouté à une intention, vous pouvez sélectionner du texte dans l’énoncé pour créer une entité personnalisée. Une entité personnalisée est un moyen de marquer du texte pour l’extraction, avec l’intention correcte. 
 
-1. Dans l’énoncé, sélectionnez le mot `Seattle`. Des crochets sont dessinés autour du texte et un menu déroulant s’affiche. 
-
-    ![Capture d’écran de la page de détails d’intention, avec création d’une entité personnalisée](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    Cet exemple sélectionne un mot unique pour le marquer en tant qu’entité. Vous pouvez marquer des mots et des expressions en tant qu’entités.
-
-1. Dans la zone de texte supérieure du menu de configuration, entrez `Location`, puis sélectionnez **Create new entity** (Créer une entité). 
-
-    ![Capture d’écran de la page de détails d’intention, avec création de nom d’entité personnalisée](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. Dans la fenêtre contextuelle **What type of entity do you want to create?** (Quel type d’entité voulez-vous créer ?) pour la création d’entité, vérifiez que le **nom de l’entité** est _Location_ et le **type de l’entité**  est _Simple_. Sélectionnez **Terminé**.
+Consultez [ajouter une entité à énoncé](luis-how-to-add-example-utterances.md) pour en savoir plus.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Erreurs de différence de prédiction d’entité 
 
@@ -80,7 +73,7 @@ Pour plus d’informations, consultez [Entité prédéfinie](luis-how-to-add-ent
 
 ## <a name="using-the-contextual-toolbar"></a>Utilisation de la barre d’outils contextuelle
 
-Quand un ou plusieurs exemples d’énoncés sont sélectionnés dans la liste, en cochant la case à gauche de l’énoncé, la barre d’outils au-dessus de la liste d’énoncés vous permet d’effectuer les actions suivantes :
+Lorsqu’un ou plusieurs énoncés exemple sont sélectionnés dans la liste, en cochant la case à gauche de l’énoncé, la barre d’outils au-dessus de la liste énoncé vous permet d’effectuer les actions suivantes :
 
 * Réaffecter l’intention : déplacer des énoncés vers une autre intention
 * Supprimer des énoncés

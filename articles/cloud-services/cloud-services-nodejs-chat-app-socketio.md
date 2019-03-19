@@ -14,16 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0fae47f248d5662b69a0d1a12c82b7ded33badd6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993256"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
 
-Socket.IO permet une communication en temps réel entre votre serveur node.js et vos clients. Ce didacticiel présente l’hébergement d’une application de conversation instantanée Socket.IO dans Azure. Pour plus d’informations sur Socket.IO, consultez [socket.io](http://socket.io).
+Socket.IO permet une communication en temps réel entre votre serveur node.js et vos clients. Ce didacticiel présente l’hébergement d’une application de conversation instantanée Socket.IO dans Azure. Pour plus d’informations sur Socket.IO, consultez [socket.io](https://socket.io).
 
 Voici une capture d’écran de l’application terminée :
 
@@ -62,7 +62,7 @@ Pour ce projet, nous allons utiliser un exemple de conversation instantanée obt
 
 1. Créez une copie locale du référentiel en utilisant le bouton **Clone** . Vous pouvez aussi télécharger le projet en utilisant le bouton **ZIP** .
    
-   ![Une fenêtre de navigateur avec https://github.com/LearnBoost/socket.io/tree/master/examples/chat, avec l’icône de téléchargement ZIP mis en surbrillance][chat-example-view]
+   ![Une fenêtre de navigateur avec https://github.com/LearnBoost/socket.io/tree/master/examples/chat, avec l’icône de téléchargement ZIP mis en surbrillance](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. Accédez à la structure de répertoires du référentiel local, jusqu’à atteindre le répertoire **examples\\chat**. Copiez le contenu de ce répertoire dans le répertoire **C:\\node\\chatapp\\WorkerRole1** créé précédemment.
    
    ![Explorateur affichant le contenu du répertoire examples\\chat extrait de l’archive][chat-contents]
@@ -84,7 +84,7 @@ Avant de tester l'application dans l'émulateur Azure, nous allons apporter quel
          var port = process.env.PORT || 3000;         //Updated
 3. Pour que l’application écoute le bon port, ouvrez le fichier server.js dans le Bloc-notes (ou votre éditeur favori), puis modifiez la ligne suivante en remplaçant **3000** par **process.env.port**, comme indiqué ci-dessous :
    
-       //app.listen(3000, function () {            //Original
+       //app.listen(3000, function () {            //Original
        app.listen(process.env.port, function () {  //Updated
          var addr = app.address();
          console.log('   app listening on http://' + addr.address + ':' + addr.port);
@@ -109,12 +109,9 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Si vous rencontrez des problèmes pour le lancement de l’émulateur, par ex. : Start-AzureEmulator : une erreur inattendue est survenue.  Détails : une erreur inattendue a été rencontrée. L’objet de communication System.ServiceModel.Channels.ServiceChannel ne peut pas être utilisé pour la communication car son état est Faulted.
-   
-      réinstallez AzureAuthoringTools v 2.7.1 et AzureComputeEmulator v 2.7 : assurez-vous que la version correspond.
-   >
-   >
-
+   > Si vous rencontrez des problèmes avec le lancement de l’émulateur, par ex. : Start-AzureEmulator : Une erreur inattendue s’est produite.  Détails : A rencontré une erreur inattendue l’objet de communication System.ServiceModel.Channels.ServiceChannel ne peut pas être utilisée pour la communication car il est dans l’état Faulted.
+   > 
+   > Réinstallez AzureAuthoringTools v 2.7.1 et AzureComputeEmulator v 2.7 : Assurez-vous que la version correspond.
 
 2. Ouvrez un navigateur et accédez à **http://127.0.0.1**.
 3. À l'ouverture de la fenêtre du navigateur, entrez un pseudonyme, puis appuyez sur Entrée.
@@ -156,7 +153,7 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
-[Azure SLA]: http://www.windowsazure.com/support/sla/
+[Azure SLA]: https://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
 [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/

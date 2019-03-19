@@ -3,17 +3,17 @@ title: Format de données Geofence GeoJSON dans Azure Maps | Microsoft Docs
 description: En savoir plus sur le format de données Geofence GeoJSON dans Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/15/2018
+ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339632"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568989"
 ---
 # <a name="geofencing-geojson-data"></a>Données Geofencing GeoJSON
 
@@ -34,7 +34,7 @@ Les données de la limite géographique ou d’un ensemble de limites géographi
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | Date et heure de début de la période de validité. |
 | endTime   | DateTime  | true |  Date et heure de fin de la période de validité. |
-| recurrenceType | chaîne | false |   Le type de périodicité de la période. La valeur peut être `Daily`, `Weekly`, `Monthly` ou `Yearly`. La valeur par défaut est `Daily`.|
+| recurrenceType | string | false |   Le type de périodicité de la période. La valeur peut être `Daily`, `Weekly`, `Monthly` ou `Yearly`. La valeur par défaut est `Daily`.|
 | businessDayOnly | Booléen | false |  Indiquer si les données sont uniquement valides pendant les jours ouvrés. La valeur par défaut est `false`.|
 
 

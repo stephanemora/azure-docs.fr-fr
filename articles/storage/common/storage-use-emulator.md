@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b3b011d9789cbb3dcd8557eda1473b7fd2609075
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013559"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -54,7 +54,7 @@ La première fois que vous exécutez l'émulateur de stockage, l'environnement d
 L’émulateur de stockage est installé par défaut dans `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](http://storageexplorer.com) pour travailler avec les ressources d’émulateur de stockage local. Recherchez « (Développement) » sous « Comptes de stockage » dans l’arborescence de ressources de l’Explorateur de stockage après avoir installé et démarré l’émulateur de stockage.
+> Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](https://storageexplorer.com) pour travailler avec les ressources d’émulateur de stockage local. Recherchez « (Développement) » sous « Comptes de stockage » dans l’arborescence de ressources de l’Explorateur de stockage après avoir installé et démarré l’émulateur de stockage.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Initialiser l’émulateur de stockage de manière à utiliser une autre base de données SQL
@@ -64,15 +64,15 @@ Vous pouvez utiliser l’outil en ligne de commande de l’émulateur de stockag
 1. Ouvrez la fenêtre de console de l’émulateur de stockage, comme décrit dans la section [Démarrer et initialiser l’émulateur de stockage](#start-and-initialize-the-storage-emulator).
 1. Dans la fenêtre de console, tapez la commande suivante, où `<SQLServerInstance>` est le nom de l’instance SQL Server. Pour utiliser LocalDB, spécifiez `(localdb)\MSSQLLocalDb` comme instance SQL Server.
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  Vous pouvez également exécuter la commande suivante, qui indique à l'émulateur d'utiliser l'instance SQL Server par défaut :
+   Vous pouvez également exécuter la commande suivante, qui indique à l'émulateur d'utiliser l'instance SQL Server par défaut :
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  En guise d’alternative, vous pouvez exécuter la commande suivante, qui réinitialise la base de données en rétablissant l’instance LocalDB par défaut :
+   En guise d’alternative, vous pouvez exécuter la commande suivante, qui réinitialise la base de données en rétablissant l’instance LocalDB par défaut :
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 Pour plus d’informations sur ces commandes, consultez la section [Référence de l’outil en ligne de commande de l’émulateur de stockage](#storage-emulator-command-line-tool-reference).
 
@@ -91,7 +91,7 @@ Pour plus d’informations sur les chaînes de connexion, consultez [Configurati
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque Xamarin, prennent uniquement en charge l’authentification par jeton de signature d’accès partagé (SAP). Vous pouvez créer le jeton SAP à l’aide d’un outil tel que [l’Explorateur de stockage](http://storageexplorer.com/) ou une autre application qui prend en charge l’authentification avec clé partagée.
+Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque Xamarin, prennent uniquement en charge l’authentification par jeton de signature d’accès partagé (SAP). Vous pouvez créer le jeton SAP à l’aide d’un outil tel que [l’Explorateur de stockage](https://storageexplorer.com/) ou une autre application qui prend en charge l’authentification avec clé partagée.
 
 Vous pouvez également générer un jeton SAP à l’aide d’Azure PowerShell. L’exemple suivant génère un jeton SAP avec des autorisations complètes sur un conteneur de blobs :
 
@@ -281,4 +281,4 @@ Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en
 
 * Évaluez l’émulateur de stockage open source [Azurite](https://github.com/arafato/azurite) multiplateforme et géré par la communauté. 
 * L’article [Exemples de stockage Azure avec .NET](../storage-samples-dotnet.md) contient des liens vers plusieurs exemples de code que vous pouvez utiliser lorsque vous développez votre application.
-* Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](http://storageexplorer.com) pour travailler avec des ressources dans votre compte de stockage cloud et dans l’émulateur de stockage.
+* Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](https://storageexplorer.com) pour travailler avec des ressources dans votre compte de stockage cloud et dans l’émulateur de stockage.

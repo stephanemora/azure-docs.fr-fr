@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446368"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079788"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé 
 
@@ -25,7 +25,7 @@ Lorsque vous créez une instance de gestion des API (APIM), Azure l’affecte à
 > [!WARNING]
 > Les clients qui souhaitent utiliser un épinglage de certificat pour améliorer la sécurité de leurs applications doivent utiliser un nom de domaine personnalisé > et le certificat qu’ils gèrent, pas le certificat par défaut. Les clients qui épinglent le certificat par défaut à la place > prendront une dépendance dure sur les propriétés du certificat qu’ils ne contrôlent pas, ce qui n’est pas une pratique recommandée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -42,22 +42,26 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Utiliser le portail Azure pour définir un nom de domaine personnalisé
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre instance APIM.
-2. Sélectionnez **Domaines personnalisés et SSL**.
+1. Sélectionnez **Domaines personnalisés et SSL**.
     
-    Vous pouvez assigner un nom de domaine personnalisé à un certain nombre de points de terminaison. Actuellement, les points de terminaison disponibles sont les suivants : 
-    + **Proxy** (valeur par défaut : `<apim-service-name>.azure-api.net`) 
-    + **Portail** (valeur par défaut : `<apim-service-name>.portal.azure-api.net`)     
-    + **Gestion** (valeur par défaut : `<apim-service-name>.management.azure-api.net`) 
-    + **SCM** (valeur par défaut : `<apim-service-name>.scm.azure-api.net`)
+    Il existe un nombre de points de terminaison à laquelle vous pouvez affecter un nom de domaine personnalisé. Actuellement, les points de terminaison disponibles sont les suivants : 
+   + **Proxy** (valeur par défaut : `<apim-service-name>.azure-api.net`) 
+   + **Portail** (valeur par défaut : `<apim-service-name>.portal.azure-api.net`)     
+   + **Gestion** (valeur par défaut : `<apim-service-name>.management.azure-api.net`) 
+   + **SCM** (valeur par défaut : `<apim-service-name>.scm.azure-api.net`)
 
-    >[!NOTE]
-    > Vous pouvez mettre à jour tous les points de terminaison ou certains d’entre eux. En règle générale, les clients mettent à jour les points de terminaison **Proxy** (cette URL est utilisée pour appeler l’API exposée via la gestion des API) et **Portal** (URL du portail des développeurs). Les points de terminaison **Gestion** et **SCM** sont utilisés en interne par les clients APIM. Pour cette raison, ils se voient moins fréquemment assigner un nom de domaine personnalisé.
-3. Sélectionnez le point de terminaison que vous souhaitez mettre à jour. 
-4. Dans la fenêtre de droite, cliquez sur **Personnalisé**.
+     >[!NOTE]
+     > Vous pouvez mettre à jour tous les points de terminaison ou certains d’entre eux. En règle générale, les clients mettent à jour les points de terminaison **Proxy** (cette URL est utilisée pour appeler l’API exposée via la gestion des API) et **Portal** (URL du portail des développeurs). Les points de terminaison **Gestion** et **SCM** sont utilisés en interne par les clients APIM. Pour cette raison, ils se voient moins fréquemment assigner un nom de domaine personnalisé.
 
-    + Dans la zone **Nom de domaine personnalisé**, spécifiez le nom que vous souhaitez utiliser. Par exemple : `api.contoso.com`. <br/>Les noms de domaine avec des caractères génériques (par exemple, *.domaine.com) sont également pris en charge.
-    + Dans la zone **Certificat**, spécifiez un fichier .PFX valide à charger. 
-    + Si le certificat est associé à un mot de passe, saisissez-le dans le champ **Mot de passe**.
+1. Sélectionnez le point de terminaison que vous souhaitez mettre à jour. 
+1. Dans la fenêtre de droite, cliquez sur **Personnalisé**.
+
+   + Dans la zone **Nom de domaine personnalisé**, spécifiez le nom que vous souhaitez utiliser. Par exemple : `api.contoso.com`. Les noms de domaine avec des caractères génériques (par exemple, *.domaine.com) sont également pris en charge.
+   + Dans le **certificat**, sélectionnez un certificat dans Key Vault. Vous pouvez également télécharger un valide. PFX fichier et fournir ses **mot de passe**, si le certificat est protégé par un mot de passe.
+
+     > [!TIP]
+     > Si vous utilisez Azure Key Vault pour gérer le certificat SSL de domaine personnalisé, assurez-vous que le certificat est inséré dans le coffre de clés [comme un *certificat*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), et non un *secret*. Si le certificat est défini sur autorotate, gestion des API reprendra automatiquement la dernière version.
+
 1. Cliquez sur Appliquer.
 
     >[!NOTE]

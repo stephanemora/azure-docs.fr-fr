@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854375"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104163"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
 
@@ -23,7 +22,7 @@ Vous pouvez effectuer des transformations JSON de base dans vos applications log
 
 Par conséquent, avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un modèle Liquid et le stocker dans votre compte d’intégration. Cet article vous montre comment créer et utiliser ce modèle ou ce mappage Liquid. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Vous pouvez aussi [souscrire un abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -35,8 +34,7 @@ Par conséquent, avant de pouvoir effectuer une transformation Liquid dans votre
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Créer un mappage ou un modèle Liquid pour votre compte d’intégration
 
-1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape.
-Si vous souhaitez utiliser des filtres dans votre modèle Liquid, assurez-vous que ces filtres commencent par une majuscule. Apprenez-en davantage sur les [filtres Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent [DotLiquid](https://dotliquidmarkup.org/) et les conventions de nommage C#.
+1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape. Dans votre modèle Liquid, vous pouvez utiliser [Liquid filtre](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent [DotLiquid](https://dotliquidmarkup.org/) et C# conventions de nommage. Toutefois, assurez-vous que vous *commencer les noms des filtres par des caractères majuscules*, pas les caractères minuscules. 
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -82,7 +80,8 @@ Si vous souhaitez utiliser des filtres dans votre modèle Liquid, assurez-vous q
 
 2. Dans le Concepteur d’application logique, ajoutez le [déclencheur Requête](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) à votre application logique.
 
-3. Sous le déclencheur, choisissez **Nouvelle étape**. Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez cette action : **Transformer de JSON en JSON - Liquid**
+3. Sous le déclencheur, choisissez **Nouvelle étape**. 
+   Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez cette action : **Transformer de JSON en JSON - Liquid**
 
    ![Rechercher et sélectionner l’action Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -101,7 +100,7 @@ Si vous souhaitez utiliser des filtres dans votre modèle Liquid, assurez-vous q
 
    2. Dans la liste **Sélectionner un compte d’intégration**, sélectionnez votre compte d’intégration et choisissez **Enregistrer**.
 
-     ![Lier une application logique à un compte d’intégration](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Lier une application logique à un compte d’intégration](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Tester votre application logique
 

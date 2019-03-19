@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53027912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125236"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utiliser les outils d’automatisation d’infrastructure avec les machines virtuelles dans Azure
 Pour créer et gérer des machines virtuelles de façon cohérente à grande échelle, une forme d’automatisation est généralement souhaitée. De nombreux outils et solutions permettent d’automatiser le déploiement et la gestion du cycle de vie de toute l’infrastructure Azure. Cet article présente certains des outils d’automatisation d’infrastructure utilisables dans Azure. Ces outils s’intègrent généralement dans l’une des approches suivantes :
@@ -60,7 +60,7 @@ Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vou
  Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettent à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
 
 | Publisher | Offre | SKU | Version | Compatible avec cloud-init
-|:--- |:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |:--- 
 |Canonical |UbuntuServer |16.04-LTS |le plus récent |Oui | 
 |Canonical |UbuntuServer |14.04.5-LTS |le plus récent |Oui |
 |CoreOS |CoreOS |Stable |le plus récent |Oui |

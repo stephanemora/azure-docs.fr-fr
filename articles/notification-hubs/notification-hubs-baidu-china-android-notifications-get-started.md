@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 3ff0d0db554fe514fdd6be6383b6d1a19f1c39ec
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451457"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848675"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Prendre en main Notification Hubs à l’aide de Baidu
 
@@ -29,7 +29,7 @@ Le service de transmission Push dans le cloud de Baidu est un service cloud chin
 
 Comme Google Play et FCM (messagerie Cloud Firebase) ne sont pas disponibles en Chine, il est nécessaire d’utiliser des magasins d’applications différents et des services à transmission de type push. Baidu est l’un d’eux, et celui qui est actuellement utilisé par le Hub de notification.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -132,8 +132,8 @@ Prenez note de `DefaultListenSharedAccessSignature` et `DefaultFullSharedAccessS
 5. Ajoutez ensuite des bibliothèques Azure Notification Hubs. Dans le fichier `Build.Gradle` de l’application, dans la section dépendances, ajoutez les lignes suivantes.
 
     ```javascript
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
     Ajoutez le référentiel suivant après la section dépendances.
@@ -141,7 +141,7 @@ Prenez note de `DefaultListenSharedAccessSignature` et `DefaultFullSharedAccessS
     ```javascript
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -161,7 +161,7 @@ Prenez note de `DefaultListenSharedAccessSignature` et `DefaultFullSharedAccessS
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6. Téléchargez et décompressez le [Kit de développement logiciel (SDK) Android pour transmissions Push Baidu](http://push.baidu.com/doc/android/api). Copiez le fichier `pushservice-x.y.z jar` dans le dossier de bibliothèques. Puis copiez les fichiers `.so` dans les dossiers `src/main/jniLibs` (créer un nouveau dossier) de votre application Android.
+6. Téléchargez et décompressez le [Kit de développement logiciel (SDK) Android pour transmissions Push Baidu](https://push.baidu.com/doc/android/api). Copiez le fichier `pushservice-x.y.z jar` dans le dossier de bibliothèques. Puis copiez les fichiers `.so` dans les dossiers `src/main/jniLibs` (créer un nouveau dossier) de votre application Android.
 
     ![Azure Notification Hubs - Bibliothèques SDK Baidu](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -497,7 +497,7 @@ Dans cette section, nous montrons comment envoyer une notification à l’aide d
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-    Cette instruction ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du [package NuGet Microsoft.Azure.Notification Hubs](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Cette instruction ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du [package NuGet Microsoft.Azure.Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -537,6 +537,6 @@ Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débog
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Kit de développement logiciel (SDK) Android pour transmissions Push Baidu]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[Kit de développement logiciel (SDK) Android pour transmissions Push Baidu]: https://push.baidu.com/sdk/push_client_sdk_for_android
 [Portail Azure]: https://portal.azure.com/
-[portail Baidu]: http://www.baidu.com/
+[portail Baidu]: https://www.baidu.com/

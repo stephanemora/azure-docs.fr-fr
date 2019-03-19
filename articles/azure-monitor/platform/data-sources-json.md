@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 8b03d6838e9d942da766e0c7aa4c2c2e161a6b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4d87f21b6312cad1a40e23f3a3b22fa8cc406186
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990119"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530023"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Collecte des sources de données JSON personnalisées à l’aide de l’agent Log Analytics pour Linux dans Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Les sources de données JSON personnalisées peuvent être collectées dans [Azure Monitor](data-collection.md) à l'aide de l'agent Log Analytics pour Linux.  Ces sources de données personnalisées peuvent être des scripts simples qui renvoient JSON en tant que [cURL](https://curl.haxx.se/) ou l’un des [300 plug-ins de FluentD](http://www.fluentd.org/plugins/all). Cet article décrit la configuration requise pour cette collecte de données.
+Les sources de données JSON personnalisées peuvent être collectées dans [Azure Monitor](data-collection.md) à l'aide de l'agent Log Analytics pour Linux.  Ces sources de données personnalisées peuvent être des scripts simples qui renvoient JSON en tant que [cURL](https://curl.haxx.se/) ou l’un des [300 plug-ins de FluentD](https://www.fluentd.org/plugins/all). Cet article décrit la configuration requise pour cette collecte de données.
 
 
 > [!NOTE]

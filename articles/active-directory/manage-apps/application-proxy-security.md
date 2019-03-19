@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207226"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438072"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -69,7 +69,7 @@ Pour plus d’informations sur les connecteurs, consultez [Présentation des con
 
 Bénéficiez d’une protection de sécurité de pointe.
 
-Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](../active-directory-identityprotection.md), grâce aux données du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection contre les connexions à haut risque. Nous prenons en compte plusieurs facteurs pour déterminer les tentatives de connexion à haut risque. Ces facteurs incluent le marquage des appareils infectés, l’anonymisation des réseaux et les emplacements atypiques ou peu probables.
+Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](../active-directory-identityprotection.md), grâce aux données du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection contre les connexions à haut risque. Nous prenons en compte plusieurs facteurs pour déterminer les tentatives de connexion sont à haut risque. Ces facteurs incluent le marquage des appareils infectés, l’anonymisation des réseaux et les emplacements atypiques ou peu probables.
 
 Nombre de ces rapports et événements sont déjà disponibles via une API pour l’intégration avec vos systèmes de gestion des événements et des informations de sécurité.
 

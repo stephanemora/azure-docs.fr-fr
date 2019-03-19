@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339754"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240165"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Détecter et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
@@ -54,7 +54,7 @@ Pour plus d’informations, consultez l’article [Que sont les alertes classiqu
 
 ## <a name="resolve-connectivity-errors"></a>Résoudre les erreurs de connectivité
 
-Lorsque vous activez les alertes et les journaux de diagnostic relatifs aux appareils connectés, vous recevez des alertes quand des erreurs se produisent. Cette section décrit comment résoudre les problèmes courants lorsque vous recevez une alerte. Pour exécuter la procédure ci-après, vous devez avoir configuré Azure Log Analytics pour vos journaux de diagnostic.
+Lorsque vous activez les alertes et les journaux de diagnostic relatifs aux appareils connectés, vous recevez des alertes quand des erreurs se produisent. Cette section décrit comment résoudre les problèmes courants lorsque vous recevez une alerte. Les étapes suivantes supposent que vous avez configuré des journaux de Azure Monitor pour vos journaux de diagnostic.
 
 1. Accédez à votre espace de travail pour **Log Analytics** dans le portail Azure.
 1. Sélectionnez **Recherche de journaux**.

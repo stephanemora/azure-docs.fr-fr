@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8254e3221fee3d76e2d27715f76c26397c309f08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863353"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
-Ce didacticiel fournit des instructions sur l’utilisation de la bibliothèque Java BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents Azure Cosmos DB. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Dans ce didacticiel, vous allez créer une application Java qui génère des documents aléatoires qui sont ensuite importés en bloc dans une collection Azure Cosmos DB. Après l’importation, vous mettrez à jour en bloc certaines propriétés d’un document. 
+Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque Java BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents Azure Cosmos DB. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Dans ce tutoriel, vous allez créer une application Java qui génère des documents aléatoires qui sont ensuite importés en bloc dans une collection Azure Cosmos DB. Après l’importation, vous mettrez à jour en bloc certaines propriétés d’un document. 
 
-Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque .Net de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec l’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md).
+Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque .NET de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec l’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.  
 
@@ -86,13 +86,13 @@ Le référentiel cloné contient deux exemples, « bulkimport » et « bulkup
    // Set retries to 0 to pass complete control to bulk executor
    client.getConnectionPolicy().getRetryOptions().setMaxRetryWaitTimeInSeconds(0);
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
-```
+   ```
 
 4. Appelez l’API importAll qui génère des documents aléatoires à importer en bloc dans un conteneur Azure Cosmos DB. Vous pouvez configurer les configurations de la ligne de commande dans le fichier CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
-```
+   ```
    L’API d’importation en bloc accepte une collection de documents JSON sérialisés, et sa syntaxe est la suivante (pour plus d’informations, consultez la [documentation de l’API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)) :
 
    ```java

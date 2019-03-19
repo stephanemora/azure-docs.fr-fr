@@ -6,18 +6,18 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082481"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervision dans Azure Database for MariaDB
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MariaDB propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
 
 ## <a name="metrics"></a>Mesures
-Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure] (../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Pour des instructions étape par étape, consultez [Configurer des alertes](howto-alert-metric.md).
 
@@ -25,7 +25,7 @@ Pour des instructions étape par étape, consultez [Configurer des alertes](howt
 Ces métriques sont disponibles pour Azure Database pour MariaDB :
 
 |Métrique|Nom d’affichage de la métrique|Unité|Description|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Pourcentage d’UC en cours d’utilisation.|
 |memory_percent|Pourcentage de mémoire|Pourcentage|Pourcentage de mémoire en cours d’utilisation.|
 |io_consumption_percent|Pourcentage d’E/S|Pourcentage|Pourcentage d’E/S en cours d’utilisation.|
@@ -41,8 +41,8 @@ Ces métriques sont disponibles pour Azure Database pour MariaDB :
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 
 ## <a name="server-logs"></a>Journaux des serveurs
-Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Pour en savoir plus sur la journalisation, consultez la page  [journaux serveur](concepts-server-logs.md).
+Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Pour en savoir plus sur la journalisation, consultez la page [journaux serveur](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur la façon d’accéder aux métriques et de les exporter à l’aide du portail Azure, de l’API REST ou de CLI, consultez [Vue d’ensemble des métriques Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
- - Consultez le [guide pratique pour configurer des alertes](howto-alert-metric.md) pour savoir comment créer une alerte sur une métrique.
+  - Consultez le [guide pratique pour configurer des alertes](howto-alert-metric.md) pour savoir comment créer une alerte sur une métrique.

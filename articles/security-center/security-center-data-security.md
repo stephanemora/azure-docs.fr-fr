@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: af3cc229482021fe6d5e5c988bc98afe6f7f97ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902788"
 ---
 # <a name="azure-security-center-data-security"></a>Sécurité des données du Centre de sécurité Azure
 Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Security Center collecte et traite des données de sécurité, notamment des informations de configuration, des métadonnées, des journaux d’événements et des fichiers de vidage sur incident. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
@@ -38,7 +38,7 @@ Pour assurer une visibilité sur l’état de la sécurité, identifier les vuln
 ## <a name="data-protection"></a>Protection des données
 **Ségrégation des données :** les données client sont maintenues séparées logiquement sur chaque composant, dans l'ensemble du service. Toutes les données sont balisées en fonction de l'organisation. Ce balisage est conservé tout au long du cycle de vie des données, et il est appliqué dans chaque couche du service.
 
-**Accès aux données** : Pour fournir des recommandations en matière de sécurité et enquêter sur les éventuelles menaces de sécurité, le personnel de Microsoft peut accéder aux informations collectées ou analysées par les services Azure, notamment les fichiers de vidage sur incident, les événements de création de processus, les captures instantanées et artefacts de disque de machine virtuelle, qui peuvent involontairement exposer des données client ou personnelles provenant de vos machines virtuelles. Nous respectons les [Conditions d’utilisation et la Déclaration de confidentialité de Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qui indiquent que Microsoft n’utilisera pas les données client ou ne tirera pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires. Nous utilisons uniquement les données client en fonction des besoins pour vous proposer des services Azure, notamment des utilisations compatibles avec la fourniture de ces services. Vous conservez tous les droits sur les données client.
+**Accès aux données** : Pour fournir des recommandations en matière de sécurité et enquêter sur les éventuelles menaces de sécurité, le personnel de Microsoft peut accéder aux informations collectées ou analysées par les services Azure, notamment les fichiers de vidage sur incident, les événements de création de processus, les captures instantanées et artefacts de disque de machine virtuelle, qui peuvent involontairement exposer des données client ou personnelles provenant de vos machines virtuelles. Nous respectons les [Conditions d’utilisation et la Déclaration de confidentialité de Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qui indiquent que Microsoft n’utilisera pas les données client ou ne tirera pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires. Nous utilisons uniquement les données client en fonction des besoins pour vous proposer des services Azure, notamment des utilisations compatibles avec la fourniture de ces services. Vous conservez tous les droits sur les données client.
 
 **Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s'effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx) de Microsoft.
 
@@ -76,7 +76,7 @@ Si vous utilisez Azure Security Center gratuitement, vous pouvez également dés
 Les clients peuvent consommer des données liées au Centre de sécurité à partir de différents flux de données, comme indiqué ci-dessous :
 
 * **Azure Activity** : toutes les alertes de sécurité, les requêtes approuvées [juste à temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) du Centre de sécurité, et toutes les alertes générées par les [contrôles d’application adaptative](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Log Analytics** : toutes les alertes de sécurité.
+* **Journaux d’analyse Azure**: toutes les alertes de sécurité.
 
 
 > [!NOTE]

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
 ms.custom: seodec18
-ms.openlocfilehash: dc3f61760dce6375a64b338fb230ee704863de06
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119722"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : Envoyer des événements depuis le registre de conteneurs privé à Event Grid
 
@@ -108,7 +108,7 @@ APP_ENDPOINT=https://$SITE_NAME.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
     --name event-sub-acr \
-    --resource-id $ACR_REGISTRY_ID \
+    --source-resource-id $ACR_REGISTRY_ID \
     --endpoint $APP_ENDPOINT
 ```
 
@@ -207,7 +207,7 @@ La capture d’écran suivante montre l’exemple d’application avec les trois
 
 ![Navigateur web montrant l’exemple d’application avec des événements ImagePushed et ImageDeleted][sample-app-03]
 
-Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
+Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

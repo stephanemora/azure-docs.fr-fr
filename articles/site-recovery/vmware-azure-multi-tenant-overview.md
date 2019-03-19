@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104452"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la reprise d’activité de VMware sur Azure avec CSP
 
@@ -75,17 +75,17 @@ Configurez le serveur de configuration avec un compte auquel un rôle spécial a
 1. Créez un nouveau rôle en clonant le rôle prédéfini *Lecture seule*, puis donnez-lui un nom pratique (tel que Azure_Site_Recovery comme indiqué dans cet exemple).
 2. Attribuez les autorisations suivantes à ce rôle :
 
-    * **Banque de données** : Allouer de l’espace, Parcourir la banque de données, Opérations de fichier de bas niveau, Supprimer le fichier, Mettre à jour les fichiers de machine virtuelle
-    * **Réseau** : Attribution de réseau
-    * **Ressource** : Affecter les machines virtuelles au pool de ressources, Migrer des machines virtuelles hors tension, Migrer des machines virtuelles sous tension
-    * **Tâches** : Créer une tâche, Mettre à jour une tâche
-    * **Machine virtuelle - Configuration** : Tous
-    - **Machine virtuelle - Interagir** > Répondre à la question, Connexion d’appareil, Configurer un support de CD, Configurer une disquette, Mettre hors tension, Mettre sous tension, Installation des outils VMware
-    - **Machine virtuelle - Inventaire** > Créer à partir d’un existant, Créer, S’inscrire, Annuler l’inscription
-    - **Machine virtuelle - Approvisionnement** > Autoriser le téléchargement de machines virtuelles, Autoriser le chargement de fichiers de machine virtuelle
-    - **Machine virtuelle Gestion des instantanés** > Supprimer les instantanés
+   * **Banque de données** : Allouer de l’espace, Parcourir la banque de données, Opérations de fichier de bas niveau, Supprimer le fichier, Mettre à jour les fichiers de machine virtuelle
+   * **Réseau** : Attribution de réseau
+   * **Ressource** : Affecter les machines virtuelles au pool de ressources, Migrer des machines virtuelles hors tension, Migrer des machines virtuelles sous tension
+   * **Tâches** : Créer une tâche, Mettre à jour une tâche
+   * **Machine virtuelle - Configuration** : Tous
+   * **Machine virtuelle - Interagir** > Répondre à la question, Connexion d’appareil, Configurer un support de CD, Configurer une disquette, Mettre hors tension, Mettre sous tension, Installation des outils VMware
+   * **Machine virtuelle - Inventaire** > Créer à partir d’un existant, Créer, S’inscrire, Annuler l’inscription
+   * **Machine virtuelle - Approvisionnement** > Autoriser le téléchargement de machines virtuelles, Autoriser le chargement de fichiers de machine virtuelle
+   * **Machine virtuelle Gestion des instantanés** > Supprimer les instantanés
 
-        ![La boîte de dialogue Modifier le rôle](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![La boîte de dialogue Modifier le rôle](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. Attribuez un niveau d’accès au compte vCenter (utilisé dans le serveur de configuration du locataire) pour divers objets comme suit :
 

@@ -4,14 +4,15 @@ description: Cet article fournit une vue d’ensemble du pare-feu d’applicatio
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 914583747d4e0e045d5023d9072451983037e57f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454257"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790355"
 ---
 # <a name="web-application-firewall-waf"></a>Pare-feu d’applications web (WAF)
 
@@ -58,19 +59,8 @@ Voici les principaux avantages liés à Application Gateway et au pare-feu d’a
 - Protection contre les anomalies de protocole HTTP comme un agent-utilisateur hôte manquant et les en-têtes Accept
 - Protection contre les robots, les crawlers et les scanneurs
 - Détection des erreurs de configuration d’application courantes (par exemple, Apache, IIS, etc.)
-
-### <a name="public-preview-features"></a>Fonctionnalités de la version préliminaire publique
-
-La référence de préversion publique du WAF actuel comprend les fonctionnalités suivantes :
-
-- **Limites de taille de la requête** : le pare-feu d’applications web permet aux utilisateurs de configurer des limites maximale et minimale de la taille des demandes.
-- **Listes d’exclusion** : les listes d’exclusion du WAF permettent aux utilisateurs d’omettre certains attributs de la requête dans une évaluation par le WAF. À titre d’exemple courant, citons les jetons Active Directory insérés qui sont utilisés pour les champs d’authentification ou de mot de passe.
-
-Pour plus d’informations sur la préversion publique du WAF, consultez [Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions (préversion publique)](application-gateway-waf-configuration.md).
-
-
-
-
+- Demander des limites de taille - pare-feu d’applications Web permet aux utilisateurs de configurer des limites de taille de demande au sein des limites inférieure et supérieure.
+- Listes d’exclusion - listes d’exclusion de WAF autoriser les utilisateurs à omettre certains attributs de la demande à partir d’une version d’évaluation de WAF. À titre d’exemple courant, citons les jetons Active Directory insérés qui sont utilisés pour les champs d’authentification ou de mot de passe.
 
 ### <a name="core-rule-sets"></a>Ensembles de règles de base
 
@@ -87,7 +77,6 @@ Le pare-feu d’applications web est préconfiguré avec CRS 3.0 par défaut. V
 - Détection des erreurs de configuration d’application courantes (par exemple, Apache, IIS, etc.)
 
 Pour une liste plus détaillée des règles et de leurs protections, consultez [Ensembles de règles de base](#core-rule-sets).
-
 
 #### <a name="owasp30"></a>OWASP_3.0
 
@@ -130,6 +119,16 @@ Application Gateway WAF peut être configuré pour s’exécuter dans les deux m
 
 * **Mode de détection** : Quand il est configuré pour s’exécuter en mode de détection, le WAF Application Gateway supervise et journalise toutes les alertes de menace dans un fichier journal. L’enregistrement des diagnostics pour la passerelle Application Gateway doit être activé à l’aide de la section **Diagnostics**. Vous devez également vérifier que le journal WAF est sélectionné et activé. Le pare-feu d’applications web exécuté en mode de détection ne bloque pas les requêtes entrantes.
 * **Mode de prévention** – Lorsqu’il est configuré pour s’exécuter en mode de prévention, la passerelle Application Gateway bloque de façon active les intrusions et les et attaques détectées par les règles définies. L’attaquant reçoit une exception d’accès non autorisé de type 403 et la connexion prend fin. Le mode de prévention continue de consigner ce type d’attaques dans les journaux WAF.
+
+### <a name="anomaly-scoring-mode"></a>Mode de calcul de score d’anomalie 
+ 
+OWASP comporte deux modes pour décider si un blocage du trafic ou non. Il existe un mode traditionnel et un mode de calcul de score d’anomalie. En mode classique, une règle de trafic correspondant est considéré comme indépendamment de si autres règles ont mis en correspondance trop. Alors que plus faciles à comprendre, l’absence d’informations sur le nombre de règles qui est déclenché par une demande spécifique est l’une des limitations de ce mode. Par conséquent, le mode de calcul de score d’anomalie a été introduit, qui est devenu la valeur par défaut avec OWASP 3.x. 
+
+En Mode de calcul de score d’anomalie, le fait qu’une des règles décrites dans la section précédente correspond au trafic ne pas immédiatement signifie que le trafic doit être bloqué, en supposant que le pare-feu est en mode de prévention. Les règles ont une certaine gravité (critique, erreur, avertissement et avis), et en fonction de cette gravité ils augmentent la valeur numérique pour la demande appelée le Score d’anomalie. Par exemple, une règle d’avertissement correspondante contribuera à la valeur 3, mais une seule règle critique correspondante contribuera à la valeur 5. 
+
+Il existe un seuil pour le Score d’anomalie sous lequel le trafic n’est pas supprimé, ce seuil est défini sur 5. Cela signifie que, une seule règle de correspondance critique est suffisant pour que le pare-feu d’applications Web Azure bloque une demande en mode de prévention (étant donné que la règle critique augmente le score d’anomalie de 5, selon le paragraphe précédent). Toutefois, une règle correspondante avec un niveau d’avertissement sera augmentation uniquement l’anomalie score par 3. Étant donné que 3 est toujours inférieur au seuil de 5, aucun trafic ne sera bloqué, même si le pare-feu WAF est en mode de prévention. 
+
+Notez que le message consigné quand un trafic de correspondances de règles WAF inclura l’action_s de champ en tant que « Bloqué », mais qui ne signifie pas nécessairement que le trafic a réellement été bloqué. Un score d’anomalie de 5 ou version ultérieure est requis pour réellement bloquer le trafic.  
 
 ### <a name="application-gateway-waf-reports"></a>Surveillance du pare-feu d’applications web
 

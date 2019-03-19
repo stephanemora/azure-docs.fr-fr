@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: a55d16a35b5eec1af2b24d02e158905493615999
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 91b6cd64a42319b2a5307919c2efe6bc8e5dcd64
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441110"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983198"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gérer les protocoles et les chiffrements dans Gestion des API Azure
 
@@ -30,7 +30,7 @@ Ce guide vous montre comment gérer la configuration des protocoles et des chiff
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
 
@@ -39,11 +39,9 @@ Pour suivre les étapes décrites dans cet article, vous devez avoir :
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>Comment gérer les protocoles TLS et le chiffrement 3DES
 
 1. Accédez à votre **instance Gestion des API** dans le portail Azure.
-2. Sélectionnez **SSL** dans le menu.  
-    ![Gérer les protocoles et les chiffrements dans Gestion des API Azure - Menu](./media/api-management-howto-manage-protocols-ciphers/api-management-menu.png)
+2. Sélectionnez **paramètres de protocole** dans le menu.  
 3. Activez ou désactivez les protocoles ou les chiffrements souhaités.
 4. Cliquez sur **Enregistrer**. Les modifications sont appliquées dans l’heure qui suit.  
-    ![Gérer les protocoles et les chiffrements dans Gestion des API Azure - Enregistrer](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers-save.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

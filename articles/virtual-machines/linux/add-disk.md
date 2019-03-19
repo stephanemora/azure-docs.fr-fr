@@ -16,15 +16,16 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 81805188c72bce6a7ea89496c8036743b29e9075
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892760"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452757"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 Cet article vous explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement.
+
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Attacher un nouveau disque à une machine virtuelle
 
@@ -122,6 +123,10 @@ The partition table has been altered!
 Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
+Utilisez la commande ci-dessous pour mettre à jour le noyau :
+```
+partprobe 
+```
 
 À présent, écrivez un système de fichiers dans la partition avec la commande `mkfs`. Spécifiez le type de votre système de fichiers et le nom de l’appareil. L’exemple suivant crée un système de fichiers *ext4* sur la partition */dev/sdc1* créée dans les étapes précédentes :
 
@@ -197,8 +202,10 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 > [!NOTE]
 > La suppression ultérieure d’un disque de données sans modifier fstab pourrait entraîner l’échec du démarrage de la machine virtuelle. La plupart des distributions fournissent les options fstab *nofail* et/ou *nobootwait*. Ces options permettent à un système de démarrer même si le disque n’est pas monté au moment du démarrage. Pour plus d’informations sur ces paramètres, consultez la documentation de votre distribution.
-> 
+>
 > L’option *nofail* garantit que la machine virtuelle démarre même si le système de fichiers est endommagé ou si le disque n’existe pas au moment du démarrage. Sans cette option, vous pouvez être confronté au comportement décrit dans [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (Connexion SSH vers machine virtuelle Linux impossible en raison d’erreurs FSTAB)
+>
+> La Console série de machine virtuelle Azure peut servir pour l’accès à la console à votre machine virtuelle si modification fstab a entraîné un échec de démarrage. Plus de détails sont disponibles dans le [documentation sur la Console série](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Prise en charge de TRIM/UNMAP pour Linux dans Azure
 Certains noyaux Linux prennent en charge les opérations TRIM/UNMAP pour ignorer les blocs inutilisés sur le disque. Cette fonctionnalité est particulièrement utile dans le stockage standard pour informer Azure que des pages supprimées ne sont plus valides et peuvent être ignorées. Elle peut vous permettre d’économiser de l’argent si vous créez des fichiers volumineux, puis que vous les supprimez.
@@ -211,14 +218,14 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 * Dans certains cas, l’option `discard` peut avoir un impact sur la performance. Vous pouvez également exécuter la commande `fstrim` manuellement à partir de la ligne de commande ou l’ajouter à votre crontab pour l’exécuter régulièrement :
-  
+
     **Ubuntu**
-  
+
     ```bash
     sudo apt-get install util-linux
     sudo fstrim /datadrive
     ```
-  
+
     **RHEL/CentOS**
 
     ```bash

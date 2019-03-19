@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320223"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005700"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide du Portail Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "54320223"
 
 Découvrez comment utiliser le portail Azure pour créer un compte Azure Data Lake Storage Gen1 et effectuer des opérations de base telles que la création de dossiers, le chargement et le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations, consultez [Présentation d’Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -76,9 +76,9 @@ Si vous avez utilisé des clés d’un coffre de clés Azure pour configurer le 
 
 > [!NOTE]
 > Vous pouvez également créer un compte Data Lake Storage Gen1 à l’aide de modèles Azure Resource Manager. Ces modèles sont accessibles à partir de la page [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store) :
-    - Sans chiffrement des données : [Déployer un compte Azure Data Lake Storage Gen1 sans chiffrement des données](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Avec chiffrement des données en utilisant Data Lake Storage Gen1 : [Déployer un compte Data Lake Storage Gen1 sans chiffrement des données (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Avec chiffrement des données en utilisant Azure Key Vault : [Déployer un compte Data Lake Storage Gen1 sans chiffrement des données (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> - Sans chiffrement des données : [Déployer un compte Azure Data Lake Storage Gen1 sans chiffrement des données](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+> - Avec chiffrement des données en utilisant Data Lake Storage Gen1 : [Déployer un compte Data Lake Storage Gen1 sans chiffrement des données (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+> - Avec chiffrement des données en utilisant Azure Key Vault : [Déployer un compte Data Lake Storage Gen1 sans chiffrement des données (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 

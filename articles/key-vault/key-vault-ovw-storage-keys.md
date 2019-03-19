@@ -8,13 +8,13 @@ ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
 manager: barbkess
-ms.date: 10/03/2018
-ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: c2107e501affd5e3dd22e0fbc83d078b51d414a5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118052"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841138"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Compte de stockage managé Azure Key Vault – CLI
 
@@ -24,18 +24,32 @@ ms.locfileid: "56118052"
 > - Utiliser une [identité Azure AD managée](/azure/active-directory/managed-identities-azure-resources/) lors de l’exécution sur Azure. Les identités managées suppriment totalement l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
 > - Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
 
-- Azure Key Vault gère les clés d’un compte de stockage Azure (ASA).
-    - En interne, Azure Key Vault peut lister (synchroniser) les clés avec un compte de stockage Azure.    
-    - Azure Key Vault régénère (fait tourner) les clés régulièrement.
-    - Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
-    - Azure Key Vault gère les clés des comptes de stockage ainsi que des comptes de stockage Classic.
-    
+Un [compte de stockage Azure](/azure/storage/storage-create-storage-account) utilise des informations d’identification qui se composent d’un nom de compte et d’une clé. La clé est générée automatiquement et sert plus de « mot de passe » que de clé de chiffrement. Key Vault peut gérer ces clés de compte de stockage en les stockant en tant que [secrets Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+
+## <a name="overview"></a>Présentation
+
+La fonctionnalité de compte de stockage Key Vault managé exécute plusieurs fonctions de gestion interne à votre place :
+
+- Répertorie (synchronise) les clés avec un compte de stockage Azure.
+- Regénère (fait tourner) les clés régulièrement.
+- Gère les clés des comptes de stockage et des comptes de stockage classiques.
+- Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
+
+Lorsque vous utilisez la fonctionnalité de clé de compte de stockage managé :
+
+- **Autorisez uniquement Key Vault à gérer vos clés de compte de stockage.** N’essayez pas de les gérer vous-même, vous interféreriez avec les processus de Key Vault.
+- **Ne permettez pas que les clés de compte de stockage soient gérées par plusieurs objets Key Vault**.
+- **Ne régénérez pas manuellement vos clés de compte de stockage**. Nous vous recommandons de les régénérer via Key Vault.
+- Vous demandant de Key Vault pour gérer votre compte de stockage est possible par un Principal d’utilisateur pour l’instant et pas un Principal de Service
+
+L’exemple suivant vous montre comment autoriser Key Vault à gérer vos clés de compte de stockage.
+
 > [!IMPORTANT]
 > Un locataire Azure AD fournit à chaque application inscrite un **[principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object)**, qui représente l’identité de l’application. L’ID d’application du principal de service est utilisé quand il reçoit l’autorisation d’accéder à d’autres ressources Azure, via le contrôle d’accès en fonction du rôle (RBAC). Key Vault étant une application Microsoft, elle est préinscrite dans tous les locataires Azure AD sous le même ID d’application dans chaque cloud Azure :
 > - Les locataires Azure AD dans le cloud Azure Government utilisent l’ID d’application `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - Les locataires Azure AD dans le cloud public Azure et tous les autres utilisent l’ID d’application `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
-<a name="prerequisites"></a>Prérequis
+<a name="prerequisites"></a>Conditions préalables
 --------------
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) Installer Azure CLI   
 2. [Créer un compte de stockage](https://azure.microsoft.com/services/storage/)
@@ -55,42 +69,36 @@ Dans les instructions ci-dessous, nous attribuons au service Key Vault des autor
 > [!NOTE]
 > Veuillez noter qu'une fois que vous avez configuré les clés du compte de stockage managé Azure Key Vault, elles ne doivent **PLUS**être modifiées, sauf via Key Vault. Clés du compte de stockage managé signifie que Key Vault gère la rotation de la clé du compte de stockage
 
+> [!IMPORTANT]
+> Un locataire Azure AD fournit à chaque application inscrite un **[principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object)**, qui représente l’identité de l’application. L’ID d’application du principal de service est utilisé quand il reçoit l’autorisation d’accéder à d’autres ressources Azure, via le contrôle d’accès en fonction du rôle (RBAC). Key Vault étant une application Microsoft, elle est préinscrite dans tous les locataires Azure AD sous le même ID d’application dans chaque cloud Azure :
+> - Les locataires Azure AD dans le cloud Azure Government utilisent l’ID d’application `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - Les locataires Azure AD dans le cloud public Azure et tous les autres utilisent l’ID d’application `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+
+
 1. Après avoir créé un compte de stockage, exécutez la commande suivante pour obtenir l’ID de ressource du compte de stockage que vous voulez gérer.
 
     ```
     az storage account show -n storageaccountname 
     ```
-    Copiez le champ ID à partir du résultat de la commande ci-dessus
-    
-2. Obtenez l'ID d'objet du principal de service d'Azure Key Vault en exécutant la commande ci-dessous
-
+    Champ d’ID de copie hors le résultat de la commande ci-dessus, qui se présente comme suit
     ```
-    az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+    /subscriptions/0xxxxxx-4310-48d9-b5ca-0xxxxxxxxxx/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
     ```
-    
-    Si l'exécution de cette commande aboutit, recherchez l'ID d'objet dans le résultat :
-    ```console
-        {
-            ...
             "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
-            ...
-        }
+    
+2. Attribuer un rôle RBAC « Stockage compte rôle opérateur de clé Service » à Key Vault, limitant l’étendue d’accès à votre compte de stockage. Pour un compte de stockage classique, utiliser « Classic stockage compte clé Service rôle d’opérateur. »
+    ```
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
     ```
     
-3. Attribuez le rôle d’opérateur de clés de stockage à l’identité Azure Key Vault.
-
-    ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
-    ```
+    « 93c27d83-f79b-4cb2-8dd4-4aa716542e74 » est l’ID d’objet pour Key Vault dans le Cloud Public. Pour obtenir l’ID d’objet pour le coffre de clés dans les clouds nationaux consultez la section Important ci-dessus
     
-4. Créez un compte de stockage managé Key Vault.     <br /><br />
+3. Créez un compte de stockage managé Key Vault.     <br /><br />
    Ci-dessous, nous définissons une période de regénération de 90 jours. Après 90 jours, Key Vault regénère « key1 » et remplace la clé active « key2 » par « key1 ». Il désigne maintenant Key1 comme la clé active. 
    
     ```
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
-    Si l’utilisateur n’a pas créé le compte de stockage et ne dispose pas des autorisations sur le compte de stockage, les étapes ci-dessous définissent les autorisations sur votre compte pour être sûr de pouvoir gérer toutes les autorisations de stockage dans le coffre de clés.
-    
 
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Instructions étape par étape sur la façon d'utiliser Key Vault pour créer et générer des jetons SAS
 --------------------------------------------------------------------------------
@@ -117,7 +125,7 @@ Lorsque cette opération s’exécute correctement, vous devriez voir une sortie
    "se=2020-01-01&sp=***"
 ```
 
-2. Dans cette étape, nous allons utiliser la sortie ($sasToken) générée ci-dessus pour créer une définition SAS. Pour plus d’informations, lisez [ceci](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+1. Dans cette étape, nous allons utiliser la sortie ($sasToken) générée ci-dessus pour créer une définition SAS. Pour plus d’informations, lisez [ceci](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
 az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
@@ -127,12 +135,11 @@ az keyvault storage sas-definition create --vault-name <YourVaultName> --account
  > [!NOTE] 
  > Si l’utilisateur ne dispose pas des autorisations sur le compte de stockage, nous commençons par obtenir l’ID d’objet de l’utilisateur.
 
-    ```
-    az ad user show --upn-or-object-id "developer@contoso.com"
+ ```
+ az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
-    
-    ```
+ az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+ ```
     
 ## <a name="fetch-sas-tokens-in-code"></a>Récupérer des jetons SAS dans le code
 
@@ -140,8 +147,8 @@ Dans cette section, nous allons étudier comment vous pouvez effectuer des opér
 
 Dans la section ci-dessous, nous montrons comment récupérer des jetons SAS après la création d’une définition SAS comme indiqué ci-dessus.
 
-> [!NOTE] 
-  Il existe 3 façons de s’authentifier sur Key Vault comme vous pouvez le lire dans les [concepts de base](key-vault-whatis.md#basic-concepts)
+> [!NOTE]
+>   Il existe 3 façons de s’authentifier sur Key Vault comme vous pouvez le lire dans les [concepts de base](key-vault-whatis.md#basic-concepts)
 > - Utilisation de MSI (Managed Service Identity), fortement recommandée
 > - Utilisation d’un principal de service et d’un certificat 
 > - Utilisation d’un principal de service et d’un mot de passe, non recommandée

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651603"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091543"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Résolution de problèmes Apache HBase à l’aide d’Azure HDInsight
 
@@ -367,7 +367,7 @@ Voici ce qui se passe en arrière-plan :
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-En raison de cet arrêt brutal, le port associé au processus ne peut pas être libéré même si le processus du serveur régional est arrêté. Cela peut entraîner l’exception AddressBindException au démarrage du serveur régional, comme indiqué dans les journaux suivants. Cet élément apparaît dans le journal region-server.log du répertoire /var/log/hbase des nœuds de travail où le démarrage des serveurs régionaux échoue. 
+   En raison de cet arrêt brutal, le port associé au processus ne peut pas être libéré même si le processus du serveur régional est arrêté. Cela peut entraîner l’exception AddressBindException au démarrage du serveur régional, comme indiqué dans les journaux suivants. Cet élément apparaît dans le journal region-server.log du répertoire /var/log/hbase des nœuds de travail où le démarrage des serveurs régionaux échoue. 
 
    ```apache
 

@@ -9,12 +9,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 29c6dc0f7e71508e7b4ecb4e0f1d5c849df7a68c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54905012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110781"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé
 
@@ -24,17 +24,17 @@ Vous pouvez ajouter une vignette Markdown à vos tableaux de bord Azure pour aff
 
 1. Sélectionnez **Tableau de bord** à partir de la barre latérale du portail Azure. Si vous avez créé des tableaux de bord personnalisés, dans la vue de tableau de bord, utilisez la liste déroulante pour sélectionner le tableau de bord où doit apparaître la vignette Markdown personnalisée. Sélectionnez l’icône Modifier pour ouvrir la **Galerie de vignettes**.
 
-  ![Capture d’écran montrant la vue de tableau de bord en mode modification](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Capture d’écran montrant la vue de tableau de bord en mode modification](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
 2. Dans la **Galerie de vignettes**, recherchez la vignette appelée **Markdown** et cliquez sur **Ajouter**. La vignette est ajoutée au tableau de bord et le volet **Modifier le balisage Markdown** s’ouvre.
 
 1. Modifiez les champs **Titre**, **Sous-titre** et **Contenu** afin de personnaliser la vignette. Dans l’exemple présenté ici, la vignette Markdown a été modifiée pour afficher des informations de support technique personnalisées.
 
-  ![Capture d’écran montrant la vue d’édition de la vignette Markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Capture d’écran montrant la vue d’édition de la vignette Markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
 4. Sélectionnez **Terminé** pour faire disparaître le volet **Modifier le balisage Markdown**. Votre contenu s’affiche sur la vignette Markdown, que vous pouvez ensuite redimensionner en faisant glisser la poignée dans le coin inférieur droit.
 
-  ![Capture d’écran montrant la vignette Markdown personnalisée](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Capture d’écran montrant la vignette Markdown personnalisée](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
 ## <a name="markdown-content-capabilities-and-limitations"></a>Limitations et fonctionnalités du contenu Markdown
 

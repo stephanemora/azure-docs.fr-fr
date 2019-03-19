@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a8cc730e6e03e3d1adce1a584a20e8111116f40c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694055"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013062"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -52,7 +52,7 @@ Vous pouvez utiliser les outils suivants pour créer ou configurer un réseau vi
 * Fichier de configuration réseau (netcfg - pour les réseaux virtuels classiques uniquement). Consultez l’article [Configurer un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quelles plages d’adresses puis-je utiliser dans mes réseaux virtuels ?
-Toute plage d’adresses IP définie dans [RFC 1918](http://tools.ietf.org/html/rfc1918). Par exemple, 10.0.0.0/16. Vous ne pouvez pas ajouter les plages d’adresses suivantes :
+Toute plage d’adresses IP définie dans [RFC 1918](https://tools.ietf.org/html/rfc1918). Par exemple, 10.0.0.0/16. Vous ne pouvez pas ajouter les plages d’adresses suivantes :
 * 224.0.0.0/4 (multidiffusion)
 * 255.255.255.255/32 (diffusion)
 * 127.0.0.0/8 (bouclage)
@@ -72,22 +72,22 @@ Oui. Azure réserve des adresses IP dans chaque sous-réseau. Les première et d
 Le plus petit sous-réseau pris en charge est /29 et le plus grand est /8 (à l’aide de définitions de sous-réseau CIDR).
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>Puis-je ajouter mes VLAN à Azure à l’aide de réseaux virtuels ?
- Non. Les réseaux virtuels sont des superpositions de couche 3. Azure ne prend en charge aucune sémantique de couche 2.
+Non. Les réseaux virtuels sont des superpositions de couche 3. Azure ne prend en charge aucune sémantique de couche 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>Puis-je spécifier des stratégies de routage personnalisées sur des réseaux virtuels et des sous-réseaux ?
 Oui. Vous pouvez créer une table de routage et l’associer à un sous-réseau. Pour plus d’informations sur le routage dans Azure, consultez [Routage du trafic de réseau virtuel](virtual-networks-udr-overview.md#custom-routes).
 
 ### <a name="do-vnets-support-multicast-or-broadcast"></a>Les réseaux virtuels prennent-ils en charge la multidiffusion ou la diffusion ?
- Non. La multidiffusion et la diffusion ne sont pas prises en charge.
+Non. La multidiffusion et la diffusion ne sont pas prises en charge.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Quels protocoles puis-je utiliser au sein de réseaux virtuels ?
 Vous pouvez utiliser les protocoles TCP, UDP et ICMP TCP/IP au sein des réseaux virtuels. La monodiffusion est prise en charge dans les réseaux virtuels, à l’exception du protocole DHCP (Dynamic Host Configuration Protocol) via la monodiffusion (port source UDP/68 / port de destination UDP/67). La multidiffusion, la diffusion, les paquets encapsulés IP dans IP et les paquets Encapsulation générique de routage (GRE, Generic Routing Encapsulation) sont bloqués dans les réseaux virtuels. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Puis-je effectuer un test Ping sur mes routeurs par défaut au sein d’un réseau virtuel ?
- Non.
+Non.
 
 ### <a name="can-i-use-tracert-to-diagnose-connectivity"></a>Puis-je utiliser l’application tracert pour diagnostiquer la connectivité ?
- Non.
+Non.
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>Puis-je ajouter des sous-réseaux après avoir créé le réseau virtuel ?
 Oui. Des sous-réseaux peuvent être ajoutés à des réseaux virtuels à tout moment, tant que la plage d’adresses de sous-réseau ne fait pas partie d’un autre sous-réseau et qu’il reste de l’espace dans la plage d’adresses du réseau virtuel.
@@ -102,10 +102,10 @@ Oui. Vous pouvez ajouter, supprimer et modifier les blocs CIDR utilisés par un 
 Oui. Tous les services déployés au sein d’un réseau virtuel peuvent être connectés en sortie à Internet. Pour en savoir plus sur les connexions Internet sortantes dans Azure, consultez [Connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous souhaitez vous connecter en entrée à une ressource déployée par le biais de Resource Manager, la ressource doit avoir une adresse IP publique qui lui est affectée. Pour en savoir plus sur les adresses IP publiques, consultez [Créer, modifier ou supprimer une adresse IP publique](virtual-network-public-ip-address.md). Chaque service cloud Azure déployé dans Azure dispose d’une adresse IP virtuelle publiquement adressable qui lui est assignée. Vous définissez des points de terminaison d’entrée pour les points de terminaison et les rôles PaaS des machines virtuelles afin de permettre à ces services d’accepter les connexions à partir d’Internet.
 
 ### <a name="do-vnets-support-ipv6"></a>Les réseaux virtuels prennent-ils en charge IPv6 ?
- Non. Vous ne pouvez pas utiliser IPv6 avec les réseaux virtuels pour l’instant. Vous pouvez toutefois attribuer des adresses IPv6 aux équilibreurs de charge Azure pour équilibrer la charge des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble du protocole IPv6 pour Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Non. Vous ne pouvez pas utiliser IPv6 avec les réseaux virtuels pour l’instant. Vous pouvez toutefois attribuer des adresses IPv6 aux équilibreurs de charge Azure pour équilibrer la charge des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble du protocole IPv6 pour Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="can-a-vnet-span-regions"></a>Un réseau virtuel peut-il couvrir plusieurs régions ?
- Non. Un réseau virtuel est limité à une seule région. Un réseau virtuel peut toutefois couvrir des zones de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide d’une homologation de réseaux virtuels. Pour plus d’informations, consultez [Homologation de réseaux virtuels](virtual-network-peering-overview.md)
+Non. Un réseau virtuel est limité à une seule région. Un réseau virtuel peut toutefois couvrir des zones de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide d’une homologation de réseaux virtuels. Pour plus d’informations, consultez [Homologation de réseaux virtuels](virtual-network-peering-overview.md)
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Puis-je connecter un réseau virtuel à un autre réseau virtuel dans Azure ?
 Oui. Vous pouvez connecter un réseau virtuel à un autre réseau virtuel à l’aide des éléments suivants :
@@ -135,7 +135,7 @@ Il existe une limitation aux 100 premiers services cloud du réseau virtuel pour
 Oui. Vous pouvez configurer des serveurs DNS par machine virtuelle ou service cloud pour remplacer les paramètres réseau par défaut. Toutefois, il est recommandé d’utiliser autant que possible le DNS à l’échelle du réseau.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>Puis-je afficher mon propre suffixe DNS ?
- Non. Vous ne pouvez pas spécifier un suffixe DNS personnalisé pour vos réseaux virtuels.
+Non. Vous ne pouvez pas spécifier un suffixe DNS personnalisé pour vos réseaux virtuels.
 
 ## <a name="connecting-virtual-machines"></a>Connexion aux machines virtuelles
 
@@ -151,7 +151,7 @@ Oui. Toutes les interfaces réseau (NIC) attachées à une machine virtuelle dé
 * **Public :** attribué (facultatif) aux cartes réseau attachées aux machines virtuelles déployées via le modèle de déploiement Azure Resource Manager. L’adresse peut être attribuée à l’aide de la méthode d’allocation statique ou dynamique. Toutes les machines virtuelles et instances de rôle de services cloud déployées via le modèle de déploiement classique existent au sein d’un service cloud, qui se voit attribuer une adresse IP virtuelle publique *dynamique*. Une adresse IP *statique* publique, appelée [Adresse IP réservée](virtual-networks-reserved-public-ip.md), peut éventuellement être attribuée en tant qu’adresse IP virtuelle. Vous pouvez attribuer des adresses IP publiques à des machines virtuelles ou instances de rôle de services cloud individuelles déployées via le modèle de déploiement classique. Ces adresses sont appelées [Adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md) et elles peuvent être attribuées de manière dynamique.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Puis-je réserver une adresse IP privée pour une machine virtuelle que je créerai ultérieurement ?
- Non. Vous ne pouvez pas réserver d’adresse IP privée. Si une adresse IP privée est disponible, elle est affectée à une machine virtuelle ou à une instance de rôle par le serveur DHCP. La machine virtuelle peut être celle à laquelle vous souhaitez attribuer l’adresse IP privée. Vous pouvez toutefois modifier l’adresse IP privée d’une machine virtuelle déjà créée et utiliser n’importe quelle adresse IP privée disponible.
+Non. Vous ne pouvez pas réserver d’adresse IP privée. Si une adresse IP privée est disponible, elle est affectée à une machine virtuelle ou à une instance de rôle par le serveur DHCP. La machine virtuelle peut être celle à laquelle vous souhaitez attribuer l’adresse IP privée. Vous pouvez toutefois modifier l’adresse IP privée d’une machine virtuelle déjà créée et utiliser n’importe quelle adresse IP privée disponible.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Les adresses IP privées peuvent-elles changer pour les machines virtuelles d’un réseau virtuel ?
 Cela dépend. Si la machine virtuelle a été déployée via Resource Manager, non, et ce, que l’adresse IP ait été attribuée avec la méthode d’allocation statique ou dynamique. Si la machine virtuelle a été déployée par le biais du modèle de déploiement classique, les adresses IP dynamiques peuvent changer quand une machine virtuelle est démarrée après avoir été arrêtée (désallouée). L’adresse est libérée d’une machine virtuelle déployée via un modèle de déploiement lorsque la machine virtuelle est supprimée.
@@ -166,7 +166,7 @@ Rien. Les adresses IP (adresse IP virtuelle publique, publique et privée) reste
 Oui. Vous trouverez plus d’informations dans l’article [Déplacement d’une machine virtuelle ou d’une instance de rôle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md).
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>Puis-je configurer une adresse MAC statique pour ma machine virtuelle ?
- Non. Une adresse MAC ne peut pas être configurée de manière statique.
+Non. Une adresse MAC ne peut pas être configurée de manière statique.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>Une fois créée, l’adresse MAC restera-t-elle la même pour ma machine virtuelle ?
 Oui, l’adresse MAC reste la même pour une machine virtuelle déployée via les modèles de déploiement Resource Manager et classique jusqu’à sa suppression. Auparavant, l’adresse MAC était libérée si la machine virtuelle était arrêtée (libérée), mais désormais l’adresse MAC est conservée même lorsque la machine virtuelle est dans l’état libéré.
@@ -197,7 +197,7 @@ Oui. Pour plus d’informations, consultez [Intégration d’un réseau virtuel 
 Les ressources déployées par le biais de certains services PaaS Azure (par exemple, Stockage Azure et Azure SQL Database) peuvent restreindre l’accès réseau aux ressources d’un réseau virtuel uniquement via l’utilisation de points de terminaison de service de réseau virtuel. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md).
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Puis-je faire entrer ou sortir mes services dans les réseaux virtuels ?
- Non. Impossible de faire entrer ou de faire sortir des services dans les réseaux virtuels. Pour déplacer une ressource vers un autre réseau virtuel, vous devez supprimer et redéployer la ressource.
+Non. Impossible de faire entrer ou de faire sortir des services dans les réseaux virtuels. Pour déplacer une ressource vers un autre réseau virtuel, vous devez supprimer et redéployer la ressource.
 
 ## <a name="security"></a>Sécurité
 
@@ -221,7 +221,7 @@ Oui. Vous pouvez utiliser des API REST pour les réseaux virtuels dans les modè
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe-t-il une prise en charge des outils pour les réseaux virtuels ?
 Oui. En savoir plus sur l’utilisation des éléments suivants :
 - Le portail Azure pour déployer des réseaux virtuels via les modèles de déploiement [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) et [classique](virtual-networks-create-vnet-classic-pportal.md).
-- PowerShell pour gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/powershell/module/azurerm.network) et [classique](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
+- PowerShell pour gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/powershell/module/az.network) et [classique](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - L’interface de ligne de commande Azure pour déployer et gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/cli/azure/network/vnet) et [classique](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
 
 ## <a name="vnet-peering"></a>Homologation de réseaux virtuels
@@ -231,6 +231,26 @@ L’appairage VNet (ou appairage de réseau virtuel) permet de connecter des ré
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Puis-je créer une connexion d’homologation pour un réseau virtuel dans une autre région ?
 Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure et dans les régions cloud de Chine. Vous ne pouvez pas procéder au peering mondial de régions publiques Azure avec des régions cloud nationales. Le peering mondial n'est actuellement pas disponible dans le cloud Government.
+
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quelles sont les contraintes liées aux équilibreurs de charge et de Global VNet Peering ?
+Si les deux réseaux virtuels sont dans une autre région (Global VNet Peering), vous ne pouvez pas vous connecter aux ressources qui utilisent l’équilibreur de charge. Vous pouvez vous connecter aux ressources qui utilisent l’équilibrage de charge Standard.
+Les ressources suivantes utilisent base équilibreurs de charge, ce qui signifie que vous ne pouvez communiquer leur entre Global VNet Peering :
+- Machines virtuelles derrière des équilibreurs de charge de base
+- Machines virtuelles identiques avec les équilibreurs de charge de base 
+- Cache Redis 
+- Passerelle d’application (v1) référence (SKU)
+- Service Fabric
+- SQL Always on
+- SQL MI
+- Gestion des API
+- AJOUTE
+- Logic Apps
+- HD Insight
+-   Azure Batch
+- AKS
+- Environnement App Service
+
+Vous pouvez vous connecter à ces ressources via ExpressRoute ou réseau via des passerelles de réseau virtuel.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer l’homologation de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
 Oui. Il est possible d’établir une homologation de réseau virtuel (locale ou globale) si vos abonnements appartiennent à différents locataires Azure Active Directory. Vous pouvez faire cela via PowerShell ou Azure CLI. Le portail n’est pas encore pris en charge.
@@ -245,22 +265,22 @@ Si votre connexion d’appairage VNet se trouve dans un état déconnecté, car 
 Oui. Vous pouvez homologuer des réseaux virtuels entre des abonnements et régions.
 
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>Puis-je homologuer deux réseaux virtuels avec des plages d’adresses correspondantes ou se chevauchant ?
- Non. Les espaces d’adresses ne doivent pas se chevaucher pour pouvoir activer l’homologation de réseau virtuel.
+Non. Les espaces d’adresses ne doivent pas se chevaucher pour pouvoir activer l’homologation de réseau virtuel.
 
 ### <a name="how-much-do-vnet-peering-links-cost"></a>Combien coûtent les liens d’homologation de réseau virtuel ?
 Il n’existe aucun frais pour créer une connexion d’homologation de réseau virtuel. Le transfert de données entre des connexions d’homologation est facturé. [Voir ici](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Le trafic d’homologation de réseau virtuel est-il chiffré ?
- Non. Le trafic entre des ressources des réseaux virtuels homologués est privé et isolé. Il reste entièrement sur le Microsoft Backbone.
+Non. Le trafic entre des ressources des réseaux virtuels homologués est privé et isolé. Il reste entièrement sur le Microsoft Backbone.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Pourquoi ma connexion d’homologation est-elle dans un état déconnecté ?
 Les connexions d’homologation de réseau virtuel passent à l’état *Déconnecté* lorsqu’un lien d’homologation de réseau virtuel est supprimé. Vous devez supprimer les deux liens pour pouvoir rétablir une connexion d’homologation.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Si j’effectue une homologation entre VNetA et VNetB, et que je dois également le faire entre VNetB et VNetC, cela signifie-il que VNetA et VNetC sont homologués ?
- Non. L’homologation transitive n’est pas pris en charge. Pour qu’ils le soient, vous devez homologuer VNetA et VNetC.
+Non. L’homologation transitive n’est pas pris en charge. Pour qu’ils le soient, vous devez homologuer VNetA et VNetC.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Des restrictions de bande passante s’appliquent-elles aux connexions d’homologation ?
- Non. L’homologation de réseau virtuel, qu’elle soit locale ou globale, n’impose aucune restriction de bande passante. La bande passante n’est limitée que par les ressources de la machine virtuelle ou de calcul.
+Non. L’homologation de réseau virtuel, qu’elle soit locale ou globale, n’impose aucune restriction de bande passante. La bande passante n’est limitée que par les ressources de la machine virtuelle ou de calcul.
 
 ## <a name="virtual-network-tap"></a>TAP de réseau virtuel
 
@@ -350,7 +370,7 @@ La suppression d’un compte de service Azure est une opération indépendante p
 Quand des points de terminaison de service de réseau virtuel sont activés, les adresses IP sources des ressources du sous-réseau de votre réseau virtuel n’utilisent plus des adresses IPV4 publiques mais des adresses IP privées sur le réseau virtuel Azure pour le trafic vers le service Azure. Notez que cela peut entraîner la panne de pare-feu IP spécifiques préalablement configurés sur une adresse IPV4 publique sur les services Azure. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>L’itinéraire du point de terminaison de service est-il toujours prioritaire ?
-Les points de terminaison de service ajoutent un itinéraire système prioritaire sur les itinéraires BGP et offrent un routage optimal pour le trafic de point de terminaison de service. Les points de terminaison de service acheminent toujours le trafic de service directement à partir de votre réseau virtuel vers le service sur le réseau principal de Microsoft Azure. Pour plus d’informations sur la façon dont Azure sélectionne un itinéraire, voir [Routage du trafic de réseau virtuel Azure] (virtual-networks-udr-overview.md).
+Les points de terminaison de service ajoutent un itinéraire système prioritaire sur les itinéraires BGP et offrent un routage optimal pour le trafic de point de terminaison de service. Les points de terminaison de service acheminent toujours le trafic de service directement à partir de votre réseau virtuel vers le service sur le réseau principal de Microsoft Azure. Pour plus d’informations sur la façon dont Azure sélectionne un itinéraire, consultez [le routage du trafic réseau virtuel Azure](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Comment le groupe de sécurité réseau d’un sous-réseau fonctionne-t-il avec les points de terminaison de service ?
 Pour atteindre le service Azure, les groupes de sécurité réseau doivent autoriser la connectivité sortante. Si vos groupes de sécurité réseau sont ouverts à tout le trafic Internet sortant, le trafic de point de terminaison de service doit fonctionner. Vous pouvez également limiter le trafic sortant aux adresses IP de service en utilisant uniquement les balises de service.  

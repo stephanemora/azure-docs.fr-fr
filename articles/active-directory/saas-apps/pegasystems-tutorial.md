@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a6fd51ad14395b3c195ae1ceb5a188dd2c708c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fa3a3dbda3f184b0c2541dc9df6c39afa86458e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162507"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutoriel : Intégration d’Azure Active Directory à Pega Systems
 
@@ -35,7 +35,7 @@ L’intégration de Pega Systems dans Azure AD vous offre les avantages suivants
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Pega Systems, vous avez besoin des éléments suivants :
 
@@ -170,7 +170,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-1. Effectuez les actions ci-après dans l’écran **Créer un service d’authentification** :
+1. Effectuez les actions suivantes sur **créer un Service d’authentification** écran :
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 

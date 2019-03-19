@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111320"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541585"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Lors de l’utilisation d’Azure Data Factory pour vos besoins d’intégration de données, vous pourriez être amené à réutiliser le même modèle dans différents environnements ou à implémenter la même tâche de façon répétée dans la même solution. Les modèles vous aident à implémenter et à gérer ces scénarios de manière simple. Les modèles dans Azure Data Factory sont parfaitement adaptés aux scénarios qui impliquent la réutilisation et la répétition.
 
-Prenons le cas d’une entreprise qui compte 10 usines de fabrication dans le monde entier. Les journaux de chaque usine sont stockés dans une base de données SQL Server locale distincte. L’entreprise souhaite créer un entrepôt de données unique dans le cloud pour l’analyse ad-hoc. Elle souhaite également avoir la même logique mais des configurations différentes pour les environnements de développement, de test et de production.
+Prenons le cas d’une entreprise qui compte 10 usines de fabrication dans le monde entier. Les journaux de chaque usine sont stockés dans une base de données SQL Server locale distincte. L’entreprise souhaite créer un entrepôt de données unique dans le cloud pour l’analytique ad hoc. Elle souhaite également avoir la même logique mais des configurations différentes pour les environnements de développement, de test et de production.
 
 Dans ce cas, une tâche doit être répétée dans le même environnement, mais avec des valeurs différentes dans les 10 entrepôts de données pour chaque usine de fabrication. Le facteur de **répétition** est donc présent. La création de modèles permet l’abstraction de ce flux générique (autrement dit, les pipelines ayant les mêmes activités dans chaque entrepôt de données), mais utilise un fichier de paramètres distinct pour chaque usine de fabrication.
 
@@ -59,7 +59,7 @@ Les sections suivantes fournissent plus d’informations sur la définition de r
 Le modèle de niveau supérieur pour la définition d’une fabrique de données est :
 
 ```JSON
-"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 "contentVersion": "1.0.0.0",
 "parameters": { ...
 },

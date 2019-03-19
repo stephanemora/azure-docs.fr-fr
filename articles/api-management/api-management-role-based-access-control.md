@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b16bd5b93eda0fcb0c0c9ff96f86efc866abf798
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
-ms.translationtype: HT
+ms.openlocfilehash: deef5d17f9970f23c40c323bd1612cc3e3e1304e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107404"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Comment utiliser le contrôle d’accès en fonction du rôle dans Gestion des API Azure
 Gestion des API Azure utilise le contrôle d’accès en fonction du rôle (RBAC) Azure pour gérer de façon précise l’accès aux services et aux entités Gestion des API (par exemple les API et les stratégies). Cet article fournit une vue d’ensemble des rôles intégrés et personnalisés dans Gestion des API. Pour plus d’informations sur la gestion de l’accès dans le portail Azure, consultez [Prise en main de la gestion des accès dans le portail Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="built-in-roles"></a>Rôles intégrés
 Gestion des API fournit trois rôles intégrés, auxquels deux autres vont être prochainement ajoutés. Ces rôles peuvent être affectés à différentes étendues, notamment un abonnement, un groupe de ressources et une instance spécifique de Gestion des API. Par exemple, si vous affectez le rôle « Lecteur du service Gestion des API Azure » à un utilisateur au niveau du groupe de ressources, cet utilisateur a un accès en lecture à toutes les instances Gestion des API du groupe de ressources. 
@@ -30,7 +32,7 @@ Gestion des API fournit trois rôles intégrés, auxquels deux autres vont être
 Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Vous pouvez affecter ces rôles à l’aide du portail Azure ou d’autres outils, notamment Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) et [l’API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Pour plus d’informations sur l’affectation de rôles intégrés, consultez [Utiliser les affectations de rôle pour gérer l’accès à vos ressources d’abonnement Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 | Rôle          | Accès en lecture<sup>[1]</sup> | Accès en écriture<sup>[2]</sup> | Création, suppression et mise à l’échelle d’un service, configuration d’un VPN et d’un domaine personnalisé | Accès au portail de publication hérité | Description
-| ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
+| ------------- | ---- | ---- | ---- | ---- | ---- 
 | Collaborateur du service Gestion des API Azure | ✓ | ✓ | ✓ | ✓ | Super utilisateur. A un accès CRUD complet aux services et entités Gestion des API (par exemple les API et les stratégies). Dispose d’un accès au portail de publication hérité. |
 | Lecteur du service Gestion des API Azure | ✓ | | || Dispose d’un accès en lecture seule aux services et entités Gestion des API. |
 | Opérateur du service Gestion des API Azure | ✓ | | ✓ | | Peut gérer les services Gestion des API, mais pas les entités.|
@@ -46,10 +48,13 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Vou
 ## <a name="custom-roles"></a>Rôles personnalisés
 Si aucun des rôles intégrés ne répond à vos besoins, vous pouvez créer des rôles personnalisés permettant une gestion plus précise de l’accès aux entités Gestion des API. Par exemple, vous pouvez créer un rôle personnalisé qui dispose d’un accès en lecture seule à un service Gestion des API, mais qui ne dispose d’un accès en écriture que pour une API spécifique. Pour plus d’informations sur les rôles personnalisés, consultez [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
+> [!NOTE]
+> Pour être en mesure de voir une instance de la gestion des API dans le portail Azure, un rôle personnalisé doit inclure le ```Microsoft.ApiManagement/service/read``` action.
+
 Quand vous créez un rôle personnalisé, il est plus facile de commencer avec un des rôles intégrés. Modifiez les attributs pour ajouter les propriétés **Actions**, **NotActions** ou **AssignableScopes**, puis enregistrez les modifications en tant que nouveau rôle. L’exemple suivant commence par le rôle « Lecteur du service Gestion des API », puis crée un rôle personnalisé appelé « Éditeur d’API de calculateur ». Vous pouvez affecter le rôle personnalisé à une API spécifique. Par conséquent, ce rôle a accès uniquement à cette API. 
 
 ```
-$role = Get-AzureRmRoleDefinition "API Management Service Reader Role"
+$role = Get-AzRoleDefinition "API Management Service Reader Role"
 $role.Id = $null
 $role.Name = 'Calculator API Contributor'
 $role.Description = 'Has read access to Contoso APIM instance and write access to the Calculator API.'
@@ -57,8 +62,8 @@ $role.Actions.Add('Microsoft.ApiManagement/service/apis/write')
 $role.Actions.Add('Microsoft.ApiManagement/service/apis/*/write')
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add('/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>')
-New-AzureRmRoleDefinition -Role $role
-New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
+New-AzRoleDefinition -Role $role
+New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
 ```
 
 L’article [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement) contient la liste des autorisations qui peuvent être accordées au niveau Gestion des API.
@@ -73,7 +78,7 @@ L’article [Opérations du fournisseur de ressources Azure Resource Manager](..
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur le contrôle d’accès en fonction du rôle dans Azure, consultez les articles suivants :
-  * [Prise en main de la gestion des accès dans le portail Azure](../role-based-access-control/overview.md)
+  * [Bien démarrer avec la gestion des accès dans le portail Azure](../role-based-access-control/overview.md)
   * [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md)
   * [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/custom-roles.md)
   * [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

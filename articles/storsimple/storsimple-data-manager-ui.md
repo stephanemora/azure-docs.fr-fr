@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e773986d11a11c6cc84df367aa48ac1b01a9183e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157120"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121500"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gérer le service StorSimple Data Manager dans le portail Azure
 
@@ -46,19 +46,19 @@ Pour créer un service StorSimple Data Manager, procédez comme suit.
 
 3. Pour le nouveau service, spécifiez les informations suivantes :
 
-    1. Fournissez un **nom de service** unique pour votre instance StorSimple Data Manager. Il s’agit d’un nom convivial qui peut être utilisé pour identifier le service. Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. Il doit commencer et se terminer par une lettre ou un chiffre.
+   1. Fournissez un **nom de service** unique pour votre instance StorSimple Data Manager. Il s’agit d’un nom convivial qui peut être utilisé pour identifier le service. Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. Il doit commencer et se terminer par une lettre ou un chiffre.
 
-    2. Choisissez un **abonnement** dans la liste déroulante. L’abonnement est lié à votre compte de facturation. Ce champ est automatiquement rempli (et non sélectionnable) si vous n'avez qu’un seul abonnement.
+   2. Choisissez un **abonnement** dans la liste déroulante. L’abonnement est lié à votre compte de facturation. Ce champ est automatiquement rempli (et non sélectionnable) si vous n'avez qu’un seul abonnement.
 
-    3. Sélectionnez un groupe de ressources existant ou créez-en un. Pour plus d’informations, consultez la page [Groupes de ressources dans Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Sélectionnez un groupe de ressources existant ou créez-en un. Pour plus d’informations, consultez la page [Groupes de ressources dans Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-    4. Spécifiez l’**emplacement** qui héberge vos comptes de stockage et votre service StorSimple Data Manager. Votre service StorSimple Device Manager, votre service Data Manager et le compte de stockage associé doivent tous être situés dans les régions prises en charge.
+   4. Spécifiez l’**emplacement** qui héberge vos comptes de stockage et votre service StorSimple Data Manager. Votre service StorSimple Device Manager, votre service Data Manager et le compte de stockage associé doivent tous être situés dans les régions prises en charge.
     
-    5. Pour disposer d’un lien vers ce service sur votre tableau de bord, sélectionnez **Épingler au tableau de bord**.
+   5. Pour disposer d’un lien vers ce service sur votre tableau de bord, sélectionnez **Épingler au tableau de bord**.
     
-    6. Cliquez sur **Créer**.
+   6. Cliquez sur **Créer**.
 
-    ![Créer un service StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![Créer un service StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 La création de service dure quelques minutes. Une fois le service correctement créé, une notification apparaît et le nouveau service s’affiche.
 
@@ -88,33 +88,33 @@ Procédez comme suit pour créer une définition de travail.
 
     ![Ajouter un nouveau référentiel de données](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-    1. Choisissez **StorSimple 8000 series Manager** comme type de référentiel de données.
+   1. Choisissez **StorSimple 8000 series Manager** comme type de référentiel de données.
     
-    2. Entrez un nom convivial pour votre référentiel de données source.
+   2. Entrez un nom convivial pour votre référentiel de données source.
     
-    3. Dans la liste déroulante, choisissez un abonnement associé à votre service StorSimple Device Manager.
+   3. Dans la liste déroulante, choisissez un abonnement associé à votre service StorSimple Device Manager.
     
-    4. Indiquez le nom du service StorSimple Device Manager comme **Ressource**.
+   4. Indiquez le nom du service StorSimple Device Manager comme **Ressource**.
 
-    5. Entrez la clé **de chiffrement des données de service** pour le service StorSimple Device Manager. 
+   5. Entrez la clé **de chiffrement des données de service** pour le service StorSimple Device Manager. 
 
-    ![Configurer le référentiel de données source 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![Configurer le référentiel de données source 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    Une fois l’opération terminée, cliquez sur **OK**. Votre référentiel de données est enregistré. Réutilisez ce StorSimple Device Manager dans d’autres définitions de travaux sans avoir à ressaisir ces paramètres. Une fois que vous avez cliqué sur **OK**, attendez quelques secondes pour voir apparaître le nouveau référentiel de données source dans la liste déroulante.
+      Une fois l’opération terminée, cliquez sur **OK**. Votre référentiel de données est enregistré. Réutilisez ce StorSimple Device Manager dans d’autres définitions de travaux sans avoir à ressaisir ces paramètres. Une fois que vous avez cliqué sur **OK**, attendez quelques secondes pour voir apparaître le nouveau référentiel de données source dans la liste déroulante.
 
 7. Dans la liste déroulante **Référentiel de données**, sélectionnez le référentiel de données que vous avez créé. 
 
-    1. Entrez le nom de l’appareil StorSimple série 8000 qui contient les données intéressantes.
+   1. Entrez le nom de l’appareil StorSimple série 8000 qui contient les données intéressantes.
 
-    2. Spécifiez le nom du volume résidant sur l’appareil StorSimple contenant vos données intéressantes.
+   2. Spécifiez le nom du volume résidant sur l’appareil StorSimple contenant vos données intéressantes.
 
-    3. Dans la sous-section **Filtrer**, saisissez le répertoire racine comportant vos données intéressantes, au format _\MyRootDirectory\Data_. Les lettres de lecteurs de type _\C:\Data_ ne sont pas prises en charge. Les filtres de fichiers s’ajoutent également ici.
+   3. Dans la sous-section **Filtrer**, saisissez le répertoire racine comportant vos données intéressantes, au format _\MyRootDirectory\Data_. Les lettres de lecteurs de type _\C:\Data_ ne sont pas prises en charge. Les filtres de fichiers s’ajoutent également ici.
 
-    4. Le service de transformation de données traite les données qui sont envoyées à Azure via des instantanés. Durant l’exécution du travail, vous pouvez décider de procéder à une sauvegarde à chaque itération (pour traiter les données les plus récentes) ou d’utiliser la dernière sauvegarde existante dans le cloud (si vous traitez des données archivées).
+   4. Le service de transformation de données traite les données qui sont envoyées à Azure via des instantanés. Durant l’exécution du travail, vous pouvez décider de procéder à une sauvegarde à chaque itération (pour traiter les données les plus récentes) ou d’utiliser la dernière sauvegarde existante dans le cloud (si vous traitez des données archivées).
 
-    5. Cliquez sur **OK**.
+   5. Cliquez sur **OK**.
 
-    ![Configurer le référentiel de données source 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![Configurer le référentiel de données source 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
 8. Le référentiel de données cible doit maintenant être configuré. Choisissez les comptes de stockage, afin de placer des fichiers dans des objets blob de ce compte. Dans la liste déroulante, sélectionnez **Ajouter nouveau**, puis **Configuration des paramètres**.
 

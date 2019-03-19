@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de42312c580b6bd5b4a5148fd877d55aa00e8804
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011973"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : Limitations actuelles
 
@@ -34,7 +34,7 @@ Les scénarios suivants sont pris en charge :
 
 - L’utilisateur se connecte à des applications s’appuyant sur un navigateur web.
 - L’utilisateur se connecte aux clients Outlook à l’aide des protocoles hérités, comme Exchange ActiveSync, EAS, SMTP, POP et IMAP.
-- L’utilisateur se connecte aux applications clientes Office héritées et aux applications Office prenant en charge [l’authentification moderne](https://aka.ms/modernauthga) : les versions d’Office 2010, 2013 et 2016.
+- L’utilisateur se connecte aux applications clientes Office héritées et aux applications Office prenant en charge [l’authentification moderne](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview) : Office 2013 et versions de 2016.
 - L’utilisateur se connecte à des applications de protocole héritées, telles que PowerShell version 1.0, etc.
 - Jonctions Azure AD pour les appareils Windows 10.
 - Mots de passe d'application pour l’authentification multifacteur.
@@ -47,11 +47,11 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 - Azure AD Domain Services a besoin que la synchronisation du hachage de mot de passe soit activée sur le locataire. Ainsi, les locataires qui utilisent l’authentification directe _uniquement_ ne fonctionnent pas pour les scénarios qui ont besoin d’Azure AD Domain Services.
 - L’authentification directe n’est pas intégrée à [Azure AD Connect Health](whatis-hybrid-identity-health.md).
 
->[!IMPORTANT]
->Comme solution de contournement _uniquement_ pour les scénarios non pris en charge (à l’exception de l’intégration d’Azure AD Connect Health), activez la synchronisation de hachage du mot de passe dans la page [Fonctionnalités facultatives](how-to-connect-install-custom.md#optional-features) de l’Assistant Azure AD Connect.
-
->[!NOTE]
-L’activation de la synchronisation de hachage du mot de passe vous donne la possibilité de basculer l’authentification en cas d’interruption de votre infrastructure locale. Ce basculement de l’authentification directe vers la synchronisation de hachage du mot de passe n’est pas automatique. Vous devrez basculer la méthode de connexion manuellement avec Azure AD Connect. Si le serveur exécutant Azure AD Connect tombe en panne, vous devrez demander de l’aide au Support Microsoft pour désactiver l’authentification directe.
+> [!IMPORTANT]
+> Comme solution de contournement _uniquement_ pour les scénarios non pris en charge (à l’exception de l’intégration d’Azure AD Connect Health), activez la synchronisation de hachage du mot de passe dans la page [Fonctionnalités facultatives](how-to-connect-install-custom.md#optional-features) de l’Assistant Azure AD Connect.
+> 
+> [!NOTE]
+> L’activation de la synchronisation de hachage du mot de passe vous donne la possibilité de basculer l’authentification en cas d’interruption de votre infrastructure locale. Ce basculement de l’authentification directe vers la synchronisation de hachage du mot de passe n’est pas automatique. Vous devrez basculer la méthode de connexion manuellement avec Azure AD Connect. Si le serveur exécutant Azure AD Connect tombe en panne, vous devrez demander de l’aide au Support Microsoft pour désactiver l’authentification directe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide](how-to-connect-pta-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.

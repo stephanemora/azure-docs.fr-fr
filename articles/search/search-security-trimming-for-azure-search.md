@@ -9,12 +9,12 @@ author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314225"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453488"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche Azure
 
@@ -33,7 +33,7 @@ Cet article explique les étapes à suivre pour mettre en place le filtrage de s
 >[!NOTE]
 > Le processus de récupération des identificateurs de principal n’est pas abordé dans ce document. Obtenez-le auprès de votre fournisseur de services d’identité.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) et de l’[index Recherche Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -152,7 +152,7 @@ Vous devez obtenir les documents où `group_ids` contient « group_id1 » ou �
 ```
 ## <a name="conclusion"></a>Conclusion
 
-Vous venez de voir comment filtrer des résultats en fonction de l’identité de l’utilisateur et de la fonction `search.in()` de Recherche Azure. Vous pouvez utiliser cette fonction pour passer les identificateurs de principal de l’utilisateur demandeur et les mettre en correspondance avec les identificateurs de principal associés à chaque document cible. Quand une requête de recherche est traitée, la fonction `search.in` exclut les résultats de la recherche inaccessibles en lecture aux principaux de l’utilisateur. Les identificateurs de principal peuvent représenter des groupes de sécurité, des rôles ou même la propre identité de l’utilisateur.
+Vous venez de voir comment filtrer des résultats en fonction de l’identité de l’utilisateur et de la fonction `search.in()` de Recherche Azure. Vous pouvez utiliser cette fonction pour passer dans les identificateurs de principal de l’utilisateur demandeur à mettre en correspondance les identificateurs de principal associés à chaque document cible. Quand une requête de recherche est traitée, la fonction `search.in` exclut les résultats de la recherche inaccessibles en lecture aux principaux de l’utilisateur. Les identificateurs de principal peuvent représenter des groupes de sécurité, des rôles ou même la propre identité de l’utilisateur.
  
 ## <a name="see-also"></a>Voir aussi
 

@@ -1,19 +1,19 @@
 ---
 title: Comprendre les kits IoT Azure SDK | Microsoft Docs
 description: Guide du développeur - informations et liens vers divers kits Azure IoT device et service SDK que vous pouvez utiliser pour créer des applications d’appareil et des applications principales.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: dobett
-ms.openlocfilehash: 3bdb09de04ec5041d671f5af709a1a1e7133d141
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: fcb6f564c97632e4d62f7f052ec5ecc35a9e479a
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199508"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011243"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendre et utiliser les kits Azure IoT Hub SDK
 
@@ -37,7 +37,7 @@ Découvrez les [avantages du développement avec les Kits de développement logi
 
 Les plateformes prises en charge pour les Kits de développement logiciel (SDK) se trouvent dans le document [Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT](iot-hub-device-sdk-platform-support.md).
 
-Pour plus d’informations sur la compatibilité des Kits de développement logiciel (SDK) avec un matériel particulier, consultez le [catalogue d’appareils Azure Certified pour IoT](https://catalog.azureiotsuite.com/) ou un référentiel spécifique.
+Pour plus d’informations sur la compatibilité des Kits de développement logiciel (SDK) avec un matériel particulier, consultez le [catalogue d’appareils Azure Certified pour IoT](https://catalog.azureiotsolutions.com/) ou un référentiel spécifique.
 
 ## <a name="azure-iot-hub-device-sdks"></a>Kits Azure IoT Hub Device SDK
 

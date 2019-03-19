@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004606"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "55745016"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -218,7 +218,7 @@ Cet article met l’accent sur le passage d’une installation ASCS/SCS unique �
 
 Pour plus d'informations sur les limites de l'équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » de l'article [Limites de réseau : Azure Resource Manager][networking-limits-azure-resource-manager]. Pensez également à utiliser la [référence SKU Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) à la place de la référence SKU de base de l'équilibreur de charge Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous avez déjà configuré un cluster WSFC à utiliser pour une instance SAP ASCS/SCS à l’aide du **partage de fichiers**, comme illustré dans ce diagramme.
 
@@ -347,7 +347,7 @@ Créez le deuxième **Volume2**. Exécutez ce script PowerShell :
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figure 5 : Le SOFS multi-SID est identique au nom d'hôte GLOBAL SAP 2][sap-ha-guide-figure-8016]
+![Figure 5 : Deuxième Volume2 dans le Gestionnaire de Cluster de basculement][sap-ha-guide-figure-8016]
 
 _**Figure 5 :** Deuxième Volume2 dans le Gestionnaire du cluster de basculement_
 
@@ -403,26 +403,31 @@ Cliquez avec le bouton droit sur le groupe de clusters SOFS **saoglobal2**, puis
 _**Figure 6 :** Démarrez l'Assistant « Ajouter un partage de fichiers »_
 
 <br>
-![Figure 7 : Sélectionnez « Partage SMB - Rapide »][sap-ha-guide-figure-8018]
+
+![Figure 7 : « Sélectionner le partage SMB – rapide »][sap-ha-guide-figure-8018]
 
 _**Figure 7 :** Sélectionnez « Partage SMB - Rapide »_
 
 <br>
-![Figure 8 : Sélectionnez « sapglobalhost2 » et spécifiez le chemin sur Volume2][sap-ha-guide-figure-8019]
+
+![Figure 8 : Choisissez « sapglobalhost2 » et spécifiez le chemin d’accès sur Volume2][sap-ha-guide-figure-8019]
 
 _**Figure 8 :** Sélectionnez « sapglobalhost2 » et spécifiez le chemin sur Volume2_
 
 <br>
-![Figure 9 : Définissez « sapmnt » comme nom de partage de fichiers][sap-ha-guide-figure-8020]
+
+![Figure 9 : Définir le nom de partage de fichiers « sapmnt » comme][sap-ha-guide-figure-8020]
 
 _**Figure 9 :** Définissez « sapmnt » comme nom de partage de fichiers_
 
 <br>
+
 ![Figure 10 : Désactivez tous les paramètres][sap-ha-guide-figure-8021]
 
 _**Figure 10 :** Désactivez tous les paramètres_
 
 <br>
+
 Affectez des autorisations de *Contrôle total* aux fichiers et au partage sapmnt pour :
 * Le groupe d’utilisateurs de domaine **SAP_\<SID>_GlobalAdmin**
 * L’objet ordinateur des nœuds de cluster ASCS/SCS **ascs-1$** et **ascs-2$**
@@ -432,16 +437,19 @@ Affectez des autorisations de *Contrôle total* aux fichiers et au partage sapmn
 _**Figure 11 :** Assignez les autorisations de contrôle total aux comptes de groupes d'utilisateurs et d'ordinateurs_
 
 <br>
-![Figure 12 : Sélectionnez « Créer »][sap-ha-guide-figure-8023]
+
+![Figure 12 : Sélection de « Créer »][sap-ha-guide-figure-8023]
 
 _**Figure 12 :** Sélectionnez « Créer »_
 
 <br>
-![Figure 13 : Le deuxième sapmnt lié à l'hôte sapglobal2 et au Volume2 est créé][sap-ha-guide-figure-8024]
+
+![Figure 13 : Le deuxième sapmnt lié à l’hôte sapglobal2 et Volume2 est créé][sap-ha-guide-figure-8024]
 
 _**Figure 13 :** Le deuxième sapmnt lié à l'hôte sapglobal2 et au Volume2 est créé_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>Installer SAP NetWeaver multi-SID
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Installer les instances SAP \<SID2> ASCS/SCS et ERS

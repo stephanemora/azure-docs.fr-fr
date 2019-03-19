@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085012"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimiser son environnement Active Directory avec la solution Active Directory Health Check dans Azure Monitor
 
@@ -40,7 +40,7 @@ Une fois la solution ajoutée et le contrôle terminé, le résumé des informat
 
 ![image du tableau de bord AD Health Check](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * La solution Active Directory Health Check nécessite l’installation d’une version prise en charge du .NET Framework (version 4.5.2 ou ultérieure) sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 Operations Manager et Operations Manager 2012 R2, ainsi qu’Azure Monitor.
 * La solution prend en charge les contrôleurs de domaine exécutant Windows Server 2008 et 2008 R2, Windows Server 2012 et 2012 R2 et Windows Server 2016.
@@ -111,10 +111,10 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-4. Dans la page **Vue d’ensemble**, cliquez sur la vignette **Active Directory Health Check**.
-5. Dans la page **Health Check**, passez en revue les informations récapitulatives dans l’un des panneaux du domaine concerné, puis cliquez sur l’un d’entre eux pour afficher les recommandations correspondantes.
-6. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![image des recommandations Health Check](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l’élément traité, les évaluations ultérieures indiquent que des mesures ont été prises et votre score de conformité augmente. Les éléments corrigés apparaissent comme **objets passés**.
+1. Dans la page **Vue d’ensemble**, cliquez sur la vignette **Active Directory Health Check**.
+1. Dans la page **Health Check**, passez en revue les informations récapitulatives dans l’un des panneaux du domaine concerné, puis cliquez sur l’un d’entre eux pour afficher les recommandations correspondantes.
+1. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![image des recommandations Health Check](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+1. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l’élément traité, les évaluations ultérieures indiquent que des mesures ont été prises et votre score de conformité augmente. Les éléments corrigés apparaissent comme **objets passés**.
 
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
 Si vous souhaitez ignorer certaines recommandations, vous pouvez créer un fichier texte qui permettra à Azure Monitor de les empêcher d’apparaître dans les résultats de l’évaluation.
@@ -128,7 +128,7 @@ Utilisez la requête suivante pour répertorier les recommandations qui ont éch
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Voici une capture d’écran de la requête de journal :<br><br> ![recommandations ayant échoué](media/ad-assessment/ad-failed-recommendations.png)
+Voici une capture d’écran montrant la requête de journal :<br><br> ![recommandations ayant échoué](media/ad-assessment/ad-failed-recommendations.png)
 
 Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 

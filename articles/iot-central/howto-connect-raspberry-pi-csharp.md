@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f0232c8d2627cd600f4f05b5b501db85fa7d2ec4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108356"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connecter un appareil Raspberry Pi à votre application Azure IoT Central (C#)
 
@@ -68,13 +68,13 @@ Pour effectuer les étapes suivantes, vous pouvez utiliser Visual Studio Code. P
 
 1. Pour initialiser votre projet .NET et ajouter les packages NuGet nécessaires, exécutez les commandes suivantes :
 
-  ```cmd/sh
-  mkdir pisample
-  cd pisample
-  dotnet new console
-  dotnet add package Microsoft.Azure.Devices.Client
-  dotnet restore
-  ```
+   ```cmd/sh
+   mkdir pisample
+   cd pisample
+   dotnet new console
+   dotnet add package Microsoft.Azure.Devices.Client
+   dotnet restore
+   ```
 
 1. Ouvrez le dossier `pisample` dans Visual Studio Code. Ouvrez ensuite le fichier projet **pisample.csproj**. Ajoutez la balise `<RuntimeIdentifiers>` montrée dans l’extrait de code suivant :
 
@@ -275,16 +275,16 @@ Pour effectuer les étapes suivantes, vous pouvez utiliser Visual Studio Code. P
 Ajoutez la chaîne de connexion spécifique à votre appareil au code pour que l’appareil puisse s’authentifier auprès d’Azure IoT Central. Vous avez pris note de cette chaîne de connexion quand vous avez ajouté votre appareil réel à votre application Azure IoT Central.
 
   > [!NOTE]
-   > Azure IoT Central utilise désormais le Service IoT Hub Device Provisioning (DPS) Azure pour toutes les connexions d’appareil. Suivez ces instructions pour [obtenir la chaîne de connexion d’appareil](concepts-connectivity.md#getting-device-connection-string) et continuer le didacticiel.
+   > Azure IoT Central est passée à l’aide du service Azure IoT Hub Device Provisioning (DPS) pour toutes les connexions d’appareil, suivez ces instructions pour [obtenir la chaîne de connexion de périphérique](concepts-connectivity.md#get-a-connection-string) et continuer avec le reste du didacticiel.
 
 1. Remplacez `{your device connection string}` dans le fichier **Program.cs** par la chaîne de connexion que vous avez notée.
 
 1. Exécutez la commande suivante dans votre environnement de ligne de commande :
 
-  ```cmd/sh
-  dotnet restore
-  dotnet publish -r linux-arm
-  ```
+   ```cmd/sh
+   dotnet restore
+   dotnet publish -r linux-arm
+   ```
 
 1. Copiez le dossier `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` sur votre appareil Raspberry Pi. Vous pouvez utiliser la commande **scp** pour copier les fichiers, par exemple :
 
@@ -313,13 +313,13 @@ Ajoutez la chaîne de connexion spécifique à votre appareil au code pour que l
 
 1. Dans votre application Azure IoT Central, vous pouvez voir comment le code s’exécutant sur l’appareil Raspberry Pi interagit avec l’application :
 
-    * Dans la page **Mesures** de votre appareil réel, vous pouvez voir la télémétrie.
-    * Dans la page **Propriétés**, vous pouvez voir la valeur de la propriété **Numéro gravé**.
-    * Dans la page **Paramètres**, vous pouvez changer différents paramètres de l’appareil Raspberry Pi, comme le voltage et la vitesse du ventilateur.
+   * Dans la page **Mesures** de votre appareil réel, vous pouvez voir la télémétrie.
+   * Dans la page **Propriétés**, vous pouvez voir la valeur de la propriété **Numéro gravé**.
+   * Dans la page **Paramètres**, vous pouvez changer différents paramètres de l’appareil Raspberry Pi, comme le voltage et la vitesse du ventilateur.
 
-    La capture d’écran suivante montre l’appareil Raspberry Pi recevant la modification du paramètre :
+     La capture d’écran suivante montre l’appareil Raspberry Pi recevant la modification du paramètre :
 
-    ![L’appareil Raspberry Pi reçoit la modification du paramètre](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+     ![L’appareil Raspberry Pi reçoit la modification du paramètre](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
 
 ## <a name="raspberry-pi-device-template-details"></a>Détails de modèle d’appareil Raspberry PI
@@ -361,10 +361,10 @@ Paramètres de bascule
 
 ### <a name="properties"></a>properties
 
-| type            | Nom complet | Nom du champ | Type de données |
+| Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
-| Texte            | Lieu     | location   | N/A       |
+| Texte            | Lieu     | location   | S.O.       |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

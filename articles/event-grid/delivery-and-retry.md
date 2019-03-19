@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465511"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991204"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
@@ -24,17 +24,20 @@ Actuellement, Event Grid envoie chaque événement individuellement aux abonnés
 
 ## <a name="retry-schedule-and-duration"></a>Planification d’un nouvel essai et durée
 
-Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Si un point de terminaison ne répond pas ou s’il retourne un code d’échec, Event Grid effectue une nouvelle tentative de distribution aux intervalles suivants :
+Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Si un point de terminaison ne répond pas ou retourne un code d’échec, Event Grid tente à nouveau remise selon la planification suivante sur la mesure du possible :
 
 1. 10 secondes
-2. 30 secondes
-3. 1 minute
-4. 5 minutes
-5. 10 minutes
-6. 30 minutes
-7. 1 heure
+1. 30 secondes
+1. 1 minute
+1. 5 minutes
+1. 10 minutes
+1. 30 minutes
+1. 1 heure
+1. Toutes les heures pour jusqu'à 24 heures
 
-Event Grid ajoute une petite randomisation à chaque nouvelle tentative. La remise des événements est renouvelée après une heure, une fois par heure.
+Event Grid ajoute une petite randomisation à toutes les étapes de nouvelle tentative et peut ignorer façon opportuniste certaines nouvelles tentatives si un point de terminaison est systématiquement défectueux, vers le bas pour une longue période, ou être submergée.
+
+Pour un comportement déterministe, définissez la durée de l’événement de vie et de tentatives de remise max dans le [stratégies de nouvelle tentative d’abonnement](manage-event-delivery.md).
 
 Par défaut, Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures. Vous pouvez [personnaliser la stratégie de nouvelle tentative](manage-event-delivery.md) lors de la création d’un abonnement à un événement. Vous fournissez le nombre maximal de tentatives de remise (par défaut, 30) et la durée de vie de l’événement (par défaut, 1 440 minutes).
 

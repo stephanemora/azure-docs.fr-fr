@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860701"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Réplication des bases de données uniques et mises en pool SQL Database
 
@@ -40,7 +40,7 @@ La réplication SQL Server peut être configurée pour les bases de données uni
 - SQL Server 2014 (12.x) RTM CU10
 - SQL Server 2012 (11.x) SP2 CU8 ou SP3
 - Si vous configurez la réplication avec une version antérieure, les erreurs suivantes pourront se produire : MSSQL_REPL20084 (le processus n’a pas pu se connecter à l’abonné) et MSSQL_REPL40532 (impossible d’ouvrir le serveur \<nom> demandé par la connexion. La connexion a échoué).  
-- Pour bénéficier de toutes les fonctionnalités d’Azure SQL Database, vous devez utiliser les dernières versions de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
+- Pour bénéficier de toutes les fonctionnalités d’Azure SQL Database, vous devez utiliser les dernières versions de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
 ## <a name="remarks"></a>Remarques
 

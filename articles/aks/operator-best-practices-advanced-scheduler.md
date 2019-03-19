@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175979"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -39,10 +39,10 @@ Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour re
 Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds où une tolérance est alignée avec la teinte. Par exemple, vous avez un pool de nœuds dans votre cluster AKS pour les nœuds avec prise en charge des GPU. Vous définissez un nom, comme *gpu*, puis une valeur pour la planification. Si vous affectez à cette valeur *NoSchedule*, le planificateur Kubernetes ne peut pas planifier de pods sur le nœud si le pod ne définit pas la tolérance appropriée.
 
 ```console
-kubectl taint node aks-nodepool1 gpu:NoSchedule
+kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Après avoir appliqué une teinte aux nœuds, vous définissez une tolérance dans la spécification de pod qui autorise la planification sur les nœuds. L’exemple suivant définit `key: gpu` et `effect: NoSchedule` pour tolérer la teinte appliquée au nœud à l’étape précédente :
+Après avoir appliqué une teinte aux nœuds, vous définissez une tolérance dans la spécification de pod qui autorise la planification sur les nœuds. L’exemple suivant définit `sku: gpu` et `effect: NoSchedule` pour tolérer la teinte appliquée au nœud à l’étape précédente :
 
 ```yaml
 kind: Pod
@@ -61,9 +61,9 @@ spec:
       cpu: 4.0
       memory: 16Gi
   tolerations:
-  - key: "gpu"
+  - key: "sku"
     operator: "Equal"
-    value: "value"
+    value: "gpu"
     effect: "NoSchedule"
 ```
 
@@ -151,7 +151,7 @@ Pour plus d’informations, consultez [Affinité et anti-affinité][k8s-affinity
 
 Une dernière approche, employée par le planificateur Kubernetes pour isoler logiquement des charges de travail, consiste à utiliser l’affinité ou l’anti-affinité entre pods. Les paramètres définissent si *oui* ou *non* des pods peuvent être planifiés sur un nœud ayant un pod correspondant. Par défaut, le planificateur Kubernetes essaie de planifier plusieurs pods dans un jeu de réplicas sur les nœuds. Vous pouvez définir des règles plus spécifiques autour de ce comportement.
 
-Un bon exemple est une application web qui utilise également un Cache Azure pour Redis. Vous pouvez utiliser des règles d’anti-affinité de pod pour demander au planificateur Kubernetes de distribuer les réplicas sur les nœuds. Vous pouvez ensuite utiliser des règles d’affinité pour que chaque composant de l’application web soit planifié sur le même hôte qu’un cache correspondant. La distribution des pods sur les nœuds est similaire à celle de l’exemple suivant :
+Un bon exemple est une application web qui utilise également un Cache Azure pour Redis. Vous pouvez utiliser des règles d’anti-affinité de pod pour demander au planificateur Kubernetes de distribuer les réplicas sur les nœuds. Vous pouvez ensuite utiliser les règles d’affinités pour vous assurer que chaque composant d’application web est planifiée sur le même hôte comme un cache correspondant. La distribution des pods sur les nœuds est similaire à celle de l’exemple suivant :
 
 | **Nœud 1** | **Nœud 2** | **Nœud 3** |
 |------------|------------|------------|

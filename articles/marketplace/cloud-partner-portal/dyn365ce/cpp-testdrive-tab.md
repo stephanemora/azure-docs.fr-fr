@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 664a2c6bfc4a73b7d792b71c4b81df54b05fcd74
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081845"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454967"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Onglet Version d’évaluation d’une application Dynamics 365 for Customer Engagement
 
-Utilisez l’onglet **Version d’évaluation** pour créer une expérience d’évaluation pour vos clients.  La version d’évaluation permet aux clients d’essayer les principales fonctionnalités de votre offre et d’en apprécier les avantages grâce à un scénario d’implémentation réel.  Parmi les options d’évaluation disponibles, la version d’évaluation est la plus efficace pour générer des prospects pertinents et les transformer en clients.  Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’une version d’évaluation ?](../../cloud-partner-portal-orig/what-is-test-drive.md)
+Utilisez l’onglet **Version d’évaluation** pour créer une expérience d’évaluation pour vos clients.  La version d’évaluation permet aux clients d’essayer les principales fonctionnalités de votre offre et d’en apprécier les avantages grâce à un scénario d’implémentation réel.  Parmi les options d’évaluation disponibles, la version d’évaluation est la plus efficace pour générer des prospects pertinents et les transformer en clients.  Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’une version d’évaluation ?](../test-drive/what-is-test-drive.md)
 
-L’expérience d’évaluation des applications Dynamics 365 s’exécute automatiquement comme une solution hébergée par Microsoft.  Pour plus d’informations, consultez [Version d’évaluation hébergée](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive).
+L’expérience d’évaluation des applications Dynamics 365 s’exécute automatiquement comme une solution hébergée par Microsoft.  Pour plus d’informations, consultez [Version d’évaluation hébergée](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive).
 
 L’onglet Version d’évaluation comprend trois sections potentielles : **Version d’évaluation**, **Détails** et **Configuration technique**.  Les deux dernières sections ne s’affichent qu’une fois que vous avez activé la fonctionnalité Version d’évaluation.  Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire. 
 
@@ -47,7 +47,7 @@ Le tableau suivant décrit les champs obligatoires pour configurer la version d�
 |    ---------                  |  ---------------                |
 |      Description              |   Décrivez ce qui peut être fait sur votre version d’évaluation. Vous pouvez utiliser des balises HTML de base pour mettre en forme cette description. Par exemple, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;et les en-têtes.  |
 |  Manuel utilisateur                  |   Téléchargez un manuel utilisateur que vos clients peuvent utiliser pour se guider au cours de l’expérience d’évaluation. Ce document doit être au format pdf.              |
-|  Vidéo de démonstration de version d’évaluation (facultative) |  Vous pouvez fournir une vidéo de procédure pas à pas de votre version d’évaluation. Un client peut regarder cette vidéo avant de se procurer une version d’évaluation. Fournissez une URL vers la vidéo sur YouTube ou Vimeo. Si vous sélectionnez **+ Ajouter une vidéo**, vous être invité à fournir les informations suivantes :<ul><li>NOM</li><li>URL</li><li>Miniature (au format PNG, 533 x 324 pixels)</li></ul>  |
+|  Vidéo de démonstration de version d’évaluation (facultative) |  Vous pouvez fournir une vidéo de procédure pas à pas de votre version d’évaluation. Un client peut regarder cette vidéo avant de se procurer une version d’évaluation. Fournissez une URL vers la vidéo sur YouTube ou Vimeo. Si vous sélectionnez **+ Ajouter une vidéo**, vous être invité à fournir les informations suivantes :<ul><li>Nom</li><li>URL</li><li>Miniature (au format PNG, 533 x 324 pixels)</li></ul>  |
 |   |   |
 
 

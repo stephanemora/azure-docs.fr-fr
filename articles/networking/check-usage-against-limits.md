@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: networking
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421604"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117640"
 ---
 # <a name="check-resource-usage-against-limits"></a>Vérifier l’utilisation des ressources par rapport aux limites
 
@@ -34,25 +34,27 @@ Dans cet article, vous apprendrez comment afficher le nombre de chaque type de r
 4. Sélectionnez le nom de l’abonnement pour lequel vous souhaitez afficher les informations d’utilisation.
 5. Sous **PARAMÈTRES**, sélectionnez **Utilisation + quota**.
 6. Vous pouvez sélectionner les options suivantes :
-    - **Types de ressources** : vous pouvez sélectionner tous les types de ressources ou sélectionner les types de ressources spécifiques que vous souhaitez afficher.
-    - **Fournisseurs** : vous pouvez sélectionner tous les fournisseurs de ressources ou sélectionner **Compute**, **Réseau** ou **Stockage**.
-    - **Emplacements** : vous pouvez sélectionner tous les emplacements Azure ou sélectionner des emplacements spécifiques.
-    - Vous pouvez choisir d’afficher toutes les ressources ou uniquement les ressources où au moins une ressource est déployée.
+   - **Types de ressources** : vous pouvez sélectionner tous les types de ressources ou sélectionner les types de ressources spécifiques que vous souhaitez afficher.
+   - **Fournisseurs** : vous pouvez sélectionner tous les fournisseurs de ressources ou sélectionner **Compute**, **Réseau** ou **Stockage**.
+   - **Emplacements** : vous pouvez sélectionner tous les emplacements Azure ou sélectionner des emplacements spécifiques.
+   - Vous pouvez choisir d’afficher toutes les ressources ou uniquement les ressources où au moins une ressource est déployée.
 
-    Dans l’image suivante, l’exemple montre toutes les ressources réseau avec au moins une ressource déployée dans USA Est :
+     Dans l’image suivante, l’exemple montre toutes les ressources réseau avec au moins une ressource déployée dans USA Est :
 
-        ![View usage data](./media/check-usage-against-limits/view-usage.png)
+       ![Afficher les données de l’utilisation](./media/check-usage-against-limits/view-usage.png)
 
-    Vous pouvez trier les colonnes en sélectionnant l’en-tête de colonne. Les limites affichées sont celles de votre abonnement. Si vous avez besoin d’augmenter la limite par défaut, sélectionnez **Demander une augmentation**, terminez la tâche, puis envoyez la demande de support. Toutes les ressources ont une limite maximale répertoriée dans les [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) Azure. Si votre limite actuelle a déjà atteint le chiffre maximal, la limite ne peut pas être augmentée.
+     Vous pouvez trier les colonnes en sélectionnant l’en-tête de colonne. Les limites affichées sont celles de votre abonnement. Si vous avez besoin d’augmenter la limite par défaut, sélectionnez **Demander une augmentation**, terminez la tâche, puis envoyez la demande de support. Toutes les ressources ont une limite maximale répertoriée dans les [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) Azure. Si votre limite actuelle a déjà atteint le chiffre maximal, la limite ne peut pas être augmentée.
 
 ## <a name="powershell"></a>PowerShell
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Login-AzureRmAccount` pour vous connecter à Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Consultez votre utilisation par rapport aux limites avec [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). L’exemple suivant obtient l’utilisation des ressources où au moins une ressource est déployée dans l’emplacement USA Est :
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell à partir de votre ordinateur, vous devez le module Azure PowerShell, version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Login-AzAccount` pour vous connecter à Azure.
+
+Consulter votre utilisation par rapport aux limites avec [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). L’exemple suivant obtient l’utilisation des ressources où au moins une ressource est déployée dans l’emplacement USA Est :
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkUsage `
+Get-AzNetworkUsage `
   -Location eastus `
   | Where-Object {$_.CurrentValue -gt 0} `
   | Format-Table ResourceType, CurrentValue, Limit
