@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816207"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670417"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -198,7 +199,7 @@ Le format `detailed` contient [N meilleures valeurs](#n-best-values), en plus de
 
 ### <a name="n-best-values"></a>N meilleures valeurs
 
-Des auditeurs, qu’ils soient humains ou machines, ne peuvent jamais être certains d’avoir entendu *exactement* ce qui a été dit. Un auditeur peut affecter une *probabilité* seulement à une interprétation particulière d’un énoncé. 
+Des auditeurs, qu’ils soient humains ou machines, ne peuvent jamais être certains d’avoir entendu *exactement* ce qui a été dit. Un auditeur peut affecter une *probabilité* seulement à une interprétation particulière d’un énoncé.
 
 Dans des conditions normales, lorsqu’une personne parle à d’autres personnes avec lesquelles elle communique fréquemment, ces personnes ont une probabilité élevée de reconnaître les mots qui sont prononcés. Les auditeurs machines s’efforcent d’atteindre des niveaux de précision similaires et, dans des conditions favorables, [ils atteignent la parité avec les êtres humains](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,7 +309,7 @@ Le service Microsoft Speech reconnaît toutes les formes du langage humain, y co
 
 | Valeur de *vulgarité* | Description |
 | - | - |
-| `masked` | Masque les grossièretés par des astérisques. Il s’agit du comportement par défaut. | 
+| `masked` | Masque les grossièretés par des astérisques. Il s’agit du comportement par défaut. |
 | `removed` | Supprime les grossièretés de tous les résultats. |
 | `raw` | Reconnaît et retourne les grossièretés dans tous les résultats. |
 
@@ -322,7 +323,7 @@ Lorsque le paramètre de requête de *vulgarité* a la valeur *removed*, le serv
 
 #### <a name="profanity-only-utterances"></a>Énoncés composés uniquement de grossièretés
 
-Un utilisateur peut énoncer *uniquement* des grossièretés alors qu’une application a configuré le service pour supprimer les grossièretés. Dans ce scénario, si le mode de reconnaissance est *dictée* ou *conversation*, le service ne retourne pas *speech.result*. Si le mode de reconnaissance est *interactif*, le service retourne un élément *speech.result* avec le code d’état *NoMatch*. 
+Un utilisateur peut énoncer *uniquement* des grossièretés alors qu’une application a configuré le service pour supprimer les grossièretés. Dans ce scénario, si le mode de reconnaissance est *dictée* ou *conversation*, le service ne retourne pas *speech.result*. Si le mode de reconnaissance est *interactif*, le service retourne un élément *speech.result* avec le code d’état *NoMatch*.
 
 ### <a name="profanity-value-raw"></a>Valeur de vulgarité `Raw`
 

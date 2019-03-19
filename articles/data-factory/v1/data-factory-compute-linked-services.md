@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697515"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545145"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 > [!NOTE]
@@ -116,7 +116,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Dat
 > [!IMPORTANT]
 > Le cluster HDInsight crée un *conteneur par défaut* dans le stockage d’objets blob Azure que vous spécifiez dans la propriété **linkedServiceName** JSON. De par sa conception, HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Dans un service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche doit être traitée, à moins qu’il n’existe un cluster actif (**timeToLive**). Ce cluster est automatiquement supprimé lorsque le traitement est terminé. 
 >
-> À mesure que le nombre de tranches traitées augmente, les conteneurs se multiplient dans votre stockage d’objets blob. Si vous n’avez pas besoin des conteneurs pour dépanner les travaux, vous pouvez les supprimer afin de réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf<your Data Factory name>-<linked service name>-<date and time>`. Vous pouvez utiliser un outil tel que l’[Explorateur de stockage Microsoft](http://storageexplorer.com/) pour supprimer des conteneurs dans le stockage d’objets blob.
+> À mesure que le nombre de tranches traitées augmente, les conteneurs se multiplient dans votre stockage d’objets blob. Si vous n’avez pas besoin des conteneurs pour dépanner les travaux, vous pouvez les supprimer afin de réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf<your Data Factory name>-<linked service name>-<date and time>`. Vous pouvez utiliser un outil tel que l’[Explorateur de stockage Microsoft](https://storageexplorer.com/) pour supprimer des conteneurs dans le stockage d’objets blob.
 >
 > 
 
@@ -271,7 +271,7 @@ Vous pouvez créer un service lié Batch pour inscrire un pool de machines virtu
 Si vous ne savez pas utiliser le service Batch :
 
 * En savoir plus sur les [concepts de base d’Azure Batch](../../batch/batch-technical-overview.md).
-* En savoir plus sur l’applet de commande [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Utilisez cette applet de commande pour créer un compte Batch. Vous pouvez également créer un compte Batch à l’aide du [portail Azure](../../batch/batch-account-create-portal.md). Pour obtenir des instructions détaillées sur l’utilisation de l’applet de commande, consultez [Utilisation de PowerShell pour gérer un compte Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* En savoir plus sur l’applet de commande [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Utilisez cette applet de commande pour créer un compte Batch. Vous pouvez également créer un compte Batch à l’aide du [portail Azure](../../batch/batch-account-create-portal.md). Pour obtenir des instructions détaillées sur l’utilisation de l’applet de commande, consultez [Utilisation de PowerShell pour gérer un compte Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * En savoir plus sur l’applet de commande [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx). Utilisez cette applet de commande pour créer un pool Batch.
 
 ### <a name="example"></a>Exemple

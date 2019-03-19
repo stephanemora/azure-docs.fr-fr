@@ -1,6 +1,6 @@
 ---
-title: Concepts techniques et modèles Durable Functions - Azure
-description: Fournit des détails sur le fonctionnement de Durable Functions dans Azure pour activer les avantages de l’exécution du code avec état dans le cloud.
+title: Les modèles de fonctions durables et concepts techniques dans Azure Functions
+description: Découvrez comment l’extension fonctions durables dans Azure Functions vous offre les avantages de l’exécution du code avec état dans le cloud.
 services: functions
 author: kashimiz
 manager: jeconnoc
@@ -10,35 +10,37 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6eb08af9cdd19bc83d44d29874f6ac58b41ed8c8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: e5be81efcd655f1f0361d8c00d978a81c3e6caa5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302034"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443417"
 ---
-# <a name="durable-functions-patterns-and-technical-concepts"></a>Concepts techniques et modèles Durable Functions
+# <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Les modèles de fonctions durables et concepts techniques (Azure Functions)
 
-*Fonctions durables* est une extension d[’Azure Functions](../functions-overview.md) et d[’Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) qui vous permet d’écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place. Cet article fournit des informations plus détaillées sur les comportements de l’extension Durable Functions pour Azure Functions, et les modèles d’implémentation courants.
+Fonctions durables est une extension de [Azure Functions](../functions-overview.md) et [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md). Vous pouvez utiliser les fonctions durables pour écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place. 
+
+Cet article propose vous des informations détaillées sur les comportements de l’extension fonctions durables pour Azure Functions et les modèles de mise en œuvre courants. Les informations peuvent vous aider à déterminer comment utiliser les fonctions durables pour aider à résoudre vos défis de développement.
 
 > [!NOTE]
-> Fonctions durables est une extension avancée Azure Functions et ne convient pas à toutes les applications. Le reste de cet article suppose que vous maîtrisez parfaitement les concepts [Azure Functions](../functions-overview.md) et les défis qu’impose le développement d’applications sans serveur.
+> Fonctions durables est une extension avancée pour Azure Functions qui n’est pas approprié pour toutes les applications. Cet article suppose que vous avez une bonne connaissance des concepts dans [Azure Functions](../functions-overview.md) et les défis impliqués dans le développement d’applications sans serveur.
 
 ## <a name="patterns"></a>Modèles
 
-Cette section décrit certains modèles d’application standard qui peuvent tirer parti de Durable Functions.
+Cette section décrit certains modèles d’application courants où les fonctions durables peut être utiles.
 
 ### <a name="chaining"></a>Modèle 1 : Chaînage de fonctions
 
-*Chaînage de fonctions* fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction.
+Dans la modèle de chaînage de fonction, une séquence de fonctions s’exécute dans un ordre spécifique. Dans ce modèle, la sortie d’une fonction est appliquée à l’entrée d’une autre fonction.
 
-![Diagramme de chaînage de fonctions](./media/durable-functions-concepts/function-chaining.png)
+![Un diagramme de la fonction de modèle de chaînage](./media/durable-functions-concepts/function-chaining.png)
 
-Fonctions durables vous permet d’implémenter ce modèle de manière concise dans le code.
+Vous pouvez utiliser les fonctions durables pour implémenter la fonction de chaînage de modèle de façon concise comme indiqué dans l’exemple suivant :
 
 #### <a name="c-script"></a>Script C#
 
-```cs
+```csharp
 public static async Task<object> Run(DurableOrchestrationContext context)
 {
     try
@@ -50,17 +52,17 @@ public static async Task<object> Run(DurableOrchestrationContext context)
     }
     catch (Exception)
     {
-        // error handling/compensation goes here
+        // Error handling or compensation goes here.
     }
 }
 ```
 
 > [!NOTE]
-> Il existe des différences subtiles d’écriture d’une fonction durable précompilée en C# par rapport à l’exemple de script C# présenté précédemment. Une fonction précompilée C# requiert que les paramètres durables soient décorés avec leurs attributs respectifs. Un exemple est l’attribut `[OrchestrationTrigger]` pour le paramètre `DurableOrchestrationContext`. Si les paramètres ne sont pas correctement décorés, le runtime ne peut pas injecter les variables dans la fonction et génère une erreur. Pour plus d’exemples, visitez l’[exemple](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
+> Il existe des différences subtiles entre l’écriture d’une fonction durable précompilée C# et l’écriture d’une fonction durable précompilée le C# script qui est indiqué dans l’exemple. Dans un C# précompilé (fonction), paramètres durables doivent être décorées avec attributs respectifs. Par exemple, le `[OrchestrationTrigger]` d’attribut pour le `DurableOrchestrationContext` paramètre. Dans un C# précompilé fonction durable, si les paramètres ne sont pas décorées correctement, le runtime ne peut pas injecter les variables dans la fonction, et une erreur se produit. Pour plus d’exemples, consultez le [azure-fonctions-durable-extension des exemples sur GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
-```js
+```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
@@ -71,29 +73,31 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Les valeurs « F1 », « F2 », « F3 » et « F4 » représentent les noms des autres fonctions dans l’application de la fonction. Le flux de contrôle est implémenté à l’aide de constructions de code impératives normales. Autrement dit, le code s’exécute de haut en bas et peut impliquer une sémantique de flux contrôle de langage existante, notamment des instructions conditionnelles et des boucles.  Une logique de gestion des erreurs peut être incluse dans les blocs try/catch/finally.
+Dans cet exemple, les valeurs `F1`, `F2`, `F3`, et `F4` sont les noms des autres fonctions dans l’application de fonction. Vous pouvez implémenter des flux de contrôle à l’aide de constructions de code impératives normales. Code s’exécute à partir du haut vers le bas. Le code peut impliquer existant sémantique de flux du contrôle de langage, tels que les conditions et boucles. Vous pouvez inclure dans une logique de gestion des erreurs `try` / `catch` / `finally` blocs.
 
-Le paramètre `context` [DurableOrchestrationContext] \(.NET\) et l’objet `context.df` (JavaScript) fournissent des méthodes permettant d’appeler d’autres fonctions par nom, de passer des paramètres et de retourner la sortie d’une fonction. Chaque fois que le code appelle `await` (C#) ou `yield` (JavaScript), le framework Durable Functions *crée des points de contrôle* de la progression de l’instance de la fonction actuelle. En cas de recyclage du processus ou de la machine virtuelle au milieu de l’exécution, l’instance de la fonction reprend à partir de l’appel à `await` ou `yield` précédent. De plus amples informations sur ce comportement de redémarrage seront présentées ultérieurement.
+Vous pouvez utiliser la `context` paramètre [DurableOrchestrationContext] \(.NET\) et `context.df` , objet (JavaScript) pour appeler d’autres fonctions par nom, de transmettre des paramètres et de retourner (fonction) sortie. Chaque fois que le code appelle `await` (C#) ou `yield` (JavaScript), les points de contrôle de framework de fonctions durables la progression de l’instance actuelle de la fonction. Si la machine virtuelle ou le processus est recyclé au milieu de l’exécution, l’instance de la fonction reprend à partir de l’exemple précédent `await` ou `yield` appeler. Pour plus d’informations, consultez la section suivante, le modèle #2 : Ventilateur hors/ventilateur dans.
 
 > [!NOTE]
-> L’objet `context` dans JavaScript représente le [contexte de fonction](../functions-reference-node.md#context-object) dans son ensemble, et non le type [DurableOrchestrationContext].
+> Le `context` objet dans JavaScript représente l’intégralité de [contexte de la fonction](../functions-reference-node.md#context-object), non seulement la [DurableOrchestrationContext] paramètre.
 
-### <a name="fan-in-out"></a>Modèle 2 : Fan-out/fan-in
+### <a name="fan-in-out"></a>Modèle 2 : Ventilateur hors/ventilateur dans
 
-*Fan-out/fan-in* fait référence à un modèle qui exécute plusieurs fonctions en parallèle puis attend que toutes ces fonctions se terminent.  Un travail d’agrégation est souvent effectué sur les résultats retournés par les fonctions.
+Le ventilateur hors/ventilateur dans le modèle, vous exécutez plusieurs fonctions en parallèle, puis attendez que toutes les fonctions à la fin. Souvent, un travail d’agrégation est effectué sur les résultats sont retournés par les fonctions.
 
-![Diagramme Fan-out/fan-in](./media/durable-functions-concepts/fan-out-fan-in.png)
+![Un diagramme du ventilateur out/fan modèle](./media/durable-functions-concepts/fan-out-fan-in.png)
 
-Avec des fonctions normales, le processus fan-out peut être effectué en configuration la fonction afin qu’elle envoie plusieurs messages vers une file d’attente. Mais le processus fan-in est beaucoup plus difficile. Vous devez écrire du code pour effectuer le suivi lorsque les fonctions déclenchées en file d’attente se terminent, puis stocker les sorties des fonctions. L’extension Fonctions durables gère ce modèle avec un code relativement simple.
+Avec les fonctions normales, vous pouvez déployer en ayant la fonction envoyer plusieurs messages à une file d’attente. Dans la ventilation est beaucoup plus difficile. Pour entrent dans une fonction normale, vous écrivez du code pour effectuer le suivi lors de la fin des fonctions déclenchées par la file d’attente et le stocker les sorties de fonction. 
+
+L’extension fonctions durables gère ce modèle avec un code relativement simple :
 
 #### <a name="c-script"></a>Script C#
 
-```cs
+```csharp
 public static async Task Run(DurableOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
 
-    // get a list of N work items to process in parallel
+    // Get a list of N work items to process in parallel.
     object[] workBatch = await context.CallActivityAsync<object[]>("F1");
     for (int i = 0; i < workBatch.Length; i++)
     {
@@ -103,21 +107,21 @@ public static async Task Run(DurableOrchestrationContext context)
 
     await Task.WhenAll(parallelTasks);
 
-    // aggregate all N outputs and send result to F3
+    // Aggregate all N outputs and send the result to F3.
     int sum = parallelTasks.Sum(t => t.Result);
     await context.CallActivityAsync("F3", sum);
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
-```js
+```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const parallelTasks = [];
 
-    // get a list of N work items to process in parallel
+    // Get a list of N work items to process in parallel.
     const workBatch = yield context.df.callActivity("F1");
     for (let i = 0; i < workBatch.length; i++) {
         parallelTasks.push(context.df.callActivity("F2", workBatch[i]));
@@ -125,23 +129,25 @@ module.exports = df.orchestrator(function*(context) {
 
     yield context.df.Task.all(parallelTasks);
 
-    // aggregate all N outputs and send result to F3
+    // Aggregate all N outputs and send the result to F3.
     const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
     yield context.df.callActivity("F3", sum);
 });
 ```
 
-Le processus fan-out est réparti sur plusieurs instances de la fonction `F2`, puis suivi à l’aide d’une liste dynamique de tâches. L’API `Task.WhenAll` .NET ou l’API `context.df.Task.all` JavaScript est appelée pour attendre la fin de toutes les fonctions appelées. Les sorties de la fonction `F2` sont ensuite agrégées à partir de la liste de tâches dynamique puis transmises à la fonction `F3`.
+Le processus fan est réparti sur plusieurs instances de la `F2` (fonction). Le travail est suivi à l’aide d’une liste dynamique de tâches. .NET `Task.WhenAll` API ou JavaScript `context.df.Task.all` API est appelée, pour attendre que toutes les fonctions appelées à terminer. Ensuite, le `F2` fonction les sorties sont agrégées à partir de la liste des tâches dynamique et passé à la `F3` (fonction).
 
-La création automatique de points de contrôle qui se produit lors de l’appel à `await` ou `yield` sur `Task.WhenAll` ou `context.df.Task.all` garantit qu’un incident ou qu’un redémarrage survenu au milieu du processus ne nécessite aucun redémarrage d’une quelconque tâche déjà terminée.
+Les points de contrôle automatique se produit à la `await` ou `yield` appeler sur `Task.WhenAll` ou `context.df.Task.all` garantit qu’un blocage au milieu ou le redémarrage ne nécessite pas le redémarrage d’une tâche est déjà terminée.
 
 ### <a name="async-http"></a>Modèle 3 : API HTTP Async
 
-Le troisième modèle concerne le problème de coordination de l’état des opérations de longue durée avec des clients externes. Une méthode courante pour implémenter ce modèle consiste à déclencher l’action de longue durée par un appel HTTP, puis à rediriger le client vers un point de terminaison d’état interrogeable pour savoir quand l’opération se termine.
+Le modèle de APIs HTTP asynchrone résout le problème de coordination de l’état des opérations à long terme avec des clients externes. Une méthode courante pour implémenter ce modèle consiste à disposer les HTTP à appeler déclencher l’action d’exécution longue. Puis, rediriger le client vers un point de terminaison d’état que le client interroge pour savoir quand l’opération est terminée.
 
-![Diagramme de l’API HTTP](./media/durable-functions-concepts/async-http-api.png)
+![Un diagramme du modèle d’API HTTP](./media/durable-functions-concepts/async-http-api.png)
 
-Fonctions durables fournit des API intégrées qui simplifient le code que vous écrivez pour interagir avec les exécutions de fonctions de longue durée. Les exemples de démarrage rapide ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md)) montrent une commande REST simple permettant de démarrer de nouvelles instances de fonctions orchestrator. Lorsqu’une instance est démarrée, l’extension expose des API HTTP webhook qui interrogent l’état de la fonction d’orchestrateur. L’exemple suivant montre les commandes REST permettant de démarrer un orchestrateur et d’interroger son état. Pour plus de clarté, certains détails ont été retirés de l’exemple.
+Fonctions durables fournit des API intégrées qui simplifient le code que vous écrivez pour interagir avec les exécutions de fonctions longues. Les exemples de démarrage rapide de fonctions durables ([ C# ](durable-functions-create-first-csharp.md) et [JavaScript](quickstart-js-vscode.md)) afficher une commande REST simple que vous pouvez utiliser pour démarrer de nouvelles instances de fonction orchestrator. Après le démarrage d’une instance, l’extension expose webhook HTTP APIs qui interrogent l’état de la fonction orchestrator. 
+
+L’exemple suivant indique les commandes REST démarrer un orchestrateur et d’interroger son état. Pour plus de clarté, certains détails ont été retirés de l’exemple.
 
 ```
 > curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -166,22 +172,24 @@ Content-Type: application/json
 {"runtimeStatus":"Completed","lastUpdatedTime":"2017-03-16T21:20:57Z", ...}
 ```
 
-Étant donné que l’état est géré par le runtime de Fonctions durables, vous n’avez pas à implémenter votre propre mécanisme de suivi de l’état.
+Étant donné que l’exécution de fonctions durables gère l’état, vous n’avez pas besoin d’implémenter votre propre mécanisme de suivi de l’état.
 
-Même si l’extension Fonctions durables intègre des webhooks pour la gestion des orchestrations de longue durée, vous pouvez implémenter ce modèle vous-même à l’aide de vos propres déclencheurs de fonction (par exemple HTTP, une file d’attente ou Event Hub) et la liaison `orchestrationClient`. Ainsi, vous pouvez utiliser un message de file d’attente pour déclencher l’arrêt.  Sinon, servez-vous d’un déclencheur HTTP protégé par une stratégie d’authentification Azure Active Directory à la place des webhooks intégrés qui utilisent une clé générée pour l’authentification.
+L’extension fonctions durables a des webhooks intégrés qui gèrent des orchestrations à long terme. Vous pouvez implémenter ce modèle vous-même à l’aide de vos propres déclencheurs de fonction (par exemple, HTTP, une file d’attente ou Azure Event Hubs) et le `orchestrationClient` liaison. Par exemple, vous pouvez utiliser un message de file d’attente pour déclencher l’arrêt. Ou bien, vous pouvez utiliser un déclencheur HTTP qui est protégé par une stratégie d’authentification Azure Active Directory au lieu de webhooks intégrés qui utilisent une clé générée pour l’authentification.
+
+Voici quelques exemples montrant comment utiliser le modèle de l’API HTTP :
 
 #### <a name="c"></a>C#
 
-```cs
-// HTTP-triggered function to start a new orchestrator function instance.
+```csharp
+// An HTTP-triggered function starts a new orchestrator function instance.
 public static async Task<HttpResponseMessage> Run(
     HttpRequestMessage req,
     DurableOrchestrationClient starter,
     string functionName,
     ILogger log)
 {
-    // Function name comes from the request URL.
-    // Function input comes from the request content.
+    // The function name comes from the request URL.
+    // The function input comes from the request content.
     dynamic eventData = await req.Content.ReadAsAsync<object>();
     string instanceId = await starter.StartNewAsync(functionName, eventData);
 
@@ -191,17 +199,17 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
-// HTTP-triggered function to start a new orchestrator function instance.
+// An HTTP-triggered function starts a new orchestrator function instance.
 const df = require("durable-functions");
 
 module.exports = async function (context, req) {
     const client = df.getClient(context);
 
-    // Function name comes from the request URL.
-    // Function input comes from the request content.
+    // The function name comes from the request URL.
+    // The function input comes from the request content.
     const eventData = req.body;
     const instanceId = await client.startNew(req.params.functionName, undefined, eventData);
 
@@ -212,25 +220,27 @@ module.exports = async function (context, req) {
 ```
 
 > [!WARNING]
-> Quand vous développez localement dans JavaScript, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` sur `localhost:<port>`, par exemple `localhost:7071` pour utiliser les méthodes sur `DurableOrchestrationClient`. Pour plus d’informations sur cette configuration, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> Lorsque vous développez localement dans JavaScript, pour utiliser des méthodes sur `DurableOrchestrationClient`, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` à `localhost:<port>` (par exemple, `localhost:7071`). Pour plus d’informations sur cette exigence, consultez [GitHub problème 28](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
-Dans .NET, le paramètre [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` est une valeur provenant de la liaison de sortie `orchestrationClient`, qui fait partie de l’extension Durable Functions. En JavaScript, cet objet est retourné en appelant `df.getClient(context)`. Ces objets fournissent des méthodes pour démarrer, envoyer des événements, terminer et rechercher les instances de fonctions orchestrator nouvelles ou existantes.
+Dans .NET, le paramètre [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` est une valeur provenant de la liaison de sortie `orchestrationClient`, qui fait partie de l’extension Durable Functions. En JavaScript, cet objet est retourné en appelant `df.getClient(context)`. Ces objets fournissent des méthodes que vous pouvez utiliser pour démarrer, envoyer des événements à, terminer et de requête pour les instances de fonction d’orchestrateur nouvelles ou existantes.
 
-Dans l’exemple précédent, une fonction déclenchée par HTTP utilise une valeur `functionName` provenant de l’URL entrante et transmet cette valeur à [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). L’API de liaison [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) retourne ensuite une réponse qui contient un en-tête `Location` et des informations supplémentaires sur l’instance, qui peuvent être utilisées ultérieurement pour rechercher l’état de l’instance démarrée ou y mettre fin.
+Dans les exemples précédents, une fonction déclenchée par HTTP utilise un `functionName` valeur à partir de l’URL entrante et transmet la valeur à [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Le [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) liaison API puis renvoie une réponse qui contient un `Location` en-tête et des informations supplémentaires sur l’instance. Vous pouvez utiliser les informations ultérieurement pour rechercher l’état de l’instance démarrée ou pour mettre fin à l’instance.
 
-### <a name="monitoring"></a>Modèle 4 : Surveillance
+### <a name="monitoring"></a>Modèle 4 : Surveiller
 
-Le modèle de surveillance fait référence à un processus *récurrent* flexible dans un flux de travail, par exemple l’interrogation jusqu’à ce que certaines conditions soient respectées. Un [déclencheur de minuteur](../functions-bindings-timer.md) standard peut convenir à un scénario simple, comme une tâche de nettoyage périodique, mais son intervalle est statique et la gestion de la durée de vie des instances devient complexe. L’extension Fonctions durables permet d’avoir des intervalles de récurrence flexibles, de gérer la durée de vie des tâches et de créer plusieurs processus de surveillance à partir d’une seule orchestration.
+Le modèle de surveillance fait référence à un processus souple, périodique dans un flux de travail. Un exemple est l’interrogation jusqu'à ce que certaines conditions sont remplies. Vous pouvez utiliser une expression régulière [déclencheur de minuteur](../functions-bindings-timer.md) pour traiter un base scénario, par exemple un travail de nettoyage périodique, mais son intervalle est statique et la gestion des durées de vie instance devient complexe. Vous pouvez utiliser les fonctions durables pour créer des intervalles de récurrence flexibles, gérer les durées de vie des tâches et créer analyse plusieurs processus à partir d’une seule orchestration.
 
-L’inversion du scénario d’API HTTP asynchrone en est un exemple. Au lieu d’exposer un point de terminaison d’un client externe pour surveiller une opération longue, l’analyse de longue durée consomme un point de terminaison externe, attendant un changement d’état.
+Un exemple du modèle d’analyse consiste à inverser le scénario d’API HTTP async antérieures. Au lieu d’exposer un point de terminaison pour un client externe surveiller une opération longue, l’analyse longue consomme un point de terminaison externe, puis attend un changement d’état.
 
-![Diagramme de moniteurs](./media/durable-functions-concepts/monitor.png)
+![Un diagramme du modèle d’analyse](./media/durable-functions-concepts/monitor.png)
 
-Grâce aux fonctions durables, plusieurs moniteurs qui observent des points de terminaison arbitraires peuvent être créés en quelques lignes de code. L’exécution des moniteurs peut se terminer quand une condition est respectée, ou être terminée par [DurableOrchestrationClient](durable-functions-instance-management.md), et leur délai d’attente peut être changé en fonction de certaines conditions (par exemple, une interruption exponentielle). Le code suivant implémente un moniteur de base.
+En quelques lignes de code, vous pouvez utiliser des fonctions durables pour créer plusieurs moniteurs qui observent des points de terminaison arbitraires. Les moniteurs peut se terminer l’exécution lorsqu’une condition est remplie, ou le [DurableOrchestrationClient](durable-functions-instance-management.md) peut s’arrêter les analyses. Vous pouvez modifier d’un analyseur `wait` intervalle basé sur une condition spécifique (par exemple, une interruption exponentielle.) 
+
+Le code suivant implémente un moniteur de base :
 
 #### <a name="c-script"></a>Script C#
 
-```cs
+```csharp
 public static async Task Run(DurableOrchestrationContext context)
 {
     int jobId = context.GetInput<int>();
@@ -242,23 +252,23 @@ public static async Task Run(DurableOrchestrationContext context)
         var jobStatus = await context.CallActivityAsync<string>("GetJobStatus", jobId);
         if (jobStatus == "Completed")
         {
-            // Perform action when condition met
+            // Perform an action when a condition is met.
             await context.CallActivityAsync("SendAlert", machineId);
             break;
         }
 
-        // Orchestration will sleep until this time
+        // Orchestration sleeps until this time.
         var nextCheck = context.CurrentUtcDateTime.AddSeconds(pollingInterval);
         await context.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    // Perform further work here, or let the orchestration end
+    // Perform more work here, or let the orchestration end.
 }
 ```
 
 #### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
-```js
+```javascript
 const df = require("durable-functions");
 const moment = require("moment");
 
@@ -270,35 +280,37 @@ module.exports = df.orchestrator(function*(context) {
     while (moment.utc(context.df.currentUtcDateTime).isBefore(expiryTime)) {
         const jobStatus = yield context.df.callActivity("GetJobStatus", jobId);
         if (jobStatus === "Completed") {
-            // Perform action when condition met
+            // Perform an action when a condition is met.
             yield context.df.callActivity("SendAlert", machineId);
             break;
         }
 
-        // Orchestration will sleep until this time
+        // Orchestration sleeps until this time.
         const nextCheck = moment.utc(context.df.currentUtcDateTime).add(pollingInterval, 's');
         yield context.df.createTimer(nextCheck.toDate());
     }
 
-    // Perform further work here, or let the orchestration end
+    // Perform more work here, or let the orchestration end.
 });
 ```
 
-Quand une requête est reçue, une nouvelle instance d’orchestration est créée pour cet ID de tâche. L’instance interroge un état jusqu’à ce qu’une condition soit respectée et que vous quittiez la boucle. Un minuteur durable est utilisé pour contrôler la fréquence d’interrogation. Des opérations supplémentaires peuvent ensuite être exécutées, ou l’orchestration peut prendre fin. Quand la valeur `context.CurrentUtcDateTime` (.NET) ou `context.df.currentUtcDateTime` (JavaScript) dépasse la valeur `expiryTime`, le moniteur se termine.
+Quand une requête est reçue, une nouvelle instance d’orchestration est créée pour cet ID de tâche. L’instance interroge un état jusqu’à ce qu’une condition soit respectée et que vous quittiez la boucle. Un minuteur durable contrôle la fréquence d’interrogation. Puis, plus de travail peut être effectuée, ou l’orchestration peut se terminer. Lorsque le `context.CurrentUtcDateTime` (.NET) ou `context.df.currentUtcDateTime` (JavaScript) dépasse le `expiryTime` valeur, le moniteur se termine.
 
 ### <a name="human"></a>Modèle 5 : Interaction humaine
 
-De nombreux processus impliquent un certain type d’interaction humaine. La difficulté d’impliquer des personnes dans un processus automatisé réside dans le fait que ces personnes ne sont pas toujours aussi disponibles et réactives que les services cloud. Des processus automatisés doivent être mis en place, qui utilisent souvent des délais d’expiration et une logique de compensation.
+De nombreux processus automatisés impliquent un certain type d’interaction humaine. Des acteurs humains interagissent dans un processus automatisé sont délicat, car les gens ne sont pas comme hautement disponible et aussi réactives que les services cloud. Un processus automatisé peut autoriser pour cela à l’aide des délais d’attente et la compensation logique.
 
-Un processus d’approbation est un exemple de processus d’entreprise impliquant une interaction humaine. Par exemple, l’approbation d’un manager peut être requise si une note de frais dépasse un certain montant. Si le manager n’approuve pas cette note de frais sous 72 heures (par exemple, s’il est en vacances), un processus d’escalade est déclenché pour obtenir l’approbation d’une autre personne (par exemple, le supérieur hiérarchique de ce manager).
+Un processus d’approbation est un exemple d’un processus d’entreprise qui implique une interaction humaine. L’approbation d’un gestionnaire peut être nécessaire pour une note de frais dépasse un certain montant. Si le gestionnaire n’approuve la note de frais dans les 72 heures (peut-être que le gestionnaire est en vacances), un processus d’escalade de verrous intervient pour obtenir l’approbation d’une autre personne (par exemple du responsable).
 
-![Diagramme Interaction humaine](./media/durable-functions-concepts/approval.png)
+![Un diagramme du modèle d’interaction humaine](./media/durable-functions-concepts/approval.png)
 
-Ce modèle peut être implémenté à l’aide d’une fonction d’orchestrateur. L’orchestrateur utilise un [minuteur durable](durable-functions-timers.md) pour demander l’approbation et la faire remonter en cas de délai d’expiration. Il attend un [événement externe](durable-functions-external-events.md), soit la notification générée par une intervention humaine.
+Vous pouvez implémenter le modèle dans cet exemple à l’aide d’une fonction d’orchestrateur. L’orchestrateur utilise un [minuteur durable](durable-functions-timers.md) pour demander l’approbation. L’orchestrateur fait remonter si le délai d’expiration se produit. L’orchestrateur attend une [événement externe](durable-functions-external-events.md), par exemple une notification qui est générée par une interaction humaine.
+
+Ces exemples créent un processus d’approbation pour illustrer le modèle d’interaction humaine :
 
 #### <a name="c-script"></a>Script C#
 
-```cs
+```csharp
 public static async Task Run(DurableOrchestrationContext context)
 {
     await context.CallActivityAsync("RequestApproval");
@@ -323,7 +335,7 @@ public static async Task Run(DurableOrchestrationContext context)
 
 #### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
-```js
+```javascript
 const df = require("durable-functions");
 const moment = require('moment');
 
@@ -343,9 +355,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Le minuteur durable est créé en appelant `context.CreateTimer` (.NET) ou `context.df.createTimer`(JavaScript). La notification est reçue par `context.WaitForExternalEvent` (.NET) ou `context.df.waitForExternalEvent` (JavaScript). Et `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript) est appelée pour déterminer s’il faut faire remonter (le délai d’expiration survient en premier) ou traiter l’approbation (approbation reçue avant le délai d’expiration).
+Pour créer le minuteur durable, appelez `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript). La notification est reçue par `context.WaitForExternalEvent` (.NET) ou `context.df.waitForExternalEvent` (JavaScript). Ensuite, `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript) est appelée pour déterminer s’il faut faire remonter (délai d’expiration se produit tout d’abord) ou traiter l’approbation (l’approbation reçue avant le délai d’expiration).
 
-Un client externe peut remettre la notification d’événement à une fonction d’orchestrateur en attente au moyen d’[APIS HTTP intégrées](durable-functions-http-api.md#raise-event) ou de l’API [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) à partir d’une autre fonction :
+Un client externe peut fournir la notification d’événement pour une fonction d’orchestrateur en attente à l’aide du [APIs HTTP intégrées](durable-functions-http-api.md#raise-event) ou à l’aide de la [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API à partir de une autre fonction :
 
 ```csharp
 public static async Task Run(string instanceId, DurableOrchestrationClient client)
@@ -367,56 +379,62 @@ module.exports = async function (context) {
 
 ## <a name="the-technology"></a>La technologie
 
-En arrière-plan, l’extension Fonctions durables repose sur le [framework de l’extension Tâche durable](https://github.com/Azure/durabletask), une bibliothèque open source sur GitHub pour la génération d’orchestrations de tâches durables. Tout comme Azure Functions est l’évolution sans serveur d’Azure Webjobs, Fonctions durables est l’évolution sans serveur de l’infrastructure des tâches durables. L’infrastructure des tâches durables est très utilisée au sein de Microsoft et à l’extérieur pour automatiser des processus critiques. Il convient parfaitement à l’environnement Azure Functions sans serveur.
+Dans les coulisses, l’extension fonctions durables repose sur le [Durable Task Framework](https://github.com/Azure/durabletask), une bibliothèque open source sur GitHub qui est utilisé pour générer des orchestrations de tâches durables. Par exemple, Azure Functions est l’évolution sans serveur d’Azure WebJobs, fonctions durables est l’évolution sans serveur de l’infrastructure des tâches durables. Microsoft et autres organisations utilisent largement Durable Task Framework pour automatiser les processus critiques. Il convient parfaitement à l’environnement Azure Functions sans serveur.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Approvisionnement d’événements, création de points de contrôle et réexécution
 
-Les fonctions d’orchestrateur conservent de façon fiable leur état d’exécution à l’aide d’un modèle de conception appelé [approvisionnement d’événements](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Au lieu de stocker directement l’état *actuel* d’une orchestration, l’extension durable utilise un magasin d’ajout uniquement pour enregistrer *toute la série d’actions* exécutées par l’orchestration de la fonction. Cette méthode offre de nombreux avantages, notamment une amélioration des performances, de l’évolutivité et de la réactivité par rapport au « vidage » de l’état d’exécution complet. Autres avantages : elle garantit la cohérence des données transactionnelles et fournit des pistes d’audit complètes ainsi qu’un historique. Les pistes d’audit permettent des actions de compensation fiables.
+Les fonctions d’orchestrateur maintenir de façon fiable leur état d’exécution à l’aide de la [approvisionnement en événements](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) modèle de conception. Au lieu de stocker directement l’état actuel d’une orchestration, l’extension fonctions durables utilise un magasin d’ajout uniquement pour enregistrer la série complète d’actions prises par l’orchestration de fonction. Un magasin d’ajout uniquement présente de nombreux avantages par rapport au « vidage » de l’état d’exécution complet. Présente les avantages, l’évolutivité, performances et la réactivité accrue. Vous obtenez également la cohérence pour les données transactionnelles et de journaux d’audit complets et de l’historique. Les pistes d’audit prennent en charge les actions de compensation fiables.
 
-L’utilisation de l’approvisionnement d’événements par cette extension est transparente. En coulisse, l’opérateur `await` (C#) ou `yield` (JavaScript) d’une fonction orchestrator cède le contrôle du thread orchestrateur au répartiteur Durable Task Framework. Le répartiteur valide ensuite dans le stockage toutes les actions que la fonction d’orchestrateur a planifiées (par exemple, l’appel d’une ou plusieurs fonctions enfant ou la planification d’un minuteur durable). Cette action de validation transparente s’ajoute à *l’historique d’exécution* de l’instance d’orchestration. L’historique est stocké dans une table de stockage. L’action de validation ajoute ensuite des messages à une file d’attente pour planifier le travail réel. À ce stade, la fonction d’orchestrateur peut être déchargée de la mémoire. Sa facturation s’arrête si vous utilisez le plan de consommation Azure Functions.  Si d’autres tâches doivent être effectuées, la fonction redémarre et son état est reconstruit.
+Fonctions durables utilise l’événement d’approvisionnement en toute transparence. Dans les coulisses, le `await` (C#) ou `yield` opérateur (JavaScript) dans une fonction d’orchestrateur cède le contrôle du thread orchestrateur au répartiteur Durable Task Framework. Le répartiteur valide ensuite dans le stockage toutes les actions que la fonction d’orchestrateur a planifiées (par exemple, l’appel d’une ou plusieurs fonctions enfant ou la planification d’un minuteur durable). L’action de validation transparente s’ajoute à l’historique d’exécution de l’instance d’orchestration. L’historique est stocké dans une table de stockage. L’action de validation ajoute ensuite des messages à une file d’attente pour planifier le travail réel. À ce stade, la fonction d’orchestrateur peut être déchargée de la mémoire. 
 
-Lorsqu’une fonction d’orchestration reçoit plus de tâches à effectuer (par exemple, un message de réponse est reçu ou un minuteur durable expire), l’orchestrateur sort à nouveau de veille et réexécute toute la fonction depuis le début afin de reconstruire l’état local. Si au cours de la réexécution, le code tente d’appeler une fonction (ou toute autre tâche asynchrone), l’infrastructure des tâches durables consulte *l’historique d’exécution* de l’orchestration en cours. Si elle constate que la [fonction d’activité](durable-functions-types-features-overview.md#activity-functions) a déjà été exécutée et a produit un résultat, elle réexécute les résultats de cette fonction, et le code d’orchestrateur continue de s’exécuter. Ce processus se poursuit jusqu'à ce que le code de la fonction atteint un point où il se termine ou s’il a planifié une nouvelle tâche asynchrone.
+Facturation de la fonction d’orchestrateur s’arrête si vous utilisez le plan de consommation Azure Functions. Quand il est plus rien à faire, le redémarrage de la fonction, et son état est reconstruit.
+
+Quand une fonction d’orchestration reçoit plus rien à faire (par exemple, un message de réponse est reçu ou un minuteur durable expire), l’orchestrateur sort de veille et réexécute la fonction entière à partir du début à reconstruire l’état local. 
+
+Lors de la relecture, si le code tente d’appeler une fonction (ou effectuer d’autres async de n’importe quel travail), l’infrastructure des tâches durables consulte l’historique d’exécution de l’orchestration en cours. Si elle constate que le [fonction d’activité](durable-functions-types-features-overview.md#activity-functions) déjà exécutée et a produit un résultat, elle réexécute les résultats de cette fonction et le code d’orchestrateur continue de s’exécuter. Relecture se poursuit jusqu'à ce que le code de fonction est terminé ou jusqu'à ce qu’il a planifié une nouvelle tâche asynchrone.
 
 ### <a name="orchestrator-code-constraints"></a>Contraintes du code d’orchestrateur
 
-Le comportement de réexécution crée des contraintes concernant le type de code qui peut être écrit dans une fonction d’orchestrateur. Par exemple, le code d’orchestrateur doit être déterministe car il sera réexécuté à plusieurs reprises et doit générer le même résultat à chaque fois. Vous trouverez la liste complète des contraintes dans la section, [Contraintes du code d’orchestrateur](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints) de l’article **Création de points de contrôle et redémarrage**.
+Le comportement de réexécution de code d’orchestrateur crée des contraintes sur le type de code que vous pouvez écrire dans une fonction d’orchestrateur. Par exemple, un code d’orchestrateur doit être déterministe, car il sera réexécuté plusieurs fois, et il doit générer le même résultat chaque fois. Pour obtenir la liste complète des contraintes, consultez [contraintes du code d’orchestrateur](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints).
 
 ## <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 
-L’extension Fonctions durables transmet automatiquement des données de suivi structurées à [Application Insights](../functions-monitoring.md) quand l’application de fonction est configurée avec une clé d’instrumentation Application Insights. Ces données de suivi peuvent être utilisées pour surveiller le comportement et la progression de vos orchestrations.
+L’extension fonctions durables transmet automatiquement des données de suivi structurées à [Application Insights](../functions-monitoring.md) si vous configurez votre application de fonction avec une clé d’instrumentation Azure Application Insights. Vous pouvez utiliser les données de suivi pour surveiller les actions et la progression de vos orchestrations.
 
-Voici un exemple montrant à quoi ressemblent les événements de suivi Fonctions durables dans le portail Application Insights en utilisant [Application Insights Analytics](../../application-insights/app-insights-analytics.md) :
+Voici un exemple de quoi ressemblent les fonctions durables, le suivi des événements dans le portail Application Insights lorsque vous utilisez [Application Insights Analytique](../../application-insights/app-insights-analytics.md):
 
-![Résultats d’une requête App Insights](./media/durable-functions-concepts/app-insights-1.png)
+![Résultats de la requête application Insights](./media/durable-functions-concepts/app-insights-1.png)
 
-Le champ `customDimensions` de chaque entrée de journal contient de nombreuses données structurées. Voici un exemple d’une telle entrée, entièrement développée.
+Vous trouverez de nombreuses données structurées dans le `customDimensions` champ dans chaque entrée de journal. Voici un exemple d’une entrée qui est entièrement développé :
 
-![Champ customDimensions dans la requête App Insights](./media/durable-functions-concepts/app-insights-2.png)
+![Le champ customDimensions dans une requête Application Insights](./media/durable-functions-concepts/app-insights-2.png)
 
-En raison du comportement de réexécution du répartiteur de l’infrastructure des tâches durables, attendez-vous à voir des entrées de journal redondantes pour les actions réexécutées. Il peut être utile de comprendre le comportement de réexécution du moteur central. L’article [Diagnostics](durable-functions-diagnostics.md) montre des exemples de requêtes qui filtrent les journaux de réexécution pour n’afficher que les journaux « en temps réel ».
+En raison du comportement de réexécution du répartiteur de l’infrastructure des tâches durables, attendez-vous à voir des entrées de journal redondantes pour les actions réexécutées. Entrées de journal redondantes peuvent vous aider à comprendre le comportement de réexécution du moteur de base. Le [Diagnostics](durable-functions-diagnostics.md) article montre des exemples de requêtes qui filtrent les journaux de réexécution, afin de voir uniquement les journaux « en temps réel ».
 
 ## <a name="storage-and-scalability"></a>Stockage et évolutivité
 
-L’extension Fonctions durables utilise des files d’attente Stockage Azure, des tables et des objets blob pour conserver l’état de l’historique d’exécution et déclencher l’exécution d’une fonction. Vous pouvez utiliser le compte de stockage par défaut pour l’application de la fonction ou configurer un compte de stockage distinct. Vous pouvez choisir un compte distinct en raison de limites de débit de stockage. Le code d’orchestrateur que vous écrivez ne doit pas interagir avec les entités de ces comptes de stockage. Les entités sont gérées directement par l’infrastructure des tâches durables en tant que détail d’implémentation.
+L’extension fonctions durables utilise des files d’attente, tables et objets BLOB dans le stockage Azure pour conserver l’exécution historique état et déclencher l’exécution des fonctions. Vous pouvez utiliser le compte de stockage par défaut pour l’application de fonction, ou vous pouvez configurer un compte de stockage distinct. Vous souhaiterez un compte distinct en fonction des limites de débit de stockage. Le code d’orchestrateur que vous écrivez n’interagit pas avec les entités dans ces comptes de stockage. Durable Task Framework gère les entités directement comme un détail d’implémentation.
 
-Les fonctions d’orchestrateur planifient les fonctions d’activité et reçoivent leurs réponses via des messages internes en file d’attente. Lorsque l’application d’une fonction s’exécute dans le plan de consommation Azure Functions, ces files d’attente sont surveillées par le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-plan-works) et de nouvelles instances de calcul sont ajoutées si nécessaire. En cas de montée en charge sur plusieurs machines virtuelles, une fonction d’orchestrateur peut s’exécuter sur une machine virtuelle pendant que les fonctions d’activité qu’elle appelle s’exécutent sur plusieurs machines virtuelles différentes. Vous trouverez plus d’informations sur le comportement de mise à l’échelle de Fonctions durables dans l’article [Performances et mise à l’échelle](durable-functions-perf-and-scale.md).
+Les fonctions d’orchestrateur planifient les fonctions d’activité et reçoivent leurs réponses via des messages internes en file d’attente. Lorsqu’une application de fonction s’exécute dans le plan de consommation Azure Functions, le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-plan-works) surveille ces files d’attente. Nouvelles instances de calcul sont ajoutées en fonction des besoins. Lorsqu’il est étendu à plusieurs machines virtuelles, une fonction d’orchestrateur peut s’exécuter sur une machine virtuelle, tout en fonctions d’activité qui les appels de fonction d’orchestrateur peuvent s’exécuter sur plusieurs machines virtuelles différentes. Pour plus d’informations sur le comportement de mise à l’échelle de fonctions durables, consultez [performances et évolutivité](durable-functions-perf-and-scale.md).
 
-Un stockage de table est utilisé pour stocker l’historique d’exécution pour les comptes d’orchestrateur. Chaque fois qu’une instance est réalimentée sur une machine virtuelle particulière, elle extrait son historique d’exécution du stockage de table pour reconstruire son état local. Disposer de l’historique dans le stockage de table vous permet de consulter l’historique de vos orchestrations à l’aide d’outils comme [Explorateur Stockage Azure Microsoft](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+L’historique d’exécution pour les comptes d’orchestrateur est stockée dans le stockage table. Chaque fois qu’une instance est réalimentée sur une machine virtuelle spécifique, l’orchestrateur extrait son historique d’exécution à partir du stockage de table afin de reconstruire son état local. Un aspect pratique d’avoir l’historique n’est disponible dans le stockage table est que vous pouvez utiliser des outils tels que [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) pour consulter l’historique de vos orchestrations.
 
-Les objets blob de stockage sont principalement utilisés comme un mécanisme de location pour coordonner la montée en puissance des instances de l’orchestration sur plusieurs machines virtuelles. Ils sont également utilisés pour contenir les données de messages volumineux qui ne peuvent pas être stockées directement dans des tables ou des files d’attente.
+Objets BLOB de stockage est principalement utilisés comme un mécanisme de bail pour coordonner la montée en puissance des instances d’orchestration sur plusieurs machines virtuelles. Objets BLOB de stockage conserve des données pour les messages volumineux qui ne peuvent pas être stockées directement dans les tables ou files d’attente.
 
-![Capture d’écran Explorateur Stockage Azure](./media/durable-functions-concepts/storage-explorer.png)
+![Une capture d’écran de l’Explorateur de stockage Azure](./media/durable-functions-concepts/storage-explorer.png)
 
 > [!WARNING]
-> Même s’il est facile et pratique d’afficher l’historique d’exécution dans le stockage de table, évitez de créer une dépendance sur cette table. Cette situation peut changer à mesure que l’extension Fonctions durables évolue.
+> Bien qu’il soit facile et pratique d’afficher l’historique d’exécution dans le stockage table, n’effectuez pas toutes les dépendances sur cette table. La table peut changer à mesure que l’extension fonctions durables évolue.
 
-## <a name="known-issues-and-faq"></a>Problèmes connus et FAQ
+## <a name="known-issues"></a>Problèmes connus
 
-Tous les problèmes connus doivent être répertoriés dans la liste [Problèmes GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Si vous rencontrez un problème qui n’apparaît pas dans GitHub, soumettez un nouveau problème en incluant une description détaillée.
+Tous les problèmes connus doivent être répertoriés dans la liste [Problèmes GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Si vous rencontrez un problème et ne peut pas trouver le problème dans GitHub, ouvrez un nouveau problème. Inclure une description détaillée du problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Durable Functions, voir [Vue d’ensemble des types de fonctions et fonctionnalités pour Durable Functions (Azure Functions)](durable-functions-types-features-overview.md) ou :
+Pour en savoir plus sur les fonctions durables, consultez [fonctions durables fonction des types et fonctionnalités](durable-functions-types-features-overview.md). 
+
+Pour commencer :
 
 > [!div class="nextstepaction"]
 > [Créer une première fonction durable](durable-functions-create-first-csharp.md)

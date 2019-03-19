@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116824"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
 
@@ -29,7 +29,7 @@ Regardez la vidéo suivante pour avoir une vue d’ensemble de la procédure dé
 >
 >
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Vous pouvez utiliser des *artefacts* pour déployer et configurer votre application après avoir approvisionné une machine virtuelle. Un artefact se compose d’un fichier de définition d’artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt Git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom d’un artefact, une commande à exécuter et des paramètres disponibles quand la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
 
 ## <a name="artifact-definition-file-format"></a>Format de fichier de définition d'artefact
@@ -79,7 +79,7 @@ Pour définir des paramètres, utilisez la structure suivante :
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
 | Type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
-| displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
+| displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. |
 | description |Oui |Description du paramètre qui est affiché dans le laboratoire. |
 
 Les types autorisés sont :
@@ -126,7 +126,7 @@ L’exemple suivant indique comment utiliser les fonctions et les expressions po
 
 ## <a name="related-articles"></a>Articles connexes
 * [Guide pratique pour diagnostiquer les échecs d’artefact dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Joindre une machine virtuelle à un domaine Active Directory existant à l’aide d’un modèle Resource Manager dans DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Joindre une machine virtuelle à un domaine Active Directory existant à l’aide d’un modèle Resource Manager dans DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5739c878812c09a8f2646320df4b1069dfa8810e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eced1b92aba24c8083cbdc2ece099fab95567db7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutoriel : Intégration d’Azure Active Directory avec Zscaler Three
 
@@ -35,7 +35,7 @@ L’intégration de Zscaler Three à Azure AD vous offre les avantages suivants�
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Zscaler Three, vous avez besoin des éléments suivants :
 
@@ -159,43 +159,43 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Configurer l’authentification unique de Zscaler Three
 
-9. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Three en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Three en tant qu’administrateur.
 
-10. Sélectionnez **Administration > Authentification > Paramètres d'authentification** et procédez comme suit :
+1. Sélectionnez **Administration > Authentification > Paramètres d'authentification** et procédez comme suit :
    
-    ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
+   ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
-    a. Sous Type d'authentification, choisissez **SAML**.
+   a. Sous Type d'authentification, choisissez **SAML**.
 
-    b. Cliquez sur **Configure SAML**.
+   b. Cliquez sur **Configure SAML**.
 
-11. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
+1. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
             
-    ![Gérer les utilisateurs et l’authentification](./media/zscaler-three-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
+   ![Gérer les utilisateurs et l’authentification](./media/zscaler-three-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
     
-    a. Dans la zone de texte **URL du portail SAML**, collez l'**URL de connexion** que vous avez copiée sur le portail Azure.
+   a. Dans la zone de texte **URL du portail SAML**, collez l'**URL de connexion** que vous avez copiée sur le portail Azure.
 
-    b. Dans la zone de texte **Attribut de l'ID de connexion**, entrez **NameID**.
+   b. Dans la zone de texte **Attribut de l'ID de connexion**, entrez **NameID**.
 
-    c. Cliquez sur **Charger** pour charger le certificat de signature SAML Azure que vous avez téléchargé depuis le portail Azure dans le **Certificat SSL public**.
+   c. Cliquez sur **Charger** pour charger le certificat de signature SAML Azure que vous avez téléchargé depuis le portail Azure dans le **Certificat SSL public**.
 
-    d. Activez/désactivez **Activer l'approvisionnement automatique SAML**.
+   d. Activez/désactivez **Activer l'approvisionnement automatique SAML**.
 
-    e. Dans la zone de texte **Attribut du nom d'affichage de l'utilisateur**, entrez **displayName** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs displayName.
+   e. Dans la zone de texte **Attribut du nom d'affichage de l'utilisateur**, entrez **displayName** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs displayName.
 
-    f. Dans la zone de texte **Attribut du nom de groupe**, entrez **memberOf** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs memberOf.
+   f. Dans la zone de texte **Attribut du nom de groupe**, entrez **memberOf** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs memberOf.
 
-    g. Dans **Attribut du nom du service**, entrez **department** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs department.
+   g. Dans **Attribut du nom du service**, entrez **department** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs department.
 
-    i. Cliquez sur **Enregistrer**.
+   i. Cliquez sur **Enregistrer**.
 
-12. Dans la page **Configure User Authentication** , procédez comme suit :
+1. Dans la page **Configure User Authentication** , procédez comme suit :
 
-    ![Administration](./media/zscaler-three-tutorial/ic800207.png)
+   ![Administration](./media/zscaler-three-tutorial/ic800207.png)
 
-    a. Passez la souris sur le menu **Activation** en bas à gauche.
+   a. Passez la souris sur le menu **Activation** en bas à gauche.
 
-    b. Cliquez sur **Activer**.
+   b. Cliquez sur **Activer**.
 
 ## <a name="configuring-proxy-settings"></a>Configuration des paramètres de proxy
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Pour configurer les paramètres de proxy dans Internet Explorer
@@ -246,7 +246,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le **nom d’utilisateur** , tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

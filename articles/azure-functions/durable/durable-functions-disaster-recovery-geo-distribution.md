@@ -10,21 +10,21 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108203"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Récupération d’urgence et géo-distribution
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Dans Durable Functions, tous les états sont rendu persistants dans le stockage Azure. Un [hub de tâches](durable-functions-task-hubs.md) est un conteneur logique réservé aux ressources du stockage Azure qui sont utilisées pour les orchestrations. Les fonctions d’orchestrateur et d’activité peuvent interagir entre elles uniquement si elles appartiennent au même hub de tâches.
 Les scénarios décrits proposent des options de déploiement pour augmenter la disponibilité et réduire les temps d’arrêt lors des opérations de récupération d’urgence.
 
-Il est important de noter que ces scénarios sont basés sur des configurations du type actif/passif, puisqu’ils sont guidés par l’utilisation du stockage Azure. Ce modèle consiste à déployer une application de fonction de secours (passive) vers une autre région. Traffic Manager surveille la disponibilité de l’application de fonction principale (active). Il bascule vers l’application de fonction de secours si l’application principale échoue. Pour plus d’informations, voir [Méthode de routage du trafic basé sur la priorité](https://azure.microsoft.com/services/traffic-manager/) de [Traffic Manager.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
+Il est important de noter que ces scénarios sont basés sur des configurations du type actif/passif, puisqu’ils sont guidés par l’utilisation du stockage Azure. Ce modèle consiste à déployer une application de fonction de secours (passive) vers une autre région. Traffic Manager surveille la disponibilité de l’application de fonction principale (active). Il bascule vers l’application de fonction de secours si l’application principale échoue. Pour plus d’informations, voir [Méthode de routage du trafic basé sur la priorité](https://azure.microsoft.com/services/traffic-manager/) de [Traffic Manager.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
 
 >[!NOTE]
 >

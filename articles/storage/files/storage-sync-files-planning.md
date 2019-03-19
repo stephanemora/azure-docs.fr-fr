@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200494"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013224"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -132,6 +132,7 @@ Pour afficher les résultats au format CSV :
 - Un volume attaché localement formaté avec le système de fichiers NTFS.
 
 ### <a name="file-system-features"></a>Fonctionnalités du système de fichiers
+
 | Fonctionnalité | État de la prise en charge | Notes |
 |---------|----------------|-------|
 | Listes ACL | Entièrement pris en charge | Les listes ACL Windows sont conservées par Azure File Sync et appliquées par Windows Server sur les points de terminaison de serveur. Les listes ACL Windows ne sont pas (encore) prises en charge par Azure Files si les fichiers sont accessibles directement dans le cloud. |
@@ -148,6 +149,7 @@ Pour afficher les résultats au format CSV :
 > Seuls les volumes NTFS sont pris en charge. ReFS, FAT, FAT32 et les autres systèmes de fichiers ne sont pas pris en charge.
 
 ### <a name="files-skipped"></a>Fichiers ignorés
+
 | Fichier/Dossier | Remarque |
 |-|-|
 | Desktop.ini | Fichier spécifique au système |
@@ -235,6 +237,7 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 |--------|---------------------|
 | Est de l’Australie | Nouvelle-Galles du Sud |
 | Sud-est de l’Australie | Victoria |
+| Brésil Sud | État de Sao Paolo |
 | Centre du Canada | Toronto |
 | Est du Canada | Québec |
 | Inde Centre | Pune |
@@ -242,6 +245,8 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Est de l'Asie | Hong Kong (R.A.S.) |
 | Est des États-Unis | Virginie |
 | Est des États-Unis 2 | Virginie |
+| Japon Est | Tokyo, Saitama |
+| Japon Ouest | Osaka |
 | USA Centre Nord | Illinois |
 | Europe Nord | Irlande |
 | USA Centre Sud | Texas |

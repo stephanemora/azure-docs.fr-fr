@@ -1,6 +1,6 @@
 ---
-title: Effectuer votre propre révision d’accès | Microsoft Docs
-description: Effectuer votre propre révision d’accès avec Azure Active Directory
+title: Vous-même réviser l’accès à des groupes ou des applications dans les révisions d’accès Azure AD | Microsoft Docs
+description: Découvrez comment réviser son propre accès à des groupes ou des applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,47 +11,74 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/16/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cc807a5693b363445f85d0b45a70681f58c5275
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 76f90a5aa3f201fa5d1578ac63526be26377aedf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198626"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731206"
 ---
-# <a name="review-your-access"></a>Effectuer votre propre révision d’accès
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Vous-même réviser l’accès à des groupes ou des applications dans les révisions d’accès Azure AD
 
-Azure Active Directory (Azure AD) simplifie la manière dont les entreprises gèrent l’accès aux applications et aux membres des groupes dans Azure AD et d’autres services en ligne Microsoft, avec une fonction appelée révision d’accès. Vous avez peut-être reçu un e-mail de la part de Microsoft vous invitant à réviser l’accès, les membres d’un groupe ou les utilisateurs ayant accès à une application. 
+Azure Active Directory (Azure AD) simplifie la façon dont les entreprises gérer l’accès aux groupes ou des applications dans Azure AD et d’autres Services en ligne de Microsoft avec une fonctionnalité appelée révisions d’accès Azure AD.
 
-## <a name="open-an-access-review"></a>Ouvrir une révision d’accès
+Cet article décrit comment réviser son propre accès à un groupe ou une application.
 
-Pour voir les révisions d’accès en attente, cliquez sur le lien de révision d’accès contenu dans l’e-mail. À compter d’août 2018, les notifications par e-mail des rôles Azure AD affichent désormais une nouvelle conception visuelle. L’illustration suivante montre un exemple d’e-mail qui est envoyé à un utilisateur pour l’inviter à être réviseur.
+## <a name="open-the-access-review"></a>Ouvrez la révision d’accès
 
-![E-mail de révision d’accès](./media/review-your-access/new-ar-email.png)
+La première étape pour effectuer une révision d’accès consiste à rechercher et ouvrir la révision d’accès.
 
-Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les révisions d’accès en procédant comme suit :
+1. Recherchez un message électronique à partir de Microsoft qui vous invitant à réviser les accès. Voici un exemple d’e-mail pour passer en revue votre accès à un groupe.
 
-1. Connectez-vous au [panneau d’accès Azure AD](https://myapps.microsoft.com).
+    ![E-mail de révision d’accès](./media/review-your-access/access-review-email.png)
 
-2. Sélectionnez le symbole d’utilisateur dans le coin supérieur droit de la page, qui affiche votre nom et organisation par défaut. Si plusieurs organisations sont listées, sélectionnez l’organisation qui a demandé une révision d’accès.
+1. Cliquez sur le **réviser les accès** lien pour ouvrir la révision d’accès.
 
-3. Si une vignette étiquetée **Révisions d’accès** figure à droite de la page, cliquez dessus. Si la vignette n’est pas visible, cela signifie qu’il n’y a pas de révisions d’accès à effectuer pour cette organisation et qu’aucune action n’est nécessaire pour l’instant.
+Si vous n’avez pas reçu l’e-mail, vous pouvez trouver que votre accès en attente passe en revue en suivant ces étapes.
 
-## <a name="fill-out-an-access-review"></a>Remplir une révision d’accès
+1. Connectez-vous au portail MyApps à [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-Sélectionnez une révision d’accès dans la liste et vous pouvez voir votre accès. Sélectionnez la ligne et indiquez si vous souhaitez accepter ou refuser l’accès continu.
+    ![Portail MyApps](./media/review-your-access/myapps-access-panel.png)
 
-Le réviseur peut demander que vous fournissiez une justification en cas d’acceptation d’un accès permanent.
+1. Dans le coin supérieur droit de la page, cliquez sur le symbole d’utilisateur, qui affiche votre nom et organisation par défaut. Si plusieurs organisations sont listées, sélectionnez l’organisation qui a demandé une révision d’accès.
+
+1. Sur le côté droit de la page, cliquez sur le **révisions d’accès** vignette pour afficher une liste des révisions d’accès en attente.
+
+    Si la vignette n’est pas visible, cela signifie qu’il n’y a pas de révisions d’accès à effectuer pour cette organisation et qu’aucune action n’est nécessaire pour l’instant.
+
+    ![Liste des révisions d’accès](./media/review-your-access/access-reviews-list.png)
+
+1. Cliquez sur le **commencer la révision** lien pour la révision d’accès que vous souhaitez effectuer.
+
+## <a name="perform-the-access-review"></a>Effectuer la révision d’accès
+
+Une fois que vous avez ouvert la révision d’accès, vous pouvez voir votre accès.
+
+1. Révision d’accès et décidez si vous devez toujours avoir accès.
+
+    Si la demande est de réviser l’accès d’autres utilisateurs, la page aura un aspect différente. Pour plus d’informations, consultez [réviser l’accès à des groupes ou des applications](perform-access-review.md).
+
+    ![Effectuer la révision d’accès](./media/review-your-access/perform-access-review.png)
+
+1. Cliquez sur **Oui** pour conserver votre accès ou cliquez sur **non** pour supprimer votre accès.
+
+1. Si vous cliquez sur **Oui**, vous devrez peut-être spécifier une justification dans le **raison** boîte.
+
+    ![Effectuer la révision d’accès](./media/review-your-access/perform-access-review-submit.png)
+
+1. Cliquez sur **Envoyer**.
+
+    Votre sélection est envoyée et vous retournés au portail MyApps.
+
+    Si vous souhaitez modifier votre réponse, ouvrez à nouveau la page de révisions d’accès et mettre à jour votre réponse. Vous pouvez modifier votre réponse à tout moment jusqu'à ce que la révision d’accès s’est terminée.
+
+    > [!NOTE]
+    > Si vous avez indiqué que vous n’avez plus accès, vous ne sont pas supprimées immédiatement. Vous êtes supprimé lors de la révision est terminée ou lorsqu’un administrateur interrompt la révision.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Un accès refusé n’est pas supprimé immédiatement. Si vous souhaitez modifier votre réponse et donner votre approbation, réinitialisez la réponse et choisissez-en une nouvelle. Vous pouvez suivre cette procédure jusqu'à la fin de la révision d’accès.
-
-
-
-
-
-
+- [Effectuer une révision d’accès des groupes ou des applications](complete-access-review.md)

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463393"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852608"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Nouveautés dans Azure SQL Data Warehouse Mai 2018 
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en mai 2018. 
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article
 Consultez l’annonce du blog [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) de Rohan Kumar, Vice-président corporate, Azure Data.
 
 ## <a name="auto-statistics"></a>Statistiques automatiques
-Les statistiques sont essentielles pour optimiser la génération de plan de requête dans des optimiseurs basés sur le coût modernes, comme le moteur de SQL Data Warehouse. Lorsque toutes les requêtes sont connues d’avance, déterminer quels objets statistiques doivent être créés est une tâche réalisable. Toutefois, lorsque le système est confronté à des requêtes ad hoc et aléatoires, ce qui est généralement le cas pour les charges de travail d’entreposage de données, les administrateurs système peuvent avoir du mal à prédire les statistiques qui doivent être créées. Ceci peut entraîner des plans d’exécution de requête potentiellement non optimaux et des temps de réponse plus longs. L’une des façons d’atténuer ce problème consiste à créer des objets statistiques sur toutes les colonnes de la table à l’avance. Cependant, ce processus présente une altération car les objets statistiques doivent être conservés pendant le processus de chargement de la table, entraînant des temps de chargement plus longs.
+Les statistiques sont essentielles pour optimiser la génération de plan de requête dans des optimiseurs basés sur le coût modernes, comme le moteur de SQL Data Warehouse. Lorsque toutes les requêtes sont connues d’avance, déterminer quels objets statistiques doivent être créés est une tâche réalisable. Toutefois, lorsque le système est confronté à ad hoc et requêtes aléatoire qui est généralement utilisé pour les charges de travail d’entreposage de données, les administrateurs système peuvent rencontrer des problèmes prédire les statistiques doivent être créés aux plans d’exécution de requête potentiellement non optimal et de plus de temps temps de réponse de requête. L’une des façons d’atténuer ce problème consiste à créer des objets statistiques sur toutes les colonnes de la table à l’avance. Cependant, ce processus présente une altération car les objets statistiques doivent être conservés pendant le processus de chargement de la table, entraînant des temps de chargement plus longs.
 
 SQL Data Warehouse prend désormais en charge la création automatique d’objets statistiques pour une flexibilité, productivité et facilité d’utilisation optimales pour les administrateurs système et les développeurs, tout en garantissant que le système continue à offrir des plans d’exécution de qualité et de meilleurs temps de réponse.
 
@@ -44,7 +44,7 @@ En tant que meilleure pratique, nous vous recommandons de définir l’option `A
 Consultez l’article [Options ALTER DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) pour plus d’informations.
 
 ## <a name="rejected-row-support"></a>Prise en charge de ligne rejetée
-Les clients utilisent souvent [PolyBase (tables externes) pour charger des données](design-elt-data-loading.md) dans SQL Data Warehouse en raison des performances élevées et de la nature parallèle du chargement de données. PolyBase est aussi le modèle de chargement par défaut lors du chargement de données via [Azure Data Factory](http://azure.com/adf). 
+Les clients utilisent souvent [PolyBase (tables externes) pour charger des données](design-elt-data-loading.md) dans SQL Data Warehouse en raison des performances élevées et de la nature parallèle du chargement de données. PolyBase est aussi le modèle de chargement par défaut lors du chargement de données via [Azure Data Factory](https://azure.com/adf). 
 
 SQL Data Warehouse ajoute la possibilité de définir un emplacement de ligne rejetée via le paramètre `REJECTED_ROW_LOCATION` avec l’instruction [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql). Après l’exécution d’une instruction [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) à partir de la table externe, toutes les lignes qui n’ont pas pu être chargées seront être stockées dans un fichier près de la source pour une analyse approfondie. 
 
@@ -144,7 +144,7 @@ L’utilisation de la syntaxe `SET PARSEONLY ON` permet à un utilisateur de fai
 [Blogs de l’équipe de conseil clientèle]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Témoignages de clients]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Forum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

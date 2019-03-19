@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298651"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005679"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Comment utiliser des clés SSH avec Windows sur Azure
 
@@ -37,9 +37,9 @@ Les ordinateurs Windows n’ont pas toujours des commandes SSH comparables insta
 
 Voici une liste des packages d’autres clients SSH Windows courants que vous pouvez installer localement :
 
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git pour Windows](https://git-for-windows.github.io/)
-* [MobaXterm](http://mobaxterm.mobatek.net/)
+* [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 Vous pouvez aussi utiliser les utilitaires SSH disponibles dans Bash dans [Azure Cloud Shell](../../cloud-shell/overview.md). 
@@ -62,7 +62,7 @@ Pour plus d’informations, consultez les étapes [rapides](mac-create-ssh-keys.
 
 ### <a name="create-ssh-keys-with-puttygen"></a>Créer des clés SSH avec PuTTYgen
 
-Si vous préférez utiliser un outil GUI pour créer les clés SSH, vous pouvez utiliser le générateur de clé PuTTYgen, inclus dans le [package de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+Si vous préférez utiliser un outil GUI pour créer les clés SSH, vous pouvez utiliser le générateur de clé PuTTYgen, inclus dans le [package de téléchargement de PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 Pour créer une paire de clés SSH RSA avec PuTTYgen :
 
@@ -110,7 +110,7 @@ Si la machine virtuelle utilise la stratégie juste-à-temps, vous devez demande
 
 ### <a name="connect-with-putty"></a>Se connecter avec PuTTY
 
-Si vous avez installé le [package de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) et généré précédemment un fichier de clé privée PuTTY (.ppk), vous pouvez vous connecter à une machine virtuelle Linux avec PuTTY.
+Si vous avez installé le [package de téléchargement de PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) et généré précédemment un fichier de clé privée PuTTY (.ppk), vous pouvez vous connecter à une machine virtuelle Linux avec PuTTY.
 
 1. Démarrez PuTTY.
 

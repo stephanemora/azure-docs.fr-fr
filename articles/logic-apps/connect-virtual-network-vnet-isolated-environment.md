@@ -8,28 +8,26 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/15/2019
-ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 8bbbe7a924c98c9628ce967892177599a1d13017
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854991"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
 > [!NOTE]
-> Cette fonctionnalité est disponible en *préversion privée*. Pour vous inscrire à la préversion privée, [créez votre demande ici](https://aka.ms/iseprivatepreview).
+> Cette fonctionnalité est disponible en [ *version préliminaire publique*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pour les scénarios où vos applications logiques et vos comptes d’intégration ont besoin d’accéder à un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md), créez un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un environnement de service d’intégration est un environnement privé et isolé, qui utilise un stockage dédié et d’autres ressources conservées séparément du service Logic Apps public ou « mondial ». Cette séparation réduit également l’impact que d’autres locataires Azure peuvent avoir sur les performances de vos applications. Votre environnement ISE est *injecté* dans votre réseau virtuel Azure, qui déploie ensuite le service Logic Apps dans votre réseau virtuel. Quand vous créez une application logique ou un compte d’intégration, sélectionnez cet environnement ISE comme emplacement. Votre application logique ou votre compte d’intégration peut ensuite accéder directement à des ressources, comme des machines virtuelles, des serveurs, des systèmes et des services, dans votre réseau virtuel.
+Pour les scénarios où vos applications logiques et vos comptes d’intégration ont besoin d’accéder à un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md), créez un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Une fenêtre ISE est un environnement privé et isolé qui utilise le stockage dédié et autres ressources qui sont maintenues séparées à partir du service Logic Apps public ou « global ». Cette séparation réduit également l’impact que d’autres locataires Azure peuvent avoir sur les performances de vos applications. Votre environnement ISE est *injecté* dans votre réseau virtuel Azure, qui déploie ensuite le service Logic Apps dans votre réseau virtuel. Quand vous créez une application logique ou un compte d’intégration, sélectionnez cet environnement ISE comme emplacement. Votre application logique ou votre compte d’intégration peut ensuite accéder directement à des ressources, comme des machines virtuelles, des serveurs, des systèmes et des services, dans votre réseau virtuel.
 
 ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
 Cet article vous explique comment effectuer ces tâches :
 
 * Configurez les ports de votre réseau virtuel Azure de manière à permettre au trafic de transiter via votre environnement de service d’intégration (ISE) sur plusieurs sous-réseaux de votre réseau virtuel.
-
-* Définissez les autorisations sur votre réseau virtuel Azure afin que l’instance privée de Logic Apps puisse accéder à votre réseau virtuel.
 
 * Créez votre environnement de service d’intégration.
 
@@ -39,18 +37,20 @@ Cet article vous explique comment effectuer ces tâches :
 
 Pour plus d’informations sur les environnements de service d’intégration, consultez [Accéder à des ressources Réseau virtuel Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
   > [!IMPORTANT]
   > Les applications logiques, les actions intégrées et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan tarifaire que le tarif de facturation à l’utilisation. Pour plus d’informations, consultez [Tarifs Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-* Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Si vous n’avez pas de réseau virtuel, découvrez comment [créer un réseau virtuel Azure](../virtual-network/quick-create-portal.md). Vous devez également disposer de sous-réseaux dans votre réseau virtuel pour déployer votre ISE. Vous pouvez créer ces sous-réseaux à l’avance, ou attendre de créer votre ISE où vous pouvez créer vos sous-réseaus simultanément. En outre, [assurez-vous que votre réseau virtuel mette à disposition ces ports](#ports) pour permettre le bon fonctionnement et l'accessibilité de votre ISE.
+* Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Si vous n’avez pas de réseau virtuel, découvrez comment [créer un réseau virtuel Azure](../virtual-network/quick-create-portal.md). 
 
-* Pour donner à vos applications logiques un accès direct à votre réseau virtuel Azure, [configurez des autorisations de contrôle d’accès en fonction du rôle (RBAC) de votre réseau](#vnet-access), pour que le service Logic Apps dispose des autorisations permettant d’accéder à votre réseau virtuel.
+  * Votre réseau virtuel doit avoir quatre *vide* sous-réseaux pour le déploiement et la création de ressources dans votre ISE. Vous pouvez créer ces sous-réseaux à l’avance, ou vous pouvez attendre jusqu'à ce que vous créez votre ISE où vous pouvez créer des sous-réseaux en même temps. En savoir plus sur [exigences du sous-réseau](#create-subnet).
 
-* Pour utiliser un ou plusieurs serveurs DNS personnalisés à des fins de déploiement de votre réseau virtuel Azure, [configurez ces serveurs conformément aux présentes instructions](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) avant de déployer votre ISE sur votre réseau virtuel. Sinon, chaque fois que vous modifiez votre serveur DNS, vous devez également redémarrer votre ISE, une fonctionnalité disponible avec la préversion publique de l'environnement.
+  * Assurez-vous que votre réseau virtuel [rend ces ports disponibles](#ports) afin que votre ISE fonctionne correctement et reste accessible.
+
+* Si vous souhaitez utiliser des serveurs DNS personnalisés pour votre réseau virtuel Azure, [configurer ces serveurs en suivant ces étapes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) avant de déployer votre ISE à votre réseau virtuel. Sinon, chaque fois que vous modifiez votre serveur DNS, vous devez également redémarrer votre ISE, une fonctionnalité disponible avec la préversion publique de l'environnement.
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -60,57 +60,31 @@ Pour plus d’informations sur les environnements de service d’intégration, c
 
 Pour fonctionner correctement et rester accessible, votre environnement de service d’intégration (ISE) doit disposer de ports spécifiques sur votre réseau virtuel. Dans le cas contraire, si un de ces ports n'est pas disponible, vous risquez de perdre l’accès à votre ISE, et ce dernier peut cesser de fonctionner. Lorsque vous utilisez un ISE dans un réseau virtuel, il arrive souvent qu'un ou plusieurs ports soient bloqués. Pour les connexions entre votre ISE et le système de destination, le connecteur que vous utilisez peut également avoir ses propres exigences en matière de port. Par exemple, si vous communiquez avec un système FTP en utilisant le connecteur FTP, assurez-vous que le port que vous utilisez sur ce système FTP, comme le port 21 pour l’envoi de commandes, est disponible.
 
-Pour contrôler le trafic entrant et sortant des sous-réseaux du réseau virtuel dans lequel vous déployez votre ISE, vous pouvez configurer des [groupes de sécurité réseau](../virtual-network/security-overview.md) pour ces sous-réseaux en consultant [Comment filtrer le trafic réseau entre les sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Ces tableaux décrivent les ports du réseau virtuel que votre ISE utilise et où ces ports sont utilisés. L’astérisque (*) représente les sources de trafic. La [balise de service](../virtual-network/security-overview.md#service-tags) représente un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
+Pour contrôler le trafic entre les sous-réseaux du réseau virtuel dans lequel vous déployez votre ISE, vous pouvez configurer [groupes de sécurité réseau](../virtual-network/security-overview.md) pour ces sous-réseaux par [filtrage du trafic réseau entre les sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Ces tableaux décrivent les ports du réseau virtuel que votre ISE utilise et où ces ports sont utilisés. La [balise de service](../virtual-network/security-overview.md#service-tags) représente un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
 
-| Objectif | Direction | Port source <br>Port de destination | Balise du service source <br>Identification de destination |
-|---------|-----------|---------------------------------|-----------------------------------------------|
-| Communication vers Azure Logic Apps <br>Communication depuis Azure Logic Apps | Trafic entrant <br>Règle de trafic sortant | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
-| Azure Active Directory | Règle de trafic sortant | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
-| Dépendance du Stockage Azure | Règle de trafic sortant | * <br>80 & 443 | VIRTUAL_NETWORK <br>Stockage |
-| Historique des exécutions de votre application logique | Trafic entrant | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
-| Gestion des connexions | Règle de trafic sortant | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
-| Publier des journaux de diagnostic et métriques | Règle de trafic sortant | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Concepteur Logic Apps - Propriétés dynamiques <br>Déploiement du connecteur <br>Point de terminaison du déclencheur de requête | Trafic entrant | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
-| Dépendance de gestion App Service | Trafic entrant | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
-| Gestion des API - Point de terminaison de gestion | Trafic entrant | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
-| Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | * <br>5672 | VIRTUAL_NETWORK <br>Event Hub |
-| Accès aux instances du Cache Azure pour Redis entre instances de rôle | Trafic entrant <br>Règle de trafic sortant | * <br>6381-6383 | VIRTUAL_NETWORK <br>VIRTUAL_NETWORK |
-|||||
+> [!IMPORTANT]
+> Pour la communication interne à l’intérieur de vos sous-réseaux, ISE nécessite que vous ouvrez tous les ports au sein de ces sous-réseaux.
 
-<a name="vnet-access"></a>
-
-## <a name="set-virtual-network-permissions"></a>Définir des autorisations de réseau virtuel
-
-Quand vous créez un environnement de service d’intégration, vous pouvez sélectionner un réseau virtuel Azure dans lequel vous *injectez* votre environnement. Cependant, avant de pouvoir sélectionner votre réseau virtuel pour injecter votre environnement, vous devez configurer les autorisations de contrôle d’accès en fonction du rôle (RBAC) dans votre réseau virtuel. Pour configurer les autorisations, attribuez ces rôles spécifiques au service Azure Logic Apps :
-
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre réseau virtuel.
-
-1. Dans le menu de votre réseau virtuel, sélectionnez **Contrôle d’accès (IAM)**.
-
-1. Sous **Contrôle d’accès (IAM)**, choisissez **Ajouter une attribution de rôle**.
-
-   ![Ajouter des rôles](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
-
-1. Dans le volet **Ajouter une attribution de rôle**, ajoutez le rôle nécessaire au service Azure Logic Apps.
-
-   1. Sous **Rôle**, sélectionnez **Contributeur de réseaux**.
-
-   1. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal du service Azure AD**.
-
-   1. Sous **Sélectionner**, entrez **Azure Logic Apps**.
-
-   1. Une fois que la liste des membres apparaît, sélectionnez **Azure Logic Apps**.
-
-      > [!TIP]
-      > Si vous ne trouvez pas ce service, entrez l’ID d’application du service Logic Apps : `7cd684f4-8a78-49b0-91ec-6a35d38739ba`
-
-   1. Une fois ces opérations effectuées, sélectionnez **Enregistrer**.
-
-   Par exemple : 
-
-   ![Ajouter une attribution de rôle](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
-
-Pour plus d’informations, consultez [Autorisations d’accès au réseau virtuel](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+| Objectif | Direction | Ports | Balise du service source | Identification de destination | Notes |
+|---------|-----------|-------|--------------------|-------------------------|-------|
+| Communication depuis Azure Logic Apps | Règle de trafic sortant | 80 & 443 | VIRTUAL_NETWORK | INTERNET | Le port dépend du service externe avec lequel communique le service Logic Apps |
+| Azure Active Directory | Règle de trafic sortant | 80 & 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
+| Dépendance du Stockage Azure | Règle de trafic sortant | 80 & 443 | VIRTUAL_NETWORK | Stockage | |
+| Communication intersubnet | Trafic entrant et sortant | 80 & 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | Pour la communication entre les sous-réseaux |
+| Communication vers Azure Logic Apps | Trafic entrant | 443 | INTERNET  | VIRTUAL_NETWORK | L’adresse IP de l’ordinateur ou un service qui appelle n’importe quel déclencheur de requête ou un webhook qui existe dans votre application logique. Fermeture ou de blocage de ce port empêche les appels HTTP vers logic apps avec déclencheurs de demande.  |
+| Exécution de l’historique de l’application logique | Trafic entrant | 443 | INTERNET  | VIRTUAL_NETWORK | L’adresse IP de l’ordinateur à partir duquel vous affichez l’application logique de l’historique d’exécution. Bien que la fermeture ou de blocage de ce port ne vous empêche pas d’afficher l’historique d’exécution, vous ne pouvez pas afficher les entrées et sorties de chaque étape que l’historique d’exécution. |
+| Gestion des connexions | Règle de trafic sortant | 443 | VIRTUAL_NETWORK  | INTERNET | |
+| Publier des journaux de diagnostic et métriques | Règle de trafic sortant | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
+| Concepteur Logic Apps - Propriétés dynamiques | Trafic entrant | 454 | INTERNET  | VIRTUAL_NETWORK | Les demandes proviennent d’applications logique [point de terminaison d’accès entrant des adresses IP dans cette région](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Dépendance de gestion App Service | Trafic entrant | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
+| Déploiement du connecteur | Trafic entrant | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Nécessaire pour le déploiement et la mise à jour des connecteurs. Fermeture ou de blocage de ce port entraîne des déploiements ISE à échouer et empêche les correctifs ou mises à jour du connecteur. |
+| Dépendance SQL Azure | Règle de trafic sortant | 1433 | VIRTUAL_NETWORK | SQL |
+| Azure Resource Health | Règle de trafic sortant | 1886 | VIRTUAL_NETWORK | INTERNET | Pour la publication de l’état d’intégrité dans Resource Health |
+| Gestion des API - Point de terminaison de gestion | Trafic entrant | 3443 | APIManagement  | VIRTUAL_NETWORK | |
+| Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | 5672 | VIRTUAL_NETWORK  | Event Hub | |
+| Accès aux instances du Cache Azure pour Redis entre instances de rôle | Trafic entrant <br>Règle de trafic sortant | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | En outre, pour ISE travailler avec le Cache Azure pour Redis, vous devez ouvrir ces [décrites dans le Cache de Azure pour Redis Forum aux questions sur les ports entrants et sortants](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Trafic entrant | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
+||||||
 
 <a name="create-environment"></a>
 
@@ -135,18 +109,35 @@ Dans la liste des résultats, sélectionnez **Environnement de service d’inté
 
    | Propriété | Obligatoire | Value | Description |
    |----------|----------|-------|-------------|
-   | **Abonnement** | OUI | <*Azure-subscription-name*> | Abonnement Azure à utiliser pour votre environnement |
-   | **Groupe de ressources** | OUI | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure où vous voulez créer votre environnement |
-   | **Nom de l’environnement de service d’intégration** | OUI | <*nom-environnement*> | Nom à donner à votre environnement |
-   | **Lieu** | OUI | <*région-centre de données-Azure*> | Région du centre de données Azure où déployer votre environnement |
-   | **Capacité supplémentaire** | OUI | 0, 1, 2, 3 | Nombre d’unités de traitement à utiliser pour cette ressource ISE |
-   | **Réseau virtuel** | OUI | <*Azure-virtual-network-name*> | Réseau virtuel Azure où vous voulez injecter votre environnement, pour que les applications logiques de cet environnement puissent accéder à votre réseau virtuel. Si vous n’avez pas de réseau, vous devez en créer un ici. <p>**Important** : Vous pouvez effectuer cette injection *seulement*  quand vous créez votre ISE. Cependant, avant de pouvoir créer cette relation, vérifiez que vous avez déjà [configuré le contrôle d’accès en fonction du rôle dans votre réseau virtuel pour Azure Logic Apps](#vnet-access). |
-   | **Sous-réseaux** | OUI | <*subnet-resource-list*> | Un environnement ISE nécessite quatre sous-réseaux *vides* pour la création des ressources dans votre environnement. Par conséquent, assurez-vous que ces sous-réseaux *ne sont délégués à aucun service*. Vous *ne pouvez pas changer* ces adresses de sous-réseaux après avoir créé votre environnement. <p><p>Pour créer chaque sous-réseau, [suivez les étapes décrites dans ce tableau](#create-subnet). Chaque sous-réseau doit répondre aux critères suivants : <p>- Il doit être vide. <br>- Il utilise un nom qui ne commence pas par un chiffre ou par un trait d’union. <br>- Il utilise le format [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) et un espace d’adressage de Classe B. <br>- Il comprend au moins un `/27` dans l’espace d’adressage, pour que le sous-réseau obtienne au moins 32 adresses. Pour en savoir plus sur le calcul du nombre d’adresses, consultez [Blocs CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Par exemple :  <p>- `10.0.0.0/24` a 256 adresses car 2<sup>(32-24)</sup> est égal à 2<sup>8</sup> soit 256. <br>- `10.0.0.0/27` a 32 adresses car 2<sup>(32-27)</sup> est égal à 2<sup>5</sup> soit 32. <br>- `10.0.0.0/28` a seulement 16 adresses car 2<sup>(32-28)</sup> est égal à 2<sup>4</sup> soit 16. |
+   | **Abonnement** | Oui | <*Azure-subscription-name*> | Abonnement Azure à utiliser pour votre environnement |
+   | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure où vous voulez créer votre environnement |
+   | **Nom de l’environnement de service d’intégration** | Oui | <*nom-environnement*> | Nom à donner à votre environnement |
+   | **Lieu** | Oui | <*région-centre de données-Azure*> | Région du centre de données Azure où déployer votre environnement |
+   | **Capacité supplémentaire** | Oui | 0, 1, 2, 3 | Le nombre d’unités de traitement à utiliser pour cette ressource ISE. Pour ajouter capacité après sa création, consultez [Ajouter capacité](#add-capacity). |
+   | **Réseau virtuel** | Oui | <*Azure-virtual-network-name*> | Réseau virtuel Azure où vous voulez injecter votre environnement, pour que les applications logiques de cet environnement puissent accéder à votre réseau virtuel. Si vous n’avez pas de réseau, vous devez en créer un ici. <p>**Important** : Vous pouvez effectuer cette injection *seulement*  quand vous créez votre ISE. Cependant, avant de pouvoir créer cette relation, vérifiez que vous avez déjà [configuré le contrôle d’accès en fonction du rôle dans votre réseau virtuel pour Azure Logic Apps](#vnet-access). |
+   | **Sous-réseaux** | Oui | <*subnet-resource-list*> | Un environnement ISE nécessite quatre sous-réseaux *vides* pour la création des ressources dans votre environnement. Pour créer chaque sous-réseau, [suivez les étapes décrites dans ce tableau](#create-subnet).  |
    |||||
 
    <a name="create-subnet"></a>
 
    **Créer un sous-réseau**
+
+   Pour créer des ressources dans votre environnement, votre ISE a besoin de quatre *vide* sous-réseaux qui ne sont pas délégués à n’importe quel service. 
+   Vous *ne peut pas* modifier ces adresses de sous-réseau après avoir créé votre environnement. Chaque sous-réseau doit répondre aux critères suivants :
+
+   * A un nom qui commence par un caractère alphabétique ou un trait de soulignement et n’a pas ces caractères : `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+
+   * Utilise le [Interdomain routage format CIDR (Classless)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) et un espace d’adressage de classe B.
+
+   * Utilise au moins un `/27` dans l’adresse de l’espace, car chaque sous-réseau doit avoir 32 adresses comme la *minimale*. Par exemple : 
+
+     * `10.0.0.0/27` a 32 adresses car 2<sup>(32-27)</sup> est 2<sup>5</sup> ou 32.
+
+     * `10.0.0.0/24` a 256 adresses car 2<sup>(32-24)</sup> est 2<sup>8</sup> ou 256.
+
+     * `10.0.0.0/28` a 16 adresses seulement et est trop petite, car 2<sup>(32-28)</sup> est 2<sup>4</sup> ou 16.
+
+     Pour en savoir plus sur le calcul des adresses, consultez [blocs CIDR de IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    1. Sous la liste **Sous-réseaux**, choisissez **Gérer la configuration du sous-réseau**.
 
@@ -185,6 +176,30 @@ Dans la liste des résultats, sélectionnez **Environnement de service d’inté
 
 1. Pour voir votre environnement, choisissez **Accéder à la ressource** si Azure n’accède pas automatiquement à votre environnement une fois le déploiement terminé.  
 
+<a name="add-capacity"></a>
+
+### <a name="add-capacity"></a>Ajouter de la capacité
+
+Votre unité de base ISE a résolu la capacité, si vous avez besoin de davantage de débit, vous pouvez donc ajouter des unités d’échelle. Vous pouvez l’échelle automatique basée sur les mesures de performances ou sur un nombre d’unités de traitement. Si vous choisissez la mise à l’échelle en fonction de mesures, vous pouvez choisir à partir de différents critères et spécifier les conditions de seuil pour répondre à ces critères.
+
+1. Dans le portail Azure, recherchez votre ISE.
+
+1. Pour afficher les mesures de performances pour votre ISE, sur le menu principal de votre ISE, choisissez **vue d’ensemble**.
+
+1. Comment configurer la mise à l’échelle, sous **paramètres**, sélectionnez **monter en charge**. Sur le **configurer** , choisir **activer la mise à l’échelle**.
+
+1. Dans le **par défaut** , choisissez soit **mise à l’échelle selon une mesure** ou **mise à l’échelle à un nombre d’instances spécifique**.
+
+1. Si vous choisissez basée sur l’instance, entrez le nombre d’unités de traitement comprise entre 0 et 3 (inclus). Sinon, de suivi basé sur la mesure, comme suit :
+
+   1. Dans le **par défaut** , choisissez **ajouter une règle**.
+
+   1. Sur le **règle de mise à l’échelle** volet, configurer vos critères et l’action à prendre lorsque la règle se déclenche.
+
+   1. Lorsque vous avez terminé, choisissez **ajouter**.
+
+1. Lorsque vous avez terminé, pensez à enregistrer vos modifications.
+
 <a name="create-logic-apps-environment"></a>
 
 ## <a name="create-logic-app---ise"></a>Créer une application logique - Environnement de service d’intégration
@@ -195,7 +210,7 @@ Pour créer des applications logiques qui utilisent votre environnement de servi
 
   ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* Vous pouvez utiliser les mêmes déclencheurs et les mêmes actions intégrés, comme HTTP, qui s’exécutent dans le même environnement de service d’intégration que votre application logique. Les connecteurs avec l’étiquette **ISE** peuvent également s’exécuter dans le même environnement de service d’intégration votre application logique. Les connecteurs ne présentant pas le libellé **ISE** s’exécutent dans le service Logic Apps global.
+* Vous pouvez utiliser les mêmes déclencheurs intégrés et les actions tels que HTTP, qui s’exécutent dans l’environnement ISE même que votre application logique. Les connecteurs avec l’étiquette **ISE** peuvent également s’exécuter dans le même environnement de service d’intégration votre application logique. Les connecteurs ne présentant pas le libellé **ISE** s’exécutent dans le service Logic Apps global.
 
   ![Sélection de connecteurs ISE](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 

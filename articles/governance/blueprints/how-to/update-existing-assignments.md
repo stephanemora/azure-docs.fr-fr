@@ -1,6 +1,6 @@
 ---
-title: Comment mettre à jour une affectation existante
-description: Découvrez le mécanisme de mise à jour d’une affectation existante dans les blueprints Azure.
+title: Comment mettre à jour d’une attribution existante à partir du portail
+description: En savoir plus sur le mécanisme de mise à jour d’une attribution existante à partir du portail dans les plans d’Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999850"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Comment mettre à jour une affectation de blueprint existante
 
-Quand un blueprint est affecté, l’affectation peut être mise à jour. Plusieurs raisons peuvent motiver la mise à jour d’une affectation existante, notamment quand il s’agit de :
+Quand un blueprint est affecté, l’affectation peut être mis à jour. Plusieurs raisons peuvent motiver la mise à jour d’une affectation existante, notamment quand il s’agit de :
 
 - Ajouter ou supprimer un [verrouillage de ressource](../concepts/resource-locking.md)
 - Modifier la valeur de [paramètres dynamiques](../concepts/parameters.md#dynamic-parameters)
@@ -26,21 +26,21 @@ Quand un blueprint est affecté, l’affectation peut être mise à jour. Plusie
 
 ## <a name="updating-assignments"></a>Mise à jour des affectations
 
-1. Cliquez sur **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, cliquez sur **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Sélectionnez **Blueprints affectés** dans la page de gauche.
 
-1. Dans la liste des blueprints, cliquez sur l’affectation de blueprint. Cliquez ensuite sur le bouton **Mettre à jour l’affectation** OU cliquez avec le bouton droit sur l’affectation de blueprint, puis sélectionnez **Mettre à jour l’affectation**.
+1. Dans la liste des blueprints, cliquez sur l’affectation de blueprint. Puis cliquez sur le **mettre à jour attribution** bouton ou l’affectation de plan d’avec le bouton droit et sélectionnez **mettre à jour attribution**.
 
    ![Mettre à jour l’affectation](../media/update-existing-assignments/update-assignment.png)
 
-1. La page **Affecter le blueprint** se charge préremplie avec toutes les valeurs de l’affectation d’origine. Vous pouvez modifier la **version de définition du blueprint**, l’état **Verrouiller l’affectation**, ainsi que tous les paramètres dynamiques qui existent dans la définition du blueprint. Cliquez sur **Affecter** une fois que vous avez terminé les modifications.
+1. Le **Assign blueprint** page chargera automatiquement préremplie avec toutes les valeurs à partir de l’attribution d’origine. Vous pouvez modifier la **version de définition du blueprint**, l’état **Verrouiller l’affectation**, ainsi que tous les paramètres dynamiques qui existent dans la définition du blueprint. Cliquez sur **Affecter** une fois que vous terminé les modifications.
 
 1. Dans la page de détails de l’affectation mise à jour, examinez le nouvel état. Dans cet exemple, nous avons ajouté **Verrouillage** à l’affectation.
 
    ![Affectation mise à jour - verrouillée](../media/update-existing-assignments/updated-assignment.png)
 
-1. Examinez les détails des autres **Opérations d’affectation** via la liste déroulante. Le tableau **Ressources gérées** est mis à jour en fonction de l’opération d’affectation sélectionnée.
+1. Explorer les détails sur les autres **d’opérations d’assignation** à l’aide de la liste déroulante. La table de **les ressources managées** mises à jour par l’opération d’assignation sélectionné.
 
    ![Opérations d’affectation](../media/update-existing-assignments/assignment-operations.png)
 
@@ -69,8 +69,8 @@ Il n’existe aucune limite quant au nombre de fois qu’une affectation peut ê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [cycle de vie des blueprints](../concepts/lifecycle.md)
-- Comprendre comment utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md)
-- Apprendre à personnaliser [l’ordre de séquencement des blueprints](../concepts/sequencing-order.md)
-- Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md)
-- Résoudre les problèmes qui se produisent durant l’affectation d’un blueprint avec la [résolution des problèmes d’ordre général](../troubleshoot/general.md)
+- En savoir plus sur la [blueprint de cycle de vie](../concepts/lifecycle.md).
+- Comprendre comment utiliser [paramètres statiques et dynamiques](../concepts/parameters.md).
+- Apprenez à personnaliser le [blueprint ordre de classement](../concepts/sequencing-order.md).
+- Découvrez comment rendre utiliser [blueprint verrouillage de ressources](../concepts/resource-locking.md).
+- Résoudre les problèmes de l’attribution d’un plan avec [dépannage général](../troubleshoot/general.md).

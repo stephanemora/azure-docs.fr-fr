@@ -4,14 +4,14 @@ description: Fournit une vue d'ensemble des problèmes connus dans le service Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119171"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -53,38 +53,36 @@ Si vous ne pouvez pas exporter le rapport d’évaluation à partir du portail, 
 
 1. Installez *armclient* sur votre ordinateur (s’il n’y est pas encore) :
 
-  a. Dans la fenêtre d'invite de commandes d’administrateur, exécutez la commande suivante : ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+   a. Dans la fenêtre d'invite de commandes d’administrateur, exécutez la commande suivante : ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-  b. Dans la fenêtre Windows PowerShell d’administrateur, exécutez la commande suivante : ```choco install armclient```
+   b. Dans la fenêtre Windows PowerShell d’administrateur, exécutez la commande suivante : ```choco install armclient```
 
-2.  Obtenir l’URL de téléchargement pour le rapport d’évaluation à l’aide de l’API REST Azure Migrate
+2. Obtenir l’URL de téléchargement pour le rapport d’évaluation à l’aide de l’API REST Azure Migrate
 
-  a.    Dans la fenêtre Windows PowerShell d’administrateur, exécutez la commande suivante : ```armclient login```
+   a.    Dans la fenêtre Windows PowerShell d’administrateur, exécutez la commande suivante : ```armclient login```
 
-  Cette opération ouvre la fenêtre de connexion Azure où vous devez vous connecter à Azure.
+   Cette opération ouvre la fenêtre de connexion Azure où vous devez vous connecter à Azure.
 
-  b.    Dans la même fenêtre PowerShell, exécutez la commande suivante pour obtenir l’URL de téléchargement pour le rapport d’évaluation (remplacez les paramètres d’URI par les valeurs appropriées, exemple d’API de requête ci-dessous).
+   b.    Dans la même fenêtre PowerShell, exécutez la commande suivante pour obtenir l’URL de téléchargement pour le rapport d’évaluation (remplacez les paramètres d’URI par les valeurs appropriées, exemple d’API de requête ci-dessous).
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-       Exemple de requête et de sortie :
+      Exemple de requête et de sortie :
 
-       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-018_12_16_21/downloadUrl?api-version=2018-02-02
-{
-  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+   018_12_16_21/downloadUrl?api-version=2018-02-02
+   {
+   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Copiez l’URL de la réponse et ouvrez-la dans un navigateur pour télécharger le rapport d’évaluation.
 
 4. Une fois le rapport téléchargé, utilisez Excel pour parcourir le dossier téléchargé et ouvrez le fichier dans Excel pour le consulter.
 
-### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Les données de performances des disques et cartes réseau affichent des zéros
+### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Données de performances pour le processeur, mémoire et disques ne s’affichent sous forme de zéros
 
-Cela peut se produire si le niveau de paramétrage des statistiques sur le serveur vCenter est inférieur à 3. Au niveau 3 ou supérieur, vCenter stocke l'historique des performances de la machine virtuelle pour le calcul, le stockage et le réseau. À un niveau inférieur à 3, vCenter ne stocke pas les données de stockage et de réseau, mais uniquement les données d'UC et de mémoire. Dans ce scénario, les données de performances s'affichent comme des zéros dans Azure Migrate, et Azure Migrate fournit une recommandation de taille pour les disques et les réseaux en fonction des métadonnées collectées sur les machines sur site.
-
-Pour activer la collecte des données de performances des disques et du réseau, définissez le niveau de paramétrage des statistiques sur 3. Puis, attendez au moins une journée pour découvrir votre environnement et l'évaluer.
+Azure Migrate en permanence les profils de l’environnement local pour collecter des données de performances des machines virtuelles en local. Si vous venez de démarrer la découverte de votre environnement, vous devez attendre au moins un jour pour la collecte de données de performances à faire. Si une évaluation est créée sans attendre un jour, les mesures de performances seront afficheront sous forme de zéros. Après avoir attendu une journée, vous pouvez créer une nouvelle évaluation ou mettre à jour de l’évaluation existante à l’aide de l’option « Recalculer » dans le rapport d’évaluation.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>J’ai spécifié une zone géographique Azure ; au moment de la création d’un projet de migration, comment faire pour trouver la région Azure exacte où sont stockées les métadonnées découvertes ?
 
@@ -99,9 +97,9 @@ Vous pouvez accéder à la section **Bases** de la page **Vue d’ensemble** du 
 1. Confirmez que le fichier OVA Azure Migrate Collector est correctement téléchargé en vérifiant sa valeur de hachage. Reportez-vous à cet [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) pour vérifier la valeur de hachage. Si la valeur de hachage ne correspond pas, téléchargez à nouveau le fichier OVA et recommencez le déploiement.
 2. Si vous faites à nouveau face à un échec et que vous utilisez un client VMware vSphere pour le déploiement du fichier OVF, essayez plutôt d’utiliser le client Web vSphere. Si le problème persiste, essayez d’utiliser un autre navigateur web.
 3. Si vous utilisez le client web vSphere et tentez de le déployer sur vCenter Server 6.5 ou 6.7, essayez de déployer le fichier OVA directement sur l’hôte ESXi en suivant les étapes ci-dessous :
-  - Connectez-vous directement à l’hôte ESXi (au lieu de vCenter Server) à l’aide du client web (https:// <*adresse IP de l’hôte*> /ui).
-  - Accédez à l’accueil, puis à « Inventaire ».
-  - Cliquez sur Fichier > Déployer un modèle OVF > Parcourir. Recherchez le fichier OVA et terminez le déploiement.
+   - Connectez-vous directement à l’hôte ESXi (au lieu de vCenter Server) à l’aide du client web (https:// <*adresse IP de l’hôte*> /ui).
+   - Accédez à l’accueil, puis à « Inventaire ».
+   - Cliquez sur Fichier > Déployer un modèle OVF > Parcourir. Recherchez le fichier OVA et terminez le déploiement.
 4. Si le déploiement échoue toujours, contactez le support Azure Migrate.
 
 
@@ -163,10 +161,34 @@ Ce problème peut être lié à l’installation de VMware PowerCLI. Suivez les 
         C:\Program Files (x86)\WindowsPowerShell\Modules
 
    d. Redémarrez le service « Azure Migrate Collector » dans le Gestionnaire de services Windows (ouvrez « Exécuter » et tapez « services.msc » pour ouvrir le Gestionnaire de services Windows). Cliquez avec le bouton droit sur le service Azure Migrate Collector et cliquez sur Démarrer.
-   
+
    e. Double-cliquez sur le raccourci sur le Bureau « Run collector (Exécuter le collecteur) » pour démarrer l’application de collecteur. L’application de collecteur doit automatiquement télécharger et installer la version requise de PowerCLI.
 
-3. Si la méthode ci-dessus ne résout pas le problème, installez manuellement [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) et vérifiez si le problème a été résolu.
+3. Si la méthode ci-dessus ne résout pas le problème, suivez les étapes une à c ci-dessus, puis installez manuellement PowerCLI dans l’appliance en procédant comme suit :
+
+   a. Nettoyer PowerCLI incomplète de tous les fichiers d’installation en suivant les étapes #a à #c à l’étape #2 ci-dessus.
+
+   b. Cliquez sur Démarrer > Exécuter > Open PowerShell(x86) Windows en mode administrateur
+
+   c. Exécutez la commande suivante :  Install-Module « VMWare.VimAutomation.Core » - RequiredVersion « 6.5.2.6234650 » (type « A » lorsqu’il demande confirmation)
+
+   d. Redémarrez le service « Azure Migrate Collector » dans le Gestionnaire de services Windows (ouvrez « Exécuter » et tapez « services.msc » pour ouvrir le Gestionnaire de services Windows). Cliquez avec le bouton droit sur le service Azure Migrate Collector et cliquez sur Démarrer.
+
+   e. Double-cliquez sur le raccourci sur le Bureau « Run collector (Exécuter le collecteur) » pour démarrer l’application de collecteur. L’application de collecteur doit automatiquement télécharger et installer la version requise de PowerCLI.
+
+4. Si vous ne parvenez pas à télécharger le module dans l’appliance en raison de problèmes de pare-feu, téléchargez et installez le module dans un ordinateur qui a accès à internet en procédant comme suit :
+
+    a. Nettoyer PowerCLI incomplète de tous les fichiers d’installation en suivant les étapes #a à #c à l’étape #2 ci-dessus.
+
+    b. Cliquez sur Démarrer > Exécuter > Open PowerShell(x86) Windows en mode administrateur
+
+    c. Exécutez la commande suivante :  Install-Module « VMWare.VimAutomation.Core » - RequiredVersion « 6.5.2.6234650 » (type « A » lorsqu’il demande confirmation)
+
+    d. Copiez tous les modules commençant par « VMware » à partir de « C:\Program Files (x86) \WindowsPowerShell\Modules » au même emplacement sur la machine virtuelle collector.
+
+    e. Redémarrez le service « Azure Migrate Collector » dans le Gestionnaire de services Windows (ouvrez « Exécuter » et tapez « services.msc » pour ouvrir le Gestionnaire de services Windows). Cliquez avec le bouton droit sur le service Azure Migrate Collector et cliquez sur Démarrer.
+
+    f. Double-cliquez sur le raccourci sur le Bureau « Run collector (Exécuter le collecteur) » pour démarrer l’application de collecteur. L’application de collecteur doit automatiquement télécharger et installer la version requise de PowerCLI.
 
 ### <a name="error-unabletoconnecttoserver"></a>Erreur UnableToConnectToServer
 
@@ -222,14 +244,14 @@ La liste des systèmes d’exploitation Windows pris en charge par l’agent de 
 La liste des systèmes d’exploitation Linux pris en charge par l’agent de dépendances est disponible [ici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Je n’arrive pas à visualiser des dépendances dans Azure Migrate pour une durée supérieure à une heure ?
-Azure Migrate vous permet de visualiser des dépendances pour une durée maximale d’une heure. Même si Azure Migrate vous permet de revenir en arrière dans l’historique jusqu’à une date spécifique sur une période d’un mois, la durée maximale pour laquelle vous pouvez visualiser des dépendances est 1 heure. Par exemple, vous pouvez utiliser la fonctionnalité de durée dans la carte des dépendances pour voir les dépendances d’hier, mais uniquement pour une fenêtre d’une heure. Toutefois, vous pouvez utiliser Log Analytics pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) sur une plus longue durée.
+Azure Migrate vous permet de visualiser des dépendances pour une durée maximale d’une heure. Même si Azure Migrate vous permet de revenir en arrière dans l’historique jusqu’à une date spécifique sur une période d’un mois, la durée maximale pour laquelle vous pouvez visualiser des dépendances est 1 heure. Par exemple, vous pouvez utiliser la fonctionnalité de durée dans la carte des dépendances pour voir les dépendances d’hier, mais uniquement pour une fenêtre d’une heure. Toutefois, vous pouvez utiliser les journaux Azure Monitor pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) pendant une durée plus longue.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Je n’arrive pas à visualiser les dépendances de groupes ayant plus de 10 machines virtuelles ?
 Vous pouvez [visualiser les dépendances de groupes](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) ayant 10 machines virtuelles maximum. Si vous avez ce type de groupe, nous vous recommandons de diviser le groupe en groupes plus petits pour visualiser les dépendances.
 
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>J’ai installé des agents et utilisé la visualisation des dépendances pour créer des groupes. Maintenant, après le basculement, les machines affichent l’action « Installer l’agent » au lieu de « Afficher les dépendances ».
 * Après un basculement planifié ou non planifié, les machines sur site sont désactivées et les machines équivalentes sont lancées dans Azure. Ces machines acquièrent une adresse MAC différente. Elles peuvent acquérir une adresse IP différente selon que l'utilisateur a choisi de conserver ou non l'adresse IP sur site. Si les adresses MAC et IP diffèrent, Azure Migrate n'associe pas les machines sur site avec les données de dépendance Service Map et demande à l'utilisateur d'installer des agents au lieu d'afficher les dépendances.
-* Après un basculement de test, les machines sur site restent activées comme prévu. Les machines équivalentes lancées dans Azure acquièrent une adresse MAC différente et peuvent acquérir une adresse IP différente. À moins que l’utilisateur ne bloque le trafic Log Analytics provenant de ces machines, Azure Migrate n’associe pas les machines locales aux données de dépendance Service Map et demande à l’utilisateur d’installer des agents au lieu d’afficher les dépendances.
+* Après un basculement de test, les machines sur site restent activées comme prévu. Les machines équivalentes lancées dans Azure acquièrent une adresse MAC différente et peuvent acquérir une adresse IP différente. À moins que les blocs utilisateur sortants Azure Monitor enregistre le trafic provenant de ces machines, Azure Migrate n’associe pas les machines sur site avec les données de dépendance Service Map et demande à l’utilisateur pour installer des agents au lieu d’afficher les dépendances.
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Résoudre les problèmes de disponibilité Azure
 
@@ -279,15 +301,15 @@ Pour collecter le suivi d'événements pour Windows, procédez comme suit :
 1. Ouvrez le navigateur et connectez-vous [au portail](https://portal.azure.com).
 2. Appuyez sur F12 pour démarrer les outils de développement. Si nécessaire, désactivez le paramètre **Effacer les entrées lors de la navigation**.
 3. Cliquez sur l'onglet **Réseau**, puis commencez la capture du trafic réseau :
- - Dans Chrome, sélectionnez **Conserver le journal**. L'enregistrement devrait commencer automatiquement. Un cercle rouge indique que le trafic est en cours de capture. Si ce n'est pas le cas, cliquez sur le cercle noir pour commencer
- - Dans Microsoft Edge/Internet Explorer, l'enregistrement devrait commencer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton de lecture vert.
+   - Dans Chrome, sélectionnez **Conserver le journal**. L'enregistrement devrait commencer automatiquement. Un cercle rouge indique que le trafic est en cours de capture. Si ce n'est pas le cas, cliquez sur le cercle noir pour commencer
+   - Dans Microsoft Edge/Internet Explorer, l'enregistrement devrait commencer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton de lecture vert.
 4. Essayez de reproduire l'erreur.
 5. Après avoir rencontré l'erreur pendant l'enregistrement, arrêtez l'enregistrement et enregistrez une copie de l'activité enregistrée :
- - Dans Chrome, cliquez avec le bouton droit et sélectionnez **Enregistrer comme HAR avec du contenu**. Cette opération compresse et exporte les journaux en tant que fichier .har.
- - Dans Microsoft Edge/Internet Explorer, cliquez sur l'icône **Exporter le trafic capturé**. Cette opération compresse et exporte les journaux.
+   - Dans Chrome, cliquez avec le bouton droit et sélectionnez **Enregistrer comme HAR avec du contenu**. Cette opération compresse et exporte les journaux en tant que fichier .har.
+   - Dans Microsoft Edge/Internet Explorer, cliquez sur l'icône **Exporter le trafic capturé**. Cette opération compresse et exporte les journaux.
 6. Accédez à l'onglet **Console** pour vérifier la présence d'avertissements ou d'erreurs. Pour enregistrer le journal de la console :
- - Dans Chrome, cliquez avec le bouton droit n'importe où dans le journal de la console. Sélectionnez **Enregistrer sous** pour exporter et compresser le journal.
- - Dans Microsoft Edge/Internet Explorer, cliquez avec le bouton droit sur les erreurs, puis sélectionnez **Tout copier**.
+   - Dans Chrome, cliquez avec le bouton droit n'importe où dans le journal de la console. Sélectionnez **Enregistrer sous** pour exporter et compresser le journal.
+   - Dans Microsoft Edge/Internet Explorer, cliquez avec le bouton droit sur les erreurs, puis sélectionnez **Tout copier**.
 7. Fermez les outils de développement.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Codes d’erreur du collecteur et actions recommandées

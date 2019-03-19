@@ -5,20 +5,19 @@ services: virtual-machines-linux
 author: MashaMSFT
 manager: craigg
 ms.date: 12/5/2018
-ms.topic: hero-article
+ms.topic: conceptual
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
-ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d6a82414974c00d5fa2a7cfe5c1dd00ceaeb3bfa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 468db9d62a98e079fbe6954843e23a518eaabd0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011723"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionnement d’une machine virtuelle Linux SQL Server dans le portail Azure
 
@@ -35,7 +34,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * [Modifier le mot de passe d’administrateur](#password)
 * [Configurer des connexions à distance](#remote)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -77,23 +76,23 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Dans **Nom de la machine virtuelle**, indiquez le nom de votre nouvelle machine virtuelle Linux.
 1. Ensuite, tapez ou sélectionnez les valeurs suivantes :
-    * **Région** : sélectionnez la région Azure qui vous convient.
-    * **Options de disponibilité** : choisissez l’option de redondance et de disponibilité qui convient le mieux à vos applications et données.
-    * **Modifier la taille** : sélectionnez cette option pour choisir une taille de machine ; lorsque cela est fait, choisissez **Sélectionner**. Pour en savoir plus sur les tailles de machines virtuelles, consultez [Tailles de machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Région** : sélectionnez la région Azure qui vous convient.
+   * **Options de disponibilité** : choisissez l’option de redondance et de disponibilité qui convient le mieux à vos applications et données.
+   * **Modifier la taille** : sélectionnez cette option pour choisir une taille de machine ; lorsque cela est fait, choisissez **Sélectionner**. Pour en savoir plus sur les tailles de machines virtuelles, consultez [Tailles de machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
-    ![Choisir une taille de machine virtuelle](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
+     ![Choisir une taille de machine virtuelle](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > Pour des tests fonctionnels et de développement, utilisez une taille de machine virtuelle **DS2** ou supérieure. Pour des tests de performances, utilisez **DS13** ou supérieure.
 
-    * **Type d'authentification** : sélectionnez **Clé publique SSH**.
+   * **Type d'authentification** : sélectionnez **Clé publique SSH**.
 
-    > [!Note]
-    > Vous pouvez choisir d’utiliser une clé publique SSH ou un mot de passe pour l’authentification. L’utilisation d’une clé SSH est plus sécurisée. Pour savoir comment générer une clé SSH, consultez [Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > [!Note]
+     > Vous pouvez choisir d’utiliser une clé publique SSH ou un mot de passe pour l’authentification. L’utilisation d’une clé SSH est plus sécurisée. Pour savoir comment générer une clé SSH, consultez [Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-    * **Nom d’utilisateur** : indiquez le nom d’administrateur pour la machine virtuelle.
-    * **Clé publique SSH** : entrez votre clé publique RSA.
-    * **Ports d’entrée publics** : sélectionnez **Autoriser les ports sélectionnés** et choisissez le port **SSH (22)** dans la liste **Sélectionner les ports d’entrée publics**. Dans ce guide de démarrage rapide, cette étape est nécessaire pour établir une connexion à SQL Server et terminer la configuration. Si vous souhaitez vous connecter à distance à SQL Server, sélectionnez également **MS SQL (1433)** afin d’ouvrir le port 1433 pour les connexions sur Internet.
+   * **Nom d’utilisateur** : indiquez le nom d’administrateur pour la machine virtuelle.
+   * **Clé publique SSH** : entrez votre clé publique RSA.
+   * **Ports d’entrée publics** : sélectionnez **Autoriser les ports sélectionnés** et choisissez le port **SSH (22)** dans la liste **Sélectionner les ports d’entrée publics**. Dans ce guide de démarrage rapide, cette étape est nécessaire pour établir une connexion à SQL Server et terminer la configuration. Si vous souhaitez vous connecter à distance à SQL Server, sélectionnez également **MS SQL (1433)** afin d’ouvrir le port 1433 pour les connexions sur Internet.
 
    ![Ports entrants](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
@@ -121,7 +120,7 @@ Vous pouvez trouver l’adresse IP de votre machine virtuelle dans le portail Az
 
 Si vous êtes sous Windows et que vous n’avez pas d’interpréteur de commandes BASH, installez un client SSH, tel que PuTTY.
 
-1. [Téléchargez et installez PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [Téléchargez et installez PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. Exécutez PuTTY.
 

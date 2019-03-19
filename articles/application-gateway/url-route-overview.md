@@ -7,17 +7,17 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: cf3e051e4833c6b654e5ff89cd084911521b3d67
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049233"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895581"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Vue d’ensemble du routage basé sur le chemin d’accès URL de Azure Application Gateway
 
@@ -29,7 +29,7 @@ Dans l’exemple suivant, Application Gateway achemine le trafic pour contoso.co
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-Les requêtes adressées à http://contoso.com/video/* sont acheminées vers VideoServerPool et les requêtes adressées à http://contoso.com/images/* sont acheminées vers ImageServerPool. DefaultServerPool est sélectionné si aucun des modèles de chemin d’accès ne correspond.
+Les demandes concernant <http://contoso.com/video/*> sont acheminées vers VideoServerPool, et <http://contoso.com/images/*> vers ImageServerPool. DefaultServerPool est sélectionné si aucun des modèles de chemin d’accès ne correspond.
 
 > [!IMPORTANT]
 > Les règles sont traitées suivant leur ordre d’affichage dans le portail. Il est vivement recommandé de configurer des écouteurs multisites avant un écouteur de base.  Vous avez ainsi l’assurance que le trafic est acheminé vers le serveur principal approprié. Si un écouteur de base est indiqué en premier et correspond à une demande entrante, elle est traitée par cet écouteur.
@@ -68,7 +68,7 @@ L’élément urlPathMap est utilisé pour spécifier les modèles de chemin d�
 ```
 
 > [!NOTE]
-> PathPattern : ce paramètre est une liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe « / », et le seul emplacement autorisé pour un astérisque (« * ») est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin d’accès n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés ici.
+> PathPattern : Ce paramètre est une liste de modèles de chemin d’accès pour faire correspondre. Chaque modèle doit commencer par le signe « / », et le seul emplacement autorisé pour un astérisque (« * ») est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin d’accès n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés ici.
 
 Pour plus d’informations, vous pouvez consulter un [modèle Resource Manager utilisant le routage basé sur URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 

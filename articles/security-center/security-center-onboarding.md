@@ -3,7 +3,7 @@ title: Intégration d’Azure Security Center Standard pour une sécurité renfo
 description: " Apprenez à intégrer Azure Security Center Standard pour une sécurité renforcée. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9d95503e4b17124d1d027a90a21869ef65831654
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 19/02/2019
+ms.author: monhaber
+ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114414"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100068"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
 Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides.  Vous pouvez essayer gratuitement le niveau Standard. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -33,7 +33,7 @@ Security Center Standard inclut :
 ## <a name="detecting-unprotected-resources"></a>Détection des ressources non protégées     
 Security Center détecte automatiquement les abonnements Azure ou les espaces de travail dans lesquels Security Center Standard n’est pas activé. Cela inclut les abonnements Azure utilisant Security Center Gratuit et les espaces de travail dans lesquels la solution de sécurité n’est pas activée.
 
-Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard, qui est hérité par toutes les ressources dans l’abonnement, ou vous pouvez définir une stratégie unique pour mettre à niveau un groupe de ressources spécifique uniquement. Si les paramètres de la stratégie du groupe de ressources sont uniques, Security Center ne remplacera pas les stratégies de tarification suite à la mise à niveau de l’abonnement vers le niveau Standard. L’application du niveau Standard à un abonnement concerne uniquement les machines virtuelles de l’abonnement associées aux espaces de travail créés par Security Center. L’application du niveau Standard à l’espace de travail concerne toutes les ressources associées à l’espace de travail.
+Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard, qui est hérité par toutes les ressources dans l’abonnement, ou vous pouvez définir une stratégie unique pour mettre à niveau un groupe de ressources spécifique uniquement. Si les paramètres de la stratégie du groupe de ressources sont uniques, Security Center ne remplacera pas les stratégies de tarification suite à la mise à niveau de l’abonnement vers le niveau Standard. Application de la norme de couche à un abonnement s’applique à toutes les ressources prises en charge dans l’abonnement. Application de la norme de couche à un espace de travail s’applique à toutes les ressources associées à l’espace de travail.
 
 > [!NOTE]
 > Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents. Le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) vous permet d’appliquer une étendue à la solution et de cibler un sous-ensemble d’ordinateurs dans l’espace de travail.  Si vous utilisez le ciblage de solution, Security Center répertorie l’espace de travail comme n’ayant pas de solution.
@@ -53,7 +53,7 @@ Pour mettre à niveau un abonnement ou un espace de travail vers Standard :
 
 
    > [!NOTE]
-   > Les fonctionnalités du niveau Gratuit de Security Center sont appliquées à vos machines virtuelles Azure uniquement. Les fonctionnalités du niveau Gratuit ne sont pas appliquées aux ordinateurs autres qu’Azure. Si vous sélectionnez le niveau Standard, les fonctionnalités du niveau Standard sont appliquées à toutes les machines virtuelles Azure et à tous les ordinateurs autres qu’Azure associés à l’espace de travail. Nous vous conseillons d’appliquer le niveau Standard pour offrir une sécurité avancée à vos ressources Azure et autres qu’Azure.
+   > Les fonctionnalités gratuites de Security Center sont appliquées à vos machines virtuelles Azure et les VMSS uniquement. Les fonctionnalités du niveau Gratuit ne sont pas appliquées aux ordinateurs autres qu’Azure. Si vous sélectionnez Standard, les fonctionnalités Standard sont appliquées à toutes les machines virtuelles Azure identiques de machines virtuelles et ordinateurs non Azure à l’espace de travail. Nous vous conseillons d’appliquer le niveau Standard pour offrir une sécurité avancée à vos ressources Azure et autres qu’Azure.
    >
    >
 
@@ -65,11 +65,11 @@ Security Center peut surveiller l’état de sécurité de vos ordinateurs autre
 1. Retournez à **Prise en main**.   
 2. Sélectionnez l’onglet **Prise en main**.
 
-  ![Non-Azure](./media/security-center-onboarding/non-azure.png)
+   ![Non-Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Cliquez sur **Configurer** sous **Ajouter de nouveaux ordinateurs non Azure**. Une liste de vos espaces de travail Log Analytics apparaît. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
 
-  ![Ajouter un ordinateur autre qu’Azure][7]
+   ![Ajouter un ordinateur autre qu’Azure][7]
 
 Si vous avez des espaces de travail existants, ils sont répertoriés dans **Add new Non-Azure computers** (Ajouter de nouveaux ordinateurs autres qu’Azure). Vous pouvez ajouter des ordinateurs à un espace de travail existant ou créer un espace de travail. Pour créer un espace de travail, sélectionnez le lien **add a new workspace** (ajouter un nouvel espace de travail).
 
@@ -82,8 +82,8 @@ Si vous avez des espaces de travail existants, ils sont répertoriés dans **Add
    ![Ajouter un espace de travail][4]
 
 2. Dans **Security and Audit**, sélectionnez **Espace de travail OMS** pour créer un espace de travail.
-> [!NOTE]
-> Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».
+   > [!NOTE]
+   > Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».
 3. Dans **Espace de travail OMS**, entrez les informations de votre espace de travail.
 4. Dans **Espace de travail OMS**, sélectionnez **OK**.  Une fois que vous sélectionnez OK, vous obtenez un lien pour télécharger un agent Windows ou Linux et des clés pour votre ID d’espace de travail, afin de les utiliser pour la configuration de l’agent.
 5. Dans **Security and Audit**, sélectionnez **OK**.
@@ -94,7 +94,7 @@ Vous pouvez ajouter un ordinateur en suivant le flux de travail du panneau **Int
 
 1. Revenez au menu principal de Security Center et au tableau de bord **Vue d’ensemble**.
 
-   ![Vue d’ensemble][5]
+   ![Présentation][5]
 
 2. Sélectionnez **Compute et applications**.
 3. Sous **Compute et applications**, sélectionnez **Ajouter des ordinateurs**.
@@ -105,7 +105,7 @@ Vous pouvez ajouter un ordinateur en suivant le flux de travail du panneau **Int
 
    ![Ajouter des ordinateurs][7]
 
- Le panneau **Agent direct** fournit un lien pour télécharger un agent Windows ou Linux ainsi que l’ID d’espace de travail et les clés à utiliser pour la configuration de l’agent.   
+   Le panneau **Agent direct** fournit un lien pour télécharger un agent Windows ou Linux ainsi que l’ID d’espace de travail et les clés à utiliser pour la configuration de l’agent.   
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à intégrer des ressources Azure et autres qu’Azure pour tirer parti de la sécurité avancée de Security Center.  Pour utiliser davantage vos ressources intégrées, consultez les articles suivants :

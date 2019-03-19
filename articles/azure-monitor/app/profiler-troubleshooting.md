@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b6a7fe2c12b2f1f5bcc0ba8cccd1a51ee39c4a6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855671"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -36,11 +36,11 @@ Profiler écrit les messages de trace et les événements personnalisés dans vo
     ```
     L’image suivante affiche deux exemples de recherches à partir de deux ressources AI : 
     
-    * À gauche, l’application ne reçoit pas de demandes pendant l’exécution de Profiler. Le message indique que le chargement a été annulé en raison de l’absence d’activité. 
+   * À gauche, l’application ne reçoit pas de demandes pendant l’exécution de Profiler. Le message indique que le chargement a été annulé en raison de l’absence d’activité. 
 
-    * À droite, Profiler a démarré et a envoyé des événements personnalisés quand il a détecté des demandes envoyées pendant son exécution. Si vous voyez l’événement personnalisé ServiceProfilerSample, cela signifie que Profiler a attaché une trace à une demande et vous pouvez voir la trace dans le volet **Performances d’Application Insights**.
+   * À droite, Profiler a démarré et a envoyé des événements personnalisés quand il a détecté des demandes envoyées pendant son exécution. Si vous voyez l’événement personnalisé ServiceProfilerSample, cela signifie que Profiler a attaché une trace à une demande et vous pouvez voir la trace dans le volet **Performances d’Application Insights**.
 
-    Si aucune donnée de télémétrie ne s’affiche, Profiler n’est pas exécuté. Pour résoudre les problèmes, consultez les sections de résolution des problèmes pour votre type d’application plus loin dans cet article.  
+     Si aucune donnée de télémétrie ne s’affiche, Profiler n’est pas exécuté. Pour résoudre les problèmes, consultez les sections de résolution des problèmes pour votre type d’application plus loin dans cet article.  
 
      ![Rechercher dans les données de télémétrie de Profiler][profiler-search-telemetry]
 
@@ -90,9 +90,9 @@ Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramè
 
 1. Dans le **volet de contrôle de l’application web**, ouvrez **Paramètres**.
 
-1. Définissez **Version du .NET Framework** sur **4.6**.
+1. Définissez **version du .NET Framework** à **v4.6**.
 
-1. Activez l’option **Toujours actif**.
+1. **Activez** l’option **Toujours actif**.
 
 1. Ajoutez le paramètre d’application **APPINSIGHTS_INSTRUMENTATIONKEY** et définissez la valeur sur la même clé d’instrumentation que celle utilisée par le kit de développement logiciel (SDK).
 
@@ -124,6 +124,8 @@ Profiler s’exécute comme une tâche web continue dans l’application web. Vo
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Résoudre les problèmes de Profiler et d’Azure Diagnostics
 
+  >**Il existe un bogue dans le profileur fourni avec la dernière version des diagnostics Windows AZURE pour les Services Cloud.** Pour pouvoir utiliser le profileur à un service cloud, il prend uniquement en charge SDK AI jusqu'à la version 2.7.2. Si vous utilisez une version plus récente du kit SDK AI, vous devrez revenir en arrière pour 2.7.2 pour pouvoir utiliser le profileur. Si vous utilisez Visual Studio pour mettre à niveau la version du SDK d’application Insights, vous pouvez obtenir une erreur de redirection de liaison lors de l’exécution. Il s’agit, car « newVersion » dans le fichier web.config pour Microsoft.ApplicationInsights doit être définie sur « 2.7.2.0 » après que rétrogradation le SDK AI, mais il ne mis à jour automatiquement.
+
 Pour voir si Profiler est correctement configuré par Azure Diagnostics, effectuez les trois actions suivantes : 
 1. Premièrement, vérifiez si le contenu de la configuration Azure Diagnostics qui est déployé est celui que vous attendez. 
 
@@ -133,15 +135,19 @@ Pour voir si Profiler est correctement configuré par Azure Diagnostics, effectu
 
 Pour vérifier les paramètres qui ont été utilisés pour configurer Azure Diagnostics :
 
-1. Connectez-vous à la machine virtuelle et ouvrez le fichier journal à cet emplacement : 
+1. Connectez-vous à la machine virtuelle (VM) et ouvrez le fichier journal à cet emplacement. (Le lecteur peut être c: ou d: et la version du plug-in peut être différents).
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    or
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. Dans ce fichier, vous pouvez rechercher la chaîne **WadCfg** pour voir les paramètres qui ont été passés à la machine virtuelle pour configurer Azure Diagnostics. Vous pouvez vérifier si l’iKey utilisée par le récepteur de Profiler est correcte.
 
-1. Vérifiez la ligne de commande qui permet de démarrer Profiler. Les arguments qui sont utilisés pour lancer Profiler sont dans le fichier suivant :
+1. Vérifiez la ligne de commande qui permet de démarrer Profiler. Les arguments qui sont utilisés pour lancer Profiler sont dans le fichier suivant. (Le lecteur peut être c: ou d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

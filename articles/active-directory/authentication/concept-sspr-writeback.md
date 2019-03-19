@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bba14e37e811c941c9709eef6b6d8ffd8322643
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3772f42b1216cfb26d66b1d68fcb9e59fd8652d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167131"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107540"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -96,11 +96,11 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
    >
 
 1. Si l’opération de définition du mot de passe échoue, un message d’erreur invite l’utilisateur à réessayer. L’opération peut échouer pour les raisons suivantes :
-   * Le service était arrêté.
-   * Le mot de passe sélectionné ne répondait pas aux stratégies de l’organisation.
-   * Nous n’avons pas pu trouver l’utilisateur dans l’annuaire Active Directory local.
+    * Le service était arrêté.
+    * Le mot de passe sélectionné ne répondait pas aux stratégies de l’organisation.
+    * Nous n’avons pas pu trouver l’utilisateur dans l’annuaire Active Directory local.
 
-    Les messages d’erreur fournissent des conseils aux utilisateurs afin qu’ils tentent de résoudre leur problème sans intervention de l’administrateur.
+      Les messages d’erreur fournissent des conseils aux utilisateurs afin qu’ils tentent de résoudre leur problème sans intervention de l’administrateur.
 
 ## <a name="password-writeback-security"></a>Sécurité de réécriture du mot de passe
 

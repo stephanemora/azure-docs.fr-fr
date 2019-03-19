@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089350"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C : Migrer des utilisateurs avec des identités de réseaux sociaux
 Quand vous envisagez de migrer votre fournisseur d’identité vers Azure AD B2C, vous devrez peut-être également migrer les utilisateurs avec des identités sociales. Cet article explique comment migrer des comptes d’identités sociales existants, tels que : comptes Facebook, LinkedIn, Microsoft et Google vers Azure AD B2C. Cet article s’applique également aux identités fédérées, quoique ces migrations soient moins courantes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cet article est la suite de celui sur la migration des utilisateurs. Il est axé sur la migration des identités sociales. Avant de commencer, lisez [Migration utilisateur](active-directory-b2c-user-migration.md).
 
 ## <a name="social-identities-migration-introduction"></a>Présentation de la migration des identités sociales
@@ -32,14 +32,14 @@ Cet article est la suite de celui sur la migration des utilisateurs. Il est axé
 * **Combiner un compte local avec une identité sociale**. Comme mentionné plus haut, les noms de connexion des comptes locaux et les identités de comptes sociaux sont stockés dans des attributs différents. `signInNames` est utilisé pour le compte local, tandis que `userIdentities` est utilisé pour le compte social. Un compte Azure AD B2C unique peut être un compte local uniquement, un compte social uniquement, ou il peut combiner un compte local avec une identité sociale dans un enregistrement utilisateur. Ce comportement vous permet de gérer un seul compte, l’utilisateur pouvant se connecter avec les informations du compte local ou avec les identités sociales.
 
 * Type `UserIdentity` : contient des informations sur l’identité d’un utilisateur de compte social dans un locataire Azure AD B2C :
-    * `issuer` : représentation sous forme de chaîne du fournisseur d’identité qui a émis l’identificateur d’utilisateur, par exemple facebook.com.
-    * `issuerUserId` : identificateur d’utilisateur unique utilisé par le fournisseur d’identité sociale au format base64.
+  * `issuer` : représentation sous forme de chaîne du fournisseur d’identité qui a émis l’identificateur d’utilisateur, par exemple facebook.com.
+  * `issuerUserId` : identificateur d’utilisateur unique utilisé par le fournisseur d’identité sociale au format base64.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 
@@ -139,7 +139,7 @@ Le nom de l’émetteur, ou le nom du fournisseur d’identité, est configuré 
 1. Connectez-vous avec l’un des comptes sociaux.
 2. À partir du jeton JWT, copiez la valeur `sub`. `sub` contient généralement l’ID d’objet de l’utilisateur dans Azure AD B2C. Ou, à partir du portail Azure, ouvrez les propriétés de l’utilisateur et copiez l’ID d’objet.
 3. Ouvrez l’[Explorateur Azure AD Graph](https://graphexplorer.azurewebsites.net).
-4. Connectez-vous avec vos informations d’administrateur. N
+4. Connectez-vous avec vos informations d’administrateur.
 5. Exécutez la requête GET suivante. Remplacez userObjectId par l’ID d’utilisateur que vous avez copié. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Recherchez l’élément `userIdentities` à l’intérieur du code JSON retourné à partir d’Azure AD B2C.
 7. [Facultatif] Vous souhaiterez peut-être aussi décoder la valeur `issuerUserId`.

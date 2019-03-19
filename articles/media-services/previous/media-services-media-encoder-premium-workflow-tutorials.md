@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: e0f4506afee134f2f6453ea1b1298925ff00084c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189782"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Didacticiels de workflows avancés Media Encoder Premium
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce document contient des procédures pas à pas qui montrent comment personnaliser les workflows avec **Workflow Designer**. Les fichiers de workflow sont disponibles [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ## <a name="toc"></a>Table des matières
@@ -297,7 +297,7 @@ Pour garantir la compatibilité de l’empaquetage dynamique avec les deux fichi
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+    <smil xmlns="https://www.w3.org/2001/SMIL20/Language">
       <head>
         <meta name="formats" content="mp4" />
       </head>
@@ -947,7 +947,7 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
 
 [Codecs et formats de Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 
-[Exemples de fichiers de workflow](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
+[Exemples de fichiers de workflow](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Outil Azure Media Services Explorer](https://aka.ms/amse)
 

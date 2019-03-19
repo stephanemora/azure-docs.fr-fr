@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000431"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890077"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight : raisons et avantages
 
@@ -54,7 +54,7 @@ Azure HDInsight est une distribution par cloud des composants Hadoop à partir d
 
 - **Extensibilité grâce à des outils personnalisés ou des applications tierces** : vous pouvez étendre vos clusters HDInsight avec des composants installés, et les intégrer dans d’autres solutions de Big Data, en utilisant des déploiements [en un clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)  disponibles sur la Place de marché Microsoft Azure.
 
-- **Gestion, administration et supervision simples** : Azure HDInsight s’intègre dans [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) pour fournir une interface unique permettant de gérer l’ensemble des clusters.
+- **Faciliter la gestion, administration et surveillance** -Azure HDInsight s’intègre avec [Azure Monitor enregistre](../hdinsight-hadoop-oms-log-analytics-tutorial.md) pour fournir une interface unique avec laquelle vous pouvez surveiller tous vos clusters.
 
 - **Intégration avec d’autres services Azure** : HDInsight s’intègre facilement avec d’autres services Azure populaires, à savoir :
 
@@ -139,10 +139,10 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Destination des données|HDFS, SGBDR, Kafka, MPP ||
 |**Rubrique** : **Métadonnées**|||
 |Type de base de données Hive|MySQL, Postgres||
-| Non. de metastores Hive|2||
-| Non. de tables Hive|100||
-| Non. de stratégies Ranger|20||
-| Non. de flux de travail Oozie|100||
+|Non. de metastores Hive|2||
+|Non. de tables Hive|100||
+|Non. de stratégies Ranger|20||
+|Non. de flux de travail Oozie|100||
 |**Rubrique** : **Mettre à l'échelle**|||
 |Volume de données (réplication comprise)|100 To||
 |Volume d’ingestion quotidien|50 Go||
@@ -154,11 +154,11 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Espace disque utilisé|75 %||
 |Pourcentage moyen d’utilisation du réseau|25%
 |**Rubrique** : **Personnel**|||
-| Non. d’administrateurs|2||
-| Non. de développeurs|10||
-| Non. d’utilisateurs finaux|100||
+|Non. d’administrateurs|2||
+|Non. de développeurs|10||
+|Non. d’utilisateurs finaux|100||
 |Compétences|Hadoop, Spark||
-| Non. de ressources disponibles pour les efforts de migration|2||
+|Non. de ressources disponibles pour les efforts de migration|2||
 |**Rubrique** : **Limitations**|||
 |Limitations actuelles|Latence élevée||
 |Défis actuels|Problèmes liés à la concurrence||
@@ -182,7 +182,7 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Pipeline de données privé et protégé ?|Oui||
 |Cluster joint au domaine (ESP) ?|     Oui||
 |Synchronisation Active Directory locale vers le cloud ?|     Oui||
-| Non. d’utilisateurs Active Directory à synchroniser|          100||
+|Non. d’utilisateurs Active Directory à synchroniser|          100||
 |Synchroniser les mots de passe sur le cloud ?|    Oui||
 |Utilisateurs du cloud uniquement ?|                 Oui||
 |MFA requise ?|                       Non || 

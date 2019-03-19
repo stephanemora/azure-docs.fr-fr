@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7054946a15ca27f4b5a36d3d2ac712cba2fd68d8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6e79b0fc0ef23287c8871b7a7634d28d129b900e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101140"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
@@ -85,19 +85,19 @@ Si l’appareil n’a pas été joint par Azure AD Hybride, vous pouvez tenter d
 
     ![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-    - Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Cela peut être dû à l’absence ou à une mauvaise configuration d’AD FS (pour les domaines fédérés) ou de l’authentification unique transparente d’Azure AD (pour les domaines managés), ou encore à des problèmes de réseau. 
+  - Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Cela peut être dû à l’absence ou à une mauvaise configuration d’AD FS (pour les domaines fédérés) ou de l’authentification unique transparente d’Azure AD (pour les domaines managés), ou encore à des problèmes de réseau. 
     
-     - Le problème peut être lié au fait que l’authentification multifacteur (MFA) est activée/configurée pour l’utilisateur alors que WIAORMUTLIAUTHN n’est pas configuré sur le serveur AD FS. 
+    - Le problème peut être lié au fait que l’authentification multifacteur (MFA) est activée/configurée pour l’utilisateur alors que WIAORMUTLIAUTHN n’est pas configuré sur le serveur AD FS. 
      
-     - Ce problème peut également découler du fait que la page de découverte du domaine d’accueil (HRD) attend une intervention de la part de l’utilisateur, ce qui empêche **autoworkplace.exe** de demander un jeton sans assistance.
+    - Ce problème peut également découler du fait que la page de découverte du domaine d’accueil (HRD) attend une intervention de la part de l’utilisateur, ce qui empêche **autoworkplace.exe** de demander un jeton sans assistance.
      
-     - Ce problème peut être lié au fait que les URL d’AD FS et d’Azure AD sont manquantes dans la zone intranet d’Internet Explorer sur le client.
+    - Ce problème peut être lié au fait que les URL d’AD FS et d’Azure AD sont manquantes dans la zone intranet d’Internet Explorer sur le client.
      
-     - Des problèmes de connectivité réseau empêchent peut-être **autoworkplace.exe** d’atteindre les URL d’AD FS ou d’Azure AD. 
+    - Des problèmes de connectivité réseau empêchent peut-être **autoworkplace.exe** d’atteindre les URL d’AD FS ou d’Azure AD. 
      
-     - L’exécutable **autoworkplace.exe** nécessite que le client ait une visibilité directe sur le contrôleur de domaine Active Directory local de l’organisation, ce qui signifie que la jonction Azure AD Hybride aboutit uniquement si le client est connecté à l’intranet de l’organisation.
+    - **Autoworkplace.exe** , le client doit avoir une visibilité directe à partir du client de l’entreprise en local contrôleur de domaine Active Directory, ce qui signifie que cette jonction hybride Azure AD réussit uniquement lorsque le client est connecté à l’intranet de l’organisation.
      
-     - Votre organisation utilise l’authentification unique Azure AD sans interruption, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` ne sont pas présents dans les paramètres intranet Internet Explorer de l’appareil et l’option **Autoriser les mises à jour de la barre d’état via le script** n’est pas activée pour la zone Intranet.
+    - Votre organisation utilise l’authentification unique Azure AD sans interruption, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` ne sont pas présents dans les paramètres intranet Internet Explorer de l’appareil et l’option **Autoriser les mises à jour de la barre d’état via le script** n’est pas activée pour la zone Intranet.
 
 - Vous n’êtes pas connecté en tant qu’utilisateur du domaine
 

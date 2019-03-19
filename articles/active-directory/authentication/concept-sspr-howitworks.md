@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d1c2a35a6ad246eea593990c485181aa776594
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175089"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214749"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -59,7 +59,7 @@ Lisez les étapes suivantes pour en savoir plus sur la logique sous-jacente à l
 
 ## <a name="authentication-methods"></a>Méthodes d’authentification
 
-Si SSPR est activé, vous devez sélectionner au moins l’une des options suivantes pour les méthodes d’authentification. Ces options sont parfois appelées « portails ». Il est vivement recommandé que **choisir au moins deux méthodes d’authentification** afin que les utilisateurs disposent de davantage de flexibilité au le cas où une des méthodes nécessaires ne serait pas accessible.
+Si SSPR est activé, vous devez sélectionner au moins l’une des options suivantes pour les méthodes d’authentification. Ces options sont parfois appelées « portails ». Il est vivement recommandé que **choisir au moins deux méthodes d’authentification** afin que les utilisateurs disposent de davantage de flexibilité au le cas où une des méthodes nécessaires ne serait pas accessible. Vous trouverez des détails supplémentaires sur les méthodes répertoriées ci-dessous dans l’article [quelles sont les méthodes d’authentification ?](concept-authentication-methods.md).
 
 * Notification d’application mobile (préversion)
 * Code d'application mobile (préversion)
@@ -69,6 +69,9 @@ Si SSPR est activé, vous devez sélectionner au moins l’une des options suiva
 * Questions de sécurité
 
 Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont des données présentes dans les méthodes d’authentification que l’administrateur a activées.
+
+> [!IMPORTANT]
+> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
 
 > [!WARNING]
 > Les rôles d’administrateur Azure auxquels sont assignés des comptes seront nécessaires pour utiliser les méthodes définies dans la section [Différences en matière de stratégie de réinitialisation par l’administrateur](concept-sspr-policy.md#administrator-reset-policy-differences).

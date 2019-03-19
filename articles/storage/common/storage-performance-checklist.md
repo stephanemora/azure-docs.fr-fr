@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821661"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012331"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Depuis la publication des services Microsoft Azure Storage, Microsoft a élaboré une série de pratiques éprouvées pour les utiliser de manière performante. Cet article se propose d’énumérer les méthodes les plus importantes sous la forme d’une liste de contrôle. L’objectif de cet article est double : aider les développeurs d’applications à s’assurer qu’ils utilisent des pratiques éprouvées avec Azure Storage et les aider à en identifier d’autres en vue de les adopter. Cet article n’a pas pour but d’aborder toutes les questions relatives à l’optimisation de l’extensibilité et des performances. Sont exclues les pratiques dont l’impact est minime ou celles qui ne sont pas applicables à grande échelle. Dans la mesure où le comportement de l’application peut être prévu au cours de la conception, il convient de tenir compte de ces pratiques suffisamment tôt afin d’éviter les problèmes de performances ultérieurs.  
 
 Chaque développeur d’applications qui utilise Azure Storage doit prendre le temps de lire cet article et s’assurer que son application respecte chacune des pratiques éprouvées répertoriées ci-dessous.  
@@ -122,7 +122,7 @@ Vous pouvez suivre quelques bonnes pratiques pour réduire la fréquence de ces 
 
 * Examinez attentivement la convention de nommage que vous utilisez pour les comptes, conteneurs, objets blob, tables et files d’attente. Vous pouvez ajouter un préfixe aux noms de comptes avec un hachage à 3 chiffres à l'aide d'une fonction de hachage qui correspond le mieux à vos besoins.  
 * Si vous organisez vos données à l'aide d'horodatages ou d’identificateurs numériques, vous devez veiller à ne pas utiliser des modèles de trafic « Ajouter après uniquement » ou « Ajouter avant uniquement ». Ces modèles ne sont pas adaptés à un système de partitionnement basé sur des plages et risquent de diriger tout le trafic vers une partition unique, empêchant ainsi un équilibrage optimal de la charge sur le système. Par exemple, si vos opérations quotidiennes utilisent un objet blob avec un horodatage comme aaaammjj, tout le trafic pour cette opération quotidienne est alors dirigé vers un objet unique pris en charge par un serveur à partition unique. Vérifiez si les limites par objet blob et par partition répondent à vos besoins, et pensez à diviser cette opération en plusieurs objets blob si nécessaire. De même, si vous stockez des données chronologiques dans vos tables, tout le trafic pourrait être dirigé vers la dernière partie de l'espace de noms de clé. Si vous devez utiliser des horodatages ou des ID numériques, ajoutez en préfixe un hachage à trois chiffres à l’ID ou, dans le cas des horodatages, ajoutez en préfixe la partie des secondes, par exemple ssaaaammjj. Si des opérations de listage et d'interrogation sont effectuées régulièrement, choisissez une fonction de hachage qui limite le nombre de vos requêtes. Dans d'autres cas, un préfixe aléatoire peut être suffisant.  
-* Pour plus d'informations sur le schéma de partitionnement utilisé dans Azure Storage, consultez le document SOSP disponible [ici](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+* Pour plus d'informations sur le schéma de partitionnement utilisé dans Azure Storage, consultez le document SOSP disponible [ici](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ### <a name="networking"></a>Mise en réseau
 Bien que les appels d’API soient importants, les contraintes de réseau physiques de l’application ont souvent un impact majeur sur les performances. Vous trouverez, ci-dessous, certaines des limitations auxquelles les utilisateurs peuvent être confrontés.  

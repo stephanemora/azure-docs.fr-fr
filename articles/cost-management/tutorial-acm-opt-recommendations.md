@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766858"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000918"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Didacticiel : Optimiser les coûts à partir de recommandations
 
@@ -28,8 +28,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Agir sur une recommandation pour redimensionner une machine virtuelle et bénéficier d’une option plus rentable
 > * Vérifier l’action pour vous assurer que la machine virtuelle a été correctement redimensionnée
 
-## <a name="prerequisites"></a>Prérequis
-Des recommandations sont disponibles pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Pour voir la liste complète des types de comptes pris en charge, consultez [Comprendre les données Cost Management](understand-cost-mgt-data.md). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
+## <a name="prerequisites"></a>Conditions préalables
+Recommandations sont disponibles pour une variété d’étendues et les types de compte Azure, y compris [contrat entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) les clients. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
 
 - Abonnement
 - Groupe de ressources
@@ -41,7 +41,9 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="view-cost-optimization-recommendations"></a>Afficher des recommandations d’optimisation des coûts
 
-Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services. Ensuite, dans la liste sous **Gestion des coûts**, sélectionnez **Recommandations du conseiller**. Les recommandations d’Advisor en matière de coûts sont affichées.
+Pour afficher les recommandations d’optimisation de coût pour un abonnement, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **recommandations du conseiller**.
+
+Pour afficher les recommandations pour un groupe d’administration, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **analyse des coûts** dans le menu. Utilisez le **étendue** pilule pour basculer vers une étendue différente, par exemple un groupe d’administration. Sélectionnez **recommandations du conseiller** dans le menu. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
 
 ![Recommandations d’Advisor sur la gestion des coûts présentées dans le portail Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

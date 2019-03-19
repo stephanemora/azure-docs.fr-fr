@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422386"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957689"
 ---
 # <a name="azure-firewall-logs"></a>Journaux de Pare-feu Azure
 
 Vous pouvez surveiller le service Pare-feu Azure à l’aide des journaux de pare-feu. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure.
 
-Vous pouvez accéder à certains de ces journaux via le portail. Les journaux peuvent être envoyés vers les services [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Stockage et Event Hubs, puis analysés dans Log Analytics ou par différents outils comme Excel et Power BI.
+Vous pouvez accéder à certains de ces journaux via le portail. Les journaux peuvent être envoyés au service [Journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), au stockage et aux hubs d’événements, puis analysés dans les journaux Azure Monitor ou par différents outils comme Excel et Power BI.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
@@ -26,7 +26,7 @@ Vous pouvez accéder à certains de ces journaux via le portail. Les journaux pe
 
 * **Journal de règles d’application**
 
-   Le journal de règles d’application est enregistré dans un compte de stockage, transmis en continu au service Event Hubs et/ou envoyé vers Log Analytics uniquement si vous l’avez activé pour chaque Pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles d’application configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
+   Le journal des applications est enregistré dans un compte de stockage, diffusés aux hubs d’événements et/ou envoyés aux journaux d’Azure Monitor uniquement si vous l’avez activé pour chaque pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles d’application configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ Vous pouvez accéder à certains de ces journaux via le portail. Les journaux pe
 
 * **Journal de règles de réseau**
 
-   Le journal de règles de réseau est enregistré dans un compte de stockage, transmis en continu au service Event Hubs et/ou envoyé vers Log Analytics uniquement si vous l’avez activé pour chaque Pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles de réseau configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
+   Le journal de règle de réseau est enregistré dans un compte de stockage, diffusés aux hubs d’événements et/ou envoyés aux journaux d’Azure Monitor uniquement si vous l’avez activé pour chaque pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles de réseau configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
 
    ```
    Category: network rule logs.
@@ -73,9 +73,9 @@ Vous pouvez accéder à certains de ces journaux via le portail. Les journaux pe
 
 Pour stocker vos journaux, vous disposez de trois options :
 
-* **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux lorsqu’ils sont stockés pour une durée plus longue et consultés lorsque nécessaire.
-* **Concentrateurs d’événements** : les concentrateurs d’événements constituent une excellente solution pour l’intégration avec d’autres outils SEIM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
-* **Log Analytics** : Log Analytics convient parfaitement pour la surveillance en temps réel générale de votre application ou la recherche de tendances.
+* **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux quand ils sont stockés pour une durée plus longue et consultés quand cela est nécessaire.
+* **Hubs d’événements** : les hubs d’événements constituent une excellente solution pour l’intégration à d’autres outils SEIM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
+* **Journaux Azure Monitor** : Les journaux Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
 
 ## <a name="activity-logs"></a>Journaux d’activité
 
@@ -86,4 +86,4 @@ Pour stocker vos journaux, vous disposez de trois options :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment surveiller les métriques et les journaux de Pare-feu Azure, consultez le [didacticiel : Surveiller les journaux de Pare-feu Azure](tutorial-diagnostics.md).
+Pour savoir comment surveiller les journaux de pare-feu d’Azure et les mesures, consultez [didacticiel : Surveiller les journaux de pare-feu Azure](tutorial-diagnostics.md).

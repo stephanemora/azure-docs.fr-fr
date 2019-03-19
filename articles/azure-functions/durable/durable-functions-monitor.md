@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f68c3797d5425c496e38c1000cc39e3868d41739
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f3b9ef9d840630269c4c5621a4dab3c732bacdbf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727035"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551651"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 
@@ -166,7 +166,7 @@ Vous pouvez voir l’activité de l’orchestration en examinant les journaux de
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-L’orchestration [s’arrête](durable-functions-instance-management.md#terminating-instances) une fois que son délai d’attente est atteint ou qu’un ciel clair est détecté. Vous pouvez également utiliser `TerminateAsync` (.NET) ou `terminate` (JavaScript) à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **terminatePostUri** référencé dans la réponse 202 ci-dessus, en remplaçant `{text}` par le motif de l’arrêt :
+L’orchestration [s’arrête](durable-functions-instance-management.md) une fois que son délai d’attente est atteint ou qu’un ciel clair est détecté. Vous pouvez également utiliser `TerminateAsync` (.NET) ou `terminate` (JavaScript) à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **terminatePostUri** référencé dans la réponse 202 ci-dessus, en remplaçant `{text}` par le motif de l’arrêt :
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
@@ -177,7 +177,7 @@ POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf6
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
 
 > [!NOTE]
-> Vous devrez installer le package `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget pour exécuter l’exemple de code ci-dessous.
+> Vous devez installer le package Nuget `Microsoft.Azure.WebJobs.Extensions.Twilio` pour exécuter l’exemple de code ci-dessous.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 

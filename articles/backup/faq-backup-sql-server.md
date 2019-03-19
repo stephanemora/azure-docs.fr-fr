@@ -1,87 +1,75 @@
 ---
 title: Forum aux questions sur la sauvegarde de bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure
-description: Fournit des réponses aux questions courantes sur la sauvegarde de bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure.
+description: Trouvez des réponses aux questions courantes sur la sauvegarde des bases de données SQL Server sur des machines virtuelles Azure avec sauvegarde Azure.
 services: backup
-author: sogup
+author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
-ms.author: sogup
-ms.openlocfilehash: a14406733ff60d53d4bf7792ff0c9a015c57d9b3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.author: sachdevaswati
+ms.openlocfilehash: 3d02c8b3d763e3bd767964c8056fa948bfbb13d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996049"
 ---
-# <a name="faq-on-sql-server-running-on-azure-vm-backup"></a>Forum aux questions sur SQL Server s’exécutant sur la sauvegarde de machine virtuelle Azure
+# <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui sont exécutent sur une sauvegarde de machine virtuelle Azure
 
-Cet article fournit des réponses à des questions courantes sur la sauvegarde de bases de données SQL Server s’exécutant sur des machines virtuelles Azure avec le service [Sauvegarde Azure](backup-overview.md).
+Cet article répond aux questions courantes sur la sauvegarde de bases de données SQL Server qui s’exécutent sur des machines virtuelles (VM) Azure et qui utilisent le [sauvegarde Azure](backup-overview.md) service.
 
 > [!NOTE]
 > Cette fonctionnalité est actuellement disponible en préversion publique.
 
-
-
-## <a name="can-i-throttle-the-backup-speed"></a>Puis-je limiter la vitesse de la sauvegarde ?
+## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Puis-je contrôler que d’exécution de nombre de sauvegardes simultané sur le serveur SQL server ?
 
 Oui. Vous pouvez limiter la fréquence à laquelle la stratégie de sauvegarde s’exécute pour minimiser l’impact sur une instance SQL Server. Pour modifier ce paramètre :
-1. Sur l’instance SQL Server, dans le dossier *C:\Program Files\Azure Workload Backup\bin*, créez le fichier **ExtensionSettingsOverrides.json**.
-2. Dans le fichier **ExtensionSettingsOverrides.json**, remplacez la valeur du paramètre **DefaultBackupTasksThreshold** par une valeur inférieure (par exemple, 5) <br>
+1. Sur l’instance de SQL Server, dans le *Backup\bin de charge de travail C:\Program Files\Azure* dossier, créez le *ExtensionSettingsOverrides.json* fichier.
+2. Dans le *ExtensionSettingsOverrides.json* , modifiez le **DefaultBackupTasksThreshold** définissant une valeur inférieure (par exemple, 5). <br>
   ` {"DefaultBackupTasksThreshold": 5}`
 
-3. Enregistrez vos modifications. Fermer le fichier.
+3. Enregistrez vos modifications et fermez le fichier.
 4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le service **AzureWLBackupCoordinatorSvc**.
 
+> [!NOTE]
+> Dans l’expérience utilisateur vous pouvez toujours poursuivre et planifier des sauvegardes autant à un moment donné, toutefois, ils seront traités dans une fenêtre glissante de dire que 5, conformément à l’exemple ci-dessus.
+
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Puis-je effectuer la sauvegarde complète d’un réplica secondaire ?
- Non. Cette fonctionnalité n'est pas prise en charge.
+Conformément à des limitations de SQL, vous pouvez exécuter la copie uniquement la sauvegarde complète sur le réplica secondaire ; Toutefois, une sauvegarde complète n’est pas autorisée.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>La réussite des travaux de sauvegarde génère-t-elle des alertes ?
+Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde.
 
- Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde.
-
-## <a name="can-i-see-scheduled-backup-jobs-in-the-jobs-menu"></a>Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux ?
-
- Non. Le menu **Travaux de sauvegarde** affiche les détails des travaux à la demande, mais pas ceux des travaux de sauvegarde planifiés. Si un travail de sauvegarde échoue, les détails concernant cet échec sont fournis dans l’alerte d’échec. Si vous souhaitez surveiller tous les travaux de sauvegarde ad hoc et planifiés, utilisez [SQL Server Management Studio](manage-monitor-sql-database-backup.md).
+## <a name="can-i-see-scheduled-backup-jobs-in-the-jobs-menu"></a>Puis-je voir les travaux de sauvegarde planifiées dans le menu travaux ?
+Le **travail de sauvegarde** menu affiche uniquement les ad-hoc travaux de sauvegarde. Pour la tâche planifiée, utilisez [analyse à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
+Oui, avec [la protection automatique](backup-azure-sql-database.md#enable-auto-protection)
 
- Non. Lorsque vous configurez la protection pour une instance SQL Server, si vous sélectionnez l’option au niveau du serveur, toutes les bases de données sont ajoutées. Toutefois, si vous ajoutez des bases de données à une instance SQL Server après avoir configuré la protection, vous devez ajouter manuellement les nouvelles bases de données pour les protéger. Les bases de données ne sont pas automatiquement incluses dans la protection configurée.
+## <a name="can-i-protect-availability-groups-on-premises"></a>Puis-je protéger disponibilité groupes locaux ?
+Non. Azure Backup protège les bases de données SQL Server s’exécutant dans Azure. Si un groupe de disponibilité (AG) est réparti entre les machines Azure et sur site, le groupe de disponibilité peut être protégé uniquement si le réplica principal est en cours d’exécution dans Azure. En outre, Azure Backup protège uniquement les nœuds qui s’exécutent dans la même région Azure que le coffre Recovery Services.
 
-##  <a name="how-do-i-restart-protection-after-changing-recovery-type"></a>Comment faire pour redémarrer la protection après avoir modifié le type de récupération ?
+## <a name="can-i-protect-availability-groups-across-regions"></a>Puis-je protéger des groupes de disponibilité entre les régions ?
+Le coffre Azure Backup Recovery Services peut détecter et protéger tous les nœuds qui se trouvent dans la même région que le coffre. Si votre groupe de disponibilité SQL Server Always On s’étend sur plusieurs régions Azure, configurer la sauvegarde de la région qui possède le nœud principal. Sauvegarde Azure peut détecter et protéger toutes les bases de données dans le groupe de disponibilité en fonction de vos préférences de sauvegarde. Lorsque votre préférence de sauvegarde n’est pas remplie, les sauvegardes échouent et vous obtenez l’alerte d’échec.
 
-Déclenchez une sauvegarde complète. Les sauvegardes de fichier journal commencent comme prévu.
+## <a name="can-i-exclude-databases-with-autoprotection-enabled"></a>Puis-je exclure des bases de données avec autoprotection activée ?
+Non. Autoprotection [s’applique à l’intégralité de l’instance](backup-azure-sql-database.md#enable-auto-protection). Vous ne pouvez pas utiliser autoprotection pour protéger les bases de données dans une instance de manière sélective.
 
-## <a name="can-i-protect-availability-groups-on-premises"></a>Puis-je protéger des groupes de disponibilité en local ?
+## <a name="can-i-have-different-policies-in-an-autoprotected-instance"></a>Puis-je avoir des stratégies différentes dans une instance d’autoprotected ?
+Si votre instance comprend déjà certaines bases de données protégées, ils continuent à être protégées par leurs politiques même après avoir [allumer autoprotection](backup-azure-sql-database.md#enable-auto-protection). Toutefois, toutes les bases de données non protégées et les bases de données que vous ajouterez ultérieurement aura qu’une seule stratégie. Vous définissez cette stratégie sous **configurer la sauvegarde** après avoir sélectionné les bases de données. En fait, contrairement à d’autres bases de données protégées, vous ne pouvez même modifier la stratégie pour une base de données qui se trouve dans une instance d’autoprotected.
+La seule façon de modifier la stratégie de cette base de données consiste à désactiver temporairement autoprotection pour l’instance. Puis vous réactivez autoprotection pour l’instance.
 
- Non. Sauvegarde Azure protège les serveurs SQL en cours d’exécution dans Azure. Si un groupe de disponibilité (AG) est réparti entre les machines Azure et sur site, l’AG peut être protégé uniquement si le réplica principal est en cours d’exécution dans Azure. En outre, Sauvegarde Azure protège uniquement les nœuds en cours d’exécution dans la même région Azure que le coffre Recovery Services.
+## <a name="if-i-delete-a-database-from-an-autoprotected-instance-will-backups-stop"></a>Si je supprime une base de données à partir d’une instance autoprotected, sauvegardes cessera de ?
+Non. Si une base de données est supprimée d’une instance autoprotected, les sauvegardes de base de données sont toujours tentées. Cela implique que la base de données commence à apparaître comme étant défectueux sous **éléments de sauvegarde** et reste protégé.
 
-## <a name="can-i-protect-availability-groups-across-regions"></a>Puis-je protéger des groupes de disponibilité sur plusieurs régions ?
+La seule façon d’arrêter la protection de cette base de données est temporairement [désactiver autoprotection](backup-azure-sql-database.md#enable-auto-protection) sur l’instance. Ensuite, sous **éléments de sauvegarde** pour la base de données, sélectionnez **arrêter la sauvegarde**. Puis, vous réactivez autoprotection pour cette instance.
 
-Le coffre Recovery Services de Sauvegarde Azure peut détecter et protéger tous les nœuds qui se trouvent dans la même région que le coffre Recovery Services. Si vous avez un groupe de disponibilité AlwaysOn SQL s’étendant sur plusieurs régions Azure, vous devez configurer la sauvegarde à partir de la région où se trouve le nœud principal. Sauvegarde Azure pourra alors détecter et protéger toutes les bases de données du groupe de disponibilité selon la préférence de sauvegarde. Si la préférence de sauvegarde n’est pas satisfaite, les sauvegardes échouent et vous recevez l’alerte d’échec.
+##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Pourquoi ne puis-je pas voir une base de données ajoutée pour une instance d’autoprotected ?
+Une base de données que vous avez [ajouter à une instance d’autoprotected](backup-azure-sql-database.md#enable-auto-protection) n’apparaisse pas immédiatement sous éléments protégés. C’est parce que la découverte s’exécute généralement toutes les 8 heures. Toutefois, vous pouvez découvrir et protéger immédiatement les nouvelles bases de données si vous exécutez manuellement une détection en sélectionnant **récupérer des bases de données**, comme illustré dans l’image suivante.
 
-## <a name="can-i-exclude-databases-with-auto-protection-enabled"></a>Puis-je exclure des bases de données avec la protection automatique activée ?
-
-Non, la [protection automatique](backup-azure-sql-database.md#enable-auto-protection) s’applique à l’ensemble de l’instance. Vous ne pouvez pas protéger de manière sélective les bases de données d’une instance à l’aide de la protection automatique.
-
-## <a name="can-i-have-different-policies-in-an-auto-protected-instance"></a>Puis-je avoir différentes stratégies dans une instance auto-protégée ?
-
-Si vous avez déjà des bases de données protégées dans une instance, elles restent protégées par leurs stratégies respectives même après l’**activation** de l’option de [protection automatique](backup-azure-sql-database.md#enable-auto-protection). Toutefois, toutes les bases de données non protégées ainsi que celles que vous ajoutez par la suite ont une seule stratégie que vous définissez sous **Configurer la sauvegarde** après avoir sélectionné les bases de données. En réalité, contrairement aux autres bases de données protégées, vous ne pouvez même pas changer la stratégie d’une base de données sous une instance protégée automatiquement.
-Le seul moyen de le faire est de désactiver momentanément la protection automatique sur l’instance et de changer la stratégie pour cette base de données. Vous pouvez ensuite réactiver la protection automatique sur cette instance.
-
-## <a name="if-i-delete-a-database-from-auto-protection-will-backups-stop"></a>Si je supprime une base de données de la protection automatique, les sauvegardes seront-elles arrêtées ?
-
-Non, si une base de données est supprimée d’une instance protégée automatiquement, les sauvegardes de cette base de données sont toujours essayées. Cela implique que la base de données supprimée devient défectueuse sous **Éléments de sauvegarde** et reste traitée comme si elle était protégée.
-
-La seule façon d’arrêter la protection de ces bases de données consiste à désactiver momentanément la [protection automatique](backup-azure-sql-database.md#enable-auto-protection) sur l’instance et de choisir l’option **Arrêter la sauvegarde** sous **Éléments de sauvegarde** pour la base de données concernée. Vous pouvez ensuite réactiver la protection automatique sur cette instance.
-
-##  <a name="why-cant-i-see-an-added-database-for-an-auto-protected-instance"></a>Pourquoi ne puis-je pas voir une base de données ajoutée pour une instance protégée automatiquement ?
-
-Vous pouvez ne pas voir une base de données qui vient d’être ajoutée à une instance [protégée automatiquement](backup-azure-sql-database.md#enable-auto-protection) de manière instantanée sous des éléments protégés. C’est parce que la découverte s’exécute généralement toutes les 8 heures. Toutefois, l’utilisateur peut exécuter une découverte manuelle à l’aide de l’option **Récupérer les bases de données** pour découvrir et protéger les nouvelles bases de données immédiatement, comme illustré dans l’image ci-dessous :
-
-  ![Voir la base de données qui vient d’être ajoutée](./media/backup-azure-sql-database/view-newly-added-database.png)
+  ![Découvrir manuellement une base de données nouvellement ajoutée](./media/backup-azure-sql-database/view-newly-added-database.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Apprenez](backup-azure-sql-database.md) à sauvegarder une base de données SQL Server exécutée sur une machine virtuelle Azure.
+Découvrez comment [sauvegarder une base de données SQL Server](backup-azure-sql-database.md) qui s’exécute sur une machine virtuelle Azure.

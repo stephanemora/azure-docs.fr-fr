@@ -1,6 +1,6 @@
 ---
 title: Azure Operational Security | Microsoft Docs
-description: Découvrez Microsoft Azure Log Analytics, ses services et son fonctionnement.
+description: Découvrez les journaux Microsoft Azure Monitor, ses services, et son fonctionnement.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc820d0e8a19ae3905fbd26a1b9a98e948ecfb63
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901506"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Présentation
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services consiste à tirer parti de la large gamme de fonctionnalités et d’outils de sécurité disponibles. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée. Windows Azure doit assurer la confidentialité, l’intégrité et la disponibilité des données client, tout en permettant la gestion transparente des responsabilités.
 
 Le présent livre blanc « Azure Operational Security » propose une vue complète des fonctions de sécurité opérationnelle de Windows Azure pour aider les clients à mieux comprendre les nombreux contrôles de sécurité implémentés dans Microsoft Azure, en prenant en compte les perspectives opérationnelles de Microsoft et celles du client.
@@ -53,36 +53,36 @@ Ce livre blanc décrit l’approche de Microsoft en matière de sécurité opér
 6.  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+## <a name="microsoft-azure-monitor-logs"></a>Journaux Microsoft Azure Monitor
 
-Microsoft Azure Log Analytics est la solution de gestion informatique pour le cloud hybride. Utilisée seule ou pour étendre votre déploiement System Center existant, la solution Log Analytics vous donne le maximum de flexibilité et de contrôle pour gérer votre infrastructure sur le cloud.
+Journaux Microsoft Azure Monitor est la solution de gestion informatique pour le cloud hybride. Utilisé seul, ou pour étendre votre déploiement de System Center existant, des journaux d’Azure Monitor vous donne la flexibilité et le contrôle pour la gestion de votre infrastructure cloud.
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Journaux Azure Monitor](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Avec Log Analytics, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût par rapport aux solutions concurrentes. Conçu pour les environnements cloud, Log Analytics offre une nouvelle approche de la gestion de votre entreprise, qui constitue le moyen le plus rapide et le plus économique pour répondre aux nouveaux défis métiers et pour gérer les nouvelles charges de travail, applications et environnements cloud.
+Avec les journaux d’Azure Monitor, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment en local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût que les solutions concurrentes. Conçu pour les environnements cloud, les journaux Azure Monitor offre une nouvelle approche de gestion de votre entreprise est le moyen le plus rapide, plus économique pour répondre aux nouveaux défis commerciaux et de prendre en charge de nouvelles charges de travail, applications et les environnements de cloud.
 
-### <a name="log-analytics-services"></a>Service Log Analytics
+### <a name="azure-monitor-services"></a>Surveillance des services Azure
 
-Les fonctionnalités fondamentales de Log Analytics sont fournies par un ensemble de services qui s’exécutent dans Azure. Chaque service assure une fonction de gestion spécifique, et vous pouvez combiner plusieurs services pour mettre en œuvre différents scénarios de gestion.
+La fonctionnalité principale des journaux d’Azure Monitor est fournie par un ensemble de services qui s’exécutent dans Azure. Chaque service assure une fonction de gestion spécifique, et vous pouvez combiner plusieurs services pour mettre en œuvre différents scénarios de gestion.
 
 | de diffusion en continu  | Description|
 | :------------- | :-------------|
-| Log Analytics | Surveillez et analysez la disponibilité et les performances de différentes ressources, notamment de machines physiques et virtuelles. |
+| Journaux Azure Monitor | Surveillez et analysez la disponibilité et les performances de différentes ressources, notamment de machines physiques et virtuelles. |
 |Automatisation | Automatisez des processus manuels et appliquez des configurations pour machines physiques et virtuelles. |
 | Sauvegarde | Sauvegardez et restaurez les données critiques. |
 | Site Recovery | Assurez la haute disponibilité des applications critiques. |
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) assure des services de surveillance en collectant les données de ressources gérées et en les regroupant dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
+[Journaux d’analyse Azure](https://azure.microsoft.com/documentation/services/log-analytics) fournit des services de surveillance en collectant des données à partir de ressources managées dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
 
 
 Cette méthode vous permet de consolider les données issues de différentes sources et de combiner ainsi des données de vos services Azure avec votre environnement local existant. En outre, cette approche dissocie clairement la collecte des données de l’exécution d’actions sur ces dernières, de sorte que toutes les actions sont disponibles sur tous les types de données.
 
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Journaux Azure Monitor](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-Le service Log Analytics gère vos données basées sur le cloud en toute sécurité en utilisant les méthodes suivantes :
+Le service Azure Monitor gère vos données basées sur le cloud en toute sécurité à l’aide des méthodes suivantes :
 -   ségrégation des données
 -   conservation des données
 -   sécurité physique
@@ -92,22 +92,22 @@ Le service Log Analytics gère vos données basées sur le cloud en toute sécur
 
 ### <a name="azure-backup"></a>Sauvegarde Azure
 
-Le composant [Sauvegarde Azure](https://azure.microsoft.com/documentation/services/backup) fournit des services de sauvegarde et de restauration des données et fait partie de la suite Log Analytics de produits et services.
+[Sauvegarde Azure](https://azure.microsoft.com/documentation/services/backup) fournit des données de sauvegarde et restauration des services et fait partie de la suite d’Azure Monitor de produits et services.
 Il protège les données de vos applications et les conserve des années durant, sans nécessiter aucun investissement en capital et moyennant des frais d’exploitation minimes. Cette solution permet de sauvegarder des données à partir de serveurs Windows physiques et virtuels, en plus des charges de travail des applications telles que SQL Server et SharePoint. Elle peut également être utilisée par [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) afin de répliquer les données protégées vers Azure pour la redondance et le stockage à long terme.
 
 
 Les données protégées dans le service Sauvegarde Azure sont stockées dans un archivage de sauvegarde situé dans une zone géographique spécifique. Les données sont répliquées dans la même région et, selon le type d’archivage, peuvent également être répliquées vers une autre région afin d’accroître la résilience.
 
 ### <a name="management-solutions"></a>Solutions de gestion
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et cloud.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) est basée sur le cloud solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre réseau local et d’infrastructure cloud.
 
 
-Les [solutions de gestion](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) constituent des ensembles de logiques prépackagés qui implémentent un scénario de gestion spécifique utilisant un ou plusieurs services Log Analytics. Microsoft et ses partenaires mettent à votre disposition différentes solutions que vous pouvez facilement ajouter à votre abonnement Azure pour augmenter la valeur de votre investissement dans Log Analytics. En tant que partenaire, vous pouvez créer vos propres solutions pour prendre en charge vos applications et services et les fournir aux utilisateurs par le biais de la plateforme Place de marché Azure ou des modèles de démarrage rapide.
+[Solutions de gestion](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) constituent des ensembles de logiques prépackagés qui implémentent un scénario de gestion spécifique à l’aide d’un ou plusieurs services Azure Monitor. Différentes solutions sont disponibles à partir de Microsoft et de partenaires que vous pouvez facilement ajouter à votre abonnement Azure pour augmenter la valeur de votre investissement dans Azure Monitor. En tant que partenaire, vous pouvez créer vos propres solutions pour prendre en charge vos applications et services et les fournir aux utilisateurs par le biais de la plateforme Place de marché Azure ou des modèles de démarrage rapide.
 
 
 ![Solutions de gestion](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-La [solution Gestion des mises à jour](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) constitue un bon exemple de solution utilisant plusieurs services pour offrir des fonctionnalités supplémentaires. Cette solution utilise l’agent [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour Windows et Linux afin de collecter les informations relatives aux mises à jour requises sur chaque agent. Elle écrit ces données dans le référentiel Log Analytics qui vous permet de les analyser à l’aide du tableau de bord inclus.
+La [solution Gestion des mises à jour](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) constitue un bon exemple de solution utilisant plusieurs services pour offrir des fonctionnalités supplémentaires. Cette solution utilise le [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent pour Windows et Linux à collecter des informations requises sur chaque agent, les mises à jour. Il écrit ces données dans le référentiel de journaux Azure Monitor où vous pouvez l’analyser avec un tableau de bord inclus.
 
 Lorsque vous créez un déploiement, le système utilise les runbooks d’[Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) pour installer les mises à jour requises. Vous gérez la totalité de ce processus dans le portail et n’avez pas à vous soucier des détails sous-jacents.
 
@@ -149,7 +149,7 @@ Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Se
 
 -   **Ségrégation des données :** les données client sont maintenues séparées logiquement sur chaque composant, dans l'ensemble du service. Toutes les données sont balisées en fonction de l'organisation. Ce balisage est conservé tout au long du cycle de vie des données, et il est appliqué dans chaque couche du service.
 
--   **Accès aux données** : pour fournir des recommandations en matière de sécurité et enquêter sur les éventuelles menaces de sécurité, le personnel de Microsoft peut accéder aux informations collectées ou analysées par les services Azure, notamment les fichiers de vidage sur incident, les événements de création de processus, les captures instantanées et artefacts de disque de machine virtuelle, qui peuvent involontairement exposer des données client ou personnelles provenant de vos machines virtuelles. Nous respectons les [Conditions d’utilisation et la Déclaration de confidentialité de Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qui indiquent que Microsoft n’utilise pas les données client ou ne tire pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires.
+-   **Accès aux données** : pour fournir des recommandations en matière de sécurité et enquêter sur les éventuelles menaces de sécurité, le personnel de Microsoft peut accéder aux informations collectées ou analysées par les services Azure, notamment les fichiers de vidage sur incident, les événements de création de processus, les captures instantanées et artefacts de disque de machine virtuelle, qui peuvent involontairement exposer des données client ou personnelles provenant de vos machines virtuelles. Nous respectons les [Conditions d’utilisation et la Déclaration de confidentialité de Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qui indiquent que Microsoft n’utilise pas les données client ou ne tire pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires.
 
 -   **Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s'effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/en-us/privacystatement/OnlineServices/) de Microsoft.
 
@@ -164,7 +164,7 @@ Le Centre de sécurité Azure collecte des copies éphémères de vos fichiers d
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-La solution [Log Analytics Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) permet au service informatique de surveiller activement toutes les ressources, ce qui peut aider à réduire l’impact des incidents de sécurité. Cette solution possède des domaines de sécurité qui peuvent être utilisés pour la surveillance des ressources. Le domaine de sécurité fournit un accès rapide à des options pour la surveillance de la sécurité. Les domaines suivants sont abordés plus en détail :
+Le [Azure Monitor journaux sécurité](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) et d’Audit permet de solution informatique permettant de surveiller activement toutes les ressources, ce qui peuvent aider à réduire l’impact des incidents de sécurité. Journaux d’analyse Azure Security and Audit ont des domaines de sécurité qui peuvent être utilisées pour la surveillance des ressources. Le domaine de sécurité fournit un accès rapide à des options pour la surveillance de la sécurité. Les domaines suivants sont abordés plus en détail :
 
 -   Évaluation des logiciels malveillants
 -   Update assessment (Évaluation des mises à jour)
@@ -271,6 +271,7 @@ Les types de demandes authentifiées et anonymes suivants sont enregistrés.
 | Demandes utilisant une signature d’accès partagé (SAS), y compris les demandes ayant réussi et ayant échoué |Erreurs de délai d’expiration pour le client et le serveur |
 |   Demandes de données d’analyse |    Demandes GET ayant échoué avec le code d’erreur 304 (non modifié) |
 | Les demandes effectuées par Storage Analytics lui-même, telles que la création ou la suppression d'un journal, ne sont pas enregistrées. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) (Opérations et messages d’état enregistrés Storage Analytics) et [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) (Format de journal de Storage Analytics). |
+
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
 Azure AD inclut également une suite complète de fonctionnalités de gestion d’identité, comme l’authentification multifacteur, l’inscription d’appareil, la gestion de mot de passe libre-service, la gestion de groupes libre-service, la gestion des comptes privilégiés, le contrôle d’accès en fonction du rôle, la surveillance de l’utilisation de l’application, ainsi que la création d’audits complets, la surveillance de la sécurité et la création d’alertes.
@@ -293,7 +294,7 @@ Les rapports fournissent l’enregistrement d’audit pour le nom d’événemen
 |Connexions à partir d’appareils potentiellement infectés |Activité des utilisateurs individuels |   |
 |Utilisateurs ayant une activité de connexion anormale |Rapport d'activité de groupes |   |
 | |Rapport d’activité de l’enregistrement de la réinitialisation de mot de passe |   |
-| |Activité de réinitialisation de mot de passe |   | |
+| |Activité de réinitialisation de mot de passe |   |
 
 
 
@@ -312,7 +313,7 @@ Cet article explique comment protéger votre vie privée et sécuriser vos donn�
 
 Cet article explique
 
--   Comment les données sont collectées, traitées et sécurisées dans la suite Log Analytics.
+-   Comment les données sont collectées, traitées et sécurisées dans la suite d’Azure Monitor.
 
 -   Comment analyser rapidement les événements de plusieurs sources de données. Comment identifier les risques de sécurité et comprendre la portée et l’impact des menaces et des attaques pour atténuer les dommages d’une violation de la sécurité.
 
@@ -335,7 +336,7 @@ Cet article explique
 
 Microsoft place la sécurité au cœur de la conception de ses services et de ses logiciels pour s’assurer de la résilience de son infrastructure de cloud et de sa capacité à se défendre contre les attaques de sécurité.
 
-- [Log Analytics | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Journaux d’Azure Monitor | Sécurité et conformité](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Utilisez les données et les fonctions d’analyse de sécurité de Microsoft pour une détection des menaces plus intelligente et plus efficace.
 

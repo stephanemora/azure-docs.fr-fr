@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 9a9fe0a92f8a8eadbd72ae56303348413a9d10c3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011607"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Mise en route avec le stockage de tables Azure et les appareils connectés Visual Studio
 
@@ -27,7 +27,7 @@ Cet article explique comment bien démarrer avec Stockage Table d’Azure dans V
 
 Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles. Pour obtenir des informations plus générales sur l’utilisation d’Azure Table Storage, consultez la page [Prise en main du stockage de tables Azure à l’aide de .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
-Pour commencer, vous devez d'abord créer une table dans votre compte de stockage. Cet article montre ensuite comment créer une table en C# et comment effectuer des opérations de table de base comme ajouter, modifier, lire et supprimer les entrées d'une table.  Le code utilise la Bibliothèque cliente Azure Storage pour .NET. Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net)(en anglais).
+Pour commencer, vous devez d'abord créer une table dans votre compte de stockage. Cet article montre ensuite comment créer une table en C# et comment effectuer des opérations de table de base comme ajouter, modifier, lire et supprimer les entrées d'une table.  Le code utilise la Bibliothèque cliente Azure Storage pour .NET. Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](https://www.asp.net)(en anglais).
 
 Certaines des API Azure Storage sont asynchrones, et le code dans cet article suppose l'utilisation de méthodes asynchrones. Voir [Programmation asynchrone](https://docs.microsoft.com/dotnet/csharp/async) pour plus d'informations.
 

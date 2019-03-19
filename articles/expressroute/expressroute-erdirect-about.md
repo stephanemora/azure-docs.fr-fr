@@ -1,21 +1,21 @@
 ---
 title: À propos d'ExpressRoute Direct | Microsoft Docs
-description: Cette page propose une vue d’ensemble d’ExpressRoute Direct (préversion).
+description: Cette page fournit une vue d’ensemble de Direct d’ExpressRoute
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100735"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881598"
 ---
-# <a name="about-expressroute-direct-preview"></a>À propos d’ExpressRoute Direct (préversion)
+# <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
 
 ExpressRoute Direct vous offre la possibilité de vous connecter directement au réseau mondial Microsoft à partir d’emplacements d’homologation qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbit/s qui prend en charge la connectivité Active/Active à grande échelle.
 
@@ -25,14 +25,9 @@ Les principales fonctionnalités offertes par ExpressRoute Direct sont les suiva
 * Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire, notamment : banque, secteur public et commerce de détail
 * Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
 
-> [!IMPORTANT]
-> ExpressRoute Direct est actuellement disponible en préversion.
->
-> Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="onboard-to-expressroute-direct"></a>Intégrer à ExpressRoute directe
 
-## <a name="enroll-in-the-preview"></a>S’inscrire à la préversion
-
-Vous devez commencer par inscrire votre abonnement à la préversion pour pouvoir utiliser ExpressRoute Direct. Envoyez pour cela un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement et les informations suivantes :
+Avant d’utiliser ExpressRoute Direct, vous devez d’abord inscrire votre abonnement. Envoyez pour cela un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement et les informations suivantes :
 
 * Scénarios que vous souhaitez réaliser avec **ExpressRoute Direct**
 * Préférences d’emplacement : consultez l’article [Partenaires et emplacements d’homologation](expressroute-locations-providers.md) pour obtenir la liste complète de tous les emplacements
@@ -70,11 +65,11 @@ ExpressRoute Direct prend en charge le balisage VLAN QinQ et Dot1Q.
 
 ## <a name="workflow"></a>Workflow
 
-[ ![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>Contrat SLA
 
-ExpressRoute Direct fournit le même contrat de niveau de service professionnel avec des connexions redondantes Active/Active dans le réseau mondial Microsoft. L’infrastructure ExpressRoute est redondante, et la connectivité au réseau mondial Microsoft est redondante, différente, et s’adapte aux exigences du client. Il n’y a aucun contrat de niveau de service dans la préversion. Cette dernière doit être envisagée uniquement pour les charges de travail hors production.
+ExpressRoute Direct fournit le même contrat de niveau de service professionnel avec des connexions redondantes Active/Active dans le réseau mondial Microsoft. L’infrastructure ExpressRoute est redondante, et la connectivité au réseau mondial Microsoft est redondante, différente, et s’adapte aux exigences du client. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

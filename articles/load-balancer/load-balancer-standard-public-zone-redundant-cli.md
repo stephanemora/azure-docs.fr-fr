@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197791"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592925"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Équilibrer la charge de machines virtuelles entre toutes les zones de disponibilité avec Azure CLI
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Créer une adresse IP publique standard redondante dans une zone
-Pour accéder à votre application sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. Un serveur frontal redondant interzone est servi par toutes les zones de disponibilité d’une région simultanément. Créez une adresse IP publique redondante dans une zone avec [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Par défaut, lorsque vous créez une adresse IP publique standard, elle est redondante dans une zone.
+Pour accéder à votre application sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. Un serveur frontal redondant interzone est servi par toutes les zones de disponibilité d’une région simultanément. Créer une zone redondante adresse IP publique avec [créer az network public-ip](/cli/azure/network/public-ip#az-network-public-ip-create). Par défaut, lorsque vous créez une adresse IP publique standard, elle est redondante dans une zone.
 
 L’exemple suivant crée une adresse IP publique redondante dans une zone nommée *myPublicIP* dans le groupe de ressources *myResourceGroupLoadBalancer*.
 

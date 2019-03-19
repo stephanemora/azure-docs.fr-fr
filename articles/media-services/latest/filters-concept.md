@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 09de372ffdb48c00fde9a43c07f8f8b574462d1f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56372933"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889356"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Définir des filtres de comptes et des filtres d'éléments multimédias  
 
-Quand vous transmettez votre contenu à un client (événements de streaming en direct ou vidéo à la demande), le fichier manifeste de l’élément multimédia par défaut ne permet pas toujours au client d’interagir avec le contenu comme il le voudrait. Azure Media Services vous permet d’appliquer des filtres de comptes et des filtres d’éléments multimédias à votre contenu. 
+Quand vous distribuez votre contenu aux clients (diffusion en continu des événements ou vidéo à la demande) votre client peut-être davantage de flexibilité que celle décrite dans le fichier manifeste de la ressource par défaut. Avec Azure Media Services, vous pouvez définir des filtres de compte et d’élément multimédia à appliquer à votre contenu. 
 
 Les filtres sont des règles côté serveur qui permettent à vos clients d’effectuer des opérations comme : 
 
@@ -38,10 +38,9 @@ Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
 |Protocole|Exemples|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Pour HLS v3, utilisez : `format=m3u8-aapl-v3`.|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="define-filters"></a>Définir des filtres
 
@@ -62,29 +61,29 @@ Utilisez les propriétés suivantes pour décrire les filtres.
 |presentationTimeRange|Plage horaire de présentation. Cette propriété sert à filtrer les points de début/fin du manifeste, la durée de la fenêtre de présentation, et la position de départ du flux en direct. <br/>Pour plus d’informations, consultez [PresentationTimeRange](#PresentationTimeRange).|
 |tracks|Conditions de sélection des pistes. Pour plus d’informations, consultez [tracks](#tracks)|
 
-### <a name="presentationtimerange"></a>PresentationTimeRange
+### <a name="presentationtimerange"></a>presentationTimeRange
 
 Utilisez cette propriété avec les **filtres d’élément multimédia**. Il n’est pas recommandé de définir la propriété avec des **filtres de compte**.
 
 |Nom|Description|
 |---|---|
-|**endTimestamp**|Limite absolue de l’heure de fin. Applicable à la vidéo à la demande (VoD). Pour la présentation en direct, cette propriété est ignorée (mode silencieux) puis appliquée lorsque la présentation se termine et que le flux est transmis en VoD.<br/><br/>La valeur représente un point de fin absolu du flux. Elle est arrondie au début GOP suivant le plus proche.<br/><br/>Utilisez StartTimestamp et EndTimestamp pour ajuster la sélection (manifeste). Par exemple, StartTimestamp=40000000 et EndTimestamp = 100000000 généreront une sélection contenant les éléments multimédia situés entre StartTimestamp et EndTimestamp. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.<br/><br/>Consultez également la définition **forceEndTimestamp** qui suit.|
-|**forceEndTimestamp**|S’applique aux filtres en direct.<br/><br/>**forceEndTimestamp** est une valeur booléenne qui indique si **endTimestamp** a été défini sur une valeur valide. <br/><br/>Si la valeur est **true**, la valeur **endTimestamp** doit être spécifiée. Si elle n’est pas spécifiée, une demande incorrecte est retournée.<br/><br/>Si, par exemple, vous souhaitez définir un filtre commençant à 5 minutes dans la vidéo en entrée, et qui reste valable jusqu'à la fin du flux de données, définissez **forceEndTimestamp** sur la valeur false et omettez le paramètre **endTimestamp**.|
-|**liveBackoffDuration**|S’applique à la lecture en direct uniquement. La propriété est utilisée pour définir la position de la lecture en direct. Cette règle vous permet de différer la position de lecture en direct et de créer une mémoire tampon côté serveur pour les lecteurs. La valeur LiveBackoffDuration dépend de la position en direct. La durée d’interruption en direct maximale est de 300 secondes.|
-|**presentationWindowDuration**|S’applique à la lecture en direct. Utilisez **presentationWindowDuration** pour appliquer une fenêtre glissante à la sélection. Par exemple, définissez presentationWindowDuration=1200000000 pour appliquer une fenêtre glissante de deux minutes. Les éléments multimédia situés à 2 minutes de la session en direct figureront dans la sélection. Si un fragment approche la limite, le fragment entier sera inclus dans la sélection. La durée minimale de la fenêtre de présentation est de 60 secondes.|
-|**startTimestamp**|S’applique aux flux de vidéo à la demande ou en direct. La valeur représente un point de début absolu du flux. Elle est arrondie au début GOP suivant le plus proche.<br/><br/>Utilisez **startTimestamp** et **endTimestamp** pour ajuster la sélection (manifeste). Par exemple, startTimestamp=40000000 et endTimestamp = 100000000 généreront une sélection contenant les éléments multimédia situés entre StartTimestamp et EndTimestamp. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.|
-|**timescale**|S’applique aux flux de vidéo à la demande ou en direct. L’échelle de temps utilisée par les horodatages et les durées spécifiés ci-dessus. L’échelle de temps par défaut est 10 000 000. Une autre échelle de temps peut être utilisée. La valeur par défaut est 10000000 HNS (cent nanosecondes).|
+|**endTimestamp**|Applicable à la vidéo à la demande (VoD).<br/>Pour la présentation de diffusion en continu, il est en mode silencieux ignoré et appliquée lorsque la fin de la présentation et le flux de données devient VoD.<br/>Il s’agit d’une valeur longue qui représente un point de terminaison absolu de la présentation, arrondi au début de GOP suivant le plus proche. L’unité étant l’échelle de temps, un endTimestamp de 1800000000 serait pendant 3 minutes.<br/>Utilisez startTimestamp et endTimestamp à découper les fragments qui figurera dans la liste de lecture (manifeste).<br/>Par exemple, startTimestamp = 40000000 et endTimestamp = 100000000 génère une sélection qui contient des fragments entre 4 secondes et 10 secondes de la présentation de la demande (VOD) à l’aide de l’échelle de temps par défaut. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.|
+|**forceEndTimestamp**|S’applique à la diffusion en continu en direct uniquement.<br/>Indique si la propriété endTimestamp doit être présente. Si la valeur est true, endTimestamp doit être spécifié ou un code de demande incorrecte est retourné.<br/>Valeurs autorisées : false, true.|
+|**liveBackoffDuration**|S’applique à la diffusion en continu en direct uniquement.<br/> Cette valeur définit la dernière position dynamique qui peut rechercher un client.<br/>À l’aide de cette propriété, vous pouvez différer la position de lecture en direct et créer une mémoire tampon côté serveur pour les joueurs.<br/>L’unité de cette propriété est l’échelle de temps (voir ci-dessous).<br/>La valeur maximale en direct de durée d’interruption est de 300 secondes (3000000000).<br/>Par exemple, une valeur de 2000000000 signifie que le contenu le plus récent disponible est de 20 secondes différées à partir de la session réel en direct.|
+|**presentationWindowDuration**|S’applique à la diffusion en continu en direct uniquement.<br/>Utilisez presentationWindowDuration pour appliquer une fenêtre glissante de fragments à inclure dans une sélection.<br/>L’unité de cette propriété est l’échelle de temps (voir ci-dessous).<br/>Par exemple, définissez presentationWindowDuration=1200000000 pour appliquer une fenêtre glissante de deux minutes. Les éléments multimédia situés à 2 minutes de la session en direct figureront dans la sélection. Si un fragment approche la limite, le fragment entier sera inclus dans la sélection. La durée minimale de la fenêtre de présentation est de 60 secondes.|
+|**startTimestamp**|S’applique à la demande (VoD) ou la diffusion en continu de vidéo.<br/>Il s’agit d’une valeur longue qui représente un point de départ absolu du flux. Elle est arrondie au début GOP suivant le plus proche. L’unité étant l’échelle de temps, un startTimestamp de 150000000 serait pendant 15 secondes.<br/>Utilisez startTimestamp et endTimestampp à découper les fragments qui figurera dans la liste de lecture (manifeste).<br/>Par exemple, startTimestamp = 40000000 et endTimestamp = 100000000 génère une sélection qui contient des fragments entre 4 secondes et 10 secondes de la présentation de la demande (VOD) à l’aide de l’échelle de temps par défaut. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.|
+|**timescale**|S’applique à tous les horodatages et les durées dans un intervalle de temps de présentation, spécifié en tant que le nombre d’incréments d’une seconde.<br/>Valeur par défaut est 10000000 - dix millions incréments d’une seconde, où chaque incrément serait longue de 100 nanosecondes.<br/>Par exemple, si vous souhaitez définir un startTimestamp à 30 secondes, vous utiliseriez une valeur de 300000000 lors de l’utilisation de l’échelle de temps par défaut.|
 
 ### <a name="tracks"></a>Pistes
 
-Vous spécifiez une liste de conditions de propriétés de suivi de filtre (FilterTrackPropertyConditions) selon laquelle les pistes de votre flux de données (en live streaming ou en vidéo à la demande) doivent être incluses dans le manifeste créé dynamiquement. Les filtres sont combinés à l’aide d’une opération logique **AND** et **OR**.
+Vous spécifiez une liste de conditions de propriété de suivi de filtre (FilterTrackPropertyConditions) basé sur lequel les pistes de votre flux de données (diffusion en continu ou vidéo à la demande) doivent être inclus dans le manifeste créé dynamiquement. Les filtres sont combinés à l’aide d’une opération logique **AND** et **OR**.
 
 Les conditions de propriétés de suivi de filtre décrivent les types de suivi, les valeurs (spécifiées dans le tableau suivant) et les opérations (Equal, NotEqual). 
 
 |Nom|Description|
 |---|---|
 |**Bitrate**|Utilisez la vitesse de transmission de la piste pour le filtrage.<br/><br/>La valeur recommandée est une plage de vitesses de transmission, en bits par seconde. Par exemple, « 0-2427000 ».<br/><br/>Remarque : vous pouvez utiliser une valeur de vitesse de transmission spécifique, comme 250000 (bits par seconde), mais cette approche n'est pas recommandée car les vitesses de transmission exacts peuvent varier d’un élément multimédia à un autre.|
-|**FourCC**|Utilisez la valeur FourCC de la piste pour le filtrage.<br/><br/>La valeur est le premier élément du format de codecs, tel que spécifié dans [RFC 6381](https://tools.ietf.org/html/rfc6381). À l’heure actuelle, les codecs suivants sont pris en charge : <br/>Pour la vidéo : « avc1 », « hev1 », « hvc1 »<br/>Pour l’audio : « mp4a », « ec-3 »<br/><br/>Pour déterminer les valeurs FourCC des pistes d’un élément multimédia, [obtenez et examinez le fichier manifest](#get-and-examine-manifest-files).|
+|**FourCC**|Utilisez la valeur FourCC de la piste pour le filtrage.<br/><br/>La valeur est le premier élément du format de codecs, tel que spécifié dans [RFC 6381](https://tools.ietf.org/html/rfc6381). À l’heure actuelle, les codecs suivants sont pris en charge : <br/>Pour la vidéo : « avc1 », « hev1 », « hvc1 »<br/>Pour l’audio : « mp4a », « ec-3 »<br/><br/>Pour déterminer les valeurs FourCC pour les pistes dans un élément multimédia, obtenir et examinez le fichier manifest.|
 |**Langage**|Utilisez la langue de la piste pour le filtrage.<br/><br/>La valeur est la balise d’une langue que vous souhaitez inclure, comme indiqué dans RFC 5646. Exemple : « en ».|
 |**Nom**|Utilisez le nom de la piste pour le filtrage.|
 |**Type**|Utilisez le type de la piste pour le filtrage.<br/><br/>Les valeurs suivantes sont autorisées : « video », « audio » ou « text ».|

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096756"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire
 
@@ -43,13 +43,13 @@ Vous exécutez un test de basculement depuis le site principal vers le site seco
 
 Lorsque vous exécutez un test de basculement, vous êtes invité à sélectionner les paramètres réseau des machines de réplication utilisées pour le test, comme résumé dans le tableau.
 
-**Option** | **Détails** 
---- | --- 
-**Aucun** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud et n’est connectée à aucun réseau.<br/><br/> Vous pouvez connecter la machine à un réseau de machines virtuelles après sa création.
-**Utiliser l’existant** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.<br/><br/>Créez un réseau de machines virtuelles isolé de votre réseau de production.<br/><br/>Si vous utilisez un réseau basé sur un réseau VLAN, nous vous recommandons de créer un réseau logique distinct (non utilisé en production) dans VMM, à cet effet. Ce réseau logique est utilisé pour créer des réseaux de machines virtuelles pour le test de basculement.<br/><br/>Le réseau logique doit être associé à au moins une des cartes réseau de tous les serveurs Hyper-V hébergeant des machines virtuelles.<br/><br/>Pour les réseaux logiques VLAN, les sites de réseau que vous ajoutez au réseau logique doivent être isolés.<br/><br/>Si vous utilisez un réseau logique basé sur la fonction de virtualisation réseau Windows, Azure Site Recovery crée automatiquement des réseaux de machines virtuelles isolés. 
-**Créer un réseau** | Un réseau de test temporaire est créé automatiquement, en fonction du paramètre que vous spécifiez dans le champ **Réseau logique** et sur les sites réseau associés.<br/><br/> Le basculement vérifie que les machines virtuelles sont créées. |Vous devez utiliser cette option si un plan de récupération fait appel à plusieurs réseaux de machines virtuelles.<br/><br/> Si vous exploitez des réseaux de virtualisation de réseau Windows, cette option peut être utilisée pour créer automatiquement des réseaux de machines virtuelles à partir des mêmes paramètres (sous-réseaux et pools d’adresses IP) que ceux du réseau de l’ordinateur virtuel de réplication. Ces réseaux de machines virtuelles sont automatiquement nettoyés une fois le test de basculement terminé.<br/><br/> La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.
+| **Option** | **Détails** | |
+| --- | --- | --- |
+| **Aucun** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud et n’est connectée à aucun réseau.<br/><br/> Vous pouvez connecter la machine à un réseau de machines virtuelles après sa création.| |
+| **Utiliser l’existant** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.<br/><br/>Créez un réseau de machines virtuelles isolé de votre réseau de production.<br/><br/>Si vous utilisez un réseau basé sur un réseau VLAN, nous vous recommandons de créer un réseau logique distinct (non utilisé en production) dans VMM, à cet effet. Ce réseau logique est utilisé pour créer des réseaux de machines virtuelles pour le test de basculement.<br/><br/>Le réseau logique doit être associé à au moins une des cartes réseau de tous les serveurs Hyper-V hébergeant des machines virtuelles.<br/><br/>Pour les réseaux logiques VLAN, les sites de réseau que vous ajoutez au réseau logique doivent être isolés.<br/><br/>Si vous utilisez un réseau logique basé sur la fonction de virtualisation réseau Windows, Azure Site Recovery crée automatiquement des réseaux de machines virtuelles isolés. | |
+| **Créer un réseau** | Un réseau de test temporaire est créé automatiquement, en fonction du paramètre que vous spécifiez dans le champ **Réseau logique** et sur les sites réseau associés.<br/><br/> Le basculement vérifie que les machines virtuelles sont créées.<br/><br/> Vous devez utiliser cette option si un plan de récupération fait appel à plusieurs réseaux de machines virtuelles.<br/><br/> Si vous exploitez des réseaux de virtualisation de réseau Windows, cette option peut être utilisée pour créer automatiquement des réseaux de machines virtuelles à partir des mêmes paramètres (sous-réseaux et pools d’adresses IP) que ceux du réseau de l’ordinateur virtuel de réplication. Ces réseaux de machines virtuelles sont automatiquement nettoyés une fois le test de basculement terminé.<br/><br/> La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.|
 
-### <a name="best-practices"></a>Meilleures pratiques
+### <a name="best-practices"></a>Bonnes pratiques
 
 - Tester un réseau de production entraîne une interruption des charges de travail de production. Demandez aux utilisateurs de ne pas utiliser d’applications associées lorsque la simulation de récupération d’urgence est en cours.
 
