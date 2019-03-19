@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 73cba950a159bd1f70fc231f0923e55332af0199
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 63f26c8a4a0a9195083386b18c0fff9439428bf0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108804"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546192"
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Déplacer des données depuis une source OData à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,13 +63,13 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **OData** |OUI |
-| url |URL du service OData. |OUI |
-| authenticationType |Type d’authentification utilisé pour se connecter à la source OData. <br/><br/> Pour OData dans le cloud, les valeurs possibles sont Anonyme, De base et OAuth (notez qu’à l’heure actuelle, Azure Data Factory prend en charge uniquement l’authentification OAuth basée sur Azure Active Directory). <br/><br/> Pour OData en local, les valeurs possibles sont Anonyme, De base et Windows. |OUI |
+| Type |La propriété type doit être définie sur : **OData** |Oui |
+| url |URL du service OData. |Oui |
+| authenticationType |Type d’authentification utilisé pour se connecter à la source OData. <br/><br/> Pour OData dans le cloud, les valeurs possibles sont Anonyme, De base et OAuth (notez qu’à l’heure actuelle, Azure Data Factory prend en charge uniquement l’authentification OAuth basée sur Azure Active Directory). <br/><br/> Pour OData en local, les valeurs possibles sont Anonyme, De base et Windows. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Oui (uniquement si vous utilisez l’authentification de base) |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Oui (uniquement si vous utilisez l’authentification de base) |
 | authorizedCredential |Si vous utilisez OAuth, cliquez sur le bouton **Autoriser** de l’Assistant de copie Data Factory ou de l’éditeur et entrez vos informations d’identification. La valeur de cette propriété sera alors générée automatiquement. |Oui (uniquement si vous utilisez l’authentification OAuth) |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Indiquez uniquement si vous copiez des données à partir de la source OData locale. |Non  |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Spécifiez uniquement si vous copiez des données à partir de la source OData de site. |Non  |
 
 ### <a name="using-basic-authentication"></a>Utilisation de l’authentification de base
 ```json
@@ -80,7 +80,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
         "type": "OData",
         "typeProperties":
         {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -98,7 +98,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
         "type": "OData",
         "typeProperties":
         {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }
@@ -211,7 +211,7 @@ L'exemple copie toutes les heures les données provenant de l’interrogation d'
         "type": "OData",
         "typeProperties":
         {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }

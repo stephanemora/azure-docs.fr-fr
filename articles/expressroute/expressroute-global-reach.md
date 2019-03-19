@@ -5,17 +5,17 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3d2f831da0106bce2c83ee8b0ff3588f721f3ffe
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 17ae4b930d259dedd3e4e202fae69de32d9bf593
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207800"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819546"
 ---
-# <a name="expressroute-global-reach-preview"></a>ExpressRoute Global Reach (préversion)
+# <a name="expressroute-global-reach"></a>Portée mondiale ExpressRoute
 ExpressRoute vous permet de connecter vos réseaux locaux à Microsoft Cloud de manière privée et résiliente. Vous pouvez accéder à de nombreux services Microsoft Cloud, tels que Azure, Office 365 et Dynamics 365, depuis votre centre de données privé ou le réseau de votre entreprise. Par exemple, vous pouvez avoir une succursale à San Francisco avec un circuit ExpressRoute dans la Silicon Valley, et une autre à Londres avec un circuit ExpressRoute dans cette même ville. Les deux succursales peuvent disposer d’une connectivité haut débit avec les ressources Azure situées dans les régions USA Ouest et Royaume-Uni Sud, mais elles ne peuvent pas échanger de données directement entre elles. En d’autres termes, 10.0.1.0/24 peut envoyer des données à 10.0.3.0/24 et 10.0.4.0/24, mais PAS à 10.0.2.0/24.
 
 ![without][1]

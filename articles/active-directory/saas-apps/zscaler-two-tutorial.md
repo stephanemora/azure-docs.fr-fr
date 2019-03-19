@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25b69f13cbf742c2bb98367a3181e45162715d67
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cdfd60cf91df013e097e7e09c04b589416d1f531
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192623"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880668"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutoriel : Intégration d'Azure Active Directory à Zscaler Two
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Didacticiel : Intégration d'Azure Active Directory à Zscaler Two
 
 L’objectif de ce didacticiel est de montrer comment intégrer Zscaler Two à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ Intégrer Zscaler Two à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Zscaler Two, vous avez besoin des éléments suivants :
 
@@ -246,7 +246,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le **nom d’utilisateur** , tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

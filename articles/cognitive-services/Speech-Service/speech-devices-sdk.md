@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d7ef018b376b96f967a065857839761fc5822239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cb0e079eee78f865d472b55b162fb65b5eadaf44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876295"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900486"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>À propos du kit de développement logiciel (SDK) Speech Devices (préversion)
 
-Le [service Speech](overview.md) fonctionne avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Le SDK Speech Devices est une bibliothèque préconfigurée qui est associée à des kits de développement de réseau de microphones sur mesure.
+Le [Services Speech](overview.md) fonctionnent avec un large éventail de périphériques et sources de l’audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Le SDK Speech Devices est une bibliothèque préconfigurée qui est associée à des kits de développement de réseau de microphones sur mesure.
 
 Le SDK Speech Devices vous permet d’effectuer les opérations suivantes :
 * Tester rapidement de nouveaux scénarios de voix.
-* Intégrer plus facilement le service Speech basé sur le cloud à votre appareil.
+* Intégrer plus facilement les Services de reconnaissance vocale basés sur le cloud dans votre appareil.
 * Créer une expérience utilisateur exceptionnelle pour vos clients.
 
-Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md). Il l’utilise pour envoyer l’audio qui est traité par notre algorithme de traitement audio avancé du réseau de microphones de l’appareil vers le [service Speech](overview.md). Il utilise l’audio multicanal pour fournir une [reconnaissance vocale](speech-to-text.md) à champ lointain plus précise, par le biais de la suppression du bruit, l’annulation de l’écho, la formation de faisceaux et la déréverbération.
+Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md). Elle utilise le Speech SDK pour envoyer l’audio traité par notre algorithme avancées de traitement audio à partir du tableau de microphone de l’appareil à la [Services Speech](overview.md). Il utilise l’audio multicanal pour fournir une [reconnaissance vocale](speech-to-text.md) à champ lointain plus précise, par le biais de la suppression du bruit, l’annulation de l’écho, la formation de faisceaux et la déréverbération.
 
 Vous pouvez également utiliser le SDK Speech Devices pour créer des appareils ambiants disposant de votre propre [mot déclencheur personnalisé](speech-devices-sdk-create-kws.md), afin que le signal qui déclenche l’interaction utilisateur soit propre à votre marque.
 
@@ -39,7 +39,7 @@ Actuellement, les conceptions de référence du système de bout en bout complè
 
 |||
 |-|-|
-|[![Logo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fournit des solutions de système d’intelligence artificielle (IA) complètes pour les appareils électroménagers, les automobiles, les robots, les jouets et d’autres secteurs d’activité. Les conceptions de référence de ROOBO réduisent considérablement les délais de commercialisation via l’intégration au service Microsoft Speech. [Visitez ROOBO](http://ddk.roobo.com/).|
+|[![Logo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fournit des solutions de système d’intelligence artificielle (IA) complètes pour les appareils électroménagers, les automobiles, les robots, les jouets et d’autres secteurs d’activité. Conceptions de référence de ROOBO réduisent considérablement le développement temps-to-market via l’intégration avec les Services de reconnaissance vocale de Azure. [Visitez ROOBO](http://ddk.roobo.com/).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

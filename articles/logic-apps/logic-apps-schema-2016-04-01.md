@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 6df29543df2b7b2609582f7e8dd9a0629182760c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849775"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Mises à jour de schéma pour Azure Logic Apps - 1er juin 2016
 
@@ -42,7 +42,7 @@ Ce schéma comporte des étendues, qui vous permettent de regrouper ou d’imbri
             "Http": {
                "inputs": {
                    "method": "GET",
-                   "uri": "http://www.bing.com"
+                   "uri": "https://www.bing.com"
                },
                "runAfter": {},
                "type": "Http"
@@ -69,7 +69,7 @@ Dans les versions de schéma précédentes, les conditions et les boucles étaie
          "Http_2": {
             "inputs": {
                 "method": "GET",
-                "uri": "http://www.bing.com"
+                "uri": "https://www.bing.com"
             },
             "runAfter": {},
             "type": "Http"
@@ -162,7 +162,7 @@ Les actions peuvent désormais comporter une propriété supplémentaire appelé
    "Http": {
       "inputs": {
          "method": "GET",
-         "uri": "http://www.bing.com"
+         "uri": "https://www.bing.com"
       },
       "runAfter": {},
       "type": "Http",

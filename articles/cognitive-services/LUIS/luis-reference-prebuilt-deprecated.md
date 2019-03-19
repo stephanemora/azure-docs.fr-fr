@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 576acb0c03d6701018cefa26118a334d3b9c83b8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6dfba843f9f265100a9ecf9c6f4f0e5003171826
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869600"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863285"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entités prédéfinies dépréciées dans une application LUIS
 Les entités prédéfinies suivantes sont désapprouvées et ne peuvent pas être ajoutées à de nouvelles applications LUIS.
@@ -121,7 +121,7 @@ Entité prédéfinie   |   Entité prédéfinie (sous-types)   |   Exemple d’�
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.american_football.team  ```| ``` green bay packers  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.ice_hockey.team  ```| ``` hamilton bulldogs  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.soccer.team  ```| ``` fc bayern munich  ```|
-```builtin.encyclopedia.organization.organization |builtin.encyclopedia.government.political_party|pertubuhan kebangsaan melayu singapura```|
+```builtin.encyclopedia.organization.organization``` |```builtin.encyclopedia.government.political_party```|```pertubuhan kebangsaan melayu singapura```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.time.event  ```| ``` 1740 batavia massacre   ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.sports.championship_event  ```| ``` super bowl xxxix  ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.award.competition  ```| ``` eurovision song contest 2003  ```|

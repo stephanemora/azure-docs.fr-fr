@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 27e9a5b33170855455e8906b659e0f0c009e42d3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984101"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190020"
 ---
-# <a name="media-encoder-standard-formats-and-codecs-legacy"></a>Codecs et formats Media Encoder Standard (hérités)
+# <a name="media-encoder-standard-formats-and-codecs"></a>Codecs et formats standard de l’encodeur multimédia
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-media-encoder-standard-formats.md)
@@ -30,18 +30,18 @@ Ce document contient la liste des formats de fichier d’importation et d’expo
 
 ## <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
 | Formats de fichier (extensions de fichier) | Pris en charge |
-| --- | --- | --- | --- |
-| FLV (avec les codecs H.264 et AAC) (.flv) |OUI |
-| MXF    (.mxf) |OUI |
-| GXF    (.gxf) |OUI |
-| MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |OUI |
-| Windows Media Video (WMV)/ASF (.wmv, .asf) |OUI |
-| AVI (8 bits/10 bits non compressé) (.avi) |OUI |
-| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |OUI |
+| --- | --- |
+| FLV (avec les codecs H.264 et AAC) (.flv) |Oui |
+| MXF    (.mxf) |Oui |
+| GXF    (.gxf) |Oui |
+| MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Oui |
+| Windows Media Video (WMV)/ASF (.wmv, .asf) |Oui |
+| AVI (8 bits/10 bits non compressé) (.avi) |Oui |
+| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Oui |
 | [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |OUI |
-| Matroska/WebM (.mkv) |OUI |
-| WAVE/WAV (.wav) |OUI |
-| QuickTime (.mov) |OUI |
+| Matroska/WebM (.mkv) |Oui |
+| WAVE/WAV (.wav) |Oui |
+| QuickTime (.mov) |Oui |
 
 > [!NOTE]
 > La liste ci-dessus répertorie les extensions de fichier les plus couramment rencontrées. Media Encoder Standard prend en charge de nombreuses autres extensions (par exemple : .m2ts, .mpeg2video, .qt). Si vous essayez d’encoder un fichier et que vous obtenez un message d’erreur indiquant que le format n’est pas pris en charge, déposez un commentaire [ici](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
@@ -59,39 +59,39 @@ or
 
 ## <a name="input-video-codecs"></a>Codecs vidéo d’entrée
 | Codecs vidéo d’entrée | Pris en charge |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2 |
-| Avid DNxHD (dans MXF) |OUI |
-| DVCPro/DVCProHD (dans MXF) |OUI |
-| Vidéo numérique (dans les fichiers AVI) |OUI |
-| JPEG 2000 |OUI |
+| Avid DNxHD (dans MXF) |Oui |
+| DVCPro/DVCProHD (dans MXF) |Oui |
+| Vidéo numérique (dans les fichiers AVI) |Oui |
+| JPEG 2000 |Oui |
 | MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10) |Jusqu’à un profil de 422 |
-| MPEG-1 |OUI |
-| VC-1/WMV9 |OUI |
+| MPEG-1 |Oui |
+| VC-1/WMV9 |Oui |
 | Canopus HQ/HQX |Non  |
-| MPEG-4 partie 2 |OUI |
-| [Theora](https://en.wikipedia.org/wiki/Theora) |OUI |
-| YUV420 non compressé ou mezzanine |OUI |
-| Apple ProRes 422 |OUI |
-| Apple ProRes 422 LT |OUI |
-| Apple ProRes 422 HQ |OUI |
-| Apple ProRes Proxy |OUI |
-| Apple ProRes 4444 |OUI |
-| Apple ProRes 4444 XQ |OUI |
+| MPEG-4 partie 2 |Oui |
+| [Theora](https://en.wikipedia.org/wiki/Theora) |Oui |
+| YUV420 non compressé ou mezzanine |Oui |
+| Apple ProRes 422 |Oui |
+| Apple ProRes 422 LT |Oui |
+| Apple ProRes 422 HQ |Oui |
+| Apple ProRes Proxy |Oui |
+| Apple ProRes 4444 |Oui |
+| Apple ProRes 4444 XQ |Oui |
 | HEVC/H.265| Profils Main et Main 10 (&#42;)<br/>La prise en charge du profil Main 10 est destinée au contenu 8 bits 4:2:0. |
 
 ## <a name="input-audio-codecs"></a>Codecs audio d’entrée
 | Codecs audio d’entrée | Pris en charge |
-| --- | --- | --- | --- |
-| AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1) |OUI |
-| MPEG Layer 2 |OUI |
-| MP3 (MPEG-1 Audio Layer 3) |OUI |
-| Windows Media Audio |OUI |
-| WAV/PCM |OUI |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |OUI |
-| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |OUI |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |OUI |
-| AMR (adaptive multi-rate) |OUI |
+| --- | --- |
+| AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1) |Oui |
+| MPEG Layer 2 |Oui |
+| MP3 (MPEG-1 Audio Layer 3) |Oui |
+| Windows Media Audio |Oui |
+| WAV/PCM |Oui |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Oui |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Oui |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Oui |
+| AMR (adaptive multi-rate) |Oui |
 | AES (SMPTE 331M et 302M, AES3-2003) |Non  |
 | Dolby® E |Non  |
 | Dolby® Digital (AC3) |Non  |

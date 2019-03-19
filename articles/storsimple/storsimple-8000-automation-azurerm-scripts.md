@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4184d3605c464b5da495de0698155dda1ae4e474
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997879"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Utiliser des scripts basés sur le kit de développement logiciel (SDK) Azure Resource Manager pour gérer les appareils StorSimple
 
@@ -57,7 +57,7 @@ Les exemples de scripts suivants sont disponibles pour automatiser divers travau
 
 Cette section utilise un exemple de script et décrit en détail les différentes étapes requises pour exécuter ce script.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 
@@ -77,7 +77,7 @@ Le script utilisé dans cet exemple répertorie tous les travaux sur un appareil
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Télécharger l’interface de ligne de commande NuGet](http://www.nuget.org/downloads) sous le dossier créé à l’étape précédente. Il existe différentes versions de _nuget.exe_. Choisissez la version correspondant à votre kit de développement logiciel (SDK). Chaque lien de téléchargement pointe directement vers un fichier _.exe_. Veillez à cliquer avec le bouton droit et à enregistrer le fichier sur votre ordinateur plutôt que de l’exécuter à partir du navigateur.
+2. [Télécharger l’interface de ligne de commande NuGet](https://www.nuget.org/downloads) sous le dossier créé à l’étape précédente. Il existe différentes versions de _nuget.exe_. Choisissez la version correspondant à votre kit de développement logiciel (SDK). Chaque lien de téléchargement pointe directement vers un fichier _.exe_. Veillez à cliquer avec le bouton droit et à enregistrer le fichier sur votre ordinateur plutôt que de l’exécuter à partir du navigateur.
 
     Vous pouvez également exécuter la commande suivante pour télécharger et stocker le script dans le même dossier que vous avez créé précédemment.
     

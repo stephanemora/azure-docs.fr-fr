@@ -9,16 +9,16 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103070"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544560"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 **Le Blueprint de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST propose le déploiement clé en main d’une solution PaaS et IaaS Azure afin d’illustrer comment ingérer, stocker, analyser, interagir, identifier et déployer des solutions de manière sécurisée avec des données de santé tout en respectant les exigences de conformité du secteur. Le plan aide à accélérer l’adoption et l’utilisation du cloud pour les clients avec des données réglementées.**
 
@@ -48,7 +48,7 @@ Ce plan est destiné à servir de base modulaire. Il pourra être adapté par le
 
 -   **Diagramme architectural.** Le diagramme illustre l’architecture de référence utilisée pour le plan et l’exemple de scénario de cas d’usage.
 
--   [Extension IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Cette solution montrera comment migrer une solution SQL locale vers Azure et implémenter une station de travail à accès privilégié pour gérer les services et solutions cloud de manière sécurisée. 
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) cette solution va vous montrer comment migrer une solution de basée sur SQL sur site vers Azure et pour implémenter une station de travail de l’accès privilégié pour gérer en toute sécurité des solutions et services basés sur le cloud. 
 
 ## <a name="solution-components"></a>Composants de la solution
 
@@ -78,7 +78,7 @@ L’administrateur du site est responsable de l’abonnement Azure du client. Il
 
 -   Attributions de rôles par défaut : [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Attributions de rôles personnalisées : N/A
+-   Attributions de rôles personnalisées : S.O.
 
 -   Étendue : Abonnement
 
@@ -89,18 +89,18 @@ Il n’a pas accès aux dossiers des patients.
 
 -   Attributions de rôles intégrées : [Contributeur de SQL DB](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contributeur de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Attributions de rôles personnalisées : N/A
+-   Attributions de rôles personnalisées : S.O.
 
 -   Étendue : ResourceGroup
 
- ### <a name="data-scientist"></a>Scientifique des données
+### <a name="data-scientist"></a>Scientifique des données
 
 
 Le scientifique des données assure le fonctionnement du service Azure Machine Learning Studio. Il peut importer, exporter et gérer les données, et exécuter des rapports. Il a accès aux données des patients, mais ne dispose pas des privilèges d’administrateur.
 
 -   Attributions de rôles intégrées : [Contributeur de compte de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Attributions de rôles personnalisées : N/A
+-   Attributions de rôles personnalisées : S.O.
 
 -   Étendue : ResourceGroup
 
@@ -130,7 +130,7 @@ L’auditeur évalue la conformité de la solution. Ils n’ont aucun accès dir
 
 -   Attributions de rôles intégrées : [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Attributions de rôles personnalisées : N/A
+-   Attributions de rôles personnalisées : S.O.
 
 -   Étendue : Abonnement
 
@@ -272,7 +272,7 @@ Quand vous utilisez le script de démonstration .\\HealthcareDemo.ps1 avec le co
 
 **2. Key Vault** est sollicité afin d’obtenir un secret qui est associé au jeton demandé.
 
-**3. Les rôles Azure valident la demande et autorisent la demande d’accès à Key Vault.
+**3. Rôles Azure** valide la demande et autoriser la demande d’accès à Key Vault.
 
 **4. Key Vault** retourne le secret, dans le cas présent la chaîne de connexion à la base de données SQL.
 
@@ -361,8 +361,8 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 ### <a name="azure-alerts"></a>Alertes Azure
 - [Les alertes offrent un moyen de surveiller les services Azure et vous permettent de configurer des conditions sur les données. Elles fournissent également des notifications quand une condition d’alerte correspond aux données de surveillance.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) est un ensemble de services de gestion.
+### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+[Journaux d’analyse Azure](/azure/operations-management-suite/operations-management-suite-overview) est une collection de services de gestion.
 
 -   L’espace de travail est activé pour Security Center
 

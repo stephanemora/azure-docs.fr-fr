@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 8e527d4f580acbff55c07d90c564d443780fce2b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: dc9acae1e4d31e1456cd971fdab2745e7c58e910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892674"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST  
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Dans ce didacticiel, vous allez apprendre à charger un fichier et une autre op�
 > * Charger un fichier vers le stockage d’objets blob à l’aide de l’URL de chargement
 > * Créer des métadonnées dans l’élément multimédia pour le fichier multimédia que vous avez chargé
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous allez apprendre à charger un fichier et une autre op�
 Les considérations suivantes s’appliquent lors de l’utilisation de l’API REST Media Services :
  
 * Lors de l’accès aux entités à l’aide de l’API REST Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md). <br/>La collection Postman utilisée dans ce didacticiel se charge de la définition de tous les en-têtes nécessaires.
-* Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de streaming (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété **Name** ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un ’.’ pour l’extension de nom de fichier.
+* Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de streaming (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété **Name** ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un ’.’ pour l’extension de nom de fichier.
 * La longueur du nom ne doit pas dépasser 260 caractères.
 * Une limite est appliquée à la taille maximale de fichier prise en charge pour le traitement dans Media Services. Consultez [cet](media-services-quotas-and-limitations.md) article pour en savoir plus sur les limites de taille des fichiers.
 
@@ -100,7 +100,7 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Créer une stratégie d’accès avec autorisation d’écriture
 
-### <a name="overview"></a>Vue d’ensemble 
+### <a name="overview"></a>Présentation 
 
 >[!NOTE]
 >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
@@ -118,7 +118,7 @@ Avant de télécharger des fichiers dans le stockage blob, définissez les droit
 
 ## <a name="create-an-asset"></a>Créer une ressource
 
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Présentation
 
 Une [ressource](https://docs.microsoft.com/rest/api/media/operations/asset) est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des sous-titres. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
@@ -139,7 +139,7 @@ Dans cet exemple, vous allez créer un élément multimédia déchiffré.
 
 ## <a name="create-a-sas-locator-and-create-the-upload-url"></a>Créer un localisateur SAS et créer l’URL de chargement
 
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Présentation
 
 Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d’objets blob Microsoft Azure à l’aide des API REST Azure Storage. Vous devez télécharger les fichiers en tant qu’objets blob de blocs. Les objets blob de pages ne sont pas pris en charge par Azure Media Services.  
 
@@ -170,7 +170,7 @@ Certaines considérations s’appliquent :
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Charger un fichier vers le stockage d’objets blob à l’aide de l’URL de chargement
 
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Présentation
 
 Maintenant que vous avez l’URL de chargement, vous devez écrire du code avec les API d’objet blob Azure directement pour charger votre fichier dans le conteneur SAS. Pour plus d’informations, consultez les articles suivants :
 

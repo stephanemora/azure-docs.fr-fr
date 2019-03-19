@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a55839550b57da2ae346e66f4908da39e78b76f3
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 737c72e6225cdfc9fdeec59810ffd9100c48d1ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181756"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Étendre des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 
 Cet article explique comment étendre des disques managés pour une machine virtuelle Linux avec Azure CLI. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, et vous pouvez également étendre un disque de données existant. La taille par défaut de disque dur virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. 
 
 > [!WARNING]
-> Assurez-vous de toujours sauvegarder vos données avant de redimensionner des disques. Pour plus d’informations, consultez [Back up Linux VMs in Azure](tutorial-backup-vms.md) (Sauvegarder des machines virtuelles Linux dans Azure).
+> Toujours vous assurer que votre système de fichiers est dans un état sain et vérifiez que vos données sont sauvegardées avant d’effectuer les opérations de redimensionnement de disque. Pour plus d’informations, consultez [Back up Linux VMs in Azure](tutorial-backup-vms.md) (Sauvegarder des machines virtuelles Linux dans Azure).
 
 ## <a name="expand-an-azure-managed-disk"></a>Étendre un disque managé Azure
 Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az-login).
@@ -141,7 +141,7 @@ Pour utiliser un disque étendu, étendez la partition et le système de fichier
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Pour vérifier que le disque du système d’exploitation a été redimensionné, utilisez `df -h`. L’exemple de sortie ci-après indique que le lecteur de données */dev/sdc1* présente désormais une taille de 200 Go :
+1. Pour vérifier le disque de données a été redimensionné, utilisez `df -h`. L’exemple de sortie ci-après indique que le lecteur de données */dev/sdc1* présente désormais une taille de 200 Go :
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

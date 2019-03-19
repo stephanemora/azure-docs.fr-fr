@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008666"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migration de bases de données existantes pour une mise à l’échelle
 Gérez facilement vos bases de données partitionnées et montées en charge existantes à l’aide des outils de base de données Base de données SQL Azure (comme la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)). Convertissez d’abord un ensemble existant de bases de données pour utiliser le [Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md). 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Pour migrer une base de données partitionnée existante : 
 
 1. Préparez la [base de données pour le Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
@@ -30,7 +30,7 @@ Pour migrer une base de données partitionnée existante :
 3. Préparer les partitions individuelles.  
 4. Ajoutez les mappages à la carte de partitions.
 
-Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou des scripts PowerShell (voir [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)). Les exemples fournis ici utilisent les scripts PowerShell.
+Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou des scripts PowerShell (voir [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)). Les exemples fournis ici utilisent les scripts PowerShell.
 
 Pour plus d’informations sur la classe ShardMapManager, consultez la page [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Pour obtenir une présentation des outils de base de données élastique, consultez [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md).
 

@@ -4,39 +4,39 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: e5f2afa4bc8a4b8eae523fde323d835c0c53fe8e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: f7c189c59b5098ef22491a914a618afda2b5f51e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572098"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554730"
 ---
 ### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
 Le **service lié Stockage Azure** vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide de la **clé de compte**, qui permet à la fabrique de données d’avoir un accès global au Stockage Azure. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure Storage.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété de type doit être définie sur : **AzureStorage** |Oui |
+| Type |La propriété type doit être définie sur : **AzureStorage** |Oui |
 | connectionString |Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. |Oui |
 
-Pour connaître les étapes à suivre pour afficher/copier la clé de compte pour un service Stockage Azure, consultez la section suivante : [Clés d’accès](../articles/storage/common/storage-account-manage.md#access-keys).
+Consultez la section suivante pour obtenir des instructions pour l’affichage ou la copie la clé de compte pour un stockage Azure : [Clés d’accès](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Exemple :**  
 
 ```json
-{  
-    "name": "StorageLinkedService",  
-    "properties": {  
-        "type": "AzureStorage",  
-        "typeProperties": {  
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-        }  
-    }  
-}  
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+    }
+}
 ```
 
 ### <a name="azure-storage-sas-linked-service"></a>Service lié SAP Azure Storage
-Une signature d’accès partagé (SAP) fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte. La SAP est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour obtenir un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d'accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié. Pour plus d’informations sur SAP, consultez [Signatures d’accès partagé : présentation du modèle SAP](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
+Une signature d’accès partagé (SAP) fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte. La SAP est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour obtenir un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d'accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié. Pour plus d’informations sur SAS, consultez [Signatures d’accès partagé : Présentation du modèle SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 > [!IMPORTANT]
 > Azure Data Factory prend maintenant uniquement en charge la **signature d’accès partagé SAS**, et pas la signature d’accès partagé du compte. Pour plus d’informations sur ces deux types et leur construction, consultez [Types de signatures d’accès partagé](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) . Notez l’URL SAS qu’il est possible de générer à partir du portail Azure ou l’Explorateur de stockage est une signature d’accès partagé de compte qui n’est pas prise en charge.
@@ -49,21 +49,21 @@ Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azu
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété de type doit être définie sur : **AzureStorageSas** |Oui |
+| Type |La propriété type doit être définie sur : **AzureStorageSas** |Oui |
 | sasUri |Spécifiez l’URI de signature d’accès partagé des ressources Stockage Azure, telles qu’un objet blob, un conteneur ou une table.  |Oui |
 
 **Exemple :**
 
 ```json
-{  
-    "name": "StorageSasLinkedService",  
-    "properties": {  
-        "type": "AzureStorageSas",  
-        "typeProperties": {  
-            "sasUri": "<Specify SAS URI of the Azure Storage resource>"   
-        }  
-    }  
-}  
+{
+    "name": "StorageSasLinkedService",
+    "properties": {
+        "type": "AzureStorageSas",
+        "typeProperties": {
+            "sasUri": "<Specify SAS URI of the Azure Storage resource>"
+        }
+    }
+}
 ```
 
 Quand vous créez un **URI SAP**, prenez en compte les points suivants :  

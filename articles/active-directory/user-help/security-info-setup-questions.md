@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fd2cd0250e3b3074e5632f30c8dbcc8db41e6e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901880"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurer les informations de sécurité (préversion) pour utiliser les questions de sécurité
 Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
@@ -31,20 +31,22 @@ Selon les paramètres de votre entreprise, vous pourrez peut-être choisir et r�
 
 Si vous utilisez des questions de sécurité, nous vous recommandons de les utiliser conjointement avec une autre méthode. Les questions de sécurité peuvent être moins sécurisées que d’autres méthodes, car certaines personnes peuvent connaître les réponses à vos questions.
 
->[!Note]
->Les questions de sécurité sont stockées de façon privée et sécurisée dans un objet utilisateur du répertoire, elles ne peuvent être posées qu’à vous au moment de l’inscription. L’administrateur ne peut pas lire ni modifier vos questions ou vos réponses.
-
->Si vous ne voyez pas l’option des questions de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser comme moyen de vérification. Si tel est le cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l’aide.
+> [!Note]
+> Les questions de sécurité sont stockées de façon privée et sécurisée dans un objet utilisateur du répertoire, elles ne peuvent être posées qu’à vous au moment de l’inscription. L’administrateur ne peut pas lire ni modifier vos questions ou vos réponses.
+> 
+> Si vous ne voyez pas l’option des questions de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser comme moyen de vérification. Si tel est le cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l’aide.
+> 
+> Comptes d’administrateur ne sont pas autorisés à utiliser les Questions de sécurité comme un mot de passe réinitialisé (méthode). Si vous êtes connecté sous un compte de niveau administrateur, vous ne verrez pas ces options.
 
 ### <a name="to-set-up-your-security-questions"></a>Pour configurer vos questions de sécurité
 
 1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
-    ![Page Mon profil, avec les liens des Informations de sécurité en surbrillance](media/security-info/securityinfo-myprofile.png)
+    ![Page Mon profil, avec les liens des informations de sécurité mis en évidence](media/security-info/securityinfo-myprofile-page.png)
 
-2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** sur la page **Informations de sécurité**.
+2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** dans la page **Informations de sécurité**.
 
-    ![Page Informations de sécurité, avec l’option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Page Informations de sécurité, avec l’option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Sur la page **Ajouter une méthode**, choisissez **Questions de sécurité** dans la liste déroulante, puis sélectionnez **Ajouter**.
 

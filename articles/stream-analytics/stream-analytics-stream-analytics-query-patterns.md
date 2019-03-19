@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663500"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001747"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Les requêtes dans Azure Stream Analytics sont exprimées dans un langage de requête de type SQL. Les constructions de langage sont documentées dans le guide [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Informations de référence sur le langage de requête Stream Analytics). 
 
 La conception des requêtes peut exprimer une logique directe simple pour déplacer les données d’événement d’un flux d’entrée vers une autre banque de données de sortie. Elle peut également effectuer une analyse enrichie temporelle et des critères spéciaux afin de calculer les agrégats sur différentes fenêtres de temps comme dans l’exemple TollApp. Vous pouvez joindre des données provenant de plusieurs entrées pour combiner des événements de diffusion en continu et effectuer des recherches sur les données de référence statiques pour enrichir les valeurs des événements. Vous pouvez également écrire des données vers plusieurs sorties.
@@ -108,7 +108,7 @@ Par exemple, fournir une description de chaîne pour le nombre de voitures de la
 **Sortie**:
 
 | CarsPassed | Temps |
-| --- | --- | --- |
+| --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyota |2015-01-01T00:00:10.0000000Z |
 
@@ -609,6 +609,7 @@ WHERE
 
 
 **Entrée**:
+
 | LicensePlate | Marque | Temps | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
@@ -621,6 +622,7 @@ WHERE
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **Sortie**:
+
 | TollID | Nombre |
 | --- | --- |
 | 1 | 2 |

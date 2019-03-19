@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 2feaa6fa87b6e788683ad543bfb7780b0e517506
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867339"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552059"
 ---
 # <a name="api"></a>API
 
@@ -44,7 +44,7 @@ Insérez cet extrait de code dans l’en-tête HTML de votre page principale (o
 > La fonction de rappel doit être définie avant l’appel à l’API de classement.
 
 > [!TIP]
-> Pour améliorer la latence, l’API de classement est exposée via HTTP au lieu de HTTPS, comme dans `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
+> Pour améliorer la latence, l’API de classement est exposée via HTTP au lieu de HTTPS, comme dans `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > Toutefois, un point de terminaison HTTPS doit être utilisé si la première page est pris en charge par HTTPS.
 
 Lorsque les paramètres ne sont pas utilisés, la réponse HTTP de l’API de classement est une chaîne au format JSONP :

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61603ad5920b6242c3e36429173744125b9eb59e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 41c514706a671f755eb5b0efd5e3eefa5052c6e2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206739"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks - Aperture
 
@@ -35,7 +35,7 @@ L’intégration de Palo Alto Networks - Aperture avec Azure AD vous offre les a
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Palo Alto Networks - Aperture, vous avez besoin des éléments suivants :
 
@@ -149,7 +149,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
     ![Onglet d’authentification](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
-    a. Cochez l’option **Enable Single Sign-On(Supported SSP Providers are Okta, Onelogin)** (Activer l’authentification unique pour ce réseau (Les fournisseurs SSP pris en charge sont Okta, Onelogin)) dans le champ **Authentification unique**.
+    a. Vérifier le **activer unique signe-On(Supported SSP Providers are Okta, One login)** de **Single Sign-On** champ.
 
     b. Dans la zone de texte **ID du fournisseur d’identité**, collez la valeur de **l’ID d’entité SAML** copiée à partir du portail Azure.
 

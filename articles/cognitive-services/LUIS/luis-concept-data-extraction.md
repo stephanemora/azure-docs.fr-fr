@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 385e0065123b86f8f8b7c8503fe6de6daa7c6562
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099829"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extraction de données à partir d’intentions et d’entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
@@ -195,7 +195,7 @@ Le point de terminaison retourne les données suivantes : nom de l’entité et 
 ```
 
 |Objet de données|Parent|Enfant|Valeur|
-|--|--|--|--|--|
+|--|--|--|--|
 |Entité hiérarchique|Lieu|ToLocation|"paris"|
 
 ## <a name="composite-entity-data"></a>Données d’entité composite

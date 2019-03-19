@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 355a144597ce384725d92e64d4a5e4909b18c3d7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246100"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449953"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>S’inscrire pour l’API Analyse de texte
 
@@ -25,7 +25,7 @@ Les ressources Analyse de texte sont disponibles 24h/24 et 7 j/7 dans le cloud. 
 
 + Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), en choisissant **l’API Analyse de texte**. Votre clé est générée lorsque vous vous inscrivez.
 
-Pour l’Analyse de texte, il existe un niveau gratuit pour l’exploration et l’évaluation et des niveaux payants pour les charges de travail de production. Vous pouvez avoir plusieurs inscriptions dans chaque abonnement : un gratuit, un payant et ainsi de suite. Vous pouvez basculer vers un niveau offrant davantage de transactions si votre volume de demandes augmente.
+Pour l’Analyse de texte, il existe un niveau gratuit pour l’exploration et l’évaluation et des niveaux payants pour les charges de travail de production. Vous pouvez avoir plusieurs inscriptions dans chaque abonnement : un gratuit, un payant et ainsi de suite. Vous pouvez basculer vers un niveau offrant davantage de transactions si votre volume de demandes augmente.
 
 Il n’existe aucun contrat de niveau de service pour les services dans la préversion ou le niveau gratuit. Pour plus d’informations, consultez la page [Contrat SLA pour Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)
 

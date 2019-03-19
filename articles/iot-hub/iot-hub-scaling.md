@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810905"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536281"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -33,7 +33,7 @@ Le niveau standard de IoT Hub active toutes les fonctionnalités. Il est requis 
 
 Dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://azure.microsoft.com/pricing/details/iot-hub/) par hub IoT. Par exemple, vous pouvez créer un hub IoT avec plusieurs unités de S1, mais pas avec plusieurs unités de différentes éditions, telles que S1 et B3, ou S1 et S2.
 
-| Fonctionnalité | Niveau de base | Niveau standard |
+| Fonctionnalité | Niveau de base | Niveaux gratuit et Standard |
 | ---------- | ---------- | ------------- |
 | [Télémétrie appareil-à-cloud](iot-hub-devguide-messaging.md) | Oui | Oui |
 | [Identité par appareil](iot-hub-devguide-identity-registry.md) | Oui | Oui |
@@ -53,7 +53,7 @@ IoT Hub propose également un niveau gratuit à des fins de test et d’évaluat
 
 Les Azure IoT Hubs contiennent de nombreux composants de base [Azure Event Hubs](../event-hubs/event-hubs-features.md), y compris des [partitions](../event-hubs/event-hubs-features.md#partitions). Les flux d’événements pour IoT Hubs sont généralement renseignés à l'aide des données de télémétrie entrantes signalées par différents appareils IoT. Le partitionnement du flux d’événements est utilisé pour réduire les conflits qui se produisent lors des opérations simultanées de lecture et d'écriture dans les flux d’événements. 
 
-Le nombre de partitions est choisi lors de la création de l'IoT Hub et ne peut pas être modifié. Le nombre de partitions est limité à 8 pour le niveau de base d’IoT Hub, et à 32 pour le niveau Standard. La plupart des hubs IoT n’ont besoin que de 4 partitions. Pour plus d’informations sur les partitions, consultez le Forum aux questions relatif aux Event Hubs [De combien de partitions ai-je besoin ?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+Le nombre de partitions est choisi lors de la création de l'IoT Hub et ne peut pas être modifié. La limite de partition maximale pour le niveau de base IoT Hub et IoT Hub de niveau standard est 32. La plupart des hubs IoT n’ont besoin que de 4 partitions. Pour plus d’informations sur les partitions, consultez le Forum aux questions relatif aux Event Hubs [De combien de partitions ai-je besoin ?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 
 ## <a name="tier-upgrade"></a>Évolution des niveaux
@@ -67,7 +67,7 @@ La configuration des partitions n'évolue pas lorsque vous migrez du niveau De b
 
 La différence de fonctionnalités prises en charge entre les niveaux de base et standard de IoT Hub réside dans le fait que certains appels d’API ne fonctionnent pas avec des hubs utilisant le niveau de base. Le tableau suivant présente les API disponibles : 
 
-| API | Niveau de base | Niveau standard |
+| API | Niveau de base | Niveaux gratuit et Standard |
 | --- | ---------- | ------------- |
 | [Supprimer un appareil](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Oui | Oui |
 | [Obtenir un appareil](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Oui | Oui |

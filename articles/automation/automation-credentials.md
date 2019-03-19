@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0454bc211d2ae8497babc808f9794fae4d22c47e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 1070cc97624b39ec929f5083f7073179fb1f068c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498163"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899143"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ressources d’informations d’identification dans Azure Automation
 
-Une ressource d’informations d’identification Automation conserve un objet qui contient les informations d’identification de sécurité comme un nom d’utilisateur et un mot de passe. Les Runbooks et les configurations DSC peuvent utiliser les applets de commande qui acceptent un objet PSCredential pour l’authentification, ou ils peuvent extraire le nom d’utilisateur et le mot de passe de l’objet PSCredential pour les fournir à l’application ou au service nécessitant l’authentification. Les propriétés d’informations d’identification sont stockées de manière sécurisée dans Azure Automation et sont accessibles dans le Runbook ou la configuration DSC avec l’activité [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) .
+Une ressource d’informations d’identification Automation conserve un objet qui contient les informations d’identification de sécurité telles qu’un nom d’utilisateur et le mot de passe. Les Runbooks et les configurations DSC peuvent utiliser les applets de commande qui acceptent un objet PSCredential pour l’authentification, ou ils peuvent extraire le nom d’utilisateur et le mot de passe de l’objet PSCredential pour les fournir à l’application ou au service nécessitant l’authentification. Les propriétés d’informations d’identification sont stockées de manière sécurisée dans Azure Automation et sont accessibles dans le Runbook ou la configuration DSC avec l’activité [Get-AutomationPSCredential](#activities) .
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -27,25 +27,25 @@ Une ressource d’informations d’identification Automation conserve un objet q
 
 ## <a name="azure-classic-powershell-cmdlets"></a>Applets de commande PowerShell Azure Classic
 
-Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies dans le cadre du [module Azure PowerShell](/powershell/azure/overview) , utilisable dans les Runbooks Automation et les configurations DSC.
+Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles font partie de la [module Azure PowerShell](/powershell/azure/overview), qui est disponible pour une utilisation dans des runbooks Automation et les configurations DSC.
 
 | Applets de commande | Description |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Récupère des informations sur une ressource d’informations d’identification. Vous pouvez uniquement récupérer les informations d’identification elles-mêmes à partir de l’activité **Get-AutomationPSCredential** . |
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Crée de nouvelles informations d’identification Automation. |
-| [Remove- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Supprime des informations d’identification Automation. |
-| [Set- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Définit les propriétés d’informations d’identification Automation existantes. |
+| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential) |Récupère des informations sur une ressource d’informations d’identification. Vous pouvez uniquement récupérer les informations d’identification elles-mêmes à partir de l’activité **Get-AutomationPSCredential** . |
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Crée de nouvelles informations d’identification Automation. |
+| [Remove-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Supprime des informations d’identification Automation. |
+| [Set-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Définit les propriétés d’informations d’identification Automation existantes. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>Applets de commande AzureRM PowerShell
 
-Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies avec le [module AzureRM.Automation](/powershell/azure/overview), utilisable dans les runbooks Automation et les configurations DSC.
+Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles font partie de la [module AzureRM.Automation](/powershell/azure/overview), qui est disponible pour une utilisation dans des runbooks Automation et les configurations DSC.
 
 | Applets de commande | Description |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Récupère des informations sur une ressource d’informations d’identification.  |
-| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Crée de nouvelles informations d’identification Automation. |
-| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Supprime des informations d’identification Automation. |
-| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Définit les propriétés d’informations d’identification Automation existantes. |
+| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Récupère des informations sur une ressource d’informations d’identification.  |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Crée de nouvelles informations d’identification Automation. |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Supprime des informations d’identification Automation. |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Définit les propriétés d’informations d’identification Automation existantes. |
 
 ## <a name="activities"></a>Activités
 
@@ -53,7 +53,7 @@ Les activités dans le tableau suivant sont utilisées pour accéder aux informa
 
 | Activités | Description |
 |:--- |:--- |
-| Get-AutomationPSCredential |Obtient les informations d’identification à utiliser dans un Runbook ou dans une configuration DSC. Renvoie un objet [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) . |
+| Get-AutomationPSCredential |Obtient les informations d’identification à utiliser dans un Runbook ou dans une configuration DSC. Renvoie un objet [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) . |
 
 > [!NOTE]
 > Évitez d’utiliser des variables dans le paramètre –Name de Get-AutomationPSCredential, car cela complique la découverte des dépendances entre les Runbooks ou configurations DSC et les ressources d’informations d’identification au moment de la conception.
@@ -93,7 +93,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Utilisation des informations d’identification PowerShell
 
-Vous récupérez une ressource d’informations d’identification dans un Runbook ou une configuration DSC avec l’activité **Get-AutomationPSCredential**. Cette propriété renvoie un [objet PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) que vous pouvez utiliser avec une activité ou une applet de commande nécessitant un paramètre PSCredential. Vous pouvez également récupérer les propriétés de l’objet d’informations d’identification pour les utiliser individuellement. L’objet possède une propriété pour le nom d’utilisateur et le mot de passe sécurisé. Vous pouvez également utiliser la méthode **GetNetworkCredential** pour retourner un objet [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) fournissant une version non sécurisée du mot de passe.
+Vous récupérez une ressource d’informations d’identification dans un Runbook ou une configuration DSC avec l’activité **Get-AutomationPSCredential**. Cette propriété renvoie un [objet PSCredential](/dotnet/api/system.management.automation.pscredential) que vous pouvez utiliser avec une activité ou une applet de commande nécessitant un paramètre PSCredential. Vous pouvez également récupérer les propriétés de l’objet d’informations d’identification pour les utiliser individuellement. L’objet possède une propriété pour le nom d’utilisateur et le mot de passe sécurisé. Vous pouvez également utiliser la méthode **GetNetworkCredential** pour retourner un objet [NetworkCredential](/dotnet/api/system.net.networkcredential) fournissant une version non sécurisée du mot de passe.
 
 ### <a name="textual-runbook-sample"></a>Exemple de Runbook textuel
 
@@ -106,19 +106,32 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
+Vous pouvez également utiliser les informations d’identification pour s’authentifier sur Azure avec [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Dans la plupart des cas, vous devez utiliser un [exécuter en tant que compte](manage-runas-account.md) et les récupérer avec [Get-AutomationConnection](automation-connections.md).
+
+```azurepowershell
+$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$userName = $myCred.UserName
+$securePassword = $myCred.Password
+$password = $myCred.GetNetworkCredential().Password
+
+$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$password)
+
+Connect-AzureRmAccount -Credential $myPsCred
+```
+
 ### <a name="graphical-runbook-sample"></a>Exemple de Runbook graphique
 
 Vous ajoutez une activité **Get-AutomationPSCredential** à un Runbook graphique en cliquant avec le bouton droit sur les informations d’identification dans le volet Bibliothèque de l’éditeur graphique et en sélectionnant **Ajouter à la zone de dessin**.
 
 ![Ajout d’informations d’identification à la zone de dessin](media/automation-credentials/credential-add-canvas.png)
 
-L’image suivante montre un exemple d’utilisation d’informations d’identification dans un Runbook graphique.  Dans ce cas, il est utilisé pour l’authentification d’un Runbook auprès des ressources Azure, comme décrit dans [Authentifier des Runbooks avec un compte d’utilisateur Azure AD](automation-create-aduser-account.md).  La première activité récupère les informations d’identification ayant accès à l’abonnement Azure.  L’activité **Add-AzureAccount** utilise ensuite ces informations d’identification pour fournir l’authentification pour toutes les activités qui la suivent.  C’est un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) , étant donné que **Get-AutomationPSCredential** attend un objet unique.  
+L’image suivante montre un exemple d’utilisation d’informations d’identification dans un Runbook graphique.  Dans ce cas, il est utilisé pour l’authentification d’un runbook à des ressources Azure comme décrit dans [authentifier des Runbooks avec un compte d’utilisateur Azure AD](automation-create-aduser-account.md).  La première activité récupère les informations d’identification ayant accès à l’abonnement Azure.  L’activité **Add-AzureAccount** utilise ensuite ces informations d’identification pour fournir l’authentification pour toutes les activités qui la suivent.  C’est un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) , étant donné que **Get-AutomationPSCredential** attend un objet unique.  
 
 ![Ajout d’informations d’identification à la zone de dessin](media/automation-credentials/get-credential.png)
 
 ## <a name="using-a-powershell-credential-in-dsc"></a>Utilisation des informations d’identification PowerShell dans une configuration DSC
 
-Bien que les configurations DSC dans Azure Automation puissent se rapporter à des ressources d’informations d’identification utilisant **Get-AutomationPSCredential**, les ressources d’information d’identification peuvent également transmises via des paramètres, si vous le souhaitez. Pour plus d’informations, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md#credential-assets).
+Tandis que les configurations DSC dans Azure Automation peuvent faire référence à des ressources d’informations d’identification à l’aide de **Get-AutomationPSCredential**, les ressources d’informations d’identification peuvent également être transmis dans via des paramètres, si vous souhaitiez. Pour plus d’informations, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
 ## <a name="using-credentials-in-python2"></a>Utilisation des informations d’identification dans Python2
 
@@ -141,5 +154,3 @@ print cred["password"]
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 * Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md) 
 * Pour commencer avec les runbooks Python2, consultez [My first Python2 runbook](automation-first-runbook-textual-python2.md) (Mon premier Runbook Python2). 
-
-

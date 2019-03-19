@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875184"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et SQL Data Warehouse
 
@@ -32,7 +32,7 @@ Microsoft Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data 
 
 Outre les règles d’adresses IP, le pare-feu gère également *les règles de réseau virtuel*. Les règles de réseau virtuel dépendent des points de terminaison de service de réseau virtuel. Les règles de réseau virtuel peuvent être préférables aux règles d’adresses IP dans certains cas. Pour plus d’informations, voir [Points de terminaison de service de réseau virtuel et règles dans Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 À la base, tout accès à votre serveur SQL Azure est bloqué par le pare-feu SQL Database. Pour accéder à votre serveur de base de données, vous devez spécifier une ou plusieurs règles de pare-feu IP au niveau du serveur qui permettent l’accès à votre serveur SQL Azure. Utilisez les règles de pare-feu IP pour spécifier les plages d’adresses IP Internet qui sont autorisées, et si les applications Azure peuvent essayer de se connecter à votre serveur Azure SQL.
 
@@ -82,7 +82,7 @@ Pour autoriser des applications d’Azure à se connecter à Azure SQL Server, l
 
 ## <a name="creating-and-managing-ip-firewall-rules"></a>Création et gestion des règles de pare-feu IP
 
-Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail Azure](https://portal.azure.com/) ou par programmation avec [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l’interface de ligne de commande Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Les règles de pare-feu IP au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, et avec Transact-SQL.
+Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail Azure](https://portal.azure.com/) ou par programmation avec [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), [l’interface de ligne de commande Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Les règles de pare-feu IP au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, et avec Transact-SQL.
 
 > [!IMPORTANT]
 > Les règles de pare-feu IP au niveau de la base de données peuvent être créées et gérées seulement avec Transact-SQL.
@@ -149,17 +149,21 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>Gérer des règles de pare-feu IP au niveau du serveur avec Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+
 | Applet de commande | Niveau | Description |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Serveur |Retourne les règles de pare-feu IP au niveau du serveur actuelles |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Serveur |Crée une règle de pare-feu IP au niveau du serveur |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Serveur |Met à jour les propriétés d’une règle de pare-feu IP au niveau du serveur existante |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Serveur |Supprime des règles de pare-feu IP au niveau du serveur |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Serveur |Retourne les règles de pare-feu au niveau du serveur actuelles |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Serveur |Crée une règle de pare-feu au niveau du serveur |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Serveur |Met à jour les propriétés d’une règle de pare-feu au niveau du serveur existante |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Serveur |Supprime des règles de pare-feu au niveau du serveur |
 
 L’exemple suivant définit une règle de pare-feu IP au niveau du serveur à l’aide de PowerShell :
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```
@@ -240,7 +244,7 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
   Si vous avez une connexion Internet avec un adressage IP dynamique et que le pare-feu demeure infranchissable, vous pouvez essayer une des solutions suivantes :
   
-  - Demandez à votre fournisseur de services Internet (ISP) la plage d’adresses IP attribuée à vos ordinateurs clients qui accèdent au serveur Azure SQL Database, puis ajoutez cette plage dans une règle de pare-feu IP.
+  - Demandez à votre fournisseur de services Internet (ISP) pour la plage d’adresses IP affectée à vos ordinateurs clients qui accèdent au serveur de base de données SQL Azure et ajoutez la plage d’adresses IP en tant qu’une règle de pare-feu IP.
   - Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez les adresses IP dans des règles de pare-feu IP.
 
 ## <a name="next-steps"></a>Étapes suivantes

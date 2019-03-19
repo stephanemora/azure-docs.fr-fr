@@ -1,20 +1,20 @@
 ---
 title: Création d’un IoT Hub Azure à l’aide de l’API REST du fournisseur de ressources | Microsoft Docs
 description: Utilisation de l’API REST du fournisseur de ressources pour créer un IoT Hub.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 6da222086f29c4b492652d924b4d98e9780eaa53
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 04850d16a9affc51bae5fbfb23fd4dff51a79340
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434595"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089928"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Création d’un IoT Hub à l’aide de l’API REST du fournisseur de ressources (.NET)
 
@@ -24,6 +24,8 @@ Vous pouvez utiliser [l’API REST du fournisseur de ressources IoT Hub][lnk-res
 
 > [!NOTE]
 > Azure a deux modèles de déploiement différents pour créer et utiliser des ressources :  [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite de l’utilisation du modèle de déploiement Azure Resource Manager.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -70,7 +72,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
@@ -164,10 +166,10 @@ Vous pouvez maintenant terminer l’application en appelant la méthode **Create
 
 3. Cliquez sur **Déboguer**, puis **Démarrer le débogage** pour exécuter l’application. Le déploiement peut prendre plusieurs minutes.
 
-4. Pour vérifier que votre application a bien ajouté le nouvel IoT Hub, accédez au [portail Azure][lnk-azure-portal] et affichez votre liste de ressources. Vous pouvez également utiliser l’applet de commande PowerShell **Get-AzureRmResource**.
+4. Pour vérifier que votre application a bien ajouté le nouvel IoT Hub, accédez au [portail Azure][lnk-azure-portal] et affichez votre liste de ressources. Vous pouvez également utiliser le **Get-AzResource** applet de commande PowerShell.
 
 > [!NOTE]
-> Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous est facturé. Lorsque vous avez terminé, vous pouvez supprimer le IoT Hub par le biais du [portail Azure][lnk-azure-portal] ou à l’aide de l’applet de commande PowerShell **Remove-AzureRmResource**.
+> Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous est facturé. Lorsque vous avez terminé, vous pouvez supprimer le hub IoT via le [Azure portal] [ lnk-azure-portal] ou à l’aide de la **Remove-AzResource** applet de commande PowerShell lorsque vous avez terminé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez déployé un IoT Hub à l’aide de l’API REST du fournisseur de ressources, vous pouvez aller encore plus loin :
@@ -188,7 +190,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 

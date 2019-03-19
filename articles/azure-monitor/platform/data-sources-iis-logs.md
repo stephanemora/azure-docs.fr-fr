@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ca951c813554ae253cbd572e03c53b8687499af9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 94bdc0670fb63b1b4c306a5af3357f437784338c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007932"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux IIS dans Azure Monitor
 Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor et stockés en tant que [données de journal](data-collection.md).
@@ -72,7 +72,7 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | W3CIISLog |Tous les enregistrements de journaux IIS. |
 | W3CIISLog &#124; où scStatus==500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |
 | W3CIISLog &#124; résumer count() par cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
-| W3CIISLog &#124; où csHost==« www.contoso.com » &#124; résumer count() par csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
+| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Entrées de journal de nombre d’IIS par URL pour l’hôte www\.contoso.com. |
 | W3CIISLog &#124; résumer sum(csBytes) par ordinateur &#124; prendre 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
 
 ## <a name="next-steps"></a>Étapes suivantes

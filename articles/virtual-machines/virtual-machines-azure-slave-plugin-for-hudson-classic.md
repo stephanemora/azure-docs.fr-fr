@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: HT
+ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27704420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999795"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
 Le plug-in subordonné Azure pour Hudson vous permet d’approvisionner des nœuds subordonnés sur Azure lors de l'exécution de builds distribués.
@@ -105,7 +105,7 @@ Un modèle de machine virtuelle définit les paramètres qui seront utilisés pa
      ![configuration du modèle][template config]
 13. Dans **Image Family or Id** (Famille d'images ou ID), vous devez spécifier l'image système qui sera installée sur votre ordinateur virtuel. Vous pouvez faire votre choix dans une liste de familles d'images ou spécifier une image personnalisée.
     
-     Si vous souhaitez faire votre choix dans une liste de familles d'images, entrez le premier caractère (respectez la casse) du nom de famille de l'image. Par exemple, le fait de taper **U** affichera une liste des familles de serveurs Ubuntu. Une fois que vous avez fait votre choix dans la liste, Hudson utilisera la version la plus récente de cette image système de cette famille lors de la mise en service de l'ordinateur virtuel.
+     Si vous souhaitez faire votre choix dans une liste de familles d'images, entrez le premier caractère (respectez la casse) du nom de famille de l'image. Par exemple, le fait de taper **U** affichera une liste des familles de serveurs Ubuntu. Une fois que vous avez fait votre choix dans la liste, Jenkins utilisera la version la plus récente de l’image système de cette famille lors de la mise en service de l’ordinateur virtuel.
     
      ![liste de famille de système d'exploitation][OS family list]
     
@@ -183,12 +183,12 @@ Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un 
 Hudson crée ensuite un nœud subordonné à l'aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l'étape de build pour ce travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java].
 
 <!-- URL List -->
 
-[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
-[profil d’abonnement]: http://go.microsoft.com/fwlink/?LinkID=396395
+[Centre de développement Java]: https://azure.microsoft.com/develop/java/
+[profil d’abonnement]: https://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

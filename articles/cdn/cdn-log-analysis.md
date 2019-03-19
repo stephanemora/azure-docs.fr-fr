@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: magattus
-ms.openlocfilehash: 45b3698dd77bda815218b43405d64819c3e4789f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ef713c954d6eab05259547a277db12a1e9036bcf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091264"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650544"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analyse des modèles d’utilisation CDN Azure
 
@@ -27,7 +27,7 @@ Après avoir activé le CDN pour votre application, vous pouvez surveiller l’u
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Analytique principale via les journaux de diagnostic Azure
 
-L’analytique principale est disponible pour les points de terminaison CDN à tous les niveaux tarifaires. Les journaux de diagnostic Azure permettent d’exporter l’analytique principale vers un stockage Azure, des hubs d’événements ou Azure Log Analytics. Azure Log Analytics offre une solution avec des graphiques configurables par l’utilisateur et personnalisables. Pour plus d’informations sur les journaux de diagnostic Azure, consultez [Journaux de diagnostic Azure](cdn-azure-diagnostic-logs.md).
+L’analytique principale est disponible pour les points de terminaison CDN à tous les niveaux tarifaires. Les journaux de diagnostic Azure autoriser analytique core à exporter vers le stockage Azure, concentrateurs d’événements ou journaux Azure Monitor. Journaux d’Azure Monitor offre une solution avec des graphiques configurables par l’utilisateur et personnalisables. Pour plus d’informations sur les journaux de diagnostic Azure, consultez [Journaux de diagnostic Azure](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Rapports principaux de Verizon
 

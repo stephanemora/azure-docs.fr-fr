@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999366"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776646"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -85,12 +85,12 @@ Le tableau suivant répertorie les paramètres standard pour toutes les solution
 
 | Paramètre | Type | Description |
 |:--- |:--- |:--- |
-| accountName |chaîne |Nom de compte Azure Automation. |
-| pricingTier |chaîne |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
-| regionId |chaîne |Région du compte Azure Automation. |
-| solutionName |chaîne |Nom de la solution.  Si vous déployez votre solution via des modèles de démarrage rapide, vous devez définir solutionName comme un paramètre afin de pouvoir définir une chaîne au lieu d’obliger l’utilisateur à en spécifier une. |
-| workspaceName |chaîne |Nom de l’espace de travail Log Analytics. |
-| workspaceRegionId |chaîne |Région de l’espace de travail Log Analytics. |
+| accountName |string |Nom de compte Azure Automation. |
+| pricingTier |string |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
+| regionId |string |Région du compte Azure Automation. |
+| solutionName |string |Nom de la solution.  Si vous déployez votre solution via des modèles de démarrage rapide, vous devez définir solutionName comme un paramètre afin de pouvoir définir une chaîne au lieu d’obliger l’utilisateur à en spécifier une. |
+| workspaceName |string |Nom de l’espace de travail Log Analytics. |
+| workspaceRegionId |string |Région de l’espace de travail Log Analytics. |
 
 
 Voici la structure des paramètres standards que vous pouvez copier et coller dans votre fichier de solution.  
@@ -229,13 +229,6 @@ L’entité **plan** de la ressource de solution possède les propriétés indiq
 | product |Chaîne unique pour identifier la solution. |
 | publisher |Éditeur de la solution. |
 
-
-
-## <a name="sample"></a>Exemple
-Vous pouvez voir des exemples de fichiers de solution avec une ressource de solution aux emplacements suivants.
-
-- [Ressources Automation](solutions-resources-automation.md#sample)
-- [Ressources de recherche et d’alerte](solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

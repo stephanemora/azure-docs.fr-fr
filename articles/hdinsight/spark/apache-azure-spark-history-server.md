@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792779"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076800"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
 
@@ -106,11 +106,11 @@ Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil p
 
 + Lisez le travail en cliquant sur le bouton **Lecture**, et arrêtez quand vous le souhaitez en cliquant sur le bouton Arrêter. La tâche s’affiche dans une couleur indiquant l’état lors de la lecture :
 
-    + Vert pour une opération réussie : Le travail s'est terminé avec succès.
-    + Orange pour une nouvelle tentative : Des tâches ont échoué sans que cela n'affecte le résultat final du travail. Ces tâches comportaient des doublons ou des instances de nouvelle tentative susceptibles de réussir par la suite.
-    + Bleu pour une tâche en cours d'exécution : La tâche est en cours d'exécution.
-    + Blanc pour une tâche en attente ou ignorée : La tâche est en attente d'exécution ou la phase a été ignorée.
-    + Rouge pour un échec : La tâche a échoué.
+  + Vert pour une opération réussie : Le travail s'est terminé avec succès.
+  + Orange pour une nouvelle tentative : Des tâches ont échoué sans que cela n'affecte le résultat final du travail. Ces tâches comportaient des doublons ou des instances de nouvelle tentative susceptibles de réussir par la suite.
+  + Bleu pour une tâche en cours d'exécution : La tâche est en cours d'exécution.
+  + Blanc pour une tâche en attente ou ignorée : La tâche est en attente d'exécution ou la phase a été ignorée.
+  + Rouge pour un échec : La tâche a échoué.
 
     ![Échantillon de couleur En cours d’exécution du graphique](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil p
     ![Info-bulle du graphique](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + Dans l’onglet du graphique du travail, une info-bulle et une petite icône sont affichées pour les phases si certaines de leurs tâches répondent aux critères ci-dessous :
-    + Asymétrie des données : taille des lectures de données > taille moyenne des lectures de données de toutes les tâches de cette phase * 2, et taille des lectures de données > 10 Mo.
-    + Asymétrie temporelle : durée d'exécution > durée moyenne d'exécution de toutes les tâches de cette phase * 2, et durée d'exécution > 2 minutes.
+  + Asymétrie des données : taille des lectures de données > taille moyenne des lectures de données de toutes les tâches de cette phase * 2, et taille des lectures de données > 10 Mo.
+  + Asymétrie temporelle : durée d'exécution > durée moyenne d'exécution de toutes les tâches de cette phase * 2, et durée d'exécution > 2 minutes.
 
     ![Icône de l’asymétrie graphique](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + Le nœud de graphique du travail affiche les informations suivantes sur chaque phase :
-    + ID ;
-    + nom ou description ;
-    + nombre total de tâches ;
-    + lecture de données : somme de la taille d’entrée et de la taille de lecture aléatoire ;
-    + écriture de données : somme de la taille de sortie et de la taille d’écriture aléatoire ;
-    + durée d’exécution : délai entre l’heure de début de la première tentative et l’heure de fin de la dernière tentative ;
-    + nombre de lignes : somme des enregistrements d’entrée, des enregistrements de sortie, des enregistrements de lecture aléatoire et des enregistrements d’écriture aléatoire ;
-    + progression.
+  + ID ;
+  + nom ou description ;
+  + nombre total de tâches ;
+  + lecture de données : somme de la taille d’entrée et de la taille de lecture aléatoire ;
+  + écriture de données : somme de la taille de sortie et de la taille d’écriture aléatoire ;
+  + durée d’exécution : délai entre l’heure de début de la première tentative et l’heure de fin de la dernière tentative ;
+  + nombre de lignes : somme des enregistrements d’entrée, des enregistrements de sortie, des enregistrements de lecture aléatoire et des enregistrements d’écriture aléatoire ;
+  + progression.
 
     > [!NOTE]  
     > Par défaut, le nœud de graphique du travail affiche les informations de la dernière tentative de chaque phase (à l’exception du délai d’exécution de la phase) ; pendant la lecture cependant, il présente les informations de chaque tentative.
@@ -312,10 +312,10 @@ Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utili
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Regardez sur **Principal** et **Travail**.
-    + **Paramètres** : définissez les paramètres suivant l’utilisation de l’interpréteur de commandes.
+   + Regardez sur **Principal** et **Travail**.
+   + **Paramètres** : définissez les paramètres suivant l’utilisation de l’interpréteur de commandes.
 
-    ![Charger des journaux ou mettre à niveau le correctif logiciel](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![Charger des journaux ou mettre à niveau le correctif logiciel](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>Problèmes connus

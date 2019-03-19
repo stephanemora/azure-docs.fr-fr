@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189357"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 
@@ -42,7 +42,7 @@ Un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents)
 
 ### <a name="pass-through"></a>Requête directe
 
-![transmission directe](./media/live-streaming/pass-through.png)
+![transmission directe](./media/live-streaming/pass-through.svg)
 
 Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Les objets LiveEvent pass-through sont optimisés pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 h/24, 365 jours/an). Si vous créez ce type d’événement en direct, spécifiez le paramètre None (LiveEventEncodingType.None).
 
@@ -56,11 +56,16 @@ Consultez un exemple de code .NET dans [MediaV3LiveApp](https://github.com/Azur
 
 ### <a name="live-encoding"></a>Encodage en direct  
 
-![encodage en temps réel](./media/live-streaming/live-encoding.png)
+![encodage en temps réel](./media/live-streaming/live-encoding.svg)
 
 Quand vous utilisez Live Encoding avec Media Services, vous configurez votre encodeur live local pour qu’il envoie un flux vidéo à une seule vitesse de transmission comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct encode ce flux vidéo à une seule vitesse de transmission entrant en [flux vidéo à vitesse de transmission multiple](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), pour rendre sa transmission et sa lecture possibles sur les appareils via des protocoles comme MPEG-DASH, HLS et Smooth Streaming. Si vous créez ce type d’événement en direct, spécifiez le type d’encodage **Standard** (LiveEventEncodingType.Standard).
 
 Vous pouvez envoyer le flux de contribution à une résolution jusqu’à 1080p et à une fréquence de 30 images/seconde, avec un codec vidéo H.264/AVC et un codec audio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Pour plus d’informations, consultez l’article [Comparaison des types d’événements en direct](live-event-types-comparison.md).
+
+Lorsque vous utilisez l’encodage en temps réel (Live un événement défini sur **Standard**), la présélection d’encodage définit comment le flux entrant est codé en plusieurs débits binaires ou couches. Pour plus d’informations, consultez [Présélections de système](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> Actuellement, la seule présélection valeur autorisée pour le type d’événement en direct Standard est *Default720p*. Si vous devez utiliser une présélection d’encodage personnalisée en direct, veuillez contacter amshelp@microsoft.com. Vous devez spécifier la table souhaitée de résolution et des débits binaires. Vérifiez qu’il n'existe qu’une seule couche à 720p et au maximum 6 couches.
 
 ## <a name="live-event-creation-options"></a>Options de création d’événements en direct
 
@@ -145,5 +150,4 @@ Pour plus d’informations, consultez [Utilisation d’un magnétoscope numériq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Diffusion d'événements en direct](live-streaming-overview.md)
-- [Didacticiel sur le streaming en direct](stream-live-tutorial-with-api.md)
+[Didacticiel sur le streaming en direct](stream-live-tutorial-with-api.md)

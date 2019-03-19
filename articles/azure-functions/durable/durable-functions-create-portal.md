@@ -10,21 +10,21 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 3ad657fb695d88ffc75a37ee566ce59126906748
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108067"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
 
 L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Functions est fournie dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Cette extension doit être installée dans votre application de fonction. Cet article explique comment installer ce package, pour vous permettre de développer des fonctions durables dans le portail Azure.
 
->[!NOTE]
->
->* Si vous développez des fonctions durables dans C#, pensez plutôt à utiliser le [développement Visual Studio 2017](durable-functions-create-first-csharp.md).
-* Si vous développez des fonctions durables dans JavaScript, pensez plutôt à utiliser le [développement Visual Studio Code](./quickstart-js-vscode.md).
+> [!NOTE]
+> 
+> * Si vous développez des fonctions durables dans C#, pensez plutôt à utiliser le [développement Visual Studio 2017](durable-functions-create-first-csharp.md).
+> * Si vous développez des fonctions durables dans JavaScript, pensez plutôt à utiliser le [développement Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 

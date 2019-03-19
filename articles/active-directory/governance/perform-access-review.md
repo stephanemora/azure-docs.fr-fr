@@ -1,6 +1,6 @@
 ---
-title: Démarrer une révision d’accès avec les révisions d’accès Azure AD | Microsoft Docs
-description: Découvrez comment démarrer une révision d’accès avec les révisions d’accès Azure Active Directory.
+title: Réviser l’accès à des groupes ou des applications dans les révisions d’accès Azure AD | Microsoft Docs
+description: Découvrez comment réviser les accès des membres du groupe ou l’accès aux applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,46 +11,97 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/16/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6a137796c24f97364b044484d2be739ae5412d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 097d230e919e6d4b56e6c677364610bda6630f75
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171170"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728384"
 ---
-# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Démarrer une révision d’accès avec les révisions d’accès Azure AD
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Réviser l’accès à des groupes ou des applications dans les révisions d’accès Azure AD
 
-Azure Active Directory (Azure AD) simplifie la manière dont les entreprises gèrent l’accès aux applications et aux membres des groupes dans Azure AD et d’autres services en ligne Microsoft, avec une fonction appelée révision d’accès. Vous avez peut-être reçu un e-mail de la part de Microsoft vous invitant à réviser l’accès, les membres d’un groupe ou les utilisateurs ayant accès à une application. 
+Azure Active Directory (Azure AD) simplifie la façon dont les entreprises gèrent l’accès aux groupes et applications dans Azure AD et d’autres Services en ligne de Microsoft avec une fonctionnalité appelée révisions d’accès Azure AD.
 
-## <a name="open-an-access-review"></a>Ouvrir une révision d’accès
+Cet article décrit comment un réviseur désigné effectue une révision d’accès pour les membres d’un groupe ou les utilisateurs ayant accès à une application.
 
-Pour voir les révisions d’accès en attente, cliquez sur le lien de révision d’accès contenu dans l’e-mail. À compter d’août 2018, les notifications par e-mail des rôles Azure AD affichent désormais une nouvelle conception visuelle. L’illustration suivante montre un exemple d’e-mail qui est envoyé à un utilisateur pour l’inviter à être réviseur. 
+## <a name="open-the-access-review"></a>Ouvrez la révision d’accès
 
-![E-mail de révision d’accès](./media/perform-access-review/new-ar-email.png)
+La première étape pour effectuer une révision d’accès consiste à rechercher et ouvrir la révision d’accès.
 
-Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les révisions d’accès en procédant comme suit :
+1. Recherchez un message électronique à partir de Microsoft qui vous invitant à réviser les accès. Voici un exemple d’e-mail pour passer en revue l’accès pour un groupe.
 
-1. Connectez-vous au [panneau d’accès Azure AD](https://myapps.microsoft.com).
+    ![E-mail de révision d’accès](./media/perform-access-review/access-review-email.png)
 
-2. Sélectionnez le symbole d’utilisateur dans le coin supérieur droit de la page, qui affiche votre nom et organisation par défaut. Si plusieurs organisations sont listées, sélectionnez l’organisation qui a demandé une révision d’accès.
+1. Cliquez sur le **démarrer révision** lien pour ouvrir la révision d’accès.
 
-3. Si une vignette étiquetée **Révisions d’accès** figure à droite de la page, cliquez dessus. Si la vignette n’est pas visible, cela signifie qu’il n’y a pas de révisions d’accès à effectuer pour cette organisation et qu’aucune action n’est nécessaire pour l’instant.
+Si vous n’avez pas reçu l’e-mail, vous pouvez trouver que votre accès en attente passe en revue en suivant ces étapes.
 
-## <a name="fill-out-an-access-review"></a>Remplir une révision d’accès
+1. Connectez-vous au portail MyApps à [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-Lorsque vous sélectionnez une révision d’accès dans la liste, vous obtenez les noms des utilisateurs qui doivent être révisés. Si la demande portait sur la révision d’un de vos propres accès, vous ne verrez peut-être que votre nom.
+    ![Portail MyApps](./media/perform-access-review/myapps-access-panel.png)
 
-Pour chaque ligne de la liste, vous pouvez décider d’accepter ou de refuser l’accès de l’utilisateur. Sélectionnez la ligne et choisissez d’accepter ou de refuser. (Si vous ne connaissez pas l’utilisateur, vous pouvez aussi le mentionner.)
+1. Dans le coin supérieur droit de la page, cliquez sur le symbole d’utilisateur, qui affiche votre nom et organisation par défaut. Si plusieurs organisations sont listées, sélectionnez l’organisation qui a demandé une révision d’accès.
 
-Le réviseur peut demander que vous fournissiez une justification en cas d’acceptation d’un accès permanent ou d’une appartenance à un groupe.
+1. Sur le côté droit de la page, cliquez sur le **révisions d’accès** vignette pour afficher une liste des révisions d’accès en attente.
+
+    Si la vignette n’est pas visible, cela signifie qu’il n’y a pas de révisions d’accès à effectuer pour cette organisation et qu’aucune action n’est nécessaire pour l’instant.
+
+    ![Liste des révisions d’accès](./media/perform-access-review/access-reviews-list.png)
+
+1. Cliquez sur le **commencer la révision** lien pour la révision d’accès que vous souhaitez effectuer.
+
+## <a name="perform-the-access-review"></a>Effectuer la révision d’accès
+
+Une fois que vous avez ouvert la révision d’accès, vous voyez les noms des utilisateurs qui doivent être révisés.
+
+Si la demande est de réviser son propre accès, la page aura un aspect différente. Pour plus d’informations, consultez [vous-même réviser l’accès à des groupes ou des applications](review-your-access.md).
+
+![Effectuer la révision d’accès](./media/perform-access-review/perform-access-review.png)
+
+Il existe deux méthodes que vous pouvez approuver ou refuser l’accès :
+
+- Vous pouvez approuver ou refuser chaque demande individuellement, ou
+- Vous pouvez accepter les recommandations système, qui est le moyen le plus simple et plus rapide.
+
+### <a name="approve-or-deny-access-for-each-request"></a>Approuver ou refuser l’accès pour chaque demande
+
+1. Passez en revue la liste des utilisateurs à décider s’il faut approuver ou refuser leur accès continu.
+
+1. Pour approuver ou refuser chaque demande, cliquez sur la ligne pour ouvrir la fenêtre pour spécifier l’action à entreprendre.
+
+1. Cliquez sur **approuver** ou **refuser**. Si vous n’êtes pas sûr, vous pouvez cliquer sur **ne sais pas**. Cela entraînera l’utilisateur conservant son accès, mais la sélection apparaîtront dans les journaux d’audit.
+
+    ![Effectuer la révision d’accès](./media/perform-access-review/approve-deny.png)
+
+    L’administrateur de la révision d’accès peut nécessiter que vous fournissez une raison pour l’approbation d’un accès permanent ou l’appartenance au groupe.
+
+1. Une fois que vous avez spécifié l’action à entreprendre, cliquez sur **enregistrer**.
+
+    Si vous souhaitez modifier votre réponse, sélectionnez la ligne et mettre à jour de la réponse. Par exemple, vous pouvez approuver un utilisateur précédemment refusé ou refuser un utilisateur accepté précédemment. Vous pouvez modifier votre réponse à tout moment jusqu'à ce que la révision d’accès s’est terminée.
+
+    S’il existe plusieurs réviseurs, la dernière réponse envoyée est enregistrée. Prenons un exemple où un administrateur désigne deux relecteurs : Alice et Bob. Alice ouvre d’abord la révision d’accès et approuve les accès. Avant la fin de la révision, Bob ouvre la révision d’accès et refuse l’accès. La dernière refuser la réponse est ce qui est enregistré.
+
+    > [!NOTE]
+    > Si l’accès est refusé à un utilisateur, elles ne sont pas supprimées immédiatement. Ils sont supprimés lors de la révision est terminée ou lorsqu’un administrateur interrompt la révision.
+
+### <a name="approve-or-deny-access-based-on-recommendations"></a>Approuver ou refuser l’accès selon les recommandations
+
+Pour rendre les révisions d’accès plus facile et plus rapide pour vous, nous fournissons également des recommandations que vous pouvez accepter en un seul clic. Les recommandations sont générées en fonction de l’activité de connexion de l’utilisateur.
+
+1. Dans la barre bleue en bas de la page, cliquez sur **accepter les recommandations**.
+
+    ![Accepter les recommandations](./media/perform-access-review/accept-recommendations.png)
+
+    Vous consultez un résumé des actions recommandées.
+
+    ![Accepter les recommandations de résumé](./media/perform-access-review/accept-recommendations-summary.png)
+
+1. Cliquez sur **Ok** d’accepter les recommandations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Un accès refusé pour un utilisateur n’est pas supprimé immédiatement. Il peut être supprimé une fois la révision terminée ou lorsqu’un administrateur interrompt la révision. Si vous souhaitez modifier votre réponse et accepter un utilisateur précédemment refusé, ou refuser un utilisateur accepté précédemment, sélectionnez la ligne, réinitialisez la réponse et choisissez une nouvelle réponse. Vous pouvez suivre cette procédure jusqu'à la fin de la révision d’accès.
-
-
-
+- [Effectuer une révision d’accès des groupes ou des applications](complete-access-review.md)

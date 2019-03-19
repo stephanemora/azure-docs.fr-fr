@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/19/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9e16c3bb4e4e5ba384bdc664e2c056acb0b70caf
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448226"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825884"
 ---
 ### <a name="what-is-expressroute-direct"></a>Présentation d’ExpressRoute Direct
 
@@ -23,9 +23,9 @@ Avec ExpressRoute Direct, les clients ont la possibilité de se connecter direct
 
 Les clients doivent se faire aider de leurs opérateurs locaux et de leurs fournisseurs de colocalisation pour obtenir une connectivité aux routeurs ExpressRoute dans le but d’utiliser ExpressRoute Direct.
 
-### <a name="what-locations-will-the-100-gbps-expressroute-direct-be-available-for-public-preview"></a>Dans quelles régions la préversion publique d’ExpressRoute Direct 100 Gbits/s est disponible ? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>Quels emplacements prend actuellement en charge directe de ExpressRoute ? 
 
-Un nombre limité de régions d’appairage ExpressRoute prennent en charge cette préversion publique. Les ports disponibles sont dynamiques et sont fournis par PowerShell pour afficher la capacité. Les régions, qui *sont susceptibles d’être modifiées selon la disponibilité*, sont les suivantes :
+Les ports disponibles sont dynamiques et sont fournis par PowerShell pour afficher la capacité. Les régions, qui *sont susceptibles d’être modifiées selon la disponibilité*, sont les suivantes :
 
 * Amsterdam
 * Canberra

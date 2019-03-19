@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 7639e4b4c02ace067887cd678f773a745ef08640
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 8fcd85a42deab2ea5f7d8587b276eca106f6dd97
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279613"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553502"
 ---
-**Disques de machine virtuelle non gérés standard : par limites de disques**
+**Disques standard de machine virtuelle non gérée : Limites par disque**
 
-| Niveau Machine Virtuelle | Niveau de base - Machine virtuelle | Niveau standard - Machine virtuelle |
+| Niveau d’ordinateur virtuel | Niveau de base machine virtuelle | Niveau standard machine virtuelle |
 | --- | --- | --- |
-| Taille du disque |4095 Go |4095 Go |
-| Maximum 8 Ko d'opérations d'E/S par seconde par disque |300 |500 |
-| Nombre maximal de disques exécutant un nombre maximal d’opérations d’E/S |66 |40 |
+| Taille du disque |4 095 GO |4 095 GO |
+| Maximum 8 Ko IOPS par disque persistant |300 |500 |
+| Nombre maximal de disques qui effectuent le nombre maximal d’IOPS |66 |40 |
 

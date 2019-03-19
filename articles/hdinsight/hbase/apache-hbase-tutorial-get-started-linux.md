@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 556d67bb67e9eb01c442cdf158561f16a5bcf922
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875938"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Prise en main d’un exemple Apache HBase dans HDInsight
 
@@ -23,7 +23,7 @@ Découvrez comment créer un cluster [Apache HBase](https://hbase.apache.org/) d
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant d’essayer cet exemple HBase, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -111,7 +111,7 @@ Dans HBase (une implémentation de [Cloud BigTable](https://cloud.google.com/big
 
 HBase propose plusieurs méthodes pour charger des données dans des tables.  Pour en savoir plus, consultez la rubrique [Chargement en bloc](https://hbase.apache.org/book.html#arch.bulk.load).
 
-Vous trouverez un exemple de fichier de données dans un conteneur de blobs public, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Le contenu du fichier de données est le suivant :
+Vous trouverez un exemple de fichier de données dans un conteneur blob public, *wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt*.  Le contenu du fichier de données est le suivant :
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -175,14 +175,14 @@ Vous pouvez interroger les données des tables HBase à l’aide d’[Apache Hiv
 
 L’API REST est sécurisée à l’aide de l’ [authentification de base](https://en.wikipedia.org/wiki/Basic_access_authentication). Vous devrez toujours effectuer les demandes à l’aide du protocole Secure HTTP (HTTPS) pour vous assurer que vos informations d’identification sont envoyées en toute sécurité au serveur.
 
-2. Utilisez la commande suivante pour répertorier les tables HBase existantes :
+1. Utilisez la commande suivante pour répertorier les tables HBase existantes :
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. Utilisez la commande suivante pour créer une table HBase avec deux familles de colonnes :
+1. Utilisez la commande suivante pour créer une table HBase avec deux familles de colonnes :
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -194,7 +194,7 @@ L’API REST est sécurisée à l’aide de l’ [authentification de base](http
     ```
 
     Le schéma est fourni au format JSon.
-4. Utilisez la commande suivante pour insérer des données :
+1. Utilisez la commande suivante pour insérer des données :
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -212,7 +212,7 @@ L’API REST est sécurisée à l’aide de l’ [authentification de base](http
    * Sm9obiBEb2xl: John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) vous permet d’insérer plusieurs valeurs (par lot).
-5. Utilisez la commande suivante pour obtenir une ligne :
+1. Utilisez la commande suivante pour obtenir une ligne :
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -247,15 +247,15 @@ HBase dans HDInsight est livré avec une interface utilisateur web pour la surve
 2. Dans le menu de gauche, cliquez sur **HBase**.
 3. Cliquez sur **Liens rapides** en haut de la page, pointez vers le lien de nœud Zookeeper actif, puis cliquez sur **HBase Master UI (Interface utilisateur principale HBase)**.  L’interface utilisateur est ouverte dans un autre onglet de navigateur :
 
-  ![Interface utilisateur principale HDInsight HBase](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![Interface utilisateur principale HDInsight HBase](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  L’interface utilisateur principale HBase comporte les sections suivantes :
+   L’interface utilisateur principale HBase comporte les sections suivantes :
 
-  - serveurs de région
-  - serveurs de sauvegarde
-  - tables
-  - tâches
-  - attributs logiciels
+   - serveurs de région
+   - serveurs de sauvegarde
+   - tables
+   - tâches
+   - attributs logiciels
 
 ## <a name="delete-the-cluster"></a>Supprimer le cluster
 Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster.

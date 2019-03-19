@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: bdb9b48549d24565fdafb9ac1c3215029445793c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58172833"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Présentation de l’accélérateur de solution de maintenance prédictive
 
@@ -27,7 +27,7 @@ Le diagramme suivant décrit les composants logiques de l’accélérateur de so
 
 ![Architecture logique][img-architecture]
 
-Les éléments en bleu sont des services Azure configurés dans la région dans laquelle vous avez déployé l’accélérateur de solution. La liste des régions dans lesquelles vous pouvez déployer l’accélérateur de solution apparaît sur la [page de configuration][lnk-azureiotsuite].
+Les éléments en bleu sont des services Azure configurés dans la région dans laquelle vous avez déployé l’accélérateur de solution. La liste des régions dans lesquelles vous pouvez déployer l’accélérateur de solution apparaît sur la [page de configuration][lnk-azureiotsolutions].
 
 L’élément vert simule un moteur d’avion. Des informations supplémentaires sur ces appareils simulés sont disponibles dans la section [Simulations d’appareils](#simulated-devices).
 
@@ -39,7 +39,7 @@ Dans le portail Azure, accédez au groupe de ressources portant le nom de soluti
 
 ![Ressources de l’accélérateur][img-resource-group]
 
-Lorsque vous approvisionnez l’accélérateur de solution, vous recevez un e-mail contenant un lien vers l’espace de travail Machine Learning. Vous pouvez également accéder à l’espace de travail Machine Learning à partir de la page [Accélérateurs de solution Microsoft Azure IoT][lnk-azureiotsuite]. Une vignette est disponible sur cette page lorsque le statut de la solution est **Prêt**.
+Lorsque vous approvisionnez l’accélérateur de solution, vous recevez un e-mail contenant un lien vers l’espace de travail Machine Learning. Vous pouvez également accéder à l’espace de travail Machine Learning à partir de la page [Accélérateurs de solution Microsoft Azure IoT][lnk-azureiotsolutions]. Une vignette est disponible sur cette page lorsque le statut de la solution est **Prêt**.
 
 ![Modèle Machine Learning][img-machine-learning]
 
@@ -71,7 +71,7 @@ IoT Hub fournit un accusé de réception de la commande de l’appareil.
 **L’hôte de processeur d’événements** s’exécute dans une tâche web Azure. Le **processeur d’événements** mémorise les valeurs moyennes des capteurs sur un cycle terminé. Il les transmet à un modèle formé pour calculer la durée de vie utile restante d’un moteur. Une API permet d’accéder au modèle dans un espace de travail Machine Learning qui fait partie de la solution.
 
 ## <a name="machine-learning"></a>Machine Learning
-Le composant Machine Learning utilise un modèle dérivé des données collectées à partir des moteurs d’avion réels. Vous pouvez accéder à l’espace de travail Machine Learning depuis la vignette sur la page [azureiotsuite.com][lnk-azureiotsuite]. La vignette est disponible lorsque le statut de la solution est **Prêt**.
+Le composant Machine Learning utilise un modèle dérivé des données collectées à partir des moteurs d’avion réels. Vous pouvez accéder à l’espace de travail Machine Learning à partir de la vignette sur le [azureiotsolutions.com] [ lnk-azureiotsolutions] page. La vignette est disponible lorsque le statut de la solution est **Prêt**.
 
 Le modèle Machine Learning est disponible comme modèle qui montre comment utiliser les données télémétriques recueillies via les services des accélérateurs de solution IoT. Microsoft a créé un [modèle de régression][lnk_regression_model] d’un moteur d’avion basé sur des données disponibles publiquement<sup>\[1\]</sup> et des instructions d’utilisation détaillées.
 
@@ -93,7 +93,7 @@ Vous pouvez également explorer certaines des autres fonctionnalités des accél
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

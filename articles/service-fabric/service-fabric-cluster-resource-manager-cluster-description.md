@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834585"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120531"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Description d’un cluster Service Fabric
 Le Gestionnaire de ressources de cluster Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster. Pendant l’exécution, Cluster Resource Manager utilise ces informations pour garantir une haute disponibilité des services en cours d’exécution dans le cluster. Tout en appliquant ces règles importantes, il essaie aussi d’optimiser la consommation de ressources au sein du cluster.
@@ -47,6 +47,7 @@ Il est important que les domaines d’erreur soient configurés correctement, ca
 Dans le graphique ci-dessous, nous avons indiqué en couleur toutes les entités qui contribuent aux domaines d’erreur et nous avons répertorié tous les domaines d’erreur différents qui en résultent. Dans cet exemple, nous avons des centres de données (« DC »), des racks (« R ») et des panneaux (« B »). En théorie, si chaque panneau contient plusieurs machines virtuelles, il peut exister une autre couche dans la hiérarchie de domaine d’erreur.
 
 <center>
+
 ![Nœuds organisés par domaines d’erreur][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Il est préférable d’avoir le même nombre de nœuds à chaque niveau de prof
 À quoi ressemblent des domaines déséquilibrés ? Le schéma ci-dessous montre deux dispositions de cluster différentes. Dans le premier exemple, les nœuds sont répartis uniformément entre les domaines d’erreur. Dans le deuxième exemple, un domaine d’erreur contient beaucoup plus de nœuds que les autres domaines d’erreur. 
 
 <center>
+
 ![Deux dispositions de cluster différentes][Image2]
 </center>
 
@@ -72,7 +74,8 @@ Les domaines de mise à niveau sont très semblables aux domaines d’erreur, av
 Le diagramme suivant illustre trois domaines de mise à niveau répartis sur trois domaines d’erreur. Il montre également un emplacement possible pour trois réplicas différents d’un service avec état, où chaque réplica est attribué à des domaines d’erreur et de mise à niveau différents. Ce positionnement autorise la perte d’un domaine d’erreur au cours de la mise à niveau d’un service tout en conservant une copie du code et des données.  
 
 <center>
-![Positionnement avec des domaines d’erreur et de mise à niveau][Image3]
+
+![Positionnement avec des domaines d’erreur et mise à niveau][Image3]
 </center>
 
 Il existe des avantages et des inconvénients au fait de disposer de nombreux domaines de mise à niveau. Davantage de domaines de mise à niveau signifie que chaque étape de la mise à niveau est plus précise et qu’elle affecte ainsi un plus petit nombre de nœuds ou de services. De ce fait, il y a moins de services à déplacer simultanément, ce qui limite l’activité au sein du système. Cela tend à améliorer la fiabilité, car un pan moins important du service est affecté dans le cas de l’introduction d’un problème pendant la mise à niveau. Davantage de domaines de mise à niveau signifie aussi que vos besoins en mémoire tampon sur les autres nœuds sont moindres pour gérer l’impact de la mise à niveau. Par exemple, si vous avez cinq domaines de mise à niveau, les nœuds présents dans chacun gèrent environ 20 % du trafic. Si vous avez besoin d’arrêter un domaine de mise à niveau pour effectuer une mise à niveau, cette charge doit en principe être affectée autre part. Comme il vous reste quatre domaines de mise à niveau, chacun d’eux doit pouvoir prendre en charge environ 5 % du trafic total. Davantage de domaines de mise à niveau signifie moins de besoins en mémoire tampon sur les nœuds du cluster. Par exemple, imaginons que vous disposez de 10 domaines de mise à niveau. Dans ce cas, chaque domaine de mise à niveau ne gèrerait qu’environ 10 % du trafic total. Quand une mise à jour parcourt le cluster, chaque domaine n’a besoin de prendre en charge qu’environ 1,1 % du trafic total. Le fait de disposer d’un plus grand nombre domaines de mise à niveau vous permet généralement d’exécuter vos nœuds à un taux d’utilisation plus élevé, car vous avez moins besoin de capacité réservée. Cela vaut aussi pour les domaines d’erreur.  
@@ -88,7 +91,8 @@ Il n’existe aucune limite réelle au nombre total de domaines d’erreur ou de
 - Un modèle « agrégé par bandes » ou de « matrice » dans lequel les domaines d’erreur et les domaines de mise à niveau forment une matrice où les machines s’exécutent généralement en suivant la matrice diagonale
 
 <center>
-![Dispositions de domaines d’erreur et de mise à niveau][Image4]
+
+![Dispositions d’erreur et domaine de mise à niveau][Image4]
 </center>
 
 Il n’existe pas de disposition idéale, chacune ayant des avantages et des inconvénients. Par exemple, le modèle à un domaine d’erreur pour un domaine de mise à niveau est simple à mettre en place. Le modèle à un domaine de mise à niveau par nœud ressemble davantage au modèle généralement adopté. Lors des mises à niveau, chaque nœud est mis à jour indépendamment. Il s’agit d’un processus analogue à celui qui consistait par le passé à mettre à jour manuellement des petits groupes d’ordinateurs. 
@@ -190,9 +194,9 @@ L’approche « sécurité de quorum » offre plus de souplesse que l’approche
 Dans la mesure où les deux approches présentent des avantages et des inconvénients, nous avons introduit une approche adaptative qui combine ces deux stratégies.
 
 > [!NOTE]
->Il s’agit du comportement par défaut à compter de Service Fabric version 6.2. 
->
-L’approche adaptative utilise la logique de « différence maximale » par défaut et ne bascule vers la logique de « sécurité de quorum » que si nécessaire. Cluster Resource Manager détermine automatiquement quelle stratégie est nécessaire en examinant la façon dont le cluster et les services sont configurés. Pour un service donné : *si TargetReplicaSetSize est divisible uniformément par le nombre de domaines d’erreur et le nombre de domaines de mise à niveau **et** le nombre de nœuds est inférieur ou égal au (nombre de domaines d’erreur) \* (nombre de domaines de mise à niveau), Cluster Resource Manager doit utiliser la logique « basée sur le quorum » pour ce service.* Gardez à l’esprit que Cluster Resource Manager utilise cette approche à la fois pour les services avec et sans état, même si la perte de quorum n’est pas pertinente pour les services sans état.
+> Il s’agit du comportement par défaut à compter de Service Fabric version 6.2. 
+> 
+> L’approche adaptative utilise la logique de « différence maximale » par défaut et ne bascule vers la logique de « sécurité de quorum » que si nécessaire. Cluster Resource Manager détermine automatiquement quelle stratégie est nécessaire en examinant la façon dont le cluster et les services sont configurés. Pour un service donné : *si TargetReplicaSetSize est divisible uniformément par le nombre de domaines d’erreur et le nombre de domaines de mise à niveau **et** le nombre de nœuds est inférieur ou égal au (nombre de domaines d’erreur) \* (nombre de domaines de mise à niveau), Cluster Resource Manager doit utiliser la logique « basée sur le quorum » pour ce service.* Gardez à l’esprit que Cluster Resource Manager utilise cette approche à la fois pour les services avec et sans état, même si la perte de quorum n’est pas pertinente pour les services sans état.
 
 Revenons à l’exemple précédent et supposons qu’un cluster a maintenant 8 nœuds (le cluster est encore configuré avec cinq domaines d’erreur et cinq domaines de mise à niveau, et la valeur TargetReplicaSetSize d’un service hébergé sur ce cluster reste cinq). 
 
@@ -225,7 +229,7 @@ Revenons à la quatrième disposition et à TargetReplicaSetSize avec la valeur 
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |N/A |N/A |N/A |N/A |N/A |N/A |
+| **UD0** |S.O. |N/A |N/A |N/A |N/A |S.O. |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
@@ -344,14 +348,16 @@ Parfois (en réalité, la plupart du temps), vous voudrez faire en sorte que cer
 Pour prendre en charge ces types de configurations, Service Fabric dispose d’une notion de premier ordre des balises qui peuvent être appliquées aux nœuds. Ces balises sont appelés **propriétés de nœud**. Les **contraintes de placement** sont les instructions associées aux différents services que vous sélectionnez pour une ou plusieurs propriétés de nœud. Les contraintes de placement définissent là où les services doivent s’exécuter. L’ensemble de contraintes est extensible ; n’importe quelle paire clé/valeur peut fonctionner. 
 
 <center>
-![Disposition du cluster avec différentes charges de travail][Image5]
+
+![Mise en page différentes charges de travail de cluster][Image5]
 </center>
 
 ### <a name="built-in-node-properties"></a>Propriétés de nœud intégrées
 Service Fabric définit certaines propriétés de nœud par défaut qui peuvent être utilisées automatiquement sans que l’utilisateur ait à les définir. Les propriétés par défaut définies sur chaque nœud sont **NodeType** et **NodeName**. Par exemple, vous pouvez écrire une contrainte de placement ainsi : `"(NodeType == NodeType03)"`. En règle générale, NodeType est l’une des propriétés les plus couramment utilisées. Elle est utile, car elle correspond parfaitement à un type de machine. Chaque type de machine correspond à un type de charge de travail dans une application multicouche classique.
 
 <center>
-![Contraintes de placement et propriétés de nœud][Image6]
+
+![Les contraintes de placement et propriétés de nœud][Image6]
 </center>
 
 ## <a name="placement-constraint-and-node-property-syntax"></a>Syntaxe des contraintes de placement et des propriétés de nœud 
@@ -474,6 +480,7 @@ Si vous avez désactivé toutes les fonctions d’*équilibrage* des ressources,
 Pendant l’exécution, Cluster Resource Manager assure le suivi de la capacité restante dans le cluster et sur les nœuds. Pour ce faire, Cluster Resource Manager soustrait la consommation de chaque service à la capacité du nœud sur lequel le service s’exécute. Grâce à ces informations, Cluster Resource Manager de Service Fabric peut déterminer où placer ou déplacer les réplicas afin que les nœuds ne dépassent pas la capacité.
 
 <center>
+
 ![Nœuds de cluster et capacité][Image7]
 </center>
 
@@ -603,7 +610,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur l’architecture et le flux d’informations dans Cluster Resource Manager, consultez [cet article ](service-fabric-cluster-resource-manager-architecture.md)
+* Pour plus d’informations sur le flux de l’architecture et les informations dans Cluster Resource Manager, consultez [cet article](service-fabric-cluster-resource-manager-architecture.md)
 * La définition des mesures de défragmentation est une façon de consolider la charge sur les nœuds au lieu de la répartir. Pour savoir comment configurer la défragmentation, reportez-vous à [cet article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Commencez au début pour [obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur [l’équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)

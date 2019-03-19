@@ -1,5 +1,5 @@
 ---
-title: Limitations d’Azure Active Directory B2B Collaboration | Microsoft Docs
+title: Limitations de la collaboration B2B - Azure Active Directory | Microsoft Docs
 description: Limitations actuelles d’Azure Active Directory B2B Collaboration
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5fff22494f21c00caa8e5b238461ce74fd882bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7bf4d1d0f510ccad614452db74c291f6c61dcf54
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201599"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672302"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitations d’Azure AD B2B Collaboration
 Azure Active Directory (Azure AD) B2B Collaboration subit actuellement les limitations décrites dans le présent article.

@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: af72b0255c8e01398048f075134efb452f28b81e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 00c50f95324e18f738740a9bec572ca676ab9165
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010608"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
 
@@ -154,7 +154,7 @@ Oui, vous pouvez utiliser le Portail Azure pour déployer les nouvelles référe
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Dans quelles régions puis-je utiliser les nouvelles références SKU ?
 
-Les nouvelles références SKU sont disponibles dans les régions Azure disposant de Zones de disponibilité Azure, c’est-à-dire les régions USA Centre, France Centre, Europe Nord, Europe Ouest et USA Ouest 2. Prochainement, des passerelles redondantes interzone seront disponibles dans d’autres régions Azure publiques.
+Consultez [Zones de disponibilité](../availability-zones/az-overview.md#regions-that-support-availability-zones) pour obtenir la liste des régions disponibles.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Puis-je changer/migrer/mettre à niveau mes passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes interzone ?
 

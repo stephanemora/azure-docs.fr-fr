@@ -16,18 +16,18 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efc8c0f0581878d41eb62cbfbd88aec730ecf789
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d33866fff9ded2d5e844864975e491907637986e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175234"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441234"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Ouverture des ports de pare-feu requis pour une application de proxy d’application
 
 Pour voir la liste complète des ports requis et la fonction de chaque port, consultez la section dédiée aux conditions préalables de la [documentation du proxy d’application](application-proxy-add-on-premises-application.md). Le proxy d’application utilise uniquement des ports de sortie.
 
-Vous pouvez également vérifier si tous les ports requis sont ouverts par le biais de l’[outil de test des ports du connecteur](https://aadap-portcheck.connectorporttest.msappproxy.net/) à partir de votre réseau local. Un nombre plus élevé de coches vertes signifie une résilience accrue. 
+Vous pouvez également vérifier si vous disposez de tous les ports requis sont ouverts en ouvrant le [Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) à partir de votre réseau local. Un nombre plus élevé de coches vertes signifie une résilience accrue. 
 
 ## <a name="app-proxy-regions"></a>Régions du proxy d’application
 
@@ -37,7 +37,7 @@ Pour vous assurer que l’outil fournit des résultats corrects, veillez à :
 
 -   Ouvrir l’outil sur un navigateur à partir du serveur sur lequel vous avez installé le connecteur.
 
--   Vous assurer que les proxys ou pare-feu applicables à votre connecteur sont également appliqués à cette page. Cela peut être fait dans Internet Explorer. Pour cela, allez dans **Paramètres** -&gt; **Options Internet** -&gt; **Connexions** -&gt; **Paramètres de réseau local**. Cette page comporte le champ Utiliser un serveur proxy pour votre réseau local. Activez cette case et entrez l’adresse proxy dans le champ Adresse.
+-   Vous assurer que les proxys ou pare-feu applicables à votre connecteur sont également appliqués à cette page. Cela est possible dans Internet Explorer en accédant à **paramètres**  - &gt; **Options Internet**  - &gt; **connexions**  - &gt; **Paramètres LAN**. Cette page comporte le champ Utiliser un serveur proxy pour votre réseau local. Activez cette case et entrez l’adresse proxy dans le champ Adresse.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)

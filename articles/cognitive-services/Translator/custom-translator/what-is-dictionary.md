@@ -5,24 +5,24 @@ description: Un dictionnaire est un document aligné spécifiant une liste d’e
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: bfefb1fe44959bc7e5186a0f14813f41256cf2d5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212407"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775439"
 ---
 # <a name="what-is-a-dictionary"></a>Qu’est un dictionnaire ?
 
 Un dictionnaire est une paire alignée de documents qui spécifie une liste d’expressions ou de phrases avec les traductions correspondantes. Utilisez un dictionnaire dans votre apprentissage si vous souhaitez que Microsoft Translator traduise toujours toutes les instances de l’expression ou de la phrase source selon la traduction que vous avez indiquée dans le dictionnaire. Les dictionnaires sont parfois appelés glossaires ou bases terminologiques. On peut considérer le dictionnaire comme un « copier-remplacer » en force pour tous les termes listés.
 
-Les dictionnaires ne fonctionnent que pour les projets des paires de langues qui s’appuient sur un système de traduction automatique neuronale (NMT, pour « neural machine translation ») Microsoft entièrement pris en charge. Pour connaître la liste complète des langues, voir http://www.aka.ms/translatorlanguages.
+Les dictionnaires ne fonctionnent que pour les projets des paires de langues qui s’appuient sur un système de traduction automatique neuronale (NMT, pour « neural machine translation ») Microsoft entièrement pris en charge. [Afficher la liste complète des langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## <a name="phrase-dictionary"></a>Dictionnaire d’expressions 
+## <a name="phrase-dictionary"></a>Dictionnaire d’expressions
 Si un dictionnaire d’expressions est ajouté dans le cadre de l’apprentissage du modèle, tous les mots et expressions listés sont traduits de la manière spécifiée. La traduction du reste de la phrase reste inchangée. Vous pouvez utiliser un dictionnaire d’expressions pour spécifier des expressions à ne pas traduire : indiquez pour cela la même expression non traduite dans le fichier source et dans le fichier cible du dictionnaire.
 
 ## <a name="sentence-dictionary"></a>Dictionnaire de phrases
@@ -36,9 +36,9 @@ Il est possible d’entraîner un modèle en n’utilisant que des données de d
 
 ## <a name="recommendations"></a>Recommandations
 
-- Les dictionnaires ne peuvent pas remplacer un modèle entraîné avec les données d’apprentissage.  En substance, ils recherchent et remplacent des mots ou des phrases.  Il est généralement préférable de laisser le système apprendre à partir de ressources d’apprentissage composées de phrases complètes que d’utiliser un dictionnaire. 
+- Les dictionnaires ne peuvent pas remplacer un modèle entraîné avec les données d’apprentissage.  En substance, ils recherchent et remplacent des mots ou des phrases.  Il est généralement préférable de laisser le système apprendre à partir de ressources d’apprentissage composées de phrases complètes que d’utiliser un dictionnaire.
 - Le dictionnaire d’expressions doit être utilisé avec parcimonie. Lorsqu’une expression est remplacée au sein d’une phrase, le contexte de cette phrase est perdu ou limité pour traduire le reste de la phrase. D’un côté, l’expression ou le mot dans la phrase est traduit en fonction du dictionnaire d’expressions, mais, de l’autre, la qualité de traduction globale de la phrase en s’en trouve souvent diminuée.
-- Le dictionnaire d’expressions fonctionne bien pour les noms composés comme les noms de produits (« Microsoft SQL Server »), les noms propres (« ville de Hambourg ») et les fonctionnalités de produit (« tableau croisé dynamique »). Il n’est pas aussi performant pour les verbes et les adjectifs, car ceux-ci sont généralement fléchis dans la langue source ou la langue cible. Évitez les entrées de dictionnaire d’expressions pour tout ce qui n’est pas un nom composé. 
+- Le dictionnaire d’expressions fonctionne bien pour les noms composés comme les noms de produits (« Microsoft SQL Server »), les noms propres (« ville de Hambourg ») et les fonctionnalités de produit (« tableau croisé dynamique »). Il n’est pas aussi performant pour les verbes et les adjectifs, car ceux-ci sont généralement fléchis dans la langue source ou la langue cible. Évitez les entrées de dictionnaire d’expressions pour tout ce qui n’est pas un nom composé.
 - Si vous utilisez un dictionnaire, la mise en majuscules et les signes de ponctuation de vos traductions reflètent la mise en majuscules et la ponctuation indiquées dans votre fichier cible. La mise en majuscules et les signes de ponctuation sont ignorés au moment d’identifier des correspondances entre la phrase d’entrée et les phrases sources du fichier de dictionnaire. Supposons par exemple que nous ayons entraîné un système anglais > français qui utilise un dictionnaire contenant « City of Hamburg » dans le fichier source et « ville de Hambourg » dans le fichier cible. Si je demande la traduction d’une phrase comportant l’expression « city of Hamburg », celle-ci est mise en correspondance avec l’entrée « City of Hamburg » du fichier de dictionnaire et donne « ville de Hambourg » dans la traduction finale.
 - Si un mot apparaît plusieurs fois dans un fichier de dictionnaire, le système utilise toujours la dernière entrée indiquée. Un dictionnaire ne doit pas contenir plusieurs traductions pour un même mot.
 

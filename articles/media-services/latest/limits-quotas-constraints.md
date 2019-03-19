@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190957"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897556"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas et limitations dans Azure Media Services v3
 
@@ -37,10 +37,11 @@ Cet article décrit les quotas et les limitations dans Azure Media Services v3.
 | Comptes Media Services dans un même abonnement | 25 (fixe) |
 | Sorties en cours d'exécution par événement en temps réel |3|
 | Comptes de stockage | 100<sup>(4)</sup> (fixe) |
-| Points de terminaison de diffusion en continu (arrêtés ou en cours d’exécution) par compte Media Services|2|
+| Points de terminaison de streaming (arrêtés ou en cours d’exécution) par compte Media Services|2 (fixe)|
 | Stratégies de diffusion en continu | 100 <sup>(3)</sup> |
 | Transformations par compte Media Services | 100 (fixe)|
 | Localisateurs de streaming uniques associés à une ressource à un moment donné | 100<sup>(5)</sup> (fixe) |
+| Stratégie de clé de contenu |30 | 
 
 <sup>1</sup> La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans Stockage Blob Azure. Toutefois, des limites supplémentaires sont applicables dans Azure Media Services en fonction des tailles de machine virtuelle utilisées par le service. Si votre fichier source est supérieur à 260 Go, votre travail échouera probablement. Si vous avez du contenu 4K qui dépasse la limite de 260 Go, contactez-nous à l’adresse amshelp@microsoft.com afin d’identifier des solutions d’atténuation potentielles permettant de prendre en charge votre scénario.
 

@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker pour Azure
-ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991979"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Intégrer une application MongoDB existante avec l’API Azure Cosmos DB pour MongoDB et Open Service Broker pour Azure (OSBA)
 
@@ -23,7 +23,7 @@ Azure Cosmos DB est un service de base de données multimodèle distribué à l�
 
 Dans cet article, vous allez prendre une application Java qui utilise une base de données MongoDB et la mettre à jour de façon à utiliser une base de données Cosmos DB à l’aide d’Open Service Broker pour Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de continuer, vous devez avoir effectué les opérations suivantes :
     
@@ -81,7 +81,7 @@ Démarrez votre application et faites en sorte qu’elle utilise le profil *mong
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Accédez à http://localhost:8080 dans votre navigateur.
+Accédez à `http://localhost:8080` dans votre navigateur.
 
 ![Application musicale Spring avec des données par défaut](media/music-app.png)
 
@@ -184,12 +184,12 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 Notez que votre application utilise toujours le profil *mongodb* et un URI qui commence par *mongodb://* pour se connecter à la base de données Cosmos DB. L’[API Azure Cosmos DB pour MongoDB](../cosmos-db/mongodb-introduction.md) fournit cette compatibilité. Elle permet à votre application de continuer à fonctionner comme si elle utilisait une base de données MongoDB, alors qu’en fait elle utilise Cosmos DB.
 
-Accédez à http://localhost:8080 dans votre navigateur. Notez que les données par défaut ont été restaurées. Interagissez avec elle en supprimant quelques albums et en en créant quelques-uns. Vous pouvez vérifier que vos modifications sont conservées en arrêtant votre application, en la redémarrant puis en y accédant à nouveau dans votre navigateur. Remarquez que les modifications que vous avez apportées sont toujours là. Les modifications sont conservées dans l’instance Cosmos DB que vous avez créée à l’aide d’Open Service Broker pour Azure.
+Accédez à `http://localhost:8080` dans votre navigateur. Notez que les données par défaut ont été restaurées. Interagissez avec elle en supprimant quelques albums et en en créant quelques-uns. Vous pouvez vérifier que vos modifications sont conservées en arrêtant votre application, en la redémarrant puis en y accédant à nouveau dans votre navigateur. Remarquez que les modifications que vous avez apportées sont toujours là. Les modifications sont conservées dans l’instance Cosmos DB que vous avez créée à l’aide d’Open Service Broker pour Azure.
 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Exécuter votre application sur votre cluster AKS
 
-Vous pouvez utiliser [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) pour déployer l’application sur votre cluster AKS. Azure Dev Spaces vous aide à générer des artefacts, tels que des graphiques Dockefiles et Helm, et à déployer et exécuter une application dans AKS.
+Vous pouvez utiliser [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) pour déployer l’application sur votre cluster AKS. Les espaces de développement Azure vous permettent de générer des artefacts, tels que les graphiques Dockerfiles et Helm et de déployer et exécuter une application dans AKS.
 
 Pour activer Azure Dev Spaces dans votre cluster AKS :
 

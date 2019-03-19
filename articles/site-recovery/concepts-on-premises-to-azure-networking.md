@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 334537e77d5f291dc38e008af7fed9a4ea973265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108846"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurer l’adressage IP pour se connecter à des machines virtuelles Azure après un basculement
 
@@ -49,8 +49,8 @@ Examinons un exemple de basculement vers Azure à l’aide d’une société fic
 - Woodgrove Bank héberge ses applications métier sur un site local. Elle héberge ses applications mobiles sur Azure.
 - Il existe une connectivité de site à site VPN entre le réseau de périmètre local et le réseau virtuel Azure. En raison de la connexion VPN, le réseau virtuel dans Azure s’affiche en tant qu’extension du réseau local.
 - Woodgrove souhaite répliquer les charges de travail locales vers Azure à l’aide de Site Recovery.
- - Comme certaines applications dépendent d’adresses IP codées en dur, Woodgrove doit conserver les adresses IP des applications après le basculement vers Azure.
- - Les ressources qui s’exécutent dans Azure utilisent la plage d’adresses IP 172.16.1.0/24 - 172.16.2.0/24.
+  - Comme certaines applications dépendent d’adresses IP codées en dur, Woodgrove doit conserver les adresses IP des applications après le basculement vers Azure.
+  - Les ressources qui s’exécutent dans Azure utilisent la plage d’adresses IP 172.16.1.0/24 - 172.16.2.0/24.
 
 ![Avant le basculement de sous-réseau](./media/site-recovery-network-design/network-design7.png)
 

@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: a871048c9d75fc6ea958cfacaa3a47b11765fb0d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884441"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104707"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informations de référence sur l’aperçu d’URL du projet v7
 
@@ -56,7 +56,7 @@ Pour plus d’informations sur l’utilisation autorisée et l’affichage des r
 > Certains en-têtes de demande pertinents pour d’autres API de recherche n’affectent pas l’aperçu d’URL :
 > - Pragma : l’appelant n’a aucun contrôle sur l’utilisation éventuelle d’un cache par l’aperçu d’URL.
 > - User-Agent : pour l’instant, l’API d’aperçu d’URL ne fournit pas des réponses différentes selon que les appels proviennent de PC, d’ordinateurs portables ou d’appareils mobiles.
-
+> 
 > De même, certains paramètres ne sont actuellement pas pertinents pour l’API d’aperçu d’URL, mais ils pourront être utilisés à l’avenir dans le but d’améliorer la globalisation.
 
 ## <a name="headers"></a>headers
@@ -75,9 +75,9 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
 
 |Nom|Valeur|Type|Obligatoire|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|OUI|
-|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|OUI|
-|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|Oui|
+|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|
+|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|Chaîne|Non |
 |<a name="safesearch"/>safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : Le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.|
 
 ## <a name="response-objects"></a>Objets de la réponse

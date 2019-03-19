@@ -8,22 +8,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2a948a75ce3f6c21d7e92e3e1ccb1ef98dbe2ea0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8e01ac4efa3c310b17e88351383861cbdccb68e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171106"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory
 Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Data Factory (ADF) à l’aide de l’activité Exécuter le Package SSIS. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas encore en suivant les instructions pas à pas fournies dans le [Tutoriel : Déployer des packages SSIS vers Azure](tutorial-create-azure-ssis-runtime-portal.md).
 
@@ -49,19 +51,19 @@ Lors de cette étape, vous utilisez l’IU/app ADF pour créer un pipeline. Vous
 
    ![Définissez les propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. Sous l’onglet **Paramètres** de l’activité Exécuter le Package SSIS, sélectionnez votre runtime d’intégration Azure-SSIS associé à la base de données SSISDB sur laquelle le package est déployé. Si votre package a besoin d’un runtime 32 bits pour fonctionner, cochez la case **Runtime 32 bits**. Concernant **Niveau de journalisation**, sélectionnez un périmètre prédéfini de journalisation pour l’exécution de votre package. Cochez la case **Personnalisé** si vous préférez entrer un nom de journalisation personnalisé. Lorsque votre Azure-SSIS IR est en cours d’exécution et que la case **Entrées manuelles** n’est pas cochée, vous pouvez parcourir et sélectionner vos dossiers/projets/packages/environnements existants dans SSISDB. Cliquez sur le bouton **Actualiser** pour récupérer vos nouveaux dossiers/projets/packages/environnements ajoutés dans SSISDB afin qu’ils soient sélectionnables lors de la navigation. 
+4. Sous l’onglet **Paramètres** de l’activité Exécuter le Package SSIS, sélectionnez votre runtime d’intégration Azure-SSIS associé à la base de données SSISDB sur laquelle le package est déployé. Si votre package utilise l’authentification Windows pour accéder à des magasins de données, par exemple, des partages de serveurs SQL/fichiers en local, Azure Files, etc., vérifiez le **l’authentification Windows** case à cocher et entrez le nom de domaine/nom d’utilisateur/mot de passe pour votre package exécution. Si votre package a besoin d’un runtime 32 bits pour fonctionner, cochez la case **Runtime 32 bits**. Concernant **Niveau de journalisation**, sélectionnez un périmètre prédéfini de journalisation pour l’exécution de votre package. Cochez la case **Personnalisé** si vous préférez entrer un nom de journalisation personnalisé. Lorsque votre Azure-SSIS IR est en cours d’exécution et que la case **Entrées manuelles** n’est pas cochée, vous pouvez parcourir et sélectionner vos dossiers/projets/packages/environnements existants dans SSISDB. Cliquez sur le bouton **Actualiser** pour récupérer vos nouveaux dossiers/projets/packages/environnements ajoutés dans SSISDB afin qu’ils soient sélectionnables lors de la navigation. 
 
    ![Définir les propriétés sous l’onglet Paramètres - Automatique](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Lorsque votre Azure-SSIS IR n’est pas en cours d’exécution ou que la case **Entrées manuelles** est cochée, vous pouvez entrer les chemins de votre package et de votre environnement à partir de SSISDB dans les formats suivants : `<folder name>/<project name>/<package name>.dtsx` et `<folder name>/<environment name>`.
+   Lorsque votre IR Azure-SSIS ne fonctionne pas ou le **entrées manuellement** case à cocher est activée, vous pouvez entrer des chemins d’accès de votre package et l’environnement à partir de SSISDB directement dans les formats suivants : `<folder name>/<project name>/<package name>.dtsx` et `<folder name>/<environment name>`.
 
    ![Définir les propriétés sous l’onglet Paramètres - Manuel](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. Dans l’onglet **Paramètres SSIS** de l’activité Exécuter un package SSIS, alors que votre Azure-SSIS IR s’exécute et que la case **Entrées manuelles** de l’onglet **Paramètres** est décochée, les paramètres SSIS existants dans votre projet ou package sélectionné depuis SSISDB sont affichés pour que vous puissiez leur assigner des valeurs. Vous pouvez également les entrer une par une afin de leur assigner des valeurs manuellement - assurez-vous qu’elles existent et qu’elles sont correctement saisies pour que l’exécution de votre package soit réussie. Vous pouvez également ajouter du contenu dynamique à leurs valeurs à l’aide d’expressions, de fonctions, de variables système ADF et de paramètres/variables de pipeline ADF.
+5. Dans l’onglet **Paramètres SSIS** de l’activité Exécuter un package SSIS, alors que votre Azure-SSIS IR s’exécute et que la case **Entrées manuelles** de l’onglet **Paramètres** est décochée, les paramètres SSIS existants dans votre projet ou package sélectionné depuis SSISDB sont affichés pour que vous puissiez leur assigner des valeurs. Vous pouvez également les entrer une par une afin de leur assigner des valeurs manuellement - assurez-vous qu’elles existent et qu’elles sont correctement saisies pour que l’exécution de votre package soit réussie. Vous pouvez ajouter du contenu dynamique à leurs valeurs à l’aide d’expressions, fonctions, les variables système ADF et paramètres de pipeline ADF/variables. Vous pouvez également utiliser les secrets stockés dans votre Azure Key Vault (AKV) en tant que leurs valeurs. Pour ce faire, cliquez sur le **AZURE KEY VAULT** case à cocher en regard du paramètre pertinentes, sélectionner/Modifier votre service AKV lié existant ou créez-en un, puis sélectionnez la nom/version du secret pour votre valeur de paramètre.  Lorsque vous créez/modifiez votre service AKV lié, vous pouvez sélectionner et modifier votre coffre de clés AZURE existant ou créez-en un, mais accordez l’accès d’identité ADF géré à votre coffre de clés AZURE si vous n'avez pas déjà fait. Vous pouvez également entrer vos secrets directement dans le format suivant : `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Définir les propriétés sous l’onglet Paramètres SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. Dans l’onglet **Gestionnaires de connexions** de l’activité Exécuter un package SSIS, alors que votre Azure-SSIS IR s’exécute et que la case **Entrées manuelles** de l’onglet **Paramètres** est décochée, les gestionnaires de connexions existants dans votre projet ou package sélectionné depuis SSISDB sont affichés pour que vous puissiez leur assigner des valeurs. Vous pouvez également les entrer une par une afin de leur assigner des valeurs manuellement - assurez-vous qu’elles existent et qu’elles sont correctement saisies pour que l’exécution de votre package soit réussie. Vous pouvez également ajouter du contenu dynamique à leurs valeurs à l’aide d’expressions, de fonctions, de variables système ADF et de paramètres/variables de pipeline ADF.
+6. Sur le **gestionnaires de connexions** onglet pour l’activité exécuter le Package SSIS, lors de l’exécution de votre IR Azure-SSIS et le **entrées manuellement** case à cocher sur **paramètres** onglet est désactivée, les gestionnaires de connexions existant dans votre package/projet sélectionné à partir de SSISDB seront affichera pour vous permettre d’affecter des valeurs à leurs propriétés. Sinon, vous pouvez entrer les une par une pour affecter manuellement des valeurs à leurs propriétés : Veuillez vous assurer qu’elles existent et sont entrés correctement pour l’exécution de votre package réussisse. Vous pouvez ajouter du contenu dynamique à leurs valeurs de propriété à l’aide d’expressions, fonctions, les variables système ADF et paramètres de pipeline ADF/variables. Vous pouvez également utiliser les secrets stockés dans votre Azure Key Vault (AKV) en tant que leurs valeurs de propriété. Pour ce faire, cliquez sur le **AZURE KEY VAULT** case à cocher en regard de la propriété pertinente, sélectionner/Modifier votre service AKV lié existant ou créez-en un, puis sélectionnez la nom/version du secret pour votre valeur de propriété.  Lorsque vous créez/modifiez votre service AKV lié, vous pouvez sélectionner et modifier votre coffre de clés AZURE existant ou créez-en un, mais accordez l’accès d’identité ADF géré à votre coffre de clés AZURE si vous n'avez pas déjà fait. Vous pouvez également entrer vos secrets directement dans le format suivant : `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Définir les propriétés sous l’onglet Gestionnaires de connexions](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
@@ -111,7 +113,7 @@ Vous pouvez également créer un déclencheur planifié pour votre pipeline afin
 ## <a name="run-a-package-with-powershell"></a>Exécuter un package avec PowerShell
 Dans cette section, vous utilisez Azure PowerShell pour créer un pipeline ADF avec une activité Execute SSIS Package qui exécute votre package SSIS. 
 
-Installez les modules Azure PowerShell les plus récents en suivant les instructions pas à pas décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Installez les modules Azure PowerShell les plus récents en suivant les instructions pas à pas décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="create-an-adf-with-azure-ssis-ir"></a>Créer un ADF avec Azure-SSIS IR
 Vous pouvez soit utiliser un ADF existant déjà fourni par Azure-SSIS IR, soit créer un nouvel ADF avec Azure-SSIS IR en suivant les instructions étape par étape dans le [Tutoriel : Déployer des packages SSIS sur Azure via Powershell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
@@ -137,6 +139,14 @@ Au cours de cette étape, vous créez un pipeline avec une activité Execute SSI
                        "referenceName": "myAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
+                   "executionCredential": {
+                       "domain": "MyDomain",
+                       "userName": "MyUsername",
+                       "password": {
+                           "type": "SecureString",
+                           "value": "**********"
+                       }
+                   },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
@@ -146,11 +156,27 @@ Au cours de cette étape, vous créez un pipeline avec une activité Execute SSI
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
+                       },
+                       "project_param_2": {
+                           "value": {
+                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "type": "Expression"
+                           }
                        }
                    },
                    "packageParameters": {
                        "package_param_1": {
                            "value": "345"
+                       },
+                       "package_param_2": {
+                           "value": {
+                               "type": "AzureKeyVaultSecret",
+                               "store": {
+                                   "referenceName": "myAKV",
+                                   "type": "LinkedServiceReference"
+                               },
+                               "secretName": "MySecret"
+                           }
                        }
                    },
                    "projectConnectionManagers": {
@@ -169,12 +195,20 @@ Au cours de cette étape, vous créez un pipeline avec une activité Execute SSI
                    "packageConnectionManagers": {
                        "MyOledbCM": {
                            "userName": {
-                               "value": "sa"
+                               "value": {
+                                   "value": "@pipeline().parameters.MyUsername",
+                                   "type": "Expression"
+                               }
                            },
                            "passWord": {
                                "value": {
-                                   "type": "SecureString",
-                                   "value": "def"
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyPassword",
+                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
                                }
                            }
                        }
@@ -198,10 +232,10 @@ Au cours de cette étape, vous créez un pipeline avec une activité Execute SSI
 
 2. Dans Azure PowerShell, accédez au dossier `C:\ADF\RunSSISPackage`.
 
-3. Pour créer le pipeline **RunSSISPackagePipeline**, exécutez l’applet de commande **Set-AzureRmDataFactoryV2Pipeline**.
+3. Pour créer le pipeline **RunSSISPackagePipeline**, exécutez le **Set-AzDataFactoryV2Pipeline** applet de commande.
 
    ```powershell
-   $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+   $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                                   -ResourceGroupName $ResGrp.ResourceGroupName `
                                                   -Name "RunSSISPackagePipeline"
                                                   -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -218,10 +252,10 @@ Au cours de cette étape, vous créez un pipeline avec une activité Execute SSI
    ```
 
 ### <a name="run-the-pipeline"></a>Exécuter le pipeline
-Utilisez l’applet de commande **Invoke-AzureRmDataFactoryV2Pipeline** pour exécuter le pipeline. L’applet de commande renvoie l’ID d’exécution du pipeline pour permettre une surveillance ultérieure.
+Utilisez le **Invoke-AzDataFactoryV2Pipeline** applet de commande pour exécuter le pipeline. L’applet de commande renvoie l’ID d’exécution du pipeline pour permettre une surveillance ultérieure.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                              -ResourceGroupName $ResGrp.ResourceGroupName `
                                              -PipelineName $DFPipeLine.Name
 ```
@@ -232,7 +266,7 @@ Exécutez le script PowerShell suivant afin de vérifier continuellement l’ét
 
 ```powershell
 while ($True) {
-    $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
+    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
                                                -DataFactoryName $DataFactory.DataFactoryName `
                                                -PipelineRunId $RunId
 
@@ -280,31 +314,31 @@ Vous pouvez également surveiller le pipeline à l’aide du portail Azure. Pour
    }    
    ```
 2. Dans **Azure PowerShell**, basculez vers le dossier **C:\ADF\RunSSISPackage**.
-3. Exécutez l’applet de commande **Set-AzureRmDataFactoryV2Trigger** pour créer le déclencheur. 
+3. Exécutez le **Set-AzDataFactoryV2Trigger** applet de commande, ce qui crée le déclencheur. 
 
    ```powershell
-   Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                    -DataFactoryName $DataFactory.DataFactoryName `
                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
    ```
-4. Par défaut, le déclencheur est arrêté. Démarrez-le avec l’applet de commande **Start-AzureRmDataFactoryV2Trigger**. 
+4. Par défaut, le déclencheur est arrêté. Démarrez le déclencheur en exécutant la **Start-AzDataFactoryV2Trigger** applet de commande. 
 
    ```powershell
-   Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                      -DataFactoryName $DataFactory.DataFactoryName `
                                      -Name "MyTrigger" 
    ```
-5. Vérifiez que le déclencheur est démarré en exécutant l’applet de commande **Get-AzureRmDataFactoryV2Trigger**. 
+5. Vérifiez que le déclencheur est démarré en exécutant la **Get-AzDataFactoryV2Trigger** applet de commande. 
 
    ```powershell
-   Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
                                    -DataFactoryName $DataFactoryName `
                                    -Name "MyTrigger"     
    ```    
 6. Exécutez la commande ci-dessous après l’heure suivante. Par exemple, si l’heure actuelle est 15h25 UTC, exécutez la commande à 16h00 UTC. 
     
    ```powershell
-   Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
                                       -DataFactoryName $DataFactoryName `
                                       -TriggerName "MyTrigger" `
                                       -TriggerRunStartedAfter "2017-12-06" `

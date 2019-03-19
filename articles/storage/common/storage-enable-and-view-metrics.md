@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 8fc85f82e5b6290a0f7401581e57b77473a495ae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 770a494e93a51fc018b2bfe803ac15ba543f35d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454009"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011346"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Activation des métriques Azure Storage et affichage des données associées
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Storage Metrics est activé par défaut lorsque vous créez un compte de stockage. Vous pouvez configurer la surveillance par le biais du [Portail Azure](https://portal.azure.com) ou de Windows PowerShell, ou par programme au moyen d’une des bibliothèques clientes de stockage.
 
 Vous pouvez choisir une période de rétention des données : cette période détermine combien de temps le service de stockage conserve les métriques et la durée pendant laquelle l’espace requis pour les stocker vous est facturé. En règle générale, il est recommandé d’utiliser une période de rétention plus courte pour les métriques par minute que pour les métriques par heure, en raison de l’espace supplémentaire requis. La période de rétention que vous définissez doit être suffisamment longue pour vous donner le temps d’analyser les données et de télécharger les métriques à conserver à des fins d’analyse ou de création de rapports hors connexion. N’oubliez pas que le téléchargement des données de métriques depuis votre compte de stockage est aussi facturé.
@@ -113,7 +113,7 @@ De nombreux outils de consultation du stockage tiers prennent en charge ces tabl
 Pour obtenir la liste des outils disponibles, consultez [Outils clients Azure Storage](storage-explorers.md) .
 
 > [!NOTE]
-> À compter de la version 0.8.0 de [Microsoft Azure Storage Explorer](http://storageexplorer.com/), vous pourrez désormais afficher et télécharger les tables de métriques Analytics.
+> À compter de la version 0.8.0 de [Microsoft Azure Storage Explorer](https://storageexplorer.com/), vous pourrez désormais afficher et télécharger les tables de métriques Analytics.
 >
 >
 

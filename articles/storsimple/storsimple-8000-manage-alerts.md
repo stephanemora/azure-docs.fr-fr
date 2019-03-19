@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: e86b6af562208e51e36b4679fd088ea399ce70b8
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27745776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838712"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Le panneau **Alertes** dans le service StorSimple Device Manager offre la possibilité d’examiner et d’effacer en temps réel les alertes relatives aux appareils StorSimple. Dans ce panneau, vous pouvez surveiller de manière centralisée les problèmes d’intégrité de vos appareils StorSimple et l’ensemble de la solution Microsoft Azure StorSimple.
 
@@ -56,7 +56,7 @@ Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour
 > [!NOTE]
 > Vous pouvez entrer un maximum de 20 adresses e-mail par appareil.
 
-Après avoir activé la notification par e-mail pour un appareil, les membres de la liste de notification recevront un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis *storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
+Après avoir activé la notification par e-mail pour un appareil, les membres de la liste de notification recevront un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés à partir de *storsimple-alertes-noreply\@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Activation de la notification par e-mail des alertes pour un appareil
 1. Accédez à votre service StorSimple Device Manager. Dans la liste des appareils, sélectionnez l’appareil que vous souhaitez configurer, puis cliquez dessus.
@@ -68,7 +68,7 @@ Après avoir activé la notification par e-mail pour un appareil, les membres de
    
    1. Dans le champ **Activer la notification par e-mail**, sélectionnez **OUI**.
    2. Dans le champ **Envoyer un e-mail aux administrateurs du service**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs du service reçoivent les notifications d’alerte.
-   3. Dans le champ **Autres destinataires du message** , entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil. 
+   3. Dans le champ **Autres destinataires du message** , entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *quelqu'un\@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil. 
       
 3. Pour envoyer un test de notification par e-mail, cliquez sur **Envoyer un e-mail de test**. Le service StorSimple Device Manager affiche des messages d’état lorsqu’il transfère la notification de test.
 
@@ -142,11 +142,11 @@ Que se passe-t-il en cas d'échec de connexion au cloud pour mon appareil StorS
 
 En cas d'échec de la connexion au cloud sur votre appareil de production StorSimple, en fonction de l'état de votre périphérique, les événements suivants peuvent se produire :
 
-* **Pour les données locales sur votre appareil**: pendant un certain temps, il n’y a pas d’interruption de service et les lectures sont traitées. Toutefois, lorsque les E/S en attente augmentent et dépassent la limite, les lectures peuvent commencer à échouer.
+* **Pour les données locales sur votre appareil**: Pendant un certain temps, il n’y aura aucune interruption et les lectures continueront à être pris en charge. Toutefois, lorsque les E/S en attente augmentent et dépassent la limite, les lectures peuvent commencer à échouer.
 
     Selon la quantité de données sur votre appareil, les écritures continuent également à se produire pendant les premières heures suivant l’interruption de la connexion au cloud. Puis, les écritures ralentissent et finissent par échouer si l'interruption de la connexion au cloud dure plusieurs heures. (L’appareil contient une zone de stockage temporaire destinée aux données à envoyer par transmission Push vers le cloud. Cette zone est vidée lorsque les données sont envoyées. En cas d’échec de la connexion, les données de cette zone de stockage ne sont pas envoyées par transmission Push vers le cloud, et les E/S sont en échec.)
-* **Pour les données du cloud**: pour la plupart des erreurs de connexion au cloud, une erreur est renvoyée. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l’intervention de l’utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure.
-* **Pour les instantanés cloud en cours**: l’opération est retentée plusieurs fois pendant 4 à 5 heures, et si la connexion n’est pas restaurée, les instantanés cloud échouent.
+* **Pour les données dans le cloud**: Pour la plupart des erreurs de connectivité de cloud, une erreur est retournée. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l’intervention de l’utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure.
+* **Pour les instantanés cloud en cours d’exécution**: L’opération est retentée plusieurs fois pendant 4 à 5 heures et si la connectivité n’est pas rétablie, les instantanés cloud échouent.
 
 ### <a name="cluster-alerts"></a>Alertes de cluster
 
@@ -202,13 +202,14 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 | Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |
 | Adresse IP en double détectée pour « Data0 ». | |Le système a détecté un conflit pour l’adresse IP 10.0.0.1. La ressource réseau « Data0 » sur l’appareil *<device1>* est hors connexion. Assurez-vous que cette adresse IP n’est pas utilisée par une autre entité de ce réseau. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Pour obtenir de l’aide sur la résolution de ce problème, contactez votre administrateur réseau. Si le problème persiste, contactez le support technique Microsoft. |
 | Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et de la longueur de préfixe 22 sur l’appareil *<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Impossible de se connecter au service d’authentification. |Erreur de chemin d’accès des données |L’URL qui est utilisée pour l’authentification n’est pas accessible. Vérifiez que vos règles de pare-feu incluent les modèles d’URL spécifiés pour l’appareil StorSimple. Pour plus d’informations sur les modèles d’URL dans le portail Azure, accédez à https://aka.ms/ss-8000-network-reqs. Si vous utilisez le cloud Azure Government, accédez aux modèles d’URL dans https://aka.ms/ss8000-gov-network-reqs.|
+| Impossible de se connecter au service d’authentification. |Erreur de chemin d’accès des données |L’URL qui est utilisée pour l’authentification n’est pas accessible. Vérifiez que vos règles de pare-feu incluent les modèles d’URL spécifiés pour l’appareil StorSimple. Pour plus d’informations sur les modèles d’URL dans le portail Azure, accédez à https://aka.ms/ss-8000-network-reqs. Si vous utilisez le Cloud Azure Government, accédez aux modèles d’URL dans https://aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertes de performances
 
-| Texte d'alerte | Événement | Plus d'informations/actions recommandées |
-|:--- |:--- |:--- |
-| La charge de l’appareil a dépassé <*seuil*>. |Plus lent que le temps de réponse attendu. |Votre appareil indique que l'utilisation d'entrée/sortie est surchargée. Cela peut entraîner du mauvais fonctionnement de votre appareil. Consultez les charges de travail que vous avez attachées à l’appareil et déterminez si certaines peuvent être déplacées vers un autre appareil ou ne sont plus nécessaires.| Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |Pour comprendre l’état actuel, consultez [Utiliser le service StorSimple Manager pour surveiller votre appareil](storsimple-8000-monitor-device.md) |
+| Texte d'alerte | Événement | Plus d'informations/actions recommandées | |
+|:--- |:--- |:--- | --- |
+| La charge de l’appareil a dépassé <*seuil*>. |Plus lent que le temps de réponse attendu. |Votre appareil indique que l'utilisation d'entrée/sortie est surchargée. Cela peut entraîner du mauvais fonctionnement de votre appareil. Consultez les charges de travail que vous avez attachées à l’appareil et déterminez si certaines peuvent être déplacées vers un autre appareil ou ne sont plus nécessaires.|
+| Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |
 
 ### <a name="security-alerts"></a>Alertes de sécurité
 

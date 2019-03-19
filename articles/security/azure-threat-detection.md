@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 32e705c5c338d9bd7c16514b2dc2ab081a9caf6a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115553"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245240"
 ---
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 
-Azure intègre une fonctionnalité de détection des menaces avancée via certains services, comme Azure Active Directory (Azure AD), Azure Log Analytics et Azure Security Center. Cet ensemble de fonctionnalités et de services de sécurité fournit un moyen simple et rapide de comprendre ce qui se passe dans vos déploiements Azure.
+Azure intègre une fonctionnalité de détection des menaces avancées via les services tels que Azure Active Directory (Azure AD), les journaux Azure Monitor et Azure Security Center. Cet ensemble de fonctionnalités et de services de sécurité fournit un moyen simple et rapide de comprendre ce qui se passe dans vos déploiements Azure.
 
 Azure propose un large choix d’options pour configurer et personnaliser la sécurité afin de satisfaire les besoins de vos déploiements d’applications. Cet article mentionne comment répondre à ces exigences.
 
@@ -75,17 +75,17 @@ PIM vous permet de :
 
 -   Recevoir des alertes sur l'accès à un rôle privilégié.
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et cloud. La solution Log Analytics étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal en services d’infrastructure. Les nouvelles fonctionnalités de sécurité sont fournies automatiquement, ce qui vous permet d’économiser sur les coûts de mise à niveau et de maintenance.
+[Journaux d’analyse Azure](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une Microsoft basée sur le cloud solution de gestion informatique qui vous permet de gérer et de protéger votre réseau local et d’infrastructure cloud. Étant donné que les journaux Azure Monitor est implémenté comme un service basé sur le cloud, vous pouvez être en cours d’exécution rapidement avec un investissement minimal en services d’infrastructure. Les nouvelles fonctionnalités de sécurité sont fournies automatiquement, ce qui vous permet d’économiser sur les coûts de mise à niveau et de maintenance.
 
-En plus de fournir de précieux services de manière autonome, Log Analytics peut s’intégrer à des composants System Center tels que [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), afin d’étendre dans le cloud vos investissements existants en matière de gestion de la sécurité. System Center et Log Analytics peuvent fonctionner ensemble pour fournir une expérience de gestion hybride.
+Outre fournir des services précieux sur son propre, Azure Monitor journaux peuvent s’intégrer aux composants de System Center, tels que [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), pour étendre votre sécurité existante des investissements de gestion dans le cloud. Journaux de System Center et Azure Monitor peuvent travailler ensemble pour fournir une gestion hybride complète.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Approche globale de la sécurité et de la conformité
 
-Le [tableau de bord Log Analytics Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des requêtes de recherche intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord Security and Audit est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans Log Analytics. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Vous pouvez également voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
+Le [tableau de bord Log Analytics Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des requêtes de recherche intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord de sécurité et d’Audit est l’écran d’accueil pour tous les éléments relatifs à la sécurité dans les journaux Azure Monitor. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Vous pouvez également voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
 
-Log Analytics vous permet de comprendre rapidement et facilement les conditions de sécurité globales de n’importe quel environnement, dans le contexte des opérations informatiques, notamment : évaluation des mises à jour logicielles, évaluation des logiciels anti-programmes malveillants et référentiels de configuration. Les données des journaux de sécurité sont facilement accessibles afin de rationaliser les processus d’audit de sécurité et de conformité.
+Azure Monitor enregistre vous aident à rapidement et facilement comprendre la posture de sécurité globale de n’importe quel environnement, toutes les tâches dans le contexte des opérations informatiques, y compris l’évaluation de la mise à jour logicielles, les analyse anti-programme malveillant et les lignes de base de configuration. Les données des journaux de sécurité sont facilement accessibles afin de rationaliser les processus d’audit de sécurité et de conformité.
 
 ![Tableau de bord Log Analytics Security and Audit](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -102,25 +102,25 @@ Le tableau de bord Log Analytics Security and Audit est organisé en quatre cat�
 -   **Requêtes de sécurité courantes** : liste les requêtes de sécurité les plus courantes que vous pouvez utiliser pour superviser votre environnement. Lorsque vous sélectionnez une requête, le volet Recherche s’ouvre et affiche les résultats de cette requête.
 
 ### <a name="insight-and-analytics"></a>Avis et analyses
-Au cœur de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) se trouve le référentiel qui est hébergé par Azure.
+Dans le centre de [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est le référentiel, qui est hébergé par Azure.
 
 ![Diagramme Insight et Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Vous collectez des données dans le référentiel à partir de sources connectées en configurant des sources de données et en ajoutant des solutions à votre abonnement.
 
-![Tableau de bord Log Analytics ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Le tableau de bord des journaux Azure Monitor](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Les sources de données et les solutions créent chacune différents types d'enregistrements avec leur propre jeu de propriétés, mais vous pouvez toujours les analyser ensemble dans des requêtes vers le référentiel. Vous pouvez utiliser les mêmes outils et méthodes pour utiliser diverses données collectées par différentes sources.
 
 
-La plupart de vos interactions avec Log Analytics s’effectuent via le portail Azure qui s’exécute dans un navigateur et vous fournit un accès aux paramètres de configuration et à plusieurs outils pour analyser et agir sur les données collectées. À partir du portail, vous pouvez utiliser :
+La plupart de vos interactions avec les journaux Azure Monitor est via le portail Azure, qui s’exécute dans n’importe quel navigateur et vous fournit avec un accès aux paramètres de configuration et plusieurs outils pour analyser et agir sur les données collectées. À partir du portail, vous pouvez utiliser :
 * [Recherche dans les journaux](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) où vous avez élaboré des requêtes pour analyser des données collectées.
 * [Tableaux de bord](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), que vous pouvez personnaliser avec des vues graphiques de vos recherches les plus précieuses.
 * [Solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), qui fournissent des outils d’analyse et des fonctionnalités supplémentaires.
 
 ![Outils d’analyse](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Les solutions permettent d’ajouter des fonctionnalités à Log Analytics. Elles s’exécutent principalement dans le cloud et fournissent une analyse des données collectées dans le référentiel Log Analytics. Ces solutions peuvent également définir de nouveaux types d’enregistrements à collecter qui peuvent être analysés avec des recherches de journaux ou via une interface utilisateur supplémentaire fournie par la solution dans le tableau de bord Log Analytics.
+Solutions ajoutent des fonctionnalités dans les journaux d’Azure Monitor. Essentiellement, elles s’exécutent dans le cloud et fournissent une analyse des données collectées dans le référentiel d’analytique de journal. Solutions peuvent également définir de nouveaux types d’enregistrements à collecter qui peuvent être analysés avec des recherches de journal ou à l’aide d’une interface utilisateur supplémentaire offerts par la solution dans le tableau de bord d’analytique de journal.
 
 Le tableau de bord Sécurité et Audit est un exemple de ces types de solutions.
 

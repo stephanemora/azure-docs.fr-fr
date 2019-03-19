@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847125"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurer votre application dans le portail de publication
 
@@ -27,16 +27,16 @@ Vous êtes maintenant prêt à configurer votre application dans le portail de p
 
 ## <a name="login-and-create-a-new-offer"></a>Se connecter et créer une offre
 
-1. Connectez-vous au [portail Cloud Partner](http://cloudpartner.azure.com/).
+1. Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/).
 2. Dans la barre de navigation de gauche, cliquez sur « + Nouvelle offre », puis sélectionnez « Dynamics 365 for Customer Engagement ».
 
 ![Sélection d’une offre](./media/CRMScreenShot14.png)
 
-3. Un nouvel affichage d’offre « Éditeur » est à présent ouvert, et nous sommes prêts à créer.
+1. Un nouvel affichage d’offre « Éditeur » est à présent ouvert, et nous sommes prêts à créer.
 
 ![Écran Nouvelle offre](./media/CRMScreenShot15.png)
 
-4. Les « formulaires » à compléter apparaissent sur la gauche en mode « Éditeur ». Chaque « formulaire » se compose d’un ensemble de champs à compléter. Les champs obligatoires sont indiqués par un astérisque rouge (\*).
+1. Les « formulaires » à compléter apparaissent sur la gauche en mode « Éditeur ». Chaque « formulaire » se compose d’un ensemble de champs à compléter. Les champs obligatoires sont indiqués par un astérisque rouge (\*).
 
 Il existe quatre formulaires principaux pour la création d’une offre Dynamics 365 for Customer Engagement
 
@@ -59,7 +59,7 @@ Par exemple, si un éditeur **contoso** publie une offre avec l’ID d’offre *
 
 Cette liste déroulante vous permet de choisir le profil d’éditeur sous lequel vous voulez publier cette offre. Ce champ est verrouillé une fois l’offre publiée.
 
-### <a name="name"></a>NOM
+### <a name="name"></a>Nom
 
 Ceci est le nom d’affichage de votre offre. C’est le nom qui s’affiche dans [AppSource](https://appsource.microsoft.com/). Il ne peut pas comprendre plus de 50 caractères.
 
@@ -88,7 +88,7 @@ Voici une explication de ces champs :
 
 ### <a name="crm-package-availability"></a>Disponibilité du package CRM
 
-Dans cette section, sélectionnez les régions de CRM dans lesquelles votre package sera disponible. Pour plus d’informations sur quelles régions desservent quels pays, consultez le lien : [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+Dans cette section, sélectionnez les régions de CRM dans lesquelles votre package sera disponible. Pour plus d’informations sur quelles régions desservent quels pays, consultez le lien : [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Remarque : Le déploiement de « Sovereign and US Gov Cloud » en Allemagne REQUIERT UNE AUTORISATION SPÉCIALE ET UNE VALIDATION LORS DE LA CERTIFICATION
 
@@ -156,7 +156,7 @@ Il figurera sur la page de recherche de votre application. **Seul le format png 
 
 Il figurera sur la page détaillée de votre application. **Seul le format png est autorisé.** Chargez une image png d’une résolution de 216 \* 216 px
 
-### <a name="videos"></a>vidéos
+### <a name="videos"></a>Videos
 
 Vous pouvez charger un maximum de quatre vidéos. Pour chaque vidéo que vous souhaitez charger, vous devez indiquer le nom de la vidéo, l’URL (YouTube ou Vimeo uniquement) et la miniature à associer à la vidéo. La miniature doit être au format png et d’une taille de 1280 \* 720 px. Pour ajouter une ou plusieurs vidéos nouvelles, cliquez sur le signe plus. Les miniatures des vidéos figureront sur la page détaillée de votre application.
 

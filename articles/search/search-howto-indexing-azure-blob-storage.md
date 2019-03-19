@@ -1,7 +1,7 @@
 ---
 title: Indexer le contenu du stockage Blob Azure pour la recherche en texte intégral - Recherche Azure
 description: Découvrez comment indexer le stockage Blob Azure et extraire le texte de documents avec la Recherche Azure.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2a282b76805ab91215d6b34ea30a7008d8c8244b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467976"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310877"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexation de documents dans Azure Blob Storage avec Azure Search
 Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF, des documents Microsoft Office et plusieurs autres formats courants) stockés dans le stockage d’objets blob Azure. Tout d’abord, il présente les concepts de base de la définition et de la configuration d’un indexeur d’objets blob. Ensuite, il offre une exploration plus approfondie des comportements et des scénarios que vous êtes susceptible de rencontrer.
@@ -68,7 +68,7 @@ Pour plus d’informations sur l’API Créer une source de données, consultez 
 
 Vous pouvez fournir les informations d’identification du conteneur d’objets blob de l’une des manières suivantes :
 
-- **Chaîne de connexion au compte de stockage avec accès complet** : `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Vous pouvez obtenir la chaîne de connexion sur le portail Azure en sélectionnant le panneau du compte de stockage > Paramètres > Clés (pour les comptes de stockage Classic) ou en sélectionnant Paramètres > Clés d’accès (pour les comptes de stockage ARM).
+- **Chaîne de connexion au compte de stockage avec accès complet** : `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Vous pouvez obtenir la chaîne de connexion à partir du portail Azure en accédant au panneau du compte de stockage > Paramètres > clés (pour les comptes de stockage classique) ou Paramètres > clés d’accès (pour les comptes de stockage Azure Resource Manager).
 - Chaîne de connexion de la **signature d’accès partagé (SAP) au compte de stockage** : `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` La SAP doit avoir les autorisations de liste et de lecture sur les conteneurs et les objets (blob en l’occurrence).
 -  **Signature d’accès partagé du conteneur** : `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` La SAP doit avoir les autorisations de liste et lecture sur le conteneur.
 
@@ -333,7 +333,7 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 
 Vous pourriez souhaiter « rassembler » des documents provenant de plusieurs sources dans votre index. Par exemple, vous pourriez souhaiter fusionner des textes de blobs avec d’autres métadonnées stockées dans la base de données Cosmos. Vous pouvez même utiliser le push de l’indexation des API ainsi que plusieurs indexeurs pour générer des documents de recherche à partir de plusieurs parties. 
 
-Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour une procédure détaillée, consultez l’article externe : [Combine documents with other data in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Associer des documents à d’autres données dans Recherche Azure).
+Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour une procédure détaillée, consultez l’article externe : [Combiner des documents avec d’autres données dans Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexation en texte brut 

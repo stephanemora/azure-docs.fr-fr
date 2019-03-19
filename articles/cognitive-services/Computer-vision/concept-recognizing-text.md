@@ -8,33 +8,92 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/19/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 48ce15a11c3e3282535420f3e1bb1915276d70f5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313175"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588973"
 ---
-# <a name="recognizing-printed-and-handwritten-text"></a>Reconnaissance du texte imprimé et manuscrit
+# <a name="recognize-printed-and-handwritten-text"></a>Reconnaître le texte imprimé et manuscrit
 
-Le service Vision par ordinateur peut détecter et extraire un texte imprimé ou manuscrit à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches, des cartes de visite, des courriers ou des tableaux blancs.
+Vision par ordinateur fournit un certain nombre de services pour détecter et extraire le texte imprimé ou manuscrit qui s’affiche dans les images. Cela est utile dans divers scénarios tels que la prise de notes, de dossiers médicaux, de sécurité et d’opérations bancaires. La suivant trois sections détail trois différents reconnaissance de texte API, chacun étant optimisé pour différents cas d’usage.
 
-La fonctionnalité de reconnaissance de texte est très semblable à la fonctionnalité de [reconnaissance optique de caractères (OCR)](concept-extracting-text-ocr.md), mais contrairement à cette dernière, elle s'exécute de manière asynchrone et utilise des modèles de reconnaissance actualisés.
+## <a name="read-api"></a>API de lecture
+
+L’API de lecture détecte le contenu de texte dans une image à l’aide de nos derniers modèles de reconnaissance et convertit le texte identifié dans un flux de caractères exploitable automatiquement. Il est optimisé pour les images comportant beaucoup de texte (tels que les documents ont été analysés numériquement) et pour les images avec beaucoup de bruit visuel. Il s’exécute de façon asynchrone, car les documents plus volumineux peuvent prendre plusieurs minutes pour retourner un résultat.
+
+L’opération de lecture conserve le regroupement d’origine de la ligne des mots reconnus dans sa sortie. Chaque ligne est fourni avec les coordonnées de la zone de délimitation, et chaque mot dans la ligne a également sa propre coordonnées. Si un mot a été reconnu avec confiance faible, cette information est également transmise. Consultez le [documents de référence des API de lecture](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) pour en savoir plus.
 
 > [!NOTE]
-> Cette technologie est actuellement en préversion et n’est disponible que pour du texte écrit en anglais.
+> Cette fonctionnalité est actuellement en version préliminaire et est uniquement disponible pour le texte en anglais.
 
-## <a name="text-recognition-requirements"></a>Critères requis pour la reconnaissance de texte
+### <a name="image-requirements"></a>Exigences des images
 
-Vision par ordinateur peut reconnaître un texte imprimé et manuscrit dans des images qui répondent aux critères suivants :
+L’API de lecture fonctionne avec des images qui répondent aux exigences suivantes :
 
-- L’image doit être au format JPEG, PNG ou BMP.
-- La taille de fichier de l’image doit être inférieure à 4 mégaoctets (Mo)
-- Les dimensions de l’image doivent être comprises entre 50 x 50 et 4200 x 4200 pixels.
+- L’image doit être présentée au format JPEG, PNG, BMP, PDF ou TIFF.
+- Les dimensions de l’image doivent être comprise entre 50 x 50 et 4200 x 4200 pixels. Pages PDF doivent être 17 x 17 pouces ou plus petits.
+- La taille du fichier de l’image doit être inférieure à 20 mégaoctets (Mo).
+
+### <a name="limitations"></a>Limites
+
+Si vous utilisez un abonnement gratuit de couche, l’API de lecture traitera uniquement les deux premières pages d’un document PDF ou TIFF. Avec un abonnement payant, il traite jusqu'à 200 pages. Notez également que l’API détecte un maximum de 300 lignes par page.
+
+## <a name="ocr-optical-character-recognition-api"></a>OCR (reconnaissance optique de caractères) API
+
+API de reconnaissance optique de caractères (OCR) de vision par ordinateur est similaire à l’API de lecture, mais il s’exécute de façon synchrone et n’est pas optimisée pour les documents volumineux. Il utilise un modèle de reconnaissance antérieur mais d’autres langages.
+
+L'OCR prend en charge 25 langues : arabe, chinois simplifié, chinois traditionnel, tchèque, danois, néerlandais, anglais, finnois, français, allemand, grec, hongrois, italien, japonais, coréen, norvégien, polonais, portugais, roumain, russe, serbe (cyrillique et latin), slovaque, espagnol, suédois et turc. L'OCR identifie automatiquement la langue du texte détecté.
+
+Si nécessaire, l'OCR corrige la rotation du texte reconnu en renvoyant le décalage de rotation en degrés autour de l'axe horizontal de l'image. OCR fournit également les coordonnées de cadre de chaque mot, comme indiqué dans l’illustration suivante.
+
+![Diagramme illustrant une image en rotation et le texte en cours de lecture et délimité](./Images/vision-overview-ocr.png)
+
+Consultez le [documents de référence de reconnaissance optique de caractères](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pour en savoir plus.
+
+### <a name="image-requirements"></a>Exigences des images
+
+L’API de reconnaissance optique de caractères fonctionne sur les images qui répondent aux exigences suivantes :
+
+* L’image doit être présentée au format JPEG, PNG, GIF ou BMP.
+* La taille de l’image d’entrée doit être comprise entre 50 x 50 et 4200 x 4200 pixels.
+* Le texte de l'image peut être pivoté par multiples de 90 degrés, plus un faible angle de 40 degrés maximum.
+
+### <a name="limitations"></a>Limites
+
+Sur les photographies où le texte est dominant, de faux positifs peuvent provenir de mots partiellement reconnus. Sur certains photographies, en particulier les photos sans texte, la précision peut varier selon le type d’image.
+
+## <a name="recognize-text-api"></a>Reconnaître le texte API
+
+> [!NOTE]
+> L’API texte reconnaître est déconseillé en faveur de l’API de lecture. L’API de lecture a des fonctionnalités similaires et est mis à jour pour gérer les PDF, TIFF et les fichiers de plusieurs pages.
+
+L’API texte reconnaître est similaire à la reconnaissance optique de caractères, mais il s’exécute de façon asynchrone et utilise des modèles de reconnaissance mis à jour. Consultez le [documents de référence des API de texte reconnaître](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) pour en savoir plus.
+
+### <a name="image-requirements"></a>Exigences des images
+
+L’API texte reconnaître fonctionne avec des images qui répondent aux exigences suivantes :
+
+- L’image doit être présentée au format JPEG, PNG ou BMP.
+- Les dimensions de l’image doivent être comprise entre 50 x 50 et 4200 x 4200 pixels.
+- La taille du fichier de l’image doit être inférieure à 4 mégaoctets (Mo).
+
+## <a name="improve-results"></a>Améliorer les résultats
+
+La précision des opérations de reconnaissance de texte dépend de la qualité des images. Les facteurs suivants peuvent provoquer une lecture inexacte :
+
+* Images floues.
+* Texte manuscrit ou lié.
+* Styles de police artistiques.
+* Taille de police trop petite.
+* Arrière-plans complexes, ombres ou reflets sur le texte ou distorsion de perspective.
+* Lettres majuscules au début de mots surdimensionnées ou manquants.
+* Texte barré, exposant ou indice.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus, consultez la [documentation de référence sur la reconnaissance de texte](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200).
+Suivez le [extraire le texte imprimé (OCR)](./quickstarts/csharp-print-text.md) Guide de démarrage rapide pour implémenter la reconnaissance du texte dans une simple C# application.

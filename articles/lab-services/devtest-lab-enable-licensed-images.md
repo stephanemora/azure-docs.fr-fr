@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0e5de93f8a10d27c28b3f07567f9b6fa7e41d482
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 11b6553fe8aceef0d3d15977998dd870c275128a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781838"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532743"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Activer une image sous licence dans votre laboratoire Azure DevTest Labs
 
@@ -28,7 +28,7 @@ Dans Azure DevTest Labs, une image sous licence est une image qui inclut des con
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Pour déterminer si une image sous licence est accessible aux utilisateurs
 La première étape pour permettre aux utilisateurs de créer des machines virtuelles à partir d’une image sous licence consiste à vérifier que les conditions générales ont été acceptées pour l’image sous licence. Les étapes suivantes montrent comment afficher l’état de l’offre d’une image sous licence et, si nécessaire, accepter les conditions générales.
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
@@ -54,7 +54,7 @@ Pour vérifier qu’une image sous licence est accessible aux utilisateurs du la
 
 Vous pouvez activer le déploiement par programmation pour une image sous licence en suivant ces étapes :
 
-1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), accédez à la liste des **Images de la Place de marché**.
+1. Dans le [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), accédez à la liste des **Images de la Place de marché**.
 
 1. Identifiez une image sous licence à laquelle vous souhaitez que les utilisateurs aient accès, mais dont les conditions générales n’ont pas été acceptées. Par exemple, vous pouvez voir une Data Science Virtual Machine dont l’état est **Conditions acceptées** ou **Revue nécessaire des conditions**.
 
@@ -90,7 +90,7 @@ Vous pouvez activer le déploiement par programmation pour une image sous licenc
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 
 - [Custom images or formulas? (Images personnalisées ou formules ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Copying Custom Images between Azure DevTest Labs (Copie d’images personnalisées entre plusieurs Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Copying Custom Images between Azure DevTest Labs (Copie d’images personnalisées entre plusieurs Azure DevTest Labs)](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

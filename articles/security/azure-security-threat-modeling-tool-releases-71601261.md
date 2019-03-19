@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
-ms.openlocfilehash: 55c781d0c6284de1382c9d3e614621c40963194b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874570"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Mise à jour de Threat Modeling Tool version 7.1.60126.1 - 29/01/2019
 
 La version 7.1.60126.1 de Microsoft Threat Modeling Tool a été publiée le 29 janvier 2019 et contient les modifications suivantes :
 
-- La version minimale requise de .NET est maintenant [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262).
+- La version minimale requise de .NET a été augmentée à [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - La version minimale requise de Windows est maintenant la [Mise à jour anniversaire Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) en raison de la dépendance de .NET.
 - Une fonctionnalité d’activation/de désactivation de validation de modèle a été ajoutée au menu Options de l’outil.
 - Plusieurs liens des propriétés des menaces ont été mis à jour.
@@ -47,7 +47,7 @@ L'option permettant d'activer ou de désactiver la validation du modèle se trou
 - Systèmes d'exploitation pris en charge
   - [Mise à jour anniversaire Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou version ultérieure
 - Version .NET obligatoire
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) ou version ultérieure
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou version ultérieure
 - Conditions supplémentaires
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 

@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892879"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448762"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Découverte et classification des données Azure SQL Database
 
@@ -31,7 +31,7 @@ La découverte et la classification de vos données les plus sensibles (professi
 Découverte et classification des données fait partie de l'offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) qui est un package unifié de fonctionnalités de sécurité SQL avancées. L'accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ADS central.
 
 > [!NOTE]
-> Ce document se rapporte uniquement à Azure SQL Database. Pour SQL Server (local), consultez [Découverte et classification de données SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> Ce document se rapporte uniquement à Azure SQL Database. Pour SQL Server (en local), consultez [découverte de données SQL et la Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Présentation de Découverte et classification des données
 
@@ -144,7 +144,7 @@ Vous pouvez également utiliser des API REST pour gérer par programme les class
 - [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : supprime l’étiquette de sensibilité d’une colonne donnée
 - [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : obtient l’étiquette de sensibilité d’une colonne donnée
 - [Liste actuelle par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : affiche les étiquettes de sensibilité actuelles d’une base de données spécifiée
-- [Liste recommandée par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : affiche les étiquettes de sensibilité actuelles d’une base de données spécifiée
+- [Liste recommandée par la base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Obtient les étiquettes de sensibilité recommandés d’une base de données
 
 ## <a id="subheading-5"></a>Étapes suivantes
 

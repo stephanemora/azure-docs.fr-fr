@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/04/2019
+ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 002ec5d430f4b72ef4ddb0e9b54683361a99f951
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
-ms.translationtype: HT
+ms.openlocfilehash: aca755ce0357887c4d6c27007342afe1fb7b0882
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58013752"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182946"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure Files de NetApp pour les applications SAP
 
@@ -32,6 +32,7 @@ ms.locfileid: "58013752"
 [anf-azure-doc]:https://docs.microsoft.com/en-gb/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all
 [anf-register]:https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register
+[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
@@ -84,7 +85,7 @@ Commencez par lire les notes et publications SAP suivantes :
 * [Déploiement SGBD de Machines virtuelles Azure pour SAP sur Linux][dbms-guide]
 * [Guides sur les meilleures pratiques pour SUSE SAP HA][suse-ha-guide] Les guides contiennent toutes les informations nécessaires pour configurer la réplication locale des systèmes Netweaver HP et SAP HANA. Utilisez ces guides comme planning de référence. Ils fournissent des informations beaucoup plus détaillées.
 * [Notes de publication de SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
-
+* [NetApp les Applications SAP sur Microsoft Azure à l’aide de fichiers NetApp de Azure][anf-sap-applications-azure]
 
 ## <a name="overview"></a>Présentation
 
@@ -243,6 +244,9 @@ Vous devez d’abord créer des volumes de fichiers NetApp de Azure. Déployer l
          * Répétez les étapes ci-dessus sous « d » pour les ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 et TCP pour l’instance ASCS
       1. Ports supplémentaires pour les instances ASCS ERS
          * Répétez les étapes ci-dessus sous « d » pour les ports 33**01**, 5**01**13, 5**01**14, 5**01**16 et TCP pour l’ASCS ERS
+
+> [!IMPORTANT]
+> N’activez pas les horodatages TCP sur des machines virtuelles Azure placé derrière un équilibreur de charge Azure. L’activation TCP horodatages entraîne les sondes d’intégrité à échouer. Définissez le paramètre **net.ipv4.tcp_timestamps** à **0**. Pour plus d’informations, consultez [sondes d’intégrité d’équilibreur de charge](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Créer le cluster Pacemaker
 

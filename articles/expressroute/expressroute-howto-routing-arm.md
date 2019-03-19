@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 02/26/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: b8e9aadc63af563c47d42ed52445afbc270d98ec
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: bb1e71c4a665a25fa9b936c8777cf8fa0d5cd3e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091917"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier l’homologation d’un circuit ExpressRoute à l’aide de PowerShell
 
@@ -46,6 +46,8 @@ Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publ
 
 ### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="msft"></a>Homologation Microsoft
@@ -61,82 +63,82 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 1. Connectez-vous et sélectionnez votre abonnement.
 
-  Si vous avez installé PowerShell localement, connectez-vous. Si vous utilisez Azure Cloud Shell, vous pouvez ignorer cette étape.
+   Si vous avez installé PowerShell localement, connectez-vous. Si vous utilisez Azure Cloud Shell, vous pouvez ignorer cette étape.
 
-  ```azurepowershell
-  Connect-AzureRmAccount
-  ```
+   ```azurepowershell
+   Connect-AzAccount
+   ```
 
-  Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
+   Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 
-  ```azurepowershell-interactive
-Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. Créez un circuit ExpressRoute.
 
-  Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation Microsoft pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit. 
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation Microsoft pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit. 
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
-  ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  La réponse ressemble à ce qui suit :
+   La réponse ressemble à ce qui suit :
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                        "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Configurez l’homologation Microsoft pour le circuit. Assurez-vous de disposer des informations suivantes avant de poursuivre.
 
-  * Un sous-réseau /30 ou /126 pour le lien principal. Il doit s’agir d’un préfixe IPv4 ou IPv6 public valide vous appartenant et enregistré dans un registre RIR / IRR.
-  * Un sous-réseau /30 ou /126 pour le lien secondaire. Il doit s’agir d’un préfixe IPv4 ou IPv6 public valide vous appartenant et enregistré dans un registre RIR / IRR.
-  * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
-  * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
-  * Préfixes publiés : vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR. Les sessions IPv4 BGP nécessitent des préfixes publiés IPv4 et les sessions IPv6 BGP nécessitent des préfixes publiés IPv6. 
-  * Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auquel le numéro AS et les préfixes sont enregistrés.
-  * Facultatif :
-    * ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.
-    * Un hachage MD5 si vous choisissez d’en utiliser un.
+   * Un sous-réseau /30 ou /126 pour le lien principal. Il doit s’agir d’un préfixe IPv4 ou IPv6 public valide vous appartenant et enregistré dans un registre RIR / IRR.
+   * Un sous-réseau /30 ou /126 pour le lien secondaire. Il doit s’agir d’un préfixe IPv4 ou IPv6 public valide vous appartenant et enregistré dans un registre RIR / IRR.
+   * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
+   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
+   * Préfixes publiés : Vous devez fournir la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR. Les sessions IPv4 BGP nécessitent des préfixes publiés IPv4 et les sessions IPv6 BGP nécessitent des préfixes publiés IPv6. 
+   * Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auquel le numéro AS et les préfixes sont enregistrés.
+   * Facultatif :
+     * ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.
+     * Un hachage MD5 si vous choisissez d’en utiliser un.
 
-  Utilisez l’exemple suivant afin de configurer l’homologation Microsoft pour votre circuit :
+   Utilisez l’exemple suivant afin de configurer l’homologation Microsoft pour votre circuit :
 
-  ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+   Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
 ### <a name="getmsft"></a>Pour obtenir des détails sur l’homologation Microsoft
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="updatemsft"></a>Pour mettre à jour la configuration d’homologation Microsoft
@@ -144,11 +146,11 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRou
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant :
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deletemsft"></a>Pour supprimer une homologation Microsoft
@@ -156,9 +158,9 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante :
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="private"></a>Homologation privée Azure
@@ -169,107 +171,106 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 1. Importez le module PowerShell pour ExpressRoute.
 
-  Vous devez installer la dernière version du programme d'installation PowerShell à partir de [PowerShell Gallery](http://www.powershellgallery.com/) et importer les modules Azure Resource Manager dans la session PowerShell pour utiliser les applets de commande ExpressRoute. Vous devrez exécuter PowerShell en tant qu'administrateur.
+   Vous devez installer la dernière version du programme d'installation PowerShell à partir de [PowerShell Gallery](https://www.powershellgallery.com/) et importer les modules Azure Resource Manager dans la session PowerShell pour utiliser les applets de commande ExpressRoute. Vous devrez exécuter PowerShell en tant qu'administrateur.
 
-  ```azurepowershell-interactive
-  Install-Module AzureRM
-  Install-AzureRM
-  ```
+   ```azurepowershell-interactive
+   Install-Module Az
+   ```
 
-  Importez tous les modules AzureRM.* dans la plage de version sémantique connue.
+   Importer tous les en Arizona.\* modules dans la plage de version sémantique connue.
 
-  ```azurepowershell-interactive
-  Import-AzureRM
-  ```
+   ```azurepowershell-interactive
+   Import-Module Az
+   ```
 
-  Vous pouvez également importer un seul module sélectionné dans la plage de version sémantique connue.
+   Vous pouvez également importer un seul module sélectionné dans la plage de version sémantique connue.
 
-  ```azurepowershell-interactive
-  Import-Module AzureRM.Network 
-  ```
+   ```azurepowershell-interactive
+   Import-Module Az.Network 
+   ```
 
-  Connectez-vous à votre compte.
+   Connectez-vous à votre compte.
 
-  ```azurepowershell-interactive
-  Connect-AzureRmAccount
-  ```
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
 
-  Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
+   Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 
-  ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. Créez un circuit ExpressRoute.
 
-  Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
-  ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  La réponse ressemble à ce qui suit :
+   La réponse ressemble à ce qui suit :
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                        "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Configurez l'homologation privée Azure pour le circuit. Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
 
-  * Un sous-réseau /30 pour le lien principal. Le sous-réseau ne doit faire partie d’aucun espace d’adressage réservé aux réseaux virtuels.
-  * Un sous-réseau /30 pour le lien secondaire. Le sous-réseau ne doit faire partie d’aucun espace d’adressage réservé aux réseaux virtuels.
-  * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
-  * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour cette homologation. Veillez à ne pas utiliser le numéro 65515.
-  * Facultatif :
-    * Un hachage MD5 si vous choisissez d’en utiliser un.
+   * Un sous-réseau /30 pour le lien principal. Le sous-réseau ne doit faire partie d’aucun espace d’adressage réservé aux réseaux virtuels.
+   * Un sous-réseau /30 pour le lien secondaire. Le sous-réseau ne doit faire partie d’aucun espace d’adressage réservé aux réseaux virtuels.
+   * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
+   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour cette homologation. Veillez à ne pas utiliser le numéro 65515.
+   * Facultatif :
+     * Un hachage MD5 si vous choisissez d’en utiliser un.
 
-  Utilisez l’exemple suivant pour configurer l’homologation privée Azure pour votre circuit :
+   Utilisez l’exemple suivant pour configurer l’homologation privée Azure pour votre circuit :
 
-  ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  Si vous choisissez d’utiliser un hachage MD5, utilisez l’exemple suivant :
+   Si vous choisissez d’utiliser un hachage MD5, utilisez l’exemple suivant :
 
-  ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
-  ```
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+   ```
 
-  > [!IMPORTANT]
-  > Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
-  > 
-  >
+   > [!IMPORTANT]
+   > Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
+   > 
+   >
 
 ### <a name="getprivate"></a>Pour obtenir les détails d’une homologation privée Azure
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="updateprivate"></a>Pour mettre à jour la configuration d’homologation privée Azure
@@ -277,9 +278,9 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 100 à 500.
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deleteprivate"></a>Pour supprimer une homologation privée Azure
@@ -292,9 +293,9 @@ Vous pouvez supprimer votre configuration d’homologation en exécutant l’exe
 > 
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="public"></a>Homologation publique Azure
@@ -305,110 +306,108 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 1. Importez le module PowerShell pour ExpressRoute.
 
-  Vous devez installer la dernière version du programme d'installation PowerShell à partir de [PowerShell Gallery](http://www.powershellgallery.com/) et importer les modules Azure Resource Manager dans la session PowerShell pour utiliser les applets de commande ExpressRoute. Vous devrez exécuter PowerShell en tant qu'administrateur.
+   Vous devez installer la dernière version du programme d'installation PowerShell à partir de [PowerShell Gallery](https://www.powershellgallery.com/) et importer les modules Azure Resource Manager dans la session PowerShell pour utiliser les applets de commande ExpressRoute. Vous devrez exécuter PowerShell en tant qu'administrateur.
 
-  ```azurepowershell-interactive
-  Install-Module AzureRM
+   ```azurepowershell-interactive
+   Install-Module Az
+   ```
 
-  Install-AzureRM
-```
+   Importer tous les en Arizona.\* modules dans la plage de version sémantique connue.
 
-  Importez tous les modules AzureRM.* dans la plage de version sémantique connue.
+   ```azurepowershell-interactive
+   Import-Module Az
+   ```
 
-  ```azurepowershell-interactive
-  Import-AzureRM
-  ```
+   Vous pouvez également importer un seul module sélectionné dans la plage de version sémantique connue.
 
-  Vous pouvez également importer un seul module sélectionné dans la plage de version sémantique connue.
+   ```azurepowershell-interactive
+   Import-Module Az.Network
+   ```
 
-  ```azurepowershell-interactive
-  Import-Module AzureRM.Network
-```
+   Connectez-vous à votre compte.
 
-  Connectez-vous à votre compte.
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
 
-  ```azurepowershell-interactive
-  Connect-AzureRmAccount
-  ```
+   Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 
-  Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
-
-  ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. Créez un circuit ExpressRoute.
 
-  Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation publique Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation publique Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
-  ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  La réponse ressemble à ce qui suit :
+   La réponse ressemble à ce qui suit :
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                       "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Configurez l’homologation publique Azure pour le circuit. Assurez-vous que vous disposez des informations suivantes avant de continuer.
 
-  * Un sous-réseau /30 pour le lien principal. Ce doit être un préfixe IPv4 public valide.
-  * Un sous-réseau /30 pour le lien secondaire. Ce doit être un préfixe IPv4 public valide.
-  * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
-  * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
-  * Facultatif :
-    * Un hachage MD5 si vous choisissez d’en utiliser un.
+   * Un sous-réseau /30 pour le lien principal. Ce doit être un préfixe IPv4 public valide.
+   * Un sous-réseau /30 pour le lien secondaire. Ce doit être un préfixe IPv4 public valide.
+   * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
+   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
+   * Facultatif :
+     * Un hachage MD5 si vous choisissez d’en utiliser un.
 
-  Exécutez l’exemple suivant pour configurer l’homologation publique Azure pour votre circuit :
+   Exécutez l’exemple suivant pour configurer l’homologation publique Azure pour votre circuit :
 
-  ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  Si vous choisissez d’utiliser un hachage MD5, utilisez l’exemple suivant :
+   Si vous choisissez d’utiliser un hachage MD5, utilisez l’exemple suivant :
 
-  ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  > [!IMPORTANT]
-  > Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
-  > 
-  >
+   > [!IMPORTANT]
+   > Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
+   > 
+   >
 
 ### <a name="getpublic"></a>Pour obtenir les détails d’une homologation publique Azure
 
 Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet de commande suivante :
 
 ```azurepowershell-interactive
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-  Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+  Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
 ### <a name="updatepublic"></a>Pour mettre à jour la configuration d’homologation publique Azure
@@ -416,9 +415,9 @@ Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 200 à 600.
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
+Set-AzExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deletepublic"></a>Pour supprimer une homologation publique Azure
@@ -426,8 +425,8 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’exemple suivant :
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

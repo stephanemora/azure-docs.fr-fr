@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092189"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -29,10 +29,10 @@ Cet article vous aide à configurer la solution de haute disponibilité et scala
 
 > [!NOTE]
 > Cet article part du principe que vous connaissez déjà les bases du runtime d’intégration (anciennement passerelle de gestion des données). Si ce n’est pas le cas, consultez [Passerelle de gestion des données](data-factory-data-management-gateway.md).
+> 
+> **Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
 
->**Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
-
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Vous pouvez associer des passerelles de gestion des données installées sur plusieurs ordinateurs locaux à une seule passerelle logique du portail. Ces ordinateurs sont appelés **nœuds**. Vous pouvez associer jusqu’à **quatre nœuds** à une passerelle logique. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :  
 
 - Les performances du déplacement des données entre les magasins de données locaux et dans le cloud sont améliorées.  
@@ -163,8 +163,8 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 
 - Le certificat doit être un certificat X509 v3 approuvé publiquement. Nous vous recommandons d’utiliser des certificats émis par une autorité de certification (tierce) publique.
 - Chaque nœud de runtime d’intégration doit approuver ce certificat, ainsi que l’ordinateur client qui exécute l’application du gestionnaire d’informations d’identification. 
-> [!NOTE]
-> L’application du gestionnaire d’informations d’identification est utilisée lors de la définition en toute sécurité des informations d’identification à partir de l’Assistant Copie / portail Azure. Et elle peut être déclenchée à partir de n’importe quel ordinateur appartenant au même réseau que le magasin de données local ou privé.
+  > [!NOTE]
+  > L’application du gestionnaire d’informations d’identification est utilisée lors de la définition en toute sécurité des informations d’identification à partir de l’Assistant Copie / portail Azure. Et elle peut être déclenchée à partir de n’importe quel ordinateur appartenant au même réseau que le magasin de données local ou privé.
 - Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser ***.domain.contoso.com** comme nom du sujet du certificat.
 - Les certificats SAN ne sont pas recommandés, car seul le dernier élément des Autres noms de l’objet sera utilisé et tous les autres seront ignorés en raison d’une limitation actuelle. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous ne pouvez utiliser ce certificat que sur l’ordinateur dont le FQDN est **node2.domain.contoso.com**.
 - Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
@@ -186,7 +186,7 @@ Vous pouvez activer l’option **Paramètres avancés** dans la page **Passerell
 
 Propriété de surveillance | Description
 :------------------ | :---------- 
-NOM | Nom de la passerelle logique et nœuds associés à la passerelle.  
+Nom | Nom de la passerelle logique et nœuds associés à la passerelle.  
 Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 
 Version | Indique la version de la passerelle logique et de chaque nœud de passerelle. La version de la passerelle logique est déterminée selon la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans l’installation de la passerelle logique, seuls les nœuds dont le numéro de version est identique à celui de la passerelle logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue). 
 Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 

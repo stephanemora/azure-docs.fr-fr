@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 318ec5a4f9aceaf02048768cbf630eff08feff6b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189510"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services
 
 > [!NOTE]
 > À partir du 12 mai 2018, les canaux en direct ne prendront plus en charge le protocole de réception du flux de transport RTP/MPEG-2. Effectuez la migration à partir de RTP/MPEG-2 vers le protocole de réception RTMP ou MP4 fragmenté (Smooth Streaming).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 La diffusion d’événements en flux continu avec Azure Media Services implique généralement les composants suivants :
 
@@ -69,16 +69,16 @@ Le tableau suivant fournit un guide de comparaison des deux types de canaux pris
 
 | Fonctionnalité | Canal pass-through | Canal standard |
 | --- | --- | --- |
-| L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non  |OUI |
+| L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non  |Oui |
 | Résolution maximale, nombre de couches |1080p, 8 couches, plus de 60 i/s |720p, 6 couches, 30 i/s |
 | Protocoles d’entrée |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Prix |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct » |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) |
 | Durée maximale |24 x 7 |8 heures |
-| Prise en charge de l’insertion d’ardoises |Non  |OUI |
-| Prise en charge de la signalisation des annonces |Non  |OUI |
-| Légendes CEA 608/708 pass-through |OUI |OUI |
-| Prise en charge des groupes d’images d’entrée non uniformes |OUI |Non. L’entrée doit être constituée de groupes d’images fixes de deux secondes |
-| Prise en charge de l’entrée à fréquence d’images variable |OUI |Non. L’entrée doit avoir une fréquence d’images fixe.<br/>Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Cependant, l’encodeur ne doit pas descendre à 10 images par seconde. |
+| Prise en charge de l’insertion d’ardoises |Non  |Oui |
+| Prise en charge de la signalisation des annonces |Non  |Oui |
+| Légendes CEA 608/708 pass-through |Oui |Oui |
+| Prise en charge des groupes d’images d’entrée non uniformes |Oui |Non. L’entrée doit être constituée de groupes d’images fixes de deux secondes |
+| Prise en charge de l’entrée à fréquence d’images variable |Oui |Non. L’entrée doit avoir une fréquence d’images fixe.<br/>Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Cependant, l’encodeur ne doit pas descendre à 10 images par seconde. |
 | Auto-fermeture des canaux en cas de perte du flux d’entrée |Non  |Après 12 heures si aucun programme n’est en cours d’exécution |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Utilisation de canaux recevant un flux continu à débit binaire multiple provenant d’encodeurs locaux (pass-through)
@@ -146,7 +146,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Existe-t-il une facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
 | Arrêté |Arrêté |Non  |
 

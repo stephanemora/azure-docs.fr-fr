@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861075"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -129,6 +129,18 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
   > [!IMPORTANT]
   > Managed Instance ne prend pas en charge les groupes de basculement multiples.
+  
+## <a name="permissions"></a>Autorisations
+Autorisations pour un groupe de basculement sont gérées via [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). Le [contributeur de SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) rôle dispose des autorisations nécessaires pour gérer des groupes de basculement. 
+
+### <a name="create-failover-group"></a>Créer un groupe de basculement
+Pour créer un groupe de basculement, vous avez besoin d’un accès en écriture RBAC pour les serveurs primaires et secondaires et toutes les bases de données dans le groupe de basculement. Pour une instance gérée, vous avez besoin d’accès en écriture RBAC dans les deux instance gérée principaux et secondaire, mais les autorisations sur les bases de données individuelles ne sont pas pertinentes dans la mesure où les bases de données instance gérée individuelle ne peut pas être ajoutés ou supprimés à partir d’un groupe de basculement. 
+
+### <a name="update-a-failover-group"></a>Mettre à jour un groupe de basculement
+Pour mettre à jour un groupe de basculement, vous devez RBAC accès en écriture pour le groupe de basculement et toutes les bases de données sur le serveur principal actuel ou une instance gérée.  
+
+### <a name="failover-a-failover-group"></a>Basculer un groupe de basculement
+Pour basculer un groupe de basculement, vous devez RBAC accès en écriture au groupe de basculement sur le nouveau serveur principal ou managed instance. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Meilleures pratiques relatives à l’utilisation des groupes de basculement avec des bases de données uniques et des pools élastiques
 
@@ -203,7 +215,7 @@ Si votre application utilise Managed Instance comme couche de données, suivez c
   > [!NOTE]
   > Dans certains niveaux de service, Azure SQL Database prend en charge l’utilisation de [réplicas en lecture seule](sql-database-read-scale-out.md) pour équilibrer les charges de travail de requêtes en lecture seule en utilisant la capacité d’un réplica en lecture seule et le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
   > - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `failover-group-name.zone_id.database.windows.net`.
-  > - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Pour vous connecter à un réplica en lecture seule dans l’emplacement secondaire, utilisez `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Se préparer à une dégradation des performances**
 
@@ -270,7 +282,9 @@ Lorsque vous configurez des groupes de basculement entre des instances managées
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Mise à niveau ou rétrogradation d’une base de données primaire
 
-Vous pouvez augmenter ou diminuer la taille de calcul d’une base de données primaire (au sein du même niveau de service, mais pas entre les niveaux Usage général et Critique pour l’entreprise) sans déconnecter les bases de données secondaires. Lors d’une mise à niveau, nous vous recommandons de mettre à niveau la base de données secondaire dans un premier temps, avant de mettre à niveau la base de données primaire. Lors d’une rétrogradation, inversez l’ordre : rétrogradez tout d’abord la base de données primaire, puis dans un second temps la base de données secondaire. Lorsque vous passez la base de données à un niveau de service supérieur ou inférieur, cette recommandation est appliquée.
+Vous pouvez augmenter ou diminuer la taille de calcul d’une base de données primaire (au sein du même niveau de service, mais pas entre les niveaux Usage général et Critique pour l’entreprise) sans déconnecter les bases de données secondaires. Lors de la mise à niveau, nous recommandons que vous mettre à niveau toutes les bases de données secondaire tout d’abord, puis mettre à niveau le serveur principal. Lors de la rétrogradation, inversez l’ordre : rétrogradez le réplica principal tout d’abord et puis passer toutes les bases de données secondaire. Lorsque vous passez la base de données à un niveau de service supérieur ou inférieur, cette recommandation est appliquée.
+
+Cette séquence est recommandée spécifiquement pour éviter ce problème dans lequel la base de données secondaire à une référence SKU inférieure est surchargé et doit être réamorcée lors d’un processus de mise à niveau ou à une version antérieure. Vous pouvez également éviter le problème en rendant le réplica principal en lecture seule, au détriment ayant un impact sur toutes les charges de travail en lecture-écriture sur le serveur principal. 
 
 > [!NOTE]
 > Si vous avez créé une base de données secondaire dans le cadre de la configuration des groupes de basculement, il n’est pas conseillé de passer la base de données secondaire à un niveau de service inférieur. En effet, votre couche Données pourrait manquer de capacité pour traiter votre charge de travail normale après l’activation du basculement.
@@ -294,12 +308,12 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 | Applet de commande | Description |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Supprime le groupe de basculement du serveur et efface toutes les bases de données secondaires incluses dans le groupe. |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Récupère la configuration du groupe de basculement. |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Modifie la configuration du groupe de basculement. |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Déclenche le basculement du groupe de basculement vers le serveur secondaire. |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Ajoute une ou plusieurs bases de données à un groupe de basculement Azure SQL Database|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Supprime le groupe de basculement du serveur et efface toutes les bases de données secondaires incluses dans le groupe. |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Récupère la configuration du groupe de basculement. |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifie la configuration du groupe de basculement. |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Déclenche le basculement du groupe de basculement vers le serveur secondaire. |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Ajoute une ou plusieurs bases de données à un groupe de basculement Azure SQL Database|
 |  | |
 
 > [!IMPORTANT]
@@ -308,32 +322,32 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell : Gérer des groupes de basculement avec des instances managées (préversion)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installer la préversion la plus récente de PowerShell
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installer la dernière version de la version préliminaire de PowerShell
 
 1. Mettez à jour le module PowerShellGet vers la version 1.6.5 (ou la préversion la plus récente). Consultez le [site de la préversion de PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Dans une nouvelle fenêtre PowerShell, exécutez les commandes suivantes :
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
 
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Applets de commande PowerShell permettant de créer un groupe de basculement d’instances
+#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Applets de commande PowerShell pour créer un groupe d’instances de basculement
 
 | API | Description |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifie la configuration du groupe de basculement.|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Récupère la configuration du groupe de basculement.|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Déclenche le basculement du groupe de basculement vers le serveur secondaire.|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Supprime un groupe de basculement|
+| New-AzSqlDatabaseInstanceFailoverGroup |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Modifie la configuration du groupe de basculement.|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Récupère la configuration du groupe de basculement.|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |Déclenche le basculement du groupe de basculement vers le serveur secondaire.|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Supprime un groupe de basculement|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST : Gérer les groupes de basculement de base de données SQL avec des bases de données uniques et mises en pool
 

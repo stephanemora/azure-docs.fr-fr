@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833499"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurer la machine virtuelle hébergée sur Azure
 
@@ -28,7 +28,8 @@ Cet article explique comment dimensionner, mettre à jour et généraliser une m
 
 ## <a name="sizing-the-vhds"></a>Dimensionnement des disques durs virtuels (VHD)
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Si vous avez sélectionné l’une des machines virtuelles préconfigurées avec un système d’exploitation (et éventuellement d’autres services), vous avez déjà choisi une taille de machine virtuelle Azure standard, comme décrit dans l’article [Virtual machine SKUs tab](./cpp-skus-tab.md) (Onglet Références de machine virtuelle).  Il est recommandé de démarrer votre solution avec un système d’exploitation préconfiguré.  Toutefois, si vous installez un système d’exploitation manuellement, vous devez dimensionner votre VHD principal dans votre image de machine virtuelle :
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
+Si vous avez sélectionné une des machines virtuelles préconfigurées avec un système d’exploitation (et éventuellement d’autres services), vous avez déjà choisi une taille de machine virtuelle Azure standard, comme décrit dans [onglet SKU de machine virtuelle](./cpp-skus-tab.md).  Il est recommandé de démarrer votre solution avec un système d’exploitation préconfiguré.  Toutefois, si vous installez un système d’exploitation manuellement, vous devez dimensionner votre VHD principal dans votre image de machine virtuelle :
 
 - Pour Windows, le VHD de système d’exploitation doit être créé en tant que VHD au format fixe de 127-128 Go. 
 - Pour Linux, ce VHD doit être créé en tant que VHD au format fixe de 30-50 Go.
@@ -44,7 +45,7 @@ Les images de base des machines virtuelles de système d’exploitation contienn
 
 Pour Windows Server 2016, exécutez la commande **Rechercher les mises à jour**.  Dans le cas des versions antérieures de Windows, consultez l’article [Procédure d’obtention d’une mise à jour via Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows Update installe automatiquement les dernières mises à jour de sécurité critiques et importantes.
 
-Pour les distributions Linux, les mises à jour sont couramment téléchargées et installées par le biais d’un outil en ligne de commande ou d’un utilitaire graphique.  Par exemple, Ubuntu Linux fournit la commande [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) et l’outil [Update Manager](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) pour la mise à jour du système d’exploitation.
+Pour les distributions Linux, les mises à jour sont couramment téléchargées et installées par le biais d’un outil en ligne de commande ou d’un utilitaire graphique.  Par exemple, Ubuntu Linux fournit la commande [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) et l’outil [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) pour la mise à jour du système d’exploitation.
 
 
 ## <a name="perform-additional-security-checks"></a>Effectuer des vérifications de sécurité supplémentaires
@@ -72,7 +73,7 @@ Les disques de système d’exploitation Windows sont généralisés à l’aide
 > [!WARNING]
 >  Étant donné que les mises à jour peuvent s’exécuter automatiquement, une fois que vous exécutez sysprep, vous devez éteindre la machine virtuelle jusqu’à son déploiement.  Cet arrêt évite que des mises à jour ultérieures apportent des modifications propres à une instance au système d’exploitation du VHD ou aux services installés.
 
-Pour plus d’informations sur l’exécution de sysprep, consultez la section [Étapes de généralisation d’un disque dur virtuel] (https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd).
+Pour plus d’informations sur l’exécution de sysprep, consultez [étapes afin de généraliser un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### <a name="linux"></a>Linux
 

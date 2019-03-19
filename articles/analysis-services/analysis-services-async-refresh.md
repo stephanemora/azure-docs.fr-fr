@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168015"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 
@@ -57,7 +57,7 @@ Par exemple, vous pouvez utiliser le verbe POST sur la collection Refreshes pour
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Tous les appels doivent être authentifiés avec un jeton d’Azure Active Directory (OAuth 2) valide dans l’en-tête d’autorisation et doivent respecter les conditions suivantes :
 
@@ -98,13 +98,13 @@ Le corps doit ressembler à ceci :
 
 La spécification des paramètres n’est pas nécessaire. La valeur par défaut est appliquée.
 
-|NOM  |type  |Description  |Default  |
-|---------|---------|---------|---------|
-|type     |  Enum       |  Type de traitement à effectuer. Les types sont alignés sur les types de [commande d’actualisation](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) TMSL : full, clearValues, calculate, dataOnly, automatic et defragment. Le type add n’est pas pris en charge.      |   automatique      |
-|CommitMode     |  Enum       |  Détermine si les objets doivent être validés par lot ou uniquement à la fin. Modes inclus : default, transactional, partialBatch.  |  transactional       |
-|MaxParallelism     |   Int      |  Cette valeur détermine le nombre maximal de threads sur lesquels exécuter des commandes de traitement en parallèle. Elle s’aligne sur la propriété MaxParallelism qui peut être définie dans la [commande de séquence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) TMSL ou par d’autres méthodes.       | 10        |
-|RetryCount    |    Int     |   Indique le nombre de tentatives de l’opération avant échec.      |     0    |
-|Objets     |   Tableau      |   Tableau d’objets à traiter. Chaque objet inclut « table » lors du traitement de la table entière, ou « table » et « partition » lors du traitement d’une partition. Si aucun objet n’est spécifié, l’ensemble du modèle est actualisé. |   Traitement de l’ensemble du modèle      |
+| Nom             | type  | Description  |Default  |
+|------------------|-------|--------------|---------|
+| `Type`           | Enum  | Type de traitement à effectuer. Les types sont alignés sur les types de [commande d’actualisation](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) TMSL : full, clearValues, calculate, dataOnly, automatic et defragment. Le type add n’est pas pris en charge.      |   automatique      |
+| `CommitMode`     | Enum  | Détermine si les objets doivent être validés par lot ou uniquement à la fin. Modes inclus : default, transactional, partialBatch.  |  transactional       |
+| `MaxParallelism` | Int   | Cette valeur détermine le nombre maximal de threads sur lesquels exécuter des commandes de traitement en parallèle. Elle s’aligne sur la propriété MaxParallelism qui peut être définie dans la [commande de séquence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) TMSL ou par d’autres méthodes.       | 10        |
+| `RetryCount`     | Int   | Indique le nombre de tentatives de l’opération avant échec.      |     0    |
+| `Objects`        | Tableau | Tableau d’objets à traiter. Chaque objet inclut « table » lors du traitement de la table entière, ou « table » et « partition » lors du traitement d’une partition. Si aucun objet n’est spécifié, l’ensemble du modèle est actualisé. |   Traitement de l’ensemble du modèle      |
 
 CommitMode équivaut à partialBatch. Il est utilisé lors du chargement initial de jeux de données volumineux qui peuvent prendre des heures. Si l’opération d’actualisation échoue après la validation correcte d’un ou plusieurs lots, les lots validés restent validés (la validation n’est pas annulée).
 

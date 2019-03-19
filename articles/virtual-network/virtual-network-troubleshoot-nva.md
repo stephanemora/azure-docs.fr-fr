@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 40e034a563074e10a2dfbee36b6792a095022057
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700568"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649627"
 ---
-#  <a name="network-virtual-appliance-issues-in-azure"></a>Problèmes d’appliance virtuelle réseau dans Azure
+# <a name="network-virtual-appliance-issues-in-azure"></a>Problèmes d’appliance virtuelle réseau dans Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Vous pouvez rencontrer des problèmes de connectivité de machines virtuelles (MV) ou de réseau privé virtuel (VPN), ainsi que des erreurs lors de l’utilisation d’une appliance virtuelle réseau (NVA) dans Microsoft Azure. Cet article décrit les étapes élémentaires pour valider les exigences de plateforme Azure de base pour des configurations d’appliance virtuelle réseau.
 
-Un support technique pour appliances virtuelles réseau tierces et leur intégration avec la plateforme Azure est fourni par le fournisseur de l’appliance virtuelle réseau. 
+Un support technique pour appliances virtuelles réseau tierces et leur intégration avec la plateforme Azure est fourni par le fournisseur de l’appliance virtuelle réseau.
 
 > [!NOTE]
 > Si vous rencontrez un problème de connectivité ou de routage qui implique une appliance virtuelle réseau, vous devez [contactez directement le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
@@ -40,7 +42,7 @@ Un support technique pour appliances virtuelles réseau tierces et leur intégra
 - Itinéraires définis par l’utilisateur sur des sous-réseaux de réseau virtuel qui dirigent le trafic à partir de l’appliance virtuelle réseau
 - Tables et règles de routage au sein de l’appliance virtuelle réseau (par exemple, de NIC1 à NIC2)
 - Suivi sur les NIC d’appliance virtuelle réseau pour vérifier la réception et l’envoi de trafic réseau
-- Lorsque vous utilisez une référence SKU Standard et des adresses IP publiques, vous devez disposer d'un groupe de sécurité réseau et d'une règle explicite pour autoriser le routage du trafic vers l'appliance virtuelle réseau.
+- Lorsque vous utilisez une référence (SKU) Standard et les adresses IP publiques, il doit y avoir un groupe de sécurité réseau créé et une règle explicite pour autoriser le trafic soit acheminé vers l’appliance virtuelle réseau.
 
 ## <a name="basic-troubleshooting-steps"></a>Étapes de dépannage de base
 
@@ -56,29 +58,23 @@ Chaque appliance virtuelle réseau a des exigences de configuration de base pour
 
 Utiliser le portail Azure
 
-1.  Localisez la ressource d’appliance virtuelle réseau sur le [portail Azure](https://portal.azure.com), sélectionnez Mise en réseau, puis sélectionnez l’interface réseau.
-2.  Sur la page Interface réseau, sélectionnez Configuration IP.
-3.  Assurez-vous que le transfert IP est activé.
+1. Localisez la ressource d’appliance virtuelle réseau sur le [portail Azure](https://portal.azure.com), sélectionnez Mise en réseau, puis sélectionnez l’interface réseau.
+2. Sur la page Interface réseau, sélectionnez Configuration IP.
+3. Assurez-vous que le transfert IP est activé.
 
 Utiliser PowerShell
 
 1. Ouvrez PowerShell, puis connectez-vous à votre compte Azure.
 2. Exécutez la commande suivante (en remplaçant les valeurs entre crochets par vos informations) :
 
-        Get-AzureRmNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
 
 3. Vérifiez la propriété **EnableIPForwarding**.
- 
 4. Si le transfert IP n’est pas activé, exécutez les commandes suivantes pour l’activer :
 
-          $nic2 = Get-AzureRmNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
-          $nic2.EnableIPForwarding = 1
-          Set-AzureRmNetworkInterface -NetworkInterface $nic2
-          Execute: $nic2 #and check for an expected output:
-          EnableIPForwarding   : True
-          NetworkSecurityGroup : null
+   $nic2 = Get-AzNetworkInterface - ResourceGroupName <ResourceGroupName> -nom <NicName> $nic2. EnableIPForwarding = 1 exécuter Set-AzNetworkInterface - NetworkInterface $nic2 : $nic2 #and check pour une sortie attendue : EnableIPForwarding : True NetworkSecurityGroup : null
 
-**Vérifiez l'existence d'un groupe de sécurité réseau lorsque vous utilisez des adresses IP publiques et une référence SKU Standard** Lorsque vous utilisez une référence SKU Standard et des adresses IP publiques, vous devez disposer d'un groupe de sécurité réseau et d'une règle explicite pour autoriser le trafic vers l'appliance virtuelle réseau.
+**Recherchez les NSG lorsque vous utilisez l’adresse IP de Pubilc référence (SKU) Standard** lorsque vous utilisez une référence (SKU) Standard et les adresses IP publiques, il doit y avoir un groupe de sécurité réseau créé et une règle explicite pour autoriser le trafic vers l’appliance virtuelle réseau.
 
 **Vérifier si le trafic peut être routé vers l’appliance virtuelle réseau**
 
@@ -88,13 +84,13 @@ Utiliser PowerShell
 
 **Vérifier si le trafic peut atteindre l’appliance virtuelle réseau**
 
-1.  Dans le [portail Azure](https://portal.azure.com), ouvrez **Network Watcher**, puis sélectionnez **Vérification du flux IP**. 
-2.  Spécifiez la machine virtuelle et l’adresse IP de l’appliance virtuelle réseau, puis vérifiez si le trafic est bloqué par des groupes de sécurité réseau (NSG).
-3.  S’il existe une règle de groupe de sécurité réseau qui bloque le trafic, localisez le groupe de sécurité réseau dans les règles de **sécurité efficace**, puis mettez-le à jour pour autoriser le passage du trafic. Réexécutez ensuite la **Vérification du flux IP** et utilisez la **Résolution des problèmes de connexion** pour tester les communications TCP entre la machine virtuelle et votre adresse IP interne ou externe.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez **Network Watcher**, puis sélectionnez **Vérification du flux IP**. 
+2. Spécifiez la machine virtuelle et l’adresse IP de l’appliance virtuelle réseau, puis vérifiez si le trafic est bloqué par des groupes de sécurité réseau (NSG).
+3. S’il existe une règle de groupe de sécurité réseau qui bloque le trafic, localisez le groupe de sécurité réseau dans les règles de **sécurité efficace**, puis mettez-le à jour pour autoriser le passage du trafic. Réexécutez ensuite la **Vérification du flux IP** et utilisez la **Résolution des problèmes de connexion** pour tester les communications TCP entre la machine virtuelle et votre adresse IP interne ou externe.
 
 **Vérifier si l’appliance virtuelle réseau et les machines virtuelles écoutent le trafic attendu**
 
-1.  Connectez-vous à l’appliance virtuelle réseau en utilisant le protocole RDP ou SSH, puis exécutez la commande suivante :
+1. Connectez-vous à l’appliance virtuelle réseau en utilisant le protocole RDP ou SSH, puis exécutez la commande suivante :
 
     Pour Windows :
 
@@ -103,15 +99,15 @@ Utiliser PowerShell
     Pour Linux :
 
         netstat -an | grep -i listen
-2.  Si vous ne voyez pas le port TCP utilisé par le logiciel de l’appliance virtuelle réseau répertorié dans les résultats, vous devez configurer l’application sur l’appliance virtuelle réseau et la machine virtuelle pour écouter le trafic qui atteint ces ports et y répondre. [Contactez le fournisseur de l’appliance virtuelle réseau au besoin](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Si vous ne voyez pas le port TCP utilisé par le logiciel de l’appliance virtuelle réseau répertorié dans les résultats, vous devez configurer l’application sur l’appliance virtuelle réseau et la machine virtuelle pour écouter le trafic qui atteint ces ports et y répondre. [Contactez le fournisseur de l’appliance virtuelle réseau au besoin](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## <a name="check-nva-performance"></a>Vérifier les performances de l’appliance virtuelle réseau
 
 ### <a name="validate-vm-cpu"></a>Valider le processeur de machine virtuelle
 
-Si l’utilisation du processeur approche de 100 pour cent, vous risquez de rencontrer un problème affectant les rejets de paquet réseau. Votre machine virtuelle indique l’utilisation moyenne du processeur pendant intervalle de temps spécifique dans le portail Azure. Lors d’un pic d’utilisation du processeur, examinez sur la machine virtuelle invitée le processus à l’origine de l’utilisation élevée du processeur, et atténuez celle-ci autant que possible. Il se peut que vous deviez également redimensionner la machine virtuelle en définissant une taille de référence (SKU) supérieure ou, pour un groupe de machines virtuelles identiques, augmenter le nombre d’instances ou définir une mise à l’échelle automatique en fonction de l’utilisation du processeur. Pour chacun de ces problèmes, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) en fonction des besoins.
+Si l’utilisation du processeur est proche de 100 pour cent, vous pouvez rencontrer des problèmes qui affectent les chutes de paquet réseau. Votre machine virtuelle indique l’utilisation moyenne du processeur pendant intervalle de temps spécifique dans le portail Azure. Lors d’un pic d’utilisation du processeur, examinez sur la machine virtuelle invitée le processus à l’origine de l’utilisation élevée du processeur, et atténuez celle-ci autant que possible. Il se peut que vous deviez également redimensionner la machine virtuelle en définissant une taille de référence (SKU) supérieure ou, pour un groupe de machines virtuelles identiques, augmenter le nombre d’instances ou définir une mise à l’échelle automatique en fonction de l’utilisation du processeur. Pour chacun de ces problèmes, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) en fonction des besoins.
 
-### <a name="validate-vm-network-statistics"></a>Valider les statistiques du réseau de machines virtuelles 
+### <a name="validate-vm-network-statistics"></a>Valider les statistiques du réseau de machines virtuelles
 
 Si l’utilisation du réseau de machines virtuelles présente des pics ou des périodes d’utilisation intense, il se peut également que vous deviez augmenter la taille de la référence (SKU) de la machine virtuelle pour obtenir des capacités de débit supérieures. Vous pouvez également redéployer la machine virtuelle en activant la fonctionnalité Mise en réseau accélérée. Pour vérifier si l’appliance virtuelle réseau prend en charge la fonctionnalité Mise en réseau accélérée, [contactez le fournisseur de l’appliance virtuelle réseau pour obtenir de l’assistance](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) si nécessaire.
 
@@ -122,16 +118,15 @@ Capturez une trace réseau simultanée sur la machine virtuelle source, l’appl
 
 1. Pour capturer une trace réseau simultanée, exécutez la commande suivante :
 
-    Pour Windows :
+   **Pour Windows**
 
-        netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
+   Démarrer la trace netsh capture = \server_ip.etl scenario d’Oui = netconnection
 
-    Pour Linux :
+   **Pour Linux**
 
-        sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
+   sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. Utilisez **PsPing** ou **Nmap** à partir de la machine virtuelle source vers la machine virtuelle de destination (par exemple, `PsPing 10.0.0.4:80` ou `Nmap -p 80 10.0.0.4`).
-
 3. Ouvrez la trace réseau à partir de la machine virtuelle de destination en utilisant le [Moniteur réseau](https://www.microsoft.com/download/details.aspx?id=4865) ou la commande tcpdump. Appliquez un filtre d’affichage pour l’adresse IP de la machine virtuelle Source à partir de laquelle vous avez exécuté **PsPing** ou **Nmap**, par exemple, `IPv4.address==10.0.0.4 (Windows netmon)` ou `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Analyser les traces
@@ -139,4 +134,3 @@ Capturez une trace réseau simultanée sur la machine virtuelle source, l’appl
 Si vous ne voyez pas les paquets entrants dans la trace de machine virtuelle principale, il est probable qu’un groupe de sécurité réseau ou un itinéraire défini par l’utilisateur interfère, ou que les tables de routage de l’appliance virtuelle réseau soient incorrectes.
 
 Si vous voyez les paquets entrants, mais pas de réponse, vous devrez peut-être résoudre un problème lié au pare-feu ou à l’application de la machine virtuelle. Pour chacun de ces problèmes, [contactez au besoin le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
-

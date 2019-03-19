@@ -19,12 +19,12 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf7919a2dc69bc834a5834d10a5a297a2ad6949
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9e2b99871cc1da2b1e8e136fc4d689e90dfad77a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081234"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
@@ -47,7 +47,7 @@ Si vous ne pouvez pas résoudre le problème avec les conseils ci-dessous, vous 
 * **Utilisateurs affectés** : la synchronisation fonctionne/échoue-t-elle pour un ou plusieurs utilisateurs ? Combien d’appareils sont concernés par utilisateur ? Tous les appareils ne synchronisent-ils pas ou certains d’entre eux synchronisent-ils et d’autres non ?
 * **Informations sur l’utilisateur** : quelle identité l’utilisateur utilise-il pour se connecter à l’appareil ? Comment l’utilisateur se connecte-t-il à l’appareil ? Fait-il partie d’un groupe de sécurité sélectionné autorisé à synchroniser ? 
 * **Informations sur l’appareil** : cet appareil est-il joint à Azure AD ou à un domaine ? Quelle build est installée sur l’appareil ? Quelles sont les dernières mises à jour ?
-- **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
+* **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
 
 Ces informations nous aident à résoudre votre problème aussi rapidement que possible.
 
@@ -59,8 +59,8 @@ Cette section propose des suggestions de résolution et de diagnostic des probl�
 1. Après avoir joint votre PC Windows 10 à un domaine configuré pour autoriser Enterprise State Roaming, connectez-vous avec votre compte professionnel. Accédez à **Paramètres** > **Comptes** > **Synchroniser vos paramètres** et vérifiez que la synchronisation et les paramètres sont activés, et que le haut de la page de paramètres indique que vous synchronisez avec votre compte professionnel. Vérifiez que le même compte est également utilisé comme compte de connexion dans **Paramètres** > **Comptes** > **Vos informations**. 
 1. Vérifiez que la synchronisation fonctionne sur plusieurs ordinateurs en apportant des modifications sur l’ordinateur d’origine, par exemple en déplaçant la barre des tâches vers la droite ou le haut de l’écran. Après cinq minutes, vérifiez que la modification est appliquée sur le deuxième ordinateur. 
 
-  * Le verrouillage et le déverrouillage de l’écran (Win + L) permettent de déclencher une synchronisation.
-  * Comme Enterprise State Roaming est lié au compte de l’utilisateur et non pas au compte de la machine, vous devez vous connecter avec le même compte de connexion sur les deux ordinateurs pour que la synchronisation fonctionne.
+   * Le verrouillage et le déverrouillage de l’écran (Win + L) permettent de déclencher une synchronisation.
+   * Comme Enterprise State Roaming est lié au compte de l’utilisateur et non pas au compte de la machine, vous devez vous connecter avec le même compte de connexion sur les deux ordinateurs pour que la synchronisation fonctionne.
 
 **Problème potentiel** : si les contrôles de la page **Paramètres** ne sont pas disponibles , vous voyez le message « Certaines fonctionnalités de Windows ne sont disponibles que si vous utilisez un compte Microsoft ou un compte professionnel ». Ce problème peut se produire sur les appareils configurés pour être joints au domaine et inscrits auprès d’Azure AD, quand l’appareil n’a pas été authentifié correctement auprès d’Azure AD. Une cause possible est que la stratégie d’appareil doit être appliquée, mais cette application s’exécute de manière asynchrone et peut être retardée de quelques heures. 
 

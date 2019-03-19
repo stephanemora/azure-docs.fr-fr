@@ -11,24 +11,24 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004589"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles (préversion) ?
 
-Azure Monitor pour machines virtuelles surveille les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Le service analyse les performances et l’intégrité des machines virtuelles Windows et Linux, en effectuant un monitoring de leurs processus et de leurs dépendances vis-à-vis d’autres ressources et de processus externes. 
+Azure Monitor pour machines virtuelles surveille les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Il analyse les performances et l’intégrité de vos machines virtuelles Linux et Windows et surveille leurs processus et les dépendances sur d’autres ressources et les processus externes. 
 
 La solution Azure Monitor pour machines virtuelles prend en charge le monitoring des performances et des dépendances d’applications des machines virtuelles hébergées localement ou auprès d’un autre fournisseur de cloud. Trois fonctionnalités clés offrent des insights approfondis :
 
 * **Composants logiques de machines virtuelles Azure sous Windows et Linux** : sont mesurés par rapport aux critères d’intégrité préconfigurés et vous avertissent lorsque la condition évaluée est remplie.  
 
-* **Graphiques prédéfinis de tendances des performances** : affichent les mesures de performances principales du système d’exploitation de la machine virtuelle invitée.
+* **Les tendances graphiques de performances prédéfinis**: affichent les mesures de performances principales du système d’exploitation de la machine virtuelle invitée.
 
 * **Carte des dépendances** : affiche les composants interconnectés avec la machine virtuelle de différents groupes de ressources et abonnements.  
 
@@ -39,7 +39,7 @@ Ces fonctionnalités sont organisées selon trois perspectives :
 * Mappage
 
 >[!NOTE]
->À l’heure actuelle, la fonctionnalité Intégrité est exclusivement proposée pour les machines virtuelles et les groupes identiques de machines virtuelles Azure. Les fonctionnalités Performances et Mappage prennent en charge les machines virtuelles Azure et celles qui sont hébergées dans votre environnement ou auprès d’autres fournisseurs de cloud.
+>À l’heure actuelle, la fonctionnalité Intégrité est exclusivement proposée pour les machines virtuelles et les groupes identiques de machines virtuelles Azure. Performances et des fonctionnalités de mappage prennent en charge les machines virtuelles Azure et machines virtuelles qui sont hébergées dans votre environnement ou d’autres fournisseurs de cloud.
 
 L’intégration avec les journaux Azure Monitor offre de puissantes fonctionnalités d’agrégation et de filtrage, ainsi que la possibilité d’analyser les tendances des données au fil du temps. Pris individuellement, Azure Monitor ou Service Map ne sont pas suffisants pour effectuer un monitoring aussi complet des charges de travail.  
 
@@ -54,13 +54,14 @@ Azure Monitor pour machines virtuelles peut offrir des performances prévisibles
 
 ## <a name="data-usage"></a>Utilisation des données 
 
-Lorsque Azure Monitor pour machines virtuelles est déployé, les données recueillies par les machines virtuelles sont ingérées et stockées dans Azure Monitor. Selon la tarification publiée sur la [page des tarifs d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor pour machines virtuelles engendre des frais pour :
+Lorsque Azure Monitor pour machines virtuelles est déployé, les données recueillies par les machines virtuelles sont ingérées et stockées dans Azure Monitor. Métriques de critères d’intégrité sont stockées dans Azure Monitor dans une base de données de séries chronologiques, les données de performances et aux dépendances collectées sont stockées dans un espace de travail Analytique de journal. Selon la tarification publiée sur la [page des tarifs d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor pour machines virtuelles engendre des frais pour :
+
 * les données ingérées et stockées ;
 * le nombre de séries chronologiques monitorées pour les critères d’intégrité ;
 * les règles d’alerte créées ;
 * les notifications envoyées. 
 
-La taille du journal, qui varie en fonction de la longueur des chaînes des compteurs, peut augmenter avec le nombre de disques logiques et de cartes réseau. Si vous disposez déjà d’un espace de travail et que vous collectez ces compteurs, ces frais ne seront pas facturés une deuxième fois. Si vous utilisez déjà Service Map, la seule différence concerne les données de connexion supplémentaires envoyées à Azure Monitor.
+La taille du journal varie selon les longueurs de chaîne des compteurs de performances, et il peut augmenter avec le nombre de disques logiques et les cartes réseau allouées à la machine virtuelle. Si vous disposez déjà d’un espace de travail et que vous collectez ces compteurs, ces frais ne seront pas facturés une deuxième fois. Si vous utilisez déjà Service Map, la seule différence concerne les données de connexion supplémentaires envoyées à Azure Monitor.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour comprendre les exigences et les méthodes de monitoring des machines virtuelles, voir [Déployer Azure Monitor pour machines virtuelles](vminsights-onboard.md).

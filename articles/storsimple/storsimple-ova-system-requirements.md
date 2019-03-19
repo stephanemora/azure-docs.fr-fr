@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999510"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article décrit la configuration système requise importante pour Microsoft Azure StorSimple Virtual Array et pour les clients de stockage accédant au tableau. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
 Les conditions requises sont les suivantes :
@@ -125,12 +125,12 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Service StorSimple Device Manager<br>Service de contrôle d’accès<br>Azure Service Bus<br>Service d’authentification|
 | `http://*.backup.windowsazure.com` |Enregistrement de l’appareil |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Révocation de certificat |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Révocation de certificat |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Comptes de stockage Azure et surveillance |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Serveurs Microsoft Update<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Serveurs Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN Akamai |
 | `https://*.partners.extranet.microsoft.com/*` |Package de prise en charge |
-| `http://*.data.microsoft.com ` |Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com ` |Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

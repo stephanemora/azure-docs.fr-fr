@@ -17,12 +17,12 @@ ms.date: 10/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc7eb45b439140cf9d1de048a6d4a7db48c34c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014080"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Modification du mot de passe du compte de service de synchronisation Azure AD
 Si vous modifiez le mot de passe du service Azure AD Connect Sync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu'à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service Azure AD Connect Sync. 
@@ -46,7 +46,7 @@ Ensuite, sous certaines conditions, si le mot de passe est mis à jour, le servi
 Vous voyez des erreurs telles que :
 
 - Sous le Gestionnaire de contrôle des services Windows, si vous essayez de démarrer le service de synchronisation et qu’il ne peut pas récupérer la clé de chiffrement, il échoue avec l’erreur « <strong>Windows n’a pas pu démarrer Microsoft Azure AD Sync sur l’ordinateur local. Pour plus d’informations, consultez le journal des événements système. S’il s’agit d’un service hors Microsoft, contactez le fournisseur de services et faites référence au code d’erreur propre au service -21451857952</strong>. »
-- Dans l’observateur d’événements Windows, le journal des événements contient une erreur avec **l’ID d’événement 6028** et le message d’erreur *”**La clé de chiffrement du serveur n’est pas accessible.**”*
+- Dans l’Observateur d’événements Windows, le journal des événements application contient une erreur avec **ID d’événement 6028** et message d’erreur *« Impossible d’accéder à la clé de chiffrement du serveur. »*
 
 Pour vous assurer que vous ne recevez pas ces erreurs, suivez les procédures de [Abandon de la clé de chiffrement Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) lorsque vous modifiez le mot de passe.
  

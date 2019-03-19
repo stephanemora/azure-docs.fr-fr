@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b7ad21bd3185e5e6ba4774cdc5780b0594033f14
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027157"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903621"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -50,7 +50,7 @@ Ce graphique fournit une chronologie avec des barres horizontales pendant la dur
 * Sélectionnez une ligne pour afficher ses [détails à droite](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Les appels vers d’autres composants comptent deux lignes : une ligne représente l’appel sortant (dépendance) à partir du composant appelant, et l’autre ligne correspond à la requête entrante au niveau du composant appelé. L’icône de début et le style distinct des barres de durée permettent de les différencier.
+> Les appels vers d’autres composants comptent deux lignes : une ligne représente l’appel sortant (dépendance) à partir du composant appelant, et l’autre ligne correspond à la requête entrante au niveau du composant appelé. L’icône de début et le style distinct des barres de durée permettent de les différencier.
 
 ## <a name="all-telemetry-with-this-operation-id"></a>Toutes les données de télémétrie avec cet ID d’opération
 
@@ -74,9 +74,9 @@ Ce volet réductible affiche les autres résultats qui correspondent aux critèr
 
 Le [profileur Application Insights](../../azure-monitor/app/profiler.md) ou le [débogueur de la capture instantanée](snapshot-debugger.md) apporte une aide avec des diagnostics au niveau du code des problèmes de performances et d’échec. Grâce à cette expérience, vous pouvez afficher les traces du profileur ou les instantanés d’un composant d’un simple clic.
 
-Si Profiler ne fonctionne pas, contactez **serviceprofilerhelp@microsoft.com**.
+Si vous pouvez obtenir pas Profiler fonctionne, veuillez contacter **serviceprofilerhelp\@microsoft.com**
 
-Si le Débogueur de capture instantanée ne fonctionne pas, contactez **snapshothelp@microsoft.com**.
+Si vous pouvez obtenir pas l’utilisation du débogueur de capture instantanée, veuillez contacter **snapshothelp\@microsoft.com**
 
 ![Intégration de Profiler](media/transaction-diagnostics/profilerTraces.png)
 

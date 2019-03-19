@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 0a8cb1178ec70d4e50f2a45834f9592c4708c5af
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189029"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Activation Obtention d'une instance de processeur multimédia
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "55998635"
 > 
 > 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Le plus souvent, vous devez créer un processeur multimédia lorsque vous créez une tâche visant à encoder, à chiffrer ou à convertir le format du contenu multimédia.
 
 ## <a name="azure-media-processors"></a>Processeurs multimédias Azure 

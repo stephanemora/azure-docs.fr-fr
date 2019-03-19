@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 88c563876940da14f75d7ab30aa3f79a8f6dd870
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 79db12be04df396cf79d55ff4ec15ad728d4f251
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094607"
 ---
 # <a name="scaling-in-service-fabric"></a>Mise à l’échelle dans Service Fabric
 Azure Service Fabric facilite la création d’applications évolutives en gérant les services, les partitions et les réplicas sur les nœuds d’un cluster. L’exécution de nombreuses charges de travail sur un même appareil permet une utilisation maximale des ressources, mais permet également de choisir la façon dont vous mettez à l’échelle vos charges de travail. Cette vidéo Channel 9 décrit comment vous pouvez générer des applications de microservices scalables :
@@ -102,12 +102,14 @@ Service Fabric prend en charge le partitionnement. Le partitionnement divise un 
 Imaginez un service qui utilise un schéma de partitionnement par plage avec une clé basse de 0, une clé haute de 99 et 4 partitions. Dans un cluster à trois nœuds, le service peut être disposé avec quatre réplicas partageant les ressources sur chaque nœud, comme illustré ici :
 
 <center>
+
 ![Disposition de partition avec trois nœuds](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Si vous augmentez le nombre de nœuds, Service Fabric va déplacer certains des réplicas existants vers ces nouveaux nœuds. Supposons, par exemple, que le nombre de nœuds passe à quatre et que les réplicas soient redistribués. Trois réplicas sont maintenant exécutés sur chacun des nœuds, qui appartiennent chacun à des partitions différentes. Cela permet une meilleure utilisation des ressources, étant donné que le nouveau nœud n’est pas passif. En règle générale, cela améliore également les performances, car davantage de ressources sont disponibles pour chacun des services.
 
 <center>
+
 ![Disposition de partition avec quatre nœuds](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
@@ -123,7 +125,7 @@ Pour plus d’informations, consultez [Mise à l’échelle de cluster](service-
 ## <a name="putting-it-all-together"></a>Exemple complet
 Reprenons toutes les idées que nous avons évoquées et prenons un exemple. Supposons que vous essayiez de créer un service qui agit comme un carnet d’adresses, avec les noms et les coordonnées de personnes. 
 
-Avant même de commencer, vous avez un certain nombre de questions concernant la mise à l’échelle. Combien d’utilisateurs allez-vous avoir ? Combien de contacts chaque utilisateur va-t-il stocker ? Tenter de comprendre toutes ces questions lorsque vous mettez en place votre service pour la première fois n’est pas chose facile. Supposons que vous souhaitiez utiliser un seul service statique avec un certain nombre de partitions. Si vous ne choisissez pas le bon nombre de partitions, vous pourriez rencontrer des problèmes de mise à l’échelle plus tard. Même si vous choisissez le nombre de partitions adéquat, il est possible que vous n’ayez pas toutes les informations dont vous avez besoin. Par exemple, avant de commencer, vous devez également décider de la taille du cluster, c’est-à-dire du nombre de nœuds qu’il doit contenir et de la taille de chacun d’eux. Il est généralement difficile de savoir à l’avance le nombre de ressources qu’un service va consommer pendant sa durée de vie. Il peut également être difficile de prédire le modèle de trafic que le service va connaître. Par exemple, il est possible que les personnes ne puissent ajouter et supprimer leurs contacts qu’en début de matinée ou qu’elles puissent le faire à tout moment de la journée. En fonction de cela, vous devrez peut-être augmenter ou diminuer la taille des instances dynamiquement. Vous pouvez certes apprendre à prédire si vous aurez besoin d’augmenter ou de diminuer la taille des instances, mais une chose est sûre, vous allez devoir vous adapter aux changements de consommation de votre service. Cela peut impliquer la modification de la taille du cluster afin de fournir davantage de ressources lorsque la réorganisation de l’utilisation des ressources existantes ne suffit pas. 
+Droit à l’avance vous avez un ensemble de questions liées à l’échelle : Combien d’utilisateurs allez-vous avoir ? Combien de contacts chaque utilisateur va-t-il stocker ? Tenter de comprendre toutes ces questions lorsque vous mettez en place votre service pour la première fois n’est pas chose facile. Supposons que vous souhaitiez utiliser un seul service statique avec un certain nombre de partitions. Si vous ne choisissez pas le bon nombre de partitions, vous pourriez rencontrer des problèmes de mise à l’échelle plus tard. Même si vous choisissez le nombre de partitions adéquat, il est possible que vous n’ayez pas toutes les informations dont vous avez besoin. Par exemple, avant de commencer, vous devez également décider de la taille du cluster, c’est-à-dire du nombre de nœuds qu’il doit contenir et de la taille de chacun d’eux. Il est généralement difficile de savoir à l’avance le nombre de ressources qu’un service va consommer pendant sa durée de vie. Il peut également être difficile de prédire le modèle de trafic que le service va connaître. Par exemple, il est possible que les personnes ne puissent ajouter et supprimer leurs contacts qu’en début de matinée ou qu’elles puissent le faire à tout moment de la journée. En fonction de cela, vous devrez peut-être augmenter ou diminuer la taille des instances dynamiquement. Vous pouvez certes apprendre à prédire si vous aurez besoin d’augmenter ou de diminuer la taille des instances, mais une chose est sûre, vous allez devoir vous adapter aux changements de consommation de votre service. Cela peut impliquer la modification de la taille du cluster afin de fournir davantage de ressources lorsque la réorganisation de l’utilisation des ressources existantes ne suffit pas. 
 
 Mais pourquoi essayer de choisir un seul schéma de partition pour tous les utilisateurs ? Pourquoi vous limiter à un seul service et à un seul cluster statique ? En effet, la situation réelle est généralement plus dynamique. 
 

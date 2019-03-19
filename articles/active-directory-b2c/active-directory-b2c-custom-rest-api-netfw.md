@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157939"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105962"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 
@@ -23,7 +23,7 @@ ms.locfileid: "55157939"
 
 Avec l’infrastructure d’expérience d’identité, sur laquelle repose Azure Active Directory B2C (Azure AD B2C), vous pouvez intégrer une API RESTful à un parcours utilisateur. Dans cette procédure pas à pas, vous allez étudier la façon dont Azure AD B2C interagit avec les services RESTful de .NET Framework (API web).
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Avec Azure AD B2C, vous pouvez ajouter votre propre logique métier à un parcours utilisateur en appelant votre service RESTful. L’infrastructure d’expérience d’identité envoie des données au service RESTful dans une collection *Revendications d’entrée* et reçoit des données de RESTful dans une collection *Revendications de sortie*. Avec l’intégration de service RESTful, vous pouvez :
 
 * **Valider les données d’entrée utilisateur** : cette action empêche que les données mal formées soient rendues persistantes dans Azure AD. Si la valeur de l’utilisateur n’est pas valide, votre service RESTful retourne un message d’erreur qui demande à l’utilisateur de fournir une entrée. Par exemple, vous pouvez vérifier que l’adresse e-mail fournie par l’utilisateur existe dans la base de données de clients.
@@ -53,7 +53,7 @@ Vue d’ensemble :
 * Renvoyer un numéro de fidélité
 * Ajouter le numéro de fidélité à un jeton web JSON (JWT)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET
@@ -249,10 +249,10 @@ Un fournisseur de revendications peut avoir plusieurs profils techniques pour di
 L’extrait de code XML suivant contient un nœud de fournisseur de revendications avec deux profils techniques :
 
 * **TechnicalProfile Id="REST-API-SignUp"**  : définit votre service RESTful.
-   * `Proprietary` est décrit en tant que protocole pour un fournisseur basé sur RESTful.
-   * `InputClaims` définit les revendications qui seront envoyées depuis Azure AD B2C vers le service REST.
+  * `Proprietary` est décrit en tant que protocole pour un fournisseur basé sur RESTful.
+  * `InputClaims` définit les revendications qui seront envoyées depuis Azure AD B2C vers le service REST.
 
-   Dans cet exemple, le contenu de la revendication `givenName` est envoyé au service REST en tant que `firstName`, le contenu de la revendication `surname` est envoyé au service REST en tant que `lastName` et `email` est envoyé tel quel. L’élément `OutputClaims` définit les revendications qui sont récupérées du service RESTful vers Azure AD B2C.
+    Dans cet exemple, le contenu de la revendication `givenName` est envoyé au service REST en tant que `firstName`, le contenu de la revendication `surname` est envoyé au service REST en tant que `lastName` et `email` est envoyé tel quel. L’élément `OutputClaims` définit les revendications qui sont récupérées du service RESTful vers Azure AD B2C.
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**  : ajoute un profil technique de validation à un profil technique existant (défini dans la stratégie de base). Pendant le parcours d’inscription, le profil technique de validation appelle le profil technique précédent. Si le service RESTful retourne une erreur HTTP 409 (erreur de conflit), le message d’erreur est affiché à l’utilisateur.
 

@@ -1,21 +1,21 @@
 ---
-title: Créer plusieurs modèles à partir d'une seule expérience Studio
+title: Créer plusieurs points de terminaison pour un modèle
 titleSuffix: Azure Machine Learning Studio
 description: Utilisez PowerShell pour créer plusieurs modèles de formation et points de terminaison de service web Machine Learning avec le même algorithme, mais différents jeux de données de formation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848915"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Utiliser PowerShell pour créer de nombreux modèles et points de terminaison de service web à partir d’une expérience
 
@@ -27,7 +27,7 @@ Vous pourriez former votre modèle une fois à l’aide d’une version fusionn�
 
 Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans Azure Machine Learning Studio représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
 
-Heureusement, vous pouvez obtenir le même résultat en utilisant [l’API de reformation Azure Machine Learning Studio](retrain-models-programmatically.md) et en automatisant la tâche avec [Azure Machine Learning Studio PowerShell](powershell-module.md).
+Heureusement, vous pouvez obtenir le même résultat en utilisant [l’API de reformation Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model) et en automatisant la tâche avec [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Pour accélérer l’exécution de notre exemple, nous allons réduire le nombre d’emplacements de 1000 à 10, mais les mêmes principes et procédures sont valables pour 1 000 emplacements. Toutefois, si vous ne souhaitez pas effectuer l’apprentissage à partir de 1000 jeux de données, vous pouvez exécuter les scripts PowerShell suivants en parallèle. Cette opération sort du cadre de cet article, mais vous trouverez des exemples de multi-threading PowerShell sur Internet.  
@@ -35,7 +35,7 @@ Heureusement, vous pouvez obtenir le même résultat en utilisant [l’API de re
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurer l’expérience de formation
-Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) qui se trouve dans la [Cortana Intelligence Gallery](http://gallery.azure.ai). Ouvrez cette expérience dans votre espace de travail [Azure Machine Learning Studio](https://studio.azureml.net) .
+Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) qui se trouve dans la [Cortana Intelligence Gallery](https://gallery.azure.ai). Ouvrez cette expérience dans votre espace de travail [Azure Machine Learning Studio](https://studio.azureml.net) .
 
 > [!NOTE]
 > Pour suivre cet exemple, il est préférable d’utiliser un espace de travail standard plutôt qu’un espace de travail gratuit. Vous créez un point de terminaison pour chaque client (soit 10 points de terminaison en tout), ce qui nécessite un espace de travail standard car un espace de travail gratuit est limité à trois points de terminaison. Si vous disposez uniquement d’un espace de travail gratuit, il suffit de changer les scripts pour autoriser uniquement trois emplacements.
@@ -44,7 +44,7 @@ Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Exp
 
 L’expérience utilise un module **Import Data** pour importer le jeu de données de formation *customer001.csv* à partir d’un compte de stockage Azure. Supposez que vous avez recueilli des jeux de données de formation à partir de tous les emplacements de location de vélos et que vous les avez stockés dans le même emplacement de stockage d’objets blob avec des noms de fichiers allant de *rentalloc001.csv* à *rentalloc10.csv*.
 
-![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Module lecteur importe des données à partir d’un objet blob Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Notez qu’un module **Web Service Output** a été ajouté au module **Train Model**.
 Quand cette expérience est déployée comme service web, le point de terminaison associé à cette sortie retourne le modèle formé au format de fichier .ilearner.
@@ -52,7 +52,7 @@ Quand cette expérience est déployée comme service web, le point de terminaiso
 Notez également que vous configurez un paramètre de service web qui définit l’URL utilisée par le module **Import Data**. Cela vous permet d’utiliser le paramètre pour spécifier des jeux de données de formation individuels visant à former le modèle pour chaque emplacement.
 Il existe d’autres façons de procéder. Vous pouvez utiliser une requête SQL avec un paramètre de service web pour obtenir des données à partir d’une base de données SQL Azure. Vous pouvez également utiliser un module **Web Service Input** pour transmettre un jeu de données au service web.
 
-![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Un module de modèle formé est dirigé vers un module de sortie du service Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Exécutons maintenant cette expérience de formation à l’aide de la valeur par défaut *rental001.csv* comme jeu de données de formation. Si vous affichez la sortie du module **Evaluate** (cliquez sur la sortie et sélectionnez **Visualize**), vous constatez que vous obtenez une performance correcte de *AUC* = 0,91. À ce stade, vous êtes prêts à déployer un service web à partir de cette expérience de formation.
 
@@ -89,7 +89,7 @@ Ensuite, nous allons exécuter la commande PowerShell suivante :
 
 Vous avez maintenant créé 10 points de terminaison, qui contiennent tous le même modèle formé sur *customer001.csv*. Vous pouvez les afficher dans le portail Azure.
 
-![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![Afficher la liste des modèles formés dans le portail](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Mettre à jour les points de terminaison pour utiliser des jeux de données de formation distincts à l’aide de PowerShell
 L’étape suivante consiste à mettre à jour les points de terminaison avec des modèles formés de manière unique d’après les données individuelles de chaque client. Mais tout d’abord, vous devez générer ces modèles à partir du service web **Bike Rental Training**. Revenons au service web **Bike Rental Training** . Vous devez appeler son point de terminaison BES 10 fois avec 10 jeux de données de formation différents pour générer 10 modèles différents. Pour cela, utilisez l’applet de commande PowerShell **InovkeAmlWebServiceBESEndpoint**.

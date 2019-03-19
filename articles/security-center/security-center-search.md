@@ -1,6 +1,6 @@
 ---
 title: Recherche Azure Security Center | Microsoft Docs
-description: Découvrez comment Azure Security Center utilise la recherche Log Analytics pour récupérer et analyser vos données de sécurité.
+description: Découvrez comment Azure Security Center utilise la recherche de journaux Azure Monitor pour récupérer et analyser vos données de sécurité.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: c02a9f61a4a8b88f8b6c4d861f1a6cbe904ad70d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074503"
 ---
 # <a name="azure-security-center-search"></a>Recherche Azure Security Center
-Azure Security Center utilise la [recherche Log Analytics](../log-analytics/log-analytics-log-searches.md) pour récupérer et analyser vos données de sécurité. Log Analytics inclut un langage de requête pour rapidement récupérer et consolider les données. Dans Security Center, vous pouvez utiliser la recherche Log Analytics pour construire des requêtes et analyser les données collectées.
+Azure Security Center utilise [Azure Monitor enregistre recherche](../log-analytics/log-analytics-log-searches.md) pour récupérer et analyser vos données de sécurité. Journaux d’analyse Azure inclut un langage de requête pour rapidement récupérer et consolider les données. À partir du centre de sécurité, vous pouvez utiliser la recherche de journaux Azure Monitor pour construire des requêtes et analyser les données collectées.
 
 Recherche est disponible dans le niveau Gratuit et le niveau Standard de Security Center.  Les données disponibles dans vos recherches dans les journaux dépendent du niveau appliqué à votre espace de travail.  Pour plus d’informations, consultez la [page de tarification](../security-center/security-center-pricing.md) de Security Center.
 
@@ -35,29 +35,29 @@ Recherche est disponible dans le niveau Gratuit et le niveau Standard de Securit
 ## <a name="access-search"></a>Accéder à la recherche
 1. Dans le menu principal de Security Center, sélectionnez **Recherche**.
 
-  ![Sélectionner Recherche dans les journaux][1]
+   ![Sélectionner Recherche dans les journaux][1]
 
 2. Security Center répertorie tous les espaces de travail dans vos abonnements Azure. Sélectionnez un espace de travail. (Si vous avez un seul espace de travail, ce sélecteur d’espaces de travail n’apparaît pas.)
 
-  ![Sélectionner un espace de travail][2]
+   ![Sélectionner un espace de travail][2]
 
 3. **Recherche dans les journaux** s’ouvre. Pour interroger davantage de données dans l’espace de travail sélectionné, entrez cet exemple de requête :
 
-  SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
+   SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-  Le résultat affiche tous les comptes pour lesquels l’ouverture de session a échoué (événement 4625).
+   Le résultat affiche tous les comptes pour lesquels l’ouverture de session a échoué (événement 4625).
 
-  ![Résultats de la recherche][3]
+   ![Résultats de la recherche][3]
 
-Consultez [Référence de recherche Log Analytics](../log-analytics/log-analytics-search-reference.md) pour plus d’informations sur la façon d’interroger des données dans l’espace de travail sélectionné.
+Consultez [langage de requête Kusto](../log-analytics/log-analytics-search-reference.md) pour plus d’informations sur comment interroger des données dans l’espace de travail sélectionné.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris comment accéder à la recherche dans Security Center. Security Center utilise la recherche Log Analytics. Pour en savoir plus sur la recherche Log Analytics, consultez :
+Dans cet article, vous avez appris comment accéder à la recherche dans Security Center. Security Center utilise la recherche de journaux Azure Monitor. Pour en savoir plus sur la recherche de journaux Azure Monitor, consultez :
 
-- [Présentation de Log Analytics](../log-analytics/log-analytics-overview.md) - Présentation de Log Analytics
-- [Présentation des recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-search-new.md) - Décrit comment sont utilisées les recherches dans les journaux dans Log Analytics, et présente les concepts que vous devez comprendre avant de créer une recherche dans les journaux
-- [Trouver des données avec les recherches de journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md) - Didacticiel sur l’utilisation de la recherche dans les journaux.
-- [Référence de recherche Log Analytics](../log-analytics/log-analytics-search-reference.md) - Décrit le langage de requête dans Log Analytics.
+- [Nouveautés d’Azure Monitor journaux ?](../log-analytics/log-analytics-overview.md) -Présentation de journaux Azure Monitor
+- [Recherches dans les journaux de présentation dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search-new.md) : décrit l’utilisation des recherches dans les journaux dans les journaux Azure Monitor et présente les concepts que vous devraient comprendre avant de créer une recherche de journal
+- [Rechercher des données à l’aide de recherches dans les journaux dans Azure Monitor journaux](../log-analytics/log-analytics-log-searches.md) -didacticiel sur l’utilisation de recherche de journal
+- [Référence de recherche Kusto](../log-analytics/log-analytics-search-reference.md) – décrit le langage de requête dans les journaux Azure Monitor
 
 Pour plus d’informations sur Security Center, consultez :
 

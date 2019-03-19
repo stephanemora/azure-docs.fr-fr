@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097989"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
 
@@ -30,7 +30,7 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Zend
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -111,12 +111,12 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Nom d’utilisateur de l’administrateur**, le **Jeton secret** et le **Domaine** de votre compte Zendesk. Voici des exemples de valeurs :
 
-    *   Dans le champ **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Zendesk. Exemple : admin@contoso.com.
+   * Dans le champ **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Zendesk. Exemple : admin@contoso.com.
 
-    *   Dans le champ **Jeton secret**, spécifiez le jeton secret comme décrit à l’étape 6.
+   * Dans le champ **Jeton secret**, spécifiez le jeton secret comme décrit à l’étape 6.
 
-    *   Dans le champ **Domaine**, spécifiez le sous-domaine de votre locataire Zendesk.
-    Exemple : pour un compte avec une URL de tenant https://my-tenant.zendesk.com, votre sous-domaine serait **my-tenant**.
+   * Dans le champ **Domaine**, spécifiez le sous-domaine de votre locataire Zendesk.
+     Exemple : pour un compte avec une URL de tenant https://my-tenant.zendesk.com, votre sous-domaine serait **my-tenant**.
 
 6. Le **Jeton secret** pour votre compte se trouve dans **Admin > API > Paramètres**.
    Assurez-vous que **Jeton d'accès** est défini sur **Activé**.

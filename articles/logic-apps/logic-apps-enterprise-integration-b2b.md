@@ -10,18 +10,18 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074716"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Recevoir des données B2B avec Azure Logic Apps et Enterprise Integration Pack
 
 Après avoir créé un compte d’intégration comportant des partenaires et des contrats, vous êtes prêt à créer un workflow interentreprises (B2B) pour votre application logique avec [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser les actions AS2 et X12, vous devez disposer d’un compte Enterprise Integration. Découvrez [comment créer un compte Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 
@@ -47,11 +47,13 @@ Suivez ces étapes pour créer une application logique B2B qui utilise les actio
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. Ajoutez le **corps** que vous souhaitez utiliser comme entrée. Dans cet exemple, sélectionnez le corps de la demande HTTP qui a déclenché l’application logique. Ou entrez une expression qui saisit les en-têtes dans le champ **EN-TÊTES** :
+6. Ajoutez le **corps** que vous souhaitez utiliser comme entrée. 
+   Dans cet exemple, sélectionnez le corps de la demande HTTP qui a déclenché l’application logique. Ou entrez une expression qui saisit les en-têtes dans le champ **EN-TÊTES** :
 
     @triggerOutputs()['headers']
 
-7. Ajoutez les **en-têtes** requis pour AS2, que vous pouvez trouver dans les en-têtes de requête HTTP. Dans cet exemple, sélectionnez les en-têtes de la requête HTTP qui déclenche l’application logique.
+7. Ajoutez les **en-têtes** requis pour AS2, que vous pouvez trouver dans les en-têtes de requête HTTP. 
+   Dans cet exemple, sélectionnez les en-têtes de la requête HTTP qui déclenche l’application logique.
 
 8. Ajoutez maintenant l’action du message Decode X12. Sélectionnez **Ajouter une action**.
 
@@ -65,7 +67,8 @@ Suivez ces étapes pour créer une application logique B2B qui utilise les actio
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
-11. Vous devez maintenant spécifier l’entrée de cette action. Cette entrée est le résultat de l’action AS2 précédente.
+11. Vous devez maintenant spécifier l’entrée de cette action. 
+    Cette entrée est le résultat de l’action AS2 précédente.
 
     Le contenu réel du message est dans un objet JSON encodé au format Base64. Vous devez donc spécifier une expression comme entrée. 
     Entrez l’expression suivante dans le champ de saisie **X12 FLAT FILE MESSAGE TO DECODE** (MESSAGE DE FICHIER PLAT X12 À DÉCODER) :

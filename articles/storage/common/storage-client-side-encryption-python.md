@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011122"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Chiffrement côté client avec Python pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 La [bibliothèque cliente de stockage Azure pour Python](https://pypi.python.org/pypi/azure-storage) prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 4. La clé de chiffrement de contenu (CEK) est alors utilisée pour déchiffrer les données utilisateur chiffrées.
 
 ## <a name="encryption-mechanism"></a>Mécanisme de chiffrement
-La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
+La bibliothèque cliente du stockage utilise [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
 
 ### <a name="blobs"></a>Objets blob
 La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lorsque les utilisateurs utilisent les méthodes **create**\*. Les téléchargements complets et les téléchargements de plages sont pris en charge, et la parallélisation du chargement et du téléchargement est disponible.
@@ -91,9 +91,9 @@ Le chiffrement des données d’une table fonctionne de la manière suivante :
 2. La bibliothèque cliente génère un vecteur d’initialisation (IV) aléatoire de 16 octets et une clé de chiffrement de contenu (CEK) aléatoire de 32 octets pour chaque entité, puis effectue le chiffrement d’enveloppe sur les propriétés individuelles à chiffrer en dérivant un nouveau vecteur d’initialisation par propriété. La propriété chiffrée est stockée en tant que données binaires.
 3. La clé de chiffrement de contenu encapsulée et certaines métadonnées de chiffrement supplémentaires sont ensuite stockées sous la forme de deux propriétés réservées supplémentaires. La première propriété réservée (\_ClientEncryptionMetadata1) est une propriété de type chaîne qui conserve les informations sur le vecteur d’initialisation, la version et la clé encapsulée. La seconde propriété réservée (\_ClientEncryptionMetadata2) est une propriété de type binaire qui conserve les informations sur les propriétés chiffrées. Les informations contenues dans cette seconde propriété (\_ClientEncryptionMetadata2) sont elles-mêmes chiffrées.
 4. En raison de ces propriétés réservées supplémentaires requises pour le chiffrement, les utilisateurs ne peuvent désormais avoir que 250 propriétés personnalisées au lieu de 252. La taille totale de l’entité doit être inférieure à 1 Mo.
-   
+
    Notez que seules les propriétés de type chaîne peuvent être chiffrées. Si d’autres types de propriétés doivent être chiffrés, ils doivent être convertis en chaînes. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont de nouveau converties en chaînes (chaînes brutes, et non des EntityProperties de type EdmType.STRING) après le déchiffrement.
-   
+
    Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Cela est possible en stockant ces propriétés dans des objets TableEntity dont le type est défini sur EdmType.STRING et en définissant le chiffrement sur true, ou en définissant la fonction encryption_resolver_function sur l’objet tableservice. Un programme de résolution de chiffrement est une fonction qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
 
 ### <a name="batch-operations"></a>Opérations de traitement par lots
@@ -105,9 +105,9 @@ Notez que les entités sont chiffrées, car elles sont insérées dans le lot à
 > [!NOTE]
 > Comme les entités sont chiffrées, vous ne pouvez pas exécuter des requêtes qui filtrent sur une propriété chiffrée.  Si vous essayez, les résultats seront incorrects, car le service essaiera de comparer les données chiffrées aux données non chiffrées.
 > 
->
-Pour effectuer des opérations de requête, vous devez spécifier un programme de résolution de clé capable de résoudre toutes les clés dans le jeu de résultats. Si une entité contenue dans le résultat de la requête ne peut pas être résolue par rapport à un fournisseur, la bibliothèque cliente génère une erreur. Pour toute requête effectuant des projections côté serveur, la bibliothèque cliente ajoute par défaut les propriétés de métadonnées de chiffrement spéciales (\_ClientEncryptionMetadata1 et \_ClientEncryptionMetadata2) aux colonnes sélectionnées.
-
+> 
+> Pour effectuer des opérations de requête, vous devez spécifier un programme de résolution de clé capable de résoudre toutes les clés dans le jeu de résultats. Si une entité contenue dans le résultat de la requête ne peut pas être résolue par rapport à un fournisseur, la bibliothèque cliente génère une erreur. Pour toute requête effectuant des projections côté serveur, la bibliothèque cliente ajoute par défaut les propriétés de métadonnées de chiffrement spéciales (\_ClientEncryptionMetadata1 et \_ClientEncryptionMetadata2) aux colonnes sélectionnées.
+> 
 > [!IMPORTANT]
 > Tenez compte des points importants suivants quand vous utilisez le chiffrement côté client :
 > 
@@ -115,8 +115,6 @@ Pour effectuer des opérations de requête, vous devez spécifier un programme d
 > * Pour les tables, une contrainte similaire existe. Veillez à ne pas mettre à jour les propriétés chiffrées sans aussi mettre à jour les métadonnées de chiffrement.
 > * Si vous définissez des métadonnées sur l’objet blob chiffré, vous risquez de remplacer les métadonnées relatives au chiffrement et nécessaires au déchiffrement, car la définition des métadonnées n’est pas additive. Cela est également vrai pour les instantanés : évitez de spécifier des métadonnées lors de la création d’un instantané d’objet blob chiffré. Si des métadonnées doivent être définies, veillez à appeler d’abord la méthode **get_blob_metadata** pour obtenir les métadonnées de chiffrement actuelles et éviter des écritures simultanées pendant la définition des métadonnées.
 > * Activez l’indicateur **require_encryption** dans l’objet de service pour les utilisateurs qui doivent recourir uniquement à des données chiffrées. Pour plus d’informations, consultez la section ci-dessous.
-> 
-> 
 
 La bibliothèque de stockage cliente attend l’utilisation de la clé de chiffrement de clés (KEK) et du programme de résolution de clé pour implémenter l’interface suivante. [d’d’Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour la gestion de la clé de chiffrement de clés (KEK) Python est en attente et sera intégrée ultérieurement à cette bibliothèque.
 
@@ -136,10 +134,10 @@ Le programme de résolution de clé doit implémenter au moins une méthode qui,
 
 * Pour le chiffrement, la clé est toujours utilisée et l’absence de clé entraîne une erreur.
 * Pour le déchiffrement :
-  
+
   * S’il est spécifié, le programme de résolution de clé est appelé pour obtenir la clé. Si le programme de résolution est spécifié, mais ne comporte pas de mappage pour l’identificateur de clé, une erreur est générée.
   * Si le programme de résolution n’est pas spécifié, mais qu’une clé est spécifiée, celle-ci est utilisée si son identificateur correspond à l’identificateur de clé nécessaire. Si l’identificateur ne correspond pas, une erreur est générée.
-    
+
     Les exemples de chiffrement dans azure.storage.samples <fix URL>présentent un scénario de bout en bout plus détaillé pour les objets blob, les files d’attente et les tables.
       Des exemples d’implémentation de la KEK et du résolveur de clé sont fournis dans les exemples de fichiers en tant que KeyWrapper et KeyResolver respectivement.
 

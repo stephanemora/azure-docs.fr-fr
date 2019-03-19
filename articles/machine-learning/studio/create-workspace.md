@@ -5,17 +5,17 @@ description: Pour utiliser Azure Machine Learning Studio, vous devez disposer d�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086137"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Créer et partager un espace de travail Azure Machine Learning Studio
 
@@ -36,10 +36,10 @@ Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace d
 
 4. Entrez les informations sur votre espace de travail :
 
-    - Le *Nom de l’espace de travail* peut contenir jusqu’à 260 caractères. Il ne doit pas se terminer par un espace. Le nom ne peut pas contenir ces caractères : `< > * % & : \ ? + /`
-    - Le *plan de service web* que vous choisissez (ou créez), ainsi que le *niveau tarifaire* associé que vous sélectionnez, est utilisé si vous déployez des services web à partir de cet espace de travail.
+   - Le *Nom de l’espace de travail* peut contenir jusqu’à 260 caractères. Il ne doit pas se terminer par un espace. Le nom ne peut pas contenir ces caractères : `< > * % & : \ ? + /`
+   - Le *plan de service web* que vous choisissez (ou créez), ainsi que le *niveau tarifaire* associé que vous sélectionnez, est utilisé si vous déployez des services web à partir de cet espace de travail.
 
-    ![Créer un espace de travail Studio](./media/create-workspace/create-new-workspace.png)
+     ![Créer un espace de travail Studio](./media/create-workspace/create-new-workspace.png)
 
 5. Cliquez sur **Créer**.
 

@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: dda3725be7549d90223b33608939c392bdf66852
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460418"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217969"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Supervision de l’utilisation des ressources et de l’activité des requêtes dans Azure SQL Data Warehouse
-Azure SQL Data Warehouse fournit une expérience de supervision enrichie dans le portail Azure pour intégrer des insights à la charge de travail de votre entrepôt de données. Le portail Azure est l’outil recommandé pour superviser votre entrepôt de données car il offre des périodes de conservation configurables, des alertes, des suggestions, ainsi que des graphiques et des tableaux de bord personnalisables pour les métriques et les journaux. Le portail permet également une intégration à d’autres services de supervision Azure, comme Operations Management Suite (OMS)/Log Analytics et Azure Monitor, pour fournir une expérience de supervision globale non seulement pour votre entrepôt de données, mais également pour l’ensemble de votre plateforme d’analytique Azure afin de bénéficier d’une expérience de supervision intégrée. Cette documentation décrit les fonctionnalités de supervision disponibles pour optimiser et gérer votre plateforme d’analytique avec SQL Data Warehouse. 
+Azure SQL Data Warehouse fournit une expérience de supervision enrichie dans le portail Azure pour intégrer des insights à la charge de travail de votre entrepôt de données. Le portail Azure est l’outil recommandé pour superviser votre entrepôt de données car il offre des périodes de conservation configurables, des alertes, des suggestions, ainsi que des graphiques et des tableaux de bord personnalisables pour les métriques et les journaux. Le portail vous permet également d’intégrer d’autres services de surveillance Azure tels que Operations Management Suite (OMS) et Azure Monitor (journaux) pour fournir une expérience de surveillance holistique pour votre entrepôt de données, mais également votre ensemble analytique Azure plateforme pour une expérience de surveillance intégrée. Cette documentation décrit les fonctionnalités de supervision disponibles pour optimiser et gérer votre plateforme d’analytique avec SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Utilisation des ressources 
 Les métriques suivantes sont disponibles dans le portail Azure pour SQL Data Warehouse. Ces métriques sont exposées via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
@@ -46,11 +46,8 @@ Pour une expérience de programmation lors de la supervision de SQL Data Warehou
 Pour afficher la liste des vues DMV fournies par SQL Data Warehouse, reportez-vous à cette [documentation](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Journalisation des métriques et des diagnostics
-Les métriques et les journaux peuvent être exportés vers Azure Monitor, en particulier le composant [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), et sont accessibles par programmation via la [recherche dans les journaux](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Métriques et journaux peuvent être exportées vers Azure Monitor, en particulier le [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) composant et sont accessibles par programme via [recherche dans les journaux](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
 
-
-> [!NOTE]
-> Depuis novembre 2018, les journaux sont en cours de déploiement pour SQL Data Warehouse
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les guides pratiques suivants décrivent des scénarios courants et des cas d’utilisation pour la supervision et la gestion de votre entrepôt de données :

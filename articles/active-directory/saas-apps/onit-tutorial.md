@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Onit | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Onit | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Onit.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b856227733fcc65e12eb43ea1f6b704502a7b29a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bd2c4b6102d359aba35c9211fdcc86e3521b4062
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Tutoriel : Intégration d’Azure Active Directory à Onit
 
@@ -35,7 +35,7 @@ L’intégration d’Onit dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Onit, vous avez besoin des éléments suivants :
 
@@ -232,11 +232,11 @@ Dans le cas d’Onit, l’approvisionnement est une tâche manuelle.
    
    ![Ajouter un utilisateur](./media/onit-tutorial/IC791181.png "Ajouter un utilisateur")
    
-  1. Tapez le **nom** et l’**adresse électronique** d’un compte Azure AD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
-  1. Cliquez sur **Créer**.    
+   1. Tapez le **nom** et l’**adresse électronique** d’un compte Azure AD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
+   1. Cliquez sur **Créer**.    
    
- > [!NOTE]
- > Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.
+   > [!NOTE]
+   > Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

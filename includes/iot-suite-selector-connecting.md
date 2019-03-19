@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457112"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56751486"
 ---
 > [!div class="op_single_selector"]
 > * [C sur Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -58,9 +58,9 @@ Au terme du processus de déploiement de la solution Monitoring à distance, cli
 
 Pour qu’un appareil puisse se connecter à l’accélérateur de solution, il doit s’identifier auprès d’IoT Hub à l’aide d’informations d’identification valides. Vous avez la possibilité d’enregistrer la chaîne de connexion de l’appareil qui contient ces informations d’identification lorsque vous ajoutez l’appareil à la solution. La chaîne de connexion de l’appareil sera ajoutée dans votre application cliente dans la suite de ce didacticiel.
 
-Pour ajouter un appareil à votre solution Monitoring à distance, procédez comme suit dans la page **Appareils** de la solution :
+Pour ajouter un appareil à votre solution de surveillance à distance, procédez comme suit sur le **Device Explorer** page dans la solution :
 
-1. Choisissez **+ Nouvel appareil**, puis **Physique** comme **Type de périphérique** :
+1. Choisissez **+ nouvel appareil**, puis choisissez **réel** en tant que le **type d’appareil**:
 
     ![Ajouter un appareil réel](media/iot-suite-selector-connecting/devicesprovision.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à IQNavigator VMS | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à IQNavigator VMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et IQNavigator VMS.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58164992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutoriel : Intégration d’Azure Active Directory à IQNavigator VMS
 
@@ -34,12 +34,12 @@ L’intégration d’IQNavigator VMS à Azure AD vous offre les avantages suivan
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à IQNavigator, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement IQNavigator VMS pour lequel l’authentification unique est activée
+- Un IQNavigator VMS l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -91,7 +91,7 @@ Pour configurer et tester l’authentification unique Azure AD avec IQNavigator
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Création d’un utilisateur de test IQNavigator VMS](#creating-a-iqnavigator-vms-test-user)**  : pour avoir un équivalent de Britta Simon dans IQNavigator VMS lié à la représentation de l’utilisateur Azure AD.
+1. **[Création d’un utilisateur de test IQNavigator VMS](#creating-a-iqnavigator-vms-test-user)**  - pour avoir un équivalent de Britta Simon dans IQNavigator VMS lié à la représentation Azure AD de l’utilisateur.
 1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -175,7 +175,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Créer**.
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>Création d’un utilisateur de test IQNavigator VMS
+### <a name="creating-an-iqnavigator-vms-test-user"></a>Création d’un utilisateur de test IQNavigator VMS
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans IQNavigator VMS. Travailler avec [l’équipe de support d’IQNavigator VMS](https://www.beeline.com/iqn-product-support/) pour ajouter des utilisateurs dans le compte IQNavigator VMS.
 

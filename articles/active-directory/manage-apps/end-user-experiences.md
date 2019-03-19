@@ -12,12 +12,12 @@ ms.date: 11/09/2018
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2488cb085c3be68265a787bd062028598c9243b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181722"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Expériences d’utilisateurs finaux auprès des applications dans Azure Active Directory
 Azure Active Directory (Azure AD) offre plusieurs moyens personnalisables pour déployer des applications pour les utilisateurs finaux de votre organisation :
@@ -39,23 +39,21 @@ Le panneau d’accès est séparé du portail Azure. Pour y accéder, les utilis
 Pour plus d'informations sur le panneau d'accès Azure AD, consultez la [Présentation du panneau d'accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="office-365-application-launcher"></a>Lanceur d’applications Office 365
-Pour les organisations ayant déployé Office 365, les applications affectées aux utilisateurs par le biais d’Azure AD apparaissent également sur le portail Office 365, à l’adresse https://portal.office.com/myapps. Pour les utilisateurs d’une organisation, il est donc simple de lancer les applications, sans avoir à utiliser un deuxième portail. Il s’agit de la solution de lancement d’application recommandée pour les organisations qui utilisent Office 365.
+Pour les organisations ayant déployé Office 365, les applications affectées aux utilisateurs via Azure AD seront affiche également dans le portail Office 365 à l’adresse [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Pour les utilisateurs d’une organisation, il est donc simple de lancer les applications, sans avoir à utiliser un deuxième portail. Il s’agit de la solution de lancement d’application recommandée pour les organisations qui utilisent Office 365.
 
-![](./media/what-is-single-sign-on/officeapphub.png)
+![Portail Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Pour plus d’informations sur le lanceur d’applications Office 365, consultez [Faire apparaître votre application dans le lanceur d’applications Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Authentification directe pour les applications fédérées
 La plupart des applications fédérées qui prennent en charge la connexion SAML 2.0, WS-Federation ou OpenID prennent également en charge la capacité des utilisateurs à démarrer l’application, puis à obtenir la connexion via Azure AD, soit par une redirection automatique, soit en cliquant sur un lien. Cette connexion initiée par un fournisseur de service est prise en charge par la plupart des applications fédérées de la galerie d’applications Azure AD (voir la documentation mentionnée dans l’Assistant Configuration de l’authentification unique de l’application sur le Portail Azure pour plus d’informations).
 
-![](./media/what-is-single-sign-on/workdaymobile.png)
+![](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Liens d’authentification directe
 Azure AD prend également en charge les liens d’authentification unique directs vers les applications qui prennent en charge l’authentification unique par mot de passe, l’authentification unique liée et l’authentification unique fédérée.
 
-Ces liens sont des URL spécifiquement conçues qui font passer l’utilisateur par le processus d’authentification Azure AD pour une application spécifique sans que l’utilisateur n’ait à la lancer dans le panneau d’accès Azure AD ou Office 365. Ces URL d’authentification unique sont accessibles sous l’onglet Tableau de bord de n’importe quelle application préintégrée dans la section Active Directory du Portail Azure, comme l’illustre la capture d’écran ci-dessous.
-
-![](./media/what-is-single-sign-on/deeplink.png)
+Ces liens sont des URL spécifiquement conçues qui font passer l’utilisateur par le processus d’authentification Azure AD pour une application spécifique sans que l’utilisateur n’ait à la lancer dans le panneau d’accès Azure AD ou Office 365. Ces **utilisateur accéder aux URL** peut être trouvée sous les propriétés des applications d’entreprise disponibles sous Azure Active Directory dans le portail Azure.
 
 Ces liens peuvent être copiés et collés partout où vous souhaitez fournir un lien de connexion à l’application sélectionnée. Cela peut être dans un message électronique ou dans n’importe quel portail web personnalisé que vous avez configuré pour l’accès. Voici un exemple d’URL d’authentification unique Azure AD pour Twitter :
 

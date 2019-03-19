@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d0022ee46049181ed15e6b3968b9b952483c7fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 3c1178a20debc36fbdbbd374eaf9adb6005a93a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016021"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454934"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurer le runtime d’intégration Azure-SSIS
 Cet article décrit comment reconfigurer un runtime d’intégration Azure-SSIS existant. Consultez [Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md) pour créer un runtime d’intégration (IR) Azure-SSIS dans Azure Data Factory.  
@@ -40,51 +40,54 @@ Vous pouvez utiliser l’interface utilisateur de Data Factory pour arrêter, mo
 3. Pour redémarrer le runtime d’intégration, cliquez sur le bouton **Démarrer** dans la colonne **Actions**.     
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Une fois que vous avez configuré et démarré une instance du runtime d’intégration Azure-SSIS, vous pouvez la reconfigurer en exécutant plusieurs cmdlets PowerShell `Stop`  -  `Set`  -  `Start`, les unes à la suite des autres. Par exemple, le script PowerShell suivant modifie le nombre de nœuds alloués à l’instance du runtime d’intégration Azure-SSIS et lui en attribue cinq.
 
 ### <a name="reconfigure-an-azure-ssis-ir"></a>Reconfigurer un runtime d’intégration Azure-SSIS
 
-1. Tout d’abord, arrêtez le runtime d’intégration Azure-SSIS à l’aide de l’applet de commande [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Cette commande libère tous ses nœuds et arrête la facturation.
+1. Tout d’abord, arrêtez le runtime d’intégration Azure-SSIS à l’aide de la [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) applet de commande. Cette commande libère tous ses nœuds et arrête la facturation.
 
     ```powershell
-    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+    Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
     ```
-2. Ensuite, reconfigurez le runtime d’intégration Azure-SSIS à l’aide de l’applet de commande [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). L’exemple de commande suivant augmente la taille du runtime d’intégration Azure-SSIS en le faisant passer à cinq nœuds.
+2. Ensuite, reconfigurez le runtime d’intégration Azure-SSIS à l’aide de la [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) applet de commande. L’exemple de commande suivant augmente la taille du runtime d’intégration Azure-SSIS en le faisant passer à cinq nœuds.
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
+    Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
     ```  
-3. Ensuite, démarrez le runtime d’intégration Azure-SSIS à l’aide de l’applet de commande [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Cette commande a pour effet d’allouer tous ses nœuds à l’exécution des packages SSIS.   
+3. Ensuite, démarrez le runtime d’intégration Azure-SSIS à l’aide de la [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) applet de commande. Cette commande a pour effet d’allouer tous ses nœuds à l’exécution des packages SSIS.   
 
     ```powershell
-    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+    Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
 ### <a name="delete-an-azure-ssis-ir"></a>Supprimer un runtime d’intégration Azure-SSIS
 1. Tout d’abord, répertoriez tous les runtimes d’intégration Azure-SSIS dans votre fabrique de données.
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
+    Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
     ```
 2. Puis, arrêtez tous les runtimes d’intégration Azure-SSIS dans votre fabrique de données.
 
     ```powershell
-    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     ```
 3. Ensuite, supprimez un à un tous les runtimes d’intégration Azure-SSIS dans votre fabrique de données.
 
     ```powershell
-    Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    Remove-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     ```
 4. Enfin, supprimez votre fabrique de données.
 
     ```powershell
-    Remove-AzureRmDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
+    Remove-AzDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
     ```
 5. Si vous aviez créé un groupe de ressources, supprimez-le.
 
     ```powershell
-    Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force 
+    Remove-AzResourceGroup -Name $ResourceGroupName -Force 
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
