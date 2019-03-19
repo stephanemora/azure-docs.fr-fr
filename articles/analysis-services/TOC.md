@@ -10,7 +10,7 @@
 ## [Créer un serveur – PowerShell](analysis-services-create-powershell.md)
 ## [Configuration d’un pare-feu de serveur - Portail](analysis-services-qs-firewall.md)
 
-# Didacticiels
+# Tutoriels
 
 ## [1 - Ajouter un exemple de modèle à partir du portail](analysis-services-create-sample-model.md) 
 ## [2 - Configurer les rôles d’utilisateur et d’administrateur de serveur](tutorials/analysis-services-tutorial-roles.md)
@@ -43,8 +43,6 @@
 ### [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md)
 
 ## Modèle
-### [Importer un fichier Power BI Desktop](analysis-services-import-pbix.md)
-### [Créer un modèle dans le portail Azure (aperçu)](analysis-services-create-model-portal.md)
 ### [Déployer depuis Visual Studio (SSDT)](analysis-services-deploy.md)
 ### [Actualiser avec l’API REST](analysis-services-async-refresh.md)
 ### [Modélisation des données dans Visual Studio - Tutoriel Adventure Works (1400)](tutorials/aas-adventure-works-tutorial.md)
@@ -95,15 +93,5 @@
 ## [Commentaires](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Tarification](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-
-
-
-
-
-
-
-
-
-
