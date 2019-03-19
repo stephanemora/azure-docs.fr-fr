@@ -5,17 +5,17 @@ services: azure-stack
 author: sethmanheim
 manager: femila
 ms.service: azure-stack
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: cd42a347de236de2e3374d7ac854779f4c222a00
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: bf075372da4cd23c89c24dcb30ffbcfac6775fe4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768144"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775082"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Présentation des machines virtuelles Azure Stack
 
@@ -97,11 +97,11 @@ Les ressources figurant dans le tableau suivant sont utilisées par la machine v
 
 |Ressource|Obligatoire|Description|
 |---------|---------|---------|
-|Groupe de ressources|Oui|La machine virtuelle doit être contenue dans un groupe de ressources.|
+|Groupe de ressources|OUI|La machine virtuelle doit être contenue dans un groupe de ressources.|
 |Compte de stockage|Non |La machine virtuelle ne nécessite pas que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation du service Managed Disks. <br>La machine virtuelle exige que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation de disques non managés.|
-|Réseau virtuel|Oui|La machine virtuelle doit faire partie d’un réseau virtuel.|
+|Réseau virtuel|OUI|La machine virtuelle doit faire partie d’un réseau virtuel.|
 |Adresse IP publique|Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance.|
-|interface réseau|Oui|La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau.|
+|interface réseau|OUI|La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau.|
 |Disques de données|Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage.|
 
 ## <a name="create-your-first-vm"></a>Créer votre première machine virtuelle
