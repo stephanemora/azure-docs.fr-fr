@@ -1,24 +1,19 @@
 ---
-title: Documentation Azure Media Services - Didacticiels, informations de référence sur les API | Microsoft Docs
-description: Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec la plateforme cloud extensible Media Services. Didacticiels, références d’API et autres.
+title: "Documentation Azure Media Services\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
+description: 'Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec la plateforme cloud extensible Media Services. Didacticiels, références d’API et autres.'
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 02/08/2018
+ms.date: 03/14/2019
 ms.author: carolz
-ms.openlocfilehash: dce69041176840765817d561f61a0d5f3d2b9a66
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998023"
 ---
+
 # <a name="media-services-documentation"></a>Documentation Media Services  
 
 Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la plateforme cloud extensible Media Services. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.

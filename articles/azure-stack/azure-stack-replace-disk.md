@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 0a73119c7d079498f0e766fb92904c86ff5131c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4fb2a398baa306cf9303284526bb43cd7f778441
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767220"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734623"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Remplacer un disque physique dans Azure Stack
 
@@ -39,7 +39,7 @@ En cas de défaillance d’un disque, vous recevez une alerte indiquant que la c
 
 Si vous ouvrez l’alerte, la description contient le nœud d’unité d’échelle et l’emplacement exact du logement physique pour le disque que vous devez remplacer. Azure Stack vous aide à identifier le disque en panne à l’aide de fonctionnalités d’indicateurs LED.
 
- ## <a name="replace-the-disk"></a>Remplacer le disque
+## <a name="replace-the-disk"></a>Remplacer le disque
 
 Suivez les instructions FRU de votre fabricant de matériel OEM pour remplacer le disque.
 
@@ -50,7 +50,7 @@ Pour empêcher toute utilisation d’un disque non pris en charge dans un systè
 
 Une fois le disque remplacé, Azure Stack détecte automatiquement le nouveau disque et commence le processus de réparation de disque virtuel.
  
- ## <a name="check-the-status-of-virtual-disk-repair"></a>Vérifier l’état de la réparation de disque virtuel
+## <a name="check-the-status-of-virtual-disk-repair"></a>Vérifier l’état de la réparation de disque virtuel
  
  Après avoir remplacé le disque, vous pouvez surveiller l’état d’intégrité du disque virtuel et la progression du travail de réparation à l’aide du point de terminaison privilégié. Suivez ces étapes à partir de n’importe quel ordinateur qui dispose d’une connectivité réseau au point de terminaison privilégié.
 
