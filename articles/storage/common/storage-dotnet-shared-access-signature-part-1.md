@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470346"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001584"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilisation des signatures d’accès partagé (SAP)
 
@@ -40,11 +40,11 @@ Un service où les utilisateurs lisent et écrivent leurs propres données dans 
 
 1. Les clients chargent et téléchargent les données par le biais d’un service proxy frontal, qui se charge de l’authentification. Ce service présente l'avantage de permettre la validation des règles métier, mais pour de grosses quantités de données ou des transactions à haut volume, la création d'un service qui peut être mis à l'échelle en fonction de la demande peut se révéler coûteuse ou difficile.
 
-  ![Schéma du scénario : service proxy frontal](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Schéma du scénario : service proxy frontal](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Un service léger authentifie le client en fonction des besoins, puis génère une signature d’accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
 
-  ![Schéma du scénario : service de fournisseur SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Schéma du scénario : service de fournisseur SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 De nombreux services réels peuvent utiliser un mélange de ces deux approches. Par exemple, certaines données peuvent être traitées et validées via le proxy frontal, tandis que les autres données sont enregistrées et/ou lues directement à l’aide de SAP.
 
@@ -108,7 +108,7 @@ Voici un exemple d’URI de SAP de service qui fournit des autorisations d’acc
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| NOM | Partie de la SAP | Description |
+| Nom | Partie de la SAP | Description |
 | --- | --- | --- |
 | URI de l’objet blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Adresse de l'objet blob. Notez que l'utilisation de HTTPS est fortement recommandée. |
 | Version des services de stockage |`sv=2015-04-05` |Pour la version 2012-02-12 des services de stockage et les versions ultérieures, ce paramètre indique la version à utiliser. |
@@ -128,7 +128,7 @@ Voici un exemple de SAP de compte qui utilise les mêmes paramètres communs sur
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| NOM | Partie de la SAP | Description |
+| Nom | Partie de la SAP | Description |
 | --- | --- | --- |
 | URI de ressource |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Point de terminaison du service BLOB, avec les paramètres d’obtention des propriétés du service (appel avec la méthode GET) ou de définition des propriétés du service (appel avec la méthode SET). |
 | Services |`ss=bf` |La SAP s’applique au service BLOB et au service de fichiers. |
@@ -230,8 +230,8 @@ Vous trouverez ci-dessous des exemples des deux types de signatures d’accès p
 
 Pour exécuter ces exemples C#, vous devez référencer les packages NuGet suivants dans votre projet :
 
-* [Bibliothèque cliente de stockage Azure pour .NET](http://www.nuget.org/packages/WindowsAzure.Storage), version 6.x ou ultérieure (pour utiliser une SAP de compte).
-* [Gestionnaire de configuration Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Bibliothèque cliente de stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage), version 6.x ou ultérieure (pour utiliser une SAP de compte).
+* [Gestionnaire de configuration Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Pour obtenir des exemples supplémentaires expliquant comment créer et tester une SAP, consultez les [Exemples de code Azure pour le stockage](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -329,7 +329,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>Exemple : création d’une SAP de service dans un conteneur
-Le code suivant crée une SAP sur un conteneur. Si le nom d’une stratégie d’accès stockée existante est fourni, cette stratégie est associée à la SAP. Dans le cas contraire, le code crée une SAP ad hoc sur le conteneur.
+Le code suivant crée une SAP sur un conteneur. Si le nom d’une stratégie d’accès stockée existante est fourni, cette stratégie est associée à la SAP. Si aucune stratégie d’accès stockée n’est fourni, le code crée une SAP ad hoc sur le conteneur.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -339,7 +339,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
@@ -359,7 +359,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     {
         // Generate the shared access signature on the container. In this case, all of the constraints for the
         // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad-hoc SAS and others on the stored access policy.
+        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
         Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
@@ -372,7 +372,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>Exemple : création d’une SAP de service dans un objet blob
-Le code suivant crée une SAP sur un objet blob. Si le nom d’une stratégie d’accès stockée existante est fourni, cette stratégie est associée à la SAP. Dans le cas contraire, le code crée une SAP ad hoc sur l’objet blob.
+Le code suivant crée une SAP sur un objet blob. Si le nom d’une stratégie d’accès stockée existante est fourni, cette stratégie est associée à la SAP. Si aucune stratégie d’accès stockée n’est fourni, le code crée une SAP ad hoc sur l’objet blob.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -386,7 +386,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {

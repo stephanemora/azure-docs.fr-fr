@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100647"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>De Splunk à la requête de journal Azure Monitor
 
@@ -33,7 +33,7 @@ Le tableau suivant compare les concepts et les structures de données de Splunk 
  | Unité de déploiement  | cluster |  cluster |  Azure Monitor autorise les requêtes entre clusters arbitraires. Ce n’est pas le cas de Splunk. |
  | Caches de données |  compartiments  |  Stratégies de rétention et mise en cache |  Contrôle la période et le niveau de mise en cache des données. Ce paramètre a un impact direct sur les performances des requêtes et le coût du déploiement. |
  | Partition logique des données  |  index  |  database  |  Permet une séparation logique des données. Les deux implémentations autorisent les unions et les jointures entre ces partitions. |
- | Métadonnées d’événement structurées | N/A | table |  Splunk n’a pas le concept exposé au langage de recherche de métadonnées d’événement. Les journaux Azure Monitor disposent du concept de table comportant des colonnes. Chaque instance d’événement est mappée à une ligne. |
+ | Métadonnées d’événement structurées | S.O. | table |  Splunk n’a pas le concept exposé au langage de recherche de métadonnées d’événement. Les journaux Azure Monitor disposent du concept de table comportant des colonnes. Chaque instance d’événement est mappée à une ligne. |
  | Enregistrement de données | événement | ligne |  Changement de terminologie uniquement. |
  | Attribut d’enregistrement de données | field |  colonne |  Dans Azure Monitor, elle est prédéfinie dans le cadre de la structure de la table. Dans Splunk, chaque événement possède son propre ensemble de champs. |
  | Types | type de données |  type de données |  Les types de données Azure Monitor sont plus explicites, car ils sont définis sur les colonnes. Les deux ont la possibilité d’utiliser dynamiquement des types de données et un ensemble de types de données à peu près équivalent, notamment la prise en charge JSON. |
@@ -163,7 +163,7 @@ La jointure dans Splunk présente des limitations importantes. La sous-requête 
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias | join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
 | Azure Monitor | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 

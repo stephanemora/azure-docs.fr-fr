@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e9c1c35236ce6449a9c9bf06ba291f46db472
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996776"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application dans Azure App Service à l'aide de Visual Studio
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce didacticiel explique comment utiliser les outils Visual Studio pour déboguer une application dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) en activant le [Mode débogage](https://docs.microsoft.com/visualstudio/debugger/) à distance ou en consultant les journaux des applications et des serveurs web.
 
 Vous apprendrez ce qui suit :
@@ -134,19 +134,19 @@ public ActionResult About()
 }
 ```
 
-4. [Définissez un point d’arrêt](https://docs.microsoft.com/visualstudio/debugger/) sur la ligne `ViewBag.Message`.
+1. [Définissez un point d’arrêt](https://docs.microsoft.com/visualstudio/debugger/) sur la ligne `ViewBag.Message`.
 
-5. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 
-6. Dans la liste déroulante **Profil**, sélectionnez le profil utilisé dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md). Puis, cliquez sur Paramètres.
+1. Dans la liste déroulante **Profil**, sélectionnez le profil utilisé dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md). Puis, cliquez sur Paramètres.
 
-7. Dans la boîte de dialogue **Publier**, cliquez sur l’onglet **Paramètres** et remplacez **Configuration** par **Déboguer**, puis cliquez sur **Enregistrer**.
+1. Dans la boîte de dialogue **Publier**, cliquez sur l’onglet **Paramètres** et remplacez **Configuration** par **Déboguer**, puis cliquez sur **Enregistrer**.
 
     ![Publier en mode débogage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. Cliquez sur **Publier**. Au terme du déploiement, lorsque votre navigateur s'ouvre en affichant l'adresse URL Azure de votre application, fermez le navigateur.
+1. Cliquez sur **Publier**. Au terme du déploiement, lorsque votre navigateur s'ouvre en affichant l'adresse URL Azure de votre application, fermez le navigateur.
 
-9. Dans l'**Explorateur de serveurs**, cliquez avec le bouton droit sur votre application, puis cliquez sur **Attacher le débogueur**.
+1. Dans l'**Explorateur de serveurs**, cliquez avec le bouton droit sur votre application, puis cliquez sur **Attacher le débogueur**.
 
     ![Attacher le débogueur](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -156,19 +156,19 @@ public ActionResult About()
     > Si vous rencontrez des problèmes au démarrage du débogueur, essayez d’utiliser **Cloud Explorer** au lieu de **l’Explorateur de serveurs**.
     >
 
-10. Cliquez sur **À propos de** dans le menu.
+1. Cliquez sur **À propos de** dans le menu.
 
-     Visual Studio s'arrête sur le point d'arrêt et le code s'exécute dans Azure, et non pas sur votre ordinateur local.
+    Visual Studio s'arrête sur le point d'arrêt et le code s'exécute dans Azure, et non pas sur votre ordinateur local.
 
-11. Passez la souris sur la variable `currentTime` pour afficher la valeur de temps.
+1. Passez la souris sur la variable `currentTime` pour afficher la valeur de temps.
 
-     ![Afficher une variable en mode débogage sur Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![Afficher une variable en mode débogage sur Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     Le temps affiché correspond au fuseau horaire du serveur Azure, qui peut différer de celui de votre ordinateur local.
+    Le temps affiché correspond au fuseau horaire du serveur Azure, qui peut différer de celui de votre ordinateur local.
 
-12. Entrez une nouvelle valeur pour la variable `currentTime` , comme « En cours d’exécution dans Azure ».
+1. Entrez une nouvelle valeur pour la variable `currentTime` , comme « En cours d’exécution dans Azure ».
 
-13. Appuyez sur F5 pour continuer.
+1. Appuyez sur F5 pour continuer.
 
      La page « À propos de » exécutée dans Azure affiche la nouvelle valeur entrée dans la variable currentTime.
 
@@ -311,7 +311,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. Ajoutez une instruction `using System.Diagnostics;` en haut du fichier.
+1. Ajoutez une instruction `using System.Diagnostics;` en haut du fichier.
 
 ### <a name="view-the-tracing-output-locally"></a>Affichage de la sortie de suivi en local
 1. Appuyez sur F5 pour exécuter l'application en mode débogage.
@@ -339,15 +339,15 @@ public ActionResult Contact()
 ```
 
 L’élément `WebPageTraceListener` vous permet d’afficher la sortie de suivi en accédant à `/trace.axd`.
-3. Ajoutez un <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">élément de suivi</a> sous `<system.web>` dans le fichier Web.config, comme dans l’exemple suivant :
+1. Ajoutez un <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">élément de suivi</a> sous `<system.web>` dans le fichier Web.config, comme dans l’exemple suivant :
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. Appuyez sur Ctrl+F5 pour exécuter l’application.
-5. Dans la barre d’adresse du navigateur, ajoutez *trace.axd* à l’URL, puis appuyez sur Entrée (l’URL ressemble à http://localhost:53370/trace.axd).
-6. Sur la page **Suivi d’application**, cliquez sur **Afficher les détails** sur la première ligne (pas la ligne BrowserLink).
+1. Appuyez sur Ctrl+F5 pour exécuter l’application.
+1. Dans la barre d’adresses de la fenêtre du navigateur, ajoutez *trace.axd* à l’URL, puis appuyez sur entrée (l’URL est similaire à `http://localhost:53370/trace.axd`).
+1. Sur la page **Suivi d’application**, cliquez sur **Afficher les détails** sur la première ligne (pas la ligne BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -477,7 +477,7 @@ Tous les journaux que vous pouvez surveiller dans la fenêtre **Sortie** peuvent
    * Les journaux de serveur web sont dans des fichiers *.log* dans le dossier *LogFiles\http\RawLogs*. Vous pouvez utiliser un outil tel que [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) pour afficher et manipuler ces fichiers.
    * Les journaux de messages d’erreur détaillés sont dans des fichiers *.html* dans le dossier *LogFiles\DetailedErrors*.
 
-    Le dossier *deployments* contient les fichiers créés par la publication à partir du contrôle de code source : il n'a rien à voir avec la publication Visual Studio. Le dossier *Git* contient le suivi lié à la publication à partir du contrôle de code source et au service de diffusion de fichier journal en continu.  
+     Le dossier *deployments* contient les fichiers créés par la publication à partir du contrôle de code source : il n'a rien à voir avec la publication Visual Studio. Le dossier *Git* contient le suivi lié à la publication à partir du contrôle de code source et au service de diffusion de fichier journal en continu.  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -685,7 +685,7 @@ Pour plus d'informations sur l'analyse des journaux de serveur Web, consultez le
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Un outil pour afficher les données des journaux de serveur Web (fichiers *.log* ).
-* [Dépannage des problèmes de performances IIS ou des erreurs d’application à l’aide de LogParser ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Dépannage des problèmes de performances IIS ou des erreurs d’Application à l’aide de LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    Une introduction à l'outil LogParser que vous pouvez utiliser pour analyser les journaux de serveur Web.
 * [Billets du blog de Robert McMurray sur l’utilisation de LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [Code d’état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0](https://support.microsoft.com/kb/943891)

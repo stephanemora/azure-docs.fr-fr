@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 6a671744944527b64aab9a7b9afe05d6a9f2f27f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 682aac8ec6716ac59c6bdc0710065c916a0c41b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002090"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084927"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Création d’une passerelle d’application à l’aide du modèle Azure Resource Manager
 
@@ -60,16 +60,16 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 1. Ouvrez le fichier que vous avez enregistré et consultez le contenu sous **parameters** à la ligne
 1. Les paramètres du modèle Azure Resource Manager fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
 
-  | Paramètre | Description |
-  | --- | --- |
-  | **subnetPrefix** |Bloc CIDR du sous-réseau de la passerelle Application Gateway. |
-  | **applicationGatewaySize** | Taille de la passerelle Application Gateway.  Le pare-feu d’applications web autorise uniquement les tailles moyenne et grande. |
-  | **backendIpaddress1** |Adresse IP du premier serveur web. |
-  | **backendIpaddress2** |Adresse IP du deuxième serveur web. |
-  | **wafEnabled** | Permet de déterminer si le pare-feu d’applications web est activé.|
-  | **wafMode** | Mode du pare-feu d’applications web.  Les options disponibles sont **prévention** ou **détection**.|
-  | **wafRuleSetType** | Type de groupe de règles du pare-feu d’applications web.  Actuellement, OWASP est la seule option prise en charge. |
-  | **wafRuleSetVersion** |Version de groupe de règles. Les options prises en charge sont actuellement OWASP CRS 2.2.9 et 3.0. |
+   | Paramètre | Description |
+   | --- | --- |
+   | **subnetPrefix** |Bloc CIDR du sous-réseau de la passerelle Application Gateway. |
+   | **applicationGatewaySize** | Taille de la passerelle Application Gateway.  Le pare-feu d’applications web autorise uniquement les tailles moyenne et grande. |
+   | **backendIpaddress1** |Adresse IP du premier serveur web. |
+   | **backendIpaddress2** |Adresse IP du deuxième serveur web. |
+   | **wafEnabled** | Permet de déterminer si le pare-feu d’applications web est activé.|
+   | **wafMode** | Mode du pare-feu d’applications web.  Les options disponibles sont **prévention** ou **détection**.|
+   | **wafRuleSetType** | Type de groupe de règles du pare-feu d’applications web.  Actuellement, OWASP est la seule option prise en charge. |
+   | **wafRuleSetVersion** |Version de groupe de règles. Les options prises en charge sont actuellement OWASP CRS 2.2.9 et 3.0. |
 
 1. Vérifiez le contenu sous **ressources** et notez les propriétés suivantes :
 
@@ -82,61 +82,63 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 1. Enregistrez le fichier dans un dossier local sur votre ordinateur.
 1. Ouvrez le fichier que vous avez enregistré et modifiez les valeurs des paramètres. Utilisez les valeurs suivantes pour déployer la passerelle Application Gateway décrite dans notre scénario.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
 1. Enregistrez le fichier . Vous pouvez tester le modèle JSON et le modèle de paramètres à l’aide des outils de validation JSON en ligne comme [JSlint.com](https://www.jslint.com/).
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Déploiement du modèle Azure Resource Manager à l’aide de PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Si vous n’avez jamais utilisé Azure PowerShell, consultez : [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions pour vous connecter à Azure et sélectionner votre abonnement.
 
 1. Connexion à PowerShell
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Vérifiez les abonnements associés au compte.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Vous êtes invité à vous authentifier à l’aide de vos informations d’identification.
@@ -144,19 +146,19 @@ Si vous n’avez jamais utilisé Azure PowerShell, consultez : [Installation et
 1. Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Au besoin, créez un groupe de ressources à l’aide de l’applet de commande **New-AzureResourceGroup** . Dans l’exemple suivant, vous allez créer un groupe de ressources appelé AppgatewayRG dans l’emplacement USA Est.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Exécutez l’applet de commande **New-AzureRmResourceGroupDeployment** pour déployer le nouveau réseau virtuel à l’aide du modèle précédent et des fichiers de paramètres que vous avez téléchargés et modifiés.
+1. Exécutez le **New-AzResourceGroupDeployment** applet de commande pour déployer le nouveau réseau virtuel à l’aide du modèle précédent et le paramètre fichiers que vous avez téléchargés et modifiés.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -222,7 +224,7 @@ Pour supprimer toutes les ressources créées dans cet article, effectuez l’un
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

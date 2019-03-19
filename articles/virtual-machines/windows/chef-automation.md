@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 5378151d01418a81977f2fc2f562a6540bbb665d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a973d8dbab18e9ea66afb5ffff83f47c3ad98f93
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012350"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisation du déploiement de machine virtuelle Azure avec Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,7 +32,7 @@ Avec la dernière version d’API cloud, Chef assure l’intégration transparen
 Dans cet article, vous allez configurer votre environnement Chef pour provisionner des machines virtuelles Azure et créer une stratégie ou un « Livre de recettes », puis procéder à son déploiement sur une machine virtuelle Azure.
 
 ## <a name="chef-basics"></a>Principes fondamentaux de Chef
-Avant de commencer, [familiarisez-vous avec les principes fondamentaux de Chef](http://www.chef.io/chef).
+Avant de commencer, [familiarisez-vous avec les principes fondamentaux de Chef](https://www.chef.io/chef).
 
 Le schéma ci-dessous illustre l’architecture de Chef de haut niveau.
 
@@ -175,7 +175,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 Ensuite, [téléchargez et installez](https://downloads.chef.io/chef-workstation/) Chef Workstation.
 Installez Chef Workstation à l’emplacement par défaut. Cette installation peut prendre quelques minutes.
 
-Sur le Bureau, « CW PowerShell » apparaît, ce qui correspond à un environnement chargé avec l’outil dont vous avez besoin pour interagir avec les produits Chef. CW PowerShell rend disponibles de nouvelles commandes ad-hoc, comme `chef-run` ainsi que les commandes d’interface CLI traditionnelles de Chef, comme `chef`. Déterminez votre version installée de Chef Worstation et des outils Chef avec la commande `chef -v`. Vous pouvez également vérifier votre version de Chef Workstation en sélectionnant « About Chef Workstation » dans l’application éponyme.
+Sur le Bureau, « CW PowerShell » apparaît, ce qui correspond à un environnement chargé avec l’outil dont vous avez besoin pour interagir avec les produits Chef. PowerShell CW disposition nouvelles commandes ad hoc, tels que `chef-run` ainsi que Chef interfaces CLI des commandes, telles que `chef`. Déterminez votre version installée de Chef Worstation et des outils Chef avec la commande `chef -v`. Vous pouvez également vérifier votre version de Chef Workstation en sélectionnant « About Chef Workstation » dans l’application éponyme.
 
 La commande `chef --version` doit retourner quelque chose comme :
 

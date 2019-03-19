@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35060aec8d9d040777fda247c798a42533b2ea4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182678"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091475"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Définir la stratégie de protection des données pour votre solution d’identités hybrides
 Dans cette tâche, vous allez définir la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans :
@@ -119,9 +119,9 @@ Une fois que l’utilisateur est authentifié à l’aide d’Azure AD, il est i
 
 Chaque interaction du schéma présenté dans la Figure X représente un scénario de contrôle d’accès qui peut être couvert par Azure AD. Une description de chaque scénario est disponible ci-dessous :
 
-  1. Accès conditionnel aux applications hébergées en local : Vous pouvez utiliser des appareils inscrits avec des stratégies d’accès pour les applications qui sont configurées pour utiliser les services AD FS avec Windows Server 2012 R2.
+1. Accès conditionnel aux applications hébergées en local : Vous pouvez utiliser des appareils inscrits avec des stratégies d’accès pour les applications qui sont configurées pour utiliser les services AD FS avec Windows Server 2012 R2.
 
-  2. Contrôle d’accès au portail Azure :  Azure vous permet également de contrôler l’accès au portail à l’aide du contrôle d’accès en fonction du rôle (RBAC). Cette méthode permet aux entreprises de limiter le nombre d’opérations qu’un individu peut effectuer dans le portail Azure. En utilisant le contrôle d’accès en fonction du rôle pour contrôler l’accès au portail, les administrateurs informatiques peuvent déléguer l’accès à l’aide des approches de gestion de l’accès suivantes :
+2. Contrôle d’accès au portail Azure :  Azure vous permet également de contrôler l’accès au portail à l’aide du contrôle d’accès en fonction du rôle (RBAC). Cette méthode permet aux entreprises de limiter le nombre d’opérations qu’un individu peut effectuer dans le portail Azure. En utilisant le contrôle d’accès en fonction du rôle pour contrôler l’accès au portail, les administrateurs informatiques peuvent déléguer l’accès à l’aide des approches de gestion de l’accès suivantes :
 
    - Affectation de rôles basés sur les groupes : Vous pouvez affecter l’accès aux groupes Azure AD qui peuvent être synchronisés à partir de votre annuaire Active Directory local. Cela vous permet d’exploiter les investissements existants effectués par votre organisation dans les outils et processus pour la gestion des groupes. Vous pouvez également utiliser la fonctionnalité de gestion déléguée des groupes d’Azure AD Premium.
    - Rôles intégrés dans Azure : Vous pouvez utiliser trois rôles (Propriétaire, Contributeur et Lecteur) pour vous assurer que les utilisateurs et groupes sont uniquement autorisés à effectuer les tâches dont ils ont besoin pour faire leur travail.
@@ -131,9 +131,9 @@ Chaque interaction du schéma présenté dans la Figure X représente un scéna
    > Si vous créez des applications et souhaitez personnaliser le contrôle d’accès pour celles-ci, il est également possible d’utiliser les rôles d’application Azure AD pour l’autorisation. Passez en revue cet [exemple WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sur la manière de créer votre application de sorte qu’elle utilise cette fonctionnalité.
 
 
-  3. Accès conditionnel pour les applications Office 365 avec Microsoft Intune :  Les administrateurs informatiques peuvent configurer des stratégies d’appareil d’accès conditionnel pour sécuriser les ressources d’entreprise, tout en autorisant les travailleurs de l’information sur des appareils compatibles à accéder aux services. 
+3. Accès conditionnel pour les applications Office 365 avec Microsoft Intune :  Les administrateurs informatiques peuvent configurer des stratégies d’appareil d’accès conditionnel pour sécuriser les ressources d’entreprise, tout en autorisant les travailleurs de l’information sur des appareils compatibles à accéder aux services. 
   
-  4. Accès conditionnel pour les applications SaaS : [Cette fonctionnalité](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
+4. Accès conditionnel pour les applications SaaS : [Cette fonctionnalité](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
 
 Étant donné que les options de contrôle d’accès utilisent une approche multicouche, la comparaison entre ces options n’est pas pertinente pour cette tâche. Assurez-vous que vous exploitez toutes les options disponibles pour chaque scénario dont vous devez contrôler l’accès à vos ressources.
 

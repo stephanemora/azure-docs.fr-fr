@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088704"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Il s’agit du premier article de la série de didacticiels sur le déploiement nécessaire pour déployer complètement votre tableau virtuel en tant que serveur de fichiers ou serveur iSCSI à l’aide du modèle Resource Manager. Cet article décrit la préparation nécessaire pour créer et configurer votre service StorSimple Device Manager avant la configuration d'un tableau virtuel. Cet article contient également des liens vers une liste de vérification de la configuration du déploiement ainsi que la configuration requise.
 
@@ -55,7 +55,7 @@ La liste de contrôle de la configuration présente les informations dont vous a
 * Téléchargez la [liste de vérification de la configuration du serveur de fichiers StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Téléchargez la [liste de vérification de la configuration du serveur iSCSI StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous trouverez ici les conditions préalables à la configuration de votre service StorSimple Device Manager, de votre instance StorSimple Virtual Array et du réseau de votre centre de données.
 
@@ -155,15 +155,15 @@ Procédez comme suit dans le [portail Azure](https://ms.portal.azure.com/) sur l
 3. Cliquez sur **Add**.
 4. Dans le panneau **Ajouter un compte de stockage**, procédez comme suit :
    
-    1. Pour **Abonnement**, sélectionnez **Actuel**.
+   1. Pour **Abonnement**, sélectionnez **Actuel**.
    
-    2. Fournissez le nom de votre compte de stockage Azure.
+   2. Fournissez le nom de votre compte de stockage Azure.
    
-    3. Sélectionnez **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud. Sélectionnez **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
+   3. Sélectionnez **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud. Sélectionnez **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
    
-    4. Cliquez sur **Add**. Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.<br></br>
+   4. Cliquez sur **Add**. Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.<br></br>
    
-     ![Ajouter une information d’identification de compte de stockage existant](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![Ajouter une information d’identification de compte de stockage existant](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## <a name="next-step"></a>Étape suivante
 

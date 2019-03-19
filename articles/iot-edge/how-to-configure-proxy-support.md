@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 58a51fd90eb0b89048eca7c95272523ffd10c24a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982316"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774198"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -25,23 +25,23 @@ Pour configurer un appareil IoT Edge devant communiquer avec un serveur proxy, e
 1. Installez le runtime IoT Edge sur votre appareil. 
 2. Configurez le démon Docker et le démon IoT Edge sur votre appareil pour utiliser le serveur proxy.
 3. Configurez les propriétés d’edgeAgent dans le fichier config.yaml sur votre appareil.
-4. Définissez les variables d’environnement pour le runtime IoT Edge et les autres modules IoT Edge dans le manifeste de déploiement. 
+4. Définissez les variables d’environnement pour le runtime IoT Edge et les autres modules IoT Edge dans le manifeste de déploiement.
 
 ## <a name="know-your-proxy-url"></a>Identifier l’URL de votre proxy
 
-Pour configurer à la fois le démon Docker et IoT Edge sur votre appareil, vous devez connaître l’URL de votre proxy. 
+Pour configurer à la fois le démon Docker et IoT Edge sur votre appareil, vous devez connaître l’URL de votre proxy.
 
-Les URL de proxy se présentent sous ce format : **protocol**://**proxy_host**:**proxy_port**. 
+Les URL de proxy se présentent sous ce format : **protocol**://**proxy_host**:**proxy_port**.
 
 * Le paramètre **protocol** a la valeur HTTP ou HTTPS. Le démon Docker peut utiliser chacun de ces protocoles, selon vos paramètres de registre de conteneurs, mais les conteneurs de runtime et le démon IoT Edge doivent toujours utiliser HTTPS.
 
-* Le paramètre **proxy_host** est une adresse du serveur proxy. Si votre serveur proxy requiert une authentification, vous pouvez fournir vos informations d’identification à l’aide de l’élément hôte_proxy au format **user**:**password**@**proxy_host**. 
+* Le paramètre **proxy_host** est une adresse du serveur proxy. Si votre serveur proxy requiert une authentification, vous pouvez fournir vos informations d’identification à l’aide de l’élément hôte_proxy au format **user**:**password**\@**proxy_host**.
 
-* **proxy_port** représente le port réseau à partir duquel le proxy répond au trafic réseau. 
+* **proxy_port** représente le port réseau à partir duquel le proxy répond au trafic réseau.
 
 ## <a name="install-the-runtime"></a>Installer le runtime
 
-Si vous installez le runtime IoT Edge sur un appareil Linux, configurez le Gestionnaire de package de sorte à passer par votre serveur proxy pour accéder au package d’installation. Par exemple, [Configurez apt-get pour utiliser un proxy http](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Une fois que votre gestionnaire de package est configuré, suivez les instructions dans [Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) ou [Installer le runtime Azure IoT Edge sur Linux (x64)](how-to-install-iot-edge-linux.md) comme d’habitude. 
+Si vous installez le runtime IoT Edge sur un appareil Linux, configurez le Gestionnaire de package de sorte à passer par votre serveur proxy pour accéder au package d’installation. Par exemple, [Configurez apt-get pour utiliser un proxy http](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Une fois que votre gestionnaire de package est configuré, suivez les instructions dans [Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) ou [Installer le runtime Azure IoT Edge sur Linux (x64)](how-to-install-iot-edge-linux.md) comme d’habitude.
 
 Si vous installez le runtime IoT Edge sur un appareil Windows, vous devez passer par le serveur proxy une première fois pour télécharger le fichier de script du programme d’installation, puis à nouveau lors de l’installation pour télécharger les composants nécessaires. Vous pouvez configurer les informations de proxy dans les paramètres Windows ou inclure vos informations de proxy directement dans le script d’installation. Le script Powershell suivant est un exemple d’installation de Windows qui utilise l’argument `-proxy` :
 
@@ -72,7 +72,7 @@ Pour savoir comment configurer le démon Docker avec des variables d’environne
 
 Consultez l’article correspondant à votre version de Docker : 
 
-* [Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+* [Docker pour Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Docker pour Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
 
 ### <a name="iot-edge-daemon"></a>Démon IoT Edge

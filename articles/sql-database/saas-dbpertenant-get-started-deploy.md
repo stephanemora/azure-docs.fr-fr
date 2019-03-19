@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000202"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -37,7 +37,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 Une [série de didacticiels associés](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) vous propose d’explorer les divers modèles de conception et de gestion SaaS. Ces didacticiels vont au-delà de ce déploiement initial. Lorsque vous utilisez les didacticiels, vous pouvez examiner les scripts fournis pour voir comment les différents modèles SaaS sont implémentés. Ces scripts montrent comment les fonctionnalités de SQL Database simplifient le développement des applications SaaS.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, assurez-vous qu’Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -56,7 +56,7 @@ Choisissez vos noms maintenant et notez-les.
 
 1. Pour ouvrir le modèle de déploiement de base de données par locataire SaaS Wingtip Tickets dans le portail Azure, sélectionnez **Déployer sur Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Entrez les valeurs des paramètres obligatoires dans le modèle.
 
@@ -186,9 +186,9 @@ Si vous souhaitez contrôler et surveiller les tâches en arrière-plan, utilise
 
 4. Si `$OneTime = $false`, le générateur de charge démarre les tâches en arrière-plan et continue de s’exécuter. Toutes les 10 secondes, il contrôle les nouveaux locataires qui sont approvisionnés. Si vous définissez `$OneTime = $true`, le générateur de charge démarre les tâches en arrière-plan, puis arrête son exécution au premier plan. Pour ce didacticiel, laissez `$OneTime = $false`.
 
-  Utilisez Ctrl-C ou Ctrl-Pause pour arrêter l’opération si vous souhaitez arrêter ou redémarrer le générateur de charge.
+   Utilisez Ctrl-C ou Ctrl-Pause pour arrêter l’opération si vous souhaitez arrêter ou redémarrer le générateur de charge.
 
-  Si vous laissez le générateur de charge s’exécuter au premier plan, utilisez une autre instance de PowerShell ISE pour exécuter d’autres scripts PowerShell.
+   Si vous laissez le générateur de charge s’exécuter au premier plan, utilisez une autre instance de PowerShell ISE pour exécuter d’autres scripts PowerShell.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Actualisez l’Events Hub pour faire apparaître le nouveau locataire dans la li
 
 Maintenant que vous avez démarré une charge dans le regroupement de locataires, examinons quelques-unes des ressources qui ont été déployées.
 
-1. Dans le  [portail Azure](http://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur  **catalog-dpt-&lt;UTILISATEUR&gt;** .
+1. Dans le  [portail Azure](https://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur  **catalog-dpt-&lt;UTILISATEUR&gt;** .
     - Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (un modèle de base de données copié pour créer des locataires).
 
    ![Bases de données](./media/saas-dbpertenant-get-started-deploy/databases.png)
