@@ -71,7 +71,7 @@ items:
         href: how-to-use-map-control.md
       - name: Créer une carte
         href: map-create.md
-      - name: Choisir un style de carte
+      - name: Choisir un style de mappage
         href: choose-map-style.md
       - name: Ajouter des commandes à la carte
         href: map-add-controls.md
@@ -152,7 +152,7 @@ items:
 - name: Ressources
   items:
   - name: Conditions d’utilisation d’Azure Maps
-    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Calculatrice de prix
@@ -199,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: Kits de développement logiciel (SDK) IoT Device
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 2753badd048840eb518fbcfaa97cde6f185688bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014609"
