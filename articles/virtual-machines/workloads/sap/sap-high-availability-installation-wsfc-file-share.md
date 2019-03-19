@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658653"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997364"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure
 
@@ -48,7 +48,7 @@ ms.locfileid: "34658653"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -203,7 +203,7 @@ Cet article décrit comment installer et configurer un système SAP à haute dis
 
 Avant de commencer l’installation, consultez les articles suivants :
 
-* [Guide d’architecture : Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure][sap-high-availability-guide-wsfc-file-share]
+* [Guide d'architecture : Cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers][sap-high-availability-guide-wsfc-file-share]
 
 * [Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP (A)SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -211,7 +211,7 @@ Vous avez besoin des exécutables et DLL suivants de SAP :
 * Outil d’installation SAP Software Provisioning Manager (SWPM) version SPS21 (ou ultérieure).
 * Téléchargez l’archive NTCLUST.SAR la plus récente avec la nouvelle DLL de ressource de cluster SAP. Les nouvelles DLL de cluster SAP prennent en charge la haute disponibilité SAP ASCS/SCS avec partage de fichiers sur un cluster de basculement Windows Server.
 
-  Pour plus d’informations sur la nouvelle DLL de ressource de cluster SAP, consultez ce billet de blog : [New SAP cluster resource DLL is available!][sap-blog-new-sap-cluster-resource-dll] (Disponibilité de la nouvelle DLL de ressource de cluster SAP).
+  Pour plus d’informations sur la nouvelle ressource de cluster SAP DLL, consultez ce billet de blog : [Nouvelle ressource de cluster SAP DLL est disponible ! ][sap-blog-new-sap-cluster-resource-dll].
 
 Nous ne décrivons pas l’installation du système de gestion de base de données (SGBD) car celle-ci varie en fonction du système utilisé. Toutefois, nous partons du principe que la haute disponibilité du SGBD est assurée par les fonctionnalités prises en charge par les différents fournisseurs de SGBD pour Azure, par exemple AlwaysOn ou la mise en miroir de bases de données pour SQL Server et Oracle Data Guard pour les bases de données Oracle. Dans le scénario utilisé dans cet article, nous n’avons pas ajouté de protection supplémentaire au SGBD.
 
@@ -425,9 +425,9 @@ Import-Module C:\tmp\SAPScripts.psm1
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Figure 1 : Sortie de SAPScripts.psm1][sap-ha-guide-figure-8012]
+![Figure 1 : Sortie de SAPScripts.psm1][sap-ha-guide-figure-8012]
 
-_**Figure 1** : Sortie de SAPScripts.psm1_
+_**Figure 1**: SAPScripts.psm1 output_
 
 ## <a name="update-the-sidadm-user-environment-variable"></a>Mettre à jour la variable d’environnement utilisateur \<sid>adm
 
@@ -516,7 +516,7 @@ C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profi
 
 ![Figure 2 : Réinstaller le service SAP][sap-ha-guide-figure-8013]
 
-_**Figure 2** : Réinstaller le service SAP_
+_**Figure 2**: Réinstaller le service SAP_
 
 Assurez-vous que les paramètres sont corrects, puis sélectionnez **Manuel** sous **Type de démarrage**.
 

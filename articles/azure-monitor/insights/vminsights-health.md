@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076817"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles (préversion)
-Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous puissiez surveiller différentes conditions à l’aide de Log Analytics ou d’Azure Monitor, ils n’ont pas été conçus pour modéliser et représenter l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  
+Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous pouvez surveiller selon différentes conditions à l’aide d’Azure Monitor, il n’a pas été conçu pour modéliser et représentent l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  
 
 L’affichage de l’état d’intégrité global de la machine virtuelle Azure et du système d’exploitation sous-jacente peut être observé sous deux perspectives avec Azure Monitor pour l’intégrité des machines virtuelles, directement à partir de la machine virtuelle ou sur toutes les machines virtuelles dans un groupe de ressources à partir d’Azure Monitor.
 
@@ -29,22 +29,22 @@ Cet article vous aide à évaluer, examiner et résoudre rapidement les problèm
 
 Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-onboard.md)(Activer Azure Monitor pour les machines virtuelles).
 
->[!NOTE]
->À compter du 11 février 2019, nous commencerons à vous faire migrer du modèle d’intégrité actuel de la fonctionnalité d’intégrité Azure Monitor pour machines virtuelles, qui est visible dans l’expérience des diagnostics d’intégrité, vers une nouvelle version du modèle d’intégrité. Cette mise à jour améliore les performances de traitement du cumul d’intégrité et inclut un modèle d’intégrité affiné dans la vue Diagnostics d’intégrité. 
->
->Avec le nouveau modèle d’intégrité, le cumul des critères d’intégrité enfants avec les critères d’intégrité de niveau entité/parent sera plus rapide. L’état d’intégrité du parent est donc mis à jour vers l’état souhaité ou ciblé avec une latence moindre. Vous pouvez toujours filtrer les critères d’intégrité des catégories **Performances** et **Disponibilité** contrairement à la méthode précédente basée sur les onglets pour sélectionner l’une ou l’autre des catégories dans la vue.
->
->Pour plus d’informations sur l’expérience de diagnostics d’intégrité, consultez la [section](#health-diagnostics) Diagnostics d’intégrité de cet article. 
->
->Cette mise à jour améliore les éléments suivants : 
->
->- Traitement du cumul d’intégrité avec une latence réduite  
->- Génération d’alertes plus rapide sur les changements d’état d’intégrité 
->- Mises à jour plus rapides de l’état d’intégrité dans l’affichage des machines virtuelles agrégées pour toutes les machines virtuelles 
->
->Il n’existe aucune régression des fonctionnalités fournies actuellement avec le composant Intégrité d’Azure Monitor pour machines virtuelles.
-
->Suite à cette modification, les deux expériences des diagnostics d’intégrité sont affectées : l’historique des changements d’état est réinitialisé et les changements d’état précédents des critères d’intégrité ne sont pas disponibles pour la révision dans la colonne Changement d’état de la page Diagnostics d’intégrité. Si vous êtes intéressé par les données d’historique d’une machine virtuelle stratégique, vous pouvez alors effectuer une capture d’écran des données de critères d’intégrité et des modifications d’état correspondantes à titre de référence. 
+> [!NOTE]
+> À compter du 11 février 2019, nous commencerons à vous faire migrer du modèle d’intégrité actuel de la fonctionnalité d’intégrité Azure Monitor pour machines virtuelles, qui est visible dans l’expérience des diagnostics d’intégrité, vers une nouvelle version du modèle d’intégrité. Cette mise à jour améliore les performances de traitement du cumul d’intégrité et inclut un modèle d’intégrité affiné dans la vue Diagnostics d’intégrité. 
+> 
+> Avec le nouveau modèle d’intégrité, le cumul des critères d’intégrité enfants avec les critères d’intégrité de niveau entité/parent sera plus rapide. L’état d’intégrité du parent est donc mis à jour vers l’état souhaité ou ciblé avec une latence moindre. Vous pouvez toujours filtrer les critères d’intégrité des catégories **Performances** et **Disponibilité** contrairement à la méthode précédente basée sur les onglets pour sélectionner l’une ou l’autre des catégories dans la vue.
+> 
+> Pour plus d’informations sur l’expérience de diagnostics d’intégrité, consultez la [section](#health-diagnostics) Diagnostics d’intégrité de cet article. 
+> 
+> Cette mise à jour améliore les éléments suivants : 
+> 
+> - Traitement du cumul d’intégrité avec une latence réduite  
+> - Génération d’alertes plus rapide sur les changements d’état d’intégrité 
+> - Mises à jour plus rapides de l’état d’intégrité dans l’affichage des machines virtuelles agrégées pour toutes les machines virtuelles 
+> 
+> Il n’existe aucune régression des fonctionnalités fournies actuellement avec le composant Intégrité d’Azure Monitor pour machines virtuelles.
+> 
+> Suite à cette modification, les deux expériences des diagnostics d’intégrité sont affectées : l’historique des changements d’état est réinitialisé et les changements d’état précédents des critères d’intégrité ne sont pas disponibles pour la révision dans la colonne Changement d’état de la page Diagnostics d’intégrité. Si vous êtes intéressé par les données d’historique d’une machine virtuelle stratégique, vous pouvez alors effectuer une capture d’écran des données de critères d’intégrité et des modifications d’état correspondantes à titre de référence. 
 
 ## <a name="monitoring-configuration-details"></a>Supervision des détails de configuration
 Cette section décrit les critères d’intégrité par défaut définis pour surveiller les machines virtuelles Azure Windows et Linux. Tous les critères d’intégrité sont préconfigurés pour générer une alerte quand la condition de défectuosité est remplie. 
@@ -251,7 +251,7 @@ Le nombre total d’alertes d’intégrité de machine virtuelle classées par n
 
 Les alertes affichées dans la page **Alertes** ne se limitent pas à celles correspondant à votre sélection : elles sont aussi filtrées en fonction du **type de ressource**. Ainsi, seules sont affichées les alertes d’intégrité déclenchées par les ressources Machines virtuelles.  Cela apparaît dans la liste des alertes, sous la colonne **Ressource cible**, qui indique que l’alerte de machine virtuelle Azure a été déclenchée quand la condition de défectuosité des critères d’intégrité a été remplie.  
 
-Les alertes relatives aux autres types de ressources ou services ne sont pas censées être incluse dans cette vue. Tel est le cas des alertes de journal basées sur des requêtes Log Analytics ou des alertes de métrique qui figurent normalement dans la page par défaut [Toutes les alertes](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) d’Azure Monitor. 
+Alertes à partir d’autres types de ressources ou les services ne sont pas destinées à être inclus dans cette vue, telles que les alertes de journal basées sur des requêtes de journal ou d’alertes de métrique vous serez normalement afficher à partir de la valeur par défaut Azure Monitor [toutes les alertes](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page. 
 
 Vous pouvez filtrer cet affichage en sélectionnant des valeurs dans les menus déroulants en haut de la page.
 

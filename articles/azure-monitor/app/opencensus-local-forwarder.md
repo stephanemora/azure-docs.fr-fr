@@ -1,5 +1,5 @@
 ---
-title: Redirecteur local de traçage distribué OpenCensus Azure Application Insights | Microsoft docs
+title: Azure OpenCensus de Insights d’Application distribuée suivi redirecteur local (version préliminaire) | Docs de Microsoft
 description: Découvrez comment transférer des traces et étendues distribuées OpenCensus à partir de langages tels que Python et Go vers Azure Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004406"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002821"
 ---
-# <a name="local-forwarder"></a>Redirecteur local
+# <a name="local-forwarder-preview"></a>Redirecteur local (version préliminaire)
 
 Le redirecteur local est un agent qui collecte des données de télémétrie Application Insights ou [OpenCensus](https://opencensus.io/) à partir de plusieurs SDK, et les achemine vers Application Insights. Il peut être exécuté sous Windows et Linux. Vous pouvez également l’exécuter sous macOS, mais la prise en charge n’est pas encore officielle.
 
@@ -79,14 +79,14 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 Dans certains cas, il peut être utile d’exécuter le redirecteur local en tant qu’application de console. La mise en production est fournie avec les versions exécutables suivantes de l’hôte de console :
 * Un fichier binaire .NET Core dépendant de l’infrastructure */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Pour exécuter ce fichier binaire, l’environnement d’exécution .NET Core doit être installé ; consultez cette [page](https://www.microsoft.com/net/download/dotnet-core/2.1) de téléchargement pour en savoir plus.
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
 * Un ensemble autonome de fichiers binaires .NET Core pour les plates-formes x86 et x64. L’environnement d’exécution .NET Core n’est pas nécessaire. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
 ### <a name="linux"></a>Linux
 

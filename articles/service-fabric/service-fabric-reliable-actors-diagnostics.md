@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 03c8bf129bcb8bf1b8af4bb7d189f1a38ba8f503
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
-ms.translationtype: HT
+ms.openlocfilehash: 888f9e04e048e3da4c9809ac4f8570f020030335
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809088"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855833"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostics et surveillance des performances pour Reliable Actors
 Le runtime Reliable Actors émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) et les [compteurs de performances](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Ils fournissent des informations sur le fonctionnement du runtime et permettent de résoudre les problèmes et de surveiller les performances.
@@ -27,7 +27,7 @@ Le runtime Reliable Actors émet des événements [EventSource](https://msdn.mic
 ## <a name="eventsource-events"></a>Événements EventSource
 Le nom du fournisseur EventSource du runtime Reliable Actors est « Microsoft-ServiceFabric-Actors ». Les événements issus de cette source d'événements s'affichent dans la fenêtre [Événements de diagnostics](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quand l'application d'acteur est [déboguée dans Visual Studio](service-fabric-debugging-your-application.md).
 
-[PerfView](http://www.microsoft.com/download/details.aspx?id=28567), les [Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), la [Journalisation sémantique](https://msdn.microsoft.com/library/dn774980.aspx) et [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d'outils et de technologies permettant de collecter et/ou d'afficher des événements EventSource.
+[PerfView](https://www.microsoft.com/download/details.aspx?id=28567), les [Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), la [Journalisation sémantique](https://msdn.microsoft.com/library/dn774980.aspx) et [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d'outils et de technologies permettant de collecter et/ou d'afficher des événements EventSource.
 
 ### <a name="keywords"></a>Mots clés
 Tous les événements qui appartiennent à la source d'événements Acteurs fiables sont associés à un ou plusieurs mots clés. Cela permet de filtrer les événements collectés. Les bits de mots clés suivants sont définis.
@@ -92,7 +92,7 @@ Dans l'exemple ci-dessus, `ivoicemailboxactor.leavemessageasync` est le nom de l
 ### <a name="actor-method-events-and-performance-counters"></a>Événements et compteurs de performances de la méthode d'acteur
 Le runtime Reliable Actors émet les événements suivants liés aux [méthodes d'acteur](service-fabric-reliable-actors-introduction.md).
 
-| Nom de l'événement | ID de l’événement | Level | Mot clé | Description |
+| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Détaillé |0x2 |Le runtime Actors est sur le point d'appeler une méthode d'acteur. |
 | ActorMethodStop |8 |Détaillé |0x2 |Une méthode d’acteur a fini de s’exécuter. Cela signifie que l'appel asynchrone du runtime à la méthode d'acteur a été retourné et que la tâche retournée par la méthode d'acteur est terminée. |
@@ -109,7 +109,7 @@ Le runtime Acteurs fiables publie les compteurs de performances suivants liés �
 ### <a name="concurrency-events-and-performance-counters"></a>Événements et compteurs de performances de l'accès concurrentiel
 Le runtime Reliable Actors émet les événements suivants liés à l' [accès concurrentiel](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Nom de l'événement | ID de l’événement | Level | Mot clé | Description |
+| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Détaillé |0x8 |Cet événement est écrit au début de chaque nouveau tour d'un acteur. Il contient le nombre d'appels d'acteur en attente d'acquisition du verrou par acteur qui applique l'accès concurrentiel en alternance. |
 
@@ -124,7 +124,7 @@ Le runtime Acteurs fiables publie les compteurs de performances suivants liés �
 ### <a name="actor-state-management-events-and-performance-counters"></a>Événements et compteurs de performances de gestion des états d'acteur
 Le runtime Reliable Actors émet les événements suivants liés à la [gestion des états d'acteur](service-fabric-reliable-actors-state-management.md).
 
-| Nom de l'événement | ID de l’événement | Level | Mot clé | Description |
+| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Détaillé |0x4 |Le runtime Actors est sur le point d'enregistrer l'état de l'acteur. |
 | ActorSaveStateStop |11 |Détaillé |0x4 |Le runtime Actors a terminé d'enregistrer l'état de l'acteur. |
@@ -139,7 +139,7 @@ Le runtime Acteurs fiables publie les compteurs de performances suivants liés �
 ### <a name="events-related-to-actor-replicas"></a>Événements liés aux réplicas d'acteur
 Le runtime Reliable Actors émet les événements suivants liés aux [réplicas d'acteur](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Nom de l'événement | ID de l’événement | Level | Mot clé | Description |
+| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Informations |0x1 |Rôle de réplica d'acteur changé en rôle principal. Cela implique que les acteurs pour cette partition sont créés dans ce réplica. |
 | ReplicaChangeRoleFromPrimary |2 |Informations |0x1 |Rôle de réplica d'acteur changé en rôle non principal. Cela implique que les acteurs pour cette partition ne sont plus créés dans ce réplica. Aucune nouvelle demande n'est remise aux acteurs déjà créés dans ce réplica. Les acteurs sont détruits une fois effectuées toutes les demandes en cours. |
@@ -147,7 +147,7 @@ Le runtime Reliable Actors émet les événements suivants liés aux [réplicas 
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Événements d'activation et de désactivation des acteurs et compteurs de performances
 Le runtime Reliable Actors émet les événements suivants liés à l' [activation et la désactivation des acteurs](service-fabric-reliable-actors-lifecycle.md).
 
-| Nom de l'événement | ID de l’événement | Level | Mot clé | Description |
+| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5. |Informations |0x1 |Un acteur a été activé. |
 | ActorDeactivated |6. |Informations |0x1 |Un acteur a été désactivé. |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011783"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights pour ASP.NET Core
 
@@ -25,7 +25,7 @@ Azure Application Insights assure une surveillance approfondie de votre applicat
 
 Cet article vous guide tout au long des étapes de création d’un exemple d’application de [Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) ASP.NET Core dans Visual Studio. Il vous montre également comment commencer la surveillance avec Application Insights.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - SDK .NET Core 2.0.0 ou version ultérieure
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) version 15.7.3 ou ultérieure avec la charge de travail de développement web et ASP.NET
@@ -88,15 +88,15 @@ Sélectionnez **Vue** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Projet** > **Modi
 
 - Un nouveau fichier est créé :
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -180,6 +180,10 @@ Sélectionnez **Vue** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Projet** > **Modi
           }
       }
       ```
+
+## <a name="send-ilogger-logs-to-application-insights"></a>Envoyer les journaux ILogger à Application Insights
+
+Application Insights prend en charge la capture de journaux envoyés via ILogger. Configuration de journalisation checkout les exemples de code [ici](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 ## <a name="synthetic-transactions-with-powershell"></a>Transactions synthétiques avec PowerShell
 
@@ -338,7 +342,7 @@ La fonctionnalité est possible en partie car le package NuGet _Microsoft.AspNet
 
 ![Capture d’écran du graphique de dépendance NuGet de Microsoft.AspNETCore.all](./media/asp-net-core/013-dependency.png)
 
-En dehors de Visual Studio, si vous modifiiez un projet ASP.NET Core dans VSCode ou dans un autre éditeur, ces assemblys ne se chargent pas automatiquement lors du débogage si vous n’avez pas explicitement ajouté Application Insights à votre projet.
+En dehors de Visual Studio, si vous avez modifiée d’un projet ASP.NET Core dans VSCode ou un autre éditeur, ces assemblys ne chargement automatiquement durant le débogage si vous n’avez pas explicitement ajouté Application Insights à votre projet.
 
 Toutefois, dans Visual Studio, cette mise en surbrillance des fonctionnalités Application Insights locales à partir d’assemblys externes est effectuée en utilisant l’[interface IHostingStartup](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1). Cette interface ajoute de manière dynamique Application Insights pendant le débogage.
 

@@ -4,7 +4,7 @@ description: Apprenez à lire et à comprendre votre utilisation et la facturati
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: alherz
+manager: jureid
 editor: ''
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: fdf346348be11a9f592fa3eff40e2f56e94ba656
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842309"
 ---
-# <a name="understand-your-bill-for-microsoft-azure"></a>Comprendre votre facture Microsoft Azure
+# <a name="understand-your-microsoft-azure-bill"></a>Comprendre votre facture Microsoft Azure
 Pour comprendre votre facture Azure, comparez-la avec le fichier détaillé sur l’utilisation quotidienne et les rapports de gestion des coûts dans le portail Azure.
 
-Cet article ne s’applique pas aux clients Azure disposant d’un Contrat Entreprise (clients EA). Si vous êtes client Contrat Entreprise, consultez la section [Comprendre la facture des clients Azure ayant un Contrat Entreprise](billing-understand-your-bill-ea.md).  
+Cet article ne s’applique pas aux clients Azure disposant d’un Contrat Entreprise (clients EA). Si vous êtes client EA, consultez [comprendre votre facture pour les clients Azure avec un contrat entreprise](billing-understand-your-bill-ea.md).
+
+Cet article ne s’applique pas aux clients Azure avec un contrat de client de Microsoft. Si vous avez un compte de facturation pour un contrat de client de Microsoft, consultez [comprendre les frais Azure sur votre facture de contrat de client Microsoft](billing-mca-understand-your-bill.md).
 
 La [Présentation de la facturation Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/) fournit une explication sur le fonctionnement de la facturation dans le programme Fournisseur de solutions Azure Cloud (Azure CSP), notamment le cycle de facturation, la tarification et l’utilisation.
 
@@ -44,7 +46,7 @@ Vos frais d’utilisation sont affichés au niveau du compteur. Les termes suiva
  | Facture (PDF) | Utilisation détaillée (CSV)|
  | --- | --- |
 |Cycle de facturation | Période de facturation |
- |NOM |Catégorie du compteur |
+ |Nom |Catégorie du compteur |
  |Type |Sous-catégorie du compteur |
  |Ressource |Nom du compteur |
  |Région |Région du compteur |
@@ -60,7 +62,7 @@ La section **Relevé** de votre fichier CSV sur l’utilisation détaillée indi
 
 ![Frais d’utilisation sur le fichier CSV](./media/billing-understand-your-bill/2.png)
 
-Pour voir le détail de ces frais tous les jours, accédez à la section **Utilisation quotidienne** du fichier CSV. Filtrez sur « Scheduler » sous *Catégorie du compteur*. Vous pouvez voir les jours où le compteur a été utilisé et la quantité consommée. Les informations *Ressource* et *Groupe de ressources* sont également répertoriées à des fins de comparaison. La somme des valeurs *Consommé* doit être égale à ce qui est indiqué sur la facture.
+Pour voir le détail de ces frais tous les jours, accédez à la section **Utilisation quotidienne** du fichier CSV. Filtrer les *planificateur* sous *catégorie de compteur*. Vous pouvez voir les jours où le compteur a été utilisé et la quantité consommée. Les informations *Ressource* et *Groupe de ressources* sont également répertoriées à des fins de comparaison. La somme des valeurs *Consommé* doit être égale à ce qui est indiqué sur la facture.
 
 ![Section Utilisation quotidienne dans le fichier CSV](./media/billing-understand-your-bill/3.png)
 
@@ -71,12 +73,12 @@ Pour plus d'informations, consultez les rubriques suivantes :
 - [Comprendre votre facture Azure](billing-understand-your-invoice.md)
 - [Comprendre votre utilisation détaillée d’Azure](billing-understand-your-invoice.md)
 
-### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Option 2 : Comparer l’utilisation et les coûts avec le portail Azure
+### <a name="option-2-compare-the-usage-and-costs-in-the-azure-portal"></a>Option 2 : Comparez l’utilisation et les coûts dans le portail Azure
 
 Le portail Azure peut également vous aider à vérifier vos frais. Pour obtenir une vue d’ensemble rapide de l’utilisation et des frais facturés, consultez les graphiques de gestion des coûts.
 
 1. Dans le portail Azure, accédez à [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Sélectionnez votre abonnement > **Analyse du coût**. 
+1. Sélectionnez votre abonnement > **Analyse du coût**.
 1. Filtrez sur **Intervalle de temps**.
 1. Pour poursuivre l’exemple précédent, vous voyez les frais d’utilisation du service Azure Scheduler.
 
@@ -96,9 +98,9 @@ Les frais de services externes sont facturés séparément. Les frais ne s’aff
 
 ## <a name="resources-billed-by-usage-meters"></a>Ressources facturées d’après les compteurs d’utilisation
 
-Azure ne facture pas directement en fonction du coût de la ressource. Les frais d’une ressource sont calculés à l’aide d’un ou de plusieurs compteurs. Ces compteurs permettent de suivre l’utilisation d’une ressource tout au long de sa durée de vie. Ces compteurs sont ensuite utilisés pour calculer la facture.
+Azure ne facture pas directement en fonction du coût de la ressource. Les frais d’une ressource sont calculés à l’aide d’un ou de plusieurs compteurs. Compteurs sont utilisés pour suivre l’utilisation d’une ressource tout au long de sa durée de vie. Ces compteurs sont ensuite utilisés pour calculer la facture.
 
-Ainsi, quand vous créez une ressource Azure, par exemple une machine virtuelle, une ou plusieurs instances de compteur sont créées. Ces compteurs sont utilisés pour suivre l’utilisation de la ressource au fil du temps. Chaque compteur émet des enregistrements d’utilisation qui sont ensuite utilisés par Azure pour calculer la facture.
+Ainsi, quand vous créez une ressource Azure, par exemple une machine virtuelle, une ou plusieurs instances de compteur sont créées. Les compteurs sont utilisés pour suivre l’utilisation de la ressource au fil du temps. Chaque compteur émet des enregistrements d’utilisation qui sont ensuite utilisés par Azure pour calculer la facture.
 
 Par exemple, les compteurs suivants peuvent être créés pour suivre l’utilisation d’une machine virtuelle créée dans Azure :
 
@@ -113,7 +115,7 @@ Par exemple, les compteurs suivants peuvent être créés pour suivre l’utilis
 - E/S standard - Écriture d’objet blob
 - E/S standard - Suppression d’objet blob
 
-Une fois la machine virtuelle créée, chacun de ces compteurs commence à émettre des enregistrements d’utilisation. Cette utilisation et le tarif du compteur font l’objet d’un suivi dans le système de comptabilisation d’Azure.
+Lorsque la machine virtuelle est créée, chaque compteur commence générant des enregistrements d’utilisation. Cette utilisation et le tarif du compteur font l’objet d’un suivi dans le système de comptabilisation d’Azure.
 
 ## <a name="payment"></a>Régler votre facture
 
@@ -123,7 +125,7 @@ Pour changer la carte de crédit ou de débit utilisée, consultez [Ajouter, met
 
 Si vous [payez par facture](billing-how-to-pay-by-invoice.md), envoyez votre paiement à l’adresse indiquée au bas de la facture.
 
-Pour vérifier l’état de votre paiement, [créez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Pour vérifier l’état de votre paiement, [créer un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 
 ## <a name="tips-for-cost-management"></a>Conseils pour la gestion des coûts
@@ -134,6 +136,10 @@ Pour vérifier l’état de votre paiement, [créez un ticket de support](https:
   - [Informations détaillées sur la tarification de chaque service](https://azure.microsoft.com/pricing/)
 - [Passez en revue régulièrement votre utilisation et vos coûts dans le portail Azure](billing-getting-started.md#costs).
 
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
+
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="learn-more"></a>En savoir plus
 
 - [Obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md)
@@ -141,7 +147,3 @@ Pour vérifier l’état de votre paiement, [créez un ticket de support](https:
 - [Comprendre les termes figurant dans le détail de votre utilisation de Microsoft Azure](billing-understand-your-usage.md)
 - [Gestion des coûts dans le portail Azure](https://docs.microsoft.com/azure/billing/billing-getting-started)
 - [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](billing-getting-started.md#costs)
-
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
-
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

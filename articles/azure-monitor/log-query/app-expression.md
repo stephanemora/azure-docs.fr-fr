@@ -1,6 +1,6 @@
 ---
 title: Expression app() dans les requêtes de journal Azure Monitor | Microsoft Docs
-description: L'expression app est utilisée dans une requête de journal Azure Monitor afin de récupérer des données à partir d'une application Application Insights spécifique du même groupe de ressources, d'un autre groupe de ressources ou d'un autre abonnement.
+description: L’expression de l’application est utilisée dans une requête de journal Azure Monitor pour récupérer des données à partir d’une application Application Insights spécifique dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 0abe2c869a05d359f692db105eb647f9e6a69df8
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266422"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889452"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expression app() dans une requête Azure Monitor
 

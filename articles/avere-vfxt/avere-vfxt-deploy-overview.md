@@ -4,14 +4,14 @@ description: Vue d’ensemble du déploiement d’Avere vFXT pour Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298532"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991799"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT pour Azure - Vue d’ensemble du déploiement
 
@@ -52,10 +52,12 @@ Voici une vue d’ensemble des étapes à suivre.
 
      Le contrôleur de cluster est une machine virtuelle simple qui réside dans le même réseau virtuel que le cluster Avere vFXT et dispose du logiciel personnalisé requis pour créer et gérer le cluster. Le contrôleur crée les nœuds vFXT et forme le cluster. Il fournit également une interface de ligne de commande pour gérer le cluster pendant toute sa durée de vie.
 
-     Si vous configurez votre contrôleur avec une adresse IP publique, il peut également faire office d’hôte de saut. Vous pouvez ainsi vous connecter au cluster Avere vFXT à partir d’un emplacement externe au réseau virtuel.
+     Si vous créez un nouveau réseau virtuel lors du déploiement, votre contrôleur aura une adresse IP publique. Cela signifie que le contrôleur peut servir d’ordinateur hôte saut pour la connexion au cluster à partir d’à l’extérieur du réseau virtuel.
 
    * Création de machines virtuelles de nœud de cluster
-   * Configuration des machines virtuelles de nœud de cluster en tant que cluster
+
+   * Configuration du nœud de cluster pour former un cluster, les machines virtuelles
+
    * Création facultative d'un nouveau conteneur d'objets blob avec configuration en tant que stockage back-end pour le cluster
 
 1. Configurer le cluster 

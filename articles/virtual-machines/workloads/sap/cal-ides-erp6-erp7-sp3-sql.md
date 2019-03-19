@@ -16,17 +16,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011275"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Déploiement de SAP IDES EHP7 SP3 pour SAP ERP 6.0 sur Azure
 Cet article explique comment déployer un système SAP IDES exécuté avec SQL Server et le système d’exploitation Windows sur Azure via SAP Cloud Appliance Library (SAP CAL) 3.0. Les captures d’écran montrent la procédure étape par étape. Pour déployer une autre solution, suivez la même procédure.
 
-Pour démarrer avec SAP CAL, accédez au site web [SAP Cloud Appliance Library](https://cal.sap.com/). Il existe également un blog SAP sur le nouveau [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Pour démarrer avec SAP CAL, accédez au site web [SAP Cloud Appliance Library](https://cal.sap.com/). Il existe également un blog SAP sur le nouveau [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
 > Depuis le 29 mai 2017, vous pouvez utiliser le modèle de déploiement Azure Resource Manager en plus du modèle de déploiement classique pour déployer SAP CAL. Nous vous recommandons d’utiliser le nouveau modèle de déploiement Resource Manager et d’ignorer le modèle de déploiement classique.
@@ -46,8 +46,8 @@ Après vous être connecté à SAP CAL, la première page vous conduit général
     
     c. Accordez à SAP CAL l’autorisation d’effectuer des déploiements dans votre abonnement Azure.
 
-    > [!NOTE]
-    Les étapes suivantes montrent comment créer un compte SAP CAL pour les déploiements Resource Manager. Si vous disposez déjà d’un compte SAP CAL lié au modèle de déploiement Classic, vous *devez* suivre ces étapes pour créer un nouveau compte SAP CAL. Le nouveau compte SAP CAL doit être déployé dans le modèle Resource Manager.
+   > [!NOTE]
+   >  Les étapes suivantes montrent comment créer un compte SAP CAL pour les déploiements Resource Manager. Si vous disposez déjà d’un compte SAP CAL lié au modèle de déploiement Classic, vous *devez* suivre ces étapes pour créer un nouveau compte SAP CAL. Le nouveau compte SAP CAL doit être déployé dans le modèle Resource Manager.
 
 1. Pour créer un nouveau compte SAP CAL, vous disposez de deux choix dans la page **Compte** pour Azure : 
 
@@ -91,7 +91,7 @@ Vous avez correctement créé un compte SAP CAL capable d’effectuer ce qui sui
 - Déployer des systèmes SAP dans votre abonnement Azure.
 
 > [!NOTE]
-Avant de pouvoir déployer la solution SAP IDES basée sur Windows et SQL Server, vous devrez peut-être souscrire à un abonnement SAP CAL. Sinon, la solution risque d’apparaître comme **Verrouillée** dans la page de vue d’ensemble.
+> Avant de pouvoir déployer la solution SAP IDES basée sur Windows et SQL Server, vous devrez peut-être souscrire à un abonnement SAP CAL. Sinon, la solution risque d’apparaître comme **Verrouillée** dans la page de vue d’ensemble.
 
 ### <a name="deploy-a-solution"></a>Déployer une solution
 1. Après avoir configuré un compte SAP CAL, sélectionnez la solution **Solution SAP IDES sur Windows et SQL Server**. Cliquez sur **Créer une instance** et vérifiez les conditions d’utilisation. 

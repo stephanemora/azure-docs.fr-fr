@@ -1,6 +1,6 @@
 ---
-title: Voir tous vos comptes de facturation dans le portail Azure | Microsoft Docs
-description: Découvrez comment voir à la fois vos comptes de facturation personnels et Contrat Entreprise dans le portail Azure.
+title: Afficher vos comptes de facturation dans le portail Azure | Microsoft Docs
+description: Découvrez comment afficher vos comptes de facturation dans le portail Azure.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,33 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: a9f299f8987b5a2023d668d41c98b473f1a626d4
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 31e4eb1d6493c8de99ac48e09dfb2b8b6481b70a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902260"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854277"
 ---
-# <a name="view-all-your-billing-accounts-in-azure-portal"></a>Voir tous vos comptes de facturation dans le portail Azure  
+# <a name="view-your-billing-accounts-in-azure-portal"></a>Afficher vos comptes de facturation dans le portail Azure  
 
-Les comptes de facturation définissent vos relations de facturation Azure. Vous pouvez avoir plusieurs comptes de facturation. Par exemple, vous pouvez avoir un abonnement Azure que vous utilisez pour des projets personnels. Vous pouvez aussi avoir accès à Azure via le Contrat Entreprise de votre organisation. Accédez à [Gestion des coûts + facturation](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) dans le portail Azure pour voir tous vos comptes de facturation.
+Un compte de facturation est créé pour chaque contrat que vous vous connectez avec Microsoft à utiliser Azure. Vous utilisez votre compte de facturation pour gérer vos méthodes de factures et paiements et effectuer le suivi des coûts pour les services Azure. Vous pouvez accéder à plusieurs comptes de facturation. Par exemple, peut avoir souscrit pour Azure pour vos projets personnels. Peut également avoir accès par le biais de votre organisation contrat entreprise ou d’un contrat de client de Microsoft. Pour chacun de ces scénarios, vous devez un compte de facturation distinct.
 
-Pour le moment, vous ne pouvez voir que vos comptes de facturation personnels et Contrat Entreprise. Par défaut, la page [Gestion des coûts + facturation](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) affiche votre compte de facturation personnel. Toutefois, vous pouvez accéder à **Comptes de facturation** et changer de compte.
+Portail Azure prend actuellement en charge le type de comptes de facturation suivant :
 
-Pour les comptes de facturation personnels, vous pouvez gérer et voir tous vos frais dans le [portail Azure](https://portal.azure.com). Par contre, pour les comptes Contrat Entreprise, vous pouvez uniquement voir les achats de réservations Azure, le solde et le cumul des frais du mois en cours. Ces fonctionnalités Contrat Entreprise sont en préversion et disponibles seulement si vous avez un rôle d’administrateur d’entreprise.
+- **Programme Microsoft Online Services**: Un compte de facturation pour un programme Microsoft Online Services est créé lorsque vous vous inscrivez pour Azure via le site Web Azure. Par exemple, quand vous inscrivez un [compte gratuit Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [Azure paiement offre](https://azure.microsoft.com/offers/ms-azr-0003p/) ou comme un [abonné Visual studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-## <a name="change-billing-account-view"></a>Modifier la vue des comptes de facturation 
+- **Contrat Entreprise** : Un compte de facturation pour un contrat entreprise est créé lors de votre organisation s’inscrit à un contrat entreprise d’utiliser Azure. Les administrateurs dans le compte de facturation pour un contrat entreprise utiliser les services et comptes de facturation étendues pour gérer et organiser la facturation pour leur organisation.
 
-1.  Connectez-vous au [portail Azure](https://portal.azure.com).
+- **Contrat de client de Microsoft**: Un compte de facturation d’un contrat de client de Microsoft est créé lors de votre organisation s’inscrit à un contrat de client Microsoft à utiliser Azure. Les administrateurs dans le compte de facturation d’un contrat de client Microsoft utilisent des profils de facturation et facturation étendues pour gérer et organiser la facturation pour leur organisation des sections de facture. Pour plus d’informations, consultez [bien démarrer avec votre compte de facturation pour le contrat du client Microsoft](billing-mca-overview.md).
 
-2.  Dans la partie gauche du portail, sélectionnez **Gestion des coûts + facturation**. 
+## <a name="change-billing-account-view-in-the-azure-portal"></a>Modifier le compte de facturation dans le portail Azure
 
-3.  Par défaut, si vous en avez un, vous voyez votre compte de facturation personnel. Si vous n’avez pas de compte de facturation personnel ou si vous souhaitez le remplacer par un compte Contrat Entreprise, sélectionnez **Comptes de facturation**.
+Une étendue est un nœud dans un compte de facturation que les utilisateurs utilisent pour afficher et gérer la facturation. Par exemple, comptes de facturation pour le programme Microsoft Online Services a une portée uniquement - facturation compte, tandis que les comptes de facturation pour les contrats entreprise a compte de facturation, le département et étendues de compte. Si vous avez accès à plusieurs étendues de facturation, par défaut, une des étendues s’affiche dans la gestion des coûts Azure + page de facturation. Vous pouvez modifier l’étendue en suivant les instructions ci-dessous :
 
-4.  Sélectionnez un compte pour voir les détails. Pour les Contrats Entreprise, vous verrez seulement les comptes de facturation là où vous êtes administrateur d’entreprise. D’autres rôles Contrat Entreprise seront pris en charge dans le futur.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-    ![Capture d’écran qui montre la liste des comptes de facturation](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+2. Effectuez une recherche sur **Gestion des coûts + facturation**.
+
+   ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
+
+3. Sélectionnez **toutes les étendues de facturation** depuis le côté gauche.
+
+   ![Capture d’écran illustrant toutes les étendues de facturation](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+
+4. Sélectionnez une étendue pour afficher les détails.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

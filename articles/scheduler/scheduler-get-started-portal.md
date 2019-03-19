@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949585"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887219"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Créer et planifier votre premier travail avec Azure Scheduler - Portail Azure
 
@@ -34,13 +34,13 @@ Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/
 
    ![Créer une ressource Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   Créez maintenant une tâche qui envoie une demande GET à cette URL : `http://www.microsoft.com/` 
+   Créez maintenant une tâche qui envoie une demande GET à cette URL : `https://www.microsoft.com/` 
 
 1. Sous **Tâche du planificateur**, entrez ces informations :
 
    | Propriété | Exemple de valeur | Description |
    |----------|---------------|-------------| 
-   | **Name** | getMicrosoft | Nom pour votre travail | 
+   | **Nom** | getMicrosoft | Nom pour votre travail | 
    | **Collection de travaux** | <*job-collection-name*> | Créez une collection de travaux ou sélectionnez une collection existante. | 
    | **Abonnement** | <*Azure-subscription-name*> | Nom de votre abonnement Azure. | 
    |||| 
@@ -51,7 +51,7 @@ Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/
    |----------|---------------|-------------| 
    | **Action** | **HTTP** | Type d’action à exécuter | 
    | **Méthode** | **Get** | Méthode à appeler | 
-   | **URL** | **http://www.microsoft.com** | URL de destination | 
+   | **URL** | **https://www.microsoft.com** | URL de destination | 
    |||| 
    
    ![Définir un travail](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)

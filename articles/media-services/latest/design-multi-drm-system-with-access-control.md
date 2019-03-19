@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893014"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Il est assez complexe de concevoir et développer un sous-système de gestion des droits numériques (DRM) pour une solution OTT (Over-The-Top) ou de diffusion en continu en ligne. Les opérateurs/fournisseurs de vidéo en ligne ont l’habitude d’externaliser cette tâche à des fournisseurs de services DRM spécialisés. L’objectif de ce document est de présenter une conception et une implémentation de référence pour un sous-système DRM de bout en bout dans une solution OTT ou de diffusion en continu en ligne.
 
 Ce document s’adresse aux ingénieurs qui travaillent sur des sous-systèmes DRM de solutions OTT ou de solutions de diffusion en continu en ligne/multi-écrans, ou à tout lecteur intéressé par les sous-systèmes de gestion des droits numériques. Les lecteurs doivent connaître au moins une des technologies DRM du marché, telles que PlayReady, Widevine, FairPlay ou Adobe Access.
 
-Dans le cadre de cet article, le terme « multi-DRM » inclut les trois DRM pris en charge par Azure Media Services : le chiffrement commun (CENC) pour PlayReady et Widevine, FairPlay ainsi que le chiffrement à clé en clair AES-128. Le marché de la diffusion en continu en ligne et de l’OTT est marqué par une nouvelle tendance qui consiste à utiliser un système multi-DRM natif sur différentes plateformes clientes. Cette tendance témoigne d’un bouleversement par rapport à l’époque où l’on utilisait un seul système DRM et son SDK client pour différentes plateformes clientes. Lorsque vous utilisez CENC avec un système multi-DRM natif, PlayReady et Widevine sont chiffrés conformément à la spécification [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
+Dans le cadre de cet article, le terme « multi-DRM » inclut les trois DRM pris en charge par Azure Media Services : le chiffrement commun (CENC) pour PlayReady et Widevine, FairPlay ainsi que le chiffrement à clé en clair AES-128. Le marché de la diffusion en continu en ligne et de l’OTT est marqué par une nouvelle tendance qui consiste à utiliser un système multi-DRM natif sur différentes plateformes clientes. Cette tendance témoigne d’un bouleversement par rapport à l’époque où l’on utilisait un seul système DRM et son SDK client pour différentes plateformes clientes. Lorsque vous utilisez CENC avec un système multi-DRM natif, PlayReady et Widevine sont chiffrés conformément à la spécification [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
 
 Les avantages d’un système multi-DRM natif pour la protection du contenu sont les suivants :
 
@@ -49,7 +49,7 @@ Les objectifs de cet article sont les suivants :
 Le tableau suivant récapitule la prise en charge des systèmes DRM natifs sur différentes plateformes et la prise en charge d’EME dans différents navigateurs.
 
 | **Plateforme cliente** | **DRM natif** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Téléviseurs connectés, décodeurs** | PlayReady, Widevine et/ou autres | EME/Navigateur incorporé pour PlayReady et/ou Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 pour PlayReady|
 | **Appareils Android (téléphone, tablette, TV)** |Widevine |Chrome pour Widevine |
@@ -145,7 +145,7 @@ Le tableau suivant indique cette correspondance.
 | **Gestion des clés** |Inutile pour l’implémentation de référence |
 | **Gestion de contenu** |Une application de console C# |
 
-En d’autres termes, IDP et STS sont fournis par Azure AD. [L’API Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) est utilisée pour le lecteur. Azure Media Services et le lecteur multimédia Azure prennent en charge CENC sur DASH, FairPlay sur HLS, PlayReady sur la diffusion en continu lisse et le chiffrement AES-128 pour DASH, HLS et la diffusion en continu lisse.
+En d’autres termes, IDP et STS sont fournis par Azure AD. [L’API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) est utilisée pour le lecteur. Azure Media Services et le lecteur multimédia Azure prennent en charge CENC sur DASH, FairPlay sur HLS, PlayReady sur la diffusion en continu lisse et le chiffrement AES-128 pour DASH, HLS et la diffusion en continu lisse.
 
 Le schéma suivant présente la structure global et le flux de travail avec la correspondance technologique ci-dessus :
 
@@ -199,7 +199,7 @@ La mise en œuvre comprend les étapes suivantes :
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Création d’un lecteur à l’aide de [l’API Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Utilisez [l’API ProtectionInfo d’Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) pour spécifier la technologie DRM à utiliser sur d’autres plateformes DRM.
+8. Création d’un lecteur à l’aide de [l’API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Utilisez [l’API ProtectionInfo d’Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) pour spécifier la technologie DRM à utiliser sur d’autres plateformes DRM.
 
 9. Le tableau suivant illustre la matrice de test.
 
@@ -365,7 +365,7 @@ Il existe deux types de clés de sécurité :
 
 > [!NOTE]
 > Si vous utilisez .NET Framework/C# en tant que plateforme de développement, le certificat X509 utilisé pour la clé de sécurité asymétrique doit avoir une longueur d’au moins 2 048 bits. Il s’agit d’une exigence de la classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey dans .NET Framework. Dans le cas contraire, l’exception suivante est générée :
-
+> 
 > IDX10630 : la longueur de la signature « System.IdentityModel.Tokens.X509AsymmetricSecurityKey » ne peut pas être inférieure à « 2048 » bits.
 
 ## <a name="the-completed-system-and-test"></a>Le système et le test terminé

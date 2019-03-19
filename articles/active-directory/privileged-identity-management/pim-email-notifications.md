@@ -16,12 +16,12 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f4eab44a55574f84f29488e78cd60522d7a52eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905169"
 ---
 # <a name="email-notifications-in-pim"></a>Notifications par e-mail dans PIM
 
@@ -31,8 +31,8 @@ Azure AD Privileged Identity Management (PIM) vous informe quand des événemen
 
 L’adresse de l’expéditeur des e-mails envoyés par PIM pour les rôles de ressources Azure AD et Azure est la suivante :
 
-- Adresse e-mail : **azure-noreply@microsoft.com**
-- Nom d’affichage : Microsoft Azure
+- Adresse de messagerie : **azure-noreply\@microsoft.com**
+- Nom complet : Microsoft Azure
 
 Ces e-mails incluent un préfixe **PIM** dans la ligne Objet. Voici un exemple :
 
@@ -50,9 +50,9 @@ Les destinataires de ces e-mails pour les rôles Azure AD varient selon votre r
 
 | Utilisateur | Une activation d’un rôle est en attente d’approbation | Une demande d’activation de rôle est terminée | PIM est activé |
 | --- | --- | --- | --- |
-| Administrateur de rôle privilégié</br>(Activé/éligible) | OUI</br>(uniquement si aucun approbateur explicite n’est spécifié) | Oui* | OUI |
-| Security Administrator</br>(Activé/éligible) | Non  | Oui* | OUI |
-| Administrateur général</br>(Activé/éligible) | Non  | Oui* | OUI |
+| Administrateur de rôle privilégié</br>(Activé/éligible) | Oui</br>(uniquement si aucun approbateur explicite n’est spécifié) | Oui* | Oui |
+| Security Administrator</br>(Activé/éligible) | Non  | Oui* | Oui |
+| Administrateur général</br>(Activé/éligible) | Non  | Oui* | Oui |
 
 \* Si le paramètre [**Notifications**](pim-how-to-change-default-settings.md#notifications) a la valeur **Activer**.
 

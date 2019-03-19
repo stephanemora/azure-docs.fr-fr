@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994281"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403513"
 ---
 # <a name="create-azure-resource-manager-template"></a>Créer un modèle Azure Resource Manager
 
@@ -38,15 +38,15 @@ Pour consulter un didacticiel d’installation de l’extension des outils Resou
 
 Passons en revue les parties du modèle pour comprendre son fonctionnement. Vous n’êtes pas obligé de doter votre modèle de toutes les sections possibles. Voici les sections à retenir :
 
-* La section [parameters](resource-manager-templates-parameters.md), qui affiche les valeurs que vous pouvez spécifier au cours du déploiement pour personnaliser l’infrastructure déployée. 
+* La section [parameters](resource-group-authoring-templates.md#parameters), qui affiche les valeurs que vous pouvez spécifier au cours du déploiement pour personnaliser l’infrastructure déployée. 
 
-* La section [variables](resource-manager-templates-variables.md), qui affiche les valeurs utilisées dans le modèle.
+* La section [variables](resource-group-authoring-templates.md#variables), qui affiche les valeurs utilisées dans le modèle.
 
 * La section [functions](resource-group-authoring-templates.md#functions), qui affiche les expressions de modèle personnalisées utilisées dans votre modèle.
 
-* La section [ressources](resource-manager-templates-resources.md), qui indique les ressources Azure déployées dans votre abonnement.
+* La section [ressources](resource-group-authoring-templates.md#resources), qui indique les ressources Azure déployées dans votre abonnement.
 
-* La section [outputs](resource-manager-templates-outputs.md), qui indique les valeurs retournées une fois le déploiement terminé.
+* La section [outputs](resource-group-authoring-templates.md#outputs), qui indique les valeurs retournées une fois le déploiement terminé.
 
 ## <a name="look-for-similar-templates"></a>Recherche de modèles similaires
 
@@ -98,7 +98,7 @@ Vous pouvez ajouter des balises à vos ressources pour les organiser de façon l
 }
 ```
 
-Vous pouvez également appliquer des balises dynamiquement à partir des paramètres. Pour plus d’informations, dans la documentation Azure Resource Manager, consultez la section [Concepts > Modèles > Ressources > Balises](resource-manager-templates-resources.md#tags).
+Vous pouvez également appliquer des balises dynamiquement à partir des paramètres. Pour plus d’informations, dans la documentation Azure Resource Manager, consultez la section [Concepts > Modèles > Ressources > Balises](resource-group-using-tags.md#templates).
 
 ## <a name="review-template-functions"></a>Examen des fonctions du modèle
 
@@ -176,7 +176,7 @@ L’exemple suivant déploie un compte de stockage de manière conditionnelle :
 }
 ```
 
-Pour plus d’informations, dans la documentation Azure Resource Manager, consultez la section [Concepts > Modèles > Ressources > Condition](resource-manager-templates-resources.md#condition).
+Pour plus d’informations, dans la documentation Azure Resource Manager, consultez la section [Concepts > Modèles > Ressources > Condition](resource-group-authoring-templates.md#condition).
 
 ## <a name="review-dependencies"></a>Examen des dépendances
 

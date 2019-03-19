@@ -4,17 +4,17 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447784"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894425"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -80,7 +80,7 @@ Le **mode** détermine les types de ressources à évaluer pour une stratégie. 
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md).
+Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste de ressources qui prennent en charge les balises, consultez [prise en charge pour les ressources Azure étiquette](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>parameters
 
@@ -101,7 +101,7 @@ Un paramètre possède les propriétés suivantes qui sont utilisées dans la d�
   - `displayName`: Nom convivial du paramètre visible dans le portail.
   - `strongType`: (Facultatif) Utilisé lors de l’affectation de la définition de stratégie via le portail. Fournit une liste prenant en compte le contexte. Pour plus d’informations, voir [strongType](#strongtype).
 - `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie. Obligatoire lors de la mise à jour d’une définition de stratégie existante qui est affectée.
-- `allowedValues`: (Facultatif) Fournit la liste des valeurs que le paramètre accepte pendant l’affectation.
+- `allowedValues`: (Facultatif) Fournit un tableau de valeurs que le paramètre accepte pendant leur affectation.
 
 Par exemple, vous pouvez définir une définition de stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées. Le paramètre **allowedLocations** pourrait s’appliquer à cette définition de stratégie. Ce paramètre serait utilisé par chaque affectation de la définition de la stratégie pour limiter les valeurs acceptées. L’utilisation de **strongType** permet d’améliorer l’expérience lors de l’affectation via le portail :
 
@@ -289,6 +289,9 @@ Dans l’exemple suivant, `concat` est utilisé pour créer une recherche dans l
 Les conditions peuvent également être formées à l’aide de **valeur**. **valeur** vérifie les conditions selon les [paramètres](#parameters), les [fonctions de modèle supportées](#policy-functions) ou des littéraux.
 **valeur** est associée à n’importe quelle [condition](#conditions) prise en charge.
 
+> [!WARNING]
+> Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une version d’évaluation ayant échouée est implicite **refuser**. Pour plus d’informations, consultez [éviter les défaillances de modèle](#avoiding-template-failures).
+
 #### <a name="value-examples"></a>Exemples de valeur
 
 Cet exemple de règle de stratégie utilise **valeur** pour comparer le résultat de la fonction `resourceGroup()` et la propriété **nom** renvoyée à une condition **like** de `*netrg`. La règle refuse toute ressource qui n’est pas du `Microsoft.Network/*` **type** dans tout groupe de ressources dont le nom se termine par `*netrg`.
@@ -328,6 +331,44 @@ Cet exemple de règle de stratégie utilise **valeur** pour vérifier si le rés
     }
 }
 ```
+
+#### <a name="avoiding-template-failures"></a>Éviter les défaillances de modèle
+
+L’utilisation de _fonctions de modèle_ dans **valeur** permet pour de nombreuses fonctions imbriquées complexes. Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une version d’évaluation ayant échouée est implicite **refuser**. Un exemple d’un **valeur** qui échoue dans certains scénarios :
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[substring(field('name'), 0, 3)]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+L’exemple de règle de stratégie ci-dessus utilise [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) à comparer les trois premiers caractères de **nom** à **abc**. Si **nom** est inférieure à trois caractères, le `substring()` fonction génère une erreur. Cette erreur provoque la stratégie devenir un **refuser** effet.
+
+Au lieu de cela, utilisez le [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) fonction permettant de vérifier si les trois premiers caractères de **nom** égal **abc** sans autoriser un **nom** plus courte que trois caractères pour provoquer une erreur :
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[if(greaterOrEquals(length(field('name')), 3), substring(field('name'), 0, 3), 'not starting with abc')]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+Avec la règle de stratégie révisée `if()` vérifie la longueur du **nom** avant d’essayer d’obtenir un `substring()` sur une valeur avec moins de trois caractères. Si **nom** est trop court, la valeur « ne commence ne pas par abc » est retournée à la place et par rapport à **abc**. Une ressource avec un nom court qui ne commence pas par **abc** échoue toujours la règle de stratégie, mais n’est plus provoque une erreur lors de l’évaluation.
 
 ### <a name="effect"></a>Résultat
 
@@ -443,70 +484,60 @@ Plusieurs alias disponibles possèdent une version qui apparaîtra avec un nom �
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-Le premier exemple est utilisé pour évaluer l’intégralité du tableau, dans lequel l’alias **[\*]** évalue chaque élément du tableau.
-
-Examinons une règle de stratégie comme exemple. Cette stratégie **refuse** tout compte de stockage pour lequel ipRules est configuré et **aucune** des valeurs ipRules n’est « 127.0.0.1 ».
+L’alias « normal » représente le champ sous la forme d’une valeur unique. Ce champ est pour les scénarios de comparaison de correspondance exacte, lors de l’ensemble de valeurs doit être exactement tel que défini, pas d’autres et non moins. À l’aide de **ipRules**, un exemple serait validation qu’un jeu de règles exact existe notamment le nombre de règles et composition de chaque règle. Cet exemple de règle de contrôles pour exactement **192.168.1.1** et **10.0.4.1** avec _action_ de **autoriser** dans **ipRules** pour appliquer le **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+Le **[\*]** alias permet de comparer la valeur de chaque élément du tableau et les propriétés spécifiques de chaque élément. Cette approche permet de comparer les propriétés de l’élément 'absence de', 'Si un des', ou ' Si tous les de ' scénarios. À l’aide de **ipRules [\*]**, un exemple serait la validation que chaque _action_ est _Deny_, mais ne pas se préoccuper de savoir combien de règles existent ou l’adresse IP _valeur_ est. Cette règle de l’exemple vérifie toutes les correspondances de **ipRules [\*] .value** à **10.0.4.1** et applique la **effectType** uniquement s’il ne trouve pas au moins une correspondance :
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-Pour l’exemple, le tableau des **ipRules** se présente de la façon suivante :
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-Voici comment est traité cet exemple :
-
-- `networkAcls.ipRules` : vérifie que le tableau est non null. Cette valeur est évaluée comme true, l’évaluation peut donc continuer.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value` : vérifie chaque _valeur_ de propriété dans le tableau des **ipRules**.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - Puisqu’il s’agit d’un tableau, tous les éléments seront traités.
-
-    - « 127.0.0.1 » != « 127.0.0.1 » est évalué comme false.
-    - « 127.0.0.1 » != « 192.168.1.1 » est évalué comme true.
-    - Au moins une _valeur_ de propriété dans le tableau des **ipRules** est évaluée comme false, l’évaluation sera donc arrêtée.
-
-Puisqu’une condition est évaluée comme false, l’effet **deny** n’est pas déclenché.
+Pour plus d’informations, consultez [l’évaluation de la [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiatives
 

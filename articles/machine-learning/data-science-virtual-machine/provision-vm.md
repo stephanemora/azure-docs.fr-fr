@@ -1,7 +1,7 @@
 ---
 title: Créer une instance Windows de Data Science Virtual Machine
 titleSuffix: Azure
-description: Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analytique et de Machine Learning.
+description: Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analyse et d’apprentissage automatique.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417446"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896260"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DSVM Windows sur Azure
 
@@ -44,7 +44,7 @@ Les outils suivants sont inclus dans une DSVM :
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) : système de machine learning rapide prenant en charge des techniques comme le hachage en ligne, les réductions allreduce, learning2search et l’apprentissage actif et interactif
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) : outil qui offre une implémentation rapide et précise des arborescences optimisées
   * [Rattle](https://togaware.com/rattle/) : outil d’analytique R qui facilite la prise en main de l’analytique données et du machine learning en langage R. Il inclut une exploration des données basée sur une interface graphique utilisateur et une modélisation utilisant la génération automatique de code R.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : logiciel de machine learning et d’exploration des données visuelle dans Java
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/) : logiciel de machine learning et d’exploration des données visuelle dans Java
   * [Apache Drill](https://drill.apache.org/) : moteur de requêtes SQL sans schéma pour Apache Hadoop, NoSQL et le stockage cloud Il prend en charge les interfaces ODBC et JDBC pour l’interrogation de NoSQL et des fichiers à partir d’outils décisionnels standard tels que Power BI, Excel et Tableau.
 * Bibliothèques dans les langages R et Python à utiliser dans Azure Machine Learning et d’autres services Azure
 * Git, incluant Git Bash, pour travailler avec les référentiels de code source, notamment GitHub et Azure DevOps. Git fournit plusieurs utilitaires en ligne de commande Linux populaires, qui sont accessibles à la fois sur Git Bash et à partir d’une invite de commandes. Awk, sed, perl, grep, find, wget et curl en sont des exemples.
@@ -71,7 +71,7 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 
 ## <a name="prerequisite"></a>Configuration requise
 
-Pour créer une machine virtuelle Microsoft Data Science Virtual Machine, vous devez disposer d’un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.com/free).
+Pour créer une machine virtuelle Microsoft Data Science Virtual Machine, vous devez disposer d’un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.com/free).
 
 ## <a name="create-your-dsvm"></a>Créer votre DSVM
 
@@ -229,4 +229,4 @@ Vous pouvez utiliser le programme [Microsoft Web Platform Installer](https://www
 * Dans l’Explorateur de fichiers, accédez à **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** pour obtenir des exemples utilisant la bibliothèque RevoScaleR en langage R, qui prend en charge l’analytique données à l’échelle de l’entreprise.  
 * Lisez l’article intitulé [Dix choses que vous pouvez effectuer sur la machine virtuelle Windows Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](../team-data-science-process/index.yml).
-* Visitez [Azure AI Gallery](http://gallery.cortanaintelligence.com) pour obtenir des exemples de machine learning et d’analytique données qui utilisent Azure Machine Learning et des services de données connexes sur Azure. Nous avons également inclus une icône dans le menu **Démarrer** et sur le bureau de la machine virtuelle pour accéder à cette galerie.
+* Visitez [Azure AI Gallery](https://gallery.cortanaintelligence.com) pour obtenir des exemples de machine learning et d’analytique données qui utilisent Azure Machine Learning et des services de données connexes sur Azure. Nous avons également inclus une icône dans le menu **Démarrer** et sur le bureau de la machine virtuelle pour accéder à cette galerie.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e947b71fe6bb9e6bd884b8b2dd0397a63bea2a95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b5ec711f0e43d9d29d962d43ed8b1d86338db87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutoriel : Intégration d’Azure Active Directory à xMatters OnDemand
 
@@ -114,6 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     ![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -123,6 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     | `https://<companyname>.xmatters.com.au/`|
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -209,9 +211,9 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Connectez-vous à votre client **xMatters OnDemand** .
 
-1.  Cliquez sur l’onglet **Utilisateurs**, puis sur **Ajouter un utilisateur**.
+1. Cliquez sur l’onglet **Utilisateurs**, puis sur **Ajouter un utilisateur**.
 
-    ![Utilisateurs](./media/xmatters-ondemand-tutorial/IC781048.png "Utilisateurs")
+   ![Utilisateurs](./media/xmatters-ondemand-tutorial/IC781048.png "Utilisateurs")
 
 1. Dans la section **Add a User** , procédez comme suit :
 

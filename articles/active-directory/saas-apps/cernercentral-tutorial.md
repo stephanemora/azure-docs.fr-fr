@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Cerner Central | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Cerner Central | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cerner Central.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62888afb29c3b721da978c7180b36d62d6a575a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c097fb045db1afe65a84a2a96dc202c57e8a449e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200562"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975540"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Didacticiel : Intégration d’Azure Active Directory à Cerner Central
+# <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutoriel : Intégration d’Azure Active Directory à Cerner Central
 
 Dans ce didacticiel, vous allez apprendre à intégrer Cerner Central à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de Cerner Central à Azure AD vous offre les avantages suivant
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Cerner Central, vous avez besoin des éléments suivants :
 
@@ -119,6 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
     b. Dans la zone de texte **URL de réponse** , tapez une URL en respectant les formats suivants :
+    
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |

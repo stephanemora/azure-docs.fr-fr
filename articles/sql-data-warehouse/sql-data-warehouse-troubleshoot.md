@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d94d434f83e1a8507b1a98660e8169ff6be4ee24
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d220922f17f6727acdbfcd5c2feabac6fc2b88d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244579"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010589"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Résolution des problèmes d’Azure SQL Data Warehouse
 Cet article répertorie les questions de résolution de problèmes courantes.
@@ -52,7 +52,7 @@ Cet article répertorie les questions de résolution de problèmes courantes.
 | Msg 40847 : Impossible d’effectuer l’opération car le serveur risque de dépasser le quota d’unité de transaction de base de données autorisé de 45 000. | Réduisez la [DWU][DWU] de la base de données que vous essayez de créer ou [demandez une augmentation du quota][request a quota increase]. |
 | Examen de l’utilisation de l’espace                              | Consultez [Tailles des tables][Table sizes] pour comprendre l’utilisation de l’espace de votre système. |
 | Aide concernant la gestion des tables                                    | Consultez l’article [Vue d’ensemble des tables][Overview] pour obtenir de l’aide pour la gestion de vos tables.  Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table][Data types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary]. |
-| La barre de progression de TDE (Transparent Data Encryption) n’est pas mise à jour dans le portail Azure | Vous pouvez afficher l’état de chiffrement de TDE via [PowerShell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption). |
+| La barre de progression de TDE (Transparent Data Encryption) n’est pas mise à jour dans le portail Azure | Vous pouvez afficher l’état de chiffrement de TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 ## <a name="polybase"></a>Polybase
 | Problème                                           | Résolution :                                                   |
@@ -129,6 +129,6 @@ Pour obtenir une aide supplémentaire lors de la recherche d’une solution à v
 [Blogs de l’équipe CAT (Customer Advisory Team)]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Forum MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
-[Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Forum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

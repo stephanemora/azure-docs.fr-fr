@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011131"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple comme cible de sauvegarde avec Backup Exec
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Azure StorSimple est une solution de stockage cloud hybride de Microsoft. StorSimple s’attaque à la complexité de la croissance exponentielle des données en utilisant un compte de stockage Azure en tant qu’extension de la solution locale et en hiérarchisant automatiquement les données sur le stockage local et sur le stockage cloud.
 
@@ -94,6 +94,7 @@ Les tableaux ci-après contiennent les informations d’aide initiales concernan
 |------------------------|---------------|-----------------|
 | Capacité de stockage local | &lt; 10 Tio\*  | &lt; 20 Tio\*  |
 | Capacité de stockage cloud | &gt; 200 Tio\* | &gt; 500 Tio\* |
+
 \* La taille de stockage indiquée ne prend en compte aucune déduplication ni compression.
 
 **Capacités de StorSimple dans les scénarios de sauvegarde principale et secondaire**
@@ -101,7 +102,7 @@ Les tableaux ci-après contiennent les informations d’aide initiales concernan
 | Scénario de sauvegarde  | Capacité de stockage local  | Capacité de stockage cloud  |
 |---|---|---|
 | Sauvegarde principale  | Sauvegardes récentes stockées sur le stockage local afin d’accélérer la récupération pour se conformer à l’objectif de point de récupération (RPO) | Capacité du cloud adaptée à l’historique des sauvegardes (RPO) |
-| Sauvegarde secondaire | Possibilité de stocker une copie secondaire des données de sauvegarde dans la capacité du cloud  | N/A  |
+| Sauvegarde secondaire | Possibilité de stocker une copie secondaire des données de sauvegarde dans la capacité du cloud  | S.O.  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>Utiliser StorSimple comme cible de sauvegarde principale
 
@@ -206,16 +207,16 @@ Configurez votre solution en respectant les instructions dans les sections suiva
 
 ### <a name="operating-system-best-practices"></a>Meilleures pratiques concernant le système d’exploitation
 
--   Désactivez le chiffrement et la déduplication Windows Server pour le système de fichiers NTFS.
--   Désactivez la défragmentation Windows Server sur les volumes StorSimple.
--   Désactivez l’indexation Windows Server sur les volumes StorSimple.
--   Exécutez une analyse antivirus au niveau de l’hôte source (et non par rapport aux volumes StorSimple).
--   Désactivez l’activité [Maintenance Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) par défaut dans le Gestionnaire des tâches. Pour ce faire, procédez de l’une des manières suivantes :
-   - Désactivez le programme de configuration de l’activité de maintenance dans le Planificateur de tâches Windows.
-   - Téléchargez [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) à partir de Windows Sysinternals. Après avoir téléchargé PsExec, exécutez Azure PowerShell en tant qu’administrateur, puis tapez :
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Désactivez le chiffrement et la déduplication Windows Server pour le système de fichiers NTFS.
+- Désactivez la défragmentation Windows Server sur les volumes StorSimple.
+- Désactivez l’indexation Windows Server sur les volumes StorSimple.
+- Exécutez une analyse antivirus au niveau de l’hôte source (et non par rapport aux volumes StorSimple).
+- Désactivez l’activité [Maintenance Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) par défaut dans le Gestionnaire des tâches. Pour ce faire, procédez de l’une des manières suivantes :
+  - Désactivez le programme de configuration de l’activité de maintenance dans le Planificateur de tâches Windows.
+  - Téléchargez [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) à partir de Windows Sysinternals. Après avoir téléchargé PsExec, exécutez Azure PowerShell en tant qu’administrateur, puis tapez :
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Meilleures pratiques concernant StorSimple
 
@@ -259,6 +260,7 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 | Complète annuelle | 1  | 10 | 10 |
 | Exigence GFS |   | 38 |   |
 | Quota supplémentaire  | 4  |   | 42 au total pour l’exigence GFS  |
+
 \* Le multiplicateur GFS est le nombre de copies que vous devez protéger et conserver pour vous conformer à vos stratégies de sauvegarde.
 
 ## <a name="set-up-backup-exec-storage"></a>Configurer le stockage Backup Exec
@@ -312,7 +314,7 @@ Voici un exemple de planification de rotation GFS pour quatre semaines, mensuell
 |---|---|---|
 | Hebdomadaire (semaines 1-4) | Samedi | Lundi-vendredi |
 | Mensuelle  | Samedi  |   |
-| Annuelle | Samedi  |   |   |
+| Annuelle | Samedi  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Affecter des volumes StorSimple à un travail de sauvegarde Backup Exec
@@ -373,6 +375,7 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 | Complète mensuelle |Disque StorSimple (long terme) | 1 | 12 | 12 |
 | Complète annuelle |Disque StorSimple (long terme) | 1 | 1 | 1 |
 |Exigence en matière de taille des volumes GFS |  |  |  | 18*|
+
 \* La capacité totale inclut 17 Tio de disques StorSimple et 1 Tio de volume RAID local.
 
 
@@ -385,7 +388,7 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 | Semaine 3 | StorSimple semaines 2 à 4 |   |   |   |   |   |
 | Semaine 4 | StorSimple semaines 2 à 4 |   |   |   |   |   |
 | Mensuelle | StorSimple mensuelle |   |   |   |   |   |
-| Annuelle | StorSimple annuelle  |   |   |   |   |   |   |
+| Annuelle | StorSimple annuelle  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Attribuer des volumes StorSimple à un travail d’archivage et de déduplication Backup Exec
@@ -445,15 +448,15 @@ La section ci-après décrit comment créer un bref script pour déclencher et s
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Pour démarrer ou supprimer une capture instantanée cloud
 
-1.  [Installez Azure PowerShell](/powershell/azure/overview).
+1. [Installez Azure PowerShell](/powershell/azure/overview).
 2. Téléchargez et installez le script PowerShell [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1).
 3. Sur le serveur qui exécute le script, exécutez PowerShell en tant qu’administrateur. Vérifiez que vous exécutez le script avec `-WhatIf $true` pour voir les modifications qu’il apporte. Une fois la validation terminée, passez `-WhatIf $false`. Exécutez la commande ci-dessous :
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Ajoutez le script à votre travail de sauvegarde dans Backup Exec, en modifiant vos commandes de prétraitement et de post-traitement des options de travail Backup Exec.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Ajoutez le script à votre travail de sauvegarde dans Backup Exec, en modifiant vos commandes de prétraitement et de post-traitement des options de travail Backup Exec.
 
-    ![Console Backup Exec, options de sauvegarde, onglet de commandes de prétraitement et de post-traitement](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Console Backup Exec, options de sauvegarde, onglet de commandes de prétraitement et de post-traitement](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > Nous vous recommandons d’exécuter votre stratégie de sauvegarde de captures instantanées cloud StorSimple à la fin de votre travail de sauvegarde quotidien sous la forme d’un script de post-traitement. Pour plus d’informations sur la façon de sauvegarder et de restaurer votre environnement d’application de sauvegarde pour vous aider à atteindre vos objectifs RPO et RTO, consultez votre concepteur d’architecture de sauvegarde.

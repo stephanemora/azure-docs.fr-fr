@@ -1,6 +1,6 @@
 ---
-title: Réviser les accès à une application des membres d’un groupe ou des utilisateurs avec Azure AD| Microsoft Docs
-description: Découvrez comment réviser les accès des membres d’un groupe ou des utilisateurs ayant accès à une application dans Azure Active Directory.
+title: Effectuer une révision d’accès des groupes ou des applications dans les révisions d’accès Azure AD | Microsoft Docs
+description: Découvrez comment effectuer une révision d’accès des membres du groupe ou l’accès aux applications dans les révisions d’accès Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2da3b7f8b7ed60344978fb255696980ec620fd2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192266"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729608"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Effectuer une révision d’accès des membres d’un groupe ou des accès des utilisateurs à une application dans Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès des groupes ou des applications dans les révisions d’accès Azure AD
 
-Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application. Azure AD envoie automatiquement aux réviseurs un e-mail les invitant à réviser l’accès. Si un utilisateur n’a pas reçu d’e-mail, vous pouvez lui envoyer les instructions décrites dans l’article [Effectuer votre propre révision d’accès](perform-access-review.md). (Sachez que les invités à qui a été attribué le rôle de réviseur mais qui n’ont pas accepté l’invitation ne recevront pas d’e-mails des révisions d’accès, car il est nécessaire d’avoir accepté l’invitation pour pouvoir commencer la révision.) Si la période de révision d’accès est terminée ou que l’administrateur a arrêté la révision d’accès, suivez les étapes décrites dans cet article pour voir et appliquer les résultats.
+Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application. Azure AD envoie automatiquement aux réviseurs un e-mail les invitant à réviser l’accès. Si un utilisateur n’a pas reçu d’e-mail, vous pouvez lui envoyer les instructions [réviser l’accès à des groupes ou des applications](perform-access-review.md). (Sachez que les invités à qui a été attribué le rôle de réviseur mais qui n’ont pas accepté l’invitation ne recevront pas d’e-mails des révisions d’accès, car il est nécessaire d’avoir accepté l’invitation pour pouvoir commencer la révision.) Si la période de révision d’accès est terminée ou que l’administrateur a arrêté la révision d’accès, suivez les étapes décrites dans cet article pour voir et appliquer les résultats.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Afficher une révision d’accès dans le portail Azure
 
@@ -62,5 +62,5 @@ Si la révision ne vous intéresse plus, vous pouvez la supprimer. Sélectionnez
 - [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md) (Gérer l’accès des utilisateurs avec les révisions d’accès Azure AD)
 - [Manage guest access with Azure AD access reviews](manage-guest-access-with-access-reviews.md) (Gérer l’accès des invités avec les révisions d’accès Azure AD)
 - [Manage programs and controls for Azure AD access reviews](manage-programs-controls.md) (Gérer les programmes et les contrôles pour la révision d’accès Azure AD)
-- [Create an access review for members of a group or access to an application](create-access-review.md) (Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application)
+- [Créer une révision d’accès des groupes ou des applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)

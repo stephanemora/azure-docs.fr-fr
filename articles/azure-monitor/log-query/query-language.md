@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343049"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749816"
 ---
 # <a name="azure-monitor-log-queries"></a>Requêtes de journal Azure Monitor
 Les journaux Azure Monitor reposent sur Azure Data Explorer ; les requêtes de journal Azure Monitor utilisent une version du même langage de requête Kusto. La [documentation du langage de requête Kusto](/azure/kusto/query), qui rassemble toutes les informations sur ce langage, doit constituer votre principale référence lorsque vous écrivez des requêtes de journal Azure Monitor. Cette page comporte des liens vers d’autres ressources permettant d’apprendre à écrire des requêtes et de découvrir les différences avec l’implémentation Azure Monitor du langage.
@@ -27,14 +27,14 @@ Les journaux Azure Monitor reposent sur Azure Data Explorer ; les requêtes de 
 
 ## <a name="getting-started"></a>Prise en main
 
-- [Bien démarrer avec Log Analytics Azure Monitor](get-started-portal.md) est une leçon d’écriture de requêtes et d’utilisation des résultats sur le Portail Azure.
+- [Prise en main Azure Monitor Log Analytique](get-started-portal.md) est une leçon pour l’écriture de requêtes et utilisation des résultats dans le portail Azure.
 - [Bien démarrer avec les requêtes de journal Azure Monitor](get-started-queries.md) est une leçon d’écriture de requêtes à l’aide de données de journal Azure Monitor.
 
 ## <a name="concepts"></a>Concepts
 - [Analyser les données de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) donne une vue d’ensemble synthétique des requêtes de journal et décrit la structure des données de journal Azure Monitor.
 - [Afficher et analyser les données de journal dans Azure Monitor](../../azure-monitor/log-query/portals.md) décrit les portails permettant de créer et d’exécuter des requêtes de journal.
 
-## <a name="reference"></a>Informations de référence
+## <a name="reference"></a>Référence
 
 - [Référence du langage de requête](/azure/kusto/query) représente la ressource complète disponible sur le langage de requête Kusto.
 - [Différences propres au langage de requête de journal Azure Monitor](data-explorer-difference.md) décrit les différences existant entre les versions du langage de requête Kusto.

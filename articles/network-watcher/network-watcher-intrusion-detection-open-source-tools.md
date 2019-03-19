@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23036734"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901268"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source
 
@@ -39,7 +39,7 @@ Les deux outils open source peuvent être configurés sur une machine virtuelle 
 
 ### <a name="install-suricata"></a>Installer Suricata
 
-Pour toutes les autres méthodes d’installation, consultez http://suricata.readthedocs.io/en/latest/install.html
+Pour toutes les autres méthodes d’installation, consultez https://suricata.readthedocs.io/en/latest/install.html
 
 1. Dans le terminal de ligne de commande de votre machine virtuelle, exécutez les commandes suivantes :
 
@@ -58,7 +58,7 @@ Pour toutes les autres méthodes d’installation, consultez http://suricata.rea
 Téléchargez l’ensemble de règles et copiez-le dans le répertoire :
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
@@ -81,7 +81,8 @@ Même si les journaux créés par Suricata contiennent des informations importan
 
 #### <a name="install-elasticsearch"></a>Installer Elasticsearch
 
-1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation sur le [site web d’Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation relative aux [JDK pris en charge dans Azure](https://aka.ms/azure-jdks).
+
 1. Téléchargez le package binaire approprié pour votre système :
 
     ```

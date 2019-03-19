@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996344"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
 Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se connecter aux ressources cloud et locales à l’aide des mêmes mots de passe. Cet article décrit les concepts clés pour chaque modèle d’identité afin de vous aider à choisir l’identité que vous souhaitez utiliser pour vous connecter à Azure AD.
@@ -75,7 +75,9 @@ Pour plus d'informations, consultez les pages suivantes :
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Fédération utilisant des services AD FS nouveaux ou existants dans la batterie de serveurs Windows Server 2012 R2
 Avec l’authentification fédérée, vos utilisateurs peuvent se connecter aux services basés sur Azure AD avec leurs mots de passe locaux. Lorsqu’ils sont sur le réseau d’entreprise, ils n’ont même pas besoin d’entrer leurs mots de passe. En utilisant l’option de fédération avec les services de fédération d’Azure Directory (AD FS), vous pouvez déployer un nouveau service AD FS dans la batterie de serveurs Windows Server 2012 R2 ou en spécifier un existant. Si vous choisissez de spécifier une batterie existante, Azure AD Connect configure l’approbation entre votre batterie et Azure AD de manière à ce que vos utilisateurs puissent s’authentifier.
 
-<center>![Fédération avec AD FS dans Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Fédération avec AD FS dans Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Déploiement d’une fédération avec AD FS dans Windows Server 2012 R2
 
@@ -152,6 +154,7 @@ Il est très important de comprendre la relation entre les états de domaine per
 Pour les informations suivantes, supposons que nous nous intéressons au suffixe UPN contoso.com utilisé dans l’annuaire local dans le nom UPN, par exemple user@contoso.com.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Configuration rapide / Synchronisation de hachage de mot de passe
+
 | État | Effet sur l’expérience de connexion utilisateur Azure |
 |:---:|:--- |
 | Non ajouté |Dans ce cas, aucun domaine personnalisé pour contoso.com n’a été ajouté à l’annuaire Azure AD. Les utilisateurs possédant un UPN local avec le suffixe @contoso.com ne pourront pas utiliser leur UPN local pour se connecter à Azure. Ils devront utiliser un nouvel UPN fourni par Azure AD en ajoutant le suffixe de l’annuaire Azure AD par défaut. Par exemple, si vous synchronisez des utilisateurs sur l’annuaire Azure AD azurecontoso.onmicrosoft.com, l’utilisateur local user@contoso.com aura un nom UPN user@azurecontoso.onmicrosoft.com. |

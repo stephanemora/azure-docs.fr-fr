@@ -3,7 +3,7 @@ title: Résolution des erreurs de démarrage BitLocker dans une machine virtuell
 description: Découvrez comment résoudre les erreurs de démarrage BitLocker dans une machine virtuelle Azure.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993204"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erreurs de démarrage BitLocker dans une machine virtuelle Azure
 
@@ -26,13 +26,13 @@ ms.locfileid: "55984764"
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
- ## <a name="symptom"></a>Symptôme
+## <a name="symptom"></a>Symptôme
 
  Une machine virtuelle Windows ne démarre pas. Lorsque vous regardez les captures d’écran de la fenêtre [Diagnostics de démarrage](../windows/boot-diagnostics.md), vous voyez l’un des messages d’erreur suivants :
 
 - Connectez le pilote USB qui contient la clé BitLocker.
 
-- Votre compte est verrouillé. Entrez la clé de récupération pour poursuivre (disposition du clavier : américain) Le nombre maximal de tentatives de connexion a été atteint. Votre PC a été verrouillé pour des raisons de sécurité. Pour récupérer la clé de récupération, accédez à http://windows.microsoft.com/recoverykeyfaq à partir d’un autre PC ou appareil mobile. Si vous en avez besoin, voici l’ID de la clé : XXXXXXX. Vous pouvez aussi réinitialiser votre PC.
+- Votre compte est verrouillé. Entrez la clé de récupération pour poursuivre (disposition du clavier : américain) Le nombre maximal de tentatives de connexion a été atteint. Votre PC a été verrouillé pour des raisons de sécurité. Pour récupérer la clé de récupération, accédez à https://windows.microsoft.com/recoverykeyfaq à partir d’un autre PC ou appareil mobile. Si vous en avez besoin, voici l’ID de la clé : XXXXXXX. Vous pouvez aussi réinitialiser votre PC.
 
 - Entrez le mot de passe pour déverrouiller le lecteur [] Appuyez sur la touche Insertion pour afficher le mot de passe à mesure que vous le tapez.
 - Entrez votre clé de récupération. Chargez votre clé de récupération à partir d’un périphérique USB.

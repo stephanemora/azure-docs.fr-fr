@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ff7d886d3f219d007f159167cacfed1b8ee13863
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001015"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887554"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
 Les solutions de monitoring exploitent les services Azure pour offrir des insights supplémentaires sur le fonctionnement d’une application ou d’un service en particulier. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation.
@@ -41,7 +41,7 @@ Ouvrez la page **Vue d’ensemble** d’Azure Monitor pour afficher la vignette 
 1. Utilisez les zones de liste déroulante en haut de l’écran pour modifier l’espace de travail ou l’intervalle de temps utilisé pour les vignettes.
 1. Cliquez sur la vignette d’une solution pour ouvrir la vue correspondante incluant une analyse plus détaillée des données collectées par la solution.
 
-![Vue d’ensemble](media/solutions/overview.png)
+![Présentation](media/solutions/overview.png)
 
 Les solutions de monitoring peuvent contenir plusieurs types de ressources Azure, que vous pouvez visualiser comme n’importe quelle autre ressource. Par exemple, les requêtes de journal incluses dans la solution apparaissent sous **Requêtes de solutions** dans [Explorateur de requêtes](../log-query/get-started-portal.md#load-queries). Vous pouvez les utiliser lorsque vous effectuez une analyse ad hoc avec des [requêtes de journal](../log-query/log-query-overview.md).
 
@@ -65,7 +65,7 @@ Cliquez sur le nom d’une solution pour ouvrir la page de résumé de cette der
 ## <a name="install-a-monitoring-solution"></a>Installer une solution de monitoring
 Les solutions de monitoring de Microsoft et de ses partenaires sont disponibles sur la [Place de marché Azure](https://azuremarketplace.microsoft.com). Vous pouvez rechercher des solutions disponibles et les installer à l’aide de la procédure suivante. Lorsque vous installez une solution, vous devez sélectionner un [espace de travail Log Analytics](../platform/manage-access.md) dans lequel elles seront installées et où leurs données seront collectées.
 
-1. Dans la [liste des solutions de votre abonnement](#list-installed-management-solutions), cliquez sur **Ajouter**. 
+1. Dans la [liste des solutions de votre abonnement](#list-installed-monitoring-solutions), cliquez sur **Ajouter**. 
 1. À droite de **Solutions de gestion**, cliquez sur **Plus**. 
 1. Recherchez la solution de monitoring qui vous intéresse et lisez sa description.
 1. Cliquez sur **Créer** pour démarrer le processus d’installation.

@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108719"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881144"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process en action : Utilisation des clusters Azure HDInsight Hadoop
-Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
+Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
 
 Pour une procédure pas à pas montrant comment gérer un plus grand jeu de données, consultez [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](hive-criteo-walkthrough.md) (TDSP (Team Data Science Process) : utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To).
 
@@ -84,7 +84,7 @@ Vous pouvez configurer un environnement Azure pour une analyse avancée qui util
 > 
 > 
 
-Pour copier le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) sur votre machine depuis son emplacement public, utilisez l’une des méthodes décrites dans [Déplacer des données vers et depuis le stockage Blob Azure](move-azure-blob.md).
+Pour copier le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) sur votre machine depuis son emplacement public, utilisez l’une des méthodes décrites dans [Déplacer des données vers et depuis le stockage Blob Azure](move-azure-blob.md).
 
 Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers contenant des données. Pour télécharger et installer AzCopy, suivez les instructions dans [Prise en main de l’utilitaire de ligne de commande AzCopy](../../storage/common/storage-use-azcopy.md).
 
@@ -516,7 +516,7 @@ Exécutez la commande suivante à partir de la console de ligne de commande Hado
 
 Vous souhaiterez peut-être savoir s’il existe une différence entre la distance directe entre deux emplacements et la distance de course réelle du taxi. Un passager peut être moins susceptible de donner un pourboire s’il se rend compte que le chauffeur a pris intentionnellement un itinéraire plus long.
 
-Pour afficher la comparaison entre la distance de course réelle et la [distance Haversine](http://en.wikipedia.org/wiki/Haversine_formula) entre deux points de latitude-longitude (la distance orthodromique), vous pouvez utiliser les fonctions trigonométriques disponibles au sein de Hive :
+Pour afficher la comparaison entre la distance de course réelle et la [distance Haversine](https://en.wikipedia.org/wiki/Haversine_formula) entre deux points de latitude-longitude (la distance orthodromique), vous pouvez utiliser les fonctions trigonométriques disponibles au sein de Hive :
 
     set R=3959;
     set pi=radians(180);
@@ -822,8 +822,8 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la licence MIT. Pour plus d’informations, consultez le fichier **LICENSE.txt** figurant dans le répertoire de l’exemple de code sur GitHub.
 
 ## <a name="references"></a>Références
-•    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-•    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](https://www.andresmh.com/nyctaxitrips/)  
+•    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png

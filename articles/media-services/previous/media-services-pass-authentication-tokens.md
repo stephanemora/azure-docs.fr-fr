@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: dwgeo
-ms.openlocfilehash: b4bcc1bbed732e09f4c4d915342a422ce6c36901
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6fc13010d5dd888f28b5634b1f70aaa3326e54cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837505"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Découvrez comment les clients passent des jetons au service de remise de clés d’Azure Media Services
 Les clients s’interrogent souvent sur la manière dont lecteur peut transmettre des jetons au service de remise de clés d’Azure Media Services à des fins de vérification afin que le lecteur puisse obtenir la clé. Media Services prend en charge les formats SWT (Simple Web Tokens) et JWT (JSON Web Token). L’authentification par jeton est appliquée à tout type de clé, que vous utilisiez un chiffrement commun ou un chiffrement d’enveloppe AES (Advanced Encryption Standard) dans le système.
@@ -29,7 +29,7 @@ Les clients s’interrogent souvent sur la manière dont lecteur peut transmettr
 
 - Via l’en-tête d’autorisation HTTP.
     > [!NOTE]
-    > Le préfixe « Porteur » est attendu pour les spécifications OAuth 2.0. Un exemple de lecteur avec la configuration de jeton est hébergé sur la [page de démo](http://ampdemo.azureedge.net/) Azure Media Player. Pour définir la source vidéo, sélectionnez **AES (jeton JWT)** ou **AES (jeton SWT)**. Le jeton est passé via l’en-tête d’autorisation.
+    > Le préfixe « Porteur » est attendu pour les spécifications OAuth 2.0. Un exemple de lecteur avec la configuration de jeton est hébergé sur la [page de démo](https://ampdemo.azureedge.net/) Azure Media Player. Pour définir la source vidéo, sélectionnez **AES (jeton JWT)** ou **AES (jeton SWT)**. Le jeton est passé via l’en-tête d’autorisation.
 
 - En ajoutant un paramètre de requête URL avec « token=tokenvalue ».  
     > [!NOTE]

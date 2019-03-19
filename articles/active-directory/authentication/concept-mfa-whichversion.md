@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb7785487fc79daca56e35ce0c6a19efd5b0605
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: edfc26355933db549b735c4baf9744744f46734c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195751"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870466"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Quelle version Azure MFA est adaptée à mon organisation ?
 
@@ -38,7 +38,7 @@ Afin de déterminer la solution de vérification en deux étapes appropriée, vo
 | Applications SaaS dans la galerie d’applications |● |  |
 | Applications Web publiées via le proxy d’application Azure AD |● |  |
 | Applications IIS non publiées via le proxy d'application Azure AD | |● |
-| Accès à distance comme VPN, RDG | ● | ● |
+| Accès à distance comme VPN, passerelle Bureau à distance à l’aide de l’Extension NPS ou un serveur NPS existant | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>l’emplacement des utilisateurs
 

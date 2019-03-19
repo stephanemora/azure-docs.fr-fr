@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079143"
 ---
 # <a name="filters-in-azure-search"></a>Filtres dans Recherche Azure 
 
@@ -32,17 +32,17 @@ Voici des exemples de scénarios :
 
 1. Utilisez un filtre pour découper votre index sur la base de valeurs de données figurant dans l’index. À partir d’un schéma donné, avec une ville, un type de logement et des commodités, vous pouvez créer un filtre permettant de sélectionner explicitement les documents correspondant à vos critères (par exemple, Marseille, appartement, front de mer). 
 
-  Une recherche en texte intégral portant sur les mêmes entrées produit souvent des résultats similaires, mais un filtre est plus précis car il requiert une correspondance exacte entre la condition de filtre et le contenu de votre index. 
+   Une recherche en texte intégral portant sur les mêmes entrées produit souvent des résultats similaires, mais un filtre est plus précis car il requiert une correspondance exacte entre la condition de filtre et le contenu de votre index. 
 
 2. Utilisez un filtre si l’expérience de recherche intègre une condition de filtre :
 
- * La [navigation par facettes](search-faceted-navigation.md) utilise un filtre pour re-transmettre la catégorie de facettes sélectionnée par l’utilisateur.
- * La recherche basée sur la géolocalisation utilise un filtre pour transmettre les coordonnées de la localisation actuelle dans des applications de « recherche à proximité ». 
- * Les filtres de sécurité transmettent des identificateurs de sécurité en tant que critères de filtre, où une correspondance dans l’index sert de proxy pour les droits d’accès au document.
+   * La [navigation par facettes](search-faceted-navigation.md) utilise un filtre pour re-transmettre la catégorie de facettes sélectionnée par l’utilisateur.
+   * La recherche basée sur la géolocalisation utilise un filtre pour transmettre les coordonnées de la localisation actuelle dans des applications de « recherche à proximité ». 
+   * Les filtres de sécurité transmettent des identificateurs de sécurité en tant que critères de filtre, où une correspondance dans l’index sert de proxy pour les droits d’accès au document.
 
 3. Utilisez un filtre si vous souhaitez appliquer des critères de recherche sur un champ numérique. 
 
-  Les champs numériques sont récupérables dans le document et peuvent apparaître dans des résultats de recherche, mais ils ne peuvent pas faire l’objet individuellement d’une recherche en texte intégral. Si vous avez besoin de critères de sélection basés sur des données numériques, utilisez un filtre.
+   Les champs numériques sont récupérables dans le document et peuvent apparaître dans des résultats de recherche, mais ils ne peuvent pas faire l’objet individuellement d’une recherche en texte intégral. Si vous avez besoin de critères de sélection basés sur des données numériques, utilisez un filtre.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Autres méthodes de réduction de l’étendue de recherche
 
@@ -141,10 +141,8 @@ Dans le Kit de développement logiciel (SDK) .NET, la propriété filterable (fi
 
 Si un champ n’est pas filtrable et si vous souhaitez le rendre filtrable, vous devez ajouter un champ ou régénérer le champ existant. La modification d’une définition de champ a pour effet de modifier la structure physique de l’index. Dans Recherche Azure, tous les chemins d’accès autorisés sont indexés pour accélérer les requêtes, ce qui nécessite une régénération des structures de données en cas de modification des définitions de champ. 
 
-La régénération de champs individuels peut être une opération de faible incidence, ne nécessitant qu’une opération de fusion qui envoie la clé de document existante et les valeurs associées à l’index, laissant intact le reste de chaque document. Si vous rencontrez une condition de régénération, consultez les liens suivants pour obtenir des instructions :
+La régénération de champs individuels peut être une opération de faible incidence, ne nécessitant qu’une opération de fusion qui envoie la clé de document existante et les valeurs associées à l’index, laissant intact le reste de chaque document. Si vous rencontrez une condition de régénération, consultez [actions d’indexation (upload, merge, mergeOrUpload, supprimer)](search-what-is-data-import.md#indexing-actions) pour obtenir la liste des options.
 
- + [Actions d’indexation à l’aide du Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [Actions d’indexation à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Notions de base concernant les filtres de texte
 

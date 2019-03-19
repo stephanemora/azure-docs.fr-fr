@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082039"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure version 2 avec des machines virtuelles Linux
 L’extension de script personnalisé version 2 télécharge et exécute des scripts sur des machines virtuelles Azure. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration/gestion. Il est possible de télécharger des scripts à partir du Stockage Azure ou de tout autre emplacement Internet accessible, ou de les fournir au runtime de l’extension. 
@@ -110,21 +110,21 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | Nom | Valeur/Exemple | Type de données | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute.Extensions | chaîne |
-| Type | CustomScript | chaîne |
+| publisher | Microsoft.Compute.Extensions | string |
+| Type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (p. ex.) | python MyPythonScript.py <my-param1> | chaîne |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | chaîne |
+| commandToExecute (p. ex.) | python MyPythonScript.py <my-param1> | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (p. ex.) | false | booléenne |
 | timestamp (p. ex.) | 123456789 | Entier 32 bits |
-| storageAccountName (p. ex.) | examplestorageacct | chaîne |
-| storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | chaîne |
+| storageAccountName (p. ex.) | examplestorageacct | string |
+| storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Détails des valeurs de propriété
 * `skipDos2Unix` : (facultatif, booléen) ignore la conversion dos2unix d’un script ou des URL de fichier basé sur un script.
 * `timestamp` : (facultatif, entier 32 bits) utilisez ce champ uniquement pour déclencher la réexécution du script en modifiant la valeur de ce champ.  Toutes les valeurs sont autorisées pour l’entier. Cette valeur doit uniquement être différente de la valeur précédente.
- * `commandToExecute` : (**obligatoire** si aucun script défini, chaîne) script de point d’entrée à exécuter. Utilisez plutôt ce champ si votre commande contient des secrets tels que des mots de passe.
+  * `commandToExecute` : (**obligatoire** si aucun script défini, chaîne) script de point d’entrée à exécuter. Utilisez plutôt ce champ si votre commande contient des secrets tels que des mots de passe.
 * `script` : (**obligatoire** si la propriété commandToExecute n’est pas définie, chaîne) script codé en Base64 (et éventuellement compressé au format GZip) exécuté par /bin/sh.
 * `fileUris` : (facultatif, tableau de chaînes) URL des fichiers à télécharger.
 * `storageAccountName` : (facultatif, chaîne) nom du compte de stockage. Si vous spécifiez des informations d’identification de stockage, toutes les propriétés `fileUris` doivent être des URL d’objets blob Azure.
@@ -364,7 +364,7 @@ L’extension de script Azure génère un journal qui se trouve à cet emplaceme
 /var/log/azure/custom-script/handler.log
 ```
 
-Vous devez rechercher l’exécution individuelle, qui doit se présenter ainsi :
+Vous devez rechercher une exécution individuelle, il doit ressembler à :
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

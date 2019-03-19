@@ -1,19 +1,19 @@
 ---
 title: Présentation de la messagerie de cloud-à-appareil Azure IoT Hub | Microsoft Docs
 description: 'Guide du développeur : comment utiliser la messagerie de cloud-à-appareil avec IoT Hub. Inclut des informations sur le cycle de vie des messages et les options de configuration.'
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: dobett
-ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585643"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010240"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -127,10 +127,10 @@ Chaque hub IoT expose les options de configuration suivantes pour la messagerie 
 
 | Propriété                  | Description | Plage et valeur par défaut |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | Durée de vie par défaut pour les messages cloud-à-appareil. | Intervalle ISO_8601 jusqu’à 2D (minimum 1 minute). Par défaut : 1 heure. |
-| maxDeliveryCount          | Nombre de remises maximal pour les files d’attente par appareil cloud-à-appareil | 1 à 100. Par défaut : 10. |
-| feedback.ttlAsIso8601     | Rétention des messages de commentaires liés au service. | Intervalle ISO_8601 jusqu’à 2D (minimum 1 minute). Par défaut : 1 heure. |
-| feedback.maxDeliveryCount |Nombre de remises maximal pour la file d’attente de commentaires. | 1 à 100. Par défaut : 100. |
+| defaultTtlAsIso8601       | Durée de vie par défaut pour les messages cloud-à-appareil. | Intervalle ISO_8601 jusqu’à 2D (minimum 1 minute). Valeur par défaut : 1 heure. |
+| maxDeliveryCount          | Nombre de remises maximal pour les files d’attente par appareil cloud-à-appareil | 1 à 100. Valeur par défaut : 10. |
+| feedback.ttlAsIso8601     | Rétention des messages de commentaires liés au service. | Intervalle ISO_8601 jusqu’à 2D (minimum 1 minute). Valeur par défaut : 1 heure. |
+| feedback.maxDeliveryCount |Nombre de remises maximal pour la file d’attente de commentaires. | 1 à 100. Valeur par défaut : 100. |
 
 Pour plus d’informations sur la définition de ces options de configuration, consultez [Création d’un IoT Hub](iot-hub-create-through-portal.md).
 

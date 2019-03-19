@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: d13e0ea365b25bc17ff2d23dfaf86bc057774744
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996323"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S
 
@@ -53,7 +53,7 @@ Créez une passerelle VPN Azure, une passerelle de réseau local et une ressourc
 
 Une fois que la ressource de connexion est créée, suivez les instructions ci-dessous pour télécharger les scripts de configuration de périphérique VPN :
 
-1. Dans un navigateur, accédez au [portail Azure](http://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure
+1. Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure
 2. Accédez à la ressource de connexion que vous avez créée. Vous trouverez la liste de toutes les ressources de connexion en cliquant sur « Tous les services », puis « RÉSEAU » et « Connexions ».
 
     ![liste-connexions](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818929"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247152"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic
 
@@ -29,7 +29,9 @@ Stream Analytics fournit deux types de journaux :
 * Les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurables) offrent des informations plus détaillées sur tous les événements liés à un travail. Les journaux de diagnostic enregistrent les événements entre le moment où le travail est créé et celui où le travail est supprimé. Ils consignent les événements qui se produisent lorsque le travail est mis à jour et lors de son exécution.
 
 > [!NOTE]
-> Vous pouvez utiliser des services tels que le stockage Azure, les concentrateurs d’événements Azure et Azure Log Analytics pour analyser les données non conformes. Les frais qui vous seront facturés varient selon le modèle de tarification de chaque service.
+> Vous pouvez utiliser des services tels que le stockage Azure, Azure Event Hubs, et les journaux d’Azure Monitor pour analyser les données non conformes. Les frais qui vous seront facturés varient selon le modèle de tarification de chaque service.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Débogage à l’aide des journaux d’activité
 
@@ -51,11 +53,11 @@ Les journaux d’activité sont activés par défaut et proposent des informatio
 
 5. Vous pouvez effectuer des actions correctives en fonction du message d’erreur dans JSON. Dans cet exemple, il convient d'ajouter des vérifications à la requête pour s'assurer que la valeur de latitude est comprise entre -90 degrés et 90 degrés.
 
-6. Si le message d’erreur présent dans les journaux d’activité ne permet pas d'identifier la cause racine, activez les journaux de diagnostic et utilisez Log Analytics.
+6. Si le message d’erreur dans les journaux d’activité n’est pas utile pour identifier la cause racine, activer les journaux de diagnostic et utiliser des journaux Azure Monitor.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Envoyer des diagnostics à Log Analytics
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Envoyez des diagnostics dans les journaux d’Azure Monitor
 
-Il est vivement recommandé d'activer les journaux de diagnostic et de les envoyer à Log Analytics. Les journaux de diagnostic sont **désactivés** par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
+Journaux de diagnostic sous tension et en les envoyant aux journaux d’Azure Monitor sont fortement recommandé. Les journaux de diagnostic sont **désactivés** par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
 
 1.  Connectez-vous au portail Azure et accédez à votre travail Stream Analytics. Sous **Surveillance**, sélectionnez **Journaux de diagnostic**. Ensuite, sélectionnez **Activer les diagnostics**.
 
@@ -67,7 +69,7 @@ Il est vivement recommandé d'activer les journaux de diagnostic et de les envoy
 
 3. Lorsque votre tâche Stream Analytics démarre, les journaux de diagnostic sont routés vers votre espace de travail Log Analytics. Accédez à l’espace de travail Log Analytics et sélectionnez **Journaux** sous la section **Général**.
 
-   ![Journaux Log Analytics sous la section Général](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Journaux d’analyse Azure sous la section Général](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. Vous pouvez [écrire votre propre requête](../azure-monitor/log-query/get-started-portal.md) pour rechercher des termes, identifier des tendances, analyser des modèles et fournissent d'autres analyses basées sur vos données. Par exemple, vous pouvez écrire une requête pour filtrer uniquement les journaux de diagnostic contenant le message « Échec de la tâche de diffusion en continu ». Les journaux de diagnostic d’Azure Stream Analytics sont stockés dans la table **AzureDiagnostics**.
 
@@ -96,7 +98,7 @@ Deux catégories de journaux de diagnostic sont actuellement disponibles :
 
 Tous les journaux sont stockés au format JSON. Chaque entrée comprend les champs de chaîne courants suivants :
 
-NOM | Description
+Nom | Description
 ------- | -------
 time | L’horodatage (heure UTC) du journal.
 ResourceId | L’ID de la ressource sur laquelle l’opération a eu lieu, en majuscules. Comprend l’ID d’abonnement, le groupe de ressources et le nom du travail. Par exemple, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -114,11 +116,11 @@ Les journaux d’exécution contiennent des informations sur les événements qu
 
 Toute erreur qui se produit lorsque le travail traite des données est consignée dans cette catégorie de journaux. La plupart du temps, ces journaux sont créés au cours des opérations de lecture, de sérialisation et d’écriture des données. Ces journaux n’incluent pas les erreurs de connectivité. Les erreurs de connectivité sont traitées comme des événements génériques.
 
-NOM | Description
+Nom | Description
 ------- | -------
 Source | Nom de l’entrée ou de la sortie du travail où l’erreur s’est produite.
 Message | Message associé à l’erreur.
-type | Le type d’erreur. Par exemple, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
+Type | Le type d’erreur. Par exemple, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
 Données | Contient des données utiles pour localiser avec précision la source de l’erreur. Troncation possible en fonction de la taille.
 
 En fonction de la valeur **operationName**, les erreurs de données ont le schéma suivant :
@@ -131,11 +133,11 @@ En fonction de la valeur **operationName**, les erreurs de données ont le sché
 
 Les événements génériques couvrent tout le reste.
 
-NOM | Description
+Nom | Description
 -------- | --------
 Error | (facultatif) Informations sur l’erreur, en général des informations sur l’exception si celles-ci sont disponibles.
 Message| Message de journal.
-type | Type de message, correspond à la catégorisation interne des erreurs. Par exemple, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
+Type | Type de message, correspond à la catégorisation interne des erreurs. Par exemple, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de corrélation : | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) qui identifie de façon unique l’exécution du travail. Toutes les entrées du journal d’exécution générées depuis le démarrage du travail jusqu’à son arrêt ont le même **ID de corrélation**.
 
 ## <a name="next-steps"></a>Étapes suivantes

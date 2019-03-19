@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 67a093068df30460a1b2cf17c04164bf8b1dc6a0
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5e4fc40a9b6cfc945670bcd497d4b13af61f2f2f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234898"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817760"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -70,7 +70,7 @@ Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Men
     * [Nouvelle demande de support](#new-support-request)
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 La **Vue d’ensemble** fournit des informations de base sur votre cache, notamment le nom, les ports, le niveau tarifaire et des mesures de cache sélectionnées.
 
@@ -359,7 +359,7 @@ Cliquez sur **Règles d’alerte** pour configurer des alertes en fonction des m
 Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../azure-monitor/platform/data-collection.md#metrics), puis supprimées. Pour prolonger vos mesures de cache sur plus de 30 jours, cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to-monitor.md#export-cache-metrics) utilisé pour stocker les diagnostics de cache.
 
 >[!NOTE]
->En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers Log Analytics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [transmettre en continu à un concentrateur d’événements ou les envoyer vers les journaux Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 

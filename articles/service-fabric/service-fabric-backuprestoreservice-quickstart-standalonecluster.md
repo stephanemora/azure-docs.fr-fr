@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: f3a0651d3641a547722528fb33f688cce1913e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580414"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886641"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -53,10 +53,10 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 - Suspendre temporairement les sauvegardes
 - Gérer la rétention des sauvegardes (à venir)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Cluster Service Fabric avec Fabric versions 6.2 et ultérieure. Le cluster doit être configuré sur Windows Server. Consultez cet [article](service-fabric-cluster-creation-for-windows-server.md) pour la procédure de téléchargement du package nécessaire.
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-windows-cluster-x509-security.md) pour savoir comment acquérir ou créer un certificat X.509 auto-signé.
-* Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications qui ciblent .Net Core 2.0, l’application doit être générée à l’aide du kit SDK Service Fabric version 3.1 ou ultérieure.
+* Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications ciblant .NET Core 2.0, application doit être générée à l’aide du Kit de développement logiciel Service Fabric version 3.1 ou version ultérieure.
 
 ## <a name="enabling-backup-and-restore-service"></a>Activation du service de sauvegarde et de restauration
 Vous devez d’abord activer le _service de sauvegarde et de restauration_ dans votre cluster. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez utiliser les [exemples de modèles](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Activez le _service de sauvegarde et de restauration_ en effectuant les étapes suivantes :

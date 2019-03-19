@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: fa51290623f68e94db9cb1b28cd69c88b5d5cf18
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 19708e5e7d55073da5afb6b3751c96e587faf2c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877443"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le processeur multimédia **Azure Media Face Detector** vous permet de compter, de suivre le mouvement, voire de mesurer la participation du public ainsi que ses réactions en analysant les expressions faciales. Ce service présente deux fonctionnalités : 
 
 * **Détection faciale**
@@ -60,7 +60,7 @@ Face Detector utilise des techniques de fragmentation (où les métadonnées peu
 
 ## <a name="face-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection faciale
 ### <a name="input-video"></a>Vidéo d’entrée
-[Vidéo d’entrée](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Vidéo d’entrée](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante est uniquement valable pour la détection faciale.
@@ -132,7 +132,7 @@ L’exemple suivant de sortie JSON a été tronqué.
 
 ## <a name="emotion-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection d’émotion
 ### <a name="input-video"></a>Vidéo d’entrée
-[Vidéo d’entrée](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Vidéo d’entrée](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante spécifie la création d’un JSON en fonction de la détection d’émotion.
@@ -522,5 +522,5 @@ namespace FaceDetection
 ## <a name="related-links"></a>Liens connexes
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Démonstrations Azure Media Analytics](http://amslabs.azurewebsites.net/demos/Analytics.html)
+[Démonstrations Azure Media Analytics](https://amslabs.azurewebsites.net/demos/Analytics.html)
 

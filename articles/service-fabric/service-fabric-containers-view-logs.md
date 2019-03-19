@@ -3,7 +3,7 @@ title: Afficher des journaux de conteneurs dans Azure Service Fabric | Microsoft
 description: Décrit comment afficher des fichiers journaux de conteneurs de services Service Fabric en cours d’exécution à l’aide de Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: twhitney
-ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 801d96dc154c1d7144217fe0f70c179c086690f0
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391247"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804499"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’un service de conteneurs Service Fabric
 Azure Service Fabric, qui est un orchestrateur de conteneurs, prend en charge les [conteneurs Linux et Windows](service-fabric-containers-overview.md).  Cet article décrit comment afficher les fichiers journaux de conteneurs d’un service de conteneurs en cours d’exécution ou d’un conteneur mort, de manière à pouvoir diagnostiquer et résoudre les problèmes.

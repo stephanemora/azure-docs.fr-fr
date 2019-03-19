@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7a83a56a63fbd8a74e6a7e6d6f5158e3b5a8c2a4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: ecf73b08755f548c5506888a8113ad53fd8987ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877970"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Incorporer un rapport dans Collections d’espaces de travail Power BI
 
@@ -157,4 +157,4 @@ Le rapport sera incorporé automatiquement en fonction de la taille de son conte
 [Référentiel Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Référentiel Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
+Des questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)

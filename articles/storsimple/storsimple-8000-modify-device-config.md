@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491652"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008383"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utiliser le service StorSimple Device Manager pour modifier la configuration de votre appareil StorSimple
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Le section **Paramètres de l’appareil** du panneau **Paramètres** du portail Azure contient tous les paramètres d’appareil que vous pouvez reconfigurer sur un appareil StorSimple géré par un service StorSimple Device Manager. Ce didacticiel explique comment utiliser le panneau **Paramètres** pour effectuer les tâches suivantes au niveau de l’appareil :
 
@@ -71,7 +71,7 @@ Votre appareil doit synchroniser l’heure pour s’authentifier auprès du four
 
 Au moment de configurer le serveur NTP, vérifiez que votre réseau autorise le trafic NTP à passer de votre centre de données à Internet. Quand vous spécifiez un serveur NTP public, vous devez veiller à ce que vos pare-feu réseau et autres dispositifs de sécurité soient configurés pour autoriser le trafic NTP à transiter vers et à partir du réseau externe. Si le trafic NTP bidirectionnel n’est pas autorisé, vous devez utiliser un serveur NTP interne (un contrôleur de domaine Windows assure cette fonction). Si votre appareil ne peut pas synchroniser l’heure, il ne pourra peut-être pas communiquer avec votre fournisseur de stockage cloud.
 
-Pour consulter la liste des serveurs NTP publics, accédez au [site web des serveurs NTP](http://support.ntp.org/bin/view/Servers/WebHome).
+Pour consulter la liste des serveurs NTP publics, accédez au [site web des serveurs NTP](https://support.ntp.org/bin/view/Servers/WebHome).
 
 ### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone"></a>Que se passe-t-il si l’appareil est déployé dans un autre fuseau horaire ?
 

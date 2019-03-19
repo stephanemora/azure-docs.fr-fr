@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078537"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Azure Diagnostics
 L’extension Azure Diagnostics est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](../../azure-monitor/overview.md).
@@ -50,6 +50,9 @@ Vous avez aussi la possibilité d’envoyer vos données vers la base de donnée
 * Traitement de l’opérateur générique des compteurs de performances comme dimension « Instance » sur votre métrique.  Par exemple, si vous avez collecté le compteur « LogicalDisk(\*)/DiskWrites/sec », vous pouvez filtrer et fractionner sur la dimension « Instance » pour tracer ou générer des alertes sur le nombre d’écritures/s de chaque disque logique sur la machine virtuelle (par exemple, C:)
 
 Pour en savoir plus sur la manière de configurer ce récepteur, consultez la [documentation relative à Azure Diagnostics Schema.](diagnostics-extension-schema-1dot3.md)
+
+## <a name="costs"></a>Coûts
+Chacune des options ci-dessus peut-être entraîner une baisse des coûts. Veillez à effectuer des recherches pour éviter d’avoir des effets inattendus.  Application Insights, concentrateur d’événements, et le stockage Azure ont des coûts distincts liés à l’ingestion et l’heure stockée. En particulier, le stockage Azure conserve toutes les données indéfiniment vous pouvez donc purger les données plus anciennes après un certain laps de temps à réduire vos coûts.    
 
 ## <a name="versioning-and-configuration-schema"></a>Contrôle de version et schéma de configuration
 Consultez [Versions et historique des schémas de configuration de l’extension Azure Diagnostics](diagnostics-extension-schema.md).

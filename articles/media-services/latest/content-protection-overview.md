@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: cc32338a69953c49efad4a206a974ac4523923e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894136"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
 
@@ -27,51 +27,67 @@ Vous pouvez utiliser Azure Media Services pour sécuriser votre contenu multimé
 
 L’image suivante illustre le flux de travail de protection du contenu Media Services : 
 
-![Protéger du contenu](./media/content-protection/content-protection.png)
+![Protéger du contenu](./media/content-protection/content-protection.svg)
 
 &#42; *le chiffrement dynamique prend en charge les standards AES-128 « clé en clair », CBCS et CENC. Pour plus d’informations, consultez la matrice de prise en charge [ici](#streaming-protocols-and-encryption-types).*
 
-Cet article explique les concepts et la terminologie pertinents pour comprendre la protection du contenu avec Media Services. Il comporte également une section [FAQ](#faq) et fournit des liens d’accès aux articles indiquant comment protéger le contenu. 
+Cet article explique les concepts et la terminologie pertinents pour comprendre la protection du contenu avec Media Services.
 
-## <a name="main-components-of-the-content-protection-system"></a>Principaux composants du système de protection du contenu
+## <a name="main-components-of-a-content-protection-system"></a>Principaux composants d’un système de protection du contenu
 
 Pour mener à bien votre conception de système/d’application de « protection de contenu », vous devez comprendre pleinement l’étendue de l’effort. La liste suivante donne un aperçu des trois éléments que vous devez implémenter. 
 
 1. Code Azure Media Services
   
-  * Configurez les modèles de licence pour PlayReady, Widevine et/ou FairPlay. Les modèles vous permettent de configurer les droits et autorisations pour chacun des DRM utilisés.
-  * Définissez l'autorisation de remise de licence, spécifiant la logique de vérification d’autorisation basée sur les revendications dans JWT.
-  * Configurer le chiffrement DRM en spécifiant les clés de contenu et les protocoles diffusion en continu à utiliser.
+   Le [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) exemple vous montre comment implémenter le système multi-DRM avec Media Services v3 et également utiliser le service de remise/clé de licence Media Services. Vous pouvez chiffrer chaque ressource avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison.
+  
+   Cet exemple indique comment effectuer les opérations suivantes :
 
-  > [!NOTE]
-  > Vous pouvez chiffrer chaque ressource avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison.
+   1. Créer et configurer [des stratégies de clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+
+      * Définissez l'autorisation de remise de licence, spécifiant la logique de vérification d’autorisation basée sur les revendications dans JWT.
+      * Configurer le chiffrement DRM en spécifiant la clé de contenu.
+      * Configurer [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), et/ou [FairPlay](fairplay-license-overview.md) licences. Les modèles vous permettent de configurer les droits et autorisations pour chacun des DRM utilisés.
+
+        ```
+        ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+        ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+        ```
+   2. Créer un [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators) qui est configuré pour diffuser la ressource chiffrée. 
   
-  Les articles suivants décrivent les étapes pour chiffrer du contenu avec AES et/ou DRM : 
-  
-  * [Protection avec le chiffrement AES](protect-with-aes128.md)
-  * [Protéger avec DRM](protect-with-drm.md)
+      Le **localisateur de diffusion en continu** a à associer à un [stratégie de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingpolicies). Dans l’exemple, nous avons défini StreamingLocator.StreamingPolicyName à la stratégie « Predefined_MultiDrmCencStreaming ». Cette stratégie indique que nous voulons pour les deux clés de contenu (enveloppe et CENC) pour obtenir généré et définir sur le localisateur. Par conséquent, les chiffrements d’enveloppe, de PlayReady et de Widevine sont appliqués (la clé est envoyée au client de la lecture en fonction des licences DRM configurées). Si vous voulez aussi chiffrer votre flux avec CBCS (FairPlay), utilisez l’élément «Predefined_MultiDrmStreaming».
+    
+      Dans la mesure où nous voulons chiffrer la vidéo, le **stratégie clé de contenu** que nous avons configuré précédemment doit également être associé à la **localisateur de diffusion en continu**. 
+    
+   3. Créer un jeton de test.
+
+      La méthode **GetTokenAsync** indique comment créer un jeton de test.
+   4. Générer l’URL de diffusion en continu.
+
+      La méthode **GetDASHStreamingUrlAsync** indique comment générer l’URL de diffusion en continu. Dans le cas présent, l’URL diffuse en continu le flux **DASH**.
 
 2. Lecteur avec client AES ou DRM. Une application de lecteur vidéo basée sur un kit de développement logiciel du lecteur (natif ou dans le navigateur) doit remplir les conditions suivantes :
-  * Le Kit de développement logiciel du lecteur prend en charge les clients DRM nécessaires
-  * Le Kit de développement logiciel du lecteur prend en charge les protocoles de diffusion en continu requis : Smooth, DASH et/ou HLS
-  * Le Kit de développement logiciel du lecteur doit être en mesure de gérer le passage d’un jeton JWT lors de la requête d’acquisition de licence
+   * Le Kit de développement logiciel du lecteur prend en charge les clients DRM nécessaires
+   * Le Kit de développement logiciel du lecteur prend en charge les protocoles de diffusion en continu requis : Smooth, DASH et/ou HLS
+   * Le Kit de développement logiciel du lecteur doit être en mesure de gérer le passage d’un jeton JWT lors de la requête d’acquisition de licence
   
-    Vous pouvez créer un lecteur à l’aide de [l’API Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Utilisez [l’API ProtectionInfo d’Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) pour spécifier la technologie DRM à utiliser sur d’autres plateformes DRM.
+     Vous pouvez créer un lecteur à l’aide de [l’API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Utilisez [l’API ProtectionInfo d’Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) pour spécifier la technologie DRM à utiliser sur d’autres plateformes DRM.
 
-    Pour tester du contenu chiffré par AES ou CENC (Widevine et/ou PlayReady), vous pouvez utiliser le [lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Veillez à cliquer sur Options avancées et vérifiez vos options de chiffrement.
+     Pour tester du contenu chiffré par AES ou CENC (Widevine et/ou PlayReady), vous pouvez utiliser le [lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Veillez à cliquer sur Options avancées et vérifiez vos options de chiffrement.
 
-    Si vous souhaitez tester le contenu chiffré de FairPlay, utilisez [ce lecteur test](https://aka.ms/amtest). Le lecteur prend en charge les DRM Widevine, PlayReady et FairPlay, ainsi que le chiffrement de clé en clair AES-128. 
+     Si vous souhaitez tester le contenu chiffré de FairPlay, utilisez [ce lecteur test](https://aka.ms/amtest). Le lecteur prend en charge les DRM Widevine, PlayReady et FairPlay, ainsi que le chiffrement de clé en clair AES-128. 
     
-    Vous devez choisir le navigateur approprié pour tester les différents systèmes DRM : Chrome/Opera/Firefox pour Widevine, Microsoft Edge/IE11 pour PlayReady, Safari sur macOS pour FairPlay.
+     Vous devez choisir le navigateur approprié pour tester les différents systèmes DRM : Chrome/Opera/Firefox pour Widevine, Microsoft Edge/IE11 pour PlayReady, Safari sur macOS pour FairPlay.
 
 3. Secure Token Service (STS), qui émet le jeton JSON Web Token (JWT) en tant que jeton d’accès pour accéder aux ressources principales. Vous pouvez utiliser les services de distribution de licence AMS en tant que ressource principale. Un service STS doit définir les éléments suivants :
 
-  * L’émetteur et l’audience (ou l’étendue)
-  * Les revendications, qui dépendent des exigences de l’activité concernant la protection du contenu
-  * La vérification symétrique ou asymétrique pour vérifier la signature
-  * La prise en charge de substitution de clé (si nécessaire)
+   * L’émetteur et l’audience (ou l’étendue)
+   * Les revendications, qui dépendent des exigences de l’activité concernant la protection du contenu
+   * La vérification symétrique ou asymétrique pour vérifier la signature
+   * La prise en charge de substitution de clé (si nécessaire)
 
-    Vous pouvez utiliser [cet outil STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) pour tester STS, qui prend en charge les 3 types de clés de vérification : symétriques, asymétriques ou Azure AD avec substitution de clé. 
+     Vous pouvez utiliser [cet outil STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) pour tester STS, qui prend en charge les 3 types de clés de vérification : symétriques, asymétriques ou Azure AD avec substitution de clé. 
 
 > [!NOTE]
 > Nous recommandons fortement de tester chaque partie (décrite plus haut) entièrement et une par une, avant de passer à la partie suivante. Pour tester votre système de « protection de contenu », utilisez les outils spécifiés dans la liste ci-dessus.  
@@ -81,7 +97,7 @@ Pour mener à bien votre conception de système/d’application de « protectio
 Vous pouvez utiliser Media Services pour transmettre du contenu chiffré de manière dynamique avec le chiffrement à clé en clair AES ou DRM en utilisant PlayReady, Widevine ou Apple FairPlay. Actuellement, vous pouvez chiffrer les formats de diffusion en continu HLS (HTTP Live Streaming), MPEG DASH et Smooth Streaming. Chaque protocole prend en charge les méthodes de chiffrement suivantes :
 
 |Protocole|Format de conteneur|Schéma de chiffrement|
-|---|---|---|---|
+|---|---|---|
 |MPEG-DASH|Tous|AES|
 ||CSF(fmp4) |CENC (Widevine + PlayReady) |
 ||CMAF(fmp4)|CENC (Widevine + PlayReady)|
@@ -92,107 +108,65 @@ Vous pouvez utiliser Media Services pour transmettre du contenu chiffré de mani
 |Smooth Streaming|fMP4|AES|
 ||fMP4 | CENC (PlayReady) |
 
-## <a name="dynamic-encryption"></a>Chiffrement dynamique
+## <a name="aes-128-clear-key-vs-drm"></a>Clé en clair AES-128 et DRM
 
-Dans Media Services v3, une clé de contenu est associée à StreamingLocator (consultez [cet exemple](protect-with-aes128.md)). Si vous utilisez le service de remise de clé Media Services, vous devez générer automatiquement la clé de contenu. Vous devez générer la clé de contenu vous-même si vous utilisez votre propre service de remise de clé, ou si vous avez besoin de gérer un scénario de haute disponibilité au cours duquel vous avez besoin d’avoir la même clé de contenu dans deux centres de données.
+Les clients se demandent souvent s’ils devraient utiliser un chiffrement AES ou un système DRM. La principale différence entre les deux systèmes est qu’avec le chiffrement AES la clé de contenu est transmise au client sur TLS afin que la clé est chiffrée en transit, mais sans codage supplémentaire (« en clair »). Par conséquent, la clé utilisée pour déchiffrer le contenu est accessible à l’acteur de client et peut être affichée dans une trace réseau sur le client en texte brut. Le chiffrement avec une clé en clair AES-128 convient à des cas d’utilisation dans lesquels l’observateur est fiable (par exemple, le chiffrement de vidéos d’entreprise distribuées dans une société et destinées aux employés).
+
+Systèmes DRM comme PlayReady, Widevine et FairPlay que fournissent tous un niveau supplémentaire de chiffrement sur la clé utilisée pour déchiffrer le contenu par rapport à la clé en clair AES-128. La clé de contenu est chiffrée à une clé protégée par le runtime DRM dans supplémentaires pour le chiffrement au niveau de n’importe quel transport fourni par TLS. De plus, le déchiffrement est pris en charge dans un environnement sécurisé au niveau du système d’exploitation, où il est plus difficile pour un utilisateur malintentionné de commettre une attaque. DRM est recommandé dans des cas d’utilisation où l’observateur peut ne pas être fiable et où donc un niveau de sécurité supérieur est requis.
+
+## <a name="dynamic-encryption-and-key-delivery-service"></a>Chiffrement dynamique et du service de remise de clé
+
+Dans Media Services v3, une clé de contenu est associée avec un localisateur de diffusion en continu (consultez [cet exemple](protect-with-aes128.md)). Si vous utilisez le service de remise de clé Media Services, vous pouvez laisser Azure Media Services pour générer la clé de contenu pour vous. Vous devez générer la clé de contenu vous-même si vous utilisez votre propre service de remise de clé, ou si vous avez besoin de gérer un scénario de haute disponibilité au cours duquel vous avez besoin d’avoir la même clé de contenu dans deux centres de données.
 
 Lorsqu’un flux est demandé par un lecteur, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement de clé en clair AES ou DRM. Pour déchiffrer le flux, le lecteur demande la clé au service de remise des clés Media Services, ou au service de remise des clés que vous avez spécifié. Pour déterminer si l’utilisateur est autorisé ou non à obtenir la clé, le service évalue la stratégie de clé de contenu que vous avez spécifiée pour la clé.
 
-## <a name="aes-128-clear-key-vs-drm"></a>Clé en clair AES-128 et DRM
+Media Services fournit un service de remise de licences DRM (PlayReady, Widevine, FairPlay) et de clés AES aux clients autorisés. Vous pouvez utiliser l’API REST ou le la bibliothèque de client Media Services pour configurer des stratégies d’authentification et d’autorisation pour vos licences et vos clés.
 
-Les clients se demandent souvent s’ils devraient utiliser un chiffrement AES ou un système DRM. La principale différence entre les deux systèmes est qu’avec le chiffrement AES, la clé de contenu est transmise au client dans un format non chiffré (« en clair »). Par conséquent, la clé utilisée pour chiffrer le contenu peut être affichée dans la trace réseau du client en texte en clair. Le chiffrement avec une clé en clair AES-128 convient à des cas d’utilisation dans lesquels l’observateur est fiable (par exemple, le chiffrement de vidéos d’entreprise distribuées dans une société et destinées aux employés).
+### <a name="custom-key-and-license-acquisition-url"></a>URL d’acquisition de licence et de clé personnalisée
 
-PlayReady, Widevine et FairPlay offrent tous un haut niveau de chiffrement comparé au chiffrement à clé en clair AES-128. La clé de contenu est transmise dans un format chiffré. De plus, le déchiffrement est pris en charge dans un environnement sécurisé au niveau du système d’exploitation, où il est plus difficile pour un utilisateur malintentionné de commettre une attaque. DRM est recommandé dans des cas d’utilisation où l’observateur peut ne pas être fiable et où donc un niveau de sécurité supérieur est requis.
+Utilisez les modèles suivants si vous souhaitez spécifier un autre clé licence service de remise et (pas de Media Services). Les deux champs remplaçables dans les modèles sont là pour que vous pouvez partager votre stratégie de diffusion en continu sur les nombreuses ressources au lieu de créer une stratégie de diffusion en continu par bien. 
 
+* EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate - modèle pour l’URL du service personnalisé distribution de clés aux joueurs de l’utilisateur final. Pas nécessaire lors de l’utilisation d’Azure Media Services pour l’émission de clés. Le modèle prend en charge les jetons remplaçables par le service met à jour lors de l’exécution avec la valeur spécifique à la demande.  Les valeurs de jeton actuellement prises en charge sont {AlternativeMediaId}, qui est remplacé par la valeur de StreamingLocatorId.AlternativeMediaId et {ContentKeyId}, qui est remplacé par la valeur de l’identificateur de la clé demandée.
+* StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate - modèle pour l’URL du service personnalisé distribution de licences aux joueurs de l’utilisateur final. Pas nécessaire lors de l’utilisation d’Azure Media Services pour émettre des licences. Le modèle prend en charge les jetons remplaçables par le service met à jour lors de l’exécution avec la valeur spécifique à la demande. Les valeurs de jeton actuellement prises en charge sont {AlternativeMediaId}, qui est remplacé par la valeur de StreamingLocatorId.AlternativeMediaId et {ContentKeyId}, qui est remplacé par la valeur de l’identificateur de la clé demandée. 
+* StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate - comme ci-dessus, uniquement pour Widevine. 
+* StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate - comme ci-dessus, uniquement pour FairPlay.  
+
+Par exemple : 
+
+```csharp
+streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
+```
+
+Le `ContentKeyId` a la valeur de la clé demandée et la `AlternativeMediaId` peut être utilisé si vous souhaitez mapper la requête à une entité de votre côté. Par exemple, le `AlternativeMediaId` peut être utilisé pour vous aider à rechercher des autorisations.
+
+Pour des exemples REST qui utilisent personnalisé de clé et l’URL d’acquisition de licence, consultez [créer des stratégies de diffusion en continu -](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
+
+## <a name="control-content-access"></a>Contrôle de l’accès au contenu
+
+Vous pouvez contrôler qui a accès à votre contenu en configurant la stratégie d’autorisation de clé de contenu. Media Services prend en charge plusieurs méthodes d’autorisation des utilisateurs effectuant des demandes de clé. Vous devez configurer la stratégie de clé de contenu. Le client (lecteur) doit répondre à la stratégie avant que la clé de contenu ne puisse lui être remise. La stratégie de clé de contenu peut contenir une restriction **ouverte** ou **de jeton**. 
+
+Avec une stratégie de clé de contenu de jeton, la clé de contenu n’est envoyée qu’à un client qui présente un JSON Web Token (JWT) ou Simple Web Token (SWT) valide dans la requête de clé/licence. Ce jeton doit être émis par un service d’émission de jeton de sécurité (STS). Vous pouvez utiliser Azure Active Directory en tant que STS ou déployer un STS personnalisé. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé Media Services retourne la clé/licence demandée au client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé/licence.
+
+Quand vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres de clé de vérification, émetteur et audience principaux. La clé de vérification principale contient le jeton avec lequel la clé a été signée. L’émetteur est le service STS qui émet le jeton. L’audience, parfois appelé étendue, décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
+
+Les clients utilisent souvent un STS personnalisé pour inclure des revendications personnalisées dans le jeton à choisir entre différents ContentKeyPolicyOptions avec différents paramètres de licence DRM (une licence d’abonnement par rapport à une licence de location) ou pour inclure une revendication représentant la clé de contenu identificateur de la clé du jeton accorde l’accès.
+ 
 ## <a name="storage-side-encryption"></a>Chiffrement côté stockage
 
 Pour protéger vos éléments au repos, les ressources doivent être chiffrées par le chiffrement côté stockage. Le tableau suivant montre comment fonctionne le chiffrement côté stockage dans Media Services v3 :
 
 |Option de chiffrement|Description|Media Services v3|
-|---|---|---|---|
+|---|---|---|
 |Chiffrement du stockage de Media Services| Chiffrement AES-256, clé gérée par Media Services|Non pris en charge<sup>(1)</sup>|
 |[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client|Pris en charge|
 |[Chiffrement de stockage côté client](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés|Non pris en charge|
 
 <sup>1</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que la version v3 fonctionne avec les ressources chiffrées du stockage existant mais qu’elle n’autorisera pas de nouvelles créations.
 
-## <a name="licenses-and-keys-delivery-service"></a>Service de remise de licences et de clés
-
-Media Services fournit un service de remise de licences DRM (PlayReady, Widevine, FairPlay) et de clés AES aux clients autorisés. Vous pouvez utiliser l’API REST ou le la bibliothèque de client Media Services pour configurer des stratégies d’authentification et d’autorisation pour vos licences et vos clés.
-
-## <a name="control-content-access"></a>Contrôle de l’accès au contenu
-
-Vous pouvez contrôler qui a accès à votre contenu en configurant la stratégie d’autorisation de clé de contenu. Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. Vous devez configurer la stratégie de clé de contenu. Le client (lecteur) doit répondre à la stratégie avant que la clé de contenu ne puisse lui être remise. La stratégie de clé de contenu peut contenir une restriction **ouverte** ou **de jeton**. 
-
-Avec une stratégie de clé de contenu de jeton, la clé de contenu n’est envoyée qu’à un client qui présente un JSON Web Token (JWT) ou Simple Web Token (SWT) valide dans la requête de clé/licence. Ce jeton doit être émis par un service d’émission de jeton de sécurité (STS). Vous pouvez utiliser Azure Active Directory en tant que STS ou déployer un STS personnalisé. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé Media Services retourne la clé/licence demandée au client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé/licence.
-
-Quand vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres de clé de vérification, émetteur et audience principaux. La clé de vérification principale contient le jeton avec lequel la clé a été signée. L’émetteur est le service STS qui émet le jeton. L’audience, parfois appelé étendue, décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
-
-## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>Forum Aux Questions (FAQ)
-
-### <a name="question"></a>Question
-
-Comment implémenter un système multi-DRM (PlayReady, Widevine et FairPlay) à l’aide d’Azure Media Services (AMS) v3 tout en utilisant le service AMS de livraison de licences/clés ?
-
-### <a name="answer"></a>Réponse
-
-Pour découvrir un scénario de bout en bout, consultez [l’exemple de code suivant](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
-
-Cet exemple indique comment effectuer les opérations suivantes :
-
-1. Créer et configurer ContentKeyPolicies.
-
-  L’exemple contient des fonctions qui configurent des licences [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md) et [FairPlay](fairplay-license-overview.md).
-
-    ```
-    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
-    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
-    ```
-
-2. Créer un élément StreamingLocator configuré pour diffuser en continu un élément multimédia chiffré. 
-
-  Par exemple, vous pouvez définir StreamingLocator.StreamingPolicyName sur la stratégie « Predefined_MultiDrmCencStreaming ». Cette stratégie indique que vous souhaitez que deux clés de contenu (enveloppe et CENC) soient générées et définies sur le localisateur. Par conséquent, les chiffrements d’enveloppe, de PlayReady et de Widevine sont appliqués (la clé est envoyée au client de la lecture en fonction des licences DRM configurées). Si vous voulez aussi chiffrer votre flux avec CBCS (FairPlay), utilisez l’élément «Predefined_MultiDrmStreaming».
-
-3. Créer un jeton de test.
-
-  La méthode **GetTokenAsync** indique comment créer un jeton de test.
-  
-4. Générer l’URL de diffusion en continu.
-
-  La méthode **GetDASHStreamingUrlAsync** indique comment générer l’URL de diffusion en continu. Dans le cas présent, l’URL diffuse en continu le flux **DASH**.
-
-### <a name="question"></a>Question
-
-Comment et où obtenir un jeton JWT avant de l’utiliser pour demander une licence ou une clé ?
-
-### <a name="answer"></a>Réponse
-
-1. Pour un environnement de production, vous devez disposer d’un service d’émission de jeton de sécurité (STS) (service web) qui émet un jeton JWT en réponse à une requête HTTPS. Dans le cas d’un environnement de test, vous pouvez utiliser le code figurant dans la méthode **GetTokenAsync** définie dans [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
-2. Après l’authentification d’un utilisateur, le lecteur doit adresser une requête au service STS afin d’obtenir ce jeton et l’attribuer comme valeur de jeton. Vous pouvez utiliser [l’API Lecteur multimédia Azure](https://amp.azure.net/libs/amp/latest/docs/).
-
-* Pour obtenir un exemple d’exécution de service STS, avec une clé symétrique ou asymétrique, accédez à l’adresse [http://aka.ms/jwt](https://aka.ms/jwt). 
-* Pour découvrir un exemple de lecteur basé sur le Lecteur multimédia Azure utilisant ce type de jeton JWT, accédez à l’adresse [http://aka.ms/amtest](https://aka.ms/amtest) (développez le lien « player_settings » pour voir l’entrée de jeton).
-
-### <a name="question"></a>Question
-
-Comment autoriser les requêtes de diffusion en continu de vidéos avec chiffrement AES ?
-
-### <a name="answer"></a>Réponse
-
-L’approche correcte consiste à tirer profit du service STS :
-
-Dans STS, en fonction du profil utilisateur, ajoutez différentes revendications (par exemple, « Utilisateur Premium », « Utilisateur de la version de base », « Utilisateur de la version d’évaluation gratuite »). La définition de différentes revendications dans un jeton JWT permet à l’utilisateur de visualiser des contenus distincts. Bien entendu, dans le cas d’un contenu/élément multimédia différent, l’élément ContentKeyPolicyRestriction disposera des RequiredClaims correspondants.
-
-Utilisez l’API Azure Media Services pour la configuration de la livraison de licences/clés et pour le chiffrement de vos éléments multimédias (comme indiqué dans [cet exemple](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les articles suivants :
-
-  * [Protection avec le chiffrement AES](protect-with-aes128.md)
-  * [Protéger avec DRM](protect-with-drm.md)
-
-Vous trouverez des informations supplémentaires dans [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](design-multi-drm-system-with-access-control.md).
-
+* [Protection avec le chiffrement AES](protect-with-aes128.md)
+* [Protéger avec DRM](protect-with-drm.md)
+* [Concevoir le système de protection du contenu de multi-drm avec contrôle d’accès](design-multi-drm-system-with-access-control.md)
+* [Forum Aux Questions](frequently-asked-questions.md)
 

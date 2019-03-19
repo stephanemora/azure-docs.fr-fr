@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082804"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel décrit la restauration d’un appareil de la gamme StorSimple 8000 à l’aide d’un jeu de sauvegarde existant. Utilisez le panneau **Catalogue de sauvegarde** pour restaurer un volume à partir d’une sauvegarde locale ou cloud. Le panneau **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. L’opération de restauration à partir d’un jeu de sauvegarde met le volume en ligne immédiatement pendant le téléchargement des données en arrière-plan.
 
@@ -110,9 +110,9 @@ Vous pouvez utiliser le panneau **Catalogue de sauvegarde** pour restaurer votre
    3. Dans la liste déroulante, choisissez la stratégie de sauvegarde ou le volume pour la sauvegarde à sélectionner.
    4. Cliquez sur **Appliquer** pour exécuter cette requête.
 
-    Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
+      Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
    
-    ![Liste des jeux de sauvegarde](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Liste des jeux de sauvegarde](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. Développez le jeu de sauvegarde pour afficher les volumes associés. Ces volumes doivent être mis hors connexion sur l’hôte et l’appareil avant leur restauration. Accédez aux volumes dans le panneau **Volumes** de votre appareil, puis suivez les étapes de la rubrique [Mise hors connexion d’un volume](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) pour les mettre hors connexion.
    
@@ -127,9 +127,9 @@ Vous pouvez utiliser le panneau **Catalogue de sauvegarde** pour restaurer votre
    
     ![Page Confirmation](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Cliquez sur **Restaurer**. Cette opération lance une tâche de restauration que vous pouvez afficher en accédant à la page **Tâches**.
+7. Cliquez sur **Restaurer**. Cette opération lance une tâche de restauration que vous pouvez afficher en accédant à la page **Tâches**.
 
-    ![Page Confirmation](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Page Confirmation](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Une fois la restauration terminée, vérifiez que le contenu de vos volumes a été remplacé par les volumes provenant de la sauvegarde.
 

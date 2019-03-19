@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: c9524396376f3de7d9468d94e3236929aadd374c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463913"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998000"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutoriel : Améliorer la réponse d’un site web à l’aide de Traffic Manager
 
@@ -34,7 +34,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour afficher Traffic Manager en action, ce didacticiel requiert que vous déployiez les éléments suivants :
 - Deux instances de sites web de base exécutées dans différentes régions Azure : **USA Est** et **Europe Ouest**.
 - Deux machines virtuelles de test pour tester Traffic Manager : une machine virtuelle dans la région **USA Est** et la seconde dans la région **Europe Ouest**. Les machines virtuelles de test permettent d’illustrer la façon dont Traffic Manager achemine le trafic utilisateur vers le site web qui est exécuté dans la même région, car il fournit la latence la plus faible.
@@ -57,12 +57,13 @@ Dans cette section, vous allez créer deux machines virtuelles *myIISVMEastUS* e
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myIISVMEastUS|
+    |Nom|myIISVMEastUS|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Groupe de ressources| Sélectionnez **Nouveau**, puis tapez *myResourceGroupTM1*.|
     |Lieu| Sélectionnez **USA Est**.|
     |||
+
 4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
 5. Dans **Paramètres**, sélectionnez les valeurs suivantes, puis sélectionnez **OK** :
     
@@ -72,6 +73,7 @@ Dans cette section, vous allez créer deux machines virtuelles *myIISVMEastUS* e
     |Groupe de sécurité réseau|Sélectionnez **De base**, puis, dans la liste déroulante **Sélectionner des ports d’entrée publics**, sélectionnez **HTTP** et **RDP**. |
     |Diagnostics de démarrage|Sélectionnez **Désactivé**.|
     |||
+
 6. Sous **Créer** dans **Résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
 
 7. Effectuez à nouveau les étapes 1 à 6, avec les modifications suivantes :
@@ -83,6 +85,7 @@ Dans cette section, vous allez créer deux machines virtuelles *myIISVMEastUS* e
     |Nom de la machine virtuelle | myIISVMWEurope|
     |Réseau virtuel | Sélectionnez **Réseau virtuel**, puis, dans **Créer un réseau virtuel**, pour le champ **Nom**, entrez *myVNet2*, et pour le sous-réseau, entrez *mySubnet*.|
     |||
+
 8. La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux étapes restantes.
 
    ![Créer une machine virtuelle](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -115,7 +118,7 @@ Dans cette section, vous allez installer le serveur IIS sur les deux machines vi
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configurer les noms DNS des machines virtuelles exécutant IIS
 
-Traffic Manager achemine le trafic utilisateur en fonction du nom DNS des points de terminaison de service. Dans cette section, vous allez configurer les noms DNS des serveurs IIS *myIISVMEastUS* et *myIISVMWEurope*.
+Traffic Manager achemine le trafic utilisateur en fonction du nom DNS des points de terminaison de service. Dans cette section, vous configurez les noms DNS des serveurs IIS *myIISVMEastUS* et *myIISVMWEurope*.
 
 1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis, dans la liste de ressources, sélectionnez *myIISVMEastUS* qui se trouve dans le groupe de ressources *myResourceGroupTM1*.
 2. Dans la page **Vue d’ensemble**, sous **Nom DNS**, sélectionnez **Configurer**.
@@ -131,7 +134,7 @@ Dans cette section, vous allez créer une machine virtuelle (*mVMEastUS* et *myV
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVMEastUS|
+    |Nom|myVMEastUS|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Groupe de ressources| Sélectionnez **Existant**, puis *myResourceGroupTM1*.|
@@ -139,6 +142,7 @@ Dans cette section, vous allez créer une machine virtuelle (*mVMEastUS* et *myV
 
 4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
 5. Dans **Paramètres**, sélectionnez les valeurs suivantes, puis sélectionnez **OK** :
+
     |Paramètre|Valeur|
     |---|---|
     |Réseau virtuel| Sélectionnez **Réseau virtuel**, puis, dans **Créer un réseau virtuel**, pour le champ **Nom**, entrez *myVNet3*, et pour le sous-réseau, entrez *mySubnet*.|
@@ -164,9 +168,10 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en l’envoyan
 
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Dans **Créer un profil Traffic Manager**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
+
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | NOM                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
+    | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Performances**.                                       |
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Groupe de ressources          | Sélectionnez **Créer** et entrez *myResourceGroupTM1*. |
@@ -185,8 +190,8 @@ Ajoutez les deux machines virtuelles exécutant les serveurs IIS, *myIISVMEastUS
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | type                    | Point de terminaison Azure                                   |
-    | NOM           | myEastUSEndpoint                                        |
+    | Type                    | Point de terminaison Azure                                   |
+    | Nom           | myEastUSEndpoint                                        |
     | Type de ressource cible           | Adresse IP publique                          |
     | Ressource cible          | Sélectionnez **Choisir une adresse IP publique** pour afficher la liste des ressources pourvues d’adresses IP publiques dans le même abonnement. Dans **Ressource**, sélectionnez l’adresse IP publique nommée *myIISVMEastUS-ip*. Il s’agit de l’adresse IP publique de la machine virtuelle serveur IIS qui se trouve dans la région USA Est.|
     |        |           |

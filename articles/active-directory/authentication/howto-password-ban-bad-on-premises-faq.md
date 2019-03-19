@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901353"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Aperçu : Protection par mot de passe Azure AD en local - Questions fréquentes (FAQ)
 
@@ -26,10 +26,6 @@ ms.locfileid: "56455532"
 |     |
 
 ## <a name="general-questions"></a>Questions générales
-
-**Q : Quand la fonctionnalité de protection par mot de passe Azure AD sera-t-elle en disponibilité générale (GA) ?**
-
-La disponibilité générale est planifiée pour le premier trimestre 2019 (d’ici la fin mars 2019). Nous remercions celles et ceux qui nous ont fait part de leurs commentaires sur cette fonctionnalité !
 
 **Q : Quels conseils donner aux utilisateurs sur la façon de sélectionner un mot de passe sécurisé ?**
 
@@ -44,6 +40,14 @@ Non. La protection par mot de passe Azure AD en local est prise en charge unique
 **Q : Comment puis-je appliquer des avantages de la protection par mot de passe Azure AD à un sous-ensemble de mes utilisateurs en local ?**
 
 Non pris en charge. Une fois déployée et activée, la protection par mot de passe Azure AD ne fait pas de distinction : tous les utilisateurs reçoivent les mêmes avantages en matière de protection.
+
+**Q : Quelle est la différence entre une modification de mot de passe et un mot de passe défini (ou réinitialiser) ?**
+
+Une modification de mot de passe est lorsqu’un utilisateur choisit un nouveau mot de passe après prouvant qu’ils ont connaissance de l’ancien mot de passe. Il s’agit par exemple, que se passe-t-il lorsqu’un utilisateur se connecte à Windows et est invité à choisir un nouveau mot de passe.
+
+Un ensemble de mot de passe (parfois appelé une réinitialisation de mot de passe) est lorsqu’un administrateur remplace le mot de passe sur un compte avec un nouveau mot de passe, par exemple à l’aide de l’outil de gestion Active Directory Users and Computers. Cette opération requiert un niveau élevé de privilèges (généralement des administrateurs de domaine), et la personne qui effectue l’opération généralement n’a pas connaissance de l’ancien mot de passe. Scénarios de support technique est souvent le cas, par exemple lorsque aider un utilisateur qui a oublié son mot de passe. Vous verrez également de mot de passe défini des événements lorsqu’un nouveau compte d’utilisateur est créé pour la première fois avec un mot de passe.
+
+La stratégie de validation de mot de passe comporte les mêmes indépendamment de si une modification de mot de passe ou un ensemble est effectuée. Le service Agent de mot de passe Azure AD DC de Protection consigne différents événements afin de vous informer si une modification de mot de passe ou l’opération ensembliste a été effectuée.  Consultez [Protection de mot de passe Azure AD analyse et la journalisation](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **Q : L’installation de la protection par mot de passe Azure AD simultanément avec d’autres produits basés sur le filtrage par mot de passe est-elle prise en charge ?**
 
@@ -82,6 +86,10 @@ Cette exigence est due à un comportement de base de Windows.
 **Q : Est-il possible de déployer le service proxy de la protection par mot de passe Azure AD, côte à côte avec d’autres services, comme Azure AD Connect ?**
 
 Oui. Azure AD Connect et le service proxy de la protection par mot de passe Azure AD n’entrent jamais en conflit directement.
+
+**Q : Dans quel ordre doivent les agents de contrôleur de domaine et les proxys d’être installés et inscrit ?**
+
+N’importe quel ordre d’installation de l’agent Proxy, installation de l’agent contrôleur de domaine, l’inscription de forêt et l’inscription du Proxy est prise en charge.
 
 **Q : Dois-je me préoccuper des performances obtenues sur mes contrôleurs de domaine avant de déployer cette fonctionnalité ?**
 

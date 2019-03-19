@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Work.com | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Work.com | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Work.com.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891567"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Didacticiel : Intégration d'Azure Active Directory à Work.com
+# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutoriel : Intégration d'Azure Active Directory à Work.com
 
 Dans ce didacticiel, vous allez apprendre à intégrer Work.com dans Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Work.com dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Work.com, vous avez besoin des éléments suivants :
 
@@ -262,9 +262,9 @@ Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit �
     
     c. Dans la zone de texte **Alias**, entrez l’**alias** de l’utilisateur **BrittaS**.
     
-    d. Dans la zone de texte **E-mail**, tapez l’**adresse e-mail** de l’utilisateur, **Brittasimon@contoso.com**.
+    d. Dans le **E-mail** zone de texte, tapez le **adresse de messagerie** de l’utilisateur **Brittasimon\@contoso.com**.
     
-    e. Dans la zone de texte **Nom d’utilisateur**, entrez un nom d’utilisateur, par exemple **Brittasimon@contoso.com**.
+    e. Dans le **nom d’utilisateur** zone de texte, tapez un nom d’utilisateur de l’utilisateur comme **Brittasimon\@contoso.com**.
     
     f. Dans la zone de texte **Surnom**, entrez un **surnom**, par exemple **Simon**.
     
