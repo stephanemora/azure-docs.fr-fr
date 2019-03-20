@@ -6,27 +6,41 @@ items:
     href: what-is-acoustics.md
 - name: Démarrages rapides
   items:
-  - name: Mise en route
-    href: getting-started.md
+  - name: Démarrage rapide avec Unity
+    href: unity-quickstart.md
+  - name: Démarrage rapide avec Unreal
+    href: unreal-quickstart.md
+- name: Tutoriels
+  items:
+  - name: Workflow de conception Unity
+    href: unity-workflow.md
+  - name: Workflow de conception Unreal/Wwise
+    href: unreal-workflow.md
+  - name: Bake Acoustics avec Unity
+    href: unity-baking.md
+  - name: Bake Acoustics avec Unreal/Wwise
+    href: unreal-baking.md
+- name: Concepts
+  items:
+  - name: Principes de conception avec simulation acoustique
+    href: design-process.md
 - name: Procédures
   items:
   - name: Créer un compte Azure Batch
     href: create-azure-account.md
-  - name: Bake Acoustics
-    href: bake-ui-walkthrough.md
-  - name: Design Acoustics
-    href: design-process.md
+  - name: Intégrer Project Acoustics à Unity
+    href: unity-integration.md
+  - name: Intégrer Project Acoustics à Unreal/Wwise
+    href: unreal-integration.md
 - name: Ressources
   items:
-  - name: Acoustics Sample Scene
-    href: sample-walkthrough.md
   - name: Forum Aux Questions (FAQ)
     href: faq.md
   - name: Problèmes connus
     href: known-issues.md
-ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181828"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58138217"

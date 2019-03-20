@@ -62,26 +62,29 @@ items:
       href: container-registry-image-lock.md
     - name: Supprimer des images de conteneur
       href: container-registry-delete.md
-    - name: Approbation du contenu (préversion)
-      href: container-registry-content-trust.md
     - name: Mise à niveau d’un registre Classique
       href: container-registry-upgrade.md
     - name: Utiliser des webhooks ACR
       href: container-registry-webhook.md
     - name: Référentiels de graphique Helm (préversion)
       href: container-registry-helm-repos.md
-  - name: Authentication
+  - name: Sécurité et authentification
     items:
+    - name: Limiter l’accès à un réseau virtuel (préversion)
+      href: container-registry-vnet.md
     - name: Vue d’ensemble de l’authentification
       href: container-registry-authentication.md
-    - name: Authentification d’un principal du service
-      href: container-registry-auth-service-principal.md
-    - name: Authentification d’une identité managée
-      href: container-registry-authentication-managed-identity.md
-    - name: Azure Container Instances
-      href: container-registry-auth-aci.md
-    - name: Service Azure Kubernetes (AKS)
-      href: container-registry-auth-aks.md
+      items:
+      - name: Authentification d’un principal du service
+        href: container-registry-auth-service-principal.md
+      - name: Authentification d’une identité managée
+        href: container-registry-authentication-managed-identity.md
+      - name: S’authentifier à partir d’Azure Container Instances
+        href: container-registry-auth-aci.md
+      - name: S’authentifier à partir d’Azure Kubernetes Service (AKS)
+        href: container-registry-auth-aks.md
+    - name: Approbation du contenu (préversion)
+      href: container-registry-content-trust.md
   - name: Création et correctif
     items:
     - name: ACR Tasks
@@ -137,9 +140,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: ef8f6b64129f9dd2f2959c89e93c34b9d90a62f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 732c0f878df9b5d722571bf45e4afd76a3180ebb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137992"

@@ -1,53 +1,60 @@
 items:
-- name: Documentation sur le service de reconnaissance vocale
+- name: Documentation Speech Services
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que le service de reconnaissance vocale ?
+  - name: Qu’est-ce que Speech Services ?
     href: overview.md
-  - name: Essayer le service Speech gratuitement
-    href: get-started.md
+  - name: Reconnaissance vocale
+    displayName: recognize speech, speech recognition, speech-to-text, stt
+    href: speech-to-text.md
+  - name: Synthèse vocale
+    displayName: synthesize speech, speech synthesis, text-to-speech, tts
+    href: text-to-speech.md
+  - name: Traduction vocale
+    displayName: translate speech, speech translation, translator, s2s, speech to speech
+    href: speech-translation.md
   expanded: true
 - name: Démarrages rapides
   items:
-  - name: 'Kit SDK '
+  - name: Kit de développement logiciel (SDK) de reconnaissance vocale
     items:
     - name: Reconnaissance vocale
       items:
       - name: C# (.NET Framework Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-csharp-dotnet-windows.md
       - name: C# (.NET Core Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-csharp-dotnetcore-windows.md
       - name: C# (UWP)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform
         href: quickstart-csharp-uwp.md
       - name: C# (Unity)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, unity 3d, windows, android, universal windows platform, uwp
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, unity 3d, windows, android, universal windows platform, uwp
         href: quickstart-csharp-unity.md
       - name: C++ (Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-cpp-windows.md
       - name: C++ (Linux)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-cpp-linux.md
       - name: Java (Android)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-java-android.md
       - name: Java (Windows, Linux)
-        displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+        displayName: recognize speech, speech recognition, speech-to-text, stt, jre, jvm
         href: quickstart-java-jre.md
       - name: JavaScript (navigateur)
         href: quickstart-js-browser.md
       - name: JavaScript (Node.js)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-js-node.md
       - name: Objective-C (iOS)
-        displayName: recognize speech, speech recognition, speech to text, stt, xcode
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
         href: quickstart-objectivec-ios.md
       - name: Python
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-python.md
     - name: Traduction vocale
       items:
@@ -56,7 +63,7 @@ items:
       - name: C# (.NET Framework Windows)
         href: quickstart-translate-speech-dotnetframework-windows.md
       - name: C# (UWP)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform
         href: quickstart-translate-speech-uwp.md
       - name: C++ (Windows)
         href: quickstart-translate-speech-cpp-windows.md
@@ -64,7 +71,7 @@ items:
         href: quickstart-translate-speech-java-jre.md
   - name: API REST
     items:
-    - name: Convertir la synthèse vocale
+    - name: Synthèse vocale
       items:
       - name: C# (.NET Core)
         href: quickstart-dotnet-text-to-speech.md
@@ -77,68 +84,45 @@ items:
     href: speech-devices-sdk-qsg.md
 - name: Tutoriels
   items:
-  - name: Reconnaissance vocale
-    displayName: recognize speech, speech recognition, speech to text, stt
-    items:
-    - name: C#
-      href: how-to-recognize-speech-csharp.md
-    - name: C++
-      href: how-to-recognize-speech-cpp.md
-    - name: Java
-      href: how-to-recognize-speech-java.md
-    - name: REST
-      href: how-to-recognize-speech-rest.md
-  - name: Reconnaître les intentions vocales
+  - name: Reconnaître les intentions vocales avec LUIS,C#
     displayName: recognize intent, intent recognition, language understanding service, luis
-    items:
-    - name: C#
-      href: how-to-recognize-intents-from-speech-csharp.md
-    - name: C++
-      href: how-to-recognize-intents-from-speech-cpp.md
-    - name: Java
-      href: how-to-recognize-intents-from-speech-java.md
-  - name: Traduction vocale
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
-    items:
-    - name: C#
-      href: how-to-translate-speech-csharp.md
-    - name: C++
-      href: how-to-translate-speech-cpp.md
-    - name: Java
-      href: how-to-translate-speech-java.md
+    href: how-to-recognize-intents-from-speech-csharp.md
 - name: Guides pratiques
   items:
+  - name: S’inscrire à Speech Services
+    href: get-started.md
   - name: Transcription par lot (REST)
-    displayName: recognize speech, speech recognition, speech to text, stt
+    displayName: recognize speech, speech recognition, speech-to-text, stt
     href: batch-transcription.md
-  - name: Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
-    displayName: roobo, speech devices sdk, download
-    href: get-speech-devices-sdk.md
-  - name: Personnaliser
-    items:
-    - name: Personnaliser les modèles acoustiques
-      href: how-to-customize-acoustic-models.md
-    - name: Personnaliser les modèles de langage
-      href: how-to-customize-language-model.md
-    - name: Personnaliser la prononciation
-      href: how-to-customize-pronunciation.md
-    - name: Créer un point de terminaison de reconnaissance vocale personnalisé
-      href: how-to-create-custom-endpoint.md
-    - name: Personnaliser les polices de la voix (voix du chatbot)
-      href: how-to-customize-voice-font.md
-    - name: Personnaliser le mot déclencheur de l’appareil (SDK d’appareil)
-      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-      href: speech-devices-sdk-create-kws.md
-  - name: Enregistrement d’échantillons vocaux
-    href: record-custom-voice-samples.md
-  - name: Préparer les transcriptions
-    href: prepare-transcription.md
-  - name: Utiliser des flux audio personnalisés
+  - name: Consommer des flux d’entrée audio (SDK)
     href: how-to-use-audio-input-streams.md
-  - name: Sélectionner un périphérique d’entrée audio
+  - name: Sélectionner un appareil audio (SDK)
     displayName: audio, microphone, input, device
     href: how-to-select-audio-input-devices.md
-  - name: Migrer
+  - name: Personnalisation
+    items:
+    - name: Reconnaissance vocale
+      items:
+      - name: Préparer les transcriptions à la personnalisation
+        href: prepare-transcription.md
+      - name: Personnaliser les modèles acoustiques
+        href: how-to-customize-acoustic-models.md
+      - name: Personnaliser les modèles de langage
+        href: how-to-customize-language-model.md
+      - name: Personnaliser la prononciation
+        href: how-to-customize-pronunciation.md
+      - name: Créer un point de terminaison de reconnaissance personnalisé
+        href: how-to-create-custom-endpoint.md
+    - name: Synthèse vocale
+      items:
+      - name: Créer des polices de la voix (voix de marque de bot)
+        href: how-to-customize-voice-font.md
+      - name: Enregistrement d’échantillons vocaux
+        href: record-custom-voice-samples.md
+    - name: Créer un mot déclencheur personnalisé (SDK Appareils)
+      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+      href: speech-devices-sdk-create-kws.md
+  - name: Migration
     items:
     - name: À partir de la reconnaissance vocale Bing
       href: how-to-migrate-from-bing-speech.md
@@ -146,19 +130,56 @@ items:
       href: how-to-migrate-from-custom-speech-service.md
     - name: À partir de l'API de traduction de conversation Translator Speech
       href: how-to-migrate-from-translator-speech-api.md
-- name: Concepts
+- name: Exemples
   items:
-  - name: Reconnaissance vocale
-    displayName: recognize speech, speech recognition, speech to text, stt
-    href: speech-to-text.md
-  - name: Synthèse vocale
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: text-to-speech.md
-  - name: Traduction vocale
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
-    href: speech-translation.md
+  - name: Kit de développement logiciel (SDK) de reconnaissance vocale
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+  - name: Kit de développement logiciel (SDK) Speech Devices
+    href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+  - name: Synthèse vocale (REST)
+    href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
+  - name: Transcription par lot (REST)
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
 - name: Informations de référence
   items:
+  - name: Kit de développement logiciel (SDK) de reconnaissance vocale
+    items:
+    - name: Vue d’ensemble
+      displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
+      href: speech-sdk.md
+    - name: Notes de publication
+      href: releasenotes.md
+    - name: C++
+      href: https://aka.ms/csspeech/cppref
+    - name: C#
+      href: https://aka.ms/csspeech/csharpref
+    - name: Java/Android
+      href: https://aka.ms/csspeech/javaref
+    - name: Javascript/Node.js
+      href: https://aka.ms/csspeech/javascriptref
+    - name: Objective-C
+      href: https://aka.ms/csspeech/objectivecref
+    - name: Python
+      href: https://aka.ms/csspeech/pythonref
+  - name: Kit de développement logiciel (SDK) Speech Devices
+    items:
+    - name: Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
+      href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
+    - name: Notes de publication
+      href: devices-sdk-release-notes.md
+  - name: API REST
+    items:
+    - name: Reconnaissance vocale
+      displayName: speech-to-text, speech recognition
+      href: rest-speech-to-text.md
+    - name: Synthèse vocale
+      displayName: text-to-speech, speech synthesis
+      href: rest-text-to-speech.md
+    - name: Transcription par lot et personnalisation
+      displayName: Batch transcription, transcription, custom models, customization, model management
+      href: https://westus.cris.ai/swagger/ui/index
+  - name: SSML (Speech Synthesis Markup Language)
+    href: speech-synthesis-markup.md
   - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
@@ -167,41 +188,22 @@ items:
     href: language-support.md
   - name: Régions
     href: regions.md
-  - name: API REST
-    href: rest-apis.md
-  - name: Informations de référence sur Swagger
-    href: https://westus.cris.ai/swagger/ui/index
-  - name: API du Kit de développement logiciel (SDK) de reconnaissance vocale
-    displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
-    href: speech-sdk-reference.md
-  - name: Balisage de synthèse vocale
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: speech-synthesis-markup.md
 - name: Ressources
   items:
   - name: Forum Aux Questions
     items:
-    - name: FAQ de la reconnaissance vocale
-      displayName: recognize speech, speech recognition, speech to text, stt
+    - name: Reconnaissance vocale
+      displayName: recognize speech, speech recognition, speech-to-text, stt
       href: faq-stt.md
-    - name: FAQ de la synthèse vocale
-      displayName: synthesize speech, speech synthesis, text to speech, tts
+    - name: Synthèse vocale
+      displayName: synthesize speech, speech synthesis, text-to-speech, tts
       href: faq-text-to-speech.md
-    - name: FAQ de Translator
+    - name: Traduction vocale
       displayName: translate speech, speech translation, translator, s2s, speech to speech
       href: https://www.microsoft.com/translator/faq.aspx
-  - name: Kit de développement logiciel (SDK) de reconnaissance vocale
+  - name: Licences du SDK Speech
     displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample
-    href: speech-sdk.md
     items:
-    - name: Téléchargement
-      href: speech-sdk.md#get-the-sdk
-    - name: Exemples
-      href: speech-sdk.md#get-the-samples
-    - name: Expédier votre application
-      href: ship-application.md
-    - name: Notes de publication
-      href: releasenotes.md
     - name: Licence
       href: https://aka.ms/csspeech/license201809
     - name: Mentions tierces
@@ -210,12 +212,6 @@ items:
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk.md
     items:
-    - name: Téléchargement
-      href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
-    - name: Exemples
-      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-    - name: Notes de publication
-      href: devices-sdk-release-notes.md
     - name: Licence
       displayName: roobo, speech devices sdk
       href: speech-devices-sdk-license.md
@@ -232,9 +228,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Confidentialité et cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 096aab6e2b59f8e6846be6ab1446a190df5e8434
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7ca4d35f9db9368af60971a5af66cc1d2c7faaf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961990"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875802"

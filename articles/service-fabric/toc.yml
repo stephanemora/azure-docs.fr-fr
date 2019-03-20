@@ -66,11 +66,13 @@ items:
     items:
     - name: 1- Créer un cluster sur Azure
       href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-    - name: 2 - Mettre le cluster à l’échelle
+    - name: 2- Superviser un cluster
+      href: service-fabric-tutorial-monitor-cluster.md
+    - name: 3- Mettre le cluster à l’échelle
       href: service-fabric-tutorial-scale-cluster.md
-    - name: 3 - Mettre à niveau le runtime du cluster
+    - name: 4- Mettre à niveau l’exécution du cluster
       href: service-fabric-tutorial-upgrade-cluster.md
-    - name: 4- Supprimer un cluster
+    - name: 5- Supprimer un cluster
       href: service-fabric-tutorial-delete-cluster.md
   - name: Créer un cluster autonome sur AWS
     items:
@@ -837,9 +839,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 41e92402762d0adc63f374e49ef86d3e7e060fa5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb1cfedbaf699ff951a03adc47b93332412d1e5a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873840"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225278"

@@ -13,7 +13,7 @@ items:
     href: require-tou.md
   - name: Bloquer l’accès lorsqu’un risque de session est détecté
     href: app-sign-in-risk.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Migrer des stratégies MFA classiques
     href: policy-migration-mfa.md
@@ -27,10 +27,12 @@ items:
     href: location-condition.md
   - name: Commandes
     href: controls.md
+  - name: Dépendances de services
+    href: service-dependencies.md
   - name: Outil de simulation
     href: what-if-tool.md
   expanded: false
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Planifier votre déploiement d’accès conditionnel
     href: plan-conditional-access.md
@@ -63,13 +65,13 @@ items:
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Mises à jour de service
     href: ../fundamentals/whats-new.md
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: dbddb667324cb4724aa9c43e317057306ac4e5a7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: b665cf26d5f292f560ef8b169f970071c9021a7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006142"

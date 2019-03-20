@@ -13,7 +13,7 @@ items:
       href: tutorial-windows-vm-access-arm.md
     - name: Machine virtuelle Linux
       href: tutorial-linux-vm-access-arm.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Machine virtuelle/groupe de machines virtuelles identiques Windows
     items:
@@ -63,7 +63,7 @@ items:
     href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: Azure Container Instances
     href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Configurer des identités gérées sur les machines virtuelles
     items:
@@ -99,6 +99,8 @@ items:
       href: how-to-use-vm-sign-in.md
     - name: Utilisation avec les kits de développement logiciels (SDK) Azure
       href: how-to-use-vm-sdk.md
+    - name: Cesser d’utiliser l’extension de machine virtuelle et commencer à utiliser Azure IMDS
+      href: howto-migrate-vm-extension.md
   - name: Affecter à une identité managée l’accès à une autre ressource Azure
     items:
     - name: Portail
@@ -151,13 +153,13 @@ items:
     href: known-issues.md
   - name: Services Azure qui prennent en charge les identités gérées pour les ressources Azure
     href: services-support-msi.md
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-msi
   - name: Forum des développeurs AAD
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-ms.openlocfilehash: 0af911de9bd2982738c3c57ed9f5c266ba4b57f4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d3acf08588861f735583cf72541051809c31bc9b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451680"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224598"
