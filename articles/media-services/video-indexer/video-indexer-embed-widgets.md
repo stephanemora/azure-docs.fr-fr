@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cfefa8a1bfee03959d0f3b077d9915a6badb1ffd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075064"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -45,7 +45,7 @@ Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d
 |t|Secondes depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/>Exemple : t=60|
 |captions|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu des sous-titres.<br/>Exemple : captions=en-US|
 |showCaptions|Une valeur booléenne|Permet de charger le lecteur avec les sous-titres déjà activés.<br/>Exemple : showCaptions=true|
-|Type||Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/>Exemple : type=audio|"
+|Type||Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/>Exemple : type=audio|
 |autoplay|Une valeur booléenne|Indique si le lecteur doit commencer la lecture de la vidéo après le chargement (la valeur par défaut est true).<br/>Exemple : autoplay=false|
 |Langage|Code de langue|Détermine la langue du lecteur (la valeur par défaut est en-US)<br/>Exemple : language=de-DE|
 

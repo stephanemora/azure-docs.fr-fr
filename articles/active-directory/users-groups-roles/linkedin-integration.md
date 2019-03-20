@@ -1,5 +1,5 @@
 ---
-title: Activer l’intégration de LinkedIn dans les applications Microsoft - Azure Active Directory | Microsoft Docs
+title: Donner son consentement pour les services LinkedIn pour votre organisation - Azure Active Directory | Microsoft Docs
 description: Explique comment activer et désactiver l’intégration LinkedIn aux applications Microsoft dans Azure Active Director
 services: active-directory
 author: curtand
@@ -8,31 +8,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d562554259142b6dc5622bf15420785d5e1f052f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: abcb1696efe44293d01153aa37a9835ba5f43370
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090115"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199696"
 ---
-# <a name="linkedin-integration"></a>Intégration de LinkedIn
+# <a name="consent-to-linkedin-integration-for-your-azure-active-directory-organization"></a>Donner son consentement pour l’intégration LinkedIn pour votre organisation Azure Active Directory
 
-Cet article montre comment vous pouvez activer ou désactiver l’intégration de LinkedIn pour votre locataire dans le centre d’administration Azure Active Directory (Azure AD).
+Dans cet article, vous pouvez apprendre à activer ou désactiver l’intégration LinkedIn pour votre organisation dans le centre d’administration Azure Active Directory (Azure AD).
 
 > [!IMPORTANT]
-> Le paramètre d’intégration de LinkedIn est en cours de déploiement sur les locataires Azure AD. Une fois déployée sur votre locataire, elle est activée par défaut.
+> Le paramètre d’intégration de LinkedIn est actuellement déployé pour les organisations Azure AD. Lorsqu’elle est transférée à votre organisation, il est activé par défaut.
 > 
 > Exceptions :
 > * Le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud for US Government, Microsoft Cloud Germany ou Azure et Office 365 gérés par 21Vianet en Chine.
 > * Le paramètre est désactivé par défaut pour les locataires approvisionnés en Allemagne. Notez que le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud Germany.
 > * Le paramètre est désactivé par défaut pour les locataires approvisionnés en France.
-> 
-> L’intégration ne fonctionne que si vous avez activé *et* si vous autorisez les utilisateurs à donner leur consentement pour que les applications accèdent aux données d’entreprise en leur nom. Pour plus d’informations sur le paramètre de consentement, voir [Comment supprimer l’accès d’un utilisateur à une application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+>
+> L’intégration fonctionne uniquement si vous avez activé *et* une fois que les utilisateurs autoriser les applications qui accèdent aux données d’entreprise en leur nom. Pour plus d’informations sur le paramètre de consentement de l’utilisateur, consultez [comment supprimer l’accès d’un utilisateur à une application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
 ## <a name="enable-or-disable-linkedin-integration-for-your-users-in-the-azure-portal"></a>Activer ou désactiver l’intégration de LinkedIn pour vos utilisateurs dans le portail Azure
 
@@ -41,10 +41,12 @@ Vous pouvez activer ou désactiver l’intégration de LinkedIn pour votre locat
 1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com/) en utilisant un compte d’administrateur général pour le locataire Azure AD.
 2. Sélectionnez **Utilisateurs**.
 3. Dans le panneau **Utilisateurs**, sélectionnez **Paramètres utilisateur**.
-4. Sous **Intégration LinkedIn** :
-   * Sélectionnez **Oui** pour activer l’intégration LinkedIn pour tous les utilisateurs dans votre client
-   * Sélectionnez **Sélectionnés** pour activer l’intégration de LinkedIn uniquement pour les utilisateurs sélectionnés dans le locataire
-   * Sélectionnez **non** pour désactiver l’intégration LinkedIn pour tous les utilisateurs ![l’intégration LinkedIn de l’activation](./media/linkedin-integration/linkedin-integration.png)
+4. Sous **LinkedIn account connections (Connexions de comptes LinkedIn)**  :
+
+   * Sélectionnez **Oui** à donner son consentement pour tous les utilisateurs de l’organisation pour se connecter à leurs comptes pour accéder à leurs contacts LinkedIn dans certaines applications Microsoft.
+   * Sélectionnez **sélectionnés** à donner son consentement pour les utilisateurs de l’organisation à se connecter à leurs comptes pour accéder à leurs contacts LinkedIn dans certaines applications Microsoft.
+   * Sélectionnez **non** pour retirer votre consentement pour les utilisateurs de votre organisation pour se connecter à leurs comptes pour accéder à leurs contacts LinkedIn dans certaines applications Microsoft.
+    ![Activation de l’intégration LinkedIn dans l’organisation](./media/linkedin-integration/linkedin-integration.png)
 5. Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 ## <a name="enable-or-disable-linkedin-integration-for-your-users-in-group-policy"></a>Activer ou désactiver l’intégration de LinkedIn pour vos utilisateurs dans une stratégie de groupe

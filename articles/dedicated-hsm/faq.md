@@ -2,7 +2,7 @@
 title: Questions fréquentes (FAQ) - HSM dédié Azure | Microsoft Docs
 description: Questions fréquentes sur les différentes rubriques du service HSM dédié Azure
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts
-ms.date: 12/11/2018
+ms.topic: conceptual
+ms.date: 3/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ea98f96fe10337e905270cf5da4847d825d6eb4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846886"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -78,7 +78,7 @@ Oui, vous pouvez synchroniser des modules HSM locaux avec le service HSM dédié
 
 ### <a name="q-can-i-encrypt-data-used-by-other-azure-services-using-keys-stored-in-dedicated-hsm"></a>Q : Puis-je chiffrer les données utilisées par d’autres services Azure à l’aide des clés stockées dans un HSM dédié ?
 
- Non. Les modules HSM dédiés Azure sont accessibles uniquement à l’intérieur de votre réseau virtuel.
+Non. Les modules HSM dédiés Azure sont accessibles uniquement à l’intérieur de votre réseau virtuel.
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>Q : Puis-je importer les clés d’un HSM local existant vers un HSM dédié ?
 
@@ -124,7 +124,7 @@ Le service HSM dédié Azure est tout particulièrement indiqué pour les scéna
 
 ### <a name="q-can-dedicated-hsm-be-used-with-office-365-customer-key-azure-information-protection-azure-data-lake-store-disk-encryption-azure-storage-encryption-azure-sql-tde"></a>Q : Un HSM dédié peut-il être utilisé avec la Clé client dans Office 365, Azure Information Protection, Azure Data Lake Store, Disk Encryption, le chiffrement de Stockage Azure, le chiffrement TDE Azure SQL ?
 
- Non. Le service HSM dédié est directement provisionné dans l’espace d’adressage IP privé d’un client, si bien qu’il n’est pas accessible aux autres services Azure ou Microsoft.
+Non. Le service HSM dédié est directement provisionné dans l’espace d’adressage IP privé d’un client, si bien qu’il n’est pas accessible aux autres services Azure ou Microsoft.
 
 ## <a name="administration-access-and-control"></a>Administration, accès et contrôle
 
@@ -138,7 +138,7 @@ Microsoft ne dispose d’aucun contrôle administratif ou cryptographique sur le
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>Q : Microsoft, ou toute personne travaillant chez Microsoft, peut-il accéder aux clés de mon HSM dédié ?
 
- Non. Microsoft n’a pas accès aux clés stockées dans le module HSM dédié alloué par le client.
+Non. Microsoft n’a pas accès aux clés stockées dans le module HSM dédié alloué par le client.
 
 ### <a name="q-can-i-upgrade-softwarefirmware-on-hsms-allocated-to-me"></a>Q : Puis-je mettre à niveau les logiciels/microprogrammes sur les HSM qui me sont alloués ?
 
@@ -164,19 +164,19 @@ Oui. Vous pouvez envoyer des journaux de l’appliance HSM vers un serveur syslo
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q : Puis-je configurer la haute disponibilité dans une même région ou dans plusieurs régions ?
 
-Oui. La haute disponibilité s’installe et se configure dans le logiciel client HSM fourni par Gemalto. Les modules HSM situés sur un même réseau virtuel ou sur différents réseaux virtuels d’une même région ou de régions différentes, ou les modules HSM locaux connectés à un réseau virtuel utilisant un VPN site à site ou point à point peuvent être ajoutés à une même configuration de haute disponibilité.
+Oui. La haute disponibilité s’installe et se configure dans le logiciel client HSM fourni par Gemalto. Modules de sécurité matériels à partir du même réseau virtuel ou d’autres réseaux virtuels dans la même région ou dans différentes régions ou sur site HSM connecté à un réseau virtuel à l’aide de site à site ou VPN de point à point peut être ajouté à la même configuration de haute disponibilité.
 
-### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Le service HSM dédié Azure me permet-il d’ajouter des modules HSM de mon réseau local à un groupe de haute disponibilité ?
+### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q : Le service HSM dédié Azure me permet-il d’ajouter des modules HSM de mon réseau local à un groupe de haute disponibilité ?
 
 Oui. Ils doivent répondre aux exigences de haute disponibilité pour SafeNet Luna Network HSM 7.
 
-### <a name="can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Le service HSM dédié Azure me permet-il d’ajouter des modules HSM Luna 5/6 de réseaux locaux à un groupe de haute disponibilité ?
+### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q : Le service HSM dédié Azure me permet-il d’ajouter des modules HSM Luna 5/6 de réseaux locaux à un groupe de haute disponibilité ?
 
- Non.
+Non.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>Q : Combien de HSM puis-je ajouter à une même configuration de haute disponibilité pour une seule application ?
 
-16.
+16\.
 
 ## <a name="support"></a>Support
 
@@ -246,7 +246,7 @@ Oui. Le service HSM dédié provisionne les appliances SafeNet Network HSM 7 qu
 
 Le service HSM dédié provisionne des appliances SafeNet Luna Network HSM 7. Ces appliances utilisent des modules HSM certifiés FIPS 140-2 de niveau 3. La configuration, le système d’exploitation et le microprogramme déployés par défaut sont aussi certifiés FIPS. Vous n’avez rien à faire pour bénéficier de la conformité à FIPS 140-2 de niveau 3.
 
-### <a name="how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Que doit faire un client pour être certain que les clés sont effacées d’un module HSM déprovisionné ?
+### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Q : Que doit faire un client pour être certain que les clés sont effacées d’un module HSM déprovisionné ?
 
 Avant de demander le déprovisionnement, le client doit mettre le module HSM à zéro à l’aide des outils clients HSM Gemalto.
 

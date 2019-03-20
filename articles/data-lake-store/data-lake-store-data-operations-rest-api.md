@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 62ecf3b1983853629f6bc5fd594231188aa67bcd
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391604"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529244"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide d’une API REST
 > [!div class="op_single_selector"]
@@ -29,12 +29,12 @@ ms.locfileid: "44391604"
 
 Dans cet article, vous allez découvrir comment utiliser les API REST de WebHDFS et de Data Lake Storage Gen1 pour effectuer des opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1. Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide de l’API REST, consultez la section relative aux [opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide de l’API REST](data-lake-store-get-started-rest-api.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Compte Azure Data Lake Storage Gen1**. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md).
 
-* **[cURL](http://curl.haxx.se/)**. Cet article utilise cURL pour montrer comment effectuer des appels d’API REST sur un compte Data Lake Storage Gen1.
+* **[cURL](https://curl.haxx.se/)**. Cet article utilise cURL pour montrer comment effectuer des appels d’API REST sur un compte Data Lake Storage Gen1.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Comment s’authentifier à l’aide d’Azure Active Directory ?
 Vous avez le choix entre deux méthodes pour vous authentifier à l’aide d’Azure Active Directory :
@@ -44,7 +44,7 @@ Vous avez le choix entre deux méthodes pour vous authentifier à l’aide d’A
 
 
 ## <a name="create-folders"></a>Créez les dossiers.
-Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
+Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
 Utilisez la commande cURL suivante. Remplacez **\<yourstorename>** par votre nom de compte Data Lake Storage Gen1.
 
@@ -57,7 +57,7 @@ Si l’opération s’est déroulée correctement, vous devez voir une réponse 
     {"boolean":true}
 
 ## <a name="list-folders"></a>Répertorier les dossiers
-Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
+Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
 Utilisez la commande cURL suivante. Remplacez **\<yourstorename>** par votre nom de compte Data Lake Storage Gen1.
 
@@ -85,7 +85,7 @@ Si l’opération s’est déroulée correctement, vous devez voir une réponse 
     }
 
 ## <a name="upload-data"></a>Télécharger des données
-Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
+Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
 Utilisez la commande cURL suivante. Remplacez **\<yourstorename>** par votre nom de compte Data Lake Storage Gen1.
 
@@ -107,7 +107,7 @@ Le résultat ressemble à l’extrait de code suivant :
     ...
 
 ## <a name="read-data"></a>Lire les données
-Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
+Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
 
 La lecture des données d’un compte Azure Data Lake Storage Gen1 s’effectue en deux étapes.
 
@@ -131,7 +131,7 @@ Le résultat doit ressembler à l’extrait de code suivant :
     Hello, Data Lake Store user!
 
 ## <a name="rename-a-file"></a>Renommer un fichier
-Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
+Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
 Utilisez la commande cURL suivante pour renommer un fichier. Remplacez **\<yourstorename>** par votre nom de compte Data Lake Storage Gen1.
 
@@ -145,7 +145,7 @@ Le résultat doit ressembler à l’extrait de code suivant :
     {"boolean":true}
 
 ## <a name="delete-a-file"></a>Supprimer un fichier
-Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
+Cette opération est basée sur l’appel de l’API REST de WebHDFS défini [ici](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
 Utilisez la commande cURL suivante pour supprimer un fichier. Remplacez **\<yourstorename>** par votre nom de compte Data Lake Storage Gen1.
 

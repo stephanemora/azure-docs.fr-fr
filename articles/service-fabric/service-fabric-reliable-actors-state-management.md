@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847397"
 ---
 # <a name="reliable-actors-state-management"></a>Gestion des états de Reliable Actors
 Reliable Actors désignent des objets monothread capables d’encapsuler la logique et l’état. Étant donné que les acteurs s’exécutent sur Reliable Services, ils peuvent conserver leur état de façon fiable à l’aide des mêmes mécanismes de persistance et de réplication. De cette façon, les acteurs ne perdent pas leur état après des incidents, après une réactivation consécutive à un nettoyage de la mémoire, ou encore après leur déplacement entre des nœuds d’un cluster dans le cadre d’un équilibrage des ressources ou de mises à niveau.
@@ -29,9 +29,9 @@ Toutes les instances Reliable Actors sont considérées comme des instances *ave
 
 Même si les acteurs sont considérés comme des services avec état, cela ne signifie pas qu’ils doivent stocker l’état de manière fiable. Les acteurs peuvent choisir le niveau de persistance et de réplication de l’état en fonction de leurs exigences en matière de stockage de données :
 
-* **État persistant** : l’état est conservé sur le disque et répliqué sur au moins trois réplicas. L’état persistant est l’option de stockage d’état la plus fiable, où l’état peut persister après une panne complète du cluster.
-* **État volatil** : l’état est répliqué sur au moins trois réplicas et conservé uniquement en mémoire. L’état volatile garantit une résilience contre les défaillances de nœud et d’acteur, ainsi que pendant les mises à niveau et l’équilibrage des ressources. Toutefois, l’état n’est pas conservé sur le disque. Si tous les réplicas sont perdus en même temps, l’état est également perdu.
-* **État non persistant** : l’état n’est ni répliqué, ni écrit sur le disque. Utilisez-le uniquement pour les acteurs qui n’ont pas besoin de conserver un état fiable.
+* **L’état persistant**: État est conservé sur disque et est répliqué sur au moins trois réplicas. L’état persistant est l’option de stockage d’état la plus fiable, où l’état peut persister après une panne complète du cluster.
+* **État volatil**: État est répliqué sur au moins trois réplicas et conservé uniquement en mémoire. L’état volatile garantit une résilience contre les défaillances de nœud et d’acteur, ainsi que pendant les mises à niveau et l’équilibrage des ressources. Toutefois, l’état n’est pas conservé sur le disque. Si tous les réplicas sont perdus en même temps, l’état est également perdu.
+* **État non persistant**: État n’est pas répliqué ou écrit sur disque, utilisez uniquement pour les acteurs qui n’avez pas besoin de conserver un état fiable.
 
 Chaque niveau de persistance représente simplement une autre configuration du *fournisseur d’état* et de la *réplication* de votre service. Le fournisseur d’état (le composant Reliable Service conçu pour stocker l’état) détermine si l’état sera ou non écrit sur le disque. La réplication varie selon le nombre de réplicas avec lesquels est déployé un service. De la même manière que Reliable Services, le fournisseur d’état et le nombre de réplicas peuvent facilement être définis manuellement. L’infrastructure d’acteurs fournit un attribut, qui, lorsqu’il est utilisé sur un acteur, sélectionne automatiquement un fournisseur d’état par défaut et génère automatiquement des paramètres pour le nombre de réplicas afin d’obtenir un de ces trois paramètres de persistance. L’attribut StatePersistence n’est pas hérité par la classe dérivée, chaque type d’acteur doit fournir son niveau de StatePersistence.
 
@@ -86,7 +86,7 @@ Lorsque vous utilisez l’attribut `StatePersistence`, un fournisseur d’état 
 Vous pouvez modifier ces paramètres manuellement. Cependant, chaque fois que l’attribut `StatePersistence` est modifié, les paramètres sont rétablis aux valeurs par défaut de taille de jeu de réplicas pour l’attribut `StatePersistence` sélectionné, ce qui remplace toutes les valeurs précédentes. En d’autres termes, les valeurs que vous définissez dans le fichier ServiceManifest.xml sont remplacées au moment de la génération *uniquement* quand vous modifiez la valeur d’attribut `StatePersistence`.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />
@@ -114,7 +114,7 @@ Pour la gestion des états, le gestionnaire d’état expose des méthodes de di
 
 Pour des exemples de gestion de l’état d’acteur, lire [Utiliser, enregistrer et supprimer l’état de Reliable Actors](service-fabric-reliable-actors-access-save-remove-state.md).
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 Voici quelques pratiques et conseils de dépannage pour la gestion de l’état d’acteur.
 
 ### <a name="make-the-actor-state-as-granular-as-possible"></a>Rendre l’état d’acteur aussi précis que possible

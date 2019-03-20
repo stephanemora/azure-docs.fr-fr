@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: f03efe13cdc31381cd67317879b7bd936fc35e8f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868954"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433771"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Référence de domaine prédéfinie pour votre application LUIS
 Cette référence fournit des informations sur les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md), qui sont des collections prédéfinies d’intentions et d’entités proposées par LUIS.
@@ -62,7 +62,7 @@ Le domaine Calendrier fournit les intentions et entités liées aux entrées de 
 | Ajouter | Ajoutez un nouvel élément à usage unique au calendrier.| Créer un rendez-vous avec Lisa à 14 h 00 dimanche <br/><br/>Je souhaite planifier une réunion<br/><br/>Je dois configurer une réunion|
 | CheckAvailability | Recherchez la disponibilité pour un rendez-vous ou une réunion dans le calendrier de l’utilisateur ou d’une autre personne.| Quand Jim est-il disponible ? <br/><br/>Montrer quand Carole est disponible demain<br/><br/>Chris est-il libre samedi ?|
 | Supprimer | Requête pour supprimer une entrée de calendrier.| Annulez mon rendez-vous avec Carol. <br/><br/>Supprimer ma réunion de 9 h 00<br/>|
-| Modifier | Requête pour modifier une réunion ou une entrée de calendrier existante.| Déplacez ma réunion de 9 h 00 à 10 h 00.<br/><br/>Je souhaite mettre à jour mon calendrier.<br/><br/>Replanifiez ma réunion avec Ryan.|
+| Modifier | Requête pour modifier une réunion ou une entrée de calendrier existante.| Déplacez ma réunion de 9 h 00 à 10 h 00.<br/><br/>Je souhaite mettre à jour mon calendrier.<br/><br/>Replanifier ma réunion avec Ryan.|
 | Rechercher | Affichez mon calendrier hebdomadaire.| Recherchez le rendez-vous de contrôle chez le dentiste. <br/><br/>Afficher mon calendrier<br/>|
 
 ### <a name="entities"></a>Entités
@@ -103,10 +103,10 @@ Le domaine Communication fournit des intentions et entités liées à la message
 | AssignContactNickname| Attribuez un surnom à un contact.|Remplacer Isaac par papa <br/>Modifier le surnom de Jim<br/>Ajouter un surnom à Patti Owens|
 | CallVoiceMail| Connectez-vous à la messagerie vocale de l’utilisateur.|Me connecter à ma boîte de messagerie vocale <br/>Messagerie vocale<br/>Appeler la messagerie vocale|
 | CheckIMStatus| Vérifiez l’état d’un contact dans Skype.|L’état En ligne de Jim est-il défini sur Absent ? <br/>Carol est-elle disponible pour une conversation ?|
-| Confirmer| Confirmez une action.|OUI<br/>OK<br/>D’accord<br/>Je confirme que je souhaite envoyer ce courrier électronique.<br/>|
+| Confirmer| Confirmez une action.|Oui<br/>OK<br/>D’accord<br/>Je confirme que je souhaite envoyer ce courrier électronique.<br/>|
 | Composer| Effectuez un appel téléphonique.|Appeler Jim<br/>Merci de composer 311<br/>|
 | FindContact| Recherchez des informations de contact par nom.|Rechercher le numéro de Carol<br/>Me montrer le numéro de Carol<br/>|
-| FindSpeedDial| Recherchez le numéro de numérotation rapide défini pour un numéro de téléphone et vice versa.|À quoi correspond le numéro 5 ?<br/>La numérotation rapide est-elle définie ?<br/>Quel est le numéro pour 941-5555-333 ?|
+| FindSpeedDial| Recherche le nombre d’accès à distance de vitesse qu'un numéro de téléphone est défini à et vice versa.|À quoi correspond le numéro 5 ?<br/>La numérotation rapide est-elle définie ?<br/>Quel est le numéro pour 941-5555-333 ?|
 | GetForwardingsStatus| Obtenez l’état actuel du transfert d’appel.|Mon transfert d’appel est-il activé ?<br/>Me dire si l’état de mon appel est activé ou désactivé<br/>|
 | GoBack| Revenez à l’étape précédente.|Revenir à Twitter<br/>Revenir en arrière d’une étape<br/>Retour|
 | Ignorer| Ignorez un appel entrant.|Ne pas répondre<br/>Ignorer l’appel|
@@ -252,7 +252,7 @@ Le domaine MovieTickets fournit les intentions et entités liées à la réserva
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
 | ---------------- |-----------------------|----|
-| Book | Achetez des tickets de films.|M’acheter deux tickets pour Captain Omar and the two musketeers<br/>Je souhaite acheter un ticket pour le film de demain<br/>Je souhaite un ticket pour Captian Omar Part 2 mercredi prochain|
+| Book | Achetez des tickets de films.|M’acheter deux tickets pour Captain Omar and the two musketeers<br/>Je souhaite acheter un ticket pour le film de demain<br/>Je veux un ticket pour Captain Omar partie 2 mercredi suivant|
 |GetShowTime| Obtenez la présentation d’un film.|De quoi parle Captain Omar ?|
 
 
@@ -412,7 +412,7 @@ Le domaine Lieux fournit les intentions pour la gestion des requêtes liées aux
 |GetMenu|Demandez les plats à la carte d’un restaurant.|Le Zucca sert-il des plats végan ?<br/>Qu’y-a-t-il au menu du Sizzler<br/>Me montrer le menu de l’Applebee|
 |GetPhoneNumber| Demandez le numéro de téléphone d’un lieu.|Quel est le numéro de téléphone du Starbucks le plus proche ?<br/>Donner le numéro de Home Depot| 
 |GetPriceRange| Demande la gamme de prix d’un lieu.|Le Zucca est-il bon marché ?<br/>Le Cineplex fait-il moitié prix le mercredi ?<br/>Combien coûte un dîner homard au Sizzler ?|
-|GetReviews|Demandez les avis d’un lieu.|Me montrer les avis de Cheesecase Factory<br/>Lire les avis de Cineplex dans Yelp|
+|GetReviews|Demandez les avis d’un lieu.|Me montrer des révisions pour Cheesecake Factory.<br/>Lire les avis de Cineplex dans Yelp|
 |GetRoute|Demandez les directions vers un lieu.|Comment aller à pied au parc Bellevue<br/>Me montrer le chemin le plus court vers la 8ème et la 59ème à partir d’ici<br/>Me donner des directions pour Mountain View CA|
 |GetStarRating|Demandez l’évaluation en étoile d’un lieu.|Quelle est l’évaluation de Zucca dans Yelp ?<br/>Combien d’étoiles a French Laundry ?<br/>L’aquarium de Monterrey est-il bien ?|
 |GetTransportationSchedule|Obtenez les horaires de bus d’un lieu.|À quelle heure est le prochain bus pour le centre-ville ?<br/>Me montrer les bus de King County|

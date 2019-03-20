@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084808"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour Storm sur HDInsight et Azure Data Lake Storage Gen1
 
 Comprendre les facteurs à prendre en compte lorsque vous optimisez les performances d’une topologie Storm dans Azure. Par exemple, il est important de comprendre les caractéristiques du travail effectué par les Spouts et les Bolts (si le travail est intensif en E/S ou en mémoire). Cet article aborde diverses recommandations d’optimisation des performances, y compris la résolution des problèmes courants.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
@@ -82,7 +82,7 @@ Vous pouvez modifier les paramètres suivants pour ajuster le Spout.
 
 - **Nombre max. de spouts en attente : topology.max.spout.pending**. Ce paramètre détermine le nombre de tuples qui peuvent être en cours de transmission (pas encore acceptés sur tous les nœuds de la topologie) par thread de Spout à tout moment.
 
- Un bon calcul à faire est l’estimation de la taille de chacun de vos tuples. Ensuite, calculez la quantité de mémoire par thread spout. La mémoire totale allouée à un thread divisée par cette valeur devrait vous donner la limite supérieure pour le paramètre de nombre maximal de Spouts en attente.
+  Un bon calcul à faire est l’estimation de la taille de chacun de vos tuples. Ensuite, calculez la quantité de mémoire par thread spout. La mémoire totale allouée à un thread divisée par cette valeur devrait vous donner la limite supérieure pour le paramètre de nombre maximal de Spouts en attente.
 
 ## <a name="tune-the-bolt"></a>Ajuster le Bolt
 Lorsque vous écrivez sur Data Lake Storage Gen1, définissez une stratégie de synchronisation de taille (tampon du côté client) sur 4 Mo. Un vidage ou une hsync() est ensuite effectué uniquement lorsque la taille du tampon atteint cette valeur. Le pilote Data Lake Storage Gen1 sur la machine virtuelle Worker effectue automatiquement cette mise en tampon, à moins que vous exécutiez explicitement une hsync().
@@ -98,7 +98,7 @@ Dans Storm, un Spout conserve un tuple jusqu’à ce qu’il soit accepté expli
 Pour obtenir des performances optimales sur Data Lake Storage Gen1, le Bolt doit mettre en mémoire tampon 4 Mo de données de tuple. Écrivez ensuite sur le back end Data Lake Storage Gen1 sous la forme d’une écriture de 4 Mo. Une fois les données correctement écrites dans le magasin (en appelant hflush()), le Bolt peut accuser réception des données auprès du Spout. C’est ce que l’exemple de bolt fourni ici effectue. Il est également acceptable de contenir de grands nombres de tuples avant d’appeler hflush() et d’accuser réception des tuples. Toutefois, cela augmente le nombre de tuples en cours de vérification que le spout doit contenir, et par conséquent la quantité de mémoire requise par machine virtuelle Java.
 
 > [!NOTE]
-Les applications peuvent avoir l’obligation d’accuser réception des tuples plus fréquemment (à des tailles de données inférieures à 4 Mo) pour d’autres raisons non liées aux performances. Toutefois, cela peut affecter le débit d’E/S pour le serveur principal de stockage. Évaluez ce compromis par rapport aux performances d’E/S du Bolt.
+> Les applications peuvent avoir l’obligation d’accuser réception des tuples plus fréquemment (à des tailles de données inférieures à 4 Mo) pour d’autres raisons non liées aux performances. Toutefois, cela peut affecter le débit d’E/S pour le serveur principal de stockage. Évaluez ce compromis par rapport aux performances d’E/S du Bolt.
 
 Si le taux de tuples entrants n’est pas élevé, le remplissage de la mémoire tampon de 4 Mo s’effectue lentement, vous devez envisager de résoudre le problème en :
 * Réduisant le nombre de Bolts, pour qu’il y ait moins de tampons à remplir.

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104418"
 ---
 # <a name="how-to-improve-your-classifier"></a>Comment améliorer votre classifieur
 
@@ -23,7 +23,7 @@ Dans ce guide, vous allez découvrir comment améliorer la qualité de votre cla
 
 Voici un modèle général pour vous aider à créer un classifieur plus précis :
 
-1. Premier cycle d’entraînement
+1. Effectuer le premier cycle d’apprentissage.
 1. Ajouter d’autres images et équilibrer les données ; réentraîner
 1. Ajouter des images avec différents arrière-plans, éclairages, tailles d’objet, angles de vue et styles ; réentraîner
 1. Utiliser de nouvelles images pour tester la prédiction
@@ -39,7 +39,7 @@ Pour corriger ce problème, suivez les instructions ci-après afin d’effectuer
 
 ## <a name="data-quantity"></a>Quantité de données
 
-Le nombre d’images d’entraînement est le facteur le plus important. Nous vous recommandons d’utiliser au moins 50 images par étiquette pour commencer. Avec moins d’images, il existe un risque plus élevé de surajustement. Et même si vos chiffres de performance suggèrent une bonne qualité, votre modèle aura peut-être du mal avec des données réelles. 
+Le nombre d’images d’entraînement est le facteur le plus important. Nous vous recommandons d’utiliser des images au moins 50 par étiquette comme point de départ. Avec moins d’images, il existe un risque plus élevé de surajustement. Et même si vos chiffres de performance suggèrent une bonne qualité, votre modèle aura peut-être du mal avec des données réelles. 
 
 ## <a name="data-balance"></a>Équilibre des données
 
@@ -102,4 +102,4 @@ Parfois, un examen visuel permet d’identifier des modèles pouvant être recti
 Dans ce guide, vous avez découvert plusieurs techniques permettant de rendre plus précis votre modèle de classification d’images personnalisé. Découvrez ensuite comment tester des images programmatiquement en les soumettant à l’API de prédiction.
 
 > [!div class="nextstepaction"]
-[Utiliser l’API de prédiction](use-prediction-api.md)
+> [Utiliser l’API de prédiction](use-prediction-api.md)

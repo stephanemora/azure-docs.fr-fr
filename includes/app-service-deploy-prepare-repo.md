@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: c212bda3b59037f99139e02ee6adc63b0084cbe5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: df987d1e13cb5330842fbab41dae96b24b581ddb
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44305612"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227267"
 ---
 ## <a name="prepare-your-repository"></a>Préparer votre dépôt
 
-Pour obtenir les builds automatiques à partir du serveur de builds Kudu App Service, assurez-vous que la racine du dépôt contient les fichiers appropriés de votre projet.
+Pour obtenir des builds automatiques à partir du serveur de build d’Azure App Service Kudu, assurez-vous que la racine de votre référentiel comprend les fichiers nécessaires dans votre projet.
 
 | Runtime | Fichiers du répertoire racine |
 |-|-|
@@ -28,10 +28,10 @@ Pour obtenir les builds automatiques à partir du serveur de builds Kudu App Ser
 | Node.js | _server.js_, _app.js_ ou _package.json_ avec un script de démarrage |
 | Python (Windows uniquement) | _\*.py_, _requirements.txt_ ou _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_ ou _iisstart.htm_ |
-| WebJobs | _\<job_name>/run.\<extension>_ sous _App\_Data/jobs/continuous_ (pour les WebJobs continus) ou _App\_Data/jobs/triggered_ (pour les WebJobs déclenchés). Pour plus d’informations, consultez la [documentation Kudu relative aux WebJobs](https://github.com/projectkudu/kudu/wiki/WebJobs). |
+| WebJobs | _\<job_name>/run.\<extension>_ sous _App\_Data/jobs/continuous_ (pour les WebJobs continus) ou _App\_Data/jobs/triggered_ (pour les WebJobs déclenchés). Pour plus d’informations, consultez [Kudu WebJobs documentation](https://github.com/projectkudu/kudu/wiki/WebJobs). |
 | Fonctions | Consultez [Déploiement continu pour Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
 
-Pour personnaliser votre déploiement, vous pouvez inclure un fichier _.deployment_ dans la racine du dépôt. Pour plus d’informations, consultez [Customizing deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) et [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+Pour personnaliser votre déploiement, vous pouvez inclure un fichier _.deployment_ dans la racine du dépôt. Pour plus d’informations, consultez [personnaliser déploiements](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) et [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
 > Si vous développez dans Visual Studio, laissez [Visual Studio créer un dépôt pour vous](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio). Le projet est immédiatement prêt à être déployé à l’aide de Git.

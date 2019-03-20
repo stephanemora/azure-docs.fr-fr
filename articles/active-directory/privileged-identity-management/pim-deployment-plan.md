@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54fa8d09d930069191fb48e0ab015d436496b725
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166400"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227029"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Déployer Azure AD Privileged Identity Management (PIM)
 
@@ -27,9 +27,9 @@ Ce guide pas à pas décrit comment planifier le déploiement d’Azure AD Privi
 
 > [!TIP]
 > Tout au long de ce document, vous verrez des éléments marqués comme :
->
+> 
 > :heavy_check_mark: **Microsoft recommande**
->
+> 
 > Il s’agit de recommandations générales et vous devez uniquement les implémenter si elles s’appliquent aux besoins spécifiques de votre entreprise.
 
 ## <a name="step-1-learn-about-pim"></a>Étape 1. Découvrir PIM
@@ -120,7 +120,7 @@ La section suivante vous permet d’identifier tous les participants impliqués 
 
 Dans le cadre du processus de planification, vous devez d’abord accepter et activer PIM en suivant notre [document Commencer à utiliser PIM](pim-getting-started.md). L’activation de PIM vous donne accès à certaines fonctionnalités qui sont spécifiquement conçues pour faciliter votre déploiement.
 
-Si votre objectif est de déployer PIM pour les ressources Azure, vous devez suivre notre [document Découvrir les ressources Azure à gérer dans PIM](pim-resource-roles-discover-resources.md). Seuls les propriétaires de chaque ressource, groupe de ressources et abonnement sont en mesure de les découvrir à l’intérieur de PIM. Si vous êtes un administrateur général qui tente de déployer PIM pour vos ressources Azure, vous pouvez [élever l’accès pour gérer tous les abonnements Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) afin d’obtenir l’accès à toutes les ressources Azure dans l’annuaire pour la découverte. Toutefois, il est conseillé d’obtenir l’approbation de chacun des propriétaires d’abonnements avant de gérer leurs ressources avec PIM.
+Si votre objectif est de déployer PIM pour les ressources Azure, vous devez suivre notre [document Découvrir les ressources Azure à gérer dans PIM](pim-resource-roles-discover-resources.md). Seuls les propriétaires de chaque ressource, groupe de ressources et abonnement sont en mesure de les découvrir à l’intérieur de PIM. Si vous êtes un administrateur Global tente déployer PIM pour vos ressources Azure, vous pouvez [élever l’accès pour gérer tous les abonnements Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) pour obtenir l’accès à toutes les ressources Azure dans le répertoire pour la découverte. Toutefois, il est conseillé d’obtenir l’approbation de chacun des propriétaires d’abonnements avant de gérer leurs ressources avec PIM.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Appliquer le principe des privilèges minimum
 
@@ -161,7 +161,7 @@ Les révisions d’accès s’appuient sur les e-mails pour demander aux utilisa
 
 Pour les abonnements et les ressources Azure, vous pouvez configurer un processus de révision d’accès similaire pour passer en revue les rôles dans chaque abonnement ou ressource. L’objectif de ce processus consiste à réduire les affectations de rôles Propriétaire et Administrateur de l’accès utilisateur attachées à chaque abonnement ou ressource, ainsi qu’à supprimer les affectations inutiles. Toutefois, les organisations délèguent souvent de telles tâches au propriétaire de chaque abonnement ou ressource, car il a une meilleure compréhension des rôles spécifiques (en particulier, des rôles personnalisés).
 
-Si vous êtes un administrateur informatique avec le rôle Administrateur général qui tente de déployer PIM pour les ressources Azure dans votre organisation, vous pouvez [élever l’accès pour gérer tous les abonnements Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) afin d’accéder à chaque abonnement. Vous pouvez ensuite rechercher le propriétaire de chaque abonnement et travailler avec lui pour supprimer les affectations inutiles et réduire l’affectation de rôle Propriétaire.
+Si vous êtes un administrateur avec le rôle Administrateur général tente déployer PIM pour les ressources Azure dans votre organisation, vous pouvez [élever l’accès pour gérer tous les abonnements Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) pour accéder à chaque abonnement. Vous pouvez ensuite rechercher le propriétaire de chaque abonnement et travailler avec lui pour supprimer les affectations inutiles et réduire l’affectation de rôle Propriétaire.
 
 Les utilisateurs avec le rôle Propriétaire pour un abonnement Azure peuvent également utiliser des [révisions d’accès pour les ressources Azure](pim-resource-roles-start-access-review.md) afin d’auditer et de supprimer des affectations de rôles inutiles similaires au processus décrit précédemment pour les rôles Azure AD.
 
@@ -178,13 +178,13 @@ Le choix des rôles à protéger avec PIM peut être difficile et sera différen
 Il est important de hiérarchiser la protection des rôles Azure AD qui comportent le plus grand nombre d’autorisations. Selon les modèles d’utilisation parmi tous les clients PIM, les 10 principaux rôles Azure AD gérés par PIM sont :
 
 1. Administrateur général
-1. Security Administrator
-1. Administrateur de compte utilisateur
+1. Administrateur de sécurité
+1. Administrateur d’utilisateurs
 1. Administrateur Exchange
 1. Administrateur SharePoint
-1. Administrateur de services Intune
+1. Administrateur Intune
 1. Lecteur de sécurité
-1. Administrateur de services
+1. Administrateur de services fédérés
 1. Administrateur de facturation
 1. Administrateur Skype Entreprise
 
@@ -259,13 +259,13 @@ Le tableau suivant décrit chacun des paramètres.
 | Paramètre | Description |
 | --- | --- |
 | Rôle | Nom du rôle pour lequel vous définissez les paramètres. |
-| Exiger une authentification multifacteur | Indique si l’utilisateur éligible doit effectuer une authentification multifacteur avant d’activer le rôle.<br/><br/>:heavy_check_mark: **Microsoft recommande** d’appliquer l’authentification multifacteur pour tous les rôles d’administrateur, en particulier si les rôles ont des utilisateurs invités. |
+| Exiger une authentification multifacteur | Indique si l’utilisateur éligible doit effectuer une authentification multifacteur avant d’activer le rôle.<br/><br/> :heavy_check_mark: **Microsoft recommande** d’appliquer l’authentification multifacteur pour tous les rôles d’administrateur, en particulier si les rôles ont des utilisateurs invités. |
 | Notification | Si la valeur est true, les rôles Administrateur général, Administrateur de rôle privilégié et Administrateur de la sécurité de l’organisation reçoivent une notification par e-mail quand un utilisateur éligible active le rôle.<br/><br/>**Remarque :** Certaines organisations ne disposent pas d’une adresse e-mail liée à leurs comptes d’administrateurs ; pour obtenir ces notifications par e-mail, vous devez définir une autre adresse e-mail afin que les administrateurs reçoivent ces e-mails. |
-| Ticket d’incident | Indique si l’utilisateur éligible doit enregistrer un numéro de ticket d’incident lors de l’activation de son rôle. Ce paramètre permet à une organisation d’identifier chaque activation avec un numéro d’incident interne pour atténuer les activations indésirables.<br/><br/>:heavy_check_mark: **Microsoft recommande** de tirer parti des numéros de ticket d’incident pour lier PIM à votre système interne. Cela est particulièrement utile pour les approbateurs qui ont besoin de contexte pour l’activation. |
-| Exiger une approbation | Indique si l’utilisateur éligible doit obtenir une approbation pour activer le rôle.<br/><br/>:heavy_check_mark: **Microsoft recommande** de configurer l’approbation pour les rôles avec le plus d’autorisations. Selon les modèles d’utilisation de tous les clients PIM, Administrateur général, Administrateur d’utilisateurs, Administrateur Exchange, Administrateur de la sécurité et Administrateur de mots de passe sont les rôles les plus courants avec configuration de l’approbation. |
-| Approbateur | Si l’approbation est nécessaire pour activer le rôle éligible, liste les personnes qui doivent approuver la demande. Par défaut, PIM définit comme approbateur tous les utilisateurs qui sont des administrateurs de rôles privilégiés, qu’ils soient permanents ou éligibles.<br/><br/>**Remarque :** Si un utilisateur est à la fois éligible pour un rôle Azure AD et un approbateur du rôle, il ne sera pas en mesure de s’approuver.<br/><br/>:heavy_check_mark: **Microsoft recommande** de choisir comme approbateurs ceux qui sont les plus compétents sur le rôle spécifique et ses utilisateurs fréquents plutôt qu’un administrateur général. |
+| Ticket d’incident | Indique si l’utilisateur éligible doit enregistrer un numéro de ticket d’incident lors de l’activation de son rôle. Ce paramètre permet à une organisation d’identifier chaque activation avec un numéro d’incident interne pour atténuer les activations indésirables.<br/><br/> :heavy_check_mark: **Microsoft recommande** de tirer parti des numéros de ticket d’incident pour lier PIM à votre système interne. Cela est particulièrement utile pour les approbateurs qui ont besoin de contexte pour l’activation. |
+| Exiger une approbation | Indique si l’utilisateur éligible doit obtenir une approbation pour activer le rôle.<br/><br/> :heavy_check_mark: **Microsoft recommande** de configurer l’approbation pour les rôles avec le plus d’autorisations. Selon les modèles d’utilisation de tous les clients PIM, Administrateur général, Administrateur d’utilisateurs, Administrateur Exchange, Administrateur de la sécurité et Administrateur de mots de passe sont les rôles les plus courants avec configuration de l’approbation. |
+| Approbateur | Si l’approbation est nécessaire pour activer le rôle éligible, liste les personnes qui doivent approuver la demande. Par défaut, PIM définit comme approbateur tous les utilisateurs qui sont des administrateurs de rôles privilégiés, qu’ils soient permanents ou éligibles.<br/><br/>**Remarque :** Si un utilisateur est à la fois éligible pour un rôle Azure AD et un approbateur du rôle, il ne sera pas en mesure de s’approuver.<br/><br/> :heavy_check_mark: **Microsoft recommande** de choisir comme approbateurs ceux qui sont les plus compétents sur le rôle spécifique et ses utilisateurs fréquents plutôt qu’un administrateur général. |
 | Durée d’activation | Durée pendant laquelle un utilisateur est activé dans le rôle avant l’expiration. |
-| Administrateur permanent | Liste des utilisateurs qui seront un administrateur permanent pour le rôle (activation jamais nécessaire).<br/><br/>:heavy_check_mark: **Microsoft recommande** de n’avoir aucun administrateur permanent pour tous les rôles à l’exception des administrateurs généraux. Vous trouverez plus d’informations à ce sujet dans la section relative aux personnes qui doivent devenir éligibles et à celles qui doivent être actives en permanence de ce plan. |
+| Administrateur permanent | Liste des utilisateurs qui seront un administrateur permanent pour le rôle (activation jamais nécessaire).<br/><br/> :heavy_check_mark: **Microsoft recommande** de n’avoir aucun administrateur permanent pour tous les rôles à l’exception des administrateurs généraux. Vous trouverez plus d’informations à ce sujet dans la section relative aux personnes qui doivent devenir éligibles et à celles qui doivent être actives en permanence de ce plan. |
 | Administrateur actif | Pour les ressources Azure, un administrateur actif correspond à la liste des utilisateurs qui n’ont jamais besoin d’activation pour utiliser le rôle. Il n’est pas référencé en tant qu’administrateur permanent comme dans les rôles Azure AD, car vous pouvez définir une heure d’expiration à laquelle l’utilisateur va perdre ce rôle. |
 | Expiration active | Une affectation de rôle actif pour les rôles de ressources Azure expire après cette période configurée. Vous pouvez choisir entre 15 jours, 1 mois, 3 mois, 6 mois, 1 an, ou un rôle actif en permanence. |
 | Expiration éligible | Une affectation de rôle éligible pour les rôles de ressources Azure expire après cette période configurée. Vous pouvez choisir entre 15 jours, 1 mois, 3 mois, 6 mois, 1 an, ou un rôle éligible en permanence. |

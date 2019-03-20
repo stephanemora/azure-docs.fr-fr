@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 6eb81e7fff8df547f905e169ac72a78848d2583f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 2d296281f6865030bcdfec33d8c69cc313a358a5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330764"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011908"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Déploiement de machines virtuelles Azure pour SAP NetWeaver
 
@@ -157,7 +157,7 @@ ms.locfileid: "56330764"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -171,7 +171,7 @@ ms.locfileid: "56330764"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -317,7 +317,7 @@ Machines virtuelles Azure est la solution idéale pour les organisations qui ont
 
 Dans cet article, nous abordons les étapes permettant de déployer des applications SAP sur des machines virtuelles dans Azure, en proposant notamment des options de déploiement alternatives et des solutions de dépannage. Cet article s’appuie sur les informations de [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide]. Il vient également compléter la documentation d’installation de SAP et les notes SAP, principales ressources pour l’installation et le déploiement des logiciels SAP.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 La configuration d’une machine virtuelle Azure pour le déploiement des logiciels SAP implique plusieurs étapes et diverses ressources. Avant de commencer, vérifiez que vous disposez des prérequis pour l’installation de logiciels SAP sur des machines virtuelles dans Azure.
 
@@ -421,34 +421,34 @@ Le moyen le plus simple de créer une machine virtuelle à l’aide d’une imag
 L’assistant vous guide pour configurer les paramètres requis pour créer la machine virtuelle, ainsi que toutes les ressources requises, telles que les interfaces réseau et les comptes de stockage. Voici certains exemples de paramètres :
 
 1. **Paramètres de base**:
- * **Nom** : Nom de la ressource (nom de la machine virtuelle).
- * **Type de disque de machine virtuelle** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
- * **Nom utilisateur et mot de passe** ou **Clé publique SSH** : Entrez le nom d’utilisateur et le mot de passe de l’utilisateur créé lors de la configuration. Pour une machine virtuelle Linux, vous pouvez entrer la clé publique Secure Shell (SSH) que vous utilisez pour vous connecter à la machine.
- * **Abonnement**: Sélectionnez l’abonnement à utiliser pour configurer la nouvelle machine virtuelle.
- * **Groupe de ressources** : Nom du groupe de ressources de la machine virtuelle. Vous pouvez saisir soit le nom d’un nouveau groupe de ressources, soit celui d’un groupe de ressources existant.
- * **Emplacement** : Emplacement de déploiement de la nouvelle machine virtuelle. Si vous voulez connecter la machine virtuelle à votre réseau local, veillez à sélectionner l’emplacement du réseau virtuel qui connecte Azure à votre réseau local. Pour plus d’informations, consultez [Mise en réseau Microsoft Azure][planning-guide-microsoft-azure-networking] dans [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide].
+   * **Nom** : Nom de la ressource (nom de la machine virtuelle).
+   * **Type de disque de machine virtuelle** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
+   * **Nom utilisateur et mot de passe** ou **Clé publique SSH** : Entrez le nom d’utilisateur et le mot de passe de l’utilisateur créé lors de la configuration. Pour une machine virtuelle Linux, vous pouvez entrer la clé publique Secure Shell (SSH) que vous utilisez pour vous connecter à la machine.
+   * **Abonnement**: Sélectionnez l’abonnement à utiliser pour configurer la nouvelle machine virtuelle.
+   * **Groupe de ressources** : Nom du groupe de ressources de la machine virtuelle. Vous pouvez saisir soit le nom d’un nouveau groupe de ressources, soit celui d’un groupe de ressources existant.
+   * **Emplacement** : Emplacement de déploiement de la nouvelle machine virtuelle. Si vous voulez connecter la machine virtuelle à votre réseau local, veillez à sélectionner l’emplacement du réseau virtuel qui connecte Azure à votre réseau local. Pour plus d’informations, consultez [Mise en réseau Microsoft Azure][planning-guide-microsoft-azure-networking] dans [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide].
 1. **Taille**:
 
      Pour obtenir la liste des types de machine virtuelle pris en charge, consultez la note SAP [1928533]. Veillez à sélectionner le type de machine virtuelle approprié si vous voulez utiliser le stockage Premium Azure. Tous les types de machine virtuelle ne prennent pas en charge le stockage Premium. Pour plus d’informations, consultez [Stockage : Stockage Microsoft Azure et disques de données][planning-guide-storage-microsoft-azure-storage-and-data-disks] et [Stockage Microsoft Azure Premium][planning-guide-azure-premium-storage] dans [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide].
 
 1. **Paramètres**:
-  * **Stockage**
-    * **Type de disque** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
-    * **Utiliser des disques managés** : Si vous souhaitez utiliser des disques managés, sélectionnez Oui. Pour plus d’informations sur les disques managés, lisez le chapitre [Disques managés][planning-guide-managed-disks] du guide de planification.
-    * **Compte de stockage** : Sélectionnez un compte de stockage existant ou créez-en un. Notez que tous les types de stockage ne peuvent pas être utilisés pour l’exécution d’applications SAP. Pour plus d’informations sur les types de stockage, consultez [Structure de stockage d’une machine virtuelle pour les déploiements SGBDR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
-  * **Réseau**
-    * **Réseau virtuel** et **Sous-réseau** : Pour intégrer la machine virtuelle à votre intranet, sélectionnez le réseau virtuel connecté à votre réseau local.
-    * **Adresse IP publique** : Sélectionnez l’adresse IP publique que vous voulez utiliser ou entrez les paramètres nécessaires pour en créer une. Vous pouvez utiliser une adresse IP publique pour accéder à votre machine virtuelle via Internet. Assurez-vous également de créer un groupe de sécurité réseau pour sécuriser l’accès à votre machine virtuelle.
-    * **Groupe de sécurité réseau** : Pour plus d’informations, consultez [Contrôler le flux de trafic réseau avec les groupes de sécurité réseau][virtual-networks-nsg].
-  * **Extensions** : Vous pouvez installer des extensions de machine virtuelle en les ajoutant au déploiement. Il n’est pas nécessaire d’ajouter des extensions dans cette étape. Les extensions nécessaires à la prise en charge SAP sont installées ultérieurement. Consultez le chapitre [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5] de ce guide.
-  * **Haute disponibilité** : Sélectionnez un groupe à haute disponibilité ou entrez les paramètres permettant d’en créer un. Pour plus d’informations, consultez [Groupes à haute disponibilité Azure][planning-guide-3.2.3].
-  * **Surveillance**
-    * **Diagnostics de démarrage** : Vous pouvez sélectionner **Désactiver** pour le diagnostic de démarrage.
-    * **Diagnostics du système d’exploitation invité** : Vous pouvez sélectionner **Désactiver** pour les diagnostics d’analyse.
+   * **Stockage**
+     * **Type de disque** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
+     * **Utiliser des disques managés** : Si vous souhaitez utiliser des disques managés, sélectionnez Oui. Pour plus d’informations sur les disques managés, lisez le chapitre [Disques managés][planning-guide-managed-disks] du guide de planification.
+     * **Compte de stockage** : Sélectionnez un compte de stockage existant ou créez-en un. Notez que tous les types de stockage ne peuvent pas être utilisés pour l’exécution d’applications SAP. Pour plus d’informations sur les types de stockage, consultez [Structure de stockage d’une machine virtuelle pour les déploiements SGBDR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+   * **Réseau**
+     * **Réseau virtuel** et **Sous-réseau** : Pour intégrer la machine virtuelle à votre intranet, sélectionnez le réseau virtuel connecté à votre réseau local.
+     * **Adresse IP publique** : Sélectionnez l’adresse IP publique que vous voulez utiliser ou entrez les paramètres nécessaires pour en créer une. Vous pouvez utiliser une adresse IP publique pour accéder à votre machine virtuelle via Internet. Assurez-vous également de créer un groupe de sécurité réseau pour sécuriser l’accès à votre machine virtuelle.
+     * **Groupe de sécurité réseau** : Pour plus d’informations, consultez [Contrôler le flux de trafic réseau avec les groupes de sécurité réseau][virtual-networks-nsg].
+   * **Extensions** : Vous pouvez installer des extensions de machine virtuelle en les ajoutant au déploiement. Il n’est pas nécessaire d’ajouter des extensions dans cette étape. Les extensions nécessaires à la prise en charge SAP sont installées ultérieurement. Consultez le chapitre [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5] de ce guide.
+   * **Haute disponibilité** : Sélectionnez un groupe à haute disponibilité ou entrez les paramètres permettant d’en créer un. Pour plus d’informations, consultez [Groupes à haute disponibilité Azure][planning-guide-3.2.3].
+   * **Surveillance**
+     * **Diagnostics de démarrage** : Vous pouvez sélectionner **Désactiver** pour le diagnostic de démarrage.
+     * **Diagnostics du système d’exploitation invité** : Vous pouvez sélectionner **Désactiver** pour les diagnostics d’analyse.
 
 1. **Résumé**:
 
-  Passez en revue vos sélections, puis sélectionnez **OK**.
+   Passez en revue vos sélections, puis sélectionnez **OK**.
 
 Votre machine virtuelle est déployée dans le groupe de ressources que vous avez sélectionné.
 
@@ -472,37 +472,37 @@ Vous pouvez créer une machine virtuelle à l’aide de l’un des modèles SAP 
 Dans le portail Azure, entrez les paramètres suivants pour le modèle :
 
 1. **Paramètres de base**:
-  * **Abonnement**: L’abonnement à utiliser pour déployer le modèle.
-  * **Groupe de ressources** : Le groupe de ressources à utiliser pour déployer le modèle. Vous pouvez créer un groupe de ressources ou sélectionner un groupe de ressources existant dans l’abonnement.
-  * **Emplacement** : Emplacement où déployer le modèle. Si vous avez sélectionné un groupe de ressources existant, l’emplacement du groupe de ressources est utilisé.
+   * **Abonnement**: L’abonnement à utiliser pour déployer le modèle.
+   * **Groupe de ressources** : Le groupe de ressources à utiliser pour déployer le modèle. Vous pouvez créer un groupe de ressources ou sélectionner un groupe de ressources existant dans l’abonnement.
+   * **Emplacement** : Emplacement où déployer le modèle. Si vous avez sélectionné un groupe de ressources existant, l’emplacement du groupe de ressources est utilisé.
 
 1. **Paramètres**:
-  * **ID du système SAP** : Identifiant du système SAP (SID).
-  * **Type de système d’exploitation** : Le système d’exploitation que vous souhaitez déployer, par exemple, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12) ou Red Hat Enterprise Linux 7.2 (RHEL 7.2) ou Oracle Linux 7.2.
+   * **ID du système SAP** : Identifiant du système SAP (SID).
+   * **Type de système d’exploitation** : Le système d’exploitation que vous souhaitez déployer, par exemple, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12) ou Red Hat Enterprise Linux 7.2 (RHEL 7.2) ou Oracle Linux 7.2.
 
-    La liste affichée ne répertorie pas tous les systèmes d’exploitation pris en charge. Pour plus d’informations sur les systèmes d’exploitation pris en charge pour le déploiement de logiciels SAP, consultez la note SAP [1928533].
-  * **Taille du système SAP** : Taille du système SAP.
+     La liste affichée ne répertorie pas tous les systèmes d’exploitation pris en charge. Pour plus d’informations sur les systèmes d’exploitation pris en charge pour le déploiement de logiciels SAP, consultez la note SAP [1928533].
+   * **Taille du système SAP** : Taille du système SAP.
 
-    Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-  * **Disponibilité du système** (modèle à trois niveaux uniquement) : Disponibilité du système.
+     Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
+   * **Disponibilité du système** (modèle à trois niveaux uniquement) : Disponibilité du système.
 
-    Sélectionnez la haute disponibilité (**HA**) si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour ABAP SAP Central Services (ASC) sont créés.
-  * **Type de stockage** (modèle à deux niveaux uniquement) : Type de stockage à utiliser.
+     Sélectionnez la haute disponibilité (**HA**) si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour ABAP SAP Central Services (ASC) sont créés.
+   * **Type de stockage** (modèle à deux niveaux uniquement) : Type de stockage à utiliser.
 
-    Pour les grands systèmes, nous vous recommandons l’utilisation du stockage Premium Azure. Pour plus d’informations sur les types de stockage, consultez ces ressources :
+     Pour les grands systèmes, nous vous recommandons l’utilisation du stockage Premium Azure. Pour plus d’informations sur les types de stockage, consultez ces ressources :
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194]
       * [Structure de stockage d’une machine virtuelle pour les déploiements SGBDR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
-  * **Nom d’utilisateur** et **Mot de passe administrateur** : Un nom d’utilisateur et un mot de passe.
-    Un nouvel utilisateur est créé pour la connexion à la machine virtuelle.
-  * **Sous-réseau nouveau ou existant** : Détermine si un réseau virtuel et un sous-réseau sont créés ou si un sous-réseau existant est utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **Existant**.
-  * **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/&lt;id d’abonnement>/resourceGroups/&lt;nom du groupe de ressources>/providers/Microsoft.Network/virtualNetworks/&lt;nom du réseau virtuel>/subnets/&lt;nom du sous-réseau>
+   * **Nom d’utilisateur** et **Mot de passe administrateur** : Un nom d’utilisateur et un mot de passe.
+     Un nouvel utilisateur est créé pour la connexion à la machine virtuelle.
+   * **Sous-réseau nouveau ou existant** : Détermine si un réseau virtuel et un sous-réseau sont créés ou si un sous-réseau existant est utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **Existant**.
+   * **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/&lt;id d’abonnement>/resourceGroups/&lt;nom du groupe de ressources>/providers/Microsoft.Network/virtualNetworks/&lt;nom du réseau virtuel>/subnets/&lt;nom du sous-réseau>
 
 1. **Conditions générales** :  
     Lisez et acceptez les conditions juridiques.
 
-1.  Sélectionnez **Achat**.
+1. Sélectionnez **Achat**.
 
 L’agent de la machine virtuelle Azure est déployé par défaut lorsque vous utilisez une image provenant d’Azure Marketplace.
 
@@ -534,7 +534,7 @@ Dans la mesure où les différentes versions d’un système d’exploitation ou
 Différentes étapes permettent de créer une image privée pour Linux et pour Windows.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > Pour préparer une image Windows pouvant être utilisée pour déployer plusieurs machines virtuelles, les paramètres Windows (comme le nom d’hôte et le SID Windows) doivent être abstraits ou généralisés sur la machine virtuelle locale. Pour ce faire, vous pouvez utiliser la commande [sysprep](https://msdn.microsoft.com/library/hh825084.aspx).
 >
@@ -561,33 +561,33 @@ Le moyen le plus simple de créer une machine virtuelle à partir d’une image 
 L’assistant vous guide pour configurer les paramètres requis pour créer la machine virtuelle, ainsi que toutes les ressources requises, telles que les interfaces réseau et les comptes de stockage. Voici certains exemples de paramètres :
 
 1. **Paramètres de base**:
- * **Nom** : Nom de la ressource (nom de la machine virtuelle).
- * **Type de disque de machine virtuelle** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
- * **Nom utilisateur et mot de passe** ou **Clé publique SSH** : Entrez le nom d’utilisateur et le mot de passe de l’utilisateur créé lors de la configuration. Pour une machine virtuelle Linux, vous pouvez entrer la clé publique Secure Shell (SSH) que vous utilisez pour vous connecter à la machine.
- * **Abonnement**: Sélectionnez l’abonnement à utiliser pour configurer la nouvelle machine virtuelle.
- * **Groupe de ressources** : Nom du groupe de ressources de la machine virtuelle. Vous pouvez saisir soit le nom d’un nouveau groupe de ressources, soit celui d’un groupe de ressources existant.
- * **Emplacement** : Emplacement de déploiement de la nouvelle machine virtuelle. Si vous voulez connecter la machine virtuelle à votre réseau local, veillez à sélectionner l’emplacement du réseau virtuel qui connecte Azure à votre réseau local. Pour plus d’informations, consultez [Mise en réseau Microsoft Azure][planning-guide-microsoft-azure-networking] dans [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide].
+   * **Nom** : Nom de la ressource (nom de la machine virtuelle).
+   * **Type de disque de machine virtuelle** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
+   * **Nom utilisateur et mot de passe** ou **Clé publique SSH** : Entrez le nom d’utilisateur et le mot de passe de l’utilisateur créé lors de la configuration. Pour une machine virtuelle Linux, vous pouvez entrer la clé publique Secure Shell (SSH) que vous utilisez pour vous connecter à la machine.
+   * **Abonnement**: Sélectionnez l’abonnement à utiliser pour configurer la nouvelle machine virtuelle.
+   * **Groupe de ressources** : Nom du groupe de ressources de la machine virtuelle. Vous pouvez saisir soit le nom d’un nouveau groupe de ressources, soit celui d’un groupe de ressources existant.
+   * **Emplacement** : Emplacement de déploiement de la nouvelle machine virtuelle. Si vous voulez connecter la machine virtuelle à votre réseau local, veillez à sélectionner l’emplacement du réseau virtuel qui connecte Azure à votre réseau local. Pour plus d’informations, consultez [Mise en réseau Microsoft Azure][planning-guide-microsoft-azure-networking] dans [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide].
 1. **Taille**:
 
      Pour obtenir la liste des types de machine virtuelle pris en charge, consultez la note SAP [1928533]. Veillez à sélectionner le type de machine virtuelle approprié si vous voulez utiliser le stockage Premium Azure. Tous les types de machine virtuelle ne prennent pas en charge le stockage Premium. Pour plus d’informations, consultez [Stockage : Stockage Microsoft Azure et disques de données][planning-guide-storage-microsoft-azure-storage-and-data-disks] et [Stockage Microsoft Azure Premium][planning-guide-azure-premium-storage] dans [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide].
 
 1. **Paramètres**:
-  * **Stockage**
-    * **Type de disque** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
-    * **Utiliser des disques managés** : Si vous souhaitez utiliser des disques managés, sélectionnez Oui. Pour plus d’informations sur les disques managés, lisez le chapitre [Disques managés][planning-guide-managed-disks] du guide de planification.
-  * **Réseau**
-    * **Réseau virtuel** et **Sous-réseau** : Pour intégrer la machine virtuelle à votre intranet, sélectionnez le réseau virtuel connecté à votre réseau local.
-    * **Adresse IP publique** : Sélectionnez l’adresse IP publique que vous voulez utiliser ou entrez les paramètres nécessaires pour en créer une. Vous pouvez utiliser une adresse IP publique pour accéder à votre machine virtuelle via Internet. Assurez-vous également de créer un groupe de sécurité réseau pour sécuriser l’accès à votre machine virtuelle.
-    * **Groupe de sécurité réseau** : Pour plus d’informations, consultez [Contrôler le flux de trafic réseau avec les groupes de sécurité réseau][virtual-networks-nsg].
-  * **Extensions** : Vous pouvez installer des extensions de machine virtuelle en les ajoutant au déploiement. Il n’est pas nécessaire d’ajouter l’extension dans cette étape. Les extensions nécessaires à la prise en charge SAP sont installées ultérieurement. Consultez le chapitre [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5] de ce guide.
-  * **Haute disponibilité** : Sélectionnez un groupe à haute disponibilité ou entrez les paramètres permettant d’en créer un. Pour plus d’informations, consultez [Groupes à haute disponibilité Azure][planning-guide-3.2.3].
-  * **Surveillance**
-    * **Diagnostics de démarrage** : Vous pouvez sélectionner **Désactiver** pour le diagnostic de démarrage.
-    * **Diagnostics du système d’exploitation invité** : Vous pouvez sélectionner **Désactiver** pour les diagnostics d’analyse.
+   * **Stockage**
+     * **Type de disque** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
+     * **Utiliser des disques managés** : Si vous souhaitez utiliser des disques managés, sélectionnez Oui. Pour plus d’informations sur les disques managés, lisez le chapitre [Disques managés][planning-guide-managed-disks] du guide de planification.
+   * **Réseau**
+     * **Réseau virtuel** et **Sous-réseau** : Pour intégrer la machine virtuelle à votre intranet, sélectionnez le réseau virtuel connecté à votre réseau local.
+     * **Adresse IP publique** : Sélectionnez l’adresse IP publique que vous voulez utiliser ou entrez les paramètres nécessaires pour en créer une. Vous pouvez utiliser une adresse IP publique pour accéder à votre machine virtuelle via Internet. Assurez-vous également de créer un groupe de sécurité réseau pour sécuriser l’accès à votre machine virtuelle.
+     * **Groupe de sécurité réseau** : Pour plus d’informations, consultez [Contrôler le flux de trafic réseau avec les groupes de sécurité réseau][virtual-networks-nsg].
+   * **Extensions** : Vous pouvez installer des extensions de machine virtuelle en les ajoutant au déploiement. Il n’est pas nécessaire d’ajouter l’extension dans cette étape. Les extensions nécessaires à la prise en charge SAP sont installées ultérieurement. Consultez le chapitre [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5] de ce guide.
+   * **Haute disponibilité** : Sélectionnez un groupe à haute disponibilité ou entrez les paramètres permettant d’en créer un. Pour plus d’informations, consultez [Groupes à haute disponibilité Azure][planning-guide-3.2.3].
+   * **Surveillance**
+     * **Diagnostics de démarrage** : Vous pouvez sélectionner **Désactiver** pour le diagnostic de démarrage.
+     * **Diagnostics du système d’exploitation invité** : Vous pouvez sélectionner **Désactiver** pour les diagnostics d’analyse.
 
 1. **Résumé**:
 
-  Passez en revue vos sélections, puis sélectionnez **OK**.
+   Passez en revue vos sélections, puis sélectionnez **OK**.
 
 Votre machine virtuelle est déployée dans le groupe de ressources que vous avez sélectionné.
 
@@ -611,38 +611,38 @@ Pour créer un déploiement à l’aide d’une image privée de système d’ex
 Dans le portail Azure, entrez les paramètres suivants pour le modèle :
 
 1. **Paramètres de base**:
-  * **Abonnement**: L’abonnement à utiliser pour déployer le modèle.
-  * **Groupe de ressources** : Le groupe de ressources à utiliser pour déployer le modèle. Vous pouvez créer un groupe de ressources ou sélectionner un groupe de ressources existant dans l’abonnement.
-  * **Emplacement** : Emplacement où déployer le modèle. Si vous avez sélectionné un groupe de ressources existant, l’emplacement du groupe de ressources est utilisé.
+   * **Abonnement**: L’abonnement à utiliser pour déployer le modèle.
+   * **Groupe de ressources** : Le groupe de ressources à utiliser pour déployer le modèle. Vous pouvez créer un groupe de ressources ou sélectionner un groupe de ressources existant dans l’abonnement.
+   * **Emplacement** : Emplacement où déployer le modèle. Si vous avez sélectionné un groupe de ressources existant, l’emplacement du groupe de ressources est utilisé.
 1. **Paramètres**:
-  * **ID du système SAP** : ID du système SAP.
-  * **Type de système d’exploitation** : Type de système d’exploitation à déployer (Windows ou Linux).
-  * **Taille du système SAP** : Taille du système SAP.
+   * **ID du système SAP** : ID du système SAP.
+   * **Type de système d’exploitation** : Type de système d’exploitation à déployer (Windows ou Linux).
+   * **Taille du système SAP** : Taille du système SAP.
 
-    Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-  * **Disponibilité du système** (modèle à trois niveaux uniquement) : Disponibilité du système.
+     Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
+   * **Disponibilité du système** (modèle à trois niveaux uniquement) : Disponibilité du système.
 
-    Sélectionnez la haute disponibilité (**HA**) si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS sont créés.
-  * **Type de stockage** (modèle à deux niveaux uniquement) : Type de stockage à utiliser.
+     Sélectionnez la haute disponibilité (**HA**) si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS sont créés.
+   * **Type de stockage** (modèle à deux niveaux uniquement) : Type de stockage à utiliser.
 
-    Pour les grands systèmes, nous vous recommandons l’utilisation du stockage Premium Azure. Pour plus d’informations sur les types de stockage, consultez les ressources suivantes :
+     Pour les grands systèmes, nous vous recommandons l’utilisation du stockage Premium Azure. Pour plus d’informations sur les types de stockage, consultez les ressources suivantes :
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194]
       * [Structure de stockage d’une machine virtuelle pour les déploiements SGBDR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
-  * **URI du disque dur virtuel de l’image utilisateur** : (modèle d’image de disque non managé) : URI du disque dur virtuel de l’image privée du système d’exploitation, par exemple https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/userimage.vhd.
-  * **Compte de stockage de l’image utilisateur** : (modèle d’image de disque non managé) : Nom du compte de stockage où est stockée l’image privée du système d’exploitation, par exemple &lt;nom du compte&gt; dans https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/userimage.vhd.
-  * **userImageId** (modèle d’image de disque non managé) : ID de l’image de disque managé que vous voulez utiliser
-  * **Nom d’utilisateur** et **Mot de passe administrateur** : Nom d’utilisateur et mot de passe.
+   * **URI du disque dur virtuel de l’image utilisateur** : (modèle d’image de disque non managé) : URI du disque dur virtuel de l’image privée du système d’exploitation, par exemple https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/userimage.vhd.
+   * **Compte de stockage de l’image utilisateur** : (modèle d’image de disque non managé) : Nom du compte de stockage où est stockée l’image privée du système d’exploitation, par exemple &lt;nom du compte&gt; dans https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/userimage.vhd.
+   * **userImageId** (modèle d’image de disque non managé) : ID de l’image de disque managé que vous voulez utiliser
+   * **Nom d’utilisateur** et **Mot de passe administrateur** : Nom d’utilisateur et mot de passe.
 
-    Un nouvel utilisateur est créé pour la connexion à la machine virtuelle.
-  * **Sous-réseau nouveau ou existant** : Détermine si un réseau virtuel et un sous-réseau sont créés ou si un sous-réseau existant est utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **Existant**.
-  * **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/&lt;id d’abonnement>/resourceGroups/&lt;nom du groupe de ressources>/providers/Microsoft.Network/virtualNetworks/&lt;nom du réseau virtuel>/subnets/&lt;nom du sous-réseau>
+     Un nouvel utilisateur est créé pour la connexion à la machine virtuelle.
+   * **Sous-réseau nouveau ou existant** : Détermine si un réseau virtuel et un sous-réseau sont créés ou si un sous-réseau existant est utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **Existant**.
+   * **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/&lt;id d’abonnement>/resourceGroups/&lt;nom du groupe de ressources>/providers/Microsoft.Network/virtualNetworks/&lt;nom du réseau virtuel>/subnets/&lt;nom du sous-réseau>
 
 1. **Conditions générales** :  
     Lisez et acceptez les conditions juridiques.
 
-1.  Sélectionnez **Achat**.
+1. Sélectionnez **Achat**.
 
 #### <a name="install-the-vm-agent-linux-only"></a>Installer l’agent de machine virtuelle (Linux uniquement)
 
@@ -674,7 +674,7 @@ Dans ce scénario, l’agent de machine virtuelle **n’est pas** installé auto
 Pour plus d’informations sur l’agent de machine virtuelle Azure, consultez les ressources suivantes.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > [Vue d’ensemble d’agent de machine virtuelle Azure][virtual-machines-windows-agent-user-guide]
 >
@@ -706,31 +706,31 @@ Pour créer un déploiement à l’aide d’un disque privé de système d’exp
 Dans le portail Azure, entrez les paramètres suivants pour le modèle :
 
 1. **Paramètres de base**:
-  * **Abonnement**: L’abonnement à utiliser pour déployer le modèle.
-  * **Groupe de ressources** : Le groupe de ressources à utiliser pour déployer le modèle. Vous pouvez créer un groupe de ressources ou sélectionner un groupe de ressources existant dans l’abonnement.
-  * **Emplacement** : Emplacement où déployer le modèle. Si vous avez sélectionné un groupe de ressources existant, l’emplacement du groupe de ressources est utilisé.
+   * **Abonnement**: L’abonnement à utiliser pour déployer le modèle.
+   * **Groupe de ressources** : Le groupe de ressources à utiliser pour déployer le modèle. Vous pouvez créer un groupe de ressources ou sélectionner un groupe de ressources existant dans l’abonnement.
+   * **Emplacement** : Emplacement où déployer le modèle. Si vous avez sélectionné un groupe de ressources existant, l’emplacement du groupe de ressources est utilisé.
 1. **Paramètres**:
-  * **ID du système SAP** : ID du système SAP.
-  * **Type de système d’exploitation** : Type de système d’exploitation à déployer (Windows ou Linux).
-  * **Taille du système SAP** : Taille du système SAP.
+   * **ID du système SAP** : ID du système SAP.
+   * **Type de système d’exploitation** : Type de système d’exploitation à déployer (Windows ou Linux).
+   * **Taille du système SAP** : Taille du système SAP.
 
-    Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-  * **Type de stockage** (modèle à deux niveaux uniquement) : Type de stockage à utiliser.
+     Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
+   * **Type de stockage** (modèle à deux niveaux uniquement) : Type de stockage à utiliser.
 
-    Pour les grands systèmes, nous vous recommandons l’utilisation du stockage Premium Azure. Pour plus d’informations sur les types de stockage, consultez les ressources suivantes :
+     Pour les grands systèmes, nous vous recommandons l’utilisation du stockage Premium Azure. Pour plus d’informations sur les types de stockage, consultez les ressources suivantes :
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194]
       * [Structure de stockage d’une machine virtuelle pour les déploiements SGBDR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
-  * **URI du disque dur virtuel du disque du système d’exploitation** (modèle de disque non managé uniquement) : URI du disque privé du système d’exploitation, par exemple https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/osdisk.vhd.
-  * **ID du disque managé du disque du système d’exploitation** (modèle de disque managé uniquement) : ID du disque managé du disque du système d’exploitation, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
-  * **Sous-réseau nouveau ou existant** : Détermine s’il faut créer un réseau virtuel et un sous-réseau, ou utiliser un sous-réseau existant. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **Existant**.
-  * **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/&lt;id d’abonnement>/resourceGroups/&lt;nom du groupe de ressources>/providers/Microsoft.Network/virtualNetworks/&lt;nom du réseau virtuel>/subnets/&lt;nom du sous-réseau>
+   * **URI du disque dur virtuel du disque du système d’exploitation** (modèle de disque non managé uniquement) : URI du disque privé du système d’exploitation, par exemple https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/osdisk.vhd.
+   * **ID du disque managé du disque du système d’exploitation** (modèle de disque managé uniquement) : ID du disque managé du disque du système d’exploitation, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
+   * **Sous-réseau nouveau ou existant** : Détermine s’il faut créer un réseau virtuel et un sous-réseau, ou utiliser un sous-réseau existant. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **Existant**.
+   * **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/&lt;id d’abonnement>/resourceGroups/&lt;nom du groupe de ressources>/providers/Microsoft.Network/virtualNetworks/&lt;nom du réseau virtuel>/subnets/&lt;nom du sous-réseau>
 
 1. **Conditions générales** :  
     Lisez et acceptez les conditions juridiques.
 
-1.  Sélectionnez **Achat**.
+1. Sélectionnez **Achat**.
 
 #### <a name="install-the-vm-agent"></a>Installer l'agent de machine virtuelle
 
@@ -771,16 +771,16 @@ Cette section détaille les étapes permettant d’effectuer des tâches spécif
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Déploiement d’applets de commande Azure PowerShell
 
-1.  Accédez à [Téléchargements Microsoft Azure](https://azure.microsoft.com/downloads/).
-1.  Sous **Outils de ligne de commande**, sous **PowerShell**, sélectionnez **Installation Windows**.
-1.  Dans la boîte de dialogue Gestionnaire de téléchargement Microsoft, pour le fichier téléchargé (par exemple, WindowsAzurePowershellGet.3f.3f.3fnew.exe), sélectionnez **Exécuter**.
-1.  Pour exécuter Microsoft Web Platform Installer (Microsoft Web PI), sélectionnez **Oui**.
-1.  Une page ressemblant à ceci s’affiche :
+1. Accédez à [Téléchargements Microsoft Azure](https://azure.microsoft.com/downloads/).
+1. Sous **Outils de ligne de commande**, sous **PowerShell**, sélectionnez **Installation Windows**.
+1. Dans la boîte de dialogue Gestionnaire de téléchargement Microsoft, pour le fichier téléchargé (par exemple, WindowsAzurePowershellGet.3f.3f.3fnew.exe), sélectionnez **Exécuter**.
+1. Pour exécuter Microsoft Web Platform Installer (Microsoft Web PI), sélectionnez **Oui**.
+1. Une page ressemblant à ceci s’affiche :
 
-  ![Page d’installation pour les applets de commande Azure PowerShell][deployment-guide-figure-500]<a name="figure-5"></a>
+   ![Page d’installation pour les applets de commande Azure PowerShell][deployment-guide-figure-500]<a name="figure-5"></a>
 
-1.  Sélectionnez **Installer**, puis acceptez les termes du contrat de licence du logiciel Microsoft.
-1.  Powershell est installé. Sélectionnez **Terminer** pour fermer l’assistant d’installation.
+1. Sélectionnez **Installer**, puis acceptez les termes du contrat de licence du logiciel Microsoft.
+1. Powershell est installé. Sélectionnez **Terminer** pour fermer l’assistant d’installation.
 
 Recherchez régulièrement les mises à jour des applets de commande PowerShell, qui sont généralement publiées une fois par mois. Pour rechercher les mises à jour, le plus simple consiste à effectuer les étapes d’installation précédentes jusqu’à la page d’installation représentée à l’étape 5. La date de publication et le numéro de version des applets de commande sont inclus sur la page représentée à l’étape 5. Sauf indication contraire dans les notes SAP [1928533] ou [2015553], nous vous recommandons d’utiliser la dernière version des applets de commande Azure PowerShell.
 
@@ -800,16 +800,16 @@ Si la version de l’applet de commande Azure installée sur votre ordinateur es
 
 ### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Déploiement de l’interface de ligne de commande Azure
 
-1.  Accédez à [Téléchargements Microsoft Azure](https://azure.microsoft.com/downloads/).
-1.  Sous **Outils de ligne de commande**, sous **Interface de ligne de commande Azure**, sélectionnez le lien **Installer** correspondant à votre système d’exploitation.
-1.  Dans la boîte de dialogue Gestionnaire de téléchargement Microsoft, pour le fichier téléchargé (par exemple, WindowsAzureXPlatCLI.3f.3f.3fnew.exe), sélectionnez **Exécuter**.
-1.  Pour exécuter Microsoft Web Platform Installer (Microsoft Web PI), sélectionnez **Oui**.
-1.  Une page ressemblant à ceci s’affiche :
+1. Accédez à [Téléchargements Microsoft Azure](https://azure.microsoft.com/downloads/).
+1. Sous **Outils de ligne de commande**, sous **Interface de ligne de commande Azure**, sélectionnez le lien **Installer** correspondant à votre système d’exploitation.
+1. Dans la boîte de dialogue Gestionnaire de téléchargement Microsoft, pour le fichier téléchargé (par exemple, WindowsAzureXPlatCLI.3f.3f.3fnew.exe), sélectionnez **Exécuter**.
+1. Pour exécuter Microsoft Web Platform Installer (Microsoft Web PI), sélectionnez **Oui**.
+1. Une page ressemblant à ceci s’affiche :
 
-  ![Page d’installation pour les applets de commande Azure PowerShell][deployment-guide-figure-500]<a name="figure-5"></a>
+   ![Page d’installation pour les applets de commande Azure PowerShell][deployment-guide-figure-500]<a name="figure-5"></a>
 
-1.  Sélectionnez **Installer**, puis acceptez les termes du contrat de licence du logiciel Microsoft.
-1.  L’interface de ligne de commande Azure est installée. Sélectionnez **Terminer** pour fermer l’assistant d’installation.
+1. Sélectionnez **Installer**, puis acceptez les termes du contrat de licence du logiciel Microsoft.
+1. L’interface de ligne de commande Azure est installée. Sélectionnez **Terminer** pour fermer l’assistant d’installation.
 
 Recherchez régulièrement les mises à jour de l’interface de ligne de commande Azure, qui sont généralement publiées une fois par mois. Pour rechercher les mises à jour, le plus simple consiste à effectuer les étapes d’installation précédentes jusqu’à la page d’installation représentée à l’étape 5.
 
@@ -837,15 +837,15 @@ Si vous déployez une machine virtuelle à partir d’Azure Marketplace, cette �
 
 #### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
 
-1.  Téléchargez l’agent de machine virtuelle Azure :
-  1.  Téléchargez le [package d’installation de l’agent de machine virtuelle Azure](https://go.microsoft.com/fwlink/?LinkId=394789).
-  1.  Stockez le package MSI de l’agent de machine virtuelle localement sur un serveur ou un ordinateur personnel.
-1.  Installez l’agent de machine virtuelle Azure :
-  1.  Connectez-vous à la machine virtuelle Azure déployée à l’aide du protocole Remote Desktop Protocol (RDP).
-  1.  Ouvrez une fenêtre de l’explorateur Windows sur la machine virtuelle et sélectionnez un répertoire cible pour le fichier MSI de l’agent de machine virtuelle.
-  1.  Faites glisser le fichier MSI du programme d’installation de l’agent de machine virtuelle Azure de votre ordinateur/serveur local dans le répertoire cible de l’agent de machine virtuelle dans la machine virtuelle.
-  1.  Double-cliquez sur le fichier MSI dans la machine virtuelle.
-1.  Pour les machines virtuelles associées à des domaines locaux, veillez à ce que les éventuels paramètres de proxy Internet s’appliquent également au compte système local Windows (S-1-5-18) de la machine virtuelle, comme décrit dans [Configurer le proxy][deployment-guide-configure-proxy]. L’agent de machine virtuelle s’exécute dans ce contexte et doit être en mesure de se connecter à Azure.
+1. Téléchargez l’agent de machine virtuelle Azure :
+   1.  Téléchargez le [package d’installation de l’agent de machine virtuelle Azure](https://go.microsoft.com/fwlink/?LinkId=394789).
+   1.  Stockez le package MSI de l’agent de machine virtuelle localement sur un serveur ou un ordinateur personnel.
+1. Installez l’agent de machine virtuelle Azure :
+   1.  Connectez-vous à la machine virtuelle Azure déployée à l’aide du protocole Remote Desktop Protocol (RDP).
+   1.  Ouvrez une fenêtre de l’explorateur Windows sur la machine virtuelle et sélectionnez un répertoire cible pour le fichier MSI de l’agent de machine virtuelle.
+   1.  Faites glisser le fichier MSI du programme d’installation de l’agent de machine virtuelle Azure de votre ordinateur/serveur local dans le répertoire cible de l’agent de machine virtuelle dans la machine virtuelle.
+   1.  Double-cliquez sur le fichier MSI dans la machine virtuelle.
+1. Pour les machines virtuelles associées à des domaines locaux, veillez à ce que les éventuels paramètres de proxy Internet s’appliquent également au compte système local Windows (S-1-5-18) de la machine virtuelle, comme décrit dans [Configurer le proxy][deployment-guide-configure-proxy]. L’agent de machine virtuelle s’exécute dans ce contexte et doit être en mesure de se connecter à Azure.
 
 Aucune interaction de l’utilisateur n’est requise pour mettre à jour l’agent de machine virtuelle Azure. L’agent de machine virtuelle est automatiquement mis à jour, sans nécessiter de redémarrage de la machine virtuelle.
 
@@ -871,7 +871,7 @@ Si l’agent est déjà installé, pour mettre à jour l’agent Linux Azure, su
 
 Les étapes à suivre pour configurer le proxy sous Windows sont différentes de celles utilisées pour configurer le proxy sous Linux.
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 Les paramètres de proxy doivent être correctement configurés pour que le compte système local puisse accéder à Internet. Si vos paramètres de proxy ne sont pas définis par la stratégie de groupe, vous pouvez les configurer pour le compte système local.
 
@@ -890,21 +890,21 @@ Configurez le proxy approprié dans le fichier de configuration de l’agent inv
 
 Définissez les paramètres suivants :
 
-1.  **Hôte proxy HTTP**. Par exemple, définissez-le sur **proxy.corp.local**.
-  ```
-  HttpProxy.Host=<proxy host>
+1. **Hôte proxy HTTP**. Par exemple, définissez-le sur **proxy.corp.local**.
+   ```
+   HttpProxy.Host=<proxy host>
 
-  ```
-1.  **Port proxy HTTP**. Par exemple, définissez-le sur **80**.
-  ```
-  HttpProxy.Port=<port of the proxy host>
+   ```
+1. **Port proxy HTTP**. Par exemple, définissez-le sur **80**.
+   ```
+   HttpProxy.Port=<port of the proxy host>
 
-  ```
-1.  Redémarrez l’agent.
+   ```
+1. Redémarrez l’agent.
 
-  ```
-  sudo service waagent restart
-  ```
+   ```
+   sudo service waagent restart
+   ```
 
 Les paramètres de proxy dans \\etc\\waagent.conf s’appliquent également aux extensions de machine virtuelle requises. Si vous voulez utiliser les référentiels Azure, assurez-vous que le trafic vers ces référentiels ne passe pas par l’intranet local. Si vous avez créé des itinéraires définis par les utilisateurs pour activer le tunneling forcé, veillez à ajouter un itinéraire qui achemine le trafic vers les référentiels directement vers Internet, et non par le biais de votre connexion VPN de site à site.
 
@@ -1034,20 +1034,20 @@ Cette vérification vous assure que tous les indicateurs de performance affiché
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Vérifier la disponibilité d’une machine virtuelle Windows
 
-1.  Connectez-vous à la machine virtuelle Azure (l’utilisation d’un compte Administrateur n’est pas nécessaire).
-1.  Ouvrez une fenêtre d’invite de commandes.
-1.  À l’invite de commandes, remplacez le référentiel par le dossier d’installation de l’extension d’analyse Azure améliorée pour SAP : C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version>\\drop
+1. Connectez-vous à la machine virtuelle Azure (l’utilisation d’un compte Administrateur n’est pas nécessaire).
+1. Ouvrez une fenêtre d’invite de commandes.
+1. À l’invite de commandes, remplacez le référentiel par le dossier d’installation de l’extension d’analyse Azure améliorée pour SAP : C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version>\\drop
 
-  La *version* figurant dans le chemin d’accès à l’extension d’analyse peut varier. Si vous voyez des dossiers pour plusieurs versions de l’extension d’analyse dans le dossier d’installation, vérifiez la configuration du service Windows AzureEnhancedMonitoring, puis accédez au dossier indiqué en tant que *Chemin d’accès des fichiers exécutables*.
+   La *version* figurant dans le chemin d’accès à l’extension d’analyse peut varier. Si vous voyez des dossiers pour plusieurs versions de l’extension d’analyse dans le dossier d’installation, vérifiez la configuration du service Windows AzureEnhancedMonitoring, puis accédez au dossier indiqué en tant que *Chemin d’accès des fichiers exécutables*.
 
-  ![Propriétés du service exécutant l’extension d’analyse Azure améliorée pour SAP][deployment-guide-figure-1000]
+   ![Propriétés du service exécutant l’extension d’analyse Azure améliorée pour SAP][deployment-guide-figure-1000]
 
-1.  À l’invite de commandes, exécutez **azperflib.exe** sans aucun paramètre.
+1. À l’invite de commandes, exécutez **azperflib.exe** sans aucun paramètre.
 
-  > [!NOTE]
-  > Le fichier exécutable azperflib.exe fonctionne en boucle et met à jour les compteurs collectés toutes les 60 secondes. Pour mettre fin à la boucle, fermez la fenêtre d’invite de commandes.
-  >
-  >
+   > [!NOTE]
+   > Le fichier exécutable azperflib.exe fonctionne en boucle et met à jour les compteurs collectés toutes les 60 secondes. Pour mettre fin à la boucle, fermez la fenêtre d’invite de commandes.
+   >
+   >
 
 Si l’extension d’analyse Azure améliorée n’est pas installée ou que le service AzureEnhancedMonitoring n’est pas en cours d’exécution, cela signifie que l’extension n’a pas été configurée correctement. Pour plus d’informations sur la façon de déployer l’extension, consultez [Résolution de problèmes sur l’infrastructure d’analyse Azure pour SAP][deployment-guide-5.3].
 
@@ -1077,51 +1077,51 @@ Si la valeur **État d’intégrité** n’est pas **OK**, suivez les instructio
 
 #### <a name="run-the-readiness-check-on-a-linux-vm"></a>Vérifier la disponibilité d’une machine virtuelle Linux
 
-1.  Connectez-vous à la machine virtuelle Azure à l’aide de SSH.
+1. Connectez-vous à la machine virtuelle Azure à l’aide de SSH.
 
-1.  Vérifiez le résultat de l’extension d’analyse Azure améliorée.
+1. Vérifiez le résultat de l’extension d’analyse Azure améliorée.
 
-  a.  Exécutez `more /var/lib/AzureEnhancedMonitor/PerfCounters`
+   a.  Exécutez `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
    **Résultat attendu** : Renvoie la liste des compteurs de performances. Ce fichier ne doit pas être vide.
 
- b. Exécutez `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
+   b. Exécutez `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
    **Résultat attendu** : Renvoie une ligne où l’erreur est **none**, par exemple **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**
 
-  c. Exécutez `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
+   c. Exécutez `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
-    **Résultat attendu** : Revient vide ou n’existe pas.
+   **Résultat attendu** : Revient vide ou n’existe pas.
 
 Si la vérification précédente a échoué, exécutez ces vérifications supplémentaires :
 
-1.  Assurez-vous que waagent est installé et démarré.
+1. Assurez-vous que waagent est installé et démarré.
 
-  a.  Exécutez `sudo ls -al /var/lib/waagent/`
+   a.  Exécutez `sudo ls -al /var/lib/waagent/`
 
-      **Résultat attendu** : Répertorie le contenu du répertoire waagent.
+     **Résultat attendu** : Répertorie le contenu du répertoire waagent.
 
-  b.  Exécutez `ps -ax | grep waagent`
+   b.  Exécutez `ps -ax | grep waagent`
 
    **Résultat attendu** : Affiche une entrée similaire à : `python /usr/sbin/waagent -daemon`
 
-1.   Assurez-vous que l’extension d’analyse Azure améliorée est installée et démarrée.
+1. Assurez-vous que l’extension d’analyse Azure améliorée est installée et démarrée.
 
-  a.  Exécutez `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
+   a.  Exécutez `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
-    **Résultat attendu** : Répertorie le contenu du répertoire de l’extension d’analyse Azure améliorée.
+   **Résultat attendu** : Répertorie le contenu du répertoire de l’extension d’analyse Azure améliorée.
 
-  b. Exécutez `ps -ax | grep AzureEnhanced`
+   b. Exécutez `ps -ax | grep AzureEnhanced`
 
-     **Résultat attendu** : Affiche une entrée similaire à : `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+   **Résultat attendu** : Affiche une entrée similaire à : `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
 1. Installez l’agent hôte SAP comme décrit dans la note SAP [1031096] et vérifiez le résultat de `saposcol`.
 
-  a.  Exécutez `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Exécutez `/usr/sap/hostctrl/exe/saposcol -d`
 
-  b.  Exécutez `dump ccm`
+   b.  Exécutez `dump ccm`
 
-  c.  Vérifiez si la métrique **Virtualization_Configuration\Enhanced Monitoring Access** a la valeur **true**.
+   c.  Vérifiez si la métrique **Virtualization_Configuration\Enhanced Monitoring Access** a la valeur **true**.
 
 Si vous avez déjà installé un serveur d’applications ABAP NetWeaver SAP, ouvrez la transaction ST06 et regardez si l’analyse améliorée est activée.
 
@@ -1131,22 +1131,22 @@ Si l’une de ces vérifications échoue et pour plus d’informations sur la fa
 
 Si certaines des données d’analyse ne sont pas fournies correctement, comme indiqué par le test décrit dans [Vérification de la disponibilité de l’analyse Azure améliorée pour SAP][deployment-guide-5.1], exécutez l’applet de commande `Test-AzureRmVMAEMExtension` pour tester si l’infrastructure d’analyse Azure et l’extension d’analyse pour SAP sont correctement configurées.
 
-1.  Assurez-vous d’avoir installé la dernière version de l’applet de commande Azure PowerShell, comme décrit dans le chapitre [Déploiement d’applets de commande Azure PowerShell][deployment-guide-4.1].
-1.  Exécutez l’applet de commande PowerShell suivant. Pour afficher la liste des environnements disponibles, exécutez l’applet de commande `Get-AzureRmEnvironment`. Pour utiliser la version globale d’Azure, sélectionnez l’environnement **AzureCloud**. Pour Azure en Chine, sélectionnez **AzureChinaCloud**.
-  ```powershell
-  $env = Get-AzureRmEnvironment -Name <name of the environment>
-  Connect-AzureRmAccount -Environment $env
-  Set-AzureRmContext -SubscriptionName <subscription name>
-  Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
-  ```
+1. Assurez-vous d’avoir installé la dernière version de l’applet de commande Azure PowerShell, comme décrit dans le chapitre [Déploiement d’applets de commande Azure PowerShell][deployment-guide-4.1].
+1. Exécutez l’applet de commande PowerShell suivant. Pour afficher la liste des environnements disponibles, exécutez l’applet de commande `Get-AzureRmEnvironment`. Pour utiliser la version globale d’Azure, sélectionnez l’environnement **AzureCloud**. Pour Azure en Chine, sélectionnez **AzureChinaCloud**.
+   ```powershell
+   $env = Get-AzureRmEnvironment -Name <name of the environment>
+   Connect-AzureRmAccount -Environment $env
+   Set-AzureRmContext -SubscriptionName <subscription name>
+   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+   ```
 
-1.  Entrez les données de votre compte et identifiez la machine virtuelle Azure.
+1. Entrez les données de votre compte et identifiez la machine virtuelle Azure.
 
-  ![Page d’entrée de l’applet de commande Azure spécifique à SAP Test-VMConfigForSAP_GUI][deployment-guide-figure-1200]
+   ![Page d’entrée de l’applet de commande Azure spécifique à SAP Test-VMConfigForSAP_GUI][deployment-guide-figure-1200]
 
 1. Le script teste la configuration de la machine virtuelle sélectionnée.
 
-  ![Sortie du test réussi de l’infrastructure d’analyse Azure pour SAP][deployment-guide-figure-1300]
+   ![Sortie du test réussi de l’infrastructure d’analyse Azure pour SAP][deployment-guide-figure-1300]
 
 Assurez-vous que le résultat de chaque vérification d’intégrité est **OK**. Si certaines vérifications indiquent un état autre que **OK**, exécutez l’applet de commande update, comme décrit dans [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5]. Attendez 15 minutes, puis effectuez de nouveau les vérifications décrites dans [Vérification de la disponibilité de l’analyse Azure améliorée pour SAP][deployment-guide-5.1] et [Contrôle d’intégrité de la configuration de l’infrastructure d’analyse Azure][deployment-guide-5.2]. Si les vérifications indiquent encore un problème avec certains ou tous les compteurs, consultez [Résolution de problèmes sur l’infrastructure d’analyse Azure pour SAP][deployment-guide-5.3].
 
@@ -1156,7 +1156,7 @@ Assurez-vous que le résultat de chaque vérification d’intégrité est **OK**
 
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Résolution de problèmes sur l’infrastructure d’analyse Azure pour SAP
 
-#### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![ Windows][Logo_Windows]  Les compteurs de performances Azure ne s’affichent pas
+#### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows]  Les compteurs de performances Azure ne s’affichent pas
 
 Le service Windows AzureEnhancedMonitoring recueille les indicateurs de performance dans Azure. Si le service n’a pas été installé correctement ou s’il n’est pas exécuté sur votre machine virtuelle, aucun indicateur de performance ne peut être collecté.
 
@@ -1197,7 +1197,7 @@ Le service Windows AzureEnhancedMonitoring existe et est activé, mais ne parvie
 
 La configuration est incorrecte. Redémarrez l’extension d’analyse pour la machine virtuelle, comme décrit dans [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5].
 
-#### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![ Windows][Logo_Windows]  Certains compteurs de performances Azure sont manquants
+#### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows]  Certains compteurs de performances Azure sont manquants
 
 Le service Windows AzureEnhancedMonitoring recueille les indicateurs de performance dans Azure. Le service obtient des données provenant de plusieurs sources. Certaines données de configuration sont collectées localement, et certains indicateurs de performance sont lus à partir des diagnostics Azure. Les compteurs de stockage sont utilisés à partir de votre enregistrement au niveau de l’abonnement de stockage.
 

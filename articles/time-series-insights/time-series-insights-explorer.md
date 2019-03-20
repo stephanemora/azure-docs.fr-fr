@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 301326f4ba858c7aef6c8bdec8f2cae3ed926847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556592"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121041"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 Cet article explore les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. Vous pouvez utiliser l’explorateur Time Series Insights dans votre navigateur web pour créer des visualisations de vos données.
@@ -34,7 +34,7 @@ Cette vidéo s’appuie sur la vidéo Time Series Insights :
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de pouvoir utiliser l’Explorateur Time Series Insights, vous devez :
 - Créer un environnement Time Series Insights
@@ -91,27 +91,27 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
 10. Le **Graphique** vous permet d’explorer visuellement vos données. Les outils de graphique comprennent :
 
-   - Sélectionnez/Cliquez, ce qui permet une sélection d’un intervalle de temps spécifique ou d’une seule série de données.  
-   - Dans une sélection d’intervalle, vous pouvez effectuer un zoom ou explorer les événements.  
-   - Au sein d’une série de données, vous pouvez fractionner la série par une autre colonne, ajouter la série en tant que nouveau terme, afficher uniquement la série sélectionnée, exclure les séries sélectionnées, effectuer un test ping sur cette série ou explorer les événements de la série sélectionnée.
-   - Dans la zone de filtre à gauche du graphique, vous pouvez voir toutes les séries de données affichées et les réorganiser par valeur ou par nom, afficher toutes les séries de données ou des séries épinglées ou non épinglées spécifiquement.  Vous pouvez également sélectionner une seule série de données et fractionner la série par une autre colonne, ajouter la série en tant que nouveau terme, afficher uniquement la série sélectionnée, exclure les séries sélectionnées, effectuer un test ping sur cette série ou explorer les événements de la série sélectionnée.
-   - Lorsque vous affichez plusieurs termes simultanément, vous pouvez empiler, désempiler et voir des données supplémentaires sur une série de données et utiliser le même axe des ordonnées sur tous les termes du contrat avec les boutons dans le coin supérieur droit du graphique.
+    - Sélectionnez/Cliquez, ce qui permet une sélection d’un intervalle de temps spécifique ou d’une seule série de données.  
+    - Dans une sélection d’intervalle, vous pouvez effectuer un zoom ou explorer les événements.  
+    - Au sein d’une série de données, vous pouvez fractionner la série par une autre colonne, ajouter la série en tant que nouveau terme, afficher uniquement la série sélectionnée, exclure les séries sélectionnées, effectuer un test ping sur cette série ou explorer les événements de la série sélectionnée.
+    - Dans la zone de filtre à gauche du graphique, vous pouvez voir toutes les séries de données affichées et les réorganiser par valeur ou par nom, afficher toutes les séries de données ou des séries épinglées ou non épinglées spécifiquement.  Vous pouvez également sélectionner une seule série de données et fractionner la série par une autre colonne, ajouter la série en tant que nouveau terme, afficher uniquement la série sélectionnée, exclure les séries sélectionnées, effectuer un test ping sur cette série ou explorer les événements de la série sélectionnée.
+    - Lorsque vous affichez plusieurs termes simultanément, vous pouvez empiler, désempiler et voir des données supplémentaires sur une série de données et utiliser le même axe des ordonnées sur tous les termes du contrat avec les boutons dans le coin supérieur droit du graphique.
  
-   ![Outil de graphique](media/time-series-insights-explorer/explorer5.png) 
+    ![Outil de graphique](media/time-series-insights-explorer/explorer5.png) 
 
 11. La **carte thermique** peut être utilisée pour identifier rapidement les séries de données uniques ou anormales dans une requête donnée. Un seul terme de recherche peut être visualisé comme une carte thermique.    
 
-   ![Carte thermique](media/time-series-insights-explorer/explorer6.png)
+    ![Carte thermique](media/time-series-insights-explorer/explorer6.png)
 
 12. **Événements** :  Lorsque vous choisissez d’explorer les événements en les sélectionnant ou en cliquant dessus, le panneau d’événements est affiché.  Ici, vous pouvez voir tous les événements bruts et exporter vos événements sous forme de fichiers JSON ou CSV. Notez que Time Series Insights stocke toutes les données brutes.
 
-   ![Événements](media/time-series-insights-explorer/explorer7.png)
+    ![Événements](media/time-series-insights-explorer/explorer7.png)
 
 13. Cliquez sur l’onglet **Statistiques** après avoir exploré les événements pour exposer des modèles et les statistiques de colonne.  
 
-   - **Modèles** : Cette fonctionnalité fait ressortir de façon proactive les modèles statistiquement les plus significatifs dans une région de données sélectionnée. Cela vous évite de devoir examiner plusieurs milliers d’événements pour comprendre les modèles qui justifient le plus de temps et d’énergie. En outre, Time Series Insights vous permet d’accéder directement à ces modèles statistiquement significatifs pour continuer la réalisation d’une analyse. Cette fonctionnalité est également utile pour les enquêtes post mortem des données historiques. 
+    - **Modèles** : Cette fonctionnalité fait ressortir de façon proactive les modèles statistiquement les plus significatifs dans une région de données sélectionnée. Cela vous évite de devoir examiner plusieurs milliers d’événements pour comprendre les modèles qui justifient le plus de temps et d’énergie. En outre, Time Series Insights vous permet d’accéder directement à ces modèles statistiquement significatifs pour continuer la réalisation d’une analyse. Cette fonctionnalité est également utile pour les enquêtes post mortem des données historiques. 
 
-   - **Statistiques de colonne** :  Les statistiques de colonne fournissent des graphiques et des tables qui décomposent les données de chaque colonne de la série de données sélectionnée sur l’intervalle de temps sélectionné.  
+    - **Statistiques de colonne** :  Les statistiques de colonne fournissent des graphiques et des tables qui décomposent les données de chaque colonne de la série de données sélectionnée sur l’intervalle de temps sélectionné.  
  
       ![STATS](media/time-series-insights-explorer/explorer8.png) 
 

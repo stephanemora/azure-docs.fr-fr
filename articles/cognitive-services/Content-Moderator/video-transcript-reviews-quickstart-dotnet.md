@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: feecafcae8095c11736d1a76a1b6774c8dde1fc8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2e33f94486fe295fffa1f0b4bbd298b15d9271f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864092"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113731"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
 
@@ -25,7 +25,7 @@ Cet article fournit des informations et des exemples de code destinés à vous a
 - Ajouter une transcription modérée à la révision
 - Publier la révision
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous avez [modéré la vidéo](video-moderation-api.md) et [créé la révision de la vidéo](video-reviews-quickstart-dotnet.md) dans l’outil de révision pour la prise de décision humaine. Vous souhaitez maintenant ajouter les transcriptions de la vidéo modérée dans l’outil de révision.
 
@@ -246,10 +246,10 @@ En plus d’ajouter une transcription à une révision de vidéo, vous pouvez é
 1. Le nom de votre équipe Content Moderator.
 1. L’ID de révision de vidéo renvoyé par **CreateVideoReviews**.
 1. Une IList<TranscriptModerationBodyItem>. Un élément **TranscriptModerationBodyItem** a les propriétés suivantes :
-- **Termes** Une IList<TranscriptModerationBodyItemTermsItem>. Un élément **TranscriptModerationBodyItemTermsItem** a les propriétés suivantes :
-- **Index**. L’index de base zéro du terme.
-- **Terme**. Une chaîne qui contient le terme.
-- **Horodatage** Une chaîne qui contient le moment (exprimé en secondes) où se trouvent les termes dans la transcription.
+1. **Termes** Une IList<TranscriptModerationBodyItemTermsItem>. Un élément **TranscriptModerationBodyItemTermsItem** a les propriétés suivantes :
+1. **Index**. L’index de base zéro du terme.
+1. **Terme**. Une chaîne qui contient le terme.
+1. **Horodatage** Une chaîne qui contient le moment (exprimé en secondes) où se trouvent les termes dans la transcription.
 
 La transcription doit être au format WebVTT. Pour plus d'informations, consultez [WebVTT : le format Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
 

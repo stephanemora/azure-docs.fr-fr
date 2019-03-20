@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f399cf55123ad6bc8ccb011c5d7d59f615af652d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: ecf39623c70441e4b726221b4e92e2492370a9bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904384"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846750"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modifiez les informations de profil de votre compte Azure, comme l'e-mail de contact, l'adresse et le numéro de téléphone
 
@@ -46,7 +46,7 @@ Oui. L’administrateur de compte est la personne qui a configuré le compte Azu
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>La mise à jour de l'adresse de messagerie de mon profil actualise-t-elle également mon adresse de connexion ?
 
- Non. La mise à jour de l'adresse de messagerie du profil n'actualise pas votre adresse de connexion. Pour modifier votre adresse de connexion, vous devez transférer la propriété du compte.
+Non. La mise à jour de l'adresse de messagerie du profil n'actualise pas votre adresse de connexion. Pour modifier votre adresse de connexion, vous devez transférer la propriété du compte.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>La mise à jour de mon adresse de profil actualise-t-elle également l'adresse de facturation associée à ma carte de crédit ?
 
@@ -58,5 +58,5 @@ En raison de contraintes techniques, nous ne pouvons modifier le pays d'un compt
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 

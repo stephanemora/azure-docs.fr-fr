@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
+ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549015"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183745"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -230,7 +230,7 @@ L’option **Connexions** vous fournit une vue d’ensemble complète de tous le
 
 ## <a name="office-365-activity-logs"></a>Journaux d’activité Office 365
 
-Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité d’Office 365 et d’Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Office 365 offre une vue complète des journaux d’activité d’Office 365. 
+Vous pouvez afficher les journaux d’activité Office 365 à partir de la [centre d’administration Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Même si Office 365 Azure AD activité et journaux partagent un grand nombre de ressources du répertoire, uniquement le centre d’administration Microsoft 365 fournit une vue complète des journaux d’activité Office 365. 
 
 Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 avec l’[API de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

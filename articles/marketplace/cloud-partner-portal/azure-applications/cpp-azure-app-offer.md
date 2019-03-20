@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 82d072cc6f86ae758bd0fdd4d02b68b1ac1de53a
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 9faa38a23b2039902366e5b885ab73c68a2a3d80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076018"
 ---
 # <a name="azure-application-offer"></a>Offre d’application Azure
 
@@ -44,6 +44,9 @@ Il existe deux types d’applications Azure : les applications managées et les 
 
 Outre la Place de marché Microsoft Azure, vous pouvez proposer des applications managées dans un catalogue de services. Le catalogue de services est un catalogue interne des solutions approuvées pour les utilisateurs d’une organisation. Vous l’utilisez pour garantir la conformité avec les normes organisationnelles tout en fournissant des solutions aux groupes d’une organisation. Les employés utilisent le catalogue pour découvrir facilement les applications recommandées et approuvées par leur service informatique.
 
+>[!Note]
+>Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
+
 Pour plus d’informations sur les avantages et les différents types d’applications managées, consultez [Vue d’ensemble des applications managées Azure](https://docs.microsoft.com/azure/managed-applications/overview).
 
 
@@ -55,16 +58,15 @@ Le diagramme suivant montre le processus principal pour la publication d’une o
 
 Les étapes principales de la publication d’une offre Azure Application sont les suivantes :
 
-0. Respecter les [conditions préalables](./cpp-prerequisites.md) : (Non affiché) Vérifiez que vous avez respecté les exigences commerciales et techniques pour la publication d’une application Azure sur la Place de marché. 
+1. Respecter les [conditions préalables](./cpp-prerequisites.md) : (Non affiché) Vérifiez que vous avez respecté les exigences commerciales et techniques pour la publication d’une application Azure sur la Place de marché. 
 
 1. [Créer l’offre](./cpp-create-offer.md) : fournissez des informations détaillées sur l’offre. Ces informations incluent : la description de l’offre, les documents marketing, les informations de prise en charge et les spécifications des ressources.
 
-2. [Créer ou rassembler les ressources commerciales et techniques](./cpp-create-technical-assets.md) : créez les ressources commerciales (documents juridiques et supports marketing) et techniques de la solution associée.
+1. [Créer ou rassembler les ressources commerciales et techniques](./cpp-create-technical-assets.md) : créez les ressources commerciales (documents juridiques et supports marketing) et techniques de la solution associée.
 
-3. [Créer la référence SKU](./cpp-skus-tab.md) : créez la ou les références SKU associée(s) à l’offre. Chaque image que vous prévoyez de publier doit avoir une référence SKU unique.
+1. [Créer la référence SKU](./cpp-skus-tab.md) : créez la ou les références SKU associée(s) à l’offre. Chaque image que vous prévoyez de publier doit avoir une référence SKU unique.
 
-4. [Certifier et publier l’offre](./cpp-publish-offer.md) : une fois l’offre et les ressources techniques finalisées, vous pouvez envoyer l’offre. Cette soumission commence le processus de publication. Pendant ce processus, la solution est testée, validée et certifiée, puis publiée sur la Place de marché Microsoft Azure.
-
+1. [Certifier et publier l’offre](./cpp-publish-offer.md) : une fois l’offre et les ressources techniques finalisées, vous pouvez envoyer l’offre. Cette soumission commence le processus de publication. Pendant ce processus, la solution est testée, validée et certifiée, puis publiée sur la Place de marché Microsoft Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

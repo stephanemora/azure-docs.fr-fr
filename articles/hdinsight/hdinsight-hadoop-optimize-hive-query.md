@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202739"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimiser les requêtes Apache Hive dans Azure HDInsight
 
 Dans Azure HDInsight, il existe plusieurs types de cluster et technologie qui peuvent exécuter des requêtes Apache Hive. Lorsque vous créez votre cluster HDInsight, choisissez le type de cluster approprié pour optimiser les performances en fonction de vos besoins de charge de travail. 
 
-Par exemple, choisissez le type de cluster **Requête interactive** pour optimiser les requêtes interactives ad hoc. Choisissez le type de cluster Apache **Hadoop** pour optimiser les requêtes du répertoire de stockage utilisées comme un processus par lots. Les types de cluster **Spark** et **HBase** peuvent également exécuter des requêtes Hive. Pour plus d’informations sur l’exécution de requêtes Hive sur les différents types de cluster HDInsight, consultez la rubrique [Présentation d’Apache Hive et HiveQL sur Azure HDInsight](hadoop/hdinsight-use-hive.md).
+Par exemple, choisissez **Interactive Query** type afin d’optimiser les requêtes ad hoc et interactives de cluster. Choisissez le type de cluster Apache **Hadoop** pour optimiser les requêtes du répertoire de stockage utilisées comme un processus par lots. Les types de cluster **Spark** et **HBase** peuvent également exécuter des requêtes Hive. Pour plus d’informations sur l’exécution de requêtes Hive sur les différents types de cluster HDInsight, consultez la rubrique [Présentation d’Apache Hive et HiveQL sur Azure HDInsight](hadoop/hdinsight-use-hive.md).
 
 Par défaut, les clusters HDInsight de type Hadoop ne sont pas optimisés au niveau des performances. Cet article décrit en détail quelques-unes des méthodes d’optimisation des performances Hive courantes que vous pouvez appliquer à nos requêtes.
 
@@ -196,10 +196,8 @@ Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple 
 Dans cet article, vous avez appris plusieurs méthodes d’optimisation courantes des requêtes. Pour en savoir plus, consultez les articles suivants :
 
 * [Utilisation d’Apache Hive dans HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyser des données sur les retards des vols avec Apache Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analyser des données Twitter avec Apache Hive dans HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analyser des données de capteur avec la console de requête Apache Hive sur Apache Hadoop dans HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Utiliser Apache Hive avec HDInsight pour analyser les journaux provenant de sites web](hadoop/apache-hive-analyze-website-log.md)
+* [Analyser des données sur les retards des vols avec Apache Hive dans HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyser des données Twitter avec Apache Hive dans HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

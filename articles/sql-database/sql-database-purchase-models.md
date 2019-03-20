@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456688"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010515"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modèles d’achat Azure SQL Database
 
@@ -104,7 +104,7 @@ Vous pouvez ajouter des eDTU à un pool existant sans que les bases de données 
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Déterminer le nombre de DTU requises par une charge de travail
 
-Si vous souhaitez migrer une charge de travail de machine virtuelle SQL Server ou locale existante vers Azure SQL Database, vous pouvez utiliser l'outil [DTU Calculator](http://dtucalculator.azurewebsites.net/) pour évaluer approximativement le nombre de DTU requises. Dans le cas d'une charge de travail Azure SQL Database existante, vous pouvez utiliser l'[analyse des performances des requêtes](sql-database-query-performance.md) pour évaluer la consommation de ressources (DTU) de votre base de données et obtenir une analyse plus approfondie afin d'optimiser votre charge de travail. Vous pouvez également utiliser la DMV [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) pour voir la consommation des ressources au cours de la dernière heure. Sinon, la vue de catalogue [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) affiche la consommation des ressources pour les 14 derniers jours, mais avec une précision inférieure (moyennes de cinq minutes).
+Si vous souhaitez migrer une charge de travail de machine virtuelle SQL Server ou locale existante vers Azure SQL Database, vous pouvez utiliser l'outil [DTU Calculator](https://dtucalculator.azurewebsites.net/) pour évaluer approximativement le nombre de DTU requises. Dans le cas d'une charge de travail Azure SQL Database existante, vous pouvez utiliser l'[analyse des performances des requêtes](sql-database-query-performance.md) pour évaluer la consommation de ressources (DTU) de votre base de données et obtenir une analyse plus approfondie afin d'optimiser votre charge de travail. Vous pouvez également utiliser la DMV [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) pour voir la consommation des ressources au cours de la dernière heure. Sinon, la vue de catalogue [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) affiche la consommation des ressources pour les 14 derniers jours, mais avec une précision inférieure (moyennes de cinq minutes).
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Charges de travail tirant avantage d’un pool élastique de ressources
 

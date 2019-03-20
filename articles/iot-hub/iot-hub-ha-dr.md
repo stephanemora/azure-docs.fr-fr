@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 1596cf1337fa084fe6a160c99e52ae80ee3e2491
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341971"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092648"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
@@ -41,7 +41,7 @@ Le service IoT Hub fournit une haute disponibilité intra-région en implémenta
 
 Il peut arriver à de rares occasions qu’un centre de données connaisse une interruption prolongée en raison de pannes d’alimentation ou d’autres défaillances impliquant des biens physiques. Ces événements se produisent rarement et la fonction de haute disponibilité intra-région décrite ci-dessus ne peut pas toujours s’appliquer dans ces situations. IoT Hub propose plusieurs solutions de récupération face à ce type d’interruption prolongée. 
 
-Les clients disposent de deux options de récupération dans une telle situation : le « basculement initié par Microsoft » et le « basculement manuel ». La différence fondamentale entre les deux est que, dans la première option, Microsoft intervient, tandis que l’utilisateur déclenche lui-même le basculement dans la deuxième option. Le basculement manuel garantit également un objectif de temps de récupération (RTO) inférieur à celui de l’option de basculement initié par Microsoft. Les RTO spécifiques offerts pour chaque option sont décrits dans les sections ci-dessous. Lorsqu’une de ces options de basculement d’un hub IoT à partir de sa région principale est utilisée, le hub devient entièrement fonctionnel dans la [région Azure qui lui est associée géographiquement](../best-practices-availability-paired-regions.md).
+Les clients disposent de deux options de récupération dans une telle situation : le « basculement initié par Microsoft » et le « basculement manuel ». La différence fondamentale entre les deux est que, dans la première option, Microsoft intervient, tandis que l’utilisateur déclenche lui-même le basculement dans la deuxième option. Le basculement manuel garantit également un objectif de temps de récupération (RTO) inférieur à celui de l’option de basculement initié par Microsoft. Les RTO spécifiques offerts pour chaque option sont décrits dans les sections ci-dessous. Lorsqu’une de ces options de basculement d’un IoT hub à partir de sa région primaire est utilisée, le hub devient entièrement fonctionnel dans la [région Azure qui lui est associée géographiquement](../best-practices-availability-paired-regions.md).
 
 Ces deux options de basculement offrent les objectifs de point de récupération (RPO) suivants :
 
@@ -57,13 +57,14 @@ Ces deux options de basculement offrent les objectifs de point de récupération
 
 <sup>1</sup>Les messages cloud-à-appareil et les travaux parents ne sont pas récupérés dans le cadre d’un basculement manuel dans l’offre de préversion de cette fonctionnalité.
 
-Une fois l’opération de basculement terminée pour le hub IoT, toutes les opérations exécutées à partir des applications principales et de l’appareil sont supposées continuer de fonctionner sans intervention manuelle.
+Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les opérations exécutées à partir des applications principales et de l’appareil sont supposées continuer de fonctionner sans intervention manuelle.
 
 > [!CAUTION]
 > - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement. À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application principale, vous devrez reconfigurer votre application en [extrayant le nouveau nom et le nouveau point de terminaison compatibles Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations.
 >
 > - Après le basculement, les événements émis via Event Grid peuvent être utilisés via les mêmes abonnements configurés précédemment tant que ces abonnements Event Grid restent disponibles.
 >
+> - Lors du routage pour le stockage d’objets blob, nous vous recommandons de l’inscription d’objets BLOB, puis l’itération sur ces derniers, pour vous assurer de tous les conteneurs sont lus sans faire d’hypothèses de partition. La plage de partition pourrait changer pendant un basculement initié de Microsoft ou d’un basculement manuel. Pour savoir comment énumérer la liste des objets BLOB, consultez [routage vers le stockage blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Basculement initié par Microsoft
 
@@ -100,25 +101,25 @@ Alors que le nom de domaine complet (et par conséquent, la chaîne de connexion
 Temps de récupération = RTO [10 min -2 heures pour un basculement manuel | 2 à 26 heures pour un basculement initié par Microsoft] + délai de propagation DNS + temps nécessaire à l’application cliente pour actualiser l’adresse IP du hub IoT mise en cache.
 
 > [!IMPORTANT]
-> Les SDK IoT ne mettent pas en cache l’adresse IP du hub IoT. Nous recommandons que le code utilisateur interagissant avec les SDK ne mettent pas en cache l’adresse IP du hub IoT.
+> Les SDK IoT ne mettent pas en cache l’adresse IP de l’instance IoT Hub. Nous recommandons que le code utilisateur interagissant avec les SDK ne mettent pas en cache l’adresse IP de l’IoT Hub.
 
 ## <a name="achieve-cross-region-ha"></a>Haute disponibilité inter-région
 
 Si vos objectifs de temps d’activité ne sont pas satisfaits par le RTO associé à un basculement initié par Microsoft ou par un basculement manuel, vous devez envisager d’implémenter un mécanisme de basculement automatique inter-région pour chaque appareil.
 Un traitement complet des topologies de déploiement dans des solutions IoT dépasserait la portée de cet article. L’article traite du modèle de déploiement avec *basculement régional* pour les besoins de haute disponibilité et de récupération d’urgence.
 
-Dans un modèle de basculement régional, le backend de solution s’exécute principalement dans un emplacement de centre de données. Un hub IoT et un backend secondaire sont déployés dans un autre emplacement de centre de données. Si le hub IoT de la région primaire subit une panne ou si la connectivité réseau de l’appareil à la région primaire est interrompue, les appareils utilisent un point de terminaison de service secondaire. Vous pouvez améliorer la disponibilité de la solution en implémentant un modèle de basculement inter-régions au lieu de rester au sein d’une seule région. 
+Dans un modèle de basculement régional, le backend de solution s’exécute principalement dans un emplacement de centre de données. Un IoT Hub et un backend secondaire sont déployés dans un autre emplacement de centre de données. Si l’IoT Hub de la région primaire subit une panne ou si la connectivité réseau de l’appareil à la région primaire est interrompue, les appareils utilisent un point de terminaison de service secondaire. Vous pouvez améliorer la disponibilité de la solution en implémentant un modèle de basculement inter-régions au lieu de rester au sein d’une seule région. 
 
 À un niveau supérieur, pour implémenter un modèle de basculement régional avec IoT Hub, vous devez procéder de la manière suivante :
 
-* **Un hub IoT secondaire et une logique de routage d’appareil secondaire** : en cas d’interruption de service dans votre région principale, les appareils doivent commencer à se connecter à votre région secondaire. Étant donné l’état de la plupart des services impliqués, il est courant pour les administrateurs de solution de déclencher le processus de basculement inter-régions. La meilleure façon de communiquer le nouveau point de terminaison aux appareils tout en conservant le contrôle du processus consiste à consulter régulièrement un service de *conciergerie* pour connaître le point de terminaison actif en cours. Le service de concierge peut être une application web répliquée accessible à l’aide de techniques de redirection DNS (par exemple, l’utilisation [d’Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
+* **Un IoT hub et l’appareil logique de routage secondaire**: Si l’interruption de service dans votre région primaire, appareils doivent commencer à se connecter à votre région secondaire. Étant donné l’état de la plupart des services impliqués, il est courant pour les administrateurs de solution de déclencher le processus de basculement inter-régions. La meilleure façon de communiquer le nouveau point de terminaison aux appareils tout en conservant le contrôle du processus consiste à consulter régulièrement un service de *conciergerie* pour connaître le point de terminaison actif en cours. Le service de concierge peut être une application web répliquée accessible à l’aide de techniques de redirection DNS (par exemple, l’utilisation [d’Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
 
    > [!NOTE]
    > Le service IoT Hub n’est pas un type de point de terminaison pris en charge dans Azure Traffic Manager. Il est recommandé d’intégrer le service de concierge proposé avec Azure Traffic Manager pour faire en sorte qu’il implémente l’API de sonde d’intégrité du point de terminaison.
 
-* **Réplication du registre des identités** : pour être utilisable, le hub IoT secondaire doit contenir toutes les identités des appareils pouvant se connecter à la solution. La solution doit conserver des sauvegardes géo-répliquées d’identités d’appareils et les télécharger dans le hub IoT secondaire avant de basculer le point de terminaison actif des appareils. La fonctionnalité d’exportation des identités d’appareil d’IoT Hub est utile dans ce contexte. Pour plus d’informations, consultez[Guide du développeur IoT Hub - Registre des identités](iot-hub-devguide-identity-registry.md).
+* **Réplication du Registre des identités**: Pour être utilisable, le hub IoT secondaire doit contenir toutes les identités des appareils pouvant se connecter à la solution. La solution doit conserver des sauvegardes géo-répliquées d’identités d’appareils et les télécharger dans le hub IoT secondaire avant de basculer le point de terminaison actif des appareils. La fonctionnalité d’exportation des identités d’appareil d’IoT Hub est utile dans ce contexte. Pour plus d’informations, consultez[Guide du développeur IoT Hub - Registre des identités](iot-hub-devguide-identity-registry.md).
 
-* **Fusion logique** : quand la région principale redevient disponible, l’ensemble des états et des données qui ont été créés dans le site secondaire doit revenir à la région principale. Ces états et ces données ont essentiellement trait aux identités des appareils et aux métadonnées d’application qui doivent être fusionnées avec le hub IoT principal et d’autres magasins propres à l’application dans la région principale. 
+* **Fusion logique**: Lorsque la région principale redevienne disponible, tous les États et des données qui ont été créées dans le site secondaire doivent être migrées vers la région primaire. Ces états et ces données ont essentiellement trait aux identités des appareils et aux métadonnées d’application qui doivent être fusionnées avec l’IoT Hub principal et d’autres magasins propres à l’application dans la région principale. 
 
 Pour simplifier cette étape, vous devez utiliser des opérations idempotentes. Des opérations idempotentes minimisent les effets indésirables de la distribution cohérente éventuelle d’événements, et des doublons ou des livraisons d’événements hors d’usage. Par ailleurs, la logique d’application doit être conçue pour tolérer les éventuelles incohérences ou de légers retards. Cette situation peut se produire en raison du temps additionnel que le système prend pour se réparer en fonction des objectifs de points de récupération (RPO).
 
@@ -127,7 +128,7 @@ Pour simplifier cette étape, vous devez utiliser des opérations idempotentes. 
 Voici un résumé des options de haute disponibilité/récupération d’urgence présentées dans cet article et que vous pouvez utiliser comme cadre de référence pour choisir l’option qui convient le mieux à votre solution.
 
 | Option de haute disponibilité/récupération d’urgence | RTO | RPO | Nécessite une intervention manuelle ? | Complexité de l’implémentation | Coût supplémentaire|
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Basculement initié par Microsoft |2 - 26 heures|Voir le tableau des RPO ci-dessus|Non |Aucun|Aucun|
 | Basculement manuel |10 min - 2 heures|Voir le tableau des RPO ci-dessus|Oui|Très faible. Vous ne devez déclencher cette opération qu’à partir du portail.|Aucun|
 | Haute disponibilité inter-région |< 1 min|Dépend de la fréquence de réplication de votre solution de haute disponibilité personnalisée|Non |Élevé|> 1 fois supérieure au coût de 1 IoT Hub|

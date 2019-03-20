@@ -1,9 +1,8 @@
 ---
-title: Présentation de Machine Learning Services (avec R) dans Azure SQL Database (préversion)
+title: Azure SQL Database Machine Learning Services avec vue d’ensemble de R (version préliminaire)
 description: Cette rubrique décrit Machine Learning Services (avec R) dans Azure SQL et en explique le fonctionnement.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,22 +10,26 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 02/06/2019
-ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875601"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762057"
 ---
-# <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning Services (avec R) dans Azure SQL Database (préversion)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>SQL Database Services Azure Machine Learning avec R (version préliminaire)
 
 Machine Learning Services est une fonctionnalité d’Azure SQL Database pour l’exécution de scripts R dans les bases de données. La fonctionnalité inclut les packages Microsoft R pour l’analyse prédictive haute performance et le machine learning. Les données relationnelles peuvent être utilisées dans des scripts R au moyen de procédures stockées, de scripts T-SQL contenant des instructions R ou de code R contenant T-SQL.
 
 > [!IMPORTANT]
-> Dans Azure SQL Database, la fonctionnalité Machine Learning Services (avec R) est actuellement disponible en préversion publique pour les bases de données uniques et pour les pools élastiques qui utilisent le modèle d'achat vCore aux niveaux de service **Usage général** et **Critique pour l'entreprise**. Dans cette préversion publique initiale, le niveau de service **Hyperscale** et l'option de déploiement **Instance gérée** ne sont pas pris en charge. Actuellement, R est le seul langage pris en charge. Il n’existe aucune prise en charge de Python pour l’instant. 
+> Azure SQL Database Machine Learning Services (avec R) est actuellement en version préliminaire publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Cette préversion est actuellement disponible dans les régions suivantes : Europe Ouest, Europe Nord, USA Ouest 2, USA Est, USA Centre Sud, USA Centre Nord, Canada Centre, Asie Sud-Est, Inde Sud et Australie Sud-Est. 
+> La version préliminaire publique est disponible pour les bases de données uniques et des pools élastiques à l’aide du modèle d’achat vCore dans le **à usage général** et **critique pour l’entreprise** niveaux de service. Dans cette préversion publique initiale, le niveau de service **Hyperscale** et l'option de déploiement **Instance gérée** ne sont pas pris en charge. Actuellement, R est le seul langage pris en charge. Il n’existe aucune prise en charge de Python pour l’instant.
+>
+> La version préliminaire est actuellement disponible dans les régions suivantes : Europe de l’ouest, Europe du Nord, ouest des États-Unis 2, est des États-Unis, Sud-Centre des États-Unis, Nord du centre des États-Unis, centre du Canada, Asie du Sud-est, Inde-Sud et sud-est de l’Australie.
 >
 > [Inscrivez-vous à la préversion](#signup) ci-après.
 
@@ -60,7 +63,7 @@ Pour vous inscrire à la préversion publique, procédez comme suit :
 
 Une fois que vous êtes inscrit dans le programme, Microsoft vous intègre à la préversion publique et active R à votre base de données existante ou nouvelle.
 
-N’utilisez pas Machine Learning Services avec R pour des charges de travail de production avec la préversion publique.
+Services machine Learning avec R n’est pas recommandée pour la charge de travail de production pendant la préversion publique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

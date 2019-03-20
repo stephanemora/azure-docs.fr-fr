@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013901"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemples de requêtes SQL pour Azure Cosmos DB
 
@@ -160,7 +160,7 @@ Voici quelques aspects du langage de requête Cosmos DB présentés via les exem
 
 * Le langage SQL fonctionne avec des données sans schéma. C'est pourquoi le système de type doit être lié de façon dynamique. La même expression peut produire différents types sur différents éléments. Le résultat d'une requête est une valeur JSON valide, mais n'est pas forcément un schéma fixe.  
 
-* Azure Cosmos DB prend uniquement en charge les éléments JSON stricts. Cela signifie que le système de type et les expressions peuvent uniquement traiter des types JSON. Reportez-vous à la [spécification JSON](http://www.json.org/) pour en savoir plus.  
+* Azure Cosmos DB prend uniquement en charge les éléments JSON stricts. Cela signifie que le système de type et les expressions peuvent uniquement traiter des types JSON. Reportez-vous à la [spécification JSON](https://www.json.org/) pour en savoir plus.  
 
 * Un conteneur Cosmos DB est une collection sans schéma d’éléments JSON. Les relations des entités de données dans et entre les éléments d’un conteneur sont capturées de façon implicite par l’autonomie et non par les relations de clé primaire et de clé étrangère. Il s’agit d’un aspect important qu’il convient de souligner eu égard aux liaisons entre éléments, qui sont abordées plus loin dans cet article.
 
@@ -2113,9 +2113,9 @@ Le deuxième exemple illustre une requête plus complexe qui renvoie plusieurs r
 
 Si les résultats d’une requête ne tiennent pas sur une seule page, l’API REST retourne un jeton de liaison via l’en-tête de réponse `x-ms-continuation-token` . Les clients peuvent paginer les résultats en incluant l'en-tête dans les résultats suivants. Vous pouvez aussi contrôler le nombre de résultats par page via l'en-tête de nombre `x-ms-max-item-count` . Si la requête spécifiée inclut une fonction d’agrégation telle que `COUNT`, la page de requête peut renvoyer une valeur partiellement agrégée sur la page de résultats. Les clients doivent effectuer une agrégation de deuxième niveau sur ces résultats pour produire les résultats finaux, par exemple effectuer la somme des nombres renvoyés dans les pages individuelles pour renvoyer le nombre total.
 
-Pour gérer la stratégie de cohérence des données des requêtes, utilisez l’en-tête `x-ms-consistency-level` comme pour toutes les requêtes d’API REST. Pour maintenir la cohérence par session, vous devez aussi appliquer l’écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. La stratégie d’indexation du conteneur interrogé peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d’indexation par défaut, l’index est toujours actualisé pour les conteneurs avec le contenu de l’élément, et les résultats de la requête correspondent à la cohérence choisie pour les données. Si la stratégie d'indexation est passée en différé, les requêtes peuvent renvoyer des résultats obsolètes. Pour en savoir plus, voir [Niveaux de cohérence des données paramétrables dans Azure Cosmos DB][consistency-levels].
+Pour gérer la stratégie de cohérence des données des requêtes, utilisez l’en-tête `x-ms-consistency-level` comme pour toutes les requêtes d’API REST. Pour maintenir la cohérence par session, vous devez aussi appliquer l’écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. La stratégie d’indexation du conteneur interrogé peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d’indexation par défaut, l’index est toujours actualisé pour les conteneurs avec le contenu de l’élément, et les résultats de la requête correspondent à la cohérence choisie pour les données. Pour en savoir plus, voir [Niveaux de cohérence des données paramétrables dans Azure Cosmos DB][consistency-levels].
 
-Si la stratégie d’indexation configurée pour le conteneur ne peut pas prendre en charge la requête spécifiée, le serveur Azure Cosmos DB retourne le code d’état 400 « Demande incorrecte ». Ce message d’erreur est retourné pour les requêtes de plage exécutées sur les chemins configurés pour les recherches (d’égalité) de hachage et sur les chemins explicitement exclus de l’indexation. L’en-tête `x-ms-documentdb-query-enable-scan` peut être spécifié pour permettre à la requête d’effectuer une analyse quand un index n’est pas disponible.
+Si la stratégie d’indexation configurée pour le conteneur ne peut pas prendre en charge la requête spécifiée, le serveur Azure Cosmos DB retourne le code d’état 400 « Demande incorrecte ». Ce message d’erreur est retourné pour les requêtes avec les chemins d’accès explicitement exclus de l’indexation. L’en-tête `x-ms-documentdb-query-enable-scan` peut être spécifié pour permettre à la requête d’effectuer une analyse quand un index n’est pas disponible.
 
 Vous pouvez obtenir les métriques détaillées sur l’exécution des requêtes en définissant l’en-tête `x-ms-documentdb-populatequerymetrics` sur `True`. Pour en savoir plus, consultez la section relative aux [métriques de requête SQL pour Azure Cosmos DB](sql-api-query-metrics.md).
 

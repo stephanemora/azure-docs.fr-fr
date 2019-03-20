@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fd70b80dd512b530d367d57cd9fc04ec28f27b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8bbb307654d4aaf753a4a3284875dee4f5707f2a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutoriel : Intégration d’Azure AD à HubSpot
 
@@ -34,7 +34,7 @@ L’intégration de HubSpot dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec HubSpot, vous avez besoin des éléments suivants :
 
@@ -187,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le **nom d’utilisateur** type de champ **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -215,7 +215,7 @@ Dans le cas de HubSpot, l’approvisionnement est une tâche manuelle.
 
     ![Configurer l'authentification unique](./media/hubspot-tutorial/user2.png)
 
-5. Entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**, dans la zone de texte **Add email address(es)** (Ajouter une ou des adresses e-mail), puis cliquez sur **Suivant**.
+5. Entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com** dans le **ajouter e-mail addess(es)** zone de texte et cliquez sur **suivant**.
 
     ![Configurer l'authentification unique](./media/hubspot-tutorial/user3.png)
 

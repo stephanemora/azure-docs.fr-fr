@@ -7,19 +7,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 1/30/2019
 ms.author: yizhon
-ms.openlocfilehash: 0bfba7f923ca394aa29dd907db1b8b1284a605d8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: e5b075a457c646eb03810b2c51af1a1181ee96ed
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981670"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670252"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Développer pour la plateforme Android Things à l’aide des Kits de développement logiciel (SDK) Azure IoT
 Les [Kits de développement logiciel (SDK) Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) assurent la prise en charge de premier niveau pour les plateformes populaires telles que Windows, Linux, OSX, MBED ainsi que les plateformes mobiles telles qu’iOS et Android.  Dans le cadre de notre engagement à offrir davantage de choix et de flexibilité dans les déploiements IoT, le Kit de développement logiciel (SDK) Java prend également en charge la plateforme [Android Things](https://developer.android.com/things/).  Les développeurs peuvent tirer parti des avantages du système d’exploitation Android Things côté appareil, tout en utilisant [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) en tant que plateforme de messagerie centrale qui se met à l’échelle de millions d’appareils connectés simultanément. 
 
 Ce didacticiel décrit les étapes à suivre pour créer une application côté appareil sur Android Things à l’aide du Kit de développement logiciel (SDK) Java Azure IoT.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Matériel compatible Android Things avec le système d’exploitation Android Things en cours d’exécution.  Pour savoir comment flasher le système d’exploitation Android Things, vous pouvez suivre la [documentation d’Android Things](https://developer.android.com/things/get-started/kits#flash-at).  Assurez-vous que votre appareil Android Things est connecté à Internet et dispose des périphériques essentiels tels qu’un clavier, un écran et une souris.  Ce didacticiel utilise Raspberry Pi 3.
 * Dernière version d’[Android Studio](https://developer.android.com/studio/)
 * Dernière version de [Git](https://git-scm.com/)
@@ -69,7 +69,6 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     ```
 4.  Dans Android Studio, ouvrez le projet Android situé dans « \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample ».
 5.  Ouvrez le fichier gradle.properties et remplacez « Device_connection_string » par la chaîne de connexion de votre appareil indiquée précédemment.
-    ![Capture d’écran de la branche maître du référentiel](./media/how-to-android-things/connection-string.png)
 6.  Cliquez sur Run – Debug, puis sélectionnez votre appareil pour déployer ce code sur vos appareils Android Things.
 7.  Une fois l’application correctement démarrée, vous pouvez voir une application en cours d’exécution sur votre appareil Android Things.  Cet exemple d’application envoie des relevés de température générés de manière aléatoire.
 

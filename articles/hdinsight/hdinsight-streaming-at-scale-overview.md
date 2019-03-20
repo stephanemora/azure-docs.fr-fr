@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: fd2614c258aff146397e24e688eae18d84d3cfa6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201158"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Diffusion en continu à l’échelle dans HDInsight
 
-Les solutions Big Data en temps réel agissent sur des données qui sont en mouvement. En général, ces données sont le plus précieuses au moment de leur arrivée. Si le flux de données entrant devient plus grand que ce qui peut être traité à ce moment-là, vous devrez peut-être limiter les ressources. En guise d’alternative, un cluster HDInsight peut monter en puissance pour répondre aux besoins de votre solution de streaming en ajoutant des nœuds à la demande.
+Solutions big data en temps réel agissent sur les données qui sont en mouvement. En général, ces données sont le plus précieuses au moment de leur arrivée. Si le flux de données entrant devient plus grand que ce qui peut être traité à ce moment-là, vous devrez peut-être limiter les ressources. En guise d’alternative, un cluster HDInsight peut monter en puissance pour répondre aux besoins de votre solution de streaming en ajoutant des nœuds à la demande.
 
 
 Dans une application de streaming, une ou plusieurs sources de données génèrent des événements (parfois plusieurs millions par seconde) qui doivent être ingérés rapidement sans supprimer aucune information utile. Les événements entrants sont traités avec la *mise en mémoire tampon du flux*, également appelée *mise en file d’attente des événements*, par un service comme [Apache Kafka](kafka/apache-kafka-introduction.md) ou [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Après avoir collecté les événements, vous pouvez analyser les données à l’aide d’un système d’analytique en temps réel dans la couche de *traitement du flux*, tel que [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Les données traitées peuvent être stockées dans des systèmes de stockage à long terme, comme [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), et affichées en temps réel sur un tableau de bord de décisionnel, tel que [Power BI](https://powerbi.microsoft.com), Tableau ou une page web personnalisée.
@@ -45,7 +45,7 @@ Pour plus d’informations, consultez [Présentation d’Apache Spark Streaming]
 
 ## <a name="scaling-a-cluster"></a>Mise à l’échelle d’un cluster
 
-Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de sa création, vous pourriez souhaiter augmenter ou réduire la taille du cluster pour l’adapter à la charge de travail. Tous les clusters HDInsight vous permettent de [changer le nombre de nœuds du cluster](hdinsight-administer-use-management-portal.md#scale-clusters). Les clusters Spark peuvent être supprimés sans perte de données, puisque toutes les données sont stockées dans Stockage Azure ou Data Lake Storage.
+Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de sa création, vous pourriez souhaiter augmenter ou réduire la taille du cluster pour l’adapter à la charge de travail. Tous les clusters HDInsight vous permettent de [changer le nombre de nœuds du cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Les clusters Spark peuvent être supprimés sans perte de données, puisque toutes les données sont stockées dans Stockage Azure ou Data Lake Storage.
 
 Les technologies de découplage offrent des avantages. Par exemple, Kafka est une technologie de mise en mémoire tampon des événements. Elle consomme donc de très nombreuses E/S et n’a pas besoin de beaucoup de puissance de traitement. En comparaison, les processeurs de flux tels que Spark Streaming nécessitent beaucoup de ressources système et des machines virtuelles plus puissantes. En découplant ces technologies dans des clusters différents, vous pouvez les mettre à l’échelle indépendamment tout en exploitant au mieux les machines virtuelles.
 

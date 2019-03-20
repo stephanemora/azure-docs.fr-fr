@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001854"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
@@ -100,7 +100,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 #### <a name="otherwise-"></a>Sinon...
 Suivez les instructions pour installer manuellement le kit de développement logiciel (SDK) Application Insights pour Java, téléchargez le fichier jar (une fois sur la page principale Maven, cliquez sur le lien « jar » dans la section de téléchargement) de l'appender approprié, puis ajoutez le fichier jar de l'appender téléchargé au projet.
 
-| Enregistreur | Download | Bibliothèque |
+| Enregistreur | Téléchargement | Bibliothèque |
 | --- | --- | --- |
 | Logback |[Jar de l’appender Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Jar de l’appender Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
@@ -158,7 +158,7 @@ Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à
 
 Les exceptions envoyées via les enregistreurs d'événements s'afficheront sur le portail en tant que données de télémétrie d'exception.
 
-![Dans Application Insights, ouvrez Recherche](./media/java-trace-logs/10-diagnostics.png)
+![Dans Application Insights, ouvrez Recherche](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Recherche de diagnostic][diagnostic]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 144b3f8ae210d515695c2184c2c3193084755746
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841019"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 
@@ -35,7 +35,7 @@ L’analyse, la détection, le diagnostic et la résolution des problèmes perme
 
 ## <a name="debugging-service-fabric-java-applications"></a>Débogage des applications Java Service Fabric
 
-Pour les applications Java, [plusieurs frameworks de journalisation](http://en.wikipedia.org/wiki/Java_logging_framework) sont disponibles. Comme `java.util.logging` est l'option par défaut avec l'environnement JRE, elle est également utilisée pour les [exemples de code de GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started). La suite de cette section explique comment configurer le framework `java.util.logging` .
+Pour les applications Java, [plusieurs frameworks de journalisation](https://en.wikipedia.org/wiki/Java_logging_framework) sont disponibles. Comme `java.util.logging` est l'option par défaut avec l'environnement JRE, elle est également utilisée pour les [exemples de code de GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). La suite de cette section explique comment configurer le framework `java.util.logging` .
 
 À l’aide de java.util.logging, vous pouvez rediriger vos journaux d’application vers la mémoire, des flux de sortie, des fichiers de console ou des sockets. Pour chacune de ces options, des gestionnaires par défaut sont déjà fournis dans le framework. Vous pouvez créer un fichier `app.properties` pour configurer le gestionnaire de fichiers de votre application de sorte qu’il redirige tous les journaux dans un fichier local.
 
@@ -64,7 +64,7 @@ Cette configuration se traduit par la collecte des journaux suivant une rotation
 
 Si aucun gestionnaire n’est configuré explicitement, le gestionnaire de la console est inscrit. Les journaux sont accessible sous /var/log/syslog.
 
-Pour plus d'informations, consultez les [exemples de code de GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).
+Pour plus d'informations, consultez les [exemples de code de GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Débogage des applications C# Service Fabric

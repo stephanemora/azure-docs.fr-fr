@@ -1,27 +1,28 @@
 ---
-title: 'Démarrage rapide : Soumettre un workflow à l’aide d’entrées multiples - Microsoft Genomics'
+title: Soumettre un workflow à l’aide de plusieurs entrées - Microsoft Genomics
 titleSuffix: Azure
-description: Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
+description: Cet article montre comment soumettre un workflow dans le service Microsoft Genomics si votre fichier d’entrée est plusieurs FASTQ ou fichiers BAM provenant du même échantillon. Vous avez installé le client msgen et avez exécuté avec succès les exemples de données via le service.
 services: genomics
+ms.service: genomics
 author: grhuynh
 manager: cgronlund
 ms.author: grhuynh
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 1007d81a73ce9f183f997354188e534274b2fe95
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 399b1ed735ce1b7a3fca1d27155863f6bfa18776
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730360"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791356"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Soumettre un workflow à l’aide d’entrées multiples d’un seul exemple
 
-Ce démarrage rapide vous montre comment soumettre un workflow dans le service Microsoft Genomics si votre fichier d’entrée est constitué de plusieurs fichiers FASTQ ou BAM **provenant du même échantillon**. Par exemple, si vous avez exécuté le **même échantillon** dans plusieurs couloirs sur le séquenceur, celui-ci peut sortir une paire de fichiers FASTQ pour chaque couloir. Au lieu d’effectuer une concaténation de ces fichiers FASTQ avant l’alignement et l’appel des variants, vous pouvez directement soumettre toutes ces entrées au client `msgen`. La sortie depuis le client `msgen` serait un **ensemble unique** de fichiers, y compris des fichiers .bam, .bai et .vcf. 
+Cet article montre comment soumettre un workflow dans le service Microsoft Genomics si votre fichier d’entrée est plusieurs fichiers FASTQ ou BAM **provenant du même échantillon**. Par exemple, si vous avez exécuté le **même échantillon** dans plusieurs couloirs sur le séquenceur, celui-ci peut sortir une paire de fichiers FASTQ pour chaque couloir. Au lieu d’effectuer une concaténation de ces fichiers FASTQ avant l’alignement et l’appel des variants, vous pouvez directement soumettre toutes ces entrées au client `msgen`. La sortie depuis le client `msgen` serait un **ensemble unique** de fichiers, y compris des fichiers .bam, .bai et .vcf. 
 
 Sachez toutefois qu’il est **impossible** de combiner les fichiers FASTQ et BAM dans la même soumission. En outre, vous **ne pouvez pas**  envoyer plusieurs fichiers FASTQ ou BAM par plusieurs personnes. 
 
-Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à exécuter ce démarrage rapide. 
+Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à poursuivre cet article. 
 
 
 ## <a name="multiple-bam-files"></a>Fichiers BAM multiples

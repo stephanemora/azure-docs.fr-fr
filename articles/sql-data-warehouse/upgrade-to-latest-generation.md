@@ -10,22 +10,25 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3e877733d473993a5acd2f44e088b8b0b4fe130
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447257"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314838"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimiser les performances en mettant à niveau SQL Data Warehouse
+
 Mettez à niveau Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
 
 ## <a name="why-upgrade"></a>Pourquoi procéder à une mise à niveau ?
+
 Vous pouvez maintenant effectuer une mise à niveau de manière fluide vers le niveau Gen2 optimisé pour le calcul d’Azure SQL Data Warehouse dans le portail Azure pour les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si votre région ne prend pas en charge la mise à niveau automatique, vous pouvez passer à une région prise en charge ou attendre que la mise à niveau automatique soit disponible dans votre région. Effectuez la mise à niveau dès maintenant pour bénéficier de la dernière génération de matériel et de l’architecture de stockage améliorée d’Azure, y compris de performances plus rapides, d’une plus grande évolutivité et d’un stockage en colonnes illimité. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>S’applique à
+
 Cette mise à niveau s’applique aux entrepôts de données de niveau Gen1 optimisé pour le calcul dans les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -49,13 +52,18 @@ Cette mise à niveau s’applique aux entrepôts de données de niveau Gen1 opti
    |           DW2000            |           DW2000c           |
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
->[!Note]
->Les niveaux de performance suggérés ne constituent pas une conversion directe. Par exemple, nous recommandons de passer du DW600 au DW500c.
+
+> [!Note]
+> Les niveaux de performance suggérés ne constituent pas une conversion directe. Par exemple, nous recommandons de passer du DW600 au DW500c.
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Mise à niveau dans une région prise en charge à l’aide du Portail Azure
 
+## <a name="before-you-begin"></a>Avant de commencer
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!NOTE]
-> La migration de GEN1 à GEN2 via le portail Azure est définitive. Un retour à GEN1 n’est pas possible.  
+> Migration à partir de la génération 1 vers Gen2 via le portail Azure est définitive. Il n’est pas un processus de retour à la génération 1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -73,13 +81,13 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
    Commande PowerShell Gen1 d’origine :
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
    Remplacée par :
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE] 
@@ -100,8 +108,6 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
    > [!NOTE] 
    > SERVICE_OBJECTIVE = 'DW300' est remplacé par SERVICE_OBJECTIVE = 'DW300**c**'
 
-
-
 ## <a name="start-the-upgrade"></a>Lancer la mise à niveau
 
 1. Ouvrez votre entrepôt de données de niveau Gen1 optimisé pour le calcul dans le portail Azure. Si l’entrepôt de données de niveau Gen1 optimisé pour le calcul à mettre à niveau est suspendu, [reprenez l’exécution de l’entrepôt de données](pause-and-resume-compute-portal.md). 
@@ -110,7 +116,6 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
     > [!NOTE]
     > Si vous ne voyez pas la carte **Mettre à niveau vers la 2e génération** sous l’onglet Tâches, votre type d’abonnement est limité dans la région actuelle.
     > [Envoyez un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) pour mettre votre abonnement sur liste verte.
-
 
 3. Vérifiez que l’exécution de votre charge de travail est terminée et arrêtée avant de mettre à niveau. Vous subirez un temps d’arrêt de quelques minutes avant la remise en ligne de votre entrepôt de données comme entrepôt de données de niveau Gen2 optimisé pour le calcul. **Sélectionnez Upgrade**  (Mettre à niveau) :
 
@@ -173,6 +178,7 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Mettre à niveau à partir d’une région géographique Azure en utilisant la restauration via le portail Azure
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Créer un point de restauration défini par l’utilisateur à l’aide du portail Azure
@@ -190,6 +196,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Nom du point de restauration](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurer une base de données active ou interrompue à l’aide du portail Azure
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Accédez à l’entrepôt de données SQL à partir duquel effectuer la restauration.
 3. En haut de la section Vue d’ensemble, sélectionnez **Restaurer**.
@@ -205,11 +212,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Points de restauration définis par l’utilisateur](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurer à partir d’une région géographique Azure à l’aide de PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Pour restaurer une base de données, utilisez l’applet de commande [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) .
 
 > [!NOTE]
 > Vous pouvez effectuer une géorestauration vers Gen2 ! Pour ce faire, spécifiez une valeur ServiceObjectiveName Gen2 (par exemple, DW1000**c**) comme paramètre facultatif.
->
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
@@ -235,7 +244,6 @@ $GeoRestoredDatabase.status
 
 > [!NOTE]
 > Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
->
 
 La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
 
@@ -243,4 +251,5 @@ La base de données récupérée sera compatible avec le chiffrement transparent
 Si vous rencontrez des problèmes avec votre entrepôt de données, créez une [demande de support](sql-data-warehouse-get-started-create-support-ticket.md) et indiquez « Mise à niveau de Gen2 » comme cause possible.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Votre entrepôt de données mis à niveau est en ligne. Pour tirer parti de l’architecture améliorée, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).

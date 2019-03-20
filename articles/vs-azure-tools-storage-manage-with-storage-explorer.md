@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311203"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225091"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -55,18 +55,13 @@ L’Explorateur Stockage Azure est pris en charge sur les versions suivantes de 
 
 L’Explorateur Stockage Azure est pris en charge sur les distributions suivantes de Linux :
 
-* Ubuntu 16.04 x64 (recommandé)
-* Ubuntu 17.10 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 L’Explorateur Stockage Azure peut fonctionner d’autres distributions, mais seules celles répertoriés ci-dessus sont officiellement prises en charge.
 
-Vous devez également avoir installé les dépendances/bibliothèques suivantes pour exécuter l’Explorateur Stockage Azure sur Linux :
-
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* libsecret (remarque : libsecret-1.so.0 doit être disponible sur votre ordinateur. Si vous avez installé une version différente de libsecret, vous pouvez essayer de lier son fichier .so à libsecret-1.so.0 de manière symbolique)
-* libgconf-2-4
-* GCC à jour
+Pour plus d’aide sur l’installation de l’Explorateur de stockage sur Linux, consultez le [Guide de dépannage](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage Azure contiennent des étapes propres à certaines distributions.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: e41647140373fcf637cad55af62764bd87826a62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849344"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 
@@ -28,8 +28,8 @@ Vous pouvez déployer des applications et services sur votre cluster Service Fab
 Nous vous recommandons cette méthode pour déployer toutes les applications de configuration, de gouvernance ou de gestion de cluster nécessaires dans votre cluster. Cela inclut [l’application d’orchestration des correctifs](service-fabric-patch-orchestration-application.md), les agents de surveillance ou toute application qui doit être en cours d’exécution dans votre cluster avant que d’autres applications ou services ne soient déployés. 
 
 Le cas échéant, gérez vos applications en tant que ressources Resource Manager pour améliorer les scénarios suivants :
-* Piste d’audit : Resource Manager audite chaque opération et conserve un *journal d’activité* détaillé qui peut vous aider à suivre les modifications apportées à ces applications et à votre cluster.
-* Contrôle d’accès en fonction du rôle (RBAC) : la gestion de l’accès aux clusters, ainsi qu’aux applications déployées sur le cluster, peut être effectuée par le biais du même modèle Resource Manager.
+* Piste d’audit : Resource Manager audite chaque opération et conserve un détaillées *journal d’activité* qui pourront vous aider à suivre les modifications apportées à ces applications et de votre cluster.
+* Contrôle d’accès en fonction du rôle (RBAC) : Gérer l’accès aux clusters, ainsi que des applications déployées sur le cluster peut être effectuée via le même modèle Resource Manager.
 * Azure Resource Manager (par le biais du portail Azure) devient un guichet unique pour la gestion de votre cluster et des déploiements d’applications critiques.
 
 L’extrait de code suivant montre les différents types de ressources qui peuvent être gérés au moyen d’un modèle :
@@ -69,9 +69,9 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 3. Une fois que vous avez déterminé quelles applications déployer de cette manière, vous devez les empaqueter, les compresser, puis les placer sur un partage de fichiers. Le partage doit être accessible par le biais d’un point de terminaison REST utilisable par Azure Resource Manager pendant le déploiement.
 4. Dans votre modèle Resource Manager, sous votre déclaration de cluster, décrivez les propriétés de chaque application. Ces propriétés incluent le nombre de réplicas ou d’instance et toutes les chaînes de dépendances entre les ressources (autres applications ou services). Pour obtenir la liste complète des propriétés, consultez les [Spécifications Swagger de l’API REST](https://aka.ms/sfrpswaggerspec). Notez que cela ne remplace pas les manifestes Application ou Service, mais décrit plutôt certaines de leurs composantes dans le cadre du modèle Resource Manager du cluster. Voici un exemple de modèle qui inclut le déploiement d’un service sans état *Service1* et d’un service avec état *Service2* dans le cadre *d’Application1* :
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "clusterName": {
@@ -251,11 +251,11 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > *apiVersion* doit avoir la valeur `"2017-07-01-preview"`. Vous pouvez également déployer ce modèle indépendamment du cluster, à condition que celui-ci ait déjà été déployé.
+   > [!NOTE] 
+   > *apiVersion* doit avoir la valeur `"2017-07-01-preview"`. Vous pouvez également déployer ce modèle indépendamment du cluster, à condition que celui-ci ait déjà été déployé.
 
 5. Déployez ! 
 
@@ -264,7 +264,7 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 Si votre cluster est déjà disponible et que des applications que vous souhaitez gérer en tant que ressources Resource Manager y sont déjà déployées, au lieu de supprimer les applications et de les redéployer, vous pouvez utiliser un appel PUT avec les mêmes API pour que les applications soient reconnues en tant que ressources Resource Manager. 
 
 > [!NOTE]
-> Pour permettre à une mise à niveau de cluster d’ignorer les applications non saines, le client peut spécifier « maxPercentUnhealthyApplications: 100 » dans la section « upgradeDescription/healthPolicy ». Les descriptions détaillées de tous les paramètres se trouvent dans la [documentation sur les stratégies de mise à niveau de cluster pour les API REST des structures fabric de service](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Pour permettre une mise à niveau de cluster pour ignorer les applications non intègre le client peut spécifier « maxPercentUnhealthyApplications : 100" dans la section « upgradeDescription/healthPolicy » ; les descriptions détaillées de tous les paramètres sont dans [documentation sur les stratégies de mise à niveau de Service infrastructures REST API Cluster](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

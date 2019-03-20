@@ -11,18 +11,18 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d39305b4a8fafbd2fe2f1ac101f92597d6a3e4a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000873"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
 Le module PowerShell dénommé [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) a été introduit avec la version 1.1.880.0 (sortie en août 2018). Il fournit une collection de cmdlets pour vous aider à configurer les autorisations Active Directory adéquates pour votre déploiement Azure AD Connect. 
 
-## <a name="overview"></a>Vue d’ensemble 
+## <a name="overview"></a>Présentation 
 Les applets de commande PowerShell suivantes vous permettent de définir les autorisations du compte de connecteur AD DS, pour chaque fonctionnalité que vous sélectionnez pour l’activer dans Azure AD Connect. Pour éviter tout problème, vous devez définir les autorisations Active Directory préalablement à toute installation d’Azure AD Connect à l’aide d’un compte de domaine personnalisé, pour pouvoir ensuite vous connecter à votre forêt. Ce module ADSyncConfig est également utile pour configurer les autorisations après le déploiement d’Azure AD Connect.
 
 ![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
@@ -104,7 +104,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Afficher les autorisations AD DS définies sur un objet 
-Pour afficher la liste des autorisations actuellement définies sur un objet Active Directory, utilisez l’applet de commande ci-dessous en indiquant le nom unique (DistinguishedName) de l’objet : 
+Vous pouvez utiliser l’applet de commande ci-dessous pour afficher la liste des autorisations actuellement définies sur un objet Active Directory en fournissant son DistinguishedName : 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -158,7 +158,7 @@ Cette applet de commande définit les autorisations suivantes :
 
 |Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
-|AUTORISER|Compte de connecteur AD DS|Lecture/Écriture de la propriété|MS-DS-Consistency-Guid|Objets utilisateur descendants|
+|AUTORISER|Compte de connecteur AD DS|Lecture/Écriture de la propriété|Objets utilisateur descendants|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Autorisations pour la synchronisation du hachage de mot de passe 
 Pour définir les autorisations du compte de connecteur AD DS quand la synchronisation du hachage de mot de passe est activée, exécutez : 
@@ -271,7 +271,7 @@ Ce script PowerShell réduit les autorisations du compte de connecteur AD fourni
 - Désactivez l’héritage sur l’objet spécifié 
 - Supprimer toutes les entrées de contrôle d’accès (ACE) sur l’objet spécifique, à l’exception de celles propres à SELF, car nous souhaitons conserver les autorisations par défaut pour SELF. 
  
- Le paramètre -ADConnectorAccountDN est le compte AD dont les autorisations doivent être réduites. Il s’agit généralement du compte de domaine MSOL_nnnnnnnnnnnn qui est configuré dans le connecteur AD DS (voir la section « Identifier votre compte de connecteur AD DS »). Le paramètre -Credential est utilisé afin de spécifier le compte d’administrateur qui a les privilèges nécessaires pour restreindre les autorisations Active Directory sur l’objet AD cible. Il s’agit généralement du compte d’administrateur d’entreprise ou de domaine.  
+  Le paramètre -ADConnectorAccountDN est le compte AD dont les autorisations doivent être réduites. Il s’agit généralement du compte de domaine MSOL_nnnnnnnnnnnn qui est configuré dans le connecteur AD DS (voir la section « Identifier votre compte de connecteur AD DS »). Le paramètre -Credential est utilisé afin de spécifier le compte d’administrateur qui a les privilèges nécessaires pour restreindre les autorisations Active Directory sur l’objet AD cible. Il s’agit généralement du compte d’administrateur d’entreprise ou de domaine.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 

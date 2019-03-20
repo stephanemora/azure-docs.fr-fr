@@ -1,19 +1,19 @@
 ---
 title: Présentation des points de terminaison Azure IoT Hub | Microsoft Docs
 description: Guide du développeur – informations de référence sur les points de terminaison côté appareil et côté service IoT Hub.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251438"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201430"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -22,8 +22,6 @@ ms.locfileid: "51251438"
 ## <a name="iot-hub-names"></a>Noms IoT Hub
 
 Vous pouvez rechercher le nom d’hôte de l’IoT Hub qui héberge vos points de terminaison dans le portail sur la page **Vue d’ensemble** de votre hub. Par défaut, le nom DNS d’un IoT Hub ressemble à : `{your iot hub name}.azure-devices.net`.
-
-Vous pouvez utiliser le DNS Azure afin de créer un nom DNS personnalisé pour votre IoT Hub. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Liste de points de terminaison IoT Hub intégrés
 
@@ -53,7 +51,7 @@ La liste ci-dessous décrit les points de terminaison :
 
   * *Recevoir des requêtes de méthodes directes*. Un appareil utilise ce point de terminaison pour écouter les requêtes des [méthodes directes](iot-hub-devguide-direct-methods.md).
 
-    Ces points de terminaison sont exposés en utilisant les protocoles [MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1 et [AMQP 1.0](https://www.amqp.org/). Le protocole AMQP est également disponible sur [WebSockets](https://tools.ietf.org/html/rfc6455) sur le port 443.
+    Ces points de terminaison sont exposés en utilisant les protocoles [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 et [AMQP 1.0](https://www.amqp.org/). Le protocole AMQP est également disponible sur [WebSockets](https://tools.ietf.org/html/rfc6455) sur le port 443.
 
 * **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison pour que votre système principal de solution puisse communiquer avec vos appareils. À une exception près, ces points de terminaison sont uniquement exposés avec le protocole [AMQP](https://www.amqp.org/). Le point de terminaison d’appel de méthode est exposé via le protocole HTTPS.
   
@@ -83,6 +81,15 @@ IoT Hub prend actuellement en charge les services Azure suivants en tant que poi
 * Rubriques de Service Bus
 
 Pour connaître les limites du nombre de points de terminaison que vous pouvez ajouter, consultez [Quotas et limitation](iot-hub-devguide-quotas-throttling.md).
+
+Vous pouvez utiliser l’API REST [obtenir de l’intégrité du point de terminaison](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour obtenir l’état d’intégrité des points de terminaison. Nous vous recommandons d’utiliser le [métriques IoT Hub](iot-hub-metrics.md) associées à la latence de message routage pour identifier et déboguer des erreurs lors de l’intégrité du point de terminaison est défectueux ou inactif.
+
+|État d'intégrité |Description|
+|---|---|
+|healthy|Le point de terminaison accepte des messages comme prévu.|
+|défectueux|Le point de terminaison n’accepte pas les messages comme prévu et IoT Hub est une nouvelle tentative pour envoyer des données à ce point de terminaison. L’état d’un point de terminaison défectueux est être mis à jour intègre IoT Hub a établi un état cohérent d’intégrité.|
+|unknown|IoT Hub n’a pas établi une connexion avec le point de terminaison. Aucun message ont été remis à ou rejetée à partir de ce point de terminaison.|
+|lettres mortes|Le point de terminaison n’accepte pas les messages, après l’exécution de IoT Hub envoi de messages pour la période retrial.|
 
 ## <a name="field-gateways"></a>Passerelles de champ
 

@@ -4,18 +4,18 @@ description: Explique la planification à effectuer avant de déployer Avere vFX
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744654"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990983"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planifier votre système Avere vFXT
 
-Cet article explique comment planifier un nouveau cluster vFXT Avere pour Azure dont la position et la taille répondent à vos besoins. 
+Cet article explique comment planifier un nouveau vFXT Avere pour un cluster Azure qui est positionné et la taille appropriée pour vos besoins. 
 
 Avant d’accéder à la Place de marché Azure ou de créer des machines virtuelles, vous devez réfléchir à la façon dont le cluster va interagir avec les autres éléments dans Azure. Vous devez prévoir l’emplacement des ressources de cluster dans votre réseau privé et vos sous-réseaux, ainsi que celui de votre stockage back-end. Vérifiez que les nœuds de cluster que vous créez sont suffisamment puissants pour prendre en charge votre flux de travail. 
 
@@ -32,16 +32,22 @@ Suivez ces instructions pour planifier l’infrastructure réseau de votre syst�
 * Tous les éléments doivent être gérés avec un nouvel abonnement créé pour le déploiement d’Avere vFXT. Voici les avantages : 
   * Simplification du suivi des coûts : visualisez et auditez tous les coûts des ressources, de l’infrastructure et des cycles de calcul dans un seul abonnement.
   * Simplification du nettoyage : vous pouvez supprimer l’ensemble de l’abonnement une fois que vous en avez terminé avec le projet.
-  * Partitionnement des quotas de ressources : protégez d’autres charges de travail critiques contre une éventuelle limitation des ressources quand vous importez le grand nombre de clients utilisés pour votre flux de travail informatique à hautes performances en isolant le cluster et les clients Avere vFXT dans un abonnement unique.
+  * Partitionnement pratique de ressource quotas - protéger d’autres charges de travail critiques à partir de ressources possible la limitation en isolant le Avere vFXT clients et le cluster dans un seul abonnement. Cela évite le conflit lorsque vous importez d’un grand nombre de clients pour un flux de travail informatique hautes performances.
 
 * Recherchez les systèmes de calcul clients qui sont proches du cluster vFXT. Le stockage back-end, quant à lui, peut être plus distant.  
 
-* Par souci de simplicité, placez le cluster vFXT et la machine virtuelle du contrôleur de cluster dans le même réseau virtuel et dans le même groupe de ressources. Ils doivent également utiliser le même compte de stockage. (Le contrôleur de cluster crée le cluster et peut aussi être utilisé pour la gestion du cluster par le biais de la ligne de commande.)  
-
-  > [!NOTE] 
-  > Le modèle de création de cluster peut créer un nouveau groupe de ressources et un nouveau compte de stockage pour le cluster. Vous pouvez spécifier un groupe de ressources existant à condition qu’il soit vide.
+* Le cluster vFXT la machine virtuelle du contrôleur de cluster doit se trouver dans le même réseau virtuel (vnet), dans le même groupe de ressources et utiliser le même compte de stockage. Le modèle de création de cluster automatique gère pour la plupart des situations.
 
 * Le cluster doit se trouver dans son propre sous-réseau afin d’éviter tout conflit d’adresses IP avec des clients ou des ressources de calcul. 
+
+* Le modèle de création de cluster peut créer la plupart des ressources d’infrastructure nécessaire pour le cluster, notamment les groupes de ressources, des réseaux virtuels, des sous-réseaux et des comptes de stockage. Si vous souhaitez utiliser des ressources qui existent déjà, assurez-vous qu’ils répondent aux conditions stipulées dans ce tableau. 
+
+  | Ressource | Utiliser l’existant ? | Configuration requise |
+  |----------|-----------|----------|
+  | Groupe de ressources | Oui, si elle est vide | Doit être vide| 
+  | Compte de stockage | Oui, si la connexion existante conteneur d’objets Blob après la création du cluster <br/>  No si la création d’un conteneur d’objets Blob lors de la création du cluster | Conteneur d’objets Blob existant doit être vide <br/> &nbsp; |
+  | Réseau virtuel | Oui | Doit inclure un point de terminaison de service de stockage si la création d’un conteneur d’objets Blob Azure | 
+  | Sous-réseau | Oui |   |
 
 ## <a name="ip-address-requirements"></a>Exigences relatives aux adresses IP 
 
@@ -62,22 +68,20 @@ Si vous utilisez le stockage Blob Azure, les adresses IP du réseau virtuel de v
 
 Vous avez la possibilité de placer les ressources réseau et le stockage Blob (si utilisé) dans des groupes de ressources différents du cluster.
 
-## <a name="vfxt-node-sizes"></a>Tailles des nœuds vFXT 
+## <a name="vfxt-node-size"></a>taille du nœud vFXT
 
-Les machines virtuelles qui servent de nœuds de cluster déterminent le débit des requêtes et la capacité de stockage de votre cache. Vous pouvez choisir entre deux types d’instances, avec différentes caractéristiques de mémoire, de processeur et de stockage local. 
+Les machines virtuelles qui servent de nœuds de cluster déterminent le débit des requêtes et la capacité de stockage de votre cache. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 Chaque nœud vFXT est identique. Autrement dit, si vous créez un cluster à trois nœuds, vous aurez trois machines virtuelles de même type et de même taille. 
 
 | Type d’instance | Processeurs virtuels | Mémoire  | Stockage SSD local  | Disques de données max. | Débit du disque non mis en cache | Cartes réseau (nombre) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D16s_v3 | 16  | 64 Gio  | 128 Go  | 32 | 25 600 IOPS <br/> 384 Mbits/s | 8 000 Mbits/s (8) |
 | Standard_E32s_v3 | 32  | 256 Gio | 512 Go  | 32 | 51 200 IOPS <br/> 768 Mbits/s | 16 000 Mbits/s (8)  |
 
-La taille du cache de disque par nœud est configurable et peut aller de 1 000 Go à 8 000 Go. La taille de cache recommandée pour chaque nœud Standard_D16s_v3 est de 1 To, et elle est de 4 To pour chaque nœud Standard_E32s_v3.
+La taille du cache de disque par nœud est configurable et peut aller de 1 000 Go à 8 000 Go. 4 To par nœud est la taille de cache recommandée pour les nœuds de Standard_E32s_v3.
 
-Pour plus d’informations sur ces machines virtuelles, lisez les documents Microsoft Azure suivants :
+Pour plus d’informations sur ces machines virtuelles, consultez la documentation de Microsoft Azure :
 
-* [Tailles de machine virtuelle à usage général](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
 * [Tailles de machine virtuelle à mémoire optimisée](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>Quota des comptes
@@ -120,7 +124,7 @@ Pour plus d’informations sur ces options, lisez la [documentation des réseaux
 
 Si vous définissez une adresse IP publique sur le contrôleur de cluster, vous pouvez l’utiliser en tant qu’hôte de saut (« jump host ») pour contacter le cluster Avere vFXT à partir d’un emplacement en dehors du sous-réseau privé. Toutefois, ce contrôleur disposant de privilèges d’accès pour modifier des nœuds de cluster, cela crée un faible risque de sécurité.  
 
-Pour améliorer la sécurité avec une adresse IP publique, utilisez un groupe de sécurité réseau afin d’autoriser l’accès entrant uniquement par le biais du port 22. Le cas échéant, vous pouvez renforcer la protection du système en verrouillant l’accès à votre plage d’adresses IP sources, c’est-à-dire autoriser uniquement les connexions des machines que vous avez l’intention d’utiliser pour l’accès au cluster.
+Pour améliorer la sécurité pour un contrôleur avec une adresse IP publique, le script de déploiement crée automatiquement un groupe de sécurité réseau qui limite l’accès entrant au port 22. Vous pouvez renforcer la protection du système en verrouillant l'accès à votre plage d'adresses IP sources, c'est-à-dire autoriser uniquement les connexions des machines que vous avez l'intention d'utiliser pour l'accès au cluster.
 
 Quand vous créez le cluster, vous pouvez choisir s’il faut créer une adresse IP publique sur le contrôleur de cluster. 
 
