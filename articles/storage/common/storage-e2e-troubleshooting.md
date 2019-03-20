@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004949"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec les métriques et la journalisation Stockage Azure, AzCopy et Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -133,9 +133,9 @@ Le journal côté client inclut des informations détaillées sur la manière do
 La bibliothèque cliente de stockage stocke les données du journal côté client à l'emplacement spécifié dans le fichier de configuration de l'application (web.config ou app.config).
 
 ### <a name="collect-a-network-trace"></a>Collecte d'un suivi réseau
-Vous pouvez utiliser Message Analyzer pour collecter un suivi réseau HTTP/HTTPS pendant l'exécution de votre application cliente. Message Analyzer utilise [Fiddler](http://www.telerik.com/fiddler) sur le serveur principal. Avant de collecter le suivi réseau, nous vous recommandons de configurer Fiddler pour enregistrer le trafic HTTPS non chiffré :
+Vous pouvez utiliser Message Analyzer pour collecter un suivi réseau HTTP/HTTPS pendant l'exécution de votre application cliente. Message Analyzer utilise [Fiddler](https://www.telerik.com/fiddler) sur le serveur principal. Avant de collecter le suivi réseau, nous vous recommandons de configurer Fiddler pour enregistrer le trafic HTTPS non chiffré :
 
-1. Installez [Fiddler](http://www.telerik.com/download/fiddler).
+1. Installez [Fiddler](https://www.telerik.com/download/fiddler).
 2. Lancez Fiddler.
 3. Sélectionnez **Tools | Fiddler Options (Outils | Options de Fiddler)**.
 4. Dans la boîte de dialogue Options (Options), vérifiez que **Capture HTTPS CONNECTs (Capturer les CONNECT HTTPS)** et **Decrypt HTTPS Traffic (Déchiffrer le trafic HTTPS)** sont tous deux activés, comme illustré ci-dessous.

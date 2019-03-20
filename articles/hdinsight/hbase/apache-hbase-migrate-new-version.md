@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650101"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226825"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Effectuer la migration d’un cluster Apache HBase vers une nouvelle version
 
@@ -199,15 +199,21 @@ Le scénario suivant est destiné à la mise à niveau de HDInsight 3.4 vers 3.6
 
     ![Dans Ambari, modifier le nom du conteneur](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. Enregistrez vos modifications.
-9. Redémarrez tous les services requis, comme indiqué par Ambari.
-10. Pointez votre application vers le nouveau cluster.
+8. **Si vous n’utilisez pas de clusters HBase avec la fonctionnalité améliorée écrit, ignorez cette étape. Il est nécessaire uniquement pour les clusters HBase avec fonctionnalité améliorée écrit.**
+   
+   Modifier le chemin d’accès hbase.rootdir pour pointer vers le conteneur du cluster d’origine.
+
+    ![Dans Ambari, modifiez le nom du conteneur pour hbase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. Enregistrez vos modifications.
+10. Redémarrez tous les services requis, comme indiqué par Ambari.
+11. Pointez votre application vers le nouveau cluster.
 
     > [!NOTE]  
     > Le DNS statique de votre application est modifié lors de la mise à niveau. Au lieu de coder en dur ce DNS, vous pouvez configurer un CNAME dans les paramètres DNS de votre nom de domaine qui pointe vers le nom du cluster. Une autre option consiste à utiliser un fichier config pour votre application, que vous pouvez mettre à jour sans nouveau déploiement.
 
-11. Lancez l’ingestion des données pour voir si tout fonctionne comme prévu.
-12. Si le nouveau cluster vous convient, supprimez le cluster d’origine.
+12. Lancez l’ingestion des données pour voir si tout fonctionne comme prévu.
+13. Si le nouveau cluster vous convient, supprimez le cluster d’origine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

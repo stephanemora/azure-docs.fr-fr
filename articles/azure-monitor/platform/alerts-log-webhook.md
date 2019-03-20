@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433167"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442875"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte de journal est créée dans Azure](alerts-log.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
@@ -54,7 +54,7 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | Identifiant d’abonnement |#subscriptionid |ID de l’abonnement Azure utilisé avec Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults passe des paramètres comme SearchQuery, Search Interval StartTime et Search Interval End Time dans l’URL au portail Azure pour les afficher dans la section Analytics. Le portail Azure limite la taille des URI à environ 2 000 caractères et n’ouvre *pas* le lien fourni dans les alertes si les valeurs des paramètres dépassent ladite limite. Les utilisateurs peuvent entrer manuellement des détails pour afficher les résultats dans le portail Analytics ou utiliser [l’API REST Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [l’API REST Log Analytics](https://dev.loganalytics.io/reference) pour récupérer les résultats par programmation. 
+> LinkToSearchResults passe des paramètres comme SearchQuery, Search Interval StartTime et Search Interval End Time dans l’URL au portail Azure pour les afficher dans la section Analytics. Portail Azure a l’URI de la taille limite d’environ 2 000 caractères et sera *pas* ouvrir le lien fourni dans les alertes, si les valeurs de paramètres dépassent la limite de ladite. Les utilisateurs peuvent entrer manuellement des détails pour afficher les résultats dans le portail Analytics ou utiliser [l’API REST Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [l’API REST Log Analytics](https://dev.loganalytics.io/reference) pour récupérer les résultats par programmation. 
 
 Par exemple, vous pouvez spécifier la charge utile personnalisée suivante qui inclut un paramètre unique appelé *text*.  Le service appelé par ce webhook s’attendrait à recevoir ce paramètre.
 
@@ -77,9 +77,6 @@ Pour inclure les résultats de la recherche dans une charge utile personnalisée
 
 ## <a name="sample-payloads"></a>Exemples de charges utiles
 Cette section présente une exemple de charge utile de webhook pour les alertes de journal, notamment lorsque la charge utile est standard et quand elle est personnalisée.
-
-> [!NOTE]
-> Pour garantir la compatibilité descendante, la charge utile de webhook standard pour les alertes utilisant Azure Log Analytics est identique à celle de la [gestion des alertes Log Analytics](alerts-metric.md). Mais pour les alertes de journal utilisant [Application Insights](../../azure-monitor/app/analytics.md), la charge utile de webhook standard est basée sur le schéma du Groupe d’actions.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook standard pour les alertes de journal 
 Ces deux exemples indiquaient une charge utile fictive ne comprenant que deux colonnes et deux lignes.
@@ -118,7 +115,11 @@ Voici un exemple de charge utile pour une action standard webhook *sans utiliser
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> Valeur du champ gravité peut changer si vous avez [basculé votre préférence de l’API](alerts-log-api-switch.md) pour les alertes de journal sur le journal Analytique.
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerte de journal pour Azure Application Insights
 Voici un exemple de charge utile pour un webhook standard *sans option Json personnalisée* en cas d’utilisation pour des alertes de journal basées sur des informations d’application.
@@ -154,7 +155,7 @@ Voici un exemple de charge utile pour un webhook standard *sans option Json pers
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }
@@ -197,7 +198,7 @@ Voici un exemple de charge utile pour une action de webhook personnalisée pour 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [Alertes de journal dans Alertes Azure](alerts-unified-log.md)
+- En savoir plus sur les [alertes de journal dans les alertes Azure ](alerts-unified-log.md)
 - Comprendre la [gestion des alertes de journal dans Azure](alerts-log.md)
 - Créer et gérer des [groupes d’actions dans Azure](action-groups.md)
 - En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md)

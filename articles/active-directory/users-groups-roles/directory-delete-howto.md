@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3f42ccb50496ed53ea9a68b60301f9feccccb16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 833c2e460ae306a7673e580aaa304be93c3cd044
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188492"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199730"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Supprimer un locataire Azure Active Directory
 
@@ -36,50 +36,53 @@ Vous ne pouvez pas supprimer un locataire dans Azure AD avant d’avoir effectu�
 
 ## <a name="delete-an-azure-ad-tenant"></a>Supprimer un locataire Azure AD
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte d’administrateur général pour le locataire.
+1. Se connecter à la [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte qui est l’administrateur Global pour le locataire.
 
 2. Sélectionnez **Azure Active Directory**.
 
-3. Basculez sur le locataire à supprimer.
+3. Basculez vers l’organisation que vous souhaitez supprimer.
   
-  ![bouton supprimer l’annuaire](./media/directory-delete-howto/delete-directory-command.png)
+   ![Confirmer l’organisation avant de supprimer](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Sélectionnez **Supprimer l’annuaire**.
   
-  ![bouton supprimer l’annuaire](./media/directory-delete-howto/delete-directory-list.png)
+   ![Sélectionnez la commande pour supprimer l’organisation](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Si votre locataire échoue à une ou plusieurs vérifications, vous obtenez un lien vers plus d’informations sur la façon d’y remédier. Une fois toutes les vérifications effectuées, sélectionnez **Supprimer** pour terminer le processus.
 
 ## <a name="i-have-an-expired-subscription-but-i-cant-delete-the-tenant"></a>Mon abonnement a expiré, mais je ne peux pas supprimer le locataire
 
-Quand vous avez configuré votre locataire Azure Active Directory, vous avez peut-être aussi activé des abonnements avec licence pour votre organisation, comme Azure Active Directory Premium P2, Office 365 Business Premium ou Enterprise Mobility + Security E5. Ces abonnements bloquent la suppression d’annuaire tant qu’ils ne sont pas complètement supprimés, pour éviter la perte accidentelle de données. Les abonnements doivent être dans un état **Déprovisionné** pour autoriser la suppression du locataire. Un abonnement **Expiré** ou **Annulé** passe à l’état **Désactivé**, et l’étape finale est l’état **Déprovisionné**. 
+Lorsque vous avez configuré votre client Azure AD, vous pourrez avoir également activé sous licence des abonnements pour votre organisation comme Azure AD Premium P2, Office 365 Business Premium ou Enterprise Mobility + Security E5. Ces abonnements bloquent la suppression d’annuaire tant qu’ils ne sont pas complètement supprimés, pour éviter la perte accidentelle de données. Les abonnements doivent être dans un état **Déprovisionné** pour autoriser la suppression du locataire. Un abonnement **Expiré** ou **Annulé** passe à l’état **Désactivé**, et l’étape finale est l’état **Déprovisionné**. 
 
 S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à l’exception des programmes payants Partenaire/CSP, Accord Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Office 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Office 365 pour les entreprises ?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 État de l’abonnement | Données | Accès aux données
 ----- | ----- | -----
-Actif (30 jours pour l’essai gratuit)  | Données accessibles à tous    | <li>Les utilisateurs ont un accès normal aux fichiers ou applications Office 365<li>Les administrateurs ont un accès normal au centre d’administration et aux ressources Office 365 
-Expiré (30 jours)   | Données accessibles à tous    | <li>Les utilisateurs ont un accès normal aux fichiers ou applications Office 365<li>Les administrateurs ont un accès normal au centre d’administration et aux ressources Office 365
-Désactivé (30 jours) | Données accessibles à l’administrateur uniquement  | <li>Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<li>Les administrateurs peuvent accéder au centre d’administration Office 365, mais ne peuvent pas attribuer de licences ou mettre à jour des utilisateurs
-Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (automatiquement supprimées si aucun autre service n’est en cours d’utilisation) | <li>Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<li>Les administrateurs peuvent accéder au centre d’administration Office 365 pour acheter et gérer d’autres abonnements
+Actif (30 jours pour l’essai gratuit)  | Données accessibles à tous    | <li>Les utilisateurs ont un accès normal aux fichiers ou applications Office 365<li>Les administrateurs ont accès normal au centre d’administration Microsoft 365 et des ressources 
+Expiré (30 jours)   | Données accessibles à tous    | <li>Les utilisateurs ont un accès normal aux fichiers ou applications Office 365<li>Les administrateurs ont accès normal au centre d’administration Microsoft 365 et des ressources
+Désactivé (30 jours) | Données accessibles à l’administrateur uniquement  | <li>Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<li>Administrateurs peuvent accéder au centre d’administration Microsoft 365 mais ne peut pas attribuer des licences ou mettre à jour les utilisateurs
+Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (automatiquement supprimées si aucun autre service n’est en cours d’utilisation) | <li>Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<li>Les administrateurs peuvent accéder le centre d’administration Microsoft 365 pour acheter et gérer les autres abonnements 
 
-Vous pouvez placer un abonnement dans un état **Déprovisionné** à supprimer 3 jours après à l’aide du centre d’administration du Microsoft Store pour Entreprises. Cette fonctionnalité est bientôt disponible pour le centre d’administration Office 365.
+## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Supprimer un abonnement dans le centre d’administration Microsoft 365
 
-1. Connectez-vous au [centre d’administration du Microsoft Store pour Entreprises](https://businessstore.microsoft.com/manage/) avec un compte d’administrateur général du locataire. Si vous essayez de supprimer le locataire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
+Vous pouvez placer un abonnement dans un **Deprovisoned** état doit être supprimé dans les 3 jours à l’aide du centre d’administration Microsoft 365.
 
-2. Accédez à l’onglet **Gérer** et sélectionnez **Produits et services**, puis choisissez l’abonnement à annuler et sélectionnez **Supprimer**.
+1. Se connecter à la [centre d’administration Microsoft 365](https://admin.microsoft.com) avec un compte qui est un administrateur Global dans le locataire. Si vous essayez de supprimer le locataire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
+
+2. Accédez à la **facturation** onglet et sélectionnez **produits et Services**, puis choisissez l’abonnement que vous souhaitez annuler. Après avoir cliqué sur **Annuler**, actualisez la page.
   
-  ![Supprimer un lien pour supprimer l’abonnement](./media/directory-delete-howto/delete-command.png)
+   ![Supprimer un lien pour supprimer l’abonnement](./media/directory-delete-howto/delete-command.png)
   
-3. Sélectionnez **Supprimer l’abonnement** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez réactiver l’abonnement pendant cette période de trois jours si vous changez d’avis.
+3. Sélectionnez **Supprimer** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez réactiver l’abonnement pendant la période de trois jours si vous changez d’avis.
   
-  ![conditions générales](./media/directory-delete-howto/delete-terms.png)
+   ![Lisez attentivement les termes et conditions](./media/directory-delete-howto/delete-terms.png)
 
 4. À présent, l’état de l’abonnement a changé et il est marqué pour suppression. L’abonnement passe à l’état **Déprovisionné** 72 heures plus tard.
 
 5. Une fois que vous avez supprimé un abonnement dans votre locataire et que le délai de 72 heures s’est écoulé, vous pouvez vous reconnecter au centre d’administration Azure AD pour vérifier qu’aucune action n’est nécessaire et qu’aucun abonnement ne bloque la suppression de votre locataire. Vous pouvez alors supprimer votre locataire Azure AD.
   
-  ![écran de vérification d’abonnement pour la suppression](./media/directory-delete-howto/delete-checks-passed.png)
+   ![écran de vérification d’abonnement pour la suppression](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Documentation Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

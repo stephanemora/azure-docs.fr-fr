@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 38a01b4f81b76ba90a5fda4909d0e65e6307057e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408712"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569023"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformation source des flux de données de mappage
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-La transformation source configure la source de données que vous souhaitez utiliser pour importer des données dans votre flux de données. Vous pouvez avoir plusieurs transformations source au sein d’un même flux de données. Commencez toujours par concevoir vos flux de données avec une source.
+La transformation source configure la source de données que vous souhaitez utiliser pour importer des données dans votre flux de données. Vous pouvez avoir plusieurs transformations source au sein d’un même flux de données. Toujours commencer à concevoir votre flux de données avec une transformation Source.
 
 > [!NOTE]
-> Chaque flux de données nécessite au moins une transformation source. Ajoutez autant de sources que nécessaire pour effectuer vos transformations de données. Vous pouvez joindre ces sources ensemble à l’aide d’une transformation de jointure ou d’union.
+> Chaque flux de données nécessite au moins une transformation source. Ajoutez autant de sources que nécessaire pour effectuer vos transformations de données. Vous pouvez joindre ces sources ensemble à l’aide d’une transformation de jointure ou d’union. Lorsque vous déboguez votre flux de données dans les sessions de débogage, les données doivent être lues à partir de la source de l’aide du paramètre d’échantillonnage ou les limites de source de débogage. Toutefois, aucune donnée n’écraseront vers un récepteur jusqu'à ce que vous exécutez votre flux de données à partir d’une activité de flux de données de pipeline. 
 
 ![Options de transformation source](media/data-flow/source.png "source")
 
-Chaque transformation source de flux de données doit être associée à un seul jeu de données Data Factory, qui définit le format et l’emplacement des données qui doivent être lues ou écrites. Pour utiliser plusieurs fichiers à la fois, vous pouvez utiliser des caractères génériques et des listes de fichiers dans votre source.
+Chaque transformation source de flux de données doit être associée à un seul jeu de données de Data Factory. Le jeu de données définit la forme et l’emplacement de vos données à écrire ou de lire à partir de. Vous pouvez utiliser des caractères génériques et le fichier de listes dans votre source pour travailler avec plusieurs fichiers à la fois lors de l’utilisation de sources de fichiers.
 
 ## <a name="data-flow-staging-areas"></a>Zones intermédiaires des flux de données
 
@@ -43,7 +43,7 @@ Sélectionnez Autoriser la dérive de schéma si les colonnes sources seront ame
 Si la version entrante de la source de données ne correspond pas au schéma défini, l’exécution du flux de données échoue.
 
 ### <a name="sampling"></a>échantillonnage
-Utilisez l’échantillonnage pour limiter le nombre de lignes provenant de la source.  Cela se révèle utile lorsque vous avez besoin d’un bref aperçu de vos données sources à des fins de test et de débogage.
+Utilisez l’échantillonnage pour limiter le nombre de lignes provenant de la source.  Cela est utile lorsque vous testez ou l’échantillonnage des données à partir de votre source à des fins de débogage.
 
 ## <a name="define-schema"></a>Définir le schéma
 
@@ -53,7 +53,7 @@ Pour les fichiers sources qui ne sont pas fortement typés (par exemple, les fic
 
 ![Transformation source](media/data-flow/source003.png "Types de données")
 
-Pour les sources fortement typées, vous pouvez modifier le 
+Pour les sources fortement typée, vous pouvez modifier les types de données dans une transformation Select suivante. 
 
 ### <a name="optimize"></a>Optimisation
 
@@ -74,7 +74,7 @@ Si vous le souhaitez, vous pouvez choisir de partitionner les connexions en fonc
 ## <a name="source-file-management"></a>Gestion des fichiers sources
 ![Nouveaux paramètres sources](media/data-flow/source2.png "Nouveaux paramètres")
 
-* Utiliser un chemin comportant un caractère générique pour choisir une série de fichiers de votre dossier source qui correspondent à un modèle. Cela remplacera tous les fichiers que vous avez définis dans la définition de votre jeu de données.
+* Utiliser un chemin comportant un caractère générique pour choisir une série de fichiers de votre dossier source qui correspondent à un modèle. Cela remplacera tout fichier que vous avez défini dans votre définition de jeu de données.
 * Liste de fichiers. Identique à un ensemble de fichiers. Pointe vers un fichier texte que vous créez avec la liste des fichiers avec chemin relatif à traiter.
 * Colonne où stocker le nom du fichier. Stocke le nom du fichier de la source dans une colonne de vos données. Entrez un nouveau nom pour stocker la chaîne de nom de fichier.
 * Une fois terminé (vous pouvez choisir de ne rien faire avec le fichier source après l’exécution du flux de données, de supprimer un ou plusieurs fichiers sources ou de déplacer les fichiers sources). Pour le déplacement, les chemins sont des chemins relatifs.

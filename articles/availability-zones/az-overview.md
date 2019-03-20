@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2018
+ms.date: 03/19/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 11b29a1639be5bf6a7820b872cbc2ce78f002b4f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565177"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226570"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Que sont les zones de disponibilité dans Azure ?
 Les Zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des Zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données. Les services redondants interzone répliquent vos applications et données entre des Zones de disponibilité pour les protéger contre des points uniques de panne. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
@@ -40,6 +40,7 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 ## <a name="regions-that-support-availability-zones"></a>Régions prenant en charge les zones de disponibilité
 
 - USA Centre
+- USA Est
 - USA Est 2
 - France Centre
 - Europe Nord
@@ -66,6 +67,8 @@ Les services Azure qui prennent en charge les zones de disponibilité sont les s
 - ExpressRoute
 - Application Gateway (version préliminaire)
 
+## <a name="services-resiliency"></a>Résilience des services
+Tous les services de gestion Azure sont conçues pour être résilient à partir des défaillances au niveau de la région. Dans le spectre d’échecs, un ou plusieurs échecs de Zone de disponibilité au sein d’une région ont un plus petit rayon d’échec par rapport à un échec de la région entière. Azure peut récupérer à partir d’une défaillance au niveau de la zone de services de gestion de la région ou à partir d’une autre région Azure. Azure effectue une seule zone de maintenance critiques à la fois dans une région, afin d’éviter toute défaillance ayant un impact sur les ressources client déployées dans les Zones de disponibilité au sein d’une région.
 
 ## <a name="pricing"></a>Tarifs
 Il n’existe aucun coût supplémentaire pour les machines virtuelles déployées dans une Zone de disponibilité. Un contrat de niveau de service des machines virtuelles de 99,99 % est offert lorsque deux machines virtuelles ou plus sont déployées sur deux Zones de disponibilité ou plus au sein d’une région Azure. Il y aura des frais supplémentaires de transfert des données de machine virtuelle à machine virtuelle entre les Zones de disponibilité. Pour plus d'informations, consultez la page [Tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).

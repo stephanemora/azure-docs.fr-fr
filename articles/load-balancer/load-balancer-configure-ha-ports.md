@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: d4464f6188efb479f21a23bf936a8222061d9987
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244135"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593401"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurer des ports haute disponibilité pour un équilibreur de charge interne
 
@@ -38,9 +38,9 @@ L’illustration montre la configuration suivante de l’exemple de déploiement
 
 ![Exemple de déploiement de ports haute disponibilité](./media/load-balancer-configure-ha-ports/haports.png)
 
-
-
 ## <a name="configure-high-availability-ports"></a>Configurer les ports haute disponibilité
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Pour configurer les ports haute disponibilité, définissez un équilibreur de charge interne avec les appliances virtuelles réseau dans le pool backend. Définissez une configuration de sonde d’intégrité d’équilibreur de charge correspondante pour détecter l’intégrité des appliances virtuelles réseau et la règle d’équilibreur de charge avec les ports haute disponibilité. La configuration générale de l’équilibreur de charge est abordée dans [Bien démarrer](load-balancer-get-started-ilb-arm-portal.md). Cet article explique la configuration des ports haute disponibilité.
 
@@ -51,7 +51,6 @@ La configuration consiste essentiellement à définir le port frontend et le por
 Pour configurer des ports haute disponibilité à l’aide du portail Azure, cochez la case **Ports HA**. Lorsqu’elle est cochée, la configuration correspondante du protocole et des ports est automatiquement remplie. 
 
 ![Configuration des ports haute disponibilité par le biais du portail Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
-
 
 ### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Configurer une règle d’équilibrage de charge des ports haute disponibilité par le biais du modèle Resource Manager
 
@@ -91,7 +90,7 @@ Vous pouvez configurer des ports haute disponibilité à l’aide de la version 
 Utilisez la commande suivante pour créer la règle d’équilibreur de charge des ports haute disponibilité au moment de la création de l’équilibreur de charge interne avec PowerShell :
 
 ```powershell
-lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
+lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Configurer une règle d’équilibreur de charge des ports haute disponibilité avec Azure CLI

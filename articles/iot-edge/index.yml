@@ -1,24 +1,24 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 82ba644f844c59b59f449e137c64b767d5dffbff
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f0d4a689e783f8c460ee54b3613ac0fe432b59ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862785"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
   title: Azure IoT Edge - Didacticiels, référence API
-  description: Utilisez Azure IoT Edge pour déployer des services Azure et des logiques métier personnalisées sur des appareils à la périphérie.
+  description: Utilisez Azure IoT Edge pour déployer des services Azure et des logiques métier personnalisées sur des appareils sur le bord.
   author: kgremban
   manager: philmea
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 01/30/2019
+  ms.date: 03/13/2019
   ms.author: kgremban
 abstract:
-  description: Azure IoT Edge est un service Internet des objets (IoT) qui repose sur IoT Hub. Ce service est destiné aux clients qui souhaitent analyser les données sur des appareils, c’est-à-dire « à la périphérie », plutôt que dans le cloud. En déplaçant des parties de votre charge de travail à la périphérie, vos appareils peuvent passer moins de temps à envoyer des messages vers le cloud et ainsi réagir plus rapidement aux changements de statut.
+  description: Azure IoT Edge est un service Internet des objets (IoT) qui repose sur IoT Hub. Ce service est destiné aux clients qui souhaitent analyser les données sur des appareils, d’où « sur le bord », plutôt que dans le cloud. En déplaçant des parties de votre charge de travail vers le bord, vos appareils peuvent passer moins de temps à envoyer des messages vers le cloud et ainsi réagir plus rapidement aux changements de statut.
   aside:
     image:
       alt: 
@@ -32,7 +32,7 @@ sections:
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: 'Déployez votre premier module IoT Edge et traitez des données sur un appareil simulé :'
+    text: 'Créez une machine virtuelle Azure, configurez-la pour s’exécuter en tant qu’appareil IoT Edge et déployez-y du code :'
   - type: list
     style: icon48
     items:

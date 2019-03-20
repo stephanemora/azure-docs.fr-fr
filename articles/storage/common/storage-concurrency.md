@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: b9524f7aff7ae9de37835985787b5d4d9c3cf9b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478234"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883839"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Dans les applications Internet modernes, les données sont généralement consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d’accès concurrentiel aux données :  
 
 1. Accès concurrentiel optimiste – Une application procédant à une mise à jour vérifie, dans le cadre de la mise à jour, que les données n'ont pas été modifiées depuis la dernière lecture. Par exemple, si deux utilisateurs qui consultent une page wiki procèdent à une mise à jour de la même page, la plateforme wiki doit veiller à ce que la deuxième mise à jour n'écrase pas la première et à ce que les deux utilisateurs sachent si leur mise à jour a fonctionné ou non. Cette stratégie est la plus souvent utilisée dans les applications web.
@@ -193,7 +193,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 * [Spécification des en-têtes conditionnels pour les opérations du service BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Gestion de l’accès concurrentiel dans le service de Table
 Le service de Table utilise les vérifications d'accès concurrentiel optimiste comme comportement par défaut lorsque vous travaillez avec des entités, contrairement au service BLOB où vous devez choisir de manière explicite de procéder à des vérifications d'accès concurrentiel optimiste. L'autre différence réside dans le fait que vous pouvez uniquement gérer le comportement d'accès concurrentiel des entités avec le service de Table alors qu'avec le service BLOB, vous pouvez gérer l'accès concurrentiel des conteneurs et des objets blob.  

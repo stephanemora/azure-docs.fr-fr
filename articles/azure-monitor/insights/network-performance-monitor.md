@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729793"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452128"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -119,19 +119,13 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
 
    **Moniteur ExpressRoute** : Sélectionnez **Découvrir maintenant** pour découvrir tous les appairages privés ExpressRoute connectés aux réseaux virtuels dans l’abonnement Azure lié à cet espace de travail Log Analytics. 
 
-   >[!NOTE] 
-   > La solution ne détecte pour le moment que les homologations privées ExpressRoute. 
-
-   >[!NOTE] 
-   > Seules ces homologations privées, connectées aux réseaux virtuels associés à l’abonnement lié à cet espace de travail Log Analytics, sont détectées. Si ExpressRoute est connecté aux réseaux virtuels en dehors de l’abonnement lié à cet espace de travail, créez un espace de travail Log Analytics dans ces abonnements. Utilisez Network Performance Monitor pour analyser ces homologations.
-
    ![Affichage Moniteur ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
-   Une fois la détection terminée, les homologations privées détectées sont répertoriées dans une table. 
+   Une fois la détection est terminée, les découvertes de circuits et homologations figurent dans une table. 
 
    ![Page Configuration de Network Performance Monitor](media/network-performance-monitor/npm-private-peerings.png)
     
-L’analyse de ces homologations est initialement à l’état désactivée. Sélectionnez chaque homologation que vous souhaitez analyser et configurez leur analyse à partir de l’affichage des détails sur la droite. Sélectionnez **Enregistrer** pour enregistrer la configuration. Pour en savoir plus, Consultez l’article « Configurer l’analyse ExpressRoute ». 
+La surveillance des circuits et homologations est initialement dans un état désactivé. Sélectionnez chaque ressource que vous souhaitez surveiller et configurez leur analyse à partir de la vue de détails sur la droite. Sélectionnez **Enregistrer** pour enregistrer la configuration. Pour en savoir plus, Consultez l’article « Configurer l’analyse ExpressRoute ». 
 
 Une fois l’installation terminée, les données sont renseignées en 30 minutes à une heure. Pendant que la solution agrège les données à partir de votre réseau, le message *La solution nécessite une configuration supplémentaire* apparaît sur la mosaïque **Vue d’ensemble** de Network Performance Monitor. Une fois les données collectées et indexées, la mosaïque **Vue d’ensemble** change et vous informe de l’intégrité de votre réseau dans un résumé. Vous pouvez ensuite modifier l’analyse des nœuds sur lesquels les agents Log Analytics sont installés, ainsi que les sous-réseaux détectés à partir de votre environnement.
 
@@ -170,7 +164,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 | Plateforme | Agent direct | Agent System Center Operations Manager | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Windows | &#8226; | &#8226; |  |  |  |Liaisons TCP/Messages ICMP ECHO toutes les 5 secondes, données envoyées toutes les 3 minutes |
+| Windows | &#8226; | &#8226; |  |  |  |Liaisons TCP/Messages ICMP ECHO toutes les 5 secondes, données envoyées toutes les 3 minutes |
  
 
  

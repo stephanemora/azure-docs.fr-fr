@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76b752df4557ac5b0b493f1fb40d1712d37c8e22
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207668"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540566"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0
 
@@ -264,7 +264,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## <a name="code-samples-and-other-documentation"></a>Exemples de code et autres documents
 
-Lisez la [documentation de présentation des informations d’identification du client](http://aka.ms/msal-net-client-credentials) dans la bibliothèque d’authentification Microsoft.
+Lisez la [documentation de présentation des informations d’identification du client](https://aka.ms/msal-net-client-credentials) dans la bibliothèque d’authentification Microsoft.
 
 | Exemple | Plateforme |Description |
 |--------|----------|------------|

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/27/2019
+ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339309"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223816"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -55,8 +55,8 @@ Managed Instance propose deux niveaux de service : Usage général et Critique 
 | Espace de stockage maximal par base de données | Déterminé par la taille de stockage maximale par instance | Déterminé par la taille de stockage maximale par instance |
 | Nombre maximal de bases de données par instance | 100 | 100 |
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | 32 767 fichiers par base de données |
-| IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1 375 par vCore) |
-|Débit du journal | 22 Mo/s par instance | 3 Mo/s par vCore<br/>48 Mo/s max. |
+| IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1 375 par vCore) |
+| Débit du journal | 22 Mo/s par instance | 3 Mo/s par vCore<br/>Max 48 Mo/s par instance|
 | Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 Mo/s par vCore |
 | Latence d’E/S (approximative) | 5 - 10 ms | 1 - 2 ms |
 | Taille maximale de tempDB | 192 - 1 920 Go (24 Go par vCore) | Aucune contrainte – limité par la taille de stockage maximale d’instance |
@@ -90,6 +90,9 @@ Les types d’abonnements pris en charge peuvent contenir un nombre limité de r
 - **Limite de sous-réseaux** : nombre maximal de sous-réseaux dans lesquels des instances gérées sont déployées dans une seule et même région.
 - **Limite du nombre d’instances** : nombre maximal d’instances pouvant être déployées dans une seule et même région.
 
+> [!Note]
+> Ces limites sont des paramètres par défaut et limitations non techniques. Les limites peuvent être à la demande accrue en créant spéciale [demande de support dans le portail Azure](#obtaining-a-larger-quota-for-sql-managed-instance) si vous avez besoin de plusieurs Instances gérées dans la région actuelle. Vous pouvez aussi créer des instances gérées dans une autre région Azure sans envoyer de demandes de support.
+
 Le tableau suivant présente les limites régionales par défaut pour les abonnements pris en charge :
 
 |Type d’abonnement| Nombre maximal de sous-réseaux Managed Instance | Nombre maximal d’instances |Nombre maximal d’instances gérées Usage général*|Nombre maximal d’instances gérées Critique pour l’entreprise*|
@@ -104,7 +107,7 @@ Le tableau suivant présente les limites régionales par défaut pour les abonne
 
 ** Le nombre maximal d’instances dans un même niveau de service s’applique s’il n’y a aucune instance dans un autre niveau de service. Dans le cas où vous envisagez de combiner des instances Usage général et Critique pour l’entreprise au sein du même sous-réseau, utilisez la section suivante comme référence pour les combinaisons autorisées. En règle générale, le nombre total de sous-réseaux ne peut pas dépasser 3, et le nombre total d’unités d’instance ne peut pas dépasser 12.
 
-Ces limites peuvent être augmentées en créant une [demande de support spéciale dans le portail Azure](#obtaining-a-larger-quota-for-sql-managed-instance) si vous avez besoin de plus d’instances gérées dans la région actuelle. Vous pouvez aussi créer des instances gérées dans une autre région Azure sans envoyer de demandes de support.
+
 
 > [!IMPORTANT]
 > Quand vous planifiez vos déploiements, considérez qu’une instance Critique pour l’entreprise (en raison de la redondance renforcée) consomme généralement 4 fois plus de capacité qu’une instance Usage général. Ainsi, pour vos calculs, 1 instance Usage général = 1 unité d’instance et 1 instance Critique pour l’entreprise = 4 unités d’instance. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités d’instance de tous les sous-réseaux de la région où les instances gérées sont déployées et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement.
@@ -120,10 +123,10 @@ Les exemples suivants couvrent des cas de déploiement avec les sous-réseaux no
 
 |Nombre de sous-réseaux|Sous-réseau 1|Sous-réseau 2|Sous-réseau 3|
 |:---|:---|:---|:---|
-|1|1 Critique pour l’entreprise et jusqu’à 8 Usage général<br>2 Critique pour l’entreprise et jusqu’à 4 Usage général|N/A| N/A|
-|2|0 Critique pour l’entreprise, jusqu’à 4 Usage général|1 Critique pour l’entreprise, jusqu’à 4 Usage général<br>2 Critique pour l’entreprise, 0 Usage général|N/A|
-|2|1 Critique pour l’entreprise, 0 Usage général|0 Critique pour l’entreprise, jusqu’à 8 Usage général<br>1 Critique pour l’entreprise, jusqu’à 4 Usage général|N/A|
-|2|2 Critique pour l’entreprise, 0 Usage général|0 Critique pour l’entreprise, jusqu’à 4 Usage général|N/A|
+|1|1 Critique pour l’entreprise et jusqu’à 8 Usage général<br>2 Critique pour l’entreprise et jusqu’à 4 Usage général|S.O.| S.O.|
+|2|0 Critique pour l’entreprise, jusqu’à 4 Usage général|1 Critique pour l’entreprise, jusqu’à 4 Usage général<br>2 Critique pour l’entreprise, 0 Usage général|S.O.|
+|2|1 Critique pour l’entreprise, 0 Usage général|0 Critique pour l’entreprise, jusqu’à 8 Usage général<br>1 Critique pour l’entreprise, jusqu’à 4 Usage général|S.O.|
+|2|2 Critique pour l’entreprise, 0 Usage général|0 Critique pour l’entreprise, jusqu’à 4 Usage général|S.O.|
 |3|1 Critique pour l’entreprise, 0 Usage général|1 Critique pour l’entreprise, 0 Usage général|0 Critique pour l’entreprise, jusqu’à 4 Usage général|
 |3|1 Critique pour l’entreprise, 0 Usage général|0 Critique pour l’entreprise, jusqu’à 4 Usage général|0 Critique pour l’entreprise, jusqu’à 4 Usage général|
 

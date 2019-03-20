@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
-ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884726"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818576"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Créer et partager des tableaux de bord dans le portail Azure
 Vous pouvez créer plusieurs tableaux de bord et les partager avec d’autres personnes ayant accès à vos abonnements Azure.  Cet article présente les principes fondamentaux de création, de modification, de publication et de gestion de l’accès aux tableaux de bord.
@@ -93,6 +93,6 @@ Une fois votre tableau de bord publié, le volet de contrôle **Partage + accès
 ![gérer le contrôle d’accès](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour gérer les ressources, voir [Gérer les ressources Azure sur le portail](../azure-resource-manager/resource-group-portal.md).
+* Pour gérer les ressources, consultez [gérer les ressources Azure à l’aide du portail Azure](../azure-resource-manager/manage-resources-portal.md).
 * Pour déployer des ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

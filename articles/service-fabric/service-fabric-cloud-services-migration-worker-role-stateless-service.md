@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: f23f29d15c4c8f05551b20d42b92dda5632cde08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049947"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078735"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide de conversion des rôles web et de travail en services sans état Service Fabric
 Cet article explique comment migrer vos rôles web et de travail des services cloud vers les services sans état Service Fabric. Il s’agit de la manière la plus simple de migrer des applications dont l’architecture globale va rester quasi identique des services cloud vers Service Fabric.
@@ -44,7 +44,7 @@ Comme pour le rôle de travail, un rôle web représente également une charge d
 | Formulaires web ASP.NET |Non  |Convertir en ASP.NET Core 1 MVC |
 | ASP.NET MVC |Avec migration |Mettre à niveau vers ASP.NET Core 1 MVC |
 | API Web ASP.NET |Avec migration |Utiliser un serveur auto-hébergé ou ASP.NET Core 1 |
-| ASP.NET Core 1 |Oui |N/A |
+| ASP.NET Core 1 |Oui |S.O. |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de point d’entrée et cycle de vie
 Les points d’entrée des API de rôle de travail et de Service Fabric sont semblables : 
@@ -52,9 +52,9 @@ Les points d’entrée des API de rôle de travail et de Service Fabric sont sem
 | **Point d’entrée** | **Instances de** | **Service Service Fabric** |
 | --- | --- | --- |
 | Traitement en cours |`Run()` |`RunAsync()` |
-| Démarrer la machine virtuelle |`OnStart()` |N/A |
-| Arrêter la machine virtuelle |`OnStop()` |N/A |
-| Ouvrir l’écouteur pour les requêtes du client |N/A |<ul><li> Sans état : `CreateServiceInstanceListener()`</li><li>Avec état : `CreateServiceReplicaListener()`</li></ul> |
+| Démarrer la machine virtuelle |`OnStart()` |S.O. |
+| Arrêter la machine virtuelle |`OnStop()` |S.O. |
+| Ouvrir l’écouteur pour les requêtes du client |S.O. |<ul><li> Sans état : `CreateServiceInstanceListener()`</li><li>Avec état : `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>Instances de
 ```csharp
@@ -110,8 +110,8 @@ Les deux disposent d’un remplacement « Exécuter » principal où commencer
 
 Il existe plusieurs différences majeures entre le cycle de vie et la durée de vie des rôles de travail et des services Service Fabric :
 
-* **Cycle de vie :** la plus grande différence est qu’un rôle de travail est une machine virtuelle. Son cycle de vie est donc lié à la machine virtuelle, ce qui inclut les événements de démarrage et d’arrêt de la machine virtuelle. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
-* **Durée de vie :** les instances de rôle de travail sont recyclées quand la méthode `Run` se ferme. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de s’exécuter. 
+* **Cycle de vie :** La plus grande différence est qu’un rôle de travail est une machine virtuelle et par conséquent, son cycle de vie est liée à la machine virtuelle, ce qui inclut les événements lorsque la machine virtuelle démarre et s’arrête. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
+* **Durée de vie :** Une instance de rôle de travail est recyclées quand la `Run` issues de la méthode. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de s’exécuter. 
 
 Service Fabric fournit un point d’entrée de configuration de la communication en option pour les services qui écoutent les requêtes des clients. RunAsync et le point d’entrée de communication constituent tous deux des remplacements en option dans les services Service Fabric. Votre service peut choisir d’écouter les requêtes des clients, d’exécuter uniquement une boucle de traitement, ou les deux. C’est pourquoi la méthode RunAsync peut se fermer sans redémarrer l’instance de service : elle peut continuer à écouter les requêtes des clients.
 
@@ -123,8 +123,8 @@ L’API d’environnement des services cloud fournit des informations et des fon
 | Paramètres de configuration et notification de modification |`RoleEnvironment` |`CodePackageActivationContext` |
 | Stockage local |`RoleEnvironment` |`CodePackageActivationContext` |
 | Informations sur le point de terminaison |`RoleInstance` <ul><li>Instance actuelle : `RoleEnvironment.CurrentRoleInstance`</li><li>Autres rôles et instances : `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` pour l’adresse du nœud actuel</li><li>`FabricClient` et `ServicePartitionResolver` pour la découverte de point de terminaison de service</li> |
-| Émulation de l’environnement |`RoleEnvironment.IsEmulated` |N/A |
-| Événement de modification simultanée |`RoleEnvironment` |N/A |
+| Émulation de l’environnement |`RoleEnvironment.IsEmulated` |S.O. |
+| Événement de modification simultanée |`RoleEnvironment` |S.O. |
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 Les paramètres de configuration des services cloud sont définis pour un rôle de machine virtuelle et s’appliquent à toutes les instances de ce rôle de machine virtuelle. Ces paramètres correspondent à des paires clé-valeur définies dans les fichiers ServiceConfiguration.*.cscfg. Ils sont accessibles directement via RoleEnvironment. Dans Service Fabric, les paramètres s’appliquent individuellement à chaque service et chaque application, plutôt qu’à une machine virtuelle. En effet, une machine virtuelle peut héberger plusieurs applications et services. Un service se compose de trois packages :
@@ -209,7 +209,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 Les tâches de démarrage sont des actions effectuées avant le démarrage d’une application. Elles sont généralement utilisées pour exécuter des scripts de configuration avec des privilèges élevés. Les services cloud et Service Fabric prennent tous deux en charge les tâches de démarrage. La principale différence est que dans les services cloud, les tâches de démarrage sont liées à une machine virtuelle, car elles font partie d’une instance de rôle, tandis que dans Service Fabric, les tâches de démarrage sont liées à un service, qui n’est lui-même pas lié à une machine virtuelle en particulier.
 
 | Service Fabric | Cloud Services |
-| --- | --- | --- |
+| --- | --- |
 | Emplacement de la configuration |ServiceDefinition.csdef |
 | Privilèges |« limités » ou « élevés » |
 | Séquencement |« simple », « en arrière-plan », « au premier plan » |

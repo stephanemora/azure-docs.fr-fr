@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: 42a6430162f3bafd3ec3ce2a3c523f6f5755914a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 0e5cfa42eba5a2110ebf8879c771f2fef048ae03
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835711"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Ajouter la journalisation à votre application Service Fabric
 
@@ -132,7 +132,7 @@ La journalisation ASP.NET Core ([package Microsoft.Extensions.Logging NuGet](htt
 
 ### <a name="using-other-logging-providers"></a>Utilisation d’autres fournisseurs de journalisation
 
-Certains fournisseurs tiers utilisent l’approche décrite dans la section précédente, notamment [Serilog](https://serilog.net/), [NLog](http://nlog-project.org/) et [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Vous pouvez connecter chacun d’eux à la journalisation ASP.NET Core ou les utiliser séparément. Serilog offre une fonctionnalité qui enrichit tous les messages envoyés par un enregistreur d’événements. Cette fonctionnalité peut être utile pour obtenir le nom, le type et les informations de partition du service. Pour utiliser cette fonctionnalité dans l’infrastructure ASP.NET Core, procédez comme suit :
+Certains fournisseurs tiers utilisent l’approche décrite dans la section précédente, notamment [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/) et [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Vous pouvez connecter chacun d’eux à la journalisation ASP.NET Core ou les utiliser séparément. Serilog offre une fonctionnalité qui enrichit tous les messages envoyés par un enregistreur d’événements. Cette fonctionnalité peut être utile pour obtenir le nom, le type et les informations de partition du service. Pour utiliser cette fonctionnalité dans l’infrastructure ASP.NET Core, procédez comme suit :
 
 1. Ajoutez les packages NuGet **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Literate** et **Serilog.Sinks.Observable** à votre projet. 
 2. Créez une instance `LoggerConfiguration` et l’instance de l’enregistreur d’événements.

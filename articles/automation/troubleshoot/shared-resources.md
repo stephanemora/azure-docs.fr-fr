@@ -4,16 +4,16 @@ description: Découvrez comment résoudre des problèmes en lien avec des ressou
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/3/2018
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 35e39a070a4c976655296d2ea141478d13e43bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475439"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902822"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Résoudre des erreurs en lien avec des ressources partagées
 
@@ -38,6 +38,24 @@ Pour résoudre ce problème, vous devez supprimer le module bloqué dans l’ét
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+### <a name="update-azure-modules-importing"></a>Scénario : Les modules AzureRM sont bloqués à l’importation après avoir essayé les mettre à jour
+
+#### <a name="issue"></a>Problème
+
+Il reste une bannière avec le message suivant dans votre compte après avoir essayé de mettre à jour vos modules AzureRM :
+
+```
+Azure modules are being updated
+```
+
+#### <a name="cause"></a>Cause :
+
+Il existe un problème connu avec la mise à jour les modules AzureRM dans un compte Automation qui se trouve dans un groupe de ressources avec un nom numérique qui commence par 0.
+
+#### <a name="resolution"></a>Résolution :
+
+Pour mettre à jour vos modules Azure dans votre compte Automation, il doit être dans un groupe de ressources qui a un nom d’alphanumériques. Groupes de ressources avec des noms numériques commençant par 0 ne peuvent pas mettre à jour les modules AzureRM pour l’instant.
 
 ### <a name="module-fails-to-import"></a>Scénario : Le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des cmdlets après l’importation
 
@@ -119,6 +137,30 @@ Vous ne disposez pas des autorisations nécessaires pour créer ou mettre à jou
 Pour créer ou mettre à jour d’un compte d’identification, vous devez disposer des autorisations appropriées pour les diverses ressources utilisées par le compte d’identification. Pour en savoir plus sur les autorisations nécessaires pour créer ou mettre à jour un compte d’identification, consultez [Autorisations pour les comptes d’identification](../manage-runas-account.md#permissions).
 
 Si le problème est dû à un verrou, vérifiez que le verrou peut être supprimé. Accédez ensuite à la ressource verrouillée, cliquez sur le verrou, puis choisissez **Supprimer** pour supprimer le verrou.
+
+### <a name="iphelper"></a>Scénario : Vous recevez l’erreur « Impossible de trouver un point d’entrée nommée « GetPerAdapterInfo » dans la DLL 'iplpapi.dll' » lorsque l’exécution d’un runbook.
+
+#### <a name="issue"></a>Problème
+
+Lors de l’exécution d’un runbook, vous recevez l’exception suivante :
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur est probablement dû à une configuration incorrecte [compte d’identification](../manage-runas-account.md).
+
+#### <a name="resolution"></a>Résolution :
+
+Assurez-vous que votre [compte d’identification](../manage-runas-account.md) est correctement configuré. Une fois qu’il est correctement configuré, vérifiez que vous avez le code approprié dans votre runbook auprès d’Azure. L’exemple suivant montre un extrait de code pour s’authentifier sur Azure dans un runbook à l’aide d’un compte d’identification.
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

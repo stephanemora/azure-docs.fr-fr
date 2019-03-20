@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038073"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983589"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
@@ -215,6 +215,8 @@ La section sur les mesures d’exécution de requête explique comment récupér
 
 ### <a name="indexing-policy"></a>Stratégie d’indexation
 Consultez [Configuration de la stratégie d’indexation](index-policy.md) pour l’indexation de chemins, de types et de modes, ainsi que leur impact sur l’exécution des requêtes. Par défaut, la stratégie d’indexation utilise une indexation de hachage pour les chaînes, ce qui est efficace pour les requêtes d’égalité, mais pas pour les requêtes de plage ou les requêtes de tri sélectif. Si vous avez besoin de requêtes de plage pour des chaînes, nous recommandons d’indiquer le type d’index de plage pour toutes les chaînes. 
+
+Par défaut, Azure Cosmos DB applique une indexation automatique à toutes les données. Insérer des scénarios pour de hautes performances, envisagez d’exclure les chemins d’accès car cela permet de réduire le coût des unités de requête pour chaque opération d’insertion. 
 
 ## <a name="query-execution-metrics"></a>Mesures d’exécution des requêtes
 Vous pouvez obtenir des mesures détaillées sur l’exécution des requêtes en passant l’en-tête facultatif `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` dans le kit SDK .NET). La valeur retournée dans `x-ms-documentdb-query-metrics` contient les paires clé-valeur suivantes qui servent à la résolution plus poussée des problèmes d’exécution de requêtes. 

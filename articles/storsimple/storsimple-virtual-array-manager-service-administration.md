@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109897"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091866"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer votre StorSimple Virtual Array
 ![flux du processus d'installation](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Cet article décrit l’interface du service StorSimple Device Manager, y compris la connexion à ce service et les différentes options disponibles, et fournit des liens vers des flux de travail spécifiques exécutables par le biais de cette interface utilisateur.
 
 À la fin de cet article, vous serez en mesure d’effectuer les opérations suivantes :
@@ -53,8 +53,8 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 
 #### <a name="storsimple-device-manager-workflows"></a>Flux de travail de StorSimple Device Manager
 | Pour ce faire... | Suivez cette procédure |
-| --- | --- | --- |
-| Création d’un service</br>Supprimer un service</br>Obtenir la clé d’inscription du service</br>Régénération de la clé d’inscription de service |[Déployer le service StorSimple Device Manager](storsimple-virtual-array-manage-service.md) |
+| --- | --- |
+| Créer un service</br>Supprimer un service</br>Obtenir la clé d’inscription du service</br>Régénérer la clé d’inscription du service |[Déployer le service StorSimple Device Manager](storsimple-virtual-array-manage-service.md) |
 | Afficher les journaux d’activité |[Utiliser le résumé du service StorSimple](storsimple-virtual-array-service-summary.md) |
 | Désactiver un Virtual Array</br>Supprimer un Virtual Array |[Désactiver ou supprimer un Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md) |
 | Récupération d’urgence et basculement d’appareil</br>Conditions préalables de basculement</br>Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR)</br>Erreurs pendant une récupération d’urgence |[Basculement d'appareil et  récupération d'urgence pour votre StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
@@ -63,7 +63,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 | À propos des comptes de stockage</br>Ajout d’un compte de stockage</br>Modification d’un compte de stockage</br>Suppression d'un compte de stockage |[Gérer les comptes de stockage pour le StorSimple Virtual Array](storsimple-virtual-array-manage-storage-accounts.md) |
 | À propos des enregistrements de contrôle d’accès</br>Ajouter ou modifier un enregistrement de contrôle d’accès </br>Supprimer un enregistrement de contrôle d’accès |[Gérer les enregistrements de contrôle d’accès pour le StorSimple Virtual Array](storsimple-virtual-array-manage-acrs.md) |
 | Affichage des détails d’une tâche |[Gérer les tâches StorSimple Virtual Array](storsimple-virtual-array-manage-jobs.md) |
-| Configurer des paramètres d’alerte</br>Réception de notifications d’alerte</br>Gérer les alertes</br>Consulter les alertes |[Afficher et gérer les alertes pour le StorSimple Virtual Array](storsimple-virtual-array-manage-alerts.md) |
+| Configuration des paramètres d'alerte</br>Réception de notifications d’alerte</br>Gérer les alertes</br>Consulter les alertes |[Afficher et gérer les alertes pour le StorSimple Virtual Array](storsimple-virtual-array-manage-alerts.md) |
 | Modification du mot de passe d’administrateur de l’appareil |[Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md) |
 | Installer les mises à jour logicielles |[Mettre à jour votre Virtual Array](storsimple-virtual-array-install-update.md) |
 

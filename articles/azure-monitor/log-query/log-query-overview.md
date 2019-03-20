@@ -2,22 +2,17 @@
 title: Analyser les données de journal dans Azure Monitor | Microsoft Docs
 description: Pour récupérer des données de journal à partir d'Azure Monitor, vous devez exécuter une requête de journal.  Cet article explique comment les nouvelles requêtes de journal sont utilisées dans Azure Monitor et présente les concepts avec lesquels vous devez vous familiariser avant de créer une requête.
 services: log-analytics
-documentationcenter: ''
 author: bwren
-manager: carmonm
-editor: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: b25bbc0c4beac12c0b0f693dd4e01ddb2896fa16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857876"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analyser les données de journal dans Azure Monitor
 
@@ -34,14 +29,19 @@ Pour récupérer des données de journal à partir d'Azure Monitor, vous devez e
 
 ## <a name="where-log-queries-are-used"></a>Lorsque les requêtes dans les journaux sont utilisées
 
-Voici plusieurs façons d'utiliser les requêtes de journal dans Azure Monitor :
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Les différentes façons, que vous allez utiliser des requêtes dans Azure Monitor sont les suivantes :
+
 
 - **Portail.** Vous pouvez effectuer une analyse interactive des données de journal dans le [portail Azure](portals.md).  Cela vous permet de modifier votre requête et d’analyser les résultats dans divers formats et visualisations.  
 - **Règles d’alerte.** Les [règles d’alerte](../platform/alerts-overview.md) identifient de façon proactive les problèmes à partir des données dans votre espace de travail.  Chaque règle d’alerte est basée sur une recherche dans les journaux qui est exécutée automatiquement à intervalles réguliers.  Les résultats sont inspectés pour déterminer si une alerte doit être créée.
 - **Tableaux de bord.** Vous pouvez épingler les résultats de n’importe quelle requête dans un [tableau de bord Azure](../learn/tutorial-logs-dashboards.md) afin de visualiser les données de journal et les métriques ensemble et de partager ces informations avec d’autres utilisateurs Azure si vous le souhaitez. 
 - **Vues.**  Vous pouvez créer des visualisations de données à inclure dans les tableaux de bord utilisateur avec le [Concepteur de vues](../platform/view-designer.md).  Les requêtes dans les journaux fournissent les données utilisées par les [vignettes](../platform/view-designer-tiles.md) et les [composants de visualisation](../platform/view-designer-parts.md) dans chaque vue.  
+
 - **Exportation.**  Lorsque vous importez des données de journal d'Azure Monitor vers Excel ou [Power BI](../platform/powerbi.md), vous créez une requête de journal pour définir les données à exporter.
-- **PowerShell.** Vous pouvez exécuter un script PowerShell à partir d'une ligne de commande ou d'un runbook Azure Automation qui utilise [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) pour récupérer des données de journal à partir d'Azure Monitor.  Cette applet de commande nécessite une requête pour déterminer les données à récupérer.
+- **PowerShell.** Vous pouvez exécuter un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise [Get-AzOperationalInsightsSearchResults](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) pour récupérer des données de journal à partir d’Azure Monitor.  Cette applet de commande nécessite une requête pour déterminer les données à récupérer.
 - **API Journaux Azure Monitor.**  L'[API Journaux Azure Monitor](../platform/alerts-overview.md) permet à tout client d'API REST de récupérer des données de journal à partir de l'espace de travail.  La demande API comprend une requête qui est exécutée sur Azure Monitor pour déterminer les données à récupérer.
 
 ![Recherches dans les journaux](media/log-query-overview/queries-overview.png)
@@ -102,5 +102,5 @@ Bien qu'[Application Insights](../app/app-insights-overview.md) stocke les donn�
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Apprenez à utiliser [Log Analytics pour créer et modifier des recherches dans les journaux](../log-query/portals.md).
+- En savoir plus sur l’utilisation de [Analytique de journal pour créer et modifier des recherches de journal](../log-query/portals.md).
 - Consultez un [didacticiel sur l’écriture de requêtes](../log-query/get-started-queries.md) à l’aide du nouveau langage de requête.

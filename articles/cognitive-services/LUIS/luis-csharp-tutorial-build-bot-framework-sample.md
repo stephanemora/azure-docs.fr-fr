@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: fc8283d85cf7d516edd78f20c9a47d806fbb827b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091679"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot LUIS en C# avec Bot Framework 3.x et bot d’application web Azure
 
@@ -46,16 +46,16 @@ ms.locfileid: "56328960"
 3. Dans la fenêtre Web App Bot, cliquez sur **Créer**.
 
 4. Dans **Bot Service**, fournissez les informations requises, puis cliquez sur **Créer**. Le service de bot et l’application LUIS sont alors déployés vers Azure. Si vous souhaitez utiliser la [préparation vocale](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), consultez les [conditions régionales](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) avant de créer votre bot. 
-    * Dans **Nom de l’application**, entrez le nom de votre bot. Il sera utilisé comme sous-domaine lors du déploiement de votre bot sur le cloud (par exemple, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Sélectionnez l’abonnement, le [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), le plan App Service et [l’emplacement](https://azure.microsoft.com/regions/).
-    * Pour **Modèle de bot**, sélectionnez :
-        * **SDK v3**
-        * **C#**
-        * **Language Understanding**
-    * Sélectionnez **l’emplacement de l’application LUIS**. L’application sera créée dans cette [région](luis-reference-regions.md).
-    * Cochez la case de confirmation de la mention légale. Les conditions de la mention légale figurent sous la case à cocher.
+   * Dans **Nom de l’application**, entrez le nom de votre bot. Il sera utilisé comme sous-domaine lors du déploiement de votre bot sur le cloud (par exemple, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Sélectionnez l’abonnement, le [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), le plan App Service et [l’emplacement](https://azure.microsoft.com/regions/).
+   * Pour **Modèle de bot**, sélectionnez :
+       * **SDK v3**
+       * **C#**
+       * **Language Understanding**
+   * Sélectionnez **l’emplacement de l’application LUIS**. L’application sera créée dans cette [région](luis-reference-regions.md).
+   * Cochez la case de confirmation de la mention légale. Les conditions de la mention légale figurent sous la case à cocher.
 
-    ![Service de robot](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+     ![Service de robot](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. Vérifiez que le service bot a été déployé.
@@ -86,9 +86,9 @@ Ouvrez **Paramètres de l’application** et ajoutez l’ID de votre application
 > 1. Cliquer sur **Mes applications**. 
 > 2. Localisez l’application LUIS que vous avez créée et qui contient les intentions et les entités du domaine HomeAutomation.
 > 3. Sur la page **Paramètres** de l’application LUIS, recherchez et copiez l’ID de l’application. Assurez-vous qu’elle [a effectué l’apprentissage](luis-interactive-test.md) et [a été publiée](luis-how-to-publish-app.md). 
-
-    > [!WARNING]
-    > If you delete your app ID or LUIS key, the bot will stop working.
+> 
+> [!WARNING]
+> Si vous supprimez votre clé d’ID ou LUIS application, le robot cessent de fonctionner.
 
 ## <a name="modify-the-bot-code"></a>Modifier le code du bot
 
@@ -130,7 +130,7 @@ Ouvrez **Paramètres de l’application** et ajoutez l’ID de votre application
 ## <a name="build-the-bot"></a>Générer le bot
 Dans l’éditeur de code, cliquez avec le bouton droit sur `build.cmd` et sélectionnez **Exécuter à partir de la console**.
 
-![Générer le bot web ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![Générer le bot web](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 Le mode code est remplacé par une fenêtre de terminal indiquant la progression et les résultats de la build.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732156"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311897"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Comment résoudre les messages « functions runtime is unreachable »
 
@@ -66,7 +66,7 @@ Dans l’étape précédente, si vous ne disposiez pas d’une chaîne de connex
 ### <a name="guidance"></a>Assistance
 
 * N’activez pas le « paramètre d’emplacement » pour ces paramètres. Lorsque vous échangez les emplacements de déploiement, la fonction s’interrompt.
-* Ne définissez pas ces paramètres lors de l’utilisation de déploiements automatisés.
+* Ne modifiez pas ces paramètres dans le cadre de déploiements automatisés.
 * Ces paramètres doivent être fournis et valides au moment de la création. Un déploiement automatisé sans ces paramètres rend l’application non fonctionnelle et ce, même si les paramètres sont ajoutés après coup.
 
 ## <a name="storage-account-credentials-invalid"></a>Informations d’identification du compte de stockage invalides

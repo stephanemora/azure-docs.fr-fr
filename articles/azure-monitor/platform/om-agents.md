@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 722712d1e38efa3e1accc41abca5c9d88b3c1229
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186971"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095923"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connexion d’Operations Manager à Log Analytics
 Pour préserver vos investissements existants dans [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) et utiliser des fonctionnalités étendues avec Log Analytics, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics. Cela vous permet de tirer parti des possibilités qu’offre Log Analytics, tout en continuant à utiliser Operations Manager pour :
@@ -37,7 +37,7 @@ Le diagramme suivant représente la connexion entre les serveurs et agents d’a
 
 Si vos stratégies de sécurité informatiques n’autorisent pas les ordinateurs sur votre réseau à se connecter à Internet, les serveurs d’administration peuvent être configurés pour se connecter à la passerelle Log Analytics afin de recevoir des informations de configuration et d’envoyer les données collectées en fonction des solutions activées. Pour plus d’informations et pour savoir comment configurer votre groupe d’administration Operations Manager afin de communiquer via une passerelle Log Analytics avec le service Log Analytics, consultez [Connecter des ordinateurs à Log Analytics en utilisant la passerelle Log Analytics](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 Avant de commencer, passez en revue les exigences suivantes.
 
 * Log Analytics prend uniquement en charge System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 et versions supérieures et Operations Manager 2012 R2 UR2 et versions supérieures. La prise en charge du proxy a été ajoutée dans Operations Manager 2012 SP1 UR7 et Operations Manager 2012 R2 UR3.
@@ -132,7 +132,7 @@ Si un serveur proxy interne se trouve entre le groupe d’administration et le s
 1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Administration** .
 1. Développez Operations Management Suite, puis cliquez sur **Connexions**.
 1. Dans la vue Connexion à OMS, cliquez sur **Configurer le serveur proxy**.
-1. Sur la page **Assistant Operations Management Suite : serveur proxy**, sélectionnez **Utiliser un serveur proxy pour accéder à Operations Management Suite**, puis saisissez l’URL avec le numéro de port, par exemple http://corpproxy:80, et cliquez sur **Terminer**.
+1. Sur la page **Assistant Operations Management Suite : serveur proxy**, sélectionnez **Utiliser un serveur proxy pour accéder à Operations Management Suite**, puis saisissez l’URL avec le numéro de port, par exemple <http://corpproxy:80>, et cliquez sur **Terminer**.
 
 Si votre serveur proxy requiert une authentification, procédez comme suit pour configurer les informations d’identification et les paramètres qui doivent se propager sur les ordinateurs gérés qui envoient des rapports à Log Analytics dans le groupe d’administration.
 

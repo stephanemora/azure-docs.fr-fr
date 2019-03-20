@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207494"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889690"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle VMware ou d'une machine physique vers Azure
 
@@ -24,7 +24,7 @@ Vous pouvez recevoir les erreurs suivantes lorsque vous procédez au basculement
 
 Site Recovery n’a pas pu créer de machine virtuelle basculée dans Azure. L’une des raisons suivantes peut en être la cause :
 
-* Le quota est suffisant pour créer la machine virtuelle : Vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](http://aka.ms/getazuresupport) pour augmenter le quota.
+* Le quota est suffisant pour créer la machine virtuelle : Vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](https://aka.ms/getazuresupport) pour augmenter le quota.
 
 * Vous tentez de basculer des machines virtuelles de familles de taille différentes dans le même groupe à haute disponibilité. Veillez à choisir le même ordre de grandeur de taille pour toutes les machines virtuelles d’un même groupe à haute disponibilité. Changez la taille en accédant aux paramètres Calcul et réseau de la machine virtuelle, puis réessayez le basculement.
 
@@ -32,7 +32,7 @@ Site Recovery n’a pas pu créer de machine virtuelle basculée dans Azure. L�
 
 ## <a name="failover-failed-with-error-id-28092"></a>Le basculement a échoué avec l’ID d’erreur 28092
 
-Site Recovery n’a pas pu créer d’interface réseau pour la machine virtuelle basculée. Assurez-vous que vous avez un quota suffisant pour créer des interfaces réseau dans l’abonnement. Vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](http://aka.ms/getazuresupport) pour augmenter le quota. Si vous disposez d’un quota suffisant, le problème peut être occasionnel, recommencez l’opération. Si le problème persiste même après plusieurs tentatives, laissez un commentaire à la fin de ce document.  
+Site Recovery n’a pas pu créer d’interface réseau pour la machine virtuelle basculée. Assurez-vous que vous avez un quota suffisant pour créer des interfaces réseau dans l’abonnement. Vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](https://aka.ms/getazuresupport) pour augmenter le quota. Si vous disposez d’un quota suffisant, le problème peut être occasionnel, recommencez l’opération. Si le problème persiste même après plusieurs tentatives, laissez un commentaire à la fin de ce document.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Le basculement a échoué avec l’ID d’erreur 70038
 
@@ -48,7 +48,7 @@ Pour afficher une machine dans Azure, l’environnement Azure exige que certains
 
 Pour modifier manuellement le type de démarrage des pilotes pour **SE invité Windows**, suivez les étapes ci-dessous :
 
-1. [Téléchargez](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) le script de non-alimentation, puis exécutez-le de la façon suivante. Ce script détermine si la machine virtuelle a besoin d’une alimentation.
+1. [Téléchargez](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) le script de non-alimentation, puis exécutez-le de la façon suivante. Ce script détermine si la machine virtuelle a besoin d’une alimentation.
 
     `.\Script-no-hydration.ps1`
 
@@ -110,7 +110,50 @@ Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est d
 
 Lors du démarrage d’un machine virtuelle Windows après le basculement, si un message d’arrêt inattendu s’affiche sur la machine virtuelle récupérée, cela indique qu’un état d’arrêt de la machine virtuelle n’a pas été capturé dans le point de récupération utilisé pour le basculement. Cela se produit lorsque vous récupérez à un point où la machine virtuelle n'avait pas été complètement arrêtée.
 
-Il ne s’agit normalement pas d’une source de préoccupation et cela peut généralement être ignoré pour les basculements non planifiés. Dans le cas d’un basculement planifié, assurez-vous que la machine virtuelle a été correctement arrêtée avant le basculement et patientez suffisamment pour que les données de réplication locales en attente soient envoyées à Azure. Utilisez ensuite l’option **Plus récent** sur l’[écran de basculement](site-recovery-failover.md#run-a-failover) pour que toutes les données en attente sur Azure soient traitées en un point de récupération, qui est ensuite utilisé pour le basculement de la machine virtuelle.
+Il ne s’agit normalement pas d’une source de préoccupation et cela peut généralement être ignoré pour les basculements non planifiés. Si le basculement est planifié, assurez-vous que la machine virtuelle est correctement s’est arrêté avant le basculement et laisser un délai suffisant pour en attente de réplication données en local à envoyer à Azure. Utilisez ensuite l’option **Plus récent** sur l’[écran de basculement](site-recovery-failover.md#run-a-failover) pour que toutes les données en attente sur Azure soient traitées en un point de récupération, qui est ensuite utilisé pour le basculement de la machine virtuelle.
+
+## <a name="unable-to-select-the-datastore"></a>Impossible de sélectionner la banque de données
+
+Ce problème est indiqué lorsque vous ne pouvez pas voir le portail de la banque de données dans Azure lorsque vous tentez de reprotéger la machine virtuelle qui a subi un basculement. Il s’agit, car le maître cible n’est pas reconnue comme une machine virtuelle sous vCenter ajoutés à Azure Site Recovery.
+
+Pour plus d’informations sur la reprotéger une machine virtuelle, consultez [Reprotéger et effectuer automatiquement des machines vers un site local après le basculement vers Azure](vmware-azure-reprotect.md).
+
+Pour résoudre le problème :
+
+Créer manuellement le maître cible dans le serveur vCenter qui gère votre machine source. La banque de données seront disponible après les prochaine vCenter découverte et l’actualisation des opérations de structure.
+
+> [!Note]
+> 
+> Les opérations de fabric de détection et d’actualisation peuvent prendre jusqu'à 30 minutes. 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>L’inscription du serveur cible maître Linux avec CS échoue avec une erreur SSL 35 
+
+L’inscription du serveur cible maître de récupération de Site Azure avec le serveur de configuration échoue en raison du Proxy authentifié en cours d’activation sur le serveur cible maître. 
+ 
+Cette erreur est indiquée par les chaînes suivantes dans le journal d’installation : 
+
+RegisterHostStaticInfo a rencontré l’exception config/talwrapper.cpp(107) [post] CurlWrapper Post a échoué : serveur : 10.38.229.221, port : 443, phpUrl : request_handler.php, sécurisé : true, ignoreCurlPartialError : false avec l’erreur : [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] Échec de la demande post : (35) - erreur de connexion SSL. 
+ 
+Pour résoudre le problème :
+ 
+1. Sur la machine virtuelle du serveur de configuration, ouvrez une invite de commandes et vérifiez les paramètres de proxy à l’aide des commandes suivantes :
+
+    CAT /etc/environment echo $http_proxy echo $https_proxy 
+
+2. Si la sortie des commandes précédentes indique que le http_proxy ou https_proxy paramètres sont définis, utilisez une des méthodes suivantes pour débloquer les communications de serveur cible maître avec le serveur de configuration :
+   
+   - Téléchargez le [outil PsExec](https://aka.ms/PsExec).
+   - Utilisez l’outil pour accéder au contexte d’utilisateur système et déterminer si l’adresse proxy est configuré. 
+   - Si le proxy est configuré, ouvrez Internet Explorer dans un contexte utilisateur du système à l’aide de l’outil PsExec.
+  
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+
+   - Pour vous assurer que le serveur cible maître peut communiquer avec le serveur de configuration :
+  
+     - Modifiez les paramètres de proxy dans Internet Explorer pour contourner l’adresse IP cible maître via le proxy.   
+     Ou
+     - Désactiver le proxy sur le serveur cible maître. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Résoudre les problèmes de [connexion à la machine virtuelle Windows via RDP](../virtual-machines/windows/troubleshoot-rdp-connection.md)

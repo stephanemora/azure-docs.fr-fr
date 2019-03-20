@@ -1,7 +1,7 @@
 ---
-title: Instructions concernant la transcription pour la formation du service de reconnaissance vocale
+title: Instructions de transcription pour l’apprentissage des modèles de Services de reconnaissance vocale
 titleSuffix: Azure Cognitive Services
-description: Apprenez à préparer le texte pour personnaliser les modèles linguistiques et acoustiques, ainsi que les polices de voix pour le service de reconnaissance vocale.
+description: Découvrez comment préparer le texte à personnaliser acoustiques et de modèles de langage et de voix pour les Services de reconnaissance vocale.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897212"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Instructions concernant la transcription pour l’utilisation du service de reconnaissance vocale
 
 Pour personnaliser la **reconnaissance vocale** ou la **synthèse vocale**, vous devez fournir le texte en même temps que la voix. Chaque ligne du texte correspond à un énoncé unique. Le texte devrait correspondre autant que possible à la reconnaissance vocale. Le texte est appelé une *transcription* et doit être créé dans un format spécifique.
 
-Le service de reconnaissance vocale normalise l’entrée pour assurer l’homogénéité du texte. 
+Les Services de reconnaissance vocale normaliser l’entrée pour garantir la cohérence de texte.
 
 Cet article décrit les deux types de normalisations. Les instructions varient légèrement d’une langue à l’autre.
 
@@ -39,7 +39,7 @@ Les données de texte doivent être écrites, un énoncé par ligne, en utilisan
 
 ### <a name="text-normalization-rules-for-english"></a>Règles de normalisation de texte pour l’anglais
 
-Le service de reconnaissance vocale exécute les règles de normalisation suivantes :
+Les Services de reconnaissance vocale exécuter les règles de normalisation suivants :
 
 * Utilisation des lettres minuscules pour tout le texte
 * Suppression de tous les signes de ponctuation, à l’exception des apostrophes à l’intérieur des mots
@@ -64,7 +64,7 @@ Appliquez la normalisation suivante à vos transcriptions de texte :
 * Les chaînes numériques non standard (par exemple, certaines dates ou les formules de comptabilité) doivent être écrites en mots.
 * Les mots contenant des caractères non alphabétiques ou des caractères alphanumériques mixtes doivent être retranscrits conformément à leur prononciation.
 * Laissez les abréviations prononcées comme des mots inchangées (par exemple, « radar », « laser », « RAM » ou « OTAN »).
-* Écrivez les abréviations prononcées comme des lettres distinctes sous forme de lettres séparées par des espaces (par exemple, « IMB », « CPU », «FBI », « TBD » ou «NaN »). 
+* Écrivez les abréviations prononcées comme des lettres distinctes sous forme de lettres séparées par des espaces (par exemple, « IMB », « CPU », «FBI », « TBD » ou «NaN »).
 
 Voici quelques exemples :
 
@@ -83,7 +83,7 @@ Voici quelques exemples :
 
 ## <a name="chinese-zh-cn"></a>Chinois (zh-CN)
 
-Les données de texte téléchargées vers le service Custom Speech Service doivent utiliser l’encodage UTF-8 avec un marqueur d’ordre d’octet. Le fichier doit être écrit un énoncé par ligne.
+Les données de texte qui sont téléchargées vers les Services de reconnaissance vocale personnalisé doit utiliser un encodage UTF-8 avec un marqueur d’ordre d’octet. Le fichier doit être écrit un énoncé par ligne.
 
 Évitez l’utilisation des signes de ponctuation de demi-largeur. Ces caractères peuvent être inclus par inadvertance lors de la préparation des données dans un programme de traitement de texte ou lors de la capture de données à partir de pages web. Remplacez-les par les substituts appropriés de largeur normale. Par exemple : 
 
@@ -94,7 +94,7 @@ Les données de texte téléchargées vers le service Custom Speech Service doiv
 
 ### <a name="text-normalization-rules-for-chinese"></a>Règles de normalisation de texte pour le chinois
 
-Le service de reconnaissance vocale exécute les règles de normalisation suivantes :
+Les Services de reconnaissance vocale exécuter les règles de normalisation suivants :
 
 * Suppression de tous les signes de ponctuation
 * Développement des nombres vers la forme orale
@@ -134,7 +134,7 @@ Les données de texte téléchargées vers le service de **reconnaissance vocale
 
 ### <a name="text-normalization-rules-for-german"></a>Règles de normalisation de texte pour l’allemand
 
-Le service de reconnaissance vocale exécute les règles de normalisation suivantes :
+Les Services de reconnaissance vocale exécuter les règles de normalisation suivants :
 
 * Utilisation des lettres minuscules pour tout le texte
 * Suppression de tous les signes de ponctuation, y compris les différents types de guillemets ("test", ’test’, "test„ et « test » sont acceptés)
@@ -162,13 +162,13 @@ Appliquez la normalisation suivante à votre texte avant de l’importer :
 
 Voici quelques exemples :
 
-| Texte d’origine | Après la normalisation par l’utilisateur | Après la normalisation par le système
+| Texte d’origine | Après la normalisation par l’utilisateur | Après la normalisation par le système |
 |--------  | ----- | -------- |
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir votre abonnement d’essai gratuit à Speech Service](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenir votre abonnement d’essai gratuit à Speech Services](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconnaissance vocale dans C#](quickstart-csharp-dotnet-windows.md)

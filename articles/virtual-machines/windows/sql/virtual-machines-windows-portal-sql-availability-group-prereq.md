@@ -3,7 +3,7 @@ title: Groupes de disponibilité SQL Server - Machines virtuelles Azure - Cond
 description: Ce didacticiel montre comment configurer les conditions préalables pour la création d’un groupe de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995173"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure
 
@@ -42,7 +42,7 @@ Ce didacticiel suppose que vous avez des notions de base sur les groupes de disp
 Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) ou [activer les avantages de l’abonnement à Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **+** pour créer un nouvel objet dans le portail.
 
    ![Nouvel objet](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -292,14 +292,14 @@ Une fois le contrôleur de domaine principal redémarré, vous pouvez configurer
 15. Cliquez sur le lien **Plus** dans la barre d'avertissement jaune.
 16. Dans la colonne **Action** de la boîte de dialogue **Tous les détails de la tâche serveur**, cliquez sur **Promouvoir ce serveur en contrôleur de domaine**.
 17. Sous **Configuration du déploiement**, sélectionnez **Ajouter un contrôleur de domaine à un domaine existant**.
-   ![Configuration du déploiement](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Configuration du déploiement](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Cliquez sur **Sélectionner**.
 19. Connectez-vous à l’aide du compte Administrateur (**CORP.CONTOSO.COM\domainadmin**) et du mot de passe (**Contoso!0000**).
 20. Dans **Sélectionner un domaine dans la forêt**, cliquez sur votre domaine, puis sur **OK**.
 21. Dans **Options du contrôleur de domaine**, utilisez les valeurs par défaut et définissez un mot de passe DSRM.
 
-   >[!NOTE]
-   >La page **Options DNS** peut vous informer de l’impossibilité de créer une délégation pour ce serveur DNS. Vous pouvez ignorer cet avertissement dans les environnements hors production.
+    >[!NOTE]
+    >La page **Options DNS** peut vous informer de l’impossibilité de créer une délégation pour ce serveur DNS. Vous pouvez ignorer cet avertissement dans les environnements hors production.
 22. Cliquez sur **Suivant** jusqu'à ce que la boîte de dialogue affiche la page de vérification **Conditions préalables**. Cliquez ensuite sur **Installer**.
 
 Une fois que le serveur a terminé de modifier la configuration, redémarrez-le.
@@ -308,7 +308,7 @@ Une fois que le serveur a terminé de modifier la configuration, redémarrez-le.
 
 Dans le portail Azure, sous réseau virtuel, modifiez le serveur DNS pour inclure l’adresse IP du contrôleur de domaine secondaire. Ce paramètre permet la redondance du service DNS.
 
-### <a name=DomainAccounts></a> Configurer les comptes de domaine
+### <a name="DomainAccounts"></a> Configurer les comptes de domaine
 
 Lors des étapes suivantes, vous configurez les comptes Active Directory. La table qui suit affiche les comptes :
 
@@ -464,7 +464,7 @@ Pour ajouter les fonctionnalités de clustering de basculement, procédez comme 
 Répétez les étapes sur l’autre machine virtuelle SQL Server.
 
   >[!NOTE]
-  > Cette étape, ainsi que la jonction des machines virtuelles au cluster de basculement, peut désormais être automatisée à l'aide d'un modèle de démarrage rapide Azure. Pour plus d’informations, consultez [Créer un cluster WSFC, un écouteur, puis configurer un équilibreur de charge interne pour un groupe de disponibilité Always On sur une machine virtuelle SQL Server à l’aide d’un modèle de démarrage rapide Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Cette étape, ainsi que la jointure réellement les machines virtuelles de SQL Server au cluster de basculement, peut maintenant être automatisée avec [CLI de machine virtuelle SQL Azure](virtual-machines-windows-sql-availability-group-cli.md) et [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurer le pare-feu sur chaque machine virtuelle SQL Server

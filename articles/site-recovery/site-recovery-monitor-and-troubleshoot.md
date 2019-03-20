@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210418"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098472"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Surveiller et résoudre les problèmes liés à Site Recovery
 
@@ -84,7 +84,7 @@ La section **Résumé des erreurs** affiche les erreurs actives qui peuvent avoi
 La section **Vue d’infrastructure** affiche les composants d’infrastructure impliqués dans la réplication, ainsi que l’intégrité de la connectivité entre les serveurs et les services Azure.
 
 - Une ligne verte indique que la connexion est opérationnelle.
-- Une ligne rouge sur laquelle est superposée une icône d’erreur indique l’existence d’une ou de plusieurs erreurs qui affectent la connectivité.
+- Une ligne rouge avec l’icône d’erreur superposée signale l’existence d’un ou plusieurs symptômes d’erreur que la connectivité impact.
 -  Placez le pointeur de la souris sur l’icône d’erreur pour afficher l’erreur et le nombre d’entités concernées. Cliquez sur l’icône pour afficher une liste filtrée des entités concernées.
 
     ![Vue d’infrastructure de Site Recovery (coffre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -149,19 +149,19 @@ Parallèlement au tableau de bord, vous pouvez surveiller les machines à partir
     ![Vue de la liste des éléments répliqués dans Azure Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Dans la page **Éléments répliqués**, vous pouvez afficher et filtrer les informations. Dans le menu d’action supérieur, vous pouvez effectuer des actions pour une machine donnée, y compris exécuter un test de basculement ou afficher des erreurs spécifiques.
-3.  Cliquez sur **Colonnes** pour afficher des colonnes supplémentaires, par exemple pour afficher le RPO, les problèmes de configuration cible et les erreurs de réplication.
+3. Cliquez sur **Colonnes** pour afficher des colonnes supplémentaires, par exemple pour afficher le RPO, les problèmes de configuration cible et les erreurs de réplication.
 4. Cliquez sur **Filtre** pour afficher les informations en fonction de paramètres spécifiques telles que l’intégrité de la réplication, ou une stratégie de réplication particulière.
 5. Cliquez avec le bouton droit sur une machine pour y lancer des opérations telles qu’un test de basculement, ou pour afficher les détails des erreurs qui lui sont associées.
 6. Cliquez sur une machine pour en afficher les détails. Les détails sont les suivants :
-      - **Informations de réplication** : état et intégrité actuels de la machine.
-      - **RPO** (objectif de point de récupération) : RPO actuel de la machine virtuelle et heure du dernier calcul du RPO.
-      - **Point de récupération** : derniers points de récupération disponibles pour la machine.
-      - **Disponibilité du basculement** : indique si un test de basculement a été exécuté pour la machine, la version de l’agent en cours d’exécution sur la machine (pour les machines exécutant le service Mobilité) et les éventuels problèmes de configuration.
-      - **Erreurs** : liste des symptômes d’erreur de réplication actuellement observés sur la machine, ainsi que les causes/actions possibles.
-      - **Événements** : liste chronologique des événements récents ayant un impact sur la machine. La colonne Détails de l’erreur indique les erreurs actuellement observables sur la machine, tandis que la colonne Événements est un enregistrement historique des problèmes qui ont eu un impact sur la machine.
-      - **Vue d’infrastructure** : affiche l’état de l’infrastructure pour le scénario de réplication des machines vers Azure.
+   - **Informations de réplication** : état et intégrité actuels de la machine.
+   - **RPO** (objectif de point de récupération) : RPO actuel de la machine virtuelle et heure du dernier calcul du RPO.
+   - **Point de récupération** : derniers points de récupération disponibles pour la machine.
+   - **Disponibilité du basculement** : indique si un test de basculement a été exécuté pour la machine, la version de l’agent en cours d’exécution sur la machine (pour les machines exécutant le service Mobilité) et les éventuels problèmes de configuration.
+   - **Erreurs** : liste des symptômes d’erreur de réplication actuellement observés sur la machine, ainsi que les causes/actions possibles.
+   - **Événements** : liste chronologique des événements récents ayant un impact sur la machine. La colonne Détails de l’erreur indique les erreurs actuellement observables sur la machine, tandis que la colonne Événements est un enregistrement historique des problèmes qui ont eu un impact sur la machine.
+   - **Vue d’infrastructure** : affiche l’état de l’infrastructure pour le scénario de réplication des machines vers Azure.
 
-    ![Vue d’ensemble/détails des éléments répliqués d’Azure Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Vue d’ensemble/détails des éléments répliqués d’Azure Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>Questions courantes
@@ -191,7 +191,7 @@ Vous pouvez vous abonner pour recevoir des notifications par courrier électroni
 Pour vous abonner, procédez comme suit :
 
 Dans le coffre > section **Surveillance et rapports**, cliquez sur **Événements Site Recovery**.
-2. Cliquez sur **Notifications par e-mail**.
-3. Sous **Notifications par e-mail**, activez les notifications et spécifiez le destinataire des notifications. Vous pouvez choisir d’envoyer les notifications à tous les administrateurs de l’abonnement ou à des adresses e-mail spécifiques.
+1. Cliquez sur **Notifications par e-mail**.
+1. Sous **Notifications par e-mail**, activez les notifications et spécifiez le destinataire des notifications. Vous pouvez choisir d’envoyer les notifications à tous les administrateurs de l’abonnement ou à des adresses e-mail spécifiques.
 
     ![Notifications par e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)

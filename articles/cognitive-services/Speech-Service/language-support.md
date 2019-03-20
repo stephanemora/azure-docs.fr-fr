@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885349"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225431"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Prise en charge de langue et région pour les Services de reconnaissance vocale
 
@@ -76,13 +76,18 @@ Les voix neuronales peuvent être utilisées pour rendre les interactions avec l
 Pour obtenir la liste complète des voix neuronales et la disponibilité régionale, consultez [régions](regions.md#neural-voices).
 
 | Paramètres régionaux | Langage | Sexe | Mappage du nom du service|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | Allemand (Allemagne) | Féminin | « Microsoft Server Speech Text pour la synthèse vocale (de-DE, KatjaNeural) » |
 | en-US | Anglais (US) | Masculin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, GuyNeural) » |
 | en-US | Anglais (US) | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, JessaNeural) » |
+| it-IT | Italien (Italie) | Féminin | « Microsoft Server Speech Text pour la synthèse vocale (it-IT, ElsaNeural) » |
 | zh-CN | Chinois | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, XiaoxiaoNeural) » |
 
 > [!IMPORTANT]
-> Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, XiaoxiaoNeural) est uniquement disponible via le point de terminaison Asie Sud-Est : https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) est uniquement disponible par le biais du point de terminaison Asie Sud-Est : https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+
+> [!IMPORTANT]
+> Microsoft Server Speech à synthèse vocale (de-DE, KatjaNeural) et Microsoft Server Speech texte pour la synthèse vocale (it-IT, ElsaNeural) sont uniquement disponibles via le point de terminaison Europe de l’ouest : https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Voix standard
 

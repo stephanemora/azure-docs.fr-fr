@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 99953b486fbd1daa9800aa850684447465eead9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182096"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Déployer une passerelle de périmètre pour l’accélérateur de solution d’usine connectée sur Windows ou Linux
 
@@ -39,7 +39,7 @@ Les étapes décrites dans cet article montrent comment déployer une passerelle
 
 ## <a name="choose-a-gateway-device"></a>Choisir un appareil de passerelle
 
-Si vous ne possédez pas encore d’appareil de passerelle, Microsoft vous recommande d’acheter une passerelle disponible dans le commerce auprès de l’un de nos partenaires. Pour obtenir la liste des appareils de passerelle compatibles avec la solution Usine connectée, consultez le  [catalogue d’appareils Azure IoT](https://catalog.azureiotsuite.com/?q=opc). Suivez les instructions fournies avec la passerelle pour la configurer.
+Si vous ne possédez pas encore d’appareil de passerelle, Microsoft vous recommande d’acheter une passerelle disponible dans le commerce auprès de l’un de nos partenaires. Pour obtenir la liste des appareils de passerelle compatibles avec la solution Usine connectée, consultez le  [catalogue d’appareils Azure IoT](https://catalog.azureiotsolutions.com/?q=opc). Suivez les instructions fournies avec la passerelle pour la configurer.
 
 Pour configurer manuellement un appareil de passerelle existant, utilisez les instructions suivantes.
 

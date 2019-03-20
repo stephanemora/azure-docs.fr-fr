@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 36e765d439d616ec165a2b53d2044586e73cde76
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 48afb867a5455ffea10f8a74b1fff2c2b7f361ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809212"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849752"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(DÉPRÉCIÉ) Utiliser Draft avec Azure Container Service et Azure Container Registry pour générer et déployer une application dans Kubernetes
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser Draft avec n’importe quel registre d’images Docker et n
 ## <a name="create-an-azure-container-registry"></a>Création d’un Azure Container Registry
 Vous pouvez facilement [créer un service Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md), mais les étapes requises sont les suivantes :
 
-1. Créez un groupe de ressources Azure pour gérer votre registre ACR et le cluster Kubernetes dans ACS.
+1. Créer un groupe de ressources Azure pour gérer votre Registre ACR et le cluster Kubernetes dans ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -106,11 +106,11 @@ waiting for AAD role to propagate.done
 1. Téléchargez Draft pour votre environnement à partir de l’URL https://github.com/Azure/draft/releases, puis installez-le dans votre PATH afin de pouvoir utiliser la commande.
 2. Téléchargez Helm pour votre environnement à partir de https://github.com/kubernetes/helm/releases et [installez-le dans votre PATH afin de pouvoir utiliser la commande](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configurez Draft pour l’utilisation de votre registre et la création de sous-domaines pour chaque graphique Helm qu’il génère. Pour configurer Draft, vous devez disposer des éléments suivants :
-  - Nom de votre service Azure Container Registry (dans cet exemple, `draftacsdemo`)
-  - Votre clé de Registre, ou mot de passe, à partir de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`
+   - Nom de votre service Azure Container Registry (dans cet exemple, `draftacsdemo`)
+   - Votre clé de Registre, ou mot de passe, à partir de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`
 
-  Appelez `draft init`. Le processus de configuration vous invite à entrer les valeurs ci-dessus. Notez que le format d’URL pour l’URL du Registre est le nom du Registre (dans cet exemple, `draftacsdemo`) plus `.azurecr.io`. Votre nom d’utilisateur est le nom du Registre. La première fois que vous l’exécutez, le processus se présente comme suit.
- ```bash
+   Appelez `draft init`. Le processus de configuration vous invite à entrer les valeurs ci-dessus. Notez que le format d’URL pour l’URL du Registre est le nom du Registre (dans cet exemple, `draftacsdemo`) plus `.azurecr.io`. Votre nom d’utilisateur est le nom du Registre. La première fois que vous l’exécutez, le processus se présente comme suit.
+   ```bash
     $ draft init
     Creating /home/ralph/.draft 
     Creating /home/ralph/.draft/plugins 
@@ -132,7 +132,7 @@ waiting for AAD role to propagate.done
     3. Enter your password: 
     Draft has been installed into your Kubernetes Cluster.
     Happy Sailing!
-```
+   ```
 
 Vous voici prêt à déployer une application.
 
@@ -169,7 +169,7 @@ Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 == Spark has ignited ...
 >> Listening on 0.0.0.0:4567
 ```
@@ -224,7 +224,7 @@ Votre fournisseur de domaine dispose de sa propre méthode pour affecter des ser
     ```
 
 2. Créez une zone DNS pour votre domaine.
-Utilisez la commande [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) pour obtenir les serveurs de noms afin de déléguer le contrôle DNS à Azure DNS pour votre domaine.
+   Utilisez la commande [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) pour obtenir les serveurs de noms afin de déléguer le contrôle DNS à Azure DNS pour votre domaine.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -247,12 +247,12 @@ Utilisez la commande [az network dns zone create](/cli/azure/network/dns/zone#az
     ```
 3. Ajoutez les serveurs DNS qui vous sont affectés au fournisseur de domaine de votre domaine de déploiement, ce qui vous permet d’utiliser Azure DNS pour repointer votre domaine à votre convenance. La façon de procéder varie selon le fournisseur du domaine. Pour plus d’informations utiles, voir [Délégation de domaine à DNS Azure](../../dns/dns-delegate-domain-azure-dns.md). 
 4. Une fois votre domaine délégué à DNS Azure, créez une entrée de jeu d’enregistrements A pour le mappage de votre domaine de déploiement à l’adresse IP `ingress` définie à l’étape 2 de la section précédente.
-  ```azurecli
-  az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
-  ```
-Le résultat ressemble à ceci :
-  ```json
-  {
+   ```azurecli
+   az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
+   ```
+   Le résultat ressemble à ceci :
+   ```json
+   {
     "arecords": [
       {
         "ipv4Address": "13.64.108.240"
@@ -265,23 +265,23 @@ Le résultat ressemble à ceci :
     "resourceGroup": "squillace.io",
     "ttl": 3600,
     "type": "Microsoft.Network/dnszones/A"
-  }
-  ```
+   }
+   ```
 5. Réinstallez **draft**.
 
    1. Supprimez **draft** du cluster en tapant `helm delete --purge draft`. 
    2. Réinstallez **draft** à l’aide de la même commande `draft-init`, mais avec l’option `--ingress-enabled`:
-    ```bash
-    draft init --ingress-enabled
-    ```
-   Répondez aux invites comme vous l’avez fait la première fois. Toutefois, vous avez une question de plus à laquelle répondre en utilisant le chemin d’accès complet du domaine que vous avez configuré avec le DNS Azure.
+      ```bash
+      draft init --ingress-enabled
+      ```
+      Répondez aux invites comme vous l’avez fait la première fois. Toutefois, vous avez une question de plus à laquelle répondre en utilisant le chemin d’accès complet du domaine que vous avez configuré avec le DNS Azure.
 
 6. Entrez votre domaine de niveau supérieur pour l’entrée (par exemple, draft.example.com) : draft.squillace.io
 7. Cette fois, lorsque vous appelez `draft up`, vous pouvez voir votre application (ou lui appliquer l’action `curl`) à l’URL sous la forme `<appname>.draft.<domain>.<top-level-domain>`. Dans le cas de cet exemple, `http://handy-labradoodle.draft.squillace.io`. 
-```bash
-curl -s http://handy-labradoodle.draft.squillace.io
-Hello World, I'm Java!
-```
+   ```bash
+   curl -s http://handy-labradoodle.draft.squillace.io
+   Hello World, I'm Java!
+   ```
 
 
 ## <a name="next-steps"></a>Étapes suivantes

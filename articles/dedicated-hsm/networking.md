@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115451"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083128"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Mise en réseau du module Azure HSM dédié
 
@@ -51,8 +51,8 @@ L’architecture actuelle exige la configuration d’une passerelle ER dans le s
 La création de ressources dans le cloud exige généralement une connexion privée aux ressources informatiques locales. Dans le cas d’un module HSM dédié, il s’agira principalement de la configuration des appareils HSM par le logiciel client HSM ainsi que des activités telles que les sauvegardes et les extractions de journaux à partir de modules HSM à des fins d’analyse. Il est important ici de tenir compte de la nature de la connexion et des options qui en découlent.  L’option la plus souple est un VPN de site à site car plusieurs ressources locales nécessiteront probablement une communication sécurisée à des ressources (y compris les modules HSM) dans le cloud Azure. Pour cette opération, l’organisation du client devra disposer d’un appareil VPN pour établir la connexion. Une connexion VPN point à site peut être utilisée s’il n’existe qu’un seul point de terminaison local, par exemple une station de travail d’administration unique.
 Pour plus d’informations sur les options de connectivité, consultez [Options de planification de la passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
 
->[!NOTE]
-À ce stade, ExpressRoute ne peut pas être utilisé pour la connexion à des ressources locales. Il convient également de noter que la passerelle ExpressRoute utilisée comme décrit ci-dessus n’est pas adaptée aux connexions à une infrastructure locale.
+> [!NOTE]
+> À ce stade, ExpressRoute ne peut pas être utilisé pour la connexion à des ressources locales. Il convient également de noter que la passerelle ExpressRoute utilisée comme décrit ci-dessus n’est pas adaptée aux connexions à une infrastructure locale.
 
 ### <a name="point-to-site-vpn"></a>VPN de point à site
 
@@ -80,8 +80,8 @@ Les appareils HSM ont la possibilité, par le biais de bibliothèques logicielle
 
 Pour les applications distribuées globalement ou les scénarios de basculement régional à haute disponibilité, il est nécessaire de connecter des réseaux virtuels dans différentes régions. Un module Azure HSM dédié assure une haute disponibilité en utilisant une passerelle VPN qui fournit un tunnel sécurisé entre les deux réseaux virtuels. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel à l’aide d’une passerelle VPN, consultez l’article [Présentation d’une passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V).
 
->[!NOTE]
-Pour le moment, l’homologation de réseaux virtuels globale n’est pas disponible dans des scénarios de connectivité inter-région incluant des modules HSM dédiés et vous devez utiliser à la place une passerelle VPN. 
+> [!NOTE]
+> Pour le moment, l’homologation de réseaux virtuels globale n’est pas disponible dans des scénarios de connectivité inter-région incluant des modules HSM dédiés et vous devez utiliser à la place une passerelle VPN. 
 
 ![global-vnet](media/networking/global-vnet.png)
 

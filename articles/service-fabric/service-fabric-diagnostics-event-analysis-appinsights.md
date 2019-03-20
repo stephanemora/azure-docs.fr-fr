@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053617"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816723"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse et visualisation d’événements avec Application Insights
 
@@ -48,50 +48,6 @@ Le service Application Insights intègre une vue désignée pour l’interrogati
 ![Détails de la requête Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
 Pour découvrir en détail les fonctionnalités du portail Application Insights, reportez-vous à la [documentation du portail Application Insights](../azure-monitor/app/app-insights-dashboards.md).
-
-### <a name="configuring-application-insights-with-wad"></a>Configuration d'Application Insights avec WAD
-
->[!NOTE]
->Cette configuration s’applique uniquement aux clusters Windows pour le moment.
-
-Il existe deux méthodes principales permettant d’envoyer des données à Azure Application Insights à partir de WAD, ce qui nécessite d’ajouter un récepteur Application Insights à la configuration de WAD, comme détaillé dans [cet article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Ajouter une clé d’instrumentation Application Insights lors de la création d’un cluster dans le portail Azure
-
-![Ajout d’une clé AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-Lors de la création d’un cluster, si le diagnostic est « Activé » », un champ facultatif permettant d’entrer une clé d’instrumentation Application Insights s’affiche. Si vous collez votre clé Application Insights ici, le récepteur Application Insights est automatiquement configuré à votre intention dans le modèle Resource Manager utilisé pour le déploiement de votre cluster.
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Ajouter le récepteur Application Insights au modèle Resource Manager
-
-Dans l’élément « WadCfg » du modèle Resource Manager, ajoutez un récepteur (« Sink ») en incluant les deux modifications suivantes :
-
-1. Ajoutez la configuration du récepteur directement une fois que la déclaration de la `DiagnosticMonitorConfiguration` est terminée :
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. Incluez le récepteur dans la `DiagnosticMonitorConfiguration` en ajoutant la ligne suivante dans la `DiagnosticMonitorConfiguration` de `WadCfg` (juste avant de déclarer les `EtwProviders`) :
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-Dans les deux extraits de code précédents, le nom « applicationInsights » a été utilisé pour décrire le récepteur. Cela n’est pas obligatoire, et tant que le nom du récepteur est inclus dans l’élément « sinks », vous pouvez définir n’importe quelle chaîne comme nom.
-
-Actuellement, les journaux du cluster s’affichent sous forme de **traces** dans la visionneuse des journaux d’Application Insights. Étant donné que la plupart des traces provenant de la plateforme sont de type « Informations », vous pouvez également envisager de modifier la configuration du récepteur pour que seuls les journaux de type « Critique » ou « Erreur » soient envoyés. Pour ce faire, ajoutez « Channels » à votre récepteur, comme illustré dans [cet article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
->[!NOTE]
->Si vous utilisez une clé Application Insights incorrecte dans le portail ou dans votre modèle Resource Manager, vous devrez modifier manuellement la clé et mettre à jour/redéployer le cluster.
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configuration d'Application Insights avec EventFlow
 

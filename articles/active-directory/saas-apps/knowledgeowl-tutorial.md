@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à KnowledgeOwl | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à KnowledgeOwl | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et KnowledgeOwl.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183987"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutoriel : Intégration d'Azure Active Directory avec KnowledgeOwl
 
@@ -35,7 +35,7 @@ L’intégration de KnowledgeOwl dans Azure AD vous offre les avantages suivants
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à KnowledgeOwl, vous avez besoin des éléments suivants :
 
@@ -110,6 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL KnowledgeOwl](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant :
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     |||
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL KnowledgeOwl](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,29 +188,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Cliquez sur **Paramètres**, puis sélectionnez **Sécurité**.
 
-    ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
+     ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Faites défiler jusqu’à **Intégration de l'authentification unique SAML** et effectuez les étapes suivantes :
     
-    ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
+     ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. Sélectionnez **Enable SAML SSO** (Activer l’authentification unique SAML).
+     a. Sélectionnez **Enable SAML SSO** (Activer l’authentification unique SAML).
 
-    b. Copiez la valeur de l’**ID d’entité SP** et collez-la dans la zone de texte **Identificateur (ID d’entité)** de la section **Domaine et URL KnowledgeOwl** du portail Azure.
+     b. Copiez la valeur de l’**ID d’entité SP** et collez-la dans la zone de texte **Identificateur (ID d’entité)** de la section **Domaine et URL KnowledgeOwl** du portail Azure.
 
-    c. Copiez la valeur de l’**URL de connexion SP** et collez-la dans la zone de texte **URL de connexion et URL de réponse** de la section **Domaine et URL KnowledgeOwl** du portail Azure.
+     c. Copiez la valeur de l’**URL de connexion SP** et collez-la dans la zone de texte **URL de connexion et URL de réponse** de la section **Domaine et URL KnowledgeOwl** du portail Azure.
 
-    d. Dans la zone de texte **ID d’entité IdP**, collez la valeur **ID d’entité SAML** que vous avez copiée sur le portail Azure.
+     d. Dans la zone de texte **ID d’entité IdP**, collez la valeur **ID d’entité SAML** que vous avez copiée sur le portail Azure.
 
-    e. Dans la zone de texte **IdP Login URL** (URL de connexion de fournisseur d’identité), collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+     e. Dans la zone de texte **IdP Login URL** (URL de connexion de fournisseur d’identité), collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
-    f. Dans la zone de texte **IdP Logout URL** (URL de déconnexion de fournisseur d’identité), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
+     f. Dans la zone de texte **IdP Logout URL** (URL de déconnexion de fournisseur d’identité), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    g. Chargez le certificat téléchargé à partir du portail Azure en cliquant sur **Upload IdP Certificate (Charger un certificat IdP)**.
+     g. Chargez le certificat téléchargé à partir du portail Azure en cliquant sur **Upload IdP Certificate (Charger un certificat IdP)**.
 
-    h. Cliquez sur **Map SAML Attributes (Mapper les attributs SAML)** pour mapper les attributs, puis procédez comme suit :
+     h. Cliquez sur **Map SAML Attributes (Mapper les attributs SAML)** pour mapper les attributs, puis procédez comme suit :
     
-    ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
+     ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
 
     * Dans la zone de texte **SSO ID** (ID d’authentification unique), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid`.
     * Dans la zone de texte **Username/Email** (Nom d’utilisateur/E-mail), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
@@ -215,9 +218,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     * Dans la zone de texte **Last Name** (Prénom), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
     * Cliquez sur **Enregistrer**.
 
-    i. Cliquez sur **Enregistrer** au bas de la page.
+      i. Cliquez sur **Enregistrer** au bas de la page.
 
-    ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
+      ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

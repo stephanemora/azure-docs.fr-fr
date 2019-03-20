@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: a3c0e94e213b861714bfc5f38e20e4d9a1de3a19
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107914"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Affiner un groupe à l’aide du mappage de dépendances de groupe
 
@@ -21,9 +21,10 @@ Cet article décrit comment affiner un groupe en visualisant les dépendances de
 > [!NOTE]
 > Les groupes pour lesquels vous souhaitez visualiser les dépendances ne doivent pas contenir plus de 10 machines. Si vous avez plus de 10 machines dans le groupe, nous vous recommandons de le diviser en groupes plus petits pour tirer parti des fonctionnalités de visualisation de dépendance.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prepare-for-dependency-visualization"></a>Préparer la visualisation des dépendances
-Azure Migrate s’appuie sur la solution Service Map dans Log Analytics pour permettre la visualisation des dépendances des machines.
+Azure Migrate s’appuie sur la solution Service Map dans les journaux Azure Monitor pour permettre la visualisation des dépendances des machines.
 
 > [!NOTE]
 > La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
@@ -93,18 +94,18 @@ Une fois que vous avez installé les agents sur toutes les machines du groupe, v
 1. Dans le projet Azure Migrate, sous **Gérer**, cliquez sur  **Groupes** et sélectionnez le groupe.
 2. Sur la page du groupe, cliquez sur  **Afficher les dépendances** pour ouvrir le mappage de dépendances du groupe.
 3. La carte des dépendances du groupe affiche les informations suivantes :
-    - Connexions TCP entrantes (clients) et sortantes (serveurs) vers/depuis toutes les machines faisant partie du groupe
-        - Les machines dépendantes sur lesquelles ne sont pas installés l’agent MMA et l’agent de dépendances sont regroupées par numéros de port
-        - Les machines dépendantes sur lesquelles sont installés l’agent MMA et l’agent de dépendances apparaissent sous forme de zones distinctes
-    - Processus en cours d’exécution dans la machine (vous pouvez développer chaque zone de machine pour afficher les processus correspondants)
-    - Propriétés de chaque machine telles que Nom de domaine complet, Système d’exploitation ou Adresse MAC (vous pouvez cliquer sur chaque zone de machine pour afficher ces détails)
+   - Connexions TCP entrantes (clients) et sortantes (serveurs) vers/depuis toutes les machines faisant partie du groupe
+       - Les machines dépendantes sur lesquelles ne sont pas installés l’agent MMA et l’agent de dépendances sont regroupées par numéros de port
+       - Les machines dépendantes sur lesquelles sont installés l’agent MMA et l’agent de dépendances apparaissent sous forme de zones distinctes
+   - Processus en cours d’exécution dans la machine (vous pouvez développer chaque zone de machine pour afficher les processus correspondants)
+   - Propriétés de chaque machine telles que Nom de domaine complet, Système d’exploitation ou Adresse MAC (vous pouvez cliquer sur chaque zone de machine pour afficher ces détails)
 
      ![Afficher les dépendances de groupe](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Pour afficher des dépendances plus précises, cliquez sur l’intervalle de temps et modifiez-le. Par défaut, il est fixé à une heure. Vous pouvez le modifier ou spécifier une date de début, une date de fin et une durée.
 
-    > [!NOTE]
-      Actuellement, l’interface utilisateur de visualisation des dépendances ne prend pas en charge la sélection d’un intervalle de temps supérieur à une heure. Utilisez Log Analytics pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) sur une plus longue durée.
+   > [!NOTE]
+   >    Actuellement, l’interface utilisateur de visualisation des dépendances ne prend pas en charge la sélection d’un intervalle de temps supérieur à une heure. Utiliser Azure Monitor enregistre dans [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) pendant une durée plus longue.
 
 4. Vérifiez les machines dépendantes, le processus en cours d’exécution pour chaque machine et identifiez les machines qui doivent être ajoutées ou supprimées du groupe.
 5. Utilisez Ctrl + clic pour sélectionner des machines sur la carte et les ajouter ou supprimer du groupe.
@@ -117,19 +118,19 @@ Une fois que vous avez installé les agents sur toutes les machines du groupe, v
 
 Si vous souhaitez vérifier les dépendances d’une machine spécifique qui s’affichent dans le mappage de dépendances de groupe, [configurez le mappage de dépendances de la machine](how-to-create-group-machine-dependencies.md).
 
-## <a name="query-dependency-data-from-log-analytics"></a>Interroger les données de dépendance à partir de Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Interroger des données de dépendance à partir des journaux d’Azure Monitor
 
-Les données de dépendance capturées par Service Map peuvent être interrogées dans l’espace de travail Log Analytics associé à votre projet Azure Migrate. [Découvrez-en plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sur les tables de données Service Map à interroger dans Log Analytics. 
+Les données de dépendance capturées par la carte de Service soient disponibles pour l’interrogation dans l’espace de travail Analytique de journal associé à votre projet Azure Migrate. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sur les tables de données de carte de Service pour interroger dans Azure Monitor enregistre. 
 
-Pour exécuter les requêtes Log Analytics :
+Pour exécuter des requêtes Kusto :
 
 1. Après avoir installé les agents, accédez au portail et cliquez sur **Vue d’ensemble**.
 2. Dans **Vue d’ensemble**, accédez à la section **Essentials** du projet et cliquez sur le nom de l’espace de travail fourni en regard de **Espace de travail OMS**.
 3. Sur la page de l’espace de travail Log Analytics, cliquez sur **Général** > **Journaux**.
-4. Rédigez votre requête pour recueillir des données de dépendance à l’aide de Log Analytics. Des exemples de requêtes permettant de recueillir des données de dépendance sont disponibles [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Écrivez votre requête pour collecter des données de dépendance à l’aide des journaux Azure Monitor. Des exemples de requêtes permettant de recueillir des données de dépendance sont disponibles [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Exécutez votre requête en cliquant sur Exécuter. 
 
-[Découvrez-en plus](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sur la rédaction de requêtes Log Analytics. 
+[En savoir plus](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sur la façon d’écrire des requêtes de Kusto. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

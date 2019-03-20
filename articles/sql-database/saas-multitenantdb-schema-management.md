@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: b3855386f89eda71e145df6dd83d1b1e7e093735
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878072"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
 
@@ -41,7 +41,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données client.
 > * Créer un index sur une table dans toutes les bases de données de locataire.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - L’application de bases de données mutualisées Wingtip Tickets doit déjà être déployée :
     - Pour obtenir des instructions, consultez le premier didacticiel qui introduit l’application de bases de données mutualisées SaaS Wingtip Tickets :<br />[Déployer et explorer une application mutualisée partitionnée qui utilise Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
@@ -53,7 +53,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 - Azure PowerShell doit être installé. Pour plus d’informations, consultez [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Ce didacticiel utilise des fonctionnalités du service Azure SQL Database en préversion limitée ([tâches de base de données élastiques](sql-database-elastic-database-client-library.md)). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à *SaaSFeedback@microsoft.com* avec l’objet Préversion des tâches élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette préversion est limitée. Contactez *SaaSFeedback@microsoft.com* pour toute question ou demande de prise en charge associée.
+> Ce didacticiel utilise des fonctionnalités du service Azure SQL Database en préversion limitée ([tâches de base de données élastiques](sql-database-elastic-database-client-library.md)). Si vous souhaitez réaliser ce didacticiel, indiquez votre ID d’abonnement à *SaaSFeedback\@microsoft.com* avec l’objet = préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette préversion est limitée, par conséquent, contactez *SaaSFeedback\@microsoft.com* pour toute question ou associée prise en charge.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
@@ -173,5 +173,5 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-Ensuite, consultez le [didacticiel de création de rapports Ad hoc](saas-multitenantdb-adhoc-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données de locataire.
+Ensuite, essayez le [didacticiel sur les rapports Ad hoc](saas-multitenantdb-adhoc-reporting.md) pour Explorer l’exécution des requêtes distribuées entre les clients de bases de données.
 

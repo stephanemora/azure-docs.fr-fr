@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57977409"
 ---
 # <a name="graph-search-method"></a>Méthode Graph Search
 
@@ -29,9 +29,10 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Paramètres de la requête  
+
 Nom     | Valeur | Requis ?  | Description
 -----------|-----------|---------|--------
-**mode**       | Chaîne de texte | OUI | Nom du modèle que vous souhaitez utiliser. La valeur est *json* ou *lambda*.
+**mode**       | Chaîne de texte | Oui | Nom du modèle que vous souhaitez utiliser. La valeur est *json* ou *lambda*.
 
 La méthode de recherche de graphique doit être appelée par le biais d’une requête HTTP POST. La requête post doit inclure l’en-tête de type de contenu : **application/json**.
 
@@ -45,7 +46,9 @@ Pour la recherche *json*, le corps POST est un objet JSON. L’objet JSON décri
 Pour la recherche *lambda*, le corps POST est une chaîne de texte brut. Le corps POST est une chaîne de requête lambda LIKQ, qui est une instruction C# unique (consultez la page des [spécifications de la chaîne de requête](LambdaSearchSyntax.md) pour la recherche *lambda*). 
 
 <br>
+
 ## <a name="response-json"></a>Réponse (JSON)
+
 Nom | Description
 -------|-----   
 **results** | Tableau comportant 0 ou plusieurs entités correspondant à l’expression de requête. Chaque entité contient les valeurs des attributs requis. Ce champ est présent si la requête a bien été traitée.
@@ -55,6 +58,7 @@ Nom | Description
 Si une requête ne peut pas être traitée dans un délai de _800 ms_, une erreur _timeout_ est renvoyée. 
 
 <br>
+
 #### <a name="example"></a>Exemple :
 
 ##### <a name="json-search"></a>Recherche JSON

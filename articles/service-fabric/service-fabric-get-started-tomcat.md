@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 29208bcbdbe6ad01d0e1ac7343bd921f3287260a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
-ms.translationtype: HT
+ms.openlocfilehash: 3e93e822c5764a23bba124152ef5dfabf2d3f94f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580251"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223867"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Créer un conteneur Service Fabric exécutant un serveur Apache Tomcat sur Linux
 Apache Tomcat est une implémentation open source populaire des technologies Java Servlet et Java Server. Cet article montre comment créer un conteneur avec Apache Tomcat et une application web simple, déployer le conteneur sur un cluster Service Fabric exécutant Linux, et se connecter à l’application web.  
 
-Pour en savoir plus sur Apache Tomcat, voir la [page d’accueil Apache Tomcat](http://tomcat.apache.org/). 
+Pour en savoir plus sur Apache Tomcat, voir la [page d’accueil Apache Tomcat](https://tomcat.apache.org/). 
 
 ## <a name="prerequisites"></a>Conditions préalables
 * Un ordinateur de développement exécutant :
@@ -93,11 +93,11 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
 
    Pour en savoir plus sur d’autres paramètres, voir la [documentation sur l’exécution du Docker](https://docs.docker.com/engine/reference/commandline/run/).
 
-1. Pour tester votre conteneur, ouvrez un navigateur, puis entrez l’une des URL suivantes. Vous verrez une variante de l’écran d’accueil « Hello World ! » pour chaque URL.
+1. Pour tester votre conteneur, ouvrez un navigateur, puis entrez l’une des URL suivantes. Vous verrez une variante de « Hello World ! » écran d’accueil pour chaque URL.
 
-   - http://localhost:8080/hello 
-   - http://localhost:8080/hello/sayhello 
-   - http://localhost:8080/hello/sayhi 
+   - `http://localhost:8080/hello` 
+   - `http://localhost:8080/hello/sayhello` 
+   - `http://localhost:8080/hello/sayhi` 
 
    ![Hello world /sayhi](./media/service-fabric-get-started-tomcat/hello.png)
 
@@ -142,84 +142,84 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
    Entrez les valeurs suivantes lorsque vous y êtes invité :
 
    * Nommez votre application : ServiceFabricTomcat
-   * Nommez le service d’application : TomcatService
-   * Entrez le nom de l’image : fournissez l’URL de l’image conteneur dans votre registre de conteneurs. Par exemple, myregistry.azurecr.io/samples/tomcattest.
-   * Commandes : laissez ce champ vide. Cette image possède un point d’entrée de charge de travail défini, vous n’avez donc pas à spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage).
-   * Nombre d’instances de l’application conteneur invitée : 1
+   * Nom du service d’application : TomcatService
+   * Entrez le nom de l’Image : Fournissez l’URL de l’image de conteneur dans votre Registre de conteneurs ; par exemple, myregistry.azurecr.io/samples/tomcattest.
+   * Commandes : Laissez ce champ vide. Cette image possède un point d’entrée de charge de travail défini, vous n’avez donc pas à spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage).
+   * Nombre d’instances de l’application de conteneur invité : 1
 
    ![Générateur Yeoman Service Fabric pour les conteneurs](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
 10. Dans le manifeste de service (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*), ajoutez le code XML suivant sous la balise racine **ServiceManfest** pour ouvrir le port sur lequel votre application écoute les requêtes. La balise **Endpoint** déclare le protocole et le port pour le point de terminaison. Dans cet article, le service en conteneur écoute sur le port 8080 : 
 
-    ```xml
-    <Resources>
-      <Endpoints>
-        <!-- This endpoint is used by the communication listener to obtain the port on which to 
-         listen. Please note that if your service is partitioned, this port is shared with 
-         replicas of different partitions that are placed in your code. -->
-        <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-      </Endpoints>
-    </Resources>
-    ```
+   ```xml
+   <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
+   </Resources>
+   ```
 
 11. Dans le manifeste de l’application (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sous la balise **ServiceManifestImport**, ajoutez le code XML suivant. Remplacez **AccountName** et **Password** dans la balise **RepositoryCredentials** portant le nom de votre registre de conteneurs et le mot de passe requis pour vous connecter à celui-ci.
 
-    ```xml
-    <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-      </ContainerHostPolicies>
-    </Policies>
-    ```
+   ```xml
+   <Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
+   </Policies>
+   ```
 
-    La balise **ContainerHostPolicies** spécifie des stratégies pour l’activation des hôtes de conteneur.
+   La balise **ContainerHostPolicies** spécifie des stratégies pour l’activation des hôtes de conteneur.
     
-    * La balise **PortBinding** configure la stratégie de mappage de port à hôte du conteneur. L’attribut **ContainerPort** est défini sur 8080, car le conteneur expose le port 8080, comme spécifié dans le fichier Docker. L’attribut **EndpointRef** est défini sur « endpointTest », le point de terminaison défini dans le manifeste de service à l’étape précédente. Ainsi, les requêtes entrantes adressées au service sur le port 8080 sont mappées au port 8080 dans le conteneur. 
-    * La balise **RepositoryCredentials** spécifie les informations d’identification dont le conteneur a besoin pour s’authentifier auprès du référentiel (privé) à partir duquel il extrait l’image. Vous n’avez pas besoin de cette stratégie si l’image doit être extraite à partir d’un référentiel public.
+   * La balise **PortBinding** configure la stratégie de mappage de port à hôte du conteneur. L’attribut **ContainerPort** est défini sur 8080, car le conteneur expose le port 8080, comme spécifié dans le fichier Docker. L’attribut **EndpointRef** est défini sur « endpointTest », le point de terminaison défini dans le manifeste de service à l’étape précédente. Ainsi, les requêtes entrantes adressées au service sur le port 8080 sont mappées au port 8080 dans le conteneur. 
+   * La balise **RepositoryCredentials** spécifie les informations d’identification dont le conteneur a besoin pour s’authentifier auprès du référentiel (privé) à partir duquel il extrait l’image. Vous n’avez pas besoin de cette stratégie si l’image doit être extraite à partir d’un référentiel public.
     
 
 12. Dans le dossier *ServiceFabricTomcat*, connectez-vous à votre cluster Service Fabric. 
 
-    * Pour vous connecter au cluster Service Fabric local, exécutez la commande suivante :
+   * Pour vous connecter au cluster Service Fabric local, exécutez la commande suivante :
 
-       ```bash
-       sfctl cluster select --endpoint http://localhost:19080
-       ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
-    * Pour vous connecter à un cluster Azure sécurisé, vérifiez que le certificat client est présent sous la forme d’un fichier .pem dans le répertoire *ServiceFabricTomcat*, puis exécutez la commande suivante : 
+   * Pour vous connecter à un cluster Azure sécurisé, vérifiez que le certificat client est présent sous la forme d’un fichier .pem dans le répertoire *ServiceFabricTomcat*, puis exécutez la commande suivante : 
 
-       ```bash
-       sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-       ```
-       Dans la commande précédente, remplacez `your-certificate.pem` par le nom de votre fichier de certificat client. Dans des environnements de développement et de test, le certificat de cluster est souvent utilisé en tant que certificat client. Si votre certificat n’est pas auto-signé, omettez le paramètre `-no-verify`. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     Dans la commande précédente, remplacez `your-certificate.pem` par le nom de votre fichier de certificat client. Dans des environnements de développement et de test, le certificat de cluster est souvent utilisé en tant que certificat client. Si votre certificat n’est pas auto-signé, omettez le paramètre `-no-verify`. 
        
-       Les certificats de cluster sont généralement téléchargés localement en tant que fichiers .pfx. Si vous ne disposez pas encore de votre certificat au format PEM, vous pouvez exécuter la commande suivante pour créer un fichier .pem à partir d’un fichier .pfx :
+     Les certificats de cluster sont généralement téléchargés localement en tant que fichiers .pfx. Si vous ne disposez pas encore de votre certificat au format PEM, vous pouvez exécuter la commande suivante pour créer un fichier .pem à partir d’un fichier .pfx :
 
-       ```bash
-       openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-       ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-       Si votre fichier PFX n’est pas protégé par mot de passe, utilisez `-passin pass:` en guise de dernier paramètre.
+     Si votre fichier PFX n’est pas protégé par mot de passe, utilisez `-passin pass:` en guise de dernier paramètre.
 
 
 13. Exécutez le script d’installation fourni dans le modèle pour déployer l’application sur votre cluster. Le script copie le package d’application vers le magasin d’images du cluster, inscrit le type d’application, et crée une instance de l’application.
 
-       ```bash
-       ./install.sh
-       ```
+     ```bash
+     ./install.sh
+     ```
 
-    Après avoir exécuté le script d’installation, ouvrez un navigateur et accédez à Service Fabric Explorer :
+   Après avoir exécuté le script d’installation, ouvrez un navigateur et accédez à Service Fabric Explorer :
     
-    * Sur un cluster local, utilisez http://localhost:19080/Explorer (remplacez *localhost* par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X).
-    * Sur un cluster Azure sécurisé, utilisez https://PublicIPorFQDN:19080/Explorer. 
+   * Sur un cluster local, utilisez `http://localhost:19080/Explorer` (remplacez *localhost* par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X).
+   * Sur un cluster Azure sécurisé, utilisez `https://PublicIPorFQDN:19080/Explorer`. 
     
-    Développez le nœud **Applications** et notez qu’il existe désormais une entrée (**ServiceFabricTomcatType**) pour votre type d’application, et une autre pour la première instance de ce type. Le déploiement complet de l’application pouvant prendre quelques minutes, soyez patient.
+   Développez le nœud **Applications** et notez qu’il existe désormais une entrée (**ServiceFabricTomcatType**) pour votre type d’application, et une autre pour la première instance de ce type. Le déploiement complet de l’application pouvant prendre quelques minutes, soyez patient.
 
-    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
+   ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
-1. Pour accéder à l’application sur le serveur Tomcat, ouvrez une fenêtre de navigateur, puis entrez l’une des URL suivantes. Si vous avez déployé sur le cluster local, utilisez *localhost* pour *PublicIPorFQDN*. Vous verrez une variante de l’écran d’accueil « Hello World ! » pour chaque URL.
+1. Pour accéder à l’application sur le serveur Tomcat, ouvrez une fenêtre de navigateur, puis entrez l’une des URL suivantes. Si vous avez déployé sur le cluster local, utilisez *localhost* pour *PublicIPorFQDN*. Vous verrez une variante de « Hello World ! » écran d’accueil pour chaque URL.
 
    * http://PublicIPorFQDN:8080/hello  
    * http://PublicIPorFQDN:8080/hello/sayhello

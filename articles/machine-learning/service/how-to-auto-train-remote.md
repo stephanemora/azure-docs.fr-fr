@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4784ca08366d833d02372393e0e12f0fefe8c5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112447"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entraîner des modèles avec le machine learning automatisé dans le cloud
 
@@ -80,8 +80,8 @@ Vous pouvez également attacher une DSVM Linux existante en tant que cible de ca
 
 > [!NOTE]
 >
-> Le code suivant utilise la classe cible `RemoteCompute` pour attacher une machine virtuelle existante en tant que cible de calcul.
-> L’utilisation de la classe `DsvmCompute` sera déconseillée dans les versions futures en faveur de ce modèle de conception.
+> Le code suivant utilise la [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) classe pour attacher une machine virtuelle existante comme cible de calcul cible.
+> Le [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) classe sera déconseillée dans les versions futures en faveur de ce modèle de conception.
 
 Exécutez le code suivant pour créer la cible de calcul à partir d’une DSVM Linux préexistante.
 
@@ -107,7 +107,7 @@ Accordez à la ressource distante l’accès à vos données d’entraînement. 
 
 Pour fournir l’accès, vous devez :
 + Créer un fichier get_data.py contenant une fonction `get_data()`. 
-* Placer ce fichier dans un répertoire accessible sous forme de chemin d’accès absolu 
++ Placer ce fichier dans un répertoire accessible sous forme de chemin d’accès absolu 
 
 Vous pouvez encapsuler du code pour lire des données à partir d’un stockage d’objets blob ou d’un disque local dans le fichier get_data.py. Dans l’exemple de code suivant, les données proviennent du package sklearn.
 

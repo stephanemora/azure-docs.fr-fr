@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470398"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173751"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>Kits SDK Event Grid de gestion et de publication
 
@@ -46,4 +46,4 @@ Les kits SDK de plan de données permettent de publier des événements sur des 
 * Pour obtenir des exemples d’application, consultez la page [Exemples de code Event Grid](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * Pour une présentation d’Event Grid, consultez l’article [What is Event Grid?](overview.md) (Présentation d’Event Grid).
 * Pour connaître les commandes Event Grid dans Azure CLI, consultez la section [Azure CLI](/cli/azure/eventgrid).
-* Pour connaître les commandes Event Grid dans PowerShell, consultez la section [PowerShell](/powershell/module/azurerm.eventgrid).
+* Pour connaître les commandes Event Grid dans PowerShell, consultez la section [PowerShell](/powershell/module/az.eventgrid).

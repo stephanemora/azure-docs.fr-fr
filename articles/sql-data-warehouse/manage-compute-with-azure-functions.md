@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470193"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870928"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans Azure SQL Data Warehouse
 
@@ -57,14 +57,14 @@ Une fois que vous avez déployé le modèle, vous devez trouver trois nouvelles 
 
 4. Dans la zone de planification, ajoutez l’heure de l’expression CRON pour refléter la fréquence à laquelle vous souhaitez que SQL Data Warehouse soit mis à l’échelle. 
 
-  ![Modifier la planification de fonction](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![Modifier la planification de fonction](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  La valeur de `schedule` est une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui contient les six champs suivants : 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   La valeur de `schedule` est une [expression CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression) qui contient les six champs suivants : 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  Par exemple, *« 0 30 9 * * 1-5 »* reflète un déclencheur qui se produit chaque jour de la semaine à 9h30. Pour plus d’informations, consultez les [Exemples de planification][schedule examples] Azure Functions.
+   Par exemple, *« 0 30 9 * * 1-5 »* reflète un déclencheur qui se produit chaque jour de la semaine à 9h30. Pour plus d’informations, consultez les [Exemples de planification][schedule examples] Azure Functions.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Modifier l’heure de l’opération de mise à l’échelle

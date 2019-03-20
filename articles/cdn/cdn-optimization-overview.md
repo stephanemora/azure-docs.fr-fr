@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320306"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870888"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimiser Azure CDN pour le type de distribution de contenu
 
@@ -66,7 +66,7 @@ Lorsque vous créez un point de terminaison CDN, sélectionnez le type d’optim
 
 1. Dans un profil **Azure CDN Standard fourni par Akamai**, sélectionnez un point de terminaison.
 
-    ![Sélection de point de terminaison ](./media/cdn-optimization-overview/01_Akamai.png)
+    ![Sélection de point de terminaison](./media/cdn-optimization-overview/01_Akamai.png)
 
 2. Sous PARAMÈTRES, sélectionnez **Optimisation**. Sélectionnez ensuite un type dans la liste déroulante **Optimisé pour**.
 

@@ -1,5 +1,5 @@
 ---
-title: Créer une passerelle VPN basée sur des itinéraires - Portail Azure | Microsoft Docs
+title: 'Créer une passerelle VPN basée sur l’itinéraire : Portail Azure | Microsoft Docs'
 description: Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005531"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 
@@ -22,20 +22,20 @@ Les étapes fournies dans cet article permettent de créer un réseau virtuel, u
 
 ## <a name="vnet"></a>Créer un réseau virtuel
 
-1. Dans un navigateur, accédez au [portail Azure](http://portal.azure.com) et connectez-vous avec votre compte Azure.
+1. Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 2. Cliquez sur **Créer une ressource**. Dans le champ **Rechercher dans le marketplace**, tapez « réseau virtuel ». Localisez **Réseau virtuel** dans la liste renvoyée et cliquez sur cet élément pour ouvrir la page **Réseau virtuel**.
 3. Dans la liste déroulante **Sélectionner un modèle de déploiement** en bas de la page Réseau virtuel, vérifiez que **Resource Manager** est sélectionné, puis cliquez sur **Créer**. La page **Créer un réseau virtuel** s’ouvre.
 4. Sur la page **Créer un réseau virtuel**, configurez les paramètres du réseau virtuel. Lorsque vous renseignez les champs, le point d’exclamation rouge se transforme en coche verte si les caractères saisis dans le champ sont valides. Utilisez les valeurs suivantes :
 
-  - **Nom** : TestVNet1
-  - **Espace d’adressage** : 10.1.0.0/16
-  - **Abonnement** : vérifiez que l’abonnement indiqué est celui que vous souhaitez utiliser. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
-  - **Groupe de ressources :** TestRG1
-  - **Emplacement** : USA Est
-  - **Sous-réseau** : Serveur frontal
-  - **Plage d’adresses** : 10.1.0.0/24
+   - **Nom** : TestVNet1
+   - **Espace d’adressage** : 10.1.0.0/16
+   - **Abonnement**: Vérifiez que l’abonnement répertorié est celui que vous souhaitez utiliser. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
+   - **Groupe de ressources** : TestRG1
+   - **Emplacement** : USA Est
+   - **Sous-réseau** : Serveur frontal
+   - **Plage d’adresses** : 10.1.0.0/24
 
-  ![Page Créer un réseau virtuel](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Page Créer un réseau virtuel")
+   ![Page Créer un réseau virtuel](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Page Créer un réseau virtuel")
 5. Après avoir entré les valeurs, sélectionnez **Épingler au tableau de bord** pour trouver facilement votre réseau virtuel sur le tableau de bord, puis cliquez sur **Créer**. Une fois que vous avez cliqué sur **Créer**, une vignette apparaît sur votre tableau de bord. Celle-ci indique la progression de la création de votre réseau virtuel. La vignette change lorsque le réseau virtuel est créé.
 
 ## <a name="gwsubnet"></a>Ajouter un sous-réseau de passerelle
@@ -46,12 +46,12 @@ Le sous-réseau de passerelle contient les adresses IP réservées utilisées pa
 2. Dans la page de votre réseau virtuel, cliquez sur **Sous-réseaux** pour développer la page **VNet1 - Sous-réseaux**.
 3. Cliquez sur **+ Sous-réseau de passerelle** en haut de la page pour ouvrir la page **Ajouter un sous-réseau**.
 
-  ![Ajouter un sous-réseau de passerelle](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Ajouter un sous-réseau de passerelle")
+   ![Ajouter un sous-réseau de passerelle](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Ajouter un sous-réseau de passerelle")
 4. Le **nom** de votre sous-réseau est automatiquement renseigné avec la valeur requise « GatewaySubnet ». Ajustez les valeurs de **plage d’adresses** renseignées automatiquement pour qu’elles correspondent aux valeurs suivantes :
 
-  **Plage d’adresses (bloc CIDR)** : 10.1.255.0/27
+   **Plage d’adresses (bloc CIDR)** : 10.1.255.0/27
 
-  ![Ajouter un sous-réseau de passerelle](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Ajouter un sous-réseau de passerelle")
+   ![Ajouter un sous-réseau de passerelle](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Ajouter un sous-réseau de passerelle")
 5. Pour créer le sous-réseau de passerelle, cliquez sur **OK** en bas de la page.
 
 ## <a name="gwvalues"></a>Configurer les paramètres de la passerelle
@@ -60,35 +60,35 @@ Le sous-réseau de passerelle contient les adresses IP réservées utilisées pa
 2. En bas de la page Passerelle de réseau virtuel, cliquez sur **Créer** pour ouvrir la page **Créer une passerelle de réseau virtuel**.
 3. Dans la page **Créer une passerelle réseau virtuel**, renseignez les valeurs pour votre passerelle de réseau virtuel.
 
-  - **Nom** : Vnet1GW
-  - **Type de passerelle** : VPN 
-  - **Type de VPN** : Basé sur itinéraires
-  - **Référence (SKU)** : VpnGw1
-  - **Emplacement** : USA Est
-  - **Réseau virtuel** : cliquez sur **Réseau virtuel/Choisir un réseau virtuel** pour ouvrir la page **Choisir un réseau virtuel**. Sélectionnez **VNet1**.
-  - **Adresse IP publique** : ce paramètre spécifie l’objet d’adresse IP publique qui est associé à la passerelle VPN. L’adresse IP publique est attribuée dynamiquement à cet objet pendant la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
+   - **Nom** : Vnet1GW
+   - **Type de passerelle** : VPN 
+   - **Type de VPN** : basé sur la route
+   - **SKU** : VpnGw1
+   - **Emplacement** : USA Est
+   - **Réseau virtuel** : Cliquez sur **réseau virtuel/choisir un réseau virtuel** pour ouvrir le **choisir un réseau virtuel** page. Sélectionnez **VNet1**.
+   - **Adresse IP publique** : Ce paramètre spécifie l’objet d’adresse IP publique associé à la passerelle VPN. L’adresse IP publique est attribuée dynamiquement à cet objet pendant la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
 
-    - Laissez l’option **Créer** sélectionnée.
-    - Dans la zone de texte, donnez un **nom** à votre adresse IP publique. Pour cet exercice, utilisez **VNet1GWIP**.<br>
+     - Laissez l’option **Créer** sélectionnée.
+     - Dans la zone de texte, donnez un **nom** à votre adresse IP publique. Pour cet exercice, utilisez **VNet1GWIP**.<br>
 
-    ![Configuration des paramètres de la passerelle](./media/create-routebased-vpn-gateway-portal/gw.png "Configuration des paramètres de la passerelle")
+     ![Configuration des paramètres de la passerelle](./media/create-routebased-vpn-gateway-portal/gw.png "Configuration des paramètres de la passerelle")
 
 ## <a name="creategw"></a>Créer la passerelle VPN
 
 1. Vérifiez les paramètres dans la page **Créer une passerelle de réseau virtuel**. Ajustez les valeurs si nécessaire.
 2. Cliquez sur **Créer** en bas de la page.
 
-  Une fois que vous avez cliqué sur **Créer**, les paramètres sont validés et la vignette **Déploiement d’une passerelle de réseau virtuel** s’affiche sur le tableau de bord. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes. Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.
+   Une fois que vous avez cliqué sur **Créer**, les paramètres sont validés et la vignette **Déploiement d’une passerelle de réseau virtuel** s’affiche sur le tableau de bord. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes. Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.
 
 ## <a name="viewgw"></a>Afficher la passerelle VPN
 
 1. Une fois la passerelle créée, accédez à VNet1 dans le portail. La passerelle VPN apparaît dans la page Vue d’ensemble en tant qu’appareil connecté.
 
-  ![Appareils connectés](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "Appareils connectés")
+   ![Appareils connectés](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "Appareils connectés")
 
 2. Dans la liste des appareils, cliquez sur **VNet1GW** pour afficher des informations supplémentaires.
 
-  ![Affichage de la passerelle VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Affichage de la passerelle VPN")
+   ![Affichage de la passerelle VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Affichage de la passerelle VPN")
 
 ## <a name="next-steps"></a>Étapes suivantes
 

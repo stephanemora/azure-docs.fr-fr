@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: bbbce45b7c321fd4934374c76f2a4421b125d46f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994691"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Utiliser un DNS dynamique pour inscrire les noms d’hôte sur votre propre serveur DNS
 
@@ -63,7 +63,7 @@ fi
 
 Vous pouvez également utiliser la commande `nsupdate` pour effectuer des mises à jour DDNS sécurisées. Par exemple, quand vous utilisez un serveur DNS Bind, une paire de clés publique/privée est [générée](http://linux.yyz.us/nsupdate/). Le serveur DNS est [configuré](http://linux.yyz.us/dns/ddns-server.html) avec la partie publique de la clé, ce qui lui permet de vérifier la signature sur la demande. Pour fournir la paire de clés à `nsupdate`, utilisez l’option `-k`, afin que la demande de mise à jour DDNS soit signée.
 
-Quand vous utilisez un serveur DNS Windows, vous pouvez utiliser l’authentification Kerberos avec le paramètre `-g` dans `nsupdate` (mais elle n’est pas disponible dans la version Windows de `nsupdate`). Pour utiliser Kerberos, utilisez `kinit` afin de charger les informations d’identification. Par exemple, vous pouvez charger les informations d’identification à partir d’un [fichier keytab](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html), puis `nsupdate -g` récupère les informations d’identification à partir du cache.
+Quand vous utilisez un serveur DNS Windows, vous pouvez utiliser l’authentification Kerberos avec le paramètre `-g` dans `nsupdate` (mais elle n’est pas disponible dans la version Windows de `nsupdate`). Pour utiliser Kerberos, utilisez `kinit` afin de charger les informations d’identification. Par exemple, vous pouvez charger les informations d’identification à partir d’un [fichier keytab](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html), puis `nsupdate -g` récupère les informations d’identification à partir du cache.
 
 Si nécessaire, vous pouvez ajouter un suffixe de recherche DNS à vos machines virtuelles. Le suffixe DNS est spécifié dans le fichier */etc/resolv.conf* . Comme la plupart des distributions Linux gèrent automatiquement le contenu de ce fichier, il ne peut généralement pas être modifié. Toutefois, vous pouvez remplacer le suffixe à l’aide de la commande `supersede` du client DHCP. Pour remplacer le suffixe, ajoutez la ligne suivante au fichier */etc/dhcp/dhclient.conf* :
 

@@ -1,6 +1,6 @@
 ---
-title: Surveiller Azure SQL Data Sync à l’aide de Log Analytics | Microsoft Docs
-description: Découvrez comment surveiller Azure SQL Data Sync à l’aide de Log Analytics
+title: Surveiller Azure SQL Data Sync avec les journaux d’Azure Monitor | Microsoft Docs
+description: Découvrez comment surveiller Azure SQL Data Sync à l’aide des journaux Azure Monitor
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,16 +12,18 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 75bbae000fa0fbbf783b3df43bd51ed2f8a73e96
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 1417907bf9472137677a090906fa173c3d1ea571
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561414"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539290"
 ---
-# <a name="monitor-sql-data-sync-with-log-analytics"></a>Surveiller SQL Data Sync à l’aide de Log Analytics 
+# <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Surveiller SQL Data Sync avec les journaux Azure Monitor 
 
 Pour contrôler le journal d’activité de SQL Data Sync et détecter les erreurs et avertissements, vous deviez vérifier manuellement SQL Data Sync dans le portail Azure ou utiliser PowerShell ou l’API REST. Suivez les étapes décrites dans cet article pour configurer une solution personnalisée qui améliore l’expérience de surveillance de Data Sync. Vous pouvez personnaliser cette solution pour l’adapter à votre scénario.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md).
 
@@ -30,27 +32,27 @@ Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des 
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tableau de bord de surveillance pour tous vos groupes de synchronisation 
 
-Vous n’avez plus besoin d’examiner les journaux de chaque groupe de synchronisation individuellement pour rechercher des problèmes. Vous pouvez surveiller tous vos groupes de synchronisation à partir de n’importe lequel de vos abonnements et d’un seul emplacement à l’aide d’une vue personnalisée Log Analytics. Cette vue met en évidence les informations qui intéressent les clients SQL Data Sync.
+Vous n’avez plus besoin d’examiner les journaux de chaque groupe de synchronisation individuellement pour rechercher des problèmes. Vous pouvez surveiller tous vos groupes de synchronisation à partir d’un de vos abonnements au même endroit à l’aide d’une vue personnalisée de Azure Monitor. Cette vue met en évidence les informations qui intéressent les clients SQL Data Sync.
 
 ![Tableau de surveillance Data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Notifications automatiques par e-mail
 
-Vous n’avez plus besoin de consulter le journal manuellement dans le portail Azure ou par le biais de PowerShell ou de l’API REST. Grâce à [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), vous pouvez créer des alertes qui sont envoyées directement aux adresses e-mail des personnes devant être informées en cas d’erreur.
+Vous n’avez plus besoin de consulter le journal manuellement dans le portail Azure ou par le biais de PowerShell ou de l’API REST. Avec [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), vous pouvez créer des alertes qui sont envoyées directement aux adresses de messagerie des personnes devant être informées en cas d’erreur.
 
 ![Notifications Data Sync par e-mail](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Comment faire pour configurer ces fonctionnalités de surveillance ? 
 
-Effectuez les étapes suivantes pour implémenter une solution de surveillance Log Analytics personnalisée pour SQL Data Sync en moins d’une heure :
+Implémenter une analyse personnalisée d’Azure ouvre une solution de surveillance pour SQL Data Sync dans moins d’une heure en procédant comme suit :
 
 Vous devez configurer trois composants :
 
--   Un runbook PowerShell pour envoyer les données du journal SQL Data Sync à Log Analytics.
+-   Un runbook PowerShell pour envoyer les données de journal SQL Data Sync dans les journaux d’Azure Monitor.
 
--   Une alerte Log Analytics pour les notifications par e-mail.
+-   Une alerte Azure Monitor pour les notifications par courrier électronique.
 
--   Une vue Log Analytics pour la surveillance
+-   Une vue d’analyse Azure pour la surveillance.
 
 ### <a name="samples-to-download"></a>Exemples à télécharger
 
@@ -58,9 +60,9 @@ Téléchargez les deux exemples suivants :
 
 -   [Runbook PowerShell de journal Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Vue Log Analytics Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Vue d’analyse Azure Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Vérifiez que vous avez configuré les éléments suivants :
 
@@ -70,7 +72,7 @@ Vérifiez que vous avez configuré les éléments suivants :
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Un runbook PowerShell pour obtenir le journal SQL Data Sync 
 
-Utilisez un runbook PowerShell hébergé dans Azure Automation pour extraire les données de journal SQL Data Sync et les envoyer à Log Analytics. Un exemple de script est fourni. Comme prérequis, vous devez disposer d’un compte Azure Automation. Vous devez ensuite créer un runbook et planifier son exécution. 
+Utilisez un runbook PowerShell hébergé dans Azure Automation pour extraire les données de journal SQL Data Sync et les envoyer aux journaux d’Azure Monitor. Un exemple de script est fourni. Comme prérequis, vous devez disposer d’un compte Azure Automation. Vous devez ensuite créer un runbook et planifier son exécution. 
 
 ### <a name="create-a-runbook"></a>Créer un runbook
 
@@ -100,7 +102,7 @@ Pour plus d’informations sur la création d’un runbook, consultez [Mon premi
 
     2.  Informations sur les groupes de synchronisation.
 
-    3.  Informations Log Analytics. Recherchez ces informations dans le Portail Azure | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données à Log Analytics, consultez [Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion publique)](../azure-monitor/platform/data-collector-api.md).
+    3.  Azure Monitor enregistre des informations. Recherchez ces informations dans le Portail Azure | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi des données dans les journaux d’Azure Monitor, consultez [envoyer des données dans les journaux d’Azure Monitor avec l’API collecteur de données HTTP (version préliminaire)](../azure-monitor/platform/data-collector-api.md).
 
 11. Exécutez le runbook dans le volet Test. Vérifiez que le test a réussi.
 
@@ -120,7 +122,7 @@ Pour planifier le runbook
 
 4.  Sélectionnez **Créer une planification**.
 
-5.  Définissez **Récurrence** sur Récurrent et définissez l’intervalle souhaité. Utilisez le même intervalle ici, dans le script et dans Log Analytics.
+5.  Définissez **Récurrence** sur Récurrent et définissez l’intervalle souhaité. Utilisez le même intervalle ici, dans le script et dans les journaux Azure Monitor.
 
 6.  Sélectionnez **Créer**.
 
@@ -128,9 +130,9 @@ Pour planifier le runbook
 
 Pour surveiller si votre automation s’exécute comme prévu, sous **Vue d’ensemble** pour votre compte automation, recherchez la vue **Statistiques des tâches** sous **Surveillance**. Épinglez cette vue à votre tableau de bord pour en faciliter la consultation. Les exécutions réussies du runbook sont affichées avec la mention « Terminé » et les exécutions ayant échoué avec la mention « Échec ».
 
-## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Créer une alerte de lecture du journal Log Analytics pour les notifications par e-mail
+## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>Créer une alerte de lecteur Azure Monitor pour les Notifications par courrier électronique
 
-Pour créer une alerte qui utilise Log Analytics, effectuez les étapes suivantes. Comme prérequis, vous devez lier Log Analytics à un espace de travail Log Analytics.
+Pour créer une alerte qui utilise des journaux Azure Monitor, procédez comme suit. Comme condition préalable, vous avez besoin pour que les journaux Azure Monitor lié à un espace de travail Analytique de journal.
 
 1.  Dans le Portail Azure, sélectionnez **Recherche dans les journaux**.
 
@@ -150,9 +152,9 @@ Pour créer une alerte qui utilise Log Analytics, effectuez les étapes suivante
 
 6.  Cliquez sur **Enregistrer**. Les destinataires spécifiés reçoivent maintenant des notifications par e-mail quand des erreurs se produisent.
 
-## <a name="create-a-log-analytics-view-for-monitoring"></a>Créer une vue Log Analytics pour la supervision
+## <a name="create-an-azure-monitor-view-for-monitoring"></a>Créer une vue d’Azure Monitor pour la surveillance
 
-Cette étape crée une vue Log Analytics pour surveiller visuellement tous les groupes de synchronisation spécifiés. La vue comprend plusieurs composants :
+Cette étape crée une vue d’Azure Monitor pour surveiller visuellement tous les groupes de synchronisation spécifié. La vue comprend plusieurs composants :
 
 -   Une vignette de vue d’ensemble, qui montre combien d’erreurs, de succès et d’avertissements ont tous les groupes de synchronisation.
 
@@ -160,9 +162,9 @@ Cette étape crée une vue Log Analytics pour surveiller visuellement tous les g
 
 -   Une vignette pour chaque groupe de synchronisation, qui montre le nombre d’erreurs, de succès et d’avertissements et les messages d’erreur récents.
 
-Pour configurer la vue Log Analytics, procédez comme suit :
+Pour configurer l’affichage d’Azure Monitor, procédez comme suit :
 
-1.  Sur la page d’accueil Log Analytics, sélectionnez le signe plus à gauche pour ouvrir le **Concepteur de vue**.
+1.  Sur la page d’accueil espace de travail Analytique de journal, sélectionnez le signe plus à gauche pour ouvrir le **Concepteur de vues**.
 
 2.  Sélectionnez **Importer** dans la barre supérieure du Concepteur de vue. Sélectionnez ensuite l’exemple de fichier « DataSyncLogOMSView ».
 
@@ -186,7 +188,7 @@ Dans la plupart des cas, cette solution est gratuite.
 
 **Azure Automation :** selon votre utilisation, le compte Azure Automation peut induire des frais. Les 500 premières minutes d’exécution de travail par mois sont gratuites. Dans la plupart des cas, cette solution doit utiliser moins de 500 minutes par mois. Pour éviter des frais, planifiez le runbook pour qu’il s’exécute à un intervalle de deux heures ou plus. Pour plus d’informations, consultez [Tarification Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics :** selon votre utilisation, Log Analytics peut engendrer des coûts. Le niveau gratuit inclut 500 Mo de données ingérées par jour. Dans la plupart des cas, cette solution doit ingérer moins de 500 Mo par jour. Pour réduire l’utilisation, utilisez le filtrage « échec uniquement » inclus dans le runbook. Si vous utilisez plus de 500 Mo par jour, effectuez une mise à niveau vers le niveau payant pour éviter que l’analytique ne s’arrête quand la limite est atteinte. Pour plus d’informations, consultez [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Surveiller les journaux Azure :** Il existe peut-être un coût associé aux journaux Azure Monitor en fonction de votre utilisation. Le niveau gratuit inclut 500 Mo de données ingérées par jour. Dans la plupart des cas, cette solution doit ingérer moins de 500 Mo par jour. Pour réduire l’utilisation, utilisez le filtrage « échec uniquement » inclus dans le runbook. Si vous utilisez plus de 500 Mo par jour, effectuez une mise à niveau vers le niveau payant pour éviter que l’analytique ne s’arrête quand la limite est atteinte. Pour plus d’informations, consultez [Azure Monitor enregistre la tarification](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Exemples de code
 
@@ -194,7 +196,7 @@ Téléchargez les exemples de code décrits dans cet article à partir des empla
 
 -   [Runbook PowerShell de journal Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Vue Log Analytics Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Vue d’analyse Azure Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur SQL Data Sync, consultez :

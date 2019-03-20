@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6eb0ce9098b5cc5f66035851c6837e9e46fcf2df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074996"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Commandes Windows - CMD et PowerShell
 
@@ -118,7 +118,7 @@ Lorsque vous êtes limité aux méthodes disponibles dans Windows par défaut, P
 ### <a name="disable-windows-firewall"></a>Désactiver le Pare-feu Windows
 `netsh advfirewall set allprofiles state off`
 
-Vous pouvez utiliser cette commande lors de la résolution des problèmes pour écarter temporairement le Pare-feu Windows. Il sera activé au prochain redémarrage ou lorsque vous l’activerez à l’aide de la commande ci-dessous. N’arrêtez pas le service de Pare-feu Windows (MPSSVC) ni le service de moteur de filtrage de base (BFE) pour écarter le Pare-feu Windows. L’arrêt des services MPSSVC ou BFE entraîne le blocage de toute la connectivité.
+Vous pouvez utiliser cette commande lors de la résolution des problèmes pour écarter temporairement le Pare-feu Windows. Il s’agit de permettre au redémarrage suivant ou lorsque vous activez en utilisant la commande ci-dessous. N’arrêtez pas le service de Pare-feu Windows (MPSSVC) ni le service de moteur de filtrage de base (BFE) pour écarter le Pare-feu Windows. L’arrêt des services MPSSVC ou BFE entraîne le blocage de toute la connectivité.
 ### <a name="enable-windows-firewall"></a>Activer le Pare-feu Windows
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Gérer les utilisateurs et les groupes
@@ -247,8 +247,8 @@ Pour exécuter PowerShell dans la console SAC, après avoir accédé à une invi
 
 `powershell <enter>`
 
->[!CAUTION]
-Supprimez le module PSReadLine à partir de la session PowerShell avant d’exécuter les autres commandes PowerShell. Il existe un problème connu qui entraîne l’introduction de caractères supplémentaires dans le texte collé à partir du Presse-papiers si le module PSReadLine est en cours d’exécution dans une session PowerShell au sein de la console SAC.
+> [!CAUTION]
+> Supprimez le module PSReadLine à partir de la session PowerShell avant d’exécuter les autres commandes PowerShell. Il existe un problème connu qui entraîne l’introduction de caractères supplémentaires dans le texte collé à partir du Presse-papiers si le module PSReadLine est en cours d’exécution dans une session PowerShell au sein de la console SAC.
 
 Vérifiez tout d’abord si PSReadLine est chargé. Il est chargé par défaut sur Windows Server 2016, Windows 10 et les versions ultérieures de Windows. Il sera uniquement présent dans les versions antérieures de Windows s’il a été installé manuellement. 
 
@@ -381,7 +381,7 @@ or
 
 `Get-LocalUser` est disponible dans les versions 2012 et supérieures. Pour 2008R2, utilisez `Get-WmiObject`. Cet exemple montre le compte administrateur local intégré, qui présente toujours le SID `S-1-5-21-*-500`.
 ### <a name="view-local-groups"></a>Afficher les groupes locaux
-`(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
+`(get-localgroup).name | sort``(get-wmiobject win32_group).Name | sort`
 
 `Get-LocalUser` est disponible dans les versions 2012 et supérieures. Pour 2008R2, utilisez `Get-WmiObject`.
 ## <a name="manage-the-windows-event-log"></a>Gérer le journal des événements Windows

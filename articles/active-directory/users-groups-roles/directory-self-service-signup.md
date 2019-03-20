@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233171"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201260"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 
-Cet article explique l’inscription en libre-service et comment la prendre en charge dans Azure Active Directory (Azure AD). Si vous souhaitez prendre le contrôle d’un nom de domaine d’un locataire Azure AD non géré, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur](domains-admin-takeover.md).
+Cet article explique comment utiliser l’inscription libre-service pour remplir une organisation dans Azure Active Directory (Azure AD). Si vous souhaitez reprendre un nom de domaine à partir d’un Azure non géré organisation AD, consultez [reprendre un répertoire non géré en tant qu’administrateur](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Pourquoi utiliser l’inscription libre-service ?
 * Permettre aux clients de bénéficier plus rapidement des services dont ils ont besoin.
@@ -71,7 +71,7 @@ Ces deux paramètres peuvent être utilisés conjointement pour définir un cont
 
 L‘organigramme suivant décrit les différentes combinaisons de paramètres et les conditions qui en résultent pour le répertoire et l’inscription en libre-service.
 
-![Contrôles de l’inscription en libre-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![Organigramme des contrôles d’inscription libre-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, consultez [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

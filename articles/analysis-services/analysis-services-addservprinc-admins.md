@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5089083862f243a6a6847a58ac0777c52f978e73
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189726"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730220"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 
@@ -42,7 +42,7 @@ Pour effectuer cette tâche, vous devez disposer d’autorisations [Administrate
 
 
 > [!NOTE]
-> Pour les opérations de serveur utilisant des applets de commande AzureRm, le planificateur exécutant le principal de service doit également appartenir au rôle **Propriétaire** associé à la ressource dans le [contrôle d’accès en fonction du rôle (RBAC) d’Azure](../role-based-access-control/overview.md). 
+> Pour les opérations de serveur à l’aide des applets de commande Azure PowerShell, le planificateur en cours d’exécution principal de service doit également appartenir à la **propriétaire** rôle pour la ressource dans [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Informations connexes
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2a2c2667ae3180fd4f7b114ce6cef05ac7a1080c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859723"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850273"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiler des applications de production dans Azure avec Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Activer Application Insights Profiler pour votre application
@@ -30,6 +30,7 @@ Profiler fonctionne avec les applications .NET déployées sur les services Azur
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles Azure et Virtual Machine Scale Sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [**Version préliminaire** ASP.NET Core Azure Linux Web Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Si vous avez activé Profiler et que vous ne voyez pas les traces, consultez notre [Guide de résolution des problèmes](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
@@ -93,6 +94,10 @@ Une méthode comme **SqlCommand.Execute** indique que le code attend la fin d’
 ### <a id="block"></a>Temps de blocage
 
 **BLOCKED_TIME** indique que le code attend qu’une autre ressource soit disponible. Il peut, par exemple, attendre un objet de synchronisation, la disponibilité d’un thread ou la fin d’une requête.
+
+### <a name="unmanaged-async"></a>Asynchrone non géré
+
+.NET framework émet des événements ETW et transmet l’ID d’activité entre les threads afin que les appels asynchrones peuvent être suivis sur des threads. Code non managé (code natif) et des styles plus anciennes du code asynchrone ne comportent pas ces événements et l’ID d’activité, donc le profileur ne peut pas déterminer quel thread et fonctions qui sont exécutent sur le thread. Cela est étiqueté « Async non managé » dans la pile des appels. Si vous téléchargez le fichier ETW, vous pourrez peut-être utiliser [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) pour obtenir plus d’informations sur ce qui se passe.
 
 ### <a id="cpu"></a>Temps processeur
 

@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086715"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Préparation des disques durs pour un travail d’importation
 Pour préparer un ou plusieurs disques durs pour un travail d’importation, procédez comme suit :
 
--   Identifier les données à importer dans le service BLOB
+- Identifier les données à importer dans le service BLOB
 
--   Identifier les répertoires virtuels cibles et les blobs dans le service BLOB
+- Identifier les répertoires virtuels cibles et les blobs dans le service BLOB
 
--   Déterminer le nombre de disques nécessaires
+- Déterminer le nombre de disques nécessaires
 
--   Copier les données sur chacun de vos disques durs
+- Copier les données sur chacun de vos disques durs
 
- Pour un exemple de workflow, consultez [Sample Workflow to Prepare Hard Drives for an Import Job (Exemple de workflow pour préparer des disques durs à un travail d’importation)](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+  Pour un exemple de workflow, consultez [Sample Workflow to Prepare Hard Drives for an Import Job (Exemple de workflow pour préparer des disques durs à un travail d’importation)](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## <a name="identify-the-data-to-be-imported"></a>Identifier les données à importer
  La première étape pour créer une tâche d’importation consiste à déterminer les répertoires et les fichiers que vous allez importer. Il peut s’agir d’une liste de répertoires, d’une liste de fichiers uniques ou d’une combinaison des deux. Lorsqu’un répertoire est inclus, tous les fichiers situés dans ce répertoire et ses sous-répertoires font partie du travail d’importation.
@@ -51,11 +51,11 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 ## <a name="determine-how-many-drives-are-needed"></a>Déterminer le nombre de disques nécessaires
  Ensuite, vous devez déterminer :
 
--   Le nombre de disques durs nécessaires pour stocker les données.
+- Le nombre de disques durs nécessaires pour stocker les données.
 
--   Les répertoires et/ou les fichiers individuels à copier sur chacun de vos disques durs.
+- Les répertoires et/ou les fichiers individuels à copier sur chacun de vos disques durs.
 
- Assurez-vous d’avoir le bon nombre de disques durs pour stocker les données que vous transférez.
+  Assurez-vous d’avoir le bon nombre de disques durs pour stocker les données que vous transférez.
 
 ## <a name="copy-data-to-your-hard-drive"></a>Copier les données sur votre disque dur
  Cette section décrit comment appeler l’outil Azure Import/Export pour copier vos données sur un ou plusieurs disques durs. Chaque fois que vous appelez l’outil Azure Import/Export, vous créez une *session de copie*. Vous créez au moins une session de copie pour chaque disque sur lequel vous copiez des données. Dans certains cas, plusieurs sessions de copie peuvent être nécessaires pour copier toutes vos données sur un seul disque. Voici quelques raisons pour lesquelles vous devrez peut-être créer plusieurs sessions de copie :
@@ -108,7 +108,7 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 |**/csas:**&lt;ContainerSas\>|`Optional`. SAP de conteneur à utiliser pour importer des données dans le compte de stockage. Vous devez inclure **/sk:**<StorageAccountKey\> ou **/csas:**<ContainerSas\> dans la commande.<br /><br /> La valeur de ce paramètre doit commencer par le nom du conteneur, suivi d’un point d’interrogation (?) et du jeton SAP. Par exemple : <br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> Les autorisations, qu’elles soient spécifiées sur l’URL ou dans une stratégie d’accès stocké, doivent inclure Read, Write et Delete pour les travaux d’importation et Read, Write et List pour les travaux d’exportation.<br /><br /> Lorsque ce paramètre est renseigné, tous les blobs à importer ou à exporter doivent être dans le conteneur spécifié dans la signature d’accès partagé.|
 |**/t:**&lt;TargetDriveLetter\>|`Required.` Lettre de lecteur du disque dur cible pour la session de copie actuelle, sans les deux-points de fin.|
 |**/format**|`Optional.` Spécifiez ce paramètre quand le disque doit être formaté, sinon, ignorez-le. Avant de formater le disque, l’outil demande confirmation à partir de la console. Pour supprimer la confirmation, spécifiez le paramètre /silentmode.|
-|**/silentmode**|`Optional.` Spécifiez ce paramètre pour supprimer la confirmation du formatage du disque cible.|
+|**/silentmode**|`Optional.` Spécifiez ce paramètre pour supprimer la confirmation du disque cible.|
 |**/encrypt**|`Optional.` Spécifiez ce paramètre quand le disque n’a pas encore été chiffré avec BitLocker et doit être chiffré par l’outil. Si le disque a déjà été chiffré avec BitLocker, ignorez ce paramètre et spécifiez le paramètre `/bk`, en fournissant la clé BitLocker existante.<br /><br /> Si vous spécifiez le paramètre `/format`, vous devez également spécifier le paramètre `/encrypt`.|
 |**/bk:**&lt;BitLockerKey\>|`Optional.`Si `/encrypt` est spécifié, omettez ce paramètre. Si `/encrypt` est omis, vous devez déjà avoir chiffré le disque avec BitLocker. Utilisez ce paramètre pour spécifier la clé BitLocker. Le chiffrement BitLocker est requis pour tous les disques durs pour les travaux d’importation.|
 |**/logdir:**&lt;LogDirectory\>|`Optional.` Le répertoire de journaux désigne le répertoire à utiliser pour stocker les journaux détaillés et les fichiers manifestes temporaires. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux.|
@@ -143,8 +143,7 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 |**/dstblob:**&lt;DestinationBlobPath\>|`Required.` Chemin d’accès au blob de destination dans votre compte de stockage Azure. Le blob peut déjà exister ou non.<br /><br /> Spécifiez le nom du blob commençant par le nom du conteneur. Le nom du blob ne peut pas commencer par « / » ni le nom du compte de stockage. Pour connaître les règles d’affectation de noms aux blobs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Lorsque le conteneur de destination est le conteneur racine, vous devez spécifier explicitement `$root` comme conteneur, tel que `$root/sample.txt`. Notez que les blobs sous le conteneur racine ne peuvent pas inclure « / » dans leur nom.|
 |
   **/Disposition:**&amp;lt;rename&#124;no-overwrite&#124;overwrite&amp;gt;|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.|
-|
-  **/BlobType:**&amp;lt;BlockBlob&#124;PageBlob&amp;gt;|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
+|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
 |**/PropertyFile:**&lt;PropertyFile\>|`Optional.` Chemin d’accès au fichier des propriétés des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md).|
 |**/MetadataFile:**&lt;MetadataFile\>|`Optional.` Chemin d’accès au fichier des métadonnées des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md).|
 

@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>Composants requis
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: d1db175ecc2cf61de0debc15d198d6367aae8bdd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58114093"
+---
+### <a name="prerequisites"></a>Conditions préalables
 * Un compte [Box](http://box.com)  
 
 Avant de pouvoir utiliser votre compte Box dans une application logique, vous devez autoriser l’application logique à se connecter à votre compte Box. Heureusement, vous pouvez faire cela facilement à partir de votre application logique sur le portail Azure.  

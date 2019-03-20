@@ -4,14 +4,14 @@ description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0ba5cdd4f92390634d6d2bea8add8309cb1f4d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014493"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Stratégie d’indexation dans Azure Cosmos DB
 
@@ -23,9 +23,9 @@ Vous pouvez remplacer la stratégie d’indexation par défaut sur un conteneur 
 
 * **Configurer les modes d’index** : en utilisant la stratégie d’indexation sur un conteneur, vous pouvez configurer différents modes d’indexation, comme *Cohérent* ou *Aucun*.
 
-## <a name="indexing-modes"></a>Modes d’indexation 
+## <a name="indexing-modes"></a>Modes d’indexation
 
-Azure Cosmos DB prend en charge deux modes d’indexation configurables sur un conteneur Azure Cosmos. Vous pouvez configurer les deux modes d’indexation suivants avec la stratégie d’indexation : 
+Azure Cosmos DB prend en charge deux modes d’indexation configurables sur un conteneur Azure Cosmos. Vous pouvez configurer les deux modes d’indexation suivants avec la stratégie d’indexation :
 
 * **Cohérent** : si la stratégie d’un conteneur Azure Cosmos DB est définie sur Cohérent, les requêtes sur un conteneur spécifique suivent le même niveau de cohérence que celui spécifié pour les lectures ponctuelles (par exemple, forte, session, obsolescence limitée ou éventuelle). 
 

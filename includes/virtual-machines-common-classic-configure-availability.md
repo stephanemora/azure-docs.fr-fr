@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226574"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58115699"
 ---
 Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d’informations sur cette procédure, voir la rubrique [Gestion de la disponibilité des machines virtuelles][Manage the availability of virtual machines].
 
@@ -17,15 +17,15 @@ Il est recommandé d’utiliser des groupes à haute disponibilité et des point
 
 Vous pouvez ajouter des machines virtuelles classiques dans un groupe à haute disponibilité en utilisant l’une des deux options suivantes :
 
-* [Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité][Option 1: Create a virtual machine and an availability set at the same time]. Ensuite, ajouter de nouvelles machines virtuelles à l’ensemble lorsque vous créez ces ordinateurs virtuels.
-* [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité][Option 2: Add an existing virtual machine to an availability set].
+* [Option 1 : Créer une machine virtuelle et un jeu en même temps de disponibilité][Option 1: Create a virtual machine and an availability set at the same time]. Ensuite, ajouter de nouvelles machines virtuelles à l’ensemble lorsque vous créez ces ordinateurs virtuels.
+* [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
 > Dans le modèle classique, les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.
 > 
 > 
 
-## <a id="createset"></a>Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité.
+## <a id="createset"> </a>Option 1 : Créer une machine virtuelle et un jeu en même temps de disponibilité
 Pour cela, vous pouvez utiliser le portail Azure ou des commandes Azure PowerShell.
 
 Pour utiliser le portail Azure :
@@ -46,7 +46,7 @@ Pour utiliser le portail Azure :
 
 Pour plus d’informations sur l’utilisation des commandes Azure PowerShell pour créer une machine virtuelle Azure et l’ajouter à un groupe à haute disponibilité nouveau ou existant, consultez l’article [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a id="addmachine"></a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité
+## <a id="addmachine"> </a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité
 Dans le portail Azure, vous pouvez ajouter des machines virtuelles classiques existantes à un groupe à haute disponibilité existant, ou en créer un pour ces machines. (N’oubliez pas que les machines virtuelles dans un même groupe à haute disponibilité doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Avec Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant.
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).

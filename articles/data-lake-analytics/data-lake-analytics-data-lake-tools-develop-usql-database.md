@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898793"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Utiliser un projet de base de données U-SQL afin de développer une base de données U-SQL pour Azure Data Lake
 
@@ -57,7 +57,7 @@ Pour un objet assembly, l’outil fournit un éditeur d’interface utilisateur 
 
 La sortie de build du projet de base de données U-SQL est un package de déploiement de base de données U-SQL dont le nom est suivi du suffixe `.usqldbpack`. Le package `.usqldbpack` est un fichier .zip où toutes les instructions DDL se trouvent dans le script U-SQL du dossier **DDL**, et tous les fichiers .dll et fichiers supplémentaires se trouvent dans le dossier **Temp**.
 
-En savoir plus sur la [génération d’un projet de base de données U-SQL avec une ligne de commande MSBuild et une tâche de génération Azure DevOps Services](data-lake-analytics-cicd-overview.md).
+En savoir plus sur [comment générer un projet de base de données U-SQL avec le MSBuild une ligne de commande et un DevOps Azure Services une tâche de génération](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Déployer une base de données U-SQL
 
@@ -100,8 +100,8 @@ Vous pouvez déployer une base de données U-SQL via un projet de base de donné
 
 Un projet U-SQL peut référencer un projet de base de données U-SQL. La référence affecte deux charges de travail :
 
-- *Build de projet* : configurez les environnements de base de données référencés avant de générer les scripts U-SQL. 
-- *Exécution locale vs compte (projet local)* : les environnements de base de données référencés sont déployés dans le compte (de projet local) avant l’exécution du script U-SQL. [En savoir plus sur l’exécution locale et sur la différence entre le compte (ordinateur local) et le compte (projet local)](data-lake-analytics-data-lake-tools-local-run.md).
+- *Génération de projet*: Configurer les environnements de base de données référencée avant de générer les scripts U-SQL. 
+- *Compte d’exécution par rapport à (un local-projet) local*: Les environnements de base de données référencée sont déployés sur (un local-projet) compte avant l’exécution du script U-SQL. [En savoir plus sur l’exécution locale et sur la différence entre le compte (ordinateur local) et le compte (projet local)](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Comment ajouter une référence de base de données U-SQL
 

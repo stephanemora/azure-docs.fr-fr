@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 68bcddeee2cec1a77f20f8f470669f170fa50743
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108744"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database pendant 10 ans
 
@@ -56,22 +56,20 @@ W=12 semaines (84 jours), M=12 mois (365 jours), Y=10 ans (3 650 jours), WeekOfY
    ![Par exemple](./media/sql-database-long-term-retention/ltr-example.png)
 
 
- 
+
 Si vous deviez modifier la stratégie ci-dessus et définir W=0 (aucune sauvegarde hebdomadaire), la cadence des copies de sauvegarde pourrait être modifiée comme indiqué dans le tableau ci-dessus par les dates en surbrillance. La quantité de stockage nécessaire pour conserver ces sauvegardes diminuerait en conséquence. 
 
 > [!NOTE]
-1. Les copies LTR sont créées par le service de stockage Azure. Ainsi, le processus de copie n’a aucun impact sur les performances de la base de données existante.
-2. La stratégie s’applique aux sauvegardes futures. Par exemple, si la valeur WeekOfYear spécifiée est dans le passé lorsque la stratégie est configurée, la première sauvegarde LTR sera créée l’année suivante. 
-3. Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage.   Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. 
-> 
+> 1. Les copies LTR sont créées par le service de stockage Azure. Ainsi, le processus de copie n’a aucun impact sur les performances de la base de données existante.
+> 2. La stratégie s’applique aux sauvegardes futures. Par exemple, si la valeur WeekOfYear spécifiée est dans le passé lorsque la stratégie est configurée, la première sauvegarde LTR sera créée l’année suivante. 
+> 3. Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage.   Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Géo-réplication et conservation de sauvegarde à long terme
 
 Si vous utilisez une géoréplication active ou des groupes de basculement en tant que solution de continuité des activités métier, vous devez vous préparer à des basculements éventuels et configurer la même stratégie de conservation à long terme sur la base de données géosecondaire. Cela n’augmente pas le coût de stockage de conservation à long terme, car les sauvegardes ne sont pas générés à partir des bases de données secondaires. Les sauvegardes sont créées uniquement lorsque la base de données secondaire devient primaire. Cela garantit une génération ininterrompue des sauvegardes de conservation à long terme lorsque le basculement est déclenché et lorsque la base de données primaire est déplacée vers la région secondaire. 
 
 > [!NOTE]
-Lors de la base de données primaire d’origine récupère après la panne qui a entraîné son basculement, elle devient une nouvelle base de données secondaire. Par conséquent, la création de sauvegarde ne reprend pas, et la stratégie de conservation à long terme existante ne prend effet qu’après que la base de données est redevenue primaire. 
-> 
+> Lors de la base de données primaire d’origine récupère après la panne qui a entraîné son basculement, elle devient une nouvelle base de données secondaire. Par conséquent, la création de sauvegarde ne reprend pas, et la stratégie de conservation à long terme existante ne prend effet qu’après que la base de données est redevenue primaire. 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurer la rétention des sauvegardes à long terme
 

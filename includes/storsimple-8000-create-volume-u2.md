@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888657"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125008"
 ---
 #### <a name="to-create-a-volume"></a>Pour créer un volume
 1. Sélectionnez votre appareil dans la liste tabulaire des appareils du panneau **Appareils**. Cliquez sur **+ Ajouter un volume**.
@@ -22,7 +22,7 @@ ms.locfileid: "55888657"
 
    2. Dans la liste déroulante, sélectionnez le conteneur de volumes dans lequel vous devez ajouter un volume. 
 
-   3.  Saisissez un **nom** pour le volume. Vous ne pouvez pas renommer un volume une fois qu’il a été créé.
+   3. Saisissez un **nom** pour le volume. Vous ne pouvez pas renommer un volume une fois qu’il a été créé.
 
    4. Dans la liste déroulante, sélectionnez le **type** de votre volume. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un volume **épinglé localement** . Pour toutes les autres données, sélectionnez un volume **à plusieurs niveaux** . Si vous utilisez ce volume pour les données d’archivage, cochez la case **Utiliser ce volume pour des données d’archivage moins fréquemment sollicitées**.
       
@@ -36,19 +36,19 @@ ms.locfileid: "55888657"
       
        Si vous configurez un volume épinglé localement de 8,5 To (taille maximale autorisée) sur votre appareil 8100, vous avez utilisé tout l’espace local disponible sur l’appareil. Vous ne pourrez donc pas créer de volume à plusieurs niveaux, puisque l’espace local de l’appareil sera insuffisant pour héberger la plage de travail du volume en question. Les volumes à plusieurs niveaux existants affectent également l’espace disponible. Par exemple, si vous avez un appareil 8100 qui possède déjà des volumes à plusieurs niveaux de 106 To, seuls 4 To d’espace sont disponibles pour les volumes épinglés localement.
 
-    6. Cliquez sur la flèche du champ **Hôtes connectés**. 
+      1. Cliquez sur la flèche du champ **Hôtes connectés**. 
 
-        ![Hôtes connectés](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Hôtes connectés](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. Dans le panneau **Hôtes connectés**, choisissez un ACR existant ou ajoutez-en un en procédant comme suit :
+      1. Dans le panneau **Hôtes connectés**, choisissez un ACR existant ou ajoutez-en un en procédant comme suit :
 
-       1. Saisissez un **Nom** pour votre ACR.
-       2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI  de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host).
+         1. Saisissez un **Nom** pour votre ACR.
+         2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI  de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host).
 
-    9. Cliquez sur **Créer**. Un volume est créé avec les paramètres spécifiés.
+      1. Cliquez sur **Créer**. Un volume est créé avec les paramètres spécifiés.
 
-        ![Cliquez sur Create.](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Cliquez sur Create.](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > N’oubliez pas que le volume que vous avez créé ici n’est pas protégé. Vous devez créer des stratégies de sauvegarde et les associer à ce volume pour effectuer des sauvegardes planifiées. 
+         > [!NOTE]
+         > N’oubliez pas que le volume que vous avez créé ici n’est pas protégé. Vous devez créer des stratégies de sauvegarde et les associer à ce volume pour effectuer des sauvegardes planifiées. 
 
