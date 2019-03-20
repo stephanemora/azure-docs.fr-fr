@@ -3,15 +3,16 @@ title: Créer des nœuds virtuels à l’aide du portail dans Azure Kubernetes S
 description: Découvrez comment utiliser le Portail Azure pour créer un cluster Azure Kubernetes Service (AKS) qui s’appuie sur des nœuds virtuels pour exécuter des pods.
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164440"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -19,6 +20,16 @@ Pour déployer rapidement des charges de travail dans un cluster Azure Kubernete
 
 > [!IMPORTANT]
 > Les nœuds virtuels d’AKS sont actuellement en **préversion**. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+
+## <a name="preview-limitations"></a>Limitations de la version préliminaire
+
+Bien que cette fonctionnalité est disponible en version préliminaire, les régions suivantes sont prises en charge pour les déploiements :
+
+* Est de l’Australie (australiaeast)
+* USA Est (eastus)
+* Ouest des États-Unis (westcentralus)
+* Europe Ouest (Europe occidentale)
+* USA Ouest (ouest des USA)
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -127,7 +138,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 Le pod reçoit une adresse IP interne du sous-réseau de réseau virtuel Azure délégué de façon à être utilisé avec des nœuds virtuels.
 
 > [!NOTE]
-> Si vous utilisez des images stockées dans Azure Container Registry, [configurez et utilisez un secret Kubernetes][acr-aks-secrets]. Une limitation actuelle de la préversion des nœuds virtuels est que vous ne pouvez pas utiliser l’authentification de principal du service Azure AD intégrée. Si vous n’utilisez pas de secret, le démarrage des pods planifiés sur les nœuds virtuels échoue et l’erreur `HTTP response status code 400 error code "InaccessibleImage"` est signalée.
+> Si vous utilisez des images stockées dans Azure Container Registry, [configurez et utilisez un secret Kubernetes][acr-aks-secrets]. Compte tenu des limitations imposées par la préversion des nœuds virtuels, vous ne pouvez pas utiliser l'authentification de principal de service Azure AD intégrée. Si vous n'utilisez pas de secret, les pods planifiés sur les nœuds virtuels ne parviennent pas à démarrer et renvoient l'erreur `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Tester le pod de nœud virtuel
 
@@ -184,7 +195,7 @@ Les nœuds virtuels constituent l’un des composants d’une solution de mise �
 [aks-network]: ./networking-overview.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
 

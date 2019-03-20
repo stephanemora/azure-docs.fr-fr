@@ -4,7 +4,7 @@ description: Meilleures pratiques en matière de planification et de mise à l'�
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997349"
 ---
 # <a name="capacity-planning-and-scaling"></a>Planification et mise à l’échelle de la capacité
 
@@ -40,7 +40,7 @@ Les opérations de mise à l’échelle doivent se faire via le déploiement d'u
 
 ## <a name="vertical-scaling-considerations"></a>Considérations relatives à la mise à l’échelle verticale
 
-La [mise à l’échelle verticale](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) d'un type de nœud dans Azure Service Fabric requiert un certain nombre d’étapes et de considérations. Par exemple : 
+La [mise à l’échelle verticale](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) d'un type de nœud dans Azure Service Fabric requiert un certain nombre d’étapes et de considérations. Par exemple : 
 * Le cluster doit être intègre avant sa mise à l’échelle, à défaut de quoi, vous ne feriez que le déstabiliser davantage.
 * Le **niveau de durabilité Silver ou supérieur** est requis pour tous les types de nœuds Service Fabric Cluster hébergeant des services avec état.
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> Lorsque vous mettez à l’échelle un cluster, vous verrez l’instance de nœud/la machine virtuelle supprimée affiché dans un état défectueux dans Service Fabric Explorer. Pour obtenir une explication de ce comportement, consultez [comportements que vous pouvez observer dans Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
+> 
+> Vous pouvez :
+> * Appelez [commande Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) avec le nom de nœud approprié.
+> * Déployer [application service fabric à l’échelle automatique d’assistance](https://github.com/Azure/service-fabric-autoscale-helper/) sur votre cluster, ce qui garantit la mise à l’échelle vers le bas les nœuds sont effacés du Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Niveaux de fiabilité
 

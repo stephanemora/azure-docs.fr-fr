@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e245bb55747b9415c16386cff48e5ac758f529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177884"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163532"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Comment gérer les appareils dans le portail Azure
 
@@ -152,7 +152,7 @@ Pour activer/désactiver un appareil, vous avez deux options :
 **Remarques :**
 
 - Vous devez être administrateur général dans Azure AD pour activer/désactiver un appareil. 
-- La désactivation d’un périphérique empêche celui-ci de s’authentifier à Azure AD et, par conséquent, d’accéder à vos ressources Azure AD qui sont protégées par l’autorité de certification du périphérique ou d’utiliser vos informations d’identification WH4B. 
+- Désactivation d’un périphérique empêche un appareil de s’authentifier correctement avec Azure AD, ce qui empêche l’appareil à partir de l’accès à vos ressources Azure AD qui sont protégées par une autorité de certification d’appareil ou à l’aide de vos informations d’identification WH4B. 
 
 
 

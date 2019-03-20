@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à StatusPage | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à StatusPage | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et StatusPage.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4494996ed54b25be71367dd3e3043023d0958074
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168142"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutoriel : Intégration d'Azure Active Directory à StatusPage
 
@@ -34,7 +34,7 @@ L’intégration de StatusPage dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec StatusPage, vous avez besoin des éléments suivants :
 
@@ -114,23 +114,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    > Contactez l’équipe de support StatusPage à l’adresse [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)pour demander les métadonnées nécessaires à la configuration de l’authentification unique. 
-    >
-    >a. À partir des métadonnées, copiez la valeur de l’émetteur et collez-la dans la zone de texte **Identificateur** .
-    >
-    >b. À partir des métadonnées, copiez l’URL de réponse et collez-la dans la zone de texte **URL de réponse** .
+   > [!NOTE]
+   > Contactez l’équipe de support StatusPage à l’adresse [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)pour demander les métadonnées nécessaires à la configuration de l’authentification unique. 
+   > 
+   > a. À partir des métadonnées, copiez la valeur de l’émetteur et collez-la dans la zone de texte **Identificateur** .
+   > 
+   > b. À partir des métadonnées, copiez l’URL de réponse et collez-la dans la zone de texte **URL de réponse** .
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
@@ -156,15 +158,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Sur la page de configuration de l’authentification unique, procédez comme suit :
    
-    ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. Dans la zone de texte **URL de cible d’authentification**, collez la valeur de **l’URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+      a. Dans la zone de texte **URL de cible d’authentification**, collez la valeur de **l’URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
-    b. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte **Certificat** . 
+      b. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte **Certificat** . 
 
-    c. Cliquez sur **ENREGISTRER LA CONFIGURATION**.
+      c. Cliquez sur **ENREGISTRER LA CONFIGURATION**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

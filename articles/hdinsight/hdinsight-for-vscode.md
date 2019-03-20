@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight Tools - Utiliser Visual Studio Code pour Hive, LLAP ou PySpark | Microsoft Docs
 description: Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code pour créer et envoyer des requêtes et des scripts.
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+Keywords: Visual Studio Code, les outils Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
 services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 3301f3cdea1795db3b17bc2fa7da05bf362c744d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100324"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utiliser les Azure HDInsight Tools pour Visual Studio Code
 
@@ -24,7 +24,7 @@ Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code pour c
 Vous pouvez installer Azure HDInsight Tools sur les plateformes prises en charge par Visual Studio Code, qui sont Windows, Linux et MacOS. Les prérequis pour les différentes plateformes sont détaillés ci-dessous.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessaires suivants :
 
@@ -81,7 +81,7 @@ Avant de pouvoir envoyer des scripts à des clusters HDInsight à partir de Visu
 
         ![Instructions de connexion pour un autre environnement](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
- Une fois que vous êtes connecté, le nom de votre compte Azure s’affiche dans la barre d’état, dans l’angle inférieur gauche de la fenêtre Visual Studio Code.  
+   Une fois que vous êtes connecté, le nom de votre compte Azure s’affiche dans la barre d’état, dans l’angle inférieur gauche de la fenêtre Visual Studio Code.  
   
 
 <h2 id="linkcluster">Créer un lien : Azure HDInsight</h2>
@@ -310,20 +310,20 @@ Envoyez un fichier, notez que le dossier .vscode est ajouté automatiquement au 
     | Nom | description | Type | 
     | :- | :- | :- | 
     | file | Fichier contenant l’application à exécuter | chemin (obligatoire) | 
-    | proxyUser | Utilisateur auquel emprunter l’identité lors de l’exécution de la tâche | chaîne | 
-    | className | Classe principale Java/Spark de l’application | chaîne |
+    | proxyUser | Utilisateur auquel emprunter l’identité lors de l’exécution de la tâche | string | 
+    | className | Classe principale Java/Spark de l’application | string |
     | args | Arguments de ligne de commande pour l’application | liste de valeurs string | 
     | jars | Fichiers JAR à utiliser dans cette session | Liste de chaînes | 
     | pyFiles | Fichiers Python à utiliser dans cette session | Liste de chaînes |
     | fichiers d'entrée | Fichiers à utiliser dans cette session | Liste de chaînes |
-    | driverMemory | Quantité de mémoire à utiliser pour le processus de pilote | chaîne |
+    | driverMemory | Quantité de mémoire à utiliser pour le processus de pilote | string |
     | driverCores | Nombre de cœurs à utiliser pour le processus de pilote | int |
-    | executorMemory | Quantité de mémoire à utiliser par processus de l’exécuteur | chaîne |
+    | executorMemory | Quantité de mémoire à utiliser par processus de l’exécuteur | string |
     | executorCores | Nombre de cœurs à utiliser pour chaque exécuteur | int |
     | numExecutors | Nombre d’exécuteurs à lancer pour cette session | int |
     | archives | Archives à utiliser dans cette session | Liste de chaînes |
-    | file d'attente | Nom de la file d’attente YARN vers laquelle effectuer l’envoi | chaîne |
-    | Nom | Nom de cette session | chaîne |
+    | file d'attente | Nom de la file d’attente YARN vers laquelle effectuer l’envoi | string |
+    | Nom | Nom de cette session | string |
     | conf | Propriétés de configuration Spark. | Map of key=val |
 
     Corps de réponse   
@@ -335,7 +335,7 @@ Envoyez un fichier, notez que le dossier .vscode est ajouté automatiquement au 
     | appId | ID d’application de cette session |  Chaîne |
     | appInfo | Informations détaillées sur l’application | Map of key=val |
     | log | Lignes du journal | liste de valeurs string |
-    | state |   État du lot | chaîne |
+    | state |   État du lot | string |
 
 >[!NOTE]
 >La configuration Livy attribuée s’affiche dans le volet de sortie lors de l’envoi du script.

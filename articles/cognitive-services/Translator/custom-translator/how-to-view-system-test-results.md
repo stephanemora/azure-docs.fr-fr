@@ -5,20 +5,20 @@ description: Au terme de votre apprentissage, passez en revue les tests système
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997705"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 
-Au terme de votre apprentissage, passez en revue les tests système pour analyser vos résultats. Si ces résultats vous conviennent, faites une demande de déploiement pour le modèle concerné. 
+Au terme de votre apprentissage, passez en revue les tests système pour analyser vos résultats. Si ces résultats vous conviennent, faites une demande de déploiement pour le modèle concerné.
 
 ## <a name="system-test-results-page"></a>Page relative aux résultats des tests système
 
@@ -26,7 +26,7 @@ Sélectionnez un projet, puis l’onglet Modèles de ce projet. Recherchez le mo
 
 L’onglet Test affiche ce qui suit :
 
-1.  **System Test Results (Résultats des tests système) :** résultat du processus de test lors des apprentissages. Le processus de test génère le score BLEU.
+1.  **Résultats des tests système :** Le résultat du processus de test dans les formations. Le processus de test génère le score BLEU.
 
     **Sentence Count (Nombre de phases) :** nombre de phrases parallèles utilisées dans le jeu de test.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097807"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008903"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertes de métrique avec des seuils dynamiques dans Azure Monitor (préversion publique)
 
@@ -79,7 +79,11 @@ Probablement pas. Les seuils dynamiques excellent à détecter des écarts signi
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Quelle quantité de données est utilisée pour prévoir, puis calculer les seuils ?
 
-Les seuils figurant dans le graphique, avant qu’une règle d’alerte ne soit créée sur la métrique, sont calculés sur la base des données historiques des 10 derniers jours. Une fois qu’une règle d’alerte est créée, les seuils dynamiques acquièrent de nouvelles données historiques supplémentaires, qu’ils apprennent en continu afin d’améliorer leur précision.
+Les seuils qui apparaissent dans le graphique, avant qu’une règle d’alerte est créée sur la mesure, sont calculés en fonction des données d’historique suffisamment pour calculer des schémas saisonniers les heures ou tous les jours (10 jours). En appuyant sur « Modèle d’affichage hebdomadaire » obtiendra suffisamment de données historiques pour calculer des schémas saisonniers hebdomadaire (28 jours). Une fois qu’une règle d’alerte est créée, les seuils dynamique utilisera nécessaires de toutes les données d’historique qui est disponible et apprendrez en permanence et adept selon de nouvelles données pour rendre les seuils plus précis.
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>La quantité de données est nécessaire pour déclencher une alerte ?
+
+Seuils dynamiques nécessite au moins trois jours de données pour vous assurer de seuils précises avant de déclencher des alertes.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Bonnes pratiques concernant les seuils dynamiques
 

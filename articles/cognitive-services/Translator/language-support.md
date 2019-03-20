@@ -7,19 +7,19 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: reference
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884973"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241568"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
-L’API de traduction de texte Translator Text prend en charge les langues ci-après pour la traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans la version V3 de l’API de traduction de texte Translator Text lorsqu’un système neuronal est disponible. 
+L’API de traduction de texte Translator Text prend en charge les langues ci-après pour la traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans la version V3 de l’API de traduction de texte Translator Text lorsqu’un système neuronal est disponible.
 
 [En savoir plus sur le fonctionnement de la traduction automatique](https://www.microsoft.com/translator/mt.aspx)
 
@@ -33,7 +33,7 @@ L’API de traduction de texte Translator Text prend en charge les langues ci-ap
 * Neural par défaut : Neural est le système de traduction par défaut. Utilisez le paramètre `category=smt` pour accéder au système de statistiques en vue d’une utilisation avec Microsoft Translator Hub.
 * Neural uniquement : Seule la traduction neurale est disponible.
 
-L’**API Translator V3** est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural. Custom Translator ne peut être utilisé qu’avec des langues neurales. 
+L’**API Translator V3** est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural. Custom Translator ne peut être utilisé qu’avec des langues neurales. [Afficher des langues actuellement disponibles dans personnalisé Translator](#customization).
 
 |Langage|  Code de langue|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
@@ -268,7 +268,7 @@ Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues
 
 ## <a name="customization"></a>Personnalisation
 
-Les langues suivantes sont disponibles pour la personnalisation à l'aide de [Custom Translator](http://aka.ms/CustomTranslator).
+Les langues suivantes sont disponibles pour la personnalisation vers ou à partir de l’anglais à l’aide de [personnalisé Translator](http://aka.ms/CustomTranslator).
 
 | Langage    | Code de langue |
 |:----------- |:-------------:|

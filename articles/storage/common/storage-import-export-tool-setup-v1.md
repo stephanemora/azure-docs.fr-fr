@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087446"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configuration de l’outil Azure Import/Export
 L’outil Microsoft Azure Import/Export est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le service Microsoft Azure Import/Export. Vous pouvez utiliser l’outil pour les fonctions suivantes :  
@@ -24,7 +24,7 @@ L’outil Microsoft Azure Import/Export est l’outil de préparation et de rép
   
 -   Lorsque vous recevez les disques d’un travail d’exportation, vous pouvez utiliser cet outil pour réparer tous les fichiers endommagés ou manquants sur les disques.  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Si vous préparez des disques pour un travail d’importation, vous devez remplir les conditions préalables suivantes :  
   
 -   Vous devez avoir un abonnement Azure actif.  
@@ -45,36 +45,36 @@ Si vous préparez des disques pour un travail d’importation, vous devez rempli
   
 Si vous essayez de réparer une importation qui a partiellement échoué, vous devez disposer des éléments suivants :  
   
--   fichiers journaux de copie,  
+- fichiers journaux de copie,  
   
--   clé du compte de stockage.  
+- clé du compte de stockage.  
   
   Si vous essayez de réparer une exportation qui a partiellement échoué, vous devez disposer des éléments suivants :  
   
--   fichiers journaux de copie,  
+- fichiers journaux de copie,  
   
--   fichiers de manifeste (facultatifs),  
+- fichiers de manifeste (facultatifs),  
   
--   clé du compte de stockage.  
+- clé du compte de stockage.  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Installation de l’outil Azure Import/Export  
  L’outil Azure Import/Export comprend les fichiers suivants :  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- Copiez ces fichiers dans un répertoire de travail, par exemple, `c:\WAImportExport`. Ensuite, ouvrez une fenêtre de ligne de commande en mode Administrateur et définissez le répertoire ci-dessus en tant que répertoire actif.  
+  Copiez ces fichiers dans un répertoire de travail, par exemple, `c:\WAImportExport`. Ensuite, ouvrez une fenêtre de ligne de commande en mode Administrateur et définissez le répertoire ci-dessus en tant que répertoire actif.  
   
- Pour générer l’aide relative à la commande, exécutez l’outil sans paramètres :  
+  Pour générer l’aide relative à la commande, exécutez l’outil sans paramètres :  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968445"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437341"
 ---
 # <a name="azure-maps-supported-categories"></a>Catégories prises en charge dans Azure Maps
 
@@ -45,7 +45,7 @@ Lorsque vous effectuez une [recherche par catégorie ](https://docs.microsoft.co
 | COLLEGE\_UNIVERSITY | collège pré-universitaire/centre de formation professionnelle, faculté/université, établissement universitaire,établissement pré-universitaire, grande école |
 | COMMERCIAL\_BUILDING | immeuble de bureaux, siège du parc, bâtiment commercial |
 | COMMUNITY\_CENTER | centre communautaire |
-| COMPANY | électronique, fabrication, services de données informatiques, technologies de santé publique, services financiers divers, refuge pour animaux, compagnie aérienne, location d’équipement, service, courrier/colisage/fret, lignes d’autobus, réparation d’appareils électroménagers, services de nettoyage, services fiscaux, gaz naturel , services juridiques, construction, télécommunications, transports, construction automobile, produits chimiques, services funéraires et morgues, opérations de tunnel de pont, automobile, génie mécanique, services, conseillers en investissement, publicité/marketing, déménagement, épargne, assurance, logiciels, produits pharmaceutiques , restauration, mariage, technologie agricole, immobilier, taxi, service de limousine, location de bus, mines, technologies de l’édition, téléphonie par câble, distribution import/export, entreprise, asile, mines de charbon, immobilier, brasserie, mines d’or |
+| COMPANY | Electronics, fabrication, l’ordinateur des services de données, les technologies de santé publique, Finance-divers, abri animal, compagnie aérienne, location de matériel, service, remise de courrier/package/transport, lignes de bus, réparation appliance domestique, services, oem, de nettoyage de taxe Services, d’huile gaz naturel, services juridiques, construction, télécommunications, transport, construction automobile, produits chimiques, morgues de service enterrement, opérations de tunnel de pont, automobile, ingénierie mécanique, services, conseillers d’investissement, publicité/marketing, déplacement de stockage, établissement des économies, d’assurance, logiciels, produits pharmaceutiques, restauration, les services de mariage, technologie agricole, immobilier, taxi, service de navette limousines, bus Locations charte, d’exploration de données, la publication technologies, téléphone de câble, importation/exportation de distribution, entreprise, asile, charbon mine(s), estate(s), brewery, gold mine(s) |
 | COURTHOUSE | palais de justice |
 | CULTURAL\_CENTER | centre culturel |
 | DENTIST | dentiste |

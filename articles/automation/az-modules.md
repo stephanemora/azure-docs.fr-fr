@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e9240949c589717303fe00205c5374b5e3a6a791
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007497"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585060"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Prise en charge de modules Az dans Azure Automation
 
@@ -31,7 +31,7 @@ L’importation d’un module `Az` dans votre compte Automation n’importe pas 
 * Quand un autre module dépendant du module est importé dans une session PowerShell
 
 > [!IMPORTANT]
-> Il est important de s’assurer que les runbooks d’un compte Automation importent uniquement soit des modules `Az`, soit des modules `AzureRM` dans les sessions PowerShell utilisées par des runbooks, mais pas les deux. Si `Az` est importé avant `AzureRM` dans un runbook, ce runbook s’exécute jusqu’au bout, mais une [erreur lors du référencement de la méthode get_SerializationSettings](/troubleshoot/runbooks.md#get-serializationsettings) apparaît dans les flux de travail, et les applets de commande peuvent ne pas avoir été exécutées correctement. Si vous importez `AzureRM` et après `Az`, votre runbook continue de s’exécuter, mais une erreur s’affiche dans les flux de travail en signalant l’impossibilité d’importer ces deux modules `Az` et `AzureRM` dans la même session, ou de les utiliser dans le même runbook.
+> Il est important de s’assurer que les runbooks d’un compte Automation importent uniquement soit des modules `Az`, soit des modules `AzureRM` dans les sessions PowerShell utilisées par des runbooks, mais pas les deux. Si `Az` est importé avant `AzureRM` dans un runbook, ce runbook s’exécute jusqu’au bout, mais une [erreur lors du référencement de la méthode get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) apparaît dans les flux de travail, et les applets de commande peuvent ne pas avoir été exécutées correctement. Si vous importez `AzureRM` et après `Az`, votre runbook continue de s’exécuter, mais une erreur s’affiche dans les flux de travail en signalant l’impossibilité d’importer ces deux modules `Az` et `AzureRM` dans la même session, ou de les utiliser dans le même runbook.
 
 ## <a name="migrating-to-az-modules"></a>Migration vers les modules Az
 

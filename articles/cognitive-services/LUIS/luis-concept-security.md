@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089843"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accès utilisateur à la création et au point de terminaison
 L’accès à la création est disponible pour les propriétaires et les collaborateurs. Pour une application privée, l’accès au point de terminaison est disponible pour les propriétaires et les collaborateurs. Pour une application publique, l’accès au point de terminaison est disponible à tous les utilisateurs qui possèdent leur propre compte LUIS et l’ID de l’application publique. 
@@ -53,7 +53,7 @@ L’accès pour interroger le point de terminaison est contrôlé par un paramè
 Le point de terminaison d’une application privée est disponible uniquement pour ce qui suit :
 
 |Clé et utilisateur|Explication|
-|--|--|--|
+|--|--|
 |Clé de création du propriétaire| Jusqu’à 1 000 accès au point de terminaison|
 |Clés de création des collaborateurs| Jusqu’à 1 000 accès au point de terminaison|
 |N’importe quelle clé affectée à LUIS par un auteur ou un collaborateur|Dépend du niveau d’utilisation de la clé|

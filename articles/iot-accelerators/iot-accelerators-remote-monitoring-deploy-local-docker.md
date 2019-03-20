@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c00e62e237fe263f54926c8e74fb6211a2e5a4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997181"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993046"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Déployer localement l’accélérateur de solution de surveillance à distance - Docker
 
@@ -23,7 +23,7 @@ Cet article montre comment déployer l’accélérateur de solution de surveilla
 
 Si vous souhaitez exécuter l’accélérateur de solution de surveillance à distance dans un IDE sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de surveillance à distance - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour déployer les services Azure utilisés par l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -96,7 +96,7 @@ Suivez ces étapes pour démarrer la tâche Stream Analytics :
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Pour accéder au tableau de bord de la solution de surveillance à distance, accédez à [http://localhost:8080](http://localhost:8080) dans votre navigateur. Vous pouvez maintenant utiliser l’interface utilisateur web et les microservices locaux.
+Pour accéder à du tableau de bord solution de surveillance à distance, accédez à `http://localhost:8080` dans votre navigateur. Vous pouvez maintenant utiliser l’interface utilisateur web et les microservices locaux.
 
 ## <a name="clean-up"></a>Nettoyer
 

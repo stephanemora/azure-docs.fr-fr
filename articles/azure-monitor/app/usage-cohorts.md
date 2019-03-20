@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045131"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108523"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes Application Insights
 
@@ -105,16 +105,16 @@ Les deux cohortes précédentes ont été définies à l’aide de zones de list
     ![Cohorte d’utilisateurs vide](./media/usage-cohorts/001.png)
 
     Les sections sont au nombre de trois :
-    * Une section de texte Markdown, où vous pouvez décrire la cohorte plus en détail pour les membres de votre équipe.
+   * Une section de texte Markdown, où vous pouvez décrire la cohorte plus en détail pour les membres de votre équipe.
 
-    * Une section de paramètres où vous créez vos propres paramètres, tels que les **activités** et les autres menus déroulants des deux exemples précédents.
+   * Une section de paramètres où vous créez vos propres paramètres, tels que les **activités** et les autres menus déroulants des deux exemples précédents.
 
-    * Une section de requête que vous utilisez pour définir la cohorte à l’aide d’une requête analytique.
+   * Une section de requête que vous utilisez pour définir la cohorte à l’aide d’une requête analytique.
 
-    Dans la section de requête, vous [écrivez une requête analytique](/azure/kusto/query). La requête sélectionne les lignes qui décrivent la cohorte que vous souhaitez définir. Ensuite, l’outil Cohorts ajoute implicitement une clause « | summarize by user_Id » à la requête. Ces données s’affichent sous la requête dans un tableau. Ainsi, vous pouvez être sûr que votre requête retourne des résultats.
+     Dans la section de requête, vous [écrivez une requête analytique](/azure/kusto/query). La requête sélectionne les lignes qui décrivent la cohorte que vous souhaitez définir. Ensuite, l’outil Cohorts ajoute implicitement une clause « | summarize by user_Id » à la requête. Ces données s’affichent sous la requête dans un tableau. Ainsi, vous pouvez être sûr que votre requête retourne des résultats.
 
-    > [!NOTE]
-    > Si la requête n’apparaît pas, essayez de redimensionner la section pour l’agrandir et afficher la requête. Le fichier GIF animé, au début de cette section, illustre le comportement de redimensionnement.
+     > [!NOTE]
+     > Si la requête n’apparaît pas, essayez de redimensionner la section pour l’agrandir et afficher la requête. Le fichier GIF animé, au début de cette section, illustre le comportement de redimensionnement.
 
 2. Copiez et collez le texte suivant dans l’éditeur de texte :
 

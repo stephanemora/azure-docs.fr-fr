@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090098"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -172,10 +172,10 @@ Lorsque les passerelles de réseau virtuel pour TestVNet1 et TestVNet4 sont term
 
 1. Dans le portail Azure, sélectionnez **Toutes les ressources**, entrez *passerelle de réseau virtuel* dans la recherche de zone, puis accédez à la passerelle de votre réseau virtuel. Par exemple, **TestVNet1GW**. Sélectionnez-la pour ouvrir la page de la **passerelle de réseau virtuel**.
 
-  ![Page Connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Page Connexions")
+   ![Page Connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Page Connexions")
 2. Sous **Paramètres**, sélectionnez **Connexions**, puis **Ajouter** pour ouvrir la page **Ajouter une connexion**.
 
-  ![Ajouter une connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Ajouter une connexion")
+   ![Ajouter une connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Ajouter une connexion")
 3. Sur la page **Ajouter une connexion**, renseignez les valeurs correspondant à votre connexion :
 
    - **Nom** : Entrez un nom pour votre connexion. Par exemple, *TestVNet1toTestVNet4*.
@@ -186,11 +186,11 @@ Lorsque les passerelles de réseau virtuel pour TestVNet1 et TestVNet4 sont term
 
    - **Deuxième passerelle de réseau virtuel** : Ce champ correspond à la passerelle de réseau virtuel sur laquelle vous souhaitez créer une connexion. Sélectionnez **Choisir une autre passerelle de réseau virtuel** pour ouvrir la page **Choisir la passerelle de réseau virtuel**.
 
-    - Cette page répertorie les différentes passerelles de réseau virtuel disponibles. Notez que seules les passerelles de réseau virtuel incluses dans votre abonnement sont répertoriées. Si vous souhaitez vous connecter à une passerelle de réseau virtuel qui ne se trouve pas dans votre abonnement, utilisez [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+     - Cette page répertorie les différentes passerelles de réseau virtuel disponibles. Notez que seules les passerelles de réseau virtuel incluses dans votre abonnement sont répertoriées. Si vous souhaitez vous connecter à une passerelle de réseau virtuel qui ne se trouve pas dans votre abonnement, utilisez [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
-    - Sélectionnez la passerelle de réseau virtuel à laquelle vous souhaitez vous connecter.
+     - Sélectionnez la passerelle de réseau virtuel à laquelle vous souhaitez vous connecter.
 
-    - **Clé partagée** : Dans ce champ, entrez une clé partagée pour votre connexion. Vous pouvez générer ou créer cette clé vous-même. Dans une connexion de site à site, la clé que vous utilisez est exactement la même pour votre appareil local et votre connexion de passerelle de réseau virtuel. Le concept est similaire, sauf qu’au lieu de se connecter à un périphérique VPN, vous vous connectez à une autre passerelle de réseau virtuel.
+     - **Clé partagée** : Dans ce champ, entrez une clé partagée pour votre connexion. Vous pouvez générer ou créer cette clé vous-même. Dans une connexion de site à site, la clé que vous utilisez est exactement la même pour votre appareil local et votre connexion de passerelle de réseau virtuel. Le concept est similaire, sauf qu’au lieu de se connecter à un périphérique VPN, vous vous connectez à une autre passerelle de réseau virtuel.
     
 4. Sélectionnez **OK** pour enregistrer vos modifications.
 

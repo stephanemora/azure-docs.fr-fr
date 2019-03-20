@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105639"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurer un serveur de processus dans Azure à des fins de restauration automatique
 
@@ -33,7 +33,7 @@ En savoir plus sur le processus de [reprotection](vmware-azure-reprotect.md) et 
 3. Sur la page **Ajouter un serveur de processus**, choisissez de déployer le serveur de processus dans Azure.
 4. Spécifiez les paramètres Azure, y compris l’abonnement utilisé pour la restauration automatique, un groupe de ressources, la région Azure utilisée pour la restauration automatique et le réseau virtuel dans lequel se trouvent les machines virtuelles Azure. Si vous avez utilisé plusieurs réseaux Azure, vous avez besoin d’un serveur de processus dans chacun d’eux.
 
-  ![Élément de la galerie Ajouter un serveur de processus](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Élément de la galerie Ajouter un serveur de processus](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. Dans **Nom du serveur**, **Nom d’utilisateur** et **Mot de passe**, spécifiez un nom pour le serveur de processus, ainsi que les informations d’identification pour lesquelles seront accordées des autorisations d’administrateur sur le serveur.
 5. Spécifiez un compte de stockage à utiliser pour les disques de machine virtuelle du serveur, le sous-réseau dans lequel se trouve la machine virtuelle du serveur de processus, ainsi que l’adresse IP de serveur qui sera attribuée au démarrage de la machine virtuelle.

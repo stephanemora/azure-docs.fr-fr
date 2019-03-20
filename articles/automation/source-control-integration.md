@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 49a28901e2ea471f97270c0407e2f6c0a4a533fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58169151"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Intégration du contrôle de code source dans Azure Automation
 
@@ -140,6 +140,10 @@ Le contrôle de code source nécessite des autorisations minimales pour les jeto
 Pour vous déconnecter d’un référentiel de contrôle de code source, ouvrez **Contrôle de code source (préversion)** sous **Paramètres du compte** dans votre compte Automation.
 
 Sélectionnez le contrôle de code source que vous souhaitez supprimer. Sur la page **Récapitulatif du contrôle de code source**, cliquez sur **Supprimer**.
+
+## <a name="encoding"></a>Encodage
+
+Si plusieurs personnes sont modifier des runbooks dans votre référentiel de contrôle de code source avec différents éditeurs a l’occasion de rencontrer des problèmes de codage. Cela peut insérer des caractères incorrects dans votre runbook. Pour plus d’informations, consultez [causes courantes des problèmes de codage](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 942b1423583f663f22ced6ea8399409778b2f6de
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903128"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -26,6 +26,7 @@ L’option de déploiement Managed Instance est hautement compatible avec le mot
 ![migration](./media/sql-database-managed-instance/migration.png)
 
 Comme il existe toujours des différences de syntaxe et de comportement, cet article résume et explique ces différences. <a name="Differences"></a>
+
 - [Disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et [Sauvegardes](#backup),
 - [Sécurité](#security) incluant les différences dans [audit](#auditing), [Certificats](#certificates), [Informations d’identification](#credential), [Fournisseurs de chiffrement](#cryptographic-providers), [Connexions/utilisateurs](#logins--users), [Clé de service et clé principale du service](#service-key-and-service-master-key),
 - [Configuration](#configuration) incluant les différences dans [Extension du pool de mémoires tampons](#buffer-pool-extension), [Classement](#collation), [Niveaux de compatibilité](#compatibility-levels), [Mise en miroir de bases de données](#database-mirroring), [Options de base de données](#database-options), [SQL Server Agent](#sql-server-agent), [Options de Table](#tables),
@@ -61,10 +62,16 @@ Les instances managées disposent de sauvegardes automatiques qui permettent aux
 Limites :  
 
 - Une instance managée permet de sauvegarder une base de données d’instance vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour les bases de données jusqu’à 4 To si la compression de sauvegarde est utilisée.
-- La taille maximale de la bande de sauvegarde est 195 Go (taille maximale d’un blob). Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
+- Taille de l’entrelacement de sauvegarde maximale à l’aide du `BACKUP` commande dans une instance managée est 195 Go (taille maximale des objets blob). Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
 
-> [!TIP]
-> Pour contourner cette limitation en local, sauvegardez sur `DISK` au lieu de sauvegarder sur `URL`, chargez le fichier de sauvegarde vers le blob, puis restaurez. La restauration prend en charge de plus gros fichiers car un autre type de blob est utilisé.  
+    > [!TIP]
+    > Pour contourner cette limitation lorsque vous sauvegardez une base de données à partir de SQL Server dans un environnement sur site ou sur une machine virtuelle, vous pouvez procédez comme suit :
+    >
+    > - Sauvegarde à `DISK` au lieu de la sauvegarde sur `URL`
+    > - Télécharger les fichiers de sauvegarde pour le stockage d’objets Blob
+    > - Restaurer dans l’instance gérée
+    >
+    > Le `Restore` commande dans des instances gérées prend en charge des tailles d’objet blob plus volumineuses dans les fichiers de sauvegarde, car un type de l’autre objet blob est utilisé pour le stockage des fichiers de sauvegarde chargés.
 
 Pour plus d’informations sur les sauvegardes à l’aide de T-SQL, consultez [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -125,44 +132,51 @@ Une instance managée ne pouvant pas accéder aux fichiers, vous ne pouvez pas c
 
 - Les connexions SQL créées `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, et `FROM SID` sont prises en charge. Consultez [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Les principaux de serveur (connexions) Azure Active Directory (Azure AD) créés avec la syntaxe [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou la syntaxe [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sont pris en charge (**préversion publique**). Il s’agit de connexions créées au niveau du serveur.
-    - Managed Instance prend en charge les principaux de base de données Azure AD avec la syntaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. On emploie également le terme « utilisateurs de base de données autonome Azure AD ».
+
+    Managed Instance prend en charge les principaux de base de données Azure AD avec la syntaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. On emploie également le terme « utilisateurs de base de données autonome Azure AD ».
+
 - Les connexions Windows créées avec la syntaxe `CREATE LOGIN ... FROM WINDOWS` ne sont pas prises en charge. Utilisez des utilisateurs et des connexions Azure Active Directory.
 - L’utilisateur Azure AD qui a créé l’instance dispose de [privilèges d’administrateur illimités](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Les utilisateurs au niveau de la base de données Azure Active Directory (Azure AD) non-administrateurs peuvent être créés à l’aide de la syntaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consultez [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
 - Les principaux de serveur (connexions) Azure AD prennent en charge les fonctionnalités SQL dans une seule instance MI. Les fonctionnalités nécessitant une interaction entre les instances, que ce soit au sein du même locataire Azure AD ou d’un locataire différent, ne sont pas prises en charge pour les utilisateurs Azure AD. Il s’agit de fonctionnalités telles que :
-    - Réplication transactionnelle SQL
-    - Serveur de liaisons
+
+  - Réplication transactionnelle SQL
+  - Serveur de liaisons
+
 - La définition d’une connexion Azure AD mappée à un groupe Azure AD en tant que propriétaire de base de données n’est pas prise en charge.
 - L’emprunt d’identité des principaux au niveau du serveur Azure AD à l’aide d’autres principaux Azure AD est pris en charge, par exemple avec la clause [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql). Limitation concernant EXECUTE AS :
-    - EXECUTE AS USER n’est pas pris en charge pour les utilisateurs Azure AD quand le nom diffère du nom de connexion. Par exemple, quand l’utilisateur est créé par le biais de la syntaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] et que l’emprunt d’identité est tenté par le biais de EXEC AS USER = _myAadUser_. Quand vous créez un **USER** à partir d’un principal de serveur (connexion) Azure AD, spécifiez le même user_name que le login_name à partir de **LOGIN**.
-    - Seuls les principaux au niveau du serveur SQL (connexions) faisant partie du rôle `sysadmin` peuvent exécuter les opérations suivantes ciblant les principaux Azure AD : 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+
+  - EXECUTE AS USER n’est pas pris en charge pour les utilisateurs Azure AD quand le nom diffère du nom de connexion. Par exemple, quand l’utilisateur est créé par le biais de la syntaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] et que l’emprunt d’identité est tenté par le biais de EXEC AS USER = _myAadUser_. Quand vous créez un **USER** à partir d’un principal de serveur (connexion) Azure AD, spécifiez le même user_name que le login_name à partir de **LOGIN**.
+  - Seuls les principaux au niveau du serveur SQL (connexions) faisant partie du rôle `sysadmin` peuvent exécuter les opérations suivantes ciblant les principaux Azure AD :
+
+    - EXECUTE AS USER
+    - EXECUTE AS LOGIN
+
 - Limitations de la **préversion publique** pour les principaux de serveur (connexions) Azure AD :
-    - Limitations concernant l’administration Active Directory pour Managed Instance :
-        - Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer un principal de serveur (connexion) Azure AD au sein de l’instance managée. Vous devez créer le premier principal de serveur (connexion) Azure AD à l’aide d’un compte SQL Server `sysadmin`. Il s’agit d’une limitation temporaire qui sera levée une fois que les principaux de serveur (connexions) Azure AD deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte Administrateur Azure AD pour créer la connexion : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - Actuellement, la première connexion Azure AD créée dans la base de données master doit être créée par le compte SQL Server standard (non Azure AD) qui est un `sysadmin` à l’aide de [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Après la disponibilité générale, cette limitation sera supprimée et une connexion Azure AD initiale pourra être créée par l’administrateur Active Directory pour Managed Instance.
+
+  - Limitations concernant l’administration Active Directory pour Managed Instance :
+
+    - Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer un principal de serveur (connexion) Azure AD au sein de l’instance managée. Vous devez créer le premier principal de serveur (connexion) Azure AD à l’aide d’un compte SQL Server `sysadmin`. Il s’agit d’une limitation temporaire qui sera levée une fois que les principaux de serveur (connexions) Azure AD deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte Administrateur Azure AD pour créer la connexion : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - Actuellement, la première connexion Azure AD créée dans la base de données master doit être créée par le compte SQL Server standard (non Azure AD) qui est un `sysadmin` à l’aide de [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Après la disponibilité générale, cette limitation sera supprimée et une connexion Azure AD initiale pourra être créée par l’administrateur Active Directory pour Managed Instance.
     - DacFx (exportation/importation) utilisé avec SQL Server Management Studio (SSMS) ou SqlPackage n’est pas pris en charge pour les connexions Azure AD. Cette limitation sera levée une fois que les principaux de serveur (connexions) Azure AD deviendront des comptes en disponibilité générale.
     - Utilisation de principaux de serveur (connexions) Azure AD avec SSMS
-        - La création de scripts de connexions Azure AD (à l’aide de toute connexion authentifiée) n’est pas prise en charge.
-        - IntelliSense ne reconnaît pas l’instruction **CREATE LOGIN FROM EXTERNAL PROVIDER** et affiche un trait de soulignement rouge.
+
+      - La création de scripts de connexions Azure AD (à l’aide de toute connexion authentifiée) n’est pas prise en charge.
+      - IntelliSense ne reconnaît pas l’instruction **CREATE LOGIN FROM EXTERNAL PROVIDER** et affiche un trait de soulignement rouge.
+
 - Seuls la connexion du principal au niveau du serveur (créée par le processus de provisionnement Managed Instance), les membres des rôles de serveur (`securityadmin` ou `sysadmin`) ou d’autres connexions disposant de l’autorisation ALTER ANY LOGIN au niveau du serveur peuvent créer les principaux de serveur (connexions) Azure AD dans la base de données master pour Managed Instance.
 - Si la connexion est un principal SQL, seules les connexions faisant partie du rôle `sysadmin` peuvent utiliser la commande create afin de créer des connexions pour un compte Azure AD.
 - La connexion Azure AD doit être membre d’un compte Azure AD dans le même répertoire que celui utilisé pour Azure SQL Managed Instance.
 - Les principaux de serveur (connexions) Azure AD sont visibles dans l’Explorateur d’objets à compter de SSMS 18.0 préversion  5.
 - Le chevauchement des principaux de serveur (connexions) Azure AD avec un compte d’administrateur Azure AD est autorisé. Les principaux de serveur (connexions) Azure AD sont prioritaires par rapport à l’Administrateur Azure AD lors de la résolution du principal et de l’application des autorisations à l’instance managée.
 - Lors de l’authentification, la séquence suivante est appliquée pour résoudre le principal d’authentification :
+
     1. Si le compte Azure AD existe en tant que mappage direct au principal de serveur (connexion) Azure AD (présent dans sys.server_principals en tant que type « E »), l’accès est accordé et les autorisations du principal de serveur (connexion) Azure AD sont appliquées.
     2. Si le compte Azure AD est membre d’un groupe Azure AD mappé au principal de serveur (connexion) Azure AD (présent dans sys.server_principals en tant que type « X »), l’accès est accordé et les autorisations de la connexion du groupe Azure AD sont appliquées.
     3. Si le compte Azure AD est un administrateur Azure AD spécial configuré dans le portail pour Managed Instance (il n’existe pas dans les vues système de Managed Instance), les autorisations fixes spéciales de l’administrateur Azure AD pour Managed Instance (mode hérité) sont appliquées.
     4. Si le compte Azure AD existe en tant que mappage direct à un utilisateur Azure AD dans une base de données (dans sys.database_principals en tant que type « E »), l’accès est accordé et les autorisations de l’utilisateur de base de données Azure AD sont appliquées.
     5. Si le compte Azure AD est membre d’un groupe Azure AD mappé à un utilisateur Azure AD dans une base de données (dans sys.database_principals en tant que type « X »), l’accès est accordé et les autorisations de la connexion du groupe Azure AD sont appliquées.
     6. S’il existe une connexion Azure AD mappée à un compte d’utilisateur Azure AD ou à un compte de groupe Azure AD, avec résolution à l’utilisateur qui s’authentifie, toutes les autorisations de cette connexion Azure AD sont appliquées.
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>Clé de service et clé principale de service
 
@@ -257,8 +271,6 @@ Les options suivantes ne peuvent pas être modifiées :
 - `SINGLE_USER`
 - `WITNESS`
 
-La modification du nom n’est pas prise en charge.
-
 Pour en savoir plus, consultez [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### <a name="sql-server-agent"></a>Agent SQL Server
@@ -322,7 +334,6 @@ Une instance managée ne pouvant pas accéder à des partages de fichiers et à 
 - Seul `CREATE ASSEMBLY FROM BINARY` est pris en charge. Consultez [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` n’est pas pris en charge. Consultez [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` ne peut pas référencer des fichiers. Consultez [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
 
 ### <a name="dbcc"></a>DBCC
 
@@ -437,7 +448,7 @@ Le Service Broker entre instances n’est pas pris en charge :
 
 ### <a name="stored-procedures-functions-triggers"></a>Procédures stockées, fonctions, déclencheurs
 
-- `NATIVE_COMPILATION` n’est actuellement pas pris en charge.
+- `NATIVE_COMPILATION` n’est pas pris en charge dans le niveau usage général.
 - Les options [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) suivantes ne sont pas prises en charge :
   - `allow polybase export`
   - `allow updates`
@@ -448,7 +459,6 @@ Le Service Broker entre instances n’est pas pris en charge :
 - `xp_cmdshell` n’est pas pris en charge. Consultez [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - Les `Extended stored procedures` ne sont pas prises en charge, y compris `sp_addextendedproc` et `sp_dropextendedproc`. Consultez [Procédures stockées étendues](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db` et `sp_detach_db` ne sont pas pris en charge. Consultez [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) et [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
-- `sp_renamedb` n’est pas pris en charge. Consultez [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ## <a name="Changes"></a> Changements de comportement
 
@@ -467,7 +477,11 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="tempdb-size"></a>Taille de TEMPDB
 
-`tempdb` est divisé en 12 fichiers avec une taille maximale de 14 Go par fichier. Cette taille maximale par fichier ne peut pas être changée, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Cette limitation sera supprimée sous peu. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 168 Go dans `tempdb`.
+Taille de fichier maximale de `tempdb` ne peut pas être supérieur à 24 Go/core sur le niveau usage général. Max `tempdb` taille sur le niveau critique pour l’entreprise est limité par la taille de stockage d’instance. `tempdb` est toujours Fractionner en fichiers de 12 données. Cette taille maximale par fichier ne peut pas être changée, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur s’ils ont besoin de plus de 24 Go / cœur dans `tempdb`.
+
+### <a name="cannot-restore-contained-database"></a>Impossible de restaurer le contenu de la base de données
+
+Instance gérée ne peut pas restaurer [bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Restauration de point-à-temps des bases de données en relation contenant-contenus existantes ne fonctionnent pas sur Managed Instance. Ce problème sera supprimé prochainement et en attendant, nous vous recommandons de supprimer l’option de relation contenant-contenu à partir de vos bases de données qui sont placés sur Managed Instance et n’utilisent pas d’option de relation contenant-contenu pour les bases de données de production.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
@@ -500,7 +514,7 @@ Plusieurs vues système, compteurs de performances, messages d’erreur, événe
 
 ### <a name="database-mail-profile"></a>Profil de messagerie de base de données
 
-Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile`.
+Le profil de messagerie de base de données utilisé par l’Agent SQL doit être appelé `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Les journaux des erreurs ne sont pas persistants
 
@@ -514,7 +528,7 @@ Une instance managée ajoute des informations détaillées dans les journaux des
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>L’utilisation de la même étendue de transaction pour deux bases de données appartenant à une même instance n’est pas prise en charge
 
-Dans .NET, la classe `TransactionScope` ne fonctionne pas si deux requêtes sont envoyées à deux bases de données appartenant à la même instance et à la même étendue de transaction :
+`TransactionScope` classe dans .NET ne fonctionne pas si les deux requêtes sont envoyées aux deux bases de données dans la même instance sous la même étendue de transaction :
 
 ```C#
 using (var scope = new TransactionScope())

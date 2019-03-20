@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889781"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
 
@@ -27,12 +27,12 @@ ms.locfileid: "55565477"
 
 Une [**tâche de base de données élastique**](sql-database-elastic-jobs-overview.md) peut être installée à l’aide de PowerShell ou du portail Azure. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
 
-Si vous avez déjà installé **Tâche de base de données élastique** via le portail à partir d’un **pool élastique** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
+Si vous avez déjà installé **travaux de base de données élastique** via le portail d’un existant **pool élastique**, la dernière version préliminaire de PowerShell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installez la dernière version via [Web Platform Installer](https://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
-* [utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d’informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
+* [utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d’informations, consultez https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Téléchargez et importez le package Tâches de bases de données élastiques PowerShell
 1. Lancez la fenêtre de commande Microsoft Azure PowerShell et accédez au répertoire où vous avez téléchargé l’utilitaire de ligne de commande NuGet (nuget.exe).
@@ -75,9 +75,7 @@ Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par le
     <td>Fournit le nom du groupe de ressources Azure créé pour contenir les composants Azure nouvellement créés. Ce paramètre est défini par défaut sur la valeur « __ElasticDatabaseJob ». Il n'est pas recommandé de modifier cette valeur.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>Fournit l'emplacement Azure à utiliser pour les composants Azure nouvellement créés. Ce paramètre est défini par défaut sur l'emplacement USA Centre.</td>
 </tr>
@@ -85,28 +83,24 @@ Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par le
 <tr>
     <td>ServiceWorkerCount</td>
     <td>Fournit le nombre de travaux de service à installer. Ce paramètre est défini par défaut sur la valeur 1. Un nombre plus élevé de travaux peut permettre de faire évoluer le service et de fournir une haute disponibilité. Il est recommandé d'utiliser la valeur « 2 » pour les déploiements qui nécessitent une haute disponibilité du service.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
-    <td>Fournit la taille de machine virtuelle pour une utilisation dans le service cloud. Ce paramètre est défini par défaut sur la valeur A0. Les valeurs de paramètres A0/A1/A2/A3 sont acceptées, ce qui amène le rôle de travail à utiliser, respectivement, une très petite/petite/moyenne/grande taille. Pour plus d’informations sur les tailles de rôle de travail, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fournit la taille de machine virtuelle pour une utilisation dans le service cloud. Ce paramètre est défini par défaut sur la valeur A0. Valeurs des paramètres... /.. / A3 sont acceptées, ce qui provoque le rôle de travail à utiliser une ExtraSmall/petite/moyenne/grande taille, respectivement. Pour plus d’informations sur les tailles de rôle de travail, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fournit la taille de calcul pour une édition Standard. Ce paramètre est défini par défaut sur la valeur S0. Les valeurs de paramètre S0/S1/S2/S3/S4/S6/S9/S12 sont acceptées, ce qui amène la base de données Microsoft Azure SQL à utiliser l’objectif de taille de calcul correspondant. Pour plus d’informations sur les tailles de calcul de SQL Database, consultez l’article [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fournit la taille de calcul pour une édition Standard. Ce paramètre est défini par défaut sur la valeur S0. Valeurs de paramètre de... /.. /.. /.. / S9/S12 sont acceptées, ce qui provoque la base de données SQL Azure à utiliser la taille de calcul respectifs. Pour plus d’informations sur les tailles de calcul de SQL Database, consultez l’article [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>Fournit le nom d'utilisateur administrateur du serveur de base de données SQL Azure nouvellement créé. S’il n’est pas spécifié, une fenêtre d'informations d'identification PowerShell apparaît et vous demande de fournir les informations d'identification.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>Fournit le mot de passe administrateur du serveur de base de données SQL Azure nouvellement créé. S’il n’est pas fourni, une fenêtre d'informations d'identification PowerShell apparaît et vous demande de fournir les informations d'identification.</td>
 </tr>
@@ -131,24 +125,19 @@ Pour mettre à jour la taille de la machine virtuelle d’une installation, exé
   <th>Description</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Identifie le nom du groupe de ressources Azure utilisé lorsque les composants de Tâches de bases de données élastiques ont été initialement installés. Ce paramètre est défini par défaut sur la valeur « __ElasticDatabaseJob ». Puisqu’il n'est pas recommandé de modifier cette valeur, vous ne devriez pas spécifier ce paramètre.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>Fournit le nombre de travaux de service à installer.  Ce paramètre est défini par défaut sur la valeur 1.  Un nombre plus élevé de travaux peut permettre de faire évoluer le service et de fournir une haute disponibilité.  Il est recommandé d'utiliser la valeur « 2 » pour les déploiements qui nécessitent une haute disponibilité du service.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
-    <td>Fournit la taille de machine virtuelle pour une utilisation dans le service cloud. Ce paramètre est défini par défaut sur la valeur A0. Les valeurs de paramètres A0/A1/A2/A3 sont acceptées, ce qui amène le rôle de travail à utiliser, respectivement, une très petite/petite/moyenne/grande taille. Pour plus d’informations sur les tailles de rôle de travail, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fournit la taille de machine virtuelle pour une utilisation dans le service cloud. Ce paramètre est défini par défaut sur la valeur A0. Valeurs des paramètres... /.. / A3 sont acceptées, ce qui provoque le rôle de travail à utiliser une ExtraSmall/petite/moyenne/grande taille, respectivement. Pour plus d’informations sur les tailles de rôle de travail, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>

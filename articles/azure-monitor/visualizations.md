@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990170"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315093"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -32,9 +32,9 @@ Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constit
 ![tableau de bord](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Avantages
-- Intégration approfondie à Azure. Les visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, notamment Metrics Explorer, Log Analytics et Application Insights.
+- Intégration approfondie à Azure. Visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, y compris Metrics Explorer et Analytique de journal Application Insights.
 - Prend en charge les métriques et les journaux.
-- Combinez des données provenant de plusieurs sources, notamment une sortie [Metrics Explorer](platform/metrics-charts.md), des [requêtes de journal](log-query/log-query-overview.md), ainsi que des [cartes](app/app-map.md) et des [données de disponibilité]() dans Application Insights.
+- Combiner des données provenant de plusieurs sources, y compris la sortie de [Explorateur de mesures](platform/metrics-charts.md), [enregistrer des requêtes](log-query/log-query-overview.md), et [mappe](app/app-map.md) et la disponibilité dans Application Insights.
 - Possibilité de définir des tableaux de bord personnels ou partagés. Intégré à [l’authentification basée sur les rôles (RBAC)](../role-based-access-control/overview.md) Azure.
 - Actualisation automatique. L’actualisation des métriques a lieu selon un intervalle de temps de cinq minutes au minimum. Les journaux sont actualisés chaque minute.
 - Les tableaux de bord de métriques sont paramétrés avec un horodatage et des paramètres personnalisés.
@@ -71,9 +71,8 @@ Les [affichages dans Azure Monitor](platform/view-designer.md) vous permettent d
 - La taille de la réponse des requêtes est limitée à 8 Mo, tandis que le temps d’exécution des requêtes est limité à 110 secondes.
 
 
-
-## <a name="application-insights-workbooks"></a>Classeurs Application Insights
-Les [classeurs](../application-insights/app-insights-usage-workbooks.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
+## <a name="workbooks"></a>Workbooks
+Les [classeurs](../azure-monitor/app/usage-workbooks.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
 
 ![Classeur](media/visualizations/workbook.png)
 
@@ -122,7 +121,6 @@ Les [classeurs](../application-insights/app-insights-usage-workbooks.md) sont de
 - Prend en charge les paramètres.
 
 ### <a name="limitations"></a>Limites
-- Prend en charge les métriques, mais pas les journaux.
 - Aucune intégration à Azure. Ne peut pas gérer les tableaux de bord et les modèles par le biais d’Azure Resource Manager.
 - Coût lié à la prise en charge d’une infrastructure Grafana supplémentaire ou coûts supplémentaires liés à Grafana Cloud.
 
@@ -142,6 +140,7 @@ Vous pouvez accéder aux données dans les journaux et aux métriques dans Azure
 - Découvrez les [données collectées par Azure Monitor](platform/data-collection.md).
 - Découvrez les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md).
 - Découvrez les [affichages dans Azure Monitor](platform/view-designer.md).
-- Découvrez les [classeurs dans Application Insights](app/usage-workbooks.md).
-- Découvrez [l’importation de données de journal dans Power BI](platform/powerbi.md).
-- Découvrez le [plug-in de source de données Azure Monitor pour Grafana](platform/grafana-plugin.md).
+- En savoir plus sur [classeurs](../azure-monitor/app/usage-workbooks.md).
+- Découvrez [l’importation de données de journal dans Power BI](../azure-monitor/platform/powerbi.md).
+- Découvrez le [plug-in de source de données Azure Monitor pour Grafana](../azure-monitor/platform/grafana-plugin.md).
+

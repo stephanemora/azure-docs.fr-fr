@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: c82c5c74fe13bad99528486be69089df5f477457
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063272"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436338"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>Sauvegarde et la restauration du système d’exploitation pour les références (SKU) de type II
 
@@ -64,7 +64,7 @@ La commande suivante illustre la restauration d’un fichier */etc/fstab* à par
 >[!NOTE] 
 >Vous devez copier le fichier dans l’emplacement souhaité après sa restauration à partir de la sauvegarde.
 
-La capture d’écran suivante présente la restauration d’une sauvegarde complète :
+La capture d’écran suivante illustre la restauration d’une sauvegarde complète :
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
@@ -96,4 +96,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-La capture d’écran suivante présente la restauration d’une sauvegarde complète : ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+La capture d’écran suivante illustre la restauration d’une sauvegarde complète : ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

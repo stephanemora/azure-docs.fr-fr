@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994532"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111478"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -50,7 +50,7 @@ Lorsque vous créez le projet, une structure de dossiers qui ressemble à ce qui
  | - host.json
 ```
 
-Ce répertoire correspond à ce qui est déployé dans votre application de fonction dans Azure. Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Azure Functions sont [ajoutées au projet en tant que packages NuGet](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+Ce répertoire correspond à ce qui est déployé dans votre application de fonction dans Azure. Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Azure Functions sont [ajoutées au projet en tant que packages NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > Le processus de génération crée un fichier *function.json* pour chaque fonction. Ce fichier *function.json* n’est pas destiné à être directement modifié. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. Pour savoir comment désactiver une fonction, consultez le [Guide pratique pour désactiver des fonctions](disable-function.md#functions-2x---c-class-libraries).
@@ -83,7 +83,7 @@ La signature de méthode peut contenir des paramètres autres que ceux utilisés
 * des [liaisons d’entrée et de sortie](functions-triggers-bindings.md) marquées comme telles à l’aide d’attributs ;  
 * un paramètre `ILogger` ou `TraceWriter` ([version 1.x uniquement](functions-versions.md#creating-1x-apps)) pour la [journalisation](#logging).
 * un paramètre `CancellationToken` pour [l’arrêt approprié](#cancellation-tokens) ;
-* des paramètres [d’expressions de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns) pour obtenir des métadonnées de déclencheur.
+* des paramètres [d’expressions de liaison](./functions-bindings-expressions-patterns.md) pour obtenir des métadonnées de déclencheur.
 
 L’ordre des paramètres dans la signature de fonction n’a pas d’importance. Par exemple, vous pouvez placer les paramètres de déclencheur avant ou après les autres liaisons, de même que vous pouvez placer le paramètre de l’enregistreur d’événements avant ou après les paramètres de liaison ou de déclencheur.
 
@@ -173,7 +173,7 @@ Le même package est utilisé pour les versions 1.x et 2.x du runtime Functions.
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netstandard2.0</TargetFramework>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
   <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
@@ -205,7 +205,7 @@ Chaque liaison possède ses propres types pris en charge. Par exemple, un attrib
 
 ## <a name="binding-to-method-return-value"></a>Liaison à une valeur renvoyée par la méthode
 
-Vous pouvez utiliser une valeur de retour de méthode pour une liaison de sortie en appliquant l’attribut à la valeur de retour de méthode. Pour obtenir des exemples, consultez [Déclencheurs et liaisons](functions-triggers-bindings.md#using-the-function-return-value). 
+Vous pouvez utiliser une valeur de retour de méthode pour une liaison de sortie en appliquant l’attribut à la valeur de retour de méthode. Pour obtenir des exemples, consultez [Déclencheurs et liaisons](./functions-bindings-return-value.md). 
 
 Utilisez la valeur de retour seulement si une exécution réussie de la fonction aboutit toujours à une valeur de retour à passer à la liaison de sortie. Sinon, utilisez `ICollector` ou `IAsyncCollector`, comme illustré dans la section suivante.
 

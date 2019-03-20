@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886624"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Migration du portail OMS vers Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "54213999"
 
 Le portail Azure est le hub de tous les services Azure qui propose une expérience de gestion complète avec des fonctionnalités telles que des tableaux de bord pour épingler les ressources, la recherche intelligente pour rechercher des ressources et le balisage pour gérer les ressources. Pour consolider et rationaliser le flux de travail de monitoring et de gestion, nous avons commencé à ajouter les fonctionnalités du portail OMS dans le portail Azure. Toutes les fonctionnalités du portail OMS font désormais partie du portail Azure. En fait, certaines des nouvelles fonctionnalités, comme Traffic Analytics, ne sont disponibles que sur le Portail Azure. Vous pouvez faire tout ce que vous faisiez dans le portail OMS avec le portail Azure, et bien plus encore. Si ce n’est déjà fait, vous devriez commencer à utiliser le portail Azure dès aujourd’hui !
 
-**Le portail OMS sera officiellement mis hors service le 15 janvier 2019** pour le cloud commercial Azure et pour le cloud Azure US Government, le portail OMS **sera officiellement mis hors service le 30 mars 2019.** Nous sommes heureux de migrer vers le portail Azure et pensons que la transition sera facile. Mais nous comprenons que les changements sont difficiles et peuvent entraîner des perturbations. Envoyez vos questions, vos commentaires ou vos problèmes à **LAUpgradeFeedback@microsoft.com**. Le reste de cet article passe en revue les scénarios clés et la feuille de route pour cette transition.
+**Le portail OMS sera officiellement mis hors service le 15 janvier 2019** pour le cloud commercial Azure et pour le cloud Azure US Government, le portail OMS **sera officiellement mis hors service le 30 mars 2019.** Nous sommes heureux de migrer vers le portail Azure et pensons que la transition sera facile. Mais nous comprenons que les changements sont difficiles et peuvent entraîner des perturbations. Envoyer des questions, commentaires ou les problèmes à **LAUpgradeFeedback\@microsoft.com**. Le reste de cet article passe en revue les scénarios clés et la feuille de route pour cette transition.
 
 ## <a name="what-is-changing"></a>Qu’est-ce qui change ? 
 Les modifications suivantes sont annoncées avec l’abandon du portail OMS. Chacun de ces changements est décrit en détail dans les sections ci-dessous.
@@ -47,7 +47,7 @@ Même si vous pouvez continuer à utiliser la plupart des fonctionnalités sans 
 - Vous devez [migrer vos autorisations utilisateur](#user-access-and-role-migration) vers le portail Azure.
 - Pour plus d’informations sur la transition de la solution Update Management, consultez [Migrer vos déploiements de mises à jour OMS vers Azure](../../automation/migrate-oms-update-deployments.md).
 
-Référez-vous à [Questions courantes sur la transition du portail OMS vers le portail Azure pour les utilisateurs Log Analytics](oms-portal-faq.md) pour plus d’informations sur la transition vers le portail Azure. Envoyez vos commentaires, questions ou problèmes à **LAUpgradeFeedback@microsoft.com**.
+Référez-vous à [Questions courantes sur la transition du portail OMS vers le portail Azure pour les utilisateurs Log Analytics](oms-portal-faq.md) pour plus d’informations sur la transition vers le portail Azure. Envoyer des commentaires, des questions ou préoccupations à **LAUpgradeFeedback\@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Accès utilisateur et migration du rôle
 La gestion des accès du portail Azure est plus complète et plus puissante que la gestion des accès du portail OMS. Consultez [Gérer les espaces de travail](manage-access.md#manage-accounts-and-users) pour plus d’informations sur la gestion de l’accès dans Log Analytics.

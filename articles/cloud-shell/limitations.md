@@ -3,7 +3,7 @@ title: Limitations d’Azure Cloud Shell | Microsoft Docs
 description: Vue d’ensemble des limites d’Azure Cloud Shell
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563879"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245741"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -45,7 +45,7 @@ Cloud Shell prend en charge les dernières versions de Microsoft Edge, Microsoft
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Pour un utilisateur donné, un seul interpréteur de commandes peut être actif
 
-Les utilisateurs peuvent lancer uniquement un seul type d’interpréteur de commandes à la fois, soit **Bash** soit **PowerShell**. Toutefois, plusieurs instances de Bash ou de PowerShell peuvent s’exécuter simultanément. Le fait de basculer de Bash à PowerShell entraîne le redémarrage de Cloud Shell, ce qui met fin aux sessions existantes.
+Les utilisateurs peuvent lancer uniquement un seul type d’interpréteur de commandes à la fois, soit **Bash** soit **PowerShell**. Toutefois, plusieurs instances de Bash ou de PowerShell peuvent s’exécuter simultanément. Basculer de Bash ou PowerShell en utilisant le menu provoque Cloud Shell à redémarrer, ce qui met fin à des sessions existantes. Vous pouvez également exécuter bash dans PowerShell en tapant `bash`, et vous pouvez exécuter PowerShell à l’intérieur d’interpréteur de commandes en tapant `pwsh`.
 
 ### <a name="usage-limits"></a>Limites d’utilisation
 
@@ -57,9 +57,9 @@ Cloud Shell est destiné aux cas d’usage interactif. De fait, les sessions non
 
 Les autorisations sont définies en tant qu’utilisateurs standards sans accès sudo. Les installations en dehors du répertoire `$Home` ne sont pas conservées.
 
-### <a name="editing-bashrc"></a>Modifier .bashrc
+### <a name="editing-bashrc-or-profile"></a>Modifier .bashrc ou $PROFILE
 
-Faites attention lorsque vous modifiez .bashrc : cela peut entraîner des erreurs inattendues dans Cloud Shell.
+Faites attention lorsque vous modifiez .bashrc ou fichier $PROFILE de PowerShell, cela peut entraîner des erreurs inattendues dans Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limites de PowerShell
 
@@ -73,23 +73,15 @@ Le module `SqlServer` inclus dans Cloud Shell n’offre qu’une prise en charge
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Emplacement du fichier par défaut lors de sa création à partir du lecteur Azure :
 
-Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des cmdlets PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier `$HOME` par défaut. 
+À l’aide des applets de commande PowerShell, les utilisateurs ne peuvent pas créer les fichiers sous Azure : lecteur. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier `$HOME` par défaut. 
 
 ### <a name="gui-applications-are-not-supported"></a>Les applications de l’interface graphique utilisateur ne sont pas prises en charge.
 
-Si l'utilisateur exécute une commande susceptible de créer une boîte de dialogue Windows, comme `Connect-AzureAD`, `Connect-AzureRmAccount` ou `Connect-AzAccount`, un message d'erreur semblable au suivant apparaît : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
-
-### <a name="tab-completion-crashes-psreadline"></a>La saisie semi-automatique via la touche Tab bloque PSReadline
-
-Si le mode EditMode de l’utilisateur dans PSReadline est défini sur Emacs, l’utilisateur tente d’afficher toutes les possibilités par le biais de la saisie semi-automatique via la touche Tab et la taille de la fenêtre est trop petite pour afficher toutes les possibilités, donc PSReadline se bloque.
+Si l’utilisateur exécute une commande qui crée une boîte de dialogue Windows, un message d’erreur tel que : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Écart important après avoir affiché la barre de progression
 
 Si l’utilisateur exécute une action qui affiche une barre de progression, comme le renseignement d’un onglet sur le lecteur `Azure:`, il est possible que le curseur ne soit pas défini correctement et un écart s’affiche dans là où la barre de progression se situait précédemment.
-
-### <a name="random-characters-appear-inline"></a>Des caractères aléatoires apparaissent en ligne
-
-Les codes de la séquence de position du curseur, par exemple `5;13R`, peuvent apparaître dans l’entrée utilisateur.  Les caractères peuvent être supprimés manuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

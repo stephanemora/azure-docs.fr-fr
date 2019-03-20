@@ -14,121 +14,120 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ffc0d8e9e41cf4d202b4040ce3f09e7180101c8b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665840"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806808"
 ---
-# <a name="power-bi-apps-storefront-details-tab"></a>Onglet Détails de la vitrine des applications Power BI
+# <a name="power-bi-app-storefront-details-tab"></a>Onglet Détails de la vitrine de Power BI app
 
-Utilisez l’onglet **Détails de la vitrine** de la page **Nouvelle offre** pour fournir des informations légales, commerciales et marketing à vos clients potentiels. Cet onglet indique également comment gérer les prospects générés à partir de la place de marché. Ce formulaire long est divisé en six sections : **Détails de l’offre**, **Détails de l’annonce**, **Artefacts marketing**, **Informations légales**, **Service clientèle** et **Gestion des prospects**.  Un astérisque (*) en regard de l’étiquette d’un champ indique que ce champ est obligatoire.
+Sur le **nouvelle offre** page, utilisez la **détails de la vitrine** onglet pour fournir des informations marketing, ventes et juridiques pour vos clients potentiels. Sous cet onglet, vous pouvez également définir la gestion des prospects, qui génère de la place de marché Azure. Ce formulaire long est divisé en six sections : **Détails de l’offre**, **Détails de l’annonce**, **Artefacts marketing**, **Informations légales**, **Service clientèle** et **Gestion des prospects**.  Un astérisque (*) à la fin d’une étiquette de champ signifie que le champ est obligatoire.
 
 
 ## <a name="offer-details-section"></a>Section Détails de l’offre
 
-Dans cette section, vous entrez les informations générales sur votre offre AppSource.
+Dans le **détails de l’offre** section, entrez les informations générales relatives à votre offre AppSource.
 
 ![Section Détails de l’offre de l’onglet Détails de la vitrine](./media/offer-details-section.png)
 
-Le tableau suivant décrit le nom et l’objet de ces champs.
+Pour compléter les champs dans cette section, utilisez le tableau suivant :
 
 |   Champ               |   Description                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Résumé de l’offre**     | Objet succinct de l’application. Longueur maximale de 100 caractères.                             |
-| **Description de l’offre** | Description de l’application. Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple. |
+| **Offer summary** (Résumé de l’offre)     | Un brève objectif de l’application, à l’aide de 100 caractères au maximum.                             |
+| **Description de l’offre** | Une description de l’application, à l’aide de jusqu'à 3 000 caractères. Ce champ prend en charge la mise en forme du code HTML simple. |
 |                       |                                                                                         |
 
 
 ## <a name="listing-details-section"></a>Section Détails de l’annonce
 
-Cette deuxième section fournit davantage de contexte pour votre application : secteurs d’activité dans lesquels elle est généralement utilisée, catégorie qui lui correspond le mieux, produits compatibles et termes de recherche associés.
+Le **détails répertoriant** section rassemble des informations sur le contexte de votre application : secteurs où il est généralement utilisé, la catégorie d’application, produits compatibles et les termes de recherche associée.
 
 ![Section Détails de l’annonce de l’onglet Détails de la vitrine](./media/listing-details-section.png)
 
- Le tableau suivant décrit le nom et l’objet de ces champs.
+Pour compléter les champs dans cette section, utilisez le tableau suivant :
  
 |   Champ                                  |   Description                                                        |
 | --------------                           | ---------------------                                                |
-| **Secteurs d’activité**                           | Sélectionnez le secteur d’activité auquel s’adresse essentiellement votre application. Si votre application vise plusieurs secteurs d’activité, vous pouvez laisser ce champ vide.      |
-| **Catégories**                           | Sélectionnez les catégories qui se rapportent à votre application. Sélectionnez un maximum de 3.     |
-| **Lien d’aide pour votre application**               | URL vers une page contenant de l’aide en ligne pour votre application.           |
-| **Produits avec lesquels votre application fonctionne (3 max.)** | Listez les produits spécifiques avec lesquels votre application fonctionne. Vous pouvez indiquer 3 produits au maximum. Pour ajouter un produit à la liste, cliquez sur le signe plus (à côté de nouveau). Dans le champ de texte ouvert qui est créé, entrez le nom du produit avec lequel votre application fonctionne.      |
-| **Mots clés de recherche (3 max.)**              | AppSource permet au client de rechercher par mots clés. Vous pouvez entrer l’ensemble des mots clés grâce auquel votre application est présentée aux clients. Par exemple, si votre application est une application de messagerie, vous pouvez entrer les mots clés suivants : emails, messages électroniques, messagerie, application de courrier, etc. Choisissez des mots que les utilisateurs sont susceptibles d’utiliser pour rechercher votre application dans la zone de recherche AppSource. |
+| **Secteurs d’activité**                           | Sélectionnez le secteur d’activité où votre application correspond le mieux. Si votre application est liée à plusieurs secteurs d’activité, laissez ce champ vide.      |
+| **Catégories**                           | Sélectionnez jusqu'à trois catégories qui se rapportent à votre application.     |
+| **Lien d’aide pour votre application**               | Fournir une URL vers une page qui propose une aide en ligne pour votre application.           |
+| **Produits avec lesquels votre application fonctionne (3 max.)** | Sélectionnez le **New** signe plus pour créer un champ de texte. Dans le champ, entrez le nom d’un produit que votre application fonctionne avec. Liste des produits jusqu'à trois.       |
+| **Mots clés de recherche (3 max.)**              | Entrez jusqu'à trois mots clés que les utilisateurs utiliseront probablement à rechercher pour votre application dans AppSource. Par exemple, si l’application est appelée « Mon application de l’envoi d’un message », vos mots clés peuvent être **e-mails**, **publipostage**, et **application de messagerie**. |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Section Artefacts marketing
 
-Cette troisième section permet de charger des éléments de marque et des supports marketing.  Elle est divisée en quatre sous-sections : **Logos**, **Vidéos**, **Documents** et **Captures d’écran**. Les logos et les captures d’écran sont les seuls artefacts marketing obligatoires ; néanmoins, nous vous recommandons de les ajouter tous pour mieux attirer les clients.
+Dans le **artefacts Marketing** section téléchargement de personnalisation et commercialisation des matériaux à afficher sur AppSource.  Cette section est divisée en quatre sous-sections : **Logos**, **Vidéos**, **Documents** et **Captures d’écran**. Logos et des captures d’écran sont les seuls requis marketing d’artefacts. Mais recours meilleur client, nous vous recommandons d’ajouter des vidéos et des documents ainsi.
 
 ![Section Artefacts marketing de l’onglet Détails de la vitrine](./media/marketing-artifacts-section.png)
 
+Pour compléter les champs dans cette section, utilisez le tableau suivant :
  
 |    Champ                             |    Description                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logos*                              |                                                                   |
-| **Logo de l’offre (format png, 48 x 48)**   | Affiché sur AppSource dans la présentation de l’application ou dans les résultats de l’application après une recherche. Seul le format png avec une résolution de 48 px \* 48 px est pris en charge.  |
-| **Logo de l’offre (format png, 216 x 216)** | Affiché sur AppSource dans la page des détails de votre application.  Seul le format png avec une résolution de 216 px \* 216 px est pris en charge.  |
+| **Logo de l’offre (format png, 48 x 48)**   | Chargez un logo à afficher dans la vue d’ensemble de l’application ou dans les résultats de recherche d’application. AppSource prend en charge uniquement les format PNG avec une résolution de 48 x 48 px.  |
+| **Logo de l’offre (format png, 216 x 216)** | Chargez un logo à afficher sur la page des détails de votre application.  AppSource prend en charge uniquement les format PNG avec une résolution de 216 x 216 px.  |
 | *Vidéos*                             |                                                                   |
-| **Nom**                             | Nom ou titre de l’application.                                          |
-| **URL**                              | URL de la vidéo hébergée sur YouTube ou Vimeo.                              |
-| **Vidéo miniature**                        | Image miniature de l’application.  Seul le format png avec une résolution de 1280 px \* 720 px est pris en charge.   |
-| *Documents*                          | Trois documents maximum (facultatif). Les documents que vous chargez ici apparaissent sur AppSource sous En savoir plus.  |
-| **Nom**                             | Nom ou titre du document de prise en charge.                              |
-| **File**                             | Le document chargé doit être au format pdf.                             |
-| *Captures d’écran*                        | Cinq captures d’écran maximum (facultatif).                        |
-| **Nom**                             | Nom ou titre de la capture d’écran.                                       |
-| **Image**                            | L’image de la capture d’écran chargée doit être au format png avec une résolution de 1280 px \* 720 px.  | 
+| **Nom**                             | Entrez le nom ou le titre de votre application.                                          |
+| **URL**                              | Entrez l’URL d’une vidéo hébergée sur YouTube ou Vimeo.                              |
+| **Vidéo miniature**                        | Ajouter une image miniature de l’application.  AppSource prend en charge uniquement les format PNG avec une résolution de 1280 x 720 px.   |
+| *Documents*                          | Ajouter jusqu'à trois documents à afficher sur AppSource, sous le **en savoir plus** titre.  |
+| **Nom**                             | Entrez le nom ou le titre d’un document de prise en charge.                              |
+| **File**                             | Téléchargez un fichier PDF.                             |
+| *Captures d’écran*                        | Ajoutez jusqu'à cinq captures d’écran.                        |
+| **Nom**                             | Entrez un nom ou le titre d’une capture d’écran.                                       |
+| **Image**                            | Télécharger une capture d’écran PNG. Sa résolution doit être 1280 x 720 px.  | 
 |   |   |
 
+Les logos que vous téléchargez vers [portail Microsoft Cloud Partner](https://cloudpartner.azure.com) doit *pas*:
 
-### <a name="logo-guidelines"></a>Instructions concernant le logo
-
-Suivez ces instructions pour tous les logos chargés sur le [Portail Cloud Partner](https://cloudpartner.azure.com) :
-
-- N’utilisez pas d’arrière-plan dégradé sur votre logo.
-- Évitez de placer du texte, notamment le nom de votre société ou votre marque, sur le logo. L’apparence de votre logo doit être « plate » et éviter les dégradés.
-- N’étirez pas le logo.
-
+- Utilisez un dégradé. L’apparence de votre logo doit être plat.
+- Inclure le nom de votre société, nom de la marque ou autre texte. 
+- Apparaître étirée.
 
 ## <a name="legal-section"></a>Section Informations légales
 
-Cette quatrième section vous permet de fournir les deux documents légaux nécessaires pour chaque offre : la politique de confidentialité et les conditions d’utilisation.
+Dans le **juridique** section, les deux documents juridiques requis pour chaque offre : votre politique de confidentialité et de vos conditions d’utilisation.
 
 ![Section Informations légales de l’onglet Détails de la vitrine](./media/legal-section.png)
 
+Pour compléter les champs dans cette section, utilisez le tableau suivant :
+
 |   Champ                |   Description                           |
 |------------------------|--------------------------------------   |
-| **URL de la politique de confidentialité** | URL de votre politique de confidentialité publiée       |
-| **Conditions d’utilisation**       | Politique au format texte brut ou HTML simple.     |
+| **URL de stratégie de confidentialité** | URL de votre politique de confidentialité validée       |
+| **Conditions d’utilisation**       | Votre stratégie d’utilisation, sous forme de texte brut ou HTML simple     |
 |  |  |
 
 
 ## <a name="customer-support-section"></a>Section Service clientèle
 
-Indiquez l’**URL du support** permettant d’accéder à votre page de support en ligne.  Il est préférable que cette page propose aux clients plusieurs options de communication : téléphone, e-mail, messagerie instantanée, etc. 
+Dans le **clientèle** section, fournissez le **prennent en charge les URL** pour votre page de support clientèle en ligne.  Cette page doit fournir plusieurs options de contact, telles que le téléphone, courrier électronique et conversation en direct. 
 
 
 ## <a name="lead-management-section"></a>Section Gestion des prospects
 
-La dernière section vous permet de collecter les prospects générés à partir de vos offres AppSource. Elle contient les options de stockage suivantes (dans une liste déroulante) correspondant aux informations sur les prospects.
+Dans le **gestion des prospects** section, configurez votre système pour collecter les prospects de clients qui génèrent de vos offres AppSource. Pour choisir vos options de stockage pour les leads, utilisez le tableau suivant :
 
 |    Champ               |   Destination du prospect                               |
 |------------------------|--------------------------------------            |
-|  **Aucun**              | Les prospects ne sont pas collectés (valeur par défaut).  |
-| **Objet blob Azure (déprécié)** | [Objet blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) spécifié par un nom de conteneur et une chaîne de connexion.  Ce choix est déprécié ; utilisez **Table Azure** à la place.  |
-| **Table Azure**        | [Table Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) spécifiée par une chaîne de connexion.  |
-| **Dynamics CRM Online** | Instance [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) spécifiée par une URL et des informations d’identification d’authentification. |
-| **Point de terminaison HTTPS**     | Point de terminaison HTTPS spécifié en tant que charge utile JSON.   |
-| **Marketo**            | Instance [Marketo](https://www.marketo.com/) spécifiée par ID de serveur, ID munchkin et ID de formulaire.   |
-| **Salesforce**         | Base de données [Salesforce](https://www.salesforce.com/) spécifiée par un identificateur d’objet. |
+|  **Aucun**              | Ne collecter aucune prospects. Il s'agit de l'option par défaut.  |
+| **Objet blob Azure (déprécié)** | Spécifiez [stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) à l’aide d’un nom de conteneur et une chaîne de connexion.  Ce choix est déconseillé. Utilisez **Table Azure** à la place.  |
+| **Table Azure**        | Spécifiez [stockage Table Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) à l’aide d’une chaîne de connexion.  |
+| **Dynamics CRM Online** | Spécifiez [Dynamics 365](https://dynamics.microsoft.com/) à l’aide d’une URL et l’authentification des informations de. |
+| **Point de terminaison HTTPS**     | Spécifiez le point de terminaison HTTPS à l’aide d’une charge utile JSON.   |
+| **Marketo**            | Spécifiez un [Marketo](https://www.marketo.com/) instance à l’aide d’un serveur de l’ID munchkin et ID du formulaire.   |
+| **Salesforce**         | Spécifiez [Salesforce](https://www.salesforce.com/) à l’aide d’un identificateur d’objet. |
 |  |  |
 
-Une fois votre offre publiée, la connexion aux prospects est vérifiée et un prospect test est automatiquement envoyé à la destination spécifiée. Les informations relatives aux prospects doivent être gérées en continu, et ces paramètres doivent être immédiatement mis à jour pour refléter votre architecture actuelle de gestion des clients.
+Une fois votre offre publiée, la connexion aux prospects est vérifiée et un prospect test est automatiquement envoyé à la destination spécifiée. Gérer en continu des informations de prospect et rapidement mettre à jour vos paramètres pour refléter votre architecture de gestion de client en cours.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Sous l’onglet [Contacts](./cpp-contacts-tab.md) suivant, vous allez indiquer les ressources de support utilisateur et techniques associées à votre offre.
+Sur le [Contacts](./cpp-contacts-tab.md) onglet, fournir des ressources de support technique et utilisateur pour votre offre.

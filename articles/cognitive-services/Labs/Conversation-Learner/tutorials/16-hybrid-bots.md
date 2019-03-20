@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117436"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Guide pratique pour utiliser Conversation Learner avec d’autres technologies de génération de bots
 
@@ -119,11 +119,11 @@ Contrairement aux bots du modèle Conversation Learner simple, il n’est pas po
 2. Entrez « hello ».  La valeur `isOpen` n’étant pas définie, le bot dira « I’m sorry we’re closed » et mettra fin à la session.
 
 #### <a name="scenario-2-store-is-open"></a>Scénario 2 : Le magasin est ouvert
-3. Entrez « open store ».  `isOpen` devient True.
-4. Entrez « shop ».
-5. Entrez « hello ».  La valeur `isOpen` étant définie sur True, le bot dira « What would you like to buy? ».
-6. Entrez « chair ». « chair » sera enregistré dans la mémoire CL comme étant l’entité `purchaseItem`. Le rappel de session de fin est appelé ; il copie cette valeur dans le magasin de conversation.
-7. Entrez « history ».  Le bot dira « You bought chair », car c’était le dernier `purchaseItem`.
+1. Entrez « open store ».  `isOpen` devient True.
+1. Entrez « shop ».
+1. Entrez « hello ».  La valeur `isOpen` étant définie sur True, le bot dira « What would you like to buy? ».
+1. Entrez « chair ». « chair » sera enregistré dans la mémoire CL comme étant l’entité `purchaseItem`. Le rappel de session de fin est appelé ; il copie cette valeur dans le magasin de conversation.
+1. Entrez « history ».  Le bot dira « You bought chair », car c’était le dernier `purchaseItem`.
 
 ## <a name="conclusion"></a>Conclusion
 

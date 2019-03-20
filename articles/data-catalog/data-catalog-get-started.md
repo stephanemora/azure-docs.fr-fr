@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238486"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880221"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Prise en main d’Azure Data Catalog
 Azure Data Catalog est un service cloud entièrement géré qui sert de système d’inscription et de découverte des ressources de données d’entreprise. Pour une présentation détaillée, consultez l’article [Qu’est-ce qu’Azure Data Catalog ?](data-catalog-what-is-data-catalog.md).
@@ -82,7 +82,7 @@ Vous ne pouvez approvisionner qu’un seul catalogue de données par organisatio
     ![Azure Data Catalog--afficher le catalogue dans une liste](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Cliquez sur le catalogue que vous avez créé. Le panneau **Catalogue de données** s’affiche dans le portail.
    
-   ![Azure Data Catalog--panneau dans le portail ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Azure Data Catalog--panneau dans le portail](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. Vous pouvez afficher les propriétés du catalogue de données et les mettre à jour. Par exemple, cliquez sur **Niveau tarifaire** et modifiez l’édition.
    
     ![Azure Data Catalog--niveau tarifaire](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -144,7 +144,7 @@ Dans cet exercice, vous allez utiliser l’outil de référencement pour inscrir
       ![Azure Data Catalog--objets inscrits](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Pour afficher les objets de source de données que vous avez inscrits, cliquez sur **Afficher le portail**. Dans le portail Azure Data Catalog, vérifiez que les quatre tables et la base de données sont affichés en mode Grille.
       
-      ![Objets dans le portail Azure Data Catalog ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Objets dans le portail Azure Data Catalog](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 Dans cet exercice, vous avez inscrit des objets à partir de l’exemple de base de données Adventure Works afin qu’ils soient facilement détectables par les utilisateurs de l’ensemble de votre organisation. Dans l’exercice suivant, vous apprenez à découvrir les ressources de données inscrites.
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300470"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856839"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accéder au cluster vFXT
 
@@ -31,7 +31,7 @@ Avant de vous connecter, vérifiez que la paire de clés publique/privée SSH qu
 
 Si vous utilisez un client basé sur Linux, servez-vous de la commande de tunneling SSH avec ce formulaire : 
 
-ssh -L *port_local*:*ip_gestion_cluster*:443 *nom_utilisateur_contrôleur*@*IP_publique_contrôleur*
+ssh -L *port_local*:*ip_gestion_cluster*:443 *nom_utilisateur_contrôleur*\@*IP_publique_contrôleur*
 
 Cette commande se connecte à l’adresse IP de gestion du cluster via l’adresse IP du contrôleur de cluster.
 
@@ -47,7 +47,7 @@ L’authentification est automatique si vous avez utilisé votre clé publique S
 
 Cet exemple utilise l’utilitaire courant de terminal Windows, PuTTY.
 
-Dans PuTTY, renseignez le champ **nom d’hôte** avec le nom d’utilisateur du contrôleur de cluster et son adresse IP : *votre_nom_utilisateur*@*IP_publique_contrôleur*.
+Dans PuTTY, renseignez le champ **nom d’hôte** avec le nom d’utilisateur du contrôleur de cluster et son adresse IP : *votre_nom_utilisateur*\@*IP_publique_contrôleur*.
 
 Exemple : ``azureuser@203.0.113.51``
 
@@ -69,7 +69,7 @@ L’authentification est automatique si vous avez utilisé votre clé publique S
 
 Cette étape utilise un navigateur web pour se connecter à l’utilitaire de configuration en cours d’exécution sur le cluster vFXT.
 
-* Pour une connexion de tunnel SSH, ouvrez votre navigateur web et accédez à https://127.0.0.1:8443. 
+* Pour une connexion de tunnel SSH, ouvrez votre navigateur web et accédez à `https://127.0.0.1:8443`. 
 
   Vous vous êtes connecté à l’adresse IP du cluster quand vous avez créé le tunnel, vous avez donc simplement besoin d’utiliser l’adresse IP localhost dans le navigateur. Si vous avez utilisé un port local autre que 8443, utilisez à la place votre numéro de port.
 

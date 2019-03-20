@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: e8e9991f20481deee85a6d582582335eb98e3c24
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993417"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL 
 Cet article explique comment optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL.
@@ -43,6 +43,7 @@ Les paramètres de configuration qui contrôlent le nettoyage automatique sont a
 - Quelle quantité doit-il nettoyer une fois commencé ?
 
 Voici des paramètres de configuration du nettoyage automatique que vous pouvez mettre à jour en fonction des réponses aux questions précédentes, ainsi que quelques conseils.
+
 Paramètre|Description|Valeur par défaut
 ---|---|---
 autovacuum_vacuum_threshold|Spécifie le nombre minimal de tuples mis à jour ou supprimés pour déclencher une opération de nettoyage dans une table. La valeur par défaut est de 50 tuples. Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, modifiez les paramètres de stockage de la table.|50
@@ -51,6 +52,7 @@ autovacuum_vacuum_cost_limit|Spécifie la valeur limite du coût qui doit être 
 autovacuum_vacuum_cost_delay|Spécifie la valeur de délai du coût qui doit être utilisée dans les opérations de nettoyage automatique. Si vous spécifiez -1, la valeur régulière de vacuum_cost_delay est utilisée. La valeur par défaut est de 20 millisecondes. Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, changez les paramètres de stockage de la table.|20 ms
 autovacuum_nap_time|Spécifie le délai minimal entre les exécutions de nettoyage automatique sur une base de données spécifique. À chaque cycle, le démon examine la base de données et émet des commandes de nettoyage et d’analyse en fonction des besoins pour les tables de cette base de données. Le délai est exprimé en secondes, et la valeur par défaut est d’une minute (1 min). Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur.|15 s
 autovacuum_max_workers|Spécifie le nombre maximal de processus de nettoyage automatique (autres que le lanceur de nettoyage automatique) qui peuvent s’exécuter à tout moment. La valeur par défaut est trois. Définissez ce paramètre uniquement au démarrage du serveur.|3
+
 Pour substituer ces paramètres au niveau de chaque table, changez les paramètres de stockage de la table. 
 
 ## <a name="autovacuum-cost"></a>Coût du nettoyage automatique

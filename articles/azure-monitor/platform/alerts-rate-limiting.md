@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109489"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitation de la fréquence des appels vocaux, SMS, e-mails, notifications push Azure App et publications Webhook
 La limitation de la fréquence est une suspension des notifications qui se produit lorsque trop de notifications sont envoyées à une adresse e-mail, à un numéro de téléphone ou un appareil donnés. Elle garantit que les alertes sont faciles à gérer et exploitables.
 
 Voici les seuils de limitation de la fréquence :
 
- - **SMS** : pas plus de 1 SMS toutes les 5 minutes.
- - **Voix** : pas plus de 1 appel vocal toutes les 5 minutes.
- - **E-mail** : pas plus de 100 e-mails par heure.
+- **SMS** : pas plus de 1 SMS toutes les 5 minutes.
+- **Voix** : pas plus de 1 appel vocal toutes les 5 minutes.
+- **E-mail** : pas plus de 100 e-mails par heure.
  
- Les autres actions n’ont pas de fréquence limitée.
+  Les autres actions n’ont pas de fréquence limitée.
 
 ## <a name="rate-limit-rules"></a>Règles de limitation de la fréquence
 - Un numéro de téléphone ou une adresse e-mail donné est soumis à une limitation de la fréquence lorsqu’il reçoit plus de messages que ne l’autorise le seuil.

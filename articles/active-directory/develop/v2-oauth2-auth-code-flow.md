@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2115ad1a88c819e0ee1da34d9d332a0b013b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174348"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551056"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
 
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | required    | Doit inclure `refresh_token` pour ce tronçon du flux de code d'autorisation. |
 | `scope`         | required    | Une liste d’étendues séparées par des espaces. Les étendues demandées dans ce tronçon doivent être équivalentes aux étendues demandées dans le tronçon de requête authorization_code d’origine, ou correspondre à un sous-ensemble de ces dernières. Si les étendues spécifiées dans cette requête couvrent plusieurs serveurs de ressources, le point de terminaison v2.0 renvoie alors un jeton pour la ressource spécifiée dans la première étendue. Pour obtenir une explication plus détaillée des étendues, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md). |
 | `refresh_token` | required    | Le jeton d’actualisation que vous avez acquis dans le second tronçon du flux. |
-| `redirect_uri`  | required    | Valeur redirect_uri qui a déjà été utilisée pour obtenir le paramètre authorization_code. |
+| `redirect_uri`  | required    |  Un `redirect_uri`inscrit sur l’application cliente. |
 | `client_secret` | requis pour les applications Web | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils. Il est requis pour les applications Web et les API Web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Réponse correcte
@@ -319,6 +319,6 @@ Une réponse de jeton réussie se présente ainsi :
 | `error_codes` |Liste des codes d’erreur STS spécifiques pouvant être utiles dans les tests de diagnostic. |
 | `timestamp` | Heure à laquelle l’erreur s’est produite. |
 | `trace_id` | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
-| c`orrelation_id` | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
+| `correlation_id` | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
 Pour obtenir une description des codes d’erreur et connaître l’action client recommandée, consultez [Codes d’erreur pour les erreurs de point de terminaison de jeton](#error-codes-for-token-endpoint-errors).

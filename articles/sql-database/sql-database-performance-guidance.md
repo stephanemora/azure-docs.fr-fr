@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461591"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438608"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajustement manuel des performances de requêtes dans Azure SQL Database
 
@@ -38,7 +38,7 @@ Bien que les niveaux de service Azure SQL Database soient conçus pour améliore
 
 - **Les applications dont les performances sont lentes en raison d’un comportement bavard**
 
-  Les applications qui se caractérisent par un comportement bavard effectuent trop d’opérations d’accès aux données qui sont sensibles à la latence du réseau. Il vous faudra éventuellement modifier ces types d’applications pour réduire le nombre d’opérations d’accès aux données de la base de données SQL. Par exemple, vous pouvez améliorer les performances applicatives à l’aide de techniques comme le traitement par lot des requêtes ou le déplacement de requêtes vers les procédures stockées. Pour plus d’informations, consultez la section [Traitement par lot des requêtes](#batch-queries).
+  Les applications qui se caractérisent par un comportement bavard effectuent trop d’opérations d’accès aux données qui sont sensibles à la latence du réseau. Il vous faudra éventuellement modifier ces types d’applications pour réduire le nombre d’opérations d’accès aux données de la base de données SQL. Par exemple, vous pouvez améliorer les performances de l’application à l’aide de techniques telles que le traitement par lot des requêtes ad hoc ou de déplacement des requêtes à des procédures stockées. Pour plus d’informations, consultez la section [Traitement par lot des requêtes](#batch-queries).
 
 - **Bases de données présentant une charge de travail intensive et qui ne peuvent pas être prise en charge par un seul ordinateur**
 

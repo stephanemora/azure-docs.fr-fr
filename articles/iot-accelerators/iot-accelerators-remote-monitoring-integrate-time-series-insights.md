@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085148"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Intégrer Azure Time Series Insights à la Supervision à distance
 
@@ -24,7 +24,7 @@ L’accélérateur de solution de surveillance à distance assure désormais le 
 > [!NOTE]
 > Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateurs de solution de supervision à distance dans le cloud Azure en Chine utilisent Cosmos DB pour la totalité du stockage.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer cette procédure, vous devez avoir déjà déployé une solution de surveillance à distance :
 
@@ -96,7 +96,8 @@ Créez une source d’événement à connecter à votre hub IoT. Vérifiez que v
     | Nom de la stratégie du hub IoT | **iothubowner** Vérifiez que la stratégie utilisée est une stratégie propriétaire. |
     | Clé de stratégie du hub IoT | Ce champ est rempli automatiquement. |
     | Groupe de consommateurs du hub IoT | **timeseriesinsights** |
-    | Format de sérialisation de l’événement | **JSON**     | Nom de la propriété d’horodatage | Laisser vide |
+    | Format de sérialisation de l’événement | **JSON**     | 
+    | Nom de la propriété d’horodatage | Laisser vide |
 
     ![Créer une source d’événement](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 

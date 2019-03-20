@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327848"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544237"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
@@ -38,7 +38,7 @@ Les comptes de stockage v2 à usage général prennent en charge les dernières 
 > [!NOTE]
 > Microsoft recommande d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données.
 >
-> Pour plus d’informations sur la mise à niveau vers un compte universel v2, consultez [Mettre à niveau vers un compte de stockage universel v2](storage-account-upgrade.md). 
+> Pour plus d’informations sur la mise à niveau vers un compte universel v2, consultez [Mettre à niveau vers un compte de stockage universel v2](storage-account-upgrade.md).
 
 Les comptes de stockage universels v2 offrent plusieurs niveaux d’accès pour le stockage des données, qui sont basés sur vos modèles d’utilisation. Pour plus d’informations, consultez [Niveaux d’accès pour les données d’objets blob de blocs](#access-tiers-for-block-blob-data).
 
@@ -60,11 +60,9 @@ Même si les comptes de stockage universels v2 sont recommandés dans la plupart
 
 * Vous utilisez une version de l’ [API REST des services de stockage](https://msdn.microsoft.com/library/azure/dd894041.aspx) antérieure à celle du 14/02/2014 ou une bibliothèque cliente avec une version inférieure à 4.x, et vous ne pouvez pas mettre à niveau votre application.
 
-### <a name="blob-storage-accounts"></a>Comptes de stockage d’objets blob
+### <a name="block-blob-storage-accounts"></a>Comptes de stockage blob de bloc
 
-Un compte de stockage d’objets blob est un compte de stockage spécialisé qui stocke les données d’objets non structurées sous la forme d’objets blob de blocs. Les comptes de stockage d’objets blob fournissent la même durabilité, disponibilité, et scalabilité, ainsi que les mêmes performances que les comptes de stockage universels v2. Les comptes de stockage d’objets blob prennent en charge le stockage des objets blob de blocs et des objets blob d’ajout, mais pas des objets blob de pages.
-
-Les comptes de stockage d’objets blob offrent plusieurs niveaux d’accès pour le stockage des données, qui sont basés sur vos modèles d’utilisation. Pour plus d’informations, consultez [Niveaux d’accès pour les données d’objets blob de blocs](#access-tiers-for-block-blob-data).
+Un compte de stockage des objets blob de bloc est un compte de stockage spécialisé pour stocker les données de l’objet non structurées en tant qu’objets BLOB de blocs ou ajouter des objets BLOB. Comptes de stockage blob de bloc offrent plusieurs niveaux d’accès pour le stockage des données en fonction de vos modèles d’utilisation. Pour plus d’informations, consultez [Niveaux d’accès pour les données d’objets blob de blocs](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Nommage des comptes de stockage
 
@@ -87,7 +85,7 @@ Le stockage Azure propose différentes options permettant d’accéder aux donn�
 Les niveaux d’accès disponibles sont les suivants :
 
 > [!NOTE]
-> Le [niveau d’accès Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) est disponible en préversion limitée sous la forme d’un compte de stockage localement redondant (LRS) dans les régions Europe Nord, USA Est 2, USA Centre et USA Ouest. Pour savoir comment s’inscrire à la préversion, consultez [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob).
+> Le [le niveau d’accès premium (version préliminaire)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), qui est optimisé pour les applications sensibles de performances, fournit une latence faible et cohérente avec des taux élevés de débit et de transaction. Le niveau d’accès premium est disponible uniquement avec les comptes de stockage d’objets Blob de blocs (version préliminaire). Pour plus d’informations, consultez [version préliminaire publique de stockage d’objets Blob Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 * Le niveau d’accès **Chaud**, qui est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois un peu plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
 * Le niveau d’accès **Froid**, qui est optimisé pour le stockage d’une grande quantité de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud.

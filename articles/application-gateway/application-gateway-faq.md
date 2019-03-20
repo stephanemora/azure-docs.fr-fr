@@ -6,16 +6,18 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/11/2019
+ms.date: 3/13/2019
 ms.author: victorh
-ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897705"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>Généralités
 
@@ -41,10 +43,10 @@ La prise en charge du protocole HTTP/2 est disponible pour les clients se connec
 
 Par défaut, la prise en charge du protocole HTTP/2 est désactivée. L’exemple d’extrait de code Azure PowerShell suivant montre comment l’activer :
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quelles sont les ressources actuellement prises en charge dans le pool backend ?
@@ -71,6 +73,10 @@ Les écouteurs sont traités selon leur ordre d’affichage. Pour cette raison, 
 
 Lorsque vous utilisez une adresse IP publique en tant que point de terminaison, ces informations sont disponibles dans la ressource d’adresse IP publique ou sur la page de présentation d’Application Gateway dans le portail. Si vous utilisez des adresses IP internes, les données se trouvent sur la page de présentation.
 
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>Qu’est le délai d’attente Keep-Alive et paramètre de délai d’inactivité TCP sur Application Gateway ?
+
+Délai d’attente Keep-Alive sur la référence (SKU) v1 est 120 s. un délai d’attente Keep-Alive sur la référence (SKU) v2 est délai d’inactivité sec. 75 TCP correspond 4-min par défaut sur le serveur frontal d’adresse IP virtuelle de la passerelle d’Application.
+
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>L’adresse IP ou le nom DNS changent-ils pendant la durée de vie d’Application Gateway ?
 
 L’adresse IP virtuelle peut changer si la passerelle d’application est arrêtée et démarrée. Le nom DNS associé à la passerelle d’application ne change pas pendant toute la durée de vie de la passerelle. Pour cette raison, il est recommandé d’utiliser un alias CNAME et de le faire pointer vers l’adresse DNS de la passerelle d’application.
@@ -87,6 +93,8 @@ Une seule adresse IP publique est prise en charge sur une passerelle d’applica
 
 Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une configuration IP frontale privée est configurée. En outre, Azure réserve les quatre premières et dernière adresses IP dans chaque sous-réseau à un usage interne.
 Par exemple, si une passerelle d’application est définie sur trois instances et aucune adresse IP frontale privée, un sous-réseau de taille /29 ou supérieure est nécessaire. Dans ce cas, la passerelle d’application utilise trois adresses IP. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, un sous-réseau de taille /28 ou supérieure est nécessaire, car quatre adresses IP sont requises.
+
+Comme meilleure pratique, utilisez au moins un sous-réseau/28 taille du sous-réseau. Cela vous donne 11 adresses utilisables. Si votre charge de l’application nécessite plus de 10 instances, vous devez envisager / 27 ou/26 taille du sous-réseau.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. Puis-je déployer plusieurs ressources Application Gateway dans un seul sous-réseau ?
 
@@ -126,7 +134,7 @@ Les groupes de sécurité réseau (NSG) sont pris en charge dans le sous-réseau
 
 * Des exceptions doivent être définies pour le trafic entrant sur les ports 65503-65534 pour la référence SKU v1 d’Application Gateway et les ports 65200-65535 pour la référence SKU v2. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne peuvent initier aucun changement sur ces points de terminaison.
 
-* La connectivité Internet sortante ne peut pas être bloquée.
+* La connectivité Internet sortante ne peut pas être bloquée. Les règles de trafic sortant par défaut dans le groupe de sécurité réseau déjà autorisent la connectivité internet. Nous vous recommandons de ne pas supprimer les règles de trafic sortant par défaut et que vous ne créez pas autres règles de trafic sortant qui refusent la connectivité internet sortante.
 
 * Le trafic en provenance de la balise AzureLoadBalancer doit être autorisé.
 
@@ -220,7 +228,7 @@ Oui, Azure distribue les instances entre les domaines de mise à jour et d’err
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>Quels sont les certificats pris en charge sur Application Gateway ?
 
-Les certificats auto-signés, les certificats d’autorité de certification et les certificats génériques sont pris en charge. Les certificats de validation étendue ne sont pas pris en charge.
+Les certificats auto-signés, les certificats d’autorité de certification, les certificats de validation étendue et les génériques sont pris en charge.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-application-gateway"></a>Quelles sont les suites de chiffrement actuellement prises en charge par Application Gateway ?
 
@@ -342,7 +350,7 @@ Trois journaux sont disponibles pour Application Gateway. Pour plus d’informat
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Comment savoir si les membres de mon pool back-end sont intègres ?
 
-Vous pouvez utiliser l’applet de commande PowerShell `Get-AzureRmApplicationGatewayBackendHealth` ou vérifier l’intégrité via le portail en consultant l’article [Intégrité backend, journalisation des diagnostics et métriques pour la passerelle Application Gateway](application-gateway-diagnostics.md).
+Vous pouvez utiliser l’applet de commande PowerShell `Get-AzApplicationGatewayBackendHealth` ou vérifier l’intégrité via le portail en consultant l’article [Intégrité backend, journalisation des diagnostics et métriques pour la passerelle Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Quelle est la stratégie de conservation sur les journaux de diagnostic ?
 
@@ -350,7 +358,7 @@ Les journaux de diagnostic circulent vers le compte de stockage des clients, et 
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Comment puis-je obtenir des journaux d’audit pour Application Gateway ?
 
-Les journaux d’audit sont disponibles pour Application Gateway. Dans le portail, dans le panneau du menu de la passerelle d’application, cliquez sur **Journal d’activité** pour accéder au journal d’audit. 
+Les journaux d’audit sont disponibles pour Application Gateway. Dans le portail, cliquez sur **journal d’activité** dans le panneau de menu d’une passerelle d’application pour accéder au journal d’audit. 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Puis-je définir des alertes avec Application Gateway ?
 

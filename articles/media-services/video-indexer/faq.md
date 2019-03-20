@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892657"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -100,7 +100,7 @@ Votre contenu vidéo ou audio, pour lequel vous avez défini le paramètre de co
 
 ### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Quel accès Microsoft a-t-il à mes fichiers vidéo ou audio indexés et/ou stockés par Video Indexer, et aux métadonnées et insights qui ont été extraits ?
 
-Selon les [Conditions d’utilisation des services en ligne Azure](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), votre contenu vous appartient en intégralité, et Microsoft accède uniquement à ce contenu ainsi qu’aux métadonnées et aux insights que Video Indexer extrait à partir de votre contenu, conformément aux Conditions d’utilisation des services en ligne et à la Déclaration de confidentialité de Microsoft.
+Selon les [Conditions d’utilisation des services en ligne Azure](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), votre contenu vous appartient en intégralité, et Microsoft accède uniquement à ce contenu ainsi qu’aux métadonnées et aux insights que Video Indexer extrait à partir de votre contenu, conformément aux Conditions d’utilisation des services en ligne et à la Déclaration de confidentialité de Microsoft.
 
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Les modèles personnalisés que je crée dans sur mon compte Video Indexer sont-ils disponibles pour d'autres comptes ?
 
@@ -130,7 +130,7 @@ Il n’y a aucun kit SDK client disponible actuellement. L’équipe de Video In
 
 ### <a name="how-do-i-get-started-with-video-indexers-api"></a>Comment bien démarrer avec l’API Video Indexer ?
 
-Suivez le [didacticiel sur la prise en main de l’API Video Indexer](video-indexer-use-apis.md).
+Suivez le [tutoriel sur la prise en main de l’API Video Indexer](video-indexer-use-apis.md).
 
 ### <a name="what-is-the-difference-between-the-video-indexer-api-and-the-azure-media-service-v3-api"></a>Quelle différence y a-t-il entre l’API Video Indexer et l’API Azure Media Services v3 ?
 
@@ -158,6 +158,10 @@ Les jetons d’accès expirent toutes les heures. Vous devez donc générer un n
 
 Video Indexer utilise un modèle tarifaire simple de paiement à l’utilisation, basé sur la durée de l’entrée de contenu que vous indexez. Des frais supplémentaires peuvent s’appliquer pour le codage, le streaming, le stockage, l’utilisation du réseau et les unités réservées Multimédia. Pour plus d’informations, consultez la page des [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/).
 
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Lorsque de facturation pour l’utilisation de Video Indexer ?
+
+Lors de l’envoi d’une vidéo à indexer, vous devez définir l’indexation à l’analyse vidéo, l’analyse audio ou les deux. Cela permet de déterminer qui est facturées références (SKU). S’il existe une erreur de niveau critique au cours du traitement, un code d’erreur s’affichera en tant que réponse. Dans ce cas, aucune facturation ne survient.  Une erreur critique peut être provoquée par un bogue dans notre code ou a une défaillance critique dans une dépendance interne du service. Erreurs telles que les mauvais extraction d’identification ou d’information ne sont pas considérées comme critiques et une réponse est retournée. Dans tous les cas où une réponse valide (code d’erreur non) est retournée, la facturation ne survient.
+ 
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Un essai gratuit de Video Indexer est-il disponible ?
 
 Oui. Video Indexer propose un essai gratuit qui offre des fonctionnalités complètes de service et d’API. Il existe un quota de 600 minutes de vidéos pour les utilisateurs de l’interface web et de 2 400 minutes pour les utilisateurs d’API. 

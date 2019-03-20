@@ -1,25 +1,18 @@
 ---
 title: Prise en charge de WebSocket pour la passerelle Application Gateway | Microsoft Docs
 description: Cette page fournit une vue d’ensemble de la prise en charge de WebSocket pour la passerelle Application Gateway.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168117"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Vue d’ensemble de la prise en charge de WebSocket dans Application Gateway
 
@@ -29,7 +22,15 @@ Le protocole WebSocket, standardisé dans la [RFC6455](https://tools.ietf.org/ht
 
 Vous pouvez continuer d’utiliser un élément écouteur HTTP standard sur le port 80 ou 443 pour recevoir le trafic WebSocket. Le trafic WebSocket est ensuite dirigé vers le serveur principal compatible WebSocket à l’aide du pool principal approprié tel que spécifié dans les règles Application Gateway. Le serveur principal doit répondre aux sondes de la passerelle Application Gateway, qui sont décrites dans la section [Vue d’ensemble de la sonde d’intégrité](application-gateway-probe-overview.md) . Les sondes d’intégrité d’Application Gateway n’utilisent que les protocoles HTTP/HTTPS. Chaque serveur principal doit répondre aux sondes HTTP de la passerelle Application Gateway pour acheminer le trafic WebSocket au serveur.
 
-## <a name="listener-configuration-element"></a>Élément de configuration d’écouteur
+Il est utilisé dans les applications qui bénéficient de communication rapide et en temps réel, telles que la conversation, tableau de bord et applications de jeu.
+
+## <a name="how-does-websocket-work"></a>Comment fonctionne le WebSocket
+
+Pour établir une connexion WebSocket, une négociation basée sur HTTP spécifique est échangée entre le client et le serveur. En cas de réussite, le protocole de couche d’application est « mis à niveau » à partir de HTTP vers WebSockets, à l’aide de la connexion TCP précédemment établie. Une fois que cela se produit, HTTP est complètement hors de l’image ; données peuvent être envoyées ou reçus par le biais du protocole WebSocket par les deux points de terminaison, jusqu'à ce que la connexion WebSocket est fermée. 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>Élément de configuration d’écouteur
 
 Un écouteur HTTP permet de prendre en charge le trafic WebSocket. Voici un extrait d’un élément HttpListeners provenant d’un exemple de fichier de modèle. Vous auriez besoin d’écouteurs HTTP et HTTPS pour prendre en charge WebSocket et sécuriser le trafic WebSocket. De même, vous pouvez utiliser le [portail](application-gateway-create-gateway-portal.md) ou [PowerShell](application-gateway-create-gateway-arm.md) afin de créer une passerelle Application Gateway avec des écouteurs sur le port 80/443 pour prendre en charge le trafic WebSocket.
 

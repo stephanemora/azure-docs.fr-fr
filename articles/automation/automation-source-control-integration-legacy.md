@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901540"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Intégration du contrôle de code source dans Azure Automation - Hérité
 
@@ -65,23 +65,23 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
      
      | **Paramètre** | **Valeur** |
      |:--- |:--- |
-     | NOM |Microsoft.Azure.Automation.SourceControl.Connection |
-     | type |Chaîne |
+     | Nom |Microsoft.Azure.Automation.SourceControl.Connection |
+     | Type |Chaîne |
      | Valeur |{"Branch" :\<*Nom de votre branche*>,"RunbookFolderPath" :\<*Chemin d’accès au dossier de Runbooks*>,"ProviderType" :\<*possède une valeur 1 pour GitHub*>,"Repository" :\<*Nom de votre référentiel*>,"Username" :\<*Votre nom d’utilisateur GitHub*>} |
 
-    * La variable **Microsoft.Azure.Automation.SourceControl.OauthToken**contient la valeur chiffrée sécurisée de votre OAuthToken.  
+     * La variable **Microsoft.Azure.Automation.SourceControl.OauthToken**contient la valeur chiffrée sécurisée de votre OAuthToken.  
 
-    |**Paramètre**            |**Valeur** |
-    |:---|:---|
-    | NOM  | Microsoft.Azure.Automation.SourceControl.OauthToken |
-    | type | Inconnue (chiffrée) |
-    | Valeur | <*OAuthToken chiffré*> |  
+     |**Paramètre**            |**Valeur** |
+     |:---|:---|
+     | Nom  | Microsoft.Azure.Automation.SourceControl.OauthToken |
+     | Type | Inconnue (chiffrée) |
+     | Valeur | <*OAuthToken chiffré*> |  
 
-    ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **contrôle de code source Automation** est ajouté en tant qu'application autorisée à votre compte GitHub. Pour voir l’application : à partir de votre page d’accueil GitHub, accédez à **Profil** > **Paramètres** > **Applications**. Cette application permet à Azure Automation de synchroniser votre référentiel GitHub sur un compte Automation.  
+     * **contrôle de code source Automation** est ajouté en tant qu'application autorisée à votre compte GitHub. Pour voir l’application : à partir de votre page d’accueil GitHub, accédez à **Profil** > **Paramètres** > **Applications**. Cette application permet à Azure Automation de synchroniser votre référentiel GitHub sur un compte Automation.  
 
-    ![Application Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Application Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>Utilisation du contrôle de code source dans Automation
@@ -110,7 +110,7 @@ L’archivage de runbooks vous permet de transmettre les modifications apportée
 3. Le nom du runbook modifié est envoyé en tant que paramètre d’entrée au runbook archivé. Vous pouvez [afficher les détails du travail](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) en développant le runbook dans la page **Synchronisation du référentiel**.  
    
     ![Entrée d’archivage](media/automation-source-control-integration-legacy/automation_09_CheckinInput.png)
-4. Actualisez votre dépôt GitHub une fois la tâche terminée pour afficher les modifications.  Votre dépôt doit intégrer une validation avec un message de validation : ***Nom du runbook* mis à jour dans Azure Automation.**  
+4. Actualisez votre référentiel GitHub une fois la tâche terminée pour afficher les modifications.  Votre dépôt doit intégrer une validation avec un message de validation : ***Nom du runbook* mis à jour dans Azure Automation.**  
 
 ### <a name="sync-runbooks-from-source-control-to-azure-automation"></a>Synchroniser des runbooks à partir du contrôle de code source vers Azure Automation
 Le bouton de synchronisation de la page Synchronisation du référentiel vous permet d’extraire tous les runbooks dans le chemin d’accès au dossier de runbooks de votre référentiel vers votre compte Automation. Le même référentiel peut être synchronisé vers plusieurs comptes Automation. Voici les étapes permettant de synchroniser un runbook :
@@ -124,10 +124,6 @@ Le bouton de synchronisation de la page Synchronisation du référentiel vous pe
 
     > [!NOTE] 
     > Une synchronisation à partir du contrôle de code source remplace les brouillons de runbooks qui existent actuellement dans votre compte Automation pour **TOUS** les runbooks actuellement dans le contrôle de code source. L’instruction de ligne de commande équivalant à Git pour la synchronisation est la suivante : **git pull**
-
-
-## <a name="troubleshooting-source-control-problems"></a>Résolution des problèmes de contrôle de code source
-S’il existe des erreurs liées au travail d’archivage ou de synchronisation, l’état du travail doit être suspendu. Vous pouvez afficher plus de détails sur l’erreur dans la page du travail.  La section **Tous les journaux** vous montre tous les flux PowerShell associés à ce travail. Elle fournit les détails nécessaires pour vous aider à résoudre les problèmes d’archivage ou de synchronisation. Elle indique également la séquence d’actions successives lors de la synchronisation ou de l’archivage d’un runbook.  
 
 ![Image AllLogs](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

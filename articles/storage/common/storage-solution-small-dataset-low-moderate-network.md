@@ -4,16 +4,16 @@ description: Votre environnement dispose d'une bande passante réseau faible à 
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: b9c19c4cd85b1ab2bc3ea010d029361957de3943
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263654"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124301"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transférer de petits jeux de données avec une bande passante réseau faible ou modérée
  
@@ -49,16 +49,16 @@ Les options recommandées dans ce scénario sont :
 
 Le tableau suivant résume les différences entre les principales fonctionnalités.
 
-| Fonctionnalité                                                            | Explorateur de stockage Azure                    | Portail Azure  | AzCopy<br>Azure PowerShell<br>Azure CLI            | API REST ou SDK Stockage Azure |
-|----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Disponibilité                                                       | Télécharger et installer <br>Outils autonomes | Outils d’exploration basés sur le web dans le portail Azure           | Outil de ligne de commande |Interfaces programmables dans .NET, Java, Python, JavaScript, C++, Go, Ruby et PHP                                                         |
-| Interface graphique                                              | Oui                                       | Oui                                                     | Non                 | Non                                                       |
-| Plateformes prises en charge                                              | Windows, Mac, Linux                       | Basé sur le Web     |Windows, Mac, Linux     |Toutes les plateformes                                                         |
-| Opérations de stockage Blob autorisées<br>pour les blobs et les dossiers            | Télécharger<br>Download<br>gérer    | Télécharger<br>Download<br>gérer  |Télécharger<br>Download<br>gérer             | Oui, personnalisable                                                        |
-| Stockage Data Lake Gen1 autorisé<br>opérations pour les fichiers et les dossiers  | Télécharger<br>Download<br>gérer                | Non  |Télécharger<br>Download<br>gérer                   |      Non                                                    |
-| Opérations de stockage de fichiers autorisées<br>pour les fichiers et les répertoires        | Télécharger<br>Download<br>gérer       | Télécharger<br>Download<br>gérer   |Télécharger<br>Download<br>gérer |                                                         |Oui, personnalisable
-| Opérations de stockage de tables autorisées<br>pour les tables                      |gérer                            | Non             |Prise en charge des tables dans AzCopy v7 |Oui, personnalisable|
-| Stockage File d'attente autorisé                                              | gérer                                    | Non   |Non  | Oui, personnalisable|
+| Fonctionnalité | Explorateur de stockage Azure | Portail Azure | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST ou SDK Stockage Azure |
+|---------|------------------------|--------------|-----------------------------------------|---------------------------------|
+| Disponibilité | Télécharger et installer <br>Outils autonomes | Outils d’exploration basés sur le web dans le portail Azure | Outil de ligne de commande |Interfaces programmables dans .NET, Java, Python, JavaScript, C++, Go, Ruby et PHP |
+| Interface graphique | Oui | Oui | Non  | Non  |
+| Plateformes prises en charge | Windows, Mac, Linux | Basé sur le Web |Windows, Mac, Linux |Toutes les plateformes |
+| Opérations de stockage Blob autorisées<br>pour les blobs et les dossiers | Télécharger<br>Téléchargement<br>gérer | Télécharger<br>Téléchargement<br>gérer |Télécharger<br>Téléchargement<br>gérer | Oui, personnalisable |
+| Stockage Data Lake Gen1 autorisé<br>opérations pour les fichiers et les dossiers | Télécharger<br>Téléchargement<br>gérer | Non  |Télécharger<br>Téléchargement<br>gérer                   | Non  |
+| Opérations de stockage de fichiers autorisées<br>pour les fichiers et les répertoires | Télécharger<br>Téléchargement<br>gérer | Télécharger<br>Téléchargement<br>gérer   |Télécharger<br>Téléchargement<br>gérer | Oui, personnalisable |
+| Opérations de stockage de tables autorisées<br>pour les tables |gérer | Non  |Prise en charge des tables dans AzCopy v7 |Oui, personnalisable|
+| Stockage File d'attente autorisé | gérer | Non   |Non  | Oui, personnalisable|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

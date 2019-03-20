@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58052104"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle managées personnalisées. Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation. Il est possible de répliquer des images partagées dans plusieurs régions, pour une mise à l’échelle plus rapide de vos déploiements.
 
@@ -74,9 +74,9 @@ Tout comme la Galerie d’images partagées, l’Image partagée et la version d
 
 | Partagé avec l’utilisateur     | Galerie d’images partagées | Image partagée | Version d’image partagée |
 |----------------------|----------------------|--------------|----------------------|
-| Galerie d’images partagées | OUI                  | OUI          | OUI                  |
-| Image partagée         | Non                    | OUI          | OUI                  |
-| Version d’image partagée | Non                    | Non            | OUI                  |
+| Galerie d’images partagées | Oui                  | OUI          | Oui                  |
+| Image partagée         | Non                    | OUI          | Oui                  |
+| Version d’image partagée | Non                    | Non            | Oui                  |
 
 
 
@@ -128,18 +128,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  R. Pour lister toutes les ressources de galerie d’images partagées de différents abonnements auxquels vous avez accès sur le portail Azure, suivez les étapes ci-dessous :
 
- 1. Ouvrez le [portail Azure](https://portal.azure.com).
- 1. Accédez à **Toutes les ressources**.
- 1. Sélectionnez tous les abonnements pour lesquels vous voulez lister toutes les ressources.
- 1. Recherchez des ressources de type **Galerie privée**.
+1. Ouvrez le [portail Azure](https://portal.azure.com).
+1. Accédez à **Toutes les ressources**.
+1. Sélectionnez tous les abonnements pour lesquels vous voulez lister toutes les ressources.
+1. Recherchez des ressources de type **Galerie privée**.
  
- Pour voir les définitions d’image et les versions d’image, vous devez aussi sélectionner **Afficher les types masqués**.
+   Pour voir les définitions d’image et les versions d’image, vous devez aussi sélectionner **Afficher les types masqués**.
  
- Pour lister toutes les ressources de galerie d’images partagées des différents abonnements sur lesquels vous avez des autorisations, utilisez la commande suivante dans Azure CLI :
+   Pour lister toutes les ressources de galerie d’images partagées des différents abonnements sur lesquels vous avez des autorisations, utilisez la commande suivante dans Azure CLI :
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **Q.** Comment partager mes images entre abonnements ?
@@ -155,9 +155,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
  Scénario 2 : Si vous avez une image généralisée non managée, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
 
- Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez le charger, puis créer une image managée pour pouvoir ensuite créer une définition et une version de cette image. 
-    - Si le VHD vient d’une machine virtuelle Windows, consultez [Charger un disque dur virtuel généralisé](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-    - Si le VHD est pour une machine virtuelle Linux, consultez [Charger un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez le charger, puis créer une image managée pour pouvoir ensuite créer une définition et une version de cette image.
+- Si le VHD vient d’une machine virtuelle Windows, consultez [Charger un disque dur virtuel généralisé](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- Si le VHD est pour une machine virtuelle Linux, consultez [Charger un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **Q.** Puis-je créer une version d’image à partir d’un disque spécialisé ?

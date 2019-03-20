@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990739"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
 
-Cet article explique comment utiliser différents [mécanismes d’attestation](concepts-security.md#attestation-mechanism) avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Vous pouvez choisir d’utiliser un appareil physique ou un simulateur. Le service d’approvisionnement prend en charge l’authentification pour deux types de mécanismes d’attestation : X **.** 509 et Module de plateforme sécurisée (TPM).
+Cet article explique comment utiliser différents [mécanismes d’attestation](concepts-security.md#attestation-mechanism) avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Vous pouvez choisir d’utiliser un appareil physique ou un simulateur. Le service d’approvisionnement prend en charge l’authentification pour deux types de mécanismes d’attestation : X.509 et Module de plateforme sécurisée (TPM).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Préparez votre environnement de développement en suivant la section intitulée « Préparer l’environnement de développement » du guide [Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel C de périphérique pour le service IoT Hub Device Provisioning](./quick-create-simulated-device.md).
 
@@ -28,9 +28,9 @@ Préparez votre environnement de développement en suivant la section intitulée
 
 En tant que fabricant d’appareils, vous devez d’abord choisir un mécanisme d’attestation basé sur l’un des types pris en charge. Actuellement, le [Kit de développement logiciel (SDK) Device Provisioning Service Client pour C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) prend en charge les mécanismes d’attestation suivants : 
 
-- [Module de plateforme sécurisée (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module) : TPM est une norme établie pour la plupart des plateformes d’appareils Windows, ainsi que pour quelques appareils Linux/Ubuntu. En tant que fabricant d’appareils, vous pouvez choisir ce mécanisme d’attestation si l’un de ces systèmes d’exploitation s’exécute sur vos appareils et si vous recherchez une norme établie. Avec les processeurs TPM, vous pouvez uniquement inscrire chaque appareil individuellement auprès du service Device Provisioning. À des fins de développement, vous pouvez utiliser le simulateur TPM sur votre machine de développement Windows ou Linux.
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): Le module TPM est une norme établie pour la plupart des plateformes d’appareils Windows, ainsi que pour quelques appareils Linux/Ubuntu. En tant que fabricant d’appareils, vous pouvez choisir ce mécanisme d’attestation si l’un de ces systèmes d’exploitation s’exécute sur vos appareils et si vous recherchez une norme établie. Avec les processeurs TPM, vous pouvez uniquement inscrire chaque appareil individuellement auprès du service Device Provisioning. À des fins de développement, vous pouvez utiliser le simulateur TPM sur votre machine de développement Windows ou Linux.
 
-- [X.509](https://cryptography.io/en/latest/x509/) : les certificats X.509 peuvent être stockés dans des processeurs relativement plus récents appelés [Modules de sécurité matériels (HSM)](concepts-security.md#hardware-security-module). Microsoft continue de travailler sur des processeurs RIoT ou DICE, qui implémentent les certificats X.509. Avec les processeurs X.509, vous pouvez effectuer une inscription d’appareils en bloc dans le portail. En outre, certains systèmes non-Windows, comme embedOS, sont pris en charge. À des fins de développement, le SDK client du service Device Provisioning prend en charge un simulateur d’appareil X.509. 
+- [X.509](https://cryptography.io/en/latest/x509/) : Certificats X.509 peuvent être stockées dans des processeurs relativement plus récents appelés [Modules de sécurité matériel (HSM)](concepts-security.md#hardware-security-module). Microsoft continue de travailler sur des processeurs RIoT ou DICE, qui implémentent les certificats X.509. Avec les processeurs X.509, vous pouvez effectuer une inscription d’appareils en bloc dans le portail. En outre, certains systèmes non-Windows, comme embedOS, sont pris en charge. À des fins de développement, le SDK client du service Device Provisioning prend en charge un simulateur d’appareil X.509. 
 
 Pour plus d’informations, consultez les [concepts de sécurité](concepts-security.md) et les [concepts d’approvisionnement automatique](/azure/iot-dps/concepts-auto-provisioning) du service IoT Hub Device Provisioning.
 
@@ -98,14 +98,14 @@ Générez le kit de développement logiciel (SDK) avant de créer l’inscriptio
 
 ### <a name="windows"></a>Windows
 - Pour générer le kit de développement logiciel (SDK) dans Windows, procédez comme suit pour générer des fichiers de projet :
-    - Ouvrez une « invite de commandes développeur pour VS2015 ».
-    - Exécutez les commandes CMake suivantes à partir de la racine du référentiel :
-      ```
-      cd azure-iot-sdk-c
-      mkdir cmake
-      cd cmake
-      cmake -G "Visual Studio 14 2015" ..
-      ```
+  - Ouvrez une « invite de commandes développeur pour VS2015 ».
+  - Exécutez les commandes CMake suivantes à partir de la racine du référentiel :
+    ```
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    cmake -G "Visual Studio 14 2015" ..
+    ```
     Cette commande génère des bibliothèques x86. Pour effectuer une génération pour x64, modifiez l’argument de générateur Cmake : 
     ```
     cmake .. -G "Visual Studio 14 2015 Win64"
@@ -149,8 +149,8 @@ Si vous utilisez TPM, suivez les instructions de [« Créer et approvisionner un
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance Device Provisioning Service.
-   - Inscription individuelle X **.** 509 : dans le panneau de résumé du service d’approvisionnement, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, chargez le certificat de nœud terminal comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
-   - Inscription de groupe X **.** 509 : dans le panneau de résumé du service d’approvisionnement, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions de groupe** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, entrez un nom de groupe et un nom de certification, chargez le certificat d’autorité de certification/intermédiaire comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - X **.** Inscription individuelle 509 : Dans le panneau service d’approvisionnement résumé, sélectionnez **gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, chargez le certificat de nœud terminal comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - X **.** Inscription de groupe 509 : Dans le panneau service d’approvisionnement résumé, sélectionnez **gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions de groupe** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, entrez un nom de groupe et un nom de certification, chargez le certificat d’autorité de certification/intermédiaire comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Activer l’authentification pour les appareils à l’aide d’un mécanisme d’attestation personnalisé (facultatif)
 

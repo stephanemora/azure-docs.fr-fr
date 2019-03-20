@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167148"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217738"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Déploiement basé sur le cloud Azure Multi-Factor Authentication
 
@@ -42,6 +42,9 @@ Avant de commencer, assurez-vous que vous disposez des prérequis suivants :
 ## <a name="choose-authentication-methods"></a>Choisir les méthodes d’authentification
 
 Activez au moins une méthode d’authentification pour vos utilisateurs en fonction des besoins de votre organisation. Nous pensons que l’application Microsoft Authenticator fournit une meilleure expérience aux utilisateurs une fois activée. Pour mieux comprendre quelles méthodes sont disponibles et comment les configurer, consultez l’article [Présentation des méthodes d’authentification](concept-authentication-methods.md).
+
+> [!IMPORTANT]
+> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
 
 ## <a name="get-users-to-enroll"></a>Faire s’inscrire les utilisateurs
 

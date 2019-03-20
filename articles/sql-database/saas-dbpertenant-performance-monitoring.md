@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100426"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
@@ -28,7 +28,7 @@ L’application de base de données Wingtip Tickets SaaS par client utilise un m
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-
+> 
 > * Simuler l’utilisation sur les bases de données de locataire en exécutant un générateur de charge fourni
 > * Surveiller les bases de données de locataire à mesure qu’elles répondent à l’augmentation de la charge
 > * Augmenter la taille du pool élastique en réponse à la charge accrue sur les bases de données
@@ -57,7 +57,7 @@ Les pools et les bases de données qu’ils incluent doivent être surveillés p
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données et les pools. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
-Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser [Log Analytics](saas-dbpertenant-log-analytics.md). Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Log Analytics peut collecter des données de télémétrie à partir de nombreux services, et être utilisé pour interroger et définir des alertes.
+Pour les scénarios à volumes élevés, où vous travaillez avec de nombreuses ressources, [Azure Monitor enregistre](saas-dbpertenant-log-analytics.md) peut être utilisé. Il s’agit d’un service Azure distinct qui fournit des analytique sur les journaux de diagnostic et de télémétrie collectées dans un espace de travail Analytique de journal. Journaux d’Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services et être utilisés pour interroger et définir des alertes.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
@@ -83,10 +83,10 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simulant une charge de t
 
 | Démonstration | Scénario |
 |:--|:--|
-| 2 | Générer une charge d’intensité normale (environ 40 DTU) |
+| 2 | Générer une charge d’intensité normale (environ 40 DTU) |
 | 3 | Générer une charge avec des pics plus longs et plus fréquents par base de données|
-| 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
-| 5. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
+| 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
+| 5. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
 | 6. | Générer une charge déséquilibrée entre plusieurs pools|
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en eDTU), la durée et les intervalles varient selon les bases de données afin de simuler l’activité d’un locataire imprévisible.
@@ -171,17 +171,17 @@ Comme alternative à la mise à l’échelle du pool, créez un deuxième pool e
 1. Cliquez sur **+ Nouveau pool** pour créer un pool sur le serveur actuel.
 1. Sur le modèle de **pool élastique** :
 
-    1. Définissez **Nom** sur *Pool2*.
-    1. Laissez le niveau tarifaire **Pool Standard**.
-    1. Cliquez sur **Configurer le pool**.
-    1. Définissez **eDTU du Pool** sur *50 eDTU*.
-    1. Cliquez sur **Ajouter des bases de données** pour afficher la liste des bases de données sur le serveur qui peuvent être ajoutées au *Pool2*.
-    1. Choisissez 10 bases de données à déplacer vers le nouveau pool, puis cliquez sur **Sélectionner**. Si vous avez exécuté le générateur de charge, le service sait déjà que votre profil de performance requiert un pool d’une taille supérieure à la taille par défaut de 50 eDTU et vous conseille de commencer avec un paramètre 100 eDTU.
+   1. Définissez **Nom** sur *Pool2*.
+   1. Laissez le niveau tarifaire **Pool Standard**.
+   1. Cliquez sur **Configurer le pool**.
+   1. Définissez **eDTU du Pool** sur *50 eDTU*.
+   1. Cliquez sur **Ajouter des bases de données** pour afficher la liste des bases de données sur le serveur qui peuvent être ajoutées au *Pool2*.
+   1. Choisissez 10 bases de données à déplacer vers le nouveau pool, puis cliquez sur **Sélectionner**. Si vous avez exécuté le générateur de charge, le service sait déjà que votre profil de performance requiert un pool d’une taille supérieure à la taille par défaut de 50 eDTU et vous conseille de commencer avec un paramètre 100 eDTU.
 
-    ![Recommandation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![Recommandation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. Pour ce didacticiel, conservez la valeur par défaut de 50 eDTU, puis cliquez de nouveau sur **Sélectionner**.
-    1. Sélectionnez **OK** pour créer le nouveau pool et y déplacer les bases de données sélectionnées.
+   1. Pour ce didacticiel, conservez la valeur par défaut de 50 eDTU, puis cliquez de nouveau sur **Sélectionner**.
+   1. Sélectionnez **OK** pour créer le nouveau pool et y déplacer les bases de données sélectionnées.
 
 La création du pool et le déplacement des bases de données prend quelques minutes. Durant le déplacement, les bases de données restent en ligne et totalement accessibles jusqu’au dernier moment, après quoi toutes les connexions ouvertes sont fermées. Pour autant que vous disposiez d’une logique de nouvelle tentative, les clients se connectent ensuite à la base de données dans le nouveau pool.
 
@@ -196,7 +196,7 @@ Si une base de données individuelle d’un pool connaît une charge élevée so
 Cet exercice simule l’effet de la salle de concert Contoso qui subit une charge élevée quand les tickets sont mis en vente pour un concert populaire.
 
 1. Ouvrez le script **Demo-PerformanceMonitoringAndManagement.ps1** dans \\*PowerShell ISE*.
-1. Définissez **$DemoScenario = 5, Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU).**
+1. Définissez **$DemoScenario = 5, générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU).**
 1. Définissez **$SingleTenantDatabaseName = contosoconcerthall**
 1. Exécutez le script en appuyant sur **F5**.
 
@@ -247,4 +247,4 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 * Autres [didacticiels reposant sur le déploiement de l’application de base de données Wingtip Tickets SaaS par client](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pools élastiques SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md) - Didacticiel Configuration et utilisation de Log Analytics
+* [Journaux d’analyse Azure](saas-dbpertenant-log-analytics.md) - paramètre configuration et l’utilisation didacticiel de journaux Azure Monitor

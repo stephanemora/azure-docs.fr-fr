@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 9b54c35a5dcd495e7ed460f1fdbbe96ba3dee4fe
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903383"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory
 
@@ -35,7 +35,7 @@ Plus précisément, ce connecteur Azure SQL Database Managed Instance prend en c
 
 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) n'est actuellement pas pris en charge. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser les données de copie à partir d'une instance d'Azure SQL Database Managed Instance située dans un réseau virtuel, vous devez configurer un runtime d'intégration auto-hébergé capable d'accéder à la base de données. Pour plus d'informations, consultez [Runtime d'intégration auto-hébergé](create-self-hosted-integration-runtime.md).
 
@@ -55,8 +55,8 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **SqlServer**. | Oui. |
 | connectionString |Cette propriété spécifie les informations connectionString nécessaires pour se connecter à l'instance gérée à l'aide de l'authentification SQL ou de l'authentification Windows. Pour plus d'informations, consultez les exemples suivants. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et, en cas d'authentification SQL, extraire la configuration `password` de la chaîne de connexion. Pour plus d'informations, reportez-vous à l'exemple JSON décrit sous le tableau et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui. |
-| userName |Cette propriété spécifie un nom d'utilisateur si vous utilisez l'authentification Windows. Exemple : **domainname\\username**. | Non. |
-| password |Cette propriété spécifie le mot de passe du compte d'utilisateur que vous avez spécifié pour le nom d'utilisateur. Sélectionnez **SecureString** pour stocker les informations connectionString en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non. |
+| userName |Cette propriété spécifie un nom d'utilisateur si vous utilisez l'authentification Windows. Exemple : **domainname\\username**. |Non. |
+| password |Cette propriété spécifie le mot de passe du compte d'utilisateur que vous avez spécifié pour le nom d'utilisateur. Sélectionnez **SecureString** pour stocker les informations connectionString en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non. |
 | connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Configurez le runtime d'intégration auto-hébergé dans le même réseau virtuel que votre instance gérée. |Oui. |
 
 >[!TIP]
@@ -179,9 +179,9 @@ Pour copier des données d’Azure SQL Database Managed Instance, définissez **
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source de l'activité de copie doit être définie sur **SqlSource**. | Oui. |
-| SqlReaderQuery |Cette propriété utilise la requête SQL personnalisée pour lire les données. Par exemple `select * from MyTable`. | Non. |
-| sqlReaderStoredProcedureName |Cette propriété est le nom de la procédure stockée qui lit les données dans la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non. |
-| storedProcedureParameters |Ces paramètres concernent la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non. |
+| SqlReaderQuery |Cette propriété utilise la requête SQL personnalisée pour lire les données. Par exemple `select * from MyTable`. |Non. |
+| sqlReaderStoredProcedureName |Cette propriété est le nom de la procédure stockée qui lit les données dans la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non. |
+| storedProcedureParameters |Ces paramètres concernent la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non. |
 
 Notez les points suivants :
 
@@ -283,11 +283,11 @@ Pour copier des données vers Azure SQL Database Managed Instance, définissez *
 |:--- |:--- |:--- |
 | Type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlSink**. | Oui. |
 | writeBatchSize |Cette propriété insère des données dans la table SQL lorsque la taille de la mémoire tampon atteint writeBatchSize.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. |Non (valeur par défaut : 10 000). |
-| writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment une durée. Par exemple, « 00:30:00 » (30 minutes). | Non. |
-| preCopyScript |Cette propriété spécifie une requête SQL que l'activité de copie doit exécuter avant l'écriture des données dans l'instance gérée. Elle n'est appelée qu'une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non. |
-| sqlWriterStoredProcedureName |Ce nom est celui de la procédure stockée qui définit le mode d'application des données sources dans une table cible. Les opérations d'upsert ou de transformations effectuées à l'aide de votre propre logique métier sont des exemples de procédures. <br/><br/>Cette procédure stockée est *appelée par lot*. Pour effectuer une opération qui ne s'exécute qu'une seule fois et n'a rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`. | Non. |
-| storedProcedureParameters |Ces paramètres sont utilisés pour la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non. |
-| sqlWriterTableType |Cette propriété spécifie le nom du type de table à utiliser dans la procédure stockée. L'activité de copie rend les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. | Non. |
+| writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment une durée. Par exemple, « 00:30:00 » (30 minutes). |Non. |
+| preCopyScript |Cette propriété spécifie une requête SQL que l'activité de copie doit exécuter avant l'écriture des données dans l'instance gérée. Elle n'est appelée qu'une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non. |
+| sqlWriterStoredProcedureName |Ce nom est celui de la procédure stockée qui définit le mode d'application des données sources dans une table cible. Les opérations d'upsert ou de transformations effectuées à l'aide de votre propre logique métier sont des exemples de procédures. <br/><br/>Cette procédure stockée est *appelée par lot*. Pour effectuer une opération qui ne s'exécute qu'une seule fois et n'a rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`. |Non. |
+| storedProcedureParameters |Ces paramètres sont utilisés pour la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non. |
+| sqlWriterTableType |Cette propriété spécifie le nom du type de table à utiliser dans la procédure stockée. L'activité de copie rend les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Non. |
 
 > [!TIP]
 > Par défaut, lors de la copie de données vers Azure SQL Database Managed Instance, l'activité de copie ajoute les données à la table du récepteur. Pour effectuer une opération d'upsert ou appliquer une logique métier supplémentaire, utilisez la procédure stockée dans SqlSink. Pour plus d'informations, consultez [Appel d'une procédure stockée à partir d'un récepteur SQL](#invoke-a-stored-procedure-from-a-sql-sink).
@@ -487,7 +487,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -497,14 +497,11 @@ Dans votre base de données, définissez le type de table portant le même nom q
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL，
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 La fonction de procédure stockée tire parti des [paramètres table](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->Si vous écrivez avec le type de données **Money/Smallmoney** en appelant une procédure stockée, les valeurs peuvent être arrondies. Pour y remédier, dans les paramètres table, définissez le type de données correspondant sur **Decimal** au lieu de **Money/Smallmoney**. 
 
 ## <a name="data-type-mapping-for-azure-sql-database-managed-instance"></a>Mappage de type de données pour Azure SQL Database Managed Instance
 

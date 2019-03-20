@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998567"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890047"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Wirecast pour envoyer un flux en direct à débit binaire unique 
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.locfileid: "55998567"
 >
 >
 
-Cet article explique comment configurer l’encodeur en direct [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel.  Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Cet article explique comment configurer l’encodeur en direct [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel.  Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
 * Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
@@ -109,7 +109,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
    * Profil : Principal
    * Image clé toutes les : 60 images
 
-    **Audio**
+     **Audio**
 
    * Vitesse de transmission cible : 192 Kbits/s
    * Taux d’échantillonnage : 44,100 kHz
@@ -134,7 +134,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 1. Sélectionnez **OK**.
 2. Dans l’écran principal de **Wirecast**, vérifiez que les sources d’entrée audio et vidéo sont prêtes, puis appuyez sur **Flux** dans le coin supérieur gauche.
 
-   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > Avant de cliquer sur **Flux**, vous **devez** vérifier que le canal est prêt.

@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055181"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440979"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Blueprint de sécurité et de conformité Azure : application web PaaS pour Australia PROTECTED
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Ce blueprint de sécurité et de conformité Azure fournit des conseils pour le déploiement d’un environnement PaaS adapté à la collecte, au stockage et à la récupération des données du secteur public AU-PROTECTED, et conforme aux objectifs du manuel ISM (Information Security Manual) de l’administration australienne, produit par l’organisation ASD (Australian Signals Directorate). Ce blueprint présente une architecture de référence courante et montre une gestion appropriée des données sensibles du secteur public dans un environnement multiniveau sécurisé et conforme.
 
@@ -30,7 +30,7 @@ Cette solution fournit une architecture de référence pour une application web 
 
 L’architecture peut fournir un environnement hybride sécurisé qui étend un réseau local sur Azure, ce qui permet aux utilisateurs professionnels d’accéder aux charges de travail web de façon sécurisée via le réseau local privé d’une organisation ou depuis Internet. Pour les solutions locales, le client est comptable et responsable de tous les aspects de la sécurité, de l’exploitation et de la conformité.
 
-Les ressources Azure incluses dans cette solution peuvent se connecter à une installation de partage d’emplacement de réseau local ou de centre de données (par exemple CDC à Canberra) avec un VPN IPSec en utilisant une passerelle VPN et via ExpressRoute. La décision d’utiliser un VPN doit se prendre en fonction de la classification des données transmises et du chemin réseau. Les clients qui exécutent des charges de travail critiques à grande échelle avec les exigences du Big Data doivent envisager d’utiliser une architecture réseau hybride avec ExpressRoute pour la connexion d’un réseau privé aux services Azure. Pour plus d’informations sur les mécanismes de connexion à Azure, reportez-vous à la section des [conseils et des recommandations](#guidance-and-recommendations).
+Les ressources Azure incluses dans cette solution peuvent se connecter à une installation de partage d’emplacement de réseau local ou de centre de données (par exemple CDC à Canberra) avec un VPN IPSec en utilisant une passerelle VPN et via ExpressRoute. La décision d’utiliser un réseau privé virtuel doit se prendre en fonction de la classification des données transmises et du chemin réseau. Les clients qui exécutent des charges de travail critiques à grande échelle avec les exigences du Big Data doivent envisager d’utiliser une architecture réseau hybride avec ExpressRoute pour la connexion d’un réseau privé aux services Azure. Pour plus d’informations sur les mécanismes de connexion à Azure, reportez-vous à la section des [conseils et des recommandations](#guidance-and-recommendations).
 
 La fédération avec Azure Active Directory doit être utilisée pour permettre aux utilisateurs de s’authentifier avec des informations d’identification locales et d’accéder à toutes les ressources dans le cloud avec une infrastructure de services de fédération Active Directory (AD FS). Les services de fédération Active Directory (AD FS) peuvent fournir des identités simplifiées et sécurisées, et des fonctionnalités web d’authentification unique pour cet environnement hybride. Pour plus d’informations sur la configuration d’Azure Active Directory, reportez-vous à la section des [conseils et des recommandations](#guidance-and-recommendations).
 
@@ -46,7 +46,7 @@ Cette solution utilise les services Azure suivants. Pour plus d’informations, 
     - Pare-feu d’application web
         - Mode de pare-feu : prévention
         - Ensemble de règles : OWASP
-        - Port d'écoute : 443
+        - Port de l’écouteur : 443
 - Application Insights
 - Azure Active Directory
 - Azure Application Service Environment v2
@@ -59,7 +59,7 @@ Cette solution utilise les services Azure suivants. Pour plus d’informations, 
 - Azure Security Center
 - Azure SQL Database
 - Stockage Azure
-- Azure Log Analytics
+- Journaux Azure Monitor
 - Réseau virtuel Azure
     - (1) /16 réseau
     - (4) /24 réseaux
@@ -114,7 +114,7 @@ L’architecture définit un réseau privé virtuel avec l’espace d’adressag
 Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts pour que la solution fonctionne correctement et de manière sécurisée. Par ailleurs, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
 
   - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
-  - Azure Log Analytics est connecté aux [diagnostics du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Journaux d’Azure Monitor est connecté à la [les diagnostics du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Sous-réseaux** : chaque sous-réseau est associé au groupe de sécurité réseau qui lui correspond.
 
@@ -127,7 +127,7 @@ Par défaut, Azure chiffre toutes les communications avec les centres de donnée
 
 Pour les données « Protected » (Protégé) en transit depuis des réseaux détenus par le client, l’architecture utilise Internet ou ExpressRoute avec une passerelle VPN configurée pour IPSec.
 
-De plus, toutes les transactions sur Azure via le portail de gestion Azure se font via HTTPS avec TLS v1.2.
+En outre, toutes les transactions vers Azure via le portail de gestion Azure se produisent via HTTPS utilisant TLS v1.2.
 
 ### <a name="data-at-rest"></a>Données au repos
 L’architecture protège les données au repos à l’aide d’un chiffrement, d’un audit de base de données et d’autres mesures.
@@ -189,9 +189,9 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 - **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
 - **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux générés par chaque ressource. Ils incluent les journaux des événements système de Windows, les journaux de Stockage Azure, les journaux d’audit du Key Vault, ainsi que les journaux de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise.
 
-**Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois collectées, les données sont organisées en différentes tables en fonction du type de données. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
+**Journaux Azure Monitor** : Ces journaux sont consolidés dans [Azure Monitor enregistre](https://azure.microsoft.com/services/log-analytics/) pour le traitement, le stockage et la création de rapports de tableau de bord. Une fois collectées, les données sont organisées dans différents tableaux en fonction du type de données. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. En outre, Azure Security Center s’intègre avec les journaux Azure Monitor permet aux clients d’utiliser des requêtes de Kusto pour accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
 
-Les [solutions de gestion](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Log Analytics suivantes sont également incluses dans cette architecture :
+Azure suivant [solutions de surveillance](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) sont inclus dans le cadre de cette architecture :
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : cette solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas ou qui envoient des données opérationnelles.

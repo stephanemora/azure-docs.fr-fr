@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099795"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gérer les problèmes de protection du point de terminaison avec Azure Security Center
 Azure Security Center surveille l’état de protection des logiciels anti-programme malveillant et l’indique dans le panneau Endpoint protection issues (Problèmes de protection du point de terminaison). Security Center met en évidence les problèmes, tels que les menaces détectées et une protection insuffisante, qui peuvent rendre vos machines virtuelles et ordinateurs vulnérables aux menaces des logiciels anti-programme malveillant. En utilisant les informations dans **Endpoint protection issues** (Problèmes de protection du point de terminaison), vous pouvez déterminer un plan pour résoudre les problèmes identifiés.
@@ -30,15 +30,15 @@ Security Center signale les problèmes de protection du point de terminaison sui
 - Endpoint protection not installed on non-Azure computers (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure) : un logiciel anti-programme malveillant pris en charge n’est pas installé sur ces ordinateurs autres qu’Azure.
 - Intégrité de la protection du point de terminaison :
 
-   - Signature obsolète : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle ne dispose pas des dernières signatures de logiciels anti-programme malveillant.
-   - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel.   Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-partner-integration.md) pour obtenir la liste de solutions prises en charge.
-   - Pas de rapport : une solution anti-programme malveillant est installée, mais ne crée pas de rapport de données.
-   - Inconnu : une solution anti-programme malveillant est installée, mais son état est inconnu ou signale une erreur inconnue.
+  - Signature obsolète : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle ne dispose pas des dernières signatures de logiciels anti-programme malveillant.
+  - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel.   Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-partner-integration.md) pour obtenir la liste de solutions prises en charge.
+  - Pas de rapport : une solution anti-programme malveillant est installée, mais ne crée pas de rapport de données.
+  - Inconnu : une solution anti-programme malveillant est installée, mais son état est inconnu ou signale une erreur inconnue.
 
-   > [!NOTE]
-   > Consultez [Intégrer des solutions de sécurité](security-center-partner-integration.md#integrated-azure-security-solutions) pour obtenir la liste des solutions de sécurité de protection de point de terminaison intégrées à Security Center.
-   >
-   >
+    > [!NOTE]
+    > Consultez [Intégrer des solutions de sécurité](security-center-partner-integration.md#integrated-azure-security-solutions) pour obtenir la liste des solutions de sécurité de protection de point de terminaison intégrées à Security Center.
+    >
+    >
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 Les problèmes de protection du point de terminaison sont présentés sous forme de recommandations dans Security Center.  Si votre environnement est vulnérable aux menaces de logiciels anti-programme malveillant, cette recommandation s’affichera dans **Recommandations** et dans **Calcul**. Pour consulter le **tableau de bord Endpoint protection issues** (Problèmes de protection du point de terminaison), vous devez suivre le flux de travail Calcul.
@@ -60,7 +60,7 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
    - Installed endpoint protection providers (Fournisseurs de protection du point de terminaison installé) : répertorie les différents fournisseurs identifiés par Security Center.
    - Installed endpoint protection health state (État d’intégrité de protection du point de terminaison installé) : affiche l’état d’intégrité des machines virtuelles et des ordinateurs ayant une solution de protection du point de terminaison installée. Le graphique montre le nombre de machines virtuelles et d’ordinateurs sains et le nombre de machines virtuelles et d’ordinateurs ayant une protection insuffisante.
    - Programmes malveillants détectés : affiche le nombre de machines virtuelles et d’ordinateurs pour lesquels Security Center a détecté un programme malveillant.
-   - Attacked computers (Ordinateurs attaqués) : affiche le nombre de machines virtuelles et d’ordinateurs pour lesquels Security Center signale des attaques par des programmes malveillants.
+   - Ordinateurs attaqués – indique le nombre de machines virtuelles et les ordinateurs où Security Center signale des attaques par des logiciels malveillants.
 
    Une liste des problèmes de protection du point de terminaison se trouve dans la partie inférieure du tableau de bord. Elle comprend les informations suivantes :  
 
@@ -84,13 +84,13 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
 
    ![Sélectionner Endpoint protection not installed on non-Azure computers (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure)][4]
 
-2. Dans **Endpoint protection not installed on non-Azure computers** (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure), sélectionnez un espace de travail. Une requête de recherche Log Analytics filtrée sur l’espace de travail s’ouvre et répertorie les ordinateurs n’ayant pas de logiciel anti-programme malveillant installé. Sélectionnez un ordinateur dans la liste pour plus d’informations.
+2. Dans **Endpoint protection not installed on non-Azure computers** (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure), sélectionnez un espace de travail. Une requête de recherche de journaux Azure Monitor filtrée à l’espace de travail s’ouvre et répertorie les ordinateurs sans logiciel anti-programme malveillant. Sélectionnez un ordinateur dans la liste pour plus d’informations.
 
-   ![Recherche Log Analytics][5]
+   ![Recherche de journaux de Azure Monitor][5]
 
 Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
 
-  ![Recherche Log Analytics][6]
+  ![Recherche de journaux de Azure Monitor][6]
 
 > [!NOTE]
 > Nous recommandons l’approvisionnement de la protection du point de terminaison pour toutes les machines virtuelles Windows, afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants.

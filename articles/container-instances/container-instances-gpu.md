@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755017"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533593"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
 
@@ -28,15 +28,7 @@ Comme indiqué dans cet article, vous pouvez ajouter des ressources GPU lorsque 
 
 Dans la préversion, les limites suivantes s’appliquent lors de l’utilisation de ressources GPU dans les groupes de conteneurs. 
 
-**Régions prises en charge** :
-
-* USA Est (eastus)
-* USA Ouest 2 (westus2)
-* USA Centre Sud (southcentralus)
-* Europe Ouest (Europe occidentale)
-* Europe Nord (Europe du Nord)
-* Asie Est (eastasia)
-* Inde Centre (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 D’autres régions seront également prises en charge au fil du temps.
 
@@ -59,21 +51,9 @@ Pour utiliser des GPU dans une instance de conteneur, vous devez spécifier une 
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### <a name="cpu-and-memory"></a>Processeur et mémoire
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Lors du déploiement des ressources GPU, définissez des ressources UC et mémoire appropriées pour la charge de travail, jusqu’aux valeurs maximales indiquées dans le tableau suivant. Ces valeurs sont actuellement supérieures aux limites de l’UC et de la mémoire dans les instances de conteneur sans ressources GPU.  
-
-| RÉFÉRENCE SKU DE GPU | Nombre de GPU | UC |  Mémoire (Go) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6. | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6. | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6. | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+Lors du déploiement des ressources GPU, définir des ressources processeur et mémoire appropriées pour la charge de travail, jusqu'à les valeurs maximales indiqué dans le tableau précédent. Ces valeurs sont actuellement plus de ressources de processeur et mémoire disponibles dans les groupes de conteneur sans ressources GPU.  
 
 ### <a name="things-to-know"></a>À savoir
 
@@ -85,6 +65,10 @@ Lors du déploiement des ressources GPU, définissez des ressources UC et mémoi
 
 * **Pilotes CUDA** : les instances de conteneur avec ressources GPU sont préconfigurées avec des pilotes NVIDIA CUDA et des runtimes de conteneur. Vous pouvez donc utiliser des images de conteneur développées pour les charges de travail CUDA.
 
+  Nous prenons en charge CUDA 9.0 à ce stade. Par exemple, vous pouvez utiliser suivant des images de base pour votre fichier Docker :
+  * [NVIDIA/CUDA:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow : 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## <a name="yaml-example"></a>Exemple YAML
 
 Une façon d’ajouter des ressources GPU est de déployer un groupe de conteneurs en utilisant un [fichier YAML](container-instances-multi-container-yaml.md). Copiez le YAML suivant dans un nouveau fichier nommé *gpu-deploy-aci.yaml*, puis enregistrez le fichier. Ce YAML crée un groupe de conteneurs nommé *gpucontainergroup* et spécifie une instance de conteneur avec un GPU K80. L’instance exécute un exemple d’application d’ajout de vecteur CUDA. Les requêtes de ressources sont suffisantes pour exécuter la charge de travail.

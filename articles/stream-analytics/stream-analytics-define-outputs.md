@@ -9,19 +9,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898871"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les différents types de sorties disponibles pour un travail Azure Stream Analytics. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. Vous pouvez utiliser ces données pour aller plus loin dans l’analyse marketing et l’entreposage de vos données.
 
 Lorsque vous concevez votre requête Stream Analytics, faites référence au nom de la sortie à l’aide de la [clause INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Vous pouvez utiliser une seule sortie par travail, ou si nécessaire plusieurs sorties par travail de diffusion en continu en ajoutant plusieurs clauses INTO dans la requête.
 
-Pour créer, modifier et tester des sorties de travaux Stream Analytics, vous pouvez utiliser le [Portail Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [l’API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [l’API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) et [Visual Studio](stream-analytics-quick-create-vs.md).
+Pour créer, modifier et tester le travail d’Analytique de Stream génère, vous pouvez utiliser la [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), et [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Certains types de sorties prennent en charge le [partitionnement](#partitioning), et les [tailles de lots de sortie](#output-batch-size) varient afin d’optimiser le débit.
 
@@ -56,7 +56,7 @@ La sortie Azure Data Lake Store de Stream Analytics n’est pas disponible dans 
 | Format | Applicable uniquement pour la sérialisation JSON. L’expression « Séparé par une ligne » indique que la sortie sera mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme « Tableau » indique que la sortie sera mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque le travail s’arrête ou que Stream Analytics est passé à la période suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit.|
 
 ### <a name="renew-data-lake-store-authorization"></a>Renouveler une autorisation Data Lake Store
-Vous devez authentifier de nouveau votre compte Data Lake Store si son mot de passe a été modifié depuis la création ou la dernière authentification de votre travail. Si vous ne réauthentifiez pas votre compte, votre travail ne produira pas de résultats en sortie et affichera une erreur indiquant qu’une nouvelle autorisation est nécessaire dans les journaux des opérations. Il existe actuellement une limitation selon laquelle le jeton d’authentification doit être actualisé manuellement tous les 90 jours pour tous les travaux impliquant une sortie Data Lake Store.
+Vous devez authentifier de nouveau votre compte Data Lake Store si son mot de passe a été modifié depuis la création ou la dernière authentification de votre travail. Si vous ne réauthentifiez pas votre compte, votre travail ne produira pas de résultats en sortie et affichera une erreur indiquant qu’une nouvelle autorisation est nécessaire dans les journaux des opérations. Il existe actuellement une limitation selon laquelle le jeton d’authentification doit être actualisé manuellement tous les 90 jours pour tous les travaux impliquant une sortie Data Lake Store. Toutefois, vous pouvez contourner cette difficulté en [authentifie à l’aide de managed identités (version préliminaire)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
 
 Pour renouveler l’autorisation, **Arrêtez** votre travail > accédez à votre sortie Data Lake Store > cliquez sur le lien **Renouveler l’autorisation**. Pendant un bref instant, une page s’affiche avec le message suivant : **Redirection vers l’autorisation en cours...**. Elle se ferme automatiquement et indique le message suivant : **L’autorisation a été renouvelée** si l’opération a réussi. Vous devez ensuite cliquer sur **Enregistrer** en bas de la page, puis redémarrer votre travail à partir de **l’heure du dernier arrêt** pour éviter une perte de données.
 
@@ -169,7 +169,7 @@ Azure Stream Analytics met à jour le modèle de données dynamiquement lors de 
 Ce tableau décrit les conversions de types de données des [types de données Steam Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) vers les [types Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) de Power Bi si un jeu de données et une table POWER BI n’existent pas.
 
 De Stream Analytics | Vers Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | Chaîne
 Datetime | DateTime
@@ -186,7 +186,7 @@ Précédent/Actuel | Int64 | Chaîne | DateTime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Chaîne | Chaîne | Double
 Double | Double | Chaîne | Chaîne | Double
-Chaîne | Chaîne | Chaîne | Chaîne |  | Chaîne |
+Chaîne | Chaîne | Chaîne | Chaîne | Chaîne 
 DateTime | Chaîne | Chaîne |  DateTime | Chaîne
 
 
@@ -261,6 +261,7 @@ La sortie Azure Cosmos DB de Stream Analytics n’est pas disponible dans les r�
 > Les autres API Azure Cosmos DB ne sont pas encore prises en charge. Si vous pointez Azure Stream Analytics vers les comptes Azure Cosmos DB créés avec d'autres API, les données risquent de ne pas être correctement stockées.
 
 Le tableau suivant décrit les propriétés de création d’une sortie Azure Cosmos DB.
+
 | Nom de la propriété | description |
 | --- | --- |
 | Alias de sortie | Alias référençant cette sortie dans votre requête Stream Analytics. |
@@ -331,7 +332,7 @@ Le tableau suivant expose certaines considérations relatives au traitement par 
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-
+> 
 > [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

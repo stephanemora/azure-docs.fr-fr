@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 6f55491ba7d422b19b3ee9db8b9ee804b920e422
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983835"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119766"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Utiliser des outils à distance pour résoudre les problèmes de machine virtuelle Azure
 
@@ -172,14 +172,14 @@ Exécutez la commande suivante, en fonction de l’emplacement de l’ordinateur
 
 * En dehors du réseau virtuel ou du déploiement
 
-    * Pour une machine virtuelle classique, exécutez la commande suivante :
+  * Pour une machine virtuelle classique, exécutez la commande suivante :
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * Pour une machine virtuelle ARM, ajoutez d’abord un nom DNS à l’adresse IP publique. Pour obtenir des étapes détaillées, consultez [Créer un nom de domaine complet dans le portail Azure pour une machine virtuelle Windows](../windows/portal-create-fqdn.md). Exécutez ensuite la commande suivante :
+  * Pour une machine virtuelle ARM, ajoutez d’abord un nom DNS à l’adresse IP publique. Pour obtenir des étapes détaillées, consultez [Créer un nom de domaine complet dans le portail Azure pour une machine virtuelle Windows](../windows/portal-create-fqdn.md). Exécutez ensuite la commande suivante :
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

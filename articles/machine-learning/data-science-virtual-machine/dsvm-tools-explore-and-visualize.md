@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a243ac45ce29ae824c8f38036d4387da3b1cff8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855484"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Outils d’exploration et de visualisation de données sur la machine virtuelle DSVM
 
@@ -43,7 +43,7 @@ Une étape clé de la science des données consiste à comprendre les données. 
 | Éditions DSVM prises en charge     | Windows, Linux     |
 | Utilisations classiques      | Outil ML général     |
 | Comment l’utiliser/l’exécuter ?      | Sur Windows, recherchez Weka dans le menu Démarrer. Sur Linux, connectez-vous avec X2Go, puis accédez à Applications -> Développement -> Weka. |
-| Liens vers des exemples      | [Exemples Weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Liens vers des exemples      | [Exemples Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Outils connexes sur la machine virtuelle DSVM      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle
@@ -60,7 +60,7 @@ Une étape clé de la science des données consiste à comprendre les données. 
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil de décisionnel et de visualisation interactive des données    |
-| Versions DSVM prises en charge      |  Windows  |
+| Versions DSVM prises en charge      | Windows  |
 | Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |

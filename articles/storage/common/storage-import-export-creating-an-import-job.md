@@ -8,52 +8,52 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102177"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Création d’un travail d’importation pour le service Azure Import/Export
 
 La création d’un travail d’importation pour le service Microsoft Azure Import/Export à l’aide de l’API REST implique les étapes suivantes :
 
--   Préparation des disques avec l’outil Azure Import/Export.
+- Préparation des disques avec l’outil Azure Import/Export.
 
--   Obtention de l’emplacement vers lequel expédier le disque.
+- Obtention de l’emplacement vers lequel expédier le disque.
 
--   Création du travail d’importation.
+- Création du travail d’importation.
 
--   Expédition des disques à Microsoft via un service de transport pris en charge.
+- Expédition des disques à Microsoft via un service de transport pris en charge.
 
--   Mise à jour du travail d’importation avec les informations d’expédition.
+- Mise à jour du travail d’importation avec les informations d’expédition.
 
- Consultez [Transfert de données vers le Stockage Blob à l’aide du service Microsoft Azure Import/Export](storage-import-export-service.md) pour obtenir une présentation du service Import/Export et un didacticiel qui explique comment utiliser le [portail Azure](https://portal.azure.com/) pour créer et gérer les travaux d’importation et d’exportation.
+  Consultez [Transfert de données vers le Stockage Blob à l’aide du service Microsoft Azure Import/Export](storage-import-export-service.md) pour obtenir une présentation du service Import/Export et un didacticiel qui explique comment utiliser le [portail Azure](https://portal.azure.com/) pour créer et gérer les travaux d’importation et d’exportation.
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Préparation des disques avec l’outil Azure Import/Export
 
-Les étapes de préparation des disques pour un travail d’importation sont identiques si vous créez un travail à l’aide du portail ou de l’API REST.
+Les étapes pour préparer des disques pour un travail d’importation sont identiques si vous créez la tâche via le portail ou via l’API REST.
 
 Voici une brève présentation de la préparation du disque. Consultez la [référence sur l’outil Azure Import/Export](storage-import-export-tool-how-to-v1.md) pour obtenir des instructions complètes. Vous pouvez télécharger l’outil Azure Import/Export [ici](https://go.microsoft.com/fwlink/?LinkID=301900).
 
 La préparation de votre disque implique :
 
--   L’identification des données à importer.
+- L’identification des données à importer.
 
--   L’identification des objets blob de destination dans le stockage Windows Azure.
+- L’identification des objets blob de destination dans le stockage Windows Azure.
 
--   L’utilisation de l’outil Azure Import/Export pour copier vos données sur un ou plusieurs disques durs.
+- L’utilisation de l’outil Azure Import/Export pour copier vos données sur un ou plusieurs disques durs.
 
- L’outil Azure Import/Export génère également un fichier de manifeste pour chaque disque au cours de sa préparation. Un fichier de manifeste contient les éléments suivants :
+  L’outil Azure Import/Export génère également un fichier de manifeste pour chaque disque au cours de sa préparation. Un fichier de manifeste contient les éléments suivants :
 
--   Une énumération de tous les fichiers destinés au téléchargement et les mappages de ces fichiers vers les objets blob.
+- Une énumération de tous les fichiers destinés au téléchargement et les mappages de ces fichiers vers les objets blob.
 
--   Les sommes de contrôle des segments de chaque fichier.
+- Les sommes de contrôle des segments de chaque fichier.
 
--   Des informations sur les métadonnées et les propriétés à associer à chaque objet blob.
+- Des informations sur les métadonnées et les propriétés à associer à chaque objet blob.
 
--   Une liste d’actions à entreprendre si un objet blob qui est en cours de téléchargement a le même nom qu’un objet blob existant dans le conteneur. Les options possibles sont : a) remplacer l’objet blob par le fichier, b) conserver l’objet blob existant et ignorer le téléchargement du fichier, c) ajouter un suffixe au nom afin qu’il n’entre pas en conflit avec d’autres fichiers.
+- Une liste d’actions à entreprendre si un objet blob qui est en cours de téléchargement a le même nom qu’un objet blob existant dans le conteneur. Les options possibles sont : a) remplacer l’objet blob par le fichier, b) conserver l’objet blob existant et ignorer le téléchargement du fichier, c) ajouter un suffixe au nom afin qu’il n’entre pas en conflit avec d’autres fichiers.
 
 ## <a name="obtaining-your-shipping-location"></a>Obtention de votre emplacement d’expédition
 

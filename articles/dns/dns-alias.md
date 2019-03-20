@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105054"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Vue d’ensemble des enregistrements d’alias Azure DNS
 
@@ -58,7 +58,7 @@ Cette restriction pose un problème aux propriétaires d'applications qui dispos
 
 Ce problème peut être résolu en utilisant des enregistrements d'alias. Contrairement aux enregistrements CNAME, les enregistrements d'alias peuvent être créés à l'extrémité de la zone, et les propriétaires d'applications peuvent s'en servir pour pointer un enregistrement situé à l'extrémité de la zone vers un profil Traffic Manager doté de points de terminaison externes. Les propriétaires d’applications peuvent pointer vers le même profil Traffic Manager que celui utilisé pour tout autre domaine dans leur zone DNS.
 
-Par exemple, contoso.com et www.contoso.com peuvent pointer vers le même profil Traffic Manager. Pour en savoir plus sur l'utilisation des enregistrements d'alias avec les profils Azure Traffic Manager, consultez la section Étapes suivantes.
+Par exemple, contoso.com et www\.contoso.com peut pointer vers le même profil Traffic Manager. Pour en savoir plus sur l'utilisation des enregistrements d'alias avec les profils Azure Traffic Manager, consultez la section Étapes suivantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112600"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Types d’adresses IP et méthodes d’allocation (classiques) dans Azure
 Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer avec d’autres ressources Azure, votre réseau local et Internet. Les adresses IP que vous pouvez utiliser dans Azure sont de deux types : publiques et privées.
@@ -165,13 +165,13 @@ Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager 
 |  | Ressource | Classique | Gestionnaire de ressources |
 | --- | --- | --- | --- |
 | **Adresse IP publique** |***Machine virtuelle*** |Appelée adresse ILPIP (dynamique uniquement) |Appelée adresse IP publique (dynamique ou statique) |
-|  ||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS |Associée à la carte réseau de la machine virtuelle | |
-|  |***Équilibreur de charge accessible sur Internet*** |Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique) |Appelée adresse IP publique (dynamique ou statique) | |
-|  ||Affectée à un service cloud |Associée à la configuration frontale de l’équilibreur de charge | |
+|  ||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS |Associée à la carte réseau de la machine virtuelle |
+|  |***Équilibreur de charge accessible sur Internet*** |Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique) |Appelée adresse IP publique (dynamique ou statique) |
+|  ||Affectée à un service cloud |Associée à la configuration frontale de l’équilibreur de charge |
 |  | | | |
 | **Adresse IP privée** |***Machine virtuelle*** |Appelée adresse IP dédiée |Appelée adresse IP privée |
-|  ||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS |Affectée à la carte réseau de la machine virtuelle | |
-|  |***Équilibreur de charge interne*** |Affectée à l’équilibreur de charge interne (dynamique ou statique) |Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique) | |
+|  ||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS |Affectée à la carte réseau de la machine virtuelle |
+|  |***Équilibreur de charge interne*** |Affectée à l’équilibreur de charge interne (dynamique ou statique) |Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployer une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-classic-pportal.md) à l’aide du portail Azure.

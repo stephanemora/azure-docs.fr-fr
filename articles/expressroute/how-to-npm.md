@@ -8,16 +8,18 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098576"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118627"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
-Cet article vous permet de configurer une extension Network Performance Monitor pour superviser ExpressRoute. Network Performance Monitor (NPM) est une solution de surveillance réseau basée sur le cloud, qui surveille la connectivité entre les déploiements cloud Azure et les déploiements locaux (succursales, etc.). NPM fait partie de Log Analytics. NPM offre une extension pour ExpressRoute, qui vous permet de surveiller les performances réseau sur des circuits ExpressRoute configurés pour utiliser l’appairage privé ou l’appairage Microsoft. Lorsque vous configurez NPM pour ExpressRoute, vous pouvez détecter les problèmes de réseau pour les identifier et les éliminer. Ce service est également disponible pour le cloud Azure Government.
+Cet article vous permet de configurer une extension Network Performance Monitor pour superviser ExpressRoute. Network Performance Monitor (NPM) est une solution de surveillance réseau basée sur le cloud, qui surveille la connectivité entre les déploiements cloud Azure et les déploiements locaux (succursales, etc.). NPM fait partie des journaux d’Azure Monitor. NPM offre une extension pour ExpressRoute, qui vous permet de surveiller les performances réseau sur des circuits ExpressRoute configurés pour utiliser l’appairage privé ou l’appairage Microsoft. Lorsque vous configurez NPM pour ExpressRoute, vous pouvez détecter les problèmes de réseau pour les identifier et les éliminer. Ce service est également disponible pour le cloud Azure Government.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Vous pouvez :
 
@@ -58,19 +60,19 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 
    ![portail](./media/how-to-npm/3.png)<br><br>
 2. En bas de la page **Network Performance Monitor**, cliquez sur **Créer** pour ouvrir la page **Network Performance Monitor - Créer une solution**. Cliquez sur **Espace de travail Log Analytics - Sélectionner un espace de travail** pour ouvrir la page Espaces de travail. Cliquez sur **+ Créer un espace de travail** pour ouvrir la page Espaces de travail.
-3. Dans la page **Espace de travail Log Analytics**, sélectionnez **Créer**, puis configurez les paramètres suivants :
+3. Sur le **espace de travail Analytique de journal** page, sélectionnez **créer un nouveau**, puis configurez les paramètres suivants :
 
-  * Espace de travail Log Analytics : entrez un nom pour votre espace de travail.
-  * Abonnement : si vous possédez plusieurs abonnements, choisissez celui que vous souhaitez associer au nouvel espace de travail.
-  * Groupe de ressources : créez un groupe de ressources ou utilisez un groupe existant.
-  * Emplacement : cet emplacement est utilisé pour spécifier l’emplacement du compte de stockage qui est utilisé pour les journaux de connexion de l’agent.
-  * Niveau tarifaire : sélectionnez le niveau tarifaire.
+   * Espace de travail Log Analytics : entrez un nom pour votre espace de travail.
+   * Abonnement : si vous possédez plusieurs abonnements, choisissez celui que vous souhaitez associer au nouvel espace de travail.
+   * Groupe de ressources : créez un groupe de ressources ou utilisez un groupe existant.
+   * Emplacement : cet emplacement est utilisé pour spécifier l’emplacement du compte de stockage qui est utilisé pour les journaux de connexion de l’agent.
+   * Niveau tarifaire : sélectionnez le niveau tarifaire.
   
-    >[!NOTE]
-    >Le circuit ExpressRoute peut être n’importe où dans le monde. Il ne doit pas nécessairement se trouver dans la même région que l’espace de travail.
-    >
+     >[!NOTE]
+     >Le circuit ExpressRoute peut être n’importe où dans le monde. Il ne doit pas nécessairement se trouver dans la même région que l’espace de travail.
+     >
   
-    ![espace de travail](./media/how-to-npm/4.png)<br><br>
+     ![espace de travail](./media/how-to-npm/4.png)<br><br>
 4. Cliquez sur **OK** pour enregistrer et déployer le modèle de paramètres. Une fois le modèle validé, cliquez sur **Créer** pour déployer l’espace de travail.
 5. Une fois l’espace de travail déployé, accédez à la ressource **NetworkMonitoring(name)** que vous avez créée. Validez les paramètres, puis cliquez sur **La solution nécessite une configuration supplémentaire**.
 
@@ -84,7 +86,7 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 2. Ensuite, copiez et collez **l’ID d’espace de travail** et la **clé primaire** dans le bloc-notes.
 3. Dans la section **Configurer les agents Log Analytics pour le monitoring avec le protocole TCP**, téléchargez le script PowerShell. Le script PowerShell vous permet d’ouvrir le port de pare-feu approprié pour les transactions TCP.
 
-  ![Script PowerShell](./media/how-to-npm/7.png)
+   ![Script PowerShell](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2 : Installer un agent de supervision sur chaque serveur de supervision (sur chaque réseau virtuel que vous voulez superviser)
 
@@ -98,20 +100,20 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
 2. Sur la page d’**accueil**, cliquez sur **Suivant**.
 3. Sur la page **Termes du contrat de licence**, lisez les conditions de licence, puis cliquez sur **J’accepte**.
 4. Sur la page **Dossier de destination**, modifiez ou conservez le dossier d’installation par défaut, puis cliquez sur **Suivant**.
-5. Sur la page **Options d’installation de l’agent**, vous pouvez choisir de connecter l’agent à Azure Log Analytics ou Operations Manager. Ou bien, vous pouvez ne rien choisir si vous souhaitez configurer l’agent ultérieurement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
+5. Sur le **Options d’installation de l’Agent** page, vous pouvez choisir de connecter l’agent pour les journaux Azure Monitor ou Operations Manager. Ou bien, vous pouvez ne rien choisir si vous souhaitez configurer l’agent ultérieurement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
 
-  * Si vous choisissez de vous connecter à **Azure Log Analytics**, collez **l’ID de l’espace de travail** et la **Clé de l’espace de travail** (clé primaire) que vous avez copiés dans le bloc-notes de la section précédente. Cliquez ensuite sur **Suivant**.
+   * Si vous choisissez de vous connecter à **Azure Log Analytics**, collez **l’ID de l’espace de travail** et la **Clé de l’espace de travail** (clé primaire) que vous avez copiés dans le bloc-notes de la section précédente. Cliquez ensuite sur **Suivant**.
 
-    ![ID et clé](./media/how-to-npm/8.png)
-  * Si vous choisissez de vous connecter à **Operations Manager**, sur la page **Configuration du groupe d’administration**, saisissez le **nom du groupe d’administration**, le **serveur d’administration** et le **port du serveur d’administration**. Cliquez ensuite sur **Suivant**.
+     ![ID et clé](./media/how-to-npm/8.png)
+   * Si vous choisissez de vous connecter à **Operations Manager**, sur la page **Configuration du groupe d’administration**, saisissez le **nom du groupe d’administration**, le **serveur d’administration** et le **port du serveur d’administration**. Cliquez ensuite sur **Suivant**.
 
-    ![Operations Manager](./media/how-to-npm/9.png)
-  * Sur la page **Compte d’action d’agent**, choisissez le compte **système local** ou un **compte d’ordinateur de domaine ou local**. Cliquez ensuite sur **Suivant**.
+     ![Operations Manager](./media/how-to-npm/9.png)
+   * Sur la page **Compte d’action d’agent**, choisissez le compte **système local** ou un **compte d’ordinateur de domaine ou local**. Cliquez ensuite sur **Suivant**.
 
-    ![Compte](./media/how-to-npm/10.png)
+     ![Compte](./media/how-to-npm/10.png)
 6. Dans la page **Prêt pour l’installation**, passez en revue vos choix, puis cliquez sur **Installer**.
 7. Dans la page **Configuration effectuée**, cliquez sur **Terminer**.
-8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté à Azure Log Analytics. Quand il est connecté, l’agent affiche un message indiquant : **Microsoft Monitoring Agent s’est connecté au service Microsoft Operations Management Suite**.
+8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez contrôler votre configuration et vérifiez que l’agent est connecté aux journaux d’Azure Monitor. Quand il est connecté, l’agent affiche un message indiquant : **Microsoft Monitoring Agent s’est connecté au service Microsoft Operations Management Suite**.
 
 9. Répétez cette procédure pour chaque réseau virtuel dont vous voulez effectuer la surveillance.
 
@@ -126,7 +128,7 @@ Pour configurer les paramètres de proxy de Microsoft Monitoring Agent dans le P
 3. Cliquez sur l'onglet **Paramètres de proxy** .
 4. Sélectionnez **Utiliser un serveur proxy** et tapez l’URL et le numéro de port, si nécessaire. Si votre serveur proxy requiert une authentification, tapez le nom d'utilisateur et le mot de passe pour accéder au serveur proxy.
 
-  ![proxy](./media/how-to-npm/11.png)
+   ![proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4 : Vérifier la connectivité de l’agent
 
@@ -135,9 +137,9 @@ Vous pouvez facilement vérifier si vos agents communiquent.
 1. Sur un serveur avec l’agent de surveillance, ouvrez le **Panneau de configuration**.
 2. Ouvrez **Microsoft Monitoring Agent**.
 3. Cliquez sur l’onglet **Azure Log Analytics**.
-4. Dans la colonne **État**, vous devez voir que l’agent est correctement connecté à Log Analytics.
+4. Dans le **état** colonne, vous devez voir que l’agent est correctement connecté aux journaux d’Azure Monitor.
 
-  ![status](./media/how-to-npm/12.png)
+   ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5 : Ouvrir les ports de pare-feu sur les serveurs de l’agent de supervision
 
@@ -170,16 +172,16 @@ Pour plus d’informations concernant le groupe de sécurité réseau, consultez
 
 1. Accédez à la vignette de la vue d’ensemble Network Performance Monitor en vous rendant sur la page **All Resources** (Toutes les ressources), puis en cliquant sur l’espace de travail NPM mis sur liste verte.
 
-  ![espace de travail npm](./media/how-to-npm/npm.png)
+   ![espace de travail npm](./media/how-to-npm/npm.png)
 2. Cliquez sur la vignette de vue d’ensemble **Network Performance Monitor** pour afficher le tableau de bord. Le tableau de bord contient une page ExpressRoute, qui montre que ExpressRoute est dans un état « non configuré ». Cliquez sur **Installation de la fonctionnalité** pour ouvrir la page de configuration de Network Performance Monitor.
 
-  ![installation de fonctionnalité](./media/how-to-npm/npm2.png)
+   ![installation de fonctionnalité](./media/how-to-npm/npm2.png)
 3. Sur la page de configuration, accédez à l’onglet « Appairages ExpressRoute » situé dans le panneau de gauche. Cliquez ensuite sur **Découvrir maintenant**.
 
-  ![détecter](./media/how-to-npm/13.png)
+   ![détecter](./media/how-to-npm/13.png)
 4. Une fois la détection terminée, vous verrez une liste contenant les éléments suivants :
-  * Toutes les connexions d’appairage Microsoft dans le ou les circuits ExpressRoute associés à cet abonnement.
-  * Toutes les connexions d’appairage privé qui se connectent aux réseaux virtuels associés à cet abonnement.
+   * Toutes les connexions d’appairage Microsoft dans le ou les circuits ExpressRoute associés à cet abonnement.
+   * Toutes les connexions d’appairage privé qui se connectent aux réseaux virtuels associés à cet abonnement.
             
 ## <a name="configmonitor"></a>Étape 5 : Configurer les moniteurs
 

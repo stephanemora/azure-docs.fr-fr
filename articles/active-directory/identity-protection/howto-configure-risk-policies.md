@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197536"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015138"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procédure : Configurer les stratégies en matière de risque dans Azure Active Directory Identity Protection (version actualisée)
 
@@ -31,6 +31,8 @@ Azure AD détecte les événements à risque indiquant des identités potentiell
 
 - Avec la stratégie de risque à la connexion, vous pouvez configurer une réponse à apporter à des événements à risque en temps réel détectés lors d'une connexion de l'utilisateur. 
 - Avec la stratégie de risque de l'utilisateur, vous pouvez configurer une réponse à apporter à tous les risques de l'utilisateur actif détectés au fil du temps.  
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>Qu’est-ce que la stratégie de connexion à risque ?

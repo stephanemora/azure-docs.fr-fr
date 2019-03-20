@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5fe4161c688570cc3adaacc79a0dd1fe38460142
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
-ms.translationtype: MT
+ms.openlocfilehash: 75e85ae15ded81faf372ba018829a185e8badd60
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58118899"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224615"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -139,7 +139,7 @@ Configurez la sauvegarde de la façon suivante :
 
 4. Cliquez sur **OK** pour ouvrir le **stratégie de sauvegarde** panneau.
 
-    ![Désactiver la protection automatique sur cette instance](./media/backup-azure-sql-database/disable-auto-protection.png)
+    ![Activer la protection automatique sur le groupe de disponibilité Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
 5. Dans **choisir une stratégie de sauvegarde**, sélectionnez une stratégie, puis cliquez sur **OK**.
 
@@ -233,12 +233,13 @@ Dans le tableau de bord du coffre, accédez à **gérer** > **stratégies de sau
 
 ## <a name="enable-auto-protection"></a>Activer la protection automatique  
 
-Activez la protection automatique pour sauvegarder systématiquement toutes les bases de données existantes, ainsi que toutes les bases de données ajoutées ultérieurement à une instance SQL Server autonome ou à un groupe de disponibilité SQL Server Always On.
+Activer la protection automatique sauvegarder automatiquement toutes les bases de données et qui seront ajoutés à l’avenir à une instance de SQL Server autonome ou un SQL Server AlwaysOn sur le groupe de disponibilité.
 
-  - Lorsque vous activez la protection automatique et que vous sélectionnez une stratégie, les bases de données existantes qui sont protégées continuent d’utiliser la stratégie précédente.
-  - Il n’existe aucune limite sur le nombre de bases de données que vous pouvez sélectionner pour la protection automatique d’un coup.
+- Il n’existe aucune limite sur le nombre de bases de données que vous pouvez sélectionner pour la protection automatique d’un coup.
+- Vous ne pouvez pas protéger ou exclure des bases de données de la protection dans une instance au moment de l’activation de la protection automatique de manière sélective.
+- Si votre instance comprend déjà certaines bases de données protégées, elles continuent à être protégées par leurs politiques même après avoir activé la protection automatique. Toutefois, les bases de données qui seront ajoutés à l’avenir et toutes les bases de données non protégées aura qu’une seule stratégie que vous définissez au moment de l’activation de la protection automatique, sous **configurer la sauvegarde**. Toutefois, vous pouvez modifier la stratégie associée à une base de données protégée automatiquement plus tard.  
 
-Activez la protection automatique de la façon suivante :
+Étapes pour activer la protection automatique sont les suivantes :
 
   1. Dans **Éléments à sauvegarder**, sélectionnez l’instance pour laquelle vous souhaitez activer la protection automatique.
   2. Sélectionnez la flèche déroulante sous **Protection automatique** et définissez sa valeur sur **Active**. Cliquez ensuite sur **OK**.
@@ -247,37 +248,9 @@ Activez la protection automatique de la façon suivante :
 
   3. La sauvegarde est configurée pour toutes les bases de données et peut être suivie dans **Travaux de sauvegarde**.
 
-Si vous devez désactiver la protection automatique, cliquez sur le nom d’instance sous **configurer la sauvegarde**, puis sélectionnez **désactiver la protection automatique** pour l’instance. Toutes les bases de données continuent d’être sauvegardées. Les futures bases de données, en revanche, ne seront pas automatiquement protégées.
+Si vous devez désactiver la protection automatique, cliquez sur le nom d’instance sous **configurer la sauvegarde**, puis sélectionnez **désactiver la protection automatique** pour l’instance. Continuent à sauvegarder toutes les bases de données, mais les futures bases de données ne sont pas protégées automatiquement.
 
-
-## <a name="fix-sql-sysadmin-permissions"></a>Correction des autorisations d’administrateur système SQL
-
-  Si vous devez corriger des autorisations en raison d’une erreur **UserErrorSQLNoSysadminMembership**, procédez comme suit :
-
-  1. Utilisez un compte disposant d’autorisations d’administrateur système SQL Server pour vous connecter à SQL Server Management Studio (SSMS). À moins que vous ayez besoin d’autorisations spéciales, l’authentification Windows doit fonctionner.
-  2. Sur le serveur SQL Server, ouvrez le dossier **Security/Logins**.
-
-      ![Ouvrir le dossier Security/Logins pour afficher les comptes](./media/backup-azure-sql-database/security-login-list.png)
-
-  3. Cliquez avec le bouton droit sur le dossier **Logins** et sélectionnez **Nouvelle connexion**. Dans **Nouvelle connexion**, sélectionnez **Rechercher**.
-
-      ![Dans la boîte de dialogue Connexion - Nouveau, sélectionnez Rechercher](./media/backup-azure-sql-database/new-login-search.png)
-
-  4. Le compte de service virtuel Windows **NT SERVICE\AzureWLBackupPluginSvc** a été créé pendant la phase d’inscription de la machine virtuelle et de découverte SQL. Entrez le nom du compte, comme indiqué dans **Entrez le nom de l’objet à sélectionner**. Sélectionnez **Vérifier les noms** pour résoudre le nom. Cliquez sur **OK**.
-
-      ![Cliquer sur Vérifier les noms pour résoudre le nom de service inconnu](./media/backup-azure-sql-database/check-name.png)
-
-  5. Dans **Rôles du serveur**, assurez-vous que le rôle **sysadmin** (administrateur système) est sélectionné. Cliquez sur **OK**. Les autorisations requises doivent désormais exister.
-
-      ![S’assurer que le rôle serveur administrateur système est sélectionné](./media/backup-azure-sql-database/sysadmin-server-role.png)
-
-  6. À présent, associez la base de données avec le coffre Recovery Services. Dans la liste **Serveurs protégés** du portail Azure, cliquez avec le bouton droit sur le serveur en erreur > **Redécouvrir les bases de données**.
-
-      ![Vérifier que le serveur dispose des autorisations appropriées](./media/backup-azure-sql-database/check-erroneous-server.png)
-
-  7. Vérifiez la progression dans la zone **Notifications**. Lorsque les bases de données sélectionnées ont été détectées, un message de réussite s’affiche.
-
-      ![Message Déploiement réussi](./media/backup-azure-sql-database/notifications-db-discovered.png)
+![Désactiver la protection automatique sur cette instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
  
 ## <a name="next-steps"></a>Étapes suivantes

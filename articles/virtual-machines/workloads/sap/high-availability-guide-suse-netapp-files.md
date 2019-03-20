@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: aca755ce0357887c4d6c27007342afe1fb7b0882
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 862e99b1ab44c097429dcf015b6f8c8ae023e6bc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182946"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225499"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure Files de NetApp pour les applications SAP
 
@@ -106,15 +106,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Configuration du backend
   * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
-  * Port 620**&lt;nr&gt;**
+  * Port 620<strong>&lt;nr&gt;</strong>
 * Règles d'équilibrage de charge
-  * TCP 32**&lt;nr&gt;**
-  * TCP 36**&lt;nr&gt;**
-  * TCP 39**&lt;nr&gt;**
-  * TCP 81**&lt;nr&gt;**
-  * TCP 5**&lt;nr&gt;** 13
-  * TCP 5**&lt;nr&gt;** 14
-  * TCP 5**&lt;nr&gt;** 16
+  * TCP 32<strong>&lt;nr&gt;</strong>
+  * TCP 36<strong>&lt;nr&gt;</strong>
+  * TCP 39<strong>&lt;nr&gt;</strong>
+  * TCP 81<strong>&lt;nr&gt;</strong>
+  * TCP 5<strong>&lt;nr&gt;</strong>13
+  * TCP 5<strong>&lt;nr&gt;</strong>14
+  * TCP 5<strong>&lt;nr&gt;</strong>16
 
 ### <a name="ers"></a>ERS
 
@@ -123,12 +123,12 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Configuration du backend
   * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
-  * Port 621**&lt;nr&gt;**
+  * Port 621<strong>&lt;nr&gt;</strong>
 * Règles d'équilibrage de charge
-  * TCP 33**&lt;nr&gt;**
-  * TCP 5**&lt;nr&gt;** 13
-  * TCP 5**&lt;nr&gt;** 14
-  * TCP 5**&lt;nr&gt;** 16
+  * TCP 33<strong>&lt;nr&gt;</strong>
+  * TCP 5<strong>&lt;nr&gt;</strong>13
+  * TCP 5<strong>&lt;nr&gt;</strong>14
+  * TCP 5<strong>&lt;nr&gt;</strong>16
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Configuration de l’infrastructure Azure NetApp Files 
 

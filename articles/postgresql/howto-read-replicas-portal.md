@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b34b103d3b710b90fd7b396f2c8d0e7adc27aaca
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454665"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113212"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Créer et gérer des réplicas en lecture à partir du portail Azure
 
@@ -20,7 +20,7 @@ Dans cet article, vous allez apprendre à créer et gérer des réplicas en lect
 > [!IMPORTANT]
 > La fonctionnalité de réplica en lecture est en préversion publique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md) qui représente le serveur maître.
 
 ## <a name="prepare-the-master-server"></a>Préparer le serveur maître
@@ -50,17 +50,17 @@ Le paramètre `azure.replication_support` doit avoir la valeur **REPLICA** sur l
 ## <a name="create-a-read-replica"></a>Créer un réplica en lecture
 Pour créer un réplica en lecture, effectuez les étapes suivantes :
 
-1.  Sélectionnez le serveur Azure Database pour PostgreSQL à utiliser en tant que serveur maître. 
+1. Sélectionnez le serveur Azure Database pour PostgreSQL à utiliser en tant que serveur maître. 
 
-2.  Dans le menu du serveur, sous **PARAMÈTRES**, sélectionnez **Réplication**.
+2. Dans le menu du serveur, sous **PARAMÈTRES**, sélectionnez **Réplication**.
 
    Si vous n’avez pas affecté au paramètre `azure.replication_support` la valeur **REPLICA** sur un serveur maître à usage général ou à mémoire optimisée, et si vous n’avez pas redémarré le serveur, vous recevez une notification. Effectuez ces étapes avant de créer le réplica.
 
-3.  Sélectionnez **Ajouter un réplica**.
+3. Sélectionnez **Ajouter un réplica**.
 
    ![Ajouter un réplica](./media/howto-read-replicas-portal/add-replica.png)
 
-4.  Entrez un nom pour le réplica en lecture. Sélectionnez **OK** pour confirmer la création du réplica.
+4. Entrez un nom pour le réplica en lecture. Sélectionnez **OK** pour confirmer la création du réplica.
 
    ![Nommer le réplica](./media/howto-read-replicas-portal/name-replica.png) 
 
@@ -82,19 +82,19 @@ Vous pouvez arrêter la réplication entre un serveur maître et un réplica en 
 
 Pour arrêter la réplication entre un serveur maître et un réplica en lecture à partir du portail Azure, effectuez les étapes suivantes :
 
-1.  Dans le portail Azure, sélectionnez votre serveur Azure Database pour PostgreSQL maître.
+1. Dans le portail Azure, sélectionnez votre serveur Azure Database pour PostgreSQL maître.
 
-2.  Dans le menu du serveur, sous **PARAMÈTRES**, sélectionnez **Réplication**.
+2. Dans le menu du serveur, sous **PARAMÈTRES**, sélectionnez **Réplication**.
 
-3.  Sélectionnez le serveur réplica dont vous souhaitez arrêter la réplication.
+3. Sélectionnez le serveur réplica dont vous souhaitez arrêter la réplication.
 
    ![Sélectionner le réplica](./media/howto-read-replicas-portal/select-replica.png)
  
-4.  Sélectionnez **Arrêter la réplication**.
+4. Sélectionnez **Arrêter la réplication**.
 
    ![Sélectionner Arrêter la réplication](./media/howto-read-replicas-portal/select-stop-replication.png)
  
-5.  Sélectionnez **OK** pour arrêter la réplication.
+5. Sélectionnez **OK** pour arrêter la réplication.
 
    ![Confirmer l’arrêt de la réplication](./media/howto-read-replicas-portal/confirm-stop-replication.png)
  
@@ -107,13 +107,13 @@ Pour supprimer un serveur maître, suivez les mêmes étapes que celles qui perm
 
 Pour supprimer un serveur du portail Azure, effectuez les étapes suivantes :
 
-1.  Dans le portail Azure, sélectionnez votre serveur Azure Database pour PostgreSQL maître.
+1. Dans le portail Azure, sélectionnez votre serveur Azure Database pour PostgreSQL maître.
 
-2.  Ouvrez la page **Vue d’ensemble** du serveur. Sélectionnez **Supprimer**.
+2. Ouvrez la page **Vue d’ensemble** du serveur. Sélectionnez **Supprimer**.
 
    ![Dans la page de vue d’ensemble du serveur, sélectionner Supprimer pour supprimer le serveur maître](./media/howto-read-replicas-portal/delete-server.png)
  
-3.  Entrez le nom du serveur maître à supprimer. Sélectionnez **Supprimer** pour confirmer la suppression du serveur maître.
+3. Entrez le nom du serveur maître à supprimer. Sélectionnez **Supprimer** pour confirmer la suppression du serveur maître.
 
    ![Confirmer la suppression du serveur maître](./media/howto-read-replicas-portal/confirm-delete.png)
  
@@ -127,19 +127,19 @@ Vous pouvez supprimer un réplica en lecture de la même façon que vous supprim
  
 Vous pouvez également supprimer le réplica en lecture de la fenêtre **Réplication** en effectuant les étapes suivantes :
 
-1.  Dans le portail Azure, sélectionnez votre serveur Azure Database pour PostgreSQL maître.
+1. Dans le portail Azure, sélectionnez votre serveur Azure Database pour PostgreSQL maître.
 
-2.  Dans le menu du serveur, sous **PARAMÈTRES**, sélectionnez **Réplication**.
+2. Dans le menu du serveur, sous **PARAMÈTRES**, sélectionnez **Réplication**.
 
-3.  Sélectionnez le réplica en lecture à supprimer.
+3. Sélectionnez le réplica en lecture à supprimer.
 
    ![Sélectionner le réplica à supprimer](./media/howto-read-replicas-portal/select-replica.png)
  
-4.  Sélectionnez **Supprimer le réplica**.
+4. Sélectionnez **Supprimer le réplica**.
 
    ![Sélectionnez Supprimer le réplica](./media/howto-read-replicas-portal/select-delete-replica.png)
  
-5.  Entrez le nom du réplica à supprimer. Sélectionnez **Supprimer** pour confirmer la suppression du réplica.
+5. Entrez le nom du réplica à supprimer. Sélectionnez **Supprimer** pour confirmer la suppression du réplica.
 
    ![Confirmer la suppression du réplica](./media/howto-read-replicas-portal/confirm-delete-replica.png)
  
@@ -162,13 +162,13 @@ La métrique **Retard maximum entre réplicas** indique le retard en octets entr
 ### <a name="replica-lag-metric"></a>Métrique Retard du réplica
 La métrique **Retard du réplica** indique le temps écoulé depuis la dernière transaction réexécutée sur un réplica. S’il n’y a pas de transactions sur votre maître, la métrique reflète ce retard.
 
-1.  Dans le portail Azure, sélectionnez le réplica en lecture Azure Database pour PostgreSQL.
+1. Dans le portail Azure, sélectionnez le réplica en lecture Azure Database pour PostgreSQL.
 
-2.  Sélectionnez **Métriques**. Dans la fenêtre **Métriques**, sélectionnez **Retard du réplica**.
+2. Sélectionnez **Métriques**. Dans la fenêtre **Métriques**, sélectionnez **Retard du réplica**.
 
    ![Superviser le retard du réplica](./media/howto-read-replicas-portal/select-replica-lag.png)
  
-3.  Pour votre **Agrégation**, sélectionnez **Max**. 
+3. Pour votre **Agrégation**, sélectionnez **Max**. 
  
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez-en plus sur les [réplicas en lecture dans Azure Database pour PostgreSQL](concepts-read-replicas.md).

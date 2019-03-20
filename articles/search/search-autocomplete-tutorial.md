@@ -1,32 +1,32 @@
 ---
-title: Tutoriel sur l’ajout de l’autocomplétion à votre zone de recherche - Recherche Azure
+title: Exemple d’ajout de la saisie semi-automatique à votre zone de recherche - recherche Azure
 description: Exemples de manières d’améliorer l’expérience utilisateur final dans vos applications centrées sur les données avec les API d’autocomplétion et de suggestions de Recherche Azure.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: de48f3129beba31f80f5bd4d0c131b28f2b1c91a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200274"
 ---
-# <a name="tutorial-add-autocomplete-to-your-search-box-using-azure-search"></a>Tutoriel : Ajouter l’autocomplétion à votre zone de recherche avec Recherche Azure
+# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Exemple : Ajouter l’autocomplétion à votre zone de recherche avec Recherche Azure
 
-Dans ce tutoriel, vous allez apprendre à utiliser les [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), l’[autocomplétion](https://docs.microsoft.com/rest/api/searchservice/autocomplete) et les [facettes](search-faceted-navigation.md) dans l’[API REST Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/) et le [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) pour créer une zone de recherche efficace. 
+Dans cet exemple, vous allez apprendre à utiliser [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [la saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete) et [facettes](search-faceted-navigation.md) dans le [API REST Azure Search](https://docs.microsoft.com/rest/api/searchservice/) et [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) pour créer une zone de recherche puissant. 
 
 + Les *suggestions* fournissent des recommandations de résultats réels, selon ce que l’utilisateur a saisi jusqu'à présent. 
 + L’*autocomplétion*, [nouvelle fonctionnalité d’évaluation](search-api-preview.md) dans Recherche Azure, fournit des termes de l’index afin de compléter la saisie de l’utilisateur. 
 
 Nous allons comparer plusieurs techniques pour améliorer la productivité de l’utilisateur en proposant directement la richesse de la recherche à l’utilisateur lors de la frappe.
 
-Ce didacticiel vous aide à gérer une application ASP.NET MVC qui utilise C# pour appeler les [bibliothèques client .NET Recherche Azure](https://aka.ms/search-sdk) et JavaScript pour appeler l’API REST Recherche Azure directement. L’application dans ce didacticiel cible un index rempli via l’exemple de données [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Vous pouvez utiliser l’index déjà configuré dans la démonstration NYCJobs, ou remplir votre propre index à l’aide d’un chargeur de données dans l’exemple de solution NYCJobs. L’exemple utilise les bibliothèques JavaScript de l’[interface utilisateur jQuery](https://jqueryui.com/autocomplete/) et [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) pour créer une zone de recherche qui prend en charge l’autocomplétion. Avec ces composants, ainsi que Recherche Azure, vous allez voir plusieurs exemples de prise en charge de l’autocomplétion avec la saisie en avance dans votre zone de recherche.
+Cet exemple vous guide dans une application basée sur ASP.NET MVC qui utilise C# pour appeler le [bibliothèques clientes Azure Search .NET](https://aka.ms/search-sdk)et JavaScript pour appeler l’API REST Azure Search directement. L’application pour cet exemple cible un index rempli le [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) échantillonner des données. Vous pouvez utiliser l’index déjà configuré dans la démonstration NYCJobs, ou remplir votre propre index à l’aide d’un chargeur de données dans l’exemple de solution NYCJobs. L’exemple utilise les bibliothèques JavaScript de l’[interface utilisateur jQuery](https://jqueryui.com/autocomplete/) et [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) pour créer une zone de recherche qui prend en charge l’autocomplétion. Avec ces composants, ainsi que Recherche Azure, vous allez voir plusieurs exemples de prise en charge de l’autocomplétion avec la saisie en avance dans votre zone de recherche.
 
 Vous allez effectuer les tâches suivantes :
 
@@ -35,16 +35,16 @@ Vous allez effectuer les tâches suivantes :
 > * Ajouter des informations de service de recherche aux paramètres d’application
 > * Implémenter une zone de recherche
 > * Ajouter la prise en charge d’une liste d’autocomplétion qui extrait des informations auprès d’une source distante 
-> * Récupérer des suggestions et l’autocomplétion à l’aide du SDK .NET et de l’API REST
+> * Récupérer des suggestions et la saisie semi-automatique à l’aide du Kit de développement .NET et l’API REST
 > * Prise en charge de mise en cache client pour améliorer les performances 
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Visual Studio 2017. Vous pouvez utiliser gratuitement [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). 
 
-* Téléchargez l’exemple de [code source](https://github.com/azure-samples/search-dotnet-getting-started) pour ce didacticiel.
+* Téléchargez l’exemple [code source](https://github.com/azure-samples/search-dotnet-getting-started) pour l’exemple.
 
-* Un compte Azure et un service Recherche Azure actifs (facultatif). Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/free/). Pour obtenir des instructions sur l’approvisionnement du service, voir [Créer un service de recherche](search-create-service-portal.md). Le compte et le service sont facultatifs car ce didacticiel peut être effectué avec un index NYCJobs hébergé déjà en place pour d’autres démonstrations.
+* Un compte Azure et un service Recherche Azure actifs (facultatif). Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/free/). Pour obtenir des instructions sur l’approvisionnement du service, voir [Créer un service de recherche](search-create-service-portal.md). Le compte et le service sont facultatifs, car cet exemple peut être effectué à l’aide un index NYCJobs hébergé déjà en place pour une autre démonstration.
 
 * Téléchargez l’exemple de code [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) pour importer les données NYCJobs dans un index sur votre propre service Recherche Azure (facultatif).
 
@@ -61,11 +61,11 @@ Suivez les étapes dans cette section si vous souhaitez importer les données de
 
 1. Appuyez sur F5 pour lancer l’application.  Deux index sont ainsi créés et l’exemple de données NYCJob est importé.
 
-1. Dans l’exemple de code du didacticiel, ouvrez le fichier de solution AutocompleteTutorial.sln dans Visual Studio.  Ouvrez le fichier Web.config dans le projet AutocompleteTutorial et modifiez les valeurs SearchServiceName et SearchServiceApiKey par les mêmes valeurs ci-dessus.
+1. Dans l’exemple de code d’exemple, ouvrez le fichier de solution AutocompleteTutorial.sln dans Visual Studio.  Ouvrez le fichier Web.config dans le projet AutocompleteTutorial et modifiez les valeurs SearchServiceName et SearchServiceApiKey par les mêmes valeurs ci-dessus.
 
 ### <a name="running-the-sample"></a>Exécution de l’exemple
 
-Vous êtes maintenant prêt à exécuter l’exemple d'application du didacticiel.  Ouvrez le fichier de solution AutocompleteTutorial.sln dans Visual Studio pour exécuter le didacticiel.  La solution contient un projet ASP.NET MVC.  Appuyez sur F5 pour exécuter le projet et charger la page dans le navigateur de votre choix.  En haut, vous verrez une option qui vous donne le choix entre C# ou JavaScript.  L’option C# effectue un appel dans HomeController à partir du navigateur et utilise le kit de développement logiciel (SDK) .NET Recherche Azure pour récupérer les résultats.  L’option JavaScript appelle l’API REST Recherche Azure directement depuis le navigateur.  Cette option offre généralement de bien meilleures performances car elle extrait le contrôleur du flux.  Vous pouvez choisir l’option qui répond à vos besoins et à vos préférences de langue.  Il y a plusieurs exemples d’autocomplétion dans la page, avec des conseils pour chacun.  Chaque exemple comprend des exemples de texte recommandés que vous pouvez essayer.  Essayez de saisir quelques lettres dans chaque zone de recherche pour voir ce qu’il se passe.
+Vous êtes maintenant prêt à exécuter l’exemple d’application exemple.  Ouvrez le fichier de solution AutocompleteTutorial.sln dans Visual Studio pour exécuter l’exemple.  La solution contient un projet ASP.NET MVC.  Appuyez sur F5 pour exécuter le projet et charger la page dans le navigateur de votre choix.  En haut, vous verrez une option qui vous donne le choix entre C# ou JavaScript.  Le C# option appelle le HomeController à partir du navigateur et utilise le SDK .NET Azure Search pour récupérer les résultats.  L’option JavaScript appelle l’API REST Recherche Azure directement depuis le navigateur.  Cette option offre généralement de bien meilleures performances car elle extrait le contrôleur du flux.  Vous pouvez choisir l’option qui répond à vos besoins et à vos préférences de langue.  Il y a plusieurs exemples d’autocomplétion dans la page, avec des conseils pour chacun.  Chaque exemple comprend des exemples de texte recommandés que vous pouvez essayer.  Essayez de saisir quelques lettres dans chaque zone de recherche pour voir ce qu’il se passe.
 
 ## <a name="how-this-works-in-code"></a>Fonctionnement du code
 
@@ -79,7 +79,7 @@ Pour ces deux options de langue, la zone de texte est la même.  Ouvrez le fichi
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Il s’agit d’une zone de texte banale avec une classe pour le style, un ID à faire référencer par JavaScript et un texte d’espace réservé.  Tout se passe dans Javascript.
+Il s’agit d’une zone de texte d’entrée simple avec une classe pour le style, un ID d’être référencées par JavaScript et le texte d’espace réservé.  Tout se passe dans Javascript.
 
 ### <a name="javascript-code-c"></a>Code JavaScript (C#)
 
@@ -132,7 +132,7 @@ Maintenant que nous avons passé en revue le code JavaScript de l’exemple, jet
 
 1. Ouvrez le fichier HomeController.cs sous le répertoire Controllers. 
 
-1. La première chose que vous remarquerez est une méthode en haut de la classe nommée InitSearch.  Cette méthode crée un client d’index HTTP authentifié dans le service de Recherche Azure.  Si vous souhaitez en savoir plus sur son fonctionnement, consultez le didacticiel suivant : [Comment utiliser Azure Search à partir d'une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. La première chose que vous remarquerez est une méthode en haut de la classe nommée InitSearch.  Cette méthode crée un client d’index HTTP authentifié dans le service de Recherche Azure.  Si vous souhaitez en savoir plus sur comment cela fonctionne, reportez-vous à l’exemple suivant : [Comment utiliser Azure Search à partir d'une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Passez à la fonction Suggest.
 
@@ -209,15 +209,15 @@ $(function () {
 });
 ```
 
-En le comparant à l’exemple ci-dessus, qui appelle le fichier HomeController, vous pouvez remarquer plusieurs similarités.  La configuration de l’autocomplétion de `minLength` et `position` est exactement la même.  La différence importante se trouve dans la source.  Au lieu d’appeler la méthode Suggest dans le fichier HomeController, une requête REST est créée dans une fonction JavaScript et exécutée via ajax.  La réponse est ensuite traitée dans « success » et utilisée comme source.
+En le comparant à l’exemple ci-dessus, qui appelle le fichier HomeController, vous pouvez remarquer plusieurs similarités.  La configuration de l’autocomplétion de `minLength` et `position` est exactement la même.  La différence importante se trouve dans la source.  Au lieu d’appeler la méthode suggérer dans le contrôleur home, une requête REST est créée dans une fonction JavaScript et exécutées à l’aide d’Ajax.  La réponse est ensuite traitée dans « success » et utilisée comme source.
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
-Ce tutoriel décrit les étapes de base pour créer une zone de recherche qui prend en charge l’autocomplétion et les suggestions.  Vous avez vu comment créer une application ASP.NET MVC et utiliser le kit de développement logiciel (SDK) .NET ou l’API REST Recherche Azure pour récupérer les suggestions.
+Cet exemple montre les étapes de base pour la création d’une zone de recherche qui prend en charge la saisie semi-automatique et des suggestions.  Vous avez vu comment vous pouvez générer une application ASP.NET MVC et utiliser le SDK .NET Azure Search ou l’API REST pour récupérer les suggestions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Intégrez des suggestions et l’autocomplétion à votre expérience de recherche.  Pensez à l’aide offerte aux utilisateurs par l’utilisation directe du kit de développement logiciel (SDK) .NET ou de l’API REST, pour qu’ils profitent pleinement de Recherche Azure lors de leurs saisies et ainsi améliorer leur productivité.
+Intégrez des suggestions et l’autocomplétion à votre expérience de recherche.  Prendre en compte comment le SDK .NET ou l’API REST directement peuvent aider apporter la puissance d’Azure Search à vos utilisateurs en tapant pour les rendre plus productif.
 
 > [!div class="nextstepaction"]
 > [API REST de saisie semi-automatique ](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

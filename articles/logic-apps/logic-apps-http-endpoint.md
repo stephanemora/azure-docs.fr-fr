@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904369"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques
 
@@ -71,7 +71,7 @@ Pour créer un point de terminaison HTTP, ajoutez un déclencheur qui peut recev
 
     > [!TIP]
     > 
-    > Vous pouvez générer un schéma pour un exemple de charge utile JSON à partir d’un outil tel que [jsonschema.net](http://jsonschema.net/), ou dans le déclencheur de **requête** en choisissant **Utiliser l’exemple de charge utile pour générer le schéma**. 
+    > Vous pouvez générer un schéma pour un exemple de charge utile JSON à partir d’un outil tel que [jsonschema.net](https://jsonschema.net/), ou dans le déclencheur de **requête** en choisissant **Utiliser l’exemple de charge utile pour générer le schéma**. 
     > Entrez votre exemple de charge utile et choisissez **Terminé**.
 
     Par exemple, cet exemple de charge utile :
@@ -275,9 +275,9 @@ Voici à quoi ressemble désormais le schéma JSON pour l’action **Response**�
 
 ## <a name="q--a"></a>Questions et réponses
 
-#### <a name="q-what-about-url-security"></a>Q : Qu’en est-il de la sécurité de l’URL ?
+#### <a name="q-what-about-url-security"></a>Q : Qu’en est-il de sécurité de l’URL ?
 
-R : Les URL de rappel de l’application logique sont générées de façon sécurisée par Azure via une signature d’accès partagé (SAP). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être déclenchée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
+R : Azure génère en toute sécurité les URL de rappel d’application logique à l’aide d’une Signature d’accès partagé (SAP). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être déclenchée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
 
    > [!IMPORTANT]
    > Pour les systèmes de production et sécurisés, nous vous déconseillons fortement d’appeler votre application logique directement à partir du navigateur, car :
@@ -285,18 +285,18 @@ R : Les URL de rappel de l’application logique sont générées de façon sé
    > * la clé d’accès partagé s’affiche dans l’URL ;
    > * vous ne pouvez pas gérer de stratégies de contenu sécurisé en raison du partage de domaines entre les clients de l’application logique.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>Q : Puis-je configurer des points de terminaison HTTP de façon plus poussée ?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>Q : Puis-je configurer des points de terminaison HTTP supplémentaire ?
 
-R : Oui, les points de terminaison HTTP prennent en charge une configuration plus avancée via [**Gestion des API**](../api-management/api-management-key-concepts.md). Ce service vous offre également la possibilité de gérer toutes vos API de façon systématique, y compris les applications logiques, de configurer les noms de domaines personnalisés, d’utiliser plus de méthodes d’authentification et bien plus encore, comme par exemple :
+R : Oui, les points de terminaison HTTP prennent en charge la configuration plus avancée via [ **gestion des API**](../api-management/api-management-key-concepts.md). Ce service vous offre également la possibilité de gérer toutes vos API de façon systématique, y compris les applications logiques, de configurer les noms de domaines personnalisés, d’utiliser plus de méthodes d’authentification et bien plus encore, comme par exemple :
 
 * [Modification de la méthode de la requête](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Modification des segments d’URL de la requête](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Configuration de vos domaines Gestion des API dans le [portail Azure](https://portal.azure.com/ "portail Azure")
 * Configuration d’une stratégie pour vérifier l’authentification de base
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q : Qu’est-ce qui a changé suite à la migration du schéma depuis la version préliminaire du 1er décembre 2014 ?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q : Ce qui a changé lors de la migration du schéma à partir de la version préliminaire 1 décembre 2014 ?
 
-R : Voici un résumé des modifications apportées :
+R : Voici un résumé sur ces modifications :
 
 | Version préliminaire du 1er décembre 2014 | 1er juin 2016 |
 | --- | --- |

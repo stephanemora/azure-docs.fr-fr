@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215084"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188337"
 ---
-# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Résolution des problèmes : Échec de création ou de suppression d’une base de données ou d’une table dans l’Explorateur de données Azure
+# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Résolution de problèmes : Échec de création ou de suppression d’une base de données ou d’une table dans l’Explorateur de données Azure
 
 Dans l’Explorateur de données Azure, vous utilisez régulièrement des bases de données et des tables. Cet article indique la procédure de résolution des problèmes qui peuvent se poser.
 
@@ -37,7 +37,7 @@ Vérifiez que vous disposez des autorisations appropriées. Pour supprimer ou re
 
     Pour plus d’informations sur les autorisations, consultez [Gérer des autorisations de base de données](manage-database-permissions.md).
 
-1. Vérifiez qu’une table portant le même nom n’existe pas déjà. Si elle existe, vous pouvez alors créer une table avec un autre nom, renommer la table existante (nécessite le rôle *Administrateur de table*) ou supprimer la table existante (nécessite le rôle *Administrateur de base de données*). Utilisez les commandes suivantes.
+1. Vérifiez qu’une table portant le même nom n’existe pas déjà. Si elle existe, vous pouvez : Créer une table avec un nom différent ; Renommez la table existante (nécessite *table admin* rôle) ; ou supprimez la table existante (nécessite *administrateur de base de données* rôle). Utilisez les commandes suivantes.
 
     ```Kusto
     .drop table <TableName>
@@ -53,7 +53,7 @@ Pour plus d’informations sur les autorisations, consultez [Gérer des autorisa
 
 ## <a name="general-guidance"></a>Règle générale
 
-1. Consultez le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/>). Recherchez l’état de l’Explorateur de données Azure dans la région où vous tentez d’utiliser une base de données ou une table.
+1. Consultez le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/). Recherchez l’état de l’Explorateur de données Azure dans la région où vous tentez d’utiliser une base de données ou une table.
 
     Si l’état n’est pas **correct** (coche verte), réessayez une fois que l’état s’est amélioré.
 

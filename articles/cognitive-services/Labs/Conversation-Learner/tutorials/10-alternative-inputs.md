@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 10335f9c74b9033b303c960a77af136cc80d75bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216266"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094362"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Guide pratique pour utiliser les entrées de remplacement
 
@@ -48,6 +48,8 @@ Les entrées alternatives sont des énoncés de remplacement sémantiquement éq
 3. Sous « Nom de l’entité », entrez « Ville ».
 4. Cliquez sur le bouton « Créer ».
 
+![](../media/T10_actions.png)
+
 Créons à présent trois actions.
 
 ### <a name="create-the-first-action"></a>Créer la première action
@@ -58,11 +60,15 @@ Créons à présent trois actions.
 4. Dans le champ « Entités disqualifiantes », tapez « ville ».
 5. Cliquez sur le bouton « Créer ».
 
+![](../media/T10_action_create_1.png)
+
 ### <a name="create-the-second-action"></a>Créer la deuxième action
 
 1. Dans le panneau gauche, cliquez sur « Actions », puis sur le bouton « Nouvelle action ».
 2. Dans le champ « Réponse du bot... », tapez « Il fait probablement beau à $city ».
 3. Cliquez sur le bouton « Créer ».
+
+![](../media/T10_action_create_2.png)
 
 ### <a name="create-the-third-action"></a>Créer la troisième action
 
@@ -71,7 +77,11 @@ Créons à présent trois actions.
 3. Dans le champ « Entités disqualifiantes », tapez « ville ».
 4. Cliquez sur le bouton « Créer ».
 
+![](../media/T10_action_create_3.png)
+
 Vous avez maintenant trois actions.
+
+![](../media/T10_actions.png)
 
 ### <a name="train-the-model"></a>Former le modèle
 
@@ -82,7 +92,9 @@ Vous avez maintenant trois actions.
 5. Dans le panneau de conversation, sous « Entrez votre message... », tapez « Denver ».
 6. Cliquez sur le bouton « Noter les actions ».
 7. Sélectionnez la réponse, « La météo à Denver est probablement ensoleillée ».
-8. Cliquez sur le bouton « Enregistrer ».
+8. Cliquez sur le bouton « Submit Changes » (Envoyer les modifications).
+
+![](../media/T10_training_1.png)
 
 Poursuivons la formation du modèle en créant une autre boîte de dialogue d’apprentissage.
 
@@ -96,7 +108,9 @@ Poursuivons la formation du modèle en créant une autre boîte de dialogue d’
 6. Cliquez sur « Seattle », puis sur « ville » dans la liste d’entités.
 7. Cliquez sur le bouton « Noter les actions ».
 8. Sélectionnez la réponse, « La météo à Seattle est probablement ensoleillée ».
-9. Cliquez sur le bouton « Enregistrer ».
+9. Cliquez sur le bouton « Submit Changes » (Envoyer les modifications).
+
+![](../media/T10_training_2.png)
 
 ### <a name="third-model-train-dialog-using-alternative-input"></a>Troisième boîte de dialogue d’apprentissage du modèle utilisant une entrée alternative
 
@@ -106,27 +120,29 @@ Poursuivons la formation du modèle en créant une autre boîte de dialogue d’
     - Le modèle n’est pas certain de la meilleure option, donc il choisira le centile le plus élevé par défaut.
 4. Cliquez sur le bouton de « Abandonner l’apprentissage », puis sur le bouton « Confirmer ».
 
-![](../media/tutorial8_closescores.png)
+![](../media/T10_training_3.png)
 
 Améliorons les paramètres du système en utilisant des entrées alternatives. Vous pouvez ajouter des entrées alternatives lors de l’apprentissage ou plus tard.
 
-5. Dans le panneau gauche, cliquez sur « Boîtes de dialogue d’apprentissage », puis sélectionnez « Que pouvez-vous faire ? » dans la liste des boîtes de dialogue d’apprentissage.
-6. Cliquez sur l’énoncé « Que pouvez-vous faire ? ». dans le panneau de conversation.
-7. Dans le champ « Ajouter une entrée alternative... », tapez « aide », puis appuyez sur Entrée.
-8. Cliquez sur le bouton « Enregistrer les modifications ».
+1. Dans le panneau gauche, cliquez sur « Boîtes de dialogue d’apprentissage », puis sélectionnez « Que pouvez-vous faire ? » dans la liste des boîtes de dialogue d’apprentissage.
+1. Cliquez sur l’énoncé « Que pouvez-vous faire ? ». dans le panneau de conversation.
+1. Dans le champ « Ajouter une entrée alternative... », tapez « aide », puis appuyez sur Entrée.
+1. Cliquez sur le bouton « Enregistrer les modifications ».
 
-![](../media/tutorial8_helpalternates.png)
+![](../media/T10_training_4.png)
 
 Ajoutons une autre entrée alternative pour gérer Houston.
 
-9. Cliquez sur « Quel temps fait-il à Seattle ? ». dans le panneau de conversation.
-10. Dans le champ « Ajouter une entrée alternative... », tapez « prévisions pour Houston », puis appuyez sur Entrée.
-    - Le message d’erreur souligne que les entrées alternatives de faits doivent être sémantiquement équivalentes et contenir les mêmes entités que l’énoncé d’origine, pas seulement les mêmes valeurs d’entités. La présence des mêmes entités est obligatoire.
-11. Cliquez sur « Houston » et sélectionnez « ville » dans la liste des entités.
-12. Dans le champ « Ajouter une entrée alternative... », tapez « prévisions pour Seattle », puis appuyez sur Entrée.
-13. Cliquez sur « Seattle » et sélectionnez « ville » dans la liste des entités.
-14. Cliquez sur le bouton « Enregistrer les modifications ».
-15. Cliquez sur le bouton « Enregistrer la modification ».
+1. Cliquez sur « Quel temps fait-il à Seattle ? ». dans le panneau de conversation.
+1. Dans le champ « Ajouter une entrée alternative... », tapez « prévisions pour Houston », puis appuyez sur Entrée.
+   - Le message d’erreur souligne que les entrées alternatives de faits doivent être sémantiquement équivalentes et contenir les mêmes entités que l’énoncé d’origine, pas seulement les mêmes valeurs d’entités. La présence des mêmes entités est obligatoire.
+1. Cliquez sur « Houston » et sélectionnez « ville » dans la liste des entités.
+1. Dans le champ « Ajouter une entrée alternative... », tapez « prévisions pour Seattle », puis appuyez sur Entrée.
+1. Cliquez sur « Seattle » et sélectionnez « ville » dans la liste des entités.
+1. Cliquez sur le bouton « Enregistrer les modifications ».
+1. Cliquez sur le bouton « Enregistrer la modification ».
+
+![](../media/T10_training_5.png)
 
 ### <a name="testing-the-model"></a>Tester le modèle
 
@@ -134,7 +150,7 @@ Ajoutons une autre entrée alternative pour gérer Houston.
 2. Dans le panneau de conversation, sous « Entrez votre message... », tapez « aidez-moi ».
 3. Dans le panneau de conversation, sous « Entrez votre message... », tapez « prévisions pour Denver ».
 
-![](../media/tutorial8_altcities.png)
+![](../media/T10_logdialog.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

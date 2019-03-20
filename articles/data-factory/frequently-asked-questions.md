@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024091"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240794"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -68,7 +68,7 @@ Les outils visuels d’Azure Data Factory vous permettent d’effectuer du déve
 ### <a name="deploy-ssis-packages-to-azure"></a>Déployer des packages SSIS vers Azure 
 Si vous voulez déplacer vos charges de travail SSIS, vous pouvez créer une fabrique de données et provisionner un runtime d’intégration Azure-SSIS. Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de machines virtuelles Azure (nœuds) dédiées à l’exécution de vos packages SSIS dans le cloud. Pour obtenir des instructions pas à pas, consultez le didacticiel [Déployer des packages SSIS vers Azure](tutorial-create-azure-ssis-runtime-portal.md). 
  
-### <a name="sdks"></a>Kits de développement logiciel (SDK)
+### <a name="sdks"></a>Kits SDK
 Si vous êtes un utilisateur avancé et que vous recherchez une interface de programmation, Azure Data Factory offre un ensemble étendu de SDK que vous pouvez utiliser pour créer, gérer ou surveiller les pipelines avec votre IDE favori. La prise en charge des langages inclut .NET, PowerShell, Python et REST.
 
 ### <a name="monitoring"></a>Surveillance
@@ -174,6 +174,33 @@ Oui. Une sortie d’activité peut être consommée dans une activité suivante 
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Comment gérer correctement les valeurs Null dans une sortie d’activité ? 
 Vous pouvez utiliser la construction `@coalesce` dans les expressions pour gérer correctement les valeurs Null. 
+
+## <a name="mapping-data-flows"></a>Flux de données de mappage
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>Quelle version ADF à utiliser pour créer des flux de données ?
+Utilisez la version de l’ADF V2 pour créer des flux de données
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>J’étais un client de version préliminaire privée précédente à l’aide du flux de données et j’ai utilisé la version préliminaire de ADF V2 w/données flux
+Cette version est désormais obsolète. Utiliser ADF V2 pour les flux de données
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>Les changements apportés à partir de la version préliminaire privée à la version préliminaire publique limitée dans les flux de données ?
+Ne plus avoir à apporter vos propres clusters Databricks. ADF gère la création du cluster et destructions. Jeux de données BLOB et des jeux de données ADLS est divisés en jeux de données texte délimité par des et Parquet. Vous pouvez toujours utiliser ADLS & Store de l’objet Blob pour stocker ces fichiers. Utiliser le Service lié approprié pour les moteurs de stockage.
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>Puis-je migrer mon fabriques préversion privée pour ADF V2 ?
+
+[Oui, suivez les instructions fournies ici](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>J’ai besoin d’aide à dépanner ma logique de flux de données, de quoi avez-vous besoin ?
+
+Lorsque Microsoft fournit l’aide ou la résolution des problèmes avec le flux de données, indiquez le « DSL Code Plan ». Pour ce faire, procédez comme suit :
+
+* À partir du Concepteur de flux de données, cliquez sur « Code » dans l’angle supérieur droit. Ceci affichera le code JSON modifiable pour le flux de données.
+* À partir de la vue de code, cliquez sur « Plan » dans l’angle supérieur droit. Le bouton bascule Plan passe à partir de JSON pour le plan de script de le DSL de mise en forme en lecture seule.
+* Copier et coller ce script ou enregistrez-le dans un fichier texte.
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Comment accéder aux données à l’aide d’autres types de jeu de données de 80 dans ADF ?
+
+Flux de données actuellement permet de base de données SQL Azure, Azure SQL DW, texte délimité par des fichiers à partir d’objets Blob ou ADLS et fichiers Parquet à partir d’objets Blob ou ADLS en mode natif pour la Source et récepteur. Utilisez l’activité de copie pour organiser les données à partir de tous les autres connecteurs, puis exécutez une activité de flux de données pour transformer des données une fois qu’il est transféré. Par exemple, votre pipeline copie tout d’abord dans les objets Blob et puis une activité de flux de données utilisera un jeu de données dans la Source à transformer les données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions pas à pas pour créer une fabrique de données, consultez les tutoriels suivants :

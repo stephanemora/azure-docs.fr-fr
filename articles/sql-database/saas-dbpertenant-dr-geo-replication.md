@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838848"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
 
@@ -25,14 +25,14 @@ Dans ce didacticiel, vous examinez un scénario complet de récupération d’ur
 
 Ce didacticiel explore les flux de travail de basculement et de restauration automatique. Vous découvrirez comment effectuer les actions suivantes :
 > [!div class="checklist"]
-
->* Synchroniser les informations de configuration des bases de données et du pool élastique dans le catalogue du locataire
->* Configurer un environnement de récupération dans une autre région, comprenant une application, des serveurs et des pools
->* Utiliser la _géoréplication_ pour répliquer les bases de données de catalogue et de locataire dans la région de récupération
->* Basculer l’application et les bases de données de catalogue et de locataire vers la région de récupération 
->* Ensuite, restaurer l’application ainsi que les bases de données de catalogue et de locataire dans la région d’origine, une fois la panne résolue
->* Mettre à jour le catalogue, car chaque base de données du client est basculée pour assurer le suivi de l’emplacement principal de la base de données de chaque locataire
->* Vérifier que l’application et la base de données de locataire primaire sont toujours colocalisées dans la même région Azure pour réduire la latence  
+> 
+> * Synchroniser les informations de configuration des bases de données et du pool élastique dans le catalogue du locataire
+> * Configurer un environnement de récupération dans une autre région, comprenant une application, des serveurs et des pools
+> * Utiliser la _géoréplication_ pour répliquer les bases de données de catalogue et de locataire dans la région de récupération
+> * Basculer l’application et les bases de données de catalogue et de locataire vers la région de récupération 
+> * Ensuite, restaurer l’application ainsi que les bases de données de catalogue et de locataire dans la région d’origine, une fois la panne résolue
+> * Mettre à jour le catalogue, car chaque base de données du client est basculée pour assurer le suivi de l’emplacement principal de la base de données de chaque locataire
+> * Vérifier que l’application et la base de données de locataire primaire sont toujours colocalisées dans la même région Azure pour réduire la latence  
  
 
 Avant de démarrer ce didacticiel, vérifiez que les conditions préalables sont remplies :
@@ -106,7 +106,7 @@ Avant de lancer le processus de récupération, examinez l’état d’intégrit
 Cette tâche vous permet de démarrer un processus de synchronisation de la configuration des serveurs, des pools élastiques et des bases de données dans le catalogue du locataire. Le processus maintient ces informations à jour dans le catalogue.  Le processus fonctionne avec le catalogue actif, que ce soit dans la région d’origine ou dans la région de récupération. Les informations de configuration sont utilisées dans le cadre du processus de récupération pour vérifier que l’environnement de récupération est cohérent avec l’environnement d’origine, puis lors du rapatriement pour vérifier que la région d’origine est cohérente avec les modifications apportées dans l’environnement de récupération. Le catalogue permet également d’assurer le suivi de l’état de récupération des ressources de locataire.
 
 > [!IMPORTANT]
-> Par souci de simplicité, le processus de synchronisation et les autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels sous la forme de sessions ou de travaux Powershell locaux qui s’exécutent sous votre ID d’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Par souci de simplicité, le processus de synchronisation et d’autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels en tant que travaux PowerShell locaux ou les sessions qui s’exécutent sous votre connexion de l’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. Dans l’_ISE PowerShell_, ouvrez le fichier ...\Learning Modules\UserConfig.psm1. Remplacez `<resourcegroup>` et `<user>` sur les lignes 10 et 11 par la valeur utilisée lors du déploiement de l’application.  Enregistrez le fichier.
 
@@ -199,15 +199,15 @@ Le script de récupération effectue les tâches suivantes :
 Pendant que le point de terminaison de l’application est désactivé dans Traffic Manager, l’application n’est pas disponible. Une fois le catalogue basculé vers la région de récupération et tous les locataires marqués hors connexion, l’application repasse en ligne. Bien que l’application soit disponible, chaque locataire apparaît hors connexion dans le hub d’événements jusqu’à ce que sa base de données soit basculée. Il est important de concevoir votre application pour qu’elle gère les bases de données de locataire hors connexion.
 
 1. Juste après la récupération de la base de données de catalogue, actualisez le hub d’événements Wingtip Tickets dans votre navigateur web.
-    * Dans le pied de page, remarquez que le nom du serveur de catalogue porte maintenant un suffixe _-recovery_ et se trouve dans la région de récupération.
-    * Remarquez que les locataires non encore restaurés sont marqués hors connexion et ne sont pas sélectionnables.  
+   * Dans le pied de page, remarquez que le nom du serveur de catalogue porte maintenant un suffixe _-recovery_ et se trouve dans la région de récupération.
+   * Remarquez que les locataires non encore restaurés sont marqués hors connexion et ne sont pas sélectionnables.  
 
-    > [!Note]
-    > Avec quelques bases de données seulement à récupérer, vous ne pourrez peut-être pas actualiser le navigateur avant la fin de la récupération. Donc il se peut que vous ne voyiez pas les locataires lorsqu’ils sont hors connexion. 
+     > [!Note]
+     > Avec quelques bases de données seulement à récupérer, vous ne pourrez peut-être pas actualiser le navigateur avant la fin de la récupération. Donc il se peut que vous ne voyiez pas les locataires lorsqu’ils sont hors connexion. 
  
-    ![Hub d’événements hors connexion](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
+     ![Hub d’événements hors connexion](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * Si vous ouvrez directement la page des événements d’un locataire hors connexion, elle affiche une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall ![Page Contoso hors connexion](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Si vous ouvrez directement la page des événements d’un locataire hors connexion, elle affiche une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall ![Page Contoso hors connexion](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Approvisionner un nouveau locataire dans la région de récupération
 Même avant le basculement de toutes les bases de données de locataire, vous pouvez approvisionner de nouveaux locataires dans la région de récupération.  
@@ -236,12 +236,12 @@ Même avant le basculement de toutes les bases de données de locataire, vous po
     * Remarquez le groupe de ressources que vous avez déployé, en plus du groupe de ressources de récupération, avec le suffixe _-recovery_.  Le groupe de ressources de récupération contient toutes les ressources créées pendant le processus de récupération, plus les nouvelles ressources créées pendant la panne.  
 
 3. Ouvrez le groupe de ressources de récupération et notez les éléments suivants :
-    * Les versions de récupération des serveurs de catalogue et tenants1, avec le suffixe _-recovery_.  Toutes les bases de données de catalogue et de locataire restaurées sur ces serveurs portent les noms utilisés dans la région d’origine.
+   * Les versions de récupération des serveurs de catalogue et tenants1, avec le suffixe _-recovery_.  Toutes les bases de données de catalogue et de locataire restaurées sur ces serveurs portent les noms utilisés dans la région d’origine.
 
-    * Le serveur SQL _tenants2-dpt-&lt;utilisateur&gt;-recovery_ est utilisé  Ce serveur sert à approvisionner les nouveaux locataires pendant la panne.
-    *   Le service App Service nommé _events-wingtip-dpt-&lt;région_récupération&gt;-&lt;utilisateur&gt_;, qui est l’instance de récupération de l’application Événements. 
+   * Le serveur SQL _tenants2-dpt-&lt;utilisateur&gt;-recovery_ est utilisé  Ce serveur sert à approvisionner les nouveaux locataires pendant la panne.
+   * Le service App Service nommé _events-wingtip-dpt-&lt;région_récupération&gt;-&lt;utilisateur&gt_;, qui est l’instance de récupération de l’application Événements. 
 
-    ![Ressources de récupération Azure ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
+     ![Ressources de récupération Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Ouvrez le serveur SQL _tenants2-dpt-&lt;utilisateur&gt;-recovery_.  Remarquez qu’il contient la base de données _hawthornhall_ et le pool élastique _Pool1_.  La base de données _hawthornhall_ est configurée comme une base de données élastique dans le pool élastique _Pool1_.
 
@@ -305,12 +305,12 @@ Les bases de données de locataire peuvent être réparties entre les régions d
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
-
->* Synchroniser les informations de configuration des bases de données et du pool élastique dans le catalogue du locataire
->* Configurer un environnement de récupération dans une autre région, comprenant une application, des serveurs et des pools
->* Utiliser la _géoréplication_ pour répliquer les bases de données de catalogue et de locataire dans la région de récupération
->* Basculer l’application et les bases de données de catalogue et de locataire vers la région de récupération 
->* Restaurer l’application ainsi que les bases de données de catalogue et de locataire dans la région d’origine, une fois la panne résolue
+> 
+> * Synchroniser les informations de configuration des bases de données et du pool élastique dans le catalogue du locataire
+> * Configurer un environnement de récupération dans une autre région, comprenant une application, des serveurs et des pools
+> * Utiliser la _géoréplication_ pour répliquer les bases de données de catalogue et de locataire dans la région de récupération
+> * Basculer l’application et les bases de données de catalogue et de locataire vers la région de récupération 
+> * Restaurer l’application ainsi que les bases de données de catalogue et de locataire dans la région d’origine, une fois la panne résolue
 
 Pour plus d’informations sur les technologies fournies par SQL Azure Database pour assurer la continuité des activités, consultez la section [Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL](sql-database-business-continuity.md).
 

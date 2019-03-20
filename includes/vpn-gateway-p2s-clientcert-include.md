@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964137"
 ---
 Chaque ordinateur client que vous connectez à un réseau virtuel avec une connexion point à site doit avoir un certificat client installé. Ce certificat doit être généré à partir du certificat racine, puis installé sur chaque ordinateur client. Si vous n’installez pas de certificat client valide, l’authentification échoue lorsque le client essaie de se connecter au réseau virtuel.
 
@@ -22,7 +22,7 @@ Vous pouvez générer des certificats clients à l’aide des méthodes suivante
 
 - **Certificat d’entreprise :**
 
-  - Si vous utilisez une solution de certificat d’entreprise, générez un certificat client avec le format de valeur de nom commun *name@yourdomain.com*. Utilisez ce format au lieu du format *domain name\username*.
+  - Si vous utilisez une solution de certificat d’entreprise, générez un certificat de client avec le format de valeur de nom commun *nom\@votredomaine.com*. Utilisez ce format au lieu du format *domain name\username*.
   - Assurez-vous que le certificat client repose sur un modèle de certificat utilisateur qui indique *Authentification client* comme premier élément dans la liste d’utilisateurs. Vérifiez le certificat en double-cliquant dessus et en affichant **Utilisation avancée de la clé** dans l’onglet **Détails**.
 
 - **Certificat racine auto-signé :** Suivez la procédure décrite dans l’un des articles concernant les certificats P2S ci-dessous pour créer des certificats clients compatibles avec vos connexions P2S. Les procédures décrites dans les articles permettent de générer un certificat client compatible : 

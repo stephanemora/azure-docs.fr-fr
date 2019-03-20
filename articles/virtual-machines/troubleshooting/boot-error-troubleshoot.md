@@ -3,7 +3,7 @@ title: Résoudre les erreurs de démarrage dans Machines virtuelles Azure | Mic
 description: Cet article vous redirige vers les articles permettant de résoudre les erreurs de démarrage dans Machines virtuelles Azure.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: b467618815f2bad8a6816425764fe60707c1db3d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: c12f753225f8c6fc4fdb3fdcbaf0e915cb85fdbf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308139"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779438"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Résoudre les erreurs de démarrage dans Machines virtuelles Azure
 

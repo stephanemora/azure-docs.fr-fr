@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005813"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Réseau consortium de Fabric Hyperledger
 
@@ -78,11 +78,11 @@ Dans **Informations de base**, spécifiez les valeurs des paramètres standard p
 
 | Nom du paramètre | Description | Valeurs autorisées |
 |---|---|---|
-**Préfixe de ressource**| Préfixe de nom pour les ressources provisionnées dans le cadre du déploiement |6 caractères au maximum |
-**Nom d’utilisateur**| Nom d’utilisateur de l’administrateur pour chaque machine virtuelle déployée pour ce membre |De 1 à 64 caractères |
-**Type d’authentification**| Méthode d’authentification auprès de la machine virtuelle |Mot de passe ou clé publique SSH|
-**Mot de passe (Type d’authentification = Mot de passe)**|Mot de passe du compte administrateur pour chacune des machines virtuelles déployées. Le mot de passe doit contenir trois des types de caractères suivants : une majuscule, une minuscule, un chiffre et un caractère spécial<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement|Entre 12 et 72 caractères|
-**Clé SSH (Type d’authentification = Clé publique SSH)**|Clé de shell sécurisée utilisée pour la session à distance ||
+**Préfixe de ressource** | Préfixe de nom pour les ressources provisionnées dans le cadre du déploiement |6 caractères au maximum |
+**Nom d’utilisateur** | Nom d’utilisateur de l’administrateur pour chaque machine virtuelle déployée pour ce membre |De 1 à 64 caractères |
+**Type d’authentification** | Méthode d’authentification auprès de la machine virtuelle |Mot de passe ou clé publique SSH|
+**Mot de passe (Type d’authentification = Mot de passe)** |Mot de passe du compte administrateur pour chacune des machines virtuelles déployées. Le mot de passe doit contenir trois des types de caractères suivants : une majuscule, une minuscule, un chiffre et un caractère spécial<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement|Entre 12 et 72 caractères|
+**Clé SSH (Type d’authentification = Clé publique SSH)** |Clé de shell sécurisée utilisée pour la session à distance ||
 **Abonnement** |Abonnement sur lequel effectuer le déploiement ||
 **Groupe de ressources** |Groupe de ressources sur lequel déployez le réseau de consortium ||
 **Lieu** |Région Azure dans laquelle déployer l’empreinte réseau du premier membre dans ||
@@ -97,10 +97,10 @@ Dans **Paramètres réseau**, spécifiez les entrées pour créer ou rejoindre u
 
 | Nom du paramètre | Description | Valeurs autorisées |
 |---|---|---|
-**Configuration réseau**|Vous pouvez choisir de créer un nouveau réseau ou de rejoindre un réseau existant. Si vous choisissez *Rejoindre existant*, vous devez fournir des valeurs supplémentaires. |Nouveau réseau <br/> Rejoindre existant |
-**Mot de passe d’autorité de certification HLF**|Mot de passe utilisé pour les certificats générés par les autorités de certification qui sont créés dans le cadre du déploiement. Le mot de passe doit contenir trois des types de caractères suivants : une majuscule, une minuscule, un chiffre et un caractère spécial.<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|Entre 1 et 25 caractères |
+**Configuration réseau** |Vous pouvez choisir de créer un nouveau réseau ou de rejoindre un réseau existant. Si vous choisissez *Rejoindre existant*, vous devez fournir des valeurs supplémentaires. |Nouveau réseau <br/> Rejoindre existant |
+**Mot de passe d’autorité de certification HLF** |Mot de passe utilisé pour les certificats générés par les autorités de certification qui sont créés dans le cadre du déploiement. Le mot de passe doit contenir trois des types de caractères suivants : une majuscule, une minuscule, un chiffre et un caractère spécial.<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|Entre 1 et 25 caractères |
 **Paramètres de l’organisation** |Vous pouvez personnaliser le nom et le certificat de votre organisation ou utiliser des valeurs par défaut.|Default <br/> Avancé |
-**Paramètres de réseau VPN**| Configurer une passerelle de tunnel VPN pour accéder aux machines virtuelles | OUI <br/> Non  |
+**Paramètres de réseau VPN** | Configurer une passerelle de tunnel VPN pour accéder aux machines virtuelles | Oui <br/> Non  |
 
 Sélectionnez **OK**.
 
@@ -112,8 +112,8 @@ Dans **Configuration de l’infrastructure**, configurez la taille et les perfor
 
 | Nom du paramètre | Description | Valeurs autorisées |
 |---|---|---|
-**Type d’échelle**|Type de déploiement d’une machine virtuelle unique avec plusieurs conteneurs ou de plusieurs machines virtuelles dans un modèle évolutif.|Machine virtuelle unique ou machines virtuelles multiples |
-**Type de disque de machine virtuelle**|Type de stockage prenant en charge chacun des nœuds déployés. <br/> Pour en savoir plus sur les types de disques disponibles, consultez [Sélectionner un type de disque](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
+**Type d’échelle** |Type de déploiement d’une machine virtuelle unique avec plusieurs conteneurs ou de plusieurs machines virtuelles dans un modèle évolutif.|Machine virtuelle unique ou machines virtuelles multiples |
+**Type de disque de machine virtuelle** |Type de stockage prenant en charge chacun des nœuds déployés. <br/> Pour en savoir plus sur les types de disques disponibles, consultez [Sélectionner un type de disque](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Déploiement de machines virtuelles multiples (paramètres supplémentaires)
 
@@ -123,8 +123,8 @@ Dans **Configuration de l’infrastructure**, configurez la taille et les perfor
 |---|---|---|
 **Nombre de nœuds des auteurs des commandes** |Nombre de nœuds qui commandent (organisent) les transactions dans un bloc. <br />Pour plus d’informations sur le service de commande, consultez la [documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) Hyperledger |1-4 |
 **Taille de machine virtuelle du nœud d’ordonnancement** |Taille de machine virtuelle utilisée pour les nœuds d’ordonnancement dans le réseau|Standard BS<br />Standard DS<br />Standard FS |
-**Nombre de nœuds homologues**| Nœuds appartenant à des membres de consortium qui exécutent des transactions et conservent l’état et une copie du registre.<br />Pour plus d’informations sur le service de commande, consultez la [documentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) Hyperledger.|1-4 |
-**Persistance d’état de nœud** |Moteur de persistance utilisé par les nœuds homologues. Vous pouvez configurer ce moteur par nœud homologue. Consultez les détails ci-dessous pour plusieurs nœuds homologues.|CouchDB </br>LevelDB |
+**Nombre de nœuds homologues** | Nœuds appartenant à des membres de consortium qui exécutent des transactions et conservent l’état et une copie du registre.<br />Pour plus d’informations sur le service de commande, consultez la [documentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) Hyperledger.|1-4 |
+**Persistance d’état de nœud** |Moteur de persistance utilisé par les nœuds homologues. Vous pouvez configurer ce moteur par nœud homologue. Consultez les détails ci-dessous pour plusieurs nœuds homologues.|CouchDB <br />LevelDB |
 **Taille de machine virtuelle du nœud homologue** |Taille de machine virtuelle utilisée pour tous les nœuds dans le réseau|Standard BS<br />Standard DS<br />Standard FS |
 
 ### <a name="multiple-peer-node-configuration"></a>Configuration des nœuds homologues multiples

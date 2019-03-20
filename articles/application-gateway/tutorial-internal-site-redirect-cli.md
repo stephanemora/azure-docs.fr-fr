@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9f82ed280d18be304129bf8b7807213a75110df2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082732"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection interne à l’aide d’Azure CLI
 
-Vous pouvez utiliser l’interface CLI Azure pour configurer une [redirection du trafic web](application-gateway-multi-site-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.contoso.org* en guise d’exemples.
+Vous pouvez utiliser l’interface CLI Azure pour configurer une [redirection du trafic web](application-gateway-multi-site-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce didacticiel part du principe que vous possédez plusieurs domaines, utilise les exemples de *www\.contoso.com* et *www\.contoso.org*.
 
 Dans cet article, vous apprendrez comment :
 
@@ -101,7 +101,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 
 ## <a name="add-listeners-and-rules"></a>Ajouter des écouteurs et des règles 
 
-Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Ce didacticiel vous montre comment créer deux écouteurs pour vos deux domaines. Dans cet exemple, des écouteurs sont créés pour les domaines *www.contoso.com* et *www.contoso.org*.
+Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Ce didacticiel vous montre comment créer deux écouteurs pour vos deux domaines. Dans cet exemple, les écouteurs sont créés pour les domaines *www\.contoso.com* et *www\.contoso.org*.
 
 Ajoutez les écouteurs backend nécessaires pour acheminer le trafic à l’aide de la commande [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Ajouter la configuration de redirection
 
-Ajoutez la configuration de redirection qui envoie le trafic de *www.consoto.org* à l’écouteur pour *www.contoso.com* dans la passerelle d’application à l’aide de la commande [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Ajouter la configuration de redirection qui envoie le trafic à partir de *www\.consoto.org* vers l’écouteur pour *www\.contoso.com* dans la passerelle d’application à l’aide de [créer az network application-gateway redirect-config](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -137,7 +137,7 @@ az network application-gateway redirect-config create \
   --include-query-string true
 ```
 
-### <a name="add-routing-rules"></a>Ajouter les règles de routage
+### <a name="add-routing-rules"></a>Ajouter des règles de routage
 
 Les règles sont traitées dans l’ordre dans lequel elles sont créées, et le trafic est dirigé à l’aide de la première règle qui correspond à l’URL envoyée à la passerelle d’application. La règle de base par défaut qui a été créée n’est pas nécessaire dans ce didacticiel. Dans cet exemple, vous créez deux règles nommées *contosoComRule* et *contosoOrgRule*, puis supprimez la règle par défaut qui a été créée.  Vous pouvez ajouter les règles à l’aide de la commande [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
@@ -213,7 +213,7 @@ Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par e
 
 ![Tester le site contoso dans la passerelle d’application](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Remplacez l’adresse par celle de votre autre domaine, par exemple http://www.contoso.org. Vous devriez alors remarquer que le trafic est redirigé vers l’écouteur pour www.contoso.com.
+Modifier l’adresse de votre autre domaine, par exemple http://www.contoso.org et vous devez voir que le trafic a été redirigé vers l’écouteur pour www\.contoso.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342675"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103721"
 ---
 # <a name="try-speech-services-for-free"></a>Essayer les services Speech gratuitement
 
@@ -87,19 +87,19 @@ Pour ajouter une ressource des services Speech (niveau gratuit ou payant) à vot
 
 1. Sous **Créer**, entrez :
 
-    * Un nom pour la nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements au même service.
-    * Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés.
-    * Choisissez la région où la ressource sera utilisée. Actuellement, les services Speech sont disponibles dans les régions Asie Est, Europe Nord et USA Ouest.
-    * Choisissez soit un niveau tarifaire payant ou gratuit. Cliquez sur **Afficher tous les détails de la tarification** pour plus d’informations sur la tarification et les quotas d’utilisation pour chaque niveau.
-    * Créez un groupe de ressources pour cet abonnement Speech ou affectez l’abonnement à un groupe de ressources existant. Les groupes de ressources vous permettent d’organiser vos différents abonnements Azure.
-    * Pour accéder facilement à votre abonnement à l’avenir, cochez la case **Épingler au tableau de bord**.
-    * Sélectionnez **Créer**.
+   * Un nom pour la nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements au même service.
+   * Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés.
+   * Choisissez la région où la ressource sera utilisée. Actuellement, les services Speech sont disponibles dans les régions Asie Est, Europe Nord et USA Ouest.
+   * Choisissez soit un niveau tarifaire payant ou gratuit. Cliquez sur **Afficher tous les détails de la tarification** pour plus d’informations sur la tarification et les quotas d’utilisation pour chaque niveau.
+   * Créez un groupe de ressources pour cet abonnement Speech ou affectez l’abonnement à un groupe de ressources existant. Les groupes de ressources vous permettent d’organiser vos différents abonnements Azure.
+   * Pour accéder facilement à votre abonnement à l’avenir, cochez la case **Épingler au tableau de bord**.
+   * Sélectionnez **Créer**.
 
-    ![Sélectionnez le bouton Créer](media/index/try-speech-api-create-speech4.png)
+     ![Sélectionnez le bouton Créer](media/index/try-speech-api-create-speech4.png)
 
-    La création et le déploiement de votre nouvelle ressource Speech prennent quelques instants. Sélectionnez **Démarrage rapide** pour afficher des informations sur votre nouvelle ressource.
+     La création et le déploiement de votre nouvelle ressource Speech prennent quelques instants. Sélectionnez **Démarrage rapide** pour afficher des informations sur votre nouvelle ressource.
 
-    ![Panneau Démarrage rapide](media/index/try-speech-api-create-speech5.png)
+     ![Panneau Démarrage rapide](media/index/try-speech-api-create-speech5.png)
 
 1. Sous **Démarrage rapide**, cliquez sur le lien **Clés** sous l’étape 1 pour afficher vos clés d’abonnement. Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Sélectionnez le bouton en regard de chaque clé pour la copier dans le Presse-papiers et la coller dans votre code.
 

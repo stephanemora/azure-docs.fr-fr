@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f7eaa91faabfea7bb951eb9863ffecd2f5499
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183150"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
 
@@ -49,7 +49,7 @@ Voici les principales fonctionnalités de la gestion des licences par groupe :
 
 - Tous les services de cloud computing Microsoft nécessitant des licences au niveau des utilisateurs sont pris en charge. Cette prise en charge comprend tous les produits Office 365, Enterprise Mobility + Security et Dynamics 365.
 
-- Les licences basées sur les groupes ne sont pour le moment disponibles que sur le [Portail Azure](https://portal.azure.com). Si vous utilisez principalement d’autres portails de gestion pour la gestion des utilisateurs et groupes, tels que le portail Office 365, vous pouvez continuer à le faire. Vous devez toutefois utiliser le portail Azure pour gérer les licences au niveau du groupe.
+- Gestion des licences par groupe sont actuellement disponible uniquement via le [Azure portal](https://portal.azure.com). Si vous utilisez principalement autres portails de gestion pour la gestion des utilisateurs et groupe, tel que le [centre d’administration Microsoft 365](https://admin.microsoft.com), vous pouvez continuer à le faire. Vous devez toutefois utiliser le portail Azure pour gérer les licences au niveau du groupe.
 
 - Azure AD gère automatiquement les modifications de licences qui résultent de modifications de l’appartenance aux groupes. En règle générale, les modifications de licence sont effectives quelques minutes après une modification d’appartenance.
 

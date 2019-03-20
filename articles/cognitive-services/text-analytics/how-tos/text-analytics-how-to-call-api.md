@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122873"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -28,7 +28,7 @@ Rappelez-vous qu’Analyse de texte étant sans état, il y a pas de ressources 
 > [!Tip]
 > Pour effectuer des appels ponctuels afin d’observer le fonctionnement de l’API, vous pouvez envoyer des demandes POST à partir de la **console de test d’API**, accessible via la [page de documentation de toute API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Aucune installation n’est nécessaire, et les seules exigences sont de coller une clé d’accès et les documents JSON dans la demande. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous devez avoir un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’API Analyse de texte, ainsi que la [clé du point de terminaison et la clé d’accès](text-analytics-how-to-access-key.md) générées lorsque vous vous inscrivez à Cognitive Services. 
 
@@ -43,7 +43,7 @@ Vous pouvez actuellement envoyer les mêmes documents pour toutes les opération
 | Élément | Valeurs valides | Requis ? | Usage |
 |---------|--------------|-----------|-------|
 |`id` |Les données dont de type chaîne mais, dans la pratique, les ID de document tendent à être des entiers. | Obligatoire | Le système utilise les ID que vous fournissez pour structurer la sortie. Des codes langue, phrases clés et scores de sentiment sont générés pour chaque ID dans la demande.|
-|`text` | Texte brut non structuré, jusqu’à 5 000 caractères. | Obligatoire | Pour la détection de la langue, le texte peut être exprimé dans toute langue. Pour l’analyse des sentiments, l’extraction de phrases clés et l’identification d’entité, le texte doit être dans une [langue prise en charge](../text-analytics-supported-languages.md). |
+|`text` | Texte brut non structurée, jusqu'à 5 120 caractères. | Obligatoire | Pour la détection de la langue, le texte peut être exprimé dans toute langue. Pour l’analyse des sentiments, l’extraction de phrases clés et l’identification d’entité, le texte doit être dans une [langue prise en charge](../text-analytics-supported-languages.md). |
 |`language` | Code [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caractères d’une [langue prise en charge](../text-analytics-supported-languages.md) | Varie | Obligatoire pour l’analyse des sentiments, l’extraction de phrases clés et la liaison d’entité. Facultatif pour la détection de la langue. Son omission ne génère aucune erreur, mais affaiblit l’analyse. Le code de langue doit correspondre au `text` que vous fournissez. |
 
 Pour plus d’informations sur les limites, voir [Vue d’ensemble de l’Analyse de texte > Limites des données](../overview.md#data-limits). 
@@ -58,7 +58,7 @@ Le service accepte une taille de demande jusqu’à 1 Mo. Si vous utilisez Post
    + Collez le point de terminaison que vous avez copié à partir de la page du portail.
    + Ajoutez une ressource.
 
-  Les points de terminaison de ressource sont les suivants (votre région peut varier) :
+   Les points de terminaison de ressource sont les suivants (votre région peut varier) :
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -71,7 +71,7 @@ Le service accepte une taille de demande jusqu’à 1 Mo. Si vous utilisez Post
    + `Content-Type` : application/json.
    + `Accept` : application/json.
 
-  Votre demande doit ressembler à la capture d’écran suivante, en supposant que la ressource est **/keyPhrases**.
+   Votre demande doit ressembler à la capture d’écran suivante, en supposant que la ressource est **/keyPhrases**.
 
    ![Capture d’écran de demande avec point de terminaison et en-têtes](../media/postman-request-keyphrase-1.png)
 
@@ -81,15 +81,15 @@ Le service accepte une taille de demande jusqu’à 1 Mo. Si vous utilisez Post
 
 5. Collez des documents JSON d’un format valide pour l’analyse prévue. Pour plus d’informations sur une analyse particulière, voir les rubriques ci-dessous :
 
-  + [Détection de la langue](text-analytics-how-to-language-detection.md)  
-  + [Extraction de phrases clés](text-analytics-how-to-keyword-extraction.md)  
-  + [Analyse des sentiments](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconnaissance d’entité (préversion)](text-analytics-how-to-entity-linking.md)  
+   + [Détection de la langue](text-analytics-how-to-language-detection.md)  
+   + [Extraction de phrases clés](text-analytics-how-to-keyword-extraction.md)  
+   + [Analyse des sentiments](text-analytics-how-to-sentiment-analysis.md)  
+   + [Reconnaissance d’entité (préversion)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Cliquez sur **Envoyer** pour soumettre la demande. Vous pouvez envoyer jusqu’à 100 demandes par minute. 
 
-  Dans Postman, la réponse s’affiche dans la fenêtre suivante en-dessous, en tant que document JSON, avec un élément pour chaque ID de document fourni dans la demande.
+   Dans Postman, la réponse s’affiche dans la fenêtre suivante en-dessous, en tant que document JSON, avec un élément pour chaque ID de document fourni dans la demande.
 
 ## <a name="see-also"></a>Voir aussi 
 

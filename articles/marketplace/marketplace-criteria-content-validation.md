@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000406"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 
@@ -38,7 +38,7 @@ Toutes les offres doivent respecter [toutes les conditions préalables du réfé
 | 4 |  Description de l’offre | <br>• 2 ou 3 paragraphes <br>• Description claire et succincte de l’offre de solution <br>• Description de l’offre, sans fautes d’orthographe et de grammaire <br>• La description de l’offre est complète et attractive : audience cible, type d’utilisateur, raisons de l’intérêt de la solution (proposition de valeur) <br>• La description de l’offre se présente sous forme de paragraphes narratifs avec des phrases courtes et faciles à comprendre | <br>• Secteur d’activité cible clairement indiqué (le cas échéant) <br>• Formatage approprié pour le style, chaque en-tête de paragraphe comportant une phrase ou une phrase résumant le contenu qui suit et comprenant des puces (s’il y a lieu) pour mettre l’accent sur les principaux avantages. L’objectif ici est que le lecteur comprenne l’offre d’un coup d’œil grâce au format clair et lisible et qu’il n’ait pas à lire des paragraphes. <br>• Il y a un espace entre chaque paragraphe et la description se lit comme une brochure automobile. Il ne s’agit pas de caractéristiques techniques ou d’un jargon codé, mais d’une description de l’offre en termes simples et complets. | 
 | 5. | Catégories et secteurs d’activité | <br>• Les catégories correspondent aux fonctionnalités de l’offre de solution <br>• Évitez d’étendre les catégories à des domaines non couverts par la solution <br>• Secteur d’activité optimal ou tous les secteurs d’activité sélectionnés (si pas de secteurs d’activité optimaux) | <br>• Max. 3 catégories <br>• Max. 3 secteurs d’activité |
 | 6. | Images | <br>• Aucune image requise, mais si une image est fournie, elle doit être enregistrée en haute résolution. <br>• Les exigences relatives aux images figurent non seulement sur le portail CPP mais ici également <br>• Le texte inclus dans la capture d’écran est lisible avec une image parfaitement nette | Description claire et succincte de l’offre de solution |
-| 7 | vidéos | <br>• Aucune vidéo n’est requise, mais si une vidéo est fournie, elle doit être exempte d’erreurs à la lecture. <br>• Une vidéo ne doit pas non plus faire référence à des sociétés concurrentes SAUF dans le cas où il s’agit d’illustrer une solution de migration |<br>• Durée idéale : au moins 3 minutes <br>• Description claire de l’offre de solution dans la vidéo <br>• Démonstration des fonctionnalités |
+| 7 | Videos | <br>• Aucune vidéo n’est requise, mais si une vidéo est fournie, elle doit être exempte d’erreurs à la lecture. <br>• Une vidéo ne doit pas non plus faire référence à des sociétés concurrentes SAUF dans le cas où il s’agit d’illustrer une solution de migration |<br>• Durée idéale : au moins 3 minutes <br>• Description claire de l’offre de solution dans la vidéo <br>• Démonstration des fonctionnalités |
 | 8 | État de la liste (Invite à l’action) | <br>Doit comporter l’un des types de libellé suivants : <ul>o Me contacter</ul><ul>o Essai/Obtenir la version d’évaluation/Démarrer l’évaluation/Version d’évaluation</ul><ul>o Acheter maintenant/L’obtenir maintenant</ul> | Le client peut facilement comprendre les prochaines étapes disponibles : <ul>1. Essayer la version d’évaluation</ul> <ul>2. Achetez maintenant</ul><ul>3. Contacter par e-mail ou téléphone pour organiser une démonstration, une évaluation ou une réunion de réflexion.</ul> | 
 | 9 | Tarification de la solution | Doit comporter un onglet/des informations détaillées sur la tarification, dans la devise locale de l’offre de solution du partenaire | Options de facturation multiples disponibles avec tarification par niveaux proposées au client |    
 | 10 | En savoir plus | Accessibles au public et faciles à lire, les liens en bas (sous la description, pas les liens de la place de marché à gauche) pointent vers des informations supplémentaires sur la solution. |   Liens vers des articles spécifiques (p. ex. pages de spécifications sur le site du partenaire) et pas seulement vers la page d’accueil du site du partenaire. | 
@@ -72,16 +72,18 @@ Toutes les offres doivent respecter [toutes les conditions préalables du réfé
 ----
 
 ## <a name="container-offer-requirements"></a>Exigences de l’offre conteneur
+
 |  | Élément de liste | Configuration de base requise | Configuration optimale | 
 |:--- |:--- |:--- |:--- |
 |1 |Paramètres de l’offre | <br>• ID de l’offre : 50 caractères maximum <br>• ID de l’éditeur : Sélectionner dans la liste déroulante <br>•   Nom : 50 caractères maximum | Reflète le style de titre déjà disponible dans la description : vous ne voulez pas de titres longs. | 
-| 2 | Références (SKU) | Le partenaire clique sur les nouvelles références SKU| Reflète le style de titre déjà disponible dans la description : vous ne voulez pas de titres longs.  |  |
+| 2 | Références (SKU) | Le partenaire clique sur les nouvelles références SKU| Reflète le style de titre déjà disponible dans la description : vous ne voulez pas de titres longs.  |
 | 3 | Artefacts de la Place de marché | Les logos s’affichent correctement |<br>• Le logo inclut une bannière qui est en fait l’image grand format figurant dans le portail Azure <br>• Logos : format miniature (48 x 48) et grand format (216 x 216) requis <br>• Exigences relatives aux images de bannière : https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Capture d’écran (5 maxi.) :  le CPP nécessite une image .png avec une résolution de 1 280 x 720.|
 | 4 | Gestion des prospects |<br>•    Gestion des prospects : Sélectionnez le système dans lequel vos prospects seront stockés. <br>•   Apprenez à connecter votre système CRM [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
 ## <a name="consulting-offer-requirements"></a>Exigences de l’offre de consulting
+
 |  | Élément de liste | Configuration de base requise | Configuration optimale |
 |:--- |:--- |:--- |:--- |
 | 1 | Titre de l’offre  |  <br>•  Doit indiquer clairement le type et la durée du service au format suivant : NOM : TYPE DE DURÉE. (Par exemple, « Engagement pour l’offre : Démonstration 1 semaine »)  | <br>•  Ne répète pas le nom de l’éditeur <br>•  Reflète le style de titre déjà disponible dans la description : vous ne voulez pas de titres longs. | 
@@ -103,4 +105,4 @@ Toutes les offres doivent respecter [toutes les conditions préalables du réfé
 *   [Déterminer le type de référencement pour votre solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

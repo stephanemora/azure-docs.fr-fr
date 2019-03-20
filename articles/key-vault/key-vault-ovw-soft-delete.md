@@ -3,16 +3,16 @@ ms.assetid: ''
 title: Suppression réversible d’Azure Key Vault | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual
-author: bryanla
-ms.author: bryanla
+author: msmbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 09/25/2017
-ms.openlocfilehash: 02d08f4334f1e20a3f635868fb053ffb44388d9c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092988"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
@@ -44,9 +44,9 @@ La suppression réversible est un comportement facultatif de Key Vault et **n�
 ### <a name="purge-protection--flag"></a>Indicateur de protection contre le vidage
 L’indicateur de protection contre le vidage (**--enable-purge-protection** dans Azure CLI) est désactivé par défaut. Quand cet indicateur est activé, un coffre ou un objet dans un état supprimé ne peut pas être purgé tant que la période de conservation de 90 jours ne s’est pas écoulée. Ce type de coffre ou d’objet peut toujours être récupéré. Cet indicateur donne aux clients l’assurance qu’un coffre ou objet ne peut jamais être supprimé définitivement tant que la période de conservation ne s’est pas écoulée. Vous ne pouvez activer l’indicateur de protection contre le vidage que si l’indicateur de suppression réversible est activé. Ou bien, au moment de la création du coffre, vous activez à la fois la suppression réversible et la protection contre le vidage.
 
-> [!NOTE] 
-   La protection contre le vidage ne peut être activée que si la suppression réversible l’est également.
-La commande pour effectuer cette opération dans Azure CLI 2 est la suivante :
+> [!NOTE]
+>    La protection contre le vidage ne peut être activée que si la suppression réversible l’est également.
+> La commande pour effectuer cette opération dans Azure CLI 2 est la suivante :
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716138"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848011"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -109,11 +109,11 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
 1. Cliquez sur **Aide et support** en bas à gauche de la page.
 1. Cliquez sur **Nouvelle demande de support**.
 1. Dans la page **Nouvelle demande de support**, sous l’onglet **De base**, sélectionnez les options suivantes :
-    - **Type de problème** : **Limites du service et de l’abonnement (quotas)**
-    - **Abonnement** : l’abonnement à modifier
-    - **Type de quota** : **HDInsight**
+   - **Type de problème** : **Limites du service et de l’abonnement (quotas)**
+   - **Abonnement** : l’abonnement à modifier
+   - **Type de quota** : **HDInsight**
     
-    ![Créer une demande de support pour augmenter le quota de cœurs d’HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![Créer une demande de support pour augmenter le quota de cœurs d’HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Cliquez sur **Suivant**.
 1. Dans la page **Détails**, entrez une description du problème, sélectionnez la gravité du problème et sélectionnez votre méthode de contact préférée.
@@ -125,7 +125,7 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
 
 Vous pouvez [contacter le support technique pour demander une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Toutefois, il existe certaines limites de quota fixes. Par exemple, un abonnement Azure peut avoir au maximum 10 000 cœurs. Pour plus d’informations sur ces limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
+Toutefois, il existe certaines limites de quota fixes. Par exemple, un abonnement Azure peut avoir au maximum 10 000 cœurs. Pour plus d’informations sur ces limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

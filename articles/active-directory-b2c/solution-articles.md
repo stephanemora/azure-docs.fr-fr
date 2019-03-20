@@ -7,13 +7,13 @@ ms.author: davidmu
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: b2c
-ms.openlocfilehash: 5f771e51a0114c321d1dfcbaf305dd9923040032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.subservice: B2C
+ms.openlocfilehash: 08a5e288d58d86cdad18561cb8a08a31f44ae498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009731"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Solutions et formations pour Azure Active Directory B2C
 
@@ -28,3 +28,4 @@ Azure Active Directory (Azure AD) B2C permet aux organisations d’implémenter 
 | [Migrating Application Authentication to Azure AD B2C in a Hybrid Environment](https://aka.ms/MigratetoAADB2C) (Migration de l’authentification d’application vers Azure AD B2C dans un environnement hybride) | Dans les organisations modernes d’aujourd’hui, la transformation numérique et la migration vers le cloud se déroulent étape par étape, ce qui demande à la plupart des organisations de fonctionner au moins temporairement dans un environnement d’identité hybride.<br><br>Ce guide est consacré à la création d’un plan de migration pour déplacer votre première application vers Azure AD B2C et couvre les éléments à prendre en compte pour effectuer cette migration dans un environnement d’identité hybride. |
 | [General Data protection Regulation (GDPR) Considerations for Customer Facing Applications](https://aka.ms/AADB2CandGDPR) (Remarques sur le règlement général sur la protection des données (RGPD) à prendre en compte pour les applications pour clients) | Pour toutes les applications pour clients, le règlement RGPD doit être pris en considération par toutes les organisations qui se lancent dans des projets qui contiennent des données personnelles et sont utiles aux citoyens de l’Union européenne.<br><br>Ce guide est consacré à l’utilisation d’Azure AD B2C comme composant flexible de votre approche de conformité RGPD globale. Il traite notamment de la façon dont les composants d’Azure AD B2C favorisent chacun des principaux droits RGPD pour les particuliers. |
 | Utiliser les stratégies personnalisées :<br><ul><li>[Présentation des stratégies personnalisées](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[Tirer parti des stratégies personnalisées dans votre locataire](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[Structurer les stratégies et gérer les clés](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[Apporter votre propre identité et effectuer la migration des utilisateurs](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[Résoudre les problèmes de stratégie et auditer l’accès](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[Présentation approfondie du schéma de stratégie personnalisée](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| Cette série de documents propose un parcours de bout en bout avec les stratégies personnalisées dans Azure AD B2C, avec une présentation approfondie des scénarios d’identité avancés les plus courants.<br><br> Elle explique comment implémenter et gérer des stratégies personnalisées pour ces scénarios et diagnostiquer les problèmes avec les outils disponibles. Elle apporte également une connaissance approfondie de la façon dont les stratégies personnalisées fonctionnent et les détails des réglages à apporter pour les adapter à vos besoins. |
+

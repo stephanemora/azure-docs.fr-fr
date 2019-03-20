@@ -5,20 +5,20 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341009"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214637"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Changer de préférence d'API pour les alertes de journal
 
 > [!NOTE]
-> Ce contenu ne s'applique **pas** aux utilisateurs d'Azure GovCloud. Il concerne uniquement les utilisateurs du cloud Azure public.  
+> Contenu indiqué applicable aux utilisateurs uniquement le cloud public Azure et **pas** pour le cloud Azure Government ou Azure Chine.  
 
 Récemment encore, vous gériez les règles d'alerte à partir du portail Microsoft Operations Management Suite. La nouvelle expérience d'alerte a été intégrée à différents services de Microsoft Azure, dont Log Analytics, et nous avons demandé une [extension de vos règles d'alerte du portail OMS vers Azure](alerts-extend.md). Cela dit, afin que les clients subissent le moins de perturbations possible, le processus n'a pas modifié l'interface de programmation - [API Alerte de Log Analytics](api-alerts.md) basée sur SavedSearch.
 
@@ -43,6 +43,7 @@ Les conséquences du passage à l'API scheduleQueryRules sont compilées ci-dess
 
 - Toutes les interactions liées à la gestion des alertes de journal via des interfaces de programmation doivent désormais s'effectuer à l'aide de l'API [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Pour plus d'informations, consultez [Exemple d'utilisation via Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) et [Exemple d'utilisation via Azure CLI et PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api).
 - Toute nouvelle règle d'alerte de journal créée sur le portail Azure devra utiliser l'API [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Les utilisateurs auront également la possibilité d'utiliser la [fonctionnalité supplémentaire de la nouvelle API](#Benefits-of-switching-to-new-Azure-API) via le portail Azure.
+- Gravité pour les règles d’alerte de journal est passé à partir de : *Critique, avertissement et information*à *les valeurs de gravité de 0, 1 et 2*. Avec la possibilité de créer/mettre à jour les règles d’alerte avec une gravité 4.
 
 Tout client souhaitant passer volontairement à la nouvelle API [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et bloquer l'utilisation de l'[API Alerte héritée de Log Analytics](api-alerts.md) peut le faire via un appel PUT sur l'API ci-dessous afin de modifier toutes les règles d'alerte associées à l'espace de travail Log Analytics spécifique.
 
