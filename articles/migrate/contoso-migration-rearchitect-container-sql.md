@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099084"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migration de Contoso : Réarchitecturer une application locale dans un conteneur Azure et Azure SQL Database
 
@@ -117,7 +117,7 @@ Contoso évalue la conception proposée en dressant une liste des avantages et d
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Génère et exploite des applications distribuées, scalables et toujours disponibles | Coûts basé sur la taille, l’emplacement et la durée des nœuds de calcul. [Plus d’informations](https://azure.microsoft.com/pricing/details/service-fabric/)
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Fournit un pipeline d’intégration et de déploiement continus (CI/CD) pour le développement d’applications. Le pipeline démarre avec un dépôt Git pour la gestion du code de l’application, un système de build pour la production de packages et d’autres artefacts de build, et un système Release Management pour le déploiement de modifications sur les environnements de production, de test et de développement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Voici ce dont Contoso a besoin pour exécuter ce scénario :
 
@@ -402,10 +402,10 @@ Les administrateurs de Contoso convertissent l’application en conteneur à l�
 4. Ils répètent le processus pour l’application SmartHotel.Registration.WCF.
 5. Maintenant, ils observent les changements de l’application.
 
-    - La nouvelle application est **SmartHotel.RegistrationApplication/**.
-    - Elle inclut deux services : **SmartHotel.Registration.WCF** et **SmartHotel.Registration.Web**.
+   - La nouvelle application est **SmartHotel.RegistrationApplication/**.
+   - Elle inclut deux services : **SmartHotel.Registration.WCF** et **SmartHotel.Registration.Web**.
 
-    ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. Visual Studio a créé le fichier Docker et extrait les images nécessaires localement sur l’ordinateur du développeur.
 
@@ -488,7 +488,7 @@ Les administrateurs de Contoso configurent maintenant Azure DevOps Services pour
 
 16. Par ailleurs, notez que le déclencheur de déploiement continu est activé.
 
-   ![Déploiement continu activé](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![Déploiement continu activé](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. Ils cliquent sur **Enregistrer** > **Créer une mise en production**.
 
