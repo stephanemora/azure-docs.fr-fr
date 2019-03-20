@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: c7805e64c4f387b870922dcb63e20d86f691092a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: c37df1f14f996da1d74d3df6888f360bc8ece483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180651"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux
 
@@ -78,7 +78,7 @@ Commencez par lire les notes et publications SAP suivantes
   * [Stratégies de prise en charge des clusters à haute disponibilité RHEL - Machines virtuelles Microsoft Azure en tant que membres du cluster](https://access.redhat.com/articles/3131341)
   * [Installation et configuration d’un cluster à haute disponibilité Red Hat Enterprise Linux 7.4 (et versions ultérieures) sur Microsoft Azure](https://access.redhat.com/articles/3252491)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Pour obtenir une haute disponibilité, SAP NetWeaver nécessite stockage partagé. GlusterFS est configuré dans un cluster distinct et peut être utilisé par plusieurs systèmes SAP.
 
@@ -204,6 +204,9 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
          * Répéter les étapes ci-dessus pour les ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 et TCP pour l’instance ASCS
       1. Ports supplémentaires pour les instances ASCS ERS
          * Répéter les étapes ci-dessus pour les ports 33**02**, 5**02**13, 5**02**14, 5**02**16 et TCP pour les instances ASCS ERS
+
+> [!IMPORTANT]
+> N’activez pas les horodatages TCP sur des machines virtuelles Azure placé derrière un équilibreur de charge Azure. L’activation TCP horodatages entraîne les sondes d’intégrité à échouer. Définissez le paramètre **net.ipv4.tcp_timestamps** à **0**. Pour plus d’informations, consultez [sondes d’intégrité d’équilibreur de charge](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Créer le cluster Pacemaker
 

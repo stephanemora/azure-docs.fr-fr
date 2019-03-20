@@ -3,8 +3,8 @@ title: Découvrir les versions de cluster d’Azure Service Fabric | Microsoft�
 description: Versions de cluster Azure Service Fabric prises en charge
 services: service-fabric
 documentationcenter: .net
-author: twhitney
-manager: jpconnock
+author: aljo-microsoft
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
-ms.author: TylerMSFT
-ms.openlocfilehash: 154869c3e6bcd44a71480a3cf7363537dddcebf9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727679"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191645"
 ---
 # <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
 
@@ -27,8 +27,8 @@ Veillez à ce que votre cluster exécute toujours une version prise en charge de
 
 Consultez les documents suivants pour savoir plus en détails comment faire en sorte que votre cluster exécute toujours une version prise en charge de Service Fabric.
 
-- [Mettre à niveau la version de Service Fabric sur un cluster Azure](service-fabric-cluster-upgrade.md)
-- [Mettre à niveau la version de Service Fabric sur un cluster de serveurs Windows autonome](service-fabric-cluster-upgrade-windows-server.md)
+- [Version mise à niveau de Service Fabric sur un cluster Azure](service-fabric-cluster-upgrade.md)
+- [Mettre à niveau la version de Service Fabric sur un cluster autonome windows server](service-fabric-cluster-upgrade-windows-server.md)
 
 Voici la liste des versions de Service Fabric prises en charge et la date associée de fin de prise en charge.
 
@@ -43,5 +43,5 @@ Voici la liste des versions de Service Fabric prises en charge et la date associ
 | 6.0.* | 5.6.205.* |Inférieure ou égale à la version 2.8 |30 mars 2018     |
 | 6.1.* | 5.7.221.* |Inférieure ou égale à la version 3.0 |15 juillet 2018      |
 | 6.2.* | 6.0.232.* |Inférieure ou égale à la version 3.1 |26 octobre 2018   |
-| 6.3.* | 6.1.480.* |Inférieure ou égale à la version 3.2 |28 février 2019  |
+| 6.3.* | 6.1.480.* |Inférieure ou égale à la version 3.2 |Mars 31,2019  |
 | 6.4.* | 6.2.301.* |Inférieure ou égale à la version 3.3 |Version actuelle ; par conséquent, pas de date de fin |

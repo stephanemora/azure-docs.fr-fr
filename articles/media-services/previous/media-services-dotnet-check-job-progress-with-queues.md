@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 811ed6dde4ed98222bdd2589d8d6fdd8e0f64ce8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994944"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176716"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Utiliser Stockage File d’attente Azure pour surveiller les notifications de travaux Media Services avec .NET (hérité)
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Queue Storage pour surveiller les notifications de travaux Media Services avec .NET 
 
 Lorsque vous exécutez des travaux d’encodage, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez configurer Media Services pour transmettre des notifications à [Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md). Vous pouvez vérifier la progression des tâches en obtenant des notifications à partir de Queue Storage. 
 

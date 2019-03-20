@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565239"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441370"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestion des bases de données cloud avec montée en charge
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-La fonctionnalité **Tâches de bases de données élastiques** est un service cloud Azure hébergé par le client, qui permet l’exécution de tâches administratives ad hoc et planifiées, appelées **travaux**. Grâce aux travaux, vous pouvez facilement gérer, de façon fiable, de grands groupes de bases de données SQL Azure en exécutant les scripts Transact-SQL pour effectuer des opérations administratives.
+**Bases de données élastiques** est un Service hébergé par le client de Cloud Azure qui permet l’exécution de tâches d’administration ad hoc et planifiées, appelées **travaux**. Grâce aux travaux, vous pouvez facilement gérer, de façon fiable, de grands groupes de bases de données SQL Azure en exécutant les scripts Transact-SQL pour effectuer des opérations administratives.
 
 Pour gérer les bases de données partitionnées avec montée en charge, la fonction **Tâches de base de données élastique** (version préliminaire) vous permet d’exécuter un script Transact-SQL (T-SQL) fiable dans un groupe de bases de données, notamment :
 
@@ -114,7 +114,7 @@ Les groupes personnalisés, quant à eux, sont définis de façon rigide. Vous d
 
 ## <a name="components-and-pricing"></a>Composants et tarification
 
-Les composants suivants fonctionnent en synergie pour créer un service Cloud Azure permettant l'exécution ad hoc de tâches administratives. Les composants sont installés et configurés automatiquement pendant l'installation, dans le cadre de votre abonnement. Vous pouvez identifier les services car ils portent tous le même nom généré automatiquement. Le nom est unique et se compose d'un préfixe « edj » suivi de 21 caractères générés de façon aléatoire.
+Les composants suivants fonctionnent ensemble pour créer un service Cloud Azure qui permet une exécution ad hoc de tâches administratives. Les composants sont installés et configurés automatiquement pendant l'installation, dans le cadre de votre abonnement. Vous pouvez identifier les services car ils portent tous le même nom généré automatiquement. Le nom est unique et se compose d'un préfixe « edj » suivi de 21 caractères générés de façon aléatoire.
 
 - Service cloud Azure
 

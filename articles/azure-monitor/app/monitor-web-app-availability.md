@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124318"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -92,7 +92,7 @@ Utilisez Visual Studio Enterprise pour enregistrer une session web.
 
     ![Dans Visual Studio édition Enterprise, créez un projet à partir du modèle Projet de test de performance Web et de charge.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Le modèle Projet de test de performance Web et de charge ne s’affiche pas ?* - Fermez Visual Studio Enterprise. Ouvrez **le programme d’installation de Visual Studio** pour modifier votre installation de Visual Studio Enterprise. Sous **Composants individuels**, sélectionnez **Web Performance and load testing tools** (Outils de test de performance Web et de charge).
+   * *Le modèle Projet de test de performance Web et de charge ne s’affiche pas ?* - Fermez Visual Studio Enterprise. Ouvrez **le programme d’installation de Visual Studio** pour modifier votre installation de Visual Studio Enterprise. Sous **Composants individuels**, sélectionnez **Web Performance and load testing tools** (Outils de test de performance Web et de charge).
 
 2. Ouvrez le fichier .webtest et lancez l'enregistrement.
 
@@ -329,7 +329,8 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
 * *Le protocole HTTPS est-il pris en charge ?*
 
-    Nous prenons en charge TLS 1.1 et TLS 1.2.
+    Nous prenons en charge TLS 1.1 et TLS 1.2. Actuellement, nous ne vérifient pas les erreurs de certificat HTTPS.  
+
 * *Quelle est la différence entre les « tests Web » et les « tests de disponibilité » ?*
 
     Les deux conditions peuvent être référencées indifféremment. « Tests de disponibilité » est un terme plus générique qui inclut les tests ping d’URL uniques en plus des tests web à plusieurs étapes.

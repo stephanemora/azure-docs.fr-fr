@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8008f96e00b0d9a4366832110c696c67a9c7257
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dc3a42c280a344ef08fa23111df8652b6167cfb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165403"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutoriel : Intégration d’Azure Active Directory à Panorama9
 
@@ -34,7 +34,7 @@ L’intégration de Panorama9 avec Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Panorama9, vous avez besoin des éléments suivants :
 
@@ -198,18 +198,18 @@ Dans le cas de Panorama9, l’approvisionnement est une tâche manuelle.
 
 1. Dans le menu situé en haut, cliquez sur **Manage**, puis sur **Users**.
    
-  ![Utilisateurs](./media/panorama9-tutorial/ic790027.png "Utilisateurs")
+   ![Utilisateurs](./media/panorama9-tutorial/ic790027.png "Utilisateurs")
 
 1. Dans la section Utilisateurs, cliquez sur **+** pour ajouter un nouvel utilisateur.
 
- ![Utilisateurs](./media/panorama9-tutorial/ic790028.png "Utilisateurs")
+   ![Utilisateurs](./media/panorama9-tutorial/ic790028.png "Utilisateurs")
 
 1. Accédez à la section Données utilisateur, puis, dans la zone de texte **E-mail**, entrez l’adresse e-mail d’un utilisateur Azure Active Directory valide que vous souhaitez approvisionner.
 
 1. Accédez à la section Utilisateurs, puis cliquez sur **Enregistrer**.
    
 > [!NOTE]
-    > Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.
+> Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848947"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -84,7 +84,7 @@ Les fonctions d’une application de fonction partagent des ressources. Par exem
 
 Soyez attentif à ce que vous chargez dans vos applications de fonction en production. La mémoire moyenne est calculée pour chaque fonction au sein de l’application.
 
-Si un assembly partagé est référencé dans plusieurs fonctions .Net, placez-le dans un dossier partagé commun. Référencez l’assembly avec une instruction similaire à l’exemple suivant si des scripts C# (.csx) sont utilisés : 
+Si vous avez un assembly partagé est référencé dans plusieurs fonctions .NET, placez-le dans un dossier partagé commun. Référencez l’assembly avec une instruction similaire à l’exemple suivant si des scripts C# (.csx) sont utilisés : 
 
     #r "..\Shared\MyAssembly.dll". 
 

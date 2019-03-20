@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 60f475afd8e9d599d3771b875f15a29e8a082fb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189391"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionnement de tables dans SQL Data Warehouse
 Recommandations et exemples relatifs à l’utilisation de partitions de tables dans Azure SQL Data Warehouse.
@@ -109,27 +109,6 @@ GROUP BY    s.[name]
 ;
 ```
 
-## <a name="workload-management"></a>Gestion des charges de travail
-Le dernier facteur à prendre en compte en ce qui concerne votre décision de partitionnement de tables est la [gestion des charges de travail](resource-classes-for-workload-management.md). La gestion des charges de travail dans SQL Data Warehouse consiste essentiellement en la gestion de mémoire et d’accès concurrentiel. Dans SQL Data Warehouse, la quantité de mémoire maximale allouée à chaque distribution lors de l’exécution des requêtes est définie par les classes de ressources. Dans l’idéal, vos partitions sont dimensionnées en tenant compte d’autres facteurs tels que les besoins en mémoire pour la création d’index columnstore en cluster. Les index columnstore en cluster présentent des avantages non négligeables lorsque davantage de mémoire leur est allouée. Vous devez donc vous assurer que la mémoire disponible pour une reconstruction d’index de partition est suffisante. Pour augmenter la quantité de mémoire disponible pour votre requête, vous devez passer du rôle par défaut, smallrc, à d’autres rôles, par exemple, largerc.
-
-Si vous voulez obtenir des informations sur l’allocation de la mémoire pour chaque distribution, interrogez les vues de gestion dynamique de Resource Governor. En réalité, votre allocation de mémoire est inférieure aux résultats de la requête suivante. Toutefois, cette requête peut vous aider à dimensionner vos partitions lors d’opérations de gestion des données. Évitez de dimensionner vos partitions en affectant une taille supérieure à la mémoire octroyée que fournit la classe de ressources de très grande taille. Si la taille de vos partitions dépasse cette valeur, vous risquez de solliciter la mémoire de manière trop intensive, ce qui peut nuire à l’efficacité de la compression.
-
-```sql
-SELECT  rp.[name]                                AS [pool_name]
-,       rp.[max_memory_kb]                        AS [max_memory_kb]
-,       rp.[max_memory_kb]/1024                    AS [max_memory_mb]
-,       rp.[max_memory_kb]/1048576                AS [mex_memory_gb]
-,       rp.[max_memory_percent]                    AS [max_memory_percent]
-,       wg.[name]                                AS [group_name]
-,       wg.[importance]                            AS [group_importance]
-,       wg.[request_max_memory_grant_percent]    AS [request_max_memory_grant_percent]
-FROM    sys.dm_pdw_nodes_resource_governor_workload_groups    wg
-JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools    rp ON wg.[pool_id] = rp.[pool_id]
-WHERE   wg.[name] like 'SloDWGroup%'
-AND     rp.[name]    = 'SloDWPool'
-;
-```
-
 ## <a name="partition-switching"></a>Basculement de partitions
 SQL Data Warehouse prend en charge le fractionnement, la fusion et le basculement de partition. Chacune de ces fonctions est exécutée à l’aide de l’instruction [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
 
@@ -166,15 +145,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,19990101,1,1,1,1,1,1);
 INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
-
-
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
-
-> [!NOTE]
-> En créant l’objet de statistiques, les métadonnées des tables sont plus précises. Si vous omettez ces statistiques, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, consultez la rubrique [Statistiques](sql-data-warehouse-tables-statistics.md).
-> 
-> 
 
 La requête suivante recherche le nombre de lignes à l’aide de la vue catalogue `sys.partitions` :
 
@@ -252,6 +223,31 @@ Une fois le déplacement des données effectué, il est judicieux d’actualiser
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
+```
+
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Charger de nouvelles données dans les partitions qui contiennent des données en une seule étape
+Le chargement des données en partitions avec basculement de partition est un moyen pratique de préparer les nouvelles données dans une table qui n’est pas visible aux utilisateurs le commutateur dans les nouvelles données.  Il peut être difficile sur les systèmes très occupés à traiter la contention de verrouillage associée de basculement de partition.  Pour effacer les données existantes dans une partition, un `ALTER TABLE` était jusqu’ici nécessaire pour extraire les données.  Puis une autre `ALTER TABLE` était nécessaire pour basculer les nouvelles données.  Dans SQL Data Warehouse, le `TRUNCATE_TARGET` option est prise en charge dans le `ALTER TABLE` commande.  Avec `TRUNCATE_TARGET` le `ALTER TABLE` commande remplace les données existantes dans la partition avec de nouvelles données.  Voici un exemple qui utilise `CTAS` pour créer une nouvelle table avec les données existantes, insère de nouvelles données, puis bascule toutes les données dans la table cible, en remplaçant les données existantes.
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_NewSales]
+    WITH    (   DISTRIBUTION = HASH([ProductKey])
+            ,   CLUSTERED COLUMNSTORE INDEX
+            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
+                                (20000101,20010101
+                                )
+                            )
+            )
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
+
+INSERT INTO dbo.FactInternetSales_NewSales
+VALUES (1,20000101,2,2,2,2,2,2);
+
+ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ### <a name="table-partitioning-source-control"></a>Contrôle de code source dans le cadre du partitionnement d’une table

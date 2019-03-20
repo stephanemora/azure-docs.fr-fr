@@ -1,22 +1,28 @@
 ---
 title: Consulter les journaux kubelet dans Azure Kubernetes Service (AKS)
-description: Comment afficher des informations de dépannage dans les journaux kubelet à partir des nœuds Azure Kubernetes Service (AKS)
+description: Découvrez comment afficher des informations de dépannage dans les journaux de kubelet à partir des nœuds Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
-ms.translationtype: HT
+ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441946"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534018"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Accéder aux journaux kubelet à partir de nœuds de cluster Azure Kubernetes Service (AKS)
 
-Il vous arrivera parfois de récupérer les journaux de *kubelet* à partir d’un nœud Azure Kubernetes Service (AKS) à des fins de dépannage. Cet article vous montre comment vous pouvez utiliser `journalctl` pour afficher les journaux *kubelet*.
+Dans le cadre de l’utilisation d’un cluster AKS, vous devrez peut-être consulter les journaux pour résoudre un problème. Intégré au portail Azure est la possibilité d’afficher les journaux de la [AKS maître composants] [ aks-master-logs] ou [conteneurs dans un cluster AKS][azure-container-logs]. Parfois, vous devrez peut-être obtenir *kubelet* journaux à partir d’un nœud AKS pour des fins de dépannage.
+
+Cet article vous montre comment vous pouvez utiliser `journalctl` pour afficher le *kubelet* ouvre une session sur un nœud AKS.
+
+## <a name="before-you-begin"></a>Avant de commencer
+
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Créer une connexion SSH
 
@@ -63,3 +69,7 @@ Si vous avez besoin d’informations de dépannage supplémentaires à partir du
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-master-logs]: view-master-logs.md
+[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

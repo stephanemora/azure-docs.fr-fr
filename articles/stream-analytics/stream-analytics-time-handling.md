@@ -6,17 +6,17 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/05/2018
+ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007667"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543285"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Comprendre la gestion du temps dans Azure Stream Analytics
 
-Dans cet article, nous examinons les choix de conception que vous pouvez effectuer pour résoudre les problèmes pratiques de la gestion du temps dans le service Azure Stream Analytics. Les choix de conception en matière de gestion du temps sont étroitement liés à des facteurs d’ordre des événements. Pour plus d’informations, consultez cet article connexe : [Considérations relatives à l’ordre des événements Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Dans cet article, nous examinons les choix de conception que vous pouvez effectuer pour résoudre les problèmes pratiques de la gestion du temps dans le service Azure Stream Analytics. Les choix de conception en matière de gestion du temps sont étroitement liés à des facteurs d’ordre des événements.
 
 ## <a name="background-time-concepts"></a>Concepts de base en matière de temps
 
@@ -163,7 +163,7 @@ Azure Stream Analytics se sert de la progression de la limite comme unique décl
 
 En cas d’utilisation des [agrégations fenêtrées](stream-analytics-window-functions.md), le service génère uniquement les sorties à la fin des plages. Dans certains cas, les utilisateurs peuvent souhaiter voir les agrégations partielles générées à partir des plages. Les agrégations partielles ne sont pas prises en charge dans Azure Stream Analytics.
 
-Dans d’autres solutions de streaming, les événements de sortie peuvent être matérialisés à divers points de déclenchement, en fonction de circonstances extérieures. Dans certaines solutions, il est possible que les événements de sortie pour deux ou trois plages de temps données soient générés plusieurs fois. Les résultats d’agrégation se font plus précis à mesure que les valeurs d’entrée sont affinées. Dans un premier temps, les événements peuvent être extrapolés et revus au fil du temps. Par exemple, quand un appareil est hors connexion sur le réseau, un système peut utiliser une valeur estimée. Par la suite, quand ce même appareil est connecté au réseau, les données d’événements réelles peuvent être incluses dans le flux d’entrée. Les résultats générés par le traitement de cette plage de temps offrent une sortie plus précise.
+Dans d’autres solutions de streaming, les événements de sortie peuvent être matérialisés à divers points de déclenchement, en fonction de circonstances extérieures. Il est possible dans certaines solutions que les événements de sortie pour une fenêtre de temps donné a pu être créées plusieurs fois. Les résultats d’agrégation se font plus précis à mesure que les valeurs d’entrée sont affinées. Dans un premier temps, les événements peuvent être extrapolés et revus au fil du temps. Par exemple, quand un appareil est hors connexion sur le réseau, un système peut utiliser une valeur estimée. Par la suite, quand ce même appareil est connecté au réseau, les données d’événements réelles peuvent être incluses dans le flux d’entrée. Les résultats générés par le traitement de cette plage de temps offrent une sortie plus précise.
 
 ## <a name="illustrated-example-of-watermarks"></a>Exemple illustrés de limites
 
@@ -171,7 +171,7 @@ Les images suivantes illustrent la façon dont les limites progressent dans cert
 
 Ce tableau montre les données de l’exemple représentées sous forme de graphique ci-dessous. Notez que l’heure de l’événement et l’heure d’arrivée peuvent parfois correspondre, parfois pas.
 
-| Heure de l’événement | Heure d’arrivée | DeviceId |
+| Heure de l’événement | Heure d’arrivée | deviceId |
 | --- | --- | --- |
 | 12:07 | 12:07 | device1
 | 12:08 | 12:08 | device2

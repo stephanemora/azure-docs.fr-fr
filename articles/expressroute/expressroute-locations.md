@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 03/15/2019
 ms.author: pareshmu
-ms.openlocfilehash: c89c5f2d463392106985b0d80bc45843a158fd50
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d7baebc4236df926dbd8cbe6e17e59b0a3489abd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188373"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -52,6 +52,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Corée du Sud** | 2 |Centre de la Corée, Corée du Sud |Busan, Séoul|
 | **Afrique du Sud** | 3 |Afrique du Sud Ouest, Nord de l’Afrique du Sud |Le Cap, Johannesburg |
 | **Amérique du Sud** | 3 |Brésil Sud |Sao Paulo |
+
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Régions et limites géopolitiques pour les clouds nationaux
 Le tableau ci-dessous fournit des informations sur les régions et les limites géopolitiques et des clouds nationaux.
@@ -291,7 +292,7 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 | **[Ensyst](https://www.ensyst.com.au)** | Asie
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | Amérique du Nord |
 | **[FlexManage](https://www.flexmanage.com/cloud)** | Amérique du Nord |
-| **[Lightstream](https://www.ltstream.com/expressroute)** | Amérique du Nord |
+| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | Amérique du Nord |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | Australie |
 | **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Australie |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Allemagne) |

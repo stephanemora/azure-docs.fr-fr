@@ -8,16 +8,14 @@ ms.topic: include
 ms.date: 04/30/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 2425d9455606f5eabba4b89cfa238b7a928be30e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 443db1b4609e62fb7c57de417e42a2b4d0737ada
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285701"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553621"
 ---
-####
-
-Les limites suivantes s’appliquent aux rubriques système Event Grid et aux rubriques personnalisées, et  *non pas* aux domaines d’événements.
+Les limites suivantes s’appliquent aux rubriques du système Azure Event Grid et les rubriques personnalisées, *pas* domaines de l’événement.
 
 | Ressource | Limite |
 | --- | --- |
@@ -25,13 +23,11 @@ Les limites suivantes s’appliquent aux rubriques système Event Grid et aux ru
 | Abonnements à des événements par rubrique | 500 |
 | Taux de publication pour une rubrique personnalisée (entrée) | 5 000 événements par seconde et par rubrique |
 
-####
-
-Les limites suivantes s’appliquent aux domaines d’événements uniquement.
+Les limites suivantes s’appliquent à des domaines d’événement uniquement.
 
 | Ressource | Limite |
 | --- | --- |
 | Rubriques par domaine d’événements | 1 000 pendant la phase de préversion publique |
-| Abonnements à des événements par rubrique dans un domaine | 50 pendant la phase de préversion publique |
-| Abonnements d’événements à l’étendue de domaine | 50 pendant la phase de préversion publique |
-| Taux de publication pour un Domaine d’événements (entrée) | 5 000 événements par seconde pendant la phase de préversion publique |
+| Abonnements aux événements par rubrique dans un domaine | 50 pendant la phase de préversion publique |
+| Abonnements aux événements de domaine étendue | 50 pendant la phase de préversion publique |
+| Publier les taux pour un domaine d’événement (entrée) | 5 000 événements par seconde pendant la phase de préversion publique |

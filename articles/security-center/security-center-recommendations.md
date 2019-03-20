@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5ca8efd43244825eef412cf3c05c8df20094112
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109186"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestion des recommandations de sécurité dans le Centre de sécurité Azure
 Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
@@ -53,27 +53,25 @@ Pour afficher les détails de chaque recommandation, sélectionnez la vignette *
 
 Vous pouvez filtrer les recommandations. Pour filtrer les recommandations, sélectionnez **Filtrer** sur le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
 
-Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
 
-* **DESCRIPTION** : Explication de la recommandation et de la procédure à suivre pour résoudre le problème.
+* **RECOMMANDATIONS**: La recommandation.
+* **SECURE SCORE IMPACT**:
 * **RESSOURCE** : Ressources auxquelles s’appliquent les recommandations.
-* **ÉTAT** : Décrit l’état actuel de la recommandation :
-  * **Ouverte** : La recommandation n’a pas encore été prise en compte.
-  * **En cours** : la suggestion est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-  * **Résolue** : La recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
-* **GRAVITÉ** : Donne le niveau de gravité de chaque recommandation :
-  * **Élevée** : Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
-  * **Moyenne** : Il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
-  * **Faible** : Existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+* **BARRES D’ÉTAT**:  Donne le niveau de gravité de chaque recommandation :
+   * **Élevé (rouge)**: Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
+   * **Moyen (Orange)**: Il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
+   * **Faible (bleu)**: Existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître. 
+   * **Intègre (vert)**:
+   * **Non disponible (gris)**:
+ 
 
-Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leurs effets.
 
 > [!NOTE]
 > Vous devez apprendre à différencier les [modèles de déploiement de type classique et Resource Manager](../azure-classic-rm.md) utilisés pour les ressources Azure.
->
->
-### <a name="apply-recommendations"></a>Appliquer les recommandations
-Après avoir examiné toutes les recommandations, vous pouvez décider d’en appliquer une en priorité. Les recommandations à appliquer en priorité sont celles dont le niveau de gravité est le plus élevé.
+> 
+> 
+> ### <a name="apply-recommendations"></a>Appliquer les recommandations
+> Après avoir examiné toutes les recommandations, vous pouvez décider d’en appliquer une en priorité. Les recommandations à appliquer en priorité sont celles dont le niveau de gravité est le plus élevé.
 
 
 

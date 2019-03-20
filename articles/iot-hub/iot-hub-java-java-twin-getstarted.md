@@ -1,19 +1,20 @@
 ---
 title: Bien démarrer avec les jumeaux d’appareils Azure IoT Hub (Java) | Microsoft Docs
 description: Guide d’utilisation des jumeaux d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Vous utilisez Azure IoT device SDK pour Java afin d’implémenter l’application pour appareils et Azure IoT service SDK afin d’implémenter une application de service qui ajoute les balises et exécute la requête IoT Hub.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: dobett
-ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: bfb111b07db105190fc59f21b3255c2ea2b1471c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081013"
 ---
 # <a name="get-started-with-device-twins-java"></a>Bien démarrer avec les jumeaux d’appareils (Java)
 
@@ -73,7 +74,7 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     ```
 
     > [!NOTE]
-    > Vous pouvez rechercher la dernière version de **iot-service-client** avec la [recherche Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Vous pouvez rechercher la dernière version de **iot-service-client** avec la [recherche Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Ajoutez le nœud **build** suivant après le nœud **dependencies**. Cette configuration ordonne à Maven d’utiliser Java 1.8 pour générer l’application :
 
@@ -233,7 +234,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
     ```
 
     > [!NOTE]
-    > Vous pouvez rechercher la dernière version de **iot-device-client** avec la [recherche Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Vous pouvez rechercher la dernière version de **iot-device-client** avec la [recherche Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Ajoutez le nœud **build** suivant après le nœud **dependencies**. Cette configuration ordonne à Maven d’utiliser Java 1.8 pour générer l’application :
 
@@ -293,18 +294,18 @@ Dans cette section, vous allez créer une application console Java qui définit 
     * créer un client d’appareil afin de communiquer avec IoT Hub.
     * créer un objet **Device** afin de stocker les propriétés du jumeau d’appareil.
 
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
+      // Create a Device object to store the device twin properties
+      Device dataCollector = new Device() {
       // Print details when a property value changes
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
         System.out.println(propertyKey + " changed to " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
 10. Ajoutez le code suivant à la méthode **main** pour créer une propriété signalée **connectivityType** et l’envoyer à IoT Hub :
 
@@ -340,9 +341,9 @@ Dans cette section, vous allez créer une application console Java qui définit 
 
 1. Modifiez la signature de la méthode **main** pour inclure les exceptions suivantes :
 
-    ```java
-    public static void main(String[] args) throws URISyntaxException, IOException
-    ```
+     ```java
+     public static void main(String[] args) throws URISyntaxException, IOException
+     ```
 
 1. Enregistrez et fermez le fichier `simulated-device\src\main\java\com\mycompany\app\App.java`.
 

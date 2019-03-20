@@ -4,22 +4,22 @@ description: Opérations d’appel de l’API REST des services Stockage Azure, 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012777"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Utilisation de l’API REST Stockage Azure
 
 Cet article vous indique comment utiliser les API REST du service Stockage Blob et comment authentifier l’appel au service. Il est écrit du point de vue d’un développeur qui n’a aucune connaissance sur REST et sur la manière de passer un appel REST. Nous consultons la documentation de référence pour un appel REST et expliquons comment la traduire en un appel REST réel : quels champs sont à placer et où ? Après avoir appris comment configurer un appel REST, vous pouvez utiliser ces connaissances pour utiliser les autres API REST du service Stockage.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 L’application répertorie les conteneurs dans le Stockage Blob pour un compte de stockage. Pour tester le code de cet article, vous avez besoin des éléments suivants : 
 
@@ -46,7 +46,7 @@ Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir la sol
 
 ## <a name="what-is-rest"></a>Qu’est-ce que REST ?
 
-REST signifie *representational state transfer*. Consultez [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer) pour obtenir une définition spécifique.
+REST signifie *representational state transfer*. Consultez [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer) pour obtenir une définition spécifique.
 
 En fait, REST est une architecture que vous pouvez utiliser lors de l’appel d’API ou lorsque vous rendez des API disponibles pour être appelées. L’architecture REST est indépendante de ce qui se passe de chaque côté d’elle et du logiciel utilisé lors de l’envoi ou de la réception d’appels REST. Vous pouvez écrire une application sur Mac, Windows, Linux, un téléphone ou une tablette Android, iPhone, iPod, ou un site web, et vous pouvez utiliser la même API REST pour toutes ces plateformes. Les données peuvent être reçues et/ou envoyées lorsque l’API REST est appelée. L’API REST ne se soucie pas de la plateforme à partir de laquelle elle est appelée ; ce qui est important, ce sont les informations transmises dans la requête et les données fournies dans la réponse.
 
@@ -80,7 +80,7 @@ Pour utiliser d’autres paramètres, ajoutez-les à la chaîne de ressource ave
 
 [Corps de la requête](/rest/api/storageservices/List-Containers2#request-body) **:** Il n’existe pas de corps de requête pour ListContainers. Le paramètre Corps de la requête est utilisé pour toutes les opérations PUT lors de la mise à jour d’objets Blob, tout comme SetContainerAccessPolicy, qui vous permet d’envoyer une liste XML des stratégies d’accès stockées à appliquer. Les stratégies d’accès stockées sont traitées dans l’article [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Code d’état de la réponse](/rest/api/storageservices/List-Containers2#status-code) **:** Indique tous les codes d’état que vous devez connaître. Dans cet exemple, un code d’état HTTP de 200 est acceptable. Pour obtenir la liste complète des codes d’état HTTP, consultez [Définitions des codes d’état](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Pour consulter les codes d’erreur spécifiques aux API REST de Stockage, consultez [Codes d’erreur API REST courants](/rest/api/storageservices/common-rest-api-error-codes)
+[Code d’état de la réponse](/rest/api/storageservices/List-Containers2#status-code) **:** Indique tous les codes d’état que vous devez connaître. Dans cet exemple, un code d’état HTTP de 200 est acceptable. Pour obtenir la liste complète des codes d’état HTTP, consultez [Définitions des codes d’état](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Pour consulter les codes d’erreur spécifiques aux API REST de Stockage, consultez [Codes d’erreur API REST courants](/rest/api/storageservices/common-rest-api-error-codes)
 
 [En-têtes de réponse](/rest/api/storageservices/List-Containers2#response-headers) **:** Ils incluent *Type de contenu* ; *x-ms-request-id* (l’ID de requête que vous avez transmis, le cas échéant) ; *x-ms-version* (indique la version du service Blob utilisé) et *Date* (format UTC, indique l’heure à laquelle la requête a été faite).
 
@@ -88,7 +88,7 @@ Pour utiliser d’autres paramètres, ajoutez-les à la chaîne de ressource ave
 
 ## <a name="creating-the-rest-request"></a>Création de la requête REST
 
-Quelques remarques avant de commencer : à des fins de sécurité lors de l’exécution en production, utilisez toujours HTTPS plutôt que HTTP. Pour cet exercice, nous vous recommandons d’utiliser HTTP pour pouvoir afficher la requête et les données de la réponse. Pour afficher la requête et les informations de la réponse dans les appels REST réels, vous pouvez télécharger [Fiddler](http://www.telerik.com/fiddler) ou une application similaire. Dans la solution Visual Studio, le nom et la clé du compte de stockage sont codés en dur dans la classe, et la méthode ListContainersAsyncREST transmet le nom du compte de stockage et la clé du compte de stockage aux méthodes utilisées pour créer les divers composants de la requête REST. Dans une application réelle, le nom et la clé du compte de stockage résident dans un fichier de configuration, des variables d’environnement ou sont récupérés à partir d’Azure Key Vault.
+Quelques remarques avant de commencer : à des fins de sécurité lors de l’exécution en production, utilisez toujours HTTPS plutôt que HTTP. Pour cet exercice, nous vous recommandons d’utiliser HTTP pour pouvoir afficher la requête et les données de la réponse. Pour afficher la requête et les informations de la réponse dans les appels REST réels, vous pouvez télécharger [Fiddler](https://www.telerik.com/fiddler) ou une application similaire. Dans la solution Visual Studio, le nom et la clé du compte de stockage sont codés en dur dans la classe, et la méthode ListContainersAsyncREST transmet le nom du compte de stockage et la clé du compte de stockage aux méthodes utilisées pour créer les divers composants de la requête REST. Dans une application réelle, le nom et la clé du compte de stockage résident dans un fichier de configuration, des variables d’environnement ou sont récupérés à partir d’Azure Key Vault.
 
 Dans notre exemple de projet, le code pour créer l’en-tête Autorisation se trouve dans une classe séparée. L’idée est que vous pouvez ajouter l’ensemble de la classe à votre propre solution et l’utiliser « telle quelle ». Le code d’en-tête Autorisation fonctionne pour la plupart des appels d’API REST au Stockage Azure.
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
 
 La plupart de ces champs est rarement utilisée. Pour le stockage Blob, vous spécifiez VERB, md5, content length (longueur du contenu), Canonicalized Headers (en-têtes rendus canoniques) et Canonicalized Resource (ressource rendue canonique). Vous pouvez laisser les autres champs vides (mais insérez `\n` pour montrer qu’ils sont vides).
 
-Que sont les champs CanonicalizedHeaders et CanonicalizedResource ? Bonne question. En fait, que signifie l’expression « rendre canonique » ? Microsoft Word ne la reconnaît même pas. Voici ce que [Wikipédia indique sur le mot « canonique »](http://en.wikipedia.org/wiki/Canonicalization) : *En informatique, la mise en forme canonique est le procédé par lequel on convertit des données qui ont plusieurs représentations possibles vers un format standard.* En langage courant, cela signifie prendre la liste d’éléments (comme des en-têtes dans le cas des En-têtes rendus canoniques) et les normaliser dans un format requis. En résumé, Microsoft a choisi un format et vous devez vous y conformer.
+Que sont les champs CanonicalizedHeaders et CanonicalizedResource ? Bonne question. En fait, que signifie l’expression « rendre canonique » ? Microsoft Word ne la reconnaît même pas. Voici ce que [Wikipédia indique sur le mot « canonique »](https://en.wikipedia.org/wiki/Canonicalization) : *En informatique, la mise en forme canonique est le procédé par lequel on convertit des données qui ont plusieurs représentations possibles vers un format standard.* En langage courant, cela signifie prendre la liste d’éléments (comme des en-têtes dans le cas des En-têtes rendus canoniques) et les normaliser dans un format requis. En résumé, Microsoft a choisi un format et vous devez vous y conformer.
 
 Commençons par ces deux champs rendus canoniques, car ils sont obligatoires pour créer l’en-tête d’autorisation.
 
@@ -325,7 +325,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
     StringBuilder sb = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
         StringBuilder headerBuilder = new StringBuilder(kvp.Key);
@@ -482,7 +482,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-Les valeurs suivantes proviennent de [Fiddler](http://www.telerik.com/fiddler) :
+Les valeurs suivantes proviennent de [Fiddler](https://www.telerik.com/fiddler) :
 
 **Requête :**
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5c7e1815fe27d9b851407a8e6f17d04d7bc1cad
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837607"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -122,8 +122,8 @@ Comme les autres données de télémétrie, **performanceCounters** possède ég
 
 * *Exceptions* représente le nombre de rapports TrackException reçus par le portail au cours de l’intervalle d’échantillonnage du graphique. Il comprend uniquement les exceptions gérées pour lesquelles vous avez écrit des appels TrackException dans votre code et n’inclut pas toutes les [exceptions non gérées](../../azure-monitor/app/asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Compteurs de performances dans les applications ASP.Net Core
-Les compteurs de performances ne sont pris en charge que si l’application cible le .NET Framework complet. Il est impossible de collecter les compteurs de performances pour les applications .Net Core.
+## <a name="performance-counters-in-aspnet-core-applications"></a>Compteurs de performances dans les applications ASP.NET Core
+Les compteurs de performances ne sont pris en charge que si l’application cible le .NET Framework complet. Il n’existe aucune possibilité de collecter les compteurs de performances pour les applications .NET Core.
 
 ## <a name="alerts"></a>Alertes
 Comme d’autres mesures, vous pouvez [définir une alerte](../../azure-monitor/app/alerts.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.

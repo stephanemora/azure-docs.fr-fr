@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188320"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Mise à l’échelle géolocalisée avec les environnements App Service
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,7 +46,7 @@ Le reste de cette rubrique décrit les étapes nécessaires à la configuration 
 ## <a name="planning-the-topology"></a>Planification de la topologie
 Avant de créer une empreinte d’application distribuée, il peut s’avérer utile de disposer de quelques éléments d’informations.
 
-* **Domaine personnalisé pour l’application :**  quel est le nom de domaine personnalisé que les clients utiliseront pour accéder à l’application ?  Pour l’exemple d’application, le nom de domaine personnalisé est *www.scalableasedemo.com*
+* **Domaine personnalisé pour l’application :**  quel est le nom de domaine personnalisé que les clients utiliseront pour accéder à l’application ?  Pour l’exemple d’application est le nom de domaine personnalisé `www.scalableasedemo.com`
 * **Domaine Traffic Manager :**  vous devez choisir un nom de domaine au moment de la création d’un [profil Azure Traffic Manager][AzureTrafficManagerProfile].  Ce nom est associé au suffixe *trafficmanager.net* pour enregistrer une entrée de domaine gérée par Traffic Manager.  Dans l’exemple d’application, le nom choisi est *scalable-ase-demo*.  Par conséquent, le nom de domaine complet géré par Traffic Manager est *scalable-ase-demo.trafficmanager.net*.
 * **Stratégie de mise à l’échelle de l’empreinte de l’application :**  l’empreinte de l’application sera-t-elle distribuée sur plusieurs environnements App Service dans une seule région ?  Plusieurs régions ?  Une combinaison des deux approches ?  La décision doit être prise en fonction des attentes depuis l’emplacement d’origine du trafic du client, ainsi que sur la manière dont peut évoluer le reste de l’application prenant en charge l’infrastructure principale.  Par exemple, avec une application à 100 % sans état, une application peut être adaptée à très grande échelle à l’aide d’une combinaison de plusieurs environnements App Service, puis multipliée par les environnements App Service déployés dans plusieurs régions Azure.  Avec plus de 15 régions Azure publiques disponibles, les clients peuvent véritablement créer une empreinte d’application à échelle mondial.  Pour l’exemple d’application utilisé pour cet article, trois environnements App Service ont été créés dans une seule région Azure (USA Centre Sud).
 * **Convention de nommage pour les environnements App Service :**  chaque environnement App Service requiert un nom unique.  Au-delà d’un ou deux environnements App Service, une convention d’affectation de noms identifiant chaque environnement App Service peut s’avérer utile.  Pour l’exemple d’application, une convention d’affectation de noms simple a été utilisée.  Les noms des trois environnements App Service sont respectivement *fe1ase*, *fe2ase* et *fe3ase*.
@@ -87,7 +87,7 @@ Notez qu’il existe un appel de *Add-AzureTrafficManagerEndpointConfig* pour ch
 Les trois points de terminaison utilisent la même valeur (10) pour le paramètre *Poids* .  Ainsi, Traffic Manager répartit les demandes clients entre les trois instances d’application de façon relativement uniforme. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Pointer le domaine personnalisé de l’application sur le domaine Traffic Manager
-La dernière étape obligatoire consiste à pointer le domaine personnalisé de l’application sur le domaine Traffic Manager.  Pour l’exemple d’application, cela signifie pointer *www.scalableasedemo.com* sur *scalable-ase-demo.trafficmanager.net*.  Cette étape doit être effectuée avec le service de registre de domaine qui gère le domaine personnalisé.  
+La dernière étape obligatoire consiste à pointer le domaine personnalisé de l’application sur le domaine Traffic Manager.  Pour l’exemple d’application, cela signifie pointer `www.scalableasedemo.com` à `scalable-ase-demo.trafficmanager.net`.  Cette étape doit être effectuée avec le service de registre de domaine qui gère le domaine personnalisé.  
 
 Avec les outils de gestion d’enregistrement de domaine, vous devez créer un enregistrement CNAME pointant sur le domaine personnalisé du domaine Traffic Manager.  L’illustration ci-dessous montre un exemple de cette configuration CNAME :
 
@@ -95,16 +95,16 @@ Avec les outils de gestion d’enregistrement de domaine, vous devez créer un e
 
 Bien que cet aspect ne soit pas traité dans cette rubrique, n’oubliez pas que le domaine personnalisé doit être enregistré avec chaque instance d’application individuelle.  Si ce n’est pas le cas, si une demande s’adresse à une instance d’application et que l’application ne dispose pas d’un domaine personnalisé enregistré avec l’application, la demande échoue.  
 
-Dans cet exemple le domaine personnalisé est *www.scalableasedemo.com*, et chaque instance d’application est associée à un domaine personnalisé.
+Dans cet exemple, le domaine personnalisé est `www.scalableasedemo.com`, et chaque instance d’application est le domaine personnalisé, il est associé.
 
 ![Domaine personnalisé][CustomDomain] 
 
 Pour obtenir un récapitulatif de l’enregistrement d’un domaine personnalisé avec les applications Azure App Service, consultez l’article qui suit sur l’[enregistrement de domaines personnalisés][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Essai de la topologie distribuée
-Le résultat final de la configuration de Traffic Manager et de DNS est que les demandes de *www.scalableasedemo.com* circulent dans suivant la séquence suivante :
+Le résultat final de la configuration DNS et Traffic Manager est que les demandes de `www.scalableasedemo.com` circulent dans la séquence suivante :
 
-1. Un navigateur ou un périphérique effectue une recherche DNS sur *www.scalableasedemo.com*
+1. Un navigateur ou appareil fera une recherche DNS `www.scalableasedemo.com`
 2. L’entrée CNAME sur l’enregistrement de domaine fait que la recherche DNS est redirigée vers Azure Traffic Manager.
 3. Une recherche DNS sur *scalable-ase-demo.trafficmanager.net* est effectuée sur l’un des serveurs DNS Traffic Manager d’Azure.
 4. Selon la stratégie d’équilibrage de charge (paramètre *TrafficRoutingMethod* utilisé précédemment lors de la création du profil Traffic Manager), Traffic Manager sélectionne un des points de terminaison configurés et renvoie le nom de domaine complet de ce point de terminaison au navigateur ou au périphérique.

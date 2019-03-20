@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454648"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959933"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Ajout manuel d’un compte à l’application
 Si la caméra ne peut pas capturer le code QR, vous pouvez ajouter manuellement les informations de votre compte à l’application Microsoft Authenticator pour la vérification en deux étapes. Cela fonctionne pour les comptes professionnels ou scolaires et les comptes autres que Microsoft.
@@ -90,7 +90,7 @@ Vous pouvez ajouter votre compte Amazon en activant la vérification en deux ét
 
 4. Poursuivez le processus d’inscription en ajoutant notamment une méthode de vérification de sauvegarde comme un message texte, puis sélectionnez **Envoyer le code**.
 
-5. Dans la page **Ajouter une méthode de vérification de sauvegarde** de votre ordinateur, entrez le code de vérification à six chiffres fourni par la méthode de vérification de sauvegarde pour votre compte Amazon, puis sélectionnez **Vérifier le code et continuer**.
+5. Sur la page **Ajouter une méthode de vérification de sauvegarde** de votre ordinateur, entrez le code de vérification à six chiffres fourni par la méthode de vérification de sauvegarde pour votre compte Amazon, puis sélectionnez **Vérifier le code et continuer**.
 
 6. Sur la page Presque terminé, indiquez si vous souhaitez faire de votre ordinateur un appareil de confiance, puis sélectionnez **Compris. Activer la vérification en deux étapes**.
 
@@ -102,5 +102,7 @@ Vous pouvez ajouter votre compte Amazon en activant la vérification en deux ét
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Après avoir ajouté vos comptes à l’application, vous pouvez vous connecter à l’aide de l’application Microsoft Authenticator sur votre appareil. Pour plus d’informations, consultez l’article [Se connecter à l’aide de l’application Microsoft Authenticator](user-help-auth-app-sign-in.md).
+
+- Si vous ne parvenez pas à l’obtention de votre code de vérification pour votre compte Microsoft personnel, consultez la **résolution des problèmes de code de vérification** section de la [& vérification d’informations de sécurité du compte Microsoft codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) article.
 
 - Pour les appareils exécutant iOS, vous pouvez également sauvegarder les informations d’identification de votre compte et les paramètres de l’application associée, comme l’ordre de vos comptes, dans le cloud. Pour plus d’informations, consultez l’article [Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 56d18b7ec44e979bee48c3598286a461199e1005
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958199"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244640"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Feuille de route de préparation de Azure Security Center
 Ce document fournit une feuille de route de préparation qui vous aidera à prendre en main Azure Security Center.
@@ -33,7 +33,7 @@ Articles
 * [Présentation d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * [Guide de démarrage rapide de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-vidéos
+Videos
 * [Vidéo de présentation rapide](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
 * [Vue d’ensemble des fonctionnalités de prévention, de détection et de réponse de Security Center](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
@@ -81,7 +81,7 @@ Pour réduire les coûts et les dommages, il est important de disposer d’un pl
 
 Utilisez les ressources suivantes pour comprendre comment Security Center peut être intégré dans votre processus de réponse aux incidents.
 
-vidéos  
+Videos  
 * [Azure Security Center dans la réponse aux incidents](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Répondre rapidement aux menaces avec des opérations et des investigations de sécurité de nouvelle génération](https://youtu.be/e8iFCz5RM4g)
 
@@ -95,7 +95,7 @@ Les machines virtuelles Azure peuvent profiter des fonctionnalités de défense 
 
 Utilisez les ressources suivantes pour savoir comment utiliser ces fonctionnalités dans Security Center.
 
-vidéos  
+Videos  
 * [Azure Security Center – Accès Juste à temps à la machine virtuelle](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Contrôles d’application adaptative](https://youtu.be/wWWekI1Y9ck)
 
@@ -118,7 +118,7 @@ Articles
 * [Meilleures pratiques en matière de sécurité réseau](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [Recommandations de PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformité](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [Les clients Log Analytics peuvent désormais utiliser Azure Security Center pour protéger leurs charges de travail de Cloud hybride](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Les clients analytique de journal peuvent maintenant utiliser Azure Security Center pour protéger leurs charges de travail de cloud hybride](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Ressources de la Communauté
 

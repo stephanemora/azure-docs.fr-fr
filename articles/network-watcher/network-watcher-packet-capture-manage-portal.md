@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: jdial
-ms.openlocfilehash: 827a3c2f831c8e8fb459e494dcad58e3661e78bd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889979"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide du portail
 
@@ -41,29 +41,29 @@ Si un groupe de sécurité réseau est associé à l’interface réseau ou à u
 1. Dans votre navigateur, accédez au [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**, puis, dans la section **Mise en réseau**, choisissez **Network Watcher**.
 2. Sélectionnez **Capture de paquets** sous **Outils de diagnostic réseau**. Les captures de paquets existantes sont répertoriées, indépendamment de leur état.
 3. Sélectionnez **Ajouter** pour créer une capture de paquets. Vous pouvez sélectionner des valeurs pour les propriétés suivantes :
-   - **Abonnement** : abonnement dans lequel figure la machine virtuelle pour laquelle vous voulez créer la capture de paquets.
-   - **Groupe de ressources** : groupe de ressources de la machine virtuelle.
-   - **Machine virtuelle cible**: machine virtuelle pour laquelle vous voulez créer la capture de paquets.
-   - **Nom de la capture de paquets** : nom pour la capture de paquets.
-   - **Compte de stockage ou fichier** : sélectionnez **Compte de stockage**, **Fichier**, ou les deux. Si vous sélectionnez **Fichier**, la capture est écrite dans un chemin d’accès à l’intérieur de la machine virtuelle.
-   - **Chemin de fichier local** : chemin d’accès local, sur la machine virtuelle, de l’emplacement où la capture de paquets sera enregistrée (uniquement quand *Fichier* est sélectionné). Il doit s’agir d’un chemin d’accès valide. Si vous utilisez une machine virtuelle Linux, le chemin doit commencer par */var/captures*.
-   - **Comptes de stockage** : si vous avez choisi *Compte de stockage*, sélectionnez un compte de stockage. Cette option est disponible uniquement si vous avez sélectionné **Stockage**.
+   - **Abonnement**: L’abonnement de capture pour la machine virtuelle que vous souhaitez créer le paquet est.
+   - **Groupe de ressources** : Le groupe de ressources de la machine virtuelle.
+   - **Machine virtuelle cible** : La machine virtuelle que vous souhaitez créer pour la capture de paquets.
+   - **Nom de capture de paquets**: Un nom pour la capture de paquets.
+   - **Compte de stockage ou le fichier**: Sélectionnez **compte de stockage**, **fichier**, ou les deux. Si vous sélectionnez **Fichier**, la capture est écrite dans un chemin d’accès à l’intérieur de la machine virtuelle.
+   - **Chemin d’accès du fichier local**: Le chemin d’accès local sur l’ordinateur virtuel où la capture de paquets sera enregistrée (valide uniquement lorsque *fichier* est sélectionnée). Il doit s’agir d’un chemin d’accès valide. Si vous utilisez une machine virtuelle Linux, le chemin doit commencer par */var/captures*.
+   - **Comptes de stockage** : Sélectionnez un compte de stockage existant, si vous avez sélectionné *compte de stockage*. Cette option est disponible uniquement si vous avez sélectionné **Stockage**.
    
      > [!NOTE]
      > Les comptes de stockage Premium ne sont actuellement pas pris en charge pour le stockage des captures de paquets.
 
-   - **Nombre maximal d’octets par paquet** : nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés.
-   - **Nombre maximal d’octets par session**: nombre total d’octets capturés. Une fois la valeur atteinte, la capture de paquets s’arrête.
-   - **Délai imparti (secondes)** : délai précédant l’arrêt de la capture de paquets. La valeur par défaut est 18 000 secondes.
+   - **Nombre maximal d’octets par paquet**: Le nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés.
+   - **Nombre maximal d’octets par session**: Le nombre total d’octets capturés. Une fois la valeur atteinte, la capture de paquets s’arrête.
+   - **Délai imparti (secondes)**: La limite de temps avant l’arrêt de la capture de paquets. La valeur par défaut est 18 000 secondes.
    - Filtrage (facultatif). Sélectionnez **+ Ajouter un filtre**
-     - **Protocole** : protocole de filtrage de la capture de paquets. Valeurs possibles : TCP, UDP et Quelconque.
-     - **Adresse IP locale** : filtre la capture de paquets en la limitant à ceux dont l’adresse IP locale correspond à cette valeur.
-     - **Port local** : filtre la capture de paquets en la limitant à ceux dont le port local correspond à cette valeur.
-     - **Adresse IP distante** : filtre la capture de paquets en la limitant à ceux dont l’adresse IP distante correspond à cette valeur.
-     - **Port distant** : filtre la capture de paquets en la limitant à ceux dont le port distant correspond à cette valeur.
+     - **Protocole** : Protocole permettant de filtrer la capture de paquets. Valeurs possibles : TCP, UDP et Quelconque.
+     - **Adresse IP locale**: Filtre la capture de paquets pour les paquets dont l’adresse IP locale correspond à cette valeur.
+     - **Port local**: Filtre la capture de paquets pour les paquets dont le port local correspond à cette valeur.
+     - **Adresse IP distante**: Filtre la capture de paquets pour les paquets dont l’adresse IP distante correspond à cette valeur.
+     - **Port distant**: Filtre la capture de paquets pour les paquets dont le port distant correspond à cette valeur.
     
-    > [!NOTE]
-    > Les valeurs d’adresse IP et de port peuvent être une valeur unique, une série de valeurs ou une plage de valeurs telle que 80-1024 pour le port. Vous pouvez définir autant de filtres que nécessaire.
+     > [!NOTE]
+     > Les valeurs d’adresse IP et de port peuvent être une valeur unique, une série de valeurs ou une plage de valeurs telle que 80-1024 pour le port. Vous pouvez définir autant de filtres que nécessaire.
 
 4. Sélectionnez **OK**.
 
@@ -88,7 +88,7 @@ Dans l’affichage des captures de paquets, sélectionnez **...**  à droite d�
 
 ## <a name="download-a-packet-capture"></a>Télécharger une capture de paquets
 
-Une fois votre session de capture de paquets terminée, le fichier de capture est chargé dans le stockage d'objets blob ou dans un fichier local sur la machine virtuelle. L’emplacement de stockage de la capture de paquets est défini lors de la création de la capture de paquets. Un outil pratique pour accéder aux fichiers de capture enregistrés dans un compte de stockage est l’Explorateur Stockage Microsoft Azure que vous pouvez [télécharger](http://storageexplorer.com/).
+Une fois votre session de capture de paquets terminée, le fichier de capture est chargé dans le stockage d'objets blob ou dans un fichier local sur la machine virtuelle. L’emplacement de stockage de la capture de paquets est défini lors de la création de la capture de paquets. Un outil pratique pour accéder aux fichiers de capture enregistrés dans un compte de stockage est l’Explorateur Stockage Microsoft Azure que vous pouvez [télécharger](https://storageexplorer.com/).
 
 Si un compte de stockage est spécifié, les fichiers de capture de paquets sont enregistrés dans un compte de stockage à l’emplacement suivant :
 

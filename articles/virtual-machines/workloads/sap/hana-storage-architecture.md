@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006110"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architecture de stockage de SAP HANA (grandes instances)
 
-La disposition de stockage pour SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur le modèle de déploiement classique selon les recommandations de SAP. Les instructions sont documentées dans le livre blanc [Exigences de stockage SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+La disposition de stockage pour SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur le modèle de déploiement classique selon les recommandations de SAP. Les instructions sont documentées dans le livre blanc [Exigences de stockage SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
 La grande instance HANA de classe Type I est livrée avec quatre fois le volume de mémoire et le volume de stockage. Pour les unités de grande instance HANA de classe Type II, le stockage n’est pas quatre fois plus élevé. Le volume fourni dans les unités est prévu pour le stockage des sauvegardes de fichiers journaux HANA. Pour plus d’informations, consultez [Installer et configurer SAP HANA (grandes instances) sur Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -73,9 +73,9 @@ Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour conna
 
 Il est possible d’héberger plusieurs instances SAP HANA actives sur les unités de grande instance HANA. Afin de fournir les fonctionnalités de captures instantanées du stockage et de récupération d’urgence, une telle configuration requiert un volume défini par instance. Actuellement, les unités de grande instance HANA peuvent être classées comme suit :
 
-- **S72, S72m, S96, S144, S192** : par incrément de 256 Go avec l’unité de départ la plus petite qui fait 256 Go. Des incréments différents, comme 256 Go, 512 Go, etc., peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
-- **S144m et S192m** : par incréments de 256 Go avec la plus petite unité qui fait 512 Go. Des incréments différents, comme 512 Go et 768 Go peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
-- **Classe Type II** : par incréments de 512 Go avec l’unité de départ la plus petite qui fait 2 To. Des incréments différents, comme 512 Go, 1 Go et 1,5 To peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
+- **S72, S72m, S96, S144, S192**: Incréments de 256 Go, avec 256 Go de l’unité de départ plus petit. Des incréments différents, comme 256 Go, 512 Go, etc., peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
+- **S144m et S192m**: Incréments de 256 Go, avec la plus petite unité de 512 Go. Des incréments différents, comme 512 Go et 768 Go peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
+- **Classe type II**: Incréments de 512 Go, avec l’unité de départ plus petit de 2 To. Des incréments différents, comme 512 Go, 1 Go et 1,5 To peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
 
 Voici quelques exemples de ce à quoi peut ressembler l’exécution de plusieurs instances SAP HANA.
 
@@ -93,6 +93,20 @@ Il existe d’autres variantes.
 Le stockage utilisé pour la grande instance HANA permet un chiffrement transparent des données lorsqu’elles sont stockées sur les disques. Lorsqu’une unité de grande instance HANA est déployée, vous pouvez activer ce type de chiffrement. Vous pouvez également modifier les volumes chiffrés après le déploiement. Le passage d’un volume non chiffré à un volume chiffré est transparent et ne requiert aucun temps d’arrêt. 
 
 Avec les références SKU de classe Type I, le volume sur lequel le numéro d’unité logique de démarrage est stocké est chiffré. Dans le cas de références SKU de grande instance HANA de classe Type II, vous devez chiffrer le numéro d’unité logique de démarrage avec les méthodes du système d’exploitation. Pour plus d’informations, contactez l’équipe de gestion des services Microsoft.
+
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Paramètres requis pour les plus grandes instances HANA sur des grandes Instances HANA
+Le stockage utilisé dans les grandes Instances HANA a une limite de taille de fichier. Le [limite de taille est de 16 To](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) par fichier. Contrairement aux limitations de taille de fichier dans les systèmes de fichiers EXT3, HANA ne reconnaît pas implicitement de la limite de stockage appliquée par le stockage de grandes Instances HANA. Par conséquent HANA ne crée pas automatiquement un nouveau fichier de données lorsque la limite de taille de 16 To est atteinte. Comme HANA tente d’étendre le fichier au-delà de 16 To, HANA signale les erreurs et le serveur d’index seront bloque à la fin.
+
+> [!IMPORTANT]
+> Afin d’empêcher HANA essaie de croissance des fichiers de données au-delà de la limite de taille de fichier de 16 To de stockage de grande Instance HANA, vous devez définir les paramètres suivants dans le fichier de configuration global.ini de HANA
+> 
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - Voir aussi SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - N’oubliez pas de la note SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+
+
+
 
 **Étapes suivantes**
 - Voir [Scénario pris en charge pour les grandes instances HANA](hana-supported-scenario.md).

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: b34d67e640f09ac6949e992d3af9388581851622
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: ae0264c918bb550affe8e694cdb3b9891edea531
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629524"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875444"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utiliser Interactive Query avec HDInsight
 Le cluster Interactive Query (également appelé Apache Hive LLAP ou [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un [type de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query prend en charge la mise en mémoire cache, ce qui accélère les requêtes Apache Hive et les rend beaucoup plus interactives.
@@ -38,7 +38,7 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
  
 * Utiliser Apache Zeppelin
 
-    Consultez [Utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
+    Consultez [utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
 
 * Utiliser Visual Studio
 

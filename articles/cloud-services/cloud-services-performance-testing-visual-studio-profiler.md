@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: HT
+ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341352"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546249"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
 Différents outils et diverses techniques permettent de tester les performances des services cloud.
@@ -30,8 +30,8 @@ Vous pouvez également profiler votre application en local dans l'émulateur de 
 
 Cet article présente la méthode de profilage par échantillonnage de l'UC, qui peut se faire en local dans l'émulateur. Cette méthode de profilage est peu intrusive. Selon une fréquence d'échantillonnage définie, le profileur enregistre un instantané de la pile d'appels. Les données sont collectées pendant un certain temps, puis sont présentées dans un rapport. Cette méthode de profilage indique plutôt, dans une application qui effectue beaucoup de calculs, où se fait la plus grande part du travail du processeur.  Ceci vous permet de vous occuper en priorité des « points chauds », là où votre application passe le plus de temps.
 
-## <a name="1-configure-visual-studio-for-profiling"></a>1. Configuration de Visual Studio pour le profilage
-Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**.  Vous pouvez également référencer http://referencesource.microsoft.com/symbols, qui peut avoir des fichiers de symboles supplémentaires.
+## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurer Visual Studio pour le profilage
+Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**.  Vous pouvez également référencer https://referencesource.microsoft.com/symbols, qui peut avoir des fichiers de symboles supplémentaires.
 
 ![Options de symbole][4]
 
@@ -77,7 +77,7 @@ private async Task RunAsync(CancellationToken cancellationToken)
 
 Générez et exécutez le service cloud en local sans débogage (Ctrl+F5), la configuration de solution étant définie sur **Version finale**. Les fichiers et dossiers sont ainsi créés pour l'exécution de l'application en local et tous les émulateurs sont démarrés. Démarrez l'interface de l'émulateur de calcul à partir de la barre des tâches pour vérifier que votre rôle de travail fonctionne correctement.
 
-## <a name="2-attach-to-a-process"></a>2. Attachement à un processus
+## <a name="2-attach-to-a-process"></a>2 : Attacher à un processus
 Au lieu de profiler l'application en la démarrant depuis l'interface de développement de Visual Studio 2010, vous devez attacher le profileur à un processus en cours d'exécution. 
 
 Pour ce faire, dans le menu **Analyse**, sélectionnez **Profileur**, puis **Attacher/Détacher**.
@@ -113,7 +113,7 @@ Lorsque vous souhaitez arrêter le profilage, cliquez sur le lien **Terminer le 
 
 ![Option Terminer le profilage][10]
 
-## <a name="3-view-performance-reports"></a>3. Affichage des rapports de performances
+## <a name="3-view-performance-reports"></a>3 : Afficher les rapports de performances
 Le rapport de performances de votre application s'affiche.
 
 À ce stade, le profileur s'arrête, il enregistre les données dans un fichier .vsp et il affiche un rapport présentant une analyse des données.
@@ -130,7 +130,7 @@ Si vous avez ajouté le code de concaténation de chaîne dans cet article, vous
 
 ![Avertissements liés aux performances][14]
 
-## <a name="4-make-changes-and-compare-performance"></a>4 : Application de modifications et comparaison des performances
+## <a name="4-make-changes-and-compare-performance"></a>4 : Apporter des modifications et comparer les performances
 Vous pouvez également comparer les performances avant et après la modification du code.  Interrompez le processus en cours d'exécution et modifiez le code de façon à remplacer l'opération de concaténation de chaîne à l'aide de StringBuilder :
 
 ```csharp
@@ -162,14 +162,14 @@ Félicitations ! Vous avez fait connaissance avec le profileur.
 * Utilisez l'émulateur de calcul pour connaître l'état de votre application. 
 * Si vous rencontrez des problèmes pour démarrer les applications dans l'émulateur de calcul ou pour attacher le profileur, arrêtez l'émulateur de calcul et redémarrez-le. Si cela ne résout pas le problème, essayez de redémarrer votre ordinateur. Ce problème peut survenir lorsque vous utilisez l'émulateur de calcul pour suspendre et supprimer des déploiements en cours d'exécution.
 * Si vous avez utilisé une des commandes de profilage depuis la ligne de commande, en particulier les paramètres globaux, assurez-vous que VSPerfClrEnv /globaloff a été appelé et que VsPerfMon.exe est arrêté.
-* Si lors de l’échantillonnage, le message « PRF0025 : aucune donnée n’a été collectée » s’affiche, vérifiez si le processus que vous avez attaché présente une activité dans le processeur. Les applications qui n'effectuent pas de calculs peuvent ne pas produire de données d'échantillonnage.  Il est également possible que le processus se soit terminé avant l'exécution de l'échantillonnage. Vérifiez si la méthode Run du rôle pour lequel vous établissez le profil ne s'est pas terminée.
+* Si lors de l’échantillonnage, vous voyez le message « PRF0025 : Aucune donnée n’a été collectée, » vérifiez que le processus que vous avez attaché à dispose de l’activité du processeur. Les applications qui n'effectuent pas de calculs peuvent ne pas produire de données d'échantillonnage.  Il est également possible que le processus se soit terminé avant l'exécution de l'échantillonnage. Vérifiez si la méthode Run du rôle pour lequel vous établissez le profil ne s'est pas terminée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas prise en charge par le profileur Visual Studio, mais si vous souhaitez tester l'allocation de la mémoire, vous pouvez choisir cette option au moment du profilage. Vous pouvez également choisir le profilage d'accès concurrentiel, qui vous aide à savoir si des threads perdent du temps à se disputer les verrouillages, ou bien le profilage d'interaction de couche, qui permet de détecter les problèmes de performances lors de l'interaction entre différentes couches de l'application, la plupart du temps entre la couche de données et un rôle de travail.  Vous pouvez consulter les requêtes de base de données que votre application génère et utiliser les données de profilage pour optimiser l'utilisation de la base de données. Pour plus d’informations sur le profilage d’interaction de couche, consultez le billet de blog intitulé [Procédure pas à pas : utilisation du profileur d’interaction de couche dans Visual Studio Team System 2010][3].
+L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas prise en charge par le profileur Visual Studio, mais si vous souhaitez tester l'allocation de la mémoire, vous pouvez choisir cette option au moment du profilage. Vous pouvez également choisir le profilage d'accès concurrentiel, qui vous aide à savoir si des threads perdent du temps à se disputer les verrouillages, ou bien le profilage d'interaction de couche, qui permet de détecter les problèmes de performances lors de l'interaction entre différentes couches de l'application, la plupart du temps entre la couche de données et un rôle de travail.  Vous pouvez consulter les requêtes de base de données que votre application génère et utiliser les données de profilage pour optimiser l'utilisation de la base de données. Pour plus d’informations sur le profilage d’interaction de couche, consultez le blog [procédure pas à pas : À l’aide de la Profiler d’Interaction de couche dans Visual Studio Team System 2010][3].
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
-[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
+[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

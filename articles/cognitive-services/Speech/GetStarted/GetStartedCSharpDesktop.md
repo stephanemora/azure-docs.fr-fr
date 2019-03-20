@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219071"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670092"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Démarrage rapide : Utiliser l'API Reconnaissance vocale Bing en C&#35; pour .NET sous Windows
 
@@ -27,7 +28,7 @@ Les développeurs qui souhaitent utiliser le service Speech à partir d’applic
 
 Les sections suivantes décrivent comment installer, générer et exécuter l’exemple d’application C# à l’aide de la bibliothèque de client C#.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="platform-requirements"></a>Plateforme requise
 
@@ -91,8 +92,8 @@ Utilisez les exemples de fichiers audio avec cet exemple d’application. Recher
 ### <a name="recognition-events"></a>Événements de reconnaissance
 
 * **Événement de résultats partiels** : Cet événement est appelé chaque fois que le service Speech prédit ce que vous pouvez dire, avant même que vous n’ayez terminé de parler (si vous utilisez `MicrophoneRecognitionClient`) ou d’envoyer les données (si vous utilisez `DataRecognitionClient`).
-* **Événements d'erreur** : appelés quand le service détecte une erreur.
-* **Événements d'intention** : appelés sur les clients « WithIntent » (uniquement en mode ShortPhrase) une fois le résultat final de la reconnaissance converti en intention JSON structurée.
+* **Événements d’erreur** : Appelés quand le service détecte une erreur.
+* **Événements d’intention** : Appelés sur les clients « WithIntent » (uniquement en mode ShortPhrase) une fois le résultat final de la reconnaissance converti en intention JSON structurée.
 * **Événements de résultat** :
   * En mode `ShortPhrase`, cet événement est appelé et renvoie les n meilleurs résultats une fois que vous avez terminé de parler.
   * En mode `LongDictation`, le gestionnaire d’événements est appelé plusieurs fois, selon les emplacements où le service identifie des pauses dans la phrase.

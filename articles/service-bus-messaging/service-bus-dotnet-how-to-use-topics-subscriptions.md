@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586900"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766938"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
@@ -33,7 +33,7 @@ Ce didacticiel couvre les étapes suivantes :
 4. Écrivez une application de console .NET Core pour envoyer un ensemble de messages à la rubrique.
 5. Écrivez une application de console .NET Core pour recevoir ces messages de l’abonnement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
 2. [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
@@ -396,7 +396,7 @@ Pour recevoir les messages que vous venez d’envoyer, créez une autre applicat
    
     ![Longueur de la rubrique][topic-message-receive]
 
-Félicitations ! Grâce à la bibliothèque .NET Standard, vous avez créé une rubrique et un abonnement, envoyé 10 messages et les avez reçus.
+Félicitations ! Grâce à la bibliothèque .NET Standard, vous avez créé une rubrique et un abonnement, envoyé 10 messages et les avez reçus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

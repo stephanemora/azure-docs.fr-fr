@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
-ms.translationtype: HT
+ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993862"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurer DPDK dans une machine virtuelle Linux
 
@@ -33,7 +33,7 @@ DPDK peut s’exécuter sur des machines virtuelles Azure prenant en charge plus
 
 ## <a name="benefit"></a>Avantage
 
-**Plus de paquets traités à la seconde (PPS)**  : le contournement du noyau et la prise de contrôle des paquets dans l’espace utilisateur ont pour effet de réduire le nombre de cycles du fait de l’élimination des changements de contexte. Il améliore également le nombre de paquets traités à la seconde dans les machines virtuelles Linux Azure.
+**Nombre supérieur de paquets par seconde (PPS)**: En contournant le noyau et le contrôle de prise de paquets dans l’espace utilisateur réduit le nombre de cycles en éliminant les changements de contexte. Il améliore également le nombre de paquets traités à la seconde dans les machines virtuelles Linux Azure.
 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
@@ -56,7 +56,7 @@ Pour toute version du noyau Linux non répertoriée, voir [Correctifs pour la cr
 
 Toutes les régions Azure prennent en charge DPDK.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 La mise en réseau accélérée doit être activée sur une machine virtuelle Linux. La machine virtuelle doit disposer d’au moins deux interfaces réseau, dont une pour la gestion. Découvrez comment [créer une machine virtuelle Linux en ayant activé la mise en réseau accélérée](create-vm-accelerated-networking-cli.md).
 
@@ -126,14 +126,14 @@ Après le redémarrage, exécutez une fois les commandes suivantes :
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  Créez un répertoire pour un montage avec `mkdir /mnt/huge`.
-   *  Montez les Hugepages avec `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Vérifiez que les HugePages sont réservées avec `grep Huge /proc/meminfo`.
+   * Créez un répertoire pour un montage avec `mkdir /mnt/huge`.
+   * Montez les Hugepages avec `mount -t hugetlbfs nodev /mnt/huge`.
+   * Vérifiez que les HugePages sont réservées avec `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Il existe un moyen de modifier le fichier grub de sorte que les HugePages soient réservées au démarrage en suivant les [instructions](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) relatives à DPDK. Les instructions figurent au bas de la page. Lorsque vous utilisez une machine virtuelle Linux Azure, modifiez plutôt les fichiers sous **/etc/config/grub.d** de sorte que les HugePages soient réservées à tous les redémarrages.
+     > Il existe un moyen de modifier le fichier grub de sorte que les HugePages soient réservées au démarrage en suivant les [instructions](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) relatives à DPDK. Les instructions figurent au bas de la page. Lorsque vous utilisez une machine virtuelle Linux Azure, modifiez plutôt les fichiers sous **/etc/config/grub.d** de sorte que les HugePages soient réservées à tous les redémarrages.
 
-2. Adresses MAC et IP : utilisez `ifconfig –a` pour afficher l’adresse MAC et IP des interfaces réseau. Les interface réseau *VF* et *NETVSC* ont la même adresse MAC, mais seule l’interface réseau *NETVSC* possède une adresse IP. Les interfaces VF s’exécutent en tant qu’interfaces subordonnées des interfaces NETVSC.
+2. Adresses MAC & IP : Utilisez `ifconfig –a` pour afficher l’adresse IP et MAC des interfaces réseau. Les interface réseau *VF* et *NETVSC* ont la même adresse MAC, mais seule l’interface réseau *NETVSC* possède une adresse IP. Les interfaces VF s’exécutent en tant qu’interfaces subordonnées des interfaces NETVSC.
 
 3. Adresses PCI
 
@@ -146,13 +146,13 @@ Après le redémarrage, exécutez une fois les commandes suivantes :
 
 Les applications DPDK doivent s’exécuter via le PMD fiable (sailsafe) qui est exposé dans Azure. Si l’application s’exécute directement via le PMD VF, elle ne reçoit pas **tous** les paquets destinés à la machine virtuelle, car certains paquets s’affichent via l’interface synthétique. 
 
-Si vous exécutez une application DPDK sur le PMD de prévention de défaillance, ceci garantit que l’application reçoit tous les paquets qui lui sont destinés. Il est par ailleurs certain que l’application continuera à s’exécuter en mode DPDK, même si la fonction virtuelle est révoqué lorsque l’hôte est en cours de maintenance. Pour plus d’informations sur le PMD de prévention de défaillance (failsafe), consultez la [bibliothèque de pilotes de prévention de défaillance en mode interrogation](http://doc.dpdk.org/guides/nics/fail_safe.html).
+Si vous exécutez une application DPDK sur le PMD de prévention de défaillance, ceci garantit que l’application reçoit tous les paquets qui lui sont destinés. Il est par ailleurs certain que l’application continuera à s’exécuter en mode DPDK, même si la fonction virtuelle est révoqué lorsque l’hôte est en cours de maintenance. Pour plus d’informations sur le PMD de prévention de défaillance (failsafe), consultez la [bibliothèque de pilotes de prévention de défaillance en mode interrogation](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Exécuter testpmd
 
 Pour exécuter testpmd en mode racine, utilisez `sudo` avant la commande *testpmd*.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>De base : contrôle d’intégrité, initialisation d’adaptateur fiable (failsafe)
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>De base : Contrôle de validité, l’initialisation de l’adaptateur de prévention de défaillance
 
 1. Exécutez les commandes suivantes pour démarrer une application testpmd à port unique :
 
@@ -180,7 +180,7 @@ Pour exécuter testpmd en mode racine, utilisez `sudo` avant la commande *testpm
 
 Les commandes précédentes démarrent *testpmd* en mode interactif, ce qui est recommandé, pour tester des commandes testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>De base : expéditeur unique/destinataire unique
+### <a name="basic-single-sendersingle-receiver"></a>De base : Récepteur d’un seul expéditeur unique
 
 Les commandes suivantes impriment régulièrement des statistiques relatives au nombre de paquets par seconde :
 
@@ -216,7 +216,7 @@ Les commandes suivantes impriment régulièrement des statistiques relatives au 
 
 Si vous exécutez les commandes précédentes sur une machine virtuelle, modifiez *IP_SRC_ADDR* et *IP_DST_ADDR* dans `app/test-pmd/txonly.c` pour faire correspondre l’adresse IP effective des machines virtuelles avant de procéder à la compilation. Sinon, les paquets seront abandonnés avant de parvenir au destinataire.
 
-### <a name="advanced-single-sendersingle-forwarder"></a>Avancé : expéditeur unique/redirecteur unique
+### <a name="advanced-single-sendersingle-forwarder"></a>Avancé : Redirecteur d’expéditeur unique/unique
 Les commandes suivantes impriment régulièrement des statistiques relatives au nombre de paquets par seconde :
 
 1. Du côté de TX, exécutez la commande suivante :

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3a796733f5987f4cc550a606e06166395d1595cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fb16e87a889c409fa6f1f5a9e12b7571ebb14d52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156652"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857570"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le manifeste de service met les ressources à la disposition du service à déclarer/modifier sans changer le code compilé. Azure Service Fabric prend en charge la configuration des ressources des points de terminaison du service. L’accès aux ressources spécifiées dans le manifeste de service peut être contrôlé par le biais de la valeur SecurityGroup dans le manifeste de l’application. La déclaration des ressources permet de les modifier au moment du déploiement. Ainsi, le service n’a pas besoin d’introduire un nouveau mécanisme de configuration. La définition de schéma pour le fichier ServiceManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Points de terminaison
@@ -61,8 +61,8 @@ Les points de terminaison HTTP sont automatiquement répertoriés dans la liste 
 <ServiceManifest Name="Stateful1Pkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          This name must match the string used in the RegisterServiceType call in Program.cs. -->
@@ -118,8 +118,8 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous d
 <ApplicationManifest ApplicationTypeName="Application1Type"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />

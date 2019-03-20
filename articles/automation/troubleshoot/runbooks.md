@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005424"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -38,7 +38,7 @@ Cette erreur se produit si le nom de la ressource d’informations d’identific
 
 Pour identifier le problème, effectuez les étapes suivantes :  
 
-1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **@**, dans le nom de la ressource d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.  
+1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **\@**, dans le nom de la ressource d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.  
 2. Vérifiez que vous pouvez utiliser le nom d’utilisateur et le mot de passe stockés dans les informations d’identification Azure Automation dans votre éditeur PowerShell ISE local. Vous pouvez vérifier si le nom d’utilisateur et le mot de passe sont corrects en exécutant les applets de commande suivantes dans PowerShell ISE :  
 
    ```powershell
@@ -133,7 +133,7 @@ Pour utiliser un certificat avec les applets de commande de modèle de déploiem
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erreurs courantes avec des runbooks
 
-###<a name="child-runbook-object"></a>Le runbook enfant renvoie une erreur lorsque le flux de sortie contient des objets plutôt que de simples types de données
+### <a name="child-runbook-object"></a>Le runbook enfant renvoie une erreur lorsque le flux de sortie contient des objets plutôt que de simples types de données
 
 #### <a name="issue"></a>Problème
 
@@ -303,7 +303,7 @@ Cette erreur se produit en raison d’un des problèmes suivants :
 
 3. Module incompatible. Cette erreur peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook retourne généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
 
-4. Votre runbook a tenté d’appeler un fichier exécutable ou un sous-processus dans un runbook qui s’exécute dans un bac à sable Azure. Ce scénario n’est pas pris en charge dans les bacs à sable Azure.
+4. Votre runbook a tenté d’appeler un fichier exécutable ou de sous-processus dans un runbook qui s’exécute dans un bac à sable Azure. Ce scénario n’est pas pris en charge dans les bacs à sable Azure.
 
 #### <a name="resolution"></a>Résolution :
 

@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7401a77e79ec42930c411856defd48a0ba3c3bf7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170238"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879116"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
@@ -90,7 +90,7 @@ Voici un résumé des pages de l’Assistant Installation rapide, des informatio
 
 | Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
-| N/A |Utilisateur exécutant l’Assistant d’installation |Administrateur du serveur local |<li>Crée le compte de service ADSync utilisé pour exécuter le service de synchronisation. |
+| S.O. |Utilisateur exécutant l’Assistant d’installation |Administrateur du serveur local |<li>Crée le compte de service ADSync utilisé pour exécuter le service de synchronisation. |
 | Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du compte de connecteur Azure AD à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
 | Connexion à AD DS |Informations d’identification Active Directory locales |Membre du groupe Administrateurs de l’entreprise dans Active Directory |<li>Crée le compte de connecteur AD DS dans Active Directory et octroie des autorisations à celui-ci. Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation.</li> |
 
@@ -107,7 +107,7 @@ Voici un résumé des pages de l’Assistant Installation personnalisée, des in
 
 | Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
-| N/A |Utilisateur exécutant l’Assistant d’installation |<li>Administrateur du serveur local</li><li>Si vous utilisez un serveur SQL Server complet, l’utilisateur doit être administrateur système dans SQL</li> |Par défaut, crée le compte local à utiliser comme compte de service de moteur de synchronisation. Le compte n’est créé que si l’administrateur ne spécifie pas de compte particulier. |
+| S.O. |Utilisateur exécutant l’Assistant d’installation |<li>Administrateur du serveur local</li><li>Si vous utilisez un serveur SQL Server complet, l’utilisateur doit être administrateur système dans SQL</li> |Par défaut, crée le compte local à utiliser comme compte de service de moteur de synchronisation. Le compte n’est créé que si l’administrateur ne spécifie pas de compte particulier. |
 | Installation des services de synchronisation, option Compte de service |Informations d’identification du compte d’utilisateur local ou AD |Utilisateur, les autorisations sont accordées par l’Assistant d’installation |Si l’administrateur spécifie un compte, ce dernier est utilisé comme compte de service pour le service de synchronisation. |
 | Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du compte de connecteur Azure AD à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
 | Connexion de vos annuaires |Informations d’identification Active Directory locales pour chaque forêt connectée à Azure AD |Les autorisations varient selon les fonctionnalités que vous activez et se trouvent dans Créer le compte de connecteur AD DS |Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation. |
@@ -249,7 +249,7 @@ Si vous n’avez pas lu la documentation sur [l’Intégration de vos identités
 |Installation à l’aide des paramètres Express | [Installation rapide pour Azure AD Connect](how-to-connect-install-express.md)|
 |Installation à l’aide des paramètres personnalisés | [Installation personnalisée d’Azure AD Connect](./how-to-connect-install-custom.md)|
 |Effectuer une mise à niveau à partir de DirSync | [Effectuer une mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md)|
-|Après l’installation | [Vérification de l’installation et affectation des licences ](how-to-connect-post-installation.md)|
+|Après l’installation | [Vérifier l’installation et attribuer des licences](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).

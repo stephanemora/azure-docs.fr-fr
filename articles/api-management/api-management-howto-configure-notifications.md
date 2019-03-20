@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 16beaadae36dfc7445a88875d36786bd97889599
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102347"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
 Gestion des API Azure permet de configurer les notifications pour des événements spécifiques et de configurer les modèles de courrier électronique utilisés pour communiquer avec les administrateurs et les développeurs de l’instance Gestion des API. Cet article montre comment configurer des notifications pour les événements disponibles. Il offre également un aperçu de la configuration des modèles d’e-mail utilisés pour ces événements.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-Si vous ne disposez pas d’une instance de service Gestion des API, effectuez le démarrage rapide suivant : [Créer une instance Gestion des API Azure](get-started-create-service-instance.md).
+Si vous n’avez pas une instance de service de gestion des API, effectuez le démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -38,15 +38,15 @@ Si vous ne disposez pas d’une instance de service Gestion des API, effectuez l
 
     La liste suivante répertorie les événements pour lesquels il est possible de configurer des notifications.
 
-    * **Demandes d'abonnement (approbation nécessaire)** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification pour les demandes d'abonnement aux produits API nécessitant une approbation.
-    * **Nouveaux abonnements** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification concernant les nouveaux abonnements aux produits API.
-    * **Demandes de la galerie d'applications** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification lorsque de nouvelles applications sont proposées dans la galerie d'applications.
-    * **CCI** : les destinataires du message et les utilisateurs spécifiés reçoivent une copie cachée de tous les messages envoyés aux développeurs.
-    * **Nouveau problème ou commentaire** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification lorsqu'un problème ou un commentaire est envoyé sur le portail des développeurs.
-    * **Message de fermeture de compte** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification lorsqu'un compte est fermé.
-    * **Limite du quota d'abonnements bientôt atteint** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification lorsque l'utilisation de l'abonnement approche le quota.
+   * **Demandes d'abonnement (approbation nécessaire)** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification pour les demandes d'abonnement aux produits API nécessitant une approbation.
+   * **Nouveaux abonnements** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification concernant les nouveaux abonnements aux produits API.
+   * **Demandes de la galerie d'applications** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification lorsque de nouvelles applications sont proposées dans la galerie d'applications.
+   * **CCI** : les destinataires du message et les utilisateurs spécifiés reçoivent une copie cachée de tous les messages envoyés aux développeurs.
+   * **Nouveau problème ou commentaire** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification lorsqu'un problème ou un commentaire est envoyé sur le portail des développeurs.
+   * **Message de fermeture de compte** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification lorsqu'un compte est fermé.
+   * **Limite du quota d'abonnements bientôt atteint** : les destinataires du message et les utilisateurs spécifiés reçoivent une notification lorsque l'utilisation de l'abonnement approche le quota.
 
-    Pour chaque événement, vous pouvez spécifier les destinataires du message via la zone de texte d'adresse. Vous pouvez également sélectionner les utilisateurs dans une liste.
+     Pour chaque événement, vous pouvez spécifier les destinataires du message via la zone de texte d'adresse. Vous pouvez également sélectionner les utilisateurs dans une liste.
 
 3. Pour spécifier les adresses à notifier, entrez-les dans la zone de texte d'adresse. Si vous devez entrer plusieurs adresses, séparez-les par des virgules.
 

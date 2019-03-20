@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121126"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 
 Cet article explique comment configurer une application logique pour qu’elle crée une conversation dans Microsoft Teams quand une alerte se déclenche.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Quand une alerte Azure Monitor se déclenche, elle appelle un [groupe d’actions](../../azure-monitor/platform/action-groups.md). Les groupes d’actions permettent de déclencher une ou plusieurs actions pour avertir les autres en cas d’alerte et y remédier.
 
 Le processus général est le suivant :
@@ -275,19 +275,19 @@ Le processus de création d’une alerte de métrique est semblable à celui de 
 - Les étapes 9 et 10 sont identiques.
 - De l’étape 11 à l’étape 14, suivez le processus ci-dessous :
 
-   1. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une condition**. Définissez les conditions suivantes pour que l’application logique s’exécute uniquement lorsque les données d’entrée correspondent aux valeurs ci-dessous. Lorsque vous entrez la valeur de version dans la zone de texte, placez-la entre guillemets (« 2.0 ») pour vous assurer qu’elle soit évaluée comme étant de type chaîne et non numérique.  Le système n’affiche pas les guillemets si vous revenez à la page, mais le code sous-jacent conserve le type chaîne. 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une condition**. Définissez les conditions suivantes pour que l’application logique s’exécute uniquement lorsque les données d’entrée correspondent aux valeurs ci-dessous. Lorsque vous entrez la valeur de version dans la zone de texte, placez-la entre guillemets (« 2.0 ») pour vous assurer qu’elle soit évaluée comme étant de type chaîne et non numérique.  Le système n’affiche pas les guillemets si vous revenez à la page, mais le code sous-jacent conserve le type chaîne. 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        ![« Condition de charge utile d’alerte de métrique »](media/action-groups-logic-app/metric-alert-payload-condition.png "Condition de charge utile d’alerte de métrique")
 
-   1. Dans la condition **If true**, ajoutez une boucle **For each** et l’action Microsoft Teams. Définissez le message en utilisant une combinaison de HTML et de contenu dynamique.
+  1. Dans la condition **If true**, ajoutez une boucle **For each** et l’action Microsoft Teams. Définissez le message en utilisant une combinaison de HTML et de contenu dynamique.
 
-       ![« Action de publication pour condition vraie d’alerte de métrique »](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Action de publication pour condition vraie d’alerte de métrique")
+      ![« Action de publication pour condition vraie d’alerte de métrique »](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Action de publication pour condition vraie d’alerte de métrique")
 
-   1. Dans la condition **If false**, définissez une action Microsoft Teams pour signaler que l’alerte de métrique ne correspond pas aux attentes de l’application logique. Incluez la charge utile JSON. Notez comment faire référence au contenu dynamique `triggerBody` de l’expression `json()`.
+  1. Dans la condition **If false**, définissez une action Microsoft Teams pour signaler que l’alerte de métrique ne correspond pas aux attentes de l’application logique. Incluez la charge utile JSON. Notez comment faire référence au contenu dynamique `triggerBody` de l’expression `json()`.
 
-       ![« Action de publication pour condition fausse d’alerte de métrique »](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Action de publication pour condition fausse d’alerte de métrique")
+      ![« Action de publication pour condition fausse d’alerte de métrique »](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Action de publication pour condition fausse d’alerte de métrique")
 
 - L’étape 15 est identique. Suivez les instructions pour enregistrer votre application logique et mettre à jour votre groupe d’actions.
 

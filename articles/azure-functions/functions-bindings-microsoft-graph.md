@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997554"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -360,6 +360,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 ### <a name="excel-input---usage"></a>Entrée Excel - utilisation
 
 Cette liaison nécessite les autorisations Azure AD suivantes :
+
 |Ressource|Autorisation|
 |--------|--------|
 |Microsoft Graph|Lire les fichiers utilisateur|
@@ -522,6 +523,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 ### <a name="excel-output---usage"></a>Sortie Excel - utilisation
 
 Cette liaison nécessite les autorisations Azure AD suivantes :
+
 |Ressource|Autorisation|
 |--------|--------|
 |Microsoft Graph|Avoir un accès total aux fichiers utilisateur|
@@ -664,6 +666,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 ### <a name="file-input---usage"></a>Entrée de fichier - utilisation
 
 Cette liaison nécessite les autorisations Azure AD suivantes :
+
 |Ressource|Autorisation|
 |--------|--------|
 |Microsoft Graph|Lire les fichiers utilisateur|
@@ -671,7 +674,7 @@ Cette liaison nécessite les autorisations Azure AD suivantes :
 La liaison expose les types suivants de fonctions .NET :
 - byte[]
 - Stream
-- chaîne
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -811,6 +814,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 #### <a name="file-output---usage"></a>Sortie de fichier - utilisation
 
 Cette liaison nécessite les autorisations Azure AD suivantes :
+
 |Ressource|Autorisation|
 |--------|--------|
 |Microsoft Graph|Avoir un accès total aux fichiers utilisateur|
@@ -818,7 +822,7 @@ Cette liaison nécessite les autorisations Azure AD suivantes :
 La liaison expose les types suivants de fonctions .NET :
 - byte[]
 - Stream
-- chaîne
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -960,6 +964,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 ### <a name="outlook-output---usage"></a>Sortie Outlook - utilisation
 
 Cette liaison nécessite les autorisations Azure AD suivantes :
+
 |Ressource|Autorisation|
 |--------|--------|
 |Microsoft Graph|Envoyer un e-mail en tant qu’utilisateur|
@@ -967,7 +972,7 @@ Cette liaison nécessite les autorisations Azure AD suivantes :
 La liaison expose les types suivants de fonctions .NET :
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- chaîne
+- string
 - Types d’objets personnalisés (utilisant une liaison de modèle structurel)
 
 
@@ -1397,7 +1402,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 ### <a name="webhook-output---usage"></a>Sortie de webhook - utilisation
 
 La liaison expose les types suivants de fonctions .NET :
-- chaîne
+- string
 - Microsoft.Graph.Subscription
 
 

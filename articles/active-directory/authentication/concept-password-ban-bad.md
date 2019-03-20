@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ccad4f9aaa85d528697c1bcf34e1b034eeabe9e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996015"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -60,7 +60,7 @@ La normalisation se décompose en deux parties.  Premièrement, toutes les majus
 | « 0 »  | « o » |
 | « 1 »  | « l » |
 | « $ »  | « s » |
-| « @ »  | « a » |
+| '\@'  | « a » |
 
 Exemple : supposons que le mot de passe « blank » soit interdit et qu'un utilisateur tente de remplacer son mot de passe par « Bl@nK ». Bien que « Bl@nk » ne soit pas spécifiquement interdit, le processus de normalisation le remplace par « blank », qui est un mot de passe interdit.
 
@@ -96,7 +96,7 @@ Exemple : un utilisateur remplace son mot de passe par « C0ntos0Blank12 ».
 
 Après la normalisation, ce mot de passe devient « contosoblank12 ». Le processus de correspondance détecte que ce mot de passe contient deux mots interdits : contoso et blank. Le score obtenu par ce mot de passe est le suivant :
 
-[contoso] + [blank] = [1] + [2] = 4 points. Dans la mesure où ce mot de passe a obtenu moins de 5 points, il est rejeté.
+[contoso] + [vide] + [1] + [2] = 4 points dans la mesure où ce mot de passe est sous 5 points, il est rejeté.
 
 Exemple : un utilisateur remplace son mot de passe par « ContoS0Bl@nkf9! ».
 

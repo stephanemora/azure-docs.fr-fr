@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107125"
 ---
 # <a name="contact-microsoft-support"></a>Contacter le support Microsoft
 
@@ -63,14 +63,14 @@ Selon votre [plan de support](https://azure.microsoft.com/support/plans/), vous 
 
 4. Dans le panneau **Nouvelle demande de support**, cliquez sur **3 Informations de contact**. Dans le panneau **Informations de contact**, procédez comme suit :
 
-    1. Dans la section **Options de contact**, fournissez votre méthode de contact préférée (téléphone ou e-mail) et votre langue. Le temps de réponse est automatiquement sélectionné en fonction de votre plan d’abonnement.
-    2. Dans la section Informations de contact, fournissez votre nom, votre adresse e-mail, un contact secondaire (facultatif) et votre pays. Cochez la case **Enregistrer les modifications de contact pour les futures demandes de support** .
-    3. Cliquez sur **Créer**.
+   1. Dans la section **Options de contact**, fournissez votre méthode de contact préférée (téléphone ou e-mail) et votre langue. Le temps de réponse est automatiquement sélectionné en fonction de votre plan d’abonnement.
+   2. Dans la section Informations de contact, fournissez votre nom, votre adresse e-mail, un contact secondaire (facultatif) et votre pays. Cochez la case **Enregistrer les modifications de contact pour les futures demandes de support** .
+   3. Cliquez sur **Créer**.
    
-        ![Contacter le support MS avec le nouveau portail](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Contacter le support MS avec le nouveau portail](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
-    Le Support Microsoft vous contactera à l’aide de ces informations pour approfondir le diagnostic et vous aider à résoudre le problème.
-Une fois votre demande envoyée, un ingénieur de support vous contactera dès que possible pour traiter votre demande.
+      Le Support Microsoft vous contactera à l’aide de ces informations pour approfondir le diagnostic et vous aider à résoudre le problème.
+      Une fois votre demande envoyée, un ingénieur de support vous contactera dès que possible pour traiter votre demande.
 
 ## <a name="manage-a-support-request"></a>Gérer une demande de support
 
@@ -114,6 +114,6 @@ Procédez comme suit pour démarrer une session de support :
 > Vous pouvez désactiver l’accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [diagnostiquer et résoudre les problèmes liés à votre appareil de la gamme StorSimple 8000](storsimple-8000-troubleshoot-deployment.md).

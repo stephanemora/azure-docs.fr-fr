@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cd17347b3218715fbf18053878d396fc5061f4a9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 9f417bf992dae116c889d3786a609614a6202e1f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025519"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542792"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formats de fichiers et de compression pris en charge dans Azure Data Factory
 *Cette rubrique s’applique aux connecteurs suivants : [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [File System](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) et [SFTP](data-factory-sftp-connector.md).*
@@ -413,7 +413,7 @@ Pour utiliser le format Avro dans une table Hive, vous pouvez faire référence 
 
 Notez les points suivants :  
 
-* [Les types de données complexes](http://avro.apache.org/docs/current/spec.html#schema_complex) ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
+* [Les types de données complexes](https://avro.apache.org/docs/current/spec.html#schema_complex) ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
 
 ## <a name="orc-format"></a>Format ORC
 Si vous souhaitez analyser des fichiers ORC ou écrire des données au format ORC, définissez la propriété `format` `type` sur **OrcFormat**. Il est inutile de spécifier des propriétés dans la partie Format de la section typeProperties. Exemple :

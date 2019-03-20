@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002372"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083179"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
 
@@ -28,7 +28,7 @@ L’application de base de données multi-locataire SaaS Wingtip Tickets utilise
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-
+> 
 > * Simuler l’utilisation sur une base de données multi-locataire partitionnée en exécutant un générateur de charge fourni
 > * Surveiller la base de données à mesure qu’elle répond à l’augmentation de la charge
 > * Augmenter la taille de la base de données en réponse à la charge accrue sur la base de données
@@ -52,7 +52,7 @@ La gestion des performances des bases de données se compose des opérations sui
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
-Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser [Log Analytics](https://azure.microsoft.com/services/log-analytics/). Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Log Analytics peut collecter des données de télémétrie à partir de nombreux services, et être utilisé pour interroger et définir des alertes.
+Pour les scénarios à volumes élevés, où vous travaillez avec de nombreuses ressources, [Azure Monitor enregistre](https://azure.microsoft.com/services/log-analytics/) peut être utilisé. Il s’agit d’un service Azure distinct qui fournit des analytique sur les journaux de diagnostic et de télémétrie collectées dans un espace de travail Analytique de journal. Journaux d’Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services et être utilisés pour interroger et définir des alertes.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets
 
@@ -80,8 +80,8 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simule une charge de tra
 |:--|:--|
 | 2 | Générer une charge d’intensité normale (environ 30 DTU) |
 | 3 | Générer une charge avec des pics plus longs par locataire|
-| 4 | Générer une charge avec des pics de DTU plus élevés par locataire (environ 70 DTU)|
-| 5. | Générer une intensité élevée (environ 90 DTU) sur un locataire unique, plus une charge d’intensité normale sur tous les autres locataires |
+| 4 | Générer une charge avec des pics de DTU supérieurs par locataire (environ 70 DTU)|
+| 5. | Générer une intensité élevée (environ 90 DTU) sur un seul client, plus une charge d’intensité normale sur tous les autres locataires |
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en DTU), la durée et les intervalles varient selon les bases de données pour simuler l’activité d’un locataire imprévisible.
 
@@ -168,7 +168,7 @@ Si un locataire unique dans une base de données multi-locataire fait l’objet 
 Cet exercice simule l’effet de Salix Salsa qui subit une charge élevée quand des tickets sont mis en vente pour un événement populaire.
 
 1. Ouvrez le script …\\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Définissez **$DemoScenario = 5**, _Générer une charge normale et une charge élevée sur un locataire unique (environ 90 DTU)._
+1. Définissez **$DemoScenario = 5**, _générer une charge normale et une charge élevée sur un seul locataire (environ 90 DTU)._
 1. Définissez **$SingleTenantName = Salix Salsa**.
 1. Exécutez le script en appuyant sur **F5**.
 

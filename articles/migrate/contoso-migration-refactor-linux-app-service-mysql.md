@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 4ff3f129838a43bd7684dc10e1653dab969e9c1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809685"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087004"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migration de Contoso : Refactoriser une application Linux de service d’assistance de Contoso vers plusieurs régions avec Azure App Service, Traffic Manager et Azure MySQL
 
@@ -109,11 +109,11 @@ Contoso va effectuer le processus de migration comme suit :
 **Service** | **Description** | **Coût**
 --- | --- | ---
 [Azure App Service](https://azure.microsoft.com/services/app-service/) | Le service exécute et met à l’échelle des applications à l’aide du service PaaS Azure pour les sites web.  | La tarification est basée sur la taille des instances et sur les fonctionnalités requises. [Plus d’informations](https://azure.microsoft.com/pricing/details/app-service/windows/)
-[Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | Équilibreur de charge qui utilise DNS pour diriger les utilisateurs vers Azure, ou vers des sites web et des services externes. | La tarification est basée sur le nombre de requêtes DNS reçues et sur le nombre de points de terminaison surveillés. | [Plus d’informations](https://azure.microsoft.com/pricing/details/traffic-manager/)
+[Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | Équilibreur de charge qui utilise DNS pour diriger les utilisateurs vers Azure, ou vers des sites web et des services externes. | La tarification est basée sur le nombre de requêtes DNS reçues et sur le nombre de points de terminaison surveillés. [Plus d’informations](https://azure.microsoft.com/pricing/details/traffic-manager/)
 [Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/) | La base de données est basée sur le moteur du serveur MySQL open source. Ils fournissent une base de données MySQL entièrement managée et de classe Entreprise, appuyée par une communauté active, en tant que service pour le développement et le déploiement d’applications. | La tarification est basée sur les exigences de sauvegarde, de stockage et de calcul. [Plus d’informations](https://azure.microsoft.com/pricing/details/mysql/)
 
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Voici ce dont Contoso a besoin pour exécuter ce scénario.
 

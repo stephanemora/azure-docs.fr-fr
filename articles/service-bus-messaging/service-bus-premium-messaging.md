@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.topic: conceptual
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c8918556b7ff003bcfed062ea1e15233b2845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855293"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761954"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -54,6 +54,21 @@ Les files d’attente et les rubriques partitionnées ne sont pas prises en char
 La messagerie Premium s’exécutant dans un environnement d’exécution complètement isolé, les entités express ne sont pas prises en charge dans les espaces de noms Premium. Pour en savoir plus sur la fonctionnalité express, consultez la propriété [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Si vous avez du code s’exécutant dans la messagerie Standard et que vous souhaitez le faire passer au niveau Premium, vérifiez que la propriété [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) est définie sur **false** (la valeur par défaut).
+
+## <a name="premium-messaging-resource-usage"></a>Utilisation des ressources Premium Messaging
+En règle générale, toute opération sur une entité peut entraîner l’utilisation du processeur et mémoire. Voici quelques-unes de ces opérations : 
+
+- Opérations de gestion comme CRUD (Create, Retrieve, Update et Delete) des opérations sur les files d’attente, rubriques et abonnements.
+- Opérations d’exécution (envoyer et recevoir des messages)
+- Opérations d’analyse et alertes
+
+L’utilisation de mémoire et du processeur supplémentaire n'est pas facturée en outre cependant. Pour le niveau de la messagerie Premium, il existe un prix unique pour l’unité de message.
+
+L’utilisation du processeur et mémoire sont suivies et vous s’affichent pour les raisons suivantes : 
+
+- Fournit la transparence dans les profondeurs de système
+- Comprendre la capacité des ressources achetées.
+- Planification de la capacité vous permet de décider à l’échelle /.
 
 ## <a name="get-started-with-premium-messaging"></a>Prise en main de Premium Messaging
 

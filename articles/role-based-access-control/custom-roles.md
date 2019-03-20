@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339326"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804448"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Rôles personnalisés pour les ressources Azure
 
@@ -43,6 +43,7 @@ Voici ce à quoi ressemble un rôle personnalisé tel qu’il apparaît au forma
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -65,16 +66,19 @@ Quand vous créez un rôle personnalisé, celui-ci s’affiche dans le portail A
 
 ## <a name="steps-to-create-a-custom-role"></a>Procédure de création d’un rôle personnalisé
 
+1. Décidez comment vous souhaitez créer le rôle personnalisé
+
+    Vous pouvez créer des rôles personnalisés à l’aide de [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md), ou le [API REST](custom-roles-rest.md).
+
 1. Déterminer les autorisations nécessaires
 
-    Lorsque vous créez un rôle personnalisé, vous devez connaître les opérations du fournisseur de ressources qui sont disponibles pour définir vos autorisations. Pour afficher la liste des opérations, vous pouvez utiliser les commandes [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
-    Pour spécifier les autorisations pour votre rôle personnalisé, vous ajoutez les opérations à la propriété `Actions` ou `NotActions` de la [définition du rôle](role-definitions.md). Si vous avez des opérations de données, ajoutez-les à la propriété `DataActions` ou `NotDataActions`.
+    Lorsque vous créez un rôle personnalisé, vous devez connaître les opérations du fournisseur de ressources qui sont disponibles pour définir vos autorisations. Pour afficher la liste des opérations, consultez le [opérations de fournisseur de ressources Azure Resource Manager](resource-provider-operations.md). Vous allez ajouter les opérations à le `Actions` ou `NotActions` propriétés de la [définition de rôle](role-definitions.md). Si vous avez des opérations de données, vous allez ajouter à celles utilisées pour le `DataActions` ou `NotDataActions` propriétés.
 
-2. Créer le rôle personnalisé
+1. Créer le rôle personnalisé
 
-    Vous pouvez utiliser Azure PowerShell ou Azure CLI pour créer le rôle personnalisé. En règle générale, vous démarrez avec un rôle intégré existant, puis vous le modifiez selon vos besoins. Ensuite, vous utilisez les commandes [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [az role definition create](/cli/azure/role/definition#az-role-definition-create) pour créer le rôle personnalisé. Pour créer un rôle personnalisé, vous devez disposer de l’autorisation `Microsoft.Authorization/roleDefinitions/write` sur toutes les `AssignableScopes`, comme [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
+    En règle générale, vous démarrez avec un rôle intégré existant, puis vous le modifiez selon vos besoins. Ensuite, vous utilisez les commandes [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [az role definition create](/cli/azure/role/definition#az-role-definition-create) pour créer le rôle personnalisé. Pour créer un rôle personnalisé, vous devez disposer de l’autorisation `Microsoft.Authorization/roleDefinitions/write` sur toutes les `AssignableScopes`, comme [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
 
-3. Tester le rôle personnalisé
+1. Tester le rôle personnalisé
 
     Une fois que vous avez votre rôle personnalisé, vous devez le tester pour vérifier qu’il fonctionne comme prévu. Si vous avez besoin d’effectuer des ajustements ultérieurement, vous pouvez mettre à jour le rôle personnalisé.
 
@@ -86,15 +90,15 @@ Un rôle personnalisé dispose des propriétés suivantes.
 
 | Propriété | Obligatoire | Type | Description |
 | --- | --- | --- | --- |
-| `Name` | OUI | Chaîne | Nom complet du rôle personnalisé. Si une définition de rôle est une ressource de niveau abonnement, elle peut cependant être utilisée dans plusieurs abonnements partageant le même annuaire Azure AD. Ce nom d’affichage doit être unique dans l’étendue de l’annuaire Azure AD. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 128. |
-| `Id` | OUI | Chaîne | ID unique du rôle personnalisé. Pour Azure PowerShell et Azure CLI, cet ID est généré automatiquement lorsque vous créez un nouveau rôle. |
-| `IsCustom` | OUI | Chaîne | Indique s’il s’agit d’un rôle personnalisé. À définir sur `true` pour les rôles personnalisés. |
-| `Description` | OUI | Chaîne | Description du rôle personnalisé. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 1 024. |
-| `Actions` | OUI | String[] | Tableau de chaînes qui spécifie les opérations d’administration que le rôle autorise. Pour plus d’informations, voir [Actions](role-definitions.md#actions). |
+| `Name` | Oui | Chaîne | Nom complet du rôle personnalisé. Si une définition de rôle est une ressource de niveau abonnement, elle peut cependant être utilisée dans plusieurs abonnements partageant le même annuaire Azure AD. Ce nom d’affichage doit être unique dans l’étendue de l’annuaire Azure AD. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 128. |
+| `Id` | Oui | Chaîne | ID unique du rôle personnalisé. Pour Azure PowerShell et Azure CLI, cet ID est généré automatiquement lorsque vous créez un nouveau rôle. |
+| `IsCustom` | Oui | Chaîne | Indique s’il s’agit d’un rôle personnalisé. À définir sur `true` pour les rôles personnalisés. |
+| `Description` | Oui | Chaîne | Description du rôle personnalisé. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 1 024. |
+| `Actions` | Oui | String[] | Tableau de chaînes qui spécifie les opérations d’administration que le rôle autorise. Pour plus d’informations, voir [Actions](role-definitions.md#actions). |
 | `NotActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations d’administration exclues des `Actions` autorisées. Pour plus d’informations, voir [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Pour plus d’informations, voir [DataActions (préversion)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations de données exclues des `DataActions` autorisées. Pour plus d’informations, voir [NotDataActions (préversion)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | OUI | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Ne peut pas être défini sur l’étendue racine (`"/"`) ou sur une étendue de groupe d’administration. Pour plus d’informations, consultez [AssignableScopes](role-definitions.md#assignablescopes) et [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | Oui | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Ne peut pas être défini sur l’étendue racine (`"/"`) ou sur une étendue de groupe d’administration. Pour plus d’informations, consultez [AssignableScopes](role-definitions.md#assignablescopes) et [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Qui peut créer, supprimer, mettre à jour ou afficher un rôle personnalisé
 

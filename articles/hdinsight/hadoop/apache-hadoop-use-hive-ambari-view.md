@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091305"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
 
@@ -22,7 +22,7 @@ ms.locfileid: "53407845"
 
 Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. L’affichage Hive vous permet de créer, d’optimiser et d’exécuter des requêtes Hive à partir du navigateur web.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un cluster Apache Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
@@ -73,7 +73,7 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
    * `DROP TABLE`: Supprime la table et le fichier de données, si la table existe déjà.
 
    * `CREATE EXTERNAL TABLE`: Crée une nouvelle table « externe » dans Hive.
-   Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
+     Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
 
    * `ROW FORMAT`: Montre la mise en forme des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 
@@ -81,8 +81,8 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
    * `SELECT`: Sélectionne toutes les lignes où la colonne t4 contient la valeur [ERROR].
 
-    > [!IMPORTANT]  
-    > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
+     > [!IMPORTANT]  
+     > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
 
 5. Pour démarrer la requête, utilisez le bouton **Exécuter** situé sous la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
 

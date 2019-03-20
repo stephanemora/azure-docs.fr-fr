@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: f7bf5d521f4bcb5672ff1d710a08bed2e0872545
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 45e6de347cbb3ecfcc45ca20ab03805359207565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974401"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444665"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Solutions de partenaires pour la surveillance d’Azure Service Fabric
 
@@ -27,7 +27,7 @@ Cet article explique comment surveiller son infrastructure, ses clusters et ses 
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Notre intégration à Dynatrace fournit de nombreuses fonctionnalités prêtes à l’emploi pour surveiller vos clusters Service Fabric. L’installation de Dynatrace OneAgent sur vos instances VMSS vous donne accès à des compteurs de performances et vous fournit une topologie de votre déploiement Service Fabric vers le niveau application. Dynatrace constitue également un excellent choix pour la surveillance sur site. Découvrez d’autres fonctionnalités répertoriées dans les articles relatifs à [l’annonce](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) de Dynatrace et aux [instructions](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) pour activer Dynatrace sur votre cluster. 
+Notre intégration à Dynatrace fournit de nombreuses fonctionnalités prêtes à l’emploi pour surveiller vos clusters Service Fabric. L’installation de Dynatrace OneAgent sur vos instances VMSS vous donne accès à des compteurs de performances et vous fournit une topologie de votre déploiement Service Fabric vers le niveau application. Dynatrace constitue également un excellent choix pour la surveillance sur site. Découvrez plus de fonctionnalités répertoriées dans le [annonce](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) et [instructions](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) pour activer Dynatrace sur votre cluster. 
 
 ## <a name="datadog"></a>Datadog
 

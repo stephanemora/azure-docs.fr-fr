@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076783"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utiliser le service StorSimple Device Manager pour gérer votre catalogue de sauvegarde
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Le panneau **Catalogue de sauvegarde** du service StorSimple Device Manager affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou planifiées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
 Ce didacticiel explique comment répertorier, sélectionner et supprimer un jeu de sauvegarde. Pour savoir comment restaurer votre appareil à partir d’une sauvegarde, accédez à [Restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-8000-restore-from-backup-set-u2.md). Pour découvrir comment cloner un volume, accédez à [Cloner un volume StorSimple](storsimple-8000-clone-volume-u2.md).
@@ -86,7 +86,7 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
 #### <a name="to-delete-a-backup-set"></a>Pour supprimer un jeu de sauvegarde
  Accédez à votre service StorSimple Device Manager et cliquez sur **Catalogue de sauvegarde**.
-2. Filtrez les sélections comme suit :
+1. Filtrez les sélections comme suit :
    
    1. Indiquez l’intervalle de temps. 
    2. Sélectionnez l’appareil approprié. 
@@ -97,15 +97,15 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
       ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Sélectionnez un jeu de sauvegarde et développez-le. Vous pouvez maintenant voir les jeux de sauvegarde répartis par les volumes qu’ils contiennent. Les options **Restaurer** et **Supprimer** sont disponibles via le menu contextuel (clic droit) du jeu de sauvegarde. Cliquez avec le bouton droit sur le jeu de sauvegarde sélectionné et sélectionnez **Supprimer** dans le menu contextuel.
+1. Sélectionnez un jeu de sauvegarde et développez-le. Vous pouvez maintenant voir les jeux de sauvegarde répartis par les volumes qu’ils contiennent. Les options **Restaurer** et **Supprimer** sont disponibles via le menu contextuel (clic droit) du jeu de sauvegarde. Cliquez avec le bouton droit sur le jeu de sauvegarde sélectionné et sélectionnez **Supprimer** dans le menu contextuel.
 
     ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-4. Lorsque vous êtes invité à confirmer l’opération, passez en revue les informations affichées et cliquez sur **Supprimer**. La sauvegarde sélectionnée est supprimée définitivement.
+1. Lorsque vous êtes invité à confirmer l’opération, passez en revue les informations affichées et cliquez sur **Supprimer**. La sauvegarde sélectionnée est supprimée définitivement.
 
     ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-5. Vous serez informé de la progression de la suppression et de son issue. Une fois la suppression terminée, actualisez la requête dans cette page. Le jeu de sauvegarde supprimé n’apparaîtra plus dans la liste des jeux de sauvegarde.
+1. Vous serez informé de la progression de la suppression et de son issue. Une fois la suppression terminée, actualisez la requête dans cette page. Le jeu de sauvegarde supprimé n’apparaîtra plus dans la liste des jeux de sauvegarde.
 
     ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 

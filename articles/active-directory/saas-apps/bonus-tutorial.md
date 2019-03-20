@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Bonusly | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Bonusly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bonusly.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62927e78b8f1a771de74c0f9215a7bd946a46672
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d6c82d6a8cf2281ebd77c9880903f8f20505f52c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901142"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutoriel : Intégration d’Azure Active Directory avec Bonusly
+# <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Didacticiel : Intégration d’Azure Active Directory avec Bonusly
 
 Dans ce didacticiel, vous allez apprendre à intégrer Bonusly avec Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration d’Azure AD avec Bonusly offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Bonusly, vous avez besoin des éléments suivants :
 
@@ -219,7 +219,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bonusly, vous devez 
 
     b. Dans la zone de texte **Last name**, tapez le nom de l’utilisateur, par exemple **Simon**.
  
-    c. Dans la zone de texte **E-mail**, entrez l’adresse de messagerie de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    c. Dans le **E-mail** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     d. Cliquez sur **Enregistrer**.
    

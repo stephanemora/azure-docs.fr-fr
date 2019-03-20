@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110277"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -167,15 +167,15 @@ Ce plan ne s’appliquant qu’aux clients détenant un abonnement Operations Ma
 ### <a name="how-the-enterprise-plan-works"></a>Fonctionnement du plan Entreprise
 
 * Vous payez pour chaque nœud qui envoie des données de télémétrie pour n’importe quelle application dans le plan Entreprise.
- * Un *nœud* correspond à une machine serveur virtuelle ou physique ou à une instance de rôle PaaS (Platform-as-a-Service) qui héberge votre application.
- * Les ordinateurs de développement, les navigateurs clients et les appareils mobiles ne sont pas considérés comme des nœuds.
- * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un Worker principal, ces composants sont comptabilisés séparément.
- * Les données des [Flux de métriques temps réel](../../azure-monitor/app/live-stream.md) ne sont pas comptabilisées dans la tarification. Dans un abonnement, vos frais sont calculés par nœud, et non par application. Si vous disposez de cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
+  * Un *nœud* correspond à une machine serveur virtuelle ou physique ou à une instance de rôle PaaS (Platform-as-a-Service) qui héberge votre application.
+  * Les ordinateurs de développement, les navigateurs clients et les appareils mobiles ne sont pas considérés comme des nœuds.
+  * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un Worker principal, ces composants sont comptabilisés séparément.
+  * Les données des [Flux de métriques temps réel](../../azure-monitor/app/live-stream.md) ne sont pas comptabilisées dans la tarification. Dans un abonnement, vos frais sont calculés par nœud, et non par application. Si vous disposez de cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
 * Bien que les frais indiqués soient par mois, vous êtes facturé uniquement pour toutes les heures dans lesquelles un nœud envoie des données de télémétrie à partir d’une application. Le tarif horaire est le prix mensuel indiqué divisé par 744 (nombre d’heures dans un mois de 31 jours).
 * Une allocation de volume de données de 200 Mo par jour est accordée pour chaque nœud détecté (avec une granularité par heure). Le volume de données alloué inutilisé n’est pas reporté de jour en jour.
- * Lorsque vous choisissez le plan tarifaire Entreprise, chaque abonnement reçoit un volume quotidien de données en fonction du nombre de nœuds qui envoient des données de télémétrie aux ressources Application Insights dans cet abonnement. Par conséquent, si vous disposez de cinq nœuds qui envoient des données toute la journée, une allocation groupée de 1 Go est appliquée à toutes les ressources Application Insights de cet abonnement. Le fait que certains nœuds envoient plus de données que d’autres a peu d’importance, car les données incluses sont partagées entre tous les nœuds. Si, un jour donné, les ressources d’Application Insights reçoivent plus de données que le volume quotidien alloué pour cet abonnement, les frais de données de dépassement par Go s’appliquent. 
- * Le volume de données quotidien alloué est calculé comme suit : nombre d’heures quotidiennes (UTC) pendant lesquelles chaque nœud envoie des données de télémétrie, divisé par 24 multiplié par 200 Mo. Par conséquent, si quatre nœuds envoient des données de télémétrie pendant 15 heures sur les 24 heures de la journée, les données incluses pour le jour en question sont calculées comme suit : ((4 &#215; 15) / 24) &#215; 200 Mo = 500 Mo. Au prix de 2,30 USD par Go pour le dépassement de données, les frais s'élèvent à 1,15 USD si les nœuds envoient 1 Go de données dans cette journée.
- * Le volume de données quotidien alloué du plan Entreprise n’est pas partagé entre les applications pour lesquelles vous avez choisi le plan tarifaire De base. Le volume alloué inutilisé n’est pas reporté de jour en jour. 
+  * Lorsque vous choisissez le plan tarifaire Entreprise, chaque abonnement reçoit un volume quotidien de données en fonction du nombre de nœuds qui envoient des données de télémétrie aux ressources Application Insights dans cet abonnement. Par conséquent, si vous disposez de cinq nœuds qui envoient des données toute la journée, une allocation groupée de 1 Go est appliquée à toutes les ressources Application Insights de cet abonnement. Le fait que certains nœuds envoient plus de données que d’autres a peu d’importance, car les données incluses sont partagées entre tous les nœuds. Si, un jour donné, les ressources d’Application Insights reçoivent plus de données que le volume quotidien alloué pour cet abonnement, les frais de données de dépassement par Go s’appliquent. 
+  * Le volume de données quotidien alloué est calculé comme suit : nombre d’heures quotidiennes (UTC) pendant lesquelles chaque nœud envoie des données de télémétrie, divisé par 24 multiplié par 200 Mo. Par conséquent, si quatre nœuds envoient des données de télémétrie pendant 15 heures sur les 24 heures de la journée, les données incluses pour le jour en question sont calculées comme suit : ((4 &#215; 15) / 24) &#215; 200 Mo = 500 Mo. Au prix de 2,30 USD par Go pour le dépassement de données, les frais s'élèvent à 1,15 USD si les nœuds envoient 1 Go de données dans cette journée.
+  * Le volume de données quotidien alloué du plan Entreprise n’est pas partagé entre les applications pour lesquelles vous avez choisi le plan tarifaire De base. Le volume alloué inutilisé n’est pas reporté de jour en jour. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exemples de détermination du nombre de nœuds distincts
 

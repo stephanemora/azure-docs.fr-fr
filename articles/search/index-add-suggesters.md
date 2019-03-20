@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: fd4b29134fd45ed2888fbc81ded413ecf7286959
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269924"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308650"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Ajouter des suggesteurs à un index Recherche Azure
 
@@ -34,52 +34,52 @@ Bien qu’un **suggesteur** possède plusieurs propriétés, il se compose princ
 
 Vous ne pouvez disposer que d'une seule ressource **suggesteur** par index (plus précisément, un **suggesteur** dans la collection **suggesteurs**).
 
-## <a name="creating-a-suggester"></a>Création d’un suggesteur 
+## <a name="creating-a-suggester"></a>Création d’un suggesteur
 
-Vous pouvez créer un **suggesteur** à tout moment, mais l’impact sur votre index varie en fonction des champs. 
+Vous pouvez créer un **suggesteur** à tout moment, mais l’impact sur votre index varie en fonction des champs.
 
 + Les nouveaux champs ajoutés à un suggesteur dans le cadre de la même mise à jour ont moins d'impact du fait qu'il n'est pas nécessaire de regénérer l'index.
 + Cela étant, l’ajout de champs existants à un suggesteur modifie la définition des champs, ce qui nécessite une regénération complète de l’index.
 
- Les **suggesteurs** fonctionnent de façon optimale quand ils sont utilisés pour suggérer des documents spécifiques plutôt que des expressions ou des termes isolés. Les champs les plus appropriés sont les titres, les noms et d’autres expressions relativement courtes qui peuvent identifier un élément. Les champs les moins efficaces sont les champs répétitifs, tels que les catégories et les balises, ou les champs très longs, tels que les champs des descriptions ou des commentaires.  
+Les **suggesteurs** fonctionnent de façon optimale quand ils sont utilisés pour suggérer des documents spécifiques plutôt que des expressions ou des termes isolés. Les champs les plus appropriés sont les titres, les noms et d’autres expressions relativement courtes qui peuvent identifier un élément. Les champs les moins efficaces sont les champs répétitifs, tels que les catégories et les balises, ou les champs très longs, tels que les champs des descriptions ou des commentaires.
 
-Après avoir créé un suggesteur, ajoutez l'[API Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) à votre logique de requête pour appeler la fonctionnalité.  
+Après avoir créé un suggesteur, ajoutez l'[API Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) à votre logique de requête pour appeler la fonctionnalité.
 
-Les propriétés suivantes définissent un **suggesteur** :  
+Les propriétés suivantes définissent un **suggesteur** :
 
-|Propriété|Description|  
-|--------------|-----------------|  
-|`name`|Nom du **suggesteur**. Vous utilisez le nom du **suggesteur** lors de l’appel de [Suggestions &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions).|  
-|`searchMode`|Stratégie utilisée pour rechercher des expressions candidates. Le seul mode actuellement pris en charge est `analyzingInfixMatching`, qui effectue une correspondance flexible des expressions en début ou au milieu des phrases.|  
-|`sourceFields`|Liste d’un ou de plusieurs champs constituant la source du contenu pour des suggestions. Seuls les champs de type `Edm.String` et `Collection(Edm.String)` peuvent être des sources pour des suggestions. Seuls les champs qui n’ont pas un analyseur de langue personnalisé défini peuvent être utilisés. |  
+|Propriété|Description|
+|--------------|-----------------|
+|`name`|Nom du **suggesteur**. Vous utilisez le nom du **suggesteur** lors de l’appel de [Suggestions &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions).|
+|`searchMode`|Stratégie utilisée pour rechercher des expressions candidates. Le seul mode actuellement pris en charge est `analyzingInfixMatching`, qui effectue une correspondance flexible des expressions en début ou au milieu des phrases.|
+|`sourceFields`|Liste d’un ou de plusieurs champs constituant la source du contenu pour des suggestions. Seuls les champs de type `Edm.String` et `Collection(Edm.String)` peuvent être des sources pour des suggestions. Seuls les champs qui n’ont pas un analyseur de langue personnalisé défini peuvent être utilisés. |
 
-## <a name="suggester-example"></a>Exemple de suggesteur  
- Un **suggesteur** fait partie de la définition de l’index. Un seul **suggesteur** peut exister dans la collection de **suggesteurs** de la version actuelle, à côté de la collection des **champs** et de **scoringProfiles**.  
+## <a name="suggester-example"></a>Exemple de suggesteur
+Un **suggesteur** fait partie de la définition de l’index. Un seul **suggesteur** peut exister dans la collection de **suggesteurs** de la version actuelle, à côté de la collection des **champs** et de **scoringProfiles**.
 
-```  
-{  
-  "name": "hotels",  
-  "fields": [  
-     . . .   
-   ],  
-  "suggesters": [  
-    {  
-    "name": "sg",  
-    "searchMode": "analyzingInfixMatching",  
-    "sourceFields": ["hotelName", "category"]  
-    }  
-  ],  
-  "scoringProfiles": [  
-     . . .   
-  ]  
-}  
+```
+{
+  "name": "hotels",
+  "fields": [
+    . . .
+  ],
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["hotelName", "category"]
+    }
+  ],
+  "scoringProfiles": [
+    . . .
+  ]
+}
 
-```  
+```
 
-## <a name="see-also"></a>Voir aussi  
- [Créer un index &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [Mettre à jour un index &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)   
- [Suggestions &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)   
- [Opérations d'index &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)   
- [API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/)   
- [Kit de développement logiciel .NET (SDK) Azure Search](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+## <a name="see-also"></a>Voir aussi
+[Créer un index &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+[Mettre à jour d’Index &#40;API REST du Service recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)  
+[Suggestions &#40;API REST du Service recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)  
+[Opérations d’index &#40;API REST de Service de recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)  
+[Service de recherche Azure REST](https://docs.microsoft.com/rest/api/searchservice/)  
+[Kit de développement logiciel .NET (SDK) Azure Search](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

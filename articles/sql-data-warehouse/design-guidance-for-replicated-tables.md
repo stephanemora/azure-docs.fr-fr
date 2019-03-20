@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/23/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c791dc8216a4c905b4147f59a42d52091f14aae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9b205dea0d6de6469847e8008010a3a2c9d19956
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465977"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113128"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Guide de conception pour l’utilisation de tables répliquées dans Azure SQL Data Warehouse
 Cet article vous fournit des recommandations relatives à la conception de tables répliquées dans votre schéma SQL Data Warehouse. Utilisez ces recommandations pour améliorer les performances des requêtes en réduisant le déplacement de données et la complexité des requêtes.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md). 
 
 Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
@@ -32,22 +32,23 @@ Dans le cadre de la conception d’une table, essayez d’en savoir autant que p
 - Est-ce que je dispose de tables de faits et de dimension dans un entrepôt de données ?   
 
 ## <a name="what-is-a-replicated-table"></a>Qu’est-ce qu’une table répliquée ?
-Une table répliquée possède une copie complète de la table accessible sur chaque nœud de calcul. La réplication d’une table évite le transfert de données entre des nœuds de calcul avant une jointure ou une agrégation. Étant donné que la table possède plusieurs copies, le fonctionnement des tables répliquées est optimal lorsque la taille de la table est inférieure à 2 Go compressés.
+Une table répliquée possède une copie complète de la table accessible sur chaque nœud de calcul. La réplication d’une table évite le transfert de données entre des nœuds de calcul avant une jointure ou une agrégation. Étant donné que la table possède plusieurs copies, le fonctionnement des tables répliquées est optimal lorsque la taille de la table est inférieure à 2 Go compressés.  2 Go n’est pas une limite inconditionnelle.  Si les données sont statiques et ne changent pas, vous pouvez répliquer des tables volumineuses.
 
 Le diagramme suivant illustre une table répliquée accessible sur chaque nœud de calcul. Dans SQL Data Warehouse, la table répliquée est entièrement copiée dans une base de données de distribution sur chaque nœud de calcul. 
 
 ![Table répliquée](media/guidance-for-using-replicated-tables/replicated-table.png "Table répliquée")  
 
-Le fonctionnement des tables répliquées est mieux adapté aux petites tables de dimension dans un schéma en étoile. Les tables de dimension ont généralement une taille qui permet de stocker et de gérer plusieurs copies. Les dimensions stockent des données descriptives qui se modifient lentement, comme le nom et l’adresse du client, ainsi que les détails sur le produit. La lenteur de la nature changeante des données entraîne moins de reconstructions de la table répliquée. 
+Fonctionnement des tables bien pour les tables de dimension dans un schéma en étoile de répliquées. Tables de dimension sont généralement jointes à des tables de faits qui sont répartis différemment de la table de dimension.  Les dimensions sont généralement d’une taille qui permet de stocker et gérer plusieurs copies. Les dimensions stockent des données descriptives qui se modifient lentement, comme le nom et l’adresse du client, ainsi que les détails sur le produit. La nature de variation des données entraîne moins de maintenance de la table répliquée. 
 
 Envisagez d’utiliser une table répliquée dans les cas suivants :
 
 - La taille de la table sur le disque est inférieure à 2 Go, quel que soit le nombre de lignes. Pour connaître la taille d’une table, vous pouvez utiliser la commande [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) : `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - La table est utilisée dans des jointures qui requièrent normalement un déplacement des données. Quand vous joignez des tables qui ne sont pas distribuées sur la même colonne, telles qu’une table distribuée par hachage jointe à une table à distribution par tourniquet (round robin), un déplacement des données est nécessaire pour l’exécution de la requête.  Si l’une des tables est petite, pensez à utiliser une table répliquée. Nous vous recommandons d’utiliser des tables répliquées au lieu de tables de distribution par tourniquet dans la plupart des cas. Pour consulter les opérations de déplacement des données dans les plans de requêtes, utilisez [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  L’opération BroadcastMoveOperation est l’opération de déplacement de données qui peut généralement être supprimée à l’aide d’une table répliquée.  
-  Les tables répliquées ne produisent sans doute pas les meilleurs résultats dans les cas suivants :
+ 
+Les tables répliquées ne produisent sans doute pas les meilleurs résultats dans les cas suivants :
 
 - La table est l’objet d’opérations d’insertion, de mise à jour et de suppression fréquentes. Ces opérations DLM (langage de manipulation de données) nécessitent une regénération de la table répliquée. La reconstruction fréquente peut diminuer les performances.
-- L’entrepôt de données est souvent mis à l’échelle. La mise à l’échelle d’un entrepôt de données modifie le nombre de nœuds de calcul, ce qui entraîne une reconstruction.
+- L’entrepôt de données est souvent mis à l’échelle. Mise à l’échelle un entrepôt de données modifie le nombre de nœuds de calcul, ce qui entraîne la reconstruction de la table répliquée.
 - La table comporte un grand nombre de colonnes, mais les opérations de données n’accèdent généralement qu’à un nombre restreint de colonnes. Dans ce scénario, au lieu de répliquer la table entière, il peut s’avérer plus efficace de distribuer la table et de créer ensuite un index sur les colonnes fréquemment sollicitées. Quand une requête requiert le déplacement des données, SQL Data Warehouse déplace uniquement les données pour les colonnes demandées. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Utiliser des tables répliquées avec des prédicats de requête simples
@@ -58,7 +59,7 @@ Avant de décider de distribuer ou de répliquer une table, pensez aux types de 
 
 Les requêtes sollicitant beaucoup le processeur fonctionnent de manière optimale lorsque le travail est réparti entre tous les nœuds de calcul. Par exemple, les requêtes qui exécutent des calculs sur chaque ligne d’une table fonctionnent mieux sur les tables distribués que sur les tables répliquées. Étant donné qu’une table répliquée est entièrement stockée sur chaque nœud de calcul, une requête sollicitant beaucoup le processeur sur une table répliquée s’exécute sur la table entière sur chaque nœud de calcul. Le calcul supplémentaire peut ralentir les performances des requêtes.
 
-Par exemple, cette requête comporte un prédicat complexe.  Elle s’exécute plus rapidement lorsque le fournisseur est une table distribuée au lieu d’une table répliquée. Dans cet exemple, le fournisseur peut être distribué par tourniquet.
+Par exemple, cette requête comporte un prédicat complexe.  Il s’exécute plus rapidement lorsque les données sont dans une table distribuée au lieu d’une table répliquée. Dans cet exemple, les données peuvent être distribué par tourniquet.
 
 ```sql
 
@@ -69,7 +70,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertir les tables de distribution par tourniquet (round-robin) en tables répliquées
-Si vous avez déjà des tables de distribution par tourniquet, nous vous recommandons de les convertir en tables répliquées si elles sont conformes aux critères décrits dans cet article. Les tables répliquées ont de meilleures performances que les tables de distribution par tourniquet, car elles éliminent le déplacement des données.  Une table de distribution par tourniquet requiert toujours le déplacement des données pour les jointures. 
+Si vous avez déjà des tables de tourniquet (round-robin), nous vous recommandons de les convertir en tables répliquées si elles répondent aux critères indiqués dans cet article. Les tables répliquées ont de meilleures performances que les tables de distribution par tourniquet, car elles éliminent le déplacement des données.  Une table de distribution par tourniquet requiert toujours le déplacement des données pour les jointures. 
 
 Cet exemple utilise [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour modifier la table DimSalesTerritory en une table répliquée. Cet exemple fonctionne que la table DimSalesTerritory soit distribuée par hachage ou par tourniquet.
 
@@ -102,7 +103,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 Une table répliquée ne nécessite pas le déplacement des données pour les jointures, car la table entière est déjà présente sur chaque nœud de calcul. Si les tables de dimension sont des tables distribuées par tourniquet, une jointure copie entièrement la table de dimension sur chaque nœud de calcul. Pour déplacer les données, le plan de requête contient une opération appelée BroadcastMoveOperation. Ce type d’opération de déplacement des données ralentit les performances des requêtes. Il n’est pas utilisé par les tables répliquées. Pour afficher les étapes relatives au plan de requête, utilisez la vue catalogue système [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql). 
 
 Par exemple, dans la requête suivante sur le schéma AdventureWorks, la table ` FactInternetSales` est distribuée par hachage. Les tables `DimDate` et `DimSalesTerritory` sont des tables de dimension plus petites. Cette requête retourne le total des ventes en Amérique du Nord pour l’année fiscale 2004 :
- 
+ 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -138,7 +139,7 @@ La reconstruction ne se produit pas immédiatement après la modification des do
 
 ### <a name="use-indexes-conservatively"></a>Utilisation restrictive des index
 Les pratiques d’indexation standard s’appliquent aux tables répliquées. SQL Data Warehouse reconstruit chaque index de table répliquée dans le cadre de la reconstruction. Utilisez les index uniquement lorsque le gain de performances compense le coût de reconstruction des index.  
- 
+ 
 ### <a name="batch-data-loads"></a>Chargements de données par lots
 Lors du chargement de données dans des tables répliquées, essayez de réduire les reconstructions en regroupant les chargements par lots. Effectuez tous les chargements par lots avant d’exécuter des instructions select.
 
@@ -170,20 +171,20 @@ Cette requête utilise le DMV [sys.pdw_replicated_table_cache_state](/sql/relati
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
   FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 Pour déclencher une reconstruction, exécutez l’instruction suivante sur chaque table dans la sortie précédente. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
- 
+ 
 ## <a name="next-steps"></a>Étapes suivantes 
 Pour créer une table répliquée, utilisez l’une de ces instructions :
 

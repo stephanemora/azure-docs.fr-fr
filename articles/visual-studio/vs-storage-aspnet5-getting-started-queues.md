@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141296"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999770"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Bien démarrer avec Stockage File d’attente et les services connectés de Visual Studio (ASP.NET Core)
 
@@ -27,7 +27,7 @@ Cet article explique comment bien démarrer avec Stockage File d’attente d’A
 
 Le service de stockage de files d'attente Azure permet de stocker un grand nombre de messages accessibles partout dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un message de file d’attente peut avoir une taille maximale de 64 Ko et une file d’attente peut contenir plusieurs millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage. Consultez également [Prise en main du stockage de files d’attente Azure à l’aide de .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) pour plus d’informations sur la manipulation des files d’attente par programme.
 
-Pour commencer, créez une file d’attente Azure dans votre compte de stockage. Cet article montre ensuite comment créer une file d'attente en C# et comment effectuer des opérations de file d'attente comme ajouter, modifier, lire et supprimer les messages d'une file d'attente.  Le code utilise la Bibliothèque cliente Azure Storage pour .NET. Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net)(en anglais).
+Pour commencer, créez une file d’attente Azure dans votre compte de stockage. Cet article montre ensuite comment créer une file d'attente en C# et comment effectuer des opérations de file d'attente comme ajouter, modifier, lire et supprimer les messages d'une file d'attente.  Le code utilise la Bibliothèque cliente Azure Storage pour .NET. Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](https://www.asp.net)(en anglais).
 
 Certaines des API Azure Storage sont asynchrones, et le code dans cet article suppose l'utilisation de méthodes asynchrones. Voir [Programmation asynchrone](https://docs.microsoft.com/dotnet/csharp/async) pour plus d'informations.
 
@@ -66,7 +66,7 @@ Pour accéder à des files d’attente dans des projets ASP.NET Core, incluez le
 
 ### <a name="create-a-queue-in-code"></a>Créer une file d’attente dans le code
 
-Pour créer la file d'attente Azure dans le code, appelez CreateIfNotExistsAsync :
+Pour créer la file d’attente Azure dans le code, appelez `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

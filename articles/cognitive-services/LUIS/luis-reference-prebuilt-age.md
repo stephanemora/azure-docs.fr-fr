@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a6aeffb40092252a4e48a200da640f22a149f089
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c901a384d7629a187a2a4fbd4295a1a68615abdb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867305"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342596"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie age pour une application LUIS
 L’entité prédéfinie age capture la valeur d’âge à la fois sous forme numérique et en termes de jours, semaines, mois et années. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un âge aux intentions de l’application. L’entité age est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 

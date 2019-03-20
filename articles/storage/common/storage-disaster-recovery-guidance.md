@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753586"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871534"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
 
@@ -104,7 +104,7 @@ Une fois le compte de stockage reconfiguré pour la géoredondance, il est possi
 
 Pour éviter toute perte de données majeure, vérifiez la valeur de la propriété **Dernière heure de synchronisation** avant de procéder à la restauration automatique. Comparez la dernière heure de synchronisation aux dernières heures où ces données ont été écrites dans la nouvelle région primaire afin d’évaluer la perte de données attendue. 
 
-## <a name="initiate-an-account-failover"></a>Lancer un basculement de compte
+## <a name="initiate-an-account-failover"></a>Initier un basculement de compte
 
 Vous pouvez lancer un basculement de compte à partir du portail Azure, de PowerShell, d’Azure CLI ou de l’API du fournisseur de ressources Stockage Azure. Pour plus d’informations sur la façon de lancer un basculement, consultez [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md).
 
@@ -152,7 +152,6 @@ Les disques non managés sont stockés en tant qu’objets blob de pages dans St
 4. Attendez que la **Dernière heure de synchronisation** ait été mise à jour et soit postérieure à l’heure à laquelle vous avez supprimé la machine virtuelle. Cette étape est importante, car si le point de terminaison secondaire n’a pas été totalement mis à jour avec les fichiers de disques durs virtuels quand le basculement se produit, la machine virtuelle risque de ne pas fonctionner correctement dans la nouvelle région primaire.
 5. Lancez le basculement de compte.
 6. Attendez que le basculement de compte soit terminé et que la région secondaire soit devenue la nouvelle région primaire.
-6. Créez un compte de stockage dans la nouvelle région primaire et copiez-y votre disque non managé.
 7. Créez une machine virtuelle dans la nouvelle région primaire et réattachez les disques durs virtuels.
 8. Démarrez la nouvelle machine virtuelle.
 
@@ -178,4 +177,4 @@ Dans des circonstances extrêmes où une région est perdue suite à un sinistre
 
 * [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md)
 * [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Tutoriel : Générer une application hautement disponible avec le stockage d’objets Blob](../blobs/storage-create-geo-redundant-storage.md) 
+* [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 

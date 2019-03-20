@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234235"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090812"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d'activité avec Azure Monitor  
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte.
 
 Elles concernent les ressources Azure. Pour les créer, il est possible d’utiliser un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. En général, les alertes de journal d’activité permettent de recevoir une notification en cas de modification particulière des ressources de l’abonnement Azure, souvent à l’échelle d’un groupe de ressources ou d’une ressource en particulier. Par exemple, vous pouvez demander à être informé lorsqu’une machine virtuelle de **myProductionResourceGroup** (exemple de groupe de ressources) est supprimée, ou que de nouveaux rôles sont attribués à l’un des utilisateurs de votre abonnement.
@@ -27,13 +27,13 @@ Elles concernent les ressources Azure. Pour les créer, il est possible d’util
 ## <a name="azure-portal"></a>Portail Azure
 
 > [!NOTE]
-
+> 
 >  Lorsque vous créez des règles d’alerte, vérifiez les points suivants :
-
+> 
 > - L’abonnement présent dans l’étendue n’est pas différent de celui dans lequel l’alerte est créée.
-- Les critères doivent être : niveau / état / appelant / groupe de ressources / ID de ressource / type de ressource / catégorie d’événement, sur lesquels l’alerte est configurée.
-- Il n’existe aucune condition « anyOf » ni aucune condition imbriquée dans le JSON de configuration des alertes (en fait, une seule condition allOf est autorisée, sans aucune autre allOf/anyOf).
-- Lorsque la catégorie est « administratif ». Vous devez spécifier au moins l’un des critères précédents dans votre alerte. L’alerte créée ne s’activera peut-être pas à chaque fois qu’un événement sera créé dans les journaux d’activité.
+> - Les critères doivent être : niveau / état / appelant / groupe de ressources / ID de ressource / type de ressource / catégorie d’événement, sur lesquels l’alerte est configurée.
+> - Il n’existe aucune condition « anyOf » ni aucune condition imbriquée dans le JSON de configuration des alertes (en fait, une seule condition allOf est autorisée, sans aucune autre allOf/anyOf).
+> - Lorsque la catégorie est « administratif ». Vous devez spécifier au moins l’un des critères précédents dans votre alerte. L’alerte créée ne s’activera peut-être pas à chaque fois qu’un événement sera créé dans les journaux d’activité.
 
 ### <a name="create-with-azure-portal"></a>Créer avec le Portail Azure
 
@@ -50,35 +50,36 @@ Procédez comme suit :
 
 3. Sous **Définir une condition d’alerte,** indiquez les informations suivantes, puis cliquez sur **Fait**.
 
-    - **Cible de l’alerte :** pour afficher et sélectionner la cible de la nouvelle alerte, utilisez **Filtrer par abonnement** / **Filtrer par type de ressource** et sélectionnez la ressource ou le groupe de ressources dans la liste qui s’affiche.
+   - **Cible de l’alerte :** pour afficher et sélectionner la cible de la nouvelle alerte, utilisez **Filtrer par abonnement** / **Filtrer par type de ressource** et sélectionnez la ressource ou le groupe de ressources dans la liste qui s’affiche.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > Vous pouvez sélectionner une ressource, un groupe de ressources ou un abonnement entier comme signal du journal d'activité.
 
-    > Vous pouvez sélectionner une ressource, un groupe de ressources ou un abonnement entier comme signal du journal d'activité.
+     **Exemple de vue de cible d’alerte**
+     ![sélectionner la cible](media/alerts-activity-log/select-target.png)
 
-    **Vue Exemple de cible de l’alerte** ![Sélectionner la cible](media/alerts-activity-log/select-target.png)
+   - Sous **Critères de ciblage**, cliquez sur **Ajouter des critères**. Tous les signaux disponibles pour la cible s’affichent alors, y compris ceux des différentes catégories du **journal d’activité**. Le nom de la catégorie est ajouté dans le nom **Service de surveillance**.
 
-    - Sous **Critères de ciblage**, cliquez sur **Ajouter des critères**. Tous les signaux disponibles pour la cible s’affichent alors, y compris ceux des différentes catégories du **journal d’activité**. Le nom de la catégorie est ajouté dans le nom **Service de surveillance**.
+   - Sélectionnez le signal dans la liste des différentes opérations possibles pour le type **Journal d’activité**.
 
-    - Sélectionnez le signal dans la liste des différentes opérations possibles pour le type **Journal d’activité**.
+     Vous pouvez sélectionner la chronologie de l’historique du journal et la logique d’alerte correspondante pour ce signal cible :
 
-    Vous pouvez sélectionner la chronologie de l’historique du journal et la logique d’alerte correspondante pour ce signal cible :
+     **Écran Ajouter des critères**
 
-    **Écran Ajouter des critères**
+     ![ajouter des critères](media/alerts-activity-log/add-criteria.png)
 
-    ![ajouter des critères](media/alerts-activity-log/add-criteria.png)
+     **Échelle de l’historique** : les événements disponibles pour l’opération sélectionnée peuvent s’être déroulés au cours des 6/12/24 dernières heures ou la dernière semaine.
 
-    **Échelle de l’historique** : les événements disponibles pour l’opération sélectionnée peuvent s’être déroulés au cours des 6/12/24 dernières heures ou la dernière semaine.
-
-    **Logique d'alerte** :
+     **Logique d'alerte** :
 
      - **Niveau de l'événement** : le niveau de gravité de l’événement. _Commentaires_, _Information_, _Avertissement_, _Erreur_ ou _Critique_.
      - **Statut** : État de l’événement. _Démarré_, _Échec_ ou _Réussi_.
      - **Événement lancé par** : également connu en tant qu’appelant. Adresse e-mail ou identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération.
 
-        Exemple de graphique de signal avec application d’une logique d’alerte :
+       Exemple de graphique de signal avec application d’une logique d’alerte :
 
-        ![ critères sélectionnés](media/alerts-activity-log/criteria-selected.png)
+       ![ critères sélectionnés](media/alerts-activity-log/criteria-selected.png)
 
 4. Sous **Définir les détails des règles d’alerte**, indiquez les informations suivantes :
 
@@ -115,15 +116,15 @@ Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alert
 
     Vous pouvez utiliser les filtres disponibles (_Abonnement_, _Groupe de ressources_, _Ressource_, _Type de signal_ ou _État_) pour trouver la règle d’activité que vous souhaitez modifier.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Les seuls champs que vous pouvez éditer sont : **Description** , **Critères cibles** et **Groupes d’actions**.
 
-    > Les seuls champs que vous pouvez éditer sont : **Description** , **Critères cibles** et **Groupes d’actions**.
+3. Sélectionnez la règle, puis double-cliquez pour modifier ses options. Apportez les modifications nécessaires, puis cliquez sur **Enregistrer**.
 
-3.  Sélectionnez la règle, puis double-cliquez pour modifier ses options. Apportez les modifications nécessaires, puis cliquez sur **Enregistrer**.
+   ![ gérer les règles d’alerte](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ gérer les règles d’alerte](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  Vous pouvez désactiver, activer ou supprimer un profil. Sélectionnez l’option souhaitée en haut de la fenêtre, après avoir sélectionné la règle en suivant les instructions de l’étape 2.
+4. Vous pouvez désactiver, activer ou supprimer un profil. Sélectionnez l’option souhaitée en haut de la fenêtre, après avoir sélectionné la règle en suivant les instructions de l’étape 2.
 
 
 ## <a name="azure-resource-template"></a>Modèle de ressource Azure
@@ -204,13 +205,26 @@ L’[API Azure Monitor - Alertes du journal d'activité](https://docs.microsoft.
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>Déployer le modèle Resource Manager avec PowerShell
+Utilisation de PowerShell pour déployer l’exemple de modèle de ressource indiqué dans une section précédente de [modèle de ressources] (#-modèle resource manager-, utilisez la commande suivante :
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+où le sampleActivityLogAlert.parameters.json contient les valeurs fournies pour les paramètres nécessaires pour la création d’une règle d’alerte.
+
+### <a name="use-activity-log-powershell-cmdlets"></a>Utiliser les applets de commande PowerShell de journal d’activité
+
 Les alertes de journal d'activité disposent de cmdlets PowerShell dédiées :
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert) : permet de mettre à jour une ressource de règle d'alerte de journal d'activité existante ou d'en créer une nouvelle
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert) : permet de récupérer une ou plusieurs ressources de règle d'alerte de journal d'activité
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert) : permet de supprimer une ressource de règle d'alerte de journal d'activité avec confirmation de l'utilisateur
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert) : permet d'activer une ressource de règle d'alerte de journal d'activité existante
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert) : permet de désactiver une ressource de règle d'alerte de journal d'activité existante
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Crée ou mettre à jour une alerte de journal d’activité existante.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Obtient un ou plusieurs activités ressources alerte de journal.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Permet à une alerte de journal d’activité existante et définit ses balises.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Désactive une alerte de journal d’activité existante et définit ses balises.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : Supprime une alerte de journal d’activité.
 
 ## <a name="cli"></a>Interface de ligne de commande
 

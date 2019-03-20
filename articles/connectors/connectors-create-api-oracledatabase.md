@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295355"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551753"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -27,7 +27,7 @@ ms.locfileid: "55295355"
 
 Cet article décrit comment utiliser le connecteur de base de données Oracle dans une application logique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Versions d’Oracle prises en charge : 
     * Oracle 9 et versions ultérieures
@@ -40,7 +40,7 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
 * Installez le client Oracle sur l’ordinateur où vous avez installé la passerelle de données locale. Veillez à installer le fournisseur de données Oracle 64 bits pour .NET à partir d’Oracle :  
 
-  [ODAC 12C version 4 (12.1.0.2.4) 64 bits pour Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
+  [ODAC 12C version 4 (12.1.0.2.4) 64 bits pour Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
     > Si le client Oracle n’est pas installé, une erreur se produit lorsque vous tentez de créer ou d’utiliser la connexion. Consultez les erreurs courantes dans cet article.

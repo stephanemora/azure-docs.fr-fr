@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4c38230c1d5a4dcad9a10b82d810f82515980076
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 1e403ac0d2fbe9572a44fb3cde9d25e4df9b3db4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884997"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Exécuter des prédictions par lots sur de grands jeux de données avec Azure Machine Learning service
 
@@ -29,9 +29,9 @@ La prédiction par lots (ou le scoring par lots) fournit une inférence économi
 
 Au cours des prochaines étapes, vous allez créer un [pipeline Machine Learning](concept-ml-pipelines.md) pour inscrire un modèle de vision par ordinateur préformé ([Inception-V3](https://arxiv.org/abs/1512.00567)). Puis utiliser le modèle préformé pour effectuer le scoring par lots sur les images disponibles dans votre compte Stockage Blob Azure. Les images utilisées pour le scoring sont des images sans étiquette issues du jeu de données [ImageNet](http://image-net.org/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree).
+- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
 - Configurez votre environnement de développement pour installer le SDK Azure Machine Learning. Pour obtenir davantage d’informations, consultez la page [Configurer un environnement de développement pour Azure Machine Learning](how-to-configure-environment.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Proxyclick | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Proxyclick | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Proxyclick.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52d3e058c7e604a31493bf3b1972b39c9922fd90
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5ce628716e9e8d0094f678c3d67dcfad9e24ada
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163513"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutoriel : Intégration d’Azure Active Directory à Proxyclick
 
@@ -214,7 +214,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Proxyclick, vous dev
 
     ![Ajouter un employé](./media/proxyclick-tutorial/user3.png)
 
-    a. Dans la zone de texte **E-mail**, tapez l’adresse e-mail d’un utilisateur, par exemple, **brittasimon@contoso.com**.
+    a. Dans le **E-mail** zone de texte, tapez l’adresse de messagerie de l’utilisateur comme **brittasimon\@contoso.com**.
 
     b. Dans la zone de texte **Prénom**, tapez le prénom de l’utilisateur, par exemple Britta.
 

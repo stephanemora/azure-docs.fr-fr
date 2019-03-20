@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 95d7fc55accb163e07dcb7d103cc896794720cf4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428089"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845452"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "56428089"
 
 Vous pouvez générer des applications Azure Service Fabric pour qu’elles s’exécutent sur les clusters Linux à l’aide de Mac OS X. Ce document explique comment configurer votre Mac pour le développement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Azure Service Fabric n’est pas exécuté en mode natif sur Mac OS X. Pour exécuter un cluster Service Fabric local, une image de conteneur Docker préconfigurée est fournie. Avant de commencer, vous avez besoin des éléments suivants :
 
 * Au moins 4 Go de RAM.
@@ -152,7 +152,7 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
     node -v
     npm -v
     ```
-2. Installez le générateur de modèles [Yeoman](http://yeoman.io/) sur votre machine à partir de NPM :
+2. Installez le générateur de modèles [Yeoman](https://yeoman.io/) sur votre machine à partir de NPM :
 
     ```bash
     npm install -g yo

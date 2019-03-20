@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 68c04ef893e5e0826f03bffa93fb7c79b4959fdc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889698"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114090"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Pour installer une mise à jour à partir du portail Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "55889698"
    * **Contrôles d’intégrité des composants matériels** , utilisés pour vérifier l’état des composants matériels de votre appareil StorSimple.
    * **Contrôles DATA 0** , afin de s’assurer de l’activation de DATA 0 sur votre appareil. Si cette interface n’est pas activée, vous devez l’activer, puis réessayer.
 
-    La mise à jour est téléchargée et installée uniquement si toutes les vérifications sont effectuées avec succès. Un message s’affiche lorsque les vérifications sont en cours. Si les pré-vérifications échouent, les causes de cet échec vous sont communiquées. Résolvez ces problèmes, puis retentez l’opération. Vous devrez peut-être contacter le support technique Microsoft si vous ne pouvez pas résoudre ces problèmes vous-même.
+     La mise à jour est téléchargée et installée uniquement si toutes les vérifications sont effectuées avec succès. Un message s’affiche lorsque les vérifications sont en cours. Si les pré-vérifications échouent, les causes de cet échec vous sont communiquées. Résolvez ces problèmes, puis retentez l’opération. Vous devrez peut-être contacter le support technique Microsoft si vous ne pouvez pas résoudre ces problèmes vous-même.
 
 7. Une fois les vérifications préalables terminées, une tâche de mise à jour est créée. Un message s’affiche une fois la tâche de mise à jour créée.
    

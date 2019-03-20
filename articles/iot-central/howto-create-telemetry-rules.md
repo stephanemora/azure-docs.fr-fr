@@ -3,17 +3,17 @@ title: Créer et gérer des règles de télémétrie dans votre application Azur
 description: Les règles de télémétrie d’Azure IoT Central vous permettent de surveiller vos appareils quasi en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail, quand la règle se déclenche.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081557"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Créer une règle de télémétrie et configurer des notifications dans votre application Azure IoT Central
 
@@ -27,20 +27,15 @@ Les appareils peuvent utiliser des mesures de télémétrie pour envoyer des don
 
 Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au moins une mesure de télémétrie définie. Cet exemple utilise un distributeur automatique réfrigéré qui envoie les données de télémétrie de la température et de l’humidité. La règle surveille la température signalée par l’appareil et envoie un e-mail quand elle dépasse 80 degrés.
 
-1. À l’aide de l’outil Device Explorer, accédez au modèle d’appareil pour lequel vous ajoutez la règle.
+1. À l’aide de la **modèles de périphériques** page, accédez au modèle de périphérique pour lequel vous ajoutez la règle pour.
 
-1. Sous le modèle sélectionné, cliquez sur un appareil existant. 
-
-    >[!TIP] 
-    >Si le modèle ne possède aucun appareil, commencez par ajouter un nouvel appareil.
-
-1. Si vous n’avez pas encore créé de règles, vous verrez l’écran suivant :
+1. Si vous n’avez pas encore créé de règles, vous voyez l’écran suivant :
 
     ![Pas encore de règles](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. Sous l’onglet **Règles**, cliquez sur **Modifier un modèle** puis sur **+ Nouvelle règle** pour voir les types de règles que vous pouvez créer.
+1. Sur le **règles** onglet, sélectionnez **+ nouvelle règle** pour voir les types de règles que vous pouvez créer.
 
-1. Cliquez sur **Télémétrie** pour créer une règle afin de surveiller la télémétrie de l’appareil.
+1. Sélectionnez **télémétrie** pour créer une règle pour la surveillez la télémétrie d’appareil.
 
     ![Types de règles](media/howto-create-telemetry-rules/Rule_Types.png)
 
@@ -49,28 +44,25 @@ Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au m
 1. Pour activer immédiatement la règle sur tous les appareils créés pour ce modèle, choisissez **Activer la règle pour tous les appareils de ce modèle**.
 
    ![Détail de la règle](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+
     La règle s’applique automatiquement à tous les appareils de ce modèle.
-    
 
 ### <a name="configure-the-rule-conditions"></a>Configurer les conditions de la règle
 
-La condition définit les critères surveillés par la règle.
+La condition définit les critères qui sont surveillés par la règle.
 
-1. Cliquez sur **+** en regard de **Conditions** pour ajouter une nouvelle condition.
+1. Sélectionnez **+** regard **Conditions** pour ajouter une nouvelle condition.
 
 1. Sélectionnez les données de télémétrie que vous souhaitez analyser dans la liste déroulante **Mesure**.
 
-   ![Condition](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
-
 1. Choisissez **Agrégation**, **Opérateur** et spécifiez une valeur **Seuil**.
-    - L’agrégation est facultative. Sans agrégation, la règle se déclenche pour chaque point de données de télémétrie qui répond à la condition. Par exemple, si la règle est configurée pour se déclencher quand la température dépasse 80, la règle se déclenche presque instantanément lorsque l’appareil affiche température > 80.
-    - Si une fonction d’agrégation comme Average, Min, Max, Count est sélectionnée, l’utilisateur doit spécifier la **fenêtre de temps d’agrégation** pendant laquelle la condition sera évaluée. Par exemple, si vous définissez la fenêtre sur « 5 minutes » et que votre règle recherche une température moyenne supérieure à 80, la règle se déclenche lorsque la température moyenne est au-dessus de 80 pendant au moins 5 minutes. La fréquence d’évaluation de la règle est la même que la **fenêtre de temps d’agrégation**, ce qui signifie que, dans cet exemple, la règle est évaluée toutes les 5 minutes.
+   - L’agrégation est facultative. Sans agrégation, la règle se déclenche pour chaque point de données de télémétrie qui répond à la condition. Par exemple, si la règle est configurée pour le déclencheur lorsque la température est supérieure à 80, puis la règle déclenche presque instantanément lorsque l’appareil signale température > 80.
+   - Si une fonction d’agrégation comme Average, Min, Max, Count est sélectionnée, l’utilisateur doit spécifier la **fenêtre de temps d’agrégation** pendant laquelle la condition sera évaluée. Par exemple, si vous définissez la fenêtre sur « 5 minutes » et que votre règle recherche une température moyenne supérieure à 80, la règle se déclenche lorsque la température moyenne est au-dessus de 80 pendant au moins 5 minutes. La fréquence d’évaluation de la règle est la même que la **fenêtre de temps d’agrégation**, ce qui signifie que, dans cet exemple, la règle est évaluée toutes les 5 minutes.
 
-    >[!NOTE]
-    >Vous pouvez ajouter plusieurs mesures de télémétrie sous **Condition**. Quand plusieurs conditions sont spécifiées, toutes les conditions doivent être remplies pour que la règle se déclenche. Chaque condition est implicitement jointe par une clause « AND ». Lorsque vous utilisez un agrégat, chaque mesure doit être agrégée.
-    
-    
+     ![Condition](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+
+     >[!NOTE]
+     >Vous pouvez ajouter plusieurs mesures de télémétrie sous **Condition**. Quand plusieurs conditions sont spécifiées, toutes les conditions doivent être remplies pour que la règle se déclenche. Chaque condition est implicitement jointe par une clause « AND ». Lorsque vous utilisez un agrégat, chaque mesure doit être agrégée.
 
 ### <a name="configure-actions"></a>Configurer les actions
 
@@ -88,8 +80,6 @@ Cette section vous indique comment configurer les actions à effectuer lorsque l
    ![Configurer une action](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. Pour enregistrer la règle, choisissez **Enregistrer**. La règle est active au bout de quelques minutes et commence à surveiller la télémétrie envoyée à votre application. Quand la condition spécifiée dans la règle est remplie, cette dernière déclenche l’action d’envoi d’e-mail configurée.
-
-1. Choisissez **Terminé** pour quitter le mode **Modifier le modèle**.
 
 Vous pouvez ajouter d’autres actions à la règle, par exemple Microsoft Flow et des Webhooks. Vous pouvez ajouter jusqu’à 5 actions par règle.
 

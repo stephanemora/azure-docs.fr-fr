@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e6da35eeb98d4017baae6aa2c8e19fa3f9d5ac1b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5e7e405bdb251bbebc5da81253eea2414b434cb8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838308"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Premiers pas avec Azure Machine Learning pour Visual Studio Code
 
@@ -23,10 +23,10 @@ Dans cet article, vous allez apprendre à installer l’extension **Azure Machin
 
 L’extension Azure Machine Learning dans Visual Studio Code vous permet d’utiliser le service Azure Machine Learning pour préparer vos données, effectuer l’apprentissage et tester les modèles Machine Learning sur des cibles de calcul locales et distantes, déployer ces modèles et suivre les expériences et les métriques personnalisées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 
-+ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
++ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree) dès aujourd’hui.
 
 + Visual Studio Code doit être installé. VS Code est un éditeur de code source léger mais puissant qui s’exécute sur votre bureau. Il est fourni avec une prise en charge intégrée pour Python et bien plus encore.  [Apprenez à installer VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 

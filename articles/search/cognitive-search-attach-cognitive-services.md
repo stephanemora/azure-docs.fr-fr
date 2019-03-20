@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880413"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Attacher une ressource Cognitive Services à un ensemble de qualifications dans Recherche Azure 
 
@@ -60,21 +60,7 @@ Seules les compétences qui appellent les API Cognitive Services vous sont factu
 
 1. Pour **Créer une ressource Cognitive Services**, un nouvel onglet s’ouvre pour vous permettre de créer la ressource. Donnez un nom unique à la ressource.
 
-1. Choisissez le même emplacement que Recherche Azure. Actuellement, l’indexation des qualifications cognitives est prise en charge dans les régions suivantes :
-
-  * USA Centre-Ouest
-  * USA Centre Sud
-  * USA Est
-  * USA Est 2
-  * USA Ouest 2
-  * Centre du Canada
-  * Europe Ouest
-  * Sud du Royaume-Uni
-  * Europe Nord
-  * Brésil Sud
-  * Asie Sud-Est
-  * Inde Centre
-  * Australie Est
+1. Si vous créez une nouvelle ressource Cognitive Services, **choisir la même région** que votre ressource Azure Search.
 
 1. Choisissez le niveau tarifaire tout-en-un, **S0**. Ce niveau inclut les fonctionnalités Vision et Langue qui sous-tendent les qualifications prédéfinies dans la recherche cognitive.
 

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: db13064c93381f87f82959ed3386abfc0a8e4593
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238660"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434757"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tables temporaires dans SQL Data Warehouse
 Cet article contient des conseils de base pour l’utilisation des tables temporaires et met en évidence les principes des tables temporaires au niveau de la session. L’utilisation des informations de cet article peut vous aider à modulariser votre code, et à améliorer sa réutilisabilité et sa facilité de maintenance.
@@ -193,7 +193,7 @@ FROM    t1
 GO
 ```
 
-À ce stade, la seule action qui s’est produite est la création d’une procédure stockée qui génére une table temporaire, #stats_ddl, avec des instructions DDL.  Cette procédure stockée abandonne la table #stats_ddl si elle existe déjà pour assurer l’absence d’échec en cas d’exécutions multiples dans une session.  Toutefois, étant donné l’absence de `DROP TABLE` à la fin de la procédure stockée, lorsque la procédure stockée se termine, elle quitte la table créée afin de pouvoir être lue en dehors de la procédure stockée.  Dans SQL Data Warehouse, contrairement à d’autres bases de données SQL, il est possible d’utiliser la table temporaire en dehors de la procédure qui l’a créée.  Les tables temporaires SQL Data Warehouse peuvent être utilisées à **n’importe quel point** de la session. Cela peut optimiser la facilité de gestion et la modularité du code comme dans l’exemple suivant :
+À ce stade, la seule action qui s’est produite est la création d’une procédure stockée qui génère une table temporaire, #stats_ddl, avec des instructions DDL.  Cette procédure stockée abandonne la table #stats_ddl si elle existe déjà pour assurer l’absence d’échec en cas d’exécutions multiples dans une session.  Toutefois, étant donné l’absence de `DROP TABLE` à la fin de la procédure stockée, lorsque la procédure stockée se termine, elle quitte la table créée afin de pouvoir être lue en dehors de la procédure stockée.  Dans SQL Data Warehouse, contrairement à d’autres bases de données SQL, il est possible d’utiliser la table temporaire en dehors de la procédure qui l’a créée.  Les tables temporaires SQL Data Warehouse peuvent être utilisées à **n’importe quel point** de la session. Cela peut optimiser la facilité de gestion et la modularité du code comme dans l’exemple suivant :
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

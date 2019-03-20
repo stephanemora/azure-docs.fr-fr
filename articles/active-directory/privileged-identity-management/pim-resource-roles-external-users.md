@@ -1,6 +1,6 @@
 ---
-title: Inviter des utilisateurs externes et attribuer des rôles de ressources Azure dans PIM | Microsoft Docs
-description: Découvrez comment inviter des utilisateurs externes et attribuer des rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
+title: Inviter des invités externes et affecter des rôles d’administrateur Azure AD - Privileged Identity Management | Microsoft Docs
+description: Découvrez comment inviter des utilisateurs et affecter des rôles d’administrateur Azure Active Directory dans Azure AD Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90d0d3d3f484044a0ffbab7a3c24a76c40aa74c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 68e76a4513d94cceb8e856c94ad6eae2bdab9c46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853254"
 ---
-# <a name="invite-external-users-and-assign-azure-resource-roles-in-pim"></a>Inviter des utilisateurs externes et attribuer des rôles de ressources Azure dans PIM
+# <a name="invite-guest-users-and-assign-azure-resource-access-in-pim"></a>Inviter des utilisateurs et affecter l’accès aux ressources Azure dans PIM
 
-Azure Activity Directory (Azure AD) B2B regroupe, au sein d’Azure AD, plusieurs fonctionnalités qui permettent aux organisations de collaborer avec des utilisateurs et des fournisseurs externes avec n’importe quel compte. Quand vous combinez B2B et Azure AD Privileged Identity Management (PIM), vous pouvez continuer à appliquer vos critères de conformité et de gouvernance aux utilisateurs externes. Par exemple, vous pouvez utiliser ces fonctionnalités PIM pour les ressources Azure avec des utilisateurs externes :
+Azure Active Directory (Azure AD) business-to-business (B2B) est un ensemble de fonctionnalités au sein d’Azure AD qui permet aux organisations de collaborer avec des utilisateurs invités externes (invités) et les fournisseurs à l’aide de n’importe quel compte. Lorsque vous combinez B2B avec Azure AD Privileged Identity Management (PIM), vous pouvez continuer à appliquer vos exigences de conformité et de gouvernance aux invités. Par exemple, vous pouvez utiliser ces fonctionnalités PIM pour les tâches de gestion des identités Azure avec invités :
 
 - Attribuer l’accès à des ressources Azure spécifiques
 - Activer l’accès juste-à-temps
@@ -33,25 +33,25 @@ Azure Activity Directory (Azure AD) B2B regroupe, au sein d’Azure AD, plusie
 - Effectuer des révisions d’accès
 - Utiliser des alertes et des journaux d’audit
 
-Cet article décrit comment inviter un utilisateur externe à votre annuaire et gérer son accès aux ressources Azure à l’aide de PIM.
+Cet article décrit comment convier un invité à votre organisation et de gérer leur accès aux ressources Azure à l’aide de Privileged Identity Management.
 
-## <a name="when-would-you-invite-external-users"></a>Quand pouvez-vous être amené à inviter des utilisateurs externes ?
+## <a name="when-would-you-invite-guests"></a>Lorsque vous invitez invités ?
 
-Voici quelques exemples de scénarios dans lesquels vous pouvez inviter des utilisateurs externes à votre annuaire :
+Voici quelques exemples de scénarios vous pouvez inviter des invités à votre organisation :
 
 - Autoriser un fournisseur externe indépendant qui dispose uniquement d’un compte e-mail à accéder à vos ressources Azure dans le cadre d’un projet.
 - Autoriser un partenaire externe d’une grande organisation qui utilise les services de fédération Active Directory (AD FS) locaux à accéder à votre application de notes de frais.
 - Autoriser les ingénieurs du support technique ne faisant pas partie de votre organisation, par exemple les ingénieurs du support technique Microsoft, à accéder temporairement à vos ressources Azure pour résoudre des problèmes.
 
-## <a name="how-does-external-collaboration-using-b2b-work"></a>Comment fonctionne la collaboration externe à l’aide de B2B ?
+## <a name="how-does-collaboration-using-b2b-guests-work"></a>Fonctionnement de collaboration à l’aide de B2B invités travail ?
 
-Quand vous utilisez B2B, vous pouvez inviter un utilisateur externe à votre annuaire. L’utilisateur externe semble figurer dans votre annuaire, mais il n’est associé à aucune information d’identification. Chaque fois qu’un utilisateur externe doit être authentifié, il est authentifié auprès de son annuaire de base et non auprès de votre annuaire. Cela signifie que l’utilisateur externe perd automatiquement l’accès à votre annuaire s’il n’a plus accès à son annuaire de base. Par exemple, si l’utilisateur externe quitte son organisation, il perd automatiquement l’accès à toutes les ressources que vous avez partagées avec lui dans votre annuaire sans aucune action de votre part. Pour plus d’informations sur B2B, consultez [Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?](../b2b/what-is-b2b.md).
+Lorsque vous utilisez B2B collaboration, vous pouvez inviter un utilisateur externe à votre organisation en tant qu’invité. L’invité apparaît dans votre organisation, mais l’invité n’a pas d’informations d’identification associées. Chaque fois qu’un invité doit être authentifié, ils doivent s’authentifier dans leur organisation d’origine et non dans votre organisation. Cela signifie que si l’invité n’a plus accès à leur organisation d’origine, ils perdent également l’accès à votre organisation. Par exemple, si l’invité quitte son organisation, ils perdent automatiquement accès à toutes les ressources partagées avec eux dans Azure AD sans avoir rien à faire. Pour plus d’informations sur B2B, consultez [Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?](../b2b/what-is-b2b.md).
 
-![B2B et utilisateur externe](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![B2B et invité](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
-## <a name="check-external-collaboration-settings"></a>Vérifier les paramètres de collaboration externe
+## <a name="check-guest-collaboration-settings"></a>Vérifiez les paramètres de collaboration d’invité
 
-Pour pouvoir inviter des utilisateurs externes dans votre annuaire, vous devez passer en revue vos paramètres de collaboration externe.
+Pour vous assurer que vous pouvez inviter des invités dans votre organisation, vous devez vérifier vos paramètres de collaboration invité.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -63,11 +63,11 @@ Pour pouvoir inviter des utilisateurs externes dans votre annuaire, vous devez p
 
 1. Vérifiez que le commutateur **Les administrateurs et utilisateurs ayant le rôle d’inviteur invité peuvent inviter** a la valeur **Oui**.
 
-## <a name="invite-an-external-user-and-assign-a-role"></a>Inviter un utilisateur externe et attribuer un rôle
+## <a name="invite-a-guest-and-assign-a-role"></a>Convier un invité et attribuer un rôle
 
-PIM vous permet d’inviter un utilisateur externe pour qu’il ait droit, au même titre qu’un utilisateur membre, à un rôle de ressource Azure.
+À l’aide de PIM, vous pouvez convier un invité et les rendre éligibles pour un rôle de ressource Azure comme un utilisateur membre.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un utilisateur qui est membre du rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) ou [Administrateur des comptes d’utilisateur](../users-groups-roles/directory-assign-admin-roles.md#user-account-administrator).
+1. Se connecter à [Azure portal](https://portal.azure.com/) avec un utilisateur qui est membre de la [administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) ou [utilisateur administrateur](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) rôle.
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
@@ -77,7 +77,7 @@ PIM vous permet d’inviter un utilisateur externe pour qu’il ait droit, au m�
 
 1. Cliquez sur la ressource que vous souhaitez gérer, comme une ressource, un groupe de ressources, un abonnement ou un groupe d’administration.
 
-    Définissez l’étendue pour qu’elle corresponde uniquement à ce dont l’utilisateur externe a besoin.
+    Vous devez définir l’étendue sur uniquement quel l’invité a besoin.
 
 1. Sous Gérer, cliquez sur **Rôles** pour afficher la liste des rôles pour les ressources Azure.
 
@@ -93,31 +93,31 @@ PIM vous permet d’inviter un utilisateur externe pour qu’il ait droit, au m�
 
     ![Sélectionner un membre ou un groupe](./media/pim-resource-roles-external-users/select-member-group.png)
 
-1. Pour inviter un utilisateur externe, cliquez sur **Inviter**.
+1. Pour inviter un invité, cliquez sur **inviter**.
 
     ![Convier un invité](./media/pim-resource-roles-external-users/invite-guest.png)
 
-1. Après avoir spécifié un utilisateur externe, cliquez sur **Inviter**.
+1. Une fois que vous avez sélectionné un invité, cliquez sur **inviter**.
 
-    L’utilisateur externe doit être ajouté comme membre sélectionné.
+    L’invité doit être ajouté comme membre sélectionné.
 
-1. Dans le volet Sélectionner un membre ou un groupe, cliquez sur **Sélectionner**.
+1. Dans le **sélectionner un membre ou un groupe** volet, cliquez sur **sélectionnez**.
 
-1. Dans le volet Paramètres d’appartenance, sélectionnez le type et la durée de l’attribution.
+1. Dans le **paramètres d’appartenance** volet, sélectionnez le type d’affectation et la durée.
 
     ![Paramètres d’appartenance](./media/pim-resource-roles-external-users/membership-settings.png)
 
 1. Pour terminer l’attribution, cliquez sur **Terminé**, puis sur **Ajouter**.
 
-    L’attribution de rôle d’utilisateur externe s’affiche dans votre liste de rôles.
+    L’attribution de rôle d’invité s’affiche dans votre liste des rôles.
 
-    ![Attribution de rôle pour un utilisateur externe](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Attribution de rôle pour l’invité](./media/pim-resource-roles-external-users/role-assignment.png)
 
-## <a name="activate-role-as-an-external-user"></a>Activer le rôle en tant qu’utilisateur externe
+## <a name="activate-role-as-a-guest"></a>Activer le rôle en tant qu’invité
 
-En tant qu’utilisateur externe, vous devez d’abord accepter l’invitation à l’annuaire Azure AD, puis éventuellement activer votre rôle.
+En tant qu’un utilisateur externe, vous devez d’abord accepter l’invitation pour votre organisation Azure AD et éventuellement activer votre rôle.
 
-1. Ouvrez l’e-mail contenant l’invitation à l’annuaire. L’e-mail ressemble au suivant.
+1. Ouvrez l’e-mail d’invitation. L’e-mail ressemble au suivant.
 
     ![Invitation par e-mail](./media/pim-resource-roles-external-users/email-invite.png)
 
@@ -137,7 +137,7 @@ En tant qu’utilisateur externe, vous devez d’abord accepter l’invitation �
 
 1. Cliquez sur **Activer le rôle** pour ouvrir vos rôles éligibles dans PIM.
 
-    ![Mes rôles - Éligible](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![Mes rôles - éligibles](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
 1. Sous Action, cliquez sur le lien **Activer**.
 
@@ -149,9 +149,9 @@ En tant qu’utilisateur externe, vous devez d’abord accepter l’invitation �
 
     À moins que l’administrateur ne soit tenu d’approuver votre demande, vous devez à présent avoir accès aux ressources spécifiées.
 
-## <a name="view-activity-for-an-external-user"></a>Afficher l’activité pour un utilisateur externe
+## <a name="view-activity-for-a-guest"></a>Afficher l’activité d’un invité
 
-Au même titre que vous pouvez suivre l’activité des utilisateurs membres, vous pouvez afficher des journaux d’audit pour faire le suivi de l’activité des utilisateurs externes.
+Tout comme un utilisateur membre, vous pouvez afficher les journaux d’audit pour effectuer le suivi de ce que font les invités.
 
 1. En tant qu’administrateur, ouvrez PIM et sélectionnez la ressource qui a été partagée.
 
@@ -159,13 +159,13 @@ Au même titre que vous pouvez suivre l’activité des utilisateurs membres, vo
 
     ![Audit d’une ressource](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Pour afficher l’activité pour l’utilisateur externe, cliquez sur **Azure Active Directory** > **Utilisateurs** > utilisateur externe.
+1. Pour afficher l’activité de l’invité, cliquez sur **Azure Active Directory** > **utilisateurs** > nom de l’invité.
 
-1. Cliquez sur **Journaux d’audit** pour afficher les journaux d’audit pour l’annuaire. Si nécessaire, vous pouvez spécifier des filtres.
+1. Cliquez sur **journaux d’Audit** pour afficher les journaux d’audit pour l’organisation. Si nécessaire, vous pouvez spécifier des filtres.
 
-    ![Audit de répertoire](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![audit de l’organisation](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Attribuer des rôles d’annuaire Azure AD dans PIM](pim-how-to-add-role-to-user.md)
+- [Affecter des rôles d’administrateur Azure AD dans PIM](pim-how-to-add-role-to-user.md)
 - [Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?](../b2b/what-is-b2b.md)

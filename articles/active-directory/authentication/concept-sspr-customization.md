@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25af451ac06a7d744e171754db6f4e54cb2156c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 78e15de18e57e949b2e7b7146269204469e61797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106948"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -68,8 +68,8 @@ Les graphiques que vous choisissez s’affichent dans les circonstances suivante
 
 * Quand un utilisateur entre son nom d’utilisateur
 * Si l’utilisateur accède à l’URL personnalisée :
-    * En passant le paramètre `whr` à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?whr=contoso.com »
-    * En passant le paramètre `username` à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?username=admin@contoso.com »
+    * En passant le `whr` paramètre au mot de passe page de réinitialisation, comme `https://login.microsoftonline.com/?whr=contoso.com`
+    * En passant le `username` paramètre au mot de passe page de réinitialisation, comme `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Retrouvez plus d’informations sur la configuration de la marque de société dans l’article [Ajouter une marque de société à votre page de connexion dans Azure AD](../fundamentals/customize-branding.md).
 

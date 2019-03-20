@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168034"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442169"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Activation Activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
 
@@ -35,7 +35,7 @@ La plateforme d’identité de Microsoft, avec les kits de développement logici
 
 Dans cette procédure, vous allez découvrir comment configurer le Kit de développement logiciel (SDK) dans votre application afin de fournir l’authentification unique à vos clients.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cette procédure suppose que vous savez comment :
 
@@ -119,7 +119,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Étape 2 : Établissez un nouvel URI de redirection avec votre schéma d’URL
 
-Pour garantir que l’application appropriée reçoit les jetons d’identification retournés, il est nécessaire de respecter la procédure de rappel de votre application pouvant être vérifiée par votre système d’exploitation Android. Le système d’exploitation Android utilise le hachage du certificat dans Google Play Store. Ce hachage du certificat ne peut pas être falsifié par une application non fiable. Avec l’URI de l’application de répartiteur, Microsoft vérifie que les jetons sont retournés à l’application appropriée. Une URI de redirection unique est nécessaire pour être inscrit sur l’application.
+Afin de garantir que la bonne application reçoit retourné les informations d’identification des jetons, il est nécessaire de s’assurer que l’appel à votre application d’une manière pouvant être vérifiée par le système d’exploitation Android. Le système d’exploitation Android utilise le hachage du certificat dans Google Play Store. Ce hachage du certificat ne peut pas être falsifié par une application non fiable. Avec l’URI de l’application de répartiteur, Microsoft vérifie que les jetons sont retournés à l’application appropriée. Une URI de redirection unique est nécessaire pour être inscrit sur l’application.
 
 Votre URI de redirection doit présenter la forme appropriée suivante :
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
 manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: 6feb521aa47ca813b3067451c8c77111deb60e73
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874003"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537896"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Utiliser un entraînement actif pour améliorer la base de connaissances
 
@@ -32,13 +32,15 @@ QnA Maker apprend de nouvelles variantes de question à l’aide des commentaire
 
 Les deux méthodes fournissent à l’outil de classement des requêtes similaires qui sont ordonnées en cluster.
 
-Lorsque des requêtes similaires sont ordonnées en cluster, QnA Maker suggère les questions de l’utilisateur au concepteur de la base de connaissances pour qu’il les accepte ou les rejette.
-
 ## <a name="how-active-learning-works"></a>Fonctionnement de l’apprentissage actif
 
 L’apprentissage actif est déclenché en fonction des scores des principales réponses retournées par QnA Maker pour une requête donnée. Si les différences de scores s’inscrivent dans une petite plage, la requête est considérée comme une _suggestion_ possible pour chacune des réponses possibles. 
 
 Toutes les suggestions sont regroupées par similarité, et les principales suggestions pour les questions alternatives sont affichées en fonction de la fréquence des requêtes particulières des utilisateurs finals. L’apprentissage actif offre les meilleures suggestions possible dans les cas où les points de terminaison reçoivent une quantité raisonnable de différentes requêtes d’utilisation.
+
+Lorsque les requêtes de 5 ou plus similaires sont mis en cluster, toutes les 30 minutes, QnA Maker suggère les questions sur l’utilisateur vers le Concepteur de base de connaissances pour accepter ou rejeter.
+
+Une fois que les questions sont suggérées dans le portail QnA Maker, vous devez consulter et accepter ou rejeter ces suggestions. 
 
 ## <a name="upgrade-version-to-use-active-learning"></a>Mise à niveau d’une version pour utiliser l’apprentissage actif
 
@@ -58,6 +60,8 @@ L’algorithme permettant de déterminer la proximité n’est pas un calcul sim
 
 L’apprentissage actif est désactivé par défaut. Activez-le pour afficher les suggestions de questions. 
 
+1. Sélectionnez **publier** pour publier la base de connaissances. Requêtes d’apprentissage actif sont collectés à partir de l’API de GenerateAnswer prédiction point de terminaison uniquement. Les requêtes vers le volet de Test dans le portail Qna Maker n’affectent pas l’apprentissage actif.
+
 1. Pour activer l’apprentissage actif, cliquez sur votre **Nom**, puis accédez à [**Paramètres du service**](https://www.qnamaker.ai/UserSettings) dans le portail QnA Maker, dans l’angle supérieur droit.  
 
     ![Activation de l’apprentissage actif dans la page des paramètres du service](../media/improve-knowledge-base/Endpoint-Keys.png)
@@ -75,7 +79,7 @@ L’apprentissage actif est désactivé par défaut. Activez-le pour afficher le
 
     [![Activation/Désactivation du bouton Afficher les Suggestions de la page des paramètres du service](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtrez la base de connaissances contenant des paires de question/réponse pour afficher uniquement les suggestions en sélectionnant **Filter by Suggestions** (Filtrer par suggestions).
+1. Filtrer la base de connaissances avec des paires questions et réponses pour afficher uniquement des suggestions en sélectionnant **Filter by Suggestions**.
 
     [![Dans la page des paramètres du service, filtrage par suggestions pour afficher uniquement ces paires de question/réponse](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -87,6 +91,9 @@ L’apprentissage actif est désactivé par défaut. Activez-le pour afficher le
 
 1. Sélectionnez **Save and Train** (Enregistrer et effectuer l’apprentissage) pour enregistrer les modifications apportées à la base de connaissances.
 
+1. Sélectionnez **publier** pour autoriser les modifications soient disponibles à partir de l’API GenerateAnswer.
+
+    Lorsque les requêtes de 5 ou plus similaires sont mis en cluster, toutes les 30 minutes, QnA Maker suggère les questions sur l’utilisateur vers le Concepteur de base de connaissances pour accepter ou rejeter.
 
 ## <a name="determine-best-choice-when-several-questions-have-similar-scores"></a>Identification du meilleur choix lorsque plusieurs questions ont des scores similaires
 
@@ -147,7 +154,7 @@ Lorsque l’application cliente (par exemple, un bot conversationnel) reçoit la
 
 L’application cliente affiche toutes les questions avec une option permettant à l’utilisateur de sélectionner la question qui représente le mieux son intention. 
 
-Une fois que l’utilisateur a sélectionné l’une des questions existantes, ses commentaires sont envoyés à l’API [Train](http://www.aka.ms/activelearningsamplebot) de QnA Maker pour poursuivre la boucle des commentaires d’apprentissage actif. 
+Une fois que l’utilisateur a sélectionné l’une des questions existantes, ses commentaires sont envoyés à l’API [Train](https://www.aka.ms/activelearningsamplebot) de QnA Maker pour poursuivre la boucle des commentaires d’apprentissage actif. 
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -157,6 +164,31 @@ Content-Type: application/json
 ```
 
 En savoir plus sur l’utilisation de l’apprentissage actif avec un [exemple de bot Azure en C#](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
+## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Apprentissage actif est enregistré dans le fichier de l’application exporté tsv
+
+Lorsque votre application dispose d’apprentissage actif est activé et que vous exportez l’application, le `SuggestedQuestions` colonne dans le fichier tsv conserve les données d’apprentissage actif. 
+
+Le `SuggestedQuestions` colonne est un objet JSON d’informations d’implicite (`autosuggested`) et explicites (`usersuggested`) [commentaires](#active-learning). Un exemple de cet objet JSON pour une seule question soumises par l’utilisateur de `help` est :
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Lorsque vous réimportez cette application, l’apprentissage actif continue à collecter des informations et recommandons des suggestions pour votre base de connaissances. 
 
 ## <a name="next-steps"></a>Étapes suivantes
  

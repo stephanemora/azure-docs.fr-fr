@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888139"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868542"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./diagnostic-logs-schema.md) est fourni à la fin de cet article.
@@ -119,10 +119,13 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | correlationId |Généralement un GUID au format chaîne. Les événements qui partagent un correlationId appartiennent à la même action uber. |
 | description |Description textuelle statique d’un événement. |
 | eventDataId |Identificateur unique d’un événement. |
+| eventName | Nom convivial de l’événement d’administration. |
+| category | Toujours « administration » |
 | httpRequest |Objet blob décrivant la requête Http. Inclut généralement clientRequestId, clientIpAddress et la méthode (méthode HTTP. Par exemple, PUT). |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée. |
 | resourceProviderName |Nom du fournisseur de ressources de la ressource affectée. |
+| resourceType | Le type de ressource qui a été affectée par un événement d’administration. |
 | ResourceId |ID de ressource de la ressource affectée. |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
@@ -779,12 +782,12 @@ Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers 
 | resultType | status.value | |
 | resultSignature | substatus.value | |
 | resultDescription | description |  |
-| durationMS | N/A | Toujours 0 |
+| durationMS | S.O. | Toujours 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | identité | propriétés de revendication et d’autorisation |  |
 | Niveau | Niveau |  |
-| location | N/A | Emplacement de traitement de l’événement. *Il ne s’agit pas de l’emplacement de la ressource, mais de l’endroit où l’événement a été traité. Cette propriété sera supprimée dans une prochaine mise à jour.* |
+| location | S.O. | Emplacement de traitement de l’événement. *Il ne s’agit pas de l’emplacement de la ressource, mais de l’endroit où l’événement a été traité. Cette propriété sera supprimée dans une prochaine mise à jour.* |
 | properties | properties.eventProperties |  |
 | properties.eventCategory | category | Si properties.eventCategory n’est pas présent, la catégorie est « Administrative » |
 | properties.eventName | eventName |  |

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d86b8dc271eead1196d946895ec7676935135cef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d562554259142b6dc5622bf15420785d5e1f052f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090115"
 ---
 # <a name="linkedin-integration"></a>Intégration de LinkedIn
 
@@ -31,7 +31,7 @@ Cet article montre comment vous pouvez activer ou désactiver l’intégration d
 > * Le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud for US Government, Microsoft Cloud Germany ou Azure et Office 365 gérés par 21Vianet en Chine.
 > * Le paramètre est désactivé par défaut pour les locataires approvisionnés en Allemagne. Notez que le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud Germany.
 > * Le paramètre est désactivé par défaut pour les locataires approvisionnés en France.
-
+> 
 > L’intégration ne fonctionne que si vous avez activé *et* si vous autorisez les utilisateurs à donner leur consentement pour que les applications accèdent aux données d’entreprise en leur nom. Pour plus d’informations sur le paramètre de consentement, voir [Comment supprimer l’accès d’un utilisateur à une application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
 ## <a name="enable-or-disable-linkedin-integration-for-your-users-in-the-azure-portal"></a>Activer ou désactiver l’intégration de LinkedIn pour vos utilisateurs dans le portail Azure
@@ -42,9 +42,9 @@ Vous pouvez activer ou désactiver l’intégration de LinkedIn pour votre locat
 2. Sélectionnez **Utilisateurs**.
 3. Dans le panneau **Utilisateurs**, sélectionnez **Paramètres utilisateur**.
 4. Sous **Intégration LinkedIn** :
-  * Sélectionnez **Oui** pour activer l’intégration de LinkedIn pour tous les utilisateurs dans votre locataire
-  * Sélectionnez **Sélectionnés** pour activer l’intégration de LinkedIn uniquement pour les utilisateurs sélectionnés dans le locataire
-  * Sélectionnez **Non** si vous voulez désactiver l’intégration de LinkedIn pour tous les utilisateurs ![Activer l’intégration de LinkedIn](./media/linkedin-integration/linkedin-integration.png)
+   * Sélectionnez **Oui** pour activer l’intégration LinkedIn pour tous les utilisateurs dans votre client
+   * Sélectionnez **Sélectionnés** pour activer l’intégration de LinkedIn uniquement pour les utilisateurs sélectionnés dans le locataire
+   * Sélectionnez **non** pour désactiver l’intégration LinkedIn pour tous les utilisateurs ![l’intégration LinkedIn de l’activation](./media/linkedin-integration/linkedin-integration.png)
 5. Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 ## <a name="enable-or-disable-linkedin-integration-for-your-users-in-group-policy"></a>Activer ou désactiver l’intégration de LinkedIn pour vos utilisateurs dans une stratégie de groupe
@@ -55,10 +55,10 @@ Vous pouvez activer ou désactiver l’intégration de LinkedIn pour votre locat
 4. Créez un objet de stratégie de groupe avec le paramètre suivant : **Configuration utilisateur** > **Modèles d’administration** > **Microsoft Office 2016** > **Divers** > **Afficher les fonctionnalités LinkedIn dans les applications Office**.
 5. Sélectionnez **Activé** ou **Désactivé**.
   
- État | Résultat
------- | ------
-**Activé** | Le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** dans les options d’Office 2016 est activé. Les utilisateurs de votre organisation peuvent utiliser les fonctionnalités LinkedIn dans leurs applications Office.
- **Désactivé** | Le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** dans les options d’Office 2016 est désactivé et les utilisateurs finaux ne peuvent pas le modifier. Les utilisateurs de votre organisation ne peuvent pas utiliser les fonctionnalités LinkedIn dans leurs applications Office 2016.
+   État | Résultat
+   ------ | ------
+   **Activé** | Le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** dans les options d’Office 2016 est activé. Les utilisateurs de votre organisation peuvent utiliser les fonctionnalités LinkedIn dans leurs applications Office.
+   **Désactivé** | Le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** dans les options d’Office 2016 est désactivé et les utilisateurs finaux ne peuvent pas le modifier. Les utilisateurs de votre organisation ne peuvent pas utiliser les fonctionnalités LinkedIn dans leurs applications Office 2016.
 
 Cette stratégie de groupe affecte uniquement les applications Office 2016 installées sur un ordinateur local. Les utilisateurs peuvent voir les fonctionnalités LinkedIn dans les cartes de profil Office 365 même s’ils désactivent LinkedIn dans leurs applications Office 2016.
 

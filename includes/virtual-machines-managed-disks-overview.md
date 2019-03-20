@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10afad7f782d1a98dfde5f7d708477375af54597
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190663"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -53,7 +53,7 @@ Ce disque a une capacité maximale de 2 048 Gio.
 
 ### <a name="temporary-disk"></a>Disque temporaire
 
-Chaque machine virtuelle contient un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quand vous redéployez une machine virtuelle. Lors d’un redémarrage standard de la machine virtuelle, les données présentes sur le disque temporaire doivent normalement être conservées. Toutefois, il existe des cas où les données ne sont pas conservées, tels que le déplacement vers un nouvel hôte. Les données sur le lecteur temporaire ne doivent donc pas être des données critiques pour le système.
+Chaque machine virtuelle contient un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Données sur le disque temporaire peuvent être perdues pendant un [événement de maintenance](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) événement ou lorsque vous [redéployer une machine virtuelle](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Lors d’un redémarrage standard réussi de la machine virtuelle, les données présentes sur le disque temporaire sont conservées. 
 
 ## <a name="managed-disk-snapshots"></a>Captures instantanées de disque managé
 

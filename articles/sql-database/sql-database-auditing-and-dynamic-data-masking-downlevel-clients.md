@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567082"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866825"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit de table
 
@@ -28,6 +28,7 @@ ms.locfileid: "55567082"
 L’[audit de base de données](sql-database-auditing.md) fonctionne automatiquement avec les clients SQL qui prennent en charge la redirection TDS. Notez que la redirection ne s’applique pas lorsque vous utilisez la méthode de l’audit d’objets Blob.
 
 ## <a id="subheading-1"></a>Prise en charge des clients de niveau inférieur
+
 Tout client qui implémente TDS 7.4 doit également prendre en charge la redirection. Cependant, cette règle comporte deux exceptions : JDBC 4.0, qui ne prend pas complètement en charge la fonctionnalité de redirection et Tedious pour Node.JS, où la redirection n’a pas été implémentée.
 
 Pour les « clients de niveau inférieur », c’est-à-dire ceux qui prennent en charge la version 7.3 de TDS et les versions antérieures, le nom de domaine complet du serveur dans la chaîne de connexion doit être modifié :
@@ -46,6 +47,7 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 **Remarque :** la modification des noms de domaines complets de serveur précédents peut aussi être utile pour appliquer une stratégie d’audit au niveau de SQL Server sans avoir à configurer chaque base de données (atténuation temporaire).
 
 ## <a id="subheading-2"></a>Modification des points de terminaison IP lors de l’activation de l’audit
+
 Notez que l’activation de l’audit de table a pour effet de modifier le point de terminaison IP de votre base de données. Si vous avez défini des paramètres de pare-feu stricts, mettez-les à jour en conséquence.
 
 Le nouveau point de terminaison IP de la base de données dépend de la région de votre base de données :
@@ -78,5 +80,4 @@ Le nouveau point de terminaison IP de la base de données dépend de la région 
 | USA Centre-Ouest |52.161.29.186, 52.161.27.213 |
 | Centre du Canada |13.88.248.106, 13.88.248.110 |
 | Est du Canada |40.86.227.82, 40.86.225.194 |
-| Royaume-Uni Nord |13.87.101.18, 13.87.100.232 |
-| Royaume-Uni Sud 2 |13.87.32.202, 13.87.32.226 |
+| Sud du Royaume-Uni |13.87.32.202, 13.87.32.226 |

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 64c38d6e7400d49903323159f23b395a8c2c334f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: adacce5c8307f3be972920bd3aef6d8ea912eb30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991997"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur NewTek TriCaster pour envoyer un flux en direct à débit binaire unique  
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil A
 >
 >
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
 * Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)

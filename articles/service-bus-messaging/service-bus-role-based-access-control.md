@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: a4d1c143b7d3277715386b43511ac908a36f85f0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844999"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Contrôle d’accès en fonction du rôle Azure Active Directory (version préliminaire)
 
@@ -57,7 +57,7 @@ Le compte d’utilisateur a désormais accès à l’espace de noms Service Bus 
 
 Avant de pouvoir exécuter l’exemple d’application, enregistrez-la dans Azure AD et approuvez l’invite de consentement qui permet à l’application d’accéder à Azure Service Bus en son nom.
 
-Étant donné que l’exemple d’application est une application console, vous devez enregistrer une application native et ajouter des autorisations d’API pour **Microsoft.ServiceBus** à l’ensemble « autorisations requises ». Les applications natives requièrent également un **URI de redirection** dans Azure AD qui sert d’identificateur ; il n’est pas nécessaire que l’URI soit une destination réseau. Utilisez `http://servicebus.microsoft.com` pour cet exemple, étant donné que l’exemple de code utilise déjà cet URI.
+Étant donné que l’exemple d’application est une application console, vous devez enregistrer une application native et ajouter des autorisations d’API pour **Microsoft.ServiceBus** à l’ensemble « autorisations requises ». Les applications natives requièrent également un **URI de redirection** dans Azure AD qui sert d’identificateur ; il n’est pas nécessaire que l’URI soit une destination réseau. Utilisez `https://servicebus.microsoft.com` pour cet exemple, étant donné que l’exemple de code utilise déjà cet URI.
 
 Les étapes d’enregistrement détaillées sont expliquées dans [ce didacticiel](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Suivez les étapes pour enregistrer une application **native**, puis les instructions de mise à jour pour ajouter l’API **Microsoft.ServiceBus** aux autorisations requises. Au fil de ces étapes, notez les **TenantId** et **ApplicationId**, dont vous aurez besoin pour exécuter l’application.
 

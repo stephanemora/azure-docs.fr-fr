@@ -6,22 +6,22 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429262"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443043"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
 Cet article vous aide à utiliser la solution Change Tracking pour identifier facilement les modifications apportées dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux fichiers Windows et Linux, aux clés de Registre Windows, aux services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
 
-Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et Registre Windows et aux démons Linux sur les serveurs surveillés sont envoyées au service cloud Log Analytics pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
+Modifications apportées aux logiciels installés, les services Windows, du Registre Windows et les fichiers aux démons Linux sur les serveurs analysés sont envoyées au service Azure Monitor dans le cloud pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
 ## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
 
@@ -155,6 +155,7 @@ Autres limitations :
 La solution Change Tracking connaît les problèmes suivants :
 
 * Les mises à jour de correctif logiciel ne sont pas collectées sur les machines Windows 2016 Core RS3.
+* Démons Linux peut indiquer un état modifié même si aucune modification n’est survenu. Cela est dû à la façon dont le `SvcRunLevels` champ est capturé.
 
 ## <a name="change-tracking-data-collection-details"></a>Détails de la collecte de données de suivi des modifications
 
@@ -261,7 +262,7 @@ Cliquer sur une modification ou un événement permet de faire apparaître des i
 
 ## <a name="search-logs"></a>Rechercher dans les journaux
 
-En plus des détails fournis dans le portail, des recherches peuvent être effectuées dans les journaux. Avec la page **Change Tracking** ouverte, cliquez sur **Log Analytics** pour ouvrir la page **Recherche dans les journaux**.
+En plus des détails fournis dans le portail, des recherches peuvent être effectuées dans les journaux. Avec le **Change Tracking** page, cliquez sur **Analytique de journal**, cette opération ouvre le **journaux** page.
 
 ### <a name="sample-queries"></a>Exemples de requêtes
 
@@ -314,5 +315,5 @@ Consultez le didacticiel sur Change Tracking pour en savoir plus sur l’utilisa
 > [!div class="nextstepaction"]
 > [Dépanner les modifications apportées à votre environnement](automation-tutorial-troubleshoot-changes.md)
 
-* Utilisez les [recherches de journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
+* Utilisez [recherches de journal dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour afficher les données de suivi détaillé.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: c47da5b90c16e2d5b5709e2a6affc026238b9468
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: e09ff4bcbc141b1a1f80bc278918a291639c1885
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704519"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005410"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installation d’Update 0.5 sur StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Cet article décrit les étapes nécessaires pour installer Update 0.5 sur votre instance StorSimple Virtual Array à l’aide de l’interface utilisateur web locale et du portail Azure. Pour maintenir votre instance StorSimple Virtual Array à jour, vous devez appliquer des mises à jour ou des correctifs logiciels.
 
@@ -57,7 +57,7 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Pour téléchargement la mise à jour ou le correctif
 
-1. Lancez Internet Explorer et accédez à [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Lancez Internet Explorer et accédez à [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Si vous utilisez le catalogue Microsoft Update pour la première fois sur cet ordinateur, cliquez sur **Installer** lorsque vous êtes invité à installer le module complémentaire Catalogue Microsoft Update.
 

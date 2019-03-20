@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094801"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurer la méthode de routage à valeurs multiples dans Traffic Manager
 
@@ -42,14 +42,14 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en l’envoyan
     
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | NOM                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
+    | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Valeurs multiples**.                                       |
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Groupe de ressources          | Sélectionnez *myResourceGroupTM1*. |
     | Lieu                | Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui sera déployé globalement.                              |
    |        |           | 
   
-  ![Créer un profil Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![Créer un profil Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Ajouter des points de terminaison Traffic Manager
 
@@ -61,13 +61,13 @@ Ajoutez deux adresses IP comme point de terminaison externes au profil Traffic M
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | type                    | Point de terminaison externe                                   |
-    | NOM           | myEndpoint1                                        |
+    | Type                    | Point de terminaison externe                                   |
+    | Nom           | myEndpoint1                                        |
     | Nom de domaine complet (FQDN) ou IP           | Saisir l’adresse IP publique du point de terminaison que vous voulez ajouter à ce profil Traffic Manager                         |
     |        |           |
 
 4. Répétez les étapes 2 et 3 pour ajouter un autre point de terminaison appelé *myEndpoint2*. Dans **Nom de domaine complet (FQDN) ou IP**, saisissez l’adresse IP publique du second point de terminaison.
-5.  Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans **Profil Traffic Manager** avec leur état de surveillance défini sur **En ligne**.
+5. Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans **Profil Traffic Manager** avec leur état de surveillance défini sur **En ligne**.
 
    ![Ajouter un point de terminaison Traffic Manager](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  

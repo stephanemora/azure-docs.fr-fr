@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: c0ec8b98ff711f8e5746d6d4731266ed4b09cc8f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 5c4e20177c1b334a34f7ce9328dfaa7bd8c66d3d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658842"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545733"
 ---
 # <a name="using-chef-with-azure"></a>Utilisation de Chef avec Azure
-[Chef](http://www.chef.io) est une plateforme d’automatisation puissante qui transforme une infrastructure de machine virtuelle Azure en code. Chef automatise la façon dont l’infrastructure est configurée, déployée et gérée sur votre réseau, quelle que soit sa taille.
+[Chef](https://www.chef.io) est une plateforme d’automatisation puissante qui transforme une infrastructure de machine virtuelle Azure en code. Chef automatise la façon dont l’infrastructure est configurée, déployée et gérée sur votre réseau, quelle que soit sa taille.
 
 Cet article décrit les avantages de l’utilisation de Chef pour gérer une infrastructure Azure.
 

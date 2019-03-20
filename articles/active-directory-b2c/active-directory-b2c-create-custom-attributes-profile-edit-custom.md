@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175262"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094624"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C : Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil
 
@@ -23,7 +23,7 @@ ms.locfileid: "55175262"
 
 Dans cet article, vous allez créer un attribut personnalisé dans votre annuaire Azure Active Directory (Azure AD) B2C. Vous allez utiliser ce nouvel attribut comme revendication personnalisée dans le parcours de l’utilisateur pour modifier des profils.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Suivez les étapes de l’article [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
@@ -260,20 +260,20 @@ Le jeton d’ID renvoyé à votre application inclut la nouvelle propriété d�
 
 1. Ajoutez la nouvelle revendication aux flux des connexions aux comptes sociaux en modifiant les **TechnicalProfiles** suivants. Les comptes sociaux et les comptes fédérés utilisent ces deux **TechnicalProfiles** pour se connecter. Ils écrivent et lisent des données utilisateur en se servant de **alternativeSecurityId** comme de localisateur d’objet utilisateur.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. Utilisez les mêmes attributs d’extension pour les stratégies intégrées et les stratégies personnalisées. Lorsque vous ajoutez des attributs d’extension ou des attributs personnalisés via le portail, ils sont inscrits à l’aide de **b2c-extensions-app**, qui se trouve dans chaque locataire B2C. Pour utiliser ces attributs d’extension dans votre stratégie personnalisée, effectuez les étapes suivantes :
 
-  a. Sur portal.azure.com, dans votre locataire B2C, accédez à **Azure Active Directory**, puis sélectionnez **Inscriptions des applications**.  
-  b. Recherchez **b2c-extensions-app**, puis sélectionnez-la.  
-  c. Sous **Éléments principaux**, entrez **l’ID de l’application** et **l’ID de l’objet**.  
-  d. Ajoutez-les aux métadonnées du TechnicalProfile **AAD-Common** :  
+   a. Sur portal.azure.com, dans votre locataire B2C, accédez à **Azure Active Directory**, puis sélectionnez **Inscriptions des applications**.  
+   b. Recherchez **b2c-extensions-app**, puis sélectionnez-la.  
+   c. Sous **Éléments principaux**, entrez **l’ID de l’application** et **l’ID de l’objet**.  
+   d. Ajoutez-les aux métadonnées du TechnicalProfile **AAD-Common** :  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -285,16 +285,16 @@ Le jeton d’ID renvoyé à votre application inclut la nouvelle propriété d�
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. Maintenez une cohérence avec l’expérience du portail. Créez ces attributs dans l’interface utilisateur du portail avant de les utiliser dans vos stratégies personnalisées. Lorsque vous créez un attribut **ActivationStatus** dans le portail, vous devez le référencer de la façon suivante :
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
-## <a name="reference"></a>Informations de référence
+## <a name="reference"></a>Référence
 
 Pour plus d’informations sur les propriétés d’extension, consultez l’article [Extensions de schéma d’annuaire | Concepts de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 

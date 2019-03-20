@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: kadimitr
-ms.openlocfilehash: 38db54889c1fff0406f4e21cea80e16b6fdc25d1
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 69cf91f1448e36353f83de7a271abb3b53858bb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094073"
 ---
 # <a name="durable-functions-unit-testing"></a>Tests unitaires de l’extension Fonctions durables
 
 Le test unitaire est une partie importante des pratiques de développement de logiciels modernes. Les tests unitaires vérifient le comportement de la logique métier et offrent une protection contre l’introduction, dans le futur, de changements importants qui passent inaperçus. Étant donné que l’extension Fonctions durables peut aisément se complexifier, les tests unitaires permettent d’éviter les changements importants. Les sections suivantes expliquent comment effectuer des tests unitaires sur les trois types de fonctions : Client d’orchestration, Orchestrateur et Fonctions d’activité.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Les exemples de cet article exigent de connaître les concepts et frameworks suivants :
 
@@ -185,5 +185,5 @@ De son côté, le test unitaire vérifie le format de la sortie. Les tests unita
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
-
+> 
 > [En savoir plus sur moq](https://github.com/Moq/moq4/wiki/Quickstart)

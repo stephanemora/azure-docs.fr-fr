@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 3cf43de73fd06da6965d0baf17878c5fb10d7caf
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587172"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778006"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 
@@ -32,7 +32,7 @@ Ce didacticiel couvre les étapes suivantes :
 3. Écrivez une application de console .NET Core pour envoyer un ensemble de messages à la file d’attente.
 4. Écrivez une application de console .NET Core pour recevoir ces messages de la file d’attente.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
 2. [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
@@ -398,7 +398,7 @@ Pour recevoir les messages que vous venez d’envoyer, créez une autre applicat
    
     ![Longueur de la file d’attente][queue-message-receive]
 
-Félicitations ! Vous avez maintenant créé une file d’attente, envoyé un ensemble de messages à cette dernière et reçu ces messages de la même file d’attente.
+Félicitations ! Vous avez maintenant créé une file d’attente, envoyé un ensemble de messages à cette dernière et reçu ces messages de la même file d’attente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

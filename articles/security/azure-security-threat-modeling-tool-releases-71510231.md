@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: eb1b3c04d3714280c1d1ba6c91b3a4c728a3d1af
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 6f7699ece97be1941ef5235b92f2c76b3bed140e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883489"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Mise à jour de Threat Modeling Tool version 7.1.51023.1 - 01/11/2018
 
@@ -38,13 +38,13 @@ ms.locfileid: "54360464"
 - Systèmes d'exploitation pris en charge
   - Microsoft Windows 10
 - Version .NET obligatoire
-  - .Net 3.5.2
+  - .NET 3.5.2
 - Conditions supplémentaires
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 
 ## <a name="documentation-and-feedback"></a>Documentation et commentaires
 
-- La documentation de Threat Modeling Tool se trouve sur [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) et inclut des informations [sur l’utilisation de l’outil](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- La documentation de Threat Modeling Tool se trouve sur [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) et contient des informations [sur l’utilisation de l’outil](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

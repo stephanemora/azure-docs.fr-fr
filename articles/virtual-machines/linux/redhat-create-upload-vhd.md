@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 43253423e3a27a61000c3f93868dd8b42809b7ae
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001650"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle Red Hat pour Azure
-Dans cet article, vous allez apprendre à préparer une machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Cet article couvre les versions de RHEL 6.7 et 7.1+. Les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM (Machine virtuelle basée sur le noyau) et VMware. Pour plus d’informations sur les conditions d’éligibilité pour participer au programme d’accès au Cloud de Red Hat, consultez le [site Web d’accès au cloud de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) et [Exécution RHEL sous Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+Dans cet article, vous allez apprendre à préparer une machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Cet article couvre les versions de RHEL 6.7 et 7.1+. Les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM (Machine virtuelle basée sur le noyau) et VMware. Pour plus d’informations sur les conditions d’éligibilité pour participer au programme d’accès au Cloud de Red Hat, consultez le [site Web d’accès au cloud de Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) et [Exécution RHEL sous Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Préparer une machine virtuelle Red Hat à partir du Gestionnaire Hyper-V
 
 ### <a name="prerequisites"></a>Prérequis
-Cette section suppose que vous avez déjà obtenu un fichier ISO depuis le site web Red Hat et installé l’image RHEL sur un disque dur virtuel (VHD). Pour plus d’informations sur l’utilisation du Gestionnaire Hyper-V pour installer une image de système d’exploitation, voir [Installer le rôle Hyper-V et configurer une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
+Cette section suppose que vous avez déjà obtenu un fichier ISO depuis le site web Red Hat et installé l’image RHEL sur un disque dur virtuel (VHD). Pour plus d’informations sur l’utilisation du Gestionnaire Hyper-V pour installer une image de système d’exploitation, voir [Installer le rôle Hyper-V et configurer une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Notes d'installation de RHEL**
 
@@ -517,7 +517,7 @@ Cette section suppose que vous avez déjà obtenu un fichier ISO depuis le site 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Préparer une machine virtuelle Red Hat à partir de VMware
 ### <a name="prerequisites"></a>Prérequis
-Cette section suppose que vous avez déjà installé une machine virtuelle RHEL dans VMWare. Pour plus d’informations sur l’installation d’un système d’exploitation dans VMWare, voir le document [VMware Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html)(Guide d’installation de système d’exploitation invité VMWare).
+Cette section suppose que vous avez déjà installé une machine virtuelle RHEL dans VMWare. Pour plus d’informations sur l’installation d’un système d’exploitation dans VMWare, voir le document [VMware Guest Operating System Installation Guide](https://partnerweb.vmware.com/GOSIG/home.html)(Guide d’installation de système d’exploitation invité VMWare).
 
 * Lorsque vous installez le système d’exploitation Linux, nous vous recommandons d’utiliser les partitions standard plutôt que LVM, ce qui constitue souvent le choix par défaut pour de nombreuses installations. Cela permettra d’éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d’exploitation doit être relié à une autre machine virtuelle à des fins de dépannage. Vous pouvez utiliser les techniques LVM ou RAID sur les disques de données si vous le souhaitez.
 * Ne configurez pas de partition swap sur le système d’exploitation ou le disque. Vous pouvez configurer l’agent Linux pour la création d’un fichier d’échange sur le disque de ressources temporaire. Les étapes qui suivent fournissent plus d’informations à ce sujet.

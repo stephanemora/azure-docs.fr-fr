@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446662"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993410"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -93,7 +93,7 @@ Oui.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Quels sont les systèmes d’exploitation pris en charge par la sauvegarde ?
 Sauvegarde Azure prend en charge les systèmes d’exploitation suivants pour la sauvegarde des dossiers et des fichiers, ainsi que des applications protégées par Azure Backup Server et DPM.
 
-**SE**| **Référence (SKU)** |**Détails**
+**SE** | **Référence (SKU)** | **Détails**
 --- | --- | ---
 Station de travail | |
 Windows 10 64 bits | Entreprise, Professionnel, Familiale | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
@@ -101,6 +101,7 @@ Windows 8.1 64 bits | Entreprise, Professionnel | Les machines virtuelles doiv
 Windows 8 64 bits | Entreprise, Professionnel | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Windows 7 64 bits | Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium, Édition Familiale Basique, Édition Starter | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Serveur | |
+Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2016 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2012 R2 64 bits | Standard, Datacenter, Foundation | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2012 64 bits | Datacenter, Foundation, Standard | Avec les derniers Service packs et dernières mises à jour.
@@ -117,7 +118,7 @@ Pour les sauvegardes Linux de machine virtuelle Azure, la Sauvegarde Azure prend
 Les limites de tailles sont les suivantes :
 
 Système d’exploitation/machine | Limite de taille de la source de données
---- | --- | ---
+--- | --- 
 Windows 8 ou version ultérieure | 54 400 Go
 Windows 7 |1 700 Go
 Windows Server 2012 ou version ultérieure | 54 400 Go

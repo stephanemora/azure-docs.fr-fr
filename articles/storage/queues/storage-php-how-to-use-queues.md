@@ -10,19 +10,19 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 3475791e3cc8fd0daea3bf330d9c15f685c13488
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0f9cc11e64e2517ef7aff0cd51705c39bf212b37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011435"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Utilisation du stockage de files d'attente à partir de PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service Azure Stockage File d’attente. Les exemples ont été écrits avec des classes de la [bibliothèque de client Stockage Azure pour PHP][download]. Les scénarios traités incluent l’insertion, la lecture furtive, la récupération et la suppression des messages de file d’attente, ainsi que la création et suppression des files d’attente.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -126,7 +126,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -160,7 +160,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -192,7 +192,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -249,7 +249,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -294,7 +294,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -344,7 +344,7 @@ try{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -373,7 +373,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -403,7 +403,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -413,7 +413,7 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les bases du stockage des files d’attente Azure, consultez les liens suivants pour apprendre à effectuer des tâches de stockage plus complexes :
 
-* Visitez les [informations de référence sur l’API pour la bibliothèque de client PHP Stockage Azure](http://azure.github.io/azure-storage-php/)
+* Visitez les [informations de référence sur l’API pour la bibliothèque de client PHP Stockage Azure](https://azure.github.io/azure-storage-php/)
 * Consultez l’[exemple de file d’attente avancée](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Pour plus d’informations, consultez également le [Centre pour développeurs PHP](https://azure.microsoft.com/develop/php/).
@@ -421,5 +421,5 @@ Pour plus d’informations, consultez également le [Centre pour développeurs P
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
-[composer-phar]: http://getcomposer.org/composer.phar
+[composer-phar]: https://getcomposer.org/composer.phar
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004096"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -20,22 +20,22 @@ Le service [Azure Migrate](migrate-overview.md) évalue les groupes de machines 
 > [!NOTE]
 > La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 La visualisation des dépendances dans Azure Migrate permet de créer des groupes hautement fiables pour les évaluations de la migration. À l’aide de la visualisation des dépendances, vous pouvez voir les dépendances de réseau des machines et identifier les machines connexes qui doivent être migrées ensemble vers Azure. Cette fonctionnalité est utile dans les scénarios où vous ne savez pas exactement quelles sont les machines qui constituent votre application et doivent être migrées ensemble vers Azure.
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
-Azure Migrate utilise la solution [Service Map](../operations-management-suite/operations-management-suite-service-map.md) dans [Log Analytics](../log-analytics/log-analytics-overview.md) pour la visualisation des dépendances.
+Azure Migrate utilise le [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution dans [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) pour la visualisation des dépendances.
 - Pour tirer parti de la visualisation des dépendances, vous pouvez associer un espace de travail Log Analytics, nouveau ou existant, à un projet Azure Migrate.
 - Vous ne pouvez créer ou attacher un espace de travail que dans l’abonnement où le projet de migration est créé.
 - Pour attacher un espace de travail Log Analytics à un projet, accédez à la section **Bases** de la page **Vue d’ensemble**, puis cliquez sur **Requiert une configuration**
 
     ![Associer un espace de travail Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Lors de l'association d'un espace de travail, vous aurez la possibilité de créer un nouvel espace de travail ou de joindre un espace existant :
-      - Quand vous créez un espace de travail, vous devez spécifier un nom pour celui-ci. L’espace de travail est ensuite créé dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
-      - Lorsque vous joignez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration. Notez que seuls les espaces de travail qui ont été créés dans une région où [Service Map est pris en charge](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions) sont répertoriés. Afin de joindre un espace de travail, assurez-vous d’avoir accès en lecture à l’espace de travail.
+- Lors de l’association d’un espace de travail, vous aurez la possibilité de créer un nouvel espace de travail ou de joindre un espace existant :
+  - Quand vous créez un espace de travail, vous devez spécifier un nom pour celui-ci. L’espace de travail est ensuite créé dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
+  - Quand vous attachez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration. Notez que seuls les espaces de travail qui ont été créés dans une région où [Service Map est pris en charge](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions) sont listés. Afin de joindre un espace de travail, assurez-vous d’avoir accès en lecture à l’espace de travail.
 
   > [!NOTE]
   > Une fois que vous avez joint un espace de travail à un projet, vous ne pouvez plus le modifier.

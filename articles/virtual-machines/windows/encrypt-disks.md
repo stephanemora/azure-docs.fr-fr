@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 4875464d7e7a7f49c1532871a69f4d2224b271a6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: cc0eee9dc36878f7a02b97453c859d94ea99b901
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108243"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217136"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Chiffrer des disques virtuels sur une machine virtuelle Windows
 Pour renforcer la sécurité et la conformité de la machine virtuelle, les disques virtuels dans Azure peuvent être chiffrés. Les disques sont chiffrés à l’aide de clés de chiffrement sécurisées dans un coffre Azure Key Vault. Vous contrôlez ces clés de chiffrement et pouvez effectuer un audit de leur utilisation. Cet article explique comment chiffrer des disques virtuels sur une machine virtuelle Windows avec Azure PowerShell. Vous pouvez aussi [chiffrer une machine virtuelle Linux avec Azure CLI](../linux/encrypt-disks.md).
@@ -120,7 +120,7 @@ Chiffrez votre machine virtuelle avec [Set-AzVMDiskEncryptionExtension](https://
 $keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
-$keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
+$keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
 Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName "myVM" `

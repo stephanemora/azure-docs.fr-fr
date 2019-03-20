@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57873789"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article explique comment configurer des alertes de journal à l’aide de l’interface d’alertes dans le portail Azure. La définition d’une règle d’alerte se fait en trois parties :
 - Cible : Ressource Azure spécifique à surveiller
 - Critères : Condition spécifique ou logique qui, une fois détectée (signal), doit déclencher une action
@@ -47,29 +47,29 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
 1. Définissez la condition d’alerte en utilisant le lien **Sélectionner une ressource**, puis en spécifiant la cible via la sélection d’une ressource. Filtrez en choisissant l’_abonnement_, le _type de ressource_ et la _ressource_ nécessaire.
 
-    >[!NOTE]
-
-    > Pour créer une alerte de journal, avant de continuer, vérifiez le signal de **journal** disponible pour la ressource sélectionnée.
-    ![Sélectionner une ressource](media/alerts-log/Alert-SelectResourceLog.png)
+   > [!NOTE]
+   > 
+   > Pour créer une alerte de journal, avant de continuer, vérifiez le signal de **journal** disponible pour la ressource sélectionnée.
+   >  ![Sélectionner une ressource](media/alerts-log/Alert-SelectResourceLog.png)
 
 1. *Alertes de journal* : Assurez-vous que le **Type de ressource** est une source analytique telle que *Log Analytics* ou *Application Insights* et le type de signal **Journal**. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé*. Utilisez ensuite le bouton **Ajouter des critères** pour afficher la liste des options de signal disponibles pour la ressource et à partir de l’option **Recherche de journal personnalisée** de la liste de signaux pour le service de surveillance des journaux choisi, tel que *Log Analytics* ou *Application Insights*.
 
    ![Sélectionner une ressource : recherche de journal personnalisée](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-
+   > 
    > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)**, comme indiqué dans l’illustration ci-dessus. Les utilisateurs peuvent donc perfectionner votre requête dans Analytics et l’enregistrer pour l’utiliser ultérieurement dans Alerts. Pour en savoir plus sur l’enregistrement de requêtes, consultez la section relative à [l’utilisation des recherches de journaux dans Log Analytics](../../azure-monitor/log-query/log-query-overview.md) ou aux [requêtes partagées dans Application Insights Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 1. *Alertes de journal* : Une fois sélectionnée, la requête de génération d’alerte peut être indiquée dans le champ **Requête de recherche**. Si la syntaxe de la requête est incorrecte, le champ affiche un message d’erreur en rouge. Si la syntaxe de la requête est correcte, les données de la requête indiquée sont indiquées à titre de référence sous forme de graphique avec la possibilité d’ajuster la fenêtre de temps entre les six dernières heures et la semaine précédente.
 
     ![Configurer une règle d’alerte](media/alerts-log/AlertsPreviewAlertLog.png)
 
-    > [!NOTE]
-    
-    > La visualisation des données historiques n’est possible que si les résultats de la requête comportent des informations temporelles. Si votre requête produit des données synthétisées ou des valeurs de colonnes spécifiques, les mêmes informations sont indiquées sous forme de tracé unique.
-    > Pour les alertes de journal de type Mesure de métriques utilisant Application Insights ou [basculées vers la nouvelle API](alerts-log-api-switch.md), vous pouvez spécifier la variable à utiliser pour regrouper les données à l'aide de l'option **Agréger sur**, comme illustré ci-dessous :
-    >
-    > ![Option Agréger sur](media/alerts-log/aggregate-on.png)
+   > [!NOTE]
+   > 
+   > La visualisation des données historiques n’est possible que si les résultats de la requête comportent des informations temporelles. Si votre requête produit des données synthétisées ou des valeurs de colonnes spécifiques, les mêmes informations sont indiquées sous forme de tracé unique.
+   > Pour les alertes de journal de type Mesure de métriques utilisant Application Insights ou [basculées vers la nouvelle API](alerts-log-api-switch.md), vous pouvez spécifier la variable à utiliser pour regrouper les données à l'aide de l'option **Agréger sur**, comme illustré ci-dessous :
+   > 
+   > ![Option Agréger sur](media/alerts-log/aggregate-on.png)
 
 1. *Alertes de journal* : Avec la visualisation en place, la **logique d’alerte** peut être sélectionnée parmi les options proposées de condition, d’agrégation et de seuil. Enfin, dans la logique, spécifiez le moment auquel évaluer la condition indiquée à l’aide de l’option **Période**. Précisez également la fréquence d’exécution de l’alerte en sélectionnant **Fréquence**. Les **alertes de journal** peuvent reposer sur les éléments suivants :
     - [Nombre d’enregistrements](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules) : une alerte est créée si le nombre d’enregistrements retournés par la requête est supérieur ou inférieur à la valeur indiquée.
@@ -102,9 +102,9 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
 1. Si tous les champs sont valides et qu’une coche verte est visible, le bouton **Créer une règle d’alerte** peut être activé. Une alerte est alors créée dans Azure Monitor – Alertes. Toutes les alertes peuvent être consultées dans le tableau de bord des alertes.
 
-    ![Création de règles](media/alerts-log/AlertsPreviewCreate.png)
+     ![Création de règles](media/alerts-log/AlertsPreviewCreate.png)
 
-    Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
+     Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
 
 Les utilisateurs peuvent également finaliser leur requête d’analyse dans [Log Analytics](../log-query/portals.md), l’envoyer (push) afin de créer une alerte à l’aide du bouton « Définir l’alerte », puis suivre les instructions à partir de l’étape 6 du didacticiel ci-dessus.
 
@@ -205,7 +205,7 @@ Vous trouverez ci-dessous la structure d'un modèle de ressource basé sur la [c
 ```
 
 > [!IMPORTANT]
-> Le champ Tag avec hidden-link vers la ressource cible est obligatoire en cas d’utilisation d’appel d’API de [règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) ou de modèle de ressource.
+> Champ de balise avec lien masqué à la ressource cible est obligatoire en cours d’utilisation de [règles de requête planifiée](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modèle de ressource ou d’appel d’API.
 
 L’exemple json ci-dessus peut par exemple être enregistré en tant que sampleScheduledQueryRule.json pour les besoins de cette procédure pas à pas, et peut être déployé à l’aide d’[Azure Resource Manager dans le portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -217,7 +217,7 @@ Vous trouverez ci-dessous la structure d'un modèle de ressource basé sur la [c
 ```json
 
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
     },
@@ -304,34 +304,35 @@ Vous trouverez ci-dessous la structure d'un modèle de ressource basé sur la [c
 ```
 
 > [!IMPORTANT]
-> Le champ Tag avec hidden-link vers la ressource cible est obligatoire en cas d’utilisation d’appel d’API de [règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) ou de modèle de ressource. Lors de l'utilisation d'une requête inter-ressources dans une alerte de journal, [allowedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) est obligatoire et l'utilisateur doit avoir accès à la liste des ressources indiquées.
+> Champ de balise avec lien masqué à la ressource cible est obligatoire en cours d’utilisation de [règles de requête planifiée](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modèle de ressource ou d’appel d’API. Lors de l'utilisation d'une requête inter-ressources dans une alerte de journal, [allowedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) est obligatoire et l'utilisateur doit avoir accès à la liste des ressources indiquées.
 
 L’exemple json ci-dessus peut par exemple être enregistré en tant que sampleScheduledQueryRule.json pour les besoins de cette procédure pas à pas, et peut être déployé à l’aide d’[Azure Resource Manager dans le portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Gestion des alertes de journal à l’aide de PowerShell, de la CLI ou d’une API
 
-L’[API Azure Monitor - Règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) est une API REST entièrement compatible avec l’API REST Azure Resource Manager. Elle peut donc être utilisée par le biais de Powershell à l’aide d’applets de commande Resource Manager en plus d’Azure CLI.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+L’API Azure Monitor - Règles de requêtes planifiées(https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) est une API REST entièrement compatible avec l’API REST Azure Resource Manager. Elle peut donc être utilisée par le biais de Powershell à l’aide d’applets de commande Resource Manager en plus d’Azure CLI.
+
 
 > [!NOTE]
 > Les alertes de journal pour Log Analytics peuvent également être gérées à l’aide de l’[API d’alerte Log Analytics](../../azure-monitor/platform/api-alerts.md) existante et des modèles existants des [alertes et recherches Log Analytics enregistrées](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Pour plus d’informations sur l’utilisation par défaut de la nouvelle API ScheduledQueryRules détaillée ici, consultez [Opter pour la nouvelle API des alertes Log Analytics](alerts-log-api-switch.md).
 
+Alertes de journal n’est actuellement des commandes PowerShell ou CLI dédiées actuellement ; mais, comme illustré ci-dessous peut être utilisé via l’applet de commande PowerShell Azure Resource Manager pour l’exemple illustré précédemment du modèle de ressource (sampleScheduledQueryRule.json) dans la section de modèle de ressource :
 
-Les alertes de journal n’ont pas de commandes PowerShell ou CLI dédiées, mais comme illustré ci-dessous, elles peuvent être utilisées par le biais de la cmdlet Azure Resource Manager PowerShell pour l’exemple de modèle de ressource présenté plus haut (sampleScheduledQueryRule.json) dans la section Modèle de ressource :
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
 Vous trouverez ci-dessous une illustration de l’utilisation par le biais de la commande Azure Resource Manager dans Azure CLI pour l’exemple de modèle de ressource présenté plus haut (sampleScheduledQueryRule.json) dans la section Modèle de ressource :
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-```
+On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
 
-Une fois l’opération réussie, le code 201 est retourné pour signaler la création de la nouvelle règle d’alerte, ou l’état 200 si une règle d’alerte existante a été modifiée.
+## Next steps
 
-## <a name="next-steps"></a>Étapes suivantes
-
-* En savoir plus sur les [alertes de journal dans les alertes Azure ](../../azure-monitor/platform/alerts-unified-log.md)
-* Comprendre les [actions Webhook pour les alertes de journal](../../azure-monitor/platform/alerts-log-webhook.md)
-* En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md)
-* En savoir plus sur [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
+* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

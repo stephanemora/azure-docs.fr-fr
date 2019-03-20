@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b8f8d0a089a74334a908e3dad65c63231bbe5975
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 13a2eb080c6822a8a6786be1952bc588fa8afd80
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098933"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729201"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
 
@@ -27,6 +27,8 @@ Le service Gestion des API permet de sécuriser l’accès au service principal 
 Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entité de certificat API REST de gestion des API Azure</a>.
 
 ## <a name="prerequisites"> </a>Prérequis
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Ce guide explique comment configurer votre instance de service de gestion des API afin d'utiliser l'authentification par certificat pour accéder au service principal d'une API. Avant de suivre les étapes décrites dans cet article, votre service principal doit être configuré pour l’authentification de certificat client ([pour configurer l’authentification de certificat dans Sites Web Azure, reportez-vous à cet article][to configure certificate authentication in Azure WebSites refer to this article]). Vous devez avoir accès au certificat et au mot de passe pour le charger sur le service Gestion des API.
 
@@ -81,11 +83,11 @@ Si le certificat est en cours d'utilisation par une API, un écran d'avertisseme
 
 ## <a name="self-signed-certificates"></a>Certificats auto-signés
 
-Si vous utilisez des certificats auto-signés, vous devrez désactiver la validation de chaîne d’approbation afin que le service Gestion des API puisse communiquer avec le système principal. Dans le cas contraire, un code d’erreur 500 est généré. Pour configurer ce paramètre, vous pouvez utiliser les applets de commande PowerShell [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (pour un nouveau serveur principal) ou [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (pour un serveur principal existant) et configurez le paramètre `-SkipCertificateChainValidation` sur `True`.
+Si vous utilisez des certificats auto-signés, vous devrez désactiver la validation de chaîne d’approbation afin que le service Gestion des API puisse communiquer avec le système principal. Dans le cas contraire, un code d’erreur 500 est généré. Pour configurer ce paramètre, vous pouvez utiliser les applets de commande PowerShell [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (pour un nouveau serveur principal) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (pour un serveur principal existant) et configurez le paramètre `-SkipCertificateChainValidation` sur `True`.
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 [How to add operations to an API]: api-management-howto-add-operations.md

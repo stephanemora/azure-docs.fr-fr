@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: b565955abaae44efe20291a6e46b57a5fec941d1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 944f008d0243d974a5d439438a5a645b7f3ca248
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046556"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856788"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Prise en main de Power BI Workspace Collections
 
@@ -37,7 +37,7 @@ Une **collection d’espaces de travail** est la ressource Azure de premier nive
 
 Nous allons voir comment créer une **collection d’espaces de travail** à l’aide du portail Azure.
 
-1. Ouvrez et connectez-vous au **portail Azure** : [http://portal.azure.com](http://portal.azure.com).
+1. Ouvrez et connectez-vous au **portail Azure** : [https://portal.azure.com](https://portal.azure.com).
 2. Sélectionnez **+ Nouveau** dans le panneau supérieur.
    
    ![+ Nouveau dans le portail Azure](media/get-started/create-workspace-1.png)
@@ -79,7 +79,7 @@ Une fois votre collection d’espaces de travail créée, vous devrez créer un 
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Création de rapports et de jeux de données Power BI à intégrer dans une application avec Power BI Desktop
 
-Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer les rapports et les jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l’aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, pour une prise en main rapide, vous pouvez télécharger [l’exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547).
+Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer les rapports et les jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l’aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, pour une prise en main rapide, vous pouvez télécharger [l’exemple PBIX Analyse des données de vente](https://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
 > Pour en savoir plus sur l’utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
@@ -119,5 +119,5 @@ Vous pouvez créer un rapport directement à partir d’un jeu de données de vo
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
+Des questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)
 

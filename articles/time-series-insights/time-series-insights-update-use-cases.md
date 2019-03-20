@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7625eb383beef2e86cc8a977362db09329a6ea1b
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: f4e14435c2ccab98619bec57fef0e121e2df4403
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556711"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431604"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Cas d’usage de la préversion d’Azure Time Series Insights
 
@@ -30,9 +30,9 @@ Après avoir lu cet article, vous pourrez répondre aux questions suivantes :
 
 Ce document fournit une vue d’ensemble des cas d’usage pour lesquels la préversion d’Azure Time Series Insights est conçue.
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
-Time Series Insights est une offre PaaS de bout en bout. Elle est utilisée pour ingérer, traiter, stocker et interroger des données à l’échelle IoT optimisées pour une série chronologique hautement contextualisée. Time Series Insights est idéal pour l’exploration de données ad hoc et l’analyse opérationnelle. Il s’agit d’une offre de service personnalisée et extensible de manière unique qui répond aux besoins étendus des déploiements IoT sectoriels.
+Time Series Insights est une offre PaaS de bout en bout. Elle est utilisée pour ingérer, traiter, stocker et interroger des données à l’échelle IoT optimisées pour une série chronologique hautement contextualisée. Time Series Insights est idéal pour analyse opérationnelle et l’exploration de données ad hoc. Il s’agit d’une offre de service personnalisée et extensible de manière unique qui répond aux besoins étendus des déploiements IoT sectoriels.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Exploration des données et détection d’anomalies visuelles
 
@@ -58,7 +58,7 @@ Il existe trois méthodes principales pour interagir avec les données stockées
 
 Utilisez Time Series Insights pour surveiller l’intégrité, l’utilisation et les performances des équipements à grande échelle. Time Series Insights permet de mesurer facilement l’efficacité opérationnelle. Il permet de gérer des charges de travail IoT diverses et imprévisibles sans nuire aux performances d’ingestion ou de requête.
 
-![Vue d’ensemble][2]
+![Présentation][2]
 
 La diffusion et le traitement en continu de données provenant des processus opérationnels peuvent être avantageux pour n’importe quelle activité s’ils sont associés à la technologie ou à la solution appropriée. Souvent, ces solutions sont une combinaison de plusieurs systèmes. Elles permettent l’exploration et l’analyse des données qui évoluent en permanence, en particulier en ce qui concerne l’IoT, et partagent un modèle commun.
 

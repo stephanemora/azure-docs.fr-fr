@@ -12,17 +12,17 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 076dc58876afbe309e75373a78f84a79951ec2b9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 9f1ef06e0275954343c548d0f6937b9c6fbcfd18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012123"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Prendre en main le stockage d’objets blob Azure et les services connectés de Visual Studio (projets services cloud)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article décrit comment prendre en main Azure Blob Storage après avoir créé ou référencé un compte de stockage Azure via la boîte de dialogue **Ajouter des services connectés** de Visual Studio, dans un projet Visual Studio Cloud Services. Nous allons vous montrer comment créer des conteneurs d’objets blob, y accéder et effectuer des tâches courantes comme télécharger, répertorier et charger des objets blob. Les exemples sont écrits en code C\# et utilisent la bibliothèque cliente [Stockage Microsoft Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Le stockage d’objets blob Azure est un service permettant de stocker de grandes quantités de données non structurées accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
@@ -32,7 +32,7 @@ De la même manière que les fichiers résident dans des dossiers, le stockage d
 * Pour plus d’informations sur la manipulation des objets blob par programme, consultez la page [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 * Pour obtenir des informations générales sur Azure Storage, consultez [Documentation du stockage](https://azure.microsoft.com/documentation/services/storage/).
 * Pour obtenir des informations générales sur Azure Cloud Services, consultez la [Documentation Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/).
-* Pour plus d’informations sur la programmation d’applications ASP.NET, consultez [ASP.NET](http://www.asp.net).
+* Pour plus d’informations sur la programmation d’applications ASP.NET, consultez [ASP.NET](https://www.asp.net).
 
 ## <a name="access-blob-containers-in-code"></a>Accès aux conteneurs d'objets blob dans le code
 Pour accéder par programmation aux objets blob dans des projets de service cloud, vous devez ajouter les éléments suivants s’ils ne sont pas déjà présents.
@@ -64,7 +64,7 @@ Pour accéder par programmation aux objets blob dans des projets de service clou
 
 ## <a name="create-a-container-in-code"></a>Création d'un conteneur dans le code
 > [!NOTE]
-> Certaines API qui effectuent des appels à Azure Storage sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx) . Le code de l’exemple suivant suppose que vous utilisez des méthodes de programmation asynchrones.
+> Certaines API qui effectuent des appels à Azure Storage sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](https://msdn.microsoft.com/library/hh191443.aspx) . Le code de l’exemple suivant suppose que vous utilisez des méthodes de programmation asynchrones.
 > 
 > 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 9137e52af16f63efe7f0b8169f2693a354564968
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: c83326212dc84348a04d54f04348a6c4c7699bde
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36264436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875887"
 ---
 # <a name="storsimple-solution-support"></a>Support de la solution StorSimple
 
@@ -42,7 +42,7 @@ Microsoft offre des options de support flexibles aux clients des solutions de st
 | Envoi de ticket sur le portail Azure                                                                          | ✓                                                                               | ✓                                                                              |
 | Accès au portail de support en ligne                                                                            | ✓                                                                               | ✓                                                                              |
 | Fourniture et gestion des alertes                                                                       | ✓                                                                               | ✓                                                                              |
-| Temps de réponse initial du support technique permanent après soumission du ticket de support <br> Temps de réponse initial en fonction de la gravité <sup>2 | Gravité A : dans les 2 heures <br> Gravité B : dans les 4 heures <br> Gravité C : dans les 8 heures | Gravité A : dans les 60 minutes <br> Gravité B : dans les 2 heures <br> Gravité C : dans les 4 heures |
+| Temps de réponse initial du support technique permanent après soumission du ticket de support <br> Temps de réponse initial en fonction de la gravité <sup>2 | Gravité a : Dans les 2 heures <br> Gravité b : Dans les 4 heures <br> Gravité c : Dans les 8 heures | Gravité a : Dans les 60 minutes <br> Gravité b : Dans les 2 heures <br> Gravité c : Dans les 4 heures |
 | Support téléphonique (rappels)                                                                               | ✓                                                                               | ✓                                                                              |
 | Remplacement de pièces avancé (série StorSimple 8000 uniquement) <sup>3</sup>                                              | Jour ouvrable suivant <sup>4                                                              | Dans les 4 heures                                                                 |
 | Ingénieur dans le domaine des services sur site (série StorSimple 8000 uniquement) <sup>3</sup>                                         | Non disponible                                                                   | Dans les 4 heures                                                                 |
@@ -60,13 +60,13 @@ Microsoft offre des options de support flexibles aux clients des solutions de st
 
 <sup>2</sup> La gravité est définie comme suit : 
 
-* Gravité A : perte ou dégradation importantes des services
+* Gravité a : Perte importante ou une dégradation des services
 
 
-* Gravité B : perte ou dégradation modérées mais le travail peut continuer en mode réduit
+* Gravité b : Modéré perte ou dégradation mais le travail peut continuer en mode réduit
 
 
-* Gravité C : fonctionnement sans ou pratiquement sans entrave aux fonctionnalités du système
+* Gravité c : Fonctionne en grande partie sans ou pratiquement sans entrave aux fonctionnalités du système
 
     Microsoft peut rétrograder le niveau de gravité A si le client ne peut pas fournir les ressources ou les réponses adéquates permettant de poursuivre la résolution des problèmes. Temps de réponse attendu basé sur le support permanent en anglais pour la gravité A, et les heures ouvrées pour les gravités B et C. 
 
@@ -81,7 +81,7 @@ Microsoft offre des options de support flexibles aux clients des solutions de st
 Si votre contrat de support a expiré, gardez à l’esprit, en fonction de la date d’expiration du contrat de support, qu’il peut s’écouler jusqu'à trois semaines après la fin du traitement de renouvellement d’avant la livraison d’une pièce, car l’emplacement de stockage local pour votre contrat ne sera stocké avec les pièces de rechange pour votre appareil qu’après le traitement de votre contrat.
 
 ## <a name="local-language-support"></a>Support en langue locale
-Outre l’anglais, le support est fourni pendant les heures ouvrées dans les langues locales suivantes : japonais, coréen, taïwanais et chinois traditionnel.
+Outre l’anglais, le support en langue locale est fournie dans les langues suivantes pendant les heures ouvrables : Japonais, coréen, taïwanais et chinois traditionnel.
 
 ## <a name="support-scope"></a>Étendue du support 
 Le support des problèmes liés à la gestion de la facturation et des abonnements est disponible à tous les niveaux de support. Pour bénéficier du support StorSimple, les clients doivent être inscrits activement aux offres de support StorSimple standard ou premium. L’équipe de support StorSimple est chargée de résoudre tous les problèmes affectant la solution StorSimple. Afin de bénéficier du support concernant des problèmes liés à Azure, mais non directement liés à StorSimple, le client doit être inscrit à un plan de support Azure approprié. Pour plus de détails, reportez-vous [ici](https://azure.microsoft.com/support/plans/). L’équipe de support envoie les cas de support non liés à StorSimple à l’équipe Azure à des fins de suivi, en fonction des droits du client au support Azure. 
@@ -95,7 +95,7 @@ Le support des problèmes liés à la gestion de la facturation et des abonnemen
  
 <sup>1</sup> Microsoft peut rétrograder le niveau de gravité si le client n’est pas en mesure de fournir les ressources ou les réponses adéquates permettant à Microsoft de poursuivre ses efforts de résolution du problème.
 
-<sup>2</sup> Les temps de réponse attendus sont basés sur un support permanent en anglais pour la gravité A, et les heures ouvrées locales pour les gravités B et C. Le support est disponible pendant les heures ouvrées dans les autres langues locales suivantes : japonais, taïwanais, chinois traditionnel et coréen.
+<sup>2</sup> temps de réponse attendus sont basés sur le support 24 x 7 en anglais pour le niveau de gravité A et les heures ouvrables locales pour les gravités B et C, et les heures locales prennent en charge dans les autres langues : Japonais, taïwanais, chinois traditionnel et coréen.
 
 ## <a name="cancellation-policy"></a>Politique d’annulation
 Pour bénéficier du support StorSimple, le client doit acheter une offre de support standard ou premium pour la durée de l’abonnement. L’annulation n’entraîne pas de remboursement proportionnel. Les offres de support StorSimple donnent droit à une réduction à la date anniversaire du Contrat Entreprise. Cependant, Microsoft ne peut pas fournir de support aux clients StorSimple dépourvus d’un contrat de support valide.
@@ -119,7 +119,7 @@ La manière dont le support des baies de stockage de la série StorSimple 8000 e
 
 
 
-*<text> * La couverture premium n’est pas disponible partout. Pour connaître la couverture géographique avant d’acheter le support Premium StorSimple, contactez Microsoft à l’adresse SSSupOps@microsoft.com.*
+*<text> * La couverture premium n’est pas disponible partout. Contactez Microsoft à l’adresse SSSupOps\@microsoft.com pour connaître la couverture géographique avant d’acheter le Support Premium StorSimple.*
 
 ***Pour pouvoir bénéficier d’une mise à niveau gratuite vers le support StorSimple premium, l’appliance StorSimple doit être déployée dans une région où le client est couvert par le support Premier.*
 

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858165"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le [Stockage Blob Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS.
 Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications. Dans cet article, vous apprenez à vous servir de l’Explorateur Stockage pour utiliser des conteneurs d’objets blob et des objets blob.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour pouvoir suivre les étapes de cet article, vous devrez :
 
 * [Télécharger et installer l’Explorateur Stockage](https://www.storageexplorer.com)
-* [Vous connecter à un service ou un compte de stockage Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Se connecter à un service ou un compte de stockage Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Création d’un conteneur d’objets blob
 Tous les objets blob doivent résider dans un conteneur d’objets blob, c’est-à-dire un simple regroupement logique d’objets blob. Un compte peut contenir un nombre illimité de conteneurs, et chaque conteneur peut stocker un nombre illimité d’objets blob.

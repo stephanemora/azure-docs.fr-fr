@@ -12,14 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: f929c58d38cbae4ba5f8aea73a2acf30d8bbe7d2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 3c0decaa89b4ecc503157a32fcb1e5b4d249ccfb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121428"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317779"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Utilisation de PowerShell pour configurer Application Insights pour une application web Azure
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [Microsoft Azure](https://azure.com) peut être [configuré pour envoyer des Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) vers [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Les tests de diagnostic concernent Azure Cloud Services et les machines virtuelles Azure. Ils permettent de compléter les données de télémétrie que vous envoyez depuis l’application à l’aide du kit de développement logiciel d’Application Insights. Dans le cadre de l’automatisation du processus de création de nouvelles ressources dans Azure, vous pouvez configurer des diagnostics avec PowerShell.
 
 ## <a name="azure-template"></a>Modèle Azure
@@ -56,9 +59,9 @@ L’applet de commande `New-AzureDeployment` comporte un paramètre `ExtensionCo
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
      -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
        -StorageAccountName $diagnostics_storagename `
        -StorageAccountKey $primary_storagekey
 
@@ -90,9 +93,9 @@ Sur un service existant, utilisez `Set-AzureServiceDiagnosticsExtension`.
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
          -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
         -StorageAccountName $diagnostics_storagename `
         -StorageAccountKey $primary_storagekey
 

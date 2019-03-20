@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876644"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
 
@@ -33,7 +33,7 @@ En utilisant Network Watcher, les alertes et les fonctions dans l’écosystème
 
 ![Scénario][scenario]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * La version la plus récente [d’Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * Une instance existante de Network Watcher. Si vous n’en avez pas, [créez une instance de Network Watcher](network-watcher-create.md).
@@ -110,13 +110,13 @@ Pour utiliser les cmdlets PowerShell de Network Watcher, chargez le module Power
 
     Cet exemple vous donne le chemin local de vos modules Azure PowerShell. Ces dossiers sont utilisés dans une étape ultérieure. Les modules utilisés dans ce scénario sont :
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![Dossiers PowerShell][functions5]
+     ![Dossiers PowerShell][functions5]
 
 1. Sélectionnez **Paramètres Function App** > **Accéder à l’Éditeur App Service**.
 
@@ -146,7 +146,7 @@ Pour utiliser les cmdlets PowerShell de Network Watcher, chargez le module Power
 
     ![Fichiers PowerShell][functions7]
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 Pour utiliser les applets de commande PowerShell, vous devez vous authentifier. Vous configurez l’authentification dans l’application de fonction. Pour ce faire, vous devez configurer les variables d’environnement et charger un fichier de clé chiffré dans l’application de fonction.
 
@@ -344,7 +344,7 @@ Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte.
   |**Paramètre** | **Valeur** | **Détails** |
   |---|---|---|
   |**Nom**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
-  |**Description**|Les segments TCP envoyés ont dépassé le seuil|Description de la règle d’alerte.||
+  |**Description**|Les segments TCP envoyés ont dépassé le seuil|Description de la règle d’alerte.|
   |**Mesure**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
   |**Condition**|Supérieur à| Condition à utiliser lors de l’évaluation de la mesure.|
   |**Seuil**|100| La valeur de la métrique qui déclenche l’alerte. Cette valeur doit être définie sur une valeur valide pour votre environnement.|
@@ -362,7 +362,7 @@ Une fois les critères d’alerte remplis, une capture de paquets est créée. A
 
 Si le fichier de capture est stocké en local, vous pouvez le récupérer en vous connectant à la machine virtuelle.
 
-Pour obtenir des instructions sur le téléchargement de fichiers à partir de comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Vous pouvez aussi utiliser [l’Explorateur de stockage](http://storageexplorer.com/).
+Pour obtenir des instructions sur le téléchargement de fichiers à partir de comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Vous pouvez aussi utiliser [l’Explorateur de stockage](https://storageexplorer.com/).
 
 Une fois la capture téléchargée, vous pouvez l’afficher à l’aide de n’importe quel outil en mesure de lire un fichier **.cap**. Les liens de deux de ces outils sont indiqués ci-après :
 
