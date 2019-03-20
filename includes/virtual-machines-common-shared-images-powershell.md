@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115180"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
@@ -74,8 +74,8 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
-Dans une prochaine version, vous serez en mesure d’utiliser les valeurs **-Publisher**, **-Offer** et **-Sku** que vous avez personnellement définies pour rechercher et spécifier une définition d'image, puis de créer une machine virtuelle à l'aide de la dernière version d'image issue de la définition d'image correspondante. Par exemple, voici trois définitions d'image et leurs valeurs :
+### <a name="using-publisher-offer-and-sku"></a>À l’aide du serveur de publication, offre et référence (SKU) 
+Pour les clients envisageant sur l’implémentation des images partagées, **dans une prochaine version**, vous serez en mesure d’utiliser votre personnellement défini **-serveur de publication**, **-offrent** et **- Sku** pour rechercher et spécifier une définition de l’image, puis créer une machine virtuelle à l’aide de la dernière version de l’image à partir de la mise en correspondance les valeurs de définition de l’image. Par exemple, voici trois définitions d'image et leurs valeurs :
 
 |Définition de l’image|Publisher|Offre|Sku|
 |---|---|---|---|
@@ -83,10 +83,9 @@ Dans une prochaine version, vous serez en mesure d’utiliser les valeurs **-Pub
 |myImage2|myPublisher|standardOffer|mySku|
 |myImage3|Test|standardOffer|testSku|
 
-Ces trois définitions présentent des ensembles de valeurs uniques. Dans une prochaine version, vous serez en mesure de combiner ces valeurs pour demander la dernière version d’une image spécifique. 
+Ces trois définitions présentent des ensembles de valeurs uniques. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois. **Dans une prochaine version**, vous serez en mesure de combiner ces valeurs pour demander la dernière version d’une image spécifique. **Cela ne fonctionne pas dans la version actuelle**, mais seront disponibles à l’avenir. Lors de la publication, à l’aide de la syntaxe suivante doit être utilisé pour définir l’image source en tant que *myImage1* dans le tableau ci-dessus.
 
 ```powershell
-# The following should set the source image as myImage1 from the table above
 $vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
@@ -94,9 +93,9 @@ $vmConfig = Set-AzVMSourceImage `
    -Skus mySku 
 ```
 
-Ce processus est semblable à celui que vous utilisez pour spécifier ces valeurs pour les [images de Place de marché Azure](../articles/virtual-machines/windows/cli-ps-findimage.md) et créer une machine virtuelle. Dans cet esprit, chaque définition d'image doit disposer d'un ensemble unique de ces valeurs. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois. 
+Ceci est similaire à la façon dont vous pouvez spécifier actuellement utiliser publisher, offre et référence (SKU) pour [images Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) pour obtenir la dernière version d’une image de place de marché. Dans cet esprit, chaque définition d'image doit disposer d'un ensemble unique de ces valeurs.  
 
-##<a name="create-an-image-version"></a>Créer une version d’image
+## <a name="create-an-image-version"></a>Créer une version d’image
 
 Créez une version d’image à partir d’une image managée à l’aide de [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Dans cet exemple, la version d'image, *1.0.0*, elle est répliquée dans les deux centres de données *USA Centre-Ouest* et *USA Centre Sud*.
 

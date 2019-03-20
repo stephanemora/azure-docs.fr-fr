@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742254"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58114011"
 ---
 Pour activer la réinitialisation de mot de passe affinée sur votre application, vous utilisez un flux utilisateur de **réinitialisation de mot de passe**. Notez que l’option de réinitialisation du mot de passe au niveau du client est spécifiée [ici](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Ce flux utilisateur décrit les expériences clients lors de la réinitialisation de mot de passe, ainsi que le contenu des jetons que l’application reçoit en cas d’opération réussie.
 

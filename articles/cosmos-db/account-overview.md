@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: cbc11e2fc54ecffbea22a66354f334f3562e3339
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e40b763aa2a36e3afd85a82b66e393ac78d3afaa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839574"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Utiliser un compte Azure Cosmos
 
@@ -29,7 +29,7 @@ Dans Azure Cosmos DB, un conteneur est l’unité d’extensibilité de base. 
 
 Actuellement, vous pouvez créer un maximum de 100 comptes Azure Cosmos pour un abonnement Azure. Un seul compte Azure Cosmos peut gérer une quantité de données et un débit provisionné pratiquement illimités. Pour gérer vos données et votre débit provisionné, vous pouvez créer une ou plusieurs bases de données Azure Cosmos pour votre compte, puis, au sein de ces bases de données, créer un ou plusieurs conteneurs. L’image suivante illustre la hiérarchie de ces différents éléments dans un compte Azure Cosmos :
 
-![Hiérarchie d’un compte Azure Cosmos](./media/account-overview/hierarchy.png)
+![Hiérarchie d’un compte Azure Cosmos](./media/account-overview/hierarchy.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

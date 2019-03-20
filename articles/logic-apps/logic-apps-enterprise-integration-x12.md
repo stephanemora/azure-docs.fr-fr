@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123955"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842133"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages X12 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -36,9 +36,10 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-x12-agreement"></a>Créer un contrat X12
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure"). 
 
-2. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.  
+2. Dans le menu principal Azure, sélectionnez **Tous les services**. 
+   Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.  
 
    ![Recherche du compte d’intégration](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -49,7 +50,8 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
    ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. Sélectionnez **Vue d’ensemble**, puis cliquez sur la mosaïque **Contrats**. Si vous ne voyez pas la mosaïque Contrats, commencez par ajouter la mosaïque. 
+4. Sélectionnez **Vue d’ensemble**, puis cliquez sur la mosaïque **Contrats**. 
+   Si vous ne voyez pas la mosaïque Contrats, commencez par ajouter la mosaïque. 
 
    ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
@@ -57,13 +59,16 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
    ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
-6. Sous **Ajouter**, entrez le **nom** de votre contrat. Pour le type de contrat, sélectionnez **X12**. Sélectionnez le **partenaire hôte**, **l’identité de l’hôte**, le **partenaire invité** et **l’identité de l’invité** pour votre contrat. Pour plus de détails sur les propriétés, consultez le tableau de cette étape.
+6. Sous **Ajouter**, entrez le **nom** de votre contrat. 
+   Pour le type de contrat, sélectionnez **X12**. 
+   Sélectionnez le **partenaire hôte**, **l’identité de l’hôte**, le **partenaire invité** et **l’identité de l’invité** pour votre contrat. 
+   Pour plus de détails sur les propriétés, consultez le tableau de cette étape.
 
     ![Renseigner les détails relatifs au contrat](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
     | Propriété | Description |
     | --- | --- |
-    | NOM |Nom du contrat. |
+    | Nom |Nom du contrat. |
     | Type de contrat | Doit être X12. |
     | Partenaire hôte |Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire hôte représente l’organisation qui configure le contrat. |
     | Identité de l’hôte |Identificateur du partenaire hôte. |
@@ -72,8 +77,8 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
     | Paramètres de réception |Ces propriétés s’appliquent à tous les messages reçus par un contrat. |
     | Paramètres d’envoi |Ces propriétés s’appliquent à tous les messages envoyés par un contrat. |  
 
-  > [!NOTE]
-  > La résolution du contrat X12 dépend de la mise en correspondance des qualificateurs et des identificateurs de l’expéditeur et du destinataire définis dans le partenaire et le message entrant. Si ces valeurs changent pour votre partenaire, mettez également à jour le contrat.
+   > [!NOTE]
+   > La résolution du contrat X12 dépend de la mise en correspondance des qualificateurs et des identificateurs de l’expéditeur et du destinataire définis dans le partenaire et le message entrant. Si ces valeurs changent pour votre partenaire, mettez également à jour le contrat.
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configuration du traitement des messages reçus
 
@@ -82,7 +87,7 @@ Maintenant que vous avez défini les propriétés du contrat, vous pouvez config
 1.  Sous **Ajouter**, sélectionnez **Paramètres de réception**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-    L’option **Paramètres de réception** est organisée en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, numéros de contrôle, validations et paramètres internes.
+    **Paramètres de réception** est organisée en plusieurs sections : Identificateurs, accusé de réception, schémas, enveloppes, numéros de contrôle, Validations et paramètres internes.
 
 2. Une fois que vous avez terminé, cliquez sur **OK** pour enregistrer vos paramètres.
 
@@ -178,7 +183,7 @@ Vous pouvez configurer la manière dont votre contrat identifie et traite les me
 1.  Sous **Ajouter**, sélectionnez **Paramètres d’envoi**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-    L’option **Paramètres d’envoi** est organisée en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et validation.
+    **Paramètres d’envoi** est organisée en plusieurs sections : Identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et la Validation.
 
 2. Une fois que vous avez terminé, cliquez sur **OK** pour enregistrer vos paramètres.
 

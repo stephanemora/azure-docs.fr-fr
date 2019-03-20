@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e1f96ce6114b46d9523e29fe3000b7e9c612ea9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186537"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183337"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -59,7 +59,7 @@ Par ailleurs, les services Azure AD payants comme Enterprise Mobility + Securit
 - - -
 **Q : Existe-t-il un rapport qui indique la date d’expiration de mes licences utilisateur Azure AD ?**
 
-**R :**  Non.  Ce n’est pas le cas pour l’instant.
+**R :** Non.  Ce n’est pas le cas pour l’instant.
 
 - - -
 
@@ -88,7 +88,7 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
 - - -
 **Q : Azure AD fournit-il un portail en libre-service aux utilisateurs de mon organisation ?**
 
-**R :** Oui, Azure AD fournit le [Panneau d’accès Azure AD](https://myapps.microsoft.com) pour l’accès aux applications en libre-service. Si vous êtes un client Office 365, vous trouverez la plupart des mêmes fonctionnalités dans le portail Office 365.
+**R :** Oui, Azure AD fournit le [Panneau d’accès Azure AD](https://myapps.microsoft.com) pour l’accès aux applications en libre-service. Si vous êtes un client Office 365, vous trouverez la plupart des mêmes fonctionnalités dans le [portail Office 365](https://portal.office.com).
 
 Pour plus d’informations, consultez [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
@@ -210,4 +210,4 @@ Pour plus d’informations, consultez [Automatisation de l’approvisionnement e
 - - -
 **Q :  Puis-je configurer une connexion LDAP sécurisée avec Azure AD ?**
 
-**R :**   Non. Azure AD ne prend pas en charge le protocole LDAP. Toutefois, vous pouvez configurer un protocole LDAP sécurisé avec Azure AD Domain Services.
+**R :**  Non. Azure AD ne prend pas en charge le protocole LDAP. Toutefois, vous pouvez configurer un protocole LDAP sécurisé avec Azure AD Domain Services.

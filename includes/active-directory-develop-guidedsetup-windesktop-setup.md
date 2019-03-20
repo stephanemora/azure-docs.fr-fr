@@ -4,7 +4,7 @@ description: Fichier Include
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 29b7893bbe813ece7cece9d1591dd574158f4482
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 2a7734f729c4b1db7e8c0b4571e8792373ee11ae
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409665"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203180"
 ---
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
@@ -59,7 +59,7 @@ Dans cette étape, vous allez créer une classe pour gérer l’interaction avec
     ```csharp
     using Microsoft.Identity.Client;
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 
 2. Mettez à jour la classe d’application comme suit :
 

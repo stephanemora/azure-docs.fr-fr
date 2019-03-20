@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118086"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439681"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Présentation des alertes de sécurité dans Azure Security Center
 Cet article vous aide à comprendre les différents types d’alertes de sécurité et les informations associées disponibles dans Azure Security Center. Pour plus d’informations sur la gestion des alertes et des incidents, consultez l’article [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -96,7 +96,7 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Tous les clichés instantanés de fichiers ont été supprimés** : cette alerte indique que les clichés instantanés ont été supprimés.
 * **Commandes suspectes de nettoyage de fichier** : cette alerte indique une combinaison de commandes systeminfo utilisées pour effectuer une activité de nettoyage automatique après compromission.  Alors que *systeminfo.exe* est un outil Windows légitime, une exécution deux fois de suite, suivie d’une commande de suppression comme survenue ici est rare.
 * **Création de compte suspecte** : cette alerte indique qu’un compte a été créé avec une proche ressemblance avec un compte de privilège Administrateur intégré. Cette technique peut être utilisée par des pirates pour créer un compte non autorisé sans être détecté.
-* **Activité suspecte de copie de clichés instantanés de volume** : cette alerte indique une activité de suppression de copie de cliché instantané sur la ressource. Le cliché instantané de volume (VSC) est un artefact important qui stocke des clichés instantanés de données. Cette activité est associée à un ransowmare, mais elle peut aussi être légitime.
+* **Activité suspecte de copie de clichés instantanés de volume** : cette alerte indique une activité de suppression de copie de cliché instantané sur la ressource. Le cliché instantané de volume (VSC) est un artefact important qui stocke des clichés instantanés de données. Cette activité est associée aux Ransomware, mais il peut aussi être légitime.
 * **Méthode de persistance du registre Windows** : cette alerte indique une tentative de conservation d’un fichier exécutable dans le Registre Windows. Les logiciels malveillants utilisent souvent cette technique pour survivre à un démarrage.
 * **Nouvelle règle de pare-feu suspecte** : cette alerte indique qu’une règle de pare-feu a été ajoutée via *netsh.exe* pour autoriser un trafic à partir d’un exécutable situé dans un emplacement suspect.
 * **Exécutions suspectes de XCOPY** : cette alerte indique une série d’exécutions de XCOPY pouvant signaler la compromission d’une de vos machines et son utilisation pour propager des logiciels malveillants.

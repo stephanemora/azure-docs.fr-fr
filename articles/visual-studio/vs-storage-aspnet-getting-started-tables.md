@@ -12,23 +12,23 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228961"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444631"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage Table Azure et des services connectés de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Le stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
 
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants en utilisant des entités de stockage de table Azure. Ces scénarios incluent la création d’une table ainsi que l'ajout, l'interrogation et la suppression d’entités de table. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Compte Azure Storage](../storage/common/storage-quickstart-create-account.md)
@@ -114,7 +114,7 @@ Les étapes suivantes montrent comment créer une table :
     }
     ```
 
-1. Dans la méthode **CreateTable**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
+1. Dans la méthode **CreateTable**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -169,7 +169,7 @@ Les étapes suivantes montrent comment créer une table :
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Créer une table** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **créer la table** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Créer une table](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
@@ -203,7 +203,7 @@ La classe d’entité *doit* déclarer un constructeur public sans paramètre.
     }
     ```
 
-1. Dans la méthode **AddEntity**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
+1. Dans la méthode **AddEntity**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -271,7 +271,7 @@ La classe d’entité *doit* déclarer un constructeur public sans paramètre.
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Ajouter une entité** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **ajouter une entité** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Ajouter une entité](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
@@ -298,7 +298,7 @@ Vous pouvez [ajouter une entité à une table](#add-an-entity-to-a-table), ou en
     }
     ```
 
-1. Dans la méthode **AddEntities**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
+1. Dans la méthode **AddEntities**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -391,7 +391,7 @@ Vous pouvez [ajouter une entité à une table](#add-an-entity-to-a-table), ou en
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Ajouter des entités** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **ajouter des entités** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Ajouter des entités](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -418,7 +418,7 @@ Cette section explique comment obtenir une entité unique à partir d’une tabl
     }
     ```
 
-1. Dans la méthode **GetSingle**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
+1. Dans la méthode **GetSingle**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -493,7 +493,7 @@ Cette section explique comment obtenir une entité unique à partir d’une tabl
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Get Single** (Obtenir une entité unique) pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **obtenir unique** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Obtenir une entité unique](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -518,7 +518,7 @@ Comme indiqué dans la section [Ajout d'une entité à une table](#add-an-entity
     }
     ```
 
-1. Dans la méthode **GetPartition**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
+1. Dans la méthode **GetPartition**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -603,7 +603,7 @@ Comme indiqué dans la section [Ajout d'une entité à une table](#add-an-entity
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Obtenir une partition** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **obtenir une Partition** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Obtenir une partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -628,7 +628,7 @@ Cette section montre comment supprimer une entité d'une table.
     }
     ```
 
-1. Dans la méthode **DeleteEntity**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
+1. Dans la méthode **DeleteEntity**, ajoutez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure : (Remplacez *&lt;storage-account-name>* par le nom du compte de stockage Azure auquel accéder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -703,7 +703,7 @@ Cette section montre comment supprimer une entité d'une table.
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Supprimer une entité** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **supprimer l’entité** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Obtenir une entité unique](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 

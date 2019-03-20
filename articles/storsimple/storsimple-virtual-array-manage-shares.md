@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092427"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer des partages sur l’instance StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des partages sur votre instance StorSimple Virtual Array.
 
@@ -33,8 +33,8 @@ Le service StorSimple Device Manager est une extension dans le portail Azure 
 
 Les partages StorSimple peuvent être les suivants :
 
-* **Attaché localement** : les données de ces partages demeurent à tout moment sur le tableau ; elles ne débordent pas sur le cloud.
-* **Hiérarchisé** : les données de ces partages peuvent déborder sur le cloud. Lorsque vous créez un partage à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un partage de 1 To, 100 Go résident dans l’espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
+* **Attaché localement**: Données de ces partages demeurent sur le tableau à tout moment et ne débordent pas sur le cloud.
+* **Hiérarchisé**: Données de ces partages peuvent déborder sur le cloud. Lorsque vous créez un partage à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un partage de 1 To, 100 Go résident dans l’espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
 
 ### <a name="provisioned-capacity"></a>Capacité allouée
 
@@ -80,15 +80,15 @@ Suivez les instructions de ce didacticiel pour effectuer les tâches suivantes 
 
 2. Dans le panneau **Ajouter un partage**, procédez comme suit :
    
-    1. Dans le champ **Nom du partage**, entrez un nom unique pour votre partage. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
+   1. Dans le champ **Nom du partage**, entrez un nom unique pour votre partage. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
 
-    2. Une **Description** facultative pour le partage. La description permet d'identifier les propriétaires du partage.
+   2. Une **Description** facultative pour le partage. La description permet d'identifier les propriétaires du partage.
 
-    3. Dans la liste déroulante **Type**, spécifiez si vous souhaitez créer un partage **Hiérarchisé** ou **Attaché localement**. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un **Partage attaché localement**. Pour toutes les autres données, sélectionnez un partage **Hiérarchisé**.
+   3. Dans la liste déroulante **Type**, spécifiez si vous souhaitez créer un partage **Hiérarchisé** ou **Attaché localement**. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un **Partage attaché localement**. Pour toutes les autres données, sélectionnez un partage **Hiérarchisé**.
 
-    4. Dans le champ **Capacité**, spécifiez la taille du partage. Un partage hiérarchisé doit être compris entre 500 Go et 20 To, tandis qu’un partage attaché doit être compris entre 50 Go et 2 To.
+   4. Dans le champ **Capacité**, spécifiez la taille du partage. Un partage hiérarchisé doit être compris entre 500 Go et 20 To, tandis qu’un partage attaché doit être compris entre 50 Go et 2 To.
 
-    5. Dans le champ **Affecter une autorisation d’accès total par défaut**, attribuez les autorisations à l’utilisateur ou au groupe qui doivent accéder à ce partage. Spécifiez le nom de l’utilisateur ou du groupe d’utilisateurs au format _john@contoso.com_. Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
+   5. Dans le champ **Affecter une autorisation d’accès total par défaut**, attribuez les autorisations à l’utilisateur ou au groupe qui doivent accéder à ce partage. Spécifiez le nom de l’utilisateur ou du groupe d’utilisateurs au format _john@contoso.com_. Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
 3. Lorsque vous avez terminé de configurer votre partage, cliquez sur **Créer**. Un partage est créé avec les paramètres spécifiés ; une notification s’affiche. Par défaut, la sauvegarde est activée pour le partage.
 4. Pour vérifier que le partage a été créé, accédez au panneau **Partages**. Le partage devrait y apparaître.
    

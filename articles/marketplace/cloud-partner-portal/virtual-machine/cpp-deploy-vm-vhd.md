@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106047"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Déployer une machine virtuelle à partir de vos disques durs virtuels
 
@@ -51,13 +51,13 @@ Vous utiliserez les étapes suivantes pour créer et déployer une image de mach
 
 Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image de machine virtuelle](./cpp-certify-vm.md).
 
-2.  Cliquez sur **Nouveau**, recherchez **Déploiement de modèle**, puis sélectionnez **Build your own template in Editor** (Générez votre propre modèle dans l’éditeur).  <br/>
-  ![Générer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_021.png)
+1. Cliquez sur **Nouveau**, recherchez **Déploiement de modèle**, puis sélectionnez **Build your own template in Editor** (Générez votre propre modèle dans l’éditeur).  <br/>
+   ![Générer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_021.png)
 
-3. Copiez et collez ce [modèle JSON](./cpp-deploy-json-template.md) dans l’éditeur, puis cliquez sur **Enregistrer**. <br/>
-  ![Enregistrer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_022.png)
+1. Copiez et collez ce [modèle JSON](./cpp-deploy-json-template.md) dans l’éditeur, puis cliquez sur **Enregistrer**. <br/>
+   ![Enregistrer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_022.png)
 
-4. Indiquez les valeurs des paramètres pour les pages de propriétés **Déploiement personnalisé** affichées.
+1. Indiquez les valeurs des paramètres pour les pages de propriétés **Déploiement personnalisé** affichées.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -79,7 +79,7 @@ Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image 
    | URL du disque dur virtuel                     | URL complète du disque dur virtuel du disque de système d’exploitation                                                     |
    |  |  |
             
-5. Après avoir indiqué ces valeurs, cliquez sur **Achat**. 
+1. Après avoir indiqué ces valeurs, cliquez sur **Achat**. 
 
 Azure commence le déploiement : une nouvelle machine virtuelle est créée avec le disque dur virtuel non managé spécifié, dans le chemin d’accès au compte de stockage spécifié.  Pour en suivre la progression dans le portail Azure, cliquez sur **Machines virtuelles** sur le côté gauche du portail.  Une fois la machine virtuelle créée, l’état passe de `Starting` à `Running`. 
 

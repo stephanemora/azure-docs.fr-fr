@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977607"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202195"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Utiliser le coordinateur Apache Oozie basé sur le temps avec Apache Hadoop dans HDInsight pour définir des workflows et coordonner des tâches
 Dans cet article, vous découvrirez comment définir des workflows et des coordinateurs, et comment déclencher les tâches du coordinateur en fonction de l'heure. Il est utile de lire l’article [Utiliser Apache Oozie avec HDInsight][hdinsight-use-oozie] avant cet article-ci. En plus d’Oozie, vous pouvez utiliser Azure Data Factory pour programmer des tâches. Pour plus d’informations sur Azure Data Factory, consultez [Utiliser Apache Pig et Apache Hive avec Data Factory](../data-factory/transform-data.md).
@@ -32,7 +32,7 @@ L’image suivante montre le workflow que vous allez implémenter :
 
 Le workflow contient deux actions :
 
-1. Une action Hive exécute un script HiveQL pour compter les occurrences de chaque type de niveau de journalisation dans un fichier journal Apache log4j. Chaque journal log4j est constitué d’une ligne de champs qui contient un champ [LOG LEVEL] pour indiquer le type et la gravité, par exemple :
+1. Une action Hive exécute un script HiveQL pour compter les occurrences de chaque type de niveau de journalisation dans un Apache log4j du journal. Chaque journal log4j est constitué d’une ligne de champs qui contient un champ [LOG LEVEL] pour indiquer le type et la gravité, par exemple :
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -56,7 +56,7 @@ Le workflow contient deux actions :
 >
 >
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
@@ -87,7 +87,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
     |Nom de la base de données SQL|$sqlDatabaseName||Base de données SQL Azure vers laquelle Sqoop exporte des données. |
 
   > [!NOTE]   
-  > Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail Azure. Pour obtenir des instructions sur la création d'une base de données SQL et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-get-started].
+  > Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer à partir du portail Azure. Pour obtenir des instructions sur la création d'une base de données SQL et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-get-started].
 
 > [!NOTE]  
 > Remplissez les valeurs dans les tables. Cela vous sera utile pour ce didacticiel.
@@ -192,7 +192,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
     |Variable de workflow|Description|
     |---|---|
     |${jobTracker}|Spécifie l'URL du suivi des tâches Hadoop. Utilisez **jobtrackerhost:9010** sur les versions 3.0 et 2.0 de HDInsight.|
-    |${nameNode}|Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse wasb:// du système de fichiers par défaut, par exemple *wasb://&lt;nom_conteneur&gt;@&lt;nom_compte_de_stockage&gt;.blob.core.windows.net*.|
+    |${nameNode}|Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse wasb:// du système de fichiers par défaut, par exemple *wasb://&lt;nom_conteneur&gt;\@&lt;nom_compte_de_stockage&gt;.blob.core.windows.net*.|
     |${queueName}|Spécifie le nom de la file d’attente auquel est envoyée la tâche. Utilisez **Default**.|
 
     Variables de l'action Hive
@@ -655,15 +655,15 @@ Azure PowerShell ne fournit actuellement aucune applet de commande pour la défi
 
 Supprimez les signes # si vous souhaitez exécuter d'autres fonctions.
 
-9. Si vous disposez du cluster HDInsight version 2.1, remplacez « https://$clusterName.azurehdinsight.net:443/oozie/v2/ » par « https://$clusterName.azurehdinsight.net:443/oozie/v1/ ». Le cluster HDInsight version 2.1 ne prend pas en charge la version 2 des services Web.
-10. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script. La sortie doit ressembler à ceci :
+1. Si votre cluster HDInsight est la version 2.1, remplacez « https://$clusterName.azurehdinsight.net:443/oozie/v2/ » par « https://$clusterName.azurehdinsight.net:443/oozie/v1/ ». Le cluster HDInsight version 2.1 ne prend pas en charge la version 2 des services Web.
+1. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script. La sortie doit ressembler à ceci :
 
-     ![Sortie du workflow exécuté par le didacticiel][img-runworkflow-output]
-11. Connectez-vous à votre base de données SQL pour voir les données exportées.
+    ![Sortie du workflow exécuté par le didacticiel][img-runworkflow-output]
+1. Connectez-vous à votre base de données SQL pour voir les données exportées.
 
 **Vérification du journal des erreurs de la tâche**
 
-Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log depuis le nœud principal du cluster. Pour plus d’informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l’aide du portail Azure][hdinsight-admin-portal].
+Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log depuis le nœud principal du cluster. Pour plus d’informations sur le protocole RDP, consultez [gestion Apache des clusters Hadoop dans HDInsight à l’aide du portail Azure](hdinsight-administer-use-portal-linux.md).
 
 **Réexécution du didacticiel**
 
@@ -719,7 +719,6 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

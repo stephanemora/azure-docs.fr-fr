@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: b2e8d629f4007729ad0538aee9bdb8e67747b026
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015127"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225006"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -217,33 +217,33 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 
 1. Comme **Nom**, sélectionnez la variable **Limite**. Comme **Valeur**, entrez « 1 ». 
 
-    ![Incrémenter la variable « Limite » de 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Incrémenter la variable « Limite » de 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. En dehors et sous la boucle, choisissez **Nouvelle étape**. 
 
 1. Sous la zone de recherche, choisissez **Tout**. 
-    Recherchez et ajoutez une action qui envoie un e-mail, par exemple : 
+     Recherchez et ajoutez une action qui envoie un e-mail, par exemple : 
 
-    ![Ajouter une action d’envoi de message électronique](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![Ajouter une action d’envoi de message électronique](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. Si vous y êtes invité, connectez-vous à votre compte e-mail.
 
 1. Définissez les propriétés de l’action d’e-mail. Ajoutez la variable **Limite** au sujet. De cette façon, vous pouvez confirmer que la valeur actuelle de la variable corresponde aux conditions que vous avez spécifiées. Par exemple :
 
-     ![Configurer les propriétés du message électronique](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![Configurer les propriétés du message électronique](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-     | Propriété | Valeur | Description |
-     | -------- | ----- | ----------- | 
-     | **To** | *<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
-     | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
-     | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
-     |||| 
+      | Propriété | Valeur | Description |
+      | -------- | ----- | ----------- | 
+      | **To** | *<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
+      | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
+      | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
+      |||| 
 
 1. Enregistrez votre application logique. Pour tester manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur.
 
-     Lorsque votre application logique s’exécute, vous recevez un message électronique avec le contenu spécifié :
+      Lorsque votre application logique s’exécute, vous recevez un message électronique avec le contenu spécifié :
 
-     ![Message électronique reçu](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![Message électronique reçu](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Empêcher les boucles infinies
 

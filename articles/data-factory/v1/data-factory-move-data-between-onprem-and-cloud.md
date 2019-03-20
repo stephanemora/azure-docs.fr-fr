@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822423"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995898"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 > [!NOTE]
@@ -310,11 +310,11 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
      {
          "name": "ADFTutorialPipelineOnPrem",
          "properties": {
-         "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+         "description": "This pipeline has one Copy activity that copies data from an on premises SQL to Azure blob",
          "activities": [
            {
              "name": "CopyFromSQLtoBlob",
-             "description": "Copy data from on-prem SQL server to blob",
+             "description": "Copy data from on premises SQL server to blob",
              "type": "Copy",
              "inputs": [
                {
@@ -359,10 +359,10 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
    * Dans la section des activités, toutes les activités ont le **type** **Copy**.
    * **L’entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
-   * Dans la section **typeProperties**, **SqlSource** est spécifié en tant que **Type de source** et **BlobSink **, en tant que **Type de récepteur**.
+   * Dans le **typeProperties** section, **SqlSource** est spécifié comme le **type de source** et **BlobSink** est spécifié comme le **type de récepteur**.
    * La requête SQL `select * from emp` est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
-   Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel.
+   Les dates/heures de début et de fin doivent toutes deux être au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 
    Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 
@@ -407,7 +407,7 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
 6. Cliquez sur **X** pour fermer toutes les pages jusqu’à ce que vous
 7. reveniez à la page d’accueil de l’élément **ADFTutorialOnPremDF**.
 8. (facultatif) Cliquez sur **Pipelines**, sur **ADFTutorialOnPremDF**, puis accédez aux tables d’entrée (**Consommé**) ou aux jeux de données de sortie (**Produit**).
-9. Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour vérifier qu’un objet blob/fichier est créé pour chaque heure.
+9. Utilisez des outils tels que [Microsoft Storage Explorer](https://storageexplorer.com/) pour vérifier qu’un objet blob/fichier est créé pour chaque heure.
 
    ![Explorateur de stockage Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 

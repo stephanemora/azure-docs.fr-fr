@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860522"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975489"
 ---
 # <a name="interpret-method"></a>Méthode Interpret
 
@@ -31,15 +31,17 @@ Pour offrir une expérience interactive, vous pouvez appeler cette méthode de f
 
 Nom     | Valeur | Requis ?  | Description
 ---------|---------|---------|---------
-**query**    | Chaîne de texte | OUI | Requête saisie par l’utilisateur.  Si le paramètre complete est défini sur 1, la requête sera interprétée en tant que préfixe pour générer des suggestions de saisie semi-automatique pour la requête.        
+**query**    | Chaîne de texte | Oui | Requête saisie par l’utilisateur.  Si le paramètre complete est défini sur 1, la requête sera interprétée en tant que préfixe pour générer des suggestions de saisie semi-automatique pour la requête.        
 **model**    | Chaîne de texte | Non   | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
 **complete** | 0 ou 1 | Non <br>par défaut : 0  | 1 signifie que les suggestions de saisie semi-automatique sont générées en fonction des données de la grammaire et du graphique.         
 **count**    | Number | Non <br>par défaut :10 | Nombre maximal d’interprétations à renvoyer.         
 **offset**   | Number | Non <br>par défaut : 0  | Index de la première interprétation à renvoyer. Par exemple, *count=2&offset=0* renvoie les interprétations 0 et 1. *count=2&offset=2* renvoie les interprétations 2 et 3.       
 **timeout**  | Number | Non <br>par défaut : 1000 | Délai d’expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d’expiration sont renvoyées.
+
 <br>
   
 ## <a name="response-json"></a>Réponse (JSON)
+
 Nom     | Description
 ---------|---------
 **query** |Paramètre *query* de la requête.
@@ -54,6 +56,7 @@ Nom     | Description
 **aborted** | True si la requête a expiré.
 
 <br>
+
 #### <a name="example"></a>Exemple :
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

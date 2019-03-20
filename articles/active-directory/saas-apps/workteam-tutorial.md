@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a7cd986544dfb1472f5cc8a013fec951dca42a59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Didacticiel : Intégration d'Azure Active Directory à Workteam
 
@@ -34,7 +34,7 @@ L’intégration de Workteam dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Workteam, vous avez besoin des éléments suivants :
 
@@ -200,7 +200,7 @@ Pour se connecter à Workteam, les utilisateurs d’Azure AD doivent être appro
 
     a. Dans la zone de texte **Name** (Nom), saisissez le prénom de l’utilisateur, par exemple **Brittasimon**.
 
-    b. Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso.com**.
+    b. Dans **E-mail** texte, entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon\@contoso.com**.
 
     c. Cliquez sur **OK**.
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112175"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Utiliser Azure Kubernetes Service avec Apache Kafka sur HDInsight
 
@@ -25,7 +25,7 @@ Découvrez comment utiliser Azure Kubernetes Service (AKS) avec [Apache Kafka](h
 > [!NOTE]  
 > Ce document se concentre sur les étapes à suivre pour permettre à Azure Kubernetes Service de communiquer avec Kafka sur HDInsight. Nous prenons pour exemple un simple client Kafka pour montrer que la configuration fonctionne.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Abonnement Azure
@@ -81,17 +81,17 @@ Si vous n’avez pas déjà un cluster AKS, utilisez un des documents suivants p
 
 5. Pour configurer l’homologation entre le réseau HDInsight et le réseau de cluster AKS, sélectionnez le réseau virtuel, puis sélectionnez __Homologations__. Sélectionnez __+ Ajouter__ et utilisez les valeurs suivantes pour remplir le formulaire :
 
-    * __Nom__ : entrez un nom unique pour cette configuration de peering.
-    * __Réseau virtuel__ : ce champ permet de sélectionner le réseau virtuel pour le **cluster AKS**.
+   * __Nom__ : entrez un nom unique pour cette configuration de peering.
+   * __Réseau virtuel__ : ce champ permet de sélectionner le réseau virtuel pour le **cluster AKS**.
 
-    Laissez tous les autres champs sur la valeur par défaut, puis sélectionnez __OK__ pour configurer l’homologation.
+     Laissez tous les autres champs sur la valeur par défaut, puis sélectionnez __OK__ pour configurer l’homologation.
 
 6. Pour configurer l’homologation entre le réseau de cluster AKS et le réseau HDInsight, sélectionnez le __réseau virtuel du cluster AKS__, puis sélectionnez __Homologations__. Sélectionnez __+ Ajouter__ et utilisez les valeurs suivantes pour remplir le formulaire :
 
-    * __Nom__ : entrez un nom unique pour cette configuration de peering.
-    * __Réseau virtuel__ : ce champ permet de sélectionner le réseau virtuel pour le __cluster HDInsight__.
+   * __Nom__ : entrez un nom unique pour cette configuration de peering.
+   * __Réseau virtuel__ : ce champ permet de sélectionner le réseau virtuel pour le __cluster HDInsight__.
 
-    Laissez tous les autres champs sur la valeur par défaut, puis sélectionnez __OK__ pour configurer l’homologation.
+     Laissez tous les autres champs sur la valeur par défaut, puis sélectionnez __OK__ pour configurer l’homologation.
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>Installer Apache Kafka sur HDInsight
 

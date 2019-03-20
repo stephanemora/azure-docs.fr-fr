@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213619"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078756"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -41,12 +41,12 @@ Les vitrines de la Place de marché s’adaptent au public visé et aux produits
 
 Les offres de services qui sont basées sur Microsoft Dynamics 365, Office 365 et Power BI peuvent être répertoriées sur AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Instructions de référencement des services de conseil Microsoft AppSource). 
 
->[!Note]
->Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un **public technique axé sur des *solutions et services techniques Azure.* ** Les services de conseil dans AppSource doivent tirer parti des offres destinées à des experts souhaitant fournir des solutions de qualité pour Dynamics 365, Power BI ou PowerApps pour référencer leurs offres de services de conseil dans AppSource
-
-
->[!TIP]
->Pour publier une offre dans la vitrine Place de marché, vous effectuerez cette sélection en choisissant « Azure » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner. Pour publier une offre sur AppSource, vous procéderez à cette sélection en choisissant « Dynamics 365 », « Power BI » ou « Power Apps » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner.
+> [!Note]
+> Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un **public technique axé sur des *solutions et services techniques Azure.* ** Les services de conseil dans AppSource doivent tirer parti des offres destinées à des experts souhaitant fournir des solutions de qualité pour Dynamics 365, Power BI ou PowerApps pour référencer leurs offres de services de conseil dans AppSource
+> 
+> 
+> [!TIP]
+> Pour publier une offre dans la vitrine Place de marché, vous effectuerez cette sélection en choisissant « Azure » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner. Pour publier une offre sur AppSource, vous procéderez à cette sélection en choisissant « Dynamics 365 », « Power BI » ou « Power Apps » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner.
 
 ## <a name="eligible-partners-and-supported-countries"></a>Partenaires éligibles et pays pris en charge
 

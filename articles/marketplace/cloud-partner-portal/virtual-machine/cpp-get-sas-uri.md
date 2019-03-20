@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: dcfe744cc8ca6f3b3cd201898a79fcce3f24f8d5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639107"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113518"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle
 
@@ -44,33 +44,33 @@ L’URL SAS peut être générée des deux manières courantes à l’aide des o
 
 Pour générer un URI SAS avec Azure CLI, procédez comme suit.
 
-1.  Téléchargez et installez [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Des versions sont disponibles pour Windows, macOS et diverses distributions de Linux. 
-2.  Créez un fichier PowerShell (extension `.ps1`), copiez le code suivant, puis enregistrez-le en local.
+1. Téléchargez et installez [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Des versions sont disponibles pour Windows, macOS et diverses distributions de Linux. 
+2. Créez un fichier PowerShell (extension `.ps1`), copiez le code suivant, puis enregistrez-le en local.
 
-    ``` powershell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
-    ```
+   ``` powershell
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
+   ```
     
-3.  Modifiez le fichier pour fournir les paramètres suivants.  Les dates doivent être fournies au format d’horodatage UTC, par exemple `10-25-2016T00:00:00Z`.
-    - `<account-name>` : nom de votre compte de stockage Azure
-    - `<account-key>` : clé de votre compte de stockage Azure
-    - `<vhd-name>` : nom de votre disque dur virtuel
-    - `<start-date>` : date de début de l’autorisation d’accès au disque dur virtuel. Indiquez une date correspondant à la veille de la date du jour. 
-    - `<expiry-date>` : date de fin de l’autorisation d’accès au disque dur virtuel.  Indiquez une date correspondant au moins à trois semaines après la date du jour. 
+3. Modifiez le fichier pour fournir les paramètres suivants.  Les dates doivent être fournies au format d’horodatage UTC, par exemple `10-25-2016T00:00:00Z`.
+   - `<account-name>` : nom de votre compte de stockage Azure
+   - `<account-key>` : clé de votre compte de stockage Azure
+   - `<vhd-name>` : nom de votre disque dur virtuel
+   - `<start-date>` : date de début de l’autorisation d’accès au disque dur virtuel. Indiquez une date correspondant à la veille de la date du jour. 
+   - `<expiry-date>` : date de fin de l’autorisation d’accès au disque dur virtuel.  Indiquez une date correspondant au moins à trois semaines après la date du jour. 
  
-    L’exemple suivant montre les valeurs de paramètre appropriées (au moment de la rédaction de cet article).
+   L’exemple suivant montre les valeurs de paramètre appropriées (au moment de la rédaction de cet article).
 
-    ``` powershell
-        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
-    ```
+   ``` powershell
+       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```
  
 4. Enregistrez les modifications apportées à ce script PowerShell.
 5. Exécutez ce script à l’aide de privilèges d’administrateur, pour générer une *chaîne de connexion SAS* offrant un accès au niveau du conteneur.  Deux approches sont possibles :
-    - Exécutez le script à partir de la console.  Par exemple, dans Windows, cliquez avec le bouton droit de la souris sur le script et sélectionnez **Exécuter en tant qu’administrateur**.
-    - Exécutez le script à partir d’un éditeur de script PowerShell, comme [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), à l’aide de privilèges d’administrateur. 
-  Le code suivant montre une chaîne de connexion SAS générée à l’aide de cet éditeur. 
+   - Exécutez le script à partir de la console.  Par exemple, dans Windows, cliquez avec le bouton droit de la souris sur le script et sélectionnez **Exécuter en tant qu’administrateur**.
+   - Exécutez le script à partir d’un éditeur de script PowerShell, comme [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), à l’aide de privilèges d’administrateur. 
+     Le code suivant montre une chaîne de connexion SAS générée à l’aide de cet éditeur. 
 
-    ![Génération d’URI SAS dans PowerShell ISE](./media/publishvm_032.png)
+     ![Génération d’URI SAS dans PowerShell ISE](./media/publishvm_032.png)
 
 6. Copiez la chaîne de connexion SAS obtenue et enregistrez-la dans un fichier texte à un emplacement sécurisé.  Vous allez ajouter à cette chaîne les informations d’emplacement du disque dur virtuel associé pour créer l’URI SAS final. 
 7. Dans le portail Microsoft Azure, accédez au stockage blob qui contient le disque dur virtuel associé à l’URI généré à l’instant.
@@ -86,7 +86,7 @@ Pour générer un URI SAS avec Azure CLI, procédez comme suit.
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-Répétez ces étapes pour chaque disque dur virtuel dans les SKU que vous prévoyez de publier.
+Répétez ces étapes pour chaque disque dur virtuel dans les références SKU que vous prévoyez de publier.
 
 
 ### <a name="microsoft-storage-explorer"></a>Explorateur de stockage Microsoft
@@ -102,11 +102,11 @@ Pour générer une URL SAS avec l’Explorateur Stockage Microsoft Azure, procé
     ![Obtenir l’élément SAS dans l’Explorateur Azure](./media/publishvm_034.png)
 
 6. La boîte de dialogue **Signature d’accès partagé** s’affiche. Entrez des valeurs dans les champs suivants :
-    - **Heure de début** : date de début de l’autorisation d’accès au disque dur virtuel. Indiquez une date correspondant à la veille de la date du jour.
-    - **Heure d’expiration** : date de fin de l’autorisation d’accès au disque dur virtuel.  Indiquez une date correspondant au moins à trois semaines après la date du jour.
-    - **Autorisations** : sélectionnez les autorisations `Read` et `List`. 
+   - **Heure de début** : date de début de l’autorisation d’accès au disque dur virtuel. Indiquez une date correspondant à la veille de la date du jour.
+   - **Heure d’expiration** : date de fin de l’autorisation d’accès au disque dur virtuel.  Indiquez une date correspondant au moins à trois semaines après la date du jour.
+   - **Autorisations** : sélectionnez les autorisations `Read` et `List`. 
 
-    ![Boîte de dialogue SAS dans l’Explorateur Azure](./media/publishvm_035.png)
+     ![Boîte de dialogue SAS dans l’Explorateur Azure](./media/publishvm_035.png)
 
 7. Cliquez sur **Créer** pour créer l’URI SAS associé à ce disque dur virtuel.  La boîte de dialogue affiche maintenant les détails de cette opération. 
 8. Copiez la valeur de l’**URL** et enregistrez-la dans un fichier texte dans un emplacement sécurisé. 

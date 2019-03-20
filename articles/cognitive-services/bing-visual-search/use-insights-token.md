@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: a1a2128e4e13494a76dfad9f051be56e02dbd995
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b01b68964600f6162512d4405fddbaf125e7e76d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082720"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Utilisation d’un jeton insights pour obtenir des informations sur une image
 
@@ -66,7 +66,7 @@ Pour obtenir des exemples qui utilisent le jeton insights, consultez [C#](#using
 
 ## <a name="using-c"></a>Utilisation de C#
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Vous avez besoin de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour que ce code s’exécute sous Windows. (La version Community Edition gratuite fonctionne.)
 
@@ -242,7 +242,7 @@ namespace VisualSearchInsightsToken
 
 ## <a name="using-java"></a>Utilisation de Java
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](https://aka.ms/azure-jdks). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
 
@@ -286,7 +286,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
+// https://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -360,7 +360,7 @@ public class InsightsToken {
 
 ## <a name="using-nodejs"></a>Utilisation de Node.js
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Vous devez disposer de [Node.js 6](https://nodejs.org/en/download/) pour exécuter ce code.
 
@@ -373,19 +373,19 @@ Pour exécuter cette application, suivez les étapes ci-dessous :
 1. Créez un dossier pour votre projet (ou utilisez votre éditeur ou IDE préféré).
 2. À partir d’un terminal ou d’une invite de commandes, accédez au dossier que vous venez de créer.
 3. Installez les modules request :  
-  ```  
-  npm install request  
-  ```  
+   ```  
+   npm install request  
+   ```  
 3. Installez les modules form-data :  
-  ```  
-  npm install form-data  
-  ```  
+   ```  
+   npm install form-data  
+   ```  
 4. Créez un fichier nommé GetVisualInsights.js et ajoutez le code suivant à ce dernier.
 5. Remplacez la valeur `subscriptionKey` par votre clé d’abonnement.
 7. Exécutez le programme.  
-  ```
-  node GetVisualInsights.js
-  ```
+   ```
+   node GetVisualInsights.js
+   ```
 
 ```javascript
 var request = require('request');
@@ -428,7 +428,7 @@ function requestCallback(err, res, body) {
 ## <a name="using-python"></a>Utilisation de Python
 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Vous devez disposer de [Python 3](https://www.python.org/) pour exécuter ce code.
 

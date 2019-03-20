@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: ce7cc489b107ce4bd95270b9a7f8cb560a2d2398
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 38b283ed666b39b4e090bd95051a4454a9b47e62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249644"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975659"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Table Azure Cosmos DB : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
-
+> 
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
@@ -27,9 +27,20 @@ ms.locfileid: "55249644"
 |   |   |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**Exemple**|[Exemple de COSMOS DB Table API .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Démarrage rapide**|[Démarrage rapide](create-table-dotnet.md)|
+|**Didacticiel**|[Didacticiel](tutorial-develop-table-dotnet.md)|
 |**Infrastructure actuellement prise en charge**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Version en disponibilité générale
+
+### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
+* Modifications apportées à la configuration de CloudTableClient. Il accepte désormais un un objet TableClientConfiguration pendant la construction. TableClientConfiguration fournit différentes propriétés pour configurer le comportement du client selon que le point de terminaison cible est l’API de Table Cosmos DB ou l’API de Table de stockage Azure.
+* Prise en charge de TableQuery pour retourner des résultats dans l’ordre de tri sur une colonne personnalisée. Cette fonctionnalité est uniquement pris en charge sur les points de terminaison Cosmos DB Table.
+* Prise en charge ajoutée pour exposer RequestCharges sur différents types de résultats. Cette fonctionnalité est uniquement pris en charge sur les points de terminaison Cosmos DB Table.
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
 * Ajout de la prise en charge du jeton SAS et des opérations de TablePermissions, ServiceProperties et ServiceStats par rapport à des points de terminaison Table de stockage Azure. 
@@ -51,6 +62,8 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |13 mars 2019 |--- |
+| [0.11.0-preview](#0.11.0-preview) |5 mars 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |22 janvier 2019 |--- |
 | [0.10.0-preview](#0.10.0-preview) |18 décembre 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |18 octobre 2018 |--- |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 76059c587a6378ccfe16c0a633bea0c6c7a8a57d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112515"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier le parcours de migration pour éviter tout heurt. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration.
@@ -79,8 +79,8 @@ Les clients les plus efficaces disposent de plans détaillés qui abordent, docu
 
   La meilleure solution pour garantir une migration sans heurts est de mener un test en labo de votre scénario en particulier (calcul, mise en réseau et stockage), afin de garantir :
 
-  - Un laboratoire totalement distinct ou un environnement hors production existant pour les tests. Nous recommandons un laboratoire totalement distinct qui peut faire l’objet de plusieurs migrations et de modifications destructrices.  Les scripts pour collecter/sérialiser les métadonnées à partir des abonnements réels sont listés ci-dessous.
-  - Il est judicieux de créer le laboratoire dans un abonnement distinct. En effet, le labo sera détruit à plusieurs reprises, et le fait de disposer d’un abonnement distinct et isolé réduit le risque de supprimer accidentellement des données réelles.
+- Un laboratoire totalement distinct ou un environnement hors production existant pour les tests. Nous recommandons un laboratoire totalement distinct qui peut faire l’objet de plusieurs migrations et de modifications destructrices.  Les scripts pour collecter/sérialiser les métadonnées à partir des abonnements réels sont listés ci-dessous.
+- Il est judicieux de créer le laboratoire dans un abonnement distinct. En effet, le labo sera détruit à plusieurs reprises, et le fait de disposer d’un abonnement distinct et isolé réduit le risque de supprimer accidentellement des données réelles.
 
   Pour cela, vous pouvez utiliser l’outil AsmMetadataParser. [En savoir plus sur cet outil](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -122,13 +122,13 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
     > Ces limites doivent être relevées dans la même région que votre environnement actuel à migrer.
     >
 
-    - Interfaces réseau
-    - Équilibreurs de charge
-    - Adresses IP publiques
-    - Adresses IP publiques statiques
-    - Cœurs
-    - Network Security Group
-    - Tables de routage
+  - Interfaces réseau
+  - Équilibreurs de charge
+  - Adresses IP publiques
+  - Adresses IP publiques statiques
+  - Cœurs
+  - Network Security Group
+  - Tables de routage
 
     Vous pouvez vérifier vos quotas Azure Resource Manager actuels en utilisant les commandes suivantes avec la dernière version d’Azure PowerShell.
     

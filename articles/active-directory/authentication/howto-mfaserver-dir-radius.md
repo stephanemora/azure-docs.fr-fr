@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79104895e91dc2143a0f4a592878ecc5e2df61d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d3d21ff9b56a7fcb33fbdb6bbb82c64ef97abf71
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172822"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085777"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Intégration de l'authentification RADIUS avec le serveur Azure Multi-Factor Authentication
 
@@ -39,9 +39,9 @@ Pour configurer l'authentification RADIUS, installez le serveur Azure Multi-Fact
 4. Cliquez sur **Add**.
 5. Entrez l'adresse IP de l'appliance ou du serveur qui s'authentifieront auprès du serveur Azure Multi-Factor Authentication, un nom d’application (facultatif) et un secret partagé.
 
-  Le nom de l’application apparaît dans les rapports et peut être affiché dans les messages d’authentification SMS ou d’application mobile.
+   Le nom de l’application apparaît dans les rapports et peut être affiché dans les messages d’authentification SMS ou d’application mobile.
 
-  Le secret partagé doit être identique sur le serveur Azure Multi-Factor Authentication et sur l’appliance/serveur.
+   Le secret partagé doit être identique sur le serveur Azure Multi-Factor Authentication et sur l’appliance/serveur.
 
 6. Cochez la case de **correspondance d’utilisateur Authentification multifacteur requise** si tous les utilisateurs ont été importés sur le serveur et soumis à l’authentification multifacteur. Si un grand nombre d’utilisateurs n’ont pas encore été importés sur le serveur ou ne sont pas soumis à la vérification en deux étapes, laissez la case désactivée.
 7. Cochez la case **Activer un jeton OATH de secours** si vous souhaitez utiliser les codes d’accès OATH à partir d’applications de vérification mobile comme méthode de sauvegarde.

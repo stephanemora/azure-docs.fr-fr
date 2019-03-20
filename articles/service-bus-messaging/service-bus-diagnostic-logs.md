@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6ac36fed8f9d3220e6caf6eba94a62d1ec8372c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846657"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216337"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Journaux de diagnostic Service Bus
 
@@ -46,7 +46,7 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
     ![modifier l’état des journaux de diagnostic](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un Event Hub ou Azure Log Analytics.
+5.  Définir la cible d’archivage que vous le souhaitez. par exemple, un compte de stockage, un concentrateur d’événements ou Azure Monitor enregistre.
 
 6.  Enregistrez les nouveaux paramètres de diagnostic.
 

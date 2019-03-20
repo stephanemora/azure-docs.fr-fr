@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 639faef9d95a6ff3ba307290add3bee73904fee0
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 4d4e68d99585522e773e71430b4e4f37ad7b1580
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52269988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124379"
 ---
-Les limites suivantes s’appliquent à Azure Site Recovery :
+Les limites suivantes s’appliquent à Azure Site Recovery.
 
-| IDENTIFICATEUR DE LA LIMITE | LIMITE PAR DÉFAUT |
-| --- | --- | --- | --- |
+| Identificateur de la limite | Limite par défaut |
+| --- | --- |
 | Nombre de coffres par abonnement |500 |     
 | Nombre de serveurs par coffre Azure |250 |
 | Nombre de groupes de protection par coffre Azure |Aucune limite |

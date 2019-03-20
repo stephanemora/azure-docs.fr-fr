@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb752a6b598c9fe7f146cd6ce96182405fc0dc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 86148d428bc526e071f095233b0692a6f3775a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167675"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880640"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Didacticiel : Intégration d’Azure Active Directory avec Jitbit Helpdesk
+# <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutoriel : Intégration d’Azure Active Directory avec Jitbit Helpdesk
 
 Dans ce didacticiel, vous allez apprendre à intégrer Jitbit Helpdesk à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de Jitbit Helpdesk dans Azure AD vous offre les avantages suiva
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Jitbit Helpdesk, vous avez besoin des éléments suivants :
 
@@ -114,6 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Configurer l'authentification unique](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : 
+    
     | |     
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -224,7 +225,7 @@ Pour pouvoir se connecter à Jitbit Helpdesk, les utilisateurs d’Azure Active
    
    a. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**, le nom d’utilisateur du portail Azure.
 
-   b. Dans la zone de texte **E-mail**, entrez l’e-mail de l’utilisateur, par exemple, **BrittaSimon@contoso.com**.
+   b. Dans le **E-mail** zone de texte, entrez l’e-mail de l’utilisateur comme **BrittaSimon\@contoso.com**.
 
    c. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 

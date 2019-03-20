@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102058"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Mise en corrélation de données Application Insights avec des sources de données personnalisées
 
@@ -44,7 +44,7 @@ Pour commencer à envoyer des données de journal dans Azure Monitor. Vous dispo
 
 - Pour un mécanisme synchrone, vous pouvez soit appeler directement [l’API Collecte de données](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) soit utiliser notre connecteur Logic App : il vous suffit de rechercher « Azure Log Analytics » et de choisir l’option « Envoyer des données » :
 
- ![Capture d’écran choix et action](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![Capture d’écran choix et action](./media/custom-data-correlation/01-logic-app-connector.png)  
 
 - Pour une méthode asynchrone, utilisez l’API Collecte de données pour créer un pipeline de traitement. Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api).
 

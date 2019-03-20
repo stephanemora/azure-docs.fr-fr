@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b5c4779605922bf6d523a9bc6e65e4d9a27f32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fa78ec2b5623dfd010a8fe5709916a47e221a9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutoriel : Intégration d'Azure Active Directory à TalentLMS
 
@@ -34,7 +34,7 @@ L’intégration de TalentLMS à Azure AD vous fait bénéficier des avantages s
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à TalentLMS, vous avez besoin des éléments suivants :
 
@@ -219,7 +219,7 @@ Pour se connecter à TalentLMS, les utilisateurs d’Azure AD doivent être appr
 
     b. Dans la zone de texte **Last name**, tapez le nom de l’utilisateur, par exemple **Simon**.
  
-    c. Dans la zone de texte **Email**, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    c. Dans le **adresse de messagerie** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     d. Cliquez sur **Add User**.
 

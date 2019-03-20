@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 68655ea03f53fe7100f67d111fcd3c8595bdf4c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109390"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemple 1 – Créer une zone DMZ simple à l’aide de groupes de sécurité réseau avec un modèle Azure Resource Manager
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -97,14 +97,14 @@ Chaque règle est décrite plus en détail comme suit :
     ``` 
 
 2. La première règle de cet exemple autorise le trafic DNS entre tous les réseaux internes au serveur DNS sur le sous-réseau du serveur principal. La règle comporte certains paramètres importants :
-  * « destinationAddressPrefix » - le préfixe d’adresse de destination est défini sur « 10.0.2.4 » afin que le trafic DNS soit autorisé à atteindre le serveur DNS.
-  * « Direction » indique le sens du trafic qui sera appliqué à cette règle. La direction est déterminée du point de vue du sous-réseau ou de la machine virtuelle (selon l'élément auquel ce groupe de sécurité réseau est lié). Donc si Direction est « Entrant » et si le trafic entre dans le sous-réseau, la règle s’applique et le trafic quittant le sous-réseau n’est pas concerné.
-  * « Priorité » définit l’ordre dans lequel le flux de trafic est évalué. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. Lorsqu’une règle s’applique à un flux de trafic spécifique, aucune autre règle n’est traitée. Donc si une règle de priorité 1 autorise le trafic et une règle de priorité 2 le refuse, si les deux règles s’appliquent, alors le trafic est autorisé à circuler (dans la mesure où la règle 1 a une priorité plus élevée et est appliquée, aucune autre règle n’est prise en compte).
-  * « Accès » indique si le trafic concerné par cette règle est bloqué (« Deny ») ou autorisé (« Allow »).
+   * « destinationAddressPrefix » - le préfixe d’adresse de destination est défini sur « 10.0.2.4 » afin que le trafic DNS soit autorisé à atteindre le serveur DNS.
+   * « Direction » indique le sens du trafic qui sera appliqué à cette règle. La direction est déterminée du point de vue du sous-réseau ou de la machine virtuelle (selon l'élément auquel ce groupe de sécurité réseau est lié). Donc si Direction est « Entrant » et si le trafic entre dans le sous-réseau, la règle s’applique et le trafic quittant le sous-réseau n’est pas concerné.
+   * « Priorité » définit l’ordre dans lequel le flux de trafic est évalué. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. Lorsqu’une règle s’applique à un flux de trafic spécifique, aucune autre règle n’est traitée. Donc si une règle de priorité 1 autorise le trafic et une règle de priorité 2 le refuse, si les deux règles s’appliquent, alors le trafic est autorisé à circuler (dans la mesure où la règle 1 a une priorité plus élevée et est appliquée, aucune autre règle n’est prise en compte).
+   * « Accès » indique si le trafic concerné par cette règle est bloqué (« Deny ») ou autorisé (« Allow »).
 
-    ```JSON
-    "properties": {
-    "securityRules": [
+     ```JSON
+     "properties": {
+     "securityRules": [
       {
         "name": "enable_dns_rule",
         "properties": {
@@ -119,7 +119,7 @@ Chaque règle est décrite plus en détail comme suit :
           "direction": "Inbound"
         }
       },
-    ```
+     ```
 
 3. Cette règle autorise le trafic RDP à circuler depuis Internet vers le port RDP de n’importe quel serveur du sous-réseau lié. 
 
@@ -221,23 +221,23 @@ Chaque règle est décrite plus en détail comme suit :
 1. Un utilisateur Internet demande une page HTTP à partir de l’adresse IP publique de la carte réseau associée à la carte réseau IIS01
 2. L’adresse IP publique transmet le trafic au réseau virtuel vers IIS01 (serveur web)
 3. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
-  1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-  2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
-  3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
+   3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
 4. Le trafic parvient à l’adresse IP interne du serveur web IIS01 (10.0.1.5).
 5. IIS01 écoute le trafic web, reçoit cette requête et commence à traiter la demande.
 6. IIS01 demande des informations au serveur SQL Server sur AppVM01
 7. Aucune règle sortante sur le sous-réseau du serveur frontal, le trafic est autorisé
 8. Le sous-réseau du serveur principal commence le traitement de la règle de trafic entrant :
-  1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-  2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
-  3. La règle NSG 3 (Internet vers le pare-feu) ne s’applique pas, passer à la règle suivante
-  4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
+   3. La règle NSG 3 (Internet vers le pare-feu) ne s’applique pas, passer à la règle suivante
+   4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles
 9. AppVM01 reçoit la requête SQL et répond
 10. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée
 11. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
-  1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
-  2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
+    1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
+    2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
 12. Le serveur IIS reçoit la réponse SQL, complète la réponse HTTP et l’envoie au demandeur
 13. Comme il n’existe aucune règle sortante sur le sous-réseau du serveur frontal, la réponse est autorisée, et l’utilisateur Internet reçoit la page web demandée.
 
@@ -245,8 +245,8 @@ Chaque règle est décrite plus en détail comme suit :
 1. Un administrateur de serveur sur Internet demande une session RDP IIS01 sur l’adresse IP publique de la carte réseau associée à la carte réseau IIS01 (cette adresse IP publique est accessible via le portail ou PowerShell)
 2. L’adresse IP publique transmet le trafic au réseau virtuel vers IIS01 (serveur web)
 3. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
-  1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-  2. La règle NSG 2 (RDP) s’applique, le trafic est autorisé, arrêter le traitement des règles
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) s’applique, le trafic est autorisé, arrêter le traitement des règles
 4. En l’absence de réseau sortant, les règles par défaut s’appliquent et le retour de trafic est autorisé
 5. La Session RDP est activée.
 6. IIS01 demande le nom et le mot de passe de l'utilisateur
@@ -261,7 +261,7 @@ Chaque règle est décrite plus en détail comme suit :
 2. La configuration réseau du réseau virtuel définit DNS01 (10.0.2.4 sur le sous-réseau du serveur principal) comme serveur DNS principal, IIS01 envoie la requête DNS à DNS01
 3. Aucune règle sortante sur le sous-réseau du serveur frontal, le trafic est autorisé
 4. Le sous-réseau du serveur principal entame le traitement du réseau entrant :
-  * La règle NSG 1 (DNS) s’applique, le trafic est autorisé, arrêter le traitement des règles
+   * La règle NSG 1 (DNS) s’applique, le trafic est autorisé, arrêter le traitement des règles
 5. Le serveur DNS reçoit la demande
 6. Le serveur DNS n’a pas d’adresse en cache et demande à un serveur DNS racine sur Internet.
 7. Aucune règle sortante sur le sous-réseau du serveur principal, le trafic est autorisé
@@ -269,23 +269,23 @@ Chaque règle est décrite plus en détail comme suit :
 9. Le serveur DNS met en cache la réponse et répond à la demande initiale à IIS01
 10. Aucune règle sortante sur le sous-réseau du serveur principal, le trafic est autorisé
 11. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
-  1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
-  2. La règle système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé
+    1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
+    2. La règle système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé
 12. IIS01 reçoit la réponse de la part de DNS01
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Autorisé*) fichier d’accès de serveur Web sur AppVM01
 1. IIS01 demande un fichier sur AppVM01
 2. Aucune règle sortante sur le sous-réseau du serveur frontal, le trafic est autorisé
 3. Le sous-réseau du serveur principal commence le traitement de la règle de trafic entrant :
-  1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-  2. La règle NSG 2 (RDP) ne s’applique pas. Passer à la règle suivante.
-  3. La règle NSG 3 (Internet vers le IIS01) ne s’applique pas. Passer à la règle suivante.
-  4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles.
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) ne s’applique pas. Passer à la règle suivante.
+   3. La règle NSG 3 (Internet vers le IIS01) ne s’applique pas. Passer à la règle suivante.
+   4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles.
 4. AppVM01 reçoit la demande et répond avec un fichier (en supposant que l’accès est autorisé)
 5. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée
 6. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
-  1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
-  2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
+   1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
+   2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
 7. Le serveur IIS reçoit la demande.
 
 #### <a name="denied-rdp-to-backend"></a>(*Refusé*) connexion RDP vers le serveur principal
@@ -312,9 +312,9 @@ Chaque règle est décrite plus en détail comme suit :
 1. Un utilisateur Internet demande des données SQL à partir de IIS01
 2. Étant donné qu’aucune adresse IP publique n'est associée à la carte réseau de ce serveur, ce trafic n'accède jamais au réseau virtuel et n'atteint pas le serveur
 3. Si une adresse IP publique a été activée pour une raison quelconque, le sous-réseau frontal commence le traitement des règles entrantes :
-  1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-  2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
-  3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
+   3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
 4. Le trafic parvient à l’adresse IP de IIS01 (10.0.1.5).
 5. IIS01 n’est pas à l’écoute sur le port 1433, donc aucune réponse à la demande
 

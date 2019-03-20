@@ -3,7 +3,7 @@ title: Journalisation de service web - Azure Machine Learning Studio | Microsoft
 description: Découvrez comment activer la journalisation pour les services Web de Machine Learning Studio. La journalisation fournit des informations supplémentaires pour vous aider à résoudre les problèmes des API.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -11,16 +11,16 @@ ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270086"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857553"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio
 Ce document fournit des informations sur la fonctionnalité de journalisation des services web Machine Learning Studio. La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning Studio.  
@@ -57,7 +57,7 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 
    3. Si le conteneur **ml-diagnostics** n’existe pas, cliquez sur **+Conteneur**, nommez le conteneur « ml-diagnostics », puis sélectionnez le **Type d’accès** « Blob ». Cliquez sur **OK**.
 
-      ![Sélectionner le niveau de journalisation](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Créer un conteneur pour stocker vos journaux de diagnostic](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

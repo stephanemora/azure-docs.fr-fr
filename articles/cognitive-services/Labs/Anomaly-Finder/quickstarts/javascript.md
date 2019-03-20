@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c670bf8228662929310c4462d324393827e6b354
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5ca9a0d5dcbf5b2525f547562b5838ded7441a66
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213750"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551897"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>Utiliser l’API Recherche d’anomalies avec Javascript
 
@@ -22,7 +22,7 @@ ms.locfileid: "55213750"
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Détection d’anomalies à l’aide de Javascript en vue d’obtenir les résultats de détection d’anomalies sur des données de série chronologique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -51,7 +51,7 @@ Les étapes de l’utilisation de l’exemple sont les suivantes.
 <html>
 <head>
     <title>Anomaly Detection Javascript Quick Starts</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 

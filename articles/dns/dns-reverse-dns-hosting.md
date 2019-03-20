@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 2d576a0d51eb723efdd1652898c2c019ee7475a8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cb2f04c692d4b5f385a89ba6a3071c20ef1bdf21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118253"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Héberger des zones de recherche DNS inversées dans Azure DNS
 
@@ -131,7 +131,7 @@ L’exemple suivant vous guide tout au long du processus de création d’un enr
 1. Dans le champ **NOM DE DOMAINE**, entrez le nom de domaine complet (FQDN) de la ressource utilisant l’adresse IP.
 1. Sélectionnez **OK** en bas du panneau pour créer l’enregistrement DNS.
 
- ![Panneau Ajouter un jeu d’enregistrement avec cases renseignées](./media/dns-reverse-dns-hosting/figure5.png)
+   ![Panneau Ajouter un jeu d’enregistrement avec cases renseignées](./media/dns-reverse-dns-hosting/figure5.png)
 
 Les exemples suivants montrent comment effectuer cette tâche à l’aide de PowerShell et Azure CLI.
 
@@ -269,6 +269,6 @@ Pour plus d’informations, consultez [Importer et exporter un fichier de zone D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le DNS inversé, consultez [Recherche DNS inversée sur Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Pour plus d’informations sur le DNS inversé, consultez [Recherche DNS inversée sur Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Découvrez comment [gérer des enregistrements DNS inversés pour vos services Azure](dns-reverse-dns-for-azure-services.md).

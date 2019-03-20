@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4e5c64dc43be10eead1da35ec2337aa1f83f2f91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b6c61b4116983f36cef0632f7bbec4d36d203d0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472124"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842977"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -49,6 +49,7 @@ Les runbooks d'Azure Automation peuvent s'exécuter dans un bac à sable Azure o
 |Utilisation de modules aux exigences spécifiques| Runbook Worker hybride|Voici quelques exemples :</br> **WinSCP** - dépendance à winscp.exe </br> **IISAdministration** - requiert l'activation d'IIS|
 |Installation d'un module nécessitant un programme d'installation|Runbook Worker hybride|Les modules pour bac à sable doivent être « xcopiables »|
 |Utilisation de runbooks ou de modules nécessitant une version de .NET Framework autre que la version 4.7.2|Runbook Worker hybride|Les bacs à sable Automation disposent de .NET Framework 4.7.2, et aucune mise à niveau n'est possible|
+|Scripts qui requièrent une élévation|Runbook Worker hybride|Les bacs à sable ne permettent pas d’élévation. Pour résoudre cette utilisation d’un Runbook Worker hybride et vous pouvez désactiver l’UAC et utilisez `Invoke-Command` lorsque l’exécution de la commande qui nécessite une élévation|
 
 ## <a name="runbook-behavior"></a>Comportement des runbooks
 
@@ -113,6 +114,33 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 }
 ```
 
+### <a name="working-with-multiple-subscriptions"></a>Utilisation de plusieurs abonnements
+
+Lorsque la création de runbooks qui traitent plusieurs abonnements de votre runbook doit utiliser le [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) applet de commande pour vous assurer que votre contexte d’authentification n’est pas récupéré à partir d’un autre runbook qui peut être en cours d’exécution dans le même bac à sable. Vous devez ensuite utiliser le `-AzureRmContext` paramètre sur votre `AzureRM` applets de commande et le passer votre contexte approprié.
+
+```powershell
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal `
+-Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID `
+-CertificateThumbprint $Conn.CertificateThumbprint
+
+$context = Get-AzureRmContext
+
+$ChildRunbookName = 'ChildRunbookDemo'
+$AutomationAccountName = 'myAutomationAccount'
+$ResourceGroupName = 'myResourceGroup'
+
+Start-AzureRmAutomationRunbook `
+    -ResourceGroupName $ResourceGroupName `
+    -AutomationAccountName $AutomationAccountName `
+    -Name $ChildRunbookName `
+    -DefaultProfile $context
+```
+
 ### <a name="using-executables-or-calling-processes"></a>Utilisation de fichiers exécutables ou appel de processus
 
 Les runbooks exécutés dans les bacs à sable Azure ne prennent pas en charge les processus d'appel (tels que les fichiers .exe ou subprocess.call) car les bacs à sable Azure sont des processus partagés exécutés dans des conteneurs qui n'ont pas forcément accès à toutes les API sous-jacentes. Pour les scénarios nécessitant un logiciel tiers ou l'appel de sous-processus, il est recommandé d'exécuter le runbook sur un [Runbook Worker hybride](automation-hybrid-runbook-worker.md).
@@ -138,7 +166,7 @@ Le tableau suivant décrit les différents statuts possibles pour une tâche. Po
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Affichage de l’état du travail à partir du portail Azure
 
-Vous pouvez afficher un résumé de l’état de toutes les tâches du runbook ou explorer les détails d’une tâche spécifique du runbook dans le portail Azure. Vous pouvez également configurer une intégration à votre espace de travail Log Analytics pour transférer l'état et les flux de travaux du runbook. Pour plus d’informations sur l’intégration avec Log Analytics, voir [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Vous pouvez afficher un résumé de l’état de toutes les tâches du runbook ou explorer les détails d’une tâche spécifique du runbook dans le portail Azure. Vous pouvez également configurer une intégration à votre espace de travail Log Analytics pour transférer l'état et les flux de travaux du runbook. Pour plus d’informations sur l’intégration avec les journaux d’Azure Monitor, consultez [transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Résumé des tâches de Runbook Automation
 
@@ -224,7 +252,7 @@ Pour répartir les ressources entre tous les runbooks du cloud, Azure Automation
 
 Pour les travaux de longue durée, il est recommandé d'utiliser un [Runbook Worker hybride](automation-hrw-run-runbooks.md#job-behavior). Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais les runbooks exécutés sur ceux-ci doivent néanmoins être développés pour prendre en charge les comportements de redémarrage après un problème inattendu au niveau de l'infrastructure locale.
 
-Une autre option consiste à optimiser le runbook en utilisant des runbooks enfants. Si votre runbook exécute une boucle via la même fonction sur plusieurs ressources, comme une opération de base de données sur diverses bases de données, vous pouvez déplacer cette fonction vers un [runbook enfant](automation-child-runbooks.md) et l'appeler à l'aide de la cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Chacun de ces runbooks enfants s’exécute en parallèle dans des processus distincts, diminuant ainsi le temps total d’exécution du runbook parent. Vous pouvez utiliser l’applet de commande [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) dans votre runbook pour vérifier l’état du travail de chaque enfant et déterminer si des opérations doivent être effectuées à la fin de l’exécution du runbook enfant.
+Une autre option consiste à optimiser le runbook en utilisant des runbooks enfants. Si votre runbook exécute une boucle via la même fonction sur plusieurs ressources, comme une opération de base de données sur diverses bases de données, vous pouvez déplacer cette fonction vers un [runbook enfant](automation-child-runbooks.md) et l'appeler à l'aide de la cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Chacun de ces runbooks enfants s’exécute en parallèle dans des processus distincts, diminuant ainsi le temps total d’exécution du runbook parent. Vous pouvez utiliser la [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) applet de commande dans votre runbook pour vérifier l’état du travail pour chaque enfant d’opérations qui effectuent une fois que le runbook enfant se termine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

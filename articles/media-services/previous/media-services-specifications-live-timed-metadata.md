@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: 89a19d53046afd8d2b16b23508e952989091c8d2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a953f4b77f896d3943cd996abf8c1fc1306ee9d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005265"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881994"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
 
@@ -120,6 +120,7 @@ La zone « moov » doit contenir une zone **TrackHeaderBox (« tkhd »)**, t
 | **Nom du champ** | **Type de champ**          | **Obligatoire ?** | **Description**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | duration       | Entier non signé 64 bits | Obligatoire      | DOIT être 0, étant donné que la zone de piste contient zéro exemple et que la durée totale des exemples dans la zone de piste est 0. |
+
 -------------------------------------
 
 La zone « moov » DOIT contenir un **HandlerBox (« hdlr »)**, tel que défini dans la norme [ISO-14496-12] avec les contraintes suivantes :
@@ -127,6 +128,7 @@ La zone « moov » DOIT contenir un **HandlerBox (« hdlr »)**, tel que dé
 | **Nom du champ** | **Type de champ**          | **Obligatoire ?** | **Description**   |
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | Entier non signé 32 bits | Obligatoire      | DOIT être « meta ». |
+
 -------------------------------------
 
 La zone « stsd » doit contenir une zone de MetaDataSampleEntry avec un nom de codage tel que défini dans la norme [ISO-14496-12].  Par exemple, pour les messages SCTE-35, le nom de codage DOIT être « scte ».
@@ -225,7 +227,7 @@ Les métadonnées chronométrées pour la diffusion en continu HTTP Apple (HLS) 
 
 | **Nom de l’attribut** | **Type**                      | **Obligatoire ?**                             | **Description**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CUE                | Chaîne entre guillemets.                 | Obligatoire                                  | Message encodé sous forme de chaîne en Base64, comme décrit dans la norme [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). Pour les messages [SCTE-35], il s’agit de la zone splice_info_section() codée en Base64.                                                                                                |
+| CUE                | Chaîne entre guillemets.                 | Obligatoire                                  | Message encodé sous forme de chaîne en Base64, comme décrit dans la norme [IETF RFC 4648](https://tools.ietf.org/html/rfc4648). Pour les messages [SCTE-35], il s’agit de la zone splice_info_section() codée en Base64.                                                                                                |
 | TYPE               | Chaîne entre guillemets.                 | Obligatoire                                  | URN ou URL identifiant le schéma du message. Pour les messages [SCTE-35], le type prend la valeur spéciale « scte35 ».                                                                                                                                |
 | ID                 | Chaîne entre guillemets.                 | Obligatoire                                  | Identificateur unique de l’événement. Si l’ID n’est pas spécifié lors de la réception du message, Azure Media Services génère un id unique.                                                                                                                                          |
 | DURATION           | Nombre décimal à virgule flottante. | Obligatoire                                  | Durée de l’événement. Si elle est inconnue, la valeur doit être 0. Les unités sont des fractions de seconde.                                                                                                                                                                                           |
@@ -292,7 +294,7 @@ Zéro ou plusieurs éléments d’événement sont contenus dans l’élément E
 | presentation_time   | Entier non signé 64 bits | Facultatif      | DOIT être le temps de présentation multimédia de l’événement par rapport au début de la période. L’heure et la durée de présentation DOIVENT être en phase avec les points d’accès de flux (SAP) de type 1 ou 2, comme définis dans [ISO-14496-12] l’annexe I. |
 | duration            | Entier non signé 32 bits | Facultatif      | Durée de l’événement. DOIT être omis si la durée est inconnue.                                                                                                                                                 |
 | id                  | Entier non signé 32 bits | Facultatif      | Identifie cette instance du message. Les messages dont la sémantique est identique auront la même valeur. Si l’ID n’est pas spécifié lors de la réception du message, Azure Media Services génère un id unique.             |
-| Valeur de l’élément événement | chaîne                  | Obligatoire      | Message d’événement sous forme de chaîne en Base64, comme décrit dans la norme [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| Valeur de l’élément événement | chaîne                  | Obligatoire      | Message d’événement sous forme de chaîne en Base64, comme décrit dans la norme [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>Syntaxe et exemple XML pour la signalisation (MPD) de manifeste DASH
 
@@ -396,7 +398,7 @@ La réception de diffusion en continu lisse nécessite que la zone de données m
 
 **[MS-SSTR]** [« Microsoft Smooth Streaming Protocol », 15 mai 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
-**[AMF0]** [« Action Message Format AMF0 »](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
+**[AMF0]** [« Action Message Format AMF0 »](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 

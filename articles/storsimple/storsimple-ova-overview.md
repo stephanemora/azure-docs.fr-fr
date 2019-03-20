@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013918"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Présentation de StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un groupe virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. Le groupe virtuel est un serveur de fichiers ou une solution de serveur iSCSI efficace, abordable et facile à gérer qui élimine la plupart des problèmes et des frais liés à la protection des données et du stockage d’entreprise. Le groupe virtuel est particulièrement bien adapté pour le stockage des données d’archivage rarement utilisées.
 
@@ -74,8 +74,8 @@ Le tableau suivant décrit certains des principaux avantages offerts par la solu
 
 Voici un tableau résumant les charges de travail StorSimple prises en charge.
 
-|Scénario     |Charge de travail     |Pris en charge      |Restrictions               |
-|-------------|-------------|---------------|---------------------------|
+|Scénario     |Charge de travail     |Pris en charge      |Restrictions               | Versions applicables|
+|-------------|-------------|---------------|---------------------------|--------------------|
 |Bureau à distance/Succusale  |Partage de fichiers     |Oui      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
 |Archivage cloud  |Partage de fichiers d’archivage     |Oui      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
 
@@ -101,7 +101,7 @@ Vous pouvez utiliser le service StorSimple Device Manager en cours d’exécut
 ![Gestion du stockage sur le cloud](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Sauvegarde indépendante de l'emplacement
-Avec Virtual Array, les instantanés cloud fournissent une copie indépendante de l’emplacement et ponctuelle d’un volume ou d’un partage. Les instantanés cloud sont activés par défaut et ne peuvent pas être désactivés. Tous les volumes et les partages sont sauvegardés en même temps, via une stratégie de sauvegarde quotidienne unique, et vous pouvez effectuer des sauvegardes ad hoc supplémentaires si nécessaire.
+Avec Virtual Array, les instantanés cloud fournissent une copie indépendante de l’emplacement et ponctuelle d’un volume ou d’un partage. Les instantanés cloud sont activés par défaut et ne peuvent pas être désactivés. Tous les volumes et des partages sont sauvegardés en même temps via une stratégie de sauvegarde quotidienne unique, et vous pouvez tirer des sauvegardes ad hoc supplémentaires si nécessaire.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Récupération d'urgence et protection des données
 Virtual Array prend en charge les scénarios de récupération d’urgence et de protection des données suivants :
