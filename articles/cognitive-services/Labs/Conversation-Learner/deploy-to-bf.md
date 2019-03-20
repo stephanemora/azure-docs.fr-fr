@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994641"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Comment déployer un bot Apprenant de conversation
 
@@ -45,7 +45,7 @@ Voici comment obtenir l’ID du modèle :
     npm run ui
     ```
 
-2. Ouvrez http://localhost:5050 dans la fenêtre du navigateur 
+2. Ouvrez `http://localhost:5050` dans la fenêtre du navigateur 
 
 3. Cliquez sur le modèle Apprenant de conversation pour lequel vous souhaitez obtenir l’ID
 
@@ -94,7 +94,7 @@ Le robot est maintenant en cours d’exécution locale.  Vous pouvez y accéder 
 
 Publiez votre robot d’Apprenant de conversation de la même façon que vous publieriez n’importe quel autre bot. À un niveau élevé, vous chargez votre code sur un site web hébergé, définissez les valeurs de configuration appropriées, puis enregistrez le bot avec différents canaux. Cette vidéo donne des instructions détaillées pour publier votre bot à l’aide d’Azure Bot Service.
 
-Une fois que le bot est déployé et en cours d’exécution, vous pouvez y connecter différents canaux tels que Facebook, Microsoft Teams, Skype, etc., à l’aide d’une inscription aux canaux de bots Azure. Pour voir de la documentation sur ce processus, consultez : https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Une fois que le robot est déployé et en cours d’exécution vous y connecter différents canaux tels que Facebook, Teams, Skype etc. à l’aide d’une inscription de canal de robot Azure. Pour voir de la documentation sur ce processus, consultez : https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Vous trouverez ci-dessous des instructions pas à pas pour le déploiement d’un bot Apprenant de Conversation sur Azure.  Ces instructions supposent que votre source de bot est disponible à partir d’une source basée sur le cloud, telle que Azure DevOps Services, GitHub, BitBucket ou OneDrive, et configure votre bot pour le déploiement continu.
 
@@ -109,20 +109,20 @@ Vous trouverez ci-dessous des instructions pas à pas pour le déploiement d’u
 
 3. Dans le portail Azure, modifiez la ressource bot d’application web que vous venez de créer.
 
-    1. Cliquez à gauche sur l’élément de navigation « Paramètres de l'application »
-    1. Faites défiler vers le bas jusqu’à la section « Paramètres de l’application »
-    2. Ajoutez les paramètres suivants :
+   1. Cliquez à gauche sur l’élément de navigation « Paramètres de l'application »
+   1. Faites défiler vers le bas jusqu’à la section « Paramètres de l’application »
+   2. Ajoutez les paramètres suivants :
 
-        Variable d’environnement | value
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | Guide de l’lD d’application, obtenu à partir de l’interface utilisateur de l’Apprenant de conversation, sous « paramètres » du modèle>
-        LUIS_AUTHORING_KEY               | Clé de création LUIS pour ce modèle
-        LUIS_SUBSCRIPTION_KEY            | Non obligatoire, mais recommandée pour les bots publiés afin d’éviter d'utiliser votre quota de création.
+       Variable d’environnement | value
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | Guide de l’lD d’application, obtenu à partir de l’interface utilisateur de l’Apprenant de conversation, sous « paramètres » du modèle>
+       LUIS_AUTHORING_KEY               | Clé de création LUIS pour ce modèle
+       LUIS_SUBSCRIPTION_KEY            | Non obligatoire, mais recommandée pour les bots publiés afin d’éviter d'utiliser votre quota de création.
     
-    4. Cliquez sur « Enregistrer » dans le haut de la page
-    5. Sur la gauche, ouvrez l’élément de navigation « Générer »
-    6. Cliquez sur « Configurer le déploiement continu » 
-    7. Sous les déploiements, cliquez sur l’icône « Installation »
-    8. Cliquez sur « Paramètres requis »
-    9. Sélectionnez la source où votre code bot est disponible et configurez-la.
+   4. Cliquez sur « Enregistrer » dans le haut de la page
+   5. Sur la gauche, ouvrez l’élément de navigation « Générer »
+   6. Cliquez sur « Configurer le déploiement continu » 
+   7. Sous les déploiements, cliquez sur l’icône « Installation »
+   8. Cliquez sur « Paramètres requis »
+   9. Sélectionnez la source où votre code bot est disponible et configurez-la.

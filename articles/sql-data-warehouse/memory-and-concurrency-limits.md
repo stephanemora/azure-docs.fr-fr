@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890787"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de mémoire et de concurrence pour Azure SQL Data Warehouse
 Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse. Pour plus d’informations et pour appliquer ces fonctionnalités à votre plan de gestion de la charge de travail, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). 
@@ -70,7 +70,7 @@ Les niveaux de service pour Gen1 vont de DW100 à DW6000.
 | DW6000            | 60            | 1                              | 1 440                           |
 
 ## <a name="concurrency-maximums"></a>Valeurs maximales de concurrence
-Pour s’assurer que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Data Warehouse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes en file d’attente jusqu’à ce que suffisamment d’[emplacements de concurrence](resource-classes-for-workload-management.md#concurrency-slots) soient disponibles. Les emplacements de concurrence déterminent également la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
+Pour s’assurer que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Data Warehouse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et les emplacements de concurrence. Requêtes dans la file d’attente jusqu'à ce que suffisamment d’emplacements de concurrence sont disponibles. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) et emplacements de concurrence déterminent la définition des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
 
 ### <a name="gen2"></a>Deuxième génération
  
@@ -78,7 +78,7 @@ Pour s’assurer que chaque requête dispose de suffisamment de ressources pour 
 
 Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’emplacements de concurrence pour chaque [classe de ressources statique](resource-classes-for-workload-management.md).  
 
-| Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles | Emplacements utilisés par staticrc10 | Emplacements utilisés par staticrc20 | Emplacements utilisés par staticrc30 | Emplacements utilisés par staticrc40 | Emplacements utilisés par staticrc50 | Emplacements utilisés par staticrc60 | Emplacements utilisés par staticrc70 | Emplacements utilisés par staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Classes de ressources statiques
 
 Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’emplacements de concurrence pour chaque [classe de ressources statique](resource-classes-for-workload-management.md) sur **Gen1**.
 
-| Niveau de service | Nombre maximal de requêtes concurrentes | Nombre maximal d’emplacements de concurrence |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Niveau de service | Nombre maximal de requêtes concurrentes | Nombre maximal d’emplacements de concurrence | Emplacements utilisés par staticrc10 | Emplacements utilisés par staticrc20 | Emplacements utilisés par staticrc30 | Emplacements utilisés par staticrc40 | Emplacements utilisés par staticrc50 | Emplacements utilisés par staticrc60 | Emplacements utilisés par staticrc70 | Emplacements utilisés par staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Classes de ressources dynamiques
 
 Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’emplacements de concurrence pour chaque [classe de ressources dynamique](resource-classes-for-workload-management.md) sur **Gen1**.
 
-| Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles | smallrc | mediumrc | largerc | xlargerc |
+| Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles | Emplacements utilisés par smallrc | Emplacements utilisés par mediumrc | Emplacements utilisés par largerc | Emplacements utilisés par xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

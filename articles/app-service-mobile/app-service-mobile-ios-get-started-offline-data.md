@@ -14,17 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956872"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435131"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Activer la synchronisation hors connexion avec des applications mobiles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce didacticiel traite de la synchronisation hors connexion à l’aide de la fonctionnalité Mobile Apps d’Azure App Service pour iOS. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même en l’absence d’une connexion réseau. Les modifications sont stockées dans une base de données locale. Quand l’appareil est de nouveau en ligne, les modifications sont synchronisées avec le backend distant.
 
 Si c’est la première fois que vous utilisez Mobile Apps, commencez par suivre le didacticiel [Création d’une application iOS]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -101,7 +101,7 @@ Nous allons maintenant exécuter l’opération de synchronisation réelle et ob
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -159,7 +159,7 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
 ![Attributs de table MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Attribut | type |
+| Attribut | Type |
 | --- | --- |
 | id | Integer 64 |
 | itemId | Chaîne |
@@ -172,7 +172,7 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
  ![Attributs de table MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Attribut | type |
+| Attribut | Type |
 | --- | --- |
 | id |Chaîne |
 | operationId |Integer 64 |
@@ -183,7 +183,7 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
  ![][defining-core-data-tableconfig-entity]
 
-| Attribut | type |
+| Attribut | Type |
 | --- | --- |
 | id |Chaîne |
 | key |Chaîne |
@@ -195,7 +195,7 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
 **TodoItem**
 
-| Attribut | type | Remarque |
+| Attribut | Type | Remarque |
 | --- | --- | --- |
 | id | Chaîne, marquée requise |Clé primaire dans le magasin distant |
 | terminé | Booléen | Champ d’élément de tâche |

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427064"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822819"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Vue d’ensemble d’Azure Automation State Configuration
 
@@ -37,13 +37,45 @@ Azure Automation State Configuration apporte la même couche de gestion à la [c
 
 ![Capture d’écran de la page Azure Automation](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-log-analytics"></a>Importer des données de création de rapports dans Log Analytics
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importer des données de création de rapports dans les journaux Azure Monitor
 
-Les nœuds gérés dans Azure Automation State Configuration envoient des données détaillées sur l’état de création de rapports au serveur collecteur intégré. Vous pouvez configurer Azure Automation State Configuration de façon à envoyer ces données à votre espace de travail Log Analytics. Pour savoir comment envoyer des données d’état State Configuration à votre espace de travail Log Analytics, consultez [Transférer des données de rapport Azure Automation State Configuration à Log Analytics](automation-dsc-diagnostics.md).
+Les nœuds gérés dans Azure Automation State Configuration envoient des données détaillées sur l’état de création de rapports au serveur collecteur intégré. Vous pouvez configurer Azure Automation State Configuration de façon à envoyer ces données à votre espace de travail Log Analytics. Pour savoir comment envoyer des données d’état de Configuration d’état à votre espace de travail Analytique de journal, consultez [transférer Azure Automation la Configuration d’état données de rapport dans les journaux d’Azure Monitor](automation-dsc-diagnostics.md).
 
-## <a name="network-planning"></a>Configurer votre réseau
+## <a name="prerequisites"></a>Conditions préalables
 
-Les port et URL suivants sont requis pour permettre à Desired State Configuration (DSC) de communiquer avec Automation :
+Veuillez prendre en compte les exigences suivantes lors de l’utilisation d’Azure Automation état Configuration (DSC).
+
+### <a name="operating-system-requirements"></a>Configuration requise du système d’exploitation
+
+Pour les nœuds exécutant Windows, les versions suivantes sont prises en charge :
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012 R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+Pour les nœuds Linux en cours d’exécution, les distributions/versions suivantes sont prises en charge :
+
+L’extension DSC Linux prend en charge toutes les distributions Linux [approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , à l’exception :
+
+Distribution | Version
+-|-
+Debian  | toutes les versions
+Ubuntu  | 18,04
+
+### <a name="dsc-requirements"></a>Exigences de DSC
+
+Pour tous les nœuds de Windows s’exécutant dans Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) sera installé lors de l’intégration.  Pour les nœuds exécutant Windows Server 2012 et Windows 7, [sera activé WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+
+Pour tous les nœuds Linux s’exécutant dans Azure, [DSC PowerShell pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) sera installé lors de l’intégration.
+
+### <a name="network-planning"></a>Configurer des réseaux privés
+
+Si vos nœuds sont situés dans un réseau privé, le port et les URL suivantes sont requises pour état de Configuration (DSC) pour communiquer avec Automation :
 
 * Port : seul le port TCP 443 est nécessaire pour l’accès Internet sortant.
 * URL globale : *.azure-automation.net
@@ -85,7 +117,7 @@ Lire de la documentation vous enchante moyennement ? Jetez un œil à la vidéo
 > [!NOTE]
 > Bien que les concepts et le cycle de vie abordés dans cette vidéo soient corrects, Azure Automation State Configuration a beaucoup progressé depuis l’enregistrement de cette vidéo. Désormais disponible au public, il dispose d’une interface utilisateur plus étendue dans le portail Azure et prend en charge des fonctionnalités supplémentaires.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

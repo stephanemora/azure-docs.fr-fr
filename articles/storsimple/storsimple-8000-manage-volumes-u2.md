@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093328"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utiliser le service StorSimple Device Manager pour gérer des volumes (Update 3 ou versions ultérieures)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des volumes sur les appareils de la gamme 8000 StorSimple exécutant Update 3 et versions ultérieures.
 
@@ -65,8 +65,8 @@ Reportez-vous au tableau suivant pour connaître la capacité maximale allouée 
 | 8100 |64 To |8 To |
 | 8600 |64 To |20 To |
 | **Appareils virtuels** | | |
-| 8010 |30 To |N/A |
-| 8020 |64 To |N/A |
+| 8010 |30 To |S.O. |
+| 8020 |64 To |S.O. |
 
 ## <a name="the-volumes-blade"></a>Panneau Volumes
 
@@ -235,7 +235,7 @@ Vous souhaiterez peut-être modifier un volume épinglé localement en volume hi
    * Si vous définissez le type sur **Hiérarchisé** et que ce volume sera utilisé pour les données d’archivage, cochez la case **Utiliser ce volume pour des données d’archivage moins fréquemment sollicitées**.
    * Si vous configurez un volume épinglé localement en tant que volume hiérarchisé, ou _vice versa_, le message suivant s’affiche.
    
-    ![Message de modification du type de volume](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Message de modification du type de volume](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. Cliquez sur **Enregistrer** pour enregistrer les modifications. Lorsque vous êtes invité à confirmer la modification, cliquez sur **Oui** pour lancer le processus de conversion. 
 

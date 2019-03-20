@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098302"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Exécuter des travaux Apache Pig avec Apache Hadoop sur HDInsight à l’aide de REST
 
@@ -58,8 +58,8 @@ Découvrez comment exécuter des tâches Apache Pig Latin en effectuant des dema
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-u** : Nom d’utilisateur et mot de passe utilisés pour authentifier la demande
-    * **-G** : Indique que la demande est une demande GET
+   * **-u** : Nom d’utilisateur et mot de passe utilisés pour authentifier la demande
+   * **-G** : Indique que la demande est une demande GET
 
      Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, est le même pour toutes les requêtes. Le chemin d’accès, **/status**, indique que la demande doit retourner le statut de WebHCat (également appelé Templeton) au serveur.
 
@@ -71,18 +71,18 @@ Découvrez comment exécuter des tâches Apache Pig Latin en effectuant des dema
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-d** : Comme `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
+   * **-d** : Comme `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
 
-    * **user.name** : Utilisateur qui exécute la commande
-    * **execute** : Instructions Pig Latin à exécuter
-    * **statusdir** : Répertoire dans lequel l’état de ce travail est écrit
+   * **user.name** : Utilisateur qui exécute la commande
+   * **execute** : Instructions Pig Latin à exécuter
+   * **statusdir** : Répertoire dans lequel l’état de ce travail est écrit
 
-    > [!NOTE]  
-    > Notez que les espaces dans les instructions Pig Latin sont remplacées par le caractère `+` avec Curl.
+     > [!NOTE]  
+     > Notez que les espaces dans les instructions Pig Latin sont remplacées par le caractère `+` avec Curl.
 
-    Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche, par exemple :
+     Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche, par exemple :
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. Pour vérifier le statut de la tâche, utilisez la commande suivante
 

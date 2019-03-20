@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820111"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445634"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif
 > [!IMPORTANT] 
@@ -124,7 +124,7 @@ Un certificat auto-signé a été créé sur la machine virtuelle lors de son ap
       
        Par exemple, dans l’illustration suivante, le nom de la machine virtuelle est **ssrsnativecloud** et le nom d’utilisateur **testuser**.
       
-       ![le nom de connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Exécutez mmc.exe. Pour plus d’informations, consultez [Procédure : Afficher les certificats avec le composant logiciel enfichable MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. Dans le menu **Fichier** de l’application console, ajoutez le composant logiciel enfichable **Certificats**, sélectionnez **Compte d’ordinateur** lorsque vous y êtes invité, puis cliquez sur **Suivant**.
    4. Sélectionnez l’**Ordinateur local** à gérer, puis cliquez sur **Terminer**.
@@ -160,7 +160,7 @@ Pour utiliser le script Windows PowerShell afin de configurer le serveur de rapp
    
     Par exemple, dans l’illustration suivante, le nom de la machine virtuelle est **ssrsnativecloud** et le nom d’utilisateur **testuser**.
    
-    ![le nom de connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Sur la machine virtuelle, ouvrez **Windows PowerShell ISE** avec des privilèges administratifs. L’environnement d’écriture de scripts intégré PowerShell est installé par défaut sur Windows Server 2012. Nous vous recommandons d’utiliser l’environnement d’écriture de scripts intégré plutôt qu’une fenêtre Windows PowerShell standard afin de pouvoir coller le script dans l’environnement d’écriture de scripts intégré, le modifier, puis l’exécuter.
 3. Dans Windows PowerShell ISE, cliquez sur le menu **Affichage**, puis sur **Afficher le volet de script**.
 4. Copiez le script suivant et collez-le dans le volet de script Windows PowerShell ISE.
@@ -294,7 +294,7 @@ Pour utiliser Windows PowerShell afin de configurer le serveur de rapports, proc
    
     Par exemple, dans l’illustration suivante, le nom de la machine virtuelle est **ssrsnativecloud** et le nom d’utilisateur **testuser**.
    
-    ![le nom de connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Sur la machine virtuelle, ouvrez **Windows PowerShell ISE** avec des privilèges administratifs. L’environnement d’écriture de scripts intégré PowerShell est installé par défaut sur Windows Server 2012. Nous vous recommandons d’utiliser l’environnement d’écriture de scripts intégré plutôt qu’une fenêtre Windows PowerShell standard afin de pouvoir coller le script dans l’environnement d’écriture de scripts intégré, le modifier, puis l’exécuter.
 3. Pour activer les scripts en cours d’exécution, exécutez la commande Windows PowerShell suivante :
    
