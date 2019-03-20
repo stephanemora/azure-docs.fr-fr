@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d1ff4b44ff352742ee91b61c0c774cfe7c3f9d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 28f9c17e21db5a46ad01fd1b318c52a3a721f8b9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181352"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226961"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell
 
@@ -32,7 +32,7 @@ Cet article explique comment effectuer les opérations suivantes d’identités 
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
@@ -46,7 +46,7 @@ Dans cette section, vous allez découvrir comment activer et désactiver l’ide
 
 Pour créer une machine virtuelle Azure avec l’identité managée affectée par le système sur une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
-1. Consultez l’un des démarrages rapides de machine virtuelle Azure suivants, en ne complétant que les sections nécessaires (« Se connecter à Azure », « Créer un groupe de ressources », « Créer un groupe de mise en réseau », « Créer la machine virtuelle »).
+1. Consultez un des Azure VM Démarrages rapides suivants, que les sections nécessaires (« se connecter à Azure », « Créer groupe de ressources », « Créer un groupe mise en réseau, » « créer la machine virtuelle ») à la fin.
     
     Lorsque vous accédez à la section « Créer la machine virtuelle », apportez une légère modification à la syntaxe de l’applet de commande [New-AzVMConfig](/powershell/module/az.compute/new-azvm). Veillez à ajouter un paramètre `-AssignIdentity:$SystemAssigned` afin d’approvisionner la machine virtuelle avec l’identité affectée par le système activée, par exemple :
       
@@ -57,14 +57,8 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
    - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Facultatif) Ajoutez l’extension de machine virtuelle d’identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019) en utilisant le paramètre `-Type` sur l’applet de commande [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de machine virtuelle, et nommez-le à l’aide paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons. L’extension de machine virtuelle d’identités managées pour ressources Azure doit être abandonnée en janvier 2019. 
+> [!NOTE]
+> Vous pouvez éventuellement déployer des identités gérées pour l’extension de machine virtuelle de ressources Azure, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>Activer une identité managée affectée par le système sur une machine virtuelle Azure existante
 
@@ -83,14 +77,8 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (Facultatif) Ajoutez l’extension de machine virtuelle d’identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019) en utilisant le paramètre `-Type` sur l’applet de commande [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de machine virtuelle, et nommez-le à l’aide paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton. Veillez à indiquer le paramètre `-Location` approprié, correspondant à l’emplacement de la machine virtuelle existante :
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.
+> [!NOTE]
+> Vous pouvez éventuellement déployer des identités gérées pour l’extension de machine virtuelle de ressources Azure, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
 
 ### <a name="add-vm-system-assigned-identity-to-a-group"></a>Ajoutez l’identité attribuée par le système d’une machine virtuelle à un groupe
 
@@ -146,11 +134,8 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-Pour supprimer l’extension de machine virtuelle d’identités managées pour ressources Azure, utilisez le commutateur -Name avec l’applet de commande [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension), en spécifiant le même nom que celui que vous avez utilisé lors de l’ajout de l’extension :
-
-   ```powershell
-   Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
-   ```
+> [!NOTE]
+> Si vous avez configuré l’identité gérée pour les ressources Azure VM extension (déconseillé), vous devez supprimer à l’aide de la [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension). Pour plus d’informations, consultez [migrer vers IMDS Azure pour l’authentification à partir de l’extension de machine virtuelle](howto-migrate-vm-extension.md).
 
 ## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
 
@@ -160,7 +145,7 @@ Dans cette section, vous allez découvrir comment ajouter et supprimer une ident
 
 Pour affecter une identité managée affectée par l’utilisateur à une machine virtuelle, votre compte a besoin de l’affectation de rôle [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) et [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
-1. Consultez l’un des démarrages rapides de machine virtuelle Azure suivants, en ne complétant que les sections nécessaires (« Se connecter à Azure », « Créer un groupe de ressources », « Créer un groupe de mise en réseau », « Créer la machine virtuelle »). 
+1. Consultez un des Azure VM Démarrages rapides suivants, que les sections nécessaires (« se connecter à Azure », « Créer groupe de ressources », « Créer un groupe mise en réseau, » « créer la machine virtuelle ») à la fin. 
   
     Quand vous parvenez à la section « Créer la machine virtuelle », apportez une légère modification à la syntaxe de l’applet de commande [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm). Ajoutez les paramètres `-IdentityType UserAssigned` et `-IdentityID ` pour approvisionner la machine virtuelle avec une identité affectée par l’utilisateur.  Remplacez `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` et `<USER ASSIGNED IDENTITY NAME>` par vos propres valeurs.  Par exemple : 
     
@@ -171,14 +156,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
     - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Facultatif) Ajoutez l’extension de machine virtuelle d’identité managée pour ressources Azure en utilisant le paramètre `-Type` avec l’applet de commande [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de machine virtuelle, et nommez-le à l’aide paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton. Veillez à indiquer le paramètre `-Location` approprié, correspondant à l’emplacement de la machine virtuelle existante :
-      > [!NOTE]
-    > Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons. L’extension de machine virtuelle d’identités managées pour ressources Azure doit être abandonnée en janvier 2019.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> Vous pouvez éventuellement déployer des identités gérées pour l’extension de machine virtuelle de ressources Azure, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Attribuer une identité managée affectée par l’utilisateur à une machine virtuelle Azure existante
 
@@ -193,7 +172,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 2. Créez une identité managée affectée par l’utilisateur en utilisant l’applet de commande [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity).  Notez la valeur `Id` dans la sortie, car vous en aurez besoin à l’étape suivante.
 
    > [!IMPORTANT]
-   > La création d’identités managées affectées par l’utilisateur prend uniquement en charge les caractères alphanumériques et les traits d’union (0-9, a-z, A-Z ou -). De plus, le nom doit être limité à 24 caractères pour que l’attribution à la machine virtuelle/au groupe de machines virtuelles identiques fonctionne correctement. Revenez ultérieurement pour des mises à jour. Pour plus d’informations, consultez [FAQ et problèmes connus](known-issues.md)
+   > Création des prend uniquement en charge affectée à l’utilisateur des identités gérées alphanumériques, trait de soulignement et de trait d’union (0-9 ou a-z ou A-Z, \_ ou -) caractères. En outre, le nom doit être limité à partir de 3 à 128 caractères de l’affectation VM/VMSS pour fonctionner correctement. Pour plus d’informations, consultez [FAQ et problèmes connus](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
@@ -208,12 +187,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. Ajoutez l’extension de machine virtuelle d’identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019) en utilisant le paramètre `-Type` sur l’applet de commande [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de machine virtuelle, et nommez-le à l’aide paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton. Spécifiez le paramètre `-Location` approprié, correspondant à l’emplacement de la machine virtuelle existante.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> Vous pouvez éventuellement déployer des identités gérées pour l’extension de machine virtuelle de ressources Azure, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Supprimer une identité managée affectée par l’utilisateur d’une machine virtuelle Azure
 

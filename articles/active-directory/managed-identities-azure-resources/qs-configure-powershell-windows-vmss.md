@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6675c8ed9bc600da5fc054698e6445f31abb1a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2dee7759dccf3093e9ba9f66bffcceaf603a11d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203524"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226876"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant PowerShell
 
@@ -34,7 +34,7 @@ Cet article explique comment effectuer les opérations d’identités managées 
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
@@ -56,22 +56,14 @@ Dans cette section, vous allez découvrir comment activer et supprimer une ident
 
 Pour créer un groupe de machines virtuelles identiques avec l’identité managée affectée par le système activée :
 
-1. Pour créer un groupe de machines virtuelles identiques avec une identité managée affectée par le système, voir l’*Exemple 1* dans l’article de référence sur l’applet de commande [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).  Ajoutez le paramètre `-IdentityType SystemAssigned` à la cmdlet `New-AzVmssConfig` :
+1. Reportez-vous à *exemple 1* dans le [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) article de référence d’applet de commande pour créer une échelle de machine virtuelle est définie avec une identité gérée attribué par le système.  Ajoutez le paramètre `-IdentityType SystemAssigned` à la cmdlet `New-AzVmssConfig` :
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
+> [!NOTE]
+> Vous pouvez éventuellement déployer les identités gérées pour les ressources Azure VM extension identiques, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [cesser d’utiliser l’extension de machine virtuelle et commencer à utiliser le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
 
-2. (Facultatif) Ajoutez l’extension de groupe de machines virtuelles identiques d’identités managées pour ressources Azure en utilisant les paramètres `-Name` et `-Type` avec l’applet de commande [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de groupe de machines virtuelles identiques, et le nommer au moyen du paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
-
-    > [!NOTE]
-    > Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure existant
 
@@ -89,13 +81,8 @@ Si vous devez activer une identité managée affectée par le système sur un gr
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Ajoutez l’extension de groupe de machines virtuelles identiques d’identités managées pour ressources Azure en utilisant les paramètres `-Name` et `-Type` avec l’applet de commande [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de groupe de machines virtuelles identiques, et le nommer au moyen du paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
+> [!NOTE]
+> Vous pouvez éventuellement déployer les identités gérées pour les ressources Azure VM extension identiques, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Désactiver l’identité managée affectée par le système d’un groupe de machines virtuelles identiques Azure
 
@@ -143,7 +130,7 @@ Pour attribuer une identité managée affectée par l’utilisateur à un groupe
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Supprimer d’un groupe de machines virtuelles identiques Azure une identité managée affectée par l’utilisateur
 
-Si votre groupe de machines virtuelles identiques dispose de plusieurs identités managées affectées par l’utilisateur, vous pouvez toutes les supprimer, sauf la dernière, au moyen des commandes suivantes. N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<VMSS NAME>` par vos propres valeurs. `<USER ASSIGNED IDENTITY NAME>` est la propriété de nom de l’identité managée affectée par l’utilisateur, qui doit rester sur le groupe de machines virtuelles identiques. Ces informations sont accessibles dans la section d’identité du groupe de machines virtuelles identiques à l’aide de `az vmss show` :
+Si votre groupe de machines virtuelles identiques dispose de plusieurs identités managées affectées par l’utilisateur, vous pouvez toutes les supprimer, sauf la dernière, au moyen des commandes suivantes. N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<VIRTUAL MACHINE SCALE SET NAME>` par vos propres valeurs. `<USER ASSIGNED IDENTITY NAME>` est la propriété de nom de l’identité managée affectée par l’utilisateur, qui doit rester sur le groupe de machines virtuelles identiques. Ces informations sont accessibles dans la section d’identité du groupe de machines virtuelles identiques à l’aide de `az vmss show` :
 
 ```powershell
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: 08009ca7f9faaa75e593670c22cf864c12236e8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411766"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450278"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Résoudre les problèmes de déploiement Resource Manager liés à la création d’une machine virtuelle Linux dans Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -43,32 +43,32 @@ Pour résoudre les problèmes, commencez par collecter les journaux d’activit�
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**O :** si le système d’exploitation est de type Linux généralisé et s’il est chargé et/ou capturé avec le paramètre généralisé, il n’y aura aucune erreur. De même, si le système d’exploitation est de type Linux spécialisé et qu’il est chargé et/ou capturé avec le paramètre spécialisé, il n’y aura aucune erreur.
+**O :** Si le système d’exploitation est de type Linux généralisé et s’il est téléchargé et/ou capturé avec le paramètre généralisé, il n’y aura aucune erreur. De même, si le système d’exploitation est de type Linux spécialisé et qu’il est chargé et/ou capturé avec le paramètre spécialisé, il n’y aura aucune erreur.
 
 **Erreurs de chargement :**
 
-**N<sup>1</sup> :** si le système d’exploitation est de type Linux généralisé et qu’il est chargé comme spécialisé, vous obtiendrez une erreur de délai d’attente d’approvisionnement, car la machine virtuelle est bloquée à l’étape d’approvisionnement.
+**N<sup>1</sup> :** Si le système d’exploitation est de type Linux généralisé, et qu’il est chargé comme spécialisé, vous obtiendrez une erreur de délai d’attente approvisionnement, car la machine virtuelle est bloquée au niveau de l’étape d’approvisionnement.
 
-**N<sup>2</sup> :** si le système d’exploitation est de type Linux spécialisé et qu’il est chargé comme généralisé, vous obtiendrez une erreur d’échec d’approvisionnement, car la nouvelle machine virtuelle s’exécute avec le nom d’ordinateur, le nom d’utilisateur et le mot de passe d’origine.
+**N<sup>2</sup> :** Si le système d’exploitation est Linux spécialisé et il est chargé comme généralisé, vous obtiendrez une erreur d’échec d’approvisionnement, car la nouvelle machine virtuelle s’exécute avec le nom de l’ordinateur d’origine, nom d’utilisateur et mot de passe.
 
 **Résolution :**
 
-Pour corriger ces deux erreurs, chargez le disque dur virtuel d’origine, disponible en mode local, avec le même paramétrage que pour le système d’exploitation (généralisé/spécialisé). Pour effectuer un chargement de type généralisé, n’oubliez pas de commencer par exécuter -deprovision.
+Pour résoudre ces deux erreurs, chargez le disque dur virtuel d’origine, disponible en local, avec le même paramètre que celui du système d’exploitation (généralisé/spécialisé). Pour effectuer un chargement de type généralisé, n’oubliez pas de commencer par exécuter -deprovision.
 
 **Erreurs de capture :**
 
-**N<sup>3</sup> :** si le système d’exploitation est de type Linux généralisé et qu’il est capturé comme spécialisé, vous obtiendrez une erreur de délai d’attente d’approvisionnement, car la machine virtuelle d’origine n’est pas utilisable tant qu’elle est identifiée comme généralisée.
+**N<sup>3</sup> :** Si le système d’exploitation est de type Linux généralisé et qu’il est capturé comme spécialisé, vous obtiendrez une erreur de délai d’attente approvisionnement, car la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme généralisée.
 
-**N<sup>4</sup> :** si le système d’exploitation est de type Linux spécialisé et qu’il est capturé comme généralisé, vous obtiendrez une erreur d’échec d’approvisionnement, car la nouvelle machine virtuelle s’exécute avec le nom d’ordinateur, le nom d’utilisateur et le mot de passe d’origine. En outre, la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme spécialisée.
+**N<sup>4</sup> :** Si le système d’exploitation est Linux spécialisé et qu’il est capturé comme généralisé, vous obtiendrez une erreur d’échec d’approvisionnement, car la nouvelle machine virtuelle s’exécute avec le nom de l’ordinateur d’origine, nom d’utilisateur et mot de passe. En outre, la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme spécialisée.
 
 **Résolution :**
 
-Pour corriger ces deux erreurs, supprimez l’image actuelle du portail, et [effectuez une nouvelle capture à partir des disques durs virtuels en cours](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , avec le même paramétrage que celui du système d’exploitation (généralisé/spécialisé).
+Pour corriger ces deux erreurs, supprimez l’image actuelle du portail, et [effectuez une nouvelle capture à partir des disques durs virtuels en cours](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), avec le même paramétrage que celui du système d’exploitation (généralisé/spécialisé).
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problème : Image personnalisée / galerie / marketplace ; échec d’allocation
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problème : Personnalisée / galerie / image de place de marché ; Échec d’allocation
 Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est épinglée à un cluster qui ne prend pas en charge la taille de machine virtuelle requise ou qui n’a pas d’espace libre suffisant pour prendre en charge la demande.
 
-**Cause 1 :** le cluster ne peut pas prendre en charge la taille de machine virtuelle demandée.
+**Cause 1 :** Le cluster ne peut pas prendre en charge la taille de machine virtuelle demandée.
 
 **Résolution 1 :**
 
@@ -79,7 +79,7 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
   * Une fois que toutes les machines virtuelles sont arrêtées, créez une machine virtuelle à la taille souhaitée.
   * Démarrez la nouvelle machine virtuelle en premier, puis sélectionnez chacune des machines virtuelles arrêtées et cliquez sur **Démarrer**.
 
-**Cause 2 :** le cluster n’a pas de ressources libres.
+**Cause 2 :** Le cluster n’a pas de ressources libres.
 
 **Résolution 2 :**
 

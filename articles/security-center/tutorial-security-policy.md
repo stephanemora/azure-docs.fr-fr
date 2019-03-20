@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/14/2019
 ms.author: monhaber
-ms.openlocfilehash: 98fffbc7a3b287dd59cfc681beec2107a5fd4ed6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085046"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226111"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -119,8 +119,8 @@ Pour plus d’informations sur les recommandations, consultez [gestion des recom
 
    ![désactiver la stratégie](./media/tutorial-security-policy/disable-policy.png)
 1. Cliquez sur **Enregistrer**.
-> [!Note]
-> Les modifications de stratégie de désactivation peuvent prendre jusqu'à 12 heures en vigueur.
+   > [!Note]
+   > Les modifications de stratégie de désactivation peuvent prendre jusqu'à 12 heures en vigueur.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configurer une stratégie de sécurité à l’aide de l’API REST

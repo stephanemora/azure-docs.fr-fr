@@ -3,8 +3,8 @@ title: Fichier Include
 description: Fichier Include
 services: active-directory
 documentationcenter: dev-center-name
-author: brandwe
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: brandwe
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 1604b7c9ee9888375e65aa679803c6e996e13b14
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 9782c6c2024c5cf490f207bb12a214c93a53b813
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988240"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203492"
 ---
 ## <a name="register-your-application"></a>Inscrivez votre application
 
 Vous pouvez inscrire votre application de deux manières, comme décrit dans les deux sections suivantes.
 
-### <a name="option-1-express-mode"></a>Option 1 : mode Express
+### <a name="option-1-express-mode"></a>Option 1 : Mode Express
 
 Maintenant, vous devez inscrire votre application dans le *portail d’inscription des applications de Microsoft* :
 
@@ -34,7 +34,7 @@ Maintenant, vous devez inscrire votre application dans le *portail d’inscripti
 3. Assurez-vous que la case de l’option Assistant Installation est cochée.
 4. Suivez les instructions à l’écran pour obtenir l’ID de l’application et collez-le dans votre code.
 
-### <a name="option-2-advanced-mode"></a>Option 2 : mode Avancé
+### <a name="option-2-advanced-mode"></a>Option 2 : Mode Avancé
 
 1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app).
 2. Entrez un nom pour votre application.

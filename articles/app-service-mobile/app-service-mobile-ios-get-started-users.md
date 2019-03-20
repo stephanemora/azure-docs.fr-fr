@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
-ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592692"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445906"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Ajout de l'authentification à votre application iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de [Déma
 
 L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application.  Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé.  Dans ce didacticiel, nous utilisons le schéma d’URL _appname_.  Toutefois, vous pouvez utiliser le schéma d’URL de votre choix.  Il doit être propre à votre application mobile.  Pour activer la redirection côté serveur :
 
-1. Dans le [portail Azure], sélectionnez votre App Service.
+1. Dans le[Portail Azure], sélectionnez votre App Service.
 
 2. Cliquez sur l’option de menu **Authentication/Authorisation**.
 
@@ -110,7 +110,7 @@ Dans Xcode, appuyez sur **Exécuter** pour démarrer l’application. Une except
     }
     ```
 
-   Ajoutez ce code juste avant la lecture de la ligne `#pragma mark - Core Data stack`.  Remplacez la chaîne _appname_ par la valeur de urlScheme utilisée à l’étape 1.
+   Ajoutez ce code juste avant la lecture de la ligne `#pragma mark - Core Data stack`.  Remplacez le _appname_ avec la valeur d’urlScheme que vous avez utilisé à l’étape 1.
 
 5. Ouvrez le fichier `AppName-Info.plist` (en remplaçant AppName par le nom de votre application) et ajoutez le code suivant :
 
@@ -188,7 +188,7 @@ Dans Xcode, appuyez sur **Exécuter** pour démarrer l’application. Une except
     }
     ```
 
-    Remplacez la chaîne _appname_ par la valeur de urlScheme utilisée à l’étape 1.
+    Remplacez le _appname_ avec la valeur d’urlScheme que vous avez utilisé à l’étape 1.
 
 4. Ouvrez le fichier `AppName-Info.plist` (en remplaçant AppName par le nom de votre application) et ajoutez le code suivant :
 
@@ -217,7 +217,7 @@ L’authentification App Service utilise la communication inter-application d’
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com
 
 [Démarrage rapide iOS]: app-service-mobile-ios-get-started.md
 

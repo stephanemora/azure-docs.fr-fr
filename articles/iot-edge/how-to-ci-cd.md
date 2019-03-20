@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896226"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
 
@@ -25,7 +25,7 @@ Dans cet article, vous allez apprendre à utiliser les tâches Azure IoT Edge in
 ![Diagramme - Branches CI et CD pour le développement et la production](./media/how-to-ci-cd/cd.png)
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Référentiel Azure Repos. Si vous n’en avez pas, vous pouvez [créer un référentiel Git dans votre projet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
 * Solution IoT Edge validée et envoyée (push) vers votre référentiel. Si vous souhaitez créer un exemple de solution pour tester cet article, suivez la procédure décrite dans [Développer et déboguer des modules dans Visual Studio Code](how-to-vs-code-develop-module.md) ou [Développer et déboguer des modules C# dans Visual Studio](how-to-visual-studio-develop-csharp-module.md).
@@ -47,7 +47,7 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
 >
 >Pour plus d’informations, consultez [Créer un pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Connectez-vous à votre organisation Azure DevOps (**https://dev.azure.com/{your organisation}/**), puis ouvrez le projet contenant votre référentiel de solution IoT Edge.
+1. Connectez-vous à votre organisation d’Azure DevOps (**https :\//dev.azure.com/{your organisation} /**) et ouvrez le projet qui contient votre référentiel de la solution IoT Edge.
 
    Pour cet article, nous avons créé un référentiel appelé **IoTEdgeRepo**. Ce référentiel contient **IoTEdgeSolution** qui dispose du code d'un module nommé **filtermodule**. 
 
@@ -69,13 +69,13 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
 
 4. Une fois votre pipeline créé, vous accédez à l’éditeur de pipeline. Dans la description de votre pipeline, sélectionnez le pool d'agents qui convient en fonction de votre plateforme cible : 
     
-    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Linux, choisissez **Hosted Ubuntu 1604** (Ubuntu 1604 hébergé)
+   * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Linux, choisissez **Hosted Ubuntu 1604** (Ubuntu 1604 hébergé)
 
-    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Windows 1809, vous devez [configurer l'agent auto-hébergé sur Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Windows 1809, vous devez [configurer l'agent auto-hébergé sur Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme arm32v7 pour Linux, vous devez [configurer l'agent auto-hébergé sur Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Si vous souhaitez générer vos modules dans des conteneurs de plateforme arm32v7 pour Linux, vous devez [configurer l'agent auto-hébergé sur Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-    ![Configurer le pool d’agents de build](./media/how-to-ci-cd/configure-env.png)
+     ![Configurer le pool d’agents de build](./media/how-to-ci-cd/configure-env.png)
 
 5. Votre pipeline est préconfiguré avec un travail appelé **Travail d'agent 1**. Sélectionnez le signe plus (**+**) pour ajouter trois tâches au travail : **Azure IoT Edge** deux fois, et **Publier des artefacts de build** une fois. (Placez le curseur sur le nom de chaque tâche pour afficher le bouton **Ajouter**.)
 
@@ -158,11 +158,11 @@ Créez un pipeline et configurez sa première phase pour les déploiements d'ass
 
 10. Sélectionnez la nouvelle tâche Azure IoT Edge et configurez-la avec les valeurs suivantes :
 
-   * **Nom d'affichage** : Le nom d’affichage est automatiquement mis à jour lorsque le champ d’action change. 
-   * **Action** : Utilisez la liste déroulante pour sélectionner **Déployer sur l’appareil IoT Edge**. Modifier la valeur d'action met également à jour le nom d'affichage de la tâche en conséquence.
-   * **Abonnement Azure** : Sélectionnez l’abonnement contenant votre IoT Hub.
-   * **Nom du IoT Hub** : Sélectionnez votre hub IoT. 
-   * **Sélectionnez un ou plusieurs appareils** : indiquez si vous souhaitez que le pipeline de mise en production se déploie sur un ou plusieurs appareils. 
+    * **Nom d'affichage** : Le nom d’affichage est automatiquement mis à jour lorsque le champ d’action change. 
+    * **Action** : Utilisez la liste déroulante pour sélectionner **Déployer sur l’appareil IoT Edge**. Modifier la valeur d'action met également à jour le nom d'affichage de la tâche en conséquence.
+    * **Abonnement Azure** : Sélectionnez l’abonnement contenant votre IoT Hub.
+    * **Nom du IoT Hub** : Sélectionnez votre hub IoT. 
+    * **Sélectionnez un ou plusieurs appareils** : indiquez si vous souhaitez que le pipeline de mise en production se déploie sur un ou plusieurs appareils. 
       * Si vous le déployez sur un seul appareil, entrez l'**ID d’appareil IoT Edge**. 
       * Si vous le déployez sur plusieurs appareils, spécifiez la **condition cible** des appareils. La condition cible est un filtre qui correspond à un ensemble d’appareils Edge dans IoT Hub. Pour utiliser les étiquettes des appareils en tant que condition, vous devez mettre à jour les étiquettes d’appareils correspondantes avec le jumeau d’appareil IoT Hub. Mettez à jour l'**ID de déploiement IoT Edge** et la **priorité de déploiement IoT Edge** dans les paramètres avancés. Pour plus d’informations sur la création d’un déploiement pour plusieurs appareils, consultez [Comprendre les déploiements automatiques IoT Edge](module-deployment-monitoring.md).
 

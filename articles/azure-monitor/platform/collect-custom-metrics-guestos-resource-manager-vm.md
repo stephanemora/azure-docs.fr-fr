@@ -4,18 +4,20 @@ description: Envoyer des métriques de système d’exploitation invité vers le
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 63b134ab9bfdac3617c845da7a14ee6b9234c84d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894596"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782018"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Resource Manager pour une machine virtuelle Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 À l’aide de l’[extension Diagnostics](diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux à partir du système d’exploitation invité (SE invité) qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
@@ -25,11 +27,11 @@ En les stockant dans cet emplacement, vous avez accès aux mêmes actions que ce
 
 Si vous découvrez les modèles Resource Manager, obtenez plus d’informations sur les [déploiements de modèle](../../azure-resource-manager/resource-group-overview.md), leur structure et leur syntaxe.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- Vous devez avoir installé [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurer Azure Monitor en tant que récepteur de données
@@ -237,17 +239,17 @@ Enregistrez et fermez les deux fichiers.
 Pour déployer le modèle Resource Manager, vous allez utiliser Azure PowerShell.
 
 1. Lancez PowerShell.
-1. Connectez-vous à Azure à l’aide de `Login-AzureRmAccount`.
-1. Obtenez la liste de vos abonnements à l’aide de `Get-AzureRmSubscription`.
+1. Connectez-vous à Azure à l’aide de `Login-AzAccount`.
+1. Obtenez la liste de vos abonnements à l’aide de `Get-AzSubscription`.
 1. Définissez l’abonnement que vous utilisez pour créer/mettre à jour la machine virtuelle dans :
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. Pour créer un nouveau groupe de ressources pour la machine virtuelle en cours de déploiement, exécutez la commande suivante :
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > N’oubliez pas d’[utiliser une région Azure dans laquelle les mesures personnalisées sont activées](metrics-custom-overview.md).
@@ -257,7 +259,7 @@ Pour déployer le modèle Resource Manager, vous allez utiliser Azure PowerShell
    > Si vous souhaitez mettre à jour une machine virtuelle existante, ajoutez simplement *-Mode Incremental* à la fin de la commande suivante.
 
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. Une fois votre déploiement réussi, la machine virtuelle doit se trouver dans le portail Azure et envoie des métriques vers Azure Monitor.

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842485"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
-Lorsque vous vous inscrivez à Azure, il y a plusieurs choses que vous pouvez faire pour avoir une meilleure idée de vos dépenses. La [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) peut fournir une estimation des coûts avant de créer une ressource Azure. Le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) fournit la répartition des coûts et la prévision pour votre abonnement. Si vous souhaitez regrouper et comprendre les coûts associés à différents projets ou équipes,reportez-vous au [balisage des ressources](../azure-resource-manager/resource-group-using-tags.md). Si votre organisation dispose d’un système de création de rapports que vous préférez utiliser, regardez du côté des [API de facturation](billing-usage-rate-card-overview.md).
+Lorsque vous vous inscrivez pour Azure, il existe plusieurs choses à que faire pour obtenir une meilleure idée de vos dépenses. La [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) peut fournir une estimation des coûts avant de créer une ressource Azure. Le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) fournit la répartition des coûts et la prévision pour votre abonnement. Si vous souhaitez regrouper et comprendre les coûts associés à différents projets ou équipes,reportez-vous au [balisage des ressources](../azure-resource-manager/resource-group-using-tags.md). Si votre organisation dispose d’un système de création de rapports que vous préférez utiliser, regardez du côté des [API de facturation](billing-usage-rate-card-overview.md).
 
 - Si votre abonnement est un Contrat Entreprise (EA), la préversion publique pour l’affichage de vos coûts dans le portail Azure est disponible. Si votre abonnement s’effectue par l’intermédiaire d’un fournisseur de solutions cloud (CSP) ou Azure Sponsorship, certaines des fonctionnalités suivantes peuvent ne pas vous concerner. Consultez [Ressources supplémentaires pour les offres EA, CSP et Sponsorship](#other-offers) et pour obtenir plus d’informations.
 
@@ -183,8 +183,28 @@ Pour vérifier si vous êtes l’administrateur de compte, accédez au [panneau 
 
 Si vous n’êtes pas l’administrateur de compte, quelqu’un vous a sans doute octroyé un accès partiel à l’aide du [contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Pour gérer les abonnements et modifier les informations de facturation, [identifiez l’administrateur de compte](billing-subscription-transfer.md#whoisaa). Demandez à l’administrateur de compte d’effectuer ces tâches ou de [vous transférer l’abonnement](billing-subscription-transfer.md).
 
-Si votre administrateur de compte ne fait plus partie de votre organisation et que vous souhaitez gérer la facturation, [contactez-nous](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si votre administrateur de compte ne fait plus partie de votre organisation et que vous souhaitez gérer la facturation, [contactez-nous](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
+### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Comment demander un crédit de contrat de niveau de Service pour un incident de service
+
+Les contrats SLA décrivent les engagements de Microsoft en matière de temps d’activité et de connectivité. Un incident de service est signalé lorsque les services Azure rencontreront un problème de ce temps d’activité impacts ou de la connectivité, souvent appelé « panne ». Si nous ne pas atteindre et maintenir les niveaux de Service pour chaque Service, comme décrit dans le contrat SLA, vous pourrez être éligible à un crédit vers une partie de vos frais mensuels de service.
+
+Pour demander un crédit :
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/). Si vous possédez plusieurs comptes, assurez-vous que vous utilisez celle qui a été affectée par les interruptions de service Azure. Cela permet la prise en charge collecter automatiquement les informations nécessaires en arrière-plan et de résoudre le cas plus rapidement.
+2. Créer une nouvelle demande de support.
+3. Sous **type de problème**, sélectionnez **facturation**.
+4. Sous **type de problème**, sélectionnez **demande de remboursement**.
+5. Ajouter des détails pour spécifier que vous demandez un crédit de contrat SLA, indiquez la date/heure/fuseau horaire, ainsi que les services concernés (machines virtuelles, Sites Web, etc.).
+6. Vérifiez vos coordonnées et sélectionnez le **créer** bouton pour envoyer votre demande.
+
+Seuils de contrat SLA varient selon le service. Par exemple, SQL de niveau Web a un contrat SLA de 99,9 %, les machines virtuelles ont un contrat SLA de 99,95 % et niveau Standard de SQL a un contrat SLA de 99,99 %.
+
+Pour certains services, voici les conditions préalables pour le contrat SLA à appliquer. Par exemple, les Machines virtuelles doit avoir deux ou plusieurs instances déployées dans le même groupe à haute disponibilité.
+
+Pour plus d’informations, consultez le [les contrats de niveau de Service](https://azure.microsoft.com/en-us/support/legal/sla/) documentation et le [résumé des contrats SLA pour les services Azure](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentation.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

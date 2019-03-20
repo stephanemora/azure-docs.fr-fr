@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100104"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107812"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
 
@@ -31,8 +31,8 @@ Cet article se concentre sur les étapes de configuration et de surveillance des
 1. Un opérateur définit un déploiement qui décrit un ensemble de modules, ainsi que les appareils cibles. Chaque déploiement possède un manifeste de déploiement qui reflète ces informations. 
 2. Le service de IoT Hub communique avec tous les appareils ciblés pour les configurer avec les modules souhaités. 
 3. Le service IoT Hub récupère l’état des appareils IoT Edge et les met à la disposition de l’opérateur.  Par exemple, un opérateur voit quand un appareil Edge n’est pas correctement configuré ou si un module échoue durant l’exécution. 
-4. À tout moment, les nouveaux appareils IoT Edge qui remplissent les conditions de ciblage sont configurés pour le déploiement. Par exemple, un déploiement qui cible tous les appareils IoT Edge dans l’état de Washington configure automatiquement un nouvel appareil IoT Edge une fois qu’il est provisionné et ajouté au groupe des appareils de l’état de Washington. 
- 
+4. À tout moment, les nouveaux appareils IoT Edge qui remplissent les conditions de ciblage sont configurés pour le déploiement. Par exemple, un déploiement qui cible tous les appareils IoT Edge dans l’état de Washington configure automatiquement un nouvel appareil IoT Edge une fois qu’il est approvisionné et ajouté au groupe des périphériques de l’état de Washington. 
+ 
 Cet article décrit chaque composant impliqué dans la configuration et la surveillance d’un déploiement. Pour connaître la procédure de création et de mise à jour d’un déploiement, consultez [Déployer et surveiller des modules IoT Edge à l’échelle](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Déploiement
@@ -52,7 +52,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules devant
 Les métadonnées de configuration pour chaque module incluent : 
 
 * Version 
-* type 
+* Type 
 * État (par exemple, en cours d’exécution ou arrêté) 
 * Stratégie de redémarrage 
 * Registre d’images et de conteneurs
@@ -62,7 +62,7 @@ Si l’image du module est stockée dans un registre de conteneurs privé, l’a
 
 ### <a name="target-condition"></a>Condition cible
 
-La condition cible est évaluée en permanence sur toute la durée de vie du déploiement. Les nouveaux appareils qui répondent aux exigences sont inclus ; tous les appareils existants qui n’y satisfont plus sont supprimés. Le déploiement est réactivé si le service détecte une modification de la condition cible. 
+La condition cible est évaluée en permanence tout au long de la durée de vie du déploiement. Les nouveaux appareils qui répondent aux exigences sont inclus ; tous les appareils existants qui n’y satisfont plus sont supprimés. Le déploiement est réactivé si le service détecte une modification de la condition cible. 
 
 Prenons l’exemple d’un déploiement A comportant la condition cible tags.environment = 'prod'. Au lancement du déploiement, il y a 10 appareils de production. Les modules sont correctement installés sur ces 10 appareils. L’état de l’Agent IoT Edge affiche 10 appareils au total, 10 réponses correctes, 0 échecs de réponse et 0 réponses en attente. On ajoute maintenant cinq appareils avec tags.environment = 'prod'. Le service détecte la modification, et l’état de l’Agent IoT Edge devient : 15 appareils au total, 10 réponses correctes, 0 échecs de réponses et 5 réponses en attente quand il tente de déployer les cinq nouveaux appareils.
 

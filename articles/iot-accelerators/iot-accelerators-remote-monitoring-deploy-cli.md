@@ -6,20 +6,20 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/30/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463216"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182130"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI
 
-Ce guide pratique montre comment déployer l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à partir d’azureiotsuite.com. Pour découvrir cette option, voir le guide de démarrage rapide [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md).
+Ce guide pratique montre comment déployer l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à azureiotsolutions.com, pour en savoir plus sur cette option, consultez la [déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md) Guide de démarrage rapide.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour déployer l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -66,7 +66,7 @@ Le déploiement de base est destiné à présenter la solution. Pour réduire le
 
 Un déploiement de base crée les services suivants dans votre abonnement Azure :
 
-| Nombre | Ressource                       | type         | Utilisation |
+| Nombre | Ressource                       | Type         | Utilisation |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Machine virtuelle Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hébergement des microservices |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | Niveau Standard S1 | Gestion des appareils et communication |

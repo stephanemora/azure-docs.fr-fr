@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158922"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101208"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Secouez, secouez pour récupérer un tweet - Récupérez un message Twitter avec Azure Functions
 
@@ -175,9 +175,9 @@ L’ébauche de projet Arduino envoie un événement à Azure IoT Hub. Cet évé
 
    ```csharp
    string authHeader = "Bearer " + "[your own token]";
-  ```
+   ```
   
-  ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+   ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Enregistrez le fichier, puis cliquez sur **Exécuter**.
 
@@ -201,8 +201,8 @@ Ou bien, lorsque vous exécutez le code, certains blocages entrainent un redéma
 
 Si vous rencontrez d’autres problèmes, consultez le [FAQ sur le DevKit IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contactez-nous par le biais des canaux suivants :
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

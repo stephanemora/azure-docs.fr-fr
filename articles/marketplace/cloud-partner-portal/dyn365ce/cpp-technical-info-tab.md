@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081757"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731485"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Onglet Informations techniques de Dynamics 365 for Customer Engagement
 
@@ -58,7 +58,7 @@ Le tableau suivant décrit ces champs.
 |  Nom de fichier de votre package     |  Nom de fichier de votre package (.zip).  Ce nom n’est *pas* public et sera utilisé en interne par l’équipe de certification Dynamics 365.  |
 |  Url                          |  URL d’un compte de Stockage Azure qui contient le fichier de package chargé. Cette URL doit inclure une clé SAP en lecture seule pour permettre à notre équipe de récupérer votre package à des fins de vérification.  |
 | Plusieurs packages CRM     | Sélectionnez Oui UNIQUEMENT si vous prenez en charge plusieurs versions de CRM avec différents packages.  Chaque version aura un fichier de package correspondant que vous devez créer individuellement.  |
-| Scénario et ressource du cas d’utilisation   | Permet le chargement d’un document de spécification fonctionnelle pour votre application, à utiliser par l’équipe de validation Dynamics 365.  Le format par défaut de cette spécification est le [modèle de scénario utilisateur E2E](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Scénario et ressource du cas d’utilisation   | Permet le chargement d’un document de spécification fonctionnelle pour votre application, à utiliser par l’équipe de validation Dynamics 365.  Le format par défaut de cette spécification est le [modèle de scénario utilisateur E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

@@ -5,16 +5,16 @@ services: batch
 author: laurenhughes
 manager: jeconnoc
 ms.service: batch
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a2959e6caefb09a22be4473f7da005c6f524aba0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878351"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772583"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Vue d’ensemble des outils et API Batch
 
@@ -39,7 +39,7 @@ Vos applications et services peuvent émettre des appels directs de l’API REST
 
 | API | Informations de référence sur l'API | Téléchargement | Didacticiel | Exemples de code | En savoir plus |
 | --- | --- | --- | --- | --- | --- |
-| **Batch REST** |[docs.microsoft.com][batch_rest] |N/A |- |- | [Versions prises en charge](/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **Batch REST** |[docs.microsoft.com][batch_rest] |S.O. |- |- | [Versions prises en charge](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Didacticiel](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notes de publication](https://aka.ms/batch-net-dataplane-changelog) |
 | **Python Batch** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Didacticiel](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Lisez-moi](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Didacticiel](batch-nodejs-get-started.md) |- | [Lisez-moi](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
@@ -51,7 +51,7 @@ Les API Azure Resource Manager pour le service Batch fournissent un accès par p
 
 | API | Informations de référence sur l'API | Téléchargement | Didacticiel | Exemples de code |
 | --- | --- | --- | --- | --- |
-| **REST Batch Management** |[docs.microsoft.com][api_rest_mgmt] |N/A |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+| **REST Batch Management** |[docs.microsoft.com][api_rest_mgmt] |S.O. |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Gestion de lots .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Didacticiel](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 | **Python Batch Management** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
 | **Node.js Batch Management** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 

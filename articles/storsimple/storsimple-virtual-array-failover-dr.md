@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110747"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454236"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array via le portail Azure
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Cet article décrit la récupération d’urgence pour votre Microsoft Azure StorSimple Virtual Array, notamment la procédure détaillée pour basculer vers un autre Virtual Array. Un basculement vous permet de déplacer vos données depuis un appareil *source* du centre de données vers un appareil *cible*. L’appareil cible peut se trouver dans le même ou un autre emplacement géographique. Le basculement de l'appareil s'applique à l'ensemble de l'appareil. Lors du basculement, les données de cloud pour l'appareil source deviennent la propriété de l'appareil cible.
 
 Cet article s'applique aux StorSimple Virtual Arrays uniquement. Pour le basculement d’un appareil de la gamme 8000, consultez [Basculement d’appareil et récupération d’urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
@@ -44,7 +44,7 @@ La récupération d’urgence est orchestrée par la fonctionnalité de basculem
 
 ## <a name="prerequisites-for-device-failover"></a>Configuration requise pour le basculement d'appareil
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Conditions préalables
 
 Pour permettre le basculement d’un appareil, assurez-vous que les conditions préalables suivantes sont satisfaites :
 
@@ -60,7 +60,7 @@ Pour permettre le basculement d’un appareil, assurez-vous que les conditions p
 * Pour la récupération d’urgence d’un serveur de fichiers, nous vous recommandons de joindre l’appareil cible au même domaine que la source. Cette configuration permet de garantir la résolution automatique des autorisations de partage. Seul le basculement vers un appareil cible se trouvant dans le même domaine est pris en charge.
 * Les appareils cibles disponibles pour la récupération d'urgence sont des appareils ayant une capacité égale ou supérieure par rapport à l'appareil source. Les appareils connectés à votre service qui ne présentent pas un espace suffisant ne sont pas disponibles en tant qu’appareils cibles.
 
-### <a name="other-considerations"></a>Autres considérations
+### <a name="other-considerations"></a>Autres points à considérer
 
 * Pour un basculement planifié 
   

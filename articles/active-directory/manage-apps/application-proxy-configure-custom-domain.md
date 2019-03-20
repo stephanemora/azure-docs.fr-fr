@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3918030925022ac20144f9adac6e7683bac64aa4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181760"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106795"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilisation des domaines personnalisés dans le proxy d'application Azure AD
 
-Lorsque vous publiez une application via le proxy d’application Azure Active Directory, vous créez une URL externe accessible à vos utilisateurs lorsqu’ils travaillent à distance. Cette URL obtient le domaine par défaut *yourtenant.msappproxy.net*. Par exemple, si vous avez publié une application nommée Dépenses et si votre locataire s’appelle Contoso, l’URL externe serait https://expenses-contoso.msappproxy.net. Si vous souhaitez utiliser votre propre nom de domaine, configurez un domaine personnalisé pour votre application. 
+Lorsque vous publiez une application via le proxy d’application Azure Active Directory, vous créez une URL externe accessible à vos utilisateurs lorsqu’ils travaillent à distance. Cette URL obtient le domaine par défaut *yourtenant.msappproxy.net*. Par exemple, si vous avez publié une application nommée Dépenses et si votre locataire s’appelle Contoso, l’URL externe serait `https://expenses-contoso.msappproxy.net`. Si vous souhaitez utiliser votre propre nom de domaine, configurez un domaine personnalisé pour votre application. 
 
 Nous vous recommandons de définir des domaines personnalisés pour vos applications, le cas échéant. Voici quelques-uns des avantages des domaines personnalisés :
 

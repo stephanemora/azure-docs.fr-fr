@@ -3,7 +3,7 @@ title: Collecte de données dans Azure Security Center | Microsoft Docs
 description: " Découvrez comment activer la collecte des données dans Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,41 +12,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: 3f837820d05f7e10524e65bd8a7775d45c4cc600
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/19/2018
+ms.author: monhaber
+ms.openlocfilehash: 7be86ae7b425c8497b017672ae2e828ccbf65049
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110424"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223697"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
-Azure Security Center collecte des données à partir de vos machines virtuelles Azure et ordinateurs autres qu’Azure pour surveiller les menaces et vulnérabilités de sécurité. Données collectées à l’aide de l’agent d’Analytique de journal, qui lit les diverses configurations liées à la sécurité et les journaux des événements à partir de la machine et copie les données dans votre espace de travail pour l’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté. L’agent d’Analytique de journal copie également les fichiers de vidage sur incident dans votre espace de travail.
+Security Center collecte les données à partir de vos machines virtuelles (VM) Azure, les machines virtuelles identiques (VMSS), les conteneurs de IaaS et les ordinateurs non Azure (notamment en local) pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté. L’agent Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
 
 La collecte de données est requise pour fournir une visibilité des mises à jour manquantes, des paramètres de sécurité du système d’exploitation mal configurés, de l’activation du point de terminaison ainsi que de l’intégrité et des détections de menaces. 
 
-Cet article fournit des conseils sur la façon d’installer un agent Log Analytique et de définir un espace de travail Analytique de journal dans lequel stocker les données collectées. Les deux opérations sont nécessaires pour activer la collecte de données. 
+Cet article fournit des conseils sur la façon d’installer un agent Microsoft Monitoring Agent et de définir un espace de travail Log Analytics dans lequel stocker les données collectées. Les deux opérations sont nécessaires pour activer la collecte de données. 
 
 > [!NOTE]
-> - La collecte de données est nécessaire uniquement pour les ressources de calcul (machines virtuelles et ordinateurs autres qu’Azure). Vous pouvez bénéficier d’Azure Security Center même si vous ne configurez pas d’agents ; toutefois, vous disposerez d’une sécurité limitée et les fonctionnalités répertoriées ci-dessus ne sont pas pris en charge.  
+
+> - Collecte de données est nécessaire uniquement pour les ressources de calcul (machines virtuelles, Virtual Machine Scale Sets, conteneurs de IaaS et les ordinateurs non Azure). Vous pouvez bénéficier d’Azure Security Center même si vous ne configurez pas d’agents ; toutefois, vous disposerez d’une sécurité limitée et les fonctionnalités répertoriées ci-dessus ne sont pas pris en charge.  
 > - Pour obtenir la liste des plateformes prises en charge, consultez [Plateformes prises en charge dans Azure Security Center](security-center-os-coverage.md).
 > - La collecte de données pour les groupes de machines virtuelles identiques n’est actuellement pas prise en charge.
 
 
-## Activer l’approvisionnement automatique de l’agent d’Analytique de journal <a name="auto-provision-mma"></a>
+## Activer l’approvisionnement automatique de Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
 
-Pour collecter les données à partir des ordinateurs, vous devez avoir installé l’agent d’Analytique de journal.  L’installation de l’agent peut être automatique (recommandé), ou vous pouvez choisir d’installer l’agent manuellement.  
+Pour collecter les données à partir des machines, vous devez avoir installé Microsoft Monitoring Agent.  L’installation de l’agent peut être automatique (recommandé), ou vous pouvez choisir d’installer l’agent manuellement.  
 
 >[!NOTE]
 > L’approvisionnement automatique est désactivé par défaut. Pour définir que Security Center installe l’approvisionnement par défaut automatique, mettez-le sur **Activé**.
 >
 
-Lorsque l’approvisionnement automatique est activée, Security Center configure l’agent Log Analytique sur tout pris en charge les machines virtuelles Azure et toutes celles nouvellement créées. Le provisionnement automatique est fortement recommandé. Toutefois, l’installation manuelle des agents est également disponible. [Découvrez comment installer l’extension de l’agent Log Analytique](#manualagent).
+Lorsque l’approvisionnement automatique est activée, Security Center approvisionne Microsoft Monitoring agent sur tout pris en charge les machines virtuelles Azure et toutes celles nouvellement créées. Le provisionnement automatique est fortement recommandé. Toutefois, l’installation manuelle des agents est également disponible. [Découvrez comment installer l’extension Microsoft Monitoring Agent](#manualagent)
 
 
 
-Pour activer l’approvisionnement automatique de l’agent d’Analytique de journal :
+Pour activer l’approvisionnement automatique de Microsoft Monitoring Agent :
 1. Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
 2. Cliquez sur **Modifier les paramètres** dans la colonne Paramètres de l’abonnement souhaité dans la liste.
 
@@ -60,7 +61,7 @@ Pour activer l’approvisionnement automatique de l’agent d’Analytique de jo
 
 >[!NOTE]
 > - Pour obtenir des instructions sur l’approvisionnement d’une installation déjà existante, consultez [Approvisionnement automatique en cas d’installation d’un agent préexistant](#preexisting).
-> - Pour obtenir des instructions sur la configuration manuelle, consultez [installer l’extension de l’agent d’Analytique de journal manuellement](#manualagent).
+> - Pour recevoir des instructions sur l’approvisionnement manuel, consultez [Installer manuellement l’extension de Microsoft Monitoring Agent](#manualagent).
 > - Pour recevoir des instructions sur la désactivation de l’approvisionnement automatique, consultez [Désactiver l’approvisionnement automatique](#offprovisioning).
 > - Pour obtenir des instructions sur la manière d’intégrer Security Center à l’aide de PowerShell, voir [Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell](security-center-powershell-onboarding.md).
 >
@@ -202,16 +203,20 @@ Pour choisir votre stratégie de filtrage :
 
 Les cas d’usage suivants spécifient la manière dont l’approvisionnement automatique fonctionne lorsqu’un agent ou une extension sont déjà installés. 
 
-- Agent d’Analytique de journal est installé sur l’ordinateur, mais pas en tant qu’extension<br>
-Si l’agent d’Analytique de journal est installé directement sur la machine virtuelle (pas comme une extension Azure), Security Center n’installe pas l’agent d’Analytique de journal. Vous pouvez activer l’approvisionnement automatique et sélectionner l’espace de travail des utilisateurs concernés dans la configuration de l’approvisionnement automatique de Security Center. Si vous choisissez le même espace de travail à que la machine virtuelle est déjà connectée à l’agent existant sera encapsulé avec une extension de l’agent d’Analytique de journal. 
+- Microsoft Monitoring Agent est installé sur l’ordinateur, mais pas en tant qu’extension (agent Direct)<br>
+Si l’agent Microsoft Monitoring Agent est installé directement sur la machine virtuelle (pas comme une extension Azure), Security Center installe l’extension Microsoft Monitoring Agent et peut mettre à niveau l’agent Microsoft Monitoring vers la dernière version.
+L’agent installé continuera à signaler dans ses espaces de travail déjà configuré et signalera en outre à l’espace de travail configuré dans Security Center (multihébergement est pris en charge).
+Si l’espace de travail configuré est un espace de travail utilisateur (pas une espace de travail du centre de sécurité par défaut), vous devez installer le « sécurité / solution « securityFree » dessus pour le centre de sécurité démarrer le traitement des événements à partir des machines virtuelles et ordinateurs reporting à cet espace de travail.<br>
+<br>
+Pour les ordinateurs existants sur intégré d’abonnements à Security Center avant 2019-03-17, lorsqu’un agent existant sera détecté, l’extension Microsoft Monitoring Agent ne sera pas installée et l’ordinateur n’est pas affectée. Pour ces machines, consultez la recommandation « Résoudre analyse des problèmes d’intégrité de l’agent sur vos machines » pour résoudre les problèmes d’installation de l’agent sur ces ordinateurs.
 
-> [!NOTE]
-> Si la version 2012 de l’agent SCOM est installée, **ne pas** activer l’approvisionnement automatique. 
+  
+- Agent SCOM est installé sur l’ordinateur<br>
+Centre de sécurité s’installe l’extension Microsoft Monitoring Agent côté à côte dans SCOM existant. L’agent SCOM existant continuera de signaler au serveur SCOM normalement. Notez que l’agent SCOM et Microsoft Monitoring Agent partagent des bibliothèques Runtime communes, qui seront mise à jour vers la dernière version lors de ce processus.
+Remarque : si SCOM 2012 version de l’agent est installé, **ne le faites pas** activer la configuration sur automatique.<br>
 
-Pour plus d’informations, consultez [Que se passe-t-il si un agent direct SCOM ou OMS est déjà installé sur ma machine virtuelle ?](security-center-faq.md#scomomsinstalled)
-
--   Une extension de machine virtuelle existante est présente<br>
-    - Security center prend en charge les installations existantes de l’extension et ne remplace pas les connexions existantes. Security Center stocke les données de sécurité à partir de la machine virtuelle dans l’espace de travail déjà connecté et fournit une protection basée sur les solutions activées sur l’espace de travail.   
+- Une extension de machine virtuelle existante est présente<br>
+    - Lorsque l’Agent de surveillance est installé en tant qu’extension, la configuration de l’extension permet de générer uniquement un espace de travail unique. Security Center n’écrase pas les connexions existantes des espaces de travail utilisateur. Security Center stocke les données de sécurité à partir de la machine virtuelle dans l’espace de travail déjà connecté, autant que le « sécurité » ou « securityFree » solution a été installée dessus. Security Center peut mettre à niveau la version d’extension vers la dernière version de ce processus.  
     - Pour voir à quel espace de travail l’extension existante envoie des données, exécutez le test pour [Valider la connectivité avec Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Vous pouvez également ouvrir les espaces de travail Analytique de journal, sélectionnez un espace de travail, sélectionnez la machine virtuelle et rechercher à la connexion de l’agent d’Analytique de journal. 
     - Si vous disposez d’un environnement où le journal Analytique agent est installé sur les stations de travail clientes et création de rapports à un espace de travail Analytique de journal, consultez la liste des [les systèmes d’exploitation pris en charge par Azure Security Center](security-center-os-coverage.md) pour vous assurer votre système d’exploitation est pris en charge et consultez [clients analytique de journal existants](security-center-faq.md#existingloganalyticscust) pour plus d’informations.
  

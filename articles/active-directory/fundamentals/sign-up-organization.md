@@ -1,5 +1,5 @@
 ---
-title: Inscrire votre organisation pour utiliser Azure Active Directory | Microsoft Docs
+title: Inscrire votre organisation - Azure Active Directory | Microsoft Docs
 description: Instructions d’inscription de votre organisation pour utiliser Azure et Azure Active Directory.
 services: active-directory
 author: eross-msft
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91fe15cfbf855f18894ef602c86f780b97d62974
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101361"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Inscrire votre organisation pour utiliser Azure Active Directory
 Inscrivez-vous à Azure Active Directory (Azure AD) ou obtenez un nouvel abonnement Microsoft Azure à l’aide de :
@@ -27,8 +27,8 @@ Inscrivez-vous à Azure Active Directory (Azure AD) ou obtenez un nouvel abonnem
 
 - **Un compte professionnel ou scolaire.** Utilisez votre compte professionnel ou scolaire pour accéder à tous les services Microsoft dédiés aux petites, moyennes et grandes entreprises, comme Azure, Microsoft Intune ou Office 365. Lorsque vous vous inscrivez à l’un de ces services en tant qu’organisation, Azure AD configure automatiquement un répertoire informatique qui représente votre organisation. Pour plus d’informations, consultez [Gérer votre répertoire Azure AD](active-directory-administer.md).
 
-    >[!Note]
-    Nous vous recommandons d’utiliser votre compte professionnel ou scolaire si vous avez déjà accès à Azure AD. Toutefois, vous devez utiliser le type de compte associé à votre abonnement Azure.
+  > [!Note]
+  >   Nous vous recommandons d’utiliser votre compte professionnel ou scolaire si vous avez déjà accès à Azure AD. Toutefois, vous devez utiliser le type de compte associé à votre abonnement Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

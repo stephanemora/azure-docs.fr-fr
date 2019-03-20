@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2b73deb18b518f257e1de6125ef6d4e35eb0e7b7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881127"
 ---
 # <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 
@@ -35,7 +35,7 @@ Les journaux de diagnostic Azure vous permettent d’exporter des métriques d�
 
 - Exporter des données vers un stockage d’objets blob, exporter au format CSV et générer des graphiques dans Excel.
 - Exporter des données vers des hubs d’événements et mettre les données en corrélation avec d’autres services Azure.
-- Exporter des données vers Log Analytics et afficher les données dans votre propre espace de travail Log Analytics
+- Exporter des données dans les journaux d’Azure Monitor et afficher des données dans votre propre espace de travail Analytique de journal
 
 Le diagramme suivant montre une vue des données au moyen de l’analytique principale CDN classique.
 
@@ -45,11 +45,13 @@ Le diagramme suivant montre une vue des données au moyen de l’analytique prin
 
 Pour plus d’informations sur les journaux de diagnostic, consultez [Journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="enable-logging-with-the-azure-portal"></a>Activation de la journalisation avec le portail Azure
 
 Suivez les étapes suivantes pour activer la journalisation avec l’analytique principale CDN :
 
-Connectez-vous au [Portail Azure](http://portal.azure.com). Si vous n’avez pas déjà activé CDN pour votre flux de travail, [créez un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md) avant de continuer.
+Connectez-vous au [Portail Azure](https://portal.azure.com). Si vous n’avez pas déjà activé CDN pour votre flux de travail, [créez un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md) avant de continuer.
 
 1. Dans le portail Azure, accédez au **profil CDN**.
 
@@ -85,15 +87,15 @@ Pour utiliser un compte de stockage afin de stocker les journaux, effectuez les 
 
 5. Après avoir défini les paramètres de votre journal de diagnostic, sélectionnez **Enregistrer**.
 
-### <a name="logging-with-log-analytics"></a>Journalisation avec Log Analytics
+### <a name="logging-with-azure-monitor"></a>Journalisation avec Azure Monitor
 
-Pour stocker les journaux à l’aide de Log Analytics, effectuez les étapes suivantes :
+Pour utiliser Azure Monitor pour stocker les journaux, procédez comme suit :
 
 1. Dans la page **Journaux de diagnostic**, sélectionnez **Envoyer à Log Analytics**. 
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Sélectionnez **Configurer** pour configurer la journalisation Log Analytics. 
+2. Sélectionnez **configurer** pour configurer la journalisation d’Azure Monitor. 
 
    La page **Espace de travail Log Analytics** s’affiche.
 
@@ -133,7 +135,7 @@ Pour stocker les journaux à l’aide de Log Analytics, effectuez les étapes su
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    Votre espace de travail Log Analytics est maintenant prêt à enregistrer des données. Pour utiliser ces données, vous devez recourir à une [solution Log Analytics](#consuming-diagnostics-logs-from-a-log-analytics-workspace), comme indiqué plus loin dans cet article.
+    Votre espace de travail Log Analytics est maintenant prêt à enregistrer des données. Pour utiliser ces données, vous devez utiliser un [Azure Monitor enregistre la solution](#consuming-diagnostics-logs-from-a-log-analytics-workspace), comme indiqué plus loin dans cet article.
 
 Pour plus d’informations sur les retards des données de journal, consultez [Retards des données de journal](#log-data-delays).
 
@@ -168,7 +170,7 @@ L’exemple suivant montre comment activer les journaux de diagnostic via les ap
 Cette section décrit le schéma de l’analytique principale CDN et leur organisation à l’intérieur d’un compte de stockage Azure, et fournit un exemple de code pour télécharger les journaux dans un fichier CSV.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Utilisation de l’explorateur de stockage Microsoft Azure
-Pour pouvoir accéder aux données d’analyse de base à partir d’un compte de stockage Azure, vous avez d’abord besoin d’un outil pour accéder au contenu dans un compte de stockage. Si plusieurs outils sont disponibles sur le marché, celui que nous recommandons est l’Explorateur de stockage Microsoft Azure. Pour télécharger l’outil, consultez [Explorateur de stockage Azure](http://storageexplorer.com/). Après le téléchargement et l’installation du logiciel, configurez-le pour utiliser le même compte de stockage Azure que celui qui a été configuré en tant que destination pour les journaux de diagnostic CDN.
+Pour pouvoir accéder aux données d’analyse de base à partir d’un compte de stockage Azure, vous avez d’abord besoin d’un outil pour accéder au contenu dans un compte de stockage. Si plusieurs outils sont disponibles sur le marché, celui que nous recommandons est l’Explorateur de stockage Microsoft Azure. Pour télécharger l’outil, consultez [Explorateur de stockage Azure](https://storageexplorer.com/). Après le téléchargement et l’installation du logiciel, configurez-le pour utiliser le même compte de stockage Azure que celui qui a été configuré en tant que destination pour les journaux de diagnostic CDN.
 
 1.  Ouvrez **l’explorateur de stockage Microsoft Azure**
 2.  Localiser le compte de stockage
@@ -204,16 +206,16 @@ Pour faciliter l’accès à Core Analytics, nous fournissons un exemple de code
 
 Voici comment vous pouvez utiliser l’outil :
 
-1.  Consultez le lien GitHub : [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Visitez le lien GitHub : [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Téléchargez le code.
 3.  Suivez les instructions pour la compilation et la configuration.
 4.  Exécutez l’outil.
 5.  Le fichier CSV résultant présente les données d’analyse dans une hiérarchie plate simple.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Utilisation des journaux de diagnostic à partir d’un espace de travail Log Analytics
-Log Analytics est un service Azure qui surveille vos environnements cloud et locaux, afin de préserver leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources. 
+Azure Monitor est un service Azure qui surveille votre cloud locales et dans des environnements pour maintenir leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources. 
 
-Pour utiliser Log Analytics, vous devez [activer la journalisation](#enable-logging-with-azure-storage) dans l’espace de travail Log Analytics, discuté plus haut dans cet article.
+Pour utiliser Azure Monitor, vous devez [activer la journalisation](#enable-logging-with-azure-storage) à l’espace de travail Analytique des journaux Azure, qui est abordé plus haut dans cet article.
 
 ### <a name="using-the-log-analytics-workspace"></a>Utilisation de l’espace de travail Log Analytics
 
@@ -225,11 +227,11 @@ Pour utiliser Log Analytics, vous devez [activer la journalisation](#enable-logg
 
 Vous pouvez afficher les données de plusieurs façons à l’aide des solutions de gestion. Vous pouvez obtenir des solutions de gestion à partir de la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-Vous pouvez installer des solutions de gestion à partir de la Place de marché Azure en sélectionnant le lien **Obtenir maintenant** au bas de chaque solution.
+Vous pouvez installer des solutions de surveillance de la place de marché Azure en sélectionnant le **obtenez-le maintenant** lien en bas de chaque solution.
 
-### <a name="add-a-log-analytics-cdn-management-solution"></a>Ajouter une solution de gestion du CDN dans Log Analytics
+### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Ajouter un moniteur Azure CDN la solution de surveillance
 
-Suivez ces étapes pour ajouter une solution de gestion Log Analytics :
+Suivez ces étapes pour ajouter une solution de surveillance de Azure Monitor :
 
 1.   Connectez-vous au portail Azure à l’aide de votre abonnement Azure et accédez à votre tableau de bord.
     ![Tableau de bord Azure](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -323,33 +325,33 @@ Le tableau suivant présente la liste des métriques disponibles dans les journa
 
 |Métrique                     | Description | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | Nombre total d’occurrences de requêtes pendant cette période. | OUI | OUI |OUI |
-| RequestCountHttpStatus2xx | Nombre total des requêtes ayant abouti à un code HTTP 2xx (par exemple, 200, 202). | OUI | OUI |OUI |
-| RequestCountHttpStatus3xx | Nombre total des requêtes ayant abouti à un code HTTP 3xx (par exemple, 300, 302). | OUI | OUI |OUI |
-| RequestCountHttpStatus4xx | Nombre total des requêtes ayant abouti à un code HTTP 4xx (par exemple, 400, 404). | OUI | OUI |OUI |
-| RequestCountHttpStatus5xx | Nombre total des requêtes ayant abouti à un code HTTP 5xx (par exemple, 500, 504). | OUI | OUI |OUI |
-| RequestCountHttpStatusOthers | Nombre total des autres codes HTTP (en dehors de 2xx-5xx). | OUI | OUI |OUI |
-| RequestCountHttpStatus200 | Nombre total des requêtes ayant abouti à un code HTTP 200. | OUI | Non   |OUI |
-| RequestCountHttpStatus206 | Nombre total des requêtes ayant abouti à un code HTTP 206. | OUI | Non   |OUI |
-| RequestCountHttpStatus302 | Nombre total des requêtes ayant abouti à un code HTTP 302. | OUI | Non   |OUI |
-| RequestCountHttpStatus304 | Nombre total des requêtes ayant abouti à un code HTTP 304. | OUI | Non   |OUI |
-| RequestCountHttpStatus404 | Nombre total des requêtes ayant abouti à un code HTTP 404. | OUI | Non   |OUI |
-| RequestCountCacheHit | Nombre de toutes les requêtes qui ont abouti à un accès au cache. La ressource a été traitée directement du point de présence vers le client. | OUI | OUI | Non   |
-| RequestCountCacheMiss | Nombre de toutes les requêtes qui ont abouti à un échec de cache. Un échec de cache signifie que la ressource est introuvable sur le point de présence le plus proche du client et a donc été récupérée à l’origine. | OUI | OUI | Non  |
-| RequestCountCacheNoCache | Nombre de requêtes vers une ressource empêchées d’être mises en cache en raison d’une configuration de l’utilisateur sur le périmètre. | OUI | OUI | Non  |
-| RequestCountCacheUncacheable | Nombre total des requêtes de ressources que les en-têtes Cache-Control et Expires empêchent de mettre en cache, et qui indiquent qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | OUI | OUI | Non  |
-| RequestCountCacheOthers | Nombre de toutes les requêtes avec un état du cache non traité ci-dessus. | Non  | OUI | Non   |
-| EgressTotal | Transfert de données sortantes en Go | OUI |OUI |OUI |
-| EgressHttpStatus2xx | Transfert de données sortantes* pour les réponses avec des codes d’état HTTP 2xx en Go. | OUI | OUI | Non   |
-| EgressHttpStatus3xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 3xx en Go. | OUI | OUI | Non   |
-| EgressHttpStatus4xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 4xx en Go. | OUI | OUI | Non   |
-| EgressHttpStatus5xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 5xx en Go. | OUI | OUI | Non  |
-| EgressHttpStatusOthers | Transfert de données sortantes pour les réponses avec d’autres codes d’état HTTP en Go. | OUI | OUI | Non   |
-| EgressCacheHit | Transfert de données sortantes pour les réponses qui ont été livrées directement à partir du cache CDN sur les points de présence/périmètres CDN. | OUI | OUI | Non  |
-| EgressCacheMiss. | Transfert des données sortantes pour les réponses introuvables sur le serveur POP le plus proche et récupérées à partir du serveur d’origine. | OUI | OUI | Non  |
-| EgressCacheNoCache | Transferts de données sortants pour les ressources empêchés d’être mis en cache en raison d’une configuration de l’utilisateur sur le périmètre. | OUI | OUI | Non  |
-| EgressCacheUncacheable | Transfert de données sortantes pour les ressources empêchées d’être mises en cache par les en-têtes Cache-Control et/ou Expires. Cela indique qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | OUI | OUI | Non  |
-| EgressCacheOthers | Transfère les données sortantes pour d’autres scénarios de cache. | Non  | OUI | Non  |
+| RequestCountTotal         | Nombre total d’occurrences de requêtes pendant cette période. | Oui | OUI |Oui |
+| RequestCountHttpStatus2xx | Nombre total des requêtes ayant abouti à un code HTTP 2xx (par exemple, 200, 202). | Oui | OUI |Oui |
+| RequestCountHttpStatus3xx | Nombre total des requêtes ayant abouti à un code HTTP 3xx (par exemple, 300, 302). | Oui | OUI |Oui |
+| RequestCountHttpStatus4xx | Nombre total des requêtes ayant abouti à un code HTTP 4xx (par exemple, 400, 404). | Oui | OUI |Oui |
+| RequestCountHttpStatus5xx | Nombre total des requêtes ayant abouti à un code HTTP 5xx (par exemple, 500, 504). | Oui | OUI |Oui |
+| RequestCountHttpStatusOthers | Nombre total des autres codes HTTP (en dehors de 2xx-5xx). | Oui | OUI |Oui |
+| RequestCountHttpStatus200 | Nombre total des requêtes ayant abouti à un code HTTP 200. | Oui | Non   |Oui |
+| RequestCountHttpStatus206 | Nombre total des requêtes ayant abouti à un code HTTP 206. | Oui | Non   |Oui |
+| RequestCountHttpStatus302 | Nombre total des requêtes ayant abouti à un code HTTP 302. | Oui | Non   |Oui |
+| RequestCountHttpStatus304 | Nombre total des requêtes ayant abouti à un code HTTP 304. | Oui | Non   |Oui |
+| RequestCountHttpStatus404 | Nombre total des requêtes ayant abouti à un code HTTP 404. | Oui | Non   |Oui |
+| RequestCountCacheHit | Nombre de toutes les requêtes qui ont abouti à un accès au cache. La ressource a été traitée directement du point de présence vers le client. | Oui | Oui | Non   |
+| RequestCountCacheMiss | Nombre de toutes les requêtes qui ont abouti à un échec de cache. Un échec de cache signifie que la ressource est introuvable sur le point de présence le plus proche du client et a donc été récupérée à l’origine. | Oui | Oui | Non  |
+| RequestCountCacheNoCache | Nombre de requêtes vers une ressource empêchées d’être mises en cache en raison d’une configuration de l’utilisateur sur le périmètre. | Oui | Oui | Non  |
+| RequestCountCacheUncacheable | Nombre total des requêtes de ressources que les en-têtes Cache-Control et Expires empêchent de mettre en cache, et qui indiquent qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | Oui | Oui | Non  |
+| RequestCountCacheOthers | Nombre de toutes les requêtes avec un état du cache non traité ci-dessus. | Non  | Oui | Non   |
+| EgressTotal | Transfert de données sortantes en Go | Oui |OUI |Oui |
+| EgressHttpStatus2xx | Transfert de données sortantes* pour les réponses avec des codes d’état HTTP 2xx en Go. | Oui | Oui | Non   |
+| EgressHttpStatus3xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 3xx en Go. | Oui | Oui | Non   |
+| EgressHttpStatus4xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 4xx en Go. | Oui | Oui | Non   |
+| EgressHttpStatus5xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 5xx en Go. | Oui | Oui | Non  |
+| EgressHttpStatusOthers | Transfert de données sortantes pour les réponses avec d’autres codes d’état HTTP en Go. | Oui | Oui | Non   |
+| EgressCacheHit | Transfert de données sortantes pour les réponses qui ont été livrées directement à partir du cache CDN sur les points de présence/périmètres CDN. | Oui | Oui | Non  |
+| EgressCacheMiss. | Transfert des données sortantes pour les réponses introuvables sur le serveur POP le plus proche et récupérées à partir du serveur d’origine. | Oui | Oui | Non  |
+| EgressCacheNoCache | Transferts de données sortants pour les ressources empêchés d’être mis en cache en raison d’une configuration de l’utilisateur sur le périmètre. | Oui | Oui | Non  |
+| EgressCacheUncacheable | Transfert de données sortantes pour les ressources empêchées d’être mises en cache par les en-têtes Cache-Control et/ou Expires. Cela indique qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | Oui | Oui | Non  |
+| EgressCacheOthers | Transfère les données sortantes pour d’autres scénarios de cache. | Non  | Oui | Non  |
 
 * Le transfert de données sortantes fait référence au trafic produit des serveurs POP CDN vers le client.
 
@@ -443,7 +445,7 @@ Exemple de propriétés :
 
 * [Journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core Analytics via le portail supplémentaire Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [API REST Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 

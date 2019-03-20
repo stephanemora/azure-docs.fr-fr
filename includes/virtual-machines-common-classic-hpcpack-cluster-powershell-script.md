@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227220"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58115925"
 ---
 Selon votre environnement et vos choix, le script peut créer toute l’infrastructure de cluster, y compris le réseau virtuel Azure, les comptes de stockage, les services cloud, le contrôleur de domaine, les bases de données SQL locales ou distantes, le nœud principal et les nœuds supplémentaires du cluster. Le script peut également utiliser l’infrastructure Azure préexistante et créer uniquement les nœuds de cluster HPC.
 
 Pour des informations générales sur la planification d’un cluster HPC Pack, consultez [Évaluation du produit et planification](https://technet.microsoft.com/library/jj899596.aspx) et [Mise en route](https://technet.microsoft.com/library/jj899590.aspx) dans la bibliothèque HPC Pack 2012 R2.
 
-## <a name="prerequisites"></a>Prérequis
-* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Vos limites d’abonnement affectent le nombre et le type de nœuds de cluster que vous pouvez déployer. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
-* **Ordinateur client Windows avec Azure PowerShell 0.8.10 ou ultérieur installé et configuré** : pour connaître les instructions d’installation et la procédure de connexion à votre abonnement Azure, consultez [Get started with Azure PowerShell (Prise en main d’Azure PowerShell)](/powershell/azureps-cmdlets-docs).
-* **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article se base sur la version 4.5.2 du script.
-* **Fichier de configuration de script** : créez un fichier XML qui sera utilisé par le script pour configurer le cluster HPC. Pour plus d’informations et des exemples, consultez les sections suivantes de cet article et le fichier Manual.rtf qui accompagne le script de déploiement.
+## <a name="prerequisites"></a>Conditions préalables
+* **Abonnement Azure** : Vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Vos limites d’abonnement affectent le nombre et le type de nœuds de cluster que vous pouvez déployer. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
+* **Ordinateur de client Windows avec Azure PowerShell 0.8.10 ou ultérieur installé et configuré**: Consultez [prise en main Azure PowerShell](/powershell/azureps-cmdlets-docs) pour les instructions d’installation et les étapes pour vous connecter à votre abonnement Azure.
+* **Script de déploiement HPC Pack IaaS**: Téléchargez et décompressez la dernière version du script à partir de la [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article se base sur la version 4.5.2 du script.
+* **Fichier de configuration de script**: Créez un fichier XML que le script utilise pour configurer le cluster HPC. Pour plus d’informations et des exemples, consultez les sections suivantes de cet article et le fichier Manual.rtf qui accompagne le script de déploiement.
 
 ## <a name="syntax"></a>Syntaxe
 ```PowerShell
@@ -31,19 +31,19 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 > 
 
 ### <a name="parameters"></a>parameters
-* **ConfigFile** : spécifie le chemin d’accès du fichier de configuration pour décrire le cluster HPC. Découvrez plus d’informations sur le fichier de configuration dans cette rubrique ou dans le fichier Manual.rtf, dans le dossier contenant le script.
-* **AdminUserName** : spécifie le nom d’utilisateur. Si la forêt de domaines est créée par le script, il s’agit du nom d’utilisateur d’administrateur local pour toutes les machines virtuelles et du nom d’administrateur de domaine. Si la forêt de domaines existe déjà, cela indique l’utilisateur du domaine comme nom d’utilisateur d’administrateur local pour installer HPC Pack.
-* **AdminPassword** : spécifie le mot de passe de l’administrateur. S’il n’a pas été spécifié dans la ligne de commande, le script vous invite à entrer le mot de passe.
-* **HPCImageName** (facultatif) : spécifie le nom d’image de la machine virtuelle HPC Pack à utiliser pour le déploiement du cluster HPC. Ce doit être une image HPC Pack fournie par Microsoft à partir d’Azure Marketplace. Si aucune image n’est spécifiée (recommandé en général), le script choisit la dernière [image HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) publiée. La dernière image est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3.
+* **ConfigFile**: Spécifie le chemin d’accès de fichier du fichier de configuration pour décrire le cluster HPC. Découvrez plus d’informations sur le fichier de configuration dans cette rubrique ou dans le fichier Manual.rtf, dans le dossier contenant le script.
+* **AdminUserName**: Spécifie le nom d’utilisateur. Si la forêt de domaines est créée par le script, il s’agit du nom d’utilisateur d’administrateur local pour toutes les machines virtuelles et du nom d’administrateur de domaine. Si la forêt de domaines existe déjà, cela indique l’utilisateur du domaine comme nom d’utilisateur d’administrateur local pour installer HPC Pack.
+* **AdminPassword**: Spécifie le mot de passe administrateur. S’il n’a pas été spécifié dans la ligne de commande, le script vous invite à entrer le mot de passe.
+* **HPCImageName** (facultatif) : Spécifie le nom d’image de machine virtuelle HPC Pack permet de déployer le cluster HPC. Ce doit être une image HPC Pack fournie par Microsoft à partir d’Azure Marketplace. Si aucune image n’est spécifiée (recommandé en général), le script choisit la dernière [image HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) publiée. La dernière image est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3.
   
   > [!NOTE]
   > Le déploiement échoue si vous ne spécifiez pas d’image HPC Pack valide.
   > 
   > 
-* **LogFile** (facultatif) : spécifie le chemin du fichier journal de déploiement. S’il n’a pas été spécifié, le script crée un fichier journal dans le répertoire temp de l’ordinateur qui exécute le script.
-* **Force** (facultatif) : supprime toutes les invites de confirmation.
-* **NoCleanOnFailure** (facultatif) : spécifie que les machines virtuelles Azure qui n’ont pas été correctement déployées ne sont pas supprimées. Supprimez manuellement ces machines virtuelles avant de réexécuter le script pour poursuivre le déploiement, faute de quoi le déploiement risque d’échouer.
-* **PSSessionSkipCACheck** (facultatif) : pour chaque service cloud avec des machines virtuelles déployées par ce script, un certificat auto-signé est automatiquement généré par Azure, et toutes les machines virtuelles du service cloud utilisent ce certificat en tant que certificat Windows Remote Management (WinRM) par défaut. Pour déployer des fonctionnalités HPC dans ces machines virtuelles Azure, le script par défaut installe temporairement ces certificats dans le magasin Ordinateur local\\Autorités de certification racines de confiance de l’ordinateur client pour supprimer l’erreur de sécurité d’autorité de certification non approuvée pendant l’exécution du script. Les certificats sont supprimés quand le script se termine. Si ce paramètre est spécifié, les certificats ne sont pas installés sur l’ordinateur client et l’avertissement de sécurité est supprimé.
+* **Fichier journal** (facultatif) : Spécifie le chemin de fichier de journal de déploiement. S’il n’a pas été spécifié, le script crée un fichier journal dans le répertoire temp de l’ordinateur qui exécute le script.
+* **Force** (facultatif) : Supprime toutes les invites de confirmation.
+* **NoCleanOnFailure** (facultatif) : Spécifie que les machines virtuelles Azure qui n’ont pas été correctement déployées ne sont pas supprimés. Supprimez manuellement ces machines virtuelles avant de réexécuter le script pour poursuivre le déploiement, faute de quoi le déploiement risque d’échouer.
+* **PSSessionSkipCACheck** (facultatif) : Pour chaque service cloud avec des machines virtuelles déployées par ce script, un certificat auto-signé est généré automatiquement par Azure, et toutes les machines virtuelles dans le service cloud utilisent ce certificat en tant que le certificat de gestion à distance de Windows (WinRM) par défaut. Pour déployer des fonctionnalités HPC dans ces machines virtuelles Azure, le script par défaut installe temporairement ces certificats dans le magasin Ordinateur local\\Autorités de certification racines de confiance de l’ordinateur client pour supprimer l’erreur de sécurité d’autorité de certification non approuvée pendant l’exécution du script. Les certificats sont supprimés quand le script se termine. Si ce paramètre est spécifié, les certificats ne sont pas installés sur l’ordinateur client et l’avertissement de sécurité est supprimé.
   
   > [!IMPORTANT]
   > Ce paramètre n’est pas recommandé pour les déploiements de production.

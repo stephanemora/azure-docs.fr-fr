@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089894"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Utiliser Jenkins pour générer et déployer vos applications Linux
 Jenkins est un outil populaire pour l’intégration et le déploiement en continu de vos applications. Voici comment générer et déployer votre application Azure Service Fabric à l’aide de Jenkins.
@@ -35,7 +35,7 @@ Cet article décrit les diverses méthodes de configuration de votre environneme
    * Pour les environnements de développement et de test, utilisez [Configurer le déploiement à l’aide d’un point de terminaison de gestion de cluster](#configure-deployment-using-cluster-management-endpoint). Il s’agit de la méthode de déploiement la plus simple à configurer.
    * Pour les environnements de production, utilisez [Configurer le déploiement à l’aide des informations d’identification Azure](#configure-deployment-using-azure-credentials). Microsoft recommande cette méthode pour les environnements de production, car les informations d’identification Azure vous permettent de limiter l’accès dont dispose un travail Jenkins sur vos ressources Azure. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Assurez-vous que Git est installé localement. Vous pouvez installer la version appropriée de Git à partir de [la page de téléchargements de Git](https://git-scm.com/downloads) en fonction de votre système d’exploitation. Si vous débutez avec Git, vous trouverez plus d’informations à ce sujet dans la [documentation Git](https://git-scm.com/docs).
 - Cet article utilise l’*exemple de prise en main de Service Fabric* sur GitHub : [https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started) pour l’application à générer et déployer. Vous pouvez dupliquer ce référentiel pour suivre la procédure, ou en déviant légèrement des instructions, utiliser votre propre projet GitHub.
@@ -62,7 +62,7 @@ Une fois que vous avez installé le plug-in, passez à [Créer et configurer un 
 
 Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Service Fabric. Les sections suivantes montrent comment le configurer dans un cluster lors de l’utilisation d’un compte de stockage Azure pour enregistrer l’état de l’instance de conteneur.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 - Disposer d’un cluster Linux Service Fabric sur lequel Docker est installé. Docker est déjà installé sur les clusters Service Fabric exécutés dans Azure. Si vous exécutez le cluster localement (environnement de développement OneBox), vérifiez si Docker est installé sur votre ordinateur avec la commande `docker info`. S’il n’est pas installé, installez-le en utilisant les commandes suivantes :
 
    ```sh
@@ -164,7 +164,7 @@ Une fois que vous avez configuré Jenkins, passez à [Créer et configurer un tr
 
 Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Service Fabric. Les sections suivantes expliquent comment le configurer en dehors d’un cluster.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 - Assurez-vous que Docker est installé sur votre machine. Les commandes suivantes peuvent être utilisées pour installer Docker à partir du terminal :
 
   ```sh
@@ -253,24 +253,24 @@ Les étapes de cette section vous montrent comment configurer un travail Jenkins
       ```
    
    * **Jenkins exécuté en dehors de votre cluster :** procédez comme suit pour copier le certificat de cluster sur votre conteneur :
-      1. Votre certificat doit être au format PEM. Si vous n’avez pas de fichier PEM, vous pouvez en créer à partir du fichier PFX de certificat. Si votre fichier PFX n’est pas protégé par un mot de passe, exécutez la commande suivante à partir de votre hôte :
+     1. Votre certificat doit être au format PEM. Si vous n’avez pas de fichier PEM, vous pouvez en créer à partir du fichier PFX de certificat. Si votre fichier PFX n’est pas protégé par un mot de passe, exécutez la commande suivante à partir de votre hôte :
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+        ``` 
 
-      Si le fichier PFX est protégé par un mot de passe, incluez le mot de passe dans le paramètre `-passin`. Par exemple : 
+        Si le fichier PFX est protégé par un mot de passe, incluez le mot de passe dans le paramètre `-passin`. Par exemple : 
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        ``` 
 
-      1. Pour obtenir l’ID de votre conteneur Jenkins, exécutez `docker ps` à partir de votre hôte.
-      1. Copiez le fichier PEM sur votre conteneur avec la commande Docker suivante :
+     1. Pour obtenir l’ID de votre conteneur Jenkins, exécutez `docker ps` à partir de votre hôte.
+     1. Copiez le fichier PEM sur votre conteneur avec la commande Docker suivante :
     
-         ```sh
-         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
-         ``` 
+        ```sh
+        docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
+        ``` 
 
 Vous avez presque terminé ! Gardez le travail Jenkins ouvert. La dernière tâche consiste à configurer les étapes post-génération pour déployer votre application sur votre cluster Service Fabric :
 

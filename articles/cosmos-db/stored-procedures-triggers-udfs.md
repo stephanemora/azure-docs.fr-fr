@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083196"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -26,7 +26,7 @@ L’écriture de procédures stockées, déclencheurs et fonctions définies par
 
 * **Transactions atomiques :** Azure Cosmos DB garantit que les opérations de base de données effectuées dans un déclencheur ou une procédure stockée sont atomiques. Cette fonctionnalité atomique permet à une application de combiner des applications connexes en un seul lot de façon à ce que toutes les opérations réussissent ou qu’aucune ne réussisse.
 
-- **Performances :** Les données JSON sont mappées de manière intrinsèque au système de type de langage JavaScript. Ce mappage permet plusieurs optimisations telles que la matérialisation différée de documents JSON dans le pool de tampons et leur disponibilité sur demande à l’exécution de code. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données, parmi lesquels :
+* **Performances :** Les données JSON sont mappées de manière intrinsèque au système de type de langage JavaScript. Ce mappage permet plusieurs optimisations telles que la matérialisation différée de documents JSON dans le pool de tampons et leur disponibilité sur demande à l’exécution de code. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données, parmi lesquels :
 
    * *Traitement par lot :* Vous pouvez regrouper les opérations telles que les insertions et les envoyer en bloc. Les coûts liés à la latence du trafic réseau et la surcharge en matière de stockage pour créer des transactions séparées sont considérablement réduits.
 
@@ -34,7 +34,7 @@ L’écriture de procédures stockées, déclencheurs et fonctions définies par
 
    * *Séquencement :* Parfois, les opérations ont besoin d’un mécanisme de déclenchement qui peut exécuter une ou plusieurs mises à jour sur les données. En plus de l’atomicité, il existe également des avantages de performances lors de l’exécution côté serveur.
 
-- **Encapsulation :** Les procédures stockées peuvent être utilisées pour regrouper la logique à un endroit. L’encapsulation ajoute une couche d'abstraction aux données, ce qui vous permet de faire évoluer vos applications indépendamment des données. Cette couche d’abstraction est utile lorsque les données sont sans schéma et que vous n’êtes pas obligé de gérer l’ajout d’une logique supplémentaire directement dans votre application. L’abstraction vous permet d'assurer la sécurité de vos données en simplifiant l'accès à partir des scripts.
+* **Encapsulation :** Les procédures stockées peuvent être utilisées pour regrouper la logique à un endroit. L’encapsulation ajoute une couche d'abstraction aux données, ce qui vous permet de faire évoluer vos applications indépendamment des données. Cette couche d’abstraction est utile lorsque les données sont sans schéma et que vous n’êtes pas obligé de gérer l’ajout d’une logique supplémentaire directement dans votre application. L’abstraction vous permet d'assurer la sécurité de vos données en simplifiant l'accès à partir des scripts.
 
 > [!TIP]
 > Les procédures stockées sont idéales pour les opérations exigeantes en écriture. Lorsque vous décidez où utiliser des procédures stockées, optimisez en encapsulant la quantité maximale d’écritures possibles. En règle générale, les procédures stockées ne sont pas le moyen le plus efficace pour effectuer un grand nombre d’opérations de lecture, donc l’utilisation de procédures stockées pour traiter par lot un grand nombre de lectures à retourner au client n’a pas l’avantage désiré.

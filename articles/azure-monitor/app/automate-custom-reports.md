@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 74fdfed23d30dbf88b2faa6028039159010d9afc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113076"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
 
@@ -110,12 +110,12 @@ availabilityResults
     
     Les valeurs AI_ sont accessibles sous Accès API pour la ressource Application Insights pour laquelle vous voulez créer un rapport. Si vous n’avez pas de clé API Application Insights, il est possible de **Créer une clé API**.
     
-    * AI_APP_ID = ID d’application
-    * AI_APP_KEY = Clé API
-    * SendGridAPI = Clé API SendGrid
+   * AI_APP_ID = ID d’application
+   * AI_APP_KEY = Clé API
+   * SendGridAPI = Clé API SendGrid
 
-    > [!NOTE]
-    > Si vous ne possédez pas de compte SendGrid, vous pouvez en créer un. La documentation relative à SendGrid pour Azure Functions est disponible [ici](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Si une brève explication concernant la configuration de SendGrid et la génération d’une clé API vous suffit, reportez-vous à la fin de cet article. 
+     > [!NOTE]
+     > Si vous ne possédez pas de compte SendGrid, vous pouvez en créer un. La documentation relative à SendGrid pour Azure Functions est disponible [ici](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Si une brève explication concernant la configuration de SendGrid et la génération d’une clé API vous suffit, reportez-vous à la fin de cet article. 
 
 9. Sélectionnez **Integrate** et sous Sorties, cliquez sur **SendGrid ($return)**.
 

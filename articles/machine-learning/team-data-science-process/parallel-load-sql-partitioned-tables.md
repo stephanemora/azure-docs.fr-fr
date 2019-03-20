@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f1a5f54e520cdabd49e1ca69626e1c693bc1ee19
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853033"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Créer et optimiser des tables pour une importation rapide en parallèle de données dans un serveur SQL Server sur une machine virtuelle Azure
 
@@ -95,7 +95,7 @@ Pour plus d’informations, consultez l’article [Créer des tables partitionn�
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Importer les données en bloc dans chaque table de partition
 
-* Vous pouvez utiliser BCP, BULK INSERT ou d’autres méthodes telles que l’ [Assistant Migration SQL Server](http://sqlazuremw.codeplex.com/). L’exemple fourni utilise la méthode BCP.
+* Vous pouvez utiliser BCP, BULK INSERT ou d’autres méthodes telles que l’ [Assistant Migration SQL Server](https://sqlazuremw.codeplex.com/). L’exemple fourni utilise la méthode BCP.
 * [Modifiez la base de données](https://msdn.microsoft.com/library/bb522682.aspx) en remplaçant le schéma de journalisation des transactions par BULK_LOGGED pour minimiser le temps de traitement de la journalisation, par exemple :
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED

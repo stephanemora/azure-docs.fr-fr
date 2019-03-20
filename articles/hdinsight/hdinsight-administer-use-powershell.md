@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 36d169a4220cb1baacdaee072ed01101ef2e9437
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: b8e9ad31c2ce7b001297012bca2aa7dd526f732a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201277"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -106,7 +106,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
     L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
 
-    ![HDInsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
 
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
 
@@ -159,7 +159,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 > [!NOTE]  
 > En octroyant/révoquant l’accès, vous réinitialisez le nom d’utilisateur et le mot de passe du cluster.
 
-L’octroi et la révocation de l’accès sont également possibles par le biais du portail. Consultez [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal].
+L’octroi et la révocation de l’accès sont également possibles par le biais du portail. Consultez [gestion Apache des clusters Hadoop dans HDInsight à l’aide du portail Azure](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Mettre à jour les informations d’identification de l’utilisateur HTTP
 Il s'agit de la même procédure que pour l'octroi et la révocation de l'accès HTTP. Si l’accès HTTP a été octroyé au cluster, vous devez d’abord le révoquer.  Octroyez ensuite l’accès avec les informations d’identification de l’utilisateur HTTP.
@@ -228,7 +228,7 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 
 ## <a name="see-also"></a>Voir aussi
 * [Documentation de référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx)
-* [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
+* [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
 * [Création de clusters HDInsight][hdinsight-provision]
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
@@ -245,12 +245,10 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 

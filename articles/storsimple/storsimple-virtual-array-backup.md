@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121976"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Sauvegarde de partages ou de volumes sur votre StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 StorSimple Virtual Array est un périphérique virtuel local de stockage cloud hybride qui peut être configuré comme un serveur de fichiers ou un serveur iSCSI. Le tableau virtuel vous permet de créer des sauvegardes planifiées et manuelles de l’ensemble des partages ou des volumes sur l’appareil. Configuré comme serveur de fichiers, il permet également la récupération au niveau de l’élément. Ce didacticiel vous explique comment créer des sauvegardes planifiées et manuelles et effectuer une récupération au niveau de l’élément pour restaurer un fichier supprimé sur votre tableau virtuel.
 
@@ -32,7 +32,7 @@ Ce didacticiel s’applique uniquement aux instances StorSimple Virtual Array. P
 
 ## <a name="back-up-shares-and-volumes"></a>Sauvegarder des partages et des volumes
 
-Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **planifiée** ou **manuelle**. Chacune des méthodes est abordée dans les sections suivantes.
+Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **Planifiée** ou **manuel**. Chacune des méthodes est abordée dans les sections suivantes.
 
 ## <a name="change-the-backup-start-time"></a>Modifier l’heure de début de la sauvegarde
 
@@ -58,7 +58,7 @@ Votre instance StorSimple Virtual Array comporte une stratégie de sauvegarde p
    
     ![accéder aux stratégies de sauvegarde](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Cliquez sur **Save**.
+4. Cliquez sur **Enregistrer**.
 
 ### <a name="take-a-manual-backup"></a>Exécuter une sauvegarde manuelle
 
@@ -100,15 +100,15 @@ Pour afficher les sauvegardes existantes, procédez comme suit dans le portail 
     ![Accéder au catalogue de sauvegarde](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Spécifiez les critères suivants à utiliser pour le filtrage :
    
-    - **Période** : peut être **Dernière heure**, **Dernières 24 heures**, **Derniers 7 jours**, **30 derniers jours**, **Année dernière** et **Date personnalisée**.
+   - **Période** : peut être **Dernière heure**, **Dernières 24 heures**, **Derniers 7 jours**, **30 derniers jours**, **Année dernière** et **Date personnalisée**.
     
-    - **Appareils** : effectuez votre sélection dans la liste des serveurs de fichiers ou des serveurs iSCSI enregistrés avec votre service de gStorSimple Device Manager.
+   - **Appareils** : effectuez votre sélection dans la liste des serveurs de fichiers ou des serveurs iSCSI enregistrés avec votre service de gStorSimple Device Manager.
    
-    - **Initialisé** : peut être automatiquement **Planifié** (par une stratégie de sauvegarde) ou lancé **Manuellement** (par vous).
+   - **Initialisé** : peut être automatiquement **Planifié** (par une stratégie de sauvegarde) ou lancé **Manuellement** (par vous).
    
-    ![Filtrer les sauvegardes](./media/storsimple-virtual-array-backup/viewbackups2.png)
+     ![Filtrer les sauvegardes](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Cliquez sur **Apply**. La liste filtrée des sauvegardes s’affiche dans le panneau **Catalogue de sauvegarde**. Uniquement 100 éléments de sauvegarde peuvent s’afficher simultanément.
+3. Cliquez sur **Appliquer**. La liste filtrée des sauvegardes s’affiche dans le panneau **Catalogue de sauvegarde**. Uniquement 100 éléments de sauvegarde peuvent s’afficher simultanément.
    
     ![Catalogue de sauvegarde mis à jour](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

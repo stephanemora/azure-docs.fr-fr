@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a618482b73e8e423bc00b7c9010c9282da69cd3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452812"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844707"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
 > [!NOTE]
 > Suite aux commentaires des utilisateurs, nous avons renommé la **Pile de sauvegarde de machine virtuelle V2** **Restauration instantanée** pour éviter toute confusion avec les fonctionnalités Azure Stack.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Le nouveau modèle pour la restauration instantanée fournit les améliorations de fonctionnalités suivantes :
 
@@ -29,7 +31,6 @@ Le nouveau modèle pour la restauration instantanée fournit les améliorations 
 *   Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machines virtuelles.
 
 
-
 ## <a name="whats-new-in-this-feature"></a>Nouveautés de cette fonctionnalité
 
 Aujourd’hui, la tâche de sauvegarde consiste en deux phases :
@@ -37,11 +38,11 @@ Aujourd’hui, la tâche de sauvegarde consiste en deux phases :
 1.  Prise d’un instantané de la machine virtuelle.
 2.  Transfert d’un instantané de la machine virtuelle vers le coffre Recovery Services.
 
-Un point de récupération est considéré comme créé seulement après l’exécution des étapes 1 et 2. Dans le cadre de cette mise à niveau, un point de récupération est créé dès que l’instantané est terminé, et vous pouvez utiliser ce point de récupération de type instantané pour effectuer une restauration en utilisant le même flux de restauration. Vous pouvez identifier ce point de récupération dans le portail Azure en choisissant « instantané » comme type de point de récupération, et une fois l’instantané transféré vers le coffre, le type de point de récupération devient « instantané et coffre ».
+Un point de récupération est considéré comme créé seulement après l’exécution des étapes 1 et 2. Dans le cadre de cette mise à niveau, un point de récupération est créé dès que l’instantané est terminé, et vous pouvez utiliser ce point de récupération de type instantané pour effectuer une restauration en utilisant le même flux de restauration. Vous pouvez identifier ce point de récupération dans le portail Azure à l’aide de « instantané » en tant que le type de point de récupération, et une fois la capture instantanée est transférée vers le coffre, le type de point de récupération devient « instantané et coffre ».
 
 ![Tâche de sauvegarde dans le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle : stockage et coffre](./media/backup-azure-vms/instant-rp-flow.png)
 
-Les instantanés sont conservés pendant sept jours. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps nécessaire pour transformer et copier les données du coffre vers le compte de stockage de l’utilisateur pour les scénarios à disques non managés, tandis que pour les utilisateurs de disques managés, elle crée des disques managés à partir des données de sauvegarde.
+Par défaut, les instantanés sont conservés pendant deux jours. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps nécessaire pour transformer et de copier des données depuis un coffre vers le compte de stockage de l’utilisateur pour les scénarios de disque non géré tandis que pour les utilisateurs de disque géré, il crée des disques gérés à partir de données Recovery Services.
 
 ## <a name="feature-considerations"></a>Considérations sur la fonctionnalité
 
@@ -49,6 +50,7 @@ Les instantanés sont conservés pendant sept jours. Cette fonctionnalité autor
 * Les instantanés incrémentiels sont stockés sous la forme d’objets blob de pages. Tout utilisateur qui utilise des disques non managés est facturé pour les instantanés stockés dans son compte de stockage local. Étant donné que les collections de points de restauration utilisées par les sauvegardes de machine virtuelle managée utilisent des instantanés d’objet blob au niveau du stockage sous-jacent, pour les disques managés vous voyez les coûts correspondant au tarif de l’instantané d’objet blob et ils sont incrémentiels.
 * Dans le cas des comptes de stockage Premium, les instantanés pris pour les points de récupération instantanée comptent pour la limite de 10 To d’espace alloué.
 * Vous pouvez configurer la rétention des instantanés en fonction des besoins de restauration. Selon vos exigences, vous pouvez définir la rétention des instantanés pendant au moins un jour dans le panneau de stratégie de sauvegarde, comme cela est expliqué ci-dessous. Cela peut vous aider à réduire les coûts de rétention des instantanés si vous n’effectuez pas fréquemment de restaurations.
+* Il s’agit d’une mise à un niveau directionnel, une fois mis à niveau vers la restauration instantanée, vous ne pouvez pas revenir en arrière.
 
 
 >[!NOTE]
@@ -77,7 +79,7 @@ Vous pouvez aussi accéder à la page **Propriétés** du coffre pour accéder �
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Configurer la rétention d’instantanés à l’aide du portail Azure
-Cette option est actuellement disponible dans l’Ouest du centre des États-Unis, dans le Sud de l’Inde et dans l’Est de l’Australie.
+Tous les utilisateurs sur l’ensemble **zones géographiques publiques** ont été mis à niveau à la restauration instantanée.
 
 Pour les utilisateurs mis à niveau, dans le portail Azure vous voyez un champ ajouté au panneau **Stratégie de sauvegarde de machine virtuelle** sous la section **Restauration instantanée**. Vous pouvez modifier la durée de rétention des instantanés à partir du panneau **Stratégie de sauvegarde de machine virtuelle** pour toutes les machines virtuelles associées à la stratégie de sauvegarde spécifique.
 
@@ -90,19 +92,19 @@ Si vous souhaitez travailler en libre-service et effectuer une mise à niveau ve
 1.  Connectez-vous à votre compte Azure :
 
     ```
-    PS C:> Connect-AzureRmAccount
+    PS C:> Connect-AzAccount
     ```
 
 2.  Sélectionnez l’abonnement à inscrire :
 
     ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
     ```
 
 3.  Inscrivez cet abonnement :
 
     ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
 ## <a name="upgrade-to-instant-restore-using-cli"></a>Mettre à niveau vers la restauration instantanée à l’aide de l’interface CLI
@@ -133,7 +135,7 @@ Si vous souhaitez travailler en libre-service et effectuer une mise à niveau ve
 À partir d’un terminal PowerShell avec élévation des privilèges, exécutez l’applet de commande suivante :
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
+Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### <a name="cli"></a>Interface de ligne de commande

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 290230237a68730a908c6fd0fb0df1d63035b93b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 1073e1b4ad38c4b05c9195cf4ea16ade7416fbce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247338"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133405"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Conception de tables dans Azure SQL Data Warehouse
 
@@ -32,20 +32,18 @@ Un [schéma en étoile](https://en.wikipedia.org/wiki/Star_schema) organise les 
 - Les **tables d’intégration** fournissent un emplacement pour l’intégration ou la mise en lots des données. Vous pouvez créer une table d’intégration en tant que table normale, table externe ou table temporaire. Vous pouvez, par exemple, charger des données dans une table de mise en lots, effectuer des transformations sur ces données, puis insérer les données dans une table de production.
 
 ## <a name="schema-and-table-names"></a>Noms de schéma et de table
-Dans SQL Data Warehouse, un entrepôt de données est un type de base de données. Toutes les tables dans l’entrepôt de données font partie d’une même base de données.  Vous ne pouvez pas joindre des tables entre plusieurs entrepôts de données. Ce comportement est différent de SQL Server, qui prend en charge les jointures croisées entre des bases de données. 
-
-Dans une base de données SQL Server, vous pouvez utiliser fact, dim ou integrate dans les noms de schéma. Si vous migrez une base de données SQL Server vers SQL Data Warehouse, nous vous recommandons de migrer toutes les tables de faits, de dimension et d’intégration dans un seul schéma dans SQL Data Warehouse. Par exemple, stockez toutes les tables de l’entrepôt de données [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) dans un seul schéma appelé wwi. Le code suivant crée un [schéma défini par l’utilisateur](/sql/t-sql/statements/create-schema-transact-sql) appelé wwi.
+Les schémas sont un bon moyen de regrouper les tables, de manière similaire, conjointement.  Si vous migrez plusieurs bases de données à partir d’une solution sur site vers SQL Data Warehouse, nous vous recommandons de migrer tous les tables de faits, dimension et intégration à un schéma dans SQL Data Warehouse. Par exemple, stockez toutes les tables de l’entrepôt de données [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) dans un seul schéma appelé wwi. Le code suivant crée un [schéma défini par l’utilisateur](/sql/t-sql/statements/create-schema-transact-sql) appelé wwi.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-Pour afficher l’organisation des tables dans SQL Data Warehouse, vous pouvez utiliser les préfixes fact, dim et int dans les noms de table. Le tableau suivant répertorie quelques noms de schéma et de table pour WideWorldImportersDW. Il compare les noms utilisés dans SQL Server avec les noms utilisés dans SQL Data Warehouse. 
+Pour afficher l’organisation des tables dans SQL Data Warehouse, vous pouvez utiliser les préfixes fact, dim et int dans les noms de table. Le tableau suivant répertorie quelques noms de schéma et de table pour WideWorldImportersDW.  
 
-| Table WideWorldImportersDW  | Type de table | SQL Server | SQL Data Warehouse |
+| Table WideWorldImportersDW  | Type de table | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| City | Dimension | Dimension.City | wwi.DimCity |
-| Ordre | Fact | Fact.Order | wwi.FactOrder |
+| City | Dimension | wwi.DimCity |
+| Ordre | Fact | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Persistance de la table 
@@ -61,19 +59,19 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>Table temporaire
-Une table temporaire existe uniquement pendant la durée de la session. Vous pouvez utiliser une table temporaire pour empêcher d’autres utilisateurs de voir les résultats temporaires, mais également pour réduire les besoins de nettoyage.  Étant donné que les tables temporaires utilisent également le stockage local, elles peuvent offrir des performances plus rapides pour certaines opérations.  Pour plus d’informations, consultez [Tables temporaires](sql-data-warehouse-tables-temporary.md).
+Une table temporaire existe uniquement pendant la durée de la session. Vous pouvez utiliser une table temporaire pour empêcher les autres utilisateurs de voir les résultats temporaires et également pour réduire la nécessité pour le nettoyage.  Tables temporaires utilisent un stockage local pour vous proposer des performances rapides.  Pour plus d’informations, consultez [Tables temporaires](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Table externe
 Une table externe pointe vers des données situées dans le stockage Blob Azure ou Azure Data Lake Store. Utilisée conjointement avec l’instruction CREATE TABLE AS SELECT, la sélection à partir d’une table externe permet d’importer des données dans SQL Data Warehouse. Les tables externes sont donc utiles pour charger des données. Pour obtenir un didacticiel sur le chargement, consultez [Utiliser PolyBase pour charger des données du Stockage Blob Azure](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Types de données
-SQL Data Warehouse prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données dans la référence CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) dans l’instruction CREATE TABLE. La réduction de la taille des types de données contribue à l’amélioration des performances des requêtes. Pour obtenir des conseils sur l’utilisation des types de données, consultez [Types de données](sql-data-warehouse-tables-data-types.md).
+SQL Data Warehouse prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données dans la référence CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) dans l’instruction CREATE TABLE. Pour obtenir des conseils sur l’utilisation des types de données, consultez [Types de données](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tables distribuées
-Une fonctionnalité essentielle de SQL Data Warehouse est la manière dont il peut stocker et utiliser des tables sur 60 [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  Les tables sont distribuées à l’aide d’une méthode de tourniquet, de hachage ou de réplication.
+Une fonctionnalité essentielle de SQL Data Warehouse est la façon dont il peut stocker et agissent sur les tables entre [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse prend en charge trois méthodes de distribution de données, de tourniquet (par défaut), de hachage et répliquées.
 
 ### <a name="hash-distributed-tables"></a>Tables distribuées par hachage
-La distribution par hachage distribue les lignes de la table en fonction de la valeur dans la colonne de distribution. La table distribuée par hachage est conçue pour offrir les meilleures performances pour les requêtes avec jointures sur des tables volumineuses. Plusieurs facteurs déterminent le choix de la colonne de distribution. 
+Une table distribuée par hachage distribue les lignes selon la valeur dans la colonne de distribution. Table de hachage distribuée est conçue pour optimiser les performances de requêtes sur des tables volumineuses. Il existe plusieurs facteurs à prendre en compte lors du choix d’une colonne de distribution. 
 
 Pour plus d’informations, consultez le [Guide de conception pour les tables distribuées](sql-data-warehouse-tables-distribute.md).
 
@@ -87,7 +85,6 @@ Une table par tourniquet distribue les lignes de la table uniformément sur tout
 
 Pour plus d’informations, consultez le [Guide de conception pour les tables distribuées](sql-data-warehouse-tables-distribute.md).
 
-
 ### <a name="common-distribution-methods-for-tables"></a>Méthodes courantes de distribution pour les tables
 La catégorie de la table détermine souvent le choix de l’option de distribution de la table. 
 
@@ -95,18 +92,22 @@ La catégorie de la table détermine souvent le choix de l’option de distribut
 |:---------------|:--------------------|
 | Fact           | Utilisez la distribution par hachage avec un index columnstore cluster. Les performances sont meilleures quand deux tables de hachage sont jointes sur la même colonne de distribution. |
 | Dimension      | Utilisez la réplication pour les tables de petite taille. Si les tables sont trop volumineuses pour être stockées sur chaque nœud de calcul, utilisez la distribution par hachage. |
-| Staging        | Utilisez la distribution par tourniquet (round robin) pour la table de mise en lots. Le chargement avec la fonctionnalité CTAS est rapide. Une fois que vous avez mis les données dans la table de mise en lots, utilisez l’instruction INSERT...SELECT pour déplacer les données vers une table de production. |
+| Staging        | Utilisez la distribution par tourniquet (round robin) pour la table de mise en lots. Le chargement avec la fonctionnalité CTAS est rapide. Une fois les données dans la table intermédiaire, utilisez INSERT... Sélectionnez cette option pour déplacer les données vers les tables de production. |
 
 ## <a name="table-partitions"></a>Partitions de table
-Une table partitionnée stocke les lignes de table et effectue des opérations sur ces lignes selon les plages de données définies. Par exemple, une table peut être partitionnée par jour, mois ou année. Vous pouvez améliorer les performances des requêtes via l’élimination de partition, qui limite l’analyse d’une requête aux seules données contenues dans une partition. Vous pouvez également tenir à jour les données à l’aide du basculement de partition. Comme les données dans SQL Data Warehouse sont déjà distribuées, un partitionnement excessif risque de ralentir les requêtes. Pour plus d’informations, consultez [Partitionnement de tables](sql-data-warehouse-tables-partition.md).
+Une table partitionnée stocke les lignes de table et effectue des opérations sur ces lignes selon les plages de données définies. Par exemple, une table peut être partitionnée par jour, mois ou année. Vous pouvez améliorer les performances des requêtes via l’élimination de partition, qui limite l’analyse d’une requête aux seules données contenues dans une partition. Vous pouvez également tenir à jour les données à l’aide du basculement de partition. Comme les données dans SQL Data Warehouse sont déjà distribuées, un partitionnement excessif risque de ralentir les requêtes. Pour plus d’informations, consultez [Partitionnement de tables](sql-data-warehouse-tables-partition.md).  Lorsque le basculement dans la table de partition partitions qui ne sont pas vides, envisagez d’utiliser l’option TRUNCATE_TARGET dans votre [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) instruction si les données existantes sont le point d’être tronqué. Le dessous des commutateurs de code dans les données transformées quotidiennes dans le SalesFact remplaçant les données existantes. 
+
+```sql
+ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
+```
 
 ## <a name="columnstore-indexes"></a>Index Columnstore
-Par défaut, SQL Data Warehouse stocke une table comme un index columnstore cluster. Ce format de stockage de données permet une compression élevée des données et offre des performances optimales pour les requêtes sur des tables volumineuses.  L’index columnstore cluster est généralement le meilleur choix, mais dans certains cas, un index cluster ou un segment de mémoire est la structure de stockage la plus appropriée.
+Par défaut, SQL Data Warehouse stocke une table comme un index columnstore cluster. Ce format de stockage de données permet une compression élevée des données et offre des performances optimales pour les requêtes sur des tables volumineuses.  L’index columnstore cluster est généralement le meilleur choix, mais dans certains cas, un index cluster ou un segment de mémoire est la structure de stockage la plus appropriée.  Une table de segment de mémoire peut être particulièrement utile pour le chargement des données temporaires, comme une table intermédiaire qui est transformée en une table finale.
 
 Pour obtenir la liste des fonctionnalités columnstore, consultez [Nouveautés pour les index columnstore](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Pour améliorer les performances des index columnstore, consultez [Optimiser la qualité du rowgroup pour les index columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Statistiques
-L’optimiseur de requête utilise des statistiques au niveau des colonnes quand il crée le plan d’exécution d’une requête. Pour améliorer les performances des requêtes, il est important de créer des statistiques sur des colonnes individuelles, en particulier les colonnes utilisées dans les jointures de requête. La création et la mise à jour des statistiques ne se font pas automatiquement. Vous pouvez [créer des statistiques](/sql/t-sql/statements/create-statistics-transact-sql) après avoir créé une table. Mettez à jour les statistiques après l’ajout ou la modification d’un nombre significatif de lignes. Par exemple, effectuez une mise à jour des statistiques après un chargement. Pour plus d’informations, consultez [Gestion des statistiques](sql-data-warehouse-tables-statistics.md).
+L’optimiseur de requête utilise des statistiques au niveau des colonnes quand il crée le plan d’exécution d’une requête. Pour améliorer les performances des requêtes, il est important de disposer de statistiques sur des colonnes individuelles, en particulier les colonnes utilisées dans les jointures de requête. [Création de statistiques](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) se produit automatiquement.  Toutefois, la mise à jour des statistiques n’est pas automatique. Mettez à jour les statistiques après l’ajout ou la modification d’un nombre significatif de lignes. Par exemple, effectuez une mise à jour des statistiques après un chargement. Pour plus d’informations, consultez [Gestion des statistiques](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="commands-for-creating-tables"></a>Commandes pour la création de tables
 Vous pouvez créer une table à partir d’une nouvelle table vide. Vous pouvez aussi créer une table et la remplir avec les résultats d’une instruction select. Le tableau suivant répertorie les instructions T-SQL disponibles pour la création d’une table.

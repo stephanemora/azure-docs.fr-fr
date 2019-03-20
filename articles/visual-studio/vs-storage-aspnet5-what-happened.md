@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0e38e570b5ecb2a19af943e0dde96e2ed66f3507
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 71a95e1974cbcec9afcc3337eb37275532e1b527
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999710"
 ---
 # <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>Qu’est-il arrivé à mon projet ASP.NET 5 (services connectés Azure Storage de Visual Studio) ?
 ## <a name="references-added"></a>Références ajoutées
@@ -38,5 +38,5 @@ De plus, le package NuGet nommé **Microsoft.Framework.Configuration.Json** a é
 ## <a name="connection-string-for-azure-storage-added"></a>Chaîne de connexion pour Azure Storage ajoutée
 Dans le fichier config.json de votre projet, un élément a été créé avec la clé et la chaîne de connexion du compte de stockage sélectionné.
 
-Pour plus d’informations, consultez [ASP.NET 5](http://www.asp.net/vnext).
+Pour plus d’informations, consultez [ASP.NET 5](https://www.asp.net/vnext).
 

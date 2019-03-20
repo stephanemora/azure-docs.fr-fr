@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: anshan
 ms.custom: include file
-ms.openlocfilehash: fb45ea02f365cf4e7b394e249f9b91a784e5469f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: c9daa86bf36b260001d9969385b9e8a98a8ac0cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369939"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125184"
 ---
 ## <a name="grant-data-access"></a>Accorder l’accès aux données
 
@@ -33,12 +33,12 @@ Effectuez les étapes suivantes pour accorder l’accès aux données à un util
     ![Gérer la source Time Series Insights - Ajouter](media/iot-tsi-data-access/getstarted-grant-data-access2.png)
 
 6. Sélectionnez **Sélectionner un rôle**. Choisissez le rôle d’accès approprié pour l’utilisateur :
-    - Sélectionnez **Contributeur** si vous voulez autoriser l’utilisateur à changer les données de référence et à partager des requêtes et des perspectives enregistrées avec d’autres utilisateurs de l’environnement. 
-    - Sinon, sélectionnez **Lecteur** pour autoriser l’utilisateur à interroger les données dans l’environnement et à enregistrer des requêtes personnelles (non partagées) dans l’environnement.
+   - Sélectionnez **Contributeur** si vous voulez autoriser l’utilisateur à changer les données de référence et à partager des requêtes et des perspectives enregistrées avec d’autres utilisateurs de l’environnement. 
+   - Sinon, sélectionnez **Lecteur** pour autoriser l’utilisateur à interroger les données dans l’environnement et à enregistrer des requêtes personnelles (non partagées) dans l’environnement.
 
-    Sélectionnez **OK** pour confirmer le choix du rôle.
+     Sélectionnez **OK** pour confirmer le choix du rôle.
 
-    ![Gérer la source Time Series Insights - Sélectionner un utilisateur](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
+     ![Gérer la source Time Series Insights - Sélectionner un utilisateur](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
 
 7. Sélectionnez **OK** dans la page **Sélectionner un rôle utilisateur**.
 

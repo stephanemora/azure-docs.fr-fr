@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458219"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863295"
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
 
@@ -36,7 +36,7 @@ Fournissez les informations concernant cette nouvelle branche, telles que son no
 
 Il est préférable de créer une branche Git pour chaque élément de travail d’un récit. Ensuite, pour chaque élément de travail de tâche, vous devez créer une branche basée sur la branche du récit. Lorsque plusieurs personnes travaillent sur les différents récits d’un même projet ou les différentes tâches d’un même récit, il est utile d’organiser les branches sous la forme d’une hiérarchie correspondant aux relations entre le récit et les tâches. Le nombre de conflits peut être réduit lorsque chaque membre d’équipe travaille sur une branche différente et lorsque chaque membre travaille sur du code (ou autre artefact) différent en cas de partage d’une branche. 
 
-L’illustration suivante montre la stratégie de création de branche recommandée pour TDSP. Vous n’aurez peut-être pas besoin d’autant de branches, en particulier si seulement une ou deux personnes travaillent à un projet, ou si une seule personne est chargée de l’ensemble des tâches d’un récit. Toutefois, le fait de séparer la branche de développement de la branche master est toujours conseillé. Cela peut éviter à la branche de publication d’être interrompue par les activités de développement. Pour obtenir une description plus complète du modèle de branche Git, consultez [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/).
+L’illustration suivante montre la stratégie de création de branche recommandée pour TDSP. Vous n’aurez peut-être pas besoin d’autant de branches, en particulier si seulement une ou deux personnes travaillent à un projet, ou si une seule personne est chargée de l’ensemble des tâches d’un récit. Toutefois, le fait de séparer la branche de développement de la branche master est toujours conseillé. Cela peut éviter à la branche de publication d’être interrompue par les activités de développement. Pour obtenir une description plus complète du modèle de branche Git, consultez [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

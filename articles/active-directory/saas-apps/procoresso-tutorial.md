@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d72f4ac39ac992d0386b3971cd4d3bc6616f0a28
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Procore SSO
 
@@ -35,7 +35,7 @@ L’intégration de Procore SSO dans Azure AD vous offre les avantages suivants 
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Procore SSO, vous avez besoin des éléments suivants :
 
@@ -179,7 +179,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le **nom d’utilisateur** , tapez **brittasimon\@yourcompanydomain.extension**  
        Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -204,7 +204,7 @@ Suivez les étapes ci-dessous pour créer un utilisateur de test Procore du côt
 
     b. Dans la zone de texte **Last Name**, tapez le nom de l’utilisateur, par exemple **Simon**.
 
-    c. Dans la zone de texte **Adresse e-mail** , tapez l’adresse de messagerie de l’utilisateur, par exemple **BrittaSimon@contoso.com**.
+    c. Dans le **adresse de messagerie** zone de texte, adresse de messagerie de l’utilisateur de type comme **BrittaSimon\@contoso.com**.
 
     d. Sélectionnez **Modèle d’autorisation** pour **Appliquer le modèle d’autorisation plus tard**.
 
@@ -214,7 +214,7 @@ Suivez les étapes ci-dessous pour créer un utilisateur de test Procore du côt
 
     ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Cliquez sur **Enregistrer et envoyer l’invitation** (si une invitation par e-mail est requise) ou **Enregistrer** (enregistrer directement) pour terminer l’inscription de l’utilisateur.
+5. Cliquez sur **enregistrer et envoyer l’Invitation** (si une invitation par e-mail est requise) ou **enregistrer** (enregistrer directement) pour terminer l’inscription de l’utilisateur.
     
     ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_user_save.png)
 

@@ -8,12 +8,12 @@ ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 5d05371d9b948dc2f7d6f834eb9431af80fc6365
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 788e7a453e9879d9c901448659ff1c8cfa7201ff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406870"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548306"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Configuration requise pour Azure Data Catalog
 
@@ -30,7 +30,7 @@ Pour configurer Data Catalog, vous devez être connecté avec un compte d’util
 Azure AD permet à votre entreprise de gérer facilement les identités et les accès, à la fois dans le cloud et en local. Les utilisateurs peuvent se servir du même compte professionnel ou scolaire pour utiliser l’authentification unique sur n’importe quelle application web locale ou cloud. Data Catalog utilise Azure AD pour authentifier la connexion. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Active Directory ?](../active-directory/fundamentals/active-directory-whatis.md).
 
 > [!NOTE]
-> Le [portail Azure](http://portal.azure.com/) permet de se connecter à l’aide d’un compte Microsoft personnel ou d’un compte professionnel ou scolaire Azure Active Directory. Pour configurer Data Catalog à l’aide du portail Azure ou du [portail Data Catalog](http://www.azuredatacatalog.com), vous devez vous connecter avec un compte Azure Active Directory, et non avec un compte personnel.
+> Le [portail Azure](https://portal.azure.com/) permet de se connecter à l’aide d’un compte Microsoft personnel ou d’un compte professionnel ou scolaire Azure Active Directory. Pour configurer Data Catalog à l’aide du portail Azure ou du [portail Data Catalog](https://www.azuredatacatalog.com), vous devez vous connecter avec un compte Azure Active Directory, et non avec un compte personnel.
 >
 >
 

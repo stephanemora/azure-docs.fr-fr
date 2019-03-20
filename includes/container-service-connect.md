@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114217"
+---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Connexion à distance à un cluster Kubernetes, DC/OS ou Docker Swarm
 Après avoir créé un cluster Azure Container Service, vous devez vous connecter au cluster pour déployer et gérer des charges de travail. Cet article décrit comment se connecter à la machine virtuelle principale du cluster à partir d’un ordinateur distant. 
 
@@ -5,7 +18,7 @@ Tous les clusters Kubernetes, DC/OS et Docker Swarm fournissent des points de t
 
 Pour DC/OS et Docker Swarm, nous vous recommandons de créer un tunnel SSH (Secure Shell) entre votre ordinateur local et le système de gestion de cluster. Une fois le tunnel établi, vous pouvez exécuter des commandes qui utilisent des points de terminaison HTTP et afficher l’interface web de l’orchestrateur (si disponible) à partir de votre système local. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un cluster Kubernetes, DC/OS ou Docker Swarm [déployé dans Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md).
 * Fichier de clé privée SSH RSA, correspondant à la clé publique ajoutée au cluster pendant le déploiement. Ces commandes supposent que la clé SSH privée se trouve dans `$HOME/.ssh/id_rsa` sur votre ordinateur. Pour plus d’informations, consultez ces instructions pour [macOS et Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). Si la connexion SSH ne fonctionne pas, vous devrez peut-être [réinitialiser vos clés SSH](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
@@ -19,7 +32,7 @@ Suivez ces étapes pour installer et configurer `kubectl` sur votre ordinateur.
 > 
 
 ### <a name="install-kubectl"></a>Installer kubectl
-Pour installer cet outil, utilisez la commande de l’interface Azure CLI 2.0 `az acs kubernetes install-cli`. Pour exécuter cette commande, assurez-vous que vous avez [installé](/cli/azure/install-az-cli2) la dernière version de l’interface Azure CLI 2.0 et que vous vous êtes connecté à un compte Azure (`az login`).
+Pour installer cet outil consiste à utiliser le `az acs kubernetes install-cli` commande CLI Azure. Pour exécuter cette commande, assurez-vous que vous [installé](/cli/azure/install-az-cli2) la dernière version de l’interface CLI et d’être connecté à un compte Azure (`az login`).
 
 ```azurecli
 # Linux or macOS
@@ -40,7 +53,7 @@ az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --na
 
 Cette commande télécharge les informations d’identification du cluster dans `$HOME/.kube/config` où `kubectl` devrait se trouver.
 
-Vous pouvez également utiliser `scp` pour copier en toute sécurité le fichier depuis `$HOME/.kube/config` sur la machine virtuelle maître vers votre ordinateur local. Par exemple :
+Vous pouvez également utiliser `scp` pour copier en toute sécurité le fichier depuis `$HOME/.kube/config` sur la machine virtuelle maître vers votre ordinateur local. Par exemple : 
 
 ```bash
 mkdir $HOME/.kube
@@ -100,11 +113,11 @@ La première chose que vous faites lorsque vous créez un tunnel SSH sur Linux o
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
-  > [!NOTE]
-  > Le port de connexion SSH est 2200 et non le 22 standard. Dans un cluster avec plus d’une machine virtuelle maître, il s’agit du port de connexion vers la première machine virtuelle maître.
-  > 
+   > [!NOTE]
+   > Le port de connexion SSH est 2200 et non le 22 standard. Dans un cluster avec plus d’une machine virtuelle maître, il s’agit du port de connexion vers la première machine virtuelle maître.
+   > 
 
-  La commande est renvoyée sans résultat.
+   La commande est renvoyée sans résultat.
 
 Consultez les exemples pour DC/OS et Swarm dans les sections suivantes.    
 
@@ -145,7 +158,7 @@ Définissez votre variable d’environnement DOCKER_HOST sur le port local que v
 export DOCKER_HOST=:2375
 ```
 
-Exécutez les commandes Docker qui créent un tunnel vers le cluster Docker Swarm. Par exemple :
+Exécutez les commandes Docker qui créent un tunnel vers le cluster Docker Swarm. Par exemple : 
 
 ```bash
 docker info
@@ -168,16 +181,16 @@ Il existe plusieurs options de création des tunnels SSH sous Windows. Si vous e
 
 5. Sélectionnez **SSH > Tunnels** et configurez les ports transférés suivants :
 
-    * **Port source :** utilisez 80 pour DC/OS et 2375 pour Swarm.
-    * **Destination :** utilisez localhost:80 pour DC/OS ou localhost:2375 pour Swarm.
+   * **Port source :** Utilisez 80 pour DC/OS et 2375 pour Swarm.
+   * **destination :** Utilisez localhost : 80 pour DC/OS ou localhost : 2375 pour Swarm.
 
-    L’exemple suivant est configuré pour DC/OS, mais Docker Swarm pourrait présenter un aspect similaire.
+     L’exemple suivant est configuré pour DC/OS, mais Docker Swarm pourrait présenter un aspect similaire.
 
-    > [!NOTE]
-    > Le port 80 ne doit pas être en cours d’utilisation lors de la création de ce tunnel.
-    > 
+     > [!NOTE]
+     > Le port 80 ne doit pas être en cours d’utilisation lors de la création de ce tunnel.
+     > 
 
-    ![Configuration PuTTY 3](./media/container-service-connect/putty3.png)
+     ![Configuration PuTTY 3](./media/container-service-connect/putty3.png)
 
 6. Quand vous avez terminé, cliquez sur **Session > Enregistrer** pour enregistrer la configuration de la connexion.
 

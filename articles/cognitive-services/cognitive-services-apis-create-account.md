@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873970"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534801"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure
 
 Dans ce guide de démarrage rapide, vous allez apprendre à vous inscrire à Azure Cognitive Services et à créer un abonnement monoservice ou multiservice. Ces services sont représentés par des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) Azure qui vous permettent de vous connecter à une ou plusieurs des API Azure Cognitive Services.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure valide. [Créez un compte](https://azure.microsoft.com/free/) gratuitement.
 
@@ -35,7 +35,7 @@ Les sections suivantes vous guident tout au long de création d’un abonnement 
 
 ### <a name="single-service-subscription"></a>Abonnement monoservice
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com), puis cliquez sur **+ Créer une ressource**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **+ Créer une ressource**.
 
     ![Sélectionner API Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -57,7 +57,7 @@ Les sections suivantes vous guident tout au long de création d’un abonnement 
 
 ### <a name="multi-service-subscription"></a>Abonnement multiservice
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com), puis cliquez sur **+ Créer une ressource**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **+ Créer une ressource**.
 
     ![Sélectionner API Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 

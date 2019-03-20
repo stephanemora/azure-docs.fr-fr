@@ -1,19 +1,19 @@
 ---
 title: Comprendre les quotas Azure IoT Hub et la limitation | Microsoft Docs
 description: Guide du développeur - description des quotas qui s’appliquent à IoT Hub et comportement de limitation attendu.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: dobett
-ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466810"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791373"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -42,8 +42,8 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 | Réceptions de cloud-à-appareil<sup>1</sup> <br/> (uniquement quand l’appareil utilise HTTPS)| 16.67/s/unité (1 000/min/unité) | 16.67/s/unité (1 000/min/unité) | 833.33/s/unité (50 000/min/unité) |
 | Chargement de fichiers | 1.67 notifications de téléchargement de fichier/s/unité (100/min/unité) | 1.67 notifications de téléchargement de fichier/s/unité (100/min/unité) | 83.33 notifications de téléchargement de fichier/s/unité (5 000/min/unité) |
 | Méthodes directes<sup>1</sup> | 160 Ko/s/unité<sup>2</sup> | 480 Ko/s/unité<sup>2</sup> | 24 Mo/s/unité<sup>2</sup> | 
-| Lectures de jumeaux (appareil et module)<sup>1</sup> | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
-| Mises à jour de jumeaux (appareil et module)<sup>1</sup> | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
+| Lectures de jumeaux (appareil et module)<sup>1</sup> | 100/sec | Plus de 100/s ou de 10/s/unité | 500/sec/unit |
+| Mises à jour de jumeaux (appareil et module)<sup>1</sup> | 50/sec | Plus de 50/s ou 5/s/unité | 250/sec/unit |
 | Opérations de travaux<sup>1,3</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 1.67/s/unité (100/min/unité) | 1.67/s/unité (100/min/unité) | 83.33/s/unité (5 000/min/unité) |
 | Opérations de l’appareil de travaux<sup>1</sup> <br/> (mettre à jour le jumeau, appeler la méthode directe) | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
 | Configurations et déploiements de périphérie<sup>1</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 0,33/s/unité (20/min/unité) | 0,33/s/unité (20/min/unité) | 0,33/s/unité (20/min/unité) |
@@ -52,7 +52,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 | Transfert de données de flux de données maximale de l’appareil<sup>4</sup> (volume agrégé par jour) | 300 Mo | 300 Mo | 300 Mo |
 
 
-<sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>La taille du compteur de limitation est de 8 Ko. <br/><sup>3</sup>Vous ne pouvez avoir qu’un travail d’importation/exportation d’appareil actif à la fois. <br/><sup>4</sup>Les flux d’appareil IoT Hub sont uniquement disponibles pour les références SKU S1, S2, S3 et F1.
+<sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>la limitation de taille du compteur est de 4 Ko. <br/><sup>3</sup>Vous ne pouvez avoir qu’un travail d’importation/exportation d’appareil actif à la fois. <br/><sup>4</sup>Les flux d’appareil IoT Hub sont uniquement disponibles pour les références SKU S1, S2, S3 et F1.
 
 La limitation des *connexions d’appareil* régit la fréquence à laquelle de nouvelles connexions d’appareil peuvent être établies avec un hub IoT. La limitation des *connexions d’appareils* ne régit pas le nombre maximal d’appareils connectés simultanément. Le taux de limitation des *connexions d’appareil* dépend du nombre d’unités provisionnées pour le hub IoT.
 

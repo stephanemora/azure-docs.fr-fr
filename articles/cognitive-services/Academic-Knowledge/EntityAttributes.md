@@ -10,16 +10,16 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: accc2803895f3892075cdd9877ca98344ab88bd1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 485775660ecfdf2291365ab98c9188295ea2cbde
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183490"
 ---
 # <a name="entity-attributes"></a>Attributs d’entité
 
-Le graphique académique est composé de 7 types d’entité. Toutes les entités se verront attribuer un ID d’entité et un type d'entité.
+Le graphique académique est composé de 7 types d’entité. Toutes les entités aura un ID d’entité et un type d’entité.
 
 ## <a name="common-entity-attributes"></a>Attributs d’entité courants
 Nom    |Description                |Type       | Opérations

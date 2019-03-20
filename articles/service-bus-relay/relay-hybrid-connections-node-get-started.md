@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
 ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9bdf3d319735d8d4ca85235dfb949d440bba9a02
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: b4864673e25ba4f5a1f2e8629e0889863051bc07
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615073"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764861"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Bien démarrer avec les WebSockets de connexions hybrides Relay dans Node.js
 
@@ -35,7 +35,7 @@ Ce démarrage rapide comporte les étapes suivantes :
 4. Écrire une application de console (expéditeur) de client pour envoyer des messages.
 5. Exécuter les applications. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - [Node.js](https://nodejs.org/en/).
 - Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.

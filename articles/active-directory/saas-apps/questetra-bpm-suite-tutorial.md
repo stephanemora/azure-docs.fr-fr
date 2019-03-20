@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838032"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutoriel : Intégration d'Azure Active Directory avec Questetra BPM Suite
+# <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Didacticiel : Intégration d'Azure Active Directory avec Questetra BPM Suite
 
 Dans ce didacticiel, vous allez apprendre à intégrer Questetra BPM Suite dans Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Questetra BPM Suite à Azure AD offre les avantages suivants
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l'intégration d'Azure AD avec Questetra BPM Suite, vous avez besoin des éléments suivants :
 
@@ -210,9 +210,9 @@ L'objectif de cette section est de créer un utilisateur appelé Britta Simon da
    
     ![Créer un utilisateur de test][300] 
    
-    a. Dans la zone de texte **Nom**, tapez le **nom** de l’utilisateur **britta.simon@contoso.com**.
+    a. Dans le **nom** zone de texte, tapez **nom** de l’utilisateur **britta.simon\@contoso.com**.
    
-    b. Dans la zone de texte **E-mail**, entrez l’**e-mail** de l’utilisateur **britta.simon@contoso.com**.
+    b. Dans le **E-mail** zone de texte, tapez **e-mail** de l’utilisateur **britta.simon\@contoso.com**
    
     c. Dans la zone de texte **Mot de passe**, tapez un **mot de passe** pour l’utilisateur.
     

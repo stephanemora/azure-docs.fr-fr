@@ -8,20 +8,20 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310253"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122958"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 
 Cet article explique comment restaurer des sauvegardes de l’état du système Windows Server à partir d’un coffre Azure Recovery Services. Pour restaurer l’état du système, vous devez disposer d’une sauvegarde de l’état du système (créée en suivant les instructions fournies dans [Sauvegarder l’état du système](backup-azure-system-state.md#back-up-windows-server-system-state) et vérifier que vous avez installé la [version la plus récente de l’agent Microsoft Azure Recovery Services (MARS)](https://aka.ms/azurebackup_agent). La récupération des données d’état du système Windows Server à partir d’un coffre Azure Recovery Services est un processus en deux étapes :
 
 1. Restaurer l’état du système sous forme de fichiers à partir de Sauvegarde Azure. Lors de la restauration de l’état du système sous forme de fichiers à partir de Sauvegarde Azure, vous pouvez :
-  * Restaurer l’état du système sur le même serveur que celui où les sauvegardes ont été effectuées, ou
-  * Restaurer le fichier d’état du système sur un autre serveur
+   * Restaurer l’état du système sur le même serveur que celui où les sauvegardes ont été effectuées, ou
+   * Restaurer le fichier d’état du système sur un autre serveur
 
 2. Appliquer les fichiers d’état du système restaurés à un serveur Windows.
 

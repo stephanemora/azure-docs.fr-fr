@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9584f0ee4264724787c5913c0d6baa4c2769fa82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085675"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs linguistiques à un index de Recherche Azure
 
@@ -46,8 +46,8 @@ L’analyseur par défaut est Lucene Standard, qui fonctionne bien pour l’angl
 
 + L’analyseur d’anglais de Microsoft procède par lemmatisation plutôt que par recherche de radical. Il gère donc beaucoup mieux les formes fléchies et irrégulières, ce qui donne des résultats de recherche plus pertinents. 
 
- > [!Tip]
- > La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) présente une comparaison point par point des résultats produits par l’analyseur Lucene standard, l’analyseur linguistique anglais de Lucene et de l’outil de traitement du langage naturel anglais de Microsoft. Pour chaque recherche, les résultats de chaque analyseur sont affichés dans des volets adjacents.
+  > [!Tip]
+  > La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) présente une comparaison point par point des résultats produits par l’analyseur Lucene standard, l’analyseur linguistique anglais de Lucene et de l’outil de traitement du langage naturel anglais de Microsoft. Pour chaque recherche, les résultats de chaque analyseur sont affichés dans des volets adjacents.
 
 ## <a name="configuring-analyzers"></a>Configuration des analyseurs
 

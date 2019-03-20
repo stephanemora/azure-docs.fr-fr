@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: ac3296937c02c3021c49dafc9a6ed7c249fe37af
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769316"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224785"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Préversion du kit SDK de gestion HDInsight Go
 
@@ -71,7 +71,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> Si vous n’avez pas déjà enregistré le fournisseur de ressources HDInsight avec une autre fonction (par exemple, en créant un cluster HDInsight via le portail Azure), vous devez le faire une fois avant de pouvoir vous authentifier. Vous pouvez le faire à partir d’[Azure Cloud Shell](https://shell.azure.com/bash) en exécutant la commande suivante :
+> Si vous n’avez pas déjà inscrit le fournisseur de ressources HDInsight par une autre fonction (par exemple en créant un HDInsight Cluster via le portail Azure), vous devez le faire une fois avant que vous pouvez vous authentifier. Vous pouvez le faire à partir d’[Azure Cloud Shell](https://shell.azure.com/bash) en exécutant la commande suivante :
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

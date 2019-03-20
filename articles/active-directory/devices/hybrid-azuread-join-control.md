@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b1e1c103c37874365f7e8d0b893985c9a6469c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171075"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408528"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Contrôler la jointure d’Azure AD hybride de vos appareils
 
@@ -31,7 +31,7 @@ La jonction Azure AD Hybride (Azure AD) est un processus qui consiste à inscrir
 Cet article fournit des conseils sur la façon de contrôler la jonction Azure AD Hybride de vos appareils. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose de connaître :
 
@@ -82,7 +82,7 @@ Pour définir l’objet de stratégie de groupe :
 8.  Cliquez avec le bouton droit sur **Enregistrer les ordinateurs appartenant à un domaine en tant qu’appareils**, puis sélectionnez **Modifier**.
 
     > [!NOTE] 
-    > Ce modèle de stratégie de groupe a été renommé par rapport aux versions précédentes de la Console de gestion des stratégies de groupe. Si vous utilisez une version antérieure de la console, accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Workplace Join** > **Joindre automatiquement les ordinateurs clients à l’espace de travail**. 
+    > Ce modèle de stratégie de groupe a été renommé par rapport aux versions précédentes de la Console de gestion des stratégies de groupe. Si vous utilisez une version antérieure de la console, accédez à **Configuration ordinateur** > **stratégies** > **modèles d’administration**  >  **Les composants Windows** > **Device Registration** > **Register domaine joint à un ordinateur en tant qu’appareil**. 
 
 9.  Sélectionnez un des paramètres suivants, puis sélectionnez **Appliquer** :
 
@@ -99,16 +99,16 @@ Vous pouvez contrôler le comportement d’inscription de vos appareils actuels 
 
 Pour configurer le paramètre client :
 
-1.  Ouvrez **Gestionnaire de configuration**, puis accédez à **Services Cloud**.
+1.  Ouvrez **Configuration Manager**, sélectionnez **Administration**, puis accédez à **paramètres Client**.
 
-2.  Sous **Paramètres de l’appareil**, sélectionnez un des paramètres suivants pour **Inscrire automatiquement les nouveaux appareils joints au domaine Windows 10 auprès d’Azure Active Directory** :
+2.  Ouvrez les propriétés de **paramètres Client par défaut** et sélectionnez **Services Cloud**.
+
+3.  Sous **Paramètres de l’appareil**, sélectionnez un des paramètres suivants pour **Inscrire automatiquement les nouveaux appareils joints au domaine Windows 10 auprès d’Azure Active Directory** :
 
     - **Non** : pour éviter l’inscription automatique d’appareils.
     - **Oui** : pour activer l’inscription automatique d’appareils.
 
-
-3.  Sélectionnez **OK**.
-    
+4.  Sélectionnez **OK**.
 
 Vous devez lier ce paramètre client à l’emplacement de votre choix. Par exemple, pour configurer ce paramètre client pour tous les appareils Windows actuels dans votre organisation, liez le paramètre client au domaine. Pour effectuer un déploiement contrôlé, vous pouvez configurer le paramètre client pour les appareils Windows actuels joints au domaine qui appartiennent à une unité d’organisation ou à un groupe de sécurité.
 

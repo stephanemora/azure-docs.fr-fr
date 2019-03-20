@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: d8cea95fbfb76f1dd1891045309a35aa1d0a8ab0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446501"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099482"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -32,11 +32,11 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 
 * Rendre les API hébergées dans votre centre de données privé accessibles de l’extérieur en toute sécurité à des tiers à l’aide de connexions site à site ou de connexions Azure VPN ExpressRoute.
 * Activer les scénarios de cloud hybride en exposant vos API cloud et sur site par le biais d’une passerelle commune.
-* Gérer vos API hébergées dans plusieurs emplacements géographiques à l’aide d’un seul point de terminaison de passerelle. 
+* Gérer vos API hébergées dans plusieurs emplacements géographiques à l’aide d’un seul point de terminaison de passerelle.
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -47,7 +47,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 + **Une instance du service Gestion des API Azure**. Pour plus d'informations, consultez [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>Créer une Gestion des API dans un réseau virtuel interne
-Le service Gestion des API dans un réseau virtuel interne est hébergé derrière un équilibreur de charge interne.
+Le service de gestion des API dans un réseau virtuel interne est hébergé derrière un [équilibreur de charge interne (classique)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Ceci est la seule option disponible et ne peut pas être modifié.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Activer une connexion de réseau virtuel à l’aide du portail Azure
 
@@ -59,7 +59,7 @@ Le service Gestion des API dans un réseau virtuel interne est hébergé derriè
 
 4. Sélectionnez **Enregistrer**.
 
-Une fois le déploiement réussi, l’adresse IP virtuelle interne de votre service apparaît sur le tableau de bord.
+Une fois le déploiement réussi, vous devez voir **privé** adresse IP virtuelle et **public** une adresse IP virtuelle de votre service de gestion des API dans le panneau de vue d’ensemble. Le **privé** adresse IP virtuelle est une charge équilibrée IP adresse dans la gestion des API déléguée sous-réseau sur lequel `gateway`, `portal`, `management` et `scm` points de terminaison est accessible. Le **public** sert d’adresse IP virtuelle **uniquement** pour contrôler le trafic de plan vers `management` point de terminaison sur le port 3443 et peuvent être verrouillées jusqu'à la [ApiManagement] [ ServiceTags] servicetag.
 
 ![Tableau de bord Gestion des API avec réseau virtuel interne configuré][api-management-internal-vnet-dashboard]
 
@@ -67,11 +67,14 @@ Une fois le déploiement réussi, l’adresse IP virtuelle interne de votre serv
 > La Console de test disponible sur le portail Azure ne fonctionnera pas pour le service de réseau VNET **Interne** déployé, car l’URL de la passerelle n’est pas inscrite sur le DNS Public. À la place, vous devez utiliser la Console de test fournie sur le **Portail des développeurs**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Activer une connexion de réseau virtuel à l’aide des applets de commande PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Vous pouvez également activer une connectivité de réseau virtuel à l’aide d’applets de commande PowerShell.
 
-* Créer un service Gestion des API au sein d’un réseau virtuel : utilisez l’applet de commande [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) pour créer un service Gestion des API Azure au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type réseau virtuel interne.
+* Créer un service de gestion des API au sein d’un réseau virtuel : Utilisez l’applet de commande [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) pour créer un service de gestion des API Azure au sein d’un réseau virtuel et le configurer pour utiliser le type de réseau virtuel interne.
 
-* Déployer un service Gestion des API existant au sein d’un réseau virtuel : utilisez l’applet de commande [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) pour déplacer un service Gestion des API existant au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type réseau virtuel interne.
+* Mise à jour d’un déploiement existant d’un service de gestion des API à l’intérieur d’un réseau virtuel : Utilisez l’applet de commande [AzApiManagementRegion de mise à jour](/powershell/module/az.apimanagement/update-azapimanagementregion) pour déplacer un service de gestion des API existant à l’intérieur d’un réseau virtuel et le configurer pour utiliser le type de réseau virtuel interne.
 
 ## <a name="apim-dns-configuration"></a>Configuration DNS
 Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre routage.
@@ -80,35 +83,36 @@ Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est
 > Le service Gestion des API n’écoute pas les demandes provenant des adresses IP. Il répond uniquement aux demandes pour le nom d’hôte configuré sur ses points de terminaison de service. Ces points de terminaison incluent une passerelle, le portail Azure, le portail des développeurs, un point de terminaison de gestion directe et Git.
 
 ### <a name="access-on-default-host-names"></a>Accès sur les noms d’hôtes par défaut
-Lorsque vous créez un service Gestion des API, nommé « contoso » par exemple, les points de terminaison de service suivants sont configurés par défaut :
+Lorsque vous créez un service de gestion des API, nommé « contosointernalvnet », par exemple, les points de terminaison de service suivants sont configurés par défaut :
 
-   * Passerelle ou proxy : contoso.azure-api.net
+   * Passerelle ou proxy : contosointernalvnet.azure-API.NET
 
-   * Portail Azure et portail des développeurs : contoso.portal.azure-api.net
+   * Le portail Azure et le portail des développeurs : contosointernalvnet.portal.azure-API.NET
 
-   * Point de terminaison de gestion directe : contoso.management.azure-api.net
+   * Point de terminaison de gestion directe : contosointernalvnet.management.azure-API.NET
 
-   * Git : contoso.scm.azure-api.net
+   * GIT : contosointernalvnet.scm.azure-API.NET
 
-Pour accéder à ces points de terminaison de service Gestion des API, vous pouvez créer une machine virtuelle dans un sous-réseau connecté au réseau virtuel dans lequel la Gestion des API est déployée. En supposant que l’adresse IP virtuelle interne de votre service est 10.0.0.5, vous pouvez effectuer le mappage des fichiers hôtes, %SystemDrive%\drivers\etc\hosts, de la façon suivante :
+Pour accéder à ces points de terminaison de service Gestion des API, vous pouvez créer une machine virtuelle dans un sous-réseau connecté au réseau virtuel dans lequel la Gestion des API est déployée. En supposant que l’adresse IP virtuelle interne de votre service est 10.1.0.5, vous pouvez mapper le fichier hosts, % SystemDrive%\drivers\etc\hosts, comme suit :
 
-   * 10.0.0.5     contoso.azure-api.net
+   * 10.1.0.5     contosointernalvnet.azure-api.net
 
-   * 10.0.0.5     contoso.portal.azure-api.net
+   * 10.1.0.5     contosointernalvnet.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.1.0.5     contosointernalvnet.management.azure-api.net
 
-   * 10.0.0.5     contoso.scm.azure-api.net
+   * 10.1.0.5     contosointernalvnet.scm.azure-api.net
 
-Vous pouvez alors accéder à tous les points de terminaison de service à partir de la machine virtuelle que vous avez créée. Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouvez également créer des enregistrements DNS A et accéder à ces points de terminaison à partir de l’endroit de votre choix dans votre réseau virtuel. 
+Vous pouvez alors accéder à tous les points de terminaison de service à partir de la machine virtuelle que vous avez créée.
+Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouvez également créer des enregistrements DNS A et accéder à ces points de terminaison à partir de l’endroit de votre choix dans votre réseau virtuel.
 
 ### <a name="access-on-custom-domain-names"></a>Accès sur des noms de domaines personnalisés
 
-   1. Si vous ne souhaitez pas accéder au service Gestion des API avec les noms d’hôtes par défaut, vous pouvez configurer des noms de domaines personnalisés pour tous vos points de terminaison de service, comme indiqué dans l’image suivante : 
+1. Si vous ne souhaitez pas accéder au service Gestion des API avec les noms d’hôtes par défaut, vous pouvez configurer des noms de domaines personnalisés pour tous vos points de terminaison de service, comme indiqué dans l’image suivante :
 
    ![Configuration d’un domaine personnalisé pour la Gestion des API][api-management-custom-domain-name]
 
-   2. Vous pouvez ensuite créer des enregistrements dans votre serveur DNS de façon à accéder aux points de terminaison qui ne sont accessibles qu’à partir de votre réseau virtuel.
+2. Vous pouvez ensuite créer des enregistrements dans votre serveur DNS de façon à accéder aux points de terminaison qui ne sont accessibles qu’à partir de votre réseau virtuel.
 
 ## <a name="routing"> </a> Routage
 + Une adresse IP virtuelle privée à charge équilibrée de la plage de sous-réseau est réservée et utilisée pour accéder aux points de terminaison du service Gestion des API service à partir du réseau virtuel.
@@ -122,10 +126,12 @@ Pour en savoir plus, consultez les articles suivants :
 * [FAQ des réseaux virtuels](../virtual-network/virtual-networks-faq.md)
 * [Création d’un enregistrement A dans DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
+
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags
 

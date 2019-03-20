@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>Composants requis
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: d249a205c64f4e067f2d81c7e1068c8ad9756958
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58115055"
+---
+### <a name="prerequisites"></a>Conditions préalables
 * Un compte [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)  
 
 Pour pouvoir utiliser votre compte SFTP dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer depuis votre application logique, sur le Portail Azure.  

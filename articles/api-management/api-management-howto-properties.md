@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437063"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082702"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de valeurs nommées. 
 
 Chaque instance du service Gestion des API possède une collection de propriétés de paires clé/valeur, appelées « valeurs nommées », qui s’appliquent de manière globale à l’instance du service. Ces valeurs nommées peuvent être utilisées pour gérer les valeurs de chaîne constantes dans l’ensemble des stratégies et de la configuration des API. Chaque propriété peut avoir les attributs suivants :
 
-| Attribut | type | Description |
+| Attribut | Type | Description |
 | --- | --- | --- |
-| Nom complet |chaîne |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
-| Valeur |chaîne |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
+| Nom complet |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
+| Valeur |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
 |Secret|booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
 | Balises |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
 
@@ -36,7 +36,7 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 Les valeurs de propriété peuvent contenir des chaînes littérales et des [expressions de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx). Par exemple, la valeur de `ExpressionProperty` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La propriété `ContosoHeaderValue` est marquée en tant que secret. Sa valeur ne s’affiche donc pas.
 
-| NOM | Valeur | Secret | Balises |
+| Nom | Valeur | Secret | Balises |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
@@ -50,7 +50,7 @@ Les valeurs de propriété peuvent contenir des chaînes littérales et des [exp
 2. Sélectionnez **Valeurs nommées**.
 3. Appuyez sur **+ Ajouter**.
 
-  Nom et Valeur doivent être renseignés. Si la valeur de propriété est un secret, cochez la case Il s’agit d’une clé secrète. Entrez une ou plusieurs balises facultatives pour aider à organiser vos valeurs nommées, puis cliquez sur Enregistrer.
+   Nom et Valeur doivent être renseignés. Si la valeur de propriété est un secret, cochez la case Il s’agit d’une clé secrète. Entrez une ou plusieurs balises facultatives pour aider à organiser vos valeurs nommées, puis cliquez sur Enregistrer.
 4. Cliquez sur **Créer**.
 
 Une fois que la propriété est créée, vous pouvez le modifier en cliquant sur la propriété. Si vous modifiez le nom de propriété, toutes les stratégies qui font référence à cette propriété sont automatiquement mises à jour pour utiliser le nouveau nom.

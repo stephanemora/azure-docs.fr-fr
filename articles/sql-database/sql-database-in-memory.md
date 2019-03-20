@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c873587a640bb36e9fa43e314bf789a207956ae0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/19/2019
+ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854838"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226978"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide des technologies en mémoire dans SQL Database
 
@@ -83,7 +83,7 @@ La technologie OLTP en mémoire fournit des opérations d’accès aux données 
 
 - Le format **rowstore à mémoire optimisée** où chaque ligne est un objet de mémoire distinct. Il s’agit d’un format OLTP en mémoire classique optimisé pour les charges de travail OLTP hautes performances. Il existe deux types de tables à mémoire optimisée qui peuvent être utilisées dans le format rowstore à mémoire optimisée :
   - *Tables durables* (SCHEMA_AND_DATA) où les lignes placées en mémoire sont conservées après le redémarrage du serveur. Ce type de tables se comporte comme une table rowstore traditionnelle avec en plus les avantages des optimisations en mémoire.
-  - *Tables non durables* (SCEMA_ONLY) où les lignes ne sont pas conservées après le redémarrage. Ce type de table est conçu pour les données temporaires (par exemple, le remplacement de tables temporaires) ou les tables dans lesquelles vous devez rapidement charger des données avant de les déplacer vers une table persistante (les tables de mise en lots).
+  - *Tables non durables* (SCHEMA_ONLY) où les lignes ne sont pas préservées après le redémarrage. Ce type de table est conçu pour les données temporaires (par exemple, le remplacement de tables temporaires) ou les tables dans lesquelles vous devez rapidement charger des données avant de les déplacer vers une table persistante (les tables de mise en lots).
 - Le format **columnstore à mémoire optimisée** où les données sont organisées dans un format de colonne. Cette structure est conçue pour les scénarios HTAP où vous avez besoin d’exécuter des requêtes analytiques sur la même structure de données que celle où votre charge de travail OLTP s’exécute.
 
 > [!Note]

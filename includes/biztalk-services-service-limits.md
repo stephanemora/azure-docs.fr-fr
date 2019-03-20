@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 11/09/2017
 ms.author: mandia
 ms.custom: include file
-ms.openlocfilehash: 7fa6930acf4d19b3939bb8a5b0306d216346c2b3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 2697a7d14141682ee8208d8cbe954e6e1679e3b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755717"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553550"
 ---
-| RESSOURCE | GRATUITE (ÉVALUATION) | DÉVELOPPEUR | DE BASE | STANDARD | PREMIUM |
+| Ressource | Gratuite (Évaluation) | Développeur | De base | standard | Premium |
 | --- | --- | --- | --- | --- | --- |
-| Montée en charge |N/A |N/A |Oui, par incréments de 1 unité De base |Oui, par incréments de 1 unité Standard |Oui, par incréments de 1 unité Premium |
-| Limite de la mise à l’échelle |N/A |N/A |Jusqu’à 8 unités |Jusqu’à 8 unités |Jusqu’à 8 unités |
-| Ponts IAE par unité |N/A |25 |25 |125 |500 |
-| Contrats EDI par unité. |N/A |10 |50 |250 |1 000 |
+| Montée en charge |S.O. |S.O. |Oui, dans les incréments d'1 unité De base |Oui, dans les incréments d'1 unité Standard |Oui, dans les incréments d'1 unité Premium |
+| Limite de la mise à l’échelle |S.O. |S.O. |Jusqu’à 8 unités |Jusqu’à 8 unités |Jusqu’à 8 unités |
+| Ponts IAE par unité |S.O. |25 |25 |125 |500 |
+| Contrats EDI par unité |S.O. |10 |50 |250 |1 000 |
 | Connexions hybrides par unité |5. |5. |10 |50 |100 |
-| Transfert de données des connexions hybrides (Go) par unité |5. |5. |50 |250 |500 |
-| Nombre de connexions à l’aide du service d’adaptateur BizTalk par unité |N/A |1 |2 |5. |25 |
-| Archivage |N/A |Disponible |N/A |N/A |Disponible |
-| Haute disponibilité |N/A |N/A |Disponible |Disponible |Disponible |
+| Transfert de données de connexion hybride (Go) par unité |5. |5. |50 |250 |500 |
+| Nombre de connexions qui utilisent le Service d’adaptateur BizTalk par unité |S.O. |1 |2 |5. |25 |
+| Archivage |S.O. |Disponible |S.O. |S.O. |Disponible |
+| Haute disponibilité |S.O. |S.O. |Disponible |Disponible |Disponible |
 

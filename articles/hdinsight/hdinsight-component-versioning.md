@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 4b305087c0c755254d72811fb9275c509343c87e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0e15f3dc448ba218ebdfe309c4308bbc789ef5be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878395"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226263"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Apache Hadoop disponibles avec HDInsight ?
 
@@ -75,7 +75,7 @@ Les tableaux suivants listent les versions HDInsight. Les versions de la platefo
 
 ### <a name="available-versions"></a>Versions disponibles
 
-Le tableau suivant liste les versions HDInsight qui sont disponibles dans le portail Azure, ainsi que d’autres méthodes de déploiement telles que PowerShell et le kit .NET SDK.
+Le tableau suivant répertorie les versions de HDInsight qui sont disponibles dans le portail Azure, ainsi que d’autres méthodes de déploiement tels que PowerShell et du SDK .NET.
 
 | Version de HDInsight | Version de la plateforme HDP | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Date de lancement | Date d’expiration du support | Date de mise hors service | Haute disponibilité |  Disponibilité sur le portail Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -91,7 +91,7 @@ Le tableau suivant liste les versions HDInsight qui sont disponibles dans le por
 
 ### <a name="retired-versions"></a>Versions supprimées
 
-Le tableau suivant liste les versions HDInsight qui **ne sont pas** disponibles dans le portail Azure.
+Le tableau suivant répertorie les versions de HDInsight sont **pas** disponibles dans le portail Azure.
 
 | Version de HDInsight | Version de la plateforme HDP | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Date de lancement | Date d’expiration du support | Date de mise hors service | Haute disponibilité |  Disponibilité sur le portail Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |

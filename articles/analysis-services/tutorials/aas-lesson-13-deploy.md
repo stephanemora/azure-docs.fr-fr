@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 72fa9bf211139b971afa443af812d644c76062fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188383"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123468"
 ---
 # <a name="deploy"></a>Déployer
 
@@ -21,7 +21,7 @@ Dans cette leçon, vous allez configurer les propriétés de déploiement en sp�
   
 Durée estimée pour suivre cette leçon : **5 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cet article fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
@@ -49,15 +49,15 @@ Cet article fait partie d’un didacticiel de modélisation tabulaire, qui doit 
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>Pour déployer Adventure Works Internet Sales
   
-1.  Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **AW Internet Sales** > **Générer**.  
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **AW Internet Sales** > **Générer**.  
 
-2.  Cliquez avec le bouton droit sur le projet **AW Internet Sales** > **Déployer**.
+2. Cliquez avec le bouton droit sur le projet **AW Internet Sales** > **Déployer**.
 
-    Lors du déploiement sur Azure Analysis Services, vous pouvez être invité à entrer votre compte. Entrez votre compte professionnel et votre mot de passe, par exemple nancy@adventureworks.com. Ce compte doit faire partie du groupe Administrateurs sur le serveur.
+   Lors du déploiement sur Azure Analysis Services, vous pouvez être invité à entrer votre compte. Entrez votre compte professionnel et votre mot de passe, par exemple nancy@adventureworks.com. Ce compte doit faire partie du groupe Administrateurs sur le serveur.
   
-    La boîte de dialogue Déployer s’affiche et montre l’état du déploiement des métadonnées, ainsi que chaque table incluse dans le modèle.  
+   La boîte de dialogue Déployer s’affiche et montre l’état du déploiement des métadonnées, ainsi que chaque table incluse dans le modèle.  
     
-    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. Si le déploiement se termine sans erreurs, cliquez sur **Fermer**.  
   
@@ -65,7 +65,7 @@ Cet article fait partie d’un didacticiel de modélisation tabulaire, qui doit 
 Cette leçon décrit la méthode la plus courante et la plus simple de déploiement d’un modèle tabulaire à partir de SSDT. Les options de déploiement avancé telles que l’Assistant Déploiement ou l’automatisation avec XMLA et AMO procurent une flexibilité et une cohérence supérieures, et prennent en charge des déploiements planifiés. Pour plus d’informations, consultez la section [Déploiement de solutions de modèle tabulaire](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
 
 ## <a name="conclusion"></a>Conclusion  
-Félicitations ! Vous venez de terminer la création et le déploiement de votre premier modèle tabulaire Analysis Services. Ce didacticiel vous a guidé dans les tâches les plus courantes associées à la création d’un modèle tabulaire. Maintenant que votre modèle Internet Sales Adventure Works est déployé, vous pouvez utiliser SQL Server Management Studio pour le gérer, ainsi que pour créer des scripts de processus et un plan de sauvegarde. Les utilisateurs peuvent désormais se connecter au modèle à l’aide d’une application cliente de création de rapports telle que Microsoft Excel ou Power BI.  
+Félicitations ! Vous venez de terminer la création et le déploiement de votre premier modèle tabulaire Analysis Services. Ce didacticiel vous a guidé dans les tâches les plus courantes associées à la création d’un modèle tabulaire. Maintenant que votre modèle Internet Sales Adventure Works est déployé, vous pouvez utiliser SQL Server Management Studio pour le gérer, ainsi que pour créer des scripts de processus et un plan de sauvegarde. Les utilisateurs peuvent désormais se connecter au modèle à l’aide d’une application cliente de création de rapports telle que Microsoft Excel ou Power BI.  
 
 ![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)
   

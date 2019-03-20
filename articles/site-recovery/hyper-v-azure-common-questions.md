@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 11e29aa8d85ed7e3cf5ce7b4a8360e4b5eb628f9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 9ce236748c1ca4f5e166fe1d7574f6a635d6204b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855884"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
@@ -65,10 +65,9 @@ Oui, le chiffrement en transit et le [chiffrement dans Azure](https://docs.micro
 ### <a name="what-do-i-need-on-premises"></a>De quoi ai-je besoin en local ?
 
 Vous avez besoin d’une ou de plusieurs machines virtuelles en cours d’exécution sur un ou plusieurs hôtes Hyper-V autonomes ou en cluster. Vous pouvez également répliquer des machines virtuelles exécutées sur des hôtes gérés par System Center Virtual Machine Manager (VMM).
-    - Si vous n’exécutez pas VMM, pendant le déploiement de Site Recovery, vous regroupez les hôtes Hyper-V et les clusters dans des sites Hyper-V. Vous installez les agents Site Recovery (fournisseur Azure Site Recovery et agent Recovery Services) sur chaque hôte Hyper-V.
-    - Si les hôtes Hyper-V sont situés dans un cloud VMM, vous orchestrez la réplication dans VMM. Vous installez le fournisseur Site Recovery sur le serveur VMM et l’agent Recovery Services sur chaque hôte Hyper-V. Vous mappez entre VMM logique/réseaux machines virtuelles et réseaux virtuels Azure.
-    - 
-[En savoir plus](hyper-v-azure-architecture.md) sur l’architecture Hyper-V vers Azure.
+- Si vous n’exécutez pas VMM, pendant le déploiement de Site Recovery, vous regroupez les hôtes Hyper-V et les clusters dans des sites Hyper-V. Vous installez les agents Site Recovery (fournisseur Azure Site Recovery et agent Recovery Services) sur chaque hôte Hyper-V.
+- Si les hôtes Hyper-V sont situés dans un cloud VMM, vous orchestrez la réplication dans VMM. Vous installez le fournisseur Site Recovery sur le serveur VMM et l’agent Recovery Services sur chaque hôte Hyper-V. Vous mappez entre VMM logique/réseaux machines virtuelles et réseaux virtuels Azure.
+- [En savoir plus](hyper-v-azure-architecture.md) sur l’architecture Hyper-V vers Azure.
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Puis-je répliquer des machines virtuelles situées sur un cluster Hyper-V ?
 
@@ -139,11 +138,11 @@ Pour la réplication, une machine virtuelle Hyper-V doit exécuter un système d
 
 Les machines virtuelles Hyper-V peuvent être répliquées toutes les 30 secondes (sauf pour le stockage premium), toutes les 5 minutes ou toutes les 15 minutes.
 
-###<a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
-La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+### <a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
+La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Puis-je effectuer une réplication initiale hors connexion ?
-Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Puis-je exclure des disques ?
 Oui, vous pouvez exclure des disques de la réplication. 
@@ -189,7 +188,7 @@ Après un basculement, vous pouvez accéder aux machines virtuelles Azure via un
 Azure est conçu pour la résilience. Site Recovery est prévu pour assurer le basculement vers un centre de données Azure secondaire, dans le respect du contrat SLA Azure. En cas de basculement, nous nous assurons que vos métadonnées et vos coffres restent dans la même région géographique que vous avez choisie pour votre coffre.
 
 ### <a name="is-failover-automatic"></a>Le basculement est-il automatique ?
-Le [basculement](site-recovery-failover.md) n’est pas automatique. Vous lancez les basculements d’un seul clic dans le portail, ou vous pouvez utiliser [PowerShell](/powershell/module/azurerm.siterecovery) pour déclencher un basculement.
+Le [basculement](site-recovery-failover.md) n’est pas automatique. Vous lancez les basculements avec un seul clic dans le portail, ou vous pouvez utiliser [PowerShell](/powershell/module/azurerm.siterecovery) pour déclencher un basculement.
 
 ### <a name="how-do-i-fail-back"></a>Comment effectuer une restauration automatique ?
 

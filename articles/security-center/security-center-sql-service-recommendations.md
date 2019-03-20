@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: d6121a0255b809deccb3c70d56585bab76935900
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082158"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protection des données et du service SQL Azure dans Azure Security Center
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires.  Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles, mise en réseau, SQL et données et applications.
@@ -65,7 +65,7 @@ Pour activer l’audit, sélectionnez **ACTIVÉ** sous **Audit**.
 |SQL|30|Corriger les vulnérabilités sur vos bases de données SQL|L'évaluation de la vulnérabilité SQL analyse les vulnérabilités de la sécurité dans votre base de données et expose tout manquement aux meilleures pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.|
 |SQL|20|Provisionner un administrateur Azure AD pour SQL Server|Approvisionner un administrateur Azure AD pour votre serveur SQL afin d’activer l’authentification Azure AD. L’authentification Azure AD permet une gestion simplifiée des autorisations et une gestion centralisée des utilisateurs de bases de données et d’autres services Microsoft.|
 |Compte de stockage|15|Désactiver l'accès réseau non restreint au compte de stockage|Auditer l’accès illimité au réseau dans les paramètres de pare-feu de votre compte de stockage. Au lieu de cela, configurer les règles du réseau de telle manière que seules les applications des réseaux autorisés puissent accéder au compte de stockage. Pour autoriser les connexions de clients Internet ou locaux spécifiques, l’accès au trafic peut être autorisé à partir de réseaux virtuels Azure spécifiques ou vers des plages d’adresses IP Internet publiques.|
-|Compte de stockage|1||Migrer les comptes de stockage vers de nouvelles ressources AzureRM|Profitez des améliorations apportées à Azure Resource Manager v2 pour renforcer la sécurité de vos comptes de stockage : contrôle d'accès plus puissant, audit amélioré, déploiement et gouvernance basés sur Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité, etc.|
+|Compte de stockage|1|Migrer les comptes de stockage vers de nouvelles ressources AzureRM|Utiliser le nouveau v2 d’Azure Resource Manager, pour vos comptes de stockage fournir les améliorations de sécurité telles que : contrôle d’accès plus fort (RBAC), amélioration des audits, déploiement basé sur Resource Manager et de gouvernance, l’accès à des identités gérées, accès au coffre de clés pour secrets, Azure AD et l’authentification prise en charge des balises et des groupes de ressources pour une gestion simplifiée de sécurité.|
 
 
 

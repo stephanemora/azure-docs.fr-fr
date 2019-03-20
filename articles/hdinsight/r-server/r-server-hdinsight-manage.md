@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 6c57dff2e0f0c1edb887ddd8f0e5ca206ba8b912
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110390"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gérer un cluster ML Services dans Azure HDInsight
 
-Dans cet article, vous allez apprendre à gérer un cluster ML Services existant sur Azure HDInsight pour effectuer certaines tâches comme ajouter plusieurs utilisateurs simultanés, se connecter à distance à un cluster ML Services, changer le contexte de calcul, etc.
+Dans cet article, vous allez apprendre à gérer un cluster de Services ML existant sur HDInsight Azure pour effectuer des tâches telles que l’ajout de plusieurs utilisateurs simultanés, connexion à distance à un cluster de Services ML, modification de contexte de calcul.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Un cluster ML Services sur HDInsight** : pour obtenir des instructions, consultez [Bien démarrer avec ML Services sur les clusters HDInsight](r-server-get-started.md).
 
@@ -310,7 +310,7 @@ Pour installer des packages R sur les nœuds Worker du cluster, vous devez utili
 
    * Dans le champ **Nom**, renseignez un nom pour l’action de script.
 
-    * Pour **URI de script bash**, entrez `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Il s’agit du script permettant d’installer les packages R supplémentaires sur le nœud Worker.
+     * Pour **URI de script bash**, entrez `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Il s’agit du script permettant d’installer les packages R supplémentaires sur le nœud Worker.
 
    * Sélectionnez uniquement la case à cocher en regard de **Worker**.
 

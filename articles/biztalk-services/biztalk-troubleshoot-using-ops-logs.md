@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 7d3a357e1a3929153288a9d99e21f2379bcac891
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108254"
 ---
-# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services : résolution des problèmes à l’aide des journaux des opérations
+# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services : résolution de problèmes à l'aide des journaux des opérations
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>Présentation des journaux des opérations
 Les journaux des opérations sont une fonction des services de gestion qui vous permettent d’afficher l’historique des journaux des opérations effectuées sur vos services Azure, y compris BizTalk Services. Vous pouvez ainsi afficher les données d’historique des opérations de gestion liées à votre abonnement BizTalk Services jusqu’à 180 jours.
 
 > [!NOTE]
-> Cette fonctionnalité capture uniquement les journaux des opérations de gestion de BizTalk Services, telles que le moment du début du service, de la sauvegarde, etc. Ces opérations sont suivies à l’aide de l’[API REST de BizTalk Services](http://msdn.microsoft.com/library/azure/dn232347.aspx). Pour obtenir la liste complète des opérations suivies à l'aide des services de gestion, consultez la rubrique [Opérations suivies à l'aide des services de gestion Azure](#bizops).<br/><br/>
-> Cette fonctionnalité ne capture pas les journaux des activités liées à l'exécution de BizTalk Services (telles que les messages traités par des ponts, etc.). Pour afficher ces journaux, vous devez utiliser l’affichage de suivi du portail BizTalk Services. Pour plus d'informations, consultez la rubrique [Messages de suivi](http://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Cette fonctionnalité capture uniquement les journaux des opérations de gestion de BizTalk Services, telles que le moment du début du service, de la sauvegarde, etc. Ces opérations sont suivies à l’aide de l’[API REST de BizTalk Services](https://msdn.microsoft.com/library/azure/dn232347.aspx). Pour obtenir la liste complète des opérations suivies à l'aide des services de gestion, consultez la rubrique [Opérations suivies à l'aide des services de gestion Azure](#bizops).<br/><br/>
+>  Cette fonctionnalité ne capture pas les journaux des activités liées à l'exécution de BizTalk Services (telles que les messages traités par des ponts, etc.). Pour afficher ces journaux, vous devez utiliser l’affichage de suivi du portail BizTalk Services. Pour plus d'informations, consultez la rubrique [Messages de suivi](https://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
 ## <a name="view-biztalk-services-operation-logs"></a>Affichage des journaux des opérations BizTalk Services
 1. Dans le portail, sélectionnez **Services de gestion**, puis l’onglet **Journaux des opérations**.
 2. Vous pouvez filtrer les journaux selon différents paramètres tels que l’abonnement, la plage de dates, le type de service (ex. : BizTalk Services), le nom du service ou le statut de l’opération (ex. : réussite, échec).
-3. Sélectionnez la coche pour afficher la liste filtrée. L’image suivante montre les activités liées à testbiztalkservice : ![Affichage des journaux des opérations][ViewLogs] 
+3. Sélectionnez la coche pour afficher la liste filtrée. L'image suivante montre les activités liées à testbiztalkservice :  ![Journaux des opérations de vue][ViewLogs] 
 4. Pour afficher plus d'informations sur une opération spécifique, sélectionnez la ligne et cliquez sur **Détails** en bas de la page.
 
 ## <a name="bizops"></a>Opérations suivies à l'aide des services de gestion Azure
 Le tableau ci-dessous répertorie les opérations suivies à l'aide des services de gestion Azure :
 
-| Nom d’opération | Task |
+| Nom d’opération | Tâche |
 | --- | --- |
 | CreateBizTalkService |Opération de création d'un nouveau service BizTalk |
 | DeleteBizTalkService |Opération de suppression d'un service BizTalk |
@@ -64,15 +64,15 @@ Le tableau ci-dessous répertorie les opérations suivies à l'aide des services
 | PurgeBackupBizTalkService |Opération de vidage des sauvegardes du service BizTalk en dehors de la période de rétention |
 
 ## <a name="see-also"></a>Voir aussi
-* [Sauvegarde d'un service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Restauration d'un service BizTalk depuis une sauvegarde](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services : Provisionnement](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [Limitation dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Sauvegarde d'un service BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Restauration d'un service BizTalk depuis une sauvegarde](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services : Graphique de développeur, les éditions de base, Standard et Premium](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services : L’approvisionnement](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services : Graphique de l’état d’approvisionnement](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services : Onglets tableau de bord, surveiller et mettre à l’échelle](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services : la limitation](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services : Nom de l’émetteur et la clé de l’émetteur](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 

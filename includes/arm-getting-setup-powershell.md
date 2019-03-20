@@ -4,12 +4,12 @@ ms.service: azure-powershell
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sewhee
-ms.openlocfilehash: b93722147959881dfbffbb47b7a3e4b140044525
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: c5440555c11d98fb89f8594eec1d4b7e74ea8667
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114318"
 ---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>Configuration de PowerShell pour les modèles du Gestionnaire de ressources
 Avant de pouvoir utiliser Azure PowerShell avec Resource Manager, vous devez avoir les bonnes versions de Windows PowerShell et Azure PowerShell.
@@ -63,5 +63,4 @@ Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Pour plus d’informations sur les comptes et les abonnements Azure, consultez la procédure[ : Connexion à votre abonnement](/powershell/azureps-cmdlets-docs).
-
+Pour plus d’informations sur les comptes et les abonnements Azure, consultez la procédure[ : Connexion à votre abonnement](/powershell/azureps-cmdlets-docs#step-3-connect).

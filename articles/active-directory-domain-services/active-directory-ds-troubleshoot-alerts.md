@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121993"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services : dépannage des alertes
 Cet article fournit des guides de dépannage pour les alertes que vous pouvez rencontrer sur votre domaine géré.
@@ -42,10 +42,10 @@ Choisissez les étapes de résolution qui correspondent à l’ID ou au message 
 | AADDS108 | *L’abonnement utilisé par Azure AD Domain Services a été déplacé dans un autre répertoire. Azure AD Domain Services nécessite un abonnement actif dans le même répertoire pour continuer à fonctionner correctement.* | [Annuaires déplacés d’abonnements](#aadds108-subscription-moved-directories) |
 | AADDS109 | *Une ressource utilisée pour votre domaine managé a été supprimée. Cette ressource est requise pour qu’Azure AD Domain Services fonctionne correctement.* | [Une ressource a été supprimée](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Le sous-réseau sélectionné pour le déploiement d’Azure AD Domain Services est plein et n’a pas l’espace nécessaire pour le contrôleur de domaine supplémentaire qui doit être créé.* | [Le sous-réseau est plein](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *Un principal de service qu’Azure AD Domain Services utilise pour gérer votre domaine n’est pas autorisé à gérer les ressources de l’abonnement Azure. Le principal du service doit obtenir les autorisations nécessaires pour gérer votre domaine managé. * | Principal du service non autorisé |
+| AADDS111 | *Un principal de service qu’Azure AD Domain Services utilise pour gérer votre domaine n’est pas autorisé à gérer les ressources de l’abonnement Azure. Le principal du service doit obtenir les autorisations nécessaires pour gérer votre domaine managé.* | [Principal du service non autorisé](#aadds111-service-principal-unauthorized) |
 | AADDS112 | *Nous avons détecté que le sous-réseau du réseau virtuel dans ce domaine n’a peut-être pas suffisamment d’adresses IP. Azure AD Domain Services a besoin d’au moins deux adresses IP disponibles au sein du sous-réseau où il est activé. Nous vous recommandons d’avoir au moins 3 à 5 adresses IP auxiliaires au sein de ce sous-réseau. Cela peut se produire si d’autres machines virtuelles sont déployées au sein du sous-réseau, épuisant ainsi le nombre d’adresses IP disponibles, ou s’il existe une restriction sur le nombre d’adresses IP disponibles dans le sous-réseau.* | [Nombre insuffisant d’adresses IP](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Les ressources utilisées par Azure AD Domain Services ont été détectées dans un état inattendu et ne peuvent pas être récupérées.* | [Des ressources sont irrécupérables](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | *Le sous-réseau sélectionné pour le déploiement d’Azure AD Domain Services n’est pas valide et ne peut pas être utilisé. * | [Sous-réseau non valide](#aadds114-subnet-invalid) |
+| AADDS114 | *Le sous-réseau sélectionné pour le déploiement d’Azure AD Domain Services n’est pas valide et ne peut pas être utilisé.* | [Sous-réseau non valide](#aadds114-subnet-invalid) |
 | AADDS115 | *Il est impossible d’opérer sur une ou plusieurs des ressources réseau utilisées par le domaine managé, car l’étendue cible a été verrouillée.* | [Des ressources sont verrouillées](#aadds115-resources-are-locked) |
 | AADDS116 | *En raison d’une ou de plusieurs restrictions de stratégie, il est impossible d’opérer sur une ou plusieurs des ressources réseau utilisées par le domaine managé.* | [Des ressources sont inutilisables](#aadds116-resources-are-unusable) |
 | AADDS500 | *La dernière synchronisation du domaine managé avec Azure AD a eu lieu le [date]. Les utilisateurs sont peut-être dans l’impossibilité de se connecter au domaine managé, ou les appartenances aux groupes ne sont peut-être pas synchronisées avec Azure AD.* | [Il n’y a pas eu de synchronisation depuis un certain temps.](#aadds500-synchronization-has-not-completed-in-a-while) |
@@ -103,13 +103,13 @@ Avant de commencer, lisez la section **Espace d’adressage IPv4** de [cet artic
 
 1. [Supprimez votre domaine géré](active-directory-ds-disable-aadds.md) de votre annuaire.
 2. Corrigez la plage d’adresses IP pour le sous-réseau
-  1. Accédez à la [page Réseaux virtuels sur le portail Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Sélectionnez le réseau virtuel que vous envisagez d’utiliser pour les services de domaine Azure AD.
-  3. Cliquez sur **Espace d’adressage** sous Paramètres
-  4. Mettez à jour la plage d’adresses en cliquant sur la plage d’adresses existante et en la modifiant ou en ajoutant une plage d’adresses supplémentaire. Assurez-vous que la nouvelle plage d’adresses est dans une plage d’adresses IP privées. Enregistrez vos modifications.
-  5. Cliquez sur **Sous-réseaux** dans la navigation de gauche.
-  6. Cliquez sur le sous-réseau que vous souhaitez modifier dans la table.
-  7. Mettez à jour la plage d’adresses et enregistrez vos modifications.
+   1. Accédez à la [page Réseaux virtuels sur le portail Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Sélectionnez le réseau virtuel que vous envisagez d’utiliser pour les services de domaine Azure AD.
+   3. Cliquez sur **Espace d’adressage** sous Paramètres
+   4. Mettez à jour la plage d’adresses en cliquant sur la plage d’adresses existante et en la modifiant ou en ajoutant une plage d’adresses supplémentaire. Assurez-vous que la nouvelle plage d’adresses est dans une plage d’adresses IP privées. Enregistrez vos modifications.
+   5. Cliquez sur **Sous-réseaux** dans la navigation de gauche.
+   6. Cliquez sur le sous-réseau que vous souhaitez modifier dans la table.
+   7. Mettez à jour la plage d’adresses et enregistrez vos modifications.
 3. Suivez [le guide Prise en main des services de domaine Azure AD](active-directory-ds-getting-started.md) pour recréer votre domaine géré. Veillez à sélectionner un réseau virtuel avec une plage d’adresses IP privées.
 4. Pour joindre vos machines virtuelles à votre nouveau domaine, suivez [ce guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Pour vérifier que l’alerte est résolue, vérifiez l’intégrité de votre domaine dans deux heures.
@@ -160,13 +160,13 @@ Vous pouvez soit déplacer l’abonnement associé à Azure AD Domain Services v
 
 Azure AD Domain Services crée des ressources spécifiques lors du déploiement afin de fonctionner correctement, y compris des adresses IP publiques, des cartes réseau et un équilibreur de charge. Si certains de ces éléments sont supprimés, cela place votre domaine managé dans un état non pris en charge et empêche votre domaine d’être géré. Cette alerte intervient lorsqu’une personne qui est en mesure de modifier les ressources Azure AD Domain Services supprime une ressource nécessaire. Les étapes suivantes décrivent comment restaurer votre domaine managé.
 
-1.  Accédez à la page d’intégrité d’Azure AD Domain Services.
-  1.    Accédez à la [page Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) dans le portail Azure.
-  2.    Dans le volet de navigation gauche, cliquez sur **Intégrité**.
-2.  Vérifiez si l’alerte a moins de 4 heures.
-  1.    Dans la page d’intégrité, cliquez sur l’alerte avec l’ID **AADDS109**
-  2.    L’alerte a un horodatage correspondant au moment où elle a été trouvée en premier. Si cet horodatage remonte à moins de 4 heures, il est possible qu’Azure AD Domain Services puisse recréer la ressource supprimée.
-3.  Si l’alerte a plus de 4 heures, le domaine managé est dans un état irrécupérable. Vous devez supprimer et recréer Azure AD Domain Services.
+1. Accédez à la page d’intégrité d’Azure AD Domain Services.
+   1.    Accédez à la [page Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) dans le portail Azure.
+   2.    Dans le volet de navigation gauche, cliquez sur **Intégrité**.
+2. Vérifiez si l’alerte a moins de 4 heures.
+   1.    Dans la page d’intégrité, cliquez sur l’alerte avec l’ID **AADDS109**
+   2.    L’alerte a un horodatage correspondant au moment où elle a été trouvée en premier. Si cet horodatage remonte à moins de 4 heures, il est possible qu’Azure AD Domain Services puisse recréer la ressource supprimée.
+3. Si l’alerte a plus de 4 heures, le domaine managé est dans un état irrécupérable. Vous devez supprimer et recréer Azure AD Domain Services.
 
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110 : Le sous-réseau associé à votre domaine managé est plein
@@ -203,13 +203,13 @@ Nos principaux de service ont besoin d’un accès pour pouvoir gérer et créer
 
 1. Supprimez votre domaine managé de votre locataire.
 2. Corrigez la plage d’adresses IP pour le sous-réseau
-  1. Accédez à la [page Réseaux virtuels sur le portail Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Sélectionnez le réseau virtuel que vous envisagez d’utiliser pour les services de domaine Azure AD.
-  3. Cliquez sur **Espace d’adressage** sous Paramètres
-  4. Mettez à jour la plage d’adresses en cliquant sur la plage d’adresses existante et en la modifiant ou en ajoutant une plage d’adresses supplémentaire. Enregistrez vos modifications.
-  5. Cliquez sur **Sous-réseaux** dans la navigation de gauche.
-  6. Cliquez sur le sous-réseau que vous souhaitez modifier dans la table.
-  7. Mettez à jour la plage d’adresses et enregistrez vos modifications.
+   1. Accédez à la [page Réseaux virtuels sur le portail Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Sélectionnez le réseau virtuel que vous envisagez d’utiliser pour les services de domaine Azure AD.
+   3. Cliquez sur **Espace d’adressage** sous Paramètres
+   4. Mettez à jour la plage d’adresses en cliquant sur la plage d’adresses existante et en la modifiant ou en ajoutant une plage d’adresses supplémentaire. Enregistrez vos modifications.
+   5. Cliquez sur **Sous-réseaux** dans la navigation de gauche.
+   6. Cliquez sur le sous-réseau que vous souhaitez modifier dans la table.
+   7. Mettez à jour la plage d’adresses et enregistrez vos modifications.
 3. Suivez [le guide Prise en main des services de domaine Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) pour recréer votre domaine géré. Veillez à sélectionner un réseau virtuel avec une plage d’adresses IP privées.
 4. Pour joindre vos machines virtuelles à votre nouveau domaine, suivez [ce guide](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Consultez l’intégrité de votre domaine après deux heures pour vérifier que vous avez correctement suivi les étapes.

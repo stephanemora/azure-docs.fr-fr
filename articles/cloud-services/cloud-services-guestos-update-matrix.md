@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 3/12/2019
 ms.author: raiye
-ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: c5fdee4e5b1b9d2a283ef55ce99dffab0cb25873
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840840"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -43,6 +43,9 @@ Vous ne savez pas comment mettre à jour votre système d’exploitation invité
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
 
+###### <a name="march-12-2019"></a>**12 mars 2019**
+Le SE invité de février a publié.
+
 ###### <a name="february-5-2019"></a>**5 février 2019**
 Le SE invité de janvier a publié.
 
@@ -64,9 +67,6 @@ Publication du système d’exploitation invité du mois de septembre.
 ###### <a name="september-12-2018"></a>**12 septembre 2018**
 Publication du système d’exploitation invité du mois d’août.
 
-###### <a name="august-3-2018"></a>**3 août 2018**
-Le système d’exploitation invité de juillet a été publié.
-
 ## <a name="releases"></a>Publications
 
 ## <a name="family-6-releases"></a>Publications de famille 6
@@ -77,11 +77,21 @@ Le système d’exploitation invité de juillet a été publié.
 > [!NOTE]
 > Le SDK Windows Azure pour .NET - 3.0 peut être téléchargé [ici][Windows Azure SDK].
 >
+>Procédure d’installation :
+>1. Veuillez désinstaller les anciennes versions du MicrosoftAzureAuthoringTools*.msi
+>2. Installer le [Azure SDK pour .NET - 3.0][Windows Azure SDK]
+>3. Redémarrez votre ordinateur
+>4. Créer un nouveau projet de Service Cloud et ajouter un rôle de travail unique
+>5. Modifier la famille de systèmes d’exploitation à 6 et générer un package
+>6. Déployer le package sur Azure à l’aide du portail Azure ou Visual Studio
+>
+
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-6.4_201902-01 |12 mars 2019 |Post 6.6 |
 | WA-GUEST-OS-6.3_201901-01 |5 février 2019 |Post 6.5 |
-| WA-GUEST-OS-6.2_201812-01 |24 janvier 2019 |Billet 6.4 |
+|~~WA-GUEST-OS-6.2_201812-01~~|24 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 janvier 2019 |5 février 2019 |
 
 ## <a name="family-5-releases"></a>Publications de famille 5
@@ -93,15 +103,16 @@ Le système d’exploitation invité de juillet a été publié.
 > Le mot de passe RDP pour la famille 5 de SE doit comporter au moins 10 caractères.
 >
 
+
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-5.28_201902-01 |12 mars 2019 |Post 5.30 |
 | WA-GUEST-OS-5.27_201901-01 |5 février 2019 |Post 5.29 |
-| WA-GUEST-OS-5.26_201812-01 |7 janvier 2019 |Billet 5.28 |
+|~~WA-GUEST-OS-5.26_201812-01~~|7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 |~~WA-GUEST-OS-5.22_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
-|~~WA-GUEST-OS-5.21_201807-02~~ |3 août 2018 |12 octobre 2018 |
 
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
@@ -110,13 +121,13 @@ Le système d’exploitation invité de juillet a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-4.63_201902-01 |12 mars 2019 |POST 4,65 |
 | WA-GUEST-OS-4.62_201901-01 |5 février 2019 |Post 4.64 |
-| WA-GUEST-OS-4.61_201812-01 |7 janvier 2019 |Billet 4.63 |
+|~~WA-GUEST-OS-4.61_201812-01~~|7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 |~~WA-GUEST-OS-4.57_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
-|~~WA-GUEST-OS-4.56_201807-02~~ |3 août 2018 |12 octobre 2018 |
 
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
@@ -125,13 +136,13 @@ Le système d’exploitation invité de juillet a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-3.70_201902-01 |12 mars 2019 |Post 3.72 |
 | WA-GUEST-OS-3.69_201901-01 |5 février 2019 |Post 3.71 |
-| WA-GUEST-OS-3.68_201812-01 |7 janvier 2019 |Billet 3.70 |
+|~~WA-GUEST-OS-3.68_201812-01~~|7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 |~~WA-GUEST-OS-3.64_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
-|~~WA-GUEST-OS-3.63_201807-02~~ |3 août 2018 |12 octobre 2018 |
 
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
@@ -140,14 +151,13 @@ Le système d’exploitation invité de juillet a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-2.83_201902-01 |12 mars 2019 |Billet de 2,85 |
 | WA-GUEST-OS-2.82_201901-01 |5 février 2019 |Post 2.84 |
-| WA-GUEST-OS-2.81_201812-01 |7 janvier 2019 |Billet 2.83 |
+|~~WA-GUEST-OS-2.81_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 |~~WA-GUEST-OS-2.77_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
-|~~WA-GUEST-OS-2.76_201807-02~~ |3 août 2018 |12 octobre 2018 |
-|~~WA-GUEST-OS-2.75_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 
 ## <a name="msrc-patch-updates"></a>Mises à jour correctives MSRC
 La liste des correctifs inclus dans chaque publication mensuelle du SE invité est disponible [ici][patches].
@@ -209,19 +219,19 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [Flux RSS de mise à jour du SE invité]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
-[ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
+[ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
-[ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
+[ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
 [MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
 [MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
 [retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
-[azuresupport]: http://azure.microsoft.com/support/options/
-[net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
+[azuresupport]: https://azure.microsoft.com/support/options/
+[net install pkg]: https://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[restarts]: https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md

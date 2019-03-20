@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 7e688abbe1b8188cb85e5762086009522b5b7d39
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995497"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Prise en main des fonctionnalités JSON dans Base de données SQL Azure
-Base de données SQL Azure vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](http://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON. Les scénarios JSON suivants sont disponibles dans Azure SQL Database :
+Base de données SQL Azure vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](https://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON. Les scénarios JSON suivants sont disponibles dans Azure SQL Database :
 - [Conversion de données relationnelles au format JSON](#formatting-relational-data-in-json-format) à l’aide de la clause `FOR JSON`.
 - [Utilisation de données JSON](#working-with-json-data)
 - [Interrogation de données JSON](#querying-json-data) à l’aide de fonctions scalaires JSON.
@@ -190,7 +190,7 @@ La collection de commandes mise en forme de tableau JSON et fournie en tant que 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour savoir comment intégrer JSON dans votre application, consultez les ressources suivantes :
 
-* [Blog TechNet](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [Blog TechNet](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [Documentation MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Vidéo Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 

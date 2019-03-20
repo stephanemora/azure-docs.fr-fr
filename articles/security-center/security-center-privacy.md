@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cbe391f756dab35abda411c3a6c943a51eae302
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: fcec410df631a58b76878a4cb327ca2fb04a2105
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115978"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117846"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gérer les données utilisateur dans Azure Security Center
 Cet article fournit des informations sur la façon dont vous pouvez gérer les données utilisateur dans Azure Security Center. La gestion des données utilisateur inclut la possibilité d’accéder à des données, d’en supprimer ou d’en exporter.
@@ -68,25 +68,25 @@ Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Con
 
 - En effectuant une copie à partir du Portail Azure
 - En exécutant l’appel d’API REST Azure, GET HTTP :
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
+  ```
 
 Un utilisateur de Security Center disposant du rôle Administrateur de compte peut exporter les [stratégies juste à temps](security-center-just-in-time.md) contenant les adresses IP via les méthodes suivantes :
 
 - En effectuant une copie à partir du Portail Azure
 - En exécutant l’appel d’API REST Azure, GET HTTP :
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
+  ```
 
 Un administrateur de compte peut exporter les détails de l’alerte via les méthodes suivantes :
 
 - En effectuant une copie à partir du Portail Azure
 - En exécutant l’appel d’API REST Azure, GET HTTP :
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
+  ```
 
 Consultez [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx) (Obtenir des alertes de sécurité (Collection GET)) pour plus d’informations.
 

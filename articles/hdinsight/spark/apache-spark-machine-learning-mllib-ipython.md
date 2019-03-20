@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653711"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075559"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utiliser Apache Spark MLlib pour créer une application de Machine Learning et analyser un jeu de données
 
 Découvrez comment utiliser Apache Spark [MLlib](https://spark.apache.org/mllib/) pour créer une application de Machine Learning afin d’effectuer une analyse prédictive simple sur un jeu de données ouvert. À partir des bibliothèques de Machine Learning intégrées de Spark, cet exemple utilise une *classification* de régression logistique. 
-
-> [!TIP]  
-> Ce exemple est également disponible en tant que [bloc-notes Jupyter Notebook](https://jupyter.org/) sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour suivre le didacticiel à partir d’un bloc-notes, créez un cluster Spark et lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Ensuite, exécutez le bloc-notes, **Machine Learning Spark : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib** figurant dans le dossier **Python**.
 
 MLLib est une bibliothèque principale Spark qui fournit de nombreux utilitaires pratiques pour l’exécution de tâches de Machine Learning. Certains de ces utilitaires conviennent pour les tâches suivantes :
 
@@ -49,7 +46,7 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
 
 1. Créez un bloc-notes Jupyter à l’aide du noyau PySpark. Pour obtenir des instructions, consultez [Créer un bloc-notes Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importez les types requis pour cette application. Copiez et collez le code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+2. Importez les types requis pour cette application. Copiez et collez le code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ Commençons par nous faire une idée de ce que contient le jeu de données.
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     La méthode `%%sql` suivie par `-o countResultsdf` garantit que le résultat de la requête est conservé localement sur le serveur Jupyter (généralement le nœud principal du cluster). Le résultat est conservé sous la forme d’une trame de données [Pandas](https://pandas.pydata.org/) avec le nom spécifié **countResultsdf**. Pour plus d’informations sur la méthode magique `%%sql` et d’autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
@@ -201,26 +198,18 @@ Commençons par nous faire une idée de ce que contient le jeu de données.
 
     ![Sortie de l’application de Machine Learning Spark : graphique en secteurs avec cinq résultats d’inspection distincts](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Sortie du résultat de l’application de Machine Learning Spark")
 
-    Une inspection peut présenter 5 résultats distincts :
-
-    - Entreprise introuvable
-    - Échec
-    - Réussite
-    - Réussite avec conditions
-    - Cessation d’activités
-
     Pour prédire un résultat d’inspection de produits alimentaires, vous devez développer un modèle basé sur les violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données de résultat en deux catégories : **Échec** et **Réussite** :
 
-    - Réussite
-        - Réussite
-        - Réussite avec conditions
-    - Échec
-        - Échec
-    - Abandonner
-        - Entreprise introuvable
-        - Cessation d’activités
+   - Réussite
+       - Réussite
+       - Réussite avec conditions
+   - Échec
+       - Échec
+   - Abandonner
+       - Entreprise introuvable
+       - Cessation d’activités
 
-    Les données avec les autres résultats (« Entreprise introuvable » ou « Faillite ») sont inutiles et représentent de toute façon un très faible pourcentage.
+     Les données avec les autres résultats (« Entreprise introuvable » ou « Faillite ») sont inutiles et représentent de toute façon un très faible pourcentage.
 
 4. Exécutez le code suivant pour convertir la trame de données existante (`df`) en une nouvelle trame de données dans laquelle chaque inspection est représentée par une paire étiquette-violations. Dans ce cas, une étiquette de `0.0` représente un échec, une étiquette de `1.0` représente un succès et une étiquette de `-1.0` représente d’autres résultats. 
 
@@ -272,7 +261,7 @@ Vous pouvez utiliser le modèle que vous avez créé précédemment pour *prédi
 1. Exécutez le code suivant pour créer une nouvelle trame de données, **predictionsDf**, qui contient la prédiction générée par le modèle. Il crée également une table temporaire, **Predictions**, basée sur la tramedonnées.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ Vous pouvez utiliser le modèle que vous avez créé précédemment pour *prédi
     Un résultat similaire à ce qui suit s’affiche normalement :
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ Vous pouvez utiliser le modèle que vous avez créé précédemment pour *prédi
     La sortie a l'aspect suivant :
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ Vous pouvez désormais construire une visualisation finale pour faciliter l’ex
     Dans ce graphique, un résultat « positif » fait référence à l’inspection de produits alimentaires ayant échoué, tandis qu’un résultat négatif fait référence à une inspection réussie.
 
 ## <a name="shut-down-the-notebook"></a>Arrêtez le bloc-notes
-Une fois l’exécution de l’application terminée, fermez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cela a pour effet d’arrêter et de fermer le bloc-notes.
+Une fois l’exécution de l’application terminée, fermez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, sélectionnez **Fermer et arrêter**. Cela a pour effet d’arrêter et de fermer le bloc-notes.
 
 ## <a name="seealso"></a>Voir aussi
 * [Présentation : Apache Spark sur Azure HDInsight](apache-spark-overview.md)

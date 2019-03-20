@@ -3,22 +3,25 @@ title: Créer des nœuds virtuels à l’aide de l’interface de ligne de comma
 description: Découvrez comment utiliser l’interface de ligne de commande Azure pour créer un cluster Azure Kubernetes Service (AKS) qui s’appuie sur des nœuds virtuels pour exécuter des pods.
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 0aff1040a9c7532ff5efe724382a074120801eb3
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856483"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177668"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface de ligne de commande Azure
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Afficher un aperçu : créer et configurer un cluster Azure Kubernetes service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface CLI Azure
 
 Pour mettre à l’échelle rapidement des charges de travail d’application dans un cluster Azure Kubernetes Service (AKS), vous pouvez utiliser des nœuds virtuels. Les nœuds virtuels assurent un provisionnement rapide des pods et sont facturés à la seconde d’exécution. Il n’est pas nécessaire d’attendre que le gestionnaire de mise à l’échelle automatique du cluster Kubernetes déploie des nœuds de calcul de machine virtuelle pour exécuter les pods supplémentaires. Cet article explique comment créer et configurer les ressources de réseau virtuel et un cluster AKS, puis activer des nœuds virtuels.
 
 > [!IMPORTANT]
-> Les nœuds virtuels d’AKS sont en **préversion**. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
+>
+> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS] [ aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -43,6 +46,16 @@ Si le fournisseur apparaît *NotRegistered* (Non-inscrit), inscrivez-le à l’a
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
+
+## <a name="preview-limitations"></a>Limitations de la version préliminaire
+
+Bien que cette fonctionnalité est disponible en version préliminaire, les régions suivantes sont prises en charge pour les déploiements :
+
+* Est de l’Australie (australiaeast)
+* USA Est (eastus)
+* Ouest des États-Unis (westcentralus)
+* Europe Ouest (Europe occidentale)
+* USA Ouest (ouest des USA)
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
@@ -324,6 +337,7 @@ Les nœuds virtuels constituent souvent l’un des composants d’une solution d
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

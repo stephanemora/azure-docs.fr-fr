@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544560"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225363"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
@@ -359,7 +359,7 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 - [Application Insights](/azure/application-insights/app-insights-overview) est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisez-le pour analyser votre application web en direct. Il détecte les anomalies de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité.
 
 ### <a name="azure-alerts"></a>Alertes Azure
-- [Les alertes offrent un moyen de surveiller les services Azure et vous permettent de configurer des conditions sur les données. Elles fournissent également des notifications quand une condition d’alerte correspond aux données de surveillance.
+- [Alertes](/azure/azure-monitor/platform/alerts-metric) constituent une méthode de surveillance des services Azure et vous permettent de configurer des conditions sur les données. Elles fournissent également des notifications quand une condition d’alerte correspond aux données de surveillance.
 
 ### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 [Journaux d’analyse Azure](/azure/operations-management-suite/operations-management-suite-overview) est une collection de services de gestion.

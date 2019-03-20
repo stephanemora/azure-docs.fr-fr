@@ -10,18 +10,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201923"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
 Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2). Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont conçus en tant qu’extensions HDFS pour offrir aux clients une expérience fluide. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont des systèmes de fichiers distincts, optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages associés à l’utilisation de Stockage Azure, voir [Utiliser Stockage Azure avec HDInsight][hdinsight-storage], [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md) et [Utiliser Data Lake Storage Gen2 avec HDInsight](../storage/blobs/data-lake-storage-use-hdi-cluster.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Notez les prérequis suivants avant de démarrer :
 
@@ -37,7 +37,7 @@ Notez les prérequis suivants avant de démarrer :
 ## <a name="utilities"></a>Services
 Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 
-| Outil | Linux | OS X |  Windows |
+| Outil | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Interface de ligne de commande Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -53,10 +53,7 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 ## <a id="commandline"></a>Ligne de commande Hadoop
 La ligne de commande Hadoop est utile uniquement pour stocker les données dans le blob du stockage Azure quand celles-ci sont déjà présentes sur le nœud principal du cluster.
 
-Pour utiliser la commande Hadoop, vous devez d'abord vous connecter au nœud principal à l'aide de l'une des méthodes suivantes :
-
-* **HDInsight Windows** : [Connexion à l’aide de Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight Linux** : Connectez-vous à l’aide de [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Pour pouvoir utiliser la commande Hadoop, vous devez vous connecter au nœud principal en utilisant [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 

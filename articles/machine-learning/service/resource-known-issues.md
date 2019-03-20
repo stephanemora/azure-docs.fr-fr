@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171055"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
 
@@ -45,29 +45,60 @@ Il peut arriver, dans de rares cas, que des utilisateurs ayant créé leur espac
 Si vous observez `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, remplacez la référence SKU des machines virtuelles utilisées dans votre déploiement par une référence SKU disposant de plus de mémoire.
 
 ## <a name="fpgas"></a>FPGA
+
 Vous ne serez pas en mesure de déployer des modèles sur des FPGA tant que vous n’aurez pas demandé un quota FPGA et qu’il n’aura pas été approuvé. Pour demander un accès, remplissez le formulaire de demande de quota : https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
 
 Problèmes Databricks et Azure Machine Learning
 
-1. L'installation du kit de développement logiciel (SDK) d'Azure Machine Learning échoue sur Databricks lorsque plusieurs packages sont installés.
+### <a name="failure-when-installing-packages"></a>Échec lors de l’installation des packages
 
-   Certains packages, comme `psutil`, peuvent provoquer des conflits. Pour éviter les erreurs d’installation, installez les packages en bloquant la version des bibliothèques. Ce problème est lié à Databricks et non au kit SDK Azure Machine Learning service. Il peut aussi se rencontrer avec d’autres bibliothèques. Exemple :
-   ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+Installation d’Azure Machine Learning SDK échoue sur Azure Databricks lorsque plusieurs packages sont installés. Certains packages, comme `psutil`, peuvent provoquer des conflits. Pour éviter les erreurs d’installation, installez les packages en gelant la version de la bibliothèque. Ce problème est lié à Databricks et pas pour le SDK du service Azure Machine Learning. Vous pouvez rencontrer ce problème avec d’autres bibliothèques, trop. Exemple :
+
+```python
+pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+```
+
+Vous pouvez également utiliser des scripts init si vous conservez face à des problèmes d’installation avec les bibliothèques Python. Cette approche n’est pas officiellement pris en charge. Pour plus d’informations, consultez [scripts init à portée d’un Cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+### <a name="cancel-an-automated-machine-learning-run"></a>Annuler une série d’apprentissage automatique
+
+Lorsque vous utilisez automatisée des fonctionnalités machine learning sur Azure Databricks, pour annuler une exécution et démarrez une nouvelle expérience à exécuter, redémarrez votre cluster Azure Databricks.
+
+### <a name="10-iterations-for-automated-machine-learning"></a>> 10 itérations pour l’apprentissage automatique
+
+Dans automatisé machine learning de paramètres, si vous avez plus de 10 itérations, définissez `show_output` à `False` lorsque vous envoyez l’exécution.
+
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget pour l’apprentissage automatique/des SDK Azure Machine Learning
+
+Le widget de kit de développement logiciel Azure Machine Learning n’est pas pris en charge dans une instance Databricks notebook, car les ordinateurs portables ne peut pas analyser les widgets HTML. Vous pouvez afficher le widget dans le portail à l’aide de ce code Python dans la cellule du bloc-notes Azure Databricks :
+
+```
+displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Erreur d’importation : Aucun module nommé « pandas.core.indexes »
+
+Si vous voyez cette erreur lorsque vous utilisez automatisée apprentissage :
+
+1. Exécutez cette commande pour installer deux packages dans votre cluster Azure Databricks : 
+
    ```
-   Vous pouvez également utiliser des scripts init si les problèmes d’installation persistent avec les bibliothèques Python. Cette approche n’est pas prise en charge officiellement. Vous pouvez consulter [ce document](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+   scikit-learn==0.19.1
+   pandas==0.22.0
+   ```
 
-2. Si vous utilisez le Machine Learning automatisé sur Databricks et souhaitez annuler une exécution pour en démarrer une nouvelle à des fins d'expérimentation, redémarrez votre cluster Azure Databricks.
+1. Déconnectez, puis reconnectez le cluster à votre ordinateur portable. 
 
-3. Dans les paramètres de la fonctionnalité de Machine Learning automatisé, si vous avez plus de 10 itérations, définissez `show_output` sur `False` lorsque vous soumettez l'exécution.
-
+Si cela ne résout pas le problème, essayez de redémarrer le cluster.
 
 ## <a name="azure-portal"></a>Portail Azure
+
 Si vous accédez directement à votre espace de travail à partir d’un lien de partage provenant du kit SDK ou du portail, vous ne pourrez pas afficher la page Vue d’ensemble normale comportant des informations sur l’abonnement dans l’extension. Vous ne pourrez pas non plus basculer sur un autre espace de travail. Si vous souhaitez afficher un autre espace de travail, la solution de contournement consiste à accéder directement au [portail Azure](https://portal.azure.com) et à rechercher le nom de l’espace de travail.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
+
 Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile.
 Les fichiers journaux se trouvent aux emplacements suivants :
 

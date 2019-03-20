@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/18/2019
 ms.author: monhaber
-ms.openlocfilehash: 3239bd2d4c5b79f1ebd905fb3844f3e7874ff175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110951"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199832"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
@@ -101,7 +101,7 @@ Pour sélectionner les machines virtuelles que vous souhaitez activer :
 
 
 > [!NOTE]
->Lorsque l’accès juste-à-temps aux machines virtuelles est activé pour une machine virtuelle, Azure Security Center crée des règles de refus de tous les trafics entrants pour les ports sélectionnés dans les groupes de sécurité réseau associés. Ces règles auront la plus haute priorité dans vos groupes de sécurité réseau ou seront de priorité plus basse que les règles existantes déjà installées. Cela dépend d’une analyse effectuée par Azure Security Center qui détermine si une règle est sécurisée ou non.
+>Lors de la machine virtuelle l’accès JIT est activé pour une machine virtuelle, Azure Security Center crée des règles de « refuser tout le trafic entrant » pour les ports sélectionnés dans les groupes de sécurité réseau associés. Si d’autres règles avaient été créés pour les ports sélectionnés, les règles existantes sont prioritaires sur les nouvelles règles de « refuser tout le trafic entrant ». S’il n’y a aucune règle existant sur les ports sélectionnés, puis les nouvelles règles de « refuser tout le trafic entrant » prioritaires supérieure dans les groupes de sécurité réseau.
 >
 
 ### <a name="request-jit-access-to-a-vm"></a>Demander l’accès JIT à une machine virtuelle

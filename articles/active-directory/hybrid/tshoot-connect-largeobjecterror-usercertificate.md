@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096671"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronisation d’Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate
 
@@ -79,9 +79,9 @@ Veillez à ce qu'aucune synchronisation ne se produise au cours de l’implémen
 > [!Note]
 > Les étapes précédentes ne s’appliquent qu’aux versions récentes (1.1.xxx.x) d’Azure AD Connect avec le planificateur intégré. Si vous utilisez des versions plus anciennes (1.0.xxx.x) d’Azure AD Connect, qui utilisent le planificateur de tâches Windows, ou votre propre planificateur personnalisé (peu courant) pour déclencher une synchronisation périodique, vous devez les désactiver en conséquence.
 
-3. Lancez **Synchronization Service Manager** en accédant au menu DÉMARRER → Service de synchronisation.
+1. Lancez **Synchronization Service Manager** en accédant au menu DÉMARRER → Service de synchronisation.
 
-4. Accédez à l’onglet **Opérations** et confirmez qu’aucune opération n’est à l’état *« En cours ».*
+1. Accédez à l’onglet **Opérations** et confirmez qu’aucune opération n’est à l’état *« En cours ».*
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Étape 2. Rechercher la règle de synchronisation sortante existante pour l’attribut userCertificate
 Il existe normalement une règle de synchronisation activée et configurée pour exporter l’attribut userCertificate des objets User vers Azure AD. Localisez cette règle de synchronisation pour déterminer sa configuration de **filtre d’étendue** et de **priorité** :

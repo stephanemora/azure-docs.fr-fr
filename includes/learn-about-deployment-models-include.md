@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: e3e0aae69ada6f62df6f26e210ff722e96e4fac2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330959"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "58114088"
 ---
 > [!IMPORTANT]
-> Avant d’utiliser des ressources Azure, familiarisez-vous avec les modèles de déploiement : [Resource Manager et classique](../articles/azure-resource-manager/resource-manager-deployment-model.md).
+> Avant d’utiliser des ressources Azure, vous familiariser avec les modèles de déploiement : [Resource Manager et classique](../articles/azure-resource-manager/resource-manager-deployment-model.md).

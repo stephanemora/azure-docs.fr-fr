@@ -1,6 +1,6 @@
 ---
-title: Gestion des mots de passe d’application dans Azure Active Directory | Microsoft Docs
-description: Cette page explique aux utilisateurs en quoi consistent les mots de passe d’application et le rôle de ces derniers dans le cadre de la vérification en deux étapes.
+title: Comment gérer les mots de passe - Azure Active Directory | Microsoft Docs
+description: En savoir plus sur les mots de passe d’application et ce qu’ils sont utilisés pour en ce qui concerne la vérification en deux étapes.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,13 +12,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdcd078714d8311cf59471492187314183de28b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177396"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gérer les mots de passe d’application pour la vérification en deux étapes
 
@@ -86,9 +87,9 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Pour créer des mots de passe d’application à l’aide du Portail Office 365
 
-1. Connectez-vous avec votre compte professionnel ou scolaire.
+1. Connectez-vous à votre compte professionnel ou scolaire.
 
-2. Accédez à https://portal.office.com, sélectionnez l’icône **Paramètres** dans le coin supérieur droit de la page du **Portail Office 365**, puis développez la zone **Vérification de sécurité supplémentaire**.
+2. Accédez à [ https://portal.office.com ](https://portal.office.com), sélectionnez le **paramètres** icône dans le coin supérieur droit de la **portail Office 365** page, puis développez **renforcer la sécurité vérification**.
 
     ![Portail Office sur lequel la zone Vérification de sécurité supplémentaire est développée](media/security-info/security-info-o365password.png)
 
@@ -104,7 +105,7 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
 
 1. Connectez-vous à votre compte professionnel ou scolaire.
 
-2. Accédez à https://portal.office.com, sélectionnez l’icône **Paramètres** dans le coin supérieur droit de la page du **Portail Office 365**, puis sélectionnez **Vérification de sécurité supplémentaire**.
+2. Accédez à [ https://portal.office.com ](https://portal.office.com), sélectionnez le **paramètres** icône dans le coin supérieur droit de la **portail Office 365** page, puis sélectionnez **renforcer la sécurité vérification**.
 
 3. Sélectionnez le texte **Create and manage app passwords** (Créer et gérer des mots de passe d’application) pour ouvrir la page **Mots de passe d’application**.
 

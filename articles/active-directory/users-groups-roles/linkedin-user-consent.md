@@ -1,5 +1,5 @@
 ---
-title: Partage de données d'intégration LinkedIn et consentement - Azure Active Directory | Microsoft Docs
+title: Consentement - Azure Active Directory et partage des données de connexions de comptes LinkedIn | Microsoft Docs
 description: Explique comment l'intégration LinkedIn partage les données par le biais des applications Microsoft dans Azure Active Directory
 services: active-directory
 author: curtand
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e6e24f4e726e25ae65ecceaeb161f8e16d61721
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200444"
 ---
-# <a name="linkedin-integration-data-sharing-and-consent"></a>Partage de données et consentement d’intégration LinkedIn
+# <a name="linkedin-account-connections-data-sharing-and-consent"></a>Partage de données de connexions compte LinkedIn et consentement
 
-En tant qu’administrateur Azure Active Directory (Azure AD), vous pouvez autoriser les utilisateurs de votre organisation à donner leur consentement pour se connecter à leur compte professionnel ou scolaire Microsoft avec leur compte LinkedIn. Lorsque les utilisateurs se connectent à leur compte, les informations et les éléments clés de LinkedIn sont disponibles dans certaines applications et certains services Microsoft. Les utilisateurs peuvent également s’attendre à une amélioration et un enrichissement de leur expérience de réseau sur LinkedIn avec les informations issues de Microsoft.
+Vous pouvez autoriser les utilisateurs de votre organisation Active Directory (Azure AD) à donner son consentement pour se connecter à leur travail de Microsoft compte ou scolaire avec leur compte LinkedIn. Une fois un utilisateur connecte à leurs comptes, les informations et les points importants à partir de LinkedIn sont disponibles dans certaines applications et services Microsoft. Les utilisateurs peuvent également s’attendre à une amélioration et un enrichissement de leur expérience de réseau sur LinkedIn avec les informations issues de Microsoft.
 
 Pour afficher des informations LinkedIn dans les applications et services Microsoft, les utilisateurs doivent donner leur consentement afin de se connecter à leurs propres comptes Microsoft et LinkedIn. Les utilisateurs sont invités à se connecter à leur compte la première fois qu’ils cliquent pour afficher les informations LinkedIn d’une personne sur une carte de visite Outlook, OneDrive ou SharePoint Online. Les connexions de compte LinkedIn ne sont pas entièrement activées pour vos utilisateurs jusqu’à ce qu’ils aient donné leur consentement pour l’expérience et la connexion à leur compte.
 
@@ -32,13 +32,13 @@ Pour afficher des informations LinkedIn dans les applications et services Micros
 
 L’accès aux informations LinkedIn dans les applications et services Microsoft facilite la connexion, l’implication et l’instauration de relations professionnelles de vos utilisateurs avec des collègues, clients et partenaires au sein et en dehors de votre organisation. Les nouveaux utilisateurs peuvent être opérationnels plus rapidement en se connectant avec des collègues, en ayant plus d’informations à leur sujet et en accédant facilement à plus de données. Voici un exemple d’affichage d’informations LinkedIn sur la carte de visite dans les applications Microsoft :
 
-![Activation de l’intégration LinkedIn](./media/linkedin-user-consent/display-example.png)
+![Activation de l’intégration LinkedIn dans votre organisation](./media/linkedin-user-consent/display-example.png)
 
 ## <a name="enable-and-announce-linkedin-integration"></a>Activer et annoncer l’intégration LinkedIn
 
 Vous devez être administrateur Azure Active Directory pour gérer le paramètre de votre organisation. Vous pouvez l’activer pour tous les utilisateurs ou pour un ensemble spécifique d’utilisateurs.
 
-1. Pour activer ou désactiver l’intégration, suivez la procédure décrite dans [Intégration LinkedIn](linkedin-integration.md).
+1. Pour activer ou désactiver l’intégration, suivez les étapes de [donner son consentement pour l’intégration LinkedIn pour votre organisation Azure AD](linkedin-integration.md).
 2. Lorsque vous annoncez l’intégration LinkedIn dans votre organisation, orientez vos utilisateurs vers la FAQ sur les [informations LinkedIn dans les applications et services Microsoft](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). L’article fournit des informations sur l’emplacement des informations LinkedIn, le mode de connexion des comptes, etc.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Consentement de l’utilisateur pour accéder aux données dans Microsoft et LinkedIn

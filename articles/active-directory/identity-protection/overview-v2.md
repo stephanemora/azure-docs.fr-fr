@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e60804e6bdf37607a08b6c530fd900e0f481a45b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2c3543b217339c39ad79c2125afdef8f087a70b3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204506"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336684"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Présentation d'Azure Active Directory Identity Protection (mise à jour)
 
@@ -58,6 +58,7 @@ Pour répondre à ces menaces, Azure AD Identity Protection vous donne les moyen
 
 Azure AD Identity Protection est une fonctionnalité d'Azure Active Directory Premium P2 qui vous permet de configurer des stratégies afin de réagir automatiquement lorsque l'identité d'un utilisateur est compromise ou qu'une personne autre que le propriétaire du compte tente de se connecter avec l'identité de celui-ci. Outre les autres contrôles d'accès conditionnel fournis par Azure AD, ces stratégies peuvent automatiquement bloquer l'accès ou déclencher des actions d'atténuation telles que la réinitialisation du mot de passe et la mise en œuvre de l'authentification multifacteur. De plus, Identity Protection fournit des fonctionnalités de supervision et de création de rapports qui vous permettent de mieux comprendre les risques et les compromissions potentiels au sein de votre organisation. 
 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
 
 ## <a name="risk-events"></a>Événements à risque
@@ -211,11 +212,11 @@ Pour plus d’informations, voir [Attribution de rôles d’administrateur dans 
 
 | Fonctionnalité | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| Stratégie de risque d’utilisateur | OUI | Non  | Non  |
-| Stratégie en matière de risque à la connexion | OUI | Non  | Non  |
+| Stratégie de risque d’utilisateur | Oui | Non  | Non  |
+| Stratégie en matière de risque à la connexion | Oui | Non  | Non  |
 | Rapport sur les utilisateurs à risque | Accès total | Informations limitées | Informations limitées |
 | Rapports sur les connexions risquées | Accès total | Informations limitées | Informations limitées |
-| Stratégie d'inscription MFA | OUI | Non  | Non  |
+| Stratégie d'inscription MFA | Oui | Non  | Non  |
 
 
 

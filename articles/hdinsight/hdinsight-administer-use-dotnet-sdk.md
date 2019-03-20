@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7c07a1b19bd651eadf7c7b27d5216dd446cd7abb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: d46b1cb5bb8a0b65a9e1b38d5331977132f7eb40
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810901"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226451"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -167,7 +167,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     
     L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
     
-    ![Rééquilibrage de mise à l’échelle HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![Rééquilibrage de mise à l’échelle HDInsight Storm](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
     
@@ -221,10 +221,10 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > En octroyant/révoquant l’accès, vous réinitialisez le nom d’utilisateur et le mot de passe du cluster.
 
-Vous pouvez également le faire via le portail Azure. Consultez [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal].
+Vous pouvez également le faire via le portail Azure. Consultez [gestion Apache des clusters Hadoop dans HDInsight à l’aide du portail Azure](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Mettre à jour les informations d’identification de l’utilisateur HTTP
-Il s’agit de la même procédure que l’octroi et la révocation de l’accès HTTP.  Si l’accès HTTP a été octroyé au cluster, vous devez d’abord le révoquer.  Octroyez ensuite l’accès avec les informations d’identification de l’utilisateur HTTP.
+Il s'agit de la même procédure que pour l'octroi et la révocation de l'accès HTTP.  Si l’accès HTTP a été octroyé au cluster, vous devez d’abord le révoquer.  Octroyez ensuite l’accès avec les informations d’identification de l’utilisateur HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Trouvez le compte de stockage par défaut
 L’extrait de code suivant montre comment obtenir le nom de compte de stockage par défaut et la clé de compte de stockage par défaut pour un cluster.
@@ -263,7 +263,7 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 
 ## <a name="see-also"></a>Voir aussi
 * [Documentation de référence sur le Kit de développement logiciel (SDK) .NET HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
+* [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
 * [Création de clusters HDInsight][hdinsight-provision]
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
@@ -279,11 +279,9 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-portal-linux.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 

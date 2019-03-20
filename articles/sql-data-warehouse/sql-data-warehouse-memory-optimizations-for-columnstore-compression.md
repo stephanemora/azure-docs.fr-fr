@@ -2,24 +2,24 @@
 title: Améliorer les performances de l’index columnstore - Azure SQL Data Warehouse | Microsoft Docs
 description: Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.
 services: sql-data-warehouse
-author: ckarst
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463359"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189561"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
-La qualité du rowgroup est déterminée par le nombre de lignes d’un rowgroup. Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.  Utilisez ces méthodes pour améliorer les taux de compression et les performances de requête pour les index columnstore.
+La qualité du rowgroup est déterminée par le nombre de lignes d’un rowgroup. Augmentation de la mémoire disponible peut optimiser le nombre de lignes de qu'un index columnstore compresse dans chaque groupe de lignes.  Utilisez ces méthodes pour améliorer les taux de compression et les performances de requête pour les index columnstore.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Importance de la taille de rowgroup
 Dans la mesure où un index columnstore analyse une table en examinant les segments de colonne des rowgroups, l’optimisation du nombre de lignes dans chaque rowgroup améliore les performances de requête. Quand les rowgroups comportent un grand nombre de lignes, la compression des données s’améliore, ce qui signifie qu’il y a moins de données à lire à partir du disque.
@@ -35,11 +35,11 @@ Pendant un chargement en masse ou une reconstruction d’index columnstore, la m
 
 Lorsque la mémoire est insuffisante pour compresser au moins 10 000 lignes dans chaque rowgroup, SQL Data Warehouse génère une erreur.
 
-Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Comment surveiller la qualité du rowgroup
 
-Il existe une vue de gestion dynamique (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) qui affiche des informations utiles telles que le nombre de lignes dans les rowgroups et la raison du découpage le cas échéant. Vous pouvez créer la vue suivante pour interroger facilement cette vue de gestion dynamique et obtenir ainsi des informations sur le découpage du rowgroup.
+La vue de gestion dynamique sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contient la définition de vue correspondant à base de données SQL vers SQL Data Warehouse) qui expose des informations utiles comme le nombre de lignes dans les rowgroups et la raison de découpage le cas échéant. Vous pouvez créer la vue suivante pour interroger facilement cette vue de gestion dynamique et obtenir ainsi des informations sur le découpage du rowgroup.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -137,14 +137,6 @@ La taille de DWU et la classe de ressources utilisateur déterminent ensemble la
 
 - Pour augmenter le nombre de DWU, voir [Comment mettre les performances à l’échelle ?](quickstart-scale-compute-portal.md).
 - Pour modifier la classe de ressources pour une requête, voir [Exemple de modification d’une classe de ressources utilisateur](resource-classes-for-workload-management.md#change-a-users-resource-class).
-
-Par exemple, sur DWU 100, un utilisateur dans la classe de ressources smallrc peut utiliser 100 Mo de mémoire pour chaque distribution. Pour plus d’informations, voir [Gestion de la concurrence et des charges de travail dans SQL Data Warehouse](resource-classes-for-workload-management.md).
-
-Supposons que vous déterminez que vous avez besoin de 700 Mo de mémoire pour obtenir des tailles de rowgroup de haute qualité. Ces exemples montrent comment exécuter la requête de chargement avec suffisamment de mémoire.
-
-- En utilisant DWU 1000 et mediumrc, votre allocation de mémoire est de 800 Mo.
-- En utilisant DWU 600 et largerc, votre allocation de mémoire est de 800 Mo.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820554"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087191"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN 
 Cet article fournit les descriptions détaillées des conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -233,7 +233,7 @@ Informations essentielles :
 
 </br>
 
---- 
+---
 ### <a name="country"></a>Pays
 Vous pouvez spécifier un pays à l’aide de son code de pays. 
 
@@ -388,7 +388,7 @@ Informations essentielles :
 
 </br>
 
----  
+---
 ### <a name="request-header-literal"></a>Littéral d’en-tête de requête
 L’option **Correspond**/**Ne correspond pas** détermine les conditions sous lesquelles la condition de correspondance Littéral d’en-tête de requête est remplie.
 - **Correspond** : Nécessite que la requête contienne l’en-tête spécifié. Sa valeur doit correspondre à celle définie dans cette condition de correspondance.
@@ -409,7 +409,7 @@ Informations essentielles :
 
 </br>
 
----  
+---
 ### <a name="request-header-regex"></a>Expression régulière d’en-tête de requête
 L’option **Correspond**/**Ne correspond pas** détermine les conditions sous lesquelles la condition de correspondance Expression régulière d’en-tête de requête est remplie.
 - **Correspond** : Nécessite que la requête contienne l’en-tête spécifié. Sa valeur doit correspondre au modèle défini dans [l’expression régulière](cdn-rules-engine-reference.md#regular-expressions) spécifiée.
@@ -532,16 +532,16 @@ Informations essentielles :
 - Une URL CNAME de périmètre est réécrite sur une URL CDN avant la comparaison d’URL.
 
     Par exemple, les deux URL suivantes pointent vers la même ressource et ont donc le même chemin d’URL.
-    - CDN URL: http:\//wpc.0001.&lt;domaine&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN URL: http:\//wpc.0001.&lt;domaine&gt;/800001/CustomerOrigin/path/asset.htm
     
-    - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informations supplémentaires :
-    - Domaine personnalisé : https:\//my.domain.com/path/asset.htm
+  - Domaine personnalisé : https:\//my.domain.com/path/asset.htm
     
-    - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/
+  - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/
     
-    - Chemin d’URL (relatif à l’origine) : /path/
+  - Chemin d’URL (relatif à l’origine) : /path/
 
 - La partie de l’URL qui est utilisée pour la comparaison d’URL s’arrête juste avant le nom de fichier de la ressource demandée. Une barre oblique de fin est le dernier caractère de ce type de chemin.
     
@@ -639,27 +639,27 @@ Informations essentielles :
 - Utilisez l’option **Relative to** (Relatif à) pour spécifier si le point de comparaison de l’URL commence avant ou après le point d’accès au contenu. 
 
     Les valeurs suivantes sont disponibles pour l’option **Relative to** (Relatif à) :
-     - **Racine** : indique que le point de comparaison d’URL commence directement après le nom d’hôte CDN.
+  - **Racine** : indique que le point de comparaison d’URL commence directement après le nom d’hôte CDN.
 
-       Par exemple : http:\//wpc.0001.&lt;domaine&gt;/**800001/myorigin/myfolder/index.htm**
+    Par exemple : http:\//wpc.0001.&lt;domaine&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origine** : indique que le point de comparaison d’URL commence après le point d’accès au contenu (par exemple, /000001 ou /800001/myorigin). Étant donné que le CNAME \*.azureedge.net est créé par rapport au répertoire d’origine sur le nom d’hôte CDN Verizon par défaut, les utilisateurs de CDN Azure doivent utiliser la valeur **Origine**. 
+  - **Origine** : indique que le point de comparaison d’URL commence après le point d’accès au contenu (par exemple, /000001 ou /800001/myorigin). Étant donné que le CNAME \*.azureedge.net est créé par rapport au répertoire d’origine sur le nom d’hôte CDN Verizon par défaut, les utilisateurs de CDN Azure doivent utiliser la valeur **Origine**. 
 
-       Par exemple : https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
+    Par exemple : https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Cette URL pointe vers le nom d’hôte CDN Verizon suivant: http:\//wpc.0001.&lt;domaine&gt;/800001/myorigin/**myfolder/index.htm**
+    Cette URL pointe vers le nom d’hôte CDN Verizon suivant: http:\//wpc.0001.&lt;domaine&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Une URL CNAME de périmètre est réécrite sur une URL CDN avant une comparaison d’URL.
 
     Par exemple, les deux URL suivantes pointent vers la même ressource et ont donc le même chemin d’URL :
-    - CDN URL: http:\//wpc.0001.&lt;domaine&gt;/800001/CustomerOrigin/path/asset.htm
-    - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - CDN URL: http:\//wpc.0001.&lt;domaine&gt;/800001/CustomerOrigin/path/asset.htm
+  - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informations supplémentaires :
     
-    - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/asset.htm
+  - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/asset.htm
    
-    - Chemin d’URL (relatif à l’origine) : /path/asset.htm
+  - Chemin d’URL (relatif à l’origine) : /path/asset.htm
 
 - Les chaînes de requête dans l’URL sont ignorées.
 - Utilisez l’option **Ignorer la casse** pour contrôler si une comparaison respectant la casse est effectuée.
@@ -684,13 +684,13 @@ Informations essentielles :
  
     Par exemple, deux URL pointent vers la même ressource et ont donc le même chemin d’URL.
 
-     - CDN URL: http:\//wpc.0001.&lt;domaine&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN URL: http:\//wpc.0001.&lt;domaine&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - URL CNAME de périmètre : http:\//my.domain.com/path/asset.htm
+  - URL CNAME de périmètre : http:\//my.domain.com/path/asset.htm
     
     Informations supplémentaires :
     
-     - Chemin d’URL : /800001/CustomerOrigin/path/asset.htm
+  - Chemin d’URL : /800001/CustomerOrigin/path/asset.htm
 
 - Les chaînes de requête dans l’URL sont ignorées.
     
@@ -714,27 +714,27 @@ Informations essentielles :
 - Option **Relative to** (Relatif à) : cette option détermine si le point de comparaison de l’URL commence avant ou après le point d’accès au contenu.
 
    Cette option peut avoir les valeurs suivantes :
-     - **Racine** : indique que le point de comparaison d’URL commence directement après le nom d’hôte CDN.
+  - **Racine** : indique que le point de comparaison d’URL commence directement après le nom d’hôte CDN.
 
-       Par exemple : http:\//wpc.0001.&lt;domaine&gt;/**800001/myorigin/myfolder/index.htm**
+    Par exemple : http:\//wpc.0001.&lt;domaine&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origine** : indique que le point de comparaison d’URL commence après le point d’accès au contenu (par exemple, /000001 ou /800001/myorigin). Étant donné que le CNAME \*.azureedge.net est créé par rapport au répertoire d’origine sur le nom d’hôte CDN Verizon par défaut, les utilisateurs de CDN Azure doivent utiliser la valeur **Origine**. 
+  - **Origine** : indique que le point de comparaison d’URL commence après le point d’accès au contenu (par exemple, /000001 ou /800001/myorigin). Étant donné que le CNAME \*.azureedge.net est créé par rapport au répertoire d’origine sur le nom d’hôte CDN Verizon par défaut, les utilisateurs de CDN Azure doivent utiliser la valeur **Origine**. 
 
-       Par exemple : https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
+    Par exemple : https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Cette URL pointe vers le nom d’hôte CDN Verizon suivant: http:\//wpc.0001.&lt;domaine&gt;/800001/myorigin/**myfolder/index.htm**
+    Cette URL pointe vers le nom d’hôte CDN Verizon suivant: http:\//wpc.0001.&lt;domaine&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Une URL CNAME de périmètre est réécrite sur une URL CDN avant la comparaison d’URL.
 
     Par exemple, les deux URL suivantes pointent vers la même ressource et ont donc le même chemin d’URL :
-     - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
-     - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informations supplémentaires :
     
-     - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/asset.htm
+  - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/asset.htm
     
-     - Chemin d’URL (relatif à l’origine) : /path/asset.htm
+  - Chemin d’URL (relatif à l’origine) : /path/asset.htm
     
 - Spécifiez plusieurs chemins d’URL en les séparant par une espace.
 

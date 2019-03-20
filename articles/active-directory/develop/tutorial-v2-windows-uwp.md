@@ -4,7 +4,7 @@ description: Cet article explique comment des applications de plateforme Windows
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: b00a4f9ee561e8e9356b36d4a14b4bcb4f9a3357
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202858"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
 
@@ -37,7 +37,7 @@ Ce guide explique comment une application de plateforme Windows universelle (UWP
 
 ## <a name="how-this-guide-works"></a>Fonctionnement de ce guide
 
-![Graphique de fonctionnement de ce guide](./media/tutorial-v2-windows-uwp/uwp-intro.png)
+![Illustre le fonctionnement de l’exemple d’application généré par ce didacticiel](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
 
 Ce guide crée un exemple d’application UWP qui interroge l’API Microsoft Graph ou une API web qui accepte des jetons du point de terminaison Azure Active Directory v2.0. Pour ce scénario, un jeton est ajouté aux requêtes HTTP via l’en-tête d’autorisation. Microsoft Authentication Library (MSAL) gère les acquisitions et renouvellements de jetons.
 

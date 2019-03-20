@@ -1,17 +1,21 @@
 ---
-ms.openlocfilehash: 1555a577d4fdf0436e891e3d73495d1fe2f7e606
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+title: Groupes de conteneurs Azure Container Instances
+description: Comprendre comment les conteneurs multiples groupes Professionnel dans Azure Container Instances
+services: container-instances
+author: dlepow
+manager: jeconnoc
+ms.service: container-instances
+ms.topic: article
+ms.date: 03/20/2018
+ms.author: danlep
+ms.custom: mvc
+ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901319"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202008"
 ---
----
-titre : Description de groupes conteneur Azure Container Instances : Comprendre les groupes de plusieurs conteneurs comment fonctionnent dans les services Azure Container Instances : créer des instances de conteneur : dlepow manager : jeconnoc
-
-ms.service: container-instances ms.topic: article ms.date: 20/03/2018 ms.author : danlep ms.custom : mvc
-
-
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
 
 La ressource de niveau supérieur dans Azure Container Instances est un *groupe de conteneurs*. Cet article décrit les groupes de conteneurs et les types de scénarios associés.

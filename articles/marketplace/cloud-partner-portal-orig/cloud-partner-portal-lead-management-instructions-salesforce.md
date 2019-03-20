@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 54f9e19ae6cb9afba0de621c36352c3b1038b100
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 2f2a96e46b76ce41131b8e745075648bf0c68716
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806430"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867335"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurer la gestion des prospects pour Salesforce
 
@@ -38,4 +38,4 @@ Cet article explique comment configurer votre système Salesforce de manière à
 5. Dans **Créer un formulaire Web-to-Lead**, sélectionnez **Générer** ![Génération Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Copiez l'OID de l’exemple et enregistrez-le. Vous collerez l'OID dans le champ **Identificateur d'objet** du portail Cloud Partner.
-![Salesforce - Obtention d'OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![Get Salesforce OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

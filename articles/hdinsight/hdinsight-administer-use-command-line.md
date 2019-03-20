@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: 3e53a8cc1816ae4128fdfb34b7425ac95de29a57
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 61be4088034d8cc557c67c5b6de4972766654a39
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202382"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Gérer des clusters Apache Hadoop dans HDInsight à l’aide d’Azure Classic CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -23,7 +23,7 @@ Découvrez comment utiliser [Azure Classic CLI](../cli-install-nodejs.md) pour g
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -91,7 +91,7 @@ azure hdinsight cluster disable-http-access [options] <Cluster Name>
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris comment effectuer différentes tâches d'administration sur un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-* [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
+* [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
 * [Administration de HDInsight à l'aide d'Azure PowerShell][hdinsight-admin-powershell]
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]
 * [Guide pratique pour utiliser Azure Classic CLI][azure-command-line-tools]
@@ -102,8 +102,6 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

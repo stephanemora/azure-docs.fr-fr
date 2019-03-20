@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>Composants requis
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: b06c57f50f759677770839ae06cb05e4de36f84c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58114947"
+---
+### <a name="prerequisites"></a>Conditions préalables
 * Un compte [SendGrid](https://www.SendGrid.com/) 
 
 Pour pouvoir utiliser votre compte SendGrid dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure. 

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096841"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Tutoriel : Intégration d’Azure Active Directory à Screencast-O-Matic
+# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Didacticiel : Intégration d’Azure Active Directory à Screencast-O-Matic
 
 Dans ce tutoriel, vous allez apprendre à intégrer Screencast-O-Matic à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de Screencast-O-Matic à Azure AD vous offre les avantages suiv
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Screencast-O-Matic, vous avez besoin des éléments suivants :
 
@@ -133,17 +133,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 9. Dans la **page Configurer l’accès**, procédez comme suit :
 
-    * Dans la section **URL d’accès**, tapez le nom de votre instance dans la zone de texte spécifiée.
+   * Dans la section **URL d’accès**, tapez le nom de votre instance dans la zone de texte spécifiée.
 
-    ![L’accès](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![L’accès](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-    * Sélectionnez **Demander un utilisateur de domaine** dans la section **Restriction d’utilisateur SAML (facultatif)**.
+   * Sélectionnez **Demander un utilisateur de domaine** dans la section **Restriction d’utilisateur SAML (facultatif)**.
 
-    * Sous **Charger le fichier XML des métadonnées IDP**, cliquez sur **Sélectionner le fichier** pour charger les métadonnées que vous avez téléchargées à partir du portail Azure.
+   * Sous **Charger le fichier XML des métadonnées IDP**, cliquez sur **Sélectionner le fichier** pour charger les métadonnées que vous avez téléchargées à partir du portail Azure.
 
-    * Cliquez sur **OK**. 
+   * Cliquez sur **OK**. 
 
-    ![L’accès](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![L’accès](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

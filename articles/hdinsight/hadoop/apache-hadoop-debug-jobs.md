@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822678"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203062"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analyser les journaux Apache Hadoop
 
-Chaque cluster Apache Hadoop dans Azure HDInsight dispose d'un compte de stockage Azure utilisé comme système de fichiers par défaut. Le compte de stockage est désigné comme le compte de stockage par défaut. Le cluster utilise le stockage de tables Azure et le stockage d’objets Blob sur le compte de stockage par défaut pour stocker ses journaux.  Pour trouver le compte de stockage par défaut pour votre cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Les journaux sont conservés dans le compte de stockage, même après la suppression du cluster.
+Chaque cluster Apache Hadoop dans Azure HDInsight dispose d'un compte de stockage Azure utilisé comme système de fichiers par défaut. Le compte de stockage est désigné comme le compte de stockage par défaut. Le cluster utilise le stockage de tables Azure et le stockage d’objets Blob sur le compte de stockage par défaut pour stocker ses journaux.  Pour trouver le compte de stockage par défaut pour votre cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Les journaux sont conservés dans le compte de stockage, même après la suppression du cluster.
 
 ## <a name="logs-written-to-azure-tables"></a>Journaux écrits dans les tables Azure
 

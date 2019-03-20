@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff88f25d4bf7fea09ea07673326e068840243b98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 75d0e962169529ab8d17aeeeed8aab26e7b7e994
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutoriel : Intégration d'Azure Active Directory à Wdesk
 
@@ -34,7 +34,7 @@ L’intégration de Wdesk dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration de l’application SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Wdesk, vous avez besoin des éléments suivants :
 
@@ -219,7 +219,7 @@ Pour se connecter à Wdesk, les utilisateurs d’Azure AD doivent être approvi
    
     ![Création d’un utilisateur de test Azure AD](./media/wdesk-tutorial/createuser1.png)  
 
-1. Dans la zone de texte **Utilisateur**, entrez un nom d’utilisateur, par exemple **brittasimon@contoso.com**, puis cliquez sur **Continuer**.
+1. Dans **utilisateur** texte, entrez le nom d’utilisateur de l’utilisateur, par exemple **brittasimon\@contoso.com** et cliquez sur **continuer** bouton.
 
     ![Création d’un utilisateur de test Azure AD](./media/wdesk-tutorial/createuser3.png)
 
@@ -227,7 +227,7 @@ Pour se connecter à Wdesk, les utilisateurs d’Azure AD doivent être approvi
   
     ![Création d’un utilisateur de test Azure AD](./media/wdesk-tutorial/createuser4.png)
  
-    a. Dans la zone de texte **E-mail**, entrez une adresse e-mail d’utilisateur, par exemple **brittasimon@contoso.com**.
+    a. Dans **messagerie** texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     b. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 

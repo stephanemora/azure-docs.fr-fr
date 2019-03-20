@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: e787d946aa62f0bcb6615d89192e7d9e4d91ffe4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 867d061e46494e5ef65340ce325a71638acc8dfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099625"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application sur un domaine managé par les Azure Active Directory Domain Services
 Le service Proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. Avec les Azure AD Domain Services, vous pouvez désormais transférer des applications héritées vers des services d’infrastructure Azure. Vous pouvez ensuite publier ces applications à l’aide du proxy d’application Azure AD pour fournir un accès à distance sécurisé aux utilisateurs de votre organisation.
@@ -75,12 +75,12 @@ Auparavant, vous approvisionniez une machine virtuelle Windows Server et la joig
 
     ![Accepter les termes du contrat pour l’installation](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. Au cours de l’installation, vous êtes invité à inscrire le connecteur auprès du service de proxy d’application de votre annuaire Azure AD.
-    * Fournissez vos **informations d’identification d’administrateur général d’Azure AD**. Votre client d’administrateur global peut être différent de vos informations d’identification Microsoft Azure.
-    * Le compte d'administrateur utilisé pour inscrire le connecteur doit figurer dans l’annuaire dans lequel vous avez activé le service Proxy d’application. Par exemple, si le domaine du locataire est contoso.com, l’administrateur doit être admin@contoso.com ou tout autre alias valide sur ce domaine.
-    * Si l’option Configuration de sécurité renforcée d’Internet Explorer est activée sur le serveur sur lequel vous installez le connecteur, l’écran d’inscription risque d’être bloqué. Suivez les instructions du message d’erreur pour autoriser l’accès. Vérifiez que la configuration de sécurité renforcée d’Internet Explore est désactivée.
-    * Si l’inscription du connecteur n’aboutit pas, voir [Résoudre les problèmes du proxy d’application](../active-directory/manage-apps/application-proxy-troubleshoot.md).
+   * Fournissez vos **informations d’identification d’administrateur général d’Azure AD**. Votre client d’administrateur global peut être différent de vos informations d’identification Microsoft Azure.
+   * Le compte d'administrateur utilisé pour inscrire le connecteur doit figurer dans l’annuaire dans lequel vous avez activé le service Proxy d’application. Par exemple, si le domaine du locataire est contoso.com, l’administrateur doit être admin@contoso.com ou tout autre alias valide sur ce domaine.
+   * Si l’option Configuration de sécurité renforcée d’Internet Explorer est activée sur le serveur sur lequel vous installez le connecteur, l’écran d’inscription risque d’être bloqué. Suivez les instructions du message d’erreur pour autoriser l’accès. Vérifiez que la configuration de sécurité renforcée d’Internet Explore est désactivée.
+   * Si l’inscription du connecteur n’aboutit pas, voir [Résoudre les problèmes du proxy d’application](../active-directory/manage-apps/application-proxy-troubleshoot.md).
 
-    ![Connecteur installé](./media/app-proxy/app-proxy-connector-installed.png)
+     ![Connecteur installé](./media/app-proxy/app-proxy-connector-installed.png)
 4. Pour garantir un fonctionnement correct du connecteur, exécutez l'utilitaire de résolution des problèmes du connecteur de proxy Azure AD. Après l'exécution de l'utilitaire de résolution des problèmes, vous devez voir un rapport de réussite.
 
     ![Réussite de l'utilitaire de résolution des problèmes](./media/app-proxy/app-proxy-connector-troubleshooter.png)

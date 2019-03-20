@@ -1,19 +1,19 @@
 ---
 title: Présentation des tâches Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Planification des travaux à exécuter sur plusieurs appareils connectés à votre IoT Hub. Les tâches peuvent mettre à jour les balises et les propriétés souhaitées, et appeler des méthodes directes sur plusieurs appareils.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884222"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011362"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Planifier des travaux sur plusieurs appareils
 
@@ -119,22 +119,22 @@ La liste suivante montre les propriétés et les descriptions correspondantes qu
 | **startTime** |L’application a fourni l’heure de début (ISO-8601) pour le travail. |
 | **endTime** |IoT Hub a fourni la date (ISO-8601) de fin du travail. Valide uniquement lorsque la tâche atteint l’état « terminé ». |
 | **type** |Types de tâches : |
-| | **scheduledUpdateTwin** : travail permettant de mettre à jour un ensemble de propriétés souhaitées ou de balises. |
-| | **scheduledDeviceMethod** : travail permettant d’appeler une méthode d’appareil sur un ensemble de jumeaux d’appareil. |
+| | **scheduledUpdateTwin**: Un travail utilisé pour mettre à jour un ensemble de propriétés souhaitées ou tags. |
+| | **scheduledDeviceMethod**: Un travail utilisé pour appeler une méthode d’appareil sur un ensemble de représentations d’appareil. |
 | **statut** |État actuel du travail. Valeurs possibles pour l'état : |
-| | **pending** : planifié et en attente de récupération par le service du travail. |
-| | **scheduled** : planifié pour une date ultérieure. |
-| | **running** : le travail est actuellement actif. |
-| | **cancelled** : le travail a été annulé. |
-| | **failed** : le travail a échoué. |
-| | **completed** : le travail est terminé. |
+| | **En attente**: Planifié et en attente d’être récupéré par le service de travail. |
+| | **planifiée**: Planifiée pendant une période à l’avenir. |
+| | **En cours d’exécution**: Travail est actuellement actif. |
+| | **annulé**: Travail a été annulé. |
+| | **Échec de**: Échoué de la tâche. |
+| | **Terminé**: Tâche terminée. |
 | **deviceJobStatistics** |Statistiques relatives à l’exécution du travail. |
 | | Propriétés **deviceJobStatistics** : |
-| | **deviceJobStatistics.deviceCount** : nombre d’appareils du travail. |
-| | **deviceJobStatistics.failedCount** : nombre d’appareils sur lesquels le travail a échoué. |
-| | **deviceJobStatistics.succeededCount** : nombre d’appareils sur lesquels le travail a réussi. |
-| | **deviceJobStatistics.runningCount** : nombre d’appareils qui exécutent actuellement le travail. |
-| | **deviceJobStatistics.pendingCount** : nombre d’appareils en attente d’exécution du travail. |
+| | **deviceJobStatistics.deviceCount**: Nombre d’appareils du travail. |
+| | **deviceJobStatistics.failedCount**: Nombre d’appareils sur lesquels le travail a échoué. |
+| | **deviceJobStatistics.succeededCount**: Nombre d’appareils sur lesquels le travail a réussi. |
+| | **deviceJobStatistics.runningCount**: Nombre d’appareils qui exécutent actuellement le travail. |
+| | **deviceJobStatistics.pendingCount**: Nombre d’appareils en attente d’exécution du travail. |
 
 ### <a name="additional-reference-material"></a>Matériel de référence supplémentaire
 

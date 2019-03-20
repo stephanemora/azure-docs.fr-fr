@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6194ed8ffa5732c9f187679e934aad306293d46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878191"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -41,7 +41,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Si j’active la réinitialisation du mot de passe pour un groupe, puis décide de l’activer pour tout le monde, mes utilisateurs doivent-ils se réenregistrer ?**
 
-  > **R :**  Non. Les utilisateurs possédant des données d’authentification renseignées ne doivent pas s’enregistrer de nouveau.
+  > **R :** Non. Les utilisateurs possédant des données d’authentification renseignées ne doivent pas s’enregistrer de nouveau.
   >
   >
 * **Q :  Puis-je définir des données de réinitialisation de mot de passe pour le compte de mes utilisateurs ?**
@@ -61,7 +61,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Mes utilisateurs doivent-ils être inscrits avant de pouvoir utiliser la réinitialisation de mot de passe ?**
 
-  > **R :**  Non. Si vous définissez suffisamment d’informations d’authentification en leur nom, les utilisateurs n’ont pas besoin de s’inscrire. La réinitialisation de mot de passe fonctionne tant que vous disposez de données correctement formatées stockées dans les champs appropriés de l’annuaire.
+  > **R :** Non. Si vous définissez suffisamment d’informations d’authentification en leur nom, les utilisateurs n’ont pas besoin de s’inscrire. La réinitialisation de mot de passe fonctionne tant que vous disposez de données correctement formatées stockées dans les champs appropriés de l’annuaire.
   >
   >
 * **Q :  Puis-je synchroniser ou définir les champs Téléphone d’authentification, E-mail d’authentification ou Autre téléphone d’authentification pour le compte de mes utilisateurs ?**
@@ -98,12 +98,10 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * **Q :  Q : Combien de temps dois-je attendre avant de recevoir un message électronique, un SMS ou un appel téléphonique de la réinitialisation du mot de passe ?**
 
   > **R :** Les e-mails, messages SMS et appels téléphoniques doivent arriver en moins d’une minute. Le cas normal est de 5 à 20 secondes.
-    >Si vous ne recevez pas la notification dans ce laps de temps :
-        > * Vérifiez votre dossier de courrier indésirable.
-        > * Vérifiez que le numéro ou que l’e-mail contacté est celui que vous attendez.
-        > * Vérifiez que les données d’authentification dans l’annuaire sont mises en forme correctement, par exemple +1 4255551234 ou *user@contoso.com*. 
-  >
-  >
+  > Si vous ne recevez pas la notification dans ce laps de temps :
+  > * Vérifiez votre dossier de courrier indésirable.
+  > * Vérifiez que le numéro ou que l’e-mail contacté est celui que vous attendez.
+  > * Vérifiez que les données d’authentification dans le répertoire seront correctement mis en forme, par exemple, + 1 4255551234 ou *utilisateur\@contoso.com*. 
 * **Q :  Quelles langues sont prises en charge pour la réinitialisation de mot de passe ?**
 
   > **R :** L’interface utilisateur pour la réinitialisation du mot de passe, les SMS et les appels vocaux sont localisés dans les mêmes langues que celles prises en charge dans Office 365.
@@ -161,7 +159,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Un utilisateur peut-il inscrire plusieurs fois la même question de sécurité ?**
 
-  > **R :**  Non. Une fois qu’un utilisateur a inscrit une question particulière, il ne peut plus inscrire cette même question une deuxième fois.
+  > **R :** Non. Une fois qu’un utilisateur a inscrit une question particulière, il ne peut plus inscrire cette même question une deuxième fois.
   >
   >
 * **Q :  Est-il possible de définir un nombre minimal de questions de sécurité pour l’inscription et la réinitialisation ?**

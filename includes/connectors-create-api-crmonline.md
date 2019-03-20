@@ -1,4 +1,17 @@
-#### <a name="prerequisites"></a>Composants requis
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 53c683dacbb3b94e34bd8662743673c3a0490d94
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58115587"
+---
+#### <a name="prerequisites"></a>Conditions préalables
 * Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
 * Un compte [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) 
 
@@ -6,7 +19,7 @@ Avant d’utiliser votre compte Dynamics dans une application logique, autorisez
 
 Pour autoriser votre application logique à se connecter à votre compte CRM Online, procédez comme suit :
 
-1. Créez une application logique. Dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez « dynamics » dans la zone de recherche. Sélectionnez l’un des déclencheurs ou actions :  
+1. Créez une application logique. Dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez « dynamics » dans la zone de recherche. Sélectionnez l’un des déclencheurs ou actions :  
    ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
 2. Si vous n’avez créé aucune connexion à Dynamics, vous êtes invité à vous connecter avec vos informations d’identification Dynamics :  
    ![](./media/connectors-create-api-crmonline/dynamics-signin.png)

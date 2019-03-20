@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905055"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
 
@@ -257,7 +257,7 @@ Passez en revue la liste complète des services et adresses IP en cliquant [ici
 
 Permettez à votre serveur web d’envoyer la télémétrie à nos points de terminaison. 
 
-### <a name="proxy-redirect"></a>Redirection proxy
+### <a name="gateway-redirect"></a>Redirection de passerelle
 
 Acheminez le trafic entre votre serveur et une passerelle sur votre intranet en remplaçant les points de terminaison dans votre configuration.
 Si ces propriétés « Endpoint » ne sont pas présentes dans votre configuration, ces classes utiliseront les valeurs par défaut indiquées dans l’exemple ApplicationInsights.config ci-dessous. 
@@ -288,7 +288,19 @@ Votre passerelle doit acheminer le trafic vers l’adresse de base de notre poin
 
 _Remarque : ApplicationIdProvider est disponible à partir de la version 2.6.0_
 
+### <a name="proxy-passthrough"></a>Relais de proxy
 
+Relais proxy peut être obtenue en configurant un niveau de l’ordinateur ou le niveau de l’application proxy.
+Pour plus d’informations, consultez l’article de dotnet sur [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+ Exemple Web.config :
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Puis-je exécuter des tests web de disponibilité sur un serveur intranet ?

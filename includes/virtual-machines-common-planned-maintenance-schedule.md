@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227054"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58115481"
 ---
 ## <a name="multi-and-single-instance-vms"></a>Machines virtuelles à instance unique ou multi-instance
 De nombreux clients utilisant Azure trouvent cela essentiel de pouvoir programmer le moment où leurs machines virtuelles font l’objet d’une maintenance planifiée en raison de l’interruption de service (environ 15 minutes) qui se produit lors de la maintenance. Vous pouvez utiliser les groupes à haute disponibilité pour faciliter la programmation de la maintenance planifiée des machines virtuelles configurées.

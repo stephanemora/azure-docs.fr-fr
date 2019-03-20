@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 1bbec8bb1805caf4e9f3ed678ae70475945e4995
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014583"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226689"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -28,57 +28,40 @@ Lors de la mesure est présentées dans le portail, ils sont renormalisés pour 
 L’échantillonnage réduit les coûts du trafic et des données, et vous aide à éviter les limitations.
 
 ## <a name="in-brief"></a>En bref :
+
 * L’échantillonnage conserve 1 enregistrement sur *n* et ignore le reste. Par exemple, il peut conserver un dans cinq événements, un taux d’échantillonnage de 20 %. 
-* Échantillonnage adaptatif est activé par défaut dans la dernière version d’Asp.NET et les Kits de développement logiciel Asp.NET Core (SDK).
-* Vous pouvez également définir l’échantillonnage manuellement. Cela peut être configuré dans le portail sur la *page utilisation et estimation des coûts*.  Dans le Kit de développement ASP.NET dans le fichier ApplicationInsights.config. Dans le kit SDK Core Asp.NET par le biais de code. Ou, dans le Kit de développement logiciel Java dans le fichier ApplicationInsights.xml de fichiers.
+* Échantillonnage adaptatif est activé par défaut dans la dernière version d’ASP.NET et les Kits de développement logiciel ASP.NET Core (SDK).
+* Vous pouvez également définir l’échantillonnage manuellement. Cela peut être configuré dans le portail sur la *page utilisation et estimation des coûts*, dans le Kit de développement ASP.NET dans le fichier ApplicationInsights.config dans le Kit de développement logiciel ASP.NET Core via le code ou dans le SDK Java dans le fichier ApplicationInsights.xml de fichiers.
 * Si vous consignez des événements personnalisés et doivent s’assurer qu’un jeu d’événements est conservé ou ignoré conjointement, les événements doivent avoir la même valeur OperationId.
 * Le diviseur d’échantillonnage *n* est signalé dans chaque enregistrement de la propriété `itemCount`, qui dans la recherche s’affiche sous le nom convivial « nombre de demandes » ou « nombre d’événements ». `itemCount==1`Lorsque l’échantillonnage n’est pas dans l’opération.
 * Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](../../azure-monitor/log-query/aggregations.md). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Types d’échantillonnage
+
 Il existe trois autres méthodes d’échantillonnage :
 
-* **L’échantillonnage ADAPTATIF** ajuste automatiquement le volume de données de télémétrie envoyées à partir du SDK dans votre application ASP.NET/ASP.NET Core. À partir de ASP.NET Web SDK v 2.0.0-beta3, l’échantillonnage adaptatif est la méthode d’échantillonnage par défaut. L’échantillonnage adaptatif n’est disponible que pour la télémétrie ASP.NET côté serveur. Pour les applications ASP.NET Core ciblant le Framework complet, l’échantillonnage adaptatif est disponible à partir de la version 1.0.0 du SDK de Microsoft.ApplicationInsights.AspNetCore. Pour les applications ASP.NET Core ciblant NetCore, échantillonnage adaptatif est disponible à partir de 2.2.0-beta1 du SDK de Microsoft.ApplicationInsights.AspNetCore.
+* **L’échantillonnage ADAPTATIF** ajuste automatiquement le volume de données de télémétrie envoyées à partir du SDK dans votre application ASP.NET/ASP.NET Core. Il s’agit de l’échantillonnage par défaut à partir d’ASP.NET Web SDK v 2.0.0-beta3 et versions ultérieures et Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 et versions ultérieures.  L’échantillonnage adaptatif n’est disponible que pour la télémétrie ASP.NET côté serveur.
 
 * **Échantillonnage à débit fixe** réduit le volume de données de télémétrie envoyées à partir de votre serveur ASP.NET ou ASP.NET Core ou Java et de navigateurs de vos utilisateurs. Vous définissez le débit. Le client et le serveur synchronisent leur échantillonnage de façon à ce que vous puissiez naviguer entre les demandes et les affichages de pages associés dans Search.
-* **L’échantillonnage d’ingestion** fonctionne dans le portail Azure. Il ignore certaines données de télémétrie provenant de votre application, à une fréquence d’échantillonnage que vous définissez. Le trafic des données de télémétrie reçu de votre application n’est pas réduit, mais cela vous permet de respecter votre quota mensuel. Le principal avantage de l’échantillonnage d’ingestion est que vous pouvez définir le taux d’échantillonnage sans avoir à redéployer votre application. L’échantillonnage d’ingestion fonctionne uniformément pour tous les clients et serveurs. 
+
+* **L’échantillonnage d’ingestion** fonctionne dans le portail Azure. Il ignore certaines données de télémétrie provenant de votre application, à une fréquence d’échantillonnage que vous définissez. Le trafic des données de télémétrie reçu de votre application n’est pas réduit, mais cela vous permet de respecter votre quota mensuel. Le principal avantage de l’échantillonnage d’ingestion est que vous pouvez définir le taux d’échantillonnage sans avoir à redéployer votre application. L’échantillonnage d’ingestion fonctionne uniformément pour tous les clients et serveurs.
 
 Si un échantillonnage de débit adaptatif ou fixe est en cours d’utilisation, l’échantillonnage d’ingestion est désactivé.
 
-## <a name="ingestion-sampling"></a>échantillonnage d’ingestion
-Cette forme d’échantillonnage fonctionne au niveau où les données de télémétrie issues de votre serveur web, des navigateurs et des appareils atteignent le point de terminaison du service Application Insights. Bien qu’elle ne réduise pas le trafic des données de télémétrie envoyées à partir de votre application, elle réduit la quantité traitée et conservée (et facturée) par Application Insights.
 
-Utilisez ce type d’échantillonnage si votre application dépasse souvent son quota mensuel et que vous ne pouvez recourir à aucun type d’échantillonnage basé sur le Kit de développement logiciel (SDK). 
+## <a name="adaptive-sampling-in-your-aspnetaspnet-core-web-applications"></a>Échantillonnage adaptatif dans vos Applications Web de Core ASP.NET/ASP.NET
 
-Définissez le taux d’échantillonnage dans la page Utilisation et estimation des coûts :
+L’échantillonnage adaptatif est disponible pour le SDK Application Insights pour ASP.NET v 2.0.0-beta3 et versions ultérieures, Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 et versions ultérieures et est activé par défaut.
 
-![Dans le panneau Vue d’ensemble de l’application, cliquez sur Paramètres, Quota + tarification, Échantillons conservés, sélectionnez un taux d’échantillonnage, puis cliquez sur Mettre à jour.](./media/sampling/04.png)
+L’échantillonnage adaptatif a une incidence sur le volume de données de télémétrie envoyées à partir de votre application de serveur web au point de terminaison de service Application Insights. Le volume est automatiquement ajusté pour conserver au sein d’un débit de trafic maximal spécifié et est contrôlé via le paramètre `MaxTelemetryItemsPerSecond`. Si l’application génère une faible quantité de données de télémétrie, comme lors du débogage ou en raison d’une faible utilisation, les éléments ne sont pas obtenir échantillonnées tant que volume est inférieur à `MaxTelemetryItemsPerSecond`. En tant que volume de données de télémétrie augmente, le taux d’échantillonnage est ajustée afin d’obtenir le volume cible.
 
-Comme d’autres types d’échantillonnage, l’algorithme conserve les éléments de télémétrie associés. Par exemple, quand vous inspectez les données de télémétrie dans Search, vous pouvez trouver la demande liée à une exception spécifique. Les données de mesure telles que les taux de demandes et le taux d’exceptions sont correctement conservées.
-
-Les points de données ignorés par l’échantillonnage ne sont disponibles dans aucune fonctionnalité Application Insights, par exemple l’ [exportation continue](../../azure-monitor/app/export-telemetry.md).
-
-L’échantillonnage d’ingestion ne fonctionne pas pendant qu’une opération d’échantillonnage adaptatif ou taux fixe basé sur un Kit de développement logiciel (SDK) est en cours d’exécution. L’échantillonnage adaptatif est activé par défaut lorsque ASP.NET/ASP.NET Core SDK est activé dans Visual Studio ou activé dans les extensions d’application Web Azure ou à l’aide de Status Monitor, et l’échantillonnage d’ingestion est désactivé. Si le taux d’échantillonnage dans le Kit de développement logiciel (SDK) est inférieur à 100 %, le taux d’échantillonnage d’ingestion que vous avez défini est ignoré.
-
-> [!WARNING]
-> La valeur affichée sur la vignette indique la valeur que vous définissez pour l’échantillonnage d’ingestion. Il ne représente pas le taux d’échantillonnage réel si l’échantillonnage du kit de développement logiciel (SDK) est effectué.
-> 
-> 
-
-## <a name="adaptive-sampling-at-your-web-server"></a>Échantillonnage adaptatif sur votre serveur web
-L’échantillonnage adaptatif est disponible pour le SDK Application Insights pour ASP.NET v 2.0.0-beta3 et versions ultérieures. Dans 2.2.0-beta1 du kit SDK Microsoft.ApplicationInsights.AspNetCore et versions ultérieures et est activé par défaut. 
-
-L’échantillonnage adaptatif a une incidence sur le volume de données de télémétrie envoyées à partir de votre application de serveur web au point de terminaison de service Application Insights. Le volume est automatiquement maintenu en deçà d’un débit de trafic maximal spécifié.
-
-Il ne fonctionne pas quand les volumes de données de télémétrie sont bas ; ainsi, une application en mode débogage ou un site web faiblement utilisé ne sont pas affectés.
-
-Pour atteindre le volume cible, certaines des données de télémétrie générées sont ignorées. Toutefois, comme d’autres types d’échantillonnage, l’algorithme conserve les éléments de télémétrie associés. Par exemple, quand vous inspectez les données de télémétrie dans Search, vous pouvez trouver la demande liée à une exception spécifique. 
+Pour atteindre le volume cible, certaines des données de télémétrie générées sont ignorées. Toutefois, comme d’autres types d’échantillonnage, l’algorithme conserve les éléments de télémétrie associés. Par exemple, quand vous inspectez les données de télémétrie dans Search, vous pouvez trouver la demande liée à une exception spécifique.
 
 Les données de mesure telles que le taux de demandes et le taux d’exceptions sont ajustées pour compenser le taux d’échantillonnage, afin qu’elles affichent des valeurs approximativement correctes dans Metrics Explorer.
 
-### <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Configuration de l’échantillonnage adaptatif pour les Applications ASP.NET. ###
+## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Configuration de l’échantillonnage adaptatif pour les Applications ASP.NET
 
-[En savoir plus](../../azure-monitor/app/sampling.md#aspnet-core-sampling) sur la configuration de l’échantillonnage adaptatif pour les Applications ASP.NET Core. 
+[En savoir plus](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) sur la configuration de l’échantillonnage adaptatif pour les Applications ASP.NET Core. 
 
 Dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), vous pouvez ajuster plusieurs paramètres dans le nœud `AdaptiveSamplingTelemetryProcessor`. Les chiffres indiqués correspondent aux valeurs par défaut :
 
@@ -119,6 +102,7 @@ Dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-app
 **Pour désactiver** ADAPTATIF d’échantillonnage, de supprimer l’ou les nœuds AdaptiveSamplingTelemetryProcessor d’applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Solution alternative : configurer l’échantillonnage adaptatif dans le code
+
 Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, vous pouvez définir ces valeurs par programmation.
 
 1. Supprimez tout le `AdaptiveSamplingTelemetryProcessor` nœud (s) à partir du fichier .config.
@@ -133,12 +117,12 @@ Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, 
     using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
-        
+
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     // If you are on ApplicationInsights SDK v 2.8.0-beta2 or higher, use the following line instead
-    var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+    // var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
-    // Optional: here you can adjust the settings from their defaults.
+    // Enable AdaptiveSampling so as to keep overall telemetry volume to 5 items per second.
     builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5);
 
     // If you have other telemetry processors:
@@ -155,20 +139,20 @@ Vous pouvez également ajuster le taux d’échantillonnage pour chaque type de 
 *C#*
 
 ```csharp
-       // The following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
-       builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+    // The following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
+    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+```
+
+## <a name="configuring-adaptive-sampling-for-aspnet-core-applications"></a>Configuration de l’échantillonnage adaptatif pour les Applications ASP.NET Core.
+
+Il existe aucune `ApplicationInsights.Config` pour les Applications ASP.NET Core, par conséquent, chaque configuration est effectuée par le biais de code.
+L’échantillonnage adaptatif est activé par défaut pour toutes les applications ASP.NET Core. Vous pouvez désactiver ou personnaliser le comportement d’échantillonnage.
+
+### <a name="turning-off-adaptive-sampling"></a>Désactivation de l’échantillonnage adaptatif
+
+La fonctionnalité d’échantillonnage par défaut peut être désactivée lors de l’ajout du service Application Insights, dans la méthode ```ConfigureServices```, à l’aide ```ApplicationInsightsServiceOptions```:
+
 ```csharp
-
-## Adaptive Sampling in ASP.NET Core.
-
-There is no `ApplicationInsights.Config` for ASP.NET Core Applications, so every configuration is done via code.
-Adaptive sampling is enabled by default for all ASP.NET Core applications. You can disable or customize the sampling behavior.
-
-### Turning off Adaptive Sampling
-
-The default sampling feature can be disabled while adding Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
-
-``` c#
 public void ConfigureServices(IServiceCollection services)
 {
     // ...
@@ -189,7 +173,7 @@ Pour personnaliser le comportement de l’échantillonnage, utilisez des méthod
 > [!IMPORTANT]
 > Si vous utilisez cette méthode pour configurer l’échantillonnage, veillez à utiliser les paramètres aiOptions.EnableAdaptiveSampling = false; de AddApplicationInsightsTelemetry().
 
-``` c#
+```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
     var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
@@ -199,13 +183,15 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
     // Using adaptive sampling
-    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5);
 
     // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
     // builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
 
     builder.Build();
 
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
     // ...
 }
 
@@ -213,27 +199,27 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 **Si l’utilisation de la méthode ci-dessus pour configurer l’échantillonnage, veillez à utiliser ```aiOptions.EnableAdaptiveSampling = false;``` paramètres avec AddApplicationInsightsTelemetry().**
 
-## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-web-sites"></a>Échantillonnage à débit fixe pour les sites web ASP.NET, ASP.NET Core et Java
+## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>Échantillonnage à débit fixe pour les sites Web ASP.NET, ASP.NET Core et Java
+
 L’échantillonnage à débit fixe réduit le trafic envoyé depuis votre serveur web et les navigateurs web. À la différence de l’échantillonnage adaptatif, il réduit les données de télémétrie à un débit fixe choisi par vos soins. En outre, il synchronise l’échantillonnage client et serveur afin que les éléments associés soient conservés ; par exemple, quand vous examinez un affichage de page dans Recherche, vous pouvez trouver sa demande associée.
 
-L’algorithme d’échantillonnage conserve les éléments associés. Pour chaque événement de requête HTTP, la requête et ses événements associés sont ignorés ou transmis ensemble. 
+Comme les autres techniques d’échantillonnage, il conserve également les éléments associés. Pour chaque événement de requête HTTP, la requête et ses événements associés sont ignorés ou transmis ensemble.
 
 Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions sont multipliés par un facteur pour compenser le taux d’échantillonnage, afin qu’ils soient approximativement corrects.
 
-### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Configurer l’échantillonnage à débit fixe avec ASP.NET ###
+### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Configurer l’échantillonnage à débit fixe avec ASP.NET
 
 1. **Désactivez l’échantillonnage adaptatif** : dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), supprimez ou commentez le nœud `AdaptiveSamplingTelemetryProcessor`.
-   
+
     ```xml
-   
+
     <TelemetryProcessors>
-   
+
     <!-- Disabled adaptive sampling:
       <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
         <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
       </Add>
     -->
-
     ```
 
 2. **Activez le module d’échantillonnage à débit fixe.** Ajoutez cet extrait de code à [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md):
@@ -276,40 +262,40 @@ Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions
 ```
 ([En savoir plus sur les processeurs de télémétrie](../../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
-### <a name="configuring-fixed-rate-sampling-in-aspnet-core"></a>Configurer l’échantillonnage à taux fixe dans ASP.NET Core ###
+### <a name="configuring-fixed-rate-sampling-in-aspnet-core"></a>Configurer l’échantillonnage à taux fixe dans ASP.NET Core
 
 1. **Désactivez l’échantillonnage adaptatif** :  Modifications peuvent être apportées dans la méthode ```ConfigureServices```, à l’aide ```ApplicationInsightsServiceOptions```:
 
-    ``` c#
+    ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
     // ...
 
-    var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-    aiOptions.EnableAdaptiveSampling = false;
-    services.AddApplicationInsightsTelemetry(aiOptions);
+        var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+        aiOptions.EnableAdaptiveSampling = false;
+        services.AddApplicationInsightsTelemetry(aiOptions);
     //...
     }
     ```
 
 2. **Activez le module d’échantillonnage à débit fixe.** Modifications peuvent être apportées dans la méthode ```Configure``` comme illustré ci-dessous extrait de code :
-   
-    ``` c#
+
+    ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+        var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
 
-    var builder = configuration .TelemetryProcessorChainBuilder;
-    // version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
-    // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-        
-    // Using fixed rate sampling   
-    double fixedSamplingPercentage = 10;
-    builder.UseSampling(fixedSamplingPercentage);
+        var builder = configuration.TelemetryProcessorChainBuilder;
+        // version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+        // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
-    builder.Build();
+        // Using fixed rate sampling   
+        double fixedSamplingPercentage = 10;
+        builder.UseSampling(fixedSamplingPercentage);
 
-    // ...
+        builder.Build();
+
+        // ...
     }
 
     ```
@@ -352,6 +338,28 @@ Les types de données de télémétrie qui peuvent être inclus ou exclus de l�
 
 <a name="other-web-pages"></a>
 
+
+
+## <a name="ingestion-sampling"></a>échantillonnage d’ingestion
+
+Cette forme d’échantillonnage fonctionne au niveau où les données de télémétrie issues de votre serveur web, des navigateurs et des appareils atteignent le point de terminaison du service Application Insights. Bien qu’elle ne réduise pas le trafic des données de télémétrie envoyées à partir de votre application, elle réduit la quantité traitée et conservée (et facturée) par Application Insights.
+
+Utilisez ce type d’échantillonnage si votre application dépasse souvent son quota mensuel et que vous ne pouvez recourir à aucun type d’échantillonnage basé sur le Kit de développement logiciel (SDK). 
+
+Définissez le taux d’échantillonnage dans la page Utilisation et estimation des coûts :
+
+![Dans le panneau Vue d’ensemble de l’application, cliquez sur Paramètres, Quota + tarification, Échantillons conservés, sélectionnez un taux d’échantillonnage, puis cliquez sur Mettre à jour.](./media/sampling/04.png)
+
+Comme d’autres types d’échantillonnage, l’algorithme conserve les éléments de télémétrie associés. Par exemple, quand vous inspectez les données de télémétrie dans Search, vous pouvez trouver la demande liée à une exception spécifique. Les données de mesure telles que les taux de demandes et le taux d’exceptions sont correctement conservées.
+
+Les points de données ignorés par l’échantillonnage ne sont disponibles dans aucune fonctionnalité Application Insights, par exemple l’ [exportation continue](../../azure-monitor/app/export-telemetry.md).
+
+L’échantillonnage d’ingestion ne fonctionne pas pendant qu’une opération d’échantillonnage adaptatif ou taux fixe basé sur un Kit de développement logiciel (SDK) est en cours d’exécution. L’échantillonnage adaptatif est activé par défaut lorsque ASP.NET/ASP.NET Core SDK est activé dans Visual Studio ou activé dans les extensions d’application Web Azure ou à l’aide de Status Monitor, et l’échantillonnage d’ingestion est désactivé. Si le taux d’échantillonnage dans le Kit de développement est inférieure à 100 % (ex.) les éléments sont échantillonnées) alors le taux d’échantillonnage d’ingestion que vous définissez est ignoré.
+
+> [!WARNING]
+> La valeur affichée sur la vignette indique la valeur que vous définissez pour l’échantillonnage d’ingestion. Il ne représente pas le taux d’échantillonnage réel si l’échantillonnage du kit de développement logiciel (SDK) est effectué.
+>
+>
 ## <a name="sampling-for-web-pages-with-javascript"></a>Échantillonnage pour les pages web avec JavaScript
 Vous pouvez configurer des pages Web pour l’échantillonnage à débit fixe à partir de n’importe quel serveur. 
 
@@ -378,6 +386,7 @@ Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 10
 Si vous avez activé l’échantillonnage à débit fixe sur le serveur, les clients et le serveur se synchronisent de façon à ce que, dans Recherche, vous puissiez naviguer entre les demandes et les affichages de pages associés.
 
 ## <a name="when-to-use-sampling"></a>Quand utiliser l’échantillonnage ?
+
 Échantillonnage adaptatif est automatiquement activé dans les dernières .NET et les kits SDK .NET Core. Quelle que soit la version du SDK que vous utilisez, vous pouvez activer l’échantillonnage d’ingestion pour autoriser Application Insights à échantillonner les données collectées.
 
 Par défaut, aucun échantillonnage n’est activé dans le Kit SDK Java, qui ne gère à l’heure actuelle que l’échantillonnage à débit fixe. L’échantillonnage adaptatif n’est pas pris en charge dans le Kit SDK Java.
@@ -391,6 +400,7 @@ Les principaux avantages de l’échantillonnage sont les suivants :
 * Pour réduire le trafic réseau généré par la collecte de données de télémétrie. 
 
 ### <a name="which-type-of-sampling-should-i-use"></a>Quel type d’échantillonnage dois-je utiliser ?
+
 **Utiliser l’échantillonnage d’ingestion dans les situations suivantes :**
 
 * Vous dépassez souvent votre quota mensuel de données de télémétrie.
@@ -408,19 +418,22 @@ Les principaux avantages de l’échantillonnage sont les suivants :
 Si les conditions d’utilisation des autres formes d’échantillonnage ne s’appliquent pas, nous vous recommandons l’échantillonnage adaptatif. Ce paramètre est activé par défaut dans le Kit de développement logiciel ASP.NET/ASP.NET minimale. Elle ne réduit le trafic que si un débit minimal donné est atteint ; ainsi, les sites peu utilisés ne sont pas affectés.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Comment savoir si l’échantillonnage est utilisé ?
+
 Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endroit où il a été appliqué, utilisez une [requête Analytics](../../azure-monitor/app/analytics.md) telle que celle-ci :
 
 ```
-union * 
+union requests,dependencies,pageViews,browserTimings,exceptions,traces
 | where timestamp > ago(1d)
-| summarize 100/avg(itemCount) by bin(timestamp, 1h), itemType
-| render timechart 
+| summarize RetainedPercentage = 100/avg(itemCount) by bin(timestamp, 1h), itemType
 ```
 
-Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregistrements d’origine qu’il représente, soit 1 + le nombre d’enregistrements précédents ignorés. 
+Si RetainedPercentage pour n’importe quel type est inférieure à 100, cet élément est échantillonné.
+
+**Application Insights n’échantillonne pas de session, mesures et compteurs de performances des types de données de télémétrie dans n’importe quel techniques d’échantillonnage décrites ci-dessus. Ces types sont toujours exclus de l’échantillonnage comme la réduction de la précision peut être souhaitable pour ces types de données de télémétrie**
 
 ## <a name="how-does-sampling-work"></a>Comment fonctionne l’échantillonnage ?
-La fonctionnalité d’échantillonnage à débit fixe du Kit SDK ASP.NET à partir de la version 2.0.0 et du Kit SDK Java à partir de la version 2.0.1. L’échantillonnage adaptatif est une fonctionnalité du Kit SDK dans ASP.NET version 2.0.0 et ultérieures. L’échantillonnage d’ingestion est une fonctionnalité du service Application Insights et peut fonctionner si le Kit de développement logiciel (SDK) n’effectue pas d’échantillonnage. 
+
+La fonctionnalité d’échantillonnage à débit fixe du Kit SDK ASP.NET à partir de la version 2.0.0 et du Kit SDK Java à partir de la version 2.0.1. L’échantillonnage adaptatif est une fonctionnalité du Kit SDK dans ASP.NET version 2.0.0 et ultérieures. L’échantillonnage d’ingestion est une fonctionnalité du service Application Insights et peut fonctionner si le Kit de développement logiciel (SDK) n’effectue pas d’échantillonnage.
 
 L’algorithme d’échantillonnage sélectionne les éléments de télémétrie à supprimer et ceux à conserver (qu’ils se trouvent dans le Kit de développement logiciel ou le service Application Insights). La décision d’échantillonnage est fondée sur plusieurs règles visant à préserver l’intégrité de tous les points de données reliés entre eux, en conservant dans Application Insights une expérience de diagnostic qui demeure exploitable et fiable, même avec un jeu de données réduit. En cas d’échec d’une requête, par exemple, si votre application envoie d’autres éléments de télémétrie (tels que les exceptions et les traces enregistrées à partir de cette requête), l’échantillonnage ne fractionnera ni cette requête ni les autres éléments de télémétrie. Il les conservera ou supprimera ensemble. C’est pourquoi, lorsque vous examinez les détails de la requête dans Application Insights, la requête s’affichera toujours avec les éléments de télémétrie qui lui sont associés. 
 
@@ -435,9 +448,11 @@ La précision de l’approximation dépend en grande partie du pourcentage d’�
 > 
 
 ### <a name="adaptive-sampling"></a>échantillonnage adaptatif
+
 L’échantillonnage adaptatif ajoute un composant qui contrôle la vitesse de transmission actuelle à partir du Kit de développement logiciel (SDK) et ajuste le pourcentage d’échantillonnage afin de le maintenir en dessous du taux maximal cible. L’ajustement est recalculé à intervalles réguliers en fonction d’une moyenne mobile de la vitesse de transmission sortante.
 
 ## <a name="sampling-and-the-javascript-sdk"></a>Échantillonnage et kit de développement logiciel JavaScript
+
 Le kit de développement logiciel (SDK) côté client (JavaScript) participe à l’échantillonnage à taux fixe parallèlement au kit de développement logiciel (SDK) côté serveur. Les pages instrumentées envoient uniquement les données de télémétrie côté client provenant des utilisateurs que le SDK côté serveur a décidé d’échantillonner. Cette logique est conçue pour préserver l’intégrité de la session utilisateur côté client et côté serveur. En partant de n’importe quel élément de télémétrie dans Application Insights, vous retrouverez donc tous les autres éléments de télémétrie associés à l’utilisateur ou à la session en question. 
 
 *Mes données de télémétrie côté client et côté serveur n’affichent pas les échantillons coordonnés que vous décrivez ci-dessus.*
@@ -447,16 +462,30 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 * Vérifiez que vous définissez le même pourcentage d’échantillonnage dans le client et dans le serveur.
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
+
 *Qu’est le comportement d’échantillonnage par défaut dans ASP.NET et ASP.NET Core SDK ?*
 
-* Si vous utilisez l’une des dernières versions des kits SDK ci-dessus, l’échantillonnage adaptatif est activé par défaut avec cinq éléments de télémétrie par seconde.
-  Il existe 2 AdaptiveSamplingTelemetryProcessors ajoutées par défaut, un contient le type d’événement dans l’échantillonnage et l’autre exclut un type d’événement d’échantillonnage. Cette configuration signifie que le SDK tente de limiter les éléments de télémétrie à cinq éléments de télémétrie de types d’événements et les cinq éléments de télémétrie de tous les autres types.
-  Par conséquent s’assurer que les événements sont échantillonnées séparément des autres types de données de télémétrie. Les événements sont généralement utilisés pour la télémétrie métier et ne doivent probablement pas être affectées par les volumes de télémétrie de diagnostic.
-  Pour modifier ce comportement par défaut, utilisez les exemples dans la section précédente du document.
+* Si vous utilisez l’une des dernières versions du kit SDK ci-dessus, l’échantillonnage adaptatif est activé par défaut avec cinq éléments de télémétrie par seconde.
+  Il existe 2 AdaptiveSamplingTelemetryProcessors ajoutées par défaut, un contient le type d’événement dans l’échantillonnage et l’autre exclut un type d’événement d’échantillonnage. Cette configuration signifie que le SDK tente de limiter les éléments de télémétrie à cinq éléments de télémétrie de types d’événements et les cinq éléments de télémétrie de tous les autres types combinées, ce qui garantit que les événements sont échantillonnées séparément des autres types de données de télémétrie. Les événements sont généralement utilisés pour la télémétrie métier et ne doivent probablement pas être affectées par les volumes de télémétrie de diagnostic.
+  
+  Voici le fichier ApplicationInsights.Config par défaut généré. Comme décrit, il existe deux nœuds AdaptiveSamplingTelemetryProcessor distincts ont été ajoutés, un à l’exclusion de types d’événements et l’autre son inclusion. Dans ASP.NET Core, exacte même comportement par défaut est activée dans le code. Pour modifier ce comportement par défaut, utilisez les exemples dans la section précédente du document.
+
+    ```xml
+    <TelemetryProcessors>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <ExcludedTypes>Event</ExcludedTypes>
+        </Add>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <IncludedTypes>Event</IncludedTypes>
+        </Add>
+    </TelemetryProcessors>
+    ```
 
 *Données de télémétrie peuvent être échantillonnées plusieurs fois ?*
 
-*  Non. SamplingTelemetryProcessors ignorer les éléments d’échantillonnage des considérations si l’élément est a déjà été échantillonnée. Vaut également pour l’échantillonnage d’Ingestion en tant que, qui ne s’appliquent pas d’échantillonnage à ces éléments déjà échantillonnage dans le Kit de développement. »
+* Non. SamplingTelemetryProcessors ignorer les éléments d’échantillonnage des considérations si l’élément est a déjà été échantillonnée. Vaut également pour l’échantillonnage d’Ingestion en tant que, qui ne s’appliquent pas d’échantillonnage à ces éléments échantillonnés déjà dans le Kit de développement. »
 
 *Pourquoi l’échantillonnage ne permet-il pas simplement de « collecter X % de chaque type de télémétrie » ?*
 
@@ -491,4 +520,5 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 * Initialisez une instance distincte de TelemetryClient avec une nouvelle instance TelemetryConfiguration (et non la valeur Active par défaut). Utilisez cette instance pour envoyer vos événements rares.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [filtrage](../../azure-monitor/app/api-filtering-sampling.md) peut fournir un contrôle plus strict de ce que le Kit de développement logiciel (SDK) envoie.

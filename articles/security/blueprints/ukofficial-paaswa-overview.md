@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301789"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891101"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de sécurité et de conformité Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
 
@@ -21,7 +21,7 @@ ms.locfileid: "56301789"
 
 Les blueprints Azure sont constitués de documents de conseils et de modèles d’automatisation qui déploient des architectures cloud pour offrir des solutions à des scénarios ayant des spécifications particulières en matière d’accréditation ou de conformité. Les blueprints Azure sont des collections de conseils et de modèles d’automatisation qui permettent aux clients de Microsoft Azure d’accélérer la mise en œuvre de leurs objectifs métier via une architecture de base, qui peut être étendue pour répondre à toute spécification supplémentaire.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Ce blueprint sur la sécurité et la conformité d’Azure fournit des conseils et des scripts d’automatisation pour mettre en œuvre une architecture d’applications web hébergées sur une [plateforme PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) Microsoft Azure permettant de gérer des charges de travail classifiées [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Cette classification de sécurité englobe la plupart des informations créées ou traitées par le secteur public. Ceci inclut des opérations et des services métier de routine qui, s’ils étaient perdus, volés ou publiés dans les médias, pourraient pour certains avoir des conséquences néfastes. Le profil typique des menaces pour la classification « OFFICIAL » est très similaires à celui d’une entreprise privée qui fournit des informations et des services ayant une certaine valeur. « UK OFFICIAL » anticipe sur la nécessité de défendre les données ou les services du secteur public du Royaume-Uni contre les menaces ou les compromissions par des attaquants avec des moyens et des ressources limités, comme (mais non limités à) des hactivistes, des groupes de pression pour un problème spécifique, des journalistes d’investigation, des hackers individuels compétents, et la majorité des personnes et des groupes commettant des délits.
 
@@ -57,9 +57,8 @@ Cette solution utilise les services Azure suivants. Les détails de l’architec
 - Application API
 - Azure DNS
 - Key Vault
-- Azure Monitor
+- Azure Monitor (journaux)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
@@ -169,11 +168,11 @@ Vous pouvez trouver des informations détaillées sur la sécurisation de Stocka
 
 ### <a name="monitoring-logging-and-audit"></a>Surveillance, journalisation et audit
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) est un service d’Azure qui vous permet de collecter et d’analyser les données générées par les ressources de votre cloud et de vos environnements locaux.
+[Journaux d’analyse Azure](https://azure.microsoft.com/services/log-analytics/) est un service dans Azure qui vous permet de collecter et analyser les données générées par les ressources de votre cloud et les environnements locaux.
 
-#### <a name="log-analytics-in-this-blueprint"></a>Log Analytics dans ce blueprint
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Journaux d’analyse Azure dans cette solution blueprint
 
 - SQL Assessment
 - Diagnostics Key Vault
@@ -220,7 +219,7 @@ En outre, le CSA (Cloud Security Alliance) a publié une matrice de contrôle cl
 
 Ce blueprint ont été revu par le NCSC (National Cyber Security Centre) du Royaume-Uni et s’aligne sur les 14 principes de sécurité cloud du NCSC.
 
-Les modèles d’automatisation ont été testés par l’équipe « UK Customer Success Unit Azure Cloud Solution Architect » et par notre partenaire Microsoft, [Ampliphae](http://www.ampliphae.com/).
+Les modèles d’automatisation ont été testés par l’équipe « UK Customer Success Unit Azure Cloud Solution Architect » et par notre partenaire Microsoft, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>Déployer la solution

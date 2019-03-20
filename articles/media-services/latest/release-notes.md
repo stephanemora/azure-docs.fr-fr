@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343993"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877358"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -180,9 +180,9 @@ Si vous avez créé des filtres d’éléments multimédias ou de comptes entre 
 
 ## <a name="may-2018---preview"></a>Mai 2018 - Préversion
 
-### <a name="net-sdk"></a>Kit de développement logiciel (SDK) .Net
+### <a name="net-sdk"></a>Kit de développement logiciel (SDK) .NET
 
-Les fonctionnalités suivantes sont présentes dans le Kit de développement logiciel (SDK) .Net :
+Les fonctionnalités suivantes sont présentes dans le kit SDK .NET :
 
 * **Transformations** et **Travaux** pour encoder ou analyser le contenu du média. Pour obtenir des exemples, consultez [Diffuser des fichiers](stream-files-tutorial-with-api.md) et [Analyser](analyze-videos-tutorial-with-api.md).
 * **StreamingLocators** pour la publication et la diffusion en continu de contenu sur les appareils de l’utilisateur final

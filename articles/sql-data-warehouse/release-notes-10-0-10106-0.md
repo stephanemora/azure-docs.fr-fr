@@ -10,12 +10,12 @@ author: mlee3gsd
 ms.author: anumjs
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 2de7c335e56117f2a99db5150575ed94616467e9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0b0d302dcd86f18eef6bf7600dd93878d0d9bd99
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455583"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902686"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
 Cet article résume les nouvelles fonctionnalités et améliorations des versions récentes d'[Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). Il répertorie également les mises à jour de contenu importantes qui ne sont pas directement associées à la version, mais qui ont été publiées en même temps. Pour connaître les améliorations apportées aux autres services Azure, consultez [Mises à jour des services](https://azure.microsoft.com/updates)
@@ -44,7 +44,7 @@ Cet article résume les nouvelles fonctionnalités et améliorations des version
 - [Blog – Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Blogs de l’équipe de conseil clientèle](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
 - [Témoignages de clients](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
-- [Forum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)
 - [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Glossaire Azure](../azure-glossary-cloud-terminology.md)

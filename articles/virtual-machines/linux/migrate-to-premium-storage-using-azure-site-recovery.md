@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 3a4304301b99369426aa985508d6cabd26ba2c9f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992028"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -65,7 +65,7 @@ Voici les prérequis Azure pour ce scénario de migration :
 * Un réseau virtuel Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la même région que celle dans laquelle s’exécute Site Recovery.
 * Un compte de stockage Azure standard pour stocker les journaux de réplication. Il peut s'agir du même compte de stockage que celui des disques de machine virtuelle en cours de migration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Identifiez les composants de scénario de migration pertinents de la section précédente.
 * Planifiez votre temps d’arrêt en vous familiarisant avec le [basculement dans Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -83,7 +83,7 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 ### <a name="step-2-choose-your-protection-goals"></a>Étape 2 : Sélectionner vos objectifs en matière de protection 
 
 1. Sur la machine virtuelle sur laquelle vous souhaitez installer le serveur de configuration, ouvrez le [portail Azure](https://portal.azure.com).
-2. Accédez à **Coffres Recovery Services** > **Paramètres** > **Site Recovery** > **Étape 1 : préparer l’infrastructure**** > Objectif de protection**.
+2. Accédez à **Coffres Recovery Services** > **Paramètres** > **Site Recovery** > **Étape 1 : préparer l’infrastructure** > **Objectif de protection**.
 
    ![Accès au volet Objectif de protection][2]
 
@@ -214,7 +214,7 @@ Pour des scénarios propres à la migration de machines virtuelles, consultez le
 
 * [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Télécharger un disque dur virtuel Linux](upload-vhd.md)
-* [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consultez également les ressources suivantes pour en savoir plus sur Azure Storage et les machines virtuelles Azure :
 
