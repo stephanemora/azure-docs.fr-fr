@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: batch
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5f0358bf58e61632fdeef8363d24b39c2cf2ebf0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 10d8683724622f164299016a801e1960e0a868c7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811424"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770040"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gérer les ressources Batch avec les applets de commande PowerShell
 
@@ -30,7 +30,7 @@ Pour obtenir une liste complète des applets de commande Batch et la syntaxe dé
 
 Cet article est basé sur les applets de commande du module Az Batch 1.0.0. Nous vous recommandons de mettre à jour vos modules Azure PowerShell fréquemment pour tirer parti des améliorations et des mises à jour de service.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * [Installez and configurez le module Azure PowerShell](/powershell/azure/overview). Pour installer un module Azure Batch spécifique, comme un module en pré-mise en production, consultez [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 

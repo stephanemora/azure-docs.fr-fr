@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2019
 ms.author: monhaber
-ms.openlocfilehash: d92d9c444985989cdec3e94840ff21f4a79fe3ad
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104922"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088993"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Contrôles d’application adaptative dans Azure Security Center
 Découvrez comment configurer le contrôle d’application dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -60,33 +60,33 @@ La section **Groupes de machines virtuelles** contient trois onglets :
 ### <a name="configure-a-new-application-control-policy"></a>Configurer une nouvelle stratégie de contrôle des applications
 1. Cliquez sur l’onglet **Recommandé** pour obtenir une liste des groupes disposant de recommandations de contrôle d’applications :
 
-  ![Recommandé](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Recommandé](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-  Cette liste comprend les éléments suivants :
+   Cette liste comprend les éléments suivants :
 
-  - **NOM** : nom de l’abonnement et du groupe
-  - **MACHINES VIRTUELLES** : nombre de machines virtuelles dans le groupe
-  - **ÉTAT** : état de la recommandation
-  - **GRAVITÉ** : le niveau de gravité des recommandations
+   - **NOM** : nom de l’abonnement et du groupe
+   - **MACHINES VIRTUELLES** : nombre de machines virtuelles dans le groupe
+   - **ÉTAT** : état de la recommandation
+   - **GRAVITÉ** : le niveau de gravité des recommandations
 
 2. Cliquez sur un groupe pour ouvrir l’option **Créer des règles de contrôle d’applications**.
 
-  ![Règles de contrôle d’application](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   ![Règles de contrôle d’application](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
 3. Dans **Sélectionner les machines virtuelles**, examinez la liste des machines virtuelles recommandées et décochez celles pour lesquelles vous ne souhaitez pas appliquer de stratégie de mise en liste verte d’application. Ensuite, deux listes sont affichées :
 
-  - **Applications recommandées** : liste des applications fréquentes sur les machines virtuelles de ce groupe et donc recommandées pour recevoir l’autorisation d’exécution.
-  - **Plus d’applications** : liste des applications qui sont moins fréquentes sur les machines virtuelles de ce groupe, ou qui sont appelées Exploitables (voir ci-dessous) et recommandées pour un examen.
+   - **Applications recommandées** : liste des applications fréquentes sur les machines virtuelles de ce groupe et donc recommandées pour recevoir l’autorisation d’exécution.
+   - **Plus d’applications** : liste des applications qui sont moins fréquentes sur les machines virtuelles de ce groupe, ou qui sont appelées Exploitables (voir ci-dessous) et recommandées pour un examen.
 
 4. Examinez les applications dans chacune des listes, et décochez celles auxquelles vous ne souhaitez pas appliquer les règles. Chaque liste comprend les éléments suivants :
 
-  - **NOM** : informations de certificat ou chemin d’accès complet de l’application
-  - **TYPES DE FICHIERS** : type du fichier d’application. Cela peut être EXE, Script, MSI, ou toute autre permutation de ces types.
-  - **EXPLOITABLE** : une icône d’avertissement indique si une application spécifique peut être utilisée par un attaquant pour ignorer une solution de mise en liste verte des applications. Nous vous recommandons de vérifier ces applications avant de les valider.
-  - **UTILISATEURS** : utilisateurs recommandés pour recevoir l’autorisation d’exécution d’une application
+   - **NOM** : informations de certificat ou chemin d’accès complet de l’application
+   - **TYPES DE FICHIERS** : type du fichier d’application. Cela peut être EXE, Script, MSI, ou toute autre permutation de ces types.
+   - **EXPLOITABLE** : une icône d’avertissement indique si une application spécifique peut être utilisée par un attaquant pour ignorer une solution de mise en liste verte des applications. Nous vous recommandons de vérifier ces applications avant de les valider.
+   - **UTILISATEURS** : utilisateurs recommandés pour recevoir l’autorisation d’exécution d’une application
 
 5. Une fois que vous avez terminé vos sélections, sélectionnez **Créer**. <br>
-Une fois que vous avez sélectionné Créer, Azure Security Center crée automatiquement les règles appropriées sur la solution de mise en liste verte des applications intégrées disponible sur les serveurs Windows (AppLocker).
+   Une fois que vous avez sélectionné Créer, Azure Security Center crée automatiquement les règles appropriées sur la solution de mise en liste verte des applications intégrées disponible sur les serveurs Windows (AppLocker).
 
 > [!NOTE]
 > - Security Center se base sur l’équivalent de deux semaines de données au minimum pour établir une ligne de base et remplir les recommandations uniques par groupe de machines virtuelles. Les nouveaux clients du niveau Standard de Security Center peuvent s’attendre à un comportement dans lequel leurs groupes de machines virtuelles apparaîtront d’abord sous l’onglet *Aucune recommandation*.
@@ -98,23 +98,23 @@ Une fois que vous avez sélectionné Créer, Azure Security Center crée automat
 
 1. Pour modifier et surveiller un groupe configuré avec une stratégie de mise en liste verte des applications, revenez à la page **Contrôles d’applications adaptatifs** et sélectionnez **CONFIGURÉ** sous **Groupes de machines virtuelles** :
 
-  ![Groupes](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+   ![Groupes](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-  Cette liste comprend les éléments suivants :
+   Cette liste comprend les éléments suivants :
 
-  - **Nom** : nom de l’abonnement et du groupe
-  - **MACHINES VIRTUELLES** : nombre de machines virtuelles dans le groupe
-  - **Mode** : le mode Audit enregistre les tentatives d’exécution des applications hors liste verte, et le mode Bloquer interdit l’exécution de ces applications
-  - **Alertes** : toutes les violations en cours
+   - **Nom** : nom de l’abonnement et du groupe
+   - **MACHINES VIRTUELLES** : nombre de machines virtuelles dans le groupe
+   - **Mode** : le mode Audit enregistre les tentatives d’exécution des applications hors liste verte, et le mode Bloquer interdit l’exécution de ces applications
+   - **Alertes** : toutes les violations en cours
 
 2. Cliquez sur un groupe pour apporter des modifications à la page **Modifier la stratégie de contrôle d’application**.
 
-  ![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. Dans **Mode de Protection**, vous pouvez sélectionner une des options suivantes :
 
-  - **Audit** : dans ce mode, la solution de contrôle d’application n’applique pas les règles et effectue uniquement les audits de l’activité des machines virtuelles protégées. Ce mode est recommandé pour les scénarios dont vous souhaitez tout d’abord observer le comportement global avant de bloquer l’exécution d’une application dans la machine virtuelle cible.
-  - **Appliquer** : dans ce mode, la solution de contrôle d’application applique les règles, puis s’assure que les applications n’ayant pas d’autorisation soient bloquées.
+   - **Audit** : dans ce mode, la solution de contrôle d’application n’applique pas les règles et effectue uniquement les audits de l’activité des machines virtuelles protégées. Ce mode est recommandé pour les scénarios dont vous souhaitez tout d’abord observer le comportement global avant de bloquer l’exécution d’une application dans la machine virtuelle cible.
+   - **Appliquer** : dans ce mode, la solution de contrôle d’application applique les règles, puis s’assure que les applications n’ayant pas d’autorisation soient bloquées.
 
    > [!NOTE]
    > -  Le mode de protection **Appliquer** est désactivé jusqu’à nouvel ordre.
@@ -124,14 +124,14 @@ Une fois que vous avez sélectionné Créer, Azure Security Center crée automat
 4. Dans **Extension de stratégie**, ajoutez tout chemin d’application que vous souhaitez autoriser. Une fois ces chemins d'accès ajoutés, Security Center met à jour la stratégie de mise en liste verte des applications sur les machines virtuelles du groupe sélectionné et crée les règles appropriées pour ces applications, en plus des règles déjà en place.
 
 5. Passez en revue les violations en cours répertoriées dans la section **Alertes récentes**. Cliquez sur chaque ligne pour être redirigé vers la page **Alertes** dans Azure Security Center et afficher toutes les alertes qui ont été détectées par Azure Security Center sur les machines virtuelles associées.
-  - **Alertes** : toutes les violations enregistrées.
-  - **Nombre de machines virtuelles** : le nombre de machines virtuelles avec ce type d’alerte.
+   - **Alertes** : toutes les violations enregistrées.
+   - **Nombre de machines virtuelles** : le nombre de machines virtuelles avec ce type d’alerte.
 
 6. Sous **Règles de mise en liste verte de l’éditeur**, **Règles de mise en liste verte des chemins d’accès**, et **Règles de mise en liste verte de hachage**, vous pouvez voir les règles de mise en liste verte des applications actuellement configurées sur les machines virtuelles au sein d’un groupe, en fonction du type de regroupement de règles. Pour chaque règle, vous pouvez découvrir :
 
-  - **Règle** : paramètres spécifiques en fonction desquels une application est examinée par AppLocker pour déterminer si une application est autorisée à s’exécuter.
-  - **Type de fichier** : types de fichiers couverts par une règle spécifique. Il peut s’agir d’un des éléments suivants : EXE, Script, MSI ou toute autre permutation de ces types de fichiers.
-  - **Utilisateurs** : nom ou nombre d’utilisateurs autorisés à exécuter une application couverte par une règle de mise en liste verte des applications.
+   - **Règle** : paramètres spécifiques en fonction desquels une application est examinée par AppLocker pour déterminer si une application est autorisée à s’exécuter.
+   - **Type de fichier** : types de fichiers couverts par une règle spécifique. Il peut s’agir d’un des éléments suivants : EXE, Script, MSI ou toute autre permutation de ces types de fichiers.
+   - **Utilisateurs** : nom ou nombre d’utilisateurs autorisés à exécuter une application couverte par une règle de mise en liste verte des applications.
 
    ![Règles de mise en liste verte](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

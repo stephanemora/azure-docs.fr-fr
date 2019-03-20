@@ -7,19 +7,19 @@ author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
+ms.service: api-management
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421587"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765796"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Charger un certificat de gestion de service Azure
 Les certificats de gestion vous permettent de vous authentifier dans le modèle de déploiement classique fourni par Azure. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. 
@@ -33,7 +33,7 @@ Si vous souhaitez plus d’informations sur les certificats Azure (y compris sur
 
 Vous pouvez également utiliser [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour authentifier le code client à des fins d’automatisation.
 
-**Remarque :** vous devez être un coadministrateur de l’abonnement pour effectuer des opérations dans le volet Certificats de gestion. [Découvrez](https://go.microsoft.com/fwlink/?linkid=849300) comment ajouter ou supprimer des coadministrateurs du nouveau portail Azure 
+**Remarque :** Vous devez être un coadministrateur sur l’abonnement pour effectuer des opérations sous certificats de gestion. [Découvrez](https://go.microsoft.com/fwlink/?linkid=849300) comment ajouter ou supprimer des coadministrateurs du nouveau portail Azure 
 
 ## <a name="upload-a-management-certificate"></a>Charger un certificat de gestion
 Une fois le certificat de gestion créé (fichier .cer contenant uniquement la clé publique), vous pouvez charger ce dernier sur le portail. Quand le certificat est disponible sur le portail, toute personne disposant d’un certificat adéquat (clé privée) peut se connecter par le biais de l’API de gestion et accéder aux ressources de l’abonnement associé.

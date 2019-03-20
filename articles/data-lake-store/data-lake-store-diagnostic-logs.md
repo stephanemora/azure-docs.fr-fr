@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966073"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959576"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accès aux journaux de diagnostic d’Azure Data Lake Storage Gen1
 Découvrez comment activer la journalisation des diagnostics pour votre compte Azure Data Lake Storage Gen1 et comment afficher les journaux collectés pour votre compte.
 
 Les organisations peuvent activer la journalisation de diagnostic pour leur compte Azure Data Lake Storage Gen1 afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations telles que la liste des utilisateurs qui accèdent aux données, la fréquence à laquelle les données sont consultées, la quantité de données stockée sur le compte, etc. Quand cette fonctionnalité est activée, les diagnostics et/ou les demandes sont enregistrés sur la base du meilleur effort. Les entrées de journal des demandes et des diagnostics sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Compte Azure Data Lake Storage Gen1**. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md).
 
@@ -46,7 +46,7 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
         
         * Sélectionnez l’option **Stream to an event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Vous allez probablement utiliser cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
-        * Sélectionnez l’option **Send to Log Analytics (Envoyer à Log Analytics)** pour analyser les données de journal générées, à l’aide du service Azure Log Analytics. Si vous sélectionnez cette option, vous devez fournir des informations détaillées concernant l’espace de travail Log Analytics que vous allez utiliser pour analyser le journal. Pour plus d’informations sur l’utilisation de Log Analytics, consultez [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics](../azure-monitor/learn/tutorial-viewdata.md).
+        * Sélectionnez l’option **envoyer à Log Analytique** à utiliser le service Azure Monitor pour analyser les données de journal généré. Si vous sélectionnez cette option, vous devez fournir des informations détaillées concernant l’espace de travail Log Analytics que vous allez utiliser pour analyser le journal. Consultez [afficher ou analyser les données collectées avec la recherche de journaux Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) pour plus d’informations sur l’utilisation d’Azure Monitor enregistre.
      
    * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.
    * Spécifiez le nombre de jours pendant lesquels les données doivent être conservées. La rétention ne s’applique que si vous utilisez un compte de stockage Azure pour archiver les données du journal.
@@ -113,7 +113,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
     }
 
 #### <a name="request-log-schema"></a>Schéma du journal de requête
-| NOM | type | Description |
+| Nom | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
 | ResourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
@@ -126,7 +126,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 | properties |JSON |Voir les détails ci-dessous. |
 
 #### <a name="request-log-properties-schema"></a>Schéma des propriétés de journal de demande
-| NOM | type | Description |
+| Nom | type | Description |
 | --- | --- | --- |
 | HttpMethod |Chaîne |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
 | path |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
@@ -160,7 +160,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
     }
 
 #### <a name="audit-log-schema"></a>Schéma du journal d’audit
-| NOM | type | Description |
+| Nom | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
 | ResourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
@@ -173,12 +173,12 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 | properties |JSON |Voir les détails ci-dessous. |
 
 #### <a name="audit-log-properties-schema"></a>Schéma des propriétés de journal d’audit
-| NOM | type | Description |
+| Nom | type | Description |
 | --- | --- | --- |
 | StreamName |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemples de traitement des données de journal
-Quand vous envoyez des journaux depuis Azure Data Lake Storage Gen1 vers Azure Log Analytics (voir [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) pour plus d’informations sur l’utilisation de Log Analytics), la requête suivante retourne une table contenant une liste de noms d’affichage d’utilisateurs, l’heure des événements et le nombre d’événements par heure d’événement, ainsi qu’un graphique. Vous pouvez facilement la modifier pour afficher le GUID de l’utilisateur ou d’autres attributs :
+Lors de l’envoi de journaux à partir d’Azure Data Lake Storage Gen1 aux journaux d’Azure Monitor (consultez [afficher ou analyser les données collectées avec la recherche de journaux Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) pour plus d’informations sur l’utilisation d’Azure Monitor enregistre), la requête suivante retourne une table qui contient un liste des utilisateurs affichent des noms, l’heure des événements et le nombre d’événements pour l’heure de l’événement, ainsi que d’un graphique. Vous pouvez facilement la modifier pour afficher le GUID de l’utilisateur ou d’autres attributs :
 
 ```
 search *

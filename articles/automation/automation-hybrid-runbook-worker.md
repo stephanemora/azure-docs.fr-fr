@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852915"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
 
@@ -36,7 +36,7 @@ Il existe deux méthodes pour installer et configurer un Runbook Worker hybride 
 
 |SE  |Types de déploiement  |
 |---------|---------|
-| Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuel](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuel](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Vous pouvez supprimer un ou plusieurs Runbooks Workers hybrides d’un groupe, o
 1. Dans le portail Azure, accédez à votre compte Automation.
 2. Sous **Paramètres du compte**, sélectionnez **Clés**, puis notez les valeurs des champs **URL** et **Clé d’accès primaire**. Vous aurez besoin de ces informations dans l’étape suivante.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Ouvrez une session PowerShell en mode administrateur et exécutez la commande suivante. Utilisez le commutateur **-Verbose** pour afficher un journal détaillé du processus de suppression.
 
@@ -97,9 +97,11 @@ Pour supprimer un groupe, vous devez tout d’abord supprimer les Runbooks Worke
 
 ### <a name="hybrid-worker-role"></a>Worker hybride
 
-Pour que le Runbook Worker hybride se connecte à Log Analytics et y soit inscrit, il doit avoir accès au numéro de port et aux URL décrits dans cette section. Cet accès se situe au-dessus des [ports et URL nécessaires pour que Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) puisse se connecter à Log Analytics.
+Pour le Runbook Worker hybride pour se connecter à inscrire avec les journaux d’Azure Monitor, il doit avoir accès pour le numéro de port et les URL qui sont décrites dans cette section. Cet accès est en haut pour la [ports et URL requis pour Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) pour se connecter aux journaux d’Azure Monitor.
 
-Si vous utilisez un serveur proxy pour la communication entre l’agent et le service Log Analytics, assurez-vous que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès. Si vous utilisez la passerelle Log Analytics en tant que proxy, vérifiez qu’elle est configurée pour les workers hybrides. Pour obtenir des instructions à ce sujet, consultez [Configuration de la passerelle Log Analytics pour les Workers hybrides Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Si vous utilisez un serveur proxy pour la communication entre l’agent et le service Azure Monitor, assurez-vous que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès. Si vous utilisez la passerelle Log Analytics en tant que proxy, vérifiez qu’elle est configurée pour les workers hybrides. Pour obtenir des instructions à ce sujet, consultez [Configuration de la passerelle Log Analytics pour les Workers hybrides Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 Les port et URL suivants sont requis pour que le rôle Runbook Worker hybride communique avec Automation :
 
@@ -147,11 +149,8 @@ En plus des adresses et ports standard exigés par le Runbook Worker hybride, le
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
-## <a name="troubleshoot"></a>Résolution des problèmes
-
-Pour savoir comment résoudre les problèmes de vos Runbooks Workers hybrides, consultez [Résolution des problèmes relatifs aux Runbooks Workers hybrides](troubleshoot/hybrid-runbook-worker.md#general).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour apprendre à configurer vos Runbooks afin d’automatiser les processus dans votre centre de données local ou un autre environnement cloud, consultez la rubrique [Exécuter des Runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md).
+* Pour apprendre à configurer vos Runbooks afin d’automatiser les processus dans votre centre de données local ou un autre environnement cloud, consultez la rubrique [Exécuter des Runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md).
+* Pour savoir comment résoudre les problèmes de vos Runbooks Workers hybrides, consultez [Résolution des problèmes relatifs aux Runbooks Workers hybrides](troubleshoot/hybrid-runbook-worker.md#general).
 

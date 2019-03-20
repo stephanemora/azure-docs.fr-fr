@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455991"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537760"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -88,7 +88,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Afficher les journaux collectés
 
-L’activation et l’affichage des journaux de diagnostic dans l’espace de travail Log Analytics peuvent nécessiter quelques minutes. Dans le Portail Azure, sélectionnez le groupe de ressources de votre espace de travail Log Analytics, tel que *myResourceGroup*, puis choisissez votre ressource Log Analytics, par exemple *myAKSLogs*.
+L’activation et l’affichage des journaux de diagnostic dans l’espace de travail Log Analytics peuvent nécessiter quelques minutes. Dans le portail Azure, sélectionnez le groupe de ressources pour votre espace de travail Analytique de journal, tel que *myResourceGroup*, puis choisissez votre ressource d’analytique de journal, tel que *myAKSLogs*.
 
 ![Sélection de l’espace de travail Log Analytics pour votre cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 

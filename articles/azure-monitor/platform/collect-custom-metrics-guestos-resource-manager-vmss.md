@@ -4,18 +4,20 @@ description: Envoyer des métriques de système d’exploitation invité vers le
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895939"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760220"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour un groupe de machines virtuelles identiques Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 En utilisant l’[extension Windows Azure Diagnostics (WAD)](diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux à partir du système d’exploitation invité (SE invité) qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Azure Service Fabric. L’extension peut envoyer des données de télémétrie vers de nombreux emplacements différents répertoriés dans l’article précédemment lié.  
 
@@ -23,11 +25,11 @@ Cet article décrit le processus pour envoyer les métriques de performance du S
 
 Si vous découvrez les modèles Resource Manager, obtenez plus d’informations sur les [déploiements de modèle](../../azure-resource-manager/resource-group-overview.md), leur structure et leur syntaxe.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Vous devez avoir installé [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1), ou vous pouvez utiliser [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Vous devez avoir installé [Azure PowerShell](/powershell/azure), ou vous pouvez utiliser [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurer Azure Monitor en tant que récepteur de données 
@@ -236,17 +238,17 @@ Enregistrez et fermez les deux fichiers.
 Pour déployer le modèle Resource Manager, utilisez Azure PowerShell :  
 
 1. Lancez PowerShell. 
-1. Connectez-vous au portail Azure à l’aide de `Login-AzureRmAccount`.
-1. Obtenez la liste de vos abonnements à l’aide de `Get-AzureRmSubscription`.
+1. Connectez-vous au portail Azure à l’aide de `Login-AzAccount`.
+1. Obtenez la liste de vos abonnements à l’aide de `Get-AzSubscription`.
 1. Définissez l’abonnement que vous allez créer ou mettez à jour la machine virtuelle : 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Créez un nouveau groupe de ressources pour la machine virtuelle déployée. Exécutez la commande suivante : 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ Pour déployer le modèle Resource Manager, utilisez Azure PowerShell :
    > Si vous souhaitez mettre à jour un groupe identique existant, ajoutez **-Mode Incremental** à la fin de la commande. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. Lorsque votre déploiement a réussi, le groupe de machines virtuelles identiques doit figurer dans le portail Azure. De plus, il doit émettre des métriques vers Azure Monitor. 

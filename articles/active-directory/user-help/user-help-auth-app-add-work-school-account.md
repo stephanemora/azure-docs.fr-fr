@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453543"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960608"
 ---
 # <a name="add-your-work-or-school-account"></a>Ajout de votre compte professionnel ou scolaire
 Si votre organisation utilise la vérification en deux étapes, vous pouvez configurer votre compte professionnel ou scolaire pour utiliser l’application Microsoft Authenticator comme l’une des méthodes de vérification.
@@ -30,7 +30,7 @@ Si votre organisation utilise la vérification en deux étapes, vous pouvez conf
 1. Sur votre ordinateur, accédez à la page [Vérification de sécurité supplémentaire](https://aka.ms/mfasetup).
 
     >[!Note]
-    >Si la page **Vérification de sécurité supplémentaire** n’est pas affichée, il se peut que votre administrateur ait activé l’expérience des informations de sécurité (préversion). Si tel est le cas, vous devez suivre les instructions de la section [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md). Si ce n’est pas le cas, vous devez contacter le support technique de votre organisation pour obtenir de l’aide. Pour plus d’informations sur les informations de sécurité, consultez [Gérer vos informations de sécurité](security-info-manage-settings.md).
+    >Si la page **Vérification de sécurité supplémentaire** n’est pas affichée, il se peut que votre administrateur ait activé l’expérience des informations de sécurité (préversion). Si tel est le cas, vous devez suivre les instructions de la section [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md). Si ce n’est pas le cas, vous devez contacter le support technique de votre organisation pour obtenir de l’aide. Pour plus d’informations sur les informations de sécurité, consultez [vue d’ensemble des informations (version préliminaire) de sécurité](user-help-security-info-overview.md).
 
 2. Cochez la case **Application d’authentification**, puis sélectionnez **Configurer**.
 

@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cc85f7eba2aefd08192c4e3f4e5151e7645238
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269108"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535040"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect : Principes de conception
 L’objectif de ce document est de décrire les principes qui doivent présider à la conception de l’implémentation d’Azure AD Connect. Il s’agit d’une exploration approfondie de certains aspects. Ces concepts sont également décrits brièvement dans d’autres documents.
@@ -157,7 +157,7 @@ Pendant l’analyse (étape 4), si l’attribut est configuré sur un ou plusieu
 
 ![Activer ConsistencyGuid pour un déploiement existant - Erreur](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- Si vous êtes certain que l’attribut n’est pas utilisé par d’autres applications existantes, vous pouvez éviter cette erreur en redémarrant l’Assistant Azure AD Connect avec le **/SkipLdapSearchcontact** spécifié. Pour cela, exécutez la commande suivante dans l’invite de commandes :
+ Si vous êtes certain que l’attribut n’est pas utilisé par d’autres applications existantes, vous pouvez supprimer l’erreur en redémarrant l’Assistant Azure AD Connect avec la **/SkipLdapSearch** commutateur spécifié. Pour cela, exécutez la commande suivante dans l’invite de commandes :
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -171,7 +171,7 @@ Si vous gérez AD FS en dehors d’Azure AD Connect ou si vous utilisez des serv
 ![Configuration de fédération tierce](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Ajout d’annuaires à un déploiement existant
-Supposons que vous avez déployé Azure AD Connect avec la fonctionnalité ConsistencyGuid activée, et que vous souhaitez ajouter un annuaire au déploiement. Lorsque vous tentez d’ajouter l’annuaire, l’Assistant Azure AD Connect vérifie l’état de l’attribut ms-DS-ConsistencyGuid dans l’annuaire. Si l’attribut est configuré sur un ou plusieurs objets dans l’annuaire, l’Assistant en déduit que l’attribut est utilisé par d’autres applications et retourne une erreur, comme illustré dans la diagramme ci-dessous. Si vous êtes certain que l’attribut n’est pas utilisé par d’autres applications existantes, vous pouvez éviter cette erreur en redémarrant l’Assistant Azure AD Connect avec le **/SkipLdapSearchcontact** spécifié comme décrit ci-dessus ou en contactant le support pour plus d'informations.
+Supposons que vous avez déployé Azure AD Connect avec la fonctionnalité ConsistencyGuid activée, et que vous souhaitez ajouter un annuaire au déploiement. Lorsque vous tentez d’ajouter l’annuaire, l’Assistant Azure AD Connect vérifie l’état de l’attribut ms-DS-ConsistencyGuid dans l’annuaire. Si l’attribut est configuré sur un ou plusieurs objets dans l’annuaire, l’Assistant en déduit que l’attribut est utilisé par d’autres applications et retourne une erreur, comme illustré dans la diagramme ci-dessous. Si vous êtes certain que l’attribut n’est pas utilisé par les applications existantes, vous pouvez supprimer l’erreur en redémarrant l’Assistant Azure AD Connect avec la **/SkipLdapSearch** spécifié comme décrit ci-dessus ou si vous devez contacter Prise en charge pour plus d’informations.
 
 ![Ajout d’annuaires à un déploiement existant](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

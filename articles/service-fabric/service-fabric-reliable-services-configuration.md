@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: c131cf96f11dcddfb0de87ccf47f2d2c8a99617d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049654"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850800"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configuration des services fiables (Reliable Services) avec état
 Il existe deux ensembles de paramètres de configuration pour les services fiables (Reliable Services). L’un des ensembles est global pour tous les services fiables dans le cluster, alors que l’autre est spécifique à un service fiable.
@@ -28,7 +28,7 @@ Il existe deux ensembles de paramètres de configuration pour les services fiabl
 La configuration de service fiable globale est spécifiée dans le manifeste de cluster sous la section KtlLogger. Elle permet la configuration de l’emplacement et de la taille du journal partagé, ainsi que des limites de mémoire globales utilisées par l’enregistreur d’événements. Le manifeste de cluster est un fichier XML simple qui contient les paramètres et les configurations qui s’appliquent à l’ensemble des nœuds et des services du cluster. Le fichier a généralement pour nom ClusterManifest.xml. Vous pouvez voir le manifeste de cluster de votre cluster à l’aide de la commande PowerShell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Noms des configurations
-| NOM | Unité | Valeur par défaut | Remarques |
+| Nom | Unité | Valeur par défaut | Remarques |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Ko |8388608 |Nombre minimal de Ko à allouer en mode noyau pour le pool de mémoire tampon d’écriture de l’enregistreur d’événements. Ce pool de mémoire est utilisé pour la mise en cache des informations d’état avant l’écriture sur le disque. |
 | WriteBufferMemoryPoolMaximumInKB |Ko |Aucune limite |Taille maximale que peut atteindre le pool de mémoire tampon d’écriture de l’enregistreur d’événements. |
@@ -36,7 +36,7 @@ La configuration de service fiable globale est spécifiée dans le manifeste de 
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d’accès complet du fichier journal partagé utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogPath dans leur configuration de service spécifique. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
 | SharedLogSizeInMB |Mo |8 192 |Spécifie le nombre de Mo d’espace disque à allouer de manière statique pour le journal partagé. La valeur doit être supérieure ou égale à 2 048. |
 
-Dans Azure ARM ou un modèle JSON local, l’exemple ci-dessous montre comment modifier le journal des transactions partagé qui est créé pour sauvegarder toutes les collections fiables pour les services avec état.
+Dans Azure ARM ou un modèle JSON en local, l’exemple ci-dessous montre comment modifier le journal des transactions partagé qui est créé pour sauvegarder toutes les collections fiables pour les services avec état.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -109,10 +109,10 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Noms des configurations
-| NOM | Unité | Valeur par défaut | Remarques |
+| Nom | Unité | Valeur par défaut | Remarques |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondes |0.015 |Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse. |
-| ReplicatorEndpoint |N/A |Aucune valeur par défaut (paramètre obligatoire) |Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Reportez-vous aux [ressources du manifeste de service](service-fabric-service-manifest-resources.md) pour en savoir plus sur la définition des ressources de point de terminaison dans le manifeste de service. |
+| ReplicatorEndpoint |S.O. |Aucune valeur par défaut (paramètre obligatoire) |Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Reportez-vous aux [ressources du manifeste de service](service-fabric-service-manifest-resources.md) pour en savoir plus sur la définition des ressources de point de terminaison dans le manifeste de service. |
 | MaxPrimaryReplicationQueueSize |Nombre d'opérations |8 192 |Nombre maximal d'opérations dans la file d'attente principale. Une opération est libérée quand le réplicateur principal reçoit un accusé de réception de tous les réplicateurs secondaires. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
 | MaxSecondaryReplicationQueueSize |Nombre d'opérations |16 384 |Nombre maximal d'opérations dans la file d'attente secondaire. Une opération est libérée une fois son état devenu hautement disponible grâce à la persistance. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
 | CheckpointThresholdInMB |Mo |50 |Quantité d'espace du fichier journal après lequel l'état est vérifié. |
@@ -161,7 +161,7 @@ class MyStatefulService : StatefulService
 ### <a name="sample-configuration-file"></a>Exemple de fichier de configuration
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Section Name="ReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="ReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>

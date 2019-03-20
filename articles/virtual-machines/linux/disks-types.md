@@ -1,6 +1,6 @@
 ---
-title: Sélectionner un type de disque pour les machines virtuelles Azure IaaS - disques managés
-description: Découvrez les types de disques Azure disponibles pour les machines virtuelles, notamment les disques Ultra, les disques SSD Premium, les disques SSD Standard et les disques HDD Standard.
+title: Sélectionnez un type de disque pour les machines virtuelles Azure IaaS Linux - disques gérés
+description: En savoir plus sur les types de disque Azure disponibles pour les machines virtuelles Linux, y compris les disques SSD ultra, premium SSDs, SSDs standards et disques durs Standard.
 services: virtual-machines-linux,storage
 author: roygara
 ms.author: rogarana
@@ -9,22 +9,19 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: cb5098821399a7515bd7303a37dc2bb8b911bd6c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 217130f51f3bdf19a4f399060efc0d16791173d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007094"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
+
+Si vous souhaitez commencer à utiliser des disques SSD ultra, consultez notre article sur le sujet : [L’activation de SSDs ultra Azure](disks-enable-ultra-ssd.md).
+
+[!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
 Pour plus d'informations sur les captures instantanées, consultez la section qui leur est consacrée dans la [Vue d'ensemble des disques managés](managed-disks-overview.md).
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Si vous voulez essayer les disques Ultra SSD, consultez le guide sur le sujet.
-
-> [!div class="nextstepaction"]
-> [Comment activer et utiliser des disques Ultra SSD](disks-enable-ultra-ssd.md)

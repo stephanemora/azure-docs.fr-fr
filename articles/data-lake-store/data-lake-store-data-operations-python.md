@@ -1,5 +1,5 @@
 ---
-title: 'Python : opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Python : opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Découvrez comment utiliser le kit de développement logiciel (SDK) Python avec le système de fichiers de Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 33abaf7488579a501dc7e2d0b63645726b86c28b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: ed28c502bb407c65b388704c177fca13cecc38d6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390720"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548624"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "44390720"
 
 Dans cet article, vous apprenez à utiliser le kit de développement logiciel (SDK) Python pour réaliser des opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1. Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide de Python, consultez la section relative aux [opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide de Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
@@ -43,7 +43,7 @@ Pour utiliser Data Lake Storage Gen1 avec Python, vous devez installer trois mod
 
 * Le module `azure-mgmt-resource`, qui inclut des modules Azure pour Active Directory, etc.
 * Le module `azure-mgmt-datalake-store`, qui inclut les opérations de gestion du compte Azure Data Lake Storage Gen1. Pour plus d’informations sur ce module, voir les [informations de référence sur le module azure-mgmt-datalake-store](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Azure Data Lake Storage Gen1. Pour plus d’informations sur ce module, voir les [informations de référence sur le module azure-datalake-store file-system](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Azure Data Lake Storage Gen1. Pour plus d’informations sur ce module, voir les [informations de référence sur le module azure-datalake-store file-system](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilisez les commandes suivantes pour installer les modules.
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Enregistrez les modifications apportées à mysample.py.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Dans cette section, nous aborderons les différentes méthodes permettant de s’authentifier auprès d’Azure AD. Voici les options disponibles :
 
@@ -131,5 +131,5 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Documents de référence sur la gestion de système de fichiers avec Azure Data Lake Storage Gen1 et Python](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Documents de référence sur la gestion de système de fichiers avec Azure Data Lake Storage Gen1 et Python](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Ouvrir des applications Big Data open source compatibles avec Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441a00f066e897ee78476100b0fb34d411e86ac1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185500"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Didacticiel : Intégration d’Azure Active Directory dans iWellnessNow
 
@@ -35,7 +35,7 @@ L’intégration d’iWellnessNow à Azure AD vous offre les avantages suivants�
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à iWellnessNow, vous avez besoin des éléments suivants :
 
@@ -119,7 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique dans Domaine et URL iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
 
-1. Si vous ne disposez pas du **fichier de métadonnées du fournisseur de services** et que vous souhaitez configurer l’application en mode initié par **IDP**, procédez comme suit :
+1. Si vous n’avez pas **fichier de métadonnées de fournisseur de services** et souhaitez configurer l’application dans **IDP** initiée par le mode, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 

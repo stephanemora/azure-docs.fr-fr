@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 106c4796bde838e28b91771454e971f9999194e1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: HT
+ms.openlocfilehash: dc8f9797b7b4c04da27a54dfddc79bd96d6df88d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753776"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "58115283"
 ---
-Si vous n’êtes pas familiarisé avec MSI, consultez la [présentation de Managed Service Identity](~/articles/active-directory/managed-service-identity/overview.md), et **veillez à consulter la [différence entre une identité MSI attribuée par le système et une identité MSI affectée par un utilisateur](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)**. Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
+Si vous n’êtes pas familiarisé avec les identités pour les ressources Azure, consultez le [gérés des identités pour la vue d’ensemble de ressources Azure](~/articles/active-directory/managed-identities-azure-resources/overview.md), et **veillez à consulter le [différence entre le système et utilisateur affecté gérés identités](~/articles/active-directory/managed-identities-azure-resources/overview.md#how-does-it-work)**. Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.

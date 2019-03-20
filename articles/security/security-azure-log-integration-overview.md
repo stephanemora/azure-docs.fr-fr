@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 7b06d7bb85e7445f50956a003e46542062b09165
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118273"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245044"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Présentation d’Azure Log Integration
 
@@ -61,7 +61,7 @@ Si aucune autre option n’est disponible, envisagez d’utiliser Azure Log Inte
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Commencez à effectuer une migration vers le [module complémentaire Azure Monitor pour Splunk](https://splunkbase.splunk.com/app/3534/). | Utilisez le [connecteur Splunk](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Effectuez une migration vers le connecteur QRadar documenté dans la dernière section de [Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) ou commencez à l’utiliser. | Utilisez le connecteur QRadar documenté dans la dernière section de [Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Continuez à utiliser l’intégrateur de journaux Azure jusqu’à ce qu’un connecteur soit disponible, puis effectuez la migration vers la solution basée sur le connecteur.  | Envisagez d’utiliser Azure Log Analytics en guise de solution de rechange. Ne recourez à Azure Log Integration que si vous êtes disposé à exécuter le processus de migration une fois que le connecteur deviendra disponible. |
+|**ArcSight** | Continuez à utiliser l’intégrateur de journaux Azure jusqu’à ce qu’un connecteur soit disponible, puis effectuez la migration vers la solution basée sur le connecteur.  | Envisagez d’utiliser des journaux Azure Monitor en guise d’alternative. Ne recourez à Azure Log Integration que si vous êtes disposé à exécuter le processus de migration une fois que le connecteur deviendra disponible. |
 
 > [!NOTE]
 > Bien qu’Azure Log Integration soit une solution gratuite, le stockage des informations des fichiers de journaux est facturé, via Stockage Azure.

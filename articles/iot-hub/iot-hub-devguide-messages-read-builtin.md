@@ -1,33 +1,34 @@
 ---
 title: Comprendre le point de terminaison intégré Azure IoT Hub | Microsoft Docs
 description: 'Guide du développeur : décrit comment utiliser le point de terminaison intégré et compatible avec Event Hub pour lire des messages appareil-à-cloud.'
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 02ea4b94f8d1442360bebb36fdbba13d973f8555
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242402"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538559"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Lire des messages appareil-à-cloud à partir du point de terminaison intégré
 
-Par défaut, les messages sont acheminés vers le point de terminaison côté service intégré (**messages/events**) compatible avec [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/
-). Ce point de terminaison est actuellement uniquement exposé à l’aide du protocole [AMQP](https://www.amqp.org/) sur le port 5671. Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages compatible avec Event Hub **messages/events** prédéfini.
+Par défaut, les messages sont acheminés vers le point de terminaison côté service intégré (**messages/events**) compatible avec [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Ce point de terminaison est actuellement uniquement exposé à l’aide du protocole [AMQP](https://www.amqp.org/) sur le port 5671. Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages compatible avec Event Hub **messages/events** prédéfini.
 
 | Propriété            | Description |
 | ------------------- | ----------- |
 | **Nombre de partitions** | Configurez cette propriété lors de la création pour définir le nombre de [partitions](../event-hubs/event-hubs-features.md#partitions) pour la réception d’événements appareil-à-cloud. |
 | **Durée de rétention**  | Cette propriété spécifie la durée en jours de conservation des messages par IoT Hub. La durée par défaut est de un jour, mais elle peut être augmentée à sept jours. |
 
+IoT Hub permet la conservation des données dans les concentrateurs d’événements intégrés pour un maximum de 7 jours. Vous pouvez définir la durée de rétention lors de la création de votre IoT Hub. Taille de rétention de données dans IoT Hub dépend de votre niveau IoT hub et le type d’unité. En termes de taille, les Hubs d’événements intégré peut conserver les messages de la taille maximale des messages jusqu'à au moins 24 heures de quota. Par exemple, pour 1 unité S1 Qu'iot Hub fournit un stockage suffisant à conserver au moins des messages de 400K de 4 Ko taille de chacun. Si vos appareils envoient des messages plus petits, ils peuvent être conservées pendant plus de temps (jusqu'à 7 jours) en fonction de la quantité de stockage est utilisé. Nous garantissons la conservation des données pour la durée de rétention spécifiée au minimum.
+
 IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison prédéfini de réception appareil vers cloud.
 
-Si vous utilisez [le routage des messages](iot-hub-devguide-messages-d2c.md) et que la [route de secours](iot-hub-devguide-messages-d2c.md#fallback-route) est activée, tous les messages qui ne correspondent pas à une requête sur aucune route sont écrits sur le point de terminaison intégré. Si vous désactivez cette route de secours, les messages qui ne correspondent à aucune requête sont supprimés.
+Si vous utilisez [le routage des messages](iot-hub-devguide-messages-d2c.md) et [itinéraire de secours](iot-hub-devguide-messages-d2c.md#fallback-route) est activé, tous les messages qui ne correspondent pas à une requête sur n’importe quel itinéraire atteindre le point de terminaison intégré. Si vous désactivez cet itinéraire de secours, les messages qui ne correspondent pas n’importe quelle requête sont supprimés.
 
 La durée de rétention peut être modifiée par programme, avec les [API REST de fournisseur de ressources IoT Hub](/rest/api/iothub/iothubresource) ou avec le [Portail Azure](https://portal.azure.com).
 
@@ -35,33 +36,45 @@ IoT Hub expose le point de terminaison prédéfini **messages/events** pour perm
 
 ## <a name="read-from-the-built-in-endpoint"></a>Lire à partir du point de terminaison intégré
 
-Lorsque vous utilisez le [Kit de développement logiciel (SDK) Azure Service Bus pour .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) ou l’[hôte du processeur d’événements Event Hubs](..//event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md), vous pouvez utiliser toutes les chaînes de connexion IoT Hub avec les autorisations appropriées. Vous utilisez ensuite **messages/événements** comme nom d’Event Hub.
+Des intégrations de produits et les SDK Event Hub sont conscients de IoT Hub et vous permettent d’utiliser votre chaîne de connexion IoT hub service pour se connecter à un point de terminaison intégré.
 
-Si vous utilisez des Kits SDK (ou des intégrations de produits) qui ne sont pas reliés à IoT Hub, vous devrez récupérer un point de terminaison et un nom compatibles Event Hub :
+Lorsque vous utilisez Event Hubs SDK ou des intégrations de produits qui n’ont pas conscience de IoT Hub, vous avez besoin d’un point de terminaison compatible Event Hub et le nom compatible Event Hub. Vous pouvez récupérer ces valeurs à partir du portail comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre IoT Hub.
 
 2. Cliquez sur **Points de terminaison intégrés**.
 
-3. La section **Événements** contient les valeurs suivantes : **Point de terminaison compatible avec Event Hub**, **Nom compatible avec Event Hub**, **Partitions**, **Durée de conservation** et **Groupes de consommateurs**.
+3. Le **événements** section contient les valeurs suivantes : **Partitions**, **nom compatible Event Hub**, **point de terminaison compatible Event Hub**, **durée de rétention**, et **lesgroupesdeconsommateurs**.
 
     ![Paramètres Appareil vers cloud](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-Le kit SDK IoT Hub requiert le nom de point de terminaison IoT Hub, à savoir **messages/events** comme indiqué sous **Points de terminaison**.
+Dans le portail, le champ de point de terminaison compatible Event Hub contient une chaîne de connexion Event Hubs complete qui ressemble à : **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Si vous utilisez le Kit de développement requiert des autres valeurs, puis ils seraient :
 
-Si le SDK que vous utilisez requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le schéma du **Point de terminaison compatible avec Event Hub**. Par exemple, si votre point de terminaison compatible avec Event Hub est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net**. L’**Espace de noms** est **iothub-ns-myiothub-1234**.
+| Nom | Valeur |
+| ---- | ----- |
+| Point de terminaison | sb://abcd1234namespace.servicebus.windows.net/ |
+| Nom d’hôte | abcd1234namespace.servicebus.windows.net |
+| Espace de noms | abcd1234namespace |
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au Event Hub ci-dessus.
 
-Si vous devez générer une chaîne de connexion Event Hub en utilisant les informations ci-dessus, vous pouvez utiliser le modèle suivant :
+Vous pouvez utiliser pour se connecter au point de terminaison compatible Event Hub intégré que IoT Hub expose les kits de développement sont les suivantes :
 
-`Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}`
+| Langage | Kit SDK  | Exemples | Notes |
+| -------- | --- | ------ | ----- |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Démarrage rapide](quickstart-send-telemetry-dotnet.md) | Utilise les informations compatible avec Event Hubs |
+ Java | https://github.com/Azure/azure-event-hubs-java | [Démarrage rapide](quickstart-send-telemetry-java.md) | Utilise les informations compatible avec Event Hubs |
+| Node.js | https://github.com/Azure/azure-event-hubs-node | [Démarrage rapide](quickstart-send-telemetry-node.md) | Utilise la chaîne de connexion IoT Hub |
+| Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Utilise la chaîne de connexion IoT Hub |
 
-Les kits SDK et intégrations que vous pouvez utiliser avec les points de terminaison compatibles avec Event Hub exposés par IoT Hub comprennent les éléments de la liste suivante :
+Vous pouvez utiliser avec le point de terminaison compatible Event Hub prédéfini, IoT Hub expose les intégrations de produits sont les suivants :
 
-* [Client Event Hubs Java](https://github.com/Azure/azure-event-hubs-java).
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). Consultez [traitement des données à partir d’IoT Hub avec Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Consultez [Stream de données comme entrée dans Stream Analytique](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). Consultez [ajouter une source d’événement IoT hub à votre environnement Time Series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Vous pouvez afficher la [source spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) sur GitHub.
 * [Intégration Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
+* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

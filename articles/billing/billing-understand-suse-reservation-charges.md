@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: 1b6e85344508d7b29e99c1ba3e6e1d0ac0aba2e3
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: a9f784d7e7ed21a5a10a2f5e16125d60e7b9667f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904061"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863472"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>Comprendre comment la remise des abonnements logiciels SUSE Linux Enterprise est appliquée
 
@@ -63,7 +63,7 @@ Nom dans la place de marché du portail Azure :
 - SLES 12 SP3 for HPC
 
 |Machine virtuelle SUSE | ID du compteur | Ratio|Exemple de taille de machine virtuelle|
-| ------- | --- | ------------------------| --- | --- |
+| ------- | --- | ------------------------| --- |
 |SLES for HPC 1-2 vCPUs |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
 |SLES for HPC 3-4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1,92308|D4s_v3|
 |SLES for HPC 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2,92308|D8s_v3|
@@ -135,4 +135,4 @@ Pour plus d’informations sur les réservations, consultez les articles suivant
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fbe865a5d9ef6c44b80c811a023c86f6446c3bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084130"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurer votre expérience d’interface utilisateur hébergée
 
@@ -43,10 +43,10 @@ Pour configurer une interface utilisateur hébergée pour vos applications web, 
     
 5. Sélectionnez un thème de couleur. Vous pouvez personnaliser les couleurs en fonction de votre application en cliquant sur **Customize theme** (Personnaliser le thème). Pour modifier une couleur, entrez la valeur hexadécimale de couleur RVB (par exemple, `#366eb8`), ou cliquez sur l’aperçu de la couleur.
 
-  Vous pouvez consulter un aperçu de vos modifications sur le côté droit du portail. En cliquant sur **Reset to default** (Rétablir les valeurs par défaut), vous rétablissez les couleurs par défaut du thème sélectionné.
+   Vous pouvez consulter un aperçu de vos modifications sur le côté droit du portail. En cliquant sur **Reset to default** (Rétablir les valeurs par défaut), vous rétablissez les couleurs par défaut du thème sélectionné.
 
-  > [!NOTE]
-  > Lors du choix des couleurs, pensez à l’accessibilité.
+   > [!NOTE]
+   > Lors du choix des couleurs, pensez à l’accessibilité.
 
 6. Sous **Additional Configurations** (Configurations supplémentaires), fournissez des valeurs en fonction de votre application. Ces paramètres sont facultatifs. Pour voir l’effet de leur application ou de leur suppression, regardez le volet de visualisation situé à droite. Voici les options de configuration disponibles :  
 

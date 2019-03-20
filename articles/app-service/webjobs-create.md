@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001168"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749917"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 WebJobs est une fonctionnalité de [Microsoft Azure App Service](https://docs.microsoft.com/azure/app-service/) qui vous permet d’exécuter un programme ou un script dans un même contexte, en tant qu’application web, application API ou application mobile. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
 
 > [!IMPORTANT]
@@ -47,8 +47,7 @@ Le tableau suivant décrit les différences entre une tâche Web *continue* et u
 | S’exécute sur toutes les instances sur lesquelles l’application web s’exécute. Vous pouvez limiter la tâche web à une seule instance. |S’exécute sur une seule instance sélectionnée par Azure pour l’équilibrage de charge.|
 | Prend en charge le débogage à distance. | Ne prend pas en charge le débogage à distance.|
 
-> [!NOTE]
-> Une application web peut expirer après 20 minutes d’inactivité. Seules les requêtes à destination de l’application web active réinitialisent le minuteur. L’affichage de la configuration de l’application dans le portail Azure ou l’envoi de requêtes au site d’outils avancés (https://< nom_application >. scm.azurewebsites.net) ne réinitialise pas le minuteur. Si votre application exécute des tâches Web continues ou planifiées, activez l’option **Toujours actif** pour vous assurer que les tâches web s’exécutent de manière fiable. Cette fonctionnalité est disponible uniquement dans les [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) De base, Standard et Premium.
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>Types de fichier pris en charge pour les scripts ou les programmes
 
@@ -181,10 +180,9 @@ Vous pouvez entrer une [expression CRON](../azure-functions/functions-bindings-t
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> Quand vous déployez une tâche web à partir de Visual Studio, marquez les propriétés du fichier `settings.job` comme **Copier si plus récent**.
+Pour plus d’informations, consultez [planification d’une tâche Web déclenchée](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 ## <a name="ViewJobHistory"></a> Affichage de l’historique des tâches
 

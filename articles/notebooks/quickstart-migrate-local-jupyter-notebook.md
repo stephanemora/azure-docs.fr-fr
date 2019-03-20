@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084500"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079688"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Démarrage rapide : Migrer un notebook Jupyter local
 
@@ -30,7 +30,7 @@ Ce guide de démarrage rapide illustre le processus de migration d’un notebook
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Créer un projet sur Azure Notebooks
 
-1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez [Démarrage rapide : Se connecter à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
+1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez la rubrique [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
 
 1. En haut de votre page de profil public, sélectionnez **Mes projets** :
 
@@ -50,13 +50,13 @@ Ce guide de démarrage rapide illustre le processus de migration d’un notebook
 
    (Là encore, si votre notebook est stocké dans un dépôt GitHub, suivez les étapes dans [Démarrage rapide : Cloner un notebook](quickstart-clone-jupyter-notebook.md) à la place.)
 
-    - Si vous utilisez **À partir de l’ordinateur**, faites glisser les fichiers *.ipynb* dans la fenêtre contextuelle ou sélectionnez **Choisir des fichiers**, puis recherchez et sélectionnez les fichiers à importer. Ensuite, sélectionnez **Charger**. Les fichiers chargés reçoivent le même nom que les fichiers locaux. (Vous n’avez pas besoin de charger le contenu des dossiers *.ipynb_checkpoints*.)
+   - Si vous utilisez **À partir de l’ordinateur**, faites glisser les fichiers *.ipynb* dans la fenêtre contextuelle ou sélectionnez **Choisir des fichiers**, puis recherchez et sélectionnez les fichiers à importer. Puis sélectionnez **Upload** (Charger). Les fichiers chargés reçoivent le même nom que les fichiers locaux. (Vous n’avez pas besoin de charger le contenu des dossiers *.ipynb_checkpoints*.)
 
-    ![Charger à partir de la fenêtre contextuelle de l’ordinateur](media/quickstarts/upload-from-computer-popup.png)
+     ![Charger à partir de la fenêtre contextuelle de l’ordinateur](media/quickstarts/upload-from-computer-popup.png)
 
-    - Si vous utilisez **À partir de l’URL**, entrez l’adresse source dans le champ **URL du fichier** ainsi que le nom de fichier à affecter au notebook de votre projet dans le champ **Nom de fichier**. Ensuite, sélectionnez **Charger**. Si vous avez plusieurs fichiers avec des URL distinctes, utilisez la commande **+ Ajouter un fichier** pour vérifier la première URL que vous avez entrée, après quoi la fenêtre contextuelle fournit de nouveaux champs pour un autre fichier.
+   - Si vous utilisez **À partir de l’URL**, entrez l’adresse source dans le champ **URL du fichier** ainsi que le nom de fichier à affecter au notebook de votre projet dans le champ **Nom de fichier**. Puis sélectionnez **Upload** (Charger). Si vous avez plusieurs fichiers avec des URL distinctes, utilisez la commande **+ Ajouter un fichier** pour vérifier la première URL que vous avez entrée, après quoi la fenêtre contextuelle fournit de nouveaux champs pour un autre fichier.
 
-    ![Charger à partir de la fenêtre contextuelle de l’URL](media/quickstarts/upload-from-url-popup.png)
+     ![Charger à partir de la fenêtre contextuelle de l’URL](media/quickstarts/upload-from-url-popup.png)
 
 1. Ouvrez et exécutez votre notebook qui vient d’être chargé pour vérifier son contenu et son fonctionnement. Quand vous avez terminé, sélectionnez **Fichier** > **Fermer et arrêter** pour fermer le notebook.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 6788568510a0aa10a859236aebc3f3edb2de7527
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a42fec94a23db82192cf05a47080d982a0857056
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329606"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729040"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Attacher un disque de données à une machine virtuelle Windows dans Azure avec PowerShell
 
@@ -59,9 +59,8 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Utilisation de disques gérés dans un groupe à haute disponibilité
-Pour créer un disque dans une zone de disponibilité, utilisez [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) avec le paramètre `-Zone`. L’exemple suivant crée un disque dans la zone *1*.
 
-Pour créer un disque dans une zone de disponibilité, utilisez [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) avec le paramètre `-Zone`. L’exemple suivant crée un disque dans la zone *1*.
+Pour créer un disque dans une zone de disponibilité, utilisez [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) avec le paramètre `-Zone`. L’exemple suivant crée un disque dans la zone *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'

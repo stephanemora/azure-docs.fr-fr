@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445115"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962024"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
 
@@ -42,8 +42,10 @@ Les fichiers du kit de développement logiciel (SDK) Speech requis peuvent être
 | Nom | Fonction
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK principal, requis pour le déploiement natif et managé
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Requis pour le déploiement managé
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Requis pour le déploiement managé
+
+>[!NOTE]
+> Depuis la version 1.3.0 le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est désormais intégrée dans le Kit de développement logiciel de base.
 
 ## <a name="linux"></a>Linux
 

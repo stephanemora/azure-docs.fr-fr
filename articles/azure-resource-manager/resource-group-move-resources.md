@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081251"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -57,6 +57,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * App Service Certificates - [Limitations d’App Service Certificate](#app-service-certificate-limitations)
 * Automation - Les runbooks doivent exister dans le même groupe de ressources que le compte Automation.
 * Azure Active Directory B2C
+* Cache Azure pour Redis : si l’instance du Cache Azure pour Redis est configurée avec un réseau virtuel, l’instance ne peut pas être déplacée vers un autre abonnement. Consultez [Limitations des réseaux virtuels](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Explorateur de données Azure
 * Azure Database for MariaDB
@@ -64,6 +65,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Azure Database pour PostgreSQL
 * Azure DevOps : les organisations Azure DevOps ayant acheté des extensions non-Microsoft doivent [annuler leurs achats](https://go.microsoft.com/fwlink/?linkid=871160) avant de pouvoir déplacer le compte entre des abonnements.
 * Azure Maps
+* Journaux Azure Monitor
 * Azure Relay
 * Azure Stack - Inscriptions
 * Batch
@@ -89,10 +91,9 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * IoT Hubs
 * Key Vault : les coffres de clés utilisés pour le chiffrement de disques ne peuvent pas être déplacés vers des groupes de ressources situés dans le même abonnement ni d’un abonnement à l’autre.
 * Équilibreurs de charge : l’équilibrage de charge de la référence SKU de base peut être déplacé. L’équilibrage de charge de la référence SKU standard ne peut pas être déplacé.
-* Log Analytics
 * Logic Apps
 * Machine Learning : les services web Machine Learning Studio peuvent être déplacés uniquement vers un groupe de ressources d’un même abonnement. Les autres ressources Machine Learning peuvent être déplacées entre les abonnements.
-* Managed Disks : consultez [Limitations des machines virtuelles pour les contraintes](#virtual-machines-limitations)
+* Des disques gérés - managées disques dans les Zones de disponibilité ne peut pas être déplacés vers un autre abonnement
 * Identité managée (affectée par l’utilisateur)
 * Media Services
 * Moniteur : vérifiez que le déplacement vers le nouvel abonnement ne dépasse pas les [quotas d’abonnement](../azure-subscription-service-limits.md#monitor-limits).
@@ -103,7 +104,6 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Power BI : Power BI Embedded et Collection d’espaces de travail Power BI
 * IP publique : l’IP publique de la référence SKU de base peut être déplacée. L’IP publique de la référence SKU standard ne peut pas être déplacée.
 * Coffre Recovery Services : inscrivez-vous à une [préversion](#recovery-services-limitations).
-* Cache Azure pour Redis : si l’instance du Cache Azure pour Redis est configurée avec un réseau virtuel, l’instance ne peut pas être déplacée vers un autre abonnement. Consultez [Limitations des réseaux virtuels](#virtual-networks-limitations).
 * Scheduler
 * Recherche : vous ne pouvez pas déplacer simultanément plusieurs ressources de recherche dans des régions différentes. Déplacez-les plutôt dans des opérations distinctes.
 * Service Bus
@@ -116,7 +116,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Serveur SQL Database : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées. Ce comportement s’applique aux bases de données Azure SQL Database et Azure SQL Data Warehouse.
 * Time Series Insights
 * Traffic Manager
-* Machines virtuelles : pour les machines virtuelles avec des disques managés, consultez [Limitations des machines virtuelles](#virtual-machines-limitations)
+* Machines virtuelles - voir [limitations de Machines virtuelles](#virtual-machines-limitations)
 * Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Groupes identiques de machines virtuelles : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
 * Réseaux virtuels : consultez [Limitations relatives aux réseaux virtuels](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ La liste suivante fournit une synthèse générale des services Azure qui ne peu
 * Azure Databricks
 * Pare-feu Azure
 * Azure Migrate
+* Azure NetApp Files
 * Certificats : les certificats App Service Certificates peuvent être déplacés, mais les certificats chargés ont des [limitations](#app-service-limitations).
 * Applications classiques
 * Container Instances
@@ -145,7 +146,6 @@ La liste suivante fournit une synthèse générale des services Azure qui ne peu
 * Lab Services : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements ne l’est pas.
 * Applications gérées
 * Microsoft Genomics
-* NetApp
 * SAP HANA sur Azure
 * Sécurité
 * Site Recovery
@@ -166,13 +166,12 @@ La section décrit comment gérer des scénarios compliqués de déplacement des
 
 ### <a name="virtual-machines-limitations"></a>Limitations relatives aux machines virtuelles
 
-Depuis le 24 septembre 2018, vous pouvez déplacer des disques managés. Cette prise en charge signifie que vous pouvez déplacer les machines virtuelles avec des disques managés, des images managées et des instantanés managés, et les groupes à haute disponibilité avec des machines virtuelles qui utilisent des disques managés.
+Vous pouvez déplacer des machines virtuelles avec disques gérés, des images gérés, des captures instantanées gérées et des groupes à haute disponibilité avec machines virtuelles qui utilisent des disques gérés. Disques gérés dans les Zones de disponibilité ne peut pas être déplacés vers un autre abonnement.
 
 Les scénarios suivants ne sont pas encore pris en charge :
 
 * Les machines virtuelles avec un certificat stocké dans Key Vault peuvent être déplacées vers un nouveau groupe de ressources dans le même abonnement, mais pas entre abonnements.
-* Les disques managés dans les zones de disponibilité ne peuvent pas être déplacés vers un autre abonnement
-* Les groupes de machines virtuelles identiques avec un équilibreur de charge de référence SKU Standard ou avec une adresse IP publique de référence SKU Standard ne peuvent pas être déplacés
+* Impossible de déplacer les machines virtuelles identiques avec équilibrage de charge de référence (SKU) Standard ou IP publique de référence (SKU) Standard.
 * Les machines virtuelles auxquelles des plans sont associés créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des groupes de ressources ou des abonnements. Déprovisionnez la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
 
 Pour déplacer des machines virtuelles configurées avec Sauvegarde Azure, utilisez la solution de contournement suivante :
@@ -190,6 +189,8 @@ Pour déplacer des machines virtuelles configurées avec Sauvegarde Azure, utili
 ### <a name="virtual-networks-limitations"></a>Limitations de réseaux virtuels
 
 Lors de la migration d’un réseau virtuel, vous devez également migrer ses ressources dépendantes. Pour les passerelles VPN, vous devez déplacer les adresses IP, les passerelles de réseau virtuel et toutes les ressources de connexion associées. Les passerelles de réseau locales peuvent se trouver dans un autre groupe de ressources.
+
+Pour déplacer une machine virtuelle avec une carte d’interface réseau, vous devez déplacer toutes les ressources dépendantes. Vous devez déplacer le réseau virtuel pour la carte d’interface réseau, tous les autres cartes d’interface réseau pour le réseau virtuel et les passerelles VPN.
 
 Pour déplacer un réseau virtuel homologué, vous devez d’abord désactiver l’homologation du réseau virtuel. Une fois l’homologation désactivée, vous pouvez déplacer le réseau virtuel. Après le déplacement, réactivez l’homologation du réseau virtuel.
 
@@ -254,58 +255,58 @@ Pour déplacer des ressources classiques vers un nouvel abonnement, utilisez des
 
 1. Vérifiez si l’abonnement source peut participer à un déplacement entre abonnements. Utilisez l’opération suivante :
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      Dans le corps de la demande, spécifiez :
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      La réponse pour l’opération de validation est au format suivant :
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. Vérifiez si l’abonnement de destination peut participer à un déplacement entre abonnements. Utilisez l’opération suivante :
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      Dans le corps de la demande, spécifiez :
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      La réponse est dans le même format que la validation de l’abonnement source.
 3. Si les deux abonnements sont validés, déplacez toutes les ressources classiques d’un abonnement à l’autre via l’opération suivante :
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     Dans le corps de la demande, spécifiez :
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 Cette opération peut prendre plusieurs minutes.
 
@@ -344,52 +345,52 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
 
 1. Les abonnements source et de destination doivent exister dans le même [client Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Pour vérifier que les deux abonnements ont le même ID client, utilisez Azure PowerShell ou Azure CLI.
 
-  Pour Azure PowerShell, utilisez :
+   Pour Azure PowerShell, utilisez :
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  Pour l’interface de ligne de commande Azure, consultez :
+   Pour l’interface de ligne de commande Azure, consultez :
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  Si les ID client pour les abonnements source et de destination ne sont pas identiques, utilisez les méthodes suivantes pour rapprocher les ID client :
+   Si les ID client pour les abonnements source et de destination ne sont pas identiques, utilisez les méthodes suivantes pour rapprocher les ID client :
 
-  * [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md)
-  * [Associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md)
+   * [Associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer cette erreur lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource.
 
-  Pour PowerShell, utilisez les commandes suivantes pour obtenir l’état de l’inscription :
+   Pour PowerShell, utilisez les commandes suivantes pour obtenir l’état de l’inscription :
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  Pour inscrire un fournisseur de ressources, utilisez :
+   Pour inscrire un fournisseur de ressources, utilisez :
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  Pour l’interface CLI d’Azure, utilisez les commandes suivantes pour obtenir l’état de l’inscription :
+   Pour l’interface CLI d’Azure, utilisez les commandes suivantes pour obtenir l’état de l’inscription :
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  Pour inscrire un fournisseur de ressources, utilisez :
+   Pour inscrire un fournisseur de ressources, utilisez :
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. Le compte déplaçant les ressources doit avoir au moins les autorisations suivantes :
 
@@ -513,7 +514,7 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur les applets de commande PowerShell permettant de gérer votre abonnement, consultez [Utilisation d’Azure PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
-* Pour plus d’informations sur les commandes de l’interface de ligne de commande Azure permettant de gérer votre abonnement, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* Pour en savoir plus sur les applets de commande PowerShell pour gérer vos ressources, consultez [utilisation d’Azure PowerShell avec Resource Manager](manage-resources-powershell.md).
+* Pour en savoir plus sur les commandes Azure CLI pour gérer vos ressources, consultez [à l’aide de l’interface CLI Azure avec Resource Manager](manage-resources-cli.md).
 * Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](resource-group-portal.md).
 * Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).

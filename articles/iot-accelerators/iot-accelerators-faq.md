@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608747"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009681"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Questions fréquentes (FAQ) sur les accélérateurs de solution IoT
 
@@ -71,9 +71,9 @@ La version précédente de l’accélérateur de solution de surveillance à dis
 
 Oui, la nouvelle solution de surveillance à distance est disponible dans les mêmes zones géographiques.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Quelle est la différence entre la suppression d’un groupe de ressources dans le portail Azure et un clic sur l’option Supprimer d’un accélérateur de solution sur azureiotsuite.com ?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Quelle est la différence entre la suppression d’un groupe de ressources dans le portail Azure et de cliquer sur ce bouton sur un accélérateur de solution dans azureiotsolutions.com ?
 
-* Si vous supprimez l’accélérateur de solution sur [azureiotsuite.com](https://www.azureiotsolutions.com/), vous supprimez toutes les ressources qui ont été déployées lors de la création de cet accélérateur. Si vous avez ajouté des ressources supplémentaires au groupe de ressources, elles sont également supprimées.
+* Si vous supprimez l’accélérateur de solution dans [azureiotsolutions.com](https://www.azureiotsolutions.com/), vous supprimez toutes les ressources qui ont été déployées lorsque vous avez créé l’accélérateur de solution. Si vous avez ajouté des ressources supplémentaires au groupe de ressources, elles sont également supprimées.
 * Si vous supprimez le groupe de ressources sur le [portail Azure](https://portal.azure.com), vous supprimez uniquement les ressources de ce groupe de ressources. Vous devez également supprimer l’application Azure Active Directory associée à l’accélérateur de solution.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Puis-je continuer à tirer parti de mes investissements existants dans les accélérateurs de solution Azure IoT ?

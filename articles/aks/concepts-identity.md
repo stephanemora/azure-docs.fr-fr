@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0af3133a1f9a903874c25bf34af0fbf99da8af14
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380678"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243821"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Cet article présente les principaux concepts vous permettant de vous authentifi
 
 Un des principaux types d’utilisateur dans Kubernetes est le *compte de service*. Un compte de service existe dans l’API Kubernetes et est géré par cette API. Les informations d’identification des comptes de service sont stockées en tant que secrets Kubernetes, ce qui leur permet d’être utilisées par les pods autorisés à communiquer avec le serveur d’API. La plupart des requêtes d’API fournissent un jeton d’authentification pour un compte de service ou un compte d’utilisateur normal.
 
-Ces comptes d’utilisateur autorisent un accès plus classique pour les développeurs et les administrateurs humains, ils se ne limitent pas seulement aux services et aux processus. Kubernetes à lui tout seul ne fournit pas de solution de gestion des identités dans laquelle les comptes et les mots de passe d’utilisateurs standard sont stockés. Par contre, il est possible d’intégrer des solutions d’identité externes à Kubernetes. Pour les clusters AKS, cette solution d’identité intégrée est Azure Active Directory.
+Ces comptes d’utilisateur autorisent un accès plus classique pour les développeurs et les administrateurs humains, ils se ne limitent pas seulement aux services et aux processus. Kubernetes lui-même ne fournit pas une solution de gestion des identités où les comptes d’utilisateur standard et les mots de passe sont stockés. Par contre, il est possible d’intégrer des solutions d’identité externes à Kubernetes. Pour les clusters AKS, cette solution d’identité intégrée est Azure Active Directory.
 
 Pour plus d’informations sur les options d’identité dans Kubernetes, consultez [Authentification Kubernetes][kubernetes-authentication].
 
@@ -75,6 +75,8 @@ Un ClusterRoleBinding fonctionne de la même façon pour lier des rôles aux uti
 
 Pour vous familiariser avec RBAC Azure AD et Kubernetes, consultez [Intégrer Azure Active Directory à AKS][aks-aad].
 
+Pour les recommandations associées, consultez [meilleures pratiques pour l’authentification et autorisation dans AKS][operator-best-practices-identity].
+
 Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AKS, consultez les articles suivants :
 
 - [Clusters et charges de travail Kubernetes/AKS][aks-concepts-clusters-workloads]
@@ -98,3 +100,4 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-identity]: operator-best-practices-identity.md

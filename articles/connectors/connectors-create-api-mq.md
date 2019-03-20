@@ -1,8 +1,7 @@
 ---
 title: Se connecter au serveur MQ – Azure Logic Apps | Microsoft Docs
 description: Envoyer et récupérer des messages avec un serveur Azure ou un serveur MQ local et Azure Logic Apps
-author: valthom
-manager: jeconnoc
+author: valrobb
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article
@@ -11,52 +10,52 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 6b34bd7b286ca3b206c611343217c90e0d57fbfb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167879"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Se connecter à un serveur IBM MQ à partir d’applications logiques à l’aide du connecteur MQ 
+# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Se connecter à un serveur IBM MQ à partir d’applications logiques à l’aide du connecteur MQ
 
-Microsoft Connector pour MQ envoie et récupère les messages stockés dans un serveur MQ local ou dans Azure. Ce connecteur inclut un client Microsoft MQ qui communique avec un serveur IBM MQ distant sur un réseau TCP/IP. Ce document est un guide de démarrage pour l’utilisation du connecteur MQ. Nous vous recommandons de commencer par parcourir un message dans une file d’attente, puis de tenter les autres actions.    
+Microsoft Connector pour MQ envoie et récupère les messages stockés dans un serveur MQ local ou dans Azure. Ce connecteur inclut un client Microsoft MQ qui communique avec un serveur IBM MQ distant sur un réseau TCP/IP. Ce document est un guide de démarrage pour l’utilisation du connecteur MQ. Nous vous recommandons de commencer par parcourir un message dans une file d’attente, puis de tenter les autres actions.
 
 Le connecteur MQ inclut les actions suivantes. Il n’y a aucun déclencheur.
 
--   Parcourir un seul message sans le supprimer du serveur IBM MQ
--   Parcourir un lot de messages sans supprimer ceux-ci du serveur IBM MQ
--   Recevoir un message unique et supprimer le message à partir du serveur IBM MQ
--   Recevoir un lot de messages et supprimer les messages du serveur IBM MQ
--   Envoyer un message unique au serveur IBM MQ 
+- Parcourir un seul message sans le supprimer du serveur IBM MQ
+- Parcourir un lot de messages sans supprimer ceux-ci du serveur IBM MQ
+- Recevoir un message unique et supprimer le message à partir du serveur IBM MQ
+- Recevoir un lot de messages et supprimer les messages du serveur IBM MQ
+- Envoyer un message unique au serveur IBM MQ
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Si vous utilisez un serveur MQ local, [installez la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) sur un serveur au sein de votre réseau. Si le serveur MQ est disponible publiquement ou dans Azure, la passerelle de données n’est pas utilisée ou nécessaire.
 
     > [!NOTE]
-    > Pour que le connecteur MQ fonctionne, .Net Framework 4.6 doit également être installé sur le serveur sur lequel la passerelle de données locale est installée.
+    > Le serveur où est installée la passerelle de données locale doit avoir également .NET Framework 4.6 installé pour le connecteur MQ fonctionne.
 
 * Créez la ressource Azure pour la passerelle de données locale : [configurer la connexion de passerelle de données](../logic-apps/logic-apps-gateway-connection.md).
 
 * Versions d’IBM WebSphere MQ Officiellement prises en charge :
-   * MQ 7.5
-   * MQ 8.0
+    * MQ 7.5
+    * MQ 8.0
 
 ## <a name="create-a-logic-app"></a>Créer une application logique
 
-1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**. 
+1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.
 2. Entrez le **Nom**, par exemple, MQTestApp, l’**Abonnement**, le **Groupe de ressources** et l’**Emplacement** (utilisez l’emplacement où la connexion de passerelle de données locale est configurée). Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.  
 ![Créer une application logique](media/connectors-create-api-mq/Create_Logic_App.png)
 
 ## <a name="add-a-trigger"></a>Ajouter un déclencheur
 
 > [!NOTE]
-> Le connecteur MQ ne possède aucun déclencheur. Par conséquent, utilisez un autre déclencheur pour démarrer votre application logique, tel que le déclencheur de **périodicité**. 
+> Le connecteur MQ ne possède aucun déclencheur. Par conséquent, utilisez un autre déclencheur pour démarrer votre application logique, tel que le déclencheur de **périodicité**.
 
 1. Le **Concepteur d’applications logique** s’ouvre. Sélectionnez **Périodicité** dans la liste des déclencheurs courants.
-2. Sélectionnez **Modifier** dans le déclencheur de périodicité. 
-3. Définissez la **Fréquence** sur **Jour** et l’**Intervalle** sur **7**. 
+2. Sélectionnez **Modifier** dans le déclencheur de périodicité.
+3. Définissez la **Fréquence** sur **Jour** et l’**Intervalle** sur **7**.
 
 ## <a name="browse-a-single-message"></a>Parcourir un seul message
 1. Sélectionnez **+Nouvelle étape**, puis **Ajouter une action**.
@@ -66,9 +65,9 @@ Le connecteur MQ inclut les actions suivantes. Il n’y a aucun déclencheur.
 3. À défaut de connexion MQ existante, créez la connexion :  
 
     1. Sélectionnez **Connect via on-premises data gateway** (Se connecter via la passerelle de données locale), puis entrez les propriétés de votre serveur MQ.  
-    Pour **Serveur**, vous pouvez entrer le nom du serveur MQ, ou l’adresse IP suivie par un signe deux-points et le numéro de port. 
+    Pour **Serveur**, vous pouvez entrer le nom du serveur MQ, ou l’adresse IP suivie par un signe deux-points et le numéro de port.
     2. Le menu déroulant **Passerelle** répertorie toutes les connexions de passerelle existantes qui ont été configurées. Sélectionnez votre passerelle.
-    3. Lorsque vous avez terminé, sélectionnez **Créer**. Votre connexion ressemble à ce qui suit :   
+    3. Lorsque vous avez terminé, sélectionnez **Créer**. Votre connexion ressemble à ce qui suit :  
     ![Propriétés de connexion](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. Dans les propriétés de l’action, vous pouvez :  

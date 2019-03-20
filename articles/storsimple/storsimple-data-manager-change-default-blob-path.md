@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: HT
+ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862398"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011635"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Modifier le chemin d’accès d’objet blob par défaut
 
@@ -33,7 +33,7 @@ Assurez-vous que vous avez une définition de travail correctement configurée d
 
 Pour créer une fonction Azure, procédez comme suit :
 
-1. Accédez au [portail Azure](http://portal.azure.com/).
+1. Accédez au [portail Azure](https://portal.azure.com/).
 
 2. Cliquez sur **+ Créer une ressource**. Dans la zone de **recherche**, saisissez **Function App**, puis appuyez sur **Entrée**. Sélectionnez et cliquez sur **Function App** dans la liste des applications affichées.
 
@@ -223,6 +223,6 @@ Pour créer une fonction Azure, procédez comme suit :
 
 Vous avez créé une fonction Azure. Cette fonction est déclenchée à chaque fois qu’un nouvel objet blob est généré par le travail de transformation des données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md)

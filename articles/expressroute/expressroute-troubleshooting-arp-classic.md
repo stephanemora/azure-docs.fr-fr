@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 367a79b04a8736e2eafb6851b682f2c244e80522
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 3e49a1da0e8ea83faf5fc5a10d4c01a41d62fa88
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272284"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439636"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement classique
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ La section suivante fournit des informations sur l’affichage des tables ARP vu
 Assurez-vous que vous disposez des éléments suivants avant de poursuivre :
 
 * Un circuit ExpressRoute valide configuré avec au moins une homologation. Le circuit doit être entièrement configuré par le fournisseur de connectivité. Vous (ou votre fournisseur de connectivité) devez configurer au moins une des homologations (Azure privé, Azure public ou Microsoft) sur ce circuit.
-* Plages d’adresses IP utilisées pour configurer les homologations (Azure privé, Azure public et Microsoft). Passez en revue les exemples d’affectation d’adresses IP sur la [page de configuration requise pour le routage ExpressRoute](expressroute-routing.md) pour comprendre de quelle manière les adresses IP sont mappées aux interfaces de votre côté et du côté d’ExpressRoute. Vous pouvez obtenir plus d’informations sur la configuration d’homologation en examinant la [page de configuration d’homologation ExpressRoute](expressroute-howto-routing-classic.md).
+* Plages d’adresses IP utilisées pour configurer les homologations (Azure privé, Azure public et Microsoft). Passez en revue les exemples d’affectation d’adresse IP dans le [page de spécifications de routage ExpressRoute](expressroute-routing.md) pour comprendre de quelle manière les adresses IP sont mappées aux interfaces de votre côté et sur le côté d’ExpressRoute. Vous pouvez obtenir plus d’informations sur la configuration d’homologation en examinant la [page de configuration d’homologation ExpressRoute](expressroute-howto-routing-classic.md).
 * Informations de votre équipe réseau ou de votre fournisseur de connectivité sur les adresses MAC des interfaces utilisées avec ces adresses IP.
 * Le dernier module Windows PowerShell pour Azure (version 1.50 ou plus récente).
 

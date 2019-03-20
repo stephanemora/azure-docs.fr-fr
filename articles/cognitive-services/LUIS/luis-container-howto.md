@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/21/2019
 ms.author: diberry
-ms.openlocfilehash: 99647770df9a8ca194559863a1d7212faf1c83a1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 19206278f838b77954c28e95e9171a857ba1338a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328212"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670648"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -28,7 +28,7 @@ La vidéo suivante illustre l’utilisation de ce conteneur.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour exécuter le conteneur LUIS, vous devez disposer des éléments suivants : 
 
@@ -248,6 +248,8 @@ D’autres [exemples](luis-container-configuration.md#example-docker-run-command
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
 > La valeur ApiKey est la **clé** mentionnée dans la page Keys and Endpoints dans le portail LUIS. Elle est également disponible dans la page Clés de ressources Language Understanding d’Azure.  
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Interroger le point de terminaison de prédiction du conteneur
 
 Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST. Les points de terminaison pour les applications publiées (intermédiaires ou production) ont une route _différente_ de celle des points de terminaison pour les applications entraînées. 
@@ -263,7 +265,7 @@ Les paramètres de requête configurent ce qui est retourné dans la réponse de
 
 |Paramètre de requête.|Type|Objectif|
 |--|--|--|
-|`q`|chaîne|Énoncé de l’utilisateur.|
+|`q`|string|Énoncé de l’utilisateur.|
 |`timezoneOffset`|number|timezoneOffset vous permet de [changer le fuseau horaire](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilisé par l’entité prédéfinie datetimeV2.|
 |`verbose`|booléenne|Retourne toutes les intentions et leurs scores quand la valeur est true. La valeur par défaut est false, ce qui retourne uniquement la première intention.|
 |`staging`|booléenne|Retourne une requête à partir des résultats de l’environnement intermédiaire si la valeur est true. |

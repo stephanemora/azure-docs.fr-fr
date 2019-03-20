@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 273b0f1105d8b71b90a06e2627e201b97f12a754
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095393"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454253"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Redéployer une machine virtuelle dans un labo dans Azure DevTest Labs
-Si vous ne pouvez pas vous connecter à une machine virtuelle dans un labo via une connexion Bureau à distance, redéployez la machine virtuelle et essayez de vous y reconnecter. Quand vous redéployez une machine virtuelle, DevTest Labs la déplace depuis le nœud sur lequel elle est en cours d’exécution vers un nouveau nœud au sein de l’infrastructure Azure. Il démarre ensuite la machine virtuelle tout en conservant la totalité des options de configuration et des ressources associées. Ainsi, vous n’avez pas besoin de consacrer du temps à la résolution de problèmes liés à la connexion Bureau à distance ou à l’accès d’une application à des machines virtuelles Windows dans le labo. 
+Si vous ne pouvez pas vous connecter à une machine virtuelle (VM) dans un laboratoire via une connexion Bureau à distance, redéployez la machine virtuelle et réessayez de vous connecter à celui-ci. Quand vous redéployez une machine virtuelle, DevTest Labs la déplace depuis le nœud sur lequel elle est en cours d’exécution vers un nouveau nœud au sein de l’infrastructure Azure. Il démarre ensuite la machine virtuelle tout en conservant la totalité des options de configuration et des ressources associées. Ainsi, vous n’avez pas besoin de consacrer du temps à la résolution de problèmes liés à la connexion Bureau à distance ou à l’accès d’une application à des machines virtuelles Windows dans le labo. 
 
 ## <a name="steps-to-redeploy-a-vm-in-a-lab"></a>Étapes du redéploiement d’une machine virtuelle dans un labo 
 Pour redéployer une machine virtuelle dans un labo dans Azure DevTest Labs, effectuez les étapes suivantes : 

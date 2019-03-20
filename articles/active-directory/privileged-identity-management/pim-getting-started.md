@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09914de48df09dabd4069cd33e7acbea328fa89d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193150"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546855"
 ---
 # <a name="start-using-pim"></a>Commencer à utiliser PIM
 
@@ -27,7 +27,7 @@ Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vou
 
 Cet article décrit comment activer et bien démarrer avec PIM.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser PIM, vous devez disposer d’une des licences suivantes :
 
@@ -106,7 +106,6 @@ Une fois PIM configuré, vous pouvez effectuer vos tâches de gestion des identi
 | --- | --- |
 | **Mes rôles**  | Affiche la liste des rôles éligibles et actifs qui vous sont attribués. C’est là où vous pouvez activer tout rôle éligible attribué. |
 | **Mes demandes** | Affiche toutes vos requêtes en attente pour activer les attributions de rôles éligibles. |
-| **Accès aux applications** | Permet de réduire les délais potentiels et d’utiliser un rôle immédiatement après son activation. |
 | **Approuver des requêtes** | Affiche la liste des demandes d’activation des rôles éligibles par utilisateur dans votre annuaire, dont l’approbation vous revient. |
 | **Révision d’accès** | Répertorie les révisions d’accès que vous devez terminer, que vous les effectuiez pour vous-même ou pour quelqu’un d’autre. |
 | **Rôles Azure AD** | Affiche un tableau de bord et des paramètres pour les administrateurs de rôle privilégié qui doivent gérer les attributions de rôles d’annuaire Azure AD. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire). |

@@ -6,23 +6,78 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.author: larryfr
+author: Blackmist
+ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860633"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
 Dans cet article, découvrez les versions du service Azure Machine Learning.  Pour obtenir une description complète de chaque Kit de développement logiciel (SDK), consultez la documentation de référence de :
 + [**Kit de développement logiciel (SDK) principal pour Python**](https://aka.ms/aml-sdk) d’Azure Machine Learning
 + [**Kit de développement logiciel (SDK) de préparation de données**](https://aka.ms/data-prep-sdk) Azure Machine Learning
+
+## <a name="2019-03-11"></a>2019-03-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning SDK pour Python v1.0.18
+
+ + **Modifications**
+   + Le package azureml-tensorboard remplace azureml-cotisation-tensorboard.
+   + Avec cette version, vous pouvez configurer un compte d’utilisateur sur votre cluster de calcul gérée (amlcompute), lors de sa création. Cela est possible en passant simplement ces propriétés dans la configuration de mise en service. Vous trouverez plus de détails dans le [documentation de référence SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
+
+### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Kit de développement logiciel v1.0.17 de préparation des données d’Azure Machine Learning
+
++ **Nouvelles fonctionnalités**
+  + Prend désormais en charge l’ajout de deux colonnes numériques pour générer une colonne résultante en utilisant le langage d’expression.
+
++ **Correctifs de bogues et améliorations**
+  + Amélioration de la documentation et la vérification des paramètres des random_split.
+  
+## <a name="2019-02-27"></a>2019-02-27
+
+### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Kit de développement logiciel v1.0.16 de préparation des données d’Azure Machine Learning
+
++ **Correctif de bogue**
+  + Correction d’un Principal de Service problème d’authentification qui a été provoqué par une modification de l’API.
+
+## <a name="2019-02-25"></a>2019-02-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning SDK pour Python v1.0.17
+
++ **Nouvelles fonctionnalités**
+
+  + Azure Machine Learning fournit désormais une prise en charge de première classe pour l’infrastructure de réseau de neurones profond populaire programme de chaînage. À l’aide de [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) classe les utilisateurs peuvent facilement former et déployer des modèles de programme de chaînage.
+    + Découvrez comment [exécuter la formation distribuée avec ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + Découvrez comment [exécuter le réglage des hyperparamètres avec un programme de chaînage à l’aide de HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
+  + Azure Machine Learning Pipelines ajouté déclencheur permet une exécution du Pipeline basé sur les modifications de la banque de données. Le pipeline [bloc-notes de planification](https://aka.ms/pl-schedule) est mis à jour afin de tirer parti de cette fonctionnalité.
+
++ **Correctifs de bogues et améliorations**
+  + Nous avons ajouté la prise en charge d’Azure Machine Learning Pipelines pour définir la propriété source_directory_data_store sur une banque de données de votre choix (par exemple, un stockage d’objets blob) sur [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) qui sont fournies à la [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Par défaut étapes utilisent le magasin de fichiers Azure en tant que la banque de données de sauvegarde qui vous pouvez rencontrer des problèmes de limitation quand un grand nombre d’étapes est exécuté simultanément.
+
+### <a name="azure-portal"></a>Portail Azure
+
++ **Nouvelles fonctionnalités**
+  + Expérience de l’éditeur pour les rapports de la table nouveau glisser -déplacer. Les utilisateurs peuvent faire glisser une colonne à partir de la zone de configuration à la zone de la table où s’affiche un aperçu de la table. Les colonnes peuvent être déplacées.
+  + Nouvelle visionneuse de fichiers journaux
+  + Liens à faire des essais s’exécute, le calcul, modèles, images et les déploiements à partir de l’onglet activités
+
+### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Kit de développement logiciel v1.0.15 de préparation des données d’Azure Machine Learning
+
++ **Nouvelles fonctionnalités**
+  + Données Prep prend désormais en charge l’écriture de flux de fichier à partir d’un flux de données. Fournit également la possibilité de manipuler les noms de flux de fichiers pour créer de nouveaux noms de fichiers.
+    + Guide pratique : [Bloc-notes de travailler avec les flux de fichiers](https://aka.ms/aml-data-prep-file-stream-nb)
+
++ **Correctifs de bogues et améliorations**
+  + Amélioration des performances de t-Digest sur de grands ensembles de données.
+  + Préparation des données prend désormais en charge la lecture de données à partir d’un chemin de données.
+  + Un encodage à chaud fonctionne désormais sur des colonnes booléennes et numériques.
+  + Autres correctifs divers.
 
 ## <a name="2019-02-11"></a>2019-02-11
 
@@ -85,7 +140,7 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning v1.0.7
 
 + **Nouvelles fonctionnalités**
-  + Améliorations des magasins de données (documentées dans le [Guide pratique sur les magasins de données](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+  + Améliorations des magasins de données (documentées dans le [Guide pratique sur les magasins de données](https://aka.ms/aml-data-prep-datastore-nb))
     + Ajout de la possibilité de lire et d'écrire sur le partage de fichiers Azure et dans les magasins de données ADLS lors de la mise à l'échelle.
     + Lors de l'utilisation de magasins de données, la préparation des données prend désormais en charge l'utilisation de l'authentification du principal de service au lieu de l'authentification interactive.
     + Ajout de la prise en charge des URL wasb et wasbs.

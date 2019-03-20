@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: cda183878467dbcd30f0e89d88da55c20b6b130f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 85fdd67cd676db2a7c54c10523787b0d395de5dc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268632"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870786"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -48,8 +48,8 @@ Consultez l’exemple propre à un langage particulier :
 * [C#](#trigger---c-example)
 * [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -146,6 +146,39 @@ let Run(myQueueItem: string, log: ILogger) =
     log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
+### <a name="trigger---java-example"></a>Déclencheur - exemple Java
+
+La fonction Java suivante utilise le `@ServiceBusQueueTrigger` annotation à partir de la [Java fonctions de bibliothèque runtime](/java/api/overview/azure/functions/runtime) pour décrire la configuration d’un déclencheur de file d’attente Service Bus. La fonction récupère le message placé dans la file d’attente et l’ajoute dans les journaux.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+Fonctions Java peuvent également être déclenchées lorsqu’un message est ajouté à une rubrique Service Bus. L’exemple suivant utilise le `@ServiceBusTopicTrigger` annotation pour décrire la configuration du déclencheur.
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+ ```
+
 ### <a name="trigger---javascript-example"></a>Déclencheur - exemple JavaScript
 
 L’exemple suivant montre une liaison de déclencheur Service Bus dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction lit [les métadonnées du message](#trigger---message-metadata) et consigne un message de la file d’attente Service Bus. 
@@ -178,41 +211,6 @@ module.exports = function(context, myQueueItem) {
     context.done();
 };
 ```
-
-### <a name="trigger---java-example"></a>Déclencheur - exemple Java
-
-L’exemple suivant montre une liaison de déclencheur Service Bus dans un fichier *function.json* et une [fonction Java](functions-reference-java.md) qui utilise la liaison. La fonction est déclenchée par un message placé dans une file d’attente Service Bus, et la fonction enregistre le message de la file d’attente.
-
-Voici les données de liaison dans le fichier *function.json* :
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "myqueuename",
-    "connection": "MyServiceBusConnection",
-    "name": "msg",
-    "type": "ServiceBusQueueTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Voici le code Java :
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
@@ -285,7 +283,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**queueName**|**QueueName**|Nom de la file d’attente à surveiller.  Défini uniquement en cas de surveillance d’une file d’attente, ne s’applique pas à une rubrique.
 |**topicName**|**TopicName**|Nom de la rubrique à surveiller. Défini uniquement en cas de surveillance d’une rubrique, ne s’applique pas à une file d’attente.|
 |**subscriptionName**|**SubscriptionName**|Nom de l’abonnement à surveiller. Défini uniquement en cas de surveillance d’une rubrique, ne s’applique pas à une file d’attente.|
-|**Connexion**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-management-credentials). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. |
+|**Connexion**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. |
 |**accessRights**|**y accéder**|Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion. Dans Azure Functions version 2.x, cette propriété n’est pas disponible car la version la plus récente du SDK Stockage ne prend pas en charge les opérations de gestion.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -315,7 +313,7 @@ Le paramètre `maxAutoRenewDuration` peut être configuré dans *host.json*, qui
 
 ## <a name="trigger---message-metadata"></a>Déclencheur - métadonnées de message
 
-Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ce sont les propriétés de la classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
+Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](./functions-bindings-expressions-patterns.md#trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ce sont les propriétés de la classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
 |Propriété|Type|Description|
 |--------|----|-----------|
@@ -354,8 +352,8 @@ Consultez l’exemple propre à un langage particulier :
 * [C#](#output---c-example)
 * [Script C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
+* [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
-* Java
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
@@ -459,6 +457,41 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
+### <a name="output---java-example"></a>Sortie : exemple Java
+
+L’exemple suivant montre une fonction Java qui envoie un message à une file d’attente Service Bus `myqueue` lorsqu’elle est déclenchée par une requête HTTP.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres de fonction dont la valeur serait écrite dans une file d’attente Service Bus.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
+
+Fonctions Java peuvent également écrire dans une rubrique Service Bus. L’exemple suivant utilise le `@ServiceBusTopicOutput` annotation pour décrire la configuration pour la liaison de sortie. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
 ### <a name="output---javascript-example"></a>Sortie - exemple JavaScript
 
 L’exemple suivant montre une liaison de sortie Service Bus dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction utilise un déclencheur de minuteur pour envoyer un message de file d’attente toutes les 15 secondes.
@@ -511,25 +544,6 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-
-### <a name="output---java-example"></a>Sortie : exemple Java
-
-L’exemple suivant montre une fonction Java qui envoie un message à une file d’attente Service Bus `myqueue` lorsqu’elle est déclenchée par une requête HTTP.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
- ```
-
- Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres de fonction dont la valeur serait écrite dans une file d’attente Service Bus.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
-
 ## <a name="output---attributes"></a>Sortie - attributs
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
@@ -571,7 +585,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name** | n/a | Nom de la variable qui représente la file d’attente ou la rubrique dans le code de la fonction. Défini sur « $return » pour faire référence à la valeur de retour de la fonction. | 
 |**queueName**|**QueueName**|Nom de la file d’attente.  Défini uniquement en cas d’envoi de messages de file d’attente, ne s’applique pas à une rubrique.
 |**topicName**|**TopicName**|Nom de la rubrique à surveiller. Défini uniquement en cas d’envoi de messages de rubrique, ne s’applique pas à une file d’attente.|
-|**Connexion**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-management-credentials). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.|
+|**Connexion**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.|
 |**accessRights**|**y accéder**|Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion. Dans Azure Functions version 2.x, cette propriété n’est pas disponible car la version la plus récente du SDK Stockage ne prend pas en charge les opérations de gestion.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -596,7 +610,7 @@ Dans JavaScript, accédez à la file d’attente ou la rubrique à l’aide de `
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Informations de référence |
+| Liaison | Référence |
 |---|---|
 | Service Bus | [Codes d’erreur de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Service Bus | [Limites de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |

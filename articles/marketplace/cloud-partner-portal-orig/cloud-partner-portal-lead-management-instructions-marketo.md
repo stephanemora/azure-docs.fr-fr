@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: abb0abb94d3b3e7abc4dce58cdb11fa0c2cedd34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 482d7a9662a79503bb2b197d5a6c63c9fa3c1c96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113110"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurer la gestion des prospects dans Marketo
 
@@ -50,7 +50,7 @@ Cet article explique comment configurer Marketo pour gérer les prospects Micros
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-8.  Copiez les valeurs visibles dans le code incorporé de façon à configurer **Server Id**, **Munchkin Id** et **Form Id** de Marketo sur le Portail Microsoft Cloud Partner.
+1. Copiez les valeurs visibles dans le code incorporé de façon à configurer **Server Id**, **Munchkin Id** et **Form Id** de Marketo sur le Portail Microsoft Cloud Partner.
 
 Utilisez l’exemple suivant comme guide pour obtenir les identifiants dont vous avez besoin dans l’exemple de code incorporé Marketo.
 

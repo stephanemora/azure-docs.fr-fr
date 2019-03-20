@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26333200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097233"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Utiliser le service StorSimple Device Manager dans le portail Azure pour cloner un volume
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel via le panneau **Catalogue de sauvegarde**. Il explique également la différence entre les clones *temporaires* et *permanents*. Les instructions de ce didacticiel s’applique à tous les appareils de la gamme StorSimple 8000 exécutant Update 3 ou une version ultérieure.
 
@@ -66,9 +66,9 @@ Procédez comme suit pour créer un clone de votre volume à partir du catalogue
    3. Indiquez l’intervalle de temps.
    4. Cliquez sur **Appliquer** pour exécuter cette requête.
 
-    Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
+      Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
    
-    ![Liste des jeux de sauvegarde](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Liste des jeux de sauvegarde](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Développez le jeu de sauvegarde pour afficher le volume associé et sélectionner un volume dans le jeu de sauvegarde. Cliquez dessus avec le bouton droit puis sélectionnez **Cloner** dans le menu contextuel.
 
@@ -76,21 +76,21 @@ Procédez comme suit pour créer un clone de votre volume à partir du catalogue
 
 3. Dans le panneau **Cloner**, effectuez les étapes suivantes :
    
-    1. Identifiez un appareil cible. Il s’agit de l’emplacement où sera créé le clone. Vous pouvez choisir le même appareil ou en spécifier un autre.
+   1. Identifiez un appareil cible. Il s’agit de l’emplacement où sera créé le clone. Vous pouvez choisir le même appareil ou en spécifier un autre.
 
       > [!NOTE]
       > Assurez-vous que la capacité requise pour le clone est inférieure à la capacité disponible sur le périphérique cible.
        
-    2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
+   2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
       
-        > [!NOTE]
-        > Le champ **Cloner le volume comme** sera **Hiérarchisé** même si vous clonez un volume épinglé localement. Vous ne pouvez pas modifier ce paramètre. Toutefois, si vous voulez que le volume cloné soit aussi épinglé localement, une fois le clone créé, vous pouvez le convertir en volume épinglé localement. Pour plus d'informations sur la conversion d'un volume à plusieurs niveaux en volume épinglé localement, consultez la page [Changer de type de volume](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+       > [!NOTE]
+       > Le champ **Cloner le volume comme** sera **Hiérarchisé** même si vous clonez un volume épinglé localement. Vous ne pouvez pas modifier ce paramètre. Toutefois, si vous voulez que le volume cloné soit aussi épinglé localement, une fois le clone créé, vous pouvez le convertir en volume épinglé localement. Pour plus d'informations sur la conversion d'un volume à plusieurs niveaux en volume épinglé localement, consultez la page [Changer de type de volume](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
           
-    3. Sous **Hôtes connectés**, spécifiez un enregistrement de contrôle d’accès (ACR) pour le clone. Vous pouvez ajouter un nouvel ACR ou en choisir un dans la liste existante. L’ACR déterminera les hôtes qui peuvent accéder à ce clone.
+   3. Sous **Hôtes connectés**, spécifiez un enregistrement de contrôle d’accès (ACR) pour le clone. Vous pouvez ajouter un nouvel ACR ou en choisir un dans la liste existante. L’ACR déterminera les hôtes qui peuvent accéder à ce clone.
       
-        ![Liste des jeux de sauvegarde](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Liste des jeux de sauvegarde](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-    4. Cliquez sur **Cloner** pour terminer l’opération.
+   4. Cliquez sur **Cloner** pour terminer l’opération.
 
 4. Un travail de clonage est lancé et vous êtes informé lorsque le clone est créé avec succès. Cliquez sur la notification du travail ou accédez au panneau **Tâches** pour surveiller le travail de clonage.
 

@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005808"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Afficher les affectations de refus pour les ressources Azure à l'aide du portail Azure
 
-Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Bien que vous ne puissiez pas créer vos propres affectations de refus, vous devez malgré tout être en mesure de voir les affectations de refus, car elles peuvent affecter vos autorisations globales. Pour obtenir des informations sur une affectation de refus, vous devez disposer de l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés](built-in-roles.md) pour les ressources Azure.
-
-Cet article explique comment utiliser le portail Azure pour afficher les affectations de refus.
+Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article explique comment utiliser le portail Azure pour afficher les affectations de refus.
 
 > [!NOTE]
-> À ce stade, les affectations de refus sont en lecture seule et peuvent être définies uniquement par Azure.
+> À ce stade, la seule façon, vous pouvez ajouter vos propres refuser affectations est à l’aide de plans d’Azure. Pour plus d’informations, consultez [protéger les nouvelles ressources des verrous de ressources Azure plans](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Conditions préalables
+
+Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
+
+- `Microsoft.Authorization/denyAssignments/read` autorisation, qui est incluse dans la plupart des [rôles intégrés pour les ressources Azure](built-in-roles.md).
 
 ## <a name="view-deny-assignments"></a>Afficher les affectations de refus
 

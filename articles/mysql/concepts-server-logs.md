@@ -1,17 +1,17 @@
 ---
 title: Journaux de serveur pour Azure Database pour MySQL
 description: Décrit les journaux disponibles dans Azure Database pour MySQL et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/03/2018
-ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545071"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119035"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Journaux de serveur dans Azure Database pour MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître. 
@@ -44,16 +44,19 @@ Les autres paramètres que vous pouvez ajuster incluent :
 Consultez [la documentation MySQL consacrée au journal des requêtes lentes](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) pour obtenir une description complète des paramètres du journal des requêtes lentes.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
-Azure Database pour MySQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur MySQL, vous pouvez choisir qu’ils soient émis sur Log Analytics, Event Hubs ou Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database pour MySQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux de requêtes lentes sur votre serveur MySQL, vous pouvez choisir pour qu’elles soient émis vers les journaux Azure Monitor, Event Hubs ou stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+> [!IMPORTANT]
+> Cette fonctionnalité de diagnostique pour les journaux de serveur est uniquement disponible dans l’usage général et à mémoire optimisée [niveaux tarifaires](concepts-pricing-tiers.md).
 
 Le tableau suivant décrit ce que contient chaque journal. En fonction de la méthode de sortie, les champs inclus et l’ordre dans lequel ils apparaissent peuvent varier.
 
 | **Propriété** | **Description** |
-|---|---|---|
+|---|---|
 | TenantId | Votre ID d’abonné |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Horodatage du moment où le journal a été enregistré en UTC |
-| type | Type de journal. Toujours `AzureDiagnostics` |
+| Type | Type de journal. Toujours `AzureDiagnostics` |
 | SubscriptionId | GUID de l’abonnement auquel appartient le serveur |
 | ResourceGroup | Nom du groupe de ressources auquel le serveur appartient |
 | ResourceProvider | Nom du fournisseur de ressources. Toujours `MICROSOFT.DBFORMYSQL` |

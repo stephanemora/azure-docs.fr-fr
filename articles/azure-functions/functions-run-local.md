@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 703b8a7a094d0ea6f5b5dedaf02a218b407269d3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9cfec02e2ea3496589474e61f583fb840a70f78d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881319"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -93,8 +93,8 @@ Les étapes suivantes utilisent [APT](https://wiki.debian.org/Apt) pour installe
 
     | Distribution Linux | Version |
     | --------------- | ----------- |
+    | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
@@ -156,7 +156,7 @@ Dans la version 2.x du runtime Azure Functions, vous devez inscrire explicitemen
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-Pour plus d’informations, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md#register-binding-extensions).
+Pour plus d’informations, consultez [Concepts des déclencheurs et liaisons Azure Functions](./functions-bindings-expressions-patterns.md).
 
 ## <a name="local-settings-file"></a>Fichier de paramètres locaux
 
@@ -183,22 +183,22 @@ Le fichier local.settings.json stocke les paramètres de l’application, les ch
 
 | Paramètre      | Description                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | Lorsque la valeur est définie sur **true**, toutes les valeurs sont chiffrées à l’aide d’une clé d’ordinateur local. Utilisé avec les commandes `func settings`. La valeur par défaut est **false**. |
-| **Valeurs** | Collection des paramètres d’application et des chaînes de connexion utilisés lors de l’exécution locale. Ces valeurs correspondent aux paramètres d’application de votre application de fonction dans Azure, par exemple **AzureWebJobsStorage** et **AzureWebJobsDashboard**. Plusieurs déclencheurs et liaisons ont une propriété qui fait référence à un paramètre d’application de chaîne de connexion, par exemple **Connexion** pour le [déclencheur de stockage blob](functions-bindings-storage-blob.md#trigger---configuration). Pour ces propriétés, vous avez besoin d’un paramètre d’application défini dans le tableau **Valeurs**. <br/>**AzureWebJobsStorage** est un paramètre d’application requis pour les déclencheurs autres que HTTP. Lorsque vous avez installé l’[émulateur de stockage Azure](../storage/common/storage-use-emulator.md) localement, vous pouvez définir **AzureWebJobsStorage** sur `UseDevelopmentStorage=true`, et Core Tools utilise alors l’émulateur. Cette configuration est utile lors du développement, mais vous devez la tester avec une connexion de stockage réelle avant le déploiement. |
-| **Hôte** | Les paramètres de cette section personnalisent le processus hôte Functions lors de l’exécution locale. |
-| **LocalHttpPort** | Définit le port par défaut utilisé lors de l’exécution de l’hôte Functions local (`func host start` et `func run`). L’option de ligne de commande `--port` est prioritaire sur cette valeur. |
-| **CORS** | Définit les origines autorisées pour [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Les origines sont fournies sous la forme d’une liste séparée par des virgules, sans espaces. La valeur de caractère générique (\*) est prise en charge, ce qui autorise les demandes à partir de toute origine. |
-| **ConnectionStrings** | N’utilisez pas cette collection pour les chaînes de connexion utilisées par vos liaisons de fonction. Cette collection est utilisée seulement par les frameworks qui obtiennent généralement les chaînes de connexion à partir de la section **ConnectionStrings** d’un fichier de configuration, comme [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Les chaînes de connexion dans cet objet sont ajoutées à l’environnement avec le type de fournisseur [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Les éléments de cette collection ne sont pas publiés sur Azure avec d’autres paramètres d’application. Vous devez explicitement ajouter ces valeurs à la collection **Chaînes de connexion** des paramètres d’application de fonction. Si vous créez une [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) dans votre code de fonction, vous devez stocker la valeur de la chaîne de connexion dans les **Paramètres d’application** avec vos autres connexions. |
+| **`IsEncrypted`** | Lorsque la valeur `true`, toutes les valeurs sont chiffrées à l’aide d’une clé d’ordinateur local. Utilisé avec les commandes `func settings`. La valeur par défaut est `false`. |
+| **`Values`** | Collection des paramètres d’application et des chaînes de connexion utilisés lors de l’exécution locale. Ces valeurs correspondent aux paramètres d’application dans votre function app dans Azure, tel que [ `AzureWebJobsStorage` ]. Plusieurs déclencheurs et liaisons ont une propriété qui fait référence à un paramètre application de la chaîne de connexion, tel que `Connection` pour le [déclencheur stockage Blob](functions-bindings-storage-blob.md#trigger---configuration). Pour ces propriétés, vous avez besoin d’un paramètre d’application défini dans le `Values` tableau. <br/>[`AzureWebJobsStorage`] une application obligatoire consiste à définir pour les déclencheurs autres que HTTP. <br/>Version 2.x du runtime Functions requiert le [ `FUNCTIONS_WORKER_RUNTIME` ] paramètre, qui est générée pour votre projet par Core Tools. <br/> Lorsque vous avez le [émulateur de stockage Azure](../storage/common/storage-use-emulator.md) installé localement, vous pouvez définir [ `AzureWebJobsStorage` ] à `UseDevelopmentStorage=true` et outils Core utilise l’émulateur. Cette configuration est utile lors du développement, mais vous devez la tester avec une connexion de stockage réelle avant le déploiement. |
+| **`Host`** | Les paramètres de cette section personnalisent le processus hôte Functions lors de l’exécution locale. |
+| **`LocalHttpPort`** | Définit le port par défaut utilisé lors de l’exécution de l’hôte Functions local (`func host start` et `func run`). L’option de ligne de commande `--port` est prioritaire sur cette valeur. |
+| **`CORS`** | Définit les origines autorisées pour [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Les origines sont fournies sous la forme d’une liste séparée par des virgules, sans espaces. La valeur de caractère générique (\*) est prise en charge, ce qui autorise les demandes à partir de toute origine. |
+| **`ConnectionStrings`** | N’utilisez pas cette collection pour les chaînes de connexion utilisées par vos liaisons de fonction. Cette collection est utilisée uniquement par les infrastructures qui obtiennent généralement les chaînes de connexion à partir de la `ConnectionStrings` section d’une configuration de fichier, telles que [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Les chaînes de connexion dans cet objet sont ajoutées à l’environnement avec le type de fournisseur [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Les éléments de cette collection ne sont pas publiés sur Azure avec d’autres paramètres d’application. Vous devez explicitement ajouter ces valeurs à la `Connection strings` collection de vos paramètres d’application de fonction. Si vous créez un [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) dans votre code de fonction, vous devez stocker la valeur de chaîne de connexion dans **paramètres d’Application** dans le portail avec vos autres connexions. |
 
 Ces valeurs de paramètres d’application de fonction peuvent aussi être lues dans votre code en tant que variables d’environnement. Pour plus d’informations, consultez la section Variables d’environnement de ces rubriques de référence spécifiques à une langue :
 
-+ [C# précompilé](functions-dotnet-class-library.md#environment-variables)
-+ [Script C# (.csx)](functions-reference-csharp.md#environment-variables)
-+ [Script F# (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [C# précompilé](functions-dotnet-class-library.md#environment-variables)
+* [Script C# (.csx)](functions-reference-csharp.md#environment-variables)
+* [Script F# (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-Si aucune chaîne de connexion de stockage valide n’est définie pour **AzureWebJobsStorage** et que l’émulateur n’est pas utilisé, le message d’erreur suivant s’affiche :
+Quand aucune chaîne de connexion de stockage valide n’est définie pour [ `AzureWebJobsStorage` ] et l’émulateur n’est pas utilisé, le message d’erreur suivant s’affiche :
 
 > Valeur manquante pour AzureWebJobsStorage dans local.settings.json. Cette valeur est nécessaire pour tous les déclencheurs autres que HTTP. Vous pouvez exécuter 'func azure functionapp fetch-app-settings \<functionAppName\>' ou spécifier une chaîne de connexion dans local.settings.json.
 
@@ -216,12 +216,12 @@ Même si vous utilisez l’émulateur de stockage pour le développement, vous p
 
 + Utilisez Core Tools pour télécharger la chaîne de connexion à partir d’Azure à l’aide d’une des commandes suivantes :
 
-    + Téléchargez tous les paramètres à partir d’une application de fonction existante :
+  + Téléchargez tous les paramètres à partir d’une application de fonction existante :
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Obtenez la chaîne de connexion pour un compte de stockage spécifique :
+  + Obtenez la chaîne de connexion pour un compte de stockage spécifique :
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -481,3 +481,5 @@ Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problèm
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Portail Azure]: https://portal.azure.com 
 [Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

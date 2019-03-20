@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467353"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454100"
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -38,7 +38,7 @@ Si le paramètre a une valeur minimum = 2, une valeur maximum = 2 et que le nomb
 Si vous mettez à jour manuellement le nombre d’instances avec une valeur inférieure au minimum ou supérieure au maximum, le moteur de mise à l’échelle s’ajuste automatiquement à la valeur minimale (si elle est inférieure) ou à la valeur maximale (le cas ci-dessus). Par exemple, vous définissez la plage entre 3 et 6. Si vous avez une seule instance en cours d’exécution, le moteur de mise à l’échelle automatique effectue la mise à l’échelle sur trois instances lors de sa prochaine exécution. De même, si vous définissez manuellement la mise à l’échelle sur huit instances, la mise à l’échelle sera redéfinie sur six instances lors de la prochaine exécution.  La mise à l’échelle manuelle est temporaire, sauf si vous réinitialisez aussi les règles de mise à l’échelle.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Utilisez toujours une combinaison de règle d’augmentation et de diminution de la taille des instances qui exécute une augmentation et une diminution
-Si vous utilisez uniquement une partie de la combinaison, la mise à l’échelle automatique n’effectue l’action que dans une direction (augmentation ou diminution de la taille des instances) jusqu’à ce qu’elle atteigne le nombre d’instances minimum ou maximum défini dans le profil. Cette configuration n’est pas optimale ; dans l’idéal, vous souhaiteriez que votre ressource puisse monter en puissance lors des périodes de forte utilisation afin d’assurer la disponibilité. De même, lors des périodes de faible utilisation, vous souhaitez que votre ressource descende en puissance pour vous permettre de réduire vos coûts.
+Si vous utilisez uniquement une partie de la combinaison, à l’échelle automatique ne prend qu’action dans un seul sens (mise à l’échelle, ou) jusqu'à ce qu’il atteigne la limite, ou nombre d’instances minimal de définis dans le profil. Cette configuration n’est pas optimale ; dans l’idéal, vous souhaiteriez que votre ressource puisse monter en puissance lors des périodes de forte utilisation afin d’assurer la disponibilité. De même, lors des périodes de faible utilisation, vous souhaitez que votre ressource descende en puissance pour vous permettre de réduire vos coûts.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Sélection de la statistique appropriée pour votre mesure de diagnostic
 Pour les mesures de diagnostics, vous pouvez choisir entre *Moyen*, *Minimum*, *Maximum* et *Total* comme mesure de mise à l’échelle. La statistique la plus courante est *Moyen*.

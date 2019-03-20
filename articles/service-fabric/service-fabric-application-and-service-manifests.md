@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0cd8131a0e5168ba8cfb6045c3be238162668995
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864573"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestes des services et applications Service Fabric
 Cet article explique comment les services et les applications Service Fabric sont définis et créés dans différentes versions à l’aide des fichiers ApplicationManifest.xml et ServiceManifest.xml.  Pour plus d’exemples, consultez les [exemples de manifeste de service et d’application](service-fabric-manifest-examples.md).  Le schéma XML pour ces fichiers manifestes est détaillé dans [Documentation relative au schéma ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -35,8 +35,8 @@ Le manifeste de service définit de manière déclarative le type de service et 
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -88,7 +88,7 @@ Pour plus d’informations sur la configuration de SetupEntryPoint, consultez [C
 **ConfigPackage** déclare un dossier, nommé par l’attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier de paramètres contient des sections de paramètres clé-valeur définis par l’utilisateur, que le processus lit pendant l’exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml* :
 
 ```xml
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSection">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
@@ -115,7 +115,7 @@ Ainsi, un manifeste d'application décrit les éléments au niveau de l'applicat
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />

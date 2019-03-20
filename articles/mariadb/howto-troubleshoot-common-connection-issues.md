@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: c7e1ff10f9698bf57ce86a7e9686ef13e5248db7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: f5c5a980a99bac3bf02eaaf9c072861ca753d449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545907"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860446"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour MariaDB
 
@@ -47,8 +47,8 @@ Des erreurs transitoires se produisent lorsque la maintenance est effectuée, lo
 Si l’application échoue de façon permanente à se connecter à la base de données Azure Database pour MariaDB, cela indique généralement un problème avec l’un des éléments suivants :
 
 * Configuration du pare-feu : le pare-feu Azure Database for MariaDB côté serveur ou côté client bloque les connexions.
-* Reconfiguration du réseau côté client : une nouvelle adresse IP ou un nouveau serveur proxy on été ajoutés.
-* Erreur utilisateur : par exemple, il se peut que vous ayez effectué une erreur de saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou un suffixe *@servername* manquant dans le nom de l’utilisateur.
+* Reconfiguration du réseau côté client : Une nouvelle adresse IP ou un serveur proxy a été ajouté.
+* Erreur utilisateur : Par exemple, vous avez peut-être mal tapé des paramètres de connexion, telles que le nom du serveur dans la chaîne de connexion ou l’absence d’un  *\@nom_serveur* suffixe dans le nom d’utilisateur.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
 

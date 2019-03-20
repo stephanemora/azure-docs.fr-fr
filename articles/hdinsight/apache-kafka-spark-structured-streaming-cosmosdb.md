@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099152"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Utiliser Apache Spark Structured Streaming avec Apache Kafka et Azure Cosmos DB
 
@@ -52,19 +52,19 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
     Ce modèle crée les ressources suivantes :
 
-    * Un cluster Kafka sur HDInsight 3.6.
+   * Un cluster Kafka sur HDInsight 3.6.
 
-    * Un cluster Spark sur HDInsight 3.6.
+   * Un cluster Spark sur HDInsight 3.6.
 
-    * Un réseau virtuel Azure, qui contient les clusters HDInsight.
+   * Un réseau virtuel Azure, qui contient les clusters HDInsight.
 
-        > [!NOTE]  
-        > Le réseau virtuel créé par le modèle utilise l’espace d’adressage 10.0.0.0/16.
+       > [!NOTE]  
+       > Le réseau virtuel créé par le modèle utilise l’espace d’adressage 10.0.0.0/16.
 
-    * Une base de données d’API SQL Azure Cosmos DB.
+   * Une base de données d’API SQL Azure Cosmos DB.
 
-    > [!IMPORTANT]  
-    > Le bloc-notes de diffusion en continu structurée utilisé dans cet exemple nécessite Spark sur HDInsight 3.6. Si vous utilisez une version antérieure de Spark sur HDInsight, vous recevez des erreurs lors de l’utilisation du bloc-notes.
+     > [!IMPORTANT]  
+     > Le bloc-notes de diffusion en continu structurée utilisé dans cet exemple nécessite Spark sur HDInsight 3.6. Si vous utilisez une version antérieure de Spark sur HDInsight, vous recevez des erreurs lors de l’utilisation du bloc-notes.
 
 2. Utilisez les informations suivantes pour remplir les entrées dans la section **Déploiement personnalisé** :
    

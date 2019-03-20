@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231136"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994926"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analyse de sentiments Twitter en temps réel dans Azure Stream Analytics
 
@@ -30,7 +30,7 @@ Une entreprise qui dispose d’un site web de médias souhaite obtenir un avanta
 
 Pour identifier les tendances en temps réel sur Twitter, l’entreprise doit analyser en temps réel le volume et les sentiments des tweets relatifs aux principaux sujets. En d’autres termes, nous avons besoin d’un moteur d’analyse de sentiments basé sur le flux de ce réseau social.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Dans ce didacticiel, vous utilisez une application cliente qui se connecte à Twitter, puis recherchez des tweets contenant certains mots-dièse (que vous pouvez définir). Pour exécuter l’application et analyser les tweets à l’aide d’Azure Stream Analytics, vous devez disposer des éléments suivants :
 
 * Abonnement Azure
@@ -58,7 +58,7 @@ Dans cette procédure, vous allez commencer par créer un espace de noms Event 
 
 5. Cliquez sur le nouvel espace de noms, puis, dans le panneau d’espace de noms, cliquez sur **+&nbsp;Event Hub**. 
 
-    ![Bouton Ajouter un hub d’événements permettant de créer un concentrateur Event Hub ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![Bouton Ajouter un hub d’événements permettant de créer un concentrateur Event Hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Nommez le nouveau concentrateur Event Hub `socialtwitter-eh`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note, car vous devrez l’utiliser ultérieurement. Vous n’avez pas besoin de définir d’autres options pour le concentrateur Event Hub.
 
@@ -119,10 +119,10 @@ Si vous ne possédez pas encore une application Twitter que vous pouvez utiliser
 
 2. Créez une application. 
 
-    * Spécifiez une URL valide pour le site web. Il ne doit pas s’agir d’un site actif. (Vous ne pouvez pas spécifier simplement `localhost`.)
-    * Laissez le champ de rappel vide. L’application cliente que vous utilisez pour ce didacticiel ne nécessite pas de rappels.
+   * Spécifiez une URL valide pour le site web. Il ne doit pas s’agir d’un site actif. (Vous ne pouvez pas spécifier simplement `localhost`.)
+   * Laissez le champ de rappel vide. L’application cliente que vous utilisez pour ce didacticiel ne nécessite pas de rappels.
 
-    ![Création d’une application dans Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Création d’une application dans Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. Modifiez éventuellement les autorisations de l’application pour les définir en lecture seule.
 
@@ -167,19 +167,19 @@ La procédure suivante décrit les deux approches.
 
 3. Pour définir les valeurs de manière permanente, ouvrez le fichier TwitterWpfClient.exe.config dans un éditeur de texte. Ensuite, dans l’élément `<appSettings>`, effectuez les actions suivantes :
 
-    * Définissez `oauth_consumer_key` sur la clé du client Twitter (clé API). 
-    * Définissez `oauth_consumer_secret` sur le secret du client Twitter (secret API).
-    * Définissez `oauth_token` sur le jeton d’accès Twitter.
-    * Définissez `oauth_token_secret` sur le secret du jeton d’accès Twitter.
+   * Définissez `oauth_consumer_key` sur la clé du client Twitter (clé API). 
+   * Définissez `oauth_consumer_secret` sur le secret du client Twitter (secret API).
+   * Définissez `oauth_token` sur le jeton d’accès Twitter.
+   * Définissez `oauth_token_secret` sur le secret du jeton d’accès Twitter.
 
-    Plus loin dans l’élément `<appSettings>`, apportez ces modifications :
+     Plus loin dans l’élément `<appSettings>`, apportez ces modifications :
 
-    * Définissez `EventHubName` sur le nom du concentrateur Event Hub (autrement dit, la valeur du chemin d’accès de l’entité).
-    * Définissez `EventHubNameConnectionString` sur la chaîne de connexion. Assurez-vous d’utiliser la chaîne de connexion dans laquelle vous avez supprimé la paire clé-valeur `EntityPath`.
+   * Définissez `EventHubName` sur le nom du concentrateur Event Hub (autrement dit, la valeur du chemin d’accès de l’entité).
+   * Définissez `EventHubNameConnectionString` sur la chaîne de connexion. Assurez-vous d’utiliser la chaîne de connexion dans laquelle vous avez supprimé la paire clé-valeur `EntityPath`.
 
-    La section `<appSettings>` ressemble à l’exemple qui suit. (Pour des raisons de clarté et de sécurité, nous avons inséré des retours automatiques de ligne et supprimé des caractères.)
+     La section `<appSettings>` ressemble à l’exemple qui suit. (Pour des raisons de clarté et de sécurité, nous avons inséré des retours automatiques de ligne et supprimé des caractères.)
 
-    ![Fichier de configuration de l’application TwitterWpfClient dans un éditeur de texte affichant les clés et secrets Twitter, ainsi que les informations de la chaîne de connexion du concentrateur Event Hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![Fichier de configuration de l’application TwitterWpfClient dans un éditeur de texte affichant les clés et secrets Twitter, ainsi que les informations de la chaîne de connexion du concentrateur Event Hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. Si vous n’avez pas encore démarré l’application, exécutez TwitterWpfClient.exe maintenant. 
 
@@ -214,15 +214,15 @@ Maintenant que nous avons un flux d’événements de tweet diffusé en temps r�
 
 2. Dans le panneau **Entrées**, cliquez sur **+&nbsp;Ajouter**, puis renseignez le panneau avec les valeurs suivantes :
 
-    * **Alias d’entrée** : utilisez le nom `TwitterStream`. Si vous utilisez un autre nom, prenez-en note, car vous en aurez besoin ultérieurement.
-    * **Type de source** : sélectionnez **Flux de données**.
-    * **Source** : sélectionnez **Hub d'événements**.
-    * **Option d'importation** : sélectionnez **Utiliser le hub d'événements de l'abonnement actuel**. 
-    * **Espace de noms Service Bus** : sélectionnez l'espace de noms du hub d'événements créé précédemment (`<yourname>-socialtwitter-eh-ns`).
-    * **Hub d'événements** : sélectionnez le hub d'événements créé précédemment (`socialtwitter-eh`).
-    * **Nom de la stratégie du hub d'événements** : sélectionnez la stratégie d'accès créée précédemment (`socialtwitter-access`).
+   * **Alias d’entrée** : utilisez le nom `TwitterStream`. Si vous utilisez un autre nom, prenez-en note, car vous en aurez besoin ultérieurement.
+   * **Type de source** : sélectionnez **Flux de données**.
+   * **Source** : sélectionnez **Hub d'événements**.
+   * **Option d'importation** : sélectionnez **Utiliser le hub d'événements de l'abonnement actuel**. 
+   * **Espace de noms Service Bus** : sélectionnez l'espace de noms du hub d'événements créé précédemment (`<yourname>-socialtwitter-eh-ns`).
+   * **Hub d'événements** : sélectionnez le hub d'événements créé précédemment (`socialtwitter-eh`).
+   * **Nom de la stratégie du hub d'événements** : sélectionnez la stratégie d'accès créée précédemment (`socialtwitter-access`).
 
-    ![Créer une entrée pour le travail Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Créer une entrée pour le travail Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. Cliquez sur **Créer**.
 
@@ -297,17 +297,17 @@ Dans ce didacticiel, vous écrivez les événements de tweet agrégés de la req
 
 2. Dans le panneau **Sorties**, cliquez sur **+&nbsp;Ajouter**, puis renseignez le panneau avec les valeurs suivantes :
 
-    * **Alias de sortie** : utilisez le nom `TwitterStream-Output`. 
-    * **Récepteur** : Sélectionnez **Stockage d’objets blob**.
-    * **Options d'importation** : sélectionnez **Utiliser le stockage d'objets de l'abonnement actuel**.
-    * **Compte de stockage**. sélectionnez **Créer un compte de stockage**.
-    * **Compte de stockage** (seconde zone) : entrez `YOURNAMEsa`, où `YOURNAME` représente votre nom ou une autre chaîne unique. Le nom, qui doit être unique dans Azure, ne peut contenir que des lettres minuscules et des chiffres. 
-    * **Conteneur** : Entrez `socialtwitter`.
-    Le nom du compte de stockage et le nom du conteneur sont utilisés ensemble pour fournir un URI pour le stockage d’objets blob, comme suit : 
+   * **Alias de sortie** : utilisez le nom `TwitterStream-Output`. 
+   * **Récepteur** : Sélectionnez **Stockage d’objets blob**.
+   * **Options d'importation** : sélectionnez **Utiliser le stockage d'objets de l'abonnement actuel**.
+   * **Compte de stockage**. sélectionnez **Créer un compte de stockage**.
+   * **Compte de stockage** (seconde zone) : entrez `YOURNAMEsa`, où `YOURNAME` représente votre nom ou une autre chaîne unique. Le nom, qui doit être unique dans Azure, ne peut contenir que des lettres minuscules et des chiffres. 
+   * **Conteneur** : Entrez `socialtwitter`.
+     Le nom du compte de stockage et le nom du conteneur sont utilisés ensemble pour fournir un URI pour le stockage d’objets blob, comme suit : 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    ![Panneau Nouvelle sortie pour le travail Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     ![Panneau Nouvelle sortie pour le travail Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. Cliquez sur **Créer**. 
 
@@ -338,7 +338,7 @@ Une entrée de travail, une requête et une sortie sont spécifiées. Vous êtes
 
 Une fois que l’exécution du travail a commencé et qu’il traite le flux Twitter en temps réel, vous pouvez afficher la sortie pour l’analyse des sentiments.
 
-Pour afficher la sortie du travail en temps réel, vous pouvez utiliser un outil tel que [Azure Storage Explorer](https://storageexplorer.com/) ou [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). À ce stade, vous pouvez utiliser [Power BI](https://powerbi.com/) pour étendre les fonctionnalités de votre application afin d’ajouter un tableau de bord personnalisé comme celui présenté dans la capture d’écran suivante :
+Pour afficher la sortie du travail en temps réel, vous pouvez utiliser un outil tel que [Azure Storage Explorer](https://storageexplorer.com/) ou [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction). À ce stade, vous pouvez utiliser [Power BI](https://powerbi.com/) pour étendre les fonctionnalités de votre application afin d’ajouter un tableau de bord personnalisé comme celui présenté dans la capture d’écran suivante :
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

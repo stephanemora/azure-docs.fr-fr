@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbd8ff1e8574b9465d4acc366bf0b64bbfd11e20
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9cfff565dec0d6f9d2bbea8edf39f180d4b63fd9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993169"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec les identités managées pour ressources Azure
 
@@ -38,7 +38,7 @@ Non, il n’existe aucun plan de prise en charge des identités managées pour r
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Les identités managées pour ressources Azure fonctionnent-elles avec la bibliothèque d’authentification Active Directory (ADAL) et la bibliothèque d’authentification Microsoft (MSAL) ?
 
-Non, les identités managées pour ressources Azure ne sont pas encore intégrées avec les bibliothèques ADAL et MSAL. Pour plus d’informations sur l’acquisition d’un jeton pour des identités managées pour ressources Azure à l’aide du point de terminaison REST, voir le [Guide pratique d’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure pour acquérir un jeton d’accès](how-to-use-vm-token.md).
+Non, les identités managées pour ressources Azure ne sont pas encore intégrées avec les bibliothèques ADAL et MSAL. Pour plus d’informations sur l’acquisition d’un jeton pour les entités gérées pour les ressources Azure à l’aide du point de terminaison REST, consultez [l’utilisation des identités gérées pour les ressources Azure sur une machine virtuelle Azure pour acquérir un jeton d’accès](how-to-use-vm-token.md).
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Quelle est la limite de sécurité des identités managées pour ressources Azure ?
 
@@ -50,42 +50,37 @@ La limite de sécurité de l’identité est la ressource à laquelle elle est a
 - Si l’identité managée affectée par le système n’est pas activée et qu’il n’existe qu’une seule identité managée affectée par l’utilisateur, IMDS utilise par défaut l’identité managée affectée par ce seul utilisateur. 
 - Si l’identité managée affectée par le système n’est pas activée et qu’il existe plusieurs identités managées affectées par l’utilisateur, la spécification d’une identité managée dans la demande est obligatoire.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Dois-je utiliser le point de terminaison Instance Metadata Service (IMDS) de machine virtuelle ou le point de terminaison d’extension de machine virtuelle des identités managées pour ressources Azure ?
+### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Dois-je utiliser des identités gérées pour le point de terminaison IMDS ressources Azure ou le point de terminaison d’extension de machine virtuelle ?
 
-Lorsque vous utilisez des identités managées pour ressources Azure avec des machines virtuelles, nous vous encourageons à utiliser le point de terminaison IMDS des identités managées pour ressources Azure. Azure Instance Metadata Service (IMDS) est un point de terminaison REST accessible à toutes les machines virtuelles IaaS créées par le biais d’Azure Resource Manager. Voici quelques avantages liés à l’utilisation d’identités managées pour ressources Azure sur IMDS :
-    - Tous les systèmes d’exploitation pris en charge par Azure IaaS peuvent utiliser des identités managées pour ressources Azure sur IMDS.
-    - N’est plus nécessaire d’installer une extension sur votre machine virtuelle pour activer les identités managées pour ressources Azure. 
-    - Les certificats utilisés par les identités managées pour ressources Azure ne sont plus présents dans la machine virtuelle.
-    - Le point de terminaison IMDS est une adresse IP non routable bien connue, uniquement accessible à partir de la machine virtuelle.
+Lorsque vous utilisez des identités gérées pour les ressources Azure avec des machines virtuelles, nous recommandons d’utiliser le point de terminaison IMDS. Azure Instance Metadata Service (IMDS) est un point de terminaison REST accessible à toutes les machines virtuelles IaaS créées par le biais d’Azure Resource Manager. 
 
-L’extension de machine virtuelle des identités managées pour ressources Azure est toujours disponible et utilisable aujourd’hui. Toutefois, à l’avenir, nous utiliserons le point de terminaison IMDS par défaut. L’extension de machine virtuelle des identités managées pour ressources Azure sera abandonnée en janvier 2019. 
+Voici quelques avantages liés à l’utilisation d’identités managées pour ressources Azure sur IMDS :
+- Tous les systèmes d’exploitation pris en charge par Azure IaaS peuvent utiliser des identités managées pour ressources Azure sur IMDS.
+- N’est plus nécessaire d’installer une extension sur votre machine virtuelle pour activer les identités managées pour ressources Azure. 
+- Les certificats utilisés par les identités managées pour ressources Azure ne sont plus présents dans la machine virtuelle.
+- Le point de terminaison IMDS est une adresse IP non routable bien connue, uniquement accessible à partir de la machine virtuelle.
+- 1000 affectée à l’utilisateur des identités gérées peuvent recevoir à une seule machine virtuelle. 
+
+Les identités gérées pour l’extension de machine virtuelle de ressources Azure est toujours disponible. Toutefois, nous développons ne sont plus des nouvelles fonctionnalités dessus. Nous vous recommandons de passer pour utiliser le point de terminaison IMDS. 
+
+Certaines des limitations de l’utilisation du point de terminaison d’extension de machine virtuelle sont :
+- Prise en charge limitée pour les distributions de Linux : Stable de CoreOS, CentOS 7.1, 7.2 de Red Hat, Ubuntu 15.04, Ubuntu 16.04
+- Seules 32 identités gérées affectée à l’utilisateur peuvent avoir à la machine virtuelle.
+
+
+Remarque : Les identités gérées pour l’extension de machine virtuelle de ressources Azure ne seront pas prise en charge dans janvier 2019. 
 
 Pour plus d’informations sur Azure Instance Metadata Service, voir la [documentation d’IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Les identités managées sont-elles recréées automatiquement si je déplace un abonnement vers un autre annuaire ?
 
- Non. Si vous déplacez un abonnement vers un autre annuaire, vous devez les recréer manuellement et accorder à nouveau les affectations de rôle RBAC d’Azure.
-    - Pour les identités managées affectées par le système : désactivez et réactivez-les.
-    - Pour les identités managées affectées par l’utilisateur : supprimez, recréez et rattachez-les aux ressources nécessaires (par exemple des machines virtuelles)
+Non. Si vous déplacez un abonnement vers un autre annuaire, vous devez les recréer manuellement et accorder à nouveau les affectations de rôle RBAC d’Azure.
+- Pour les identités managées affectées par le système : désactivez et réactivez-les. 
+- Pour les identités managées affectées par l’utilisateur : supprimez, recréez et rattachez-les aux ressources nécessaires (par exemple des machines virtuelles)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Puis-je utiliser une identité managée pour accéder à une ressource dans un autre annuaire/locataire ?
 
- Non. Les identités managées ne prennent actuellement pas en charge les scénarios entre annuaires. 
-
-### <a name="what-are-the-supported-linux-distributions"></a>Quelles sont les distributions de Linux prises en charge ?
-
-Toutes les distributions Linux prises en charge par Azure IaaS peuvent être utilisées avec des identités managées pour ressources Azure via le point de terminaison IMDS. 
-
-L’extension de machine virtuelle des identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019) ne prend en charge que les distributions Linux suivantes :
-- CoreOS Stable
-- CentOS 7.1
-- Red Hat 7.2
-- Ubuntu 15.04
-- Ubuntu 16.04
-
-Les autres distributions de Linux ne sont actuellement pas prises en charge, et l’extension peut échouer sur les distributions non prises en charge.
-
-L’extension fonctionne sur CentOS 6.9. Toutefois, en raison de l’absence de prise en charge système dans 6.9, l’extension ne redémarre pas automatiquement en cas d’incident ou d’arrêt. Elle redémarre au redémarrage de la machine virtuelle. Pour redémarrer l’extension manuellement, voir [Comment redémarrer l’extension des identités managées pour ressources Azure ?](#how-do-you-restart-the-managed-identities-for-Azure-resources-extension)
+Non. Les identités managées ne prennent actuellement pas en charge les scénarios entre annuaires. 
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Comment redémarrer l’extension des identités managées pour ressources Azure ?
 Sur Windows et certaines versions de Linux, si l’extension s’arrête, la cmdlet suivante peut être utilisée pour redémarrer manuellement l’extension :
@@ -109,14 +104,6 @@ Lorsque des identités managées pour ressources Azure sont activées sur une ma
 L’extension de machine virtuelle des identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019) ne prend pas en charge actuellement la possibilité d’exporter son schéma vers un modèle de groupe de ressources. Par conséquent, le modèle généré n’affiche pas les paramètres de configuration permettant d’activer des identités managées pour ressources Azure sur la ressource. Ces sections peuvent être ajoutées manuellement en suivant les exemples fournis dans [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle](qs-configure-template-windows-vm.md).
 
 Lorsque la fonctionnalité d’exportation de schéma sera disponible pour l’extension de machine virtuelle des identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019), elle sera répertoriée dans [Exportation de groupes de ressources contenant des extensions de machine virtuelle](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
-
-### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Le panneau de configuration n’apparaît pas dans le portail Azure
-
-Si le panneau Configuration de la machine virtuelle n’apparaît pas sur votre machine virtuelle, cela signifie que les identités managées pour ressources Azure n’ont pas encore été activées sur le portail de votre région.  Revérifiez ultérieurement.  Vous pouvez également activer des identités managées pour ressources Azure pour votre machine virtuelle en utilisant [PowerShell](qs-configure-powershell-windows-vm.md) ou [Azure CLI](qs-configure-cli-windows-vm.md).
-
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Impossible d’attribuer un accès aux machines virtuelles dans le panneau Contrôle d’accès (IAM)
-
-Si **Machine virtuelle** n’apparaît pas dans le portail Azure en tant que choix pour **Attribuer un accès** dans **Contrôle d’accès (IAM)** > **Ajouter une attribution de rôle**, cela signifie que les identités managées pour ressources Azure n’ont pas été activées dans le portail de votre région. Revérifiez ultérieurement.  Vous pouvez toujours sélectionner l’identité de la machine virtuelle pour l’attribution de rôle en recherchant le principal du service des identités managées pour ressources Azure.  Entrez le nom de la machine virtuelle dans le champ **Sélectionner**. Le principal de service s’affiche dans le résultat de la recherche.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>La machine virtuelle ne démarre pas après avoir été déplacée d’un groupe de ressources ou d’un abonnement
 
@@ -151,12 +138,11 @@ L’approvisionnement de l’extension de machine virtuelle peut échouer en rai
 
 Les identités managées ne sont pas mises à jour lorsqu’un abonnement est déplacé/transféré vers un autre répertoire. Par conséquent, toutes les identités managées inexistantes attribuées par le système ou un utilisateur seront rompues. 
 
-Pour résoudre ce problème une fois que l’abonnement a été déplacé, vous pouvez désactiver les identités managées affectées par le système puis les réactiver. De même, vous pouvez supprimer et recréer toutes les identités managées affectées par l’utilisateur. 
+Solution de contournement pour les entités gérées dans un abonnement qui a été déplacé vers un autre répertoire :
 
-## <a name="known-issues-with-user-assigned-managed-identities"></a>Problèmes connus en lien avec les identités managées affectées par l’utilisateur
+ - Pour les identités managées affectées par le système : désactivez et réactivez-les. 
+ - Pour les identités managées affectées par l’utilisateur : supprimez, recréez et rattachez-les aux ressources nécessaires (par exemple des machines virtuelles)
 
-- Les noms d’identité affectée par l’utilisateur doivent comporter entre 3 et 128 caractères. Si le nom comporte plus de 128 caractères, l’identité ne pourra pas être affectée à une ressource (par exemple, une machine virtuelle.)
-- Les noms d’identité affectée par l’utilisateur peuvent contenir les caractères suivants : a-z, A-Z, -, \_, 0-9. La création d’une identité managée et affectée par l’utilisateur dont le nom contient des caractères autres que ceux-là (par exemple, astérisque) n’est pas prise en charge.
-- Si vous utilisez l’extension de machine virtuelle d’identité managée (dont l’abandon est prévu en janvier 2019), la limite prise en charge est de 32 identités managées affectées par l’utilisateur. Sans l’extension de machine virtuelle d’identité managée, la prise en charge est limitée à 512 identités managées.  
-- Le déplacement d’une identité managée affectée par l’utilisateur à un autre groupe de ressources entraînera l’arrêt de l’identité. Par conséquent, vous ne pourrez plus demander des jetons pour cette identité. 
-- Le transfert d’un abonnement vers un autre répertoire arrêtera toutes les identités managées par l’utilisateur existantes. 
+### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Déplacement d’une identité gérée affectée à l’utilisateur à un groupe de ressources différent/abonnement
+
+Le déplacement d’une identité managée affectée par l’utilisateur à un autre groupe de ressources entraînera l’arrêt de l’identité. Par conséquent, les ressources (par exemple, machine virtuelle) à l’aide de cette identité ne seront pas en mesure de demander des jetons pour celui-ci. 

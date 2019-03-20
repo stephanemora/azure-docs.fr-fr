@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1347012971d53728d978f378e30684311c88828b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998392"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copier des données de Cassandra à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Plus précisément, ce connecteur Cassandra prend en charge :
 >[!NOTE]
 >Pour une activité exécutée sur le runtime d’intégration auto-hébergé, Cassandra 3.x est pris en charge à partir d’Integration Runtime version 3.7 ou supérieure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour copier des données depuis/vers une base de données Cassandra qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote Cassandra intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données vers/depuis Cassandra.
 
@@ -132,7 +132,7 @@ Pour copier des données de Cassandra, définissez **Source** comme type source 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur : **CassandraSource** | Oui |
-| query |Utilise la requête personnalisée pour lire des données. |Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si « tableName » et « keyspace » sont spécifiés dans le jeu de données). |
+| query |Utilise la requête personnalisée pour lire des données. Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si « tableName » et « keyspace » sont spécifiés dans le jeu de données). |
 | Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations.<br/><br/>Les valeurs autorisées sont les suivantes : **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** et **LOCAL_ONE**. |Non (la valeur par défaut est `ONE`) |
 
 **Exemple :**
@@ -177,13 +177,13 @@ Lors de la copie de données de Cassandra, les mappages suivants sont utilisés 
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
-| DÉCIMAL |Décimal |
+| DÉCIMAL |Decimal |
 | DOUBLE |DOUBLE |
 | FLOAT |Single |
 | INET |Chaîne |
 | INT |Int32 |
 | TEXTE |Chaîne |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |Chaîne |

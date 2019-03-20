@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: ab637ef7dc39fcd2fd32cec2be52a18aaf6706a9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875235"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -178,21 +178,21 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 ### <a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
 
-Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser cette identité de service pour l’authentification Azure SQL Database. La fabrique désignée peut accéder et copier des données vers ou à partir de votre base de données à l’aide de cette identité.
+Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser cette identité gérée pour l’authentification de base de données SQL Azure. La fabrique désignée peut accéder et copier des données vers ou à partir de votre base de données à l’aide de cette identité.
 
-Pour utiliser l’authentification du jeton d’application Azure AD basée sur une MSI, effectuez les étapes suivantes :
+Pour utiliser l’authentification d’identité gérée, procédez comme suit :
 
-1. **Créez un groupe dans Azure AD.** Faites de la fabrique MSI un membre du groupe.
+1. **Créez un groupe dans Azure AD.** Vérifiez l’identité gérée à un membre du groupe.
     
-    1. Recherchez l’identité du service de la fabrique de données sur le portail Azure. Accédez aux **Propriétés** de votre fabrique de données. Copiez l’ID de l’identité du service.
+   1. Rechercher l’identité de géré de fabrique de données à partir du portail Azure. Accédez aux **Propriétés** de votre fabrique de données. Copiez l’ID de l’identité du service.
     
-    1. Installez le module [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Connectez-vous à l’aide de la commande `Connect-AzureAD`. Exécutez les commandes suivantes pour créer un groupe et ajouter la MSI de fabrique de données en tant que membre.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
-    ```
+   1. Installez le module [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Connectez-vous à l’aide de la commande `Connect-AzureAD`. Exécutez les commandes suivantes pour créer un groupe et ajouter l’identité gérée en tant que membre.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
     
-1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec MSI un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur aura un accès complet à la base de données.
+1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec l’identité gérée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur aura un accès complet à la base de données.
 
 1. **[Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** pour le groupe Azure AD. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
     
@@ -208,7 +208,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 1. Dans Azure Data Factory, **configurez un service lié Azure SQL Database.**
 
-#### <a name="linked-service-example-that-uses-msi-authentication"></a>Exemple de service lié qui utilise l’authentification MSI
+**Exemple :**
 
 ```json
 {
@@ -582,7 +582,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -592,14 +592,11 @@ Dans votre base de données, définissez le type de table portant le même nom q
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL,
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->Si vous écrivez avec le type de données Money/Smallmoney en appelant la procédure stockée, les valeurs peuvent être arrondies. Pour éviter cela, définissez le type de données correspondant dans TVP sur le format Décimal au lieu de Money/Smallmoney. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mappage de type de données pour Azure SQL Database
 

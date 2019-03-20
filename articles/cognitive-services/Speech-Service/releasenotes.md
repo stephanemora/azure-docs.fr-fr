@@ -11,21 +11,31 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446832"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856088"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1 : Réactualisation de février de 2019
+
+Il s’agit d’une version de correctif de bogue et affecte uniquement le Kit de développement natif/managé. Il n’affecte pas la version JavaScript du SDK.
+
+**Correctif de bogue**
+
+* Correction d’une fuite de mémoire lors de l’utilisation de saisie par microphone. Stream en fonction ou un fichier d’entrée n’est pas affectée.
 
 ## <a name="speech-sdk-130-2019-february-release"></a>Kit de développement logiciel (SDK) de reconnaissance vocale 1.3.0 : Version de février 2019
 
 **Nouvelles fonctionnalités**
 
-* Le SDK Speech prend en charge la sélection du microphone d’entrée via la classe AudioConfig. Cela permet de diffuser en continu des données audio au service Speech à partir d’un microphone qui n’est pas le microphone par défaut. Pour plus d’informations, consultez la documentation décrivant la [sélection du périphérique d’entrée audio](how-to-select-audio-input-devices.md). JavaScript ne propose pas encore cette fonctionnalité.
+* Le SDK Speech prend en charge la sélection du microphone d’entrée via la classe AudioConfig. Cela vous permet de transmettre les données audio aux Services de reconnaissance vocale à partir d’un microphone par défaut. Pour plus d’informations, consultez la documentation décrivant [sélection du périphérique d’entrée audio](how-to-select-audio-input-devices.md). JavaScript ne propose pas encore cette fonctionnalité.
 * Le SDK Speech prend désormais en charge Unity dans une version bêta. Merci d’envoyer des commentaires via la section problèmes dans le [dépôt d’exemples GitHub](https://aka.ms/csspeech/samples). Cette version prend en charge Unity sur Windows x86 et x64 (applications de bureau autonome ou plateforme Windows universelle) et Android (ARM32/64, x86). Des informations supplémentaires sont disponibles dans notre [Démarrage rapide Unity](quickstart-csharp-unity.md).
+* Le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est maintenant intégrée dans le SDK core.
+
 
 **Exemples**
 
@@ -54,6 +64,7 @@ Le nouveau contenu suivant est disponible dans notre [dépôt d’exemples](http
   * Prise en charge initiale et implémentation des conseils.
   * Retourne la collection de propriétés avec le service JSON dans le cadre de la reconnaissance
 * Les DLL Windows contiennent à présent une vraie ressource de version.
+* Si vous créez un module de reconnaissance `FromEndpoint` vous pouvez ajouter des paramètres directement à l’URL de point de terminaison. À l’aide de `FromEndpoint` vous ne pouvez pas configurer le module de reconnaissance via les propriétés de configuration standard.
 
 **Résolution des bogues**
 
@@ -78,13 +89,13 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 **Nouvelles fonctionnalités**
 
 * Python
-  * La version bêta de la prise en charge de Python (3.5 et au-delà) est disponible avec cette version. Pour plus d’informations, [consultez cette page](quickstart-python.md).
+  * La version bêta de la prise en charge de Python (3.5 et au-delà) est disponible avec cette version. Pour plus d’informations, consultez here](quickstart-python.md).
 * JavaScript
   * Le SDK Speech pour JavaScript est open source. Le code source est disponible sur [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * Nous prenons désormais en charge Node.js. Pour plus d’informations, [consultez cette page](quickstart-js-node.md).
   * La restriction sur la longueur des sessions audio a été supprimée. La reconnexion se produit automatiquement à l’arrière-plan.
 * Objet Connection
-  * Vous pouvez accéder à un objet Connection à partir du module de reconnaissance. Cet objet vous permet de lancer explicitement la connexion au service et de vous abonner à des événements de connexion et de déconnexion.
+  * Du module de reconnaissance, vous pouvez accéder à un objet de connexion. Cet objet vous permet de lancer explicitement la connexion au service et de vous abonner à des événements de connexion et de déconnexion.
     (JavaScript et Python ne proposent pas encore cette fonctionnalité.)
 * Prise en charge d’Ubuntu 18.04.
 * Android
@@ -102,7 +113,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 * Dans certains cas, des exceptions étaient divulguées.
 * Résolution des fuites de mémoire dans les arguments d’événement de traduction.
 * Résolution d’un problème de verrouillage à la suite d’une reconnexion dans les sessions de longue durée.
-* Résolution d’un problème pouvant entraîner l’absence d’un résultat final en cas d’échec de la traduction.
+* Correction d’un problème qui pourrait entraîner manquant du résultat final des traductions ayant échouées.
 * C# : Si une opération asynchrone n’était pas attendue dans le thread principal, le module de reconnaissance pouvait être supprimé avant la fin de la tâche asynchrone.
 * Java : Résolution d’un problème entraînant un blocage de la machine virtuelle Java.
 * Objective-C : Résolution d’un mappage d’enum ; RecognizedIntent était retourné à la place de RecognizingIntent.
@@ -111,7 +122,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 
 **Exemples**
 
-* Mise à jour et résolution de plusieurs exemples (par exemple, voix de sortie pour la traduction, etc.).
+* Mise à jour et correction de plusieurs exemples (par exemple sortie voix pour la traduction, etc.).
 * Ajout d’exemples Node.js dans le [dépôt d’exemples](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-110"></a>SDK Speech 1.1.0
@@ -119,7 +130,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 **Nouvelles fonctionnalités**
 
 * Prise en charge d'Android x86/x64.
-* Prise en charge de proxy : dans l’objet SpeechConfig, vous pouvez maintenant appeler une fonction pour définir les informations de proxy (nom d’hôte, port, nom d’utilisateur et mot de passe). Cette fonctionnalité n'est pas encore disponible sous iOS.
+* Prise en charge de proxy : Dans l’objet SpeechConfig, vous pouvez maintenant appeler une fonction pour définir les informations de proxy (nom d’hôte, port, nom d’utilisateur et mot de passe). Cette fonctionnalité n'est pas encore disponible sous iOS.
 * Amélioration du code d’erreur et des messages. Si une reconnaissance a renvoyé une erreur, celle-ci a déjà défini `Reason` (dans l’événement annulé) ou `CancellationDetails` (dans le résultat de la reconnaissance) sur `Error`. L’événement annulé contient maintenant deux membres supplémentaires, `ErrorCode` et `ErrorDetails`. Si le serveur a renvoyé des informations d’erreur supplémentaires avec l’erreur signalée, elles sont désormais disponibles dans les nouveaux membres.
 
 **Améliorations**
@@ -168,7 +179,7 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 
 **Dernières modifications**
 
-* Cette version contient plusieurs changements cassants.
+* Avec cette version, un nombre de modifications avec rupture est introduit.
   Pour plus d’informations, consultez [cette page](https://aka.ms/csspeech/breakingchanges_1_0_0).
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0 : version d’août 2018

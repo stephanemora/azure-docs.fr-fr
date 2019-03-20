@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 02/28/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b7616eed4a17f33ad3b490c625c69cebb32a3f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae0565bd51235f2d1b471adcc511786c204d175a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164530"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890507"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -38,6 +38,124 @@ Azure AD bénéficie d’améliorations en continu. Pour vous informer des déve
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. Si vous recherchez des éléments antérieurs aux six derniers mois, vous les trouverez dans l’[Archive des nouveautés d’Azure Active Directory](whats-new-archive.md).
 
 ---
+## <a name="february-2019"></a>Février 2019
+
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Chiffrement de jeton configurable SAML Azure AD (préversion publique) 
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Authentification unique
+ 
+Vous pouvez maintenant configurer n’importe quelle application SAML pris en charge pour recevoir des jetons SAML chiffrés. En cas de configuré et utilisé avec une application, Azure AD chiffre les assertions SAML émises à l’aide d’une clé publique obtenue à partir d’un certificat stocké dans Azure AD.
+
+Pour plus d’informations sur la configuration de votre chiffrement des jetons SAML, consultez [chiffrement des jetons configurer Azure AD SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption).
+
+---
+
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Créer une révision d'accès pour les groupes ou les applications à l'aide des Révisions d'accès Azure AD
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Révisions d’accès  
+**Fonctionnalité de produit :** Gouvernance
+
+Vous pouvez désormais inclure plusieurs groupes ou de révision pour l’appartenance au groupe ou d’une affectation de l’application d’accéder aux applications dans un annuaire Azure AD unique. Révisions d’accès avec plusieurs groupes ou applications sont configurées avec les mêmes paramètres et tous les réviseurs inclus sont informés en même temps.
+
+Pour plus d’informations sur la façon de créer une révision d’accès à l’aide de révisions d’accès Azure AD, consultez [créer une révision d’accès des groupes ou des applications dans les révisions d’accès Azure AD](https://docs.microsoft.com/azure/active-directory/governance/create-access-review)
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Nouvelles applications fédérées disponibles dans la galerie d'applications Azure AD - Février 2019
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Intégration tierce
+ 
+En janvier 2019, nous avons ajouté la que prise en charge de ces nouvelles applications avec fédération 27 à la galerie d’applications :
+
+[Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial), [MindTickle](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial), [accidentelles](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [AirStack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial), [Oracle Fusion ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial), [ IDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial), [Qmlativ Skyward](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial), [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial), [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial), [Soloinsight-CloudGate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial), Cliquez sur autorisations, [Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial), [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial), [Pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial), [Stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial), [SISMIQUES ](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial), [Partage un rêve](https://www.shareadream.org/how-it-works), [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial), [webMethods intégration Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [LMS de connaissances](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial), [Campus de l’unité d’organisation](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial), [Periscope données](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial), [Netop Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial), [smartvid.io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial), [PureCloud par Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial), [Plateforme de productivité ClickUp](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
+
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="enhanced-combined-mfasspr-registration"></a>Inscription MFA/SSPR combinée améliorée
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Réinitialisation de mot de passe en libre-service  
+**Fonctionnalité de produit :** Authentification utilisateur
+ 
+En réponse aux commentaires des clients, nous avons amélioré l’expérience de préversion de l’inscription MFA/SSPR combiné, vous aidez les utilisateurs à inscrire plus rapidement leurs informations de sécurité pour l’authentification Multifacteur et SSPR. 
+
+**Pour activer l’expérience améliorée pour vos utilisateurs dès aujourd'hui, procédez comme suit :**
+
+1. Comme un administrateur général ou un administrateur de l’utilisateur, connectez-vous au portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres des fonctionnalités en version préliminaire de panneau accès**. 
+
+2. Dans le **utilisateurs pouvant utiliser la version préliminaire des fonctionnalités de l’inscription et la gestion des informations de sécurité – Actualiser** option, choisissez d’activer les fonctionnalités pour un **groupe sélectionné d’utilisateurs** ou pour **tous les utilisateurs** .
+
+Sur les prochaines semaines, nous supprimerons la possibilité d’activer l’ancienne combiné MFA/SSPR d’inscription aperçu expérience pour les clients qui n’est pas déjà activé.
+
+**Pour voir si le contrôle est supprimé de votre client, procédez comme suit :**
+
+1. Comme un administrateur général ou un administrateur de l’utilisateur, connectez-vous au portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres des fonctionnalités en version préliminaire de panneau accès**.  
+
+2.  Si le **utilisateurs pouvant utiliser les fonctionnalités en version préliminaire de l’inscription et la gestion des informations de sécurité** option est définie sur **aucun**, l’option sera supprimée à partir de votre client.
+
+Indépendamment de si vous avez précédemment activé l’inscription MFA/SSPR combinée ancien Aperçu amélioré des utilisateurs ou non, l’ancienne expérience sera désactivée à une date ultérieure. Pour cette raison, il est vivement que vous déplacer vers la nouvelle expérience améliorée dès que possible.
+
+Pour plus d’informations sur l’expérience d’inscription améliorée, consultez le [améliorations sympas à Azure AD combinées MFA et d’expérience de l’inscription de réinitialisation de mot de passe](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271).
+
+---
+
+### <a name="updated-policy-management-experience-for-user-flows"></a>Expérience de gestion de stratégie mise à jour pour les flux utilisateur
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+Nous avons mis à jour le processus de création et la gestion de stratégie de flux d’utilisateurs (précédemment connu sous le nom intégrés stratégies) plus facilités. Cette nouvelle expérience est désormais la valeur par défaut pour l’ensemble de vos locataires Azure AD.
+
+Vous pouvez fournir des commentaires supplémentaires et des suggestions en utilisant le sourire ou Smiley mécontent icônes dans le **envoyez-nous vos commentaires** zone en haut de l’écran du portail.
+
+Pour plus d’informations sur la nouvelle expérience de gestion de stratégie, consultez le [Azure AD B2C a maintenant la personnalisation de JavaScript et de nombreuses nouvelles fonctionnalités plus](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) blog.
+
+---
+
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Choisir des versions d'éléments de page spécifiques fournies par Azure AD B2C
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+Vous pouvez maintenant choisir une version spécifique des éléments de page fourni par Azure AD B2C. En sélectionnant une version spécifique, vous pouvez tester vos mises à jour avant qu’ils s’affichent sur une page et vous pouvez obtenir un comportement prévisible. En outre, vous pouvez désormais choisir d’appliquer des versions de page spécifique pour autoriser des personnalisations de JavaScript. Pour activer cette fonctionnalité, accédez à la **propriétés** page dans votre flux d’utilisateurs.
+
+Pour plus d’informations sur le choix des versions spécifiques d’éléments de page, consultez le [Azure AD B2C a maintenant la personnalisation de JavaScript et de nombreuses nouvelles fonctionnalités plus](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) blog.
+
+---
+
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Exigences de mot de passe de l'utilisateur configurable pour B2C (DG)
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+Vous pouvez maintenant spécifiquement configurer la complexité du mot de passe de votre organisation pour vos utilisateurs finaux, au lieu de devoir utiliser votre natif stratégie de mot de passe Azure AD. À partir de la **propriétés** Panneau de votre utilisateur flux (précédemment appelés vos stratégies intégrées), vous pouvez choisir une complexité de mot de passe de **Simple** ou **fort**, ou vous pouvez créer un **personnalisé** ensemble d’exigences.
+
+Pour plus d’informations sur la configuration d’exigence de complexité de mot de passe, consultez [configurer les exigences de complexité des mots de passe dans Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
+
+---
+
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Nouveaux modèles par défaut pour les expériences d'authentification de marque personnalisée
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+Vous pouvez utiliser nos nouveaux modèles par défaut, situés sur le **Page dispositions** Panneau de votre flux d’utilisateurs (précédemment appelé stratégies intégrées), pour créer un personnalisé marque l’expérience d’authentification pour vos utilisateurs.
+
+Pour plus d’informations sur l’utilisation des modèles, consultez [Azure AD B2C a maintenant la personnalisation de JavaScript et de nombreuses nouvelles fonctionnalités plus](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595).
+
+---
+
 ## <a name="january-2019"></a>Janvier 2019
 
 ### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Collaboration Active Directory B2B à l'aide de l'authentification par code secret à usage unique (préversion publique)
@@ -76,7 +194,7 @@ Pour plus d’informations sur les nouveaux cookies, consultez [Paramètres de c
  
 En janvier 2019, nous avons ajouté à notre galerie d’applications les 35 applications suivantes qui prennent en charge la fédération :
 
-[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial), [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial), [Talent Palette](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial), [Cisco Umbrella](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial), [Zscaler Internet Access Administrator](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial), [Expiration Reminder](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial), [InstaVR Viewer](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial), [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial), [Verb](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial), [GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial), [Cloud Service PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial), [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial), [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial), [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial), [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial), [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial), [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial), [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial), [ARES for Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial), [K2 for Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial), [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial), [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial), [Korn Ferry ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial), [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial), [Adoddle cSaas Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->  
+[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial), [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial), [Talent Palette](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial), [Cisco PARAPLUIE](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial), [Zscaler Administrateur de l’accès Internet](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial), [rappel d’Expiration](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial), [InstaVR visionneuse](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial), [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial), [verbe](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Fermez](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial), [GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial), [ Cloud Service PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial), [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial), [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial), [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [Système GTNexus SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial), [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial), [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial), [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial), [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial), [ARES pour Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial), [K2 pour Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial), [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial), [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial), [Korn transporter ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial), [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial), [Adoddle cSaas plateforme](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->  
 
 Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://aka.ms/azureadapprequest).
 
@@ -398,11 +516,11 @@ Nous avons résolu un problème afin que des rôles d’administrateur spécifiq
 
 Ces rôles sont les suivants :
 
-- Administrateur général ou Rédacteur d’entreprise
+- Administrateur général
 
-- Administrateur de services Intune
+- Administrateur Intune
 
-- Administrateur de compte utilisateur
+- Administrateur d’utilisateurs
 
 Pour plus d’informations, consultez l’article [Créer un groupe dynamique et vérifier l’état](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
 
@@ -690,207 +808,5 @@ Pour plus d’informations sur la prise en charge native de Tableau, voir [Proxy
 En configurant la fédération avec Google dans votre organisation, vous pouvez laisser les utilisateurs Gmail invités se connecter à vos applications et ressources partagées à l’aide de leur compte Google, sans qu’ils aient besoin de créer un compte Microsoft (compte de service administré ou MSA) personnel ou un compte Azure AD.
 
 Il s’agit d’une inscription à une version préliminaire publique. Pour plus d’informations sur la fédération Google, voir [Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-
----
-
-## <a name="july-2018"></a>Juillet 2018
-
-### <a name="improvements-to-azure-active-directory-email-notifications"></a>Améliorations apportées aux notifications par e-mail Azure Active Directory
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Autres  
-**Fonctionnalité de produit :** Gestion du cycle de vie des identités
- 
-Azure Active Directory (Azure AD) a une nouvelle conception visuelle, ainsi qu’un nouvel expéditeur, avec une nouvelle adresse e-mail et un nouveau nom d’affichage, lorsqu’ils proviendront des services suivants :
- 
-- Révisions d’accès Azure AD
-- Azure AD Connect Health 
-- Azure AD Identity Protection 
-- Azure AD Privileged Identity Management
-- Notifications de l’expiration prochaine des certificats des applications d’entreprise
-- Notifications du service de provisionnement des applications d’entreprise
- 
-Les notifications par e-mail proviendront de l’adresse e-mail et du nom d’affichage suivants :
-
-- Adresse e-mail : azure-noreply@microsoft.com
-- Nom complet : Microsoft Azure
- 
-Pour voir un exemple de nouvelle notification et obtenir plus d’informations, consultez [Notifications par e-mail dans Azure AD Privileged Identity Management](https://go.microsoft.com/fwlink/?linkid=2005832).
-
----
-
-### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Les journaux d’activité Azure AD sont désormais disponibles via Azure Monitor
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Reporting  
-**Fonctionnalité de produit :** Monitoring et création de rapports
-
-Les journaux d’activité Azure AD sont désormais disponibles en version préliminaire publique pour Azure Monitor (service de supervision à l’échelle de la plateforme d’Azure). Azure Monitor vous offre une rétention à long terme et une intégration transparente, en plus de ces améliorations :
-
-- Rétention à long terme par le routage de vos fichiers journaux sur votre propre compte de stockage Azure.
-
-- Intégration transparente de SIEM, sans avoir à écrire ou gérer des scripts personnalisés.
-
-- Intégration transparente avec vos propres solutions personnalisées, outils d’analytique ou solutions de gestion des incidents.
-
-Pour plus d’informations sur ces nouvelles fonctionnalités, consultez notre blog [Les journaux d’activité d’Azure AD dans Azure Monitor diagnostics est désormais disponible en version préliminaire publique](https://cloudblogs.microsoft.com/enterprisemobility/2018/07/26/azure-ad-activity-logs-in-azure-monitor-diagnostics-now-in-public-preview/) et notre documentation, [Journaux d’activité d’Azure Active Directory dans Azure Monitor (préversion)](https://docs.microsoft.com/azure/active-directory/reporting-azure-monitor-diagnostics-overview).
-
----
-
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Informations d’accès conditionnel ajoutées au rapport de connexion Azure AD
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Reporting  
-**Fonctionnalité de produit :** Protection et sécurité des identités
- 
-Cette mise à jour vous permet de voir quelles stratégies sont évaluées lorsqu’un utilisateur se connecte, ainsi que le résultat de la stratégie. En outre, le rapport inclut désormais le type d’application client utilisé par l’utilisateur, pour que vous puissiez identifier le trafic de protocole hérité. Les entrées de rapport peuvent également désormais rechercher un ID de corrélation, qui se trouve dans le message d’erreur visible par l’utilisateur et peuvent être utilisées pour identifier et résoudre les problèmes de la requête de connexion correspondante.
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Afficher les authentifications héritées via les journaux d’activité de connexions
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Reporting  
-**Fonctionnalité de produit :** Monitoring et création de rapports
- 
-Avec le nouveau champ **Application cliente** des journaux d’activité de connexions, les clients peuvent désormais voir les utilisateurs qui utilisent des authentifications héritées. Les clients peuvent accéder à ces informations à l’aide de l’API Microsoft Graph Connexions ou via les journaux d’activité de connexions dans le portail Azure AD et ainsi utiliser la commande **Application cliente** pour filtrer les authentifications héritées. Pour plus de détails, consultez la documentation.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Nouvelles applications fédérées disponibles dans la galerie Azure AD App - Juillet 2018
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** Intégration tierce
- 
-En juillet 2018, nous avons ajouté à notre galerie d’applications les 16 applications suivantes qui prennent en charge la fédération :
-
-[Hub de l’innovation](https://docs.microsoft.com/azure/active-directory/saas-apps/innovationhub-tutorial), [Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-tutorial), [Authentification unique pour certains administrateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/certainadminsso-tutorial), mise en lots PSUC, [iPass SmartConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/ipasssmartconnect-tutorial), [Screencast-O-Matic](https://docs.microsoft.com/azure/active-directory/saas-apps/screencast-tutorial), Classe unifiée de PowerSchool, [intégration Eli](https://docs.microsoft.com/azure/active-directory/saas-apps/elionboarding-tutorial), [prise en charge à distance Bomgar](https://docs.microsoft.com/azure/active-directory/saas-apps/bomgarremotesupport-tutorial), [Nimblex](https://docs.microsoft.com/azure/active-directory/saas-apps/nimblex-tutorial), [Imagineer WebVision](https://docs.microsoft.com/azure/active-directory/saas-apps/imagineerwebvision-tutorial), [Insight4GRC](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial), [Connecteur SecureW2 JoinNow](https://docs.microsoft.com/azure/active-directory/saas-apps/securejoinnow-tutorial), [Kanbanize](https://review.docs.microsoft.com/azure/active-directory/saas-apps/kanbanize-tutorial), [SmartLPA](https://review.docs.microsoft.com/azure/active-directory/saas-apps/smartlpa-tutorial), [Base de compétences](https://docs.microsoft.com/azure/active-directory/saas-apps/skillsbase-tutorial)
-
-Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://aka.ms/azureadapprequest).
-
----
- 
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Nouvelles intégrations d’applications SaaS pour l’attribution d’utilisateurs - juillet 2018
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Provisionnement d’applications  
-**Fonctionnalité de produit :** Intégration tierce
- 
-Azure AD vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans des applications SaaS comme Dropbox, Salesforce, ServiceNow, etc. En juillet 2018, nous avons ajouté une prise en charge de l’attribution des utilisateurs pour les applications suivantes dans la galerie d’applications Azure AD :
-
-- [Cisco Spark](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial)
-
-- [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
-
-- [Bonusly](https://docs.microsoft.com/azure/active-directory/saas-apps/bonusly-provisioning-tutorial)
-
-Pour obtenir la liste de toutes les applications qui prennent en charge l’attribution d’utilisateurs dans la galerie Azure AD, consultez [Intégration d’application SaaS avec Azure Active Directory](https://aka.ms/appstutorial).
-
----
-
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health pour la synchronisation - un moyen plus simple pour corriger les erreurs de synchronisation d’attribut en double et orphelins
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** AD Connect  
-**Fonctionnalité de produit :** Monitoring et création de rapports
- 
-Azure AD Connect Health introduit la mise à jour du libre-service pour vous aider à mettre en surbrillance et corriger les erreurs de synchronisation. Cette fonctionnalité résout les erreurs de synchronisation d’attribut en double et corrige les objets qui sont orphelins à partir d’Azure AD. Ce diagnostic offre les avantages suivants :
-
-- Permet de réduire les erreurs de synchronisation d’attribut en double, en fournissant des corrections spécifiques
-
-- Applique une correction pour les scénarios Azure AD dédiés, résolution des erreurs en une seule étape
-
-- Aucune mise à niveau ou configuration n’est nécessaire pour démarrer et utiliser cette fonctionnalité
-
-Pour plus d’informations, consultez [Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-diagnose-sync-errors)
-
----
-
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Mises à jour de Visual à Azure AD et expériences de connexion MSA
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Azure AD  
-**Fonctionnalité de produit :** Authentification utilisateur
-
-Nous mettons à jour l’interface utilisateur pour l’expérience de connexion des services en ligne de Microsoft, tels qu’Office 365 et Azure. Cette modification rend les écrans plus simples et moins encombrés. Pour plus d’informations sur cette modification, consultez le blog [Améliorations à venir à l’expérience de connexion Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2018/04/04/upcoming-improvements-to-the-azure-ad-sign-in-experience/).
-
----
-
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nouvelle version d’Azure AD Connect - juillet 2018
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Provisionnement d’applications  
-**Fonctionnalité de produit :** Gestion du cycle de vie des identités
-
-La dernière version d’Azure AD Connect comprend : 
-
-- Correctifs de bogues et mises à jour de la prise en charge 
-
-- Disponibilité générale de l’intégration Ping Federate
-
-- Mises à jour de la dernière SQL 2012 du client 
-
-Pour plus d’informations sur cette mise à jour, consultez [Azure AD Connect : Historique de publication des versions](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
-
----
-
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Mises à jour de l’interface utilisateur des conditions d’utilisation (conditions d’utilisation)
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Conditions d’utilisation  
-**Fonctionnalité de produit :** Gouvernance
-
-Nous mettons à jour la chaîne de l’acceptation de l’interface utilisateur des conditions d’utilisation.
-
-**Texte actif**  Vous devez accepter les conditions d'utilisation pour accéder aux ressources [tenantName].<br>**Nouveau texte.** Vous devez lire les conditions d'utilisation pour accéder à la ressource [tenantName].
-
-**Texte actuel :** Choosing to accept means that you agree to all of the above terms of use. (Accepter signifie que vous acceptez les conditions d’utilisation ci-dessus.)<br>**Nouveau texte :** Please click Accept to confirm that you have read and understood the terms of use. (Veuillez cliquer sur Accepter pour confirmer que vous avez lu et compris les conditions d’utilisation.)
-
----
- 
-### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>L’authentification directe prend en charge les applications et les protocoles hérités
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Authentifications (connexions)  
-**Fonctionnalité de produit :** Authentification utilisateur
- 
-L’authentification directe prend en charge les applications et les protocoles hérités. Les limitations suivantes sont maintenant entièrement prises en charge :
-
-- L’utilisateur se connecte aux applications clientes Office héritées, Office 2010 et Office 2013 sans exiger une authentification moderne.
-
-- Accédez aux informations de disponibilité et de partage de calendrier dans des environnements hybrides Exchange sur Office 2010 uniquement.
-
-- L’utilisateur se connecte à des applications clientes Skype Entreprise, sans exiger une authentification moderne.
-
-- L'utilisateur se connecte à PowerShell version 1.0.
-
-- Le programme d’inscription des appareils Apple (Apple DEP) à l’aide de l’Assistant de configuration iOS. 
-
----
- 
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Informations de sécurité convergées pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** SSPR  
-**Fonctionnalité de produit :** Authentification utilisateur
-
-Cette nouvelle fonctionnalité permet aux utilisateurs de gérer leurs informations de sécurité (par exemple, numéro de téléphone, adresse de messagerie, application mobile, etc) pour la réinitialisation de mot de passe libre-service (SSPR) et l’authentification multifacteur (MFA) dans une seule expérience. Les utilisateurs ne devront plus inscrire les mêmes informations de sécurité pour SSPR et MFA dans deux expériences différentes. Cette nouvelle expérience s’applique également aux utilisateurs qui dispose de SSPR ou MFA.
-
-Si une organisation ne respecte pas l’inscription MFA ou SSPR, les utilisateurs peuvent inscrire leurs informations de sécurité via le portail **Mes applications**. À partir de là, les utilisateurs peuvent inscrire des méthodes activées pour MFA ou SSPR. 
-
-Il s’agit d’une inscription à une version préliminaire publique. Les administrateurs peuvent activer la nouvelle expérience (le cas échéant) pour un groupe sélectionné d’utilisateurs ou de tous les utilisateurs d’un client.
-
----
- 
-### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Utilisez l’application Microsoft Authenticator pour vérifier votre identité lorsque vous réinitialisez votre mot de passe
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** SSPR  
-**Fonctionnalité de produit :** Authentification utilisateur
-
-Cette fonctionnalité permet aux non administrateurs de vérifier leur identité lors de la réinitialisation d’un mot de passe à l’aide d’une notification ou d’un code à partir de Microsoft Authenticator (ou toute autre application authentificatrice). Une fois que les administrateurs ont activé cette méthode de réinitialisation de mot de passe en libre-service, les utilisateurs qui ont inscrit une application mobile par le biais d’aka.ms/mfasetup ou d’aka.ms/setupsecurityinfo peuvent utiliser leur application mobile comme méthode de vérification lorsqu’ils réinitialisent leur mot de passe.
-
-Les notifications d’application mobile peuvent uniquement être activées dans le cadre d’une stratégie qui nécessite deux méthodes pour réinitialiser votre mot de passe.
 
 ---

@@ -3,7 +3,7 @@ title: Créer une application de conteneur Microsoft Azure Service Fabric sur Li
 description: Créez votre première application de conteneur Linux sur Microsoft Azure Service Fabric. Concevez une image Docker avec votre application, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: twhitney
-ms.openlocfilehash: 8cd7b33cca46433ec5efbc3a436f56ddc869a567
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895822"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ L’exécution d’une application existante dans un conteneur Linux sur un clus
 > [!NOTE]
 > Cet article s’applique à un environnement de développement Linux.  Le runtime du cluster Service Fabric et le runtime Docker doivent être en cours d’exécution sur le même système d’exploitation.  Vous ne pouvez pas exécuter des conteneurs Linux sur un cluster Windows.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Un ordinateur de développement exécutant :
   * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -162,7 +162,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>Placer l’image Docker dans un package avec Yeoman
-Le Kit de développement logiciel (SDK) Service Fabric pour Linux comprend un générateur [Yeoman](http://yeoman.io/) qui facilite la création de votre application et l’ajout d’une image de conteneur. Nous allons utiliser Yeoman pour créer une application avec un seul conteneur Docker appelé *SimpleContainerApp*.
+Le Kit de développement logiciel (SDK) Service Fabric pour Linux comprend un générateur [Yeoman](https://yeoman.io/) qui facilite la création de votre application et l’ajout d’une image de conteneur. Nous allons utiliser Yeoman pour créer une application avec un seul conteneur Docker appelé *SimpleContainerApp*.
 
 Pour créer une application de conteneur Service Fabric, ouvrez une fenêtre de terminal et exécutez `yo azuresfcontainer`. 
 
@@ -301,8 +301,8 @@ Voici les manifestes d’application et de service complets utilisés dans cet a
 <ServiceManifest Name="myservicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -347,8 +347,8 @@ Voici les manifestes d’application et de service complets utilisés dans cet a
 <ApplicationManifest ApplicationTypeName="mycontainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->

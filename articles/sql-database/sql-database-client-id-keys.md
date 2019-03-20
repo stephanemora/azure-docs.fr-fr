@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 66d963ff833b27899c82b1e0399195321a1f0732
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 1d60e875b12f02c957ebd6259eb0e7267f23ee51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897603"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtenir l’ID client et la clé pour la connexion à une base de données SQL à partir du code
 
@@ -25,16 +25,18 @@ Pour créer et gérer une base de données SQL à partir du code, vous devez ins
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Créer un principal du service pour accéder aux ressources à partir d’une application
 
-La dernière version [d’Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) doit être installée et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Le script PowerShell suivant crée l’application Active Directory (AD) et le principal du service dont nous avons besoin pour authentifier notre application C#. Le script génère les valeurs dont nous avons besoin pour l’exemple C# précédent. Pour plus de détails, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
     # Sign in to Azure.
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
-    #Set-AzureRmContext -SubscriptionId $subscriptionId
+    #Set-AzContext -SubscriptionId $subscriptionId
 
     # Provide these values for your new AAD app.
     # $appName is the display name for your app, must be unique in your directory.
@@ -45,25 +47,25 @@ Le script PowerShell suivant crée l’application Active Directory (AD) et le p
     $uri = "http://{app-name}"
     $secret = "{app-password}"
 
-    # Create a AAD app
-    $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
+    # Create an AAD app
+    $azureAdApplication = New-AzADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
 
     # Create a Service Principal for the app
-    $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    $svcprincipal = New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
     # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
     Start-Sleep -s 15
 
     # If you still get a PrincipalNotFound error, then rerun the following until successful. 
-    $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    $roleassignment = New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 
     # Output the values we need for our C# application to successfully authenticate
 
     Write-Output "Copy these values into the C# sample app"
 
-    Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
-    Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
+    Write-Output "_subscriptionId:" (Get-AzContext).Subscription.SubscriptionId
+    Write-Output "_tenantId:" (Get-AzContext).Tenant.TenantId
     Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
     Write-Output "_applicationSecret:" $secret
 

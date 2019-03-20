@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872559"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages AS2 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-as2-agreement"></a>Créer un contrat AS2
 
-1.  Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure").  
+1.  Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure").  
 
 2. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
@@ -62,7 +62,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
     | Propriété | Description |
     | --- | --- |
-    | NOM |Nom du contrat. |
+    | Nom |Nom du contrat. |
     | Type de contrat | Doit être AS2 |
     | Partenaire hôte |Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire hôte représente l’organisation qui configure le contrat. |
     | Identité de l’hôte |Identificateur du partenaire hôte. |
@@ -174,4 +174,4 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 Consultez les [détails sur Swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
+* [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110492"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
 
@@ -35,12 +35,12 @@ Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure
 
 1. Dans **Coffre** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle ayant échoué, puis sélectionnez **Reprotéger**. La direction de reprotection doit afficher secondaire à principal.
 
-  ![Reprotéger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Reprotéger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Vérifiez les informations Groupe de ressources, Réseau, Stockage et Groupes à haute disponibilité. Cliquez ensuite sur **OK**. Si des ressources sont marquées comme nouvelles, elles seront créées dans le cadre du processus de reprotection.
 3. Le travail de reprotection amorce le site cible avec les données les plus récentes. Une fois que cela se termine, la réplication différentielle a lieu. Ensuite, vous pouvez rebasculer vers le site principal. Vous pouvez sélectionner le compte de stockage ou le réseau que vous voulez utiliser pendant la reprotection à l’aide de l’option Personnaliser.
 
-  ![Option Personnaliser](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![Option Personnaliser](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>Personnaliser les paramètres de reprotection
 

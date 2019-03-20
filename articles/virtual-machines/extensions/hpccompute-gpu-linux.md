@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: d8b2b10f9a12fb32a522a9c87c67bb24d6d4475e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991845"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
-Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Linux de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
+Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Linux de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final NVIDIA](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
 Une extension est également disponible pour installer les pilotes GPU NVIDIA sur [des machines virtuelles de gamme N Windows](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -74,8 +74,8 @@ Le JSON suivant illustre le schéma pour l’extension.
 | Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | chaîne |
-| Type | NvidiaGpuDriverLinux | chaîne |
+| publisher | Microsoft.HpcCompute | string |
+| Type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Paramètres
@@ -85,7 +85,7 @@ Tous les paramètres sont facultatifs. Le comportement par défaut consiste à n
 | Nom | Description | Valeur par défaut | Valeurs valides | Type de données |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Mettre à jour le noyau, même si cela n’est pas requis pour l’installation du pilote | false | true, false | booléenne |
-| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | le plus récent | GRILLE : "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA : "10.0.130", "9.2.88", "9.1.85" | chaîne |
+| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | le plus récent | GRILLE : "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA : "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Installer le kit de ressources CUDA. S’applique uniquement aux machines virtuelles de la série NC/ND. | true | true, false | booléenne |
 
 

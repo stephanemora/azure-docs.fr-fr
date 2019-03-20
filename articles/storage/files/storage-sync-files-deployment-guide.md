@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 23f1f4e8b6a3b71c3792a08645122779e4e629b2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465824"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405485"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Nous vous recommandons fortement de lire les articles [Planification d’un déploiement Azure Files](storage-files-planning.md) et [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) avant d’effectuer les étapes décrites dans cet article.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Avoir un compte de stockage Azure et un partage de fichiers Azure dans la même région où vous souhaitez déployer Azure File Sync. Pour plus d'informations, consultez les pages suivantes :
     - [Disponibilité des régions](storage-sync-files-planning.md#region-availability) pour Azure File Sync.
     - [Créer un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour obtenir une procédure pas à pas de la création d’un compte de stockage.
@@ -83,7 +83,7 @@ Le déploiement de Azure File Sync commence par le placement d’une ressource *
 > Le service de synchronisation de stockage a hérité des autorisations d’accès de l’abonnement et du groupe de ressources dans lequel il a été déployé. Nous vous recommandons de vérifier soigneusement les personnes qui y ont accès. Les entités avec un accès en écriture peuvent démarrer la synchronisation de nouveaux ensembles de fichiers à partir des serveurs inscrits dans ce service de synchronisation de stockage et permettre le flux de données vers le stockage Azure qui leur est accessible.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Pour déployer un service de synchronisation de stockage, accédez au [portail Azure](https://portal.azure.com/), cliquez sur *Nouveau*, puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync**, puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
+Pour déployer un Service de synchronisation de stockage, accédez à la [Azure portal](https://portal.azure.com/), cliquez sur *créer une ressource* , puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync**, puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
 
 Dans le volet qui s’ouvre, entrez les informations suivantes :
 

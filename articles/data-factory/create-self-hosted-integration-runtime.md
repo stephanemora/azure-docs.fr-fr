@@ -3,20 +3,20 @@ title: Créer un runtime d’intégration auto-hébergé dans Azure Data Factory
 description: Découvrez comment créer un runtime d’intégration auto-hébergé dans Azure Data Factory, permettant aux fabriques de données d’accéder aux magasins de données dans un réseau privé.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+manager: craigg
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838797"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -25,11 +25,13 @@ Un runtime d’intégration auto-hébergé peut exécuter des activités de copi
 
 Ce document décrit la façon dont vous pouvez créer et configurer un runtime d’intégration auto-hébergé.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Procédure générale pour installer un runtime d’intégration auto-hébergé
 1. Créez un runtime d’intégration auto-hébergé. Vous pouvez utiliser l’interface utilisateur d’Azure Data Factory pour cette tâche. Voici un exemple PowerShell :
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [Téléchargez](https://www.microsoft.com/download/details.aspx?id=39717) et installez le runtime d’intégration auto-hébergé sur une machine locale.
@@ -37,7 +39,7 @@ Ce document décrit la façon dont vous pouvez créer et configurer un runtime d
 3. Récupérez la clé d’authentification et inscrivez le runtime d’intégration auto-hébergé à l’aide de la clé. Voici un exemple PowerShell :
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configuration d’un runtime d’intégration auto-hébergé sur une machine virtuelle Azure à l’aide d’un modèle Azure Resource Manager (automatisation)
@@ -59,7 +61,7 @@ Voici un flux de données global résumant les étapes de copie avec un runtime 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considérations relatives à l’utilisation du runtime d’intégration auto-hébergé
 
 - Un même runtime d’intégration autohébergé peut servir pour plusieurs sources de données sur site. Un runtime d’intégration auto-hébergé unique peut être partagé avec une autre fabrique de données au sein du même locataire Azure Active Directory. Pour plus d’informations, consultez [Partage du runtime d’intégration auto-hébergé avec plusieurs fabriques de données](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Vous ne pouvez installer qu’une seule instance d’un runtime d’intégration auto-hébergé sur une même machine. Si vous avez deux fabriques de données qui doivent accéder aux sources de données locales, vous devez installer le runtime d’intégration auto-hébergé sur deux ordinateurs locaux. En d’autres termes, un runtime d’intégration auto-hébergé est lié à une fabrique de données spécifique.
+- Vous ne pouvez installer qu’une seule instance d’un runtime d’intégration auto-hébergé sur une même machine. Si vous avez deux fabriques de données qui doivent accéder aux sources de données locales, vous devez installer le runtime d’intégration auto-hébergé sur deux ordinateurs locaux chaque à partir des deux fabriques de données ou utiliser le [defonctionnalitédepartagedeIRauto-hébergé](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)pour partager un runtime d’intégration auto-hébergé avec une autre fabrique de données.  
 - Le runtime d’intégration auto-hébergé n’a pas besoin d’être sur la même machine que la source de données. Toutefois, le fait d’avoir un runtime d’intégration auto-hébergé plus proche de la source de données réduit le temps de connexion du runtime d’intégration auto-hébergé à la source de données. Nous vous recommandons d’installer le runtime d’intégration autohébergé sur un ordinateur différent de celui qui héberge la source de données locale. Lorsque le runtime d’intégration auto-hébergé et la source de données se trouvent sur des machines différentes, le runtime d’intégration auto-hébergé ne demande pas de ressources de la source de données.
 - Vous pouvez avoir plusieurs runtimes d’intégration auto-hébergés sur différentes machines connectées à la même source de données locale. Par exemple, vous pouvez avoir deux runtimes d’intégration auto-hébergés utilisés pour deux fabriques de données, alors que la même source de données locale est inscrite auprès des deux fabriques de données.
 - Si une passerelle est déjà installée sur votre ordinateur pour un scénario Power BI, installez un runtime d’intégration auto-hébergé distinct pour Azure Data Factory sur une autre machine.
@@ -96,7 +98,7 @@ Vous pouvez installer le runtime d’intégration auto-hébergé en télécharge
 9. Obtenez la clé d’authentification à l’aide d’Azure PowerShell. Voici un exemple PowerShell pour récupérer la clé d’authentification :
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Sur la page **Inscrire Integration Runtime (auto-hébergé)** du Gestionnaire de configuration de Microsoft Integration Runtime en cours d’exécution sur votre machine, procédez comme suit :
 
@@ -112,7 +114,7 @@ Un runtime d’intégration auto-hébergé peut être associé à plusieurs mach
 * La haute disponibilité du runtime d’intégration auto-hébergé supprime le point de défaillance unique dans votre solution Big Data ou dans l’intégration de vos données cloud avec Azure Data Factory, ce qui garantit la continuité des activités sur un maximum de quatre nœuds.
 * Les performances et le débit lors du déplacement des données entre les magasins de données locaux et dans le cloud ont été améliorés. Plus d’informations sur les [comparaisons des performances](copy-activity-performance.md).
 
-Vous pouvez associer plusieurs nœuds en installant le logiciel du runtime d’intégration auto-hébergé à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717). Ensuite, procédez à l’inscription à l’aide des clés d’authentification obtenues via la cmdlet **New-AzureRmDataFactoryV2IntegrationRuntimeKey**, comme décrit dans le [didacticiel](tutorial-hybrid-copy-powershell.md).
+Vous pouvez associer plusieurs nœuds en installant le logiciel du runtime d’intégration auto-hébergé à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717). Ensuite, elle à l’aide d’une des clés d’authentification obtenue à partir de s’inscrire la **New-AzDataFactoryV2IntegrationRuntimeKey** applet de commande, comme décrit dans la [didacticiel](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > Vous n’avez pas besoin de créer de runtime d’intégration auto-hébergé pour associer chaque nœud. Vous pouvez installer le runtime d’intégration auto-hébergé sur une autre machine et l’inscrire à l’aide de la même clé d’authentification. 
@@ -143,7 +145,7 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 - Les certificats qui utilisent des clés CNG ne sont pas pris en charge.  
 
 > [!NOTE]
-> Ce certificat permet de chiffrer les ports sur le nœud IR auto-hébergé, utilisé pour la **communication entre nœuds** (à des fins de synchronisation d'état) et lors de l'**utilisation de la cmdlet PowerShell pour le paramètre d'informations d'identification du service lié** au sein du réseau local. Nous vous conseillons d'utiliser ce certificat si votre environnement de réseau privé n'est pas sécurisé ou si vous souhaitez également sécuriser la communication entre les nœuds de votre réseau privé. Le déplacement des données en transit d'un runtime d'intégration auto-hébergé vers d'autres magasins de données se fait toujours via un canal chiffré, que ce certificat soit défini ou non. 
+> Ce certificat est utilisé pour chiffrer des ports sur le nœud Runtime d’intégration auto-hébergé, utilisé pour **communication nœud à nœud** (pour la synchronisation de l’état qui inclut des services liés d’informations d’identification de la synchronisation entre les nœuds) et des while **à l’aide de PowerShell applet de commande pour le service lié informations d’identification de paramètre** de réseau local. Nous vous conseillons d'utiliser ce certificat si votre environnement de réseau privé n'est pas sécurisé ou si vous souhaitez également sécuriser la communication entre les nœuds de votre réseau privé. Le déplacement des données en transit d'un runtime d'intégration auto-hébergé vers d'autres magasins de données se fait toujours via un canal chiffré, que ce certificat soit défini ou non. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Partage du runtime d’intégration auto-hébergé avec plusieurs fabriques de données
 
@@ -197,8 +199,6 @@ La vidéo suivante est une présentation et une démonstration de 12 minutes de 
 * La fabrique de données dans laquelle un runtime d’intégration lié va être créé doit avoir une identité [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Par défaut, les fabriques de données créées dans le Portail Azure ou les cmdlets PowerShell disposent d’une identité MSI créée implicitement. Toutefois, lorsque la fabrique de données est créée à l’aide d’un modèle Azure Resource Manager ou d’un Kit de développement logiciel (SDK), la propriété **Identité** doit être définie explicitement pour garantir qu’Azure Resource Manager crée une fabrique de données contenant une identité MSI. 
 
 * Le Kit de développement logiciel (SDK) Azure Data Factory .NET version 1.1.0 ou ultérieure prend en charge cette fonctionnalité.
-
-* Azure PowerShell version 6.6.0 ou ultérieure prend en charge cette fonctionnalité (AzureRM.DataFactoryV2, 0.5.7 ou version ultérieure).
 
 * Pour accorder l’autorisation, l’utilisateur a besoin du rôle Propriétaire ou du rôle Propriétaire hérité dans la fabrique de données dans laquelle se trouve le runtime d’intégration partagé.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > L’application Gestionnaire d’informations d’identification n’est pas encore disponible pour le chiffrement des informations d’identification dans Azure Data Factory V2.  
 
-Si vous préférez ne pas ouvrir le port 8060 sur la machine du runtime intégration auto-hébergé, utilisez d’autres mécanismes que l’application Définition des informations d’identification pour configurer les informations d’identification du magasin de données. Vous pouvez par exemple utiliser la cmdlet PowerShell **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential**.
+Si vous préférez ne pas ouvrir le port 8060 sur la machine du runtime intégration auto-hébergé, utilisez d’autres mécanismes que l’application Définition des informations d’identification pour configurer les informations d’identification du magasin de données. Par exemple, vous pouvez utiliser la **New-AzDataFactoryV2LinkedServiceEncryptCredential** applet de commande PowerShell.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

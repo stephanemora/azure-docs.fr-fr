@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 5dde6dfdfaed23dbbfe61b06a433f731d90a0440
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b0ae3d5b2c60badfb9b59820b1e0b85383e524ca
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075996"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406311"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connecter un réseau virtuel à un circuit ExpressRoute
 > [!div class="op_single_selector"]
@@ -44,15 +44,18 @@ Cet article vous aide à lier des réseaux virtuels à des circuits Azure Expres
   * Vérifiez qu’un réseau virtuel et une passerelle de réseau virtuel ont été créés et entièrement approvisionnés. Suivez les instructions pour [créer une passerelle de réseau virtuel pour ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Une passerelle de réseau virtuel pour ExpressRoute utilise le type de passerelle « ExpressRoute », pas de VPN.
 
 ### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Connecter un réseau virtuel du même abonnement à un circuit
 Vous pouvez connecter une passerelle de réseau virtuel à un circuit ExpressRoute à l’aide de l’applet de commande suivante. Vérifiez que la passerelle de réseau virtuel est créée et prête pour la liaison avant d’exécuter l’applet de commande.
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Connecter un réseau virtuel d’un autre abonnement à un circuit
@@ -83,12 +86,12 @@ Le propriétaire du circuit crée une autorisation. Cela entraîne la création 
 L’extrait de code d’applet de commande ci-dessous montre comment créer une autorisation :
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$auth1 = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 ```
 
 
@@ -108,8 +111,8 @@ La réponse contient la clé d’autorisation et le statut :
 Le propriétaire du circuit peut vérifier toutes les autorisations émises sur un circuit donné en exécutant l’applet de commande suivante :
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$authorizations = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 ```
 
 **Ajout d’autorisations**
@@ -117,12 +120,12 @@ $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircu
 Le propriétaire du circuit peut ajouter des autorisations à l’aide de l’applet de commande suivante :
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$authorizations = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 ```
 
 **Suppression d’autorisations**
@@ -130,8 +133,8 @@ $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircu
 Le propriétaire du circuit peut révoquer/supprimer les autorisations accordées à l’utilisateur en exécutant l’applet de commande suivante :
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+Remove-AzExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 ```    
 
 ### <a name="circuit-user-operations"></a>Opérations de l’utilisateur du circuit
@@ -141,7 +144,7 @@ L'utilisateur du circuit a besoin de l'ID de l'homologue et une clé d'autorisat
 L’ID de l’homologue peut être consulté avec la commande suivante :
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **Réclamation d’une autorisation de connexion**
@@ -150,8 +153,8 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 
 ```azurepowershell-interactive
 $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
-$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+$gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
 **Libération d’une autorisation de connexion**
@@ -166,9 +169,9 @@ Vous pouvez mettre à jour certaines propriétés d’une connexion de réseau v
 Votre réseau virtuel peut être connecté à plusieurs circuits ExpressRoute. Vous pouvez recevoir le même préfixe à partir de plusieurs circuits ExpressRoute. Pour choisir la connexion pour envoyer le trafic destiné à ce préfixe, vous pouvez modifier le *RoutingWeight* d’une connexion. Le trafic est envoyé sur la connexion avec le *RoutingWeight*.le plus élevé.
 
 ```azurepowershell-interactive
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
 $connection.RoutingWeight = 100
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ```
 
 La plage de *RoutingWeight* est de 0 à 32000. La valeur par défaut est 0.

@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: concept
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 6d6da0ac5ab204bbfe70ea15e80650dd9b9e6364
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456320"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442867"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Journaux d’activité Azure Active Directory dans Azure Monitor (préversion)
 
@@ -35,6 +35,8 @@ Vous pouvez maintenant acheminer les journaux d’activité Azure Active Directo
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="supported-reports"></a>Rapports pris en charge
 
 Vous pouvez acheminer les journaux d’audit Azure AD et authentifier des journaux vers votre compte de stockage Azure, un Event Hub, des journaux Azure Monitor ou une solution personnalisée à l’aide de cette fonctionnalité. 
@@ -46,7 +48,7 @@ Vous pouvez acheminer les journaux d’audit Azure AD et authentifier des journa
 > Les journaux d’activité d’audit et de connexions associés à B2C ne sont pas pris en charge pour le moment.
 >
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 

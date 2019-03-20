@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af01d924036e5d31de5498e51b56efdf1defc9f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083935"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : Présentation technique approfondie
 
@@ -60,7 +60,7 @@ Le flux de connexion dans un navigateur web est le suivant :
 3. L’utilisateur tape son nom d’utilisateur dans la page de connexion Azure AD.
 
    >[!NOTE]
-   >Pour [certaines applications](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), les étapes 2 et 3 ne sont pas nécessaires.
+   >Pour [certaines applications](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso), les étapes 2 et 3 ne sont pas nécessaires.
 
 4. En utilisant JavaScript en arrière-plan, Azure AD demande au client, via une réponse 401 Non autorisé, de fournir un ticket Kerberos.
 5. À son tour, le navigateur demande un ticket à Active Directory pour le compte d’ordinateur `AZUREADSSOACC` (qui représente Azure AD).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189794"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993188"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 
@@ -71,6 +71,7 @@ Pour ajouter des rôles et des utilisateurs à une base de données du modèle d
 2. Dans **Créer un rôle**, entrez un nom de rôle et une description.
 
 3. Sélectionnez une autorisation.
+
    |Autorisation|Description|  
    |----------------|-----------------|  
    |**Contrôle total (administrateur)**|Les membres peuvent modifier le schéma de modèle, le processus et interroger toutes les données.| 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a810ae13d9cfb68d11293ba883c52858aa4a2deb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b98cc0141954a079b848bd9639b081499819b8ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877001"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurer ou supprimer un utilisateur supprimé à l’aide d’Azure Active Directory
 Lorsque vous supprimez un utilisateur, son compte reste à l’état suspendu pendant 30 jours. Pendant ces 30 jours, le compte de l’utilisateur peut être restauré, avec l’ensemble de ses propriétés. À l’issue de ce délai de 30 jours, l’utilisateur est automatiquement et définitivement supprimé.
@@ -31,13 +31,13 @@ Vous pouvez afficher les utilisateurs pouvant être restaurés, restaurer un uti
 ## <a name="required-permissions"></a>Autorisations requises
 Vous devez disposer d’un des rôles suivants pour restaurer et supprimer définitivement des utilisateurs.
 
-- Administrateur d’entreprise
+- Administrateur général
 
 - Prise en charge de niveau 1 de partenaire
 
 - Prise en charge de niveau 2 de partenaire
 
-- Administrateur de compte utilisateur
+- Administrateur d’utilisateurs
 
 ## <a name="view-your-restorable-users"></a>Afficher les utilisateurs pouvant être restaurés
 Vous pouvez afficher tous les utilisateurs qui ont été supprimés il y a moins de 30 jours. Ces utilisateurs peuvent être restaurés.
