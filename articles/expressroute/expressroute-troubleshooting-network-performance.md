@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: dfd55ac12587cf99cc3fc3ff8eac4f4572229396
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753498"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995793"
 ---
 # <a name="troubleshooting-network-performance"></a>Résolution des problèmes de performances réseau
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Azure met à votre disposition des moyens stables et rapides pour vous connecter à Azure à partir de votre réseau local. Les méthodes telles que le VPN de site à site et ExpressRoute sont couramment utilisées par les clients de grande et petite tailles pour exécuter leurs activités dans Azure. Mais que se passe-t-il quand les performances ne sont pas à la hauteur de vos attentes ou expériences passées ? Ce document peut vous aider à standardiser la façon de tester et de planifier votre environnement.
 
 Ce document vous montre comment tester la latence réseau et la bande passante entre deux hôtes de façon aisée et cohérente. Il fournit également des conseils sur la façon d’examiner le réseau Azure et d’isoler les points problématiques. Le script PowerShell et les outils présentés nécessitent deux hôtes sur le réseau (à chaque extrémité de la liaison testée). L’un des hôtes doit être doté de Windows Server ou Windows Desktop, l’autre peut être doté de Windows ou de Linux. 
@@ -180,25 +180,25 @@ Configuration des tests :
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Lieu|Azure<br/>Région|Distance<br/>estimée (km)|Latence|1 Session<br/>Bande passante|Maximale<br/>Bande passante|
-| Seattle | USA Ouest 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s | 21
-| Seattle | USA Ouest          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s | 20
-| Seattle | USA Centre       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s | 17
-| Seattle | USA Centre Sud |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s | 19
-| Seattle | USA Centre Nord |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s | 18
-| Seattle | USA Est 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbit/s | 16
-| Seattle | USA Est          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbit/s | 15
-| Seattle | Japon Est       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbit/s | 28
-| Seattle | Sud du Royaume-Uni         |  7.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s | 24
-| Seattle | Europe Ouest      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s | 23
-| Seattle | Australie Est   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s | 26
-| Seattle | Asie Sud-Est   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s | 25
-| Seattle | Brésil Sud *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s | 22
-| Seattle | Inde Sud      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s | 27
+| Seattle | USA Ouest 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
+| Seattle | USA Ouest          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
+| Seattle | USA Centre       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
+| Seattle | USA Centre Sud |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
+| Seattle | USA Centre Nord |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
+| Seattle | USA Est 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbit/s |
+| Seattle | USA Est          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbit/s |
+| Seattle | Japon Est       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbit/s |
+| Seattle | Sud du Royaume-Uni         |  7.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
+| Seattle | Europe Ouest      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
+| Seattle | Australie Est   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |
+| Seattle | Asie Sud-Est   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
+| Seattle | Brésil Sud *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
+| Seattle | Inde Sud      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
 
 \* La latence au Brésil est un bon exemple où la distance à vol d’oiseau diffère considérablement de la distance en fibre optique. Alors que la latence devrait normalement se situer aux alentours de 160 ms, elle s’élève à 189 ms. Cette différence par rapport à mes attentes pourrait indiquer un problème réseau quelque part, mais très probablement que la fibre optique en direction du Brésil n’emprunte pas une ligne droite, ce qui se traduit par un supplément de 1 000 km environ sur l’itinéraire entre Seattle et le Brésil.
 
 ## <a name="next-steps"></a>Étapes suivantes
-1. Télécharger la boîte à outils de connectivité Azure à partir de GitHub à l’adresse [http://aka.ms/AzCT][ACT]
+1. Télécharger la boîte à outils de connectivité Azure à partir de GitHub à l’adresse [https://aka.ms/AzCT][ACT]
 2. Suivre les instructions pour [tester le niveau de performance des liaisons][Performance Doc].
 
 <!--Image References-->
@@ -212,15 +212,4 @@ Configuration des tests :
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-
+[ACT]: https://aka.ms/AzCT

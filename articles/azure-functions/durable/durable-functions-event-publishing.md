@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338105"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136359"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publication de Fonctions durables sur Azure Event Grid (version préliminaire)
 
@@ -29,22 +29,22 @@ Voici certains scénarios pour lesquels cette fonctionnalité est utile :
 
 * **Activité longue en arrière-plan** : si vous utilisez Durable Functions pour une activité longue en arrière-plan, cette fonctionnalité vous donne des indications sur l’état actuel.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Installez [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc ou une version ultérieure dans votre projet Fonctions durables.
 * Installez l’[émulateur de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
 * Installez [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou utilisez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-## <a name="create-a-custom-event-grid-topic"></a>Créer une rubrique Event Grid personnalisée
+## <a name="create-a-custom-event-grid-topic"></a>Créer une rubrique de grille d’événement personnalisé
 
-Créez une rubrique Event Grid afin d’envoyer des événements à partir de l’extension Fonctions durables. Les instructions suivantes vous expliquent comment créer une rubrique à l’aide de l’interface Azure CLI. Pour plus d’informations sur la procédure à suivre avec PowerShell ou le portail Azure, consultez les articles suivants :
+Créer une rubrique event grid pour envoyer des événements à partir de fonctions durables. Les instructions suivantes vous expliquent comment créer une rubrique à l’aide de l’interface Azure CLI. Pour plus d’informations sur la procédure à suivre avec PowerShell ou le portail Azure, consultez les articles suivants :
 
 * [Guides de démarrage rapide EventGrid : Créer un événement personnalisé – Azure PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [Guides de démarrage rapide EventGrid : Créer un événement personnalisé – Portail Azure](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande `az group create`. Actuellement, Event Grid ne prend pas en charge l’ensemble des régions. Pour plus d’informations sur les régions prises en charge, consultez la [Vue d’ensemble d’Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Créez un groupe de ressources avec la commande `az group create`. Actuellement, Azure Event Grid ne prend en charge toutes les régions. Pour plus d’informations sur les régions sont prises en charge, consultez le [vue d’ensemble d’Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -52,7 +52,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
 
-Une rubrique Event Grid fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. Remplacez `<topic_name>` par un nom unique pour votre rubrique. Le nom de la rubrique doit être unique, car il devient une entrée DNS.
+Une rubrique event grid fournit un point de terminaison défini par l’utilisateur que vous publiez votre événement à. Remplacez `<topic_name>` par un nom unique pour votre rubrique. Le nom de la rubrique doit être unique, car il devient une entrée DNS.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -78,25 +78,18 @@ Vous pouvez maintenant envoyer des événements à la rubrique.
 
 Dans votre projet Fonctions durables, recherchez le fichier `host.json`.
 
-Ajoutez `EventGridTopicEndpoint` et `EventGridKeySettingName` dans une propriété `durableTask`.
+Ajoutez `eventGridTopicEndpoint` et `eventGridKeySettingName` dans une propriété `durableTask`.
 
 ```json
 {
     "durableTask": {
-        "EventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "EventGridKeySettingName": "EventGridKey"
+        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+        "eventGridKeySettingName": "EventGridKey"
     }
 }
 ```
 
-Les propriétés de configuration d’Azure Event Grid sont les suivantes :
-
-* **EventGridTopicEndpoint** - Le point de terminaison de la rubrique Event Grid. La syntaxe *AppSettingName %* peut être utilisée pour résoudre cette valeur à partir des paramètres de l’application ou des variables d’environnement.
-* **EventGridKeySettingName** - La clé du paramètre d’application sur votre fonction Azure. L’extension Fonctions durables récupère la clé de la rubrique Event Grid à partir de la valeur.
-* **EventGridPublishRetryCount** : [facultatif] Nombre de nouvelles tentatives à effectuer en cas d’échec de la publication de la rubrique Event Grid.
-* **EventGridPublishRetryInterval** :[facultatif] Intervalle avant une nouvelle tentative de publication Event Grid, au format *hh:mm:ss*. Si aucune valeur n’est spécifiée, l’intervalle de nouvelle tentative par défaut est de 5 minutes.
-
-Une fois que vous avez configuré le fichier `host.json`, votre projet Fonctions durables commence à envoyer des événements de cycle de vie à la rubrique Event Grid. Cela fonctionne durant l’exécution dans l’application Function App et en local.
+Vous trouverez les propriétés de configuration d’Azure Event Grid possibles dans le [host.json documentation](../functions-host-json.md#durabletask). Après avoir configuré le `host.json` fichier, votre application de fonction envoie des événements de cycle de vie à la rubrique event grid. Cela fonctionne lorsque vous exécutez votre application de fonction à la fois localement et dans Azure. » »
 
 Définissez le paramètre d’application pour la clé de rubrique dans l’application Function App et `local.setting.json`. Le fichier JSON suivant est un exemple de l’instance `local.settings.json` pour le débogage local. Remplacez `<topic_key>` par la clé de rubrique.  
 
@@ -115,9 +108,9 @@ Assurez-vous que l’[émulateur de stockage](https://docs.microsoft.com/azure/s
 
 ## <a name="create-functions-that-listen-for-events"></a>Créer des fonctions qui écoutent les événements
 
-Créez une application de fonction. Il est préférable de la placer dans la région de la rubrique Event Grid.
+Créez une application de fonction. Il est préférable pour le localiser dans la même région que la rubrique event grid.
 
-### <a name="create-an-event-grid-trigger-function"></a>Créer une fonction de déclenchement Event Grid
+### <a name="create-an-event-grid-trigger-function"></a>Créer une fonction de déclenchement event grid
 
 Créer une fonction dédiée à la réception des événements de cycle de vie. Sélectionnez **Fonction personnalisée**.
 
@@ -145,11 +138,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-Sélectionnez `Add Event Grid Subscription`. Cette opération ajoute un abonnement Event Grid à la rubrique Event Grid créée. Pour plus d’informations, consultez la section [Concepts utilisés dans Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
+Sélectionnez `Add Event Grid Subscription`. Cette opération ajoute un abonnement event grid pour la rubrique event grid que vous avez créé. Pour plus d’informations, consultez la section [Concepts utilisés dans Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
 
 ![Sélectionnez le lien de la fonction de déclenchement Event Grid.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Sélectionnez `Event Grid Topics` pour le **Type de rubrique**. Sélectionnez le groupe de ressources créé pour la rubrique Event Grid. Ensuite, sélectionnez l’instance de la rubrique Event Grid. Appuyez sur `Create`.
+Sélectionnez `Event Grid Topics` pour le **Type de rubrique**. Sélectionnez le groupe de ressources que vous avez créé pour la rubrique event grid. Puis sélectionnez l’instance de la rubrique event grid. Appuyez sur `Create`.
 
 ![Créer un abonnement Event Grid.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -171,7 +164,6 @@ using Microsoft.Extensions.Logging;
 namespace LifeCycleEventSpike
 {
     public static class Sample
-    {
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
@@ -258,19 +250,19 @@ Consultez les journaux associés à la fonction créée dans le portail Azure.
 
 La liste suivante explique le schéma des événements du cycle de vie :
 
-* **id** : identificateur unique de l’événement Event Grid.
-* **subject** : chemin d’accès de l’objet de l’événement. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` sera `Running`, `Completed`, `Failed` et `Terminated`.  
-* **data** : paramètres propres à Durable Functions.
-  * **hubName** : nom [TaskHub](durable-functions-task-hubs.md).
-  * **functionName** : nom de la fonction d’orchestrateur.
-  * **instanceId** : identificateur de l’instance Durable Functions.
-  * **reason** : données supplémentaires associées à l’événement de suivi. Pour en savoir plus, consultez la section [Diagnostics dans Fonctions durables (Azure Functions)](durable-functions-diagnostics.md).
-  * **runtimeStatus** : état du runtime d’orchestration. Running, Completed, Failed, Canceled. (En cours d’exécution, Terminé, En échec ou Annulé)
-* **eventType** : orchestratorEvent
-* **eventTime** : heure de l’événement (UTC).
-* **dataVersion** : version du schéma d’événement du cycle de vie.
-* **metadataVersion** :  version des métadonnées.
-* **topic** : ressource de la rubrique Event Grid.
+* **`id`** : Identificateur unique de l’événement de la grille.
+* **`subject`** : chemin d’accès de l’objet de l’événement. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` sera `Running`, `Completed`, `Failed` et `Terminated`.  
+* **`data`** : paramètres propres à Durable Functions.
+  * **`hubName`** : nom [TaskHub](durable-functions-task-hubs.md).
+  * **`functionName`** : nom de la fonction d’orchestrateur.
+  * **`instanceId`** : identificateur de l’instance Durable Functions.
+  * **`reason`** : données supplémentaires associées à l’événement de suivi. Pour en savoir plus, consultez la section [Diagnostics dans Fonctions durables (Azure Functions)](durable-functions-diagnostics.md).
+  * **`runtimeStatus`** : état du runtime d’orchestration. Running, Completed, Failed, Canceled. (En cours d’exécution, Terminé, En échec ou Annulé)
+* **`eventType`**: « orchestratorEvent »
+* **`eventTime`** : heure de l’événement (UTC).
+* **`dataVersion`** : version du schéma d’événement du cycle de vie.
+* **`metadataVersion`** :  version des métadonnées.
+* **`topic`** : Ressources de rubrique Event grid.
 
 ## <a name="how-to-test-locally"></a>Procédure de test local
 
