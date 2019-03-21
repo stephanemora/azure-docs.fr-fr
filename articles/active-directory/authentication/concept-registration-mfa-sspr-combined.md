@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550188"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224547"
 ---
 # <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (version préliminaire)
 
@@ -68,11 +68,11 @@ Comme nous continuons d’ajouter ces plusieurs méthodes d’authentification �
 
 ## <a name="combined-registration-modes"></a>Inscription combinée Modes
 
-Il existe deux « modes » de l’enregistrement combiné : interrompre et à gérer. 
+Il existe deux « modes » de l’enregistrement combiné : interrompre et à gérer.
 
-Mode d’interruption, est une expérience de type Assistant affichée à un utilisateur lorsqu’ils s’inscrire ou actualiser les informations de sécurité lors de la connexion. 
+Mode d’interruption, est une expérience de type Assistant affichée à un utilisateur lorsqu’ils s’inscrire ou actualiser les informations de sécurité lors de la connexion.
 
-Gérer le mode fait partie du profil de l’utilisateur et leur permet de gérer leurs informations de sécurité. 
+Gérer le mode fait partie du profil de l’utilisateur et leur permet de gérer leurs informations de sécurité.
 
 Pour les deux modes, si un utilisateur a déjà été inscrit une méthode qui peut être utilisée pour l’authentification Multifacteur, ils devrez effectuer une MFA avant de pouvoir accéder à leurs informations de sécurité.
 

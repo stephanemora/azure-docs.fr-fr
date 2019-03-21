@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: ce949caa2b80c08f1015ee21c00197d6a95103c2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "58114949"
+---
 Vous pouvez acheter des domaines dans le [portail de gestion Azure](https://portal.azure.com) directement. Procédez comme suit pour acheter des noms de domaine et les attribuer à votre application web.
 
 1. Dans votre navigateur, ouvrez le [portail de gestion Azure](https://portal.azure.com).

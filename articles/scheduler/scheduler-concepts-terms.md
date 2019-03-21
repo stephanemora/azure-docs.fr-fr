@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887049"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepts, terminologie et entités d’Azure Scheduler
 
@@ -69,15 +69,15 @@ Azure Scheduler prend en charge plusieurs types de travaux :
 D’une façon générale, un travail du planificateur comprend les éléments de base suivants :
 
 * L’action qui s’exécute quand le minuteur du travail se déclenche
-* Facultatif : l’heure à laquelle exécuter le travail
-* Facultatif : quand et à quelle fréquence répéter le travail
-* Facultatif : une action d’erreur qui s’exécute en cas d’échec de l’action principale
+* Facultatif : La durée d’exécution du travail
+* Facultatif : Quand et à quelle fréquence répéter le travail
+* Facultatif : Une action d’erreur qui s’exécute si l’action principale échoue
 
 Le travail inclut également des données fournies par le système, comme l’heure d’exécution planifiée suivante du travail. La définition du code du travail est un objet au format JSON (JavaScript Objet Notation), qui comporte ces éléments :
 
 | Élément | Obligatoire | Description | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Non  | Heure de début du travail avec un décalage de fuseau horaire au [format ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | Non  | Heure de début du travail avec un décalage de fuseau horaire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Oui | Détails de l’action principale, qui peuvent inclure un objet **errorAction** | 
 | [**errorAction**](#error-action) | Non  | Détails de l’action secondaire qui s’exécute si l’action principale échoue |
 | [**recurrence**](#recurrence) | Non  | Détails tels que la fréquence et l’intervalle pour un travail périodique | 
@@ -137,7 +137,7 @@ Voici un exemple qui montre une définition complète d’un travail pour une ac
 
 ## <a name="starttime"></a>startTime
 
-Dans l’objet **startTime**, vous pouvez spécifier l’heure de début et un décalage de fuseau horaire au [format ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+Dans l’objet **startTime**, vous pouvez spécifier l’heure de début et un décalage de fuseau horaire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 
@@ -239,7 +239,7 @@ Un travail se répète si la définition JSON du travail inclut l’objet **recu
 },
 ```
 
-| Propriété | Obligatoire | Valeur | Description | 
+| Propriété | Obligatoire | Value | Description | 
 |----------|----------|-------|-------------| 
 | **frequency** | Oui, quand **recurrence** est utilisé | "Minute", "Hour", "Day", "Week", "Month", "Year" | Unité de temps entre les occurrences | 
 | **interval** | Non  | 1 à 1000 (inclusivement) | Entier positif qui détermine le nombre d’unités de temps entre chaque occurrence, en fonction de **frequency** | 
@@ -269,7 +269,7 @@ Dans le cas où un travail du planificateur échoue, vous pouvez configurer une 
 },
 ```
 
-| Propriété | Obligatoire | Valeur | Description | 
+| Propriété | Obligatoire | Value | Description | 
 |----------|----------|-------|-------------| 
 | **retryType** | Oui | **Fixed**, **None** | Détermine si vous spécifiez une stratégie de nouvelle tentative (**fixed**) ou non (**none**). | 
 | **retryInterval** | Non  | PT30S | Spécifie l’intervalle et la fréquence entre les nouvelles tentatives au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). La valeur minimale est 15 secondes, alors que la valeur maximale est 18 mois. | 

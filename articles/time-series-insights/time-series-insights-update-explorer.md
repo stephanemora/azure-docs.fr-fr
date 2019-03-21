@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109761"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualiser des données dans l’explorateur (préversion)
 
 Cet article décrit les fonctionnalités et options disponibles dans l’[application web Explorateur](https://insights.timeseries.azure.com/preview/samples) Azure Time Series Insights (préversion).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant que vous puissiez utiliser l’Explorateur Azure Time Series Insights (préversion), vous devez :
 
@@ -141,7 +141,7 @@ Lorsque vous utilisez la préversion d’Azure Time Series Insights, vous sélec
 
 1. **Contrôle web de plage de dates de début et de fin** : avec ce contrôle web, vous pouvez facilement sélectionner vos plages de dates et horaires souhaitées. Vous pouvez également utiliser le contrôle pour basculer entre les différents fuseaux horaires. Une fois que vous avez apporté des modifications, pour les appliquer à votre espace de travail actuel, sélectionnez **Enregistrer**.
 
-  ![explorer-thirteen][13]
+   ![explorer-thirteen][13]
 
 ## <a name="time-series-insights-preview-navigation-panel"></a>Panneau de navigation Time Series Insights (préversion)
 

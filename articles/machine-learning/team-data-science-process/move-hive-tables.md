@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840645"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
 
 Cet article présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d’un stockage d’objets blob Azure. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l’utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cet article suppose que vous avez :
 
 * Créé un compte de stockage Azure. Pour obtenir des instructions, voir [À propos des comptes de stockage Azure](../../storage/common/storage-introduction.md).
@@ -36,7 +36,7 @@ Nous partons du principe que les données des tables Hive ont un format tabulair
 
 Si vous souhaitez vous exercer avec l’exemple **NYC Taxi Trip Data**, vous devez :
 
-* **télécharger** les 24 fichiers [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) (12 fichiers Trip et 12 fichiers Fare),
+* **télécharger** les 24 fichiers [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) (12 fichiers Trip et 12 fichiers Fare),
 * **décompresser** tous les fichiers en fichiers .csv, puis
 * les **télécharger** à l’emplacement par défaut (ou un conteneur approprié) du compte de stockage Azure. Les options de ce type de compte sont présentées dans la rubrique [Utiliser Stockage Azure avec des clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Pour découvrir le processus qui vous permet de télécharger les fichiers .csv du conteneur par défaut sur le compte de stockage, consultez cette [page](hive-walkthrough.md#upload).
 

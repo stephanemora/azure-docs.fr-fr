@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e6148a35540b08916a4f0468af39e0f088453286
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 3889aa1e8b19e203a3f6354c2d26fb82afe2b922
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958864"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214280"
 ---
 # <a name="create-a-new-device-template-version"></a>Créer une nouvelle version de modèle d’appareil
 
@@ -56,7 +56,7 @@ Les **tableaux de bord d’appareil** peuvent contenir plusieurs types de vignet
 
 Vous pouvez créer plusieurs versions d’un modèle d’appareil. Au fil du temps, vous aurez plusieurs appareils connectés utilisant ces modèles d’appareil. Vous pouvez migrer les appareils d’une version de votre modèle d’appareil vers une autre. Les étapes suivantes décrivent le processus de migration d’un appareil :
 
-1. Accédez à la page **Explorateur**.
+1. Accédez à la **Device Explorer** page.
 1. Sélectionnez l’appareil que vous devez migrer vers une autre version.
 1. Choisissez **Migrer l’appareil**.
 1. Sélectionnez le numéro de version vers lequel vous souhaitez migrer l’appareil, puis choisissez **Migrer**.

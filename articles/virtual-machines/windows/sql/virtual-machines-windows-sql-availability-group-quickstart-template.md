@@ -1,6 +1,6 @@
 ---
-title: Créer un cluster WSFC, un écouteur, puis configurer un équilibreur de charge interne pour un groupe de disponibilité Always On sur une machine virtuelle SQL Server à l’aide d’un modèle de démarrage rapide Azure
-description: Utilisez les modèles de démarrage rapide Azure pour créer facilement des groupes de disponibilité pour des machines virtuelles SQL Server dans Azure. Un tel modèle vous permet de créer le cluster, joindre des machines virtuelles SQL au cluster, créer l’écouteur et configurer l’équilibreur de charge interne.
+title: Utiliser des modèles de démarrage rapide Azure pour configurer le groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
+description: Utiliser des modèles de démarrage rapide Azure pour créer le cluster de basculement de Windows, joignez les machines virtuelles SQL Server au cluster, créez l’écouteur et configurer l’équilibreur de charge interne dans Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4b4527bfaacc592c13552e362de0cba620314cd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122044"
 ---
-# <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Créer un cluster WSFC, un écouteur, puis configurer un équilibreur de charge interne pour un groupe de disponibilité Always On sur une machine virtuelle SQL Server à l’aide d’un modèle de démarrage rapide Azure
+# <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure pour configurer le groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
 Cet article décrit comment utiliser les modèles de démarrage rapide Azure pour automatiser partiellement le déploiement d’une configuration de groupe de disponibilité Always On pour des machines virtuelles SQL Server dans Azure. Deux modèles de démarrage rapide Azure sont utilisés dans ce processus. 
 
    | Modèle | Description |
@@ -34,11 +34,18 @@ Cet article décrit comment utiliser les modèles de démarrage rapide Azure pou
 D’autres étapes de la configuration du groupe de disponibilité sont obligatoirement manuelles, notamment la création du groupe de disponibilité et celle de l’équilibreur de charge interne. Cet article décrit la séquence des étapes automatisées et manuelles.
  
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 Pour automatiser la configuration d’un groupe de disponibilité Always On à l’aide de modèles de démarrage rapide, vous devez déjà avoir les prérequis suivants : 
 - Un [abonnement Azure](https://azure.microsoft.com/free/).
 - Un groupe de ressources avec un contrôleur de domaine. 
-- Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version supérieure) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) dans le même groupe à haute disponibilité ou la même zone de disponibilité et qui sont [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
+- Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version supérieure) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) dans le même groupe à haute disponibilité ou la même zone de disponibilité et qui sont [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Deux disponibles (non utilisé par une entité) des adresses IP, un pour l’équilibreur de charge interne et un pour l’écouteur de groupe de disponibilité dans le même sous-réseau que le groupe de disponibilité. Si un équilibreur de charge existant est utilisé, une seule adresse IP disponible est nécessaire.  
+
+## <a name="permissions"></a>Autorisations
+Les autorisations suivantes sont nécessaires pour configurer le groupe de disponibilité Always On à l’aide de modèles de démarrage rapide Azure : 
+
+- Un domaine compte d’utilisateur existant qui a l’autorisation de « Créer un objet ordinateur » dans le domaine.  Par exemple, un compte d’administrateur de domaine a généralement une autorisation suffisante (ex : account@domain.com). _Ce compte doit également faire partie du groupe administrateur local sur chaque machine virtuelle pour créer le cluster._
+- Le compte d’utilisateur de domaine qui contrôle le service SQL Server. 
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>Étape 1 : Créer le cluster WSFC et joindre les machines virtuelles SQL Server au cluster à l’aide du modèle de démarrage rapide 
@@ -69,18 +76,18 @@ Une fois que vos machines virtuelles SQL Server sont inscrites auprès du nouvea
 1. Si vous acceptez les termes et conditions, cochez la case en regard de **J’accepte les termes et conditions mentionnés ci-dessus** et sélectionnez **Acheter** pour finaliser le déploiement du modèle de démarrage rapide. 
 1. Pour superviser votre déploiement, sélectionnez-le à partir de l’icône en forme de cloche **Notifications** située dans votre bannière de navigation supérieure ou accédez à votre **groupe de ressources** dans le portail Azure, sélectionnez  **Déploiements** dans le champ **Paramètres**, puis choisissez le déploiement « Microsoft.Template ». 
 
-  >[!NOTE]
-  > Les informations d’identification fournies durant le déploiement du modèle sont uniquement stockées pendant la durée du déploiement. Une fois le déploiement terminé, ces mots de passe sont supprimés, et il vous sera demandé de les fournir à nouveau si vous ajoutez d’autres machines virtuelles SQL Server au cluster. 
+   >[!NOTE]
+   > Les informations d’identification fournies durant le déploiement du modèle sont uniquement stockées pendant la durée du déploiement. Une fois le déploiement terminé, ces mots de passe sont supprimés, et il vous sera demandé de les fournir à nouveau si vous ajoutez d’autres machines virtuelles SQL Server au cluster. 
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>Étape 2 : Créer manuellement le groupe de disponibilité 
-Créez manuellement le groupe de disponibilité, comme vous le feriez normalement, à l’aide de [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Créer manuellement le groupe de disponibilité, comme vous le feriez normalement, à l’aide [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
   >[!IMPORTANT]
   > Ne créez **pas** d’écouteur pour l’instant, car cette opération est automatisée par le modèle de démarrage rapide **101-sql-vm-aglistener-setup** à l’étape 4. 
 
 ## <a name="step-3---manually-create-the-internal-load-balancer-ilb"></a>Étape 3 : Créer manuellement l’équilibreur de charge interne
-L’écouteur de groupe de disponibilité Always On a besoin d’un équilibreur de charge Azure interne. Ce dernier fournit une adresse IP « flottante » à l’écouteur de groupe de disponibilité qui permet des opérations de basculement et de reconnexion plus rapides. Si les machines virtuelles SQL Server d’un groupe de disponibilité font partie du même groupe à haute disponibilité, alors vous pouvez utiliser un équilibreur de charge basique ; dans le cas contraire, vous devez utiliser un équilibreur de charge standard.  **L’équilibreur de charge interne doit se trouver dans le même réseau virtuel que les instances de machine virtuelle SQL Server.** Vous avez juste besoin de créer l’équilibreur de charge interne, car le reste de la configuration (notamment le pool back-end, la sonde d’intégrité et les règles d’équilibrage de charge) est géré par le modèle de démarrage rapide **101-sql-vm-aglistener-setup** à l’étape 4. 
+L’écouteur de groupe (AG) de disponibilité Always On nécessite un équilibreur de charge Azure interne (ILB). Ce dernier fournit une adresse IP « flottante » à l’écouteur de groupe de disponibilité qui permet des opérations de basculement et de reconnexion plus rapides. Si les machines virtuelles SQL Server d’un groupe de disponibilité font partie du même groupe à haute disponibilité, alors vous pouvez utiliser un équilibreur de charge basique ; dans le cas contraire, vous devez utiliser un équilibreur de charge standard.  **L’équilibreur de charge interne doit se trouver dans le même réseau virtuel que les instances de machine virtuelle SQL Server.** Vous avez juste besoin de créer l’équilibreur de charge interne, car le reste de la configuration (notamment le pool back-end, la sonde d’intégrité et les règles d’équilibrage de charge) est géré par le modèle de démarrage rapide **101-sql-vm-aglistener-setup** à l’étape 4. 
 
 1. Dans le portail Azure, ouvrez le groupe de ressources contenant les machines virtuelles SQL Server. 
 2. Dans le groupe de ressources, cliquez sur **Ajouter**.
@@ -104,7 +111,7 @@ L’écouteur de groupe de disponibilité Always On a besoin d’un équilibreur
 6. Sélectionnez **Créer**. 
 
 
-  >[!NOTE]
+  >[!IMPORTANT]
   > La ressource d’adresse IP publique de chaque machine virtuelle SQL Server doit avoir une référence SKU standard compatible avec l’équilibreur de charge standard. Pour déterminer la référence SKU de la ressource d’adresse IP publique de votre machine virtuelle, accédez à votre **groupe de ressources**, sélectionnez votre ressources d’**adresse IP publique** pour la machine virtuelle SQL Server souhaitée et recherchez la valeur sous **Référence SKU** dans le volet **Vue d’ensemble**. 
 
 ## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>Étape 4 : Créer l’écouteur de groupe de disponibilité et configurer l’équilibreur de charge interne avec le modèle de démarrage rapide
@@ -143,8 +150,8 @@ Pour configurer l’équilibreur de charge interne et créer l’écouteur de gr
 1. Si vous acceptez les termes et conditions, cochez la case en regard de **J’accepte les termes et conditions mentionnés ci-dessus** et sélectionnez **Acheter** pour finaliser le déploiement du modèle de démarrage rapide. 
 1. Pour superviser votre déploiement, sélectionnez-le à partir de l’icône en forme de cloche **Notifications** située dans votre bannière de navigation supérieure ou accédez à votre **groupe de ressources** dans le portail Azure, sélectionnez  **Déploiements** dans le champ **Paramètres**, puis choisissez le déploiement « Microsoft.Template ». 
 
-  >[!NOTE]
-  >Si votre déploiement échoue en cours de route, vous devrez [supprimer l’écouteur tout juste créé](#remove-availability-group-listener) manuellement à l’aide de PowerShell avant de redéployer le modèle de démarrage rapide **101-sql-vm-aglistener-setup**. 
+   >[!NOTE]
+   >Si votre déploiement échoue en cours de route, vous devrez [supprimer l’écouteur tout juste créé](#remove-availability-group-listener) manuellement à l’aide de PowerShell avant de redéployer le modèle de démarrage rapide **101-sql-vm-aglistener-setup**. 
 
 ## <a name="remove-availability-group-listener"></a>Supprimer l’écouteur de groupe de disponibilité
 Si, plus tard, vous avez besoin de supprimer l’écouteur de groupe de disponibilité configuré par le modèle, vous devez passer par le fournisseur de ressources de machine virtuelle SQL. Dans la mesure où l’écouteur est inscrit par le biais du fournisseur de ressources de machine virtuelle SQL, le supprimer par le biais de SQL Server Management Studio ne suffit pas. Vous devez en fait le supprimer par le biais du fournisseur de ressources de machine virtuelle SQL à l’aide de PowerShell. Ainsi, vous supprimez du fournisseur de ressources de machine virtuelle SQL les métadonnées de l’écouteur de groupe de disponibilité et vous supprimez physiquement l’écouteur du groupe de disponibilité. 
@@ -176,17 +183,17 @@ Cette erreur peut être due à l’une de deux raisons. Soit le compte de domain
 
  Vérifiez que le compte existe. Si c’est le cas, vous pourriez être face au deuxième cas. Pour corriger ce problème, procédez comme suit :
 
- 1. Sur le contrôleur de domaine, ouvrez la fenêtre **Utilisateurs et ordinateurs Active Directory** à partir de l’option **Outils** dans **Gestionnaire de serveur**. 
- 2. Accédez au compte en sélectionnant **Utilisateurs** dans le volet gauche.
- 3. Cliquez avec le bouton droit sur le compte requis et sélectionnez **Propriétés**.
- 4. Sélectionnez l’onglet **Compte** et vérifiez si le **nom d’utilisateur d’ouverture de session** est vide. Dans ce cas, il s’agit de la cause de l’erreur. 
+1. Sur le contrôleur de domaine, ouvrez la fenêtre **Utilisateurs et ordinateurs Active Directory** à partir de l’option **Outils** dans **Gestionnaire de serveur**. 
+2. Accédez au compte en sélectionnant **Utilisateurs** dans le volet gauche.
+3. Cliquez avec le bouton droit sur le compte requis et sélectionnez **Propriétés**.
+4. Sélectionnez l’onglet **Compte** et vérifiez si le **nom d’utilisateur d’ouverture de session** est vide. Dans ce cas, il s’agit de la cause de l’erreur. 
 
-     ![Un compte d’utilisateur vide indique un UPN manquant](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+    ![Un compte d’utilisateur vide indique un UPN manquant](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
- 5. Renseignez le **nom d’utilisateur d’ouverture de session** pour qu’il corresponde au nom de l’utilisateur et sélectionnez le domaine approprié dans la liste déroulante. 
- 6. Sélectionnez **Appliquer** pour enregistrer vos modifications et fermez la boîte de dialogue en sélectionnant **OK**. 
+5. Renseignez le **nom d’utilisateur d’ouverture de session** pour qu’il corresponde au nom de l’utilisateur et sélectionnez le domaine approprié dans la liste déroulante. 
+6. Sélectionnez **Appliquer** pour enregistrer vos modifications et fermez la boîte de dialogue en sélectionnant **OK**. 
 
- Une fois que ces modifications sont effectuées, tentez de déployer le modèle de démarrage rapide Azure encore une fois. 
+   Une fois que ces modifications sont effectuées, tentez de déployer le modèle de démarrage rapide Azure encore une fois. 
 
 
 

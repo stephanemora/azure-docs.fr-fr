@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112617"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux avec les technologies VPN. 
@@ -82,7 +82,7 @@ Pour créer une passerelle :
 * 172.16.0.0/12 : ceci signifie une plage d’adresses IP de 172.16.0.0 à 172.31.255.255 
 * 192.168.0.0/16 : ceci signifie une plage d’adresses IP de 192.168.0.0 à 192.168.255.255
 
-Si vous créez la passerelle seulement pour l’utiliser avec l’intégration au réseau virtuel App Service, il n’est pas nécessaire de charger un certificat. La création de la passerelle peut prendre 30 minutes. Vous ne serez pas en mesure d’intégrer votre application à votre réseau virtuel tant que la passerelle n’est pas provisionnée. 
+Si vous êtes uniquement créer la passerelle pour utiliser avec l’intégration de réseau virtuel de App Service, vous n’avez pas besoin de télécharger un certificat. La création de la passerelle peut prendre 30 minutes. Vous ne serez pas en mesure d’intégrer votre application à votre réseau virtuel tant que la passerelle n’est pas provisionnée. 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>Configurer l’intégration au réseau virtuel à votre application ###
 
@@ -277,19 +277,20 @@ La nouvelle version est une préversion et elle a les caractéristiques suivante
 * La nouvelle fonctionnalité d’intégration au réseau virtuel ne fonctionne pas pour les applications dans un environnement App Service.
 * Vous ne pouvez pas supprimer un réseau virtuel avec une application intégrée.  
 * Les tables de routage et l’appairage global ne sont pas encore disponibles avec la nouvelle intégration au réseau virtuel.  
-* Une adresse est utilisée pour chaque instance du plan App Service. Comme vous ne pouvez pas changer la taille du sous-réseau après l’avoir affectée, utilisez un sous-réseau qui peut couvrir plus que votre taille d’échelle maximale. La taille /27 avec 32 adresses est la taille recommandée car elle permet de gérer un plan App Service mis à l’échelle avec 20 instances.  Vous pouvez consommer des ressources sécurisées de point de terminaison de service en utilisant la nouvelle fonctionnalité d’intégration au réseau virtuel. Pour cela, activez des points de terminaison de service sur le sous-réseau utilisé pour l’intégration au réseau virtuel.
+* Une adresse est utilisée pour chaque instance du plan App Service. Comme vous ne pouvez pas changer la taille du sous-réseau après l’avoir affectée, utilisez un sous-réseau qui peut couvrir plus que votre taille d’échelle maximale. La taille /27 avec 32 adresses est la taille recommandée car elle permet de gérer un plan App Service mis à l’échelle avec 20 instances.
+* Vous pouvez consommer des ressources sécurisées de point de terminaison de service en utilisant la nouvelle fonctionnalité d’intégration au réseau virtuel. Pour cela, activez des points de terminaison de service sur le sous-réseau utilisé pour l’intégration au réseau virtuel.
 
 Pour utiliser la nouvelle fonctionnalité :
 
 1. Accédez à l’interface utilisateur Réseau dans le portail. Si votre application peut utiliser la nouvelle fonctionnalité, vous voyez cette possibilité pour la préversion.  
 
- ![Sélectionner la nouvelle préversion de l’intégration au réseau virtuel][6]
+   ![Sélectionner la nouvelle préversion de l’intégration au réseau virtuel][6]
 
 1. Sélectionnez **Ajouter un réseau virtuel (préversion)**.  
 
 1. Sélectionnez le réseau virtuel Resource Manager auquel vous voulez vous intégrer, puis créez un sous-réseau ou choisissez un sous-réseau vide préexistant. L’intégration prend moins d’une minute. Lors de l’intégration, votre application est redémarrée.  Une fois l’intégration terminée, vous voyez des détails sur le réseau virtuel auquel vous êtes intégré et une bannière en haut qui vous indique que la fonctionnalité est en préversion.
 
- ![Sélectionner le réseau virtuel et le sous-réseau][7]
+   ![Sélectionner le réseau virtuel et le sous-réseau][7]
 
 Pour permettre l’utilisation par votre application du serveur DNS avec lequel votre réseau virtuel est configuré, créez un paramètre d’application pour votre application, où le nom est WEBSITE_DNS_SERVER et où la valeur est l’adresse IP du serveur.  Si vous avez un serveur DNS secondaire, créez un autre paramètre d’application, où le nom est WEBSITE_DNS_ALT_SERVER et où la valeur est l’adresse IP du serveur. 
 

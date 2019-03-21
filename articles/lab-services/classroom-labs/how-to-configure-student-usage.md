@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181620"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurer des paramètres et des stratégies d’utilisation
 Cet article explique comment ajouter des utilisateurs au labo, comment les inscrire au labo, comment contrôler le nombre d’heures qu’ils peuvent utiliser la machine virtuelle, et bien plus encore. 
@@ -38,9 +38,22 @@ Si l’option **Restreindre l’accès** est activée, ajoutez des utilisateurs 
 
     ![Liste des utilisateurs](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>Envoyer un lien d’inscription aux étudiants
-La procédure suivante indique comment envoyer un lien d’inscription aux utilisateurs. Si l’option **Restreindre l’accès** est activée pour le labo, seuls les utilisateurs figurant dans la liste des utilisateurs peuvent utiliser le lien d’inscription pour s’inscrire au labo. 
+## <a name="share-registration-link-with-students"></a>Partager un lien d’inscription avec les étudiants
+Pour envoyer le lien d’inscription aux étudiants, utilisez une des méthodes suivantes. La première méthode vous montre comment envoyer des courriers électroniques aux étudiants avec le lien d’inscription et un message facultatif. La deuxième méthode vous montre comment obtenir le lien d’inscription que vous pouvez partager avec d’autres personnes comme vous le souhaitez. 
 
+Si l’option **Restreindre l’accès** est activée pour le labo, seuls les utilisateurs figurant dans la liste des utilisateurs peuvent utiliser le lien d’inscription pour s’inscrire au labo. Cette option est activée par défaut. 
+
+### <a name="send-email-to-users"></a>Envoyer un e-mail aux utilisateurs
+1. Basculez vers la vue **Utilisateurs** si vous n’y êtes pas déjà. 
+2. Sélectionnez spécifique ou tous les utilisateurs dans la liste. Pour sélectionner des utilisateurs spécifiques, activez les cases à cocher dans la première colonne de la liste. Pour sélectionner tous les utilisateurs, sélectionnez la case à cocher devant le titre de la première colonne (**nom**) ou sélectionnez toutes les cases à cocher pour tous les utilisateurs dans la liste.
+3. Sélectionnez **envoyer une invitation** sur la barre d’outils. Vous pouvez également pointer la souris sur un nom de l’étudiant dans la liste et envoyer l’icône de courrier électronique. 
+
+    ![Envoyer un lien d’inscription par courrier électronique](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Sur le **lien d’inscription d’envoi par courrier électronique** page, procédez comme suit : 
+    1. Type une **message facultatif** que vous souhaitez envoyer aux élèves. Cet e-mail inclut automatiquement le lien d’inscription. 
+    2. Sur le **lien d’inscription d’envoi par courrier électronique** page, sélectionnez **envoyer**. 
+
+## <a name="get-registration-link"></a>Obtenir le lien d’inscription
 1. Basculez vers la vue **Utilisateurs** en sélectionnant **Utilisateurs** dans le menu de gauche. 
 2. Sélectionnez la vignette **Obtenir un lien d’inscription**.
 
@@ -49,11 +62,7 @@ La procédure suivante indique comment envoyer un lien d’inscription aux utili
 
     ![Lien d’inscription de l’étudiant](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Dans la boîte de dialogue **Enregistrement de l’utilisateur**, sélectionnez **Fermer**. 
-4. Partagez le lien d’inscription avec un étudiant afin que ce dernier puisse s’inscrire à la classe. Si vous avez activé le paramètre **Restreindre l’accès** et si vous disposez d’une liste d’utilisateurs, effectuez les actions suivantes :
-    1. Sélectionnez l’**adresse e-mail** de l’utilisateur dans la liste. 
-    2. Vous voyez une fenêtre de votre programme de messagerie par défaut, où l’adresse du **destinataire** est renseignée. 
-    3. Collez l’**URL d’inscription** que vous avez copiée précédemment. 
-    4. Envoyez l’**e-mail**. 
+4. Partage le **lien d’inscription** avec un étudiant afin que les étudiants peuvent s’inscrire à la classe. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Afficher les utilisateurs inscrits au laboratoire
 

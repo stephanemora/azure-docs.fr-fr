@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4b5d2de2e9ccd44517e083a435e127bd5678f002
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736275"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58114640"
 ---
-# <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Disques managés Ultra SSD (préversion) pour les charges de travail de machine virtuelle Azure
+# <a name="ultra-disks-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Disques Ultra (version préliminaire) des disques pour les charges de travail de machine virtuelle Azure gérés
 
-Les disques Ultra SSD d’Azure (préversion) fournissent un stockage de disque avec un haut débit, un nombre d’IOPS élevé et une faible latence homogène pour les machines virtuelles IaaS Azure. Cette nouvelle offre fournit des performances optimales aux mêmes niveaux de disponibilité que nos offres de disques existantes. Entre autres avantages, Ultra SSD permet de changer dynamiquement les performances de disque en fonction de vos charges de travail sans avoir à redémarrer les machines virtuelles. L’offre Ultra SSD est adaptée aux charges de travail qui consomment beaucoup de données comme SAP HANA, les bases de données de niveau supérieur et les charges de travail avec un grand nombre de transactions.
+Disques ultra Azure (version préliminaire) offre un débit élevé, nombre élevé d’IOPS et le stockage de disque d’une latence faible homogène pour les machines virtuelles IaaS Azure. Cette nouvelle offre fournit des performances optimales aux mêmes niveaux de disponibilité que nos offres de disques existantes. Autres avantages des disques ultra incluent la possibilité de modifier dynamiquement les performances du disque, ainsi que vos charges de travail sans avoir à redémarrer vos machines virtuelles. Disques Ultra sont adaptées aux charges de travail gourmandes en données telles que SAP HANA, les bases de données de niveau supérieur et les charges de travail nécessitant beaucoup de la transaction.
 
-## <a name="ultra-ssd-features"></a>Caractéristiques des disques Ultra SSD
+## <a name="ultra-disk-features"></a>Fonctionnalités de disque ultra
 
-**Disques managés** : Les disques Ultra SSD sont disponibles uniquement en tant que disques managés. Les disques Ultra SSD ne peuvent pas être déployés comme des disques non managés ou des objets blob de pages. Quand vous créez un disque managé, vous définissez le type de référence de disque sur UltraSSD_LRS et indiquez la taille de disque, le nombre d’IOPS et le débit dont vous avez besoin, puis Azure crée et gère le disque pour vous.  
+**Disques managés** : Ultra disques sont uniquement disponibles en tant que disques gérés. Disques Ultra ne peut pas être déployés comme un disque non géré ou un objet blob de pages. Lors de la création d’un disque géré, vous spécifiez la référence (SKU) disque tapez comme UltraSSD_LRS et indiquer la taille du disque, les e/s, et vous avez besoin de débit, Azure crée et gère le disque pour vous.  
 
-**Machines virtuelles** : Les disques Ultra SSD sont conçus pour fonctionner avec toutes les références de machine virtuelle Azure compatibles avec les SSD Premium. Cela étant, dans la préversion, les tailles de machines virtuelles sont limitées aux instances de machines virtuelles ES/DS v3.
+**Machines virtuelles** : Disques Ultra sont conçus pour fonctionner avec tous les Premium SSD références SKU de Machine virtuelle Azure est activée ; Toutefois, comme il est actuellement en version préliminaire, les machines virtuelles sont dimensionnés comme v3 d’ES/DS.
 
-**Configuration dynamique des performances** : Les disques Ultra SSD vous permettent de changer dynamiquement les performances (IOPS et débit) du disque conformément aux besoins de vos charges de travail, sans avoir à redémarrer vos machines virtuelles.
+**Configuration dynamique des performances** : Disques Ultra permettent de modifier dynamiquement les performances (IOPS et débit) du disque, ainsi que les besoins de votre charge de travail sans avoir à redémarrer vos machines virtuelles.
 
 ## <a name="scalability-and-performance-targets"></a>Cibles de performance et d’évolutivité
 
-Quand vous provisionnez un disque Ultra SSD, vous pouvez configurer de manière indépendante la capacité et les performances du disque. Les disques Ultra SSD se déclinent en plusieurs tailles fixes de 4 Gio à 64 Tio, et présentent un modèle de configuration de performances flexible qui vous permet de configurer les IOPS et le débit de manière indépendante. Les disques Ultra SSD peuvent uniquement être utilisés comme disques de données. Nous vous recommandons d’utiliser des disques SSD Premium comme disques de système d’exploitation.
+Lorsque vous configurez un disque ultra, avoir la possibilité de configurer indépendamment la capacité et les performances du disque. Disques Ultra sont en plusieurs tailles fixes à partir de 4 Go jusqu'à 64 TIO et un modèle de configuration flexibles des performances qui vous permet de configurer de façon indépendante IOPS et débit. Disques Ultra pouvant uniquement être utilisées comme des disques de données. Nous vous recommandons d’utiliser des disques SSD Premium comme disques de système d’exploitation.
 
-Voici certaines fonctionnalités clés des disques Ultra SSD :
+Certaines fonctionnalités clées de disques ultra sont :
 
-- Capacité du disque : Les disques SSD Ultra sont disponibles en différents tailles, de 4 Gio à 64 Tio.
-- IOPS du disque : Les disques SSD Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec un maximum de 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur au nombre d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS du disque est 100.
-- Débit du disque : Avec les disques SSD Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS approvisionnée, avec un maximum de 2000 Mbits/s par disque (où 1 Mbits/s = 10^6 octets par seconde). Le débit minimal du disque est 1 Mio.
+- Capacité du disque : Disques Ultra offre une plage de tailles de disque différent à partir de 4 Go jusqu'à 64 To.
+- IOPS du disque : Disques Ultra prennent en charge les limites d’IOPS des Gio/300 e/s, avec un maximum de 160 Ko IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur au nombre d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS du disque est 100.
+- Débit du disque : Avec des disques ultra, la limite de débit d’un seul disque est 256 Kio/s pour chacune configurée e/s, avec un maximum de 2000 les Mbits/s par disque (où Mbits/s = 10 ^ 6 octets par seconde). Le débit minimal du disque est 1 Mio.
 
 Le tableau suivant récapitule les différentes configurations prises en charge pour les différentes tailles de disque :  
 
-### <a name="ultra-ssd-managed-disk-offerings"></a>Offres de disques managés Ultra SSD
+### <a name="ultra-disks-managed-disk-offerings"></a>Ultra disques gérés de disque
 
 |Taille de disque (Gio)  |Nombre limite d’IOPS  |Débit limite (Mbits/s)  |
 |---------|---------|---------|
@@ -55,22 +55,22 @@ Le tableau suivant récapitule les différentes configurations prises en charge 
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
-Lorsque vous utilisez des disques Ultra SSD, les règles de facturation suivantes s’appliquent :
+Lorsque vous utilisez des disques ultra, considérations de facturation suivantes seront appliquées :
 
 - Taille des disques managés
 - Nombre d’IOPS provisionnées pour le disque managé
 - Débit provisionné pour le disque managé
-- Frais de réservation de machine virtuelle avec un disque Ultra SSD
+- Frais de réservation de machine virtuelle de disque ultra
 
-### <a name="managed-disk-size"></a>Taille des disques managés
+### <a name="managed-disk-size"></a>Taille de disque gérée
 
-Les disques managés sont facturés en fonction des tailles de machine virtuelle choisie lors de la configuration d’une nouvelle machine virtuelle Azure. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’offre de taille de disque la plus proche. Pour plus d’informations sur les tailles de disque proposées, consultez le tableau dans la section Objectifs de performance et de scalabilité ci-dessus. Chaque disque correspond à une taille de disque provisionnée prise en charge et est facturé en conséquence à l’heure. Par exemple, si vous avez provisionné un disque Ultra SSD de 200 Gio et que vous l’avez supprimé au bout de 20 heures, il est mappé à l’offre de taille de disque de 256 Gio et vous êtes facturé 256 Gio pendant 20 heures. Cette facturation est basée sur la consommation par heure de calcul, indépendamment du volume de données réellement écrites sur le disque.
+Les disques managés sont facturés en fonction des tailles de machine virtuelle choisie lors de la configuration d’une nouvelle machine virtuelle Azure. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’offre de taille de disque la plus proche. Pour plus d’informations sur les tailles de disque proposées, consultez le tableau dans la section Objectifs de performance et de scalabilité ci-dessus. Chaque disque correspond à une taille de disque provisionnée prise en charge et est facturé en conséquence à l’heure. Par exemple, si vous configuré un disque ultra Gio 200 et que vous supprimez au bout de 20 heures, il est mappé à l’offre de taille de disque de 256 Gio et vous serez facturé pour les 256 Gio pour 20 heures. Cette facturation est basée sur la consommation par heure de calcul, indépendamment du volume de données réellement écrites sur le disque.
 
-### <a name="managed-disk-provisioned-iops"></a>Nombre d’IOPS provisionnées pour le disque managé
+### <a name="managed-disk-provisioned-iops"></a>Disque géré configuré des e/s
 
 Le nombre d’IOPS est le nombre de demandes que votre application envoie aux disques par seconde. Une opération d’entrée/sortie peut être séquentielle ou aléatoire et consister en lectures ou en écritures. Selon la taille du disque ou le nombre de disques attachés à la machine virtuelle, le nombre moyen d’IOPS est facturé sur une base horaire. Pour plus d’informations sur les nombres d’IOPS de disque proposés, consultez le tableau de la section Cibles de performance et d’évolutivité ci-dessus.
 
-### <a name="managed-disk-provisioned-throughput"></a>Débit provisionné pour le disque managé
+### <a name="managed-disk-provisioned-throughput"></a>Gérés débit approvisionné de disque
 
 Le débit est la quantité de données que votre application envoie aux disques dans un intervalle spécifié, mesuré en octets/seconde. Si votre application effectue de grosses opérations d’entrée/sortie, elle a besoin d’un débit élevé.  
 
@@ -78,20 +78,20 @@ La formule suivante illustre la relation entre le débit et le nombre d’IOPS 
 
 Par conséquent, il est important de déterminer les valeurs optimales de débit et d’E/S par seconde dont a besoin votre application. Lorsque vous essayez d’optimiser une de ces valeurs, l’autre est également affectée. Nous vous recommandons de commencer par un débit correspondant à la taille d’E/S de 16 Kio et de l’ajuster si vous avez besoin de plus de débit.
 
-Pour plus d’informations sur le débit de disque pris en charge sur les disques Ultra SSD, consultez le tableau de la section Cibles de performance et d’évolutivité ci-dessus. Tout comme la taille et le nombre d’IOPS du disque, le débit provisionné est facturé à l’heure par nombre de Mbits/s provisionnés.
+Pour plus d’informations sur le débit de disque pris en charge sur les disques ultra, consultez le tableau dans la section objectifs de Performance et évolutivité ci-dessus. Tout comme la taille et le nombre d’IOPS du disque, le débit provisionné est facturé à l’heure par nombre de Mbits/s provisionnés.
 
-### <a name="ultra-ssd-vm-reservation-fee"></a>Frais de réservation de machine virtuelle avec un disque Ultra SSD
+### <a name="ultra-disk-vm-reservation-fee"></a>Frais de réservation de machine virtuelle de disque ultra
 
-Nous ajoutons une fonctionnalité sur la machine virtuelle qui indique si votre machine virtuelle est compatible avec les disques Ultra SSD. Une machine virtuelle compatible Ultra SSD alloue une capacité de bande passante dédiée entre l’instance de machine virtuelle de calcul et l’unité d’échelle de stockage de blocs pour optimiser les performances et réduire la latence. L’ajout de cette fonctionnalité sur la machine virtuelle entraîne des frais de réservation imposés uniquement si vous activez la fonctionnalité Ultra SSD sur la machine virtuelle sans lui attacher de disque Ultra SSD. Quand un disque Ultra SSD est attaché à la machine virtuelle compatible Ultra SSD, ces frais ne s’appliquent pas. Les frais sont calculés par processeur virtuel provisionné sur la machine virtuelle.
+Nous vous présentons une fonctionnalité sur la machine virtuelle qui indique votre machine virtuelle est ultra disque compatible. Une machine virtuelle compatible avec les disques Ultra alloue une capacité de bande passante dédiée entre l'instance de machine virtuelle de calcul et l'unité d'échelle de stockage de blocs pour optimiser les performances et réduire la latence. L'ajout de cette fonctionnalité sur la machine virtuelle entraîne des frais de réservation qui ne sont imposés que si vous avez activé la fonctionnalité de disque Ultra sur la machine virtuelle sans y joindre de disque Ultra. Lorsqu’un disque ultra est attaché à la machine virtuelle compatible ultra, ces frais ne s’applique pas. Les frais sont calculés par processeur virtuel provisionné sur la machine virtuelle.
 
-Consultez la [page de tarifs des disques Azure](https://azure.microsoft.com/pricing/details/managed-disks/) pour connaître les détails tarifaires des nouveaux disques Ultra SSD disponibles en préversion limitée.
+Reportez-vous à la [page de tarification des disques Azure](https://azure.microsoft.com/pricing/details/managed-disks/) pour la nouveau ultra disques tarification disponible en version préliminaire limitée.
 
-### <a name="ultra-ssd-preview-scope-and-limitations"></a>Limitations et étendue de la préversion de la fonctionnalité Ultra SSD
+### <a name="ultra-disk-preview-scope-and-limitations"></a>Portée de l’aperçu disque ultra et limitations
 
-Dans la préversion, les disques Ultra SSD ont les limites suivantes :
+Dans la version preview, disques ultra :
 
 - Ils sont initialement pris en charge dans la région USA Est 2 dans une seule zone de disponibilité  
-- Ils peuvent être utilisés seulement avec des zones de disponibilité (les groupes à haute disponibilité et les déploiements de machine virtuelle individuelle en dehors des zones n’ont pas la possibilité d’attacher un disque Ultra SSD)
+- Peut uniquement être utilisé avec des Zones de disponibilité (groupes à haute disponibilité et les déploiements de machine virtuelle unique en dehors de la volonté de Zones n'ont pas la possibilité pour attacher un disque ultra)
 - Ils sont pris en charge seulement sur les machines virtuelles ES/DS v3
 - Ils sont disponibles seulement comme des disques de données et prennent en charge uniquement une taille de secteur physique de 4 k  
 - Ils peuvent être créés seulement comme des disques vides  

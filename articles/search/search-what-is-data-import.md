@@ -6,25 +6,21 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58136342"
 ---
-# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexation de données externes pour les requêtes dans Recherche Azure
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
-> * [REST](search-import-data-rest-api.md)
-> 
-> 
+# <a name="data-import-overview---azure-search"></a>Importation de données, vue d’ensemble - recherche Azure
 
 Dans Recherche Azure, les requêtes s’exécutent sur le contenu chargé et enregistré dans un [index de recherche](search-what-is-an-index.md). Cet article examine les deux méthodes de base pour remplir un index : *envoyer* les données dans l’index par programme ou pointer un [indexeur Recherche Azure](search-indexer-overview.md) à une source de données prise en charge pour *extraire* les données.
+
+Avec les deux approches, l’objectif est de *charger des données* à partir de la source de données externe dans un index de recherche Azure. Recherche Azure vous permet de créer un index vide, mais jusqu'à ce que vous transmettre ou extrayez des données, il n’est pas utilisable dans une requête.
 
 ## <a name="pushing-data-to-an-index"></a>Envoyer des données à un index
 Le modèle d’émission, utilisé pour envoyer vos données Recherche Azure par programme, est l’approche la plus flexible. Tout d’abord, il n’y a pas de restrictions sur le type de source de données. Tout jeu de données composé de documents JSON peut être appliqué à un index Recherche Azure, en supposant que chaque document dans le jeu de données possède des champs mappant des champs définis dans votre schéma d’index. En second lieu, il n’y a aucune restriction sur la fréquence d’exécution. Vous pouvez transmettre des modifications à un index aussi souvent que vous le souhaitez. Pour les applications ayant des exigences à très faible latence (par exemple, si vous devez synchroniser les opérations de recherche avec les bases de données d’inventaire dynamiques), le modèle d’émission est la seule option.
@@ -40,7 +36,31 @@ Vous pouvez utiliser les API suivantes pour charger un ou plusieurs documents da
 
 Il n’existe actuellement aucune prise en charge de l’outil de diffusion de données via le portail.
 
-Pour une présentation de chaque méthode, consultez [Importer des données à l’aide de l’API REST](search-import-data-rest-api.md) ou [Importer des données à l’aide du Kit de développement logiciel (SDK) .NET](search-import-data-dotnet.md).
+Pour une introduction à chaque méthode, consultez [Guide de démarrage rapide : Créer un index Azure Search à l’aide de PowerShell et l’API REST](search-create-index-rest-api.md) ou [Guide de démarrage rapide : Créer un index Azure Search dans C# ](search-import-data-dotnet.md).
+
+<a name="indexing-actions"></a>
+
+### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Actions d’indexation : téléchargement, fusion, uploadOrMerge, supprimer
+
+Lorsque vous utilisez l’API REST, vous allez émettre des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Azure Search. L’objet JSON contenu dans le corps de la requête HTTP comporte un seul tableau JSON nommé « value », qui renferme les objets JSON représentant les documents que vous allez ajouter à votre index, mettre à jour ou supprimer.
+
+Chaque objet JSON du tableau « value » représente un document à indexer. Chacun de ces objets contient les clés du document et spécifie l’action d’indexation souhaitée (charger, fusionner, supprimer). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
+
+| @search.action | Description | Champs requis pour chaque document | Notes |
+| -------------- | ----------- | ---------------------------------- | ----- |
+| `upload` |Une action `upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau et mis à jour/remplacé s’il existe déjà. |une clé, ainsi que tout autre champ que vous souhaitez définir |Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête sera défini sur la valeur `null`, y compris lorsque le champ a été précédemment défini sur une valeur non null. |
+| `merge` |Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. |une clé, ainsi que tout autre champ que vous souhaitez définir |N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `Collection(Edm.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Cette action est similaire à celle d’une action `merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `upload` avec un nouveau document. |une clé, ainsi que tout autre champ que vous souhaitez définir |- |
+| `delete` |Cette action supprime de l’index le document spécifié. |clé uniquement |Tous les champs que vous spécifiez en dehors du champ de clé sont ignorés. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `merge` et définissez simplement le champ de manière explicite sur la valeur null. |
+
+### <a name="formulate-your-query"></a>Formuler votre requête
+Deux méthodes permettent d’effectuer une [recherche dans un index à l’aide de l’API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). L’une consiste à émettre une requête HTTP POST, dans laquelle vos paramètres de requête sont définis dans un objet JSON contenu dans le corps de la requête. L’autre consiste à émettre une requête HTTP GET, dans laquelle vos paramètres de requête seront définis à l’intérieur de l’URL de requête. Notez que les limites en matière de taille des paramètres de requête sont [plus souples](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour la méthode POST que pour la méthode GET. Pour cette raison, nous vous recommandons d’utiliser POST, à moins que la situation justifie l’utilisation de GET.
+
+Pour les méthodes POST et GET, vous devez indiquer dans l’URL de la demande le *nom de votre service*, le *nom de l’index* ainsi que la *version d’API* appropriée (la version actuelle de l’API est celle du `2017-11-11` au moment de la publication de ce document). Pour la méthode GET, vous renseignez les paramètres de requête au niveau de la *chaîne de requête* à la fin de l’URL. Voici le format URL à utiliser :
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+La méthode POST suit un format identique, mais seule la version d’API figure dans les paramètres de chaîne de requête.
 
 
 ## <a name="pulling-data-into-an-index"></a>Extraction de données dans un index

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2924a45ae8851095944131b6fb1598775247f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885315"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Allant plus loin dans la mise en évidence des erreurs de synchronisation, Azure Active Directory (Azure AD) Connect Health permet la correction en libre-service des erreurs. Il résout les erreurs de synchronisation d’attribut en double et corrige les objets qui sont orphelins à partir d’Azure AD.
 La fonctionnalité de diagnostic présente les avantages suivants :
 - Elle fournit une procédure de diagnostic qui limite les erreurs de synchronisation d’attribut en double. Elle fournit également des correctifs spécifiques.
@@ -33,7 +33,7 @@ Pour plus d’informations sur Azure AD, consultez [Synchronisation des identit�
 
 ## <a name="problems"></a>Problèmes
 ### <a name="a-common-scenario"></a>Un scénario courant
-Quand des erreurs de synchronisation de **QuarantinedAttributeValueMustBeUnique** et de **AttributeValueMustBeUnique** se produisent, il est courant de voir un conflit de**UserPrincipalName** ou de **Proxy Addresses** dans Azure AD. Vous pouvez résoudre les erreurs de synchronisation en mettant à jour l’objet source en conflit à partir du côté local. L’erreur de synchronisation sera résolue après la synchronisation suivante. Par exemple, cette image indique que deux utilisateurs rencontrent un conflit de leur nom d’utilisateur principal (**UserPrincipalName**). Les deux sont **Joe.J@contoso.com**. Les objets en conflit sont mis en quarantaine dans Azure AD.
+Quand des erreurs de synchronisation de **QuarantinedAttributeValueMustBeUnique** et de **AttributeValueMustBeUnique** se produisent, il est courant de voir un conflit de**UserPrincipalName** ou de **Proxy Addresses** dans Azure AD. Vous pouvez résoudre les erreurs de synchronisation en mettant à jour l’objet source en conflit à partir du côté local. L’erreur de synchronisation sera résolue après la synchronisation suivante. Par exemple, cette image indique que deux utilisateurs rencontrent un conflit de leur nom d’utilisateur principal (**UserPrincipalName**). Les deux sont **Joe.J\@contoso.com**. Les objets en conflit sont mis en quarantaine dans Azure AD.
 
 ![Scénario courant de diagnostic d’erreur de synchronisation](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -66,32 +66,34 @@ Suivez les étapes à partir du portail Azure pour affiner les détails des erre
 
 À partir du portail Azure, effectuez quelques étapes pour identifier des scénarios de réparation spécifiques :  
 1.  Vérifiez la colonne **État de diagnostic**. L’état indique s’il existe un moyen de corriger une erreur de synchronisation directement à partir d’Azure Active Directory. En d’autres termes, il existe un flux de résolution des problèmes pour cibler l’erreur et essayer de la corriger.
+
 | Statut | Qu’est-ce que cela signifie ? |
 | ------------------ | -----------------|
 | Non commencé | Vous n’avez pas visité ce processus de diagnostic. Selon le résultat du diagnostic, il existe un éventuel moyen de résoudre l’erreur de synchronisation directement à partir du portail. |
 | Correction manuelle requise | L’erreur ne correspond pas aux critères des correctifs disponibles dans le portail. Soit les types d’objets en conflit ne sont pas des utilisateurs, soit vous avez déjà parcouru les étapes de diagnostic et aucune résolution n’était disponible à partir du portail. Dans ce dernier cas, un correctif à partir du côté local est toujours l’une des solutions. [En savoir plus sur les correctifs locaux](https://support.microsoft.com/help/2647098). | 
 | En attente de synchronisation | Un correctif a été appliqué. Le portail attend le prochain cycle de synchronisation pour effacer l’erreur. |
+
   >[!IMPORTANT]
   > La colonne d’état de diagnostic est réinitialisée après chaque cycle de synchronisation. 
   >
 
-2.  Sélectionnez le bouton **Diagnostiquer** situé sous les détails de l’erreur. Vous allez répondre à quelques questions et identifier les détails de l’erreur de synchronisation. Les réponses aux questions permettent d’identifier un cas d’objet orphelin.
+1. Sélectionnez le bouton **Diagnostiquer** situé sous les détails de l’erreur. Vous allez répondre à quelques questions et identifier les détails de l’erreur de synchronisation. Les réponses aux questions permettent d’identifier un cas d’objet orphelin.
 
-3.  Si un bouton **Fermer** s’affiche à la fin des diagnostics, aucun correctif rapide n’est disponible à partir du portail, d’après les réponses que vous avez données. Reportez-vous à la solution décrite dans la dernière étape. Les correctifs disponibles en local sont toujours les solutions. Sélectionnez le bouton **Fermer**. L’état de l’erreur de synchronisation actuelle passe à **Correction manuelle requise**. L’état reste inchangé pendant le cycle de synchronisation en cours.
+1. Si un bouton **Fermer** s’affiche à la fin des diagnostics, aucun correctif rapide n’est disponible à partir du portail, d’après les réponses que vous avez données. Reportez-vous à la solution décrite dans la dernière étape. Les correctifs disponibles en local sont toujours les solutions. Sélectionnez le bouton **Fermer**. L’état de l’erreur de synchronisation actuelle passe à **Correction manuelle requise**. L’état reste inchangé pendant le cycle de synchronisation en cours.
 
-4.  Une fois qu’un cas d’objet orphelin est identifié, vous pouvez résoudre les erreurs de synchronisation d’attribut en double directement à partir du portail. Pour déclencher le processus, sélectionnez le bouton **Appliquer le correctif**. L’état de l’erreur de synchronisation en cours est mis à jour pour devenir **En attente de synchronisation**.
+1. Une fois qu’un cas d’objet orphelin est identifié, vous pouvez résoudre les erreurs de synchronisation d’attribut en double directement à partir du portail. Pour déclencher le processus, sélectionnez le bouton **Appliquer le correctif**. L’état de l’erreur de synchronisation en cours est mis à jour pour devenir **En attente de synchronisation**.
 
-5.  Après le cycle de synchronisation suivant, l’erreur doit être supprimée de la liste.
+1. Après le cycle de synchronisation suivant, l’erreur doit être supprimée de la liste.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>Comment répondre aux questions de diagnostic 
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Est-ce que l’utilisateur existe dans votre Active Directory local ?
 
 Cette question tente d’identifier l’objet source de l’utilisateur existant à partir d’Active Directory local.  
-1.  Vérifiez si Azure Active Directory contient un objet ayant le nom d’utilisateur principal (**UserPrincipalName**) indiqué. Si ce n’est pas le cas, répondez **Non**.
-2.  Si c’est le cas, vérifiez si l’objet est encore concerné par la synchronisation.  
-  - Recherchez dans l’espace connecteur Azure AD à l’aide du nom de domaine.
-  - Si l’objet est trouvé avec l’état **Ajout en attente**, répondez **Non**. Azure AD Connect ne peut pas connecter l’objet à l’objet AD approprié.
-  - Si l’objet est introuvable, répondez **Oui**.
+1. Vérifiez si Azure Active Directory contient un objet ayant le nom d’utilisateur principal (**UserPrincipalName**) indiqué. Si ce n’est pas le cas, répondez **Non**.
+2. Si c’est le cas, vérifiez si l’objet est encore concerné par la synchronisation.  
+   - Recherchez dans l’espace connecteur Azure AD à l’aide du nom de domaine.
+   - Si l’objet est trouvé avec l’état **Ajout en attente**, répondez **Non**. Azure AD Connect ne peut pas connecter l’objet à l’objet AD approprié.
+   - Si l’objet est introuvable, répondez **Oui**.
 
 Dans ces exemples, la question tente d’identifier si **Joe Jackson** existe toujours dans Active Directory local.
 Pour le **scénario courant**, les deux utilisateurs **Joe Johnson** et **Joe Jackson** sont présents dans Active Directory local. Les objets mis en quarantaine sont deux utilisateurs différents.
@@ -104,11 +106,11 @@ Pour le **scénario d’objet orphelin**, seul un utilisateur unique **Joe Johns
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Ces deux comptes appartiennent-ils au même utilisateur ?
 Cette question vérifie si un utilisateur entrant en conflit et l’objet utilisateur existant dans Azure AD appartiennent au même utilisateur.  
-1.  L’objet en conflit vient d’être synchronisé avec Azure Active Directory. Comparez les attributs des objets :  
-  - Nom d’affichage
-  - Nom d’utilisateur principal
-  - ID objet
-2.  Si Azure AD ne parvient pas à les comparer, vérifiez si Active Directory contient des objets ayant les valeurs **UserPrincipalNames** indiquées. Répondez **Non** si vous trouvez les deux.
+1. L’objet en conflit vient d’être synchronisé avec Azure Active Directory. Comparez les attributs des objets :  
+   - Nom d’affichage
+   - Nom d’utilisateur principal
+   - ID objet
+2. Si Azure AD ne parvient pas à les comparer, vérifiez si Active Directory contient des objets ayant les valeurs **UserPrincipalNames** indiquées. Répondez **Non** si vous trouvez les deux.
 
 Dans l’exemple suivant, les deux objets appartiennent au même utilisateur (**Joe Johnson**).
 

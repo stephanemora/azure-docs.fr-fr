@@ -5,22 +5,22 @@ description: Comment créer un projet dans Custom Translator ?
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218102"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762702"
 ---
 # <a name="create-a-project"></a>Création d’un projet
 
-Un projet est un conteneur pour les modèles, documents et tests. Chaque projet inclut automatiquement tous les documents téléchargés dans cet espace de travail dotés de la paire de langues qui convient. 
+Un projet est un conteneur pour les modèles, documents et tests. Chaque projet inclut automatiquement tous les documents téléchargés dans cet espace de travail dotés de la paire de langues qui convient.
 
-La création d'un projet constitue la première étape de création d’un modèle. 
+La création d'un projet constitue la première étape de création d’un modèle.
 
 ## <a name="create-a-project"></a>Créer un projet :
 

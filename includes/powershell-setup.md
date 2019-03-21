@@ -2,22 +2,22 @@
 services: virtual-machines
 title: Configuration de PowerShell
 author: JoeDavies-MSFT
-solutions: 
+solutions: ''
 manager: timlt
 editor: tysonn
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
-ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/18/2017
-
+ms.openlocfilehash: b96e8e6e31817f6d261f41dbf3b3047dd49c29ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "58114950"
 ---
 ## <a name="setting-up-powershell"></a>Configuration de PowerShell
 Avant d’utiliser Azure PowerShell, effectuez les opérations ci-après.
@@ -39,7 +39,7 @@ Le résultat suivant doit s’afficher.
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-Vérifiez que la valeur de **PSVersion** est 3.0 ou 4.0. Pour installer une version compatible, voir la section [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Vérifiez que la valeur de **PSVersion** est 3.0 ou 4.0. Pour installer une version compatible, voir la section [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 Vous devez également disposer d’Azure PowerShell version 0.8.0 ou ultérieure. Vous pouvez vérifier la version d’Azure PowerShell que vous avez installée à l’aide de cette commande à l’invite de commandes Azure PowerShell.
 
@@ -56,7 +56,7 @@ Pour des instructions et un lien vers la dernière version, consultez la rubriqu
 ### <a name="set-your-azure-account-and-subscription"></a>Configurer votre compte et votre abonnement Microsoft Azure
 Si vous ne possédez pas encore un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire pour une [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
-Ouvrez une invite de commandes PowerShell Azure et connectez-vous à Azure avec cette commande.
+Ouvrez une invite de commandes Azure PowerShell et connectez-vous à Azure avec cette commande.
 
     Add-AzureAccount
 
@@ -82,6 +82,5 @@ Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à 
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-Pour plus d’informations sur les comptes et les abonnements Azure, consultez la [procédure de connexion à votre abonnement](/powershell/azureps-cmdlets-docs#Connect).
-
+Pour plus d’informations sur les comptes et les abonnements Azure, consultez la procédure[ : Connexion à votre abonnement](/powershell/azureps-cmdlets-docs#Connect).
 
