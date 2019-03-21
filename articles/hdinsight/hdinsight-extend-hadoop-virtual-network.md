@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: ae3b4787928b3a578df30dd7f8a2791ce487305d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100494"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+
+> [!IMPORTANT]  
+> Après le 28 février 2019, les ressources réseau (par exemple, les cartes réseau, les équilibreurs de charge, etc.) pour les nouveaux clusters créés dans un réseau virtuel seront déployés dans le même groupe de ressources de cluster HDInsight. Auparavant, ces ressources ont été configurés dans le groupe de ressources de réseau virtuel. Il n’existe aucune modification pour les clusters en cours d’exécution actuels et les clusters créés sans un réseau virtuel.
 
 Découvrez comment utiliser HDInsight avec un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). L’utilisation d’un réseau virtuel Azure permet les scénarios suivants :
 
@@ -112,8 +115,8 @@ Suivez les étapes de cette section pour découvrir comment ajouter un nouveau c
     * [Créer un cluster HDInsight à l’aide d’Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Créer un cluster HDInsight à l’aide d’un modèle Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > L’ajout de HDInsight à un réseau virtuel est une étape de configuration facultative. Veillez à sélectionner le réseau virtuel lors de la configuration du cluster.
+   > [!IMPORTANT]  
+   > L’ajout de HDInsight à un réseau virtuel est une étape de configuration facultative. Veillez à sélectionner le réseau virtuel lors de la configuration du cluster.
 
 ## <a id="multinet"></a>Connexion de plusieurs réseaux
 
@@ -125,8 +128,8 @@ Azure assure la résolution de noms pour les services Azure installés dans un r
 
 * Toute ressource figurant dans le même réseau virtuel Azure, en utilisant le __nom DNS interne__ de la ressource. Par exemple, lorsque vous utilisez la résolution de noms par défaut, les éléments suivants sont des exemples de noms DNS internes attribués aux nœuds worker HDInsight :
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Les deux nœuds peuvent communiquer directement entre eux et avec d’autres nœuds dans HDInsight en utilisant des noms DNS internes.
 
@@ -145,29 +148,29 @@ Pour permettre la résolution de noms entre le réseau virtuel et les ressources
 
 4. Configurez le transfert entre les serveurs DNS. La configuration dépend du type de réseau distant.
 
-    * Si le réseau distant est un réseau local, configurez le DNS comme suit :
+   * Si le réseau distant est un réseau local, configurez le DNS comme suit :
         
-        * __DNS personnalisé__ (dans le réseau virtuel) :
+     * __DNS personnalisé__ (dans le réseau virtuel) :
 
-            * Transférez les demandes relatives au suffixe DNS du réseau virtuel au programme de résolution récursive d’Azure (168.63.129.16). Azure gère les demandes de ressources dans le réseau virtuel.
+         * Transférez les demandes relatives au suffixe DNS du réseau virtuel au programme de résolution récursive d’Azure (168.63.129.16). Azure gère les demandes de ressources dans le réseau virtuel.
 
-            * Transférez toutes les autres demandes au serveur DNS local. Le serveur DNS local gère toutes les autres demandes de résolution de noms, y compris les demandes de ressources Internet telles que Microsoft.com.
+         * Transférez toutes les autres demandes au serveur DNS local. Le serveur DNS local gère toutes les autres demandes de résolution de noms, y compris les demandes de ressources Internet telles que Microsoft.com.
 
-        * __DNS local__ : transférer les requêtes de suffixe DNS de réseau virtuel vers le serveur DNS personnalisé. Le serveur DNS personnalisé transfère alors les demandes au programme de résolution récursive d’Azure.
+     * __DNS local__ : transférer les requêtes de suffixe DNS de réseau virtuel vers le serveur DNS personnalisé. Le serveur DNS personnalisé transfère alors les demandes au programme de résolution récursive d’Azure.
 
-        Cette configuration a pour effet de router les demandes de noms de domaine complets (FQDN) qui contiennent le suffixe DNS du réseau virtuel vers le serveur DNS personnalisé. Toutes les autres demandes (même d’adresses Internet publiques) sont gérées par le serveur DNS local.
+       Cette configuration a pour effet de router les demandes de noms de domaine complets (FQDN) qui contiennent le suffixe DNS du réseau virtuel vers le serveur DNS personnalisé. Toutes les autres demandes (même d’adresses Internet publiques) sont gérées par le serveur DNS local.
 
-    * Si le réseau distant est un autre réseau virtuel Azure, configurez DNS comme suit :
+   * Si le réseau distant est un autre réseau virtuel Azure, configurez DNS comme suit :
 
-        * __DNS personnalisé__ (dans chaque réseau virtuel) :
+     * __DNS personnalisé__ (dans chaque réseau virtuel) :
 
-            * Les demandes de suffixe DNS des réseaux virtuels sont transférées aux serveurs DNS personnalisés. Le DNS de chaque réseau virtuel est chargé de résoudre les ressources au sein de son réseau.
+         * Les demandes de suffixe DNS des réseaux virtuels sont transférées aux serveurs DNS personnalisés. Le DNS de chaque réseau virtuel est chargé de résoudre les ressources au sein de son réseau.
 
-            * Transférez toutes les autres demandes au programme de résolution récursive d’Azure. Le programme de résolution récursive est responsable de la résolution des ressources locales et Internet.
+         * Transférez toutes les autres demandes au programme de résolution récursive d’Azure. Le programme de résolution récursive est responsable de la résolution des ressources locales et Internet.
 
-        Le serveur DNS de chaque réseau transfère les demandes à l’autre, en fonction du suffixe DNS. Les autres requêtes sont résolues à l’aide du programme de résolution récursive d’Azure.
+       Le serveur DNS de chaque réseau transfère les demandes à l’autre, en fonction du suffixe DNS. Les autres requêtes sont résolues à l’aide du programme de résolution récursive d’Azure.
 
-    Pour obtenir un exemple de chaque configuration, consultez la section [Exemple : DNS personnalisé](#example-dns).
+     Pour obtenir un exemple de chaque configuration, consultez la section [Exemple : DNS personnalisé](#example-dns).
 
 Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -232,7 +235,7 @@ Si vous prévoyez d’utiliser des **groupes de sécurité réseau** ou des **it
 3. Créez ou modifiez les groupes de sécurité réseau ou les itinéraires définis par l’utilisateur pour le sous-réseau dans lequel vous prévoyez d’installer HDInsight.
 
     * __Groupes de sécurité réseau__ : autorisez le trafic __entrant__ sur le port __443__ à partir des adresses IP. Cela garantit que les services de gestion HDI peuvent atteindre le cluster à partir du réseau virtuel externe.
-    * __Routes définies par l’utilisateur__ : si vous prévoyez d’utiliser des routes définies par l’utilisateur, créez une route pour chaque adresse IP et affectez la valeur __Internet__ à __Type de tronçon suivant__. Vous devez également autoriser tout le trafic sortant du réseau virtuel, sans aucune restriction. Par exemple, vous pouvez acheminer tout le trafic vers votre pare-feu Azure ou votre appliance virtuelle de réseau (hébergée sur Azure) pour la surveillance, mais le trafic sortant ne doit pas être bloqué.
+    * __Routes définies par l’utilisateur__ : si vous prévoyez d’utiliser des routes définies par l’utilisateur, créez une route pour chaque adresse IP et affectez la valeur __Internet__ à __Type de tronçon suivant__. Vous devez également autoriser tout le trafic sortant du réseau virtuel, sans aucune restriction. Par exemple, vous pouvez acheminer tout le trafic vers votre pare-feu ou réseau appliance virtuelle Azure (hébergé dans Azure) pour la surveillance, mais le trafic sortant ne doit pas être bloqué.
 
 Pour plus d’informations sur les groupes de sécurité réseau ou les itinéraires définis par l’utilisateur, voir la documentation suivante :
 
@@ -242,7 +245,7 @@ Pour plus d’informations sur les groupes de sécurité réseau ou les itinéra
 
 #### <a name="forced-tunneling-to-on-premise"></a>Tunneling forcé sur site
 
-Le tunneling forcé est une configuration d’itinéraire défini par l’utilisateur où tout le trafic en provenance d’un sous-réseau est acheminé de force vers un réseau ou un emplacement spécifique, tel que votre réseau local. HDInsight ne prend __pas__ en charge le tunneling forcé vers les réseaux sur site. Si vous utilisez un Pare-feu Azure ou une appliance virtuelle de réseau hébergée sur Azure, vous pouvez utiliser les itinéraires définis par l’utilisateur pour y acheminer le trafic pour surveiller et autoriser tout le trafic sortant.
+Le tunneling forcé est une configuration d’itinéraire défini par l’utilisateur où tout le trafic en provenance d’un sous-réseau est acheminé de force vers un réseau ou un emplacement spécifique, tel que votre réseau local. HDInsight ne prend __pas__ en charge le tunneling forcé vers les réseaux sur site. Si vous utilisez un pare-feu d’Azure ou une appliance virtuelle réseau hébergé dans Azure, vous pouvez utiliser UDR pour acheminer le trafic vers elle des fonctions d’analyse et d’autoriser tout le trafic sortant.
 
 ## <a id="hdinsight-ip"></a> Adresses IP requises
 
@@ -281,6 +284,7 @@ Si vous utilisez des groupes de sécurité réseau, vous devez autoriser le traf
     | &nbsp; | Chine Nord 2 | 40.73.37.141</br>40.73.38.172 | 443 | Trafic entrant |
     | Europe | Europe Nord | 52.164.210.96</br>13.74.153.132 | 443 | Trafic entrant |
     | &nbsp; | Europe Ouest| 52.166.243.90</br>52.174.36.244 | 443 | Trafic entrant |
+    | France | France Centre| 20.188.39.64</br>40.89.157.135 | 443 | Trafic entrant |
     | Allemagne | Centre de l’Allemagne | 51.4.146.68</br>51.4.146.80 | 443 | Trafic entrant |
     | &nbsp; | Nord-Est de l’Allemagne | 51.5.150.132</br>51.5.144.101 | 443 | Trafic entrant |
     | Inde | Inde Centre | 52.172.153.209</br>52.172.152.49 | 443 | Trafic entrant |
@@ -643,9 +647,9 @@ Cet exemple repose sur les hypothèses suivantes :
     };
     ```
     
-    * Remplacez les valeurs `10.0.0.0/16` et `10.1.0.0/16` par les plages d’adresses IP de vos réseaux virtuels. Cette entrée a pour effet de permettre aux ressources de chaque réseau d’effectuer des demandes des serveurs DNS.
+   * Remplacez les valeurs `10.0.0.0/16` et `10.1.0.0/16` par les plages d’adresses IP de vos réseaux virtuels. Cette entrée a pour effet de permettre aux ressources de chaque réseau d’effectuer des demandes des serveurs DNS.
 
-    Toute demande n’ayant pas trait au suffixes DNS des réseaux virtuels (par exemple, microsoft.com) est gérée par le programme de résolution récursive d’Azure.
+     Toute demande n’ayant pas trait au suffixes DNS des réseaux virtuels (par exemple, microsoft.com) est gérée par le programme de résolution récursive d’Azure.
 
 4. Pour utiliser la configuration, redémarrez Bind. Par exemple, `sudo service bind9 restart` sur les deux serveurs DNS.
 

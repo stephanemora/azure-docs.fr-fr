@@ -3,15 +3,15 @@ title: Configurer le stockage Avere vFXT - Azure
 description: Comment ajouter un système de stockage back-end à votre cluster Avere vFXT pour Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078807"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
@@ -72,7 +72,7 @@ Ensuite, passez à la section [Créer une jonction](#create-a-junction).
 Pour utiliser le stockage Blob Azure en tant que stockage back-end de votre cluster vFXT, vous devez ajouter un conteneur vide en tant que système de stockage principal.
 
 > [!TIP] 
-> Si vous choisissez de créer un conteneur d’objets blob en même temps que le cluster Avere vFXT, le modèle de déploiement ou le script crée un conteneur de stockage, le définit comme système de stockage principal, et crée la jonction d'espace de noms dans le cadre de la création du cluster vFXT. 
+> Si vous choisissez de créer un conteneur d’objets blob en même temps que le cluster Avere vFXT, le modèle de déploiement ou le script crée un conteneur de stockage, le définit comme système de stockage principal, et crée la jonction d'espace de noms dans le cadre de la création du cluster vFXT. Le modèle crée également un point de terminaison de service de stockage à l’intérieur du réseau virtuel du cluster. 
 
 Pour ajouter un stockage d’objets blob à votre cluster, vous devez effectuer les tâches suivantes :
 
@@ -149,7 +149,7 @@ Pour ajouter le stockage d’objets blob après avoir créé le cluster, effectu
    * Si vous le souhaitez, définissez **Encryption type** (Type de chiffrement) sur **None** (Aucun).  Stockage Azure est chiffré par défaut.
    * Cliquez sur **Add Filer** (Ajouter le système de stockage).
 
-  Pour plus d’informations, consultez [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Ajout d’un nouveau système de stockage principal cloud) dans le guide de configuration des clusters Avere. 
+   Pour plus d’informations, consultez [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Ajout d’un nouveau système de stockage principal cloud) dans le guide de configuration des clusters Avere. 
 
 La page est actualisée, ou vous pouvez l’actualiser vous-même : votre nouveau système de stockage principal apparaît alors.
 

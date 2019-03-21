@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856020"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Azure prend en charge deux types de mécanismes de file d’attente : **Files d'attente de stockage** et **files d'attente Service Bus**.
 
 Les **files d’attente de stockage**, qui font partie de l’infrastructure de [stockage Azure](https://azure.microsoft.com/services/storage/), incluent une simple interface GET/PUT/PEEK basée sur REST, qui fournit une messagerie fiable et persistante au sein des services et entre ces derniers.
@@ -83,7 +83,8 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 * Les messages dans les files d’attente de stockage se voient en général appliquer la méthode Premier entré, premier sorti. Mais ils peuvent parfois être dans le désordre. C’est le cas lorsque le délai de visibilité d’un message expire (par exemple, à cause du blocage d’une application cliente pendant le traitement). Lorsque le délai de visibilité expire, le message est de nouveau visible dans la file d'attente et un autre processus peut le retirer de la file d'attente. À ce stade, le message nouvellement visible peut être placé dans la file d'attente (pour en être de nouveau retiré) après un message qui se trouvait à l'origine dans la file d'attente après lui.
 * Le modèle Premier entré, premier sorti garanti dans les files d'attente Service Bus requiert l'utilisation de sessions de messagerie. Dans le cas où l’application se bloque lors du traitement d’un message reçu en mode **Aperçu et verrouillage**, la prochaine fois qu’un destinataire de file d’attente acceptera une session de messagerie, celle-ci démarrera avec le message ayant échoué après que sa durée de vie ait expiré.
 * Les files d’attente de stockage sont conçues pour prendre en charge des scénarios de mise en file d’attente standard, tels que le découplage de composants d’application pour augmenter l’évolutivité et la tolérance aux pannes, le nivellement de charge et la création des workflows de processus.
-* Les files d’attente Service Bus prennent en charge la garantie de livraison *Au moins une fois*. En outre, la sémantique *Une fois au maximum* peut être prise en charge à l’aide de l’état de session pour stocker l’état de l’application et à l’aide de transactions pour recevoir atomiquement des messages et mettre à jour l’état de la session.
+* Les files d’attente Service Bus prennent en charge la garantie de livraison *Au moins une fois*. 
+* Incohérences en ce qui concerne la gestion des messages dans le contexte de sessions Service Bus peuvent être évitées à l’aide de l’état de session pour stocker l’état de l’application par rapport à la progression de séquence de message de la session de gestion et à l’aide de transactions autour règlement reçu des messages et la mise à jour de l’état de session. Ce type de fonctionnalité de cohérence porte parfois *exactement-une fois le traitement* dans les produits d’autres fournisseurs, mais la transaction échecs évidemment provoquera des messages être redeliveried et par conséquent, le terme n’est pas tout à fait suffisant.
 * Les files d’attente de stockage fournissent un modèle de programmation uniforme et cohérent entre les files d’attente, les tables et les objets blob, pour les développeurs et les équipes d’exploitation.
 * Les files d'attente Service Bus prennent en charge les transactions locales dans le contexte d'une file d'attente unique.
 * Le mode **Réception et suppression** pris en charge par Service Bus offre la possibilité de réduire le nombre d’opérations de messagerie (et le coût associé) en échange d’une garantie de livraison réduite.
@@ -173,7 +174,7 @@ Cette section décrit les fonctionnalités d’authentification et d’autorisat
 
 | Critères de comparaison | Files d’attente de stockage | Files d’attente Service Bus |
 | --- | --- | --- |
-| Authentification |**Clé symétrique** |**Clé symétrique** |
+| Authentication |**Clé symétrique** |**Clé symétrique** |
 | Modèle de sécurité |Accès délégué via des jetons SAS. |SAS |
 | Fédération de fournisseur d’identité |**Non** |**Oui** |
 
@@ -192,9 +193,9 @@ Les articles suivants fournissent des conseils et des informations sur l’utili
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation du service de stockage de files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md)
-* [Présentation des files d’attente et des rubriques dans Azure Service Bus (blog)](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Présentation des files d’attente et des rubriques dans Azure Service Bus (blog)](https://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Guide du développeur pour Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Utilisation du service de mise en file d’attente dans Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
+* [Utilisation du service de mise en file d’attente dans Azure](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

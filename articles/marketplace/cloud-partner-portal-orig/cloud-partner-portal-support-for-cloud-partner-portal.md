@@ -14,44 +14,44 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 04a44604bafbafbba08491d76ce454c68fadd977
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 54ceb8768ed641beac8ab812a9d90936c4c911f5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806544"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085352"
 ---
 # <a name="get-support-for-cloud-partner-portal"></a>Bénéficier du support dans le portail Cloud Partner
 
 Microsoft prend en charge un large éventail de produits et services.
 S'assurer que votre requête soit traitée par l'équipe de support appropriée est primordial pour garantir une réponse appropriée et en temps voulu. Parmi les scénarios suivants, lequel devrait vous aider à acheminer votre demande vers l’équipe appropriée ?
 
--   Si vous êtes un éditeur et que vous avez une question posée par un client, demandez-lui de faire appel au support via les liens de support du [portail Azure](https://portal.azure.com/).
+-   Si vous êtes un serveur de publication et que vous avez une question à partir d’un client, demandez à votre client pour demander la prise en charge à l’aide de liens de support à [portail Azure](https://portal.azure.com/)
 
 -   Si vous êtes un éditeur et que vous avez une question relative à votre application ou votre service, examinez les étapes suivantes pour ouvrir un ticket de support.
 
 ## <a name="to-open-a-support-ticket"></a>Pour ouvrir un ticket de support
 
-1. Accédez au [portail Cloud Partner](https://cloudpartner.azure.com/) et connectez-vous avec votre compte professionnel ou scolaire.
+1. Accédez à [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) et connectez-vous avec votre compte professionnel ou scolaire.
 
 2. Dans le menu en haut à droite de la page, sélectionnez l’icône d’**aide**, puis sélectionnez **Support**.
 
 ![support1](./media/cloud-partner-portal-support-for-cloud-partner-portal/support1.png)
 
 
-3. Dans **Créer un incident**, identifiez le **Type de problème** et la **Catégorie**.
+1. Dans **Créer un incident**, identifiez le **Type de problème** et la **Catégorie**.
 
 
 ![support2](./media/cloud-partner-portal-support-for-cloud-partner-portal/support2.png)
 
 
-4. Sélectionnez **Envoyer une demande**.
+1. Sélectionnez **Envoyer une demande**.
 
-5. Indiquez les coordonnées et décrivez le problème. Décrivez le problème de façon aussi claire que possible. Fournissez tous les fichiers (par exemple des captures d’écran, des descriptions d’erreur ou des traces réseau) qui peuvent être utiles pour résoudre votre problème.
+1. Indiquez les coordonnées et décrivez le problème. Décrivez le problème de façon aussi claire que possible. Fournissez tous les fichiers (par exemple des captures d’écran, des descriptions d’erreur ou des traces réseau) qui peuvent être utiles pour résoudre votre problème.
 
 ![support3](./media/cloud-partner-portal-support-for-cloud-partner-portal/support3.png)
 
-6. Sélectionnez **Envoyer** pour créer le ticket.
+1. Sélectionnez **Envoyer** pour créer le ticket.
 
 ### <a name="support-followup"></a>Suivi du support
 

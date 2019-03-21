@@ -12,27 +12,27 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001368"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
-Cet article montre comment configurer la [géoréplication active pour les bases de données uniques ou en pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) dans Azure SQL Database via le [portail Azure](http://portal.azure.com) et initier le basculement.
+Cet article montre comment configurer la [géoréplication active pour les bases de données uniques ou en pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) dans Azure SQL Database via le [portail Azure](https://portal.azure.com) et initier le basculement.
 
 Pour plus d’informations sur les groupes de basculement automatique avec les bases de données uniques et en pool, consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des bases de données uniques et en pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Pour plus d’informations sur les groupes de basculement automatique avec Managed Instance (préversion), consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des instances gérées](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer la géo-réplication active à l’aide du portail Azure, vous devez disposer des ressources suivantes :
 
 * Une base de données SQL Azure : la base de données primaire que vous souhaitez répliquer vers une autre région géographique.
 
 > [!Note]
-Lorsque vous utilisez le portail Azure, pour créer une base de données secondaire, vous devez utiliser l'abonnement associé à la base de données principale. Si la base de données secondaire doit être associée à un autre abonnement, utilisez l'[API REST Créer une base de données](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou l'[API Transact-SQL ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Lorsque vous utilisez le portail Azure, pour créer une base de données secondaire, vous devez utiliser l'abonnement associé à la base de données principale. Si la base de données secondaire doit être associée à un autre abonnement, utilisez l'[API REST Créer une base de données](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou l'[API Transact-SQL ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Ajout d'une base de données secondaire
 
@@ -46,7 +46,7 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
 > [!NOTE]
 > Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géo-réplication précédente), la commande échoue.
 
-1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géo-réplication.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géo-réplication.
 2. Dans la page SQL Database, sélectionnez **Géoréplication**, puis choisissez la région dans laquelle créer la base de données secondaire. Bien que vous puissiez sélectionner n’importe quelle région autre que la région qui héberge la base de données primaire, nous vous recommandons de sélectionner la [région jumelée](../best-practices-availability-paired-regions.md).
 
     ![Configuration de la géo-réplication](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -66,7 +66,7 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
 
 La base de données secondaire peut être basculée en base de données primaire.  
 
-1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
 2. Dans le panneau SQL Database, sélectionnez **Tous les paramètres** > **Géoréplication**.
 3. Dans la liste **SECONDAIRES**, sélectionnez la base de données qui doit devenir la nouvelle base primaire et cliquez sur **Basculement**.
 
@@ -84,7 +84,7 @@ Il existe une courte période pendant laquelle les deux bases de données ne son
 
 Cette opération arrête définitivement la réplication vers la base de données secondaire et modifie le rôle de la base de données secondaire en une base de données normale accessible en lecture et en écriture. Si la connectivité à la base de données secondaire est interrompue, la commande aboutit, mais la base de données secondaire ne passe pas en mode lecture-écriture une fois la connectivité rétablie.  
 
-1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
 2. Dans la page SQL Database, sélectionnez **Géoréplication**.
 3. Dans la liste des bases de données **SECONDAIRES**, sélectionnez la base de données que vous souhaitez supprimer du partenariat de géo-réplication.
 4. Cliquez sur **Arrêter la réplication**.

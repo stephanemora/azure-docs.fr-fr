@@ -1,5 +1,5 @@
 ---
-title: Migration des utilisateurs vers des licences basées sur le groupe - Azure Active Directory | Microsoft Docs
+title: Migrer des utilisateurs individuellement sous licence aux licences par groupe - Azure Active Directory | Microsoft Docs
 description: Comment passer de licences utilisateur individuelles à des licences basées sur le groupe avec Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4067a54326d0a4a8ab9029dd4afceea384cf6aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188628"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199970"
 ---
-# <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Ajout d’utilisateurs sous licence à un groupe de licences dans Azure Active Directory
+# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>L’ajout de migrer des utilisateurs avec licences individuelles à des groupes pour les licences
 
-Vous pouvez disposer de licences existantes déployées pour les utilisateurs dans les organisations par le biais d’une « attribution directe », autrement dit utiliser des scripts PowerShell ou d’autres outils pour attribuer des licences utilisateur individuelles. Si vous souhaitez utiliser une licence basée sur le groupe pour gérer les licences de votre organisation, vous devez recourir à un plan de migration afin de remplacer en toute transparence les solutions existantes par une licence basée le groupe.
+Vous pouvez disposer de licences existantes déployées pour les utilisateurs dans les organisations par le biais d’une « attribution directe », autrement dit utiliser des scripts PowerShell ou d’autres outils pour attribuer des licences utilisateur individuelles. Avant de commencer à l’aide de gestion des licences par groupe pour gérer les licences de votre organisation, vous pouvez utiliser ce plan de migration pour remplacer en toute transparence les solutions existantes avec la gestion des licences par groupe.
 
 La chose la plus importante à retenir est que vous devez éviter toute situation dans laquelle la migration vers une licence basée sur le groupe amène les utilisateurs à perdre de manière temporaire les licences qui leur sont actuellement attribuées. Tous les processus susceptibles d’entraîner le retrait de licences doivent être évités afin d’éliminer le risque pour les utilisateurs de perdre l’accès aux services et à leurs données.
 
@@ -39,17 +39,17 @@ La chose la plus importante à retenir est que vous devez éviter toute situatio
 
 4. Vérifiez que les licences ont bien été appliquées à tous les utilisateurs de ces groupes. Pour ce faire, vérifiez l’état de traitement de chaque groupe, ainsi que les journaux d’audit.
 
-  - Vous pouvez vérifier ponctuellement certains utilisateurs individuels en examinant les détails de leur licence. Vous constaterez qu’ils disposent des mêmes licences attribuées « directement » et « héritées » de groupes.
+   - Vous pouvez vérifier ponctuellement certains utilisateurs individuels en examinant les détails de leur licence. Vous constaterez qu’ils disposent des mêmes licences attribuées « directement » et « héritées » de groupes.
 
-  - Vous pouvez exécuter un script PowerShell pour [vérifier les méthodes d’attribution des licences aux utilisateurs](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+   - Vous pouvez exécuter un script PowerShell pour [vérifier les méthodes d’attribution des licences aux utilisateurs](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
-  - Lorsque la même licence produit est attribuée à l’utilisateur à la fois directement et par le biais d’un groupe, une seule licence est employée par l’utilisateur. Par conséquent, aucune licence supplémentaire n’est requise pour la migration.
+   - Lorsque la même licence produit est attribuée à l’utilisateur à la fois directement et par le biais d’un groupe, une seule licence est employée par l’utilisateur. Par conséquent, aucune licence supplémentaire n’est requise pour la migration.
 
 5. Assurez-vous qu’aucune attribution de licence n’a échoué en vérifiant les utilisateurs en état d’erreur dans chaque groupe. Pour plus d’informations, consultez [Identification et résolution des problèmes de licence pour un groupe](licensing-groups-resolve-problems.md).
 
 6. Supprimez les attributions directes initiales. Vous pouvez le faire graduellement, par « vagues » afin de superviser au préalable le résultat sur un sous-ensemble d’utilisateurs.
 
-  Vous pouvez laisser les affectations directes d’origine aux utilisateurs. Toutefois, si les utilisateurs quittent leurs groupes sous licence, ils conservent la licence d’origine, ce que vous ne souhaitez peut-être pas.
+   Vous pouvez laisser les affectations directes d’origine aux utilisateurs. Toutefois, si les utilisateurs quittent leurs groupes sous licence, ils conservent la licence d’origine, ce que vous ne souhaitez peut-être pas.
 
 ## <a name="an-example"></a>exemple
 
@@ -61,26 +61,25 @@ Voici ce à quoi le processus de migration peut ressembler :
 
 2. Dans chaque groupe, vérifiez que l’attribution de licence est effectuée pour tous les utilisateurs. Accédez au panneau de chaque groupe, sélectionnez **Licences**, puis vérifiez l’état de traitement en haut du panneau **Licences**.
 
-  - Recherchez « Les dernières modifications de licence ont été appliquées à tous les utilisateurs » afin de confirmer la fin de l’opération.
+   - Recherchez « Les dernières modifications de licence ont été appliquées à tous les utilisateurs » afin de confirmer la fin de l’opération.
 
-  - Recherchez une notification en haut de la page, indiquant les utilisateurs pour lesquels des licences n’ont peut-être pas été correctement attribuées. Avons-nous manqué de licences pour certains utilisateurs ? Certains utilisateurs présentent-ils des références de licence en conflit qui les empêchent d’hériter des licences de groupe ?
+   - Recherchez une notification en haut de la page, indiquant les utilisateurs pour lesquels des licences n’ont peut-être pas été correctement attribuées. Avons-nous manqué de licences pour certains utilisateurs ? Certains utilisateurs présentent-ils des références de licence en conflit qui les empêchent d’hériter des licences de groupe ?
 
 3. Vérifiez ponctuellement certains utilisateurs afin de veiller à ce qu’à la fois les licences directes et les licences de groupe leur soient bien appliquées. Accédez au panneau relatif à un utilisateur, sélectionnez **Licences**, puis examinez l’état des licences.
 
-  - Voici l’état utilisateur attendu lors de la migration :
+   - Voici l’état utilisateur attendu lors de la migration :
 
-      ![État utilisateur attendu](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![l’état utilisateur attendu lors de la migration](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-  Cela confirme que l’utilisateur possède des licences directes et héritées. Il apparaît que des licences **EMS** et **E3** sont attribuées.
+   Cela confirme que l’utilisateur possède des licences directes et héritées. Il apparaît que des licences **EMS** et **E3** sont attribuées.
 
-  - Sélectionnez chaque licence pour afficher les détails portant sur les services actifs. Cette procédure peut être utilisée pour vérifier si les licences directes et les licences de groupe activent exactement les mêmes plans de service pour l’utilisateur.
+   - Sélectionnez chaque licence pour afficher les détails portant sur les services actifs. Cette procédure peut être utilisée pour vérifier si les licences directes et les licences de groupe activent exactement les mêmes plans de service pour l’utilisateur.
 
-      ![Vérification des plans de service](./media/licensing-groups-migrate-users/check-service-plans.png)
+      ![vérifier les plans de service pour l’utilisateur](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Après avoir confirmé l’équivalence des licences directes et des licences de groupe, vous pouvez commencer à supprimer les licences directes des utilisateurs. Vous pouvez tester cette procédure en supprimant ces licences pour des utilisateurs individuels sur le portail, puis exécuter des scripts d’automatisation afin de les supprimer en bloc. Voici l’exemple d’un même utilisateur dont les licences directes ont été supprimées par le biais du portail. L’état de licence reste inchangé, mais les attributions directes n’apparaissent plus.
 
-  ![Licences directes supprimées](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
-
+   ![Vérifiez que les licences directes ont été supprimés](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

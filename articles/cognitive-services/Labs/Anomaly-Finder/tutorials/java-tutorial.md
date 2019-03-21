@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Détection d’anomalie, Java'
+title: 'Tutoriel : Détection d’anomalie, Java'
 titlesuffix: Azure Cognitive Services
 description: Explorez une application Java qui utilise l’API Détection des anomalies. Envoyez des points de données d’origine à l’API et obtenez la valeur attendue et des points d’anomalies.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 8f087e07bbf5033698b18b4349c4d13e862a1555
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ba66c96f9129b253fc5897c3a2eaaefb53056cea
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223338"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548726"
 ---
-# <a name="tutorial-anomaly-detection-with-java-application"></a>Didacticiel : Détection d’anomalie avec une application Java
+# <a name="tutorial-anomaly-detection-with-java-application"></a>Tutoriel : Détection d’anomalie avec une application Java
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -28,7 +28,7 @@ L’exemple envoie les données de série chronologique à l’API Détection d�
 
 ### <a name="platform-requirements"></a>Plateforme requise
 
-Ce tutoriel a été développé à l’aide d’[IntelliJ IDEA](https://www.jetbrains.com/idea). Vous devez également installer [Java Development Kit (JDK)](https://aka.ms/azure-jdks) version 1.8+ et un outil de build [Maven d’Apache](http://maven.apache.org/) à jour.
+Ce tutoriel a été développé à l’aide d’[IntelliJ IDEA](https://www.jetbrains.com/idea). Vous devez également installer [Java Development Kit (JDK)](https://aka.ms/azure-jdks) version 1.8+ et un outil de build [Maven d’Apache](https://maven.apache.org/) à jour.
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>S’abonner à la détection d’anomalies et obtenir une clé d’abonnement 
 

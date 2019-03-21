@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005300"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle
 **Problème** : vous avez créé une infrastructure de mise à l’échelle automatique dans Azure Resource Manager à l’aide de groupes de machines virtuelles identiques (par exemple en déployant un modèle comme https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale), vos règles de mise à l’échelle sont définies et fonctionnent très bien, sauf que, quelle que soit la charge placée sur les machines virtuelles, elle n’est pas mise à l’échelle automatiquement.
@@ -52,7 +52,7 @@ Parmi les éléments à prendre en considération :
     Azure Resource Explorer est un outil de dépannage indispensable qui vous indique l’état de vos ressources Azure Resource Manager. Cliquez sur votre abonnement et examinez le groupe de ressources sur lequel vous effectuez un dépannage. Sous le fournisseur de ressources de calcul, consultez le groupe de machines virtuelles identiques que vous avez créé et consultez la vue d’instance, qui vous indique l’état d’un déploiement. Vérifiez également la vue d’instance des machines virtuelles dans le groupe de machines virtuelles identiques. Ensuite, accédez au fournisseur de ressources Microsoft.Insights et vérifiez que les règles de mise à l’échelle automatique sont correctes.
 * L’extension de diagnostic fonctionne-t-elle et génère-t-elle des données de performance ?
   
-    **Mise à jour :** la mise à l’échelle automatique Azure a été améliorée pour utiliser un pipeline de métriques basées sur l’hôte qui ne nécessite plus l’installation d’une extension de diagnostic. Les paragraphes suivants ne s’appliquent plus si vous créez une application de mise à l’échelle automatique en utilisant le nouveau pipeline. Un exemple de modèles Azure convertis pour utiliser le pipeline hôte est disponible ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **mettre à jour :** L’échelle automatique Azure a été améliorée pour utiliser un pipeline de métriques basées sur l’hôte, qui ne nécessite plus une extension de diagnostics doit être installé. Les paragraphes suivants ne s’appliquent plus si vous créez une application de mise à l’échelle automatique en utilisant le nouveau pipeline. Un exemple de modèles Azure convertis pour utiliser le pipeline hôte est disponible ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     Le recours aux métriques basées sur l’hôte pour la mise à l’échelle automatique est préférable pour les raisons suivantes :
   
@@ -72,14 +72,14 @@ Parmi les éléments à prendre en considération :
     
     ![Cloud Explorer][explorer]
     
-   Apparaît un ensemble de tables où sont stockées les données de chaque machine virtuelle. Prenons Linux et la mesure de processeur comme exemple. Examinez les lignes les plus récentes. Visual Studio Cloud Explorer prend en charge un langage de requête pour vous permettre d’exécuter une requête. Par exemple, vous pouvez exécuter une requête pour « Timestamp gt datetime'2016-02-02T21:20:00Z' » pour vous assurer d’obtenir les événements les plus récents. Le fuseau horaire correspond à l’heure UTC. Les données qui figurent ici correspondent-elles aux règles de mise à l’échelle que vous avez configurées ? Dans l’exemple suivant, l’utilisation du processeur de la machine 20 a commencé à augmenter jusqu’à 100 % au cours des cinq dernières minutes.
+    Apparaît un ensemble de tables où sont stockées les données de chaque machine virtuelle. Prenons Linux et la mesure de processeur comme exemple. Examinez les lignes les plus récentes. Visual Studio Cloud Explorer prend en charge un langage de requête pour vous permettre d’exécuter une requête. Par exemple, vous pouvez exécuter une requête pour « Timestamp gt datetime'2016-02-02T21:20:00Z' » pour vous assurer d’obtenir les événements les plus récents. Le fuseau horaire correspond à l’heure UTC. Les données qui figurent ici correspondent-elles aux règles de mise à l’échelle que vous avez configurées ? Dans l’exemple suivant, l’utilisation du processeur de la machine 20 a commencé à augmenter jusqu’à 100 % au cours des cinq dernières minutes.
     
     ![Tables de stockage][tables]
     
     Si les données ne sont pas visibles, cela implique que le problème provient de l’extension de diagnostic en cours d’exécution sur les machines virtuelles. Si les données sont présentes, cela implique un problème lié à vos règles de mise à l’échelle ou au service Insights. Vérifiez le [statut Azure](https://azure.microsoft.com/status/).
     
     Une fois que vous avez effectué ces étapes, si vous rencontrez toujours des problèmes de mise à l’échelle automatique, vous pouvez essayer les ressources suivantes : 
-    * Lire les forums sur [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) ou [Stack Overflow](http://stackoverflow.com/questions/tagged/azure) 
+    * Lire les forums sur [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Enregistrez un appel au support. Soyez prêt à partager le modèle et une vue de vos données de performance.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

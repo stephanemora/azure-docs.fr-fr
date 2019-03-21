@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854787"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tâches pour le coordinateur de projet dans Team Data Science Process
 
@@ -41,7 +41,7 @@ Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. C
 - **D5** : répertoire local cloné à partir de R5.
 
 
-## <a name="0-prerequisites"></a>0. Prérequis
+## <a name="0-prerequisites"></a>0. Conditions préalables
 
 Pour satisfaire les prérequis, il convient de mener à bien les tâches affectées à votre responsable de groupe décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md), de même que celles affectées à votre responsable d’équipe décrites dans [Coordinateur d’équipe pour une équipe de science des données](team-lead-tasks.md). 
 
@@ -126,11 +126,11 @@ Pour cet exemple, cela donne :
 
 Si vous utilisez Azure DevOps comme plateforme d’hébergement de code, l’*URL SSH du dépôt de modèles de projet* se présente généralement sous la forme suivante :
 
-***ssh://\<nom Azure DevOps Services\>@\<nom Azure DevOps Services\>.visualstudio.com:22/\<nom de votre projet>/_git/\<nom de votre dépôt de modèles de projet\>.*** 
+***ssh://\<nom Azure DevOps Services\>\@\<nom Azure DevOps Services\>.visualstudio.com:22/\<nom de votre projet>/_git/\<nom de votre dépôt de modèles de projet\>.*** 
 
 Pour cet exemple, cela donne :
 
-***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
+***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
 
 ### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>Cloner le dépôt DSProject1 (R5) dans un répertoire (D5) sur votre ordinateur local
 
@@ -150,7 +150,7 @@ Si vous utilisez Azure DevOps comme plateforme d’hébergement de code, l’_UR
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Si vous utilisez Azure DevOps comme plateforme d’hébergement de code, l’_URL SSH du dépôt de projet_ se présente généralement sous la forme _ssh://<Nom Azure DevOps Services\>@<Nom Azure DevOps Services.\>.visualstudio.com:22/<Your Project Name>/\_git/<Nom de votre dépôt de projet\>. Pour cet exemple, cela donne ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Si vous utilisez Azure DevOps comme plateforme d’hébergement de code, l’_URL SSH du dépôt de projet_ se présente généralement sous la forme _ssh://<Nom Azure DevOps Services\>@<Nom Azure DevOps Services.\>.visualstudio.com:22/<Your Project Name>/\_git/<Nom de votre dépôt de projet\>. Dans cet exemple, nous avons ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Copier le contenu de D3 vers D5 
 

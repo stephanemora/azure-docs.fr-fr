@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095039"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Impossible d’établir une connexion RDP à une machine virtuelle car celle-ci démarre en mode sans échec
 
@@ -47,7 +47,7 @@ Pour résoudre ce problème, utilisez le contrôle série pour configurer la mac
 ### <a name="use-serial-control"></a>Utiliser le contrôle série
 
 1. Connectez-vous à la [console série et ouvrez une instance CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réparer la machine virtuelle en mode hors connexion](#repair-the-vm-offline).
+   ). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réparer la machine virtuelle en mode hors connexion](#repair-the-vm-offline).
 2. Consultez les données de configuration de démarrage :
 
         bcdedit /enum
@@ -55,12 +55,12 @@ Pour résoudre ce problème, utilisez le contrôle série pour configurer la mac
     Si la machine virtuelle est configurée pour démarrer en mode sans échec, vous voyez un indicateur supplémentaire sous la section **Chargeur de démarrage Windows** appelé **safeboot**. Si vous ne voyez pas l’indicateur **safeboot**, la machine virtuelle n’est pas en mode sans échec. Cet article ne s’applique pas à votre scénario.
 
     L’indicateur **safeboot** peut apparaître avec les valeurs suivantes :
-    - Minimales
-    - Réseau
+   - Minimales
+   - Réseau
 
-    Dans ces deux modes, RDP ne démarrera pas. Par conséquent, le correctif reste inchangé.
+     Dans ces deux modes, RDP ne démarrera pas. Par conséquent, le correctif reste inchangé.
 
-    ![Image de l’indicateur Mode sans échec](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![Image de l’indicateur Mode sans échec](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Supprimez l’indicateur **safemode** pour que la machine virtuelle démarre en mode normal :
 

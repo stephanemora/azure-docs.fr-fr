@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077817"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Didacticiel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutoriel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Tableau Online et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l’approvisionnement et le déprovisionnement automatiques d’utilisateurs et/ou de groupes sur Tableau Online.
 
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -106,13 +106,13 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Domaine**, le **Nom d’utilisateur de l’administrateur**, le **Mot de passe d’administrateur** et l’**URL du contenu** de votre compte Tableau Online :
 
-    *   Dans le champs **Domaine**, indiquez le sous-domaine en fonction de l’étape 6.
+   * Dans le champs **Domaine**, indiquez le sous-domaine en fonction de l’étape 6.
 
-    *   Dans le champ **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Clarizen. Exemple : admin@contoso.com.
+   * Dans le champ **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Clarizen. Exemple : admin@contoso.com.
 
-    *   Dans le champ **Mot de passe d’administrateur**, indiquez le mot de passe du compte administrateur correspondant au nom de l’utilisateur administrateur.
+   * Dans le champ **Mot de passe d’administrateur**, indiquez le mot de passe du compte administrateur correspondant au nom de l’utilisateur administrateur.
 
-    *   Dans le champs **URL du contenu**, indiquez le sous-domaine en fonction de l’étape 6.
+   * Dans le champs **URL du contenu**, indiquez le sous-domaine en fonction de l’étape 6.
 
 6. Lorsque vous êtes connecté à votre compte d’administration de Tableau Online, vous pouvez extraire les valeurs **Domaine** et **URL du contenu** à partir de l’URL de la page d’administration.
 

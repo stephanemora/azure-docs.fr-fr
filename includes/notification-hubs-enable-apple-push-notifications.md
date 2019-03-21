@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125063"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Générer le fichier de demande de signature de certificat
 
@@ -47,17 +47,17 @@ Pour pouvoir envoyer des notifications Push vers une application iOS, vous deve
 
 2. Mettez à jour les trois champs suivants pour votre nouvelle application, puis cliquez sur **Continuer**:
 
-    * **Nom** : tapez un nom descriptif pour votre application dans le champ **Nom** de la section **Description de l’ID d’application**.
-    * **Identificateur d'offres groupées** : sous la section **ID d'application spécifique**, saisissez une valeur **Identificateur d'offres groupées** sous la forme `<Organization Identifier>.<Product Name>` comme indiqué dans le [Guide de distribution d'application](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Les valeurs *Identificateur de l’organisation* et *Nom du produit* que vous indiquez doivent correspondre à l'identificateur d’organisation et au nom de produit que vous utiliserez pour créer le projet XCode. Dans la capture d’écran ci-dessous, *NotificationHubs* est utilisé comme identificateur d’organisation, tandis que *GetStarted* correspond au nom du produit. En vous assurant que ces valeurs correspondent à celles que vous utiliserez dans le projet XCode, vous avez la garantie d’utiliser le profil de publication qui convient avec XCode.
-    * **Notifications Push** : cochez l’option **Notifications Push** dans la section **App Services**.
+   * **Nom** : Tapez un nom descriptif pour votre application dans le **nom** champ dans le **App ID Description** section.
+   * **Identificateur d’offres groupées**: Sous le **ID d’application explicite** section, entrez un **identificateur de Bundle** sous la forme `<Organization Identifier>.<Product Name>` comme indiqué dans le [Guide de Distribution d’application](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Les valeurs *Identificateur de l’organisation* et *Nom du produit* que vous indiquez doivent correspondre à l'identificateur d’organisation et au nom de produit que vous utiliserez pour créer le projet XCode. Dans la capture d’écran ci-dessous, *NotificationHubs* est utilisé comme identificateur d’organisation, tandis que *GetStarted* correspond au nom du produit. En vous assurant que ces valeurs correspondent à celles que vous utiliserez dans le projet XCode, vous avez la garantie d’utiliser le profil de publication qui convient avec XCode.
+   * **Notifications push**: Vérifier le **Notifications Push** option dans le **App Services** section.
 
-    ![Formulaire pour inscrire un nouvel ID d’application](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![Formulaire pour inscrire un nouvel ID d’application](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    L’identifiant de votre application est généré et vous êtes invité à confirmer les informations. Cliquez sur **S’inscrire** pour confirmer le nouvel ID d’application.
+     L’identifiant de votre application est généré et vous êtes invité à confirmer les informations. Cliquez sur **S’inscrire** pour confirmer le nouvel ID d’application.
 
-    À partir du moment où vous cliquez sur **S’inscrire**, le message **Inscription terminée** s’affiche, comme indiqué dans l’image suivante. Cliquez sur **Done**.
+     À partir du moment où vous cliquez sur **S’inscrire**, le message **Inscription terminée** s’affiche, comme indiqué dans l’image suivante. Cliquez sur **Done**.
 
-    ![Inscription d’ID d’application terminée affichant les droits](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![Inscription d’ID d’application terminée affichant les droits](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. Dans le centre de développement, recherchez les identifiants d’application que vous avez créés, puis cliquez sur la ligne correspondante.
 

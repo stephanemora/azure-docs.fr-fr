@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088925"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
@@ -75,7 +75,7 @@ Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 **Stockage (hôte)** | **Pris en charge** 
 --- | --- 
 NFS | Oui 
-SMB 3.0 | N/A 
+SMB 3.0 | S.O. 
 SAN (ISCSI) | Oui 
 Chemins d’accès multiples (MPIO) | Oui 
 
@@ -84,8 +84,8 @@ Chemins d’accès multiples (MPIO) | Oui
 **Configuration** | **Pris en charge** 
 --- | --- 
 VMDK | Oui 
-VHD/VHDX | N/A 
-Machine virtuelle de 2e génération | N/A 
+VHD/VHDX | S.O. 
+Machine virtuelle de 2e génération | S.O. 
 Disque de cluster partagé | Oui 
 Disque chiffré | Non  
 UEFI| Oui 
@@ -97,7 +97,7 @@ Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui
 Espaces de stockage | Non  
 Ajout/suppression de disque à chaud | Oui 
 Exclure le disque | Oui 
-Chemins d’accès multiples (MPIO) | N/A 
+Chemins d’accès multiples (MPIO) | S.O. 
 
 ## <a name="vaults"></a>Coffres
 
@@ -110,10 +110,10 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 Le Service mobilité coordonne la réplication entre les serveurs VMware locaux ou les serveurs physiques et le site secondaire. Lorsque vous configurez la réplication, assurez-vous que vous avez la version la plus récente du Service mobilité et des autres composants.
 
-**Mettre à jour** | **Détails** 
---- | --- 
-Mises à jour Scout | [En savoir plus et télécharger](vmware-physical-secondary-disaster-recovery.md#updates) les dernières mises à jour Scout | Les mises à jour Scout sont cumulatives.
-Mises à jour de composants | Les mises à jour Scout incluent les mises à jour pour tous les composants, y compris le serveur RX, le serveur de configuration, les serveurs maîtres et process cibles, les serveurs v-Continuum et les serveurs sources à protéger.<br/><br/> [Plus d’informations](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)
+| **Mettre à jour** | **Détails** |
+| --- | --- |
+|Mises à jour Scout | Les mises à jour Scout sont cumulatives. <br/><br/> [En savoir plus et télécharger](vmware-physical-secondary-disaster-recovery.md#updates) les dernières mises à jour Scout |
+|Mises à jour de composants | Les mises à jour Scout incluent les mises à jour pour tous les composants, y compris le serveur RX, le serveur de configuration, les serveurs maîtres et process cibles, les serveurs v-Continuum et les serveurs sources à protéger.<br/><br/> [Plus d’informations](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

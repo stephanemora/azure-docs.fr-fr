@@ -1,5 +1,5 @@
 ---
-title: Solution Analyse VMware dans Log Analytics | Microsoft Docs
+title: Solution analyse VMware dans Azure Monitor | Microsoft Docs
 description: Découvrez comment la solution Analyse VMware peut vous aider à gérer les journaux et à surveiller les hôtes ESXi.
 services: log-analytics
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9f5bdc3686e35f09b461bd5c2df695218b48ede3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993365"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074911"
 ---
-# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solution Analyse VMware (version préliminaire) dans Log Analytics
+# <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solution de VMware Monitoring (déconseillé) dans Azure Monitor
 
 ![Symbole VMware](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
 > La solution VMware Monitoring est désormais dépréciée.  Les clients qui ont déjà installé la solution VMware Monitoring peuvent continuer de l’utiliser, mais ils ne peuvent pas l’ajouter à de nouveaux espaces de travail.
 
-La solution Analyse VMware dans Log Analytics vous aide à créer une approche centralisée de la journalisation et de l’analyse des journaux VMware volumineux. Cet article décrit comment dépanner, capturer et gérer les hôtes ESXi dans un emplacement unique à l’aide de la solution. La solution vous permet de consulter des données détaillées pour tous vos hôtes ESXi dans un emplacement unique. Vous pouvez voir le nombre, l’état et les tendances des principaux événements des hôtes de machine virtuelle et ESXi, fournis via les journaux d’hôte ESXi. Vous pouvez résoudre des problèmes en consultant des journaux d’hôte ESXi centralisés et en y effectuant des recherches. Et vous pouvez créer des alertes basées sur des requêtes de recherche de journal.
+La solution analyse VMware dans Azure Monitor est une solution qui vous permet de créer une approche de surveillance pour des journaux VMware volumineux et de la journalisation centralisée. Cet article décrit comment dépanner, capturer et gérer les hôtes ESXi dans un emplacement unique à l’aide de la solution. La solution vous permet de consulter des données détaillées pour tous vos hôtes ESXi dans un emplacement unique. Vous pouvez voir le nombre, l’état et les tendances des principaux événements des hôtes de machine virtuelle et ESXi, fournis via les journaux d’hôte ESXi. Vous pouvez résoudre des problèmes en consultant des journaux d’hôte ESXi centralisés et en y effectuant des recherches. Et vous pouvez créer des alertes basées sur des requêtes de recherche de journal.
 
-La solution utilise la fonctionnalité syslog native de l’hôte ESXi pour transmettre des données à une machine virtuelle cible, qui dispose de l’agent Log Analytics. Toutefois, la solution n’écrit pas de fichiers dans syslog sur la machine virtuelle cible. L’agent Log Analytics ouvre le port 1514 et l’écoute. Une fois les données reçues, l’agent Log Analytics envoie (push) les données dans Log Analytics.
+La solution utilise la fonctionnalité syslog native de l’hôte ESXi pour transmettre des données à une machine virtuelle cible, qui dispose de l’agent Log Analytics. Toutefois, la solution n’écrit pas de fichiers dans syslog sur la machine virtuelle cible. L’agent Log Analytics ouvre le port 1514 et l’écoute. Une fois qu’il reçoit les données, l’agent Log Analytique envoie les données dans Azure Monitor.
 
 ## <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
@@ -71,7 +71,7 @@ Créez une machine virtuelle de système d’exploitation Linux pour recevoir to
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. Dans le portail Azure, effectuer une recherche de journal pour `VMware_CL`. Quand Log Analytics collecte les données Syslog, il conserve le format Syslog. Dans le portail, certains des champs sont capturés, tel que *Hostname* et *ProcessName*.  
+1. Dans le portail Azure, effectuer une requête de journal pour `VMware_CL`. Quand Azure Monitor collecte les données syslog, il conserve le format syslog. Dans le portail, certains des champs sont capturés, tel que *Hostname* et *ProcessName*.  
 
     ![Type](./media/vmware/type.png)  
 
@@ -129,7 +129,7 @@ Dans l’affichage du tableau de bord **VMware**, les panneaux sont organisés p
 
 Cliquez sur n’importe quel panneau pour ouvrir le volet de recherche de Log Analytics qui affiche des informations détaillées spécifiques pour le panneau.
 
-À partir d’ici, vous pouvez modifier la requête de recherche pour l’adapter à un aspect spécifique. Pour plus d’informations sur la création de recherches de journaux, consultez [Trouver des données avec les recherches de journaux dans Log Analytics](../log-query/log-query-overview.md).
+À ce stade, vous pouvez modifier la requête de journal pour l’adapter à un élément spécifique. Pour plus d’informations sur la création de requêtes de journal, consultez [trouver des données à l’aide de requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Rechercher des événements de l’hôte ESXi
 Un seul hôte ESXi génère plusieurs journaux basés sur leurs processus. La solution Analyse VMware les centralise et résume les nombres d’événements. Cette vue centralisée vous permet de comprendre quel hôte ESXi a un volume élevé d’événements ainsi que les événements qui se produisent le plus fréquemment dans votre environnement.
@@ -151,14 +151,14 @@ Si vous souhaitez voir d’autres données de création de machine virtuelle hô
 
 ![explorer](./media/vmware/createvm.png)
 
-#### <a name="common-search-queries"></a>Requêtes de recherche courantes
+#### <a name="common-log-queries"></a>Requêtes de journal courantes
 La solution inclut d’autres requêtes utiles qui peuvent vous aider à gérer vos hôtes ESXi, telles que l’espace de stockage élevé, la latence du stockage et la défaillance de chemin.
 
 ![queries](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Enregistrer des requêtes
-L’enregistrement des requêtes de recherche est une fonctionnalité standard de Log Analytics, qui peut vous aider à conserver toutes les requêtes que vous avez trouvées utiles. Après avoir créé une requête que vous trouvez utile, enregistrez-la en cliquant sur **Favorites**. Vous pouvez réutiliser facilement une requête enregistrée à partir de la page [Mon tableau de bord](../learn/tutorial-logs-dashboards.md) dans laquelle vous pouvez créer vos propres tableaux de bord personnalisés.
+L’enregistrement des requêtes de journal est une fonctionnalité standard dans Azure Monitor et peut vous aider à conserver toutes les requêtes que vous avez trouvées utiles. Après avoir créé une requête que vous trouvez utile, enregistrez-la en cliquant sur **Favorites**. Vous pouvez réutiliser facilement une requête enregistrée à partir de la page [Mon tableau de bord](../learn/tutorial-logs-dashboards.md) dans laquelle vous pouvez créer vos propres tableaux de bord personnalisés.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
@@ -170,7 +170,7 @@ Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir qu
 La solution utilise le mécanisme de transfert syslog natif de l’hôte ESXi. Vous n’avez pas besoin d’autres logiciels Microsoft sur l’hôte ESXi pour capturer les journaux. L’impact sur votre environnement existant devrait être faible. Toutefois, vous devez absolument définir le transfert syslog, une fonctionnalité d’ESXI.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>Dois-je redémarrer mon hôte ESXi ?
- Non. Ce processus ne nécessite pas de redémarrage. Parfois, vSphere n’actualise pas correctement syslog. Dans ce cas, ouvrez une session sur l’hôte ESXi et rechargez le journal système. Encore une fois, il n’est pas obligatoire de redémarrer l’hôte. Ainsi, ce processus ne perturbe pas votre environnement.
+Non. Ce processus ne nécessite pas de redémarrage. Parfois, vSphere n’actualise pas correctement syslog. Dans ce cas, ouvrez une session sur l’hôte ESXi et rechargez le journal système. Encore une fois, il n’est pas obligatoire de redémarrer l’hôte. Ainsi, ce processus ne perturbe pas votre environnement.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Puis-je augmenter ou diminuer le volume de données de journal envoyé à Log Analytics ?
 Oui, vous pouvez. Vous pouvez utiliser les paramètres de niveau de journal hôte ESXi dans vSphere. La collecte des journaux est basée sur le niveau *info*. Ainsi, si vous souhaitez vérifier la création ou la suppression de machines virtuelles, vous devez conserver le niveau *info* sur Hostd. Pour plus d’informations, consultez la [Base de connaissances VMware](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
@@ -195,13 +195,13 @@ Il peut y avoir plusieurs raisons :
   1. Log Analytics écoute le port 1514. Pour vérifier qu’il est ouvert, utilisez la commande suivante : `netstat -a | grep 1514`
   1. Vous devez voir le port `1514/tcp` ouvert. Si ce n’est pas le cas, vérifiez qu’omsagent est correctement installé. Si vous ne voyez pas les informations de port, le port syslog n’est pas ouvert sur la machine virtuelle.
 
-    a. Vérifiez que l’agent Log Analytics s’exécute à l’aide de `ps -ef | grep oms`. S’il n’est pas en cours d’exécution, démarrez le processus en exécutant la commande ` sudo /opt/microsoft/omsagent/bin/service_control start`
+     a. Vérifiez que l’agent Log Analytics s’exécute à l’aide de `ps -ef | grep oms`. S’il n’est pas en cours d’exécution, démarrez le processus en exécutant la commande ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-    b. Ouvrez le fichier `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
+     b. Ouvrez le fichier `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
 
-    c. Vérifiez que les paramètres de groupe et d’utilisateur sont valides, comme dans : `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Vérifiez que les paramètres de groupe et d’utilisateur sont valides, comme dans : `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-    d. Si le fichier n’existe pas ou que les paramètres de groupe et d’utilisateur sont incorrects, prenez une mesure corrective en [Préparant un serveur Linux](#prepare-a-linux-server).
+     d. Si le fichier n’existe pas ou que les paramètres de groupe et d’utilisateur sont incorrects, prenez une mesure corrective en [Préparant un serveur Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utiliser des [requêtes de journal](../log-query/log-query-overview.md) dans Log Analytics pour afficher des données détaillées sur l’hôte VMware.

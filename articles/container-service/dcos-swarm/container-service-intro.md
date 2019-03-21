@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001976"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528863"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(DÉPRÉCIÉ) Introduction aux solutions d’hébergement de conteneurs Docker avec Azure Container Service 
 
@@ -38,7 +38,7 @@ Pour commencer à utiliser Azure Container Service, vous déployez un cluster Az
 Azure Container Service propose le choix entre Docker Swarm, DC/OS ou Kubernetes pour l’orchestration. Le déploiement de votre application dépend de votre choix en termes d’orchestrateur.
 
 ### <a name="using-dcos"></a>Utilisation de DC/OS
-DC/OS est un système d’exploitation distribué basé sur le noyau de systèmes distribués Apache Mesos. Hébergé par l’Apache Software Foundation, Apache Mesos répertorie certains des [plus grands noms des technologies de l’information](http://mesos.apache.org/documentation/latest/powered-by-mesos/) en tant qu’utilisateurs et contributeurs.
+DC/OS est un système d’exploitation distribué basé sur le noyau de systèmes distribués Apache Mesos. Hébergé par l’Apache Software Foundation, Apache Mesos répertorie certains des [plus grands noms des technologies de l’information](https://mesos.apache.org/documentation/latest/powered-by-mesos/) en tant qu’utilisateurs et contributeurs.
 
 ![Azure Container Service configuré pour DC/OS présentant des agents et des maîtres.](media/acs-intro/dcos.png)
 
@@ -90,7 +90,7 @@ Il possède un jeu complet de fonctionnalités, notamment :
 * API basée sur les déploiements et restaurations automatisés
 * Réparation spontanée
 
-## <a name="videos"></a>vidéos
+## <a name="videos"></a>Videos
 Prise en main d’Azure Container Service (101) :  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
