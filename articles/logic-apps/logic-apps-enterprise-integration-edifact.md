@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128375"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876848"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages EDIFACT dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -38,7 +38,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-edifact-agreement"></a>Créer un contrat EDIFACT 
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure"). 
 
 2. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
@@ -65,7 +65,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
    | Propriété | Description |
    | --- | --- |
-   | NOM |Nom du contrat. |
+   | Nom |Nom du contrat. |
    | Type de contrat | Doit être EDIFACT |
    | Partenaire hôte |Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire hôte représente l’organisation qui configure le contrat. |
    | Identité de l’hôte |Identificateur du partenaire hôte. |
@@ -82,7 +82,7 @@ Maintenant que vous avez défini les propriétés du contrat, vous pouvez config
 1. Sous **Ajouter**, sélectionnez **Paramètres de réception**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-   L’option **Paramètres de réception** est organisée en plusieurs sections : identificateurs, accusé de réception, schémas, numéros de contrôle, validations et paramètres internes.
+   **Paramètres de réception** est organisée en plusieurs sections : Identificateurs, accusé de réception, schémas, numéros de contrôle, Validation et paramètres internes.
 
    ![Configurer les « Paramètres de réception »](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -155,7 +155,7 @@ Vous pouvez configurer la manière dont votre contrat identifie et traite les me
 1.  Sous **Ajouter**, sélectionnez **Paramètres d’envoi**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-    L’option **Paramètres d’envoi** est organisée en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et validations.
+    **Paramètres d’envoi** est organisée en plusieurs sections : Identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et Validations.
 
     ![Configurer « Paramètres d’envoi »](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 

@@ -1,21 +1,21 @@
 ---
 title: Démarrage rapide (C#) pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
 description: Dans ce démarrage rapide, vous exécutez deux exemples d’applications C# pour envoyer des données de télémétrie simulées à un IoT Hub et lire les données de télémétrie provenant de l’IoT Hub à traiter dans le cloud.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 70dc14c2e518392719bf52246d77bc8803a6b095
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 22be617d1789390cfa0c40fc4dc17ba32d482900
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675362"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008795"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (C#)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 6e62e923b6e983dfff8eb72c9526708a3b360930
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494746"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086018"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Utiliser Azure Automation pour déclencher un travail
 
@@ -30,7 +30,7 @@ Cet article vous explique comment utiliser la fonctionnalité de transformation 
  
 Cet article explique comment créer un runbook Azure Automation, puis l’utiliser pour lancer un travail de transformation de données. Pour en savoir plus sur l’initialisation de la transformation des données via le kit de développement logiciel (SDK) .NET, accédez à [Utilisez le SDK .NET SDK pour déclencher des travaux de transformation des données](storsimple-data-manager-dotnet-jobs.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 
@@ -53,20 +53,20 @@ Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 
 3. Dans **Ajouter Automation**:
 
-    1. Entrez le **Nom** de votre compte Automation.
-    2. Sélectionnez l’**Abonnement** lié à votre service StorSimple Data Manager.
-    3. Créez un groupe de ressources ou sélectionnez un groupe de ressources existant.
-    4. Sélectionnez un **emplacement**.
-    5. Laissez l’option par défaut **Créer un compte d’identification** activée.
-    6. Pour obtenir un lien d’accès rapide sur le tableau de bord, consultez **Épingler au tableau de bord**. Cliquez sur **Créer**.
+   1. Entrez le **Nom** de votre compte Automation.
+   2. Sélectionnez l’**Abonnement** lié à votre service StorSimple Data Manager.
+   3. Créez un groupe de ressources ou sélectionnez un groupe de ressources existant.
+   4. Sélectionnez un **emplacement**.
+   5. Laissez l’option par défaut **Créer un compte d’identification** activée.
+   6. Pour obtenir un lien d’accès rapide sur le tableau de bord, consultez **Épingler au tableau de bord**. Cliquez sur **Créer**.
 
-    ![Créer un compte d’identification Automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Créer un compte d’identification Automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    Une fois le compte Automation créé, vous êtes averti.
+      Une fois le compte Automation créé, vous êtes averti.
     
-    ![Notification pour le déploiement du compte Automation](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Notification pour le déploiement du compte Automation](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    Pour plus d’informations, consultez l’article [Créer un compte d’identification](../automation/automation-create-runas-account.md).
+      Pour plus d’informations, consultez l’article [Créer un compte d’identification](../automation/automation-create-runas-account.md).
 
 3. Dans le compte que vous venez de créer, accédez à **Ressources partagées > Modules**, puis cliquez sur **+ Ajouter un module**.
 

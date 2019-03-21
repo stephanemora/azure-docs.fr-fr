@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 6a652b3fa834c2f29f5063f9ba72a3e3d4e75f58
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: c9247b37e1e475892a1561c5667dc25275f67327
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104112"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 
@@ -60,7 +60,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 10. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 11. Cliquez sur **+ Nouveau**, tapez *réseau virtuel* dans la zone **Rechercher dans le marketplace**, puis cliquez sur **Réseau virtuel** dans les résultats de recherche.
 12. Dans le panneau **Réseau virtuel** qui s’affiche, sélectionnez **Classique** dans la zone **Sélectionnez un modèle de déploiement**, puis cliquez sur **Créer**.
-13.   Dans la zone Créer un réseau virtuel (classique) qui s’affiche, entrez les valeurs suivantes :
+13. Dans la zone Créer un réseau virtuel (classique) qui s’affiche, entrez les valeurs suivantes :
 
     - **Nom** : *myVnetB*
     - **Espace d’adressage** : *10.1.0.0/16*
@@ -180,7 +180,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. 
 
-1. Installez la dernière version des modules PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Installez la dernière version de la commande PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [Az](https://www.powershellgallery.com/packages/Az) modules. Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
 3. Dans PowerShell, connectez-vous à l’abonnement de UserB en tant que UserB en entrant la commande `Add-AzureAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 4. Pour créer un réseau virtuel (classique) avec PowerShell, vous devez créer un fichier de configuration réseau ou en modifier un existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Le fichier doit inclure l’élément **VirtualNetworkSite** suivant pour le réseau virtuel utilisé dans ce didacticiel :
@@ -201,17 +201,17 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     > [!WARNING]
     > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (Classic) figurant dans votre abonnement. Assurez-vous de n’ajouter que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
 
-5. Connectez-vous à l’abonnement de UserB en tant que UserB pour utiliser les commandes de Resource Manager en entrant la commande `Connect-AzureRmAccount`.
-6. Affectez à UserA des autorisations sur le réseau virtuel B. Copiez le script suivant dans un éditeur de texte sur votre PC et remplacez `<SubscriptionB-id>` par l’ID de l’abonnement B. Si vous ne connaissez pas l’ID d’abonnement, entrez la commande `Get-AzureRmSubscription` pour l’afficher. La valeur de **id** dans la sortie retournée est votre ID d’abonnement. Azure a créé le réseau virtuel (classique) que vous avez créé à l’étape 4 dans un groupe de ressources nommé *Default-Networking*. Pour exécuter le script, copiez le script modifié, collez-le dans PowerShell, puis appuyez sur `Enter`.
+5. Connectez-vous à l’abonnement de UserB en tant que UserB pour utiliser les commandes de Resource Manager en entrant la commande `Connect-AzAccount`.
+6. Affectez à UserA des autorisations sur le réseau virtuel B. Copiez le script suivant dans un éditeur de texte sur votre PC et remplacez `<SubscriptionB-id>` par l’ID de l’abonnement B. Si vous ne connaissez pas l’ID d’abonnement, entrez la commande `Get-AzSubscription` pour l’afficher. La valeur de **id** dans la sortie retournée est votre ID d’abonnement. Azure a créé le réseau virtuel (classique) que vous avez créé à l’étape 4 dans un groupe de ressources nommé *Default-Networking*. Pour exécuter le script, copiez le script modifié, collez-le dans PowerShell, puis appuyez sur `Enter`.
     
     ```powershell 
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserA@azure.com `
       -RoleDefinitionName "Classic Network Contributor" `
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Déconnectez-vous d’Azure en tant que UserB et connectez-vous à l’abonnement de UserA en tant que UserA en entrant la commande `Connect-AzureRmAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
+7. Déconnectez-vous d’Azure en tant que UserB et connectez-vous à l’abonnement de UserA en tant que UserA en entrant la commande `Connect-AzAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 8. Créez le réseau virtuel (Resource Manager) en copiant le script suivant, en le collant dans PowerShell, puis en appuyant sur `Enter` :
 
     ```powershell
@@ -220,22 +220,22 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       $location='eastus'
 
     # Create a resource group.
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
       -Name $rgName `
       -Location $location
 
     # Create virtual network A.
-    $vnetA = New-AzureRmVirtualNetwork `
+    $vnetA = New-AzVirtualNetwork `
       -ResourceGroupName $rgName `
       -Name 'myVnetA' `
       -AddressPrefix '10.0.0.0/16' `
       -Location $location
     ```
 
-9. Affectez à UserB des autorisations sur myVnetA. Copiez le script suivant dans un éditeur de texte sur votre PC et remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement A. Si vous ne connaissez pas l’ID d’abonnement, entrez la commande `Get-AzureRmSubscription` pour l’afficher. La valeur de **id** dans la sortie retournée est votre ID d’abonnement. Collez la version modifiée du script PowerShell, puis appuyez sur `Enter` pour l’exécuter.
+9. Affectez à UserB des autorisations sur myVnetA. Copiez le script suivant dans un éditeur de texte sur votre PC et remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement A. Si vous ne connaissez pas l’ID d’abonnement, entrez la commande `Get-AzSubscription` pour l’afficher. La valeur de **id** dans la sortie retournée est votre ID d’abonnement. Collez la version modifiée du script PowerShell, puis appuyez sur `Enter` pour l’exécuter.
 
     ```powershell
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserB@azure.com `
       -RoleDefinitionName "Network Contributor" `
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
@@ -244,7 +244,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 10. Copiez le script suivant dans un éditeur de texte sur votre ordinateur, puis remplacez `<SubscriptionB-id>` par l’ID de l’abonnement B. Pour homologuer myVnetA à myVNetB, copiez le script modifié, collez-le dans PowerShell, puis appuyez sur `Enter`.
 
     ```powershell
-    Add-AzureRmVirtualNetworkPeering `
+    Add-AzVirtualNetworkPeering `
       -Name 'myVnetAToMyVnetB' `
       -VirtualNetwork $vnetA `
       -RemoteVirtualNetworkId /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
@@ -253,7 +253,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 11. Affichez l’état d’homologation de myVnetA en copiant le script suivant, en le collant dans PowerShell et en appuyant sur `Enter`.
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName $rgName `
       -VirtualNetworkName myVnetA `
       | Format-Table VirtualNetworkName, PeeringState
@@ -299,7 +299,7 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 1. À l’invite de commandes PowerShell, entrez la commande suivante pour supprimer le réseau virtuel (Resource Manager) :
 
    ```powershell
-   Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
+   Remove-AzResourceGroup -Name myResourceGroupA -Force
    ```
 
 2. Pour supprimer le réseau virtuel (classique) avec PowerShell, vous devez modifier un fichier de configuration réseau existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Supprimez l’élément VirtualNetworkSite suivant pour le réseau virtuel utilisé dans ce didacticiel :

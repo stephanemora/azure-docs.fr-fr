@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095991"
 ---
 # <a name="azure-application-skus-tab"></a>Onglet Références de l’application Azure
 
 Cet article décrit comment utiliser l’onglet Références pour créer des références SKU pour votre application Azure. 
 
->[!IMPORTANT] 
-Les étapes de configuration d’une référence SKU sont différentes pour une offre d’application managée et une offre de modèle de solution. Ces différences sont présentées dans cet article. 
+> [!IMPORTANT]
+> Les étapes de configuration d’une référence SKU sont différentes pour une offre d’application managée et une offre de modèle de solution. Ces différences sont présentées dans cet article. 
 
 ## <a name="configure-azure-application-skus"></a>Configurer des références SKU pour une application Azure
 

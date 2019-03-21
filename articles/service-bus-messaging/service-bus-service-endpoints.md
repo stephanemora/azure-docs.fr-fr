@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843563"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Service Bus
 
@@ -48,7 +48,7 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Activer les points de terminaison de service avec Service Bus
 
-Un facteur important lorsque vous utilisez des points de terminaison de service de réseau virtuel avec Service Bus est que vous ne devez pas activer ces points de terminaison dans les applications qui combinent des espaces de noms Service Bus de niveau Standard et Premium. Étant donné que le niveau Standard ne prend pas en charge les réseaux virtuels, le point de terminaison est limité aux espaces de noms du niveau Premium uniquement. Le réseau virtuel bloque le trafic vers l’espace de noms Standard.
+Un facteur important lorsque vous utilisez des points de terminaison de service de réseau virtuel avec Service Bus est que vous ne devez pas activer ces points de terminaison dans les applications qui combinent des espaces de noms Service Bus de niveau Standard et Premium. Étant donné que le niveau Standard ne prend pas en charge les réseaux virtuels, le point de terminaison est limité aux espaces de noms du niveau Premium uniquement.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scénarios de sécurité avancés pris en charge par l’intégration à VNet 
 

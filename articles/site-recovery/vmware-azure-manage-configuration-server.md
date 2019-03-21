@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086953"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware
 
@@ -93,25 +93,25 @@ Le modèle OVF (Open Virtualization Format) déploie la machine virtuelle du ser
 Vous pouvez réinscrire le serveur de configuration dans le même coffre, si nécessaire. Si vous disposez d’une machine serveur de processus supplémentaire, en plus du serveur de processus par défaut exécuté sur la machine serveur de configuration, réinscrivez les deux machines.
 
 
-  1. Dans le coffre, cliquez sur **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**.
-  2. Dans **Serveurs**, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
-  3. Connectez-vous à la machine du serveur de configuration.
-  4. Sous **%ProgramData%\ASR\home\svsystems\bin**, ouvrez **cspsconfigtool.exe**.
-  5. Sous l’onglet **Inscription du coffre**, sélectionnez **Parcourir** et recherchez le fichier d’informations d’identification du coffre que vous avez téléchargé.
-  6. Si nécessaire, fournissez les détails du serveur proxy. Sélectionnez ensuite **Inscription**.
-  7. Ouvrez une fenêtre Commande d’administration PowerShell, puis exécutez la commande suivante :
+1. Dans le coffre, cliquez sur **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**.
+2. Dans **Serveurs**, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
+3. Connectez-vous à la machine du serveur de configuration.
+4. Sous **%ProgramData%\ASR\home\svsystems\bin**, ouvrez **cspsconfigtool.exe**.
+5. Sous l’onglet **Inscription du coffre**, sélectionnez **Parcourir** et recherchez le fichier d’informations d’identification du coffre que vous avez téléchargé.
+6. Si nécessaire, fournissez les détails du serveur proxy. Sélectionnez ensuite **Inscription**.
+7. Ouvrez une fenêtre Commande d’administration PowerShell, puis exécutez la commande suivante :
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >Afin d’**extraire les certificats les plus récents** à partir du serveur de configuration pour évoluer le serveur de traitement, exécutez la commande *« <Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe> »--registermt*
+    >[!NOTE]
+    >Afin d’**extraire les certificats les plus récents** à partir du serveur de configuration pour évoluer le serveur de traitement, exécutez la commande *« <Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe> »--registermt*
 
-  8. Enfin, redémarrez la machine en exécutant la commande suivante.
-  ```
-          net stop obengine
-          net start obengine
+8. Enfin, redémarrez la machine en exécutant la commande suivante.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 

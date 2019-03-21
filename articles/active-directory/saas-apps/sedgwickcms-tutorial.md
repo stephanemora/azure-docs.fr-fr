@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Sedgwick CMS | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Sedgwick CMS | Microsoft Docs"
 description: Découvrez comment configurer l'authentification unique entre Azure Active Directory et Sedgwick CMS.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7783da2e3e5fe2ee79942b246e452ad7998e278
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4c42b7010a6586e4845d3a58b9a47b01143f5b1d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904829"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Didacticiel : Intégration d'Azure Active Directory à Sedgwick CMS
+# <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutoriel : Intégration d'Azure Active Directory à Sedgwick CMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer Sedgwick CMS à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Sedgwick CMS dans Azure AD offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Sedgwick CMS, vous avez besoin des éléments suivants :
 
@@ -112,12 +112,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     ![Informations d’authentification unique dans Sedgwick CMS and URLs (Domaine et URL Sedgwick CMS)](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez l’URL suivante : 
+
     | |
     |--|
     | `expresspreview.sedgwickcms.net/voe/sso` |
     | `claimlookup.com/Voe/sso` |
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://<subdomain>.sedgwickcms.net/voe/sso` |

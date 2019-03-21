@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c8f9b17bf5b572128348b22de62566ba06d5d766
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478319"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992403"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 La [bibliothèque cliente de stockage Azure pour le package Nuget .NET](https://www.nuget.org/packages/WindowsAzure.Storage) prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration au [coffre de clés Azure](https://azure.microsoft.com/services/key-vault/) pour la gestion des clés de compte de stockage.
 
 Pour obtenir une procédure pas à pas sur le processus de chiffrement des objets Blob à l’aide du chiffrement côté client et d’Azure Key Vault, consultez [Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
@@ -48,10 +48,10 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 4. La clé de chiffrement de contenu (CEK) est alors utilisée pour déchiffrer les données utilisateur chiffrées.
 
 ## <a name="encryption-mechanism"></a>Mécanisme de chiffrement
-La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
+La bibliothèque cliente du stockage utilise [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
 
 ### <a name="blobs"></a>Objets blob
-La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lors de l’utilisation des méthodes **UploadFrom*** ou de la méthode **OpenWrite**. Les téléchargements complets et de plages sont tous deux pris en charge.
+La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lorsque les utilisateurs utilisent le **UploadFrom** méthodes ou les **OpenWrite** (méthode). Les téléchargements complets et de plages sont tous deux pris en charge.
 
 Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initialisation aléatoire (IV) de 16 octets avec une clé de chiffrement de contenu (CEK) aléatoire de 32 octets, puis effectue le chiffrement d’enveloppe des données d’objets blob à l’aide de ces informations. La clé de chiffrement de contenu encapsulée ainsi que des métadonnées de chiffrement supplémentaires sont ensuite stockées en tant que métadonnées d’objet blob en même temps que l’objet blob chiffré sur le service.
 
@@ -60,9 +60,9 @@ Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initia
 > 
 > 
 
-Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **DownloadTo**/**BlobReadStream**\*. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
+Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide de la **DownloadTo**/**BlobReadStream** des méthodes pratiques. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
-Le téléchargement d’une plage arbitraire (méthodes**DownloadRange**\*) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
+Le téléchargement d’une plage arbitraire (**DownloadRange** méthodes) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires qui peuvent être utilisées pour déchiffrer demandé plage.
 
 Tous les types d’objets blob (objets blob de blocs, objets blob de pages et objets blob d’ajouts) peuvent être chiffrés/déchiffrés à l’aide de ce schéma.
 
@@ -102,7 +102,7 @@ Dans les opérations de traitement par lots, la même clé de chiffrement de cl�
 > Comme les entités sont chiffrées, vous ne pouvez pas exécuter des requêtes qui filtrent sur une propriété chiffrée.  Si vous essayez, les résultats seront incorrects, car le service essaiera de comparer les données chiffrées aux données non chiffrées.
 > 
 > 
-Pour effectuer des opérations de requête, vous devez spécifier un programme de résolution de clé capable de résoudre toutes les clés dans le jeu de résultats. Si une entité contenue dans le résultat de la requête ne peut pas être résolue par rapport à un fournisseur, la bibliothèque cliente génère une erreur. Pour toute requête effectuant des projections côté serveur, la bibliothèque cliente ajoute par défaut les propriétés de métadonnées de chiffrement spéciales (_ClientEncryptionMetadata1 et _ClientEncryptionMetadata2) aux colonnes sélectionnées.
+> Pour effectuer des opérations de requête, vous devez spécifier un programme de résolution de clé capable de résoudre toutes les clés dans le jeu de résultats. Si une entité contenue dans le résultat de la requête ne peut pas être résolue par rapport à un fournisseur, la bibliothèque cliente génère une erreur. Pour toute requête effectuant des projections côté serveur, la bibliothèque cliente ajoute par défaut les propriétés de métadonnées de chiffrement spéciales (_ClientEncryptionMetadata1 et _ClientEncryptionMetadata2) aux colonnes sélectionnées.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les utilisateurs peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour plus d’informations, consultez la page [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/key-vault-whatis.md)
@@ -243,5 +243,5 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 ## <a name="next-steps"></a>Étapes suivantes
 * [Tutoriel : Chiffrement et déchiffrement d’objets blob dans le service Stockage Microsoft Azure à l’aide d’Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Télécharger la [Bibliothèque cliente Azure Storage pour le package NuGet .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-* Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault  
+* Télécharger les packages NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault  
 * Consulter la [documentation d’Azure Key Vault](../../key-vault/key-vault-whatis.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4511ef81ccfa7008cd21a22b09459fb122d46327
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101123"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurer l’accès à partir de réseaux virtuels (VNet)
 
@@ -49,8 +49,11 @@ Les sections suivantes expliquent comment configurer un point de terminaison de 
 
 > [!NOTE]
 > Les autorisations d’abonnement suivantes sont nécessaires pour activer les points de terminaison de service du réseau virtuel :
-  * Abonnement avec un réseau virtuel : Contributeur de réseau
-  * Abonnement avec un compte Azure Cosmos DB : Contributeur de compte DocumentDB
+>   * Abonnement avec un réseau virtuel : Contributeur de réseau
+>   * Abonnement avec un compte Azure Cosmos DB : Contributeur de compte DocumentDB
+>   * Si votre réseau virtuel et un compte Azure Cosmos DB se trouvent dans différents abonnements, vérifiez que l’abonnement qui a le réseau virtuel a également `Microsoft.DocumentDB` fournisseur de ressources inscrit. Pour inscrire un fournisseur de ressources, consultez [les types et les fournisseurs de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md) article. 
+
+Voici les instructions d’inscription d’abonnement avec le fournisseur de ressources.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurer un point de terminaison de service pour un nouveau réseau virtuel et un nouveau sous-réseau Azure
 

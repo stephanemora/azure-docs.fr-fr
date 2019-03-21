@@ -5,17 +5,17 @@ description: Apprenez à mettre à jour un service web de façon à utiliser un 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330509"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108118"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
 
@@ -42,7 +42,7 @@ Suivez les étapes ci-dessous pour déployer un service web de recyclage :
 
     Après exécution de l’expérience, le workflow obtenu devrait se présenter ainsi :
 
-    ![Workflow obtenu](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Workflow obtenu](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Vous allez maintenant déployer l’expérience de formation en tant que service web de recyclage produisant un modèle entraîné et les résultats de son évaluation.
 
@@ -68,7 +68,7 @@ Ajoutez le package NuGet Microsoft.AspNet.WebApi.Client comme indiqué dans les 
 
 La capture d’écran suivante montre la page **Consommer** du portail des services web Azure Machine Learning.
 
-![Page Consommer](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Page Consommer](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>Mettre à jour la déclaration apiKey
 
@@ -114,7 +114,7 @@ Lorsque vous spécifiez l’emplacement de sortie dans la Charge utile des deman
 
 Voici un exemple de sortie de recyclage :
 
-![Sortie du nouvel apprentissage.](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Sortie du nouvel apprentissage.](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>Évaluer les résultats de la reformation
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107591"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
 
@@ -25,9 +25,9 @@ La machine source s’inscrit auprès du serveur de configuration lorsque vous i
 1. Ouvrez le fichier C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (Le dossier ProgramData peut être masqué. Si vous ne le voyez pas, dans l’Explorateur de fichiers, sous l’onglet **Affichage**, dans la section **Afficher/Masquer**, activez la case à cocher **Éléments masqués**.) Des défaillances peuvent être causées par plusieurs problèmes.
 
 2. Recherchez la chaîne **Aucune adresse IP valide trouvée**. Si la chaîne est trouvée :
-    1. Vérifiez que l’ID hôte demandé est identique à celui de la machine source.
-    2. Vérifiez que la machine source dispose d’au moins une adresse IP affectée à la carte réseau physique. Pour que l’inscription de l’agent auprès du serveur de configuration réussisse, la machine source doit avoir au moins une adresse IP v4 valide affectée à la carte physique.
-    3. Exécutez l’une des commandes suivantes sur la machine source pour obtenir toutes les adresses IP de celle-ci :
+   1. Vérifiez que l’ID hôte demandé est identique à celui de la machine source.
+   2. Vérifiez que la machine source dispose d’au moins une adresse IP affectée à la carte réseau physique. Pour que l’inscription de l’agent auprès du serveur de configuration réussisse, la machine source doit avoir au moins une adresse IP v4 valide affectée à la carte physique.
+   3. Exécutez l’une des commandes suivantes sur la machine source pour obtenir toutes les adresses IP de celle-ci :
       - Pour Windows : `> ipconfig /all`
       - Pour Linux : `# ifconfig -a`
 
@@ -82,7 +82,7 @@ Un certificat requis pour l’authentification de Site Recovery ne peut pas êt
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Échec de l’activation de la Licence Windows de Server Standard Evaluation vers Server Standard
 
-1. Dans le cadre du déploiement du serveur de configuration par la biais du modèle OVF, une licence d’évaluation qui est valide pendant 180 jours est utilisée. Vous devez activer cette licence avant l’expiration de ce délai. Sinon, cela peut entraîner un arrêt fréquent du serveur de configuration, et donc constituer une entrave aux activités de réplication.
+1. Dans le cadre du déploiement de serveur de Configuration via OVF, une licence d’évaluation est utilisée, ce qui n’est valide pendant 180 jours. Vous devez activer cette licence avant l’expiration de ce délai. Sinon, cela peut entraîner un arrêt fréquent du serveur de configuration, et donc constituer une entrave aux activités de réplication.
 2. Si vous ne parvenez pas à activer la licence Windows, contactez l’[équipe de support technique Windows](https://aka.ms/Windows_Support) pour résoudre le problème.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Inscrire l'ordinateur source auprès du serveur de configuration

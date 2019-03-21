@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967280"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091356"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle CentOS pour Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "52967280"
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -151,7 +151,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
         # sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
         # sudo yum install microsoft-hyper-v
 
-    Vous pouvez également suivre les instructions d’installation manuelle sur la [page de téléchargement des services d’intégration Linux (LIS)](https://go.microsoft.com/fwlink/?linkid=403033) et installez le package RPM sur votre machine virtuelle.
+    Vous pouvez également suivre le les instructions d’installation manuelle sur la [page de téléchargement des services d’intégration Linux (LIS)](https://go.microsoft.com/fwlink/?linkid=403033) et installez le package RPM sur votre machine virtuelle.
 
 12. Installez l'agent Linux Azure et les dépendances :
 
@@ -301,11 +301,11 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 
 10. Si vous générez l’image depuis **VMware, VirtualBox ou KVM :** vérifiez que les pilotes Hyper-V sont inclus dans l’initramfs :
 
-   Modifiez `/etc/dracut.conf`, ajoutez le contenu :
+    Modifiez `/etc/dracut.conf`, ajoutez le contenu :
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   Générez de nouveau initramfs :
+    Générez de nouveau initramfs :
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 
 12. Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-   L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

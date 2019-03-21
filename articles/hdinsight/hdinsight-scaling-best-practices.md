@@ -7,40 +7,40 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742879"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108152"
 ---
 # <a name="scale-hdinsight-clusters"></a>Mettre à l’échelle les clusters HDInsight
 
 HDInsight fournit l’élasticité en vous offrant la possibilité de monter ou de descendre en puissance le nombre de nœuds de travail dans vos clusters. Cela vous permet de réduire un cluster après certaines heures ou les week-ends, et de le développer pendant les pics d’activité.
 
-Par exemple, si vous effectuez un traitement par lots une fois par jour ou une fois par mois, le cluster HDInsight peut être monté en puissance quelques minutes avant cet événement planifié, et il y aura donc suffisamment de mémoire et de puissance de calcul. Vous pouvez automatiser la mise à l’échelle avec l’applet de commande PowerShell [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters).  Plus tard, une fois que le traitement a été effectué et que l’utilisation baisse à nouveau, vous pouvez descendre en puissance le cluster HDInsight afin de réduire le nombre de nœuds de travail.
+Par exemple, si vous effectuez un traitement par lots une fois par jour ou une fois par mois, le cluster HDInsight peut être monté en puissance quelques minutes avant cet événement planifié, et il y aura donc suffisamment de mémoire et de puissance de calcul.  Plus tard, une fois que le traitement a été effectué et que l’utilisation baisse à nouveau, vous pouvez descendre en puissance le cluster HDInsight afin de réduire le nombre de nœuds de travail.
 
-* Pour mettre à l’échelle votre cluster via [PowerShell](hdinsight-administer-use-powershell.md) :
+## <a name="utilities-to-scale-clusters"></a>Utilitaires à l’échelle des clusters
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* Pour mettre votre cluster à l’échelle via [Azure Classic CLI](hdinsight-administer-use-command-line.md) :
+Microsoft fournit les utilitaires suivants pour mettre à l’échelle des clusters :
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+|Utilitaire | Description|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nom du Cluster > - TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nom du Cluster > - TargetInstanceCount \<NewSize >|
+|[Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[redimensionner AZ hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --groupe de ressources \<groupe de ressources >--nom \<nom du Cluster >--nombre d’instances cibles \<NewSize >|
+|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|redimensionnement du cluster Azure hdinsight \<clusterName > \<nombre d’instances cibles >|
+|[Portail Azure](https://portal.azure.com)|Ouvrez le volet de votre cluster HDInsight, sélectionnez **taille du Cluster** dans le menu de gauche, puis dans le volet de taille de Cluster, tapez le nombre de nœuds de travail, puis sélectionnez Enregistrer.|  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* Pour mettre à l’échelle votre cluster via le [portail Azure](https://portal.azure.com), ouvrez le volet de votre cluster HDInsight, sélectionnez **Mettre à l’échelle le cluster** dans le menu de gauche, puis dans le volet Mettre à l’échelle le cluster, entrez le nombre de nœuds de travail, puis sélectionnez Enregistrer.
-
-    ![Mettre à l’échelle le cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Mettre à l’échelle le cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Grâce à ces méthodes, vous pouvez monter ou descendre en puissance votre cluster HDInsight en quelques minutes.
+
+> [!IMPORTANT]  
+> * L’interface CLI de Aure classique est déconseillée et doit uniquement être utilisé avec le modèle de déploiement classique. Pour tous les autres déploiements, utilisez le [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * Le module PowerShell AzureRM est déconseillé.  Utilisez le [module de Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) autant que possible.
 
 ## <a name="scaling-impacts-on-running-jobs"></a>Impact de la mise à l’échelle sur les travaux en cours d’exécution
 
@@ -53,9 +53,10 @@ Pour résoudre ce problème, vous pouvez attendre la fin des travaux avant de de
 Pour afficher une liste des travaux en attente ou en cours d’exécution, vous pouvez utiliser l’interface utilisateur YARN ResourceManager en procédant comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, sélectionnez **Parcourir**, **Clusters HDInsight**, puis choisissez votre cluster.
-3. Dans le volet de votre cluster HDInsight, sélectionnez **Tableau de bord** dans le menu supérieur pour ouvrir l’interface utilisateur Ambari. Entrez les informations d'identification de votre cluster.
-4. Cliquez sur **YARN** dans la liste des services du menu à gauche. Dans la page YARN, sélectionnez **Quick Links** (Liens rapides), placez le curseur sur le nœud principal actif, puis cliquez sur **ResourceManager UI** (Interface utilisateur ResourceManager).
+2. À partir de la gauche, accédez à **tous les services** > **Analytique** > **HDInsight Clusters**, puis sélectionnez votre cluster.
+3. À partir de la vue principale, accédez à **des tableaux de bord de Cluster** > **Ambari domestique**. Entrez les informations d'identification de votre cluster.
+4. À partir de l’UI Ambari, sélectionnez **YARN** sur la liste des services sur le menu de gauche.  
+5. Dans la page YARN, sélectionnez **liens rapides** et placez le curseur sur le nœud principal actif, puis sélectionnez **ResourceManager UI**.
 
     ![Interface utilisateur ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -97,13 +98,11 @@ Comme mentionné précédemment, tous les travaux en attente ou en cours d’ex�
 
 ## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>Le nœud de nom HDInsight reste en mode sans échec après la descente en puissance
 
-![Mettre à l’échelle le cluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-Si vous réduisez votre cluster jusqu'à la valeur minimale d’un nœud de travail, comme indiqué dans l’image précédente, Apache HDFS peut se bloquer en mode sans échec si les nœuds de travail sont redémarrés en raison d’une mise à jour corrective ou immédiatement après l’opération de mise à l’échelle.
+Si vous réduisez votre cluster jusqu'à la valeur minimale d’un nœud de travail, Apache HDFS peut se trouver bloquée en mode sans échec lorsque les nœuds de travail sont redémarrés en raison de la mise à jour corrective ou immédiatement après l’opération de mise à l’échelle.
 
 La principale cause de cette situation vient du fait que Hive utilise quelques fichiers `scratchdir` et que, par défaut, il attend trois réplicas de chaque bloc, mais qu’un seul réplica est possible si vous descendez en puissance jusqu’à au moins un nœud de travail. Par conséquent, les fichiers dans `scratchdir` deviennent *sous-répliqués*. HDFS peut alors rester en mode sans échec lorsque les services sont redémarrés après la mise à l’échelle.
 
-En cas de tentative de descente en puissance, HDInsight s’appuie sur les interfaces de gestion Apache Ambari pour désactiver les nœuds de travail supplémentaires inutiles, ce qui réplique les blocs HDFS vers d’autres nœuds de travail en ligne, puis descend en puissance le cluster en toute sécurité. HDFS bascule en mode sans échec lors de la fenêtre de maintenance et il est censé en sortir une fois la mise à l’échelle terminée. C’est à ce stade que HDFS peut se retrouver bloqué en mode sans échec.
+En cas de tentative de descente, HDInsight s’appuie sur les interfaces de gestion d’Apache Ambari pour tout d’abord désactiver les nœuds de travail supplémentaires inutiles, laquelle répliquer les blocs HDFS vers d’autres nœuds de travail en ligne, et puis de faire évoluer en toute sécurité du cluster vers le bas. HDFS bascule en mode sans échec lors de la fenêtre de maintenance et il est censé en sortir une fois la mise à l’échelle terminée. C’est à ce stade que HDFS peut se retrouver bloqué en mode sans échec.
 
 HDFS est configuré avec un paramètre `dfs.replication` défini sur 3. Par conséquent, les blocs des fichiers de travail sont sous-répliqués chaque fois qu’il y a moins de trois nœuds de travail en ligne, car ils ne représentent pas les trois copies de chaque bloc de fichier disponible.
 
@@ -245,7 +244,7 @@ Vous pouvez également voir une ou plusieurs erreurs critiques dans les blocs Na
 
 ![Intégrité des blocs NameNode](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-Pour nettoyer les fichiers de travail, ce qui supprime les erreurs de réplication de blocs, connectez-vous avec SSH à chaque nœud principal puis exécutez la commande suivante :
+Pour nettoyer les fichiers de travail, laquelle supprimer les erreurs de réplication de bloc, utilisez SSH dans chaque nœud principal et exécutez la commande suivante :
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/

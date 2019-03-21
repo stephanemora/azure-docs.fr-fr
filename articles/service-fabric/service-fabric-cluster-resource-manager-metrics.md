@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093347"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestion de la consommation des ressources et des charges dans Service Fabric à l’aide de mesures
 Les *mesures* sont les ressources qui intéressent vos services et qui sont fournies par les nœuds dans le cluster. Une mesure représente ce que vous souhaitez gérer afin d’améliorer ou de surveiller les performances de vos services. Par exemple, vous pourrez surveiller la consommation de mémoire pour savoir si votre service est surchargé. Vous pouvez également déterminer si le service peut être déplacé vers un autre emplacement où la mémoire est moins contrainte afin d’obtenir de meilleures performances.
@@ -37,7 +37,7 @@ Supposons que vous souhaitez commencer à écrire et à déployer votre service.
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Élevé |
 | ReplicaCount |0 |1 |1 |Moyenne |
-| Count |1 |1 |1 |Faible |
+| Nombre |1 |1 |1 |Faible |
 
 
 Pour les charges de travail de base, les mesures par défaut fournissent une distribution acceptable du travail dans le cluster. Dans l’exemple suivant, examinons ce qui se passe lorsque nous créons deux services et que nous utilisons les mesures par défaut pour l’équilibrage. Le premier est un service avec état présentant trois partitions et une taille de jeu de réplicas cible de trois. Le second est un service sans état présentant une partition et un nombre d’instances de trois.
@@ -45,6 +45,7 @@ Pour les charges de travail de base, les mesures par défaut fournissent une dis
 Voici ce que vous obtenez :
 
 <center>
+
 ![Disposition du cluster avec les mesures par défaut][Image1]
 </center>
 
@@ -56,7 +57,7 @@ Quelques points à noter :
 
 Bien !
 
-Les mesures par défaut fonctionnent très bien comme point de départ. Mais elles ne vous permettront pas d’en faire plus. Par exemple : quelle est la probabilité que le schéma de partitionnement que vous avez choisi garantisse une utilisation des ressources parfaitement uniforme par l’ensemble des partitions ? Quelle est la probabilité que la charge d’un service donné reste constante au fil du temps, ou même simplement identique sur plusieurs partitions ?
+Les mesures par défaut fonctionnent très bien comme point de départ. Mais elles ne vous permettront pas d’en faire plus. Par exemple :  Quelle est la probabilité que le partitionnement de schéma que vous avez choisi garantisse dans l’utilisation de ressources parfaitement uniforme par toutes les partitions ? Quelle est la probabilité que la charge d’un service donné reste constante au fil du temps, ou même simplement identique sur plusieurs partitions ?
 
 Vous pouvez vous contenter des mesures par défaut. Toutefois, cette approche signifie que l’utilisation de votre cluster est inférieure et plus irrégulière que ce que vous souhaitez. En effet, les mesures par défaut ne sont pas adaptatives et partent du principe que tous les éléments sont équivalents. Par exemple, un serveur principal qui est occupé et un autre serveur qui ne l’est pas contribuent à une valeur de « 1 » à la mesure PrimaryCount. Dans le pire des cas, utiliser uniquement les mesures par défaut peut également entraîner des surplanifications de nœuds, ce qui peut causer des problèmes de performances. Si vous souhaitez tirer le meilleur parti de votre cluster et éviter de rencontrer des problèmes de performances, vous devez utiliser des mesures personnalisées et des rapports de charge dynamique.
 
@@ -65,13 +66,13 @@ La configuration des mesures se fait lors de la création du service, sur la bas
 
 N’importe quelle mesure présente un certain nombre de propriétés qui la décrivent : un nom, un poids et une charge par défaut.
 
-* Nom de la mesure : identificateur unique utilisé par Resource Manager pour la mesure au sein du cluster.
-* Weight : poids de la mesure, qui définit son importance par rapport aux autres mesures utilisées pour ce service.
-* Charge par défaut : la charge par défaut est représentée différemment selon que le service est avec ou sans état.
+* Nom de la mesure : Nom de la mesure. utilisé par Resource Manager pour la mesure au sein du cluster.
+* Poids : Poids de mesure définit l’importance de cette mesure est par rapport à d’autres mesures pour ce service.
+* Charge par défaut : La charge par défaut est représentée différemment selon que le service est avec ou sans état.
   * Pour les services sans état, chaque mesure présente une propriété unique nommée DefaultLoad.
   * Pour les services avec état, vous devez définir les éléments suivants :
-    * PrimaryDefaultLoad : quantité par défaut de la mesure que le service consomme lorsqu’il s’agit d’un réplica principal.
-    * SecondaryDefaultLoad : quantité par défaut de la mesure que le service consomme lorsqu’il s’agit d’un réplica secondaire.
+    * PrimaryDefaultLoad: La quantité par défaut de cette mesure le service consomme lorsqu’il est un serveur principal
+    * SecondaryDefaultLoad: La quantité par défaut de cette mesure le service consomme lorsqu’il s’agit d’une base de données secondaire
 
 > [!NOTE]
 > Si vous définissez des mesures personnalisées et souhaitez _également_ utiliser les mesures par défaut, vous devez _explicitement_ rajouter ces mesures par défaut et définir leurs poids ainsi que leurs valeurs. En effet, vous devez définir la relation entre les mesures par défaut et vos mesures personnalisées. Peut-être accordez-vous plus d’importance au paramètre ConnectionCount ou WorkQueueDepth qu’à la distribution principale. Par défaut, le poids de la mesure PrimaryCount est élevé. Vous devez donc le réduire à un niveau moyen lorsque vous ajoutez vos autres mesures pour vous assurer qu’elles sont prioritaires.
@@ -215,7 +216,8 @@ Pour rappel, la syntaxe utilisée est ("MetricName, MetricWeight, PrimaryDefault
 Voyons quelle pourrait être une disposition de cluster possible :
 
 <center>
-![Cluster équilibré avec les mesures par défaut et des mesures personnalisées][Image2]
+
+![Cluster équilibré avec des mesures par défaut et personnalisées][Image2]
 </center>
 
 Informations importantes à noter :
@@ -232,14 +234,15 @@ Il reste certaines choses à expliquer :
 ## <a name="metric-weights"></a>Poids des mesures
 Il est important de pouvoir suivre les mêmes mesures pour différents services. C’est ce qui permet à Cluster Resource Manager de suivre la consommation dans le cluster, d’équilibrer la consommation entre les nœuds et de faire en sorte que les nœuds ne dépassent pas leur capacité. Cependant, les services n’accordent pas forcément la même importance à une même mesure. Par ailleurs, dans un cluster qui présente un grand nombre de mesures et de services, il se peut qu’il n’existe pas de solution parfaitement équilibrée pour toutes les mesures. Comment Cluster Resource Manager doit-il gérer ces situations ?
 
-Les poids des mesures permettent à Cluster Resource Manager de déterminer comment équilibrer le cluster lorsqu’il n’existe aucune réponse adaptée. Les poids des mesures permettent également à Cluster Resource Manager d’équilibrer des services spécifiques différemment. Les mesures peuvent avoir quatre niveaux de poids : Zero, Low, Medium et High (zéro, faible, moyen et haut). Une mesure avec un poids de Zero n’entre aucunement en compte dans la décision d’équilibrage des éléments. Mais sa charge contribue toujours à des aspects tels que la gestion de la capacité. Les mesures avec un poids nul sont toujours utiles et sont fréquemment utilisées dans le cadre de l’analyse des performances et du comportement d’un service. [Cet article](service-fabric-diagnostics-event-generation-infra.md) fournit de plus amples informations sur l’utilisation des mesures pour analyser et diagnostiquer vos services. 
+Les poids des mesures permettent à Cluster Resource Manager de déterminer comment équilibrer le cluster lorsqu’il n’existe aucune réponse adaptée. Les poids des mesures permettent également à Cluster Resource Manager d’équilibrer des services spécifiques différemment. Mesures peuvent avoir quatre niveaux de poids : Zéro, faible, moyen et élevé. Une mesure avec un poids de Zero n’entre aucunement en compte dans la décision d’équilibrage des éléments. Mais sa charge contribue toujours à des aspects tels que la gestion de la capacité. Les mesures avec un poids nul sont toujours utiles et sont fréquemment utilisées dans le cadre de l’analyse des performances et du comportement d’un service. [Cet article](service-fabric-diagnostics-event-generation-infra.md) fournit de plus amples informations sur l’utilisation des mesures pour analyser et diagnostiquer vos services. 
 
 Le véritable impact des différents poids de mesure dans le cluster est que Cluster Resource Manager génère plusieurs solutions. Les poids des mesures indiquent à Cluster Resource Manager que certaines mesures sont plus importantes que d’autres. Lorsqu’il n’existe aucune solution parfaite, Cluster Resource Manager peut privilégier des solutions qui équilibrent mieux les mesures de poids supérieur. Si un service considère qu’une mesure particulière n’est pas importante, il peut trouver que l’utilisation de cette mesure cause un déséquilibre. Cela permet à un autre service d’obtenir une répartition uniforme d’une mesure importante pour lui.
 
 Prenons pour exemple quelques rapports de charge et regardons de quelle façon les différents poids de mesure entraînent des allocations différentes dans le cluster. Dans cet exemple, nous voyons que lorsque le poids relatif des mesures est échangé, Cluster Resource Manager crée des dispositions différentes des services.
 
 <center>
-Exemple de poids de mesures et impact sur les solutions d’équilibrage![][Image3]
+
+![Exemple de poids de mesure et son Impact sur les Solutions d’équilibrage][Image3]
 </center>
 
 Dans cet exemple, nous avons quatre services différents qui signalent tous des valeurs différentes pour deux mesures, MetricA et MetricB. Dans un cas, tous les services définissent la mesure MetricA comme la plus importante (Weight = High) et la mesure MetricB comme relativement peu importante (Weight = Low). En effet, nous constatons que Cluster Resource Manager place les services de façon à ce que la mesure MetricA soit mieux équilibrée que la mesure MetricB. « Mieux équilibrée » signifie que la mesure MetricA présente un écart type plus faible que celui de la mesure MetricB. Dans le deuxième cas, nous inversons les poids des mesures. Cluster Resource Manager échange alors les services A et B afin de proposer une allocation où la mesure MetricB est mieux équilibrée que la mesure MetricA.
@@ -256,7 +259,8 @@ Plusieurs poids sont suivis pour chaque mesure. Le premier poids est celui qui e
 Que se passerait-il si Cluster Resource Manager n’accordait aucune importance à l’équilibre global et local ? Eh bien, il est facile de créer des solutions qui sont globalement équilibrées mais qui entraînent un mauvais équilibrage des ressources pour des services individuels. Dans l’exemple suivant, examinons un service configuré uniquement avec les mesures par défaut, et observons ce qui se passe lorsque seul l’équilibre global est pris en considération :
 
 <center>
-Impact d’une solution uniquement globale![][Image4]
+
+![L’Impact d’une Solution globale uniquement][Image4]
 </center>
 
 Dans l’exemple du haut, basé uniquement sur un équilibre global, le cluster dans son ensemble est effectivement bien équilibré. Tous les nœuds présentent le même nombre de réplicas principaux et le même nombre total de réplicas. Cependant, si on examine l’impact réel de cette allocation, la situation n’est pas si bonne : la perte d’un nœud a un impact disproportionné sur une charge de travail spécifique, car tous ses réplicas principaux sont également perdus. Par exemple, en cas de défaillance du premier nœud, les trois réplicas principaux des trois différentes partitions du service Circle seraient tous perdus. À l’inverse, les partitions des services Triangle et Hexagon perdent un réplica. Cela n’entraîne aucune interruption de service, hormis le fait que le réplica devra être récupéré.

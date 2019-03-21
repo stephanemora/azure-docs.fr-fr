@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf07541c23ba2295a367ac8ba6a514b7dee6ee9a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085080"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configurer les informations de sécurité (préversion) pour utiliser un appel téléphonique
-Procédez comme suit pour ajouter vos méthodes de vérification en deux étapes et de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
+Procédez comme suit pour ajouter vos méthodes de vérification en deux étapes et de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 
 Si vous êtes invité à les configurer immédiatement après vous être connecté à votre compte professionnel ou scolaire, reportez-vous aux étapes détaillées de l'article [Configurer vos informations de sécurité à partir de l'invite de la page de connexion](security-info-setup-signin.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
->[!Note]
->Les informations de sécurité ne prennent pas en charge les numéros de poste. Même si vous ajoutez le bon format, +33 4 25 55 51 23-12345, les numéros de poste sont supprimés avant l’appel.
-
->Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser un numéro de téléphone à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l'aide.
+> [!Note]
+> Les informations de sécurité ne prennent pas en charge les numéros de poste. Même si vous ajoutez le bon format, +33 4 25 55 51 23-12345, les numéros de poste sont supprimés avant l’appel.
+> 
+> Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser un numéro de téléphone à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l'aide.
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurer la méthode de l'appel téléphonique à partir de la page Informations de sécurité
 Selon les paramètres de votre organisation, vous pourrez peut-être utiliser l'appel téléphonique comme méthode d'informations de sécurité.
@@ -41,11 +41,11 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser l'
 
 1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
-    ![Page Mon profil, avec les liens des Informations de sécurité en surbrillance](media/security-info/securityinfo-myprofile.png)
+    ![Page Mon profil, avec les liens des informations de sécurité mis en évidence](media/security-info/securityinfo-myprofile-page.png)
 
-2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** sur la page **Informations de sécurité**.
+2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** dans la page **Informations de sécurité**.
 
-    ![Page Informations de sécurité, avec l'option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Page Informations de sécurité, avec l’option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Sur la page **Ajouter une méthode**, choisissez **Téléphone** dans la liste déroulante, puis sélectionnez **Ajouter**.
 
@@ -82,7 +82,7 @@ Pour utiliser l'appel téléphonique comme méthode par défaut lorsque vous vou
 
 ### <a name="to-change-your-default-security-info-method"></a>Pour changer de méthode d'informations de sécurité par défaut
 
-1. Sur la page **Informations de sécurité**, sélectionnez le lien **Changer** en regard des informations relatives à la **Méthode de connexion par défaut**.
+1. Dans la page **Informations de sécurité**, sélectionnez le lien **Changer** en regard des informations relatives à la **Méthode de connexion par défaut**.
 
     ![Lien Changer pour la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 

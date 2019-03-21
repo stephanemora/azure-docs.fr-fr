@@ -3,23 +3,23 @@ title: Fichier Include
 description: Fichier Include
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
-ms.date: 09/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: ace6c36f1bc4582b3210c049a4ff8cb1f770bf88
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988235"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203506"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Appeler l’API Microsoft Graph à partir d’une application iOS
 
@@ -27,14 +27,14 @@ Ce guide vous explique comment une application iOS native (Swift) peut appeler l
 
 Lorsque vous aurez effectué les exercices de ce guide, votre application pourra appeler l’API protégée d’une entreprise ou d’une organisation qui dispose d’Azure AD. Votre application peut appeler des API protégées à l’aide de comptes personnels comme outlook.com, live.com et autres, et de comptes professionnels ou scolaires.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - XCode version 10.x est requis pour l’exemple à créer dans ce guide. Vous pouvez télécharger XCode sur le [site web d’iTunes ](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - Vous aurez besoin du gestionnaire de dépendances [Carthage](https://github.com/Carthage/Carthage) pour la gestion des packages.
 
 ## <a name="how-this-guide-works"></a>Fonctionnement de ce guide
 
-![Fonctionnement de ce guide](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
+![Montre comment l’exemple d’application généré par cette fonctionne didacticiels](media/active-directory-develop-guidedsetup-ios-introduction/iosintro-updated.png)
 
 L’exemple d’application créé dans le cadre de ce guide permet à une application iOS d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons provenant d’un point de terminaison Azure AD v2.0. Pour ce scénario, un jeton est ajouté aux requêtes HTTP via l’en-tête d’**autorisation**. L’acquisition et le renouvellement de jetons sont gérés par la bibliothèque d’authentification Microsoft (MSAL).
 

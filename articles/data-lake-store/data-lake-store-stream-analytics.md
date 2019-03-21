@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 1b18bd5aae398d2ec942120af5d96943636c346c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101109"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Diffuser des données à partir d’Azure Storage Blob dans Azure Data Lake Storage Gen1 à l’aide d’Azure Stream Analytics
 Dans cet article, vous allez apprendre à utiliser Azure Data Lake Storage Gen1 comme sortie d’une tâche Azure Stream Analytics. Cet article présente un scénario simple qui consiste à lire des données à partir d’un objet blob Azure Storage (entrée) et à écrire les données dans Data Lake Storage Gen1 (sortie).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Compte Stockage Azure**. Vous allez utiliser un conteneur d’objets blob à partir de ce compte pour entrer des données pour une tâche Stream Analytics. Ce didacticiel part du principe que vous disposez d’un compte de stockage nommé **storageforasa** et d’un conteneur dans ce compte nommé **storageforasacontainer**. Une fois que vous avez créé le conteneur, chargez-y un fichier d’exemples de données. 
   
-* **Compte Data Lake Storage Gen1**. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md). Imaginons que vous possédiez un compte Data Lake Storage Gen1 appelé **myadlsg1**. 
+* **Un compte Data Lake Storage Gen1**. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md). Imaginons que vous possédiez un compte Data Lake Storage Gen1 appelé **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Créer un objet blob Stream Analytics
 Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une source d’entrée et une destination de sortie. Pour les besoins de ce didacticiel, la source est un conteneur d’objets blob Azure et la destination est Lake Data Storage Gen1.
@@ -54,17 +54,17 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
     ![Ajout d’une entrée à votre travail](./media/data-lake-store-stream-analytics/create.input.2.png "Ajout d’une entrée à votre travail")
 
-    * Pour **Alias d’entrée**, entrez un nom unique pour l’entrée de travail.
-    * Pour **Type de source**, sélectionnez **Flux de données**.
-    * Pour **Source**, sélectionnez **Stockage d’objets blob**.
-    * Pour **Abonnement**, sélectionnez **Utiliser l'objet blob de stockage de l'abonnement actuel**.
-    * Pour **Compte de stockage**, sélectionnez le compte de stockage que vous avez créé dans le cadre des conditions préalables. 
-    * Pour **Conteneur**, sélectionnez le conteneur que vous avez créé dans le compte de stockage sélectionné.
-    * Pour **Format de sérialisation de l’événement**, sélectionnez **CSV**.
-    * Pour **Délimiteur**, sélectionnez **tabulation**.
-    * Pour **Encodage**, sélectionnez **UTF-8**.
+   * Pour **Alias d’entrée**, entrez un nom unique pour l’entrée de travail.
+   * Pour **Type de source**, sélectionnez **Flux de données**.
+   * Pour **Source**, sélectionnez **Stockage d’objets blob**.
+   * Pour **Abonnement**, sélectionnez **Utiliser l'objet blob de stockage de l'abonnement actuel**.
+   * Pour **Compte de stockage**, sélectionnez le compte de stockage que vous avez créé dans le cadre des conditions préalables. 
+   * Pour **Conteneur**, sélectionnez le conteneur que vous avez créé dans le compte de stockage sélectionné.
+   * Pour **Format de sérialisation de l’événement**, sélectionnez **CSV**.
+   * Pour **Délimiteur**, sélectionnez **tabulation**.
+   * Pour **Encodage**, sélectionnez **UTF-8**.
 
-    Cliquez sur **Créer**. Le portail ajoute désormais l’entrée et teste la connexion à celle-ci.
+     Cliquez sur **Créer**. Le portail ajoute désormais l’entrée et teste la connexion à celle-ci.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Créer une sortie Data Lake Storage Gen1 pour la tâche
@@ -84,15 +84,15 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
     ![Ajout d’une sortie à votre travail](./media/data-lake-store-stream-analytics/create.output.3.png "Ajout d’une sortie à votre travail")
 
-    * Pour **Nom du compte**, sélectionnez le compte Data Lake Storage Gen1 que vous avez déjà créé et auquel vous voulez envoyer la sortie de travail.
-    * Pour **Modèle de préfixe de chemin d’accès**, entrez un chemin où écrire vos fichiers dans le compte Data Lake Storage Gen1 spécifié.
-    * Pour **Format de la date**, si vous avez utilisé un jeton de date dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés.
-    * Pour **Format de l’heure**, si vous avez utilisé un jeton d’heure dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés.
-    * Pour **Format de sérialisation de l’événement**, sélectionnez **CSV**.
-    * Pour **Délimiteur**, sélectionnez **tabulation**.
-    * Pour **Encodage**, sélectionnez **UTF-8**.
+   * Pour **Nom du compte**, sélectionnez le compte Data Lake Storage Gen1 que vous avez déjà créé et auquel vous voulez envoyer la sortie de travail.
+   * Pour **Modèle de préfixe de chemin d’accès**, entrez un chemin où écrire vos fichiers dans le compte Data Lake Storage Gen1 spécifié.
+   * Pour **Format de la date**, si vous avez utilisé un jeton de date dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés.
+   * Pour **Format de l’heure**, si vous avez utilisé un jeton d’heure dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés.
+   * Pour **Format de sérialisation de l’événement**, sélectionnez **CSV**.
+   * Pour **Délimiteur**, sélectionnez **tabulation**.
+   * Pour **Encodage**, sélectionnez **UTF-8**.
     
-    Cliquez sur **Créer**. Le portail ajoute désormais la sortie et teste la connexion à celle-ci.
+     Cliquez sur **Créer**. Le portail ajoute désormais la sortie et teste la connexion à celle-ci.
     
 ## <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics
 
@@ -106,7 +106,7 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
     Cliquez sur **Démarrer** pour démarrer le travail. Le démarrage de la tâche peut prendre quelques minutes.
 
-3. Pour déclencher le travail permettant de sélectionner les données à partir de l’objet blob, copiez un exemple de fichier de données vers le conteneur d’objets blob. Vous pouvez obtenir un fichier d’exemples de données à partir du [référentiel Git d’Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Pour ce didacticiel, nous allons copier le fichier **vehicle1_09142014.csv**. Vous pouvez utiliser différents clients, comme [Explorateur de stockage Azure](http://storageexplorer.com/), pour charger des données dans un conteneur d’objets blob.
+3. Pour déclencher le travail permettant de sélectionner les données à partir de l’objet blob, copiez un exemple de fichier de données vers le conteneur d’objets blob. Vous pouvez obtenir un fichier d’exemples de données à partir du [référentiel Git d’Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Pour ce didacticiel, nous allons copier le fichier **vehicle1_09142014.csv**. Vous pouvez utiliser différents clients, comme [Explorateur de stockage Azure](https://storageexplorer.com/), pour charger des données dans un conteneur d’objets blob.
 
 4. Sous l’onglet **Vue d’ensemble**, sous **Surveillance**, vérifiez le mode de traitement des données.
 

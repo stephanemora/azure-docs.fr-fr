@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 30c342ca31b33d910406bf74d90d49979e5c46bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838080"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo  
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le processeur multimédia **Azure Media Video Thumbnails** vous permet de créer une synthèse d’une vidéo pour les clients souhaitant juste voir un aperçu d’une vidéo longue. Par exemple, les clients peuvent vouloir visionner une courte « synthèse d’une vidéo » quand ils passent le pointeur sur une miniature. En ajustant les paramètres d’ **Azure Media Video Thumbnails** via une configuration prédéfinie, vous pouvez faire appel à la puissance de la technologie de détection et de concaténation d’images pour générer de façon algorithmique un sous-clip descriptif.  
 
 Le processeur multimédia **Azure Media Video Thumbnail** est actuellement en version préliminaire.
@@ -37,10 +37,10 @@ Dans certains cas, si votre vidéo n’est pas composée de scènes différentes
 Voici quelques exemples de ce que le processeur Azure Media Video Thumbnails peut faire :
 
 ### <a name="original-video"></a>Vidéo d’origine
-[Vidéo d’origine](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[Vidéo d’origine](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### <a name="video-thumbnail-result"></a>Résultat de la vidéo miniature
-[Résultat de la vidéo miniature](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Résultat de la vidéo miniature](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo miniature avec **Azure Media Video Thumbnails**, vous devez spécifier une configuration prédéfinie. L’exemple de miniature ci-dessus a été créé avec la configuration JSON de base suivante :
@@ -62,7 +62,7 @@ Actuellement, vous pouvez modifier les paramètres suivants :
 Le tableau suivant décrit la durée par défaut, quand **maxMotionThumbnailInSecs** n’est pas utilisé.
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Durée de la vidéo |d < 3 min |3 min < d < 15 min |
 | Durée de la miniature |15 s (2-3 scènes) |30 s (3-5 scènes) |
 
@@ -276,7 +276,7 @@ Configurez votre environnement de développement et ajoutez des informations de 
 ```
 
 ### <a name="video-thumbnail-output"></a>Résultat de la vidéo miniature
-[Résultat de la vidéo miniature](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Résultat de la vidéo miniature](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -287,5 +287,5 @@ Configurez votre environnement de développement et ajoutez des informations de 
 ## <a name="related-links"></a>Liens connexes
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Démonstrations Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

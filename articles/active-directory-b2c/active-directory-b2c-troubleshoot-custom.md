@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1133bdb3c5d708710a556f68e4ac5c57d2dc3dc9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a6ec4c7d239754fe3211b528dd0ac64ee150ad3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089367"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C : collecte des journaux
 
@@ -44,31 +44,31 @@ Azure AD B2C prend en charge une fonctionnalité d’envoi de données à Applic
 1. Ouvrez le fichier RP (par exemple, SignUpOrSignin.xml).
 1. Ajoutez les attributs suivants à l’élément `<TrustFrameworkPolicy>` :
 
-  ```XML
-  DeploymentMode="Development"
-  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  ```
+   ```XML
+   DeploymentMode="Development"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+   ```
 
 1. S’il n’existe pas déjà, ajoutez un nœud enfant `<UserJourneyBehaviors>` au nœud `<RelyingParty>`. Il doit être placé immédiatement après le `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Ajoutez le nœud suivant en tant qu’enfant de l’élément `<UserJourneyBehaviors>`. Veillez à remplacer `{Your Application Insights Key}` par la **Clé d’instrumentation** que vous avez obtenue à partir d’Application Insights dans la section précédente.
 
-  ```XML
-  <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
-  ```
+   ```XML
+   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   ```
 
-  * `DeveloperMode="true"` indique à ApplicationInsights d’accélérer l’envoi de la télémétrie via le pipeline de traitement, valable pour le développement, mais limité à des volumes élevés.
-  * `ClientEnabled="true"` envoie le script côté client ApplicationInsights pour l’affichage de la page de suivi et les erreurs côté client (pas nécessaire).
-  * `ServerEnabled="true"` envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights.
-Exemple :
+   * `DeveloperMode="true"` indique à ApplicationInsights d’accélérer l’envoi de la télémétrie via le pipeline de traitement, valable pour le développement, mais limité à des volumes élevés.
+   * `ClientEnabled="true"` envoie le script côté client ApplicationInsights pour l’affichage de la page de suivi et les erreurs côté client (pas nécessaire).
+   * `ServerEnabled="true"` envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights.
+   Exemple :
 
-  ```XML
-  <TrustFrameworkPolicy
+   ```XML
+   <TrustFrameworkPolicy
     ...
     TenantId="fabrikamb2c.onmicrosoft.com"
     PolicyId="SignUpOrSignInWithAAD"
     DeploymentMode="Development"
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  >
+   >
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
@@ -76,8 +76,8 @@ Exemple :
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
-  </TrustFrameworkPolicy>
-  ```
+   </TrustFrameworkPolicy>
+   ```
 
 3. Téléchargez la stratégie.
 
